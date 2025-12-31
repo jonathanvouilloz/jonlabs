@@ -10,7 +10,7 @@ const author = {
 const cta = {
     primary: {
         text: `Discuter de mon projet`,
-        link: `/contact/`
+        link: `/contact`
     },
     secondary: {
         text: `Voir mes réalisations`,

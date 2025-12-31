@@ -21,12 +21,12 @@ interface NavLink {
 }
 
 const links: NavLink[] = [
-    { name: 'Services', path: '/services/', target: '_self' },
-    { name: 'Portfolio', path: '/portfolio/', target: '_self' },
-    { name: 'Lab', path: '/lab/', target: '_self' },
-    { name: 'Blog', path: '/blog/', target: '_self' },
-    { name: 'About', path: '/about/', target: '_self' },
-    { name: 'Outils', path: '/outils/', target: '_self' },
+    { name: 'Services', path: '/services', target: '_self' },
+    { name: 'Portfolio', path: '/portfolio', target: '_self' },
+    { name: 'Lab', path: '/lab', target: '_self' },
+    { name: 'Blog', path: '/blog', target: '_self' },
+    { name: 'About', path: '/about', target: '_self' },
+    { name: 'Outils', path: '/outils', target: '_self' },
 ]
 
 const { pathname } = Astro.url
@@ -85,7 +85,7 @@ const { pathname } = Astro.url
                 {/* CTA Contact avec effet "stamp" */}
                 <li class="relative px-2 py-2 flex items-center">
                     <a
-                        href="/contact/"
+                        href="/contact"
                         class={isTransparent
                             ? `
                                 bg-white/10 border-2 border-white/40
@@ -165,7 +165,7 @@ const { pathname } = Astro.url
       </ul>
 
       <!-- CTA Contact -->
-      <a href="/contact/" class="menu-cta mt-8">
+      <a href="/contact" class="menu-cta mt-8">
         Contact
         <i class="ri-arrow-right-line" aria-hidden="true"></i>
       </a>
