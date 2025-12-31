@@ -1,0 +1,15 @@
+---
+import { getStatusInfo, type StatusKey } from '../../lib/lab';
+
+interface Props {
+  status: StatusKey;
+}
+
+const { status } = Astro.props;
+const statusInfo = getStatusInfo(status);
+---
+
+<span class="inline-flex items-center gap-1.5 text-sm text-gray-600">
+  <span class={`w-2 h-2 rounded-full ${statusInfo.dotClass}`}></span>
+  {statusInfo.name}
+</span>

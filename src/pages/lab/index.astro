@@ -1,0 +1,81 @@
+---
+import '../../styles/global.css';
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import LabHero from '../../components/lab/LabHero.astro';
+import LabProjectCard from '../../components/lab/LabProjectCard.astro';
+
+import { SITE_URL } from '../../data/schema';
+import { getCollectionPageSchema } from '../../lib/seo';
+
+const pageTitle = "Le Lab | Jon Labs - Projets Personnels & Expérimentations";
+const pageDescription = "Mes projets personnels : apps, jeux, expérimentations. Des idées transformées en produits.";
+
+const labSchema = getCollectionPageSchema({
+  url: `${SITE_URL}/lab`,
+  name: pageTitle,
+  description: pageDescription,
+  mainEntity: `${SITE_URL}/#person`
+});
+
+const schemas = [labSchema];
+
+const allProjects = await getCollection('lab');
+const sortedProjects = allProjects.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const featuredProject = sortedProjects.find(p => p.data.featured) || sortedProjects[0];
+const otherProjects = sortedProjects.filter(p => p.slug !== featuredProject?.slug);
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  schemas={schemas}
+>
+  <Header />
+
+  <main>
+    <LabHero />
+
+    <section class="pb-24 px-4">
+      <div class="max-w-5xl mx-auto">
+        {sortedProjects.length > 0 ? (
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {featuredProject && (
+              <LabProjectCard
+                title={featuredProject.data.title}
+                description={featuredProject.data.description}
+                slug={featuredProject.slug}
+                status={featuredProject.data.status}
+                category={featuredProject.data.category}
+                thumbnail={featuredProject.data.thumbnail}
+                tags={featuredProject.data.tags}
+                featured={true}
+              />
+            )}
+
+            {otherProjects.map(project => (
+              <LabProjectCard
+                title={project.data.title}
+                description={project.data.description}
+                slug={project.slug}
+                status={project.data.status}
+                category={project.data.category}
+                thumbnail={project.data.thumbnail}
+                tags={project.data.tags}
+              />
+            ))}
+          </div>
+        ) : (
+          <div class="text-center py-16">
+            <p class="text-gray-500 text-lg">Projets en préparation...</p>
+          </div>
+        )}
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

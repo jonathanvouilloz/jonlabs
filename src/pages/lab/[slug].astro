@@ -1,0 +1,499 @@
+---
+import '../../styles/global.css';
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import LabStatusBadge from '../../components/lab/LabStatusBadge.astro';
+import { getCategoryInfo } from '../../lib/lab';
+import { SITE_URL } from '../../data/schema';
+
+export async function getStaticPaths() {
+  const projects = await getCollection('lab');
+  return projects.map((project) => ({
+    params: { slug: project.slug },
+    props: { project },
+  }));
+}
+
+const { project } = Astro.props;
+const { title, description, status, category, tags, url, repo, thumbnail, date } = project.data;
+const { Content } = await project.render();
+
+const categoryInfo = getCategoryInfo(category);
+
+const formattedDate = new Date(date).toLocaleDateString('fr-CH', {
+  year: 'numeric',
+  month: 'long'
+});
+---
+
+<Layout
+  title={`${title} - Lab - Jon Labs`}
+  description={description}
+  ogImage={thumbnail}
+>
+  <Header />
+
+  <main class="pb-24">
+    <!-- Back button -->
+    <div class="max-w-3xl mx-auto px-4 pt-28 pb-8">
+      <a
+        href="/lab"
+        class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors"
+      >
+        <i class="ri-arrow-left-line"></i>
+        Retour au Lab
+      </a>
+    </div>
+
+    <!-- Hero image -->
+    {thumbnail && (
+      <div class="max-w-4xl mx-auto px-4 mb-12">
+        <div class="aspect-video overflow-hidden bg-gray-100">
+          <img
+            src={thumbnail}
+            alt={title}
+            class="w-full h-full object-cover"
+          />
+        </div>
+      </div>
+    )}
+
+    <!-- Header -->
+    <header class="max-w-3xl mx-auto px-4 mb-12">
+      <div class="flex flex-wrap items-center gap-3 mb-4 text-sm">
+        <LabStatusBadge status={status} />
+        <span class="text-gray-300">·</span>
+        <span class="text-gray-500">{categoryInfo.name}</span>
+        <span class="text-gray-300">·</span>
+        <span class="text-gray-500">{formattedDate}</span>
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-normal mb-4 tracking-tight">
+        {title}
+      </h1>
+
+      <p class="text-xl text-gray-600 mb-8">
+        {description}
+      </p>
+
+      <!-- Tags -->
+      {tags.length > 0 && (
+        <div class="flex flex-wrap gap-2 mb-8">
+          {tags.map(tag => (
+            <span class="text-sm px-3 py-1 bg-gray-100 text-gray-600 rounded">
+              {tag}
+            </span>
+          ))}
+        </div>
+      )}
+
+      <!-- CTAs -->
+      <div class="flex flex-wrap gap-3">
+        {url && (
+          <a
+            href={url}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white text-sm font-medium hover:bg-gray-800 transition-colors"
+          >
+            <i class="ri-external-link-line"></i>
+            Voir le projet
+          </a>
+        )}
+        {repo && (
+          <a
+            href={repo}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="inline-flex items-center gap-2 px-6 py-3 border border-gray-300 text-sm font-medium hover:border-gray-900 transition-colors"
+          >
+            <i class="ri-github-line"></i>
+            Code source
+          </a>
+        )}
+      </div>
+    </header>
+
+    <!-- Content -->
+    <article class="max-w-3xl mx-auto px-4">
+      <div class="prose-lab">
+        <Content />
+      </div>
+    </article>
+
+    <!-- Footer nav -->
+    <div class="max-w-3xl mx-auto px-4 mt-16 pt-8 border-t border-gray-200">
+      <a
+        href="/lab"
+        class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors"
+      >
+        <i class="ri-arrow-left-line"></i>
+        Voir tous les projets
+      </a>
+    </div>
+  </main>
+
+  <Footer />
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
+    <button class="lightbox-close" aria-label="Fermer">
+      <i class="ri-close-line"></i>
+    </button>
+    <button class="lightbox-prev" aria-label="Image précédente">
+      <i class="ri-arrow-left-s-line"></i>
+    </button>
+    <button class="lightbox-next" aria-label="Image suivante">
+      <i class="ri-arrow-right-s-line"></i>
+    </button>
+    <figure class="lightbox-content">
+      <img id="lightbox-img" src="" alt="" />
+      <figcaption id="lightbox-caption"></figcaption>
+    </figure>
+    <span id="lightbox-counter"></span>
+  </div>
+</Layout>
+
+<style is:global>
+  /* Prose styling for lab project content - ultra minimal */
+  .prose-lab {
+    color: #1a1a1a;
+    font-size: 1.125rem;
+    line-height: 1.8;
+  }
+
+  .prose-lab > * + * {
+    margin-top: 1.5rem;
+  }
+
+  .prose-lab h1 {
+    font-size: 2rem;
+    font-weight: 400;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .prose-lab h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .prose-lab h3 {
+    font-size: 1.25rem;
+    font-weight: 500;
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .prose-lab p {
+    margin-bottom: 1.5rem;
+  }
+
+  .prose-lab ul,
+  .prose-lab ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .prose-lab ul {
+    list-style-type: disc;
+  }
+
+  .prose-lab ol {
+    list-style-type: decimal;
+  }
+
+  .prose-lab li {
+    margin-bottom: 0.5rem;
+  }
+
+  .prose-lab a {
+    color: #1a1a1a;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .prose-lab a:hover {
+    color: #666;
+  }
+
+  .prose-lab blockquote {
+    border-left: 2px solid #e5e5e5;
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: #666;
+  }
+
+  .prose-lab code {
+    background: #f5f5f5;
+    padding: 0.15rem 0.4rem;
+    font-size: 0.9em;
+  }
+
+  .prose-lab pre {
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    padding: 1.25rem;
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+
+  .prose-lab pre code {
+    background: transparent;
+    padding: 0;
+  }
+
+  .prose-lab img {
+    width: 100%;
+    max-width: 380px;
+    height: auto;
+    margin: 2rem auto;
+    display: block;
+    cursor: zoom-in;
+    border-radius: 4px;
+    transition: opacity 0.2s;
+  }
+
+  .prose-lab img:hover {
+    opacity: 0.85;
+  }
+
+  /* Grilles d'images */
+  .prose-lab .img-grid-2,
+  .prose-lab .img-grid-3 {
+    margin: 2rem auto;
+    max-width: 500px;
+  }
+
+  /* Le markdown wraps les images dans un <p> */
+  .prose-lab .img-grid-2 > p,
+  .prose-lab .img-grid-3 > p {
+    display: grid;
+    gap: 1rem;
+    margin: 0;
+  }
+
+  .prose-lab .img-grid-2 > p {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .prose-lab .img-grid-3 > p {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .prose-lab .img-grid-2 img,
+  .prose-lab .img-grid-3 img {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+  }
+
+  @media (max-width: 480px) {
+    .prose-lab .img-grid-2 > p,
+    .prose-lab .img-grid-3 > p {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Galerie compacte */
+  .prose-lab .gallery {
+    margin: 2rem auto;
+    max-width: 100%;
+  }
+
+  .prose-lab .gallery > p {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 0.5rem;
+    margin: 0;
+  }
+
+  .prose-lab .gallery img {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 4px;
+  }
+
+  .prose-lab hr {
+    border: none;
+    border-top: 1px solid #e5e5e5;
+    margin: 3rem 0;
+  }
+
+  /* Table styling - minimal */
+  .prose-lab table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+  }
+
+  .prose-lab th {
+    text-align: left;
+    font-weight: 500;
+    padding: 0.75rem 1rem;
+    border-bottom: 2px solid #e5e5e5;
+  }
+
+  .prose-lab td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .prose-lab tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .prose-lab strong {
+    font-weight: 600;
+  }
+
+  /* Lightbox */
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+    z-index: 9999;
+  }
+
+  .lightbox.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .lightbox-content {
+    text-align: center;
+    margin: 0;
+  }
+
+  .lightbox-content img {
+    max-width: 90vw;
+    max-height: 80vh;
+    object-fit: contain;
+    border-radius: 4px;
+  }
+
+  .lightbox-close,
+  .lightbox-prev,
+  .lightbox-next {
+    position: absolute;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 1rem;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+
+  .lightbox-close:hover,
+  .lightbox-prev:hover,
+  .lightbox-next:hover {
+    opacity: 1;
+  }
+
+  .lightbox-close {
+    top: 1rem;
+    right: 1rem;
+  }
+
+  .lightbox-prev {
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .lightbox-next {
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .lightbox-caption {
+    color: rgba(255, 255, 255, 0.7);
+    margin-top: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .lightbox-counter {
+    position: absolute;
+    top: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+  }
+</style>
+
+<script is:inline>
+  const lightbox = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  const lbCaption = document.getElementById('lightbox-caption');
+  const lbCounter = document.getElementById('lightbox-counter');
+
+  const images = Array.from(document.querySelectorAll('.prose-lab img'));
+  let current = 0;
+
+  function openLightbox(i) {
+    current = i;
+    updateLightbox();
+    lightbox.classList.add('active');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('active');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  function updateLightbox() {
+    const img = images[current];
+    lbImg.src = img.src;
+    lbImg.alt = img.alt;
+    lbCaption.textContent = img.alt;
+    lbCounter.textContent = `${current + 1} / ${images.length}`;
+  }
+
+  function nextImage() {
+    current = (current + 1) % images.length;
+    updateLightbox();
+  }
+
+  function prevImage() {
+    current = (current - 1 + images.length) % images.length;
+    updateLightbox();
+  }
+
+  // Event listeners
+  images.forEach((img, i) => img.addEventListener('click', () => openLightbox(i)));
+  document.querySelector('.lightbox-close').addEventListener('click', closeLightbox);
+  document.querySelector('.lightbox-prev').addEventListener('click', prevImage);
+  document.querySelector('.lightbox-next').addEventListener('click', nextImage);
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('active')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowRight') nextImage();
+    if (e.key === 'ArrowLeft') prevImage();
+  });
+</script>
