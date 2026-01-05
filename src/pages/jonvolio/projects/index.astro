@@ -1,0 +1,71 @@
+---
+import JonvolioLayout from '../../../layouts/JonvolioLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Get all projects sorted by date (newest first)
+const projects = await getCollection('jonvolio-projects');
+const sortedProjects = projects.sort((a, b) =>
+  new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
+// Status labels (simple format)
+const statusLabels = {
+  live: '> live',
+  wip: '> wip',
+  archived: '> archived',
+};
+---
+
+<JonvolioLayout
+  title="Projects"
+  description="Side projects, experiments, and shipped products. Here's what I'm building."
+>
+  <section class="jonvolio-hero">
+    <h1>Projects</h1>
+    <p class="tagline">Side projects, experiments, shipped products.</p>
+  </section>
+
+  <section class="py-8">
+    {sortedProjects.length > 0 ? (
+      <div class="project-grid">
+        {sortedProjects.map(project => (
+          <article class="project-card">
+            {project.data.thumbnail && (
+              <div class="thumbnail">
+                <img
+                  src={project.data.thumbnail}
+                  alt={project.data.title}
+                  loading="lazy"
+                />
+              </div>
+            )}
+            <span class="project-status">
+              {statusLabels[project.data.status]}
+            </span>
+            <h3>{project.data.title}</h3>
+            <p>{project.data.description}</p>
+            <div class="flex justify-between items-end mt-auto">
+              {project.data.stack.length > 0 ? (
+                <div class="stack">
+                  {project.data.stack.map(tech => (
+                    <span class="stack-badge">{tech}</span>
+                  ))}
+                </div>
+              ) : <div></div>}
+              {project.data.url && (
+                <a href={project.data.url} target="_blank" rel="noopener" class="text-sm whitespace-nowrap">
+                  See project &rarr;
+                </a>
+              )}
+            </div>
+          </article>
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-12 text-muted">
+        <p>Projects coming soon...</p>
+        <p class="text-sm mt-2">Check back later or follow me on <a href="https://twitter.com/jonvolio" target="_blank" rel="noopener">Twitter</a> for updates.</p>
+      </div>
+    )}
+  </section>
+</JonvolioLayout>

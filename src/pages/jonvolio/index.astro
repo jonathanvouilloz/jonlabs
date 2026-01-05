@@ -1,0 +1,74 @@
+---
+import JonvolioLayout from '../../layouts/JonvolioLayout.astro';
+import { jonvolio } from '../../data/jonvolio';
+---
+
+<JonvolioLayout
+  title="jonvolio"
+  description="I build things on the internet. Indie hacker from Geneva, Switzerland."
+>
+  <!-- Hero Section -->
+  <section class="jonvolio-hero">
+    <div class="flex flex-col sm:flex-row items-start gap-6">
+      <img
+        src="/jonvolio/jonvolio.webp"
+        alt="Jonathan Vouilloz"
+        class="w-48 h-64 sm:w-72 sm:h-96 rounded-lg object-cover border-2 border-[var(--jv-border)]"
+      />
+      <div>
+        <h1 class="font-light">Hey, it's Jonathan Vouilloz!</h1>
+        <p class="tagline">{jonvolio.tagline}</p>
+        <p class="location">
+          <span>🇨🇭 Geneva, Switzerland</span>
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Now Section -->
+  <section class="jonvolio-section">
+    <h2>Now</h2>
+    <ul class="now-list">
+      {jonvolio.now.map(item => (
+        <li>{item}</li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- Quick Links -->
+  <section class="jonvolio-section">
+    <h2>Explore</h2>
+    <div class="quick-links">
+      <a href="/jonvolio/projects" class="btn-stabilo">
+        Projects
+      </a>
+      <a href="/jonvolio/blog" class="btn-stabilo">
+        Blog
+      </a>
+      <a href="/jonvolio/inspirations" class="btn-stabilo">
+        Inspirations
+      </a>
+      <a href="/" class="btn-stabilo">
+        Jon Labs (FR)
+      </a>
+    </div>
+  </section>
+
+  <!-- About snippet -->
+  <section class="jonvolio-section">
+    <h2>About</h2>
+    <div class="prose" style="max-width: 65ch;">
+      <p>
+        I'm a developer and indie hacker based in Geneva, Switzerland.
+        By day, I help businesses with their digital presence through
+        <a href="/">Jon Labs</a>. By night, I build side projects and
+        share what I learn along the way.
+      </p>
+      <p>
+        This space is for the global internet crowd — dev logs, experiments,
+        and thoughts on building in public. No corporate polish, just raw
+        authenticity.
+      </p>
+    </div>
+  </section>
+</JonvolioLayout>

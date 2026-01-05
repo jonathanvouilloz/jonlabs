@@ -1,0 +1,88 @@
+---
+import JonvolioLayout from '../../../layouts/JonvolioLayout.astro';
+import { inspirations } from '../../../data/jonvolio';
+---
+
+<JonvolioLayout
+  title="Inspirations"
+  description="Books, films, people, and tools that shape my thinking and work."
+>
+  <section class="jonvolio-hero">
+    <h1>Inspirations</h1>
+    <p class="tagline">What shapes my thinking and work.</p>
+  </section>
+
+  <div class="py-8 space-y-12">
+    <!-- Books -->
+    <section class="jonvolio-section" style="border-top: none; padding-top: 0;">
+      <h2>Books</h2>
+      <div class="space-y-4">
+        {inspirations.books.map(book => (
+          <div class="inspiration-item">
+            <span class="title">{book.title}</span>
+            <span class="author"> — {book.author}</span>
+            {book.quote && <p class="quote">"{book.quote}"</p>}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Films -->
+    <section class="jonvolio-section">
+      <h2>Films</h2>
+      <div class="space-y-3">
+        {inspirations.films.map(film => (
+          <div class="inspiration-item">
+            <span class="title">{film.title}</span>
+            {film.note && <span class="text-muted text-sm"> — {film.note}</span>}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- People -->
+    <section class="jonvolio-section">
+      <h2>People</h2>
+      <div class="space-y-3">
+        {inspirations.people.map(person => (
+          <div class="inspiration-item">
+            <span class="title">{person.name}</span>
+            <a
+              href={`https://twitter.com/${person.handle.replace('@', '')}`}
+              target="_blank"
+              rel="noopener"
+              class="handle ml-2 text-[var(--jv-accent)]"
+            >
+              {person.handle}
+            </a>
+            {person.note && <span class="text-muted text-sm"> — {person.note}</span>}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Tools -->
+    <section class="jonvolio-section">
+      <h2>Tools</h2>
+      <div class="grid gap-3" style="grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));">
+        {inspirations.tools.map(tool => (
+          <div class="card">
+            <div class="font-semibold">{tool.name}</div>
+            <div class="text-sm text-muted">{tool.category}</div>
+            {tool.note && <div class="text-sm text-muted mt-1">{tool.note}</div>}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Passions -->
+    <section class="jonvolio-section">
+      <h2>Passions</h2>
+      <div class="flex flex-wrap gap-2">
+        {inspirations.passions.map(passion => (
+          <span class="badge">{passion}</span>
+        ))}
+      </div>
+    </section>
+  </div>
+</JonvolioLayout>

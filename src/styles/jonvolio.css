@@ -1,0 +1,506 @@
+@import "tailwindcss";
+
+/* jonvolio - Haiku/Japan/Paper aesthetic */
+
+/* CSS Variables - Washi paper palette */
+:root {
+  --jv-bg: transparent;        /* Transparent to show paper texture */
+  --jv-bg-secondary: rgba(245, 243, 238, 0.7); /* Beige semi-transparent */
+  --jv-text: #2C2C2C;          /* Sumi ink */
+  --jv-text-muted: #6B6B6B;    /* Diluted ink */
+  --jv-accent: #8B4513;        /* Sepia brown */
+  --jv-accent-hover: #5D2E0C;  /* Dark brown */
+  --jv-border: #D4CFC4;        /* Beige border */
+  --jv-border-muted: rgba(228, 224, 216, 0.6); /* Light beige */
+  --jv-code-bg: rgba(240, 238, 232, 0.8); /* Code background */
+  --jv-success: #5D7A3A;       /* Matcha green */
+  --jv-warning: #8B6914;       /* Ochre */
+  --jv-danger: #8B3A3A;        /* Vermillion */
+}
+
+/* Base styles for jonvolio section */
+.jonvolio {
+  background-color: var(--jv-bg);
+  color: var(--jv-text);
+  font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.02rem;
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+/* Typography - All Geist, varying weight/size */
+.jonvolio h1,
+.jonvolio h2,
+.jonvolio h3,
+.jonvolio h4 {
+  font-family: 'Geist', sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.02rem;
+  color: var(--jv-text);
+}
+
+.jonvolio h1 { font-size: 2.5rem; }
+.jonvolio h2 { font-size: 1.5rem; }
+.jonvolio h3 { font-size: 1.25rem; }
+
+/* Code - Geist with lighter weight */
+.jonvolio .mono,
+.jonvolio code,
+.jonvolio pre {
+  font-family: 'Geist', -apple-system, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.01rem;
+}
+
+/* Links */
+.jonvolio a {
+  color: var(--jv-accent);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.jonvolio a:hover {
+  color: var(--jv-accent-hover);
+  text-decoration: underline;
+}
+
+/* Muted text */
+.jonvolio .text-muted {
+  color: var(--jv-text-muted);
+}
+
+/* Container */
+.jonvolio .container {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Navigation */
+.jonvolio-nav {
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--jv-border-muted);
+}
+
+.jonvolio-nav a {
+  color: var(--jv-text);
+  font-size: 0.875rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  transition: background-color 0.15s ease;
+}
+
+.jonvolio-nav a:hover {
+  background-color: var(--jv-bg-secondary);
+  text-decoration: none;
+}
+
+.jonvolio-nav a.active {
+  font-weight: 600;
+}
+
+/* Ghost Button */
+.jonvolio .btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--jv-border);
+  border-radius: 6px;
+  background: transparent;
+  color: var(--jv-text);
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.jonvolio .btn-ghost:hover {
+  background-color: var(--jv-bg-secondary);
+  border-color: var(--jv-text-muted);
+  text-decoration: none;
+}
+
+/* Primary Button */
+.jonvolio .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--jv-accent);
+  border-radius: 6px;
+  background: var(--jv-accent);
+  color: white;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.jonvolio .btn-primary:hover {
+  background: var(--jv-accent-hover);
+  border-color: var(--jv-accent-hover);
+  color: white;
+  text-decoration: none;
+}
+
+/* Stabilo Button - underline with italic on hover */
+.jonvolio .btn-stabilo {
+  color: var(--jv-text);
+  text-decoration: underline;
+  text-decoration-color: var(--jv-border);
+  text-underline-offset: 3px;
+  padding: 0.25rem 0.125rem;
+  transition: all 0.2s ease;
+}
+
+.jonvolio .btn-stabilo:hover {
+  font-style: italic;
+  text-decoration: none;
+  color: var(--jv-text);
+}
+
+.jonvolio .btn-stabilo.active {
+  font-weight: 500;
+}
+
+/* Cards */
+.jonvolio .card {
+  padding: 1rem;
+  border: 1px solid var(--jv-border-muted);
+  border-radius: 4px;
+  background: var(--jv-bg-secondary);
+  transition: border-color 0.15s ease;
+}
+
+.jonvolio .card:hover {
+  border-color: var(--jv-border);
+}
+
+/* Badge - Status */
+.jonvolio .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.125rem 0.5rem;
+  border-radius: 2rem;
+  background: var(--jv-bg-secondary);
+  color: var(--jv-text-muted);
+}
+
+.jonvolio .badge-live {
+  background: #DAFBE1;
+  color: var(--jv-success);
+}
+
+.jonvolio .badge-wip {
+  background: #FFF8C5;
+  color: var(--jv-warning);
+}
+
+.jonvolio .badge-archived {
+  background: var(--jv-bg-secondary);
+  color: var(--jv-text-muted);
+}
+
+/* Badge - Stack/Tech */
+.jonvolio .stack-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 0.125rem 0.5rem;
+  border-radius: 4px;
+  background: var(--jv-code-bg);
+  color: var(--jv-text-muted);
+  font-family: 'Geist', sans-serif;
+}
+
+/* Code blocks */
+.jonvolio pre {
+  background: var(--jv-code-bg);
+  border-radius: 6px;
+  padding: 1rem;
+  overflow-x: auto;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.jonvolio code:not(pre code) {
+  background: var(--jv-code-bg);
+  padding: 0.125rem 0.375rem;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
+/* Hero section */
+.jonvolio-hero {
+  padding: 4rem 0 3rem;
+}
+
+.jonvolio-hero .tagline {
+  font-size: 1.125rem;
+  color: var(--jv-text-muted);
+  margin-top: 0.5rem;
+}
+
+.jonvolio-hero .location {
+  font-size: 0.875rem;
+  color: var(--jv-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+/* Section styling */
+.jonvolio-section {
+  padding: 2rem 0;
+  border-top: 1px solid var(--jv-border-muted);
+}
+
+.jonvolio-section h2 {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--jv-text-muted);
+  margin-bottom: 1rem;
+}
+
+/* Now section bullets */
+.jonvolio .now-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.jonvolio .now-list li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.jonvolio .now-list li::before {
+  content: '\2192'; /* → */
+  position: absolute;
+  left: 0;
+  color: var(--jv-accent);
+}
+
+/* Quick links */
+.jonvolio .quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+/* Project grid */
+.jonvolio .project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .jonvolio .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Project card */
+.jonvolio .project-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  background: white;
+  border: none;
+  border-radius: 6px;
+  transition: box-shadow 0.15s ease;
+}
+
+.jonvolio .project-card:hover {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+/* Project status - simple italic */
+.jonvolio .project-status {
+  font-style: italic;
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--jv-text-muted);
+}
+
+.jonvolio .project-card .thumbnail {
+  aspect-ratio: 16/9;
+  background: var(--jv-bg-secondary);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.jonvolio .project-card .thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.jonvolio .project-card h3 {
+  font-size: 1rem;
+  margin: 0;
+}
+
+.jonvolio .project-card p {
+  font-size: 0.875rem;
+  color: var(--jv-text-muted);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.jonvolio .project-card .stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.jonvolio .project-card .links {
+  display: flex;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+}
+
+/* Blog post list */
+.jonvolio .post-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.jonvolio .post-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--jv-border-muted);
+}
+
+.jonvolio .post-item:last-child {
+  border-bottom: none;
+}
+
+.jonvolio .post-item .title {
+  color: var(--jv-text);
+  font-weight: 500;
+}
+
+.jonvolio .post-item .title:hover {
+  color: var(--jv-accent);
+}
+
+.jonvolio .post-item .date {
+  font-size: 0.875rem;
+  color: var(--jv-text-muted);
+  white-space: nowrap;
+  font-family: 'Geist', sans-serif;
+  font-weight: 400;
+}
+
+/* Blog post content */
+.jonvolio .prose {
+  max-width: 65ch;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.jonvolio .prose h2 {
+  font-size: 1.25rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.jonvolio .prose h3 {
+  font-size: 1.125rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.jonvolio .prose p {
+  margin-bottom: 1rem;
+}
+
+.jonvolio .prose ul,
+.jonvolio .prose ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.jonvolio .prose li {
+  margin-bottom: 0.25rem;
+}
+
+.jonvolio .prose blockquote {
+  border-left: 3px solid var(--jv-border);
+  padding-left: 1rem;
+  color: var(--jv-text-muted);
+  font-style: italic;
+  margin: 1rem 0;
+}
+
+/* Inspirations sections */
+.jonvolio .inspiration-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 640px) {
+  .jonvolio .inspiration-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.jonvolio .inspiration-item {
+  margin-bottom: 0.75rem;
+}
+
+.jonvolio .inspiration-item .title {
+  font-weight: 600;
+}
+
+.jonvolio .inspiration-item .author,
+.jonvolio .inspiration-item .handle {
+  color: var(--jv-text-muted);
+  font-size: 0.875rem;
+}
+
+.jonvolio .inspiration-item .quote {
+  font-size: 0.875rem;
+  color: var(--jv-text-muted);
+  font-style: italic;
+  margin-top: 0.25rem;
+}
+
+/* Footer */
+.jonvolio-footer {
+  padding: 2rem 0;
+  margin-top: 3rem;
+  border-top: 1px solid var(--jv-border-muted);
+  font-size: 0.875rem;
+  color: var(--jv-text-muted);
+}
+
+.jonvolio-footer a {
+  color: var(--jv-text-muted);
+}
+
+.jonvolio-footer a:hover {
+  color: var(--jv-text);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .jonvolio h1 { font-size: 1.75rem; }
+  .jonvolio-hero { padding: 2rem 0 1.5rem; }
+  .jonvolio-section { padding: 1.5rem 0; }
+}

@@ -1,0 +1,47 @@
+---
+import JonvolioLayout from '../../../layouts/JonvolioLayout.astro';
+import { getCollection } from 'astro:content';
+
+// Get all published posts sorted by date (newest first)
+const posts = await getCollection('jonvolio-blog', ({ data }) => !data.draft);
+const sortedPosts = posts.sort((a, b) =>
+  new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+
+// Format date
+function formatDate(date: Date): string {
+  return date.toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric',
+  });
+}
+---
+
+<JonvolioLayout
+  title="Blog"
+  description="Dev logs, build-in-public updates, and thoughts on indie hacking."
+>
+  <section class="jonvolio-hero">
+    <h1>Blog</h1>
+    <p class="tagline">Dev logs, experiments, and thoughts on building.</p>
+  </section>
+
+  <section class="py-8">
+    {sortedPosts.length > 0 ? (
+      <div class="post-list">
+        {sortedPosts.map(post => (
+          <a href={`/jonvolio/blog/${post.slug}`} class="post-item">
+            <span class="title">{post.data.title}</span>
+            <span class="date">{formatDate(post.data.pubDate)}</span>
+          </a>
+        ))}
+      </div>
+    ) : (
+      <div class="text-center py-12 text-muted">
+        <p>No posts yet...</p>
+        <p class="text-sm mt-2">First article coming soon. Follow me on <a href="https://twitter.com/jonvolio" target="_blank" rel="noopener">Twitter</a> for updates.</p>
+      </div>
+    )}
+  </section>
+</JonvolioLayout>
