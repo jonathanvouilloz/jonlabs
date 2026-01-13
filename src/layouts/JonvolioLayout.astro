@@ -1,6 +1,5 @@
 ---
 import '../styles/jonvolio.css';
-import PaperBackground from '../components/jonvolio/PaperBackground';
 
 interface Props {
 	title?: string;
@@ -99,9 +98,6 @@ const currentPath = Astro.url.pathname;
 		<meta name="generator" content={Astro.generator} />
 	</head>
 	<body class="jonvolio">
-		<!-- Paper texture background -->
-		<PaperBackground client:load />
-
 		<!-- Navigation -->
 		<header class="jonvolio-nav">
 			<div class="container">
