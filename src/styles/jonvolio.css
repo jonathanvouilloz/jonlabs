@@ -21,6 +21,10 @@
 /* Base styles for jonvolio section */
 .jonvolio {
   background-color: var(--jv-bg);
+  background-image:
+    radial-gradient(circle at 20% 20%, rgba(0,0,0,0.02) 0%, transparent 50%),
+    linear-gradient(135deg, transparent 49.5%, #e5e5e5 49.5%, #e5e5e5 50.5%, transparent 50.5%);
+  background-size: 100% 100%, 60px 60px;
   color: var(--jv-text);
   font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 400;
@@ -234,6 +238,139 @@
   border-radius: 4px;
   font-size: 0.875em;
 }
+
+/* ==================== */
+/* HOME PAGE STYLES     */
+/* ==================== */
+
+/* Home Hero */
+.jonvolio .home-hero {
+  padding: 4rem 0 2rem;
+}
+
+.jonvolio .hero-content {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.jonvolio .avatar-round {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--jv-border);
+  flex-shrink: 0;
+}
+
+.jonvolio .hero-text h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+}
+
+.jonvolio .hero-text .tagline {
+  font-size: 1rem;
+  color: var(--jv-text-muted);
+  margin-top: 0.25rem;
+}
+
+.jonvolio .hero-text .location {
+  font-size: 0.875rem;
+  color: var(--jv-text-muted);
+  margin-top: 0.5rem;
+}
+
+/* Currently Section */
+.jonvolio .currently-section {
+  padding: 1.5rem 0;
+}
+
+.jonvolio .section-label {
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--jv-text-muted);
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.jonvolio .currently-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .jonvolio .currently-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .jonvolio .hero-content {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.jonvolio .currently-card {
+  background: white;
+  border: 1px solid var(--jv-border-muted);
+  border-left: 3px solid var(--jv-accent);
+  border-radius: 6px;
+  padding: 1rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  transition: border-color 0.2s;
+}
+
+.jonvolio .currently-card:hover {
+  border-color: var(--jv-border);
+}
+
+.jonvolio .currently-card .card-title {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.jonvolio .currently-card .card-desc {
+  font-size: 0.85rem;
+  color: var(--jv-text-muted);
+}
+
+/* Quick Links simplified */
+.jonvolio .quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.jonvolio .quick-links a {
+  color: var(--jv-accent);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.jonvolio .quick-links a:hover {
+  text-decoration: underline;
+}
+
+/* About text */
+.jonvolio .about-text {
+  max-width: 55ch;
+  color: var(--jv-text-muted);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.jonvolio .about-text a {
+  color: var(--jv-accent);
+}
+
+/* ==================== */
+/* PROJECTS PAGE STYLES */
+/* ==================== */
 
 /* Hero section */
 .jonvolio-hero {
