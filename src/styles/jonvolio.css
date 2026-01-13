@@ -250,24 +250,28 @@
 .jonvolio-hero .challenge-grid {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   gap: 0.75rem;
   margin-top: 1.5rem;
   font-family: 'Geist Mono', monospace;
   font-size: 0.75rem;
   color: var(--jv-text-muted);
+  width: 100%;
 }
 
 .jonvolio-hero .month-squares {
   display: flex;
-  gap: 3px;
+  flex: 1;
+  justify-content: space-between;
+  gap: 4px;
 }
 
 .jonvolio-hero .month-square {
-  width: 14px;
-  height: 14px;
-  border-radius: 2px;
+  flex: 1;
+  height: 20px;
+  border-radius: 3px;
   border: 1px solid var(--jv-border);
-  background: var(--jv-bg-secondary);
+  background: rgba(228, 224, 216, 0.4);
 }
 
 .jonvolio-hero .month-square.half {
@@ -284,11 +288,16 @@
 .jonvolio-hero .month-square.future {
   background: transparent;
   border-style: dashed;
-  opacity: 0.4;
+  opacity: 0.5;
+}
+
+.jonvolio-hero .challenge-label {
+  white-space: nowrap;
 }
 
 .jonvolio-hero .challenge-count {
   font-weight: 500;
+  white-space: nowrap;
 }
 
 .jonvolio-hero .location {

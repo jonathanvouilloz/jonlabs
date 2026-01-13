@@ -1,7 +1,7 @@
 ---
 title: "Glana"
 description: "Personal project tracker and idea validation tool."
-date: 2024-06-15
+date: 2025-06-15
 status: "archived"
 stack: ["Next.js", "Prisma", "PostgreSQL"]
 ---
