@@ -14,6 +14,23 @@ const statusLabels = {
   wip: '> wip',
   archived: '> archived',
 };
+
+// 2026 Challenge: count live projects per month
+const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const liveProjects2026 = projects.filter(p => {
+  const date = new Date(p.data.date);
+  return p.data.status === 'live' && date.getFullYear() === 2026;
+});
+
+// Count projects per month
+const projectsPerMonth = Array(12).fill(0);
+liveProjects2026.forEach(p => {
+  const month = new Date(p.data.date).getMonth();
+  projectsPerMonth[month]++;
+});
+
+const totalShipped = liveProjects2026.length;
+const currentMonth = new Date().getMonth();
 ---
 
 <JonvolioLayout
@@ -23,7 +40,28 @@ const statusLabels = {
   <section class="jonvolio-hero">
     <h1>Projects</h1>
     <p class="tagline">Side projects, experiments, shipped products.</p>
-    <p class="challenge-line">> 2026 challenge: ship 24 apps (2/mo) · progress: 1/24 · on track: yes</p>
+
+    <div class="challenge-grid">
+      <span class="challenge-label">2026</span>
+      <div class="month-squares">
+        {months.map((month, i) => {
+          const count = projectsPerMonth[i];
+          const isFuture = i > currentMonth;
+          let level = 'empty';
+          if (count >= 2) level = 'full';
+          else if (count === 1) level = 'half';
+          if (isFuture) level = 'future';
+
+          return (
+            <div
+              class={`month-square ${level}`}
+              title={`${month}: ${count} shipped`}
+            />
+          );
+        })}
+      </div>
+      <span class="challenge-count">{totalShipped}/24</span>
+    </div>
   </section>
 
   <section class="py-8">
