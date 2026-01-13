@@ -246,6 +246,14 @@
   margin-top: 0.5rem;
 }
 
+.jonvolio-hero .challenge-line {
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.875rem;
+  color: var(--jv-text-muted);
+  margin-top: 1rem;
+  opacity: 0.8;
+}
+
 .jonvolio-hero .location {
   font-size: 0.875rem;
   color: var(--jv-text-muted);
