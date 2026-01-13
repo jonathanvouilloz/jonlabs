@@ -3,8 +3,8 @@ title: "Isla Plomo"
 description: "A web app for playing Resistance/Avalon-style games with friends."
 date: 2024-12-01
 status: "live"
-stack: ["SvelteKit", "Supabase", "Tailwind"]
-url: "https://isla-plomo.vercel.app"
+stack: ["SvelteKit", "CSS"]
+url: "https://islaplomo.jonlabs.ch"
 featured: true
 ---
 

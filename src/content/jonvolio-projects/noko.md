@@ -2,8 +2,9 @@
 title: "Noko"
 description: "A simple, fast Linktree alternative for creators and businesses."
 date: 2025-01-01
-status: "wip"
-stack: ["Astro", "Tailwind", "Vercel"]
+status: "live"
+stack: ["SvelteKit", "Turso"]
+url: "https://nokolink.com"
 featured: true
 ---
 
