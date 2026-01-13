@@ -279,8 +279,8 @@
   flex: 1;
   height: 16px;
   border-radius: 2px;
-  border: 1px solid var(--jv-border);
-  background: rgba(228, 224, 216, 0.5);
+  border: 1px solid #ccc;
+  background: #e0e0e0;
 }
 
 .jonvolio-hero .month-square.filled {
@@ -290,8 +290,7 @@
 
 .jonvolio-hero .month-square.future {
   background: transparent;
-  border-style: dashed;
-  opacity: 0.5;
+  border: 1px dashed #ccc;
 }
 
 .jonvolio-hero .month-square.future.filled {
