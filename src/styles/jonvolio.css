@@ -360,20 +360,48 @@
   gap: 0.75rem;
   padding: 1rem;
   background: white;
-  border: none;
+  border: 1px solid var(--jv-border-muted);
   border-radius: 6px;
-  transition: box-shadow 0.15s ease;
+  transition: border-color 0.2s ease, box-shadow 0.15s ease;
 }
 
 .jonvolio .project-card:hover {
+  border-color: var(--jv-border);
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-/* Project status - simple italic */
+/* Year divider and label */
+.jonvolio .year-divider {
+  border: none;
+  border-top: 1px solid var(--jv-border-muted);
+  margin: 2rem 0;
+}
+
+.jonvolio .year-label {
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.75rem;
+  color: var(--jv-text-muted);
+  margin-bottom: 1rem;
+  display: block;
+}
+
+/* Project meta (status + date) */
+.jonvolio .project-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .jonvolio .project-status {
   font-style: italic;
   font-weight: 500;
   font-size: 0.875rem;
+  color: var(--jv-text-muted);
+}
+
+.jonvolio .project-date {
+  font-family: 'Geist Mono', monospace;
+  font-size: 0.75rem;
   color: var(--jv-text-muted);
 }
 

@@ -31,6 +31,16 @@ liveProjects2026.forEach(p => {
 
 const totalShipped = liveProjects2026.length;
 const currentMonth = new Date().getMonth();
+
+// Group projects by year
+const projectsByYear = sortedProjects.reduce((acc, project) => {
+  const year = new Date(project.data.date).getFullYear();
+  if (!acc[year]) acc[year] = [];
+  acc[year].push(project);
+  return acc;
+}, {} as Record<number, typeof sortedProjects>);
+
+const years = Object.keys(projectsByYear).sort((a, b) => Number(b) - Number(a));
 ---
 
 <JonvolioLayout
@@ -66,38 +76,53 @@ const currentMonth = new Date().getMonth();
 
   <section class="py-8">
     {sortedProjects.length > 0 ? (
-      <div class="project-grid">
-        {sortedProjects.map(project => (
-          <article class="project-card">
-            {project.data.thumbnail && (
-              <div class="thumbnail">
-                <img
-                  src={project.data.thumbnail}
-                  alt={project.data.title}
-                  loading="lazy"
-                />
+      <div class="projects-by-year">
+        {years.map((year, yearIndex) => (
+          <>
+            {yearIndex > 0 && <hr class="year-divider" />}
+            <div class="year-section">
+              <span class="year-label">{year}</span>
+              <div class="project-grid">
+                {projectsByYear[Number(year)].map(project => (
+                  <article class="project-card">
+                    {project.data.thumbnail && (
+                      <div class="thumbnail">
+                        <img
+                          src={project.data.thumbnail}
+                          alt={project.data.title}
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+                    <div class="project-meta">
+                      <span class="project-status">
+                        {statusLabels[project.data.status]}
+                      </span>
+                      <span class="project-date">
+                        {new Date(project.data.date).toLocaleDateString('en', { month: 'short' })}
+                      </span>
+                    </div>
+                    <h3>{project.data.title}</h3>
+                    <p>{project.data.description}</p>
+                    <div class="flex justify-between items-end mt-auto">
+                      {project.data.stack.length > 0 ? (
+                        <div class="stack">
+                          {project.data.stack.map(tech => (
+                            <span class="stack-badge">{tech}</span>
+                          ))}
+                        </div>
+                      ) : <div></div>}
+                      {project.data.url && (
+                        <a href={project.data.url} target="_blank" rel="noopener" class="text-sm whitespace-nowrap">
+                          See project &rarr;
+                        </a>
+                      )}
+                    </div>
+                  </article>
+                ))}
               </div>
-            )}
-            <span class="project-status">
-              {statusLabels[project.data.status]}
-            </span>
-            <h3>{project.data.title}</h3>
-            <p>{project.data.description}</p>
-            <div class="flex justify-between items-end mt-auto">
-              {project.data.stack.length > 0 ? (
-                <div class="stack">
-                  {project.data.stack.map(tech => (
-                    <span class="stack-badge">{tech}</span>
-                  ))}
-                </div>
-              ) : <div></div>}
-              {project.data.url && (
-                <a href={project.data.url} target="_blank" rel="noopener" class="text-sm whitespace-nowrap">
-                  See project &rarr;
-                </a>
-              )}
             </div>
-          </article>
+          </>
         ))}
       </div>
     ) : (
