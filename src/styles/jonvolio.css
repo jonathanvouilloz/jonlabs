@@ -21,10 +21,6 @@
 /* Base styles for jonvolio section */
 .jonvolio {
   background-color: var(--jv-bg);
-  background-image:
-    radial-gradient(circle at 20% 20%, rgba(0,0,0,0.02) 0%, transparent 50%),
-    linear-gradient(135deg, transparent 49.5%, #e5e5e5 49.5%, #e5e5e5 50.5%, transparent 50.5%);
-  background-size: 100% 100%, 60px 60px;
   color: var(--jv-text);
   font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
   font-weight: 400;
@@ -316,7 +312,6 @@
 .jonvolio .currently-card {
   background: white;
   border: 1px solid var(--jv-border-muted);
-  border-left: 3px solid var(--jv-accent);
   border-radius: 6px;
   padding: 1rem 1.25rem;
   display: flex;
