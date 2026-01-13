@@ -36,3 +36,6 @@ id_*
 # jetbrains setting folder
 .idea/
 nul
+
+# Generated images (AI tools)
+generated_imgs/
