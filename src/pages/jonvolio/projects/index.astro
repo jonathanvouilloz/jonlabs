@@ -15,22 +15,38 @@ const statusLabels = {
   archived: '> archived',
 };
 
-// 2026 Challenge: count live projects per month
-const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+// 2026 Challenge: 24 apps (2 per month)
 const liveProjects2026 = projects.filter(p => {
   const date = new Date(p.data.date);
   return p.data.status === 'live' && date.getFullYear() === 2026;
 });
 
-// Count projects per month
+// Count projects per month (for 24 cubes - 2 per month)
 const projectsPerMonth = Array(12).fill(0);
 liveProjects2026.forEach(p => {
   const month = new Date(p.data.date).getMonth();
   projectsPerMonth[month]++;
 });
 
-const totalShipped = liveProjects2026.length;
+// Generate 24 cubes (2 per month)
+const cubes = [];
 const currentMonth = new Date().getMonth();
+for (let month = 0; month < 12; month++) {
+  const count = projectsPerMonth[month];
+  const isFuture = month > currentMonth;
+  // First cube of the month
+  cubes.push({
+    filled: count >= 1,
+    future: isFuture
+  });
+  // Second cube of the month
+  cubes.push({
+    filled: count >= 2,
+    future: isFuture
+  });
+}
+
+const totalShipped = liveProjects2026.length;
 
 // Group projects by year
 const projectsByYear = sortedProjects.reduce((acc, project) => {
@@ -51,26 +67,20 @@ const years = Object.keys(projectsByYear).sort((a, b) => Number(b) - Number(a));
     <h1>Projects</h1>
     <p class="tagline">Side projects, experiments, shipped products.</p>
 
-    <div class="challenge-grid">
-      <span class="challenge-label">2026</span>
-      <div class="month-squares">
-        {months.map((month, i) => {
-          const count = projectsPerMonth[i];
-          const isFuture = i > currentMonth;
-          let level = 'empty';
-          if (count >= 2) level = 'full';
-          else if (count === 1) level = 'half';
-          if (isFuture) level = 'future';
-
-          return (
+    <div class="challenge-section">
+      <p class="challenge-text">My goal is to ship at least 24 apps in 2026 (2 per month minimum).</p>
+      <div class="challenge-grid">
+        <span class="challenge-label">2026</span>
+        <div class="month-squares">
+          {cubes.map((cube, i) => (
             <div
-              class={`month-square ${level}`}
-              title={`${month}: ${count} shipped`}
+              class={`month-square ${cube.filled ? 'filled' : ''} ${cube.future ? 'future' : ''}`}
+              title={`App ${i + 1}/24`}
             />
-          );
-        })}
+          ))}
+        </div>
+        <span class="challenge-count">{totalShipped}/24</span>
       </div>
-      <span class="challenge-count">{totalShipped}/24</span>
     </div>
   </section>
 
