@@ -1,63 +1,184 @@
 ---
 import JonvolioLayout from '../../layouts/JonvolioLayout.astro';
 import { jonvolio } from '../../data/jonvolio';
+import { getCollection } from 'astro:content';
 
-const currentlyItems = [
-  { title: 'Building tools', desc: 'for small businesses' },
-  { title: 'AI-assisted', desc: 'development' },
-  { title: 'Shipping', desc: 'side projects in public' },
-];
+// Get projects for tracker and latest ships
+const projects = await getCollection('jonvolio-projects');
+const sortedProjects = projects.sort((a, b) =>
+  new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+);
+
+// Latest 3 projects for "Latest Ships"
+const latestShips = sortedProjects.slice(0, 3);
+
+// 2026 Challenge tracking
+const liveProjects2026 = projects.filter(p => {
+  const date = new Date(p.data.date);
+  return p.data.status === 'live' && date.getFullYear() === 2026;
+});
+
+// Count projects per month
+const projectsPerMonth = Array(12).fill(0);
+liveProjects2026.forEach(p => {
+  const month = new Date(p.data.date).getMonth();
+  projectsPerMonth[month]++;
+});
+
+const totalShipped = liveProjects2026.length;
+const progressPercent = (totalShipped / 24) * 100;
+
+// Month names
+const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
+const currentMonth = new Date().getMonth();
+
+// Status labels
+const statusLabels: Record<string, string> = {
+  live: '> live',
+  wip: '> wip',
+  archived: '> archived',
+};
 ---
 
 <JonvolioLayout
   title="jonvolio"
-  description="I build things on the internet. Indie hacker from Geneva, Switzerland."
+  description="building things i want to exist. indie hacker from geneva, switzerland."
 >
-  <!-- Hero Section -->
+  <!-- 1. HERO -->
   <section class="home-hero">
     <div class="hero-content">
       <img
         src="/jonvolio/jonvolio.webp"
-        alt="Jonathan Vouilloz"
+        alt="Jon Vouilloz"
         class="avatar-round"
       />
       <div class="hero-text">
-        <h1>Hey, it's Jonathan Vouilloz!</h1>
+        <h1>hey, i'm jon.</h1>
         <p class="tagline">{jonvolio.tagline}</p>
-        <p class="location">Geneva, Switzerland</p>
+        <p class="location">based in {jonvolio.location}. currently in {jonvolio.currentLocation}.</p>
       </div>
     </div>
   </section>
 
-  <!-- Currently Section -->
-  <section class="currently-section">
-    <span class="section-label">Currently</span>
-    <div class="currently-cards">
-      {currentlyItems.map(item => (
-        <div class="currently-card">
-          <span class="card-title">{item.title}</span>
-          <span class="card-desc">{item.desc}</span>
+  <!-- 2. 2026 CHALLENGE -->
+  <section class="tracker-section">
+    <h2 class="section-title">2026 Challenge</h2>
+    <p class="tracker-description">
+      ship 24 apps this year. 2 per month minimum.<br />
+      doesn't matter if they make money. just ship.
+    </p>
+
+    <div class="tracker-progress">
+      <div class="progress-bar">
+        <div class="progress-fill" style={`width: ${progressPercent}%`}></div>
+      </div>
+    </div>
+
+    <div class="tracker-grid">
+      {months.map((month, i) => {
+        const count = projectsPerMonth[i];
+        const isFuture = i > currentMonth;
+        return (
+          <div class="tracker-month">
+            <span class="month-label">{month}</span>
+            <div class="month-slots">
+              <div class={`slot ${count >= 1 ? 'filled' : 'empty'} ${isFuture ? 'future' : ''}`} title={`${month} app 1`}></div>
+              <div class={`slot ${count >= 2 ? 'filled' : 'empty'} ${isFuture ? 'future' : ''}`} title={`${month} app 2`}></div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <p class="tracker-count">{totalShipped}/24 shipped</p>
+  </section>
+
+  <!-- 3. LATEST SHIPS -->
+  <section class="ships-section">
+    <h2 class="section-title">Latest Ships</h2>
+
+    <div class="ships-grid">
+      {latestShips.map(project => (
+        <article class="ship-card">
+          <div class="ship-header">
+            <span class={`ship-status ${project.data.status}`}>
+              {statusLabels[project.data.status]}
+            </span>
+            <span class="ship-date">
+              {new Date(project.data.date).toLocaleDateString('en', { month: 'short' })}
+            </span>
+          </div>
+          <h3 class="ship-name">{project.data.title}</h3>
+          <p class="ship-description">{project.data.description}</p>
+          <div class="ship-footer">
+            <div class="ship-stack">
+              {project.data.stack.map((tech: string) => (
+                <span class="stack-badge">{tech}</span>
+              ))}
+            </div>
+            {project.data.url && (
+              <a href={project.data.url} target="_blank" rel="noopener" class="ship-link">
+                see project &rarr;
+              </a>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <div class="ships-more">
+      <a href="/jonvolio/projects">see all projects &rarr;</a>
+    </div>
+  </section>
+
+  <!-- 4. CURRENT STATUS -->
+  <section class="status-section">
+    <h2 class="section-title">Current Status</h2>
+
+    <div class="status-grid">
+      <div class="status-item">
+        <span class="status-label">location</span>
+        <span class="status-value">{jonvolio.currentLocation}</span>
+      </div>
+      <div class="status-item">
+        <span class="status-label">mrr</span>
+        <span class="status-value">${jonvolio.status.mrr} <span class="status-note">(and that's fine)</span></span>
+      </div>
+      <div class="status-item">
+        <span class="status-label">streak</span>
+        <span class="status-value">{jonvolio.status.streak} days building</span>
+      </div>
+      <div class="status-item">
+        <span class="status-label">shipped</span>
+        <span class="status-value">{totalShipped} apps in 2026</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. WHAT I'M INTO -->
+  <section class="beliefs-section">
+    <h2 class="section-title">What I'm Into</h2>
+
+    <ul class="beliefs-list">
+      {jonvolio.beliefs.map(belief => (
+        <li>{belief}</li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- 6. ELSEWHERE -->
+  <section class="elsewhere-section">
+    <h2 class="section-title">Elsewhere</h2>
+
+    <div class="elsewhere-list">
+      {jonvolio.elsewhere.map(link => (
+        <div class="elsewhere-item">
+          <a href={link.url} target="_blank" rel="noopener" class="elsewhere-name">
+            {link.name}
+          </a>
+          <span class="elsewhere-desc">&rarr; {link.desc}</span>
         </div>
       ))}
     </div>
-  </section>
-
-  <!-- Quick Links -->
-  <section class="jonvolio-section">
-    <div class="quick-links">
-      <a href="/jonvolio/projects">Projects</a>
-      <a href="/jonvolio/blog">Blog</a>
-      <a href="/jonvolio/inspirations">Inspirations</a>
-      <a href="/">Jon Labs (FR)</a>
-    </div>
-  </section>
-
-  <!-- About snippet -->
-  <section class="jonvolio-section">
-    <p class="about-text">
-      Developer and indie hacker based in Geneva. By day, I help businesses
-      through <a href="/">Jon Labs</a>. By night, I build side projects
-      and share what I learn along the way.
-    </p>
   </section>
 </JonvolioLayout>

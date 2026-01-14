@@ -1,18 +1,35 @@
 // jonvolio - Static data for the indie hacker section
 
 export const jonvolio = {
-  name: 'Jon Vouilloz',
+  name: 'jon vouilloz',
   handle: '@jonvolio',
-  tagline: 'I build things on the internet.',
-  location: 'Geneva, Switzerland',
-  twitter: 'https://twitter.com/jonvolio',
+  tagline: 'building things i want to exist.',
+  location: 'geneva, switzerland',
+  currentLocation: 'chiang mai, thailand',
+  twitter: 'https://x.com/jonvolio',
   github: 'https://github.com/jonvolio',
 
-  // Current activities - update manually
-  now: [
-    'Building tools for small businesses',
-    'Exploring AI-assisted development',
-    'Shipping side projects in public',
+  // Status dashboard
+  status: {
+    mrr: 0,
+    streak: 12,
+    shipped: 2,
+  },
+
+  // Beliefs / What I'm into
+  beliefs: [
+    'PWAs over native apps (fight me)',
+    'vibe coding with Claude Code',
+    'shipping fast, iterating faster',
+    'design that doesn\'t look like a dev made it',
+    'board games, badminton, photography',
+  ],
+
+  // External links
+  elsewhere: [
+    { name: 'x.com/jonvolio', url: 'https://x.com/jonvolio', desc: 'daily brain dumps' },
+    { name: 'github.com/jonvolio', url: 'https://github.com/jonvolio', desc: 'the code' },
+    { name: 'jonlabs.ch', url: 'https://jonlabs.ch', desc: 'my swiss freelance thing (in french)' },
   ],
 };
 

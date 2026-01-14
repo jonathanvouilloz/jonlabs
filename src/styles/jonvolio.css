@@ -2,39 +2,52 @@
 
 /* jonvolio - Haiku/Japan/Paper aesthetic */
 
-/* CSS Variables - Washi paper palette */
+/* CSS Variables - Clean light theme with emerald accent */
 :root {
-  --jv-bg: #fafafa;            /* Off-white background */
-  --jv-bg-secondary: #f5f5f5;  /* Slightly darker for contrast */
-  --jv-text: #2C2C2C;          /* Sumi ink */
-  --jv-text-muted: #6B6B6B;    /* Diluted ink */
-  --jv-accent: #8B4513;        /* Sepia brown */
-  --jv-accent-hover: #5D2E0C;  /* Dark brown */
-  --jv-border: #D4CFC4;        /* Beige border */
-  --jv-border-muted: rgba(228, 224, 216, 0.6); /* Light beige */
-  --jv-code-bg: rgba(240, 238, 232, 0.8); /* Code background */
-  --jv-success: #5D7A3A;       /* Matcha green */
-  --jv-warning: #8B6914;       /* Ochre */
-  --jv-danger: #8B3A3A;        /* Vermillion */
+  /* Fonts */
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Colors */
+  --jv-bg: #ffffff;            /* White background */
+  --jv-bg-secondary: #f9fafb;  /* Slightly gray for contrast */
+  --jv-text: #111827;          /* Dark text */
+  --jv-text-muted: #6b7280;    /* Gray text */
+  --jv-accent: #059669;        /* Emerald */
+  --jv-accent-hover: #047857;  /* Dark emerald */
+  --jv-border: #e5e7eb;        /* Light gray border */
+  --jv-border-muted: rgba(229, 231, 235, 0.6);
+  --jv-code-bg: rgba(243, 244, 246, 0.8);
+
+  /* Status colors */
+  --jv-status-live: #059669;   /* Emerald for live */
+  --jv-status-wip: #f59e0b;    /* Amber for WIP */
+  --jv-success: #059669;
+  --jv-warning: #f59e0b;
+  --jv-danger: #ef4444;
+
+  /* Tracker */
+  --jv-tracker-filled: #059669;
+  --jv-tracker-empty: #e5e7eb;
 }
 
 /* Base styles for jonvolio section */
 .jonvolio {
   background-color: var(--jv-bg);
   color: var(--jv-text);
-  font-family: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-family: var(--font-sans);
   font-weight: 400;
-  letter-spacing: -0.02rem;
+  letter-spacing: -0.01rem;
   line-height: 1.6;
   min-height: 100vh;
 }
 
-/* Typography - All Geist, varying weight/size */
+/* Typography */
 .jonvolio h1,
 .jonvolio h2,
 .jonvolio h3,
 .jonvolio h4 {
-  font-family: 'Geist', sans-serif;
+  font-family: var(--font-sans);
   font-weight: 500;
   letter-spacing: -0.02rem;
   color: var(--jv-text);
@@ -44,11 +57,11 @@
 .jonvolio h2 { font-size: 1.5rem; }
 .jonvolio h3 { font-size: 1.25rem; }
 
-/* Code - Geist with lighter weight */
+/* Code / Mono */
 .jonvolio .mono,
 .jonvolio code,
 .jonvolio pre {
-  font-family: 'Geist', -apple-system, sans-serif;
+  font-family: var(--font-mono);
   font-weight: 400;
   letter-spacing: -0.01rem;
 }
@@ -716,6 +729,293 @@
 
 .jonvolio-footer a:hover {
   color: var(--jv-text);
+}
+
+/* ==================== */
+/* NEW HOMEPAGE STYLES  */
+/* ==================== */
+
+/* Section title - uppercase label */
+.jonvolio .section-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--jv-text);
+  margin-bottom: 1rem;
+}
+
+/* 2026 Challenge Tracker */
+.jonvolio .tracker-section {
+  padding: 2rem 0;
+  border-top: 1px solid var(--jv-border);
+}
+
+.jonvolio .tracker-description {
+  font-size: 0.9rem;
+  color: var(--jv-text-muted);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.jonvolio .tracker-progress {
+  margin-bottom: 1.5rem;
+}
+
+.jonvolio .progress-bar {
+  height: 8px;
+  background: var(--jv-tracker-empty);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.jonvolio .progress-fill {
+  height: 100%;
+  background: var(--jv-tracker-filled);
+  border-radius: 4px;
+  transition: width 0.3s ease;
+}
+
+.jonvolio .tracker-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .jonvolio .tracker-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.jonvolio .tracker-month {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.jonvolio .month-label {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--jv-text-muted);
+  text-transform: lowercase;
+}
+
+.jonvolio .month-slots {
+  display: flex;
+  gap: 0.375rem;
+}
+
+.jonvolio .slot {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  transition: transform 0.15s ease;
+}
+
+.jonvolio .slot.filled {
+  background: var(--jv-tracker-filled);
+  cursor: pointer;
+}
+
+.jonvolio .slot.filled:hover {
+  transform: scale(1.15);
+}
+
+.jonvolio .slot.empty {
+  background: var(--jv-tracker-empty);
+}
+
+.jonvolio .tracker-count {
+  font-family: var(--font-mono);
+  font-size: 0.875rem;
+  color: var(--jv-text-muted);
+  margin-top: 1rem;
+}
+
+/* Latest Ships - Project cards */
+.jonvolio .ships-section {
+  padding: 2rem 0;
+  border-top: 1px solid var(--jv-border);
+}
+
+.jonvolio .ships-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.jonvolio .ship-card {
+  padding: 1.25rem;
+  border: 1px solid var(--jv-border);
+  border-radius: 8px;
+  transition: border-color 0.2s ease;
+}
+
+.jonvolio .ship-card:hover {
+  border-color: var(--jv-text-muted);
+}
+
+.jonvolio .ship-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.jonvolio .ship-status {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: lowercase;
+}
+
+.jonvolio .ship-status.live {
+  color: var(--jv-status-live);
+}
+
+.jonvolio .ship-status.wip {
+  color: var(--jv-status-wip);
+}
+
+.jonvolio .ship-date {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--jv-text-muted);
+}
+
+.jonvolio .ship-name {
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.jonvolio .ship-description {
+  font-size: 0.875rem;
+  color: var(--jv-text-muted);
+  margin-bottom: 0.75rem;
+}
+
+.jonvolio .ship-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.jonvolio .ship-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.jonvolio .ship-link {
+  font-size: 0.875rem;
+  color: var(--jv-accent);
+}
+
+.jonvolio .ships-more {
+  margin-top: 1.5rem;
+  text-align: right;
+}
+
+/* Current Status Dashboard */
+.jonvolio .status-section {
+  padding: 2rem 0;
+  border-top: 1px solid var(--jv-border);
+}
+
+.jonvolio .status-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .jonvolio .status-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.jonvolio .status-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.jonvolio .status-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--jv-text-muted);
+  text-transform: lowercase;
+}
+
+.jonvolio .status-value {
+  font-size: 0.9rem;
+  color: var(--jv-text);
+}
+
+.jonvolio .status-note {
+  font-size: 0.8rem;
+  color: var(--jv-text-muted);
+}
+
+/* What I'm Into / Beliefs */
+.jonvolio .beliefs-section {
+  padding: 2rem 0;
+  border-top: 1px solid var(--jv-border);
+}
+
+.jonvolio .beliefs-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.jonvolio .beliefs-list li {
+  font-size: 0.9rem;
+  color: var(--jv-text);
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.jonvolio .beliefs-list li::before {
+  content: '\2192';
+  position: absolute;
+  left: 0;
+  color: var(--jv-accent);
+}
+
+/* Elsewhere / Links */
+.jonvolio .elsewhere-section {
+  padding: 2rem 0;
+  border-top: 1px solid var(--jv-border);
+}
+
+.jonvolio .elsewhere-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.jonvolio .elsewhere-item {
+  display: flex;
+  gap: 1rem;
+  font-size: 0.9rem;
+}
+
+.jonvolio .elsewhere-name {
+  color: var(--jv-accent);
+  min-width: 100px;
+}
+
+.jonvolio .elsewhere-desc {
+  color: var(--jv-text-muted);
 }
 
 /* Responsive */
