@@ -4,12 +4,15 @@ import Layout from "../layouts/Layout.astro"
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
 
+// Data
+import { portfolioProjects } from '../data/portfolio';
+
 // Schema.org
 import { SITE_URL } from '../data/schema';
 import { getCollectionPageSchema } from '../lib/seo';
 
 const pageTitle = "Portfolio | Jon Labs - Projets & Réalisations";
-const pageDescription = "Découvrez mes projets et réalisations : sites web, applications et automatisations. Portfolio bientôt disponible.";
+const pageDescription = "Découvrez mes projets et réalisations : sites web, applications et automatisations pour des clients suisses.";
 
 const portfolioSchema = getCollectionPageSchema({
   url: `${SITE_URL}/portfolio`,
@@ -18,6 +21,16 @@ const portfolioSchema = getCollectionPageSchema({
 });
 
 const schemas = [portfolioSchema];
+
+// Get unique categories for filters
+const categories = [...new Set(portfolioProjects.map(p => p.category))];
+const categoryLabels: Record<string, string> = {
+  'site-vitrine': 'Site vitrine',
+  'e-commerce': 'E-commerce',
+  'application': 'Application',
+  'seo': 'SEO',
+  'automatisation': 'Automatisation'
+};
 ---
 
 <Layout
@@ -27,32 +40,148 @@ const schemas = [portfolioSchema];
 >
   <Header />
 
-  <main class="min-h-[70vh] flex items-center justify-center px-6">
-    <div class="max-w-2xl text-center">
-      <!-- Badge -->
-      <span class="inline-block px-4 py-2 bg-[var(--blue)] border-2 border-black text-sm font-medium mb-6">
-        Bientôt disponible
-      </span>
+  <main>
+    <!-- Hero Section -->
+    <section class="py-16 md:py-24 px-4">
+      <div class="max-w-6xl mx-auto text-center">
+        <h1 class="text-4xl md:text-5xl font-normal mb-6 tracking-tight" data-animate>
+          Portfolio
+        </h1>
+        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto" data-animate data-delay="0.1">
+          Projets réalisés pour des clients suisses
+        </p>
+      </div>
+    </section>
 
-      <!-- Titre -->
-      <h1 class="text-4xl md:text-5xl font-normal mb-6 tracking-tight">
-        Portfolio
-      </h1>
+    <!-- Filters -->
+    <section class="px-4 pb-8">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex flex-wrap justify-center gap-3" data-animate data-delay="0.2">
+          <button
+            class="filter-btn active px-4 py-2 border-2 border-black bg-[var(--blue)] font-medium text-sm transition-all duration-200 hover:bg-[var(--blue)]"
+            data-filter="all"
+          >
+            Tous
+          </button>
+          {categories.map(cat => (
+            <button
+              class="filter-btn px-4 py-2 border-2 border-black bg-white font-medium text-sm transition-all duration-200 hover:bg-[var(--blue)]"
+              data-filter={cat}
+            >
+              {categoryLabels[cat] || cat}
+            </button>
+          ))}
+        </div>
+      </div>
+    </section>
 
-      <!-- Message -->
-      <p class="text-lg text-gray-600 mb-8 max-w-lg mx-auto">
-        Je prépare une sélection de mes meilleurs projets. En attendant, n'hésite pas à me contacter pour discuter de tes besoins.
-      </p>
+    <!-- Projects Grid -->
+    <section class="py-12 md:py-16 px-4">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" data-animate-stagger>
+          {portfolioProjects.map(project => (
+            <a
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="project-card group bg-white border-2 border-black overflow-hidden shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:shadow-[8px_8px_0px_rgba(0,0,0,0.3)] hover:-translate-x-1 hover:-translate-y-1"
+              data-category={project.category}
+              data-animate-item
+            >
+              <!-- Image placeholder -->
+              <div class="aspect-[16/10] border-b-2 border-black bg-[var(--main-bg)] flex items-center justify-center">
+                {project.image ? (
+                  <img
+                    src={project.image}
+                    alt={project.name}
+                    class="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div class="flex flex-col items-center gap-2 text-gray-400">
+                    <i class="ri-external-link-line text-4xl"></i>
+                    <span class="text-sm">{new URL(project.url).hostname}</span>
+                  </div>
+                )}
+              </div>
 
-      <!-- CTA -->
-      <a
-        href="/contact"
-        class="inline-block bg-[var(--blue)] border-2 border-black px-8 py-4 font-medium shadow-[4px_4px_0px_rgba(0,0,0,0.3)] hover:shadow-[2px_2px_0px_rgba(0,0,0,0.3)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200"
-      >
-        Me contacter →
-      </a>
-    </div>
+              <!-- Content -->
+              <div class="p-6">
+                <div class="flex items-start justify-between gap-4 mb-3">
+                  <h3 class="text-xl font-bold group-hover:text-[var(--yellow)] transition-colors">
+                    {project.name}
+                  </h3>
+                  <span class="text-sm text-gray-500 shrink-0">{project.year}</span>
+                </div>
+
+                <p class="text-gray-600 mb-4">
+                  {project.description}
+                </p>
+
+                <!-- Tags -->
+                <div class="flex flex-wrap gap-2">
+                  {project.tags.slice(0, 3).map(tag => (
+                    <span class="px-2 py-1 bg-[var(--blue)] border border-black text-xs font-medium">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 md:py-24 px-4 bg-white border-y-2 border-black">
+      <div class="max-w-3xl mx-auto text-center" data-animate>
+        <h2 class="text-3xl md:text-4xl font-normal mb-6">
+          Un projet en tête ?
+        </h2>
+        <p class="text-lg text-gray-600 mb-8">
+          Discutons de tes besoins et voyons comment je peux t'aider.
+        </p>
+        <a
+          href="/contact"
+          class="inline-block bg-[var(--blue)] border-2 border-black px-8 py-4 font-medium shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:bg-[var(--yellow)] hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all duration-200"
+        >
+          Me contacter →
+        </a>
+      </div>
+    </section>
   </main>
 
   <Footer />
 </Layout>
+
+<script>
+  // Filter functionality
+  document.addEventListener('DOMContentLoaded', () => {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const filter = btn.getAttribute('data-filter');
+
+        // Update active button
+        filterBtns.forEach(b => {
+          b.classList.remove('active', 'bg-[var(--blue)]');
+          b.classList.add('bg-white');
+        });
+        btn.classList.add('active', 'bg-[var(--blue)]');
+        btn.classList.remove('bg-white');
+
+        // Filter cards
+        projectCards.forEach(card => {
+          const category = card.getAttribute('data-category');
+          if (filter === 'all' || category === filter) {
+            (card as HTMLElement).style.display = '';
+          } else {
+            (card as HTMLElement).style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
