@@ -1,0 +1,436 @@
+---
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const quotes = await getCollection('devis');
+  return quotes.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+const dateFormat = new Intl.DateTimeFormat('fr-CH', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric'
+});
+
+const { hero, offers, timeline, advice, proof, constat, roi, portfolio, postponed, nextSteps } = entry.data;
+---
+
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Proposition — {entry.data.client}</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --main-bg: #FAFAFA;
+        --blue: #00D9A3;
+        --yellow: #00A87D;
+        --violet: #A300D9;
+        --text: #0F172A;
+        --white: #FFFFFF;
+        --black: #000000;
+        --space-lg: 40px;
+        --space-xl: 80px;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        background-color: var(--main-bg);
+        color: var(--text);
+        margin: 0;
+        line-height: 1.6;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+      
+      h1, h2, h3, h4 { font-weight: 800; letter-spacing: -0.03em; margin: 0; }
+      h1 { font-size: 3.5rem; line-height: 1; margin-bottom: 2rem; }
+      h2 { font-size: 2rem; margin-bottom: 2rem; border-bottom: 4px solid var(--black); padding-bottom: 10px; display: inline-block; }
+
+      /* Sections */
+      section { margin-bottom: var(--space-xl); }
+
+      /* Hero Box */
+      .hero-box {
+        background: var(--white);
+        border: 4px solid var(--black);
+        padding: var(--space-lg);
+        box-shadow: 12px 12px 0 var(--black);
+        margin-bottom: var(--space-xl);
+      }
+
+      /* Comparison Table */
+      .comp-table-wrapper { overflow-x: auto; margin-bottom: var(--space-xl); border: 4px solid var(--black); }
+      table { width: 100%; border-collapse: collapse; background: white; min-width: 700px; }
+      th { background: var(--black); color: white; padding: 1.5rem; text-align: left; }
+      td { padding: 1.2rem 1.5rem; border-bottom: 1px solid #eee; }
+      .check { color: var(--blue); font-weight: bold; }
+      .cross { color: #ccc; }
+
+      /* Offers Grid */
+      .offers-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+      }
+      .offer-card {
+        background: white;
+        border: 4px solid var(--black);
+        padding: 2.5rem;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+      }
+      .offer-card.recommended { border-color: var(--violet); box-shadow: 12px 12px 0 var(--violet); transform: scale(1.02); z-index: 2; }
+      .offer-card.pack { box-shadow: 8px 8px 0 var(--blue); }
+      
+      .price-tag { font-size: 3rem; font-weight: 800; margin: 1rem 0; color: var(--text); }
+      .recommended .price-tag { color: var(--violet); }
+      
+      .rec-badge {
+        position: absolute; top: -18px; right: 20px; background: var(--violet); color: white;
+        padding: 5px 15px; font-weight: 800; font-size: 0.8rem; border: 2px solid var(--black);
+      }
+
+      /* Advice */
+      .advice-card {
+        background: #F0FDF4;
+        border: 4px solid var(--blue);
+        padding: var(--space-lg);
+        position: relative;
+        box-shadow: 8px 8px 0 var(--blue);
+      }
+      .advice-card::before { content: "CONSEIL DE JON"; position: absolute; top: -15px; left: 20px; background: var(--blue); padding: 0 10px; font-weight: 800; font-size: 0.8rem; }
+
+      /* Lock Screen */
+      #lock-screen { position: fixed; inset: 0; background: var(--main-bg); z-index: 100; display: flex; align-items: center; justify-content: center; }
+      .lock-card { background: white; border: 4px solid var(--black); padding: 3rem; box-shadow: 16px 16px 0 var(--black); text-align: center; max-width: 450px; width: 90%; }
+      .btn { background: var(--blue); border: 3px solid var(--black); padding: 1rem 2rem; font-weight: 800; cursor: pointer; width: 100%; text-transform: uppercase; transition: 0.1s; }
+      .btn:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--black); }
+
+      .hidden { display: none !important; }
+
+      /* Prose styling for markdown content */
+      .prose h2 { font-size: 1.8rem; font-weight: 800; margin: 2.5rem 0 1rem; border-bottom: 4px solid var(--black); display: inline-block; padding-bottom: 0.5rem; }
+      .prose h3 { font-size: 1.4rem; font-weight: 700; margin: 2rem 0 0.75rem; color: var(--violet); }
+      .prose p { margin: 1rem 0; line-height: 1.7; }
+      .prose ul { padding-left: 1.5rem; margin: 1rem 0; }
+      .prose li { margin: 0.5rem 0; }
+      .prose strong { font-weight: 700; }
+      .prose blockquote { border-left: 4px solid var(--violet); padding: 1rem 1.5rem; margin: 1.5rem 0; background: #f8f8f8; font-style: italic; }
+      .prose a { color: var(--violet); text-decoration: underline; }
+      .prose hr { border: none; border-top: 2px dashed #ccc; margin: 2rem 0; }
+      .prose img { max-width: 100%; border: 2px solid #eee; margin: 1rem 0; }
+
+      /* Content boxes */
+      .content-box {
+        background: white;
+        border: 4px solid var(--black);
+        padding: 2rem;
+        margin-bottom: var(--space-lg);
+      }
+      .content-box h2 { margin-top: 0; }
+      .content-box p { line-height: 1.7; }
+
+      /* ROI box */
+      .roi-box {
+        background: #E6FFF7;
+        border: 4px solid var(--black);
+        padding: 2rem;
+        box-shadow: 8px 8px 0 var(--blue);
+        margin-bottom: var(--space-lg);
+      }
+      .roi-box h2 { margin-top: 0; }
+      .roi-box blockquote {
+        border-left: 4px solid var(--blue);
+        padding-left: 1.5rem;
+        margin: 1rem 0;
+        font-style: italic;
+      }
+      .roi-box .highlight { font-weight: 800; font-size: 1.2rem; color: var(--yellow); }
+
+      /* Portfolio grid */
+      .portfolio-section { margin-bottom: var(--space-lg); }
+      .portfolio-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+      .portfolio-card {
+        background: white;
+        border: 3px solid var(--black);
+        padding: 1.5rem;
+        text-decoration: none;
+        color: inherit;
+        transition: transform 0.1s, box-shadow 0.1s;
+      }
+      .portfolio-card:hover {
+        transform: translate(-4px, -4px);
+        box-shadow: 4px 4px 0 var(--black);
+      }
+      .portfolio-card h3 { margin: 0 0 0.5rem; color: var(--violet); }
+      .portfolio-card p { margin: 0; color: #666; font-size: 0.9rem; }
+
+      /* Postponed box */
+      .postponed-box {
+        background: #FEF2F2;
+        border: 4px solid #EF4444;
+        padding: 2rem;
+        margin-bottom: var(--space-lg);
+      }
+      .postponed-box h2 { margin-top: 0; color: #EF4444; }
+      .postponed-box a { color: var(--violet); }
+
+      /* Next steps */
+      .next-steps { margin-bottom: var(--space-lg); }
+      .next-steps ol {
+        list-style: none;
+        padding: 0;
+        counter-reset: step;
+      }
+      .next-steps li {
+        padding: 1rem;
+        margin: 0.5rem 0;
+        background: white;
+        border: 2px solid var(--black);
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+      }
+      .next-steps li strong {
+        background: var(--black);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        font-weight: 800;
+      }
+
+      @media (max-width: 768px) {
+        h1 { font-size: 2.5rem; }
+        .container { padding: 20px; }
+      }
+    </style>
+  </head>
+  <body>
+    
+    <div id="lock-screen">
+      <div class="lock-card">
+        <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
+        <h2>Document Sécurisé</h2>
+        <p>Veuillez entrer le code d'accès pour Jon Labs.</p>
+        <form id="unlock-form">
+          <input type="password" id="password-input" style="width:100%; padding:1rem; margin:1.5rem 0; border:3px solid black; font-size:1.2rem; text-align:center;" placeholder="CODE" />
+          <button type="submit" class="btn">Déverrouiller</button>
+          <p id="error-msg" style="color:red; margin-top:1rem;" class="hidden">Code incorrect</p>
+        </form>
+      </div>
+    </div>
+
+    <main id="main-content" class="container hidden">
+      <header style="margin-bottom: var(--space-xl); border-bottom: 8px solid black; padding-bottom: 2rem; display: flex; justify-content: space-between; align-items: flex-end;">
+        <div>
+          <div style="font-weight: 900; font-size: 1.5rem; margin-bottom: 0.5rem;">JON LABS.</div>
+          <div style="text-transform: uppercase; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.1em; color: #666;">Création digitale & Innovation</div>
+        </div>
+        <div style="text-align: right;">
+          <div style="font-weight: 700;">{entry.data.client}</div>
+          <div style="color: #666;">{dateFormat.format(entry.data.date)}</div>
+        </div>
+      </header>
+
+      <section>
+        <h1>{entry.data.title}</h1>
+        {hero && (
+          <div class="hero-box">
+            <h3 style="color: var(--violet); margin-bottom: 1rem;">CONTEXTE DU PROJET</h3>
+            <p><strong>Priorité :</strong> {hero.priority}</p>
+            <p><strong>Problème :</strong> {hero.problem}</p>
+            <p style="margin-bottom: 0;"><strong>Solution :</strong> {hero.solution}</p>
+          </div>
+        )}
+      </section>
+
+      {offers && (
+        <section>
+          <h2>Comparaison des offres</h2>
+          <div class="comp-table-wrapper">
+            <table>
+              <thead>
+                <tr>
+                  <th>Caractéristique</th>
+                  {offers.map(o => <th style="text-align:center">{o.name.split(' — ')[1] || o.name}</th>)}
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Prix</strong></td>
+                  {offers.map(o => <td style="text-align:center; font-weight:800; font-size:1.2rem;">{o.price}</td>)}
+                </tr>
+                <tr>
+                  <td>SEO Local</td>
+                  {offers.map(o => <td style="text-align:center">{o.name.includes('Starter') ? <span class="cross">✕</span> : <span class="check">✓</span>}</td>)}
+                </tr>
+                <tr>
+                  <td>Bilingue FR/EN</td>
+                  {offers.map(o => <td style="text-align:center">{o.name.includes('Starter') ? <span class="cross">✕</span> : <span class="check">✓</span>}</td>)}
+                </tr>
+                <tr>
+                  <td>Avis Automatisés</td>
+                  {offers.map(o => <td style="text-align:center">{o.name.includes('Starter') ? <span class="cross">✕</span> : <span class="check">✓</span>}</td>)}
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div class="offers-grid">
+            {offers.map(o => (
+              <div class={`offer-card ${o.recommended ? 'recommended' : ''} ${o.pack ? 'pack' : ''}`}>
+                {o.recommended && <div class="rec-badge">★ RECOMMANDÉE</div>}
+                <h3>{o.name}</h3>
+                <div class="price-tag">{o.price}</div>
+                <p class="subtitle">{o.subtitle}</p>
+                <ul style="list-style:none; padding:0; margin-top:1.5rem;">
+                  {o.features.map(f => <li style="margin-bottom:10px; display:flex; align-items:flex-start;"><span style="color:var(--blue); margin-right:10px;">✓</span> {f}</li>)}
+                  {o.excluded?.map(e => <li style="margin-bottom:10px; display:flex; align-items:flex-start; color:#999; text-decoration:line-through;"><span style="margin-right:10px;">✕</span> {e}</li>)}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {advice && (
+        <section>
+          <div class="advice-card">
+            <h2>Mon Conseil Personnel</h2>
+            <p style="font-size: 1.2rem; margin: 0;">{advice}</p>
+          </div>
+        </section>
+      )}
+
+      {/* Section Constat */}
+      {constat && (
+        <section class="content-box">
+          <h2>Le Constat</h2>
+          <p set:html={constat} />
+        </section>
+      )}
+
+      {proof && (
+        <section>
+          <h2>{proof.title}</h2>
+          <div style="background: white; border: 4px solid black; padding: 2rem; box-shadow: 8px 8px 0 var(--blue);">
+            <img src={proof.image} alt={proof.title} style="width: 100%; border: 2px solid #eee; margin-bottom: 1.5rem;" />
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 1rem;">
+              {proof.stats.map(stat => (
+                <div style="text-align: center;">
+                  <div style="font-size: 2rem; font-weight: 800; color: var(--violet);">{stat.value}</div>
+                  <div style="font-size: 0.9rem; color: #666;">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+            {proof.caption && <p style="margin: 0; font-style: italic; color: #666;">{proof.caption}</p>}
+          </div>
+        </section>
+      )}
+
+      {/* Section ROI */}
+      {roi && (
+        <section class="roi-box">
+          <h2>Argument ROI</h2>
+          <blockquote>
+            <p>{roi.context}</p>
+            <p class="highlight">{roi.calculation}</p>
+            <p>{roi.result}</p>
+          </blockquote>
+        </section>
+      )}
+
+      {/* Section Portfolio */}
+      {portfolio && portfolio.length > 0 && (
+        <section class="portfolio-section">
+          <h2>Réalisations Jon Labs</h2>
+          <div class="portfolio-grid">
+            {portfolio.map(p => (
+              <a href={p.url} target="_blank" rel="noopener" class="portfolio-card">
+                <h3>{p.name}</h3>
+                <p>{p.description}</p>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* Section Postponed */}
+      {postponed && (
+        <section class="postponed-box">
+          <h2>{postponed.title}</h2>
+          <p>{postponed.reason}</p>
+          {postponed.action && postponed.link && (
+            <p>→ {postponed.action} : <a href={postponed.link} target="_blank" rel="noopener">{postponed.link}</a></p>
+          )}
+        </section>
+      )}
+
+      {/* Section Next Steps */}
+      {nextSteps && nextSteps.length > 0 && (
+        <section class="next-steps">
+          <h2>Prochaines Étapes</h2>
+          <ol>
+            {nextSteps.map((step, i) => (
+              <li><strong>{i + 1}</strong> {step}</li>
+            ))}
+          </ol>
+        </section>
+      )}
+
+      {/* Markdown body - optional additional content */}
+      {entry.body.trim() && (
+        <section class="prose" style="background: white; border: 4px solid black; padding: 3rem;">
+          <Content />
+        </section>
+      )}
+
+      <footer style="text-align:center; padding: var(--space-xl) 0; border-top: 4px solid black; margin-top: var(--space-xl);">
+        <h3 style="margin-bottom: 1rem;">Prêt à lancer le projet ?</h3>
+        <p>Contacte-moi directement pour valider l'offre et lancer le calendrier.</p>
+        <div style="font-weight: 800; font-size: 1.5rem; margin-top: 2rem;">078 944 77 07</div>
+        <div style="color: var(--violet);">contact@jonlabs.ch</div>
+      </footer>
+    </main>
+
+    <script define:vars={{ correctPassword: entry.data.password, slug: entry.slug }}>
+      const storageKey = `unlocked_devis_${slug}`;
+      const lockScreen = document.getElementById('lock-screen');
+      const mainContent = document.getElementById('main-content');
+      const form = document.getElementById('unlock-form');
+      const input = document.getElementById('password-input');
+
+      if (localStorage.getItem(storageKey) === 'true' || !correctPassword) {
+        lockScreen.classList.add('hidden');
+        mainContent.classList.remove('hidden');
+      }
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (input.value === correctPassword) {
+          localStorage.setItem(storageKey, 'true');
+          lockScreen.classList.add('hidden');
+          mainContent.classList.remove('hidden');
+        } else {
+          document.getElementById('error-msg').classList.remove('hidden');
+        }
+      });
+    </script>
+  </body>
+</html>
