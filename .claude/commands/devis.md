@@ -34,7 +34,17 @@ Sinon :
 | `postponed` | ⚪ | Projet reporté si mentionné |
 | `nextSteps` | ✅ | Prochaines étapes concrètes |
 
-### Étape 3 : Générer le draft
+### Étape 3 : Sélection du portfolio
+
+1. **Lire** `src/data/portfolio.ts` pour récupérer tous les projets
+2. **Identifier** les tags pertinents selon le contexte du devis :
+   - Type de projet (site-vitrine, e-commerce, etc.)
+   - Secteur d'activité (tourisme, commerce, b2b, etc.)
+   - Localisation si pertinent
+3. **Suggérer** les 2-3 projets les plus pertinents
+4. **Demander** validation à l'utilisateur
+
+### Étape 4 : Générer le draft
 
 Afficher le frontmatter structuré dans un bloc de code :
 
@@ -103,7 +113,7 @@ nextSteps:
 ---
 ```
 
-### Étape 4 : Vérifier les champs manquants
+### Étape 5 : Vérifier les champs manquants
 
 Identifier les champs obligatoires non remplis et poser des questions :
 
@@ -117,13 +127,13 @@ Identifier les champs obligatoires non remplis et poser des questions :
 Merci de compléter ces informations.
 ```
 
-### Étape 5 : Validation utilisateur
+### Étape 6 : Validation utilisateur
 
 Demander confirmation :
 - "Le draft te convient ? Des modifications ?"
 - Ajuster selon les retours
 
-### Étape 6 : Créer le fichier
+### Étape 7 : Créer le fichier
 
 1. **Générer le slug** depuis le nom du client (kebab-case, sans accents)
    - Ex: "Constantin Diederichs" → `constantin-diederichs`
@@ -164,20 +174,39 @@ Voir le template existant : `src/content/devis/constantin-diederichs.md`
 12. Contenu markdown libre (si présent)
 13. Footer contact
 
-### Portfolio standard (réutilisable)
+### Portfolio dynamique
 
-```yaml
-portfolio:
-  - name: "Barber Concept"
-    description: "Chaîne de barbiers à Genève"
-    url: "https://barberconcept.ch"
-  - name: "Lecureux Conseil"
-    description: "Juriste spécialisé restaurateurs"
-    url: "https://lecureux-conseil.ch"
-  - name: "Ugo Mighali"
-    description: "Portfolio coutelier professionnel"
-    url: "https://ugomighali.ch"
+**Source** : `src/data/portfolio.ts`
+
+Lors de la génération du devis :
+
+1. **Lire** `src/data/portfolio.ts` pour avoir la liste des projets
+2. **Analyser** le contexte du devis (type de projet, secteur, besoins)
+3. **Suggérer** les 3 projets les plus pertinents basés sur les tags
+4. **Demander** à l'utilisateur de valider ou ajuster la sélection
+
+**Exemple de suggestion** :
 ```
+📁 Portfolio suggéré (basé sur : site-vitrine, local, tourisme)
+
+1. ✅ Barber Concept — Chaîne de barbiers à Genève
+   Tags matchés : site-vitrine, local, geneve
+
+2. ✅ Lecureux Conseil — Juriste spécialisé restaurateurs
+   Tags matchés : site-vitrine, seo
+
+3. ⚪ Ugo Mighali — Portfolio coutelier professionnel
+   Tags matchés : site-vitrine
+
+Garder cette sélection ? (ou indique les numéros à modifier)
+```
+
+**Tags disponibles** pour le matching :
+- Type : `site-vitrine`, `e-commerce`, `application`, `seo`, `automatisation`
+- Secteur : `local`, `tourisme`, `commerce`, `b2b`, `artisan`, `consultant`
+- Lieu : `geneve`, `lausanne`, `suisse`
+
+**Pour ajouter un projet** : éditer `src/data/portfolio.ts`
 
 ## Exemples d'utilisation
 
