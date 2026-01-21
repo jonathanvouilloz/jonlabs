@@ -1,10 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import Bars from "./Bars.astro"
 
-import svgRedStar from '../assets/red-star.svg'
-import svgIdea from '../assets/idea.svg'
-import svgArrow from '../assets/arrow.svg'
 import svgPinkStar from '../assets/pink-star.svg'
 import svgArrowHero from '../assets/arrow-3.svg'
 import imgJonathan from '../assets/jonathan-vouilloz.webp'
@@ -142,54 +138,16 @@ import { author, cta } from '../sample'
         </div>
 
         <!-- Right: Image -->
-        <div class="relative mt-16 md:mt-0" data-animate data-delay="0.2">
-          <!-- Name tag with arrow -->
-          <div class="flex absolute -top-20 md:-top-18 z-20">
-            <div class="flex items-center transform -rotate-12">
-              <svg class="size-5 mr-1" viewBox="0 0 37 35" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M19.5479 4.4031C18.6713 5.80238 19.9271 9.81219 21.7001 11.2897C23.0602 12.3947 24.0665 11.888 24.3315 9.94798C24.6359 7.90326 23.1377 5.00064 21.4323 4.27109C20.1328 3.70088 19.9764 3.72964 19.5479 4.4031Z" fill="black"/>
-                <path d="M7.84038 5.33376C6.96374 6.73304 8.21957 10.7429 9.99262 12.2204C11.3527 13.3254 12.359 12.8186 12.624 10.8786C12.9284 8.83392 11.4302 5.9313 9.72476 5.20175C8.42528 4.63154 8.26883 4.66031 7.84038 5.33376Z" fill="black"/>
-                <path d="M2.88193 16.7075C3.24136 18.9226 7.35405 23.0018 11.0101 24.7375C12.1376 25.3003 14.0826 25.7031 15.8021 25.7769C18.5025 25.8751 18.8859 25.7851 22.3741 24.1786C25.7215 22.637 26.2387 22.2689 27.844 20.4042C29.889 17.9907 31.8424 12.8058 31.2223 11.3601C30.6796 10.095 29.8918 10.7176 28.3133 13.8252C26.5656 17.2272 25.5918 18.4981 23.558 19.9541C21.6144 21.3254 17.9796 22.3934 15.6935 22.2776C12.9776 22.1433 7.87127 19.3874 5.0947 16.5541C3.68105 15.1275 2.64514 15.1717 2.88193 16.7075Z" fill="black"/>
-              </svg>
-              <span class="uppercase font-black text-sm">Jonathan</span>
-            </div>
-            <img src={svgArrow.src} width="70" class="-translate-x-1" alt="" aria-hidden="true" />
-          </div>
-
-          <!-- Photo container -->
-          <div class="relative p-4 md:p-5 bg-white border-black">
-            <!-- Badge disponible -->
-            <div class="absolute -top-4 -right-12 z-30 rotate-6">
-              <div class="inline-flex items-center gap-2 bg-white border-2 border-black px-3 py-1.5 shadow-[3px_3px_0px_rgba(0,0,0,1)]">
-                <span class="w-2 h-2 bg-[var(--blue)] rounded-full animate-pulse"></span>
-                <span class="text-xs font-medium">Disponible pour de nouveaux projets</span>
-              </div>
-            </div>
-
-            <!-- Decorative elements -->
-            <img src={svgRedStar.src} width="70" alt="" class="absolute -bottom-4 -right-4 z-20" aria-hidden="true" />
-            <img src={svgIdea.src} width="50" alt="" class="absolute top-12 -left-6 z-20" aria-hidden="true" />
-
-            <!-- Photo -->
-            <Image
-              src={imgJonathan}
-              alt="Jonathan Vouilloz - Développeur web et partenaire digital à Genève"
-              width={320}
-              height={400}
-              quality={85}
-              loading="eager"
-              class="w-full max-w-[250px] mx-auto md:max-w-none aspect-[4/5] md:h-[280px] border-2 border-black object-cover object-top"
-            />
-            <Bars />
-          </div>
-
-          <!-- Location badge -->
-          <div class="absolute -bottom-2 left-4 bg-[#DCA3EF] px-4 py-2 border-2 -rotate-2 border-black shadow-[3px_3px_0px_rgba(0,0,0,1)] z-10">
-            <span class="flex items-center gap-2 text-xs font-regular">
-              <i class="ri-map-pin-fill"></i>
-              {author.location}
-            </span>
-          </div>
+        <div class="relative mt-8 md:mt-0" data-animate data-delay="0.2">
+          <Image
+            src={imgJonathan}
+            alt="Jonathan Vouilloz - Développeur web et partenaire digital à Genève"
+            width={320}
+            height={400}
+            quality={85}
+            loading="eager"
+            class="w-full max-w-[280px] mx-auto md:max-w-none object-cover"
+          />
         </div>
 
       </div>
