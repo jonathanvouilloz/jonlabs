@@ -18,7 +18,7 @@ const dateFormat = new Intl.DateTimeFormat('fr-CH', {
   year: 'numeric'
 });
 
-const { hero, offers, timeline, advice, proof, constat, roi, portfolio, postponed, nextSteps } = entry.data;
+const { hero, offers, timeline, advice, proof, constat, roi, portfolio, postponed, nextSteps, disclaimer } = entry.data;
 ---
 
 <html lang="fr">
@@ -159,6 +159,16 @@ const { hero, offers, timeline, advice, proof, constat, roi, portfolio, postpone
         font-style: italic;
       }
       .roi-box .highlight { font-weight: 800; font-size: 1.2rem; color: var(--yellow); }
+
+      /* Disclaimer box */
+      .disclaimer-box {
+        background: #FFF8E6;
+        border: 4px solid var(--black);
+        padding: 2rem;
+        box-shadow: 8px 8px 0 #F59E0B;
+        margin-bottom: var(--space-lg);
+      }
+      .disclaimer-box h2 { margin-top: 0; }
 
       /* Portfolio grid */
       .portfolio-section { margin-bottom: var(--space-lg); }
@@ -353,6 +363,14 @@ const { hero, offers, timeline, advice, proof, constat, roi, portfolio, postpone
             <p class="highlight">{roi.calculation}</p>
             <p>{roi.result}</p>
           </blockquote>
+        </section>
+      )}
+
+      {/* Section Disclaimer */}
+      {disclaimer && (
+        <section class="disclaimer-box">
+          <h2>{disclaimer.title}</h2>
+          <p set:html={disclaimer.content} />
         </section>
       )}
 

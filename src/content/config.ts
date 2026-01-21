@@ -133,6 +133,12 @@ const devisCollection = defineCollection({
       result: z.string(),
     }).optional(),
 
+    // Disclaimer
+    disclaimer: z.object({
+      title: z.string(),
+      content: z.string(),
+    }).optional(),
+
     // Portfolio
     portfolio: z.array(z.object({
       name: z.string(),

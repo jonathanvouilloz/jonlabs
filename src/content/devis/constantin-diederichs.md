@@ -1,7 +1,7 @@
 ---
 title: "Proposition — Geneva Sunset Sailing"
 client: "Constantin Diederichs"
-date: 2026-01-17
+date: 2026-01-21
 password: "boat"
 status: "sent"
 
@@ -58,12 +58,16 @@ proof:
       value: "328"
     - label: "Impressions"
       value: "16'500"
-  caption: "Performance Google Search Console sur 6 mois — croissance légère mais constance, Léo a obtenu un nouveau client grâce à un référencement clibé mois après la mise en ligne."
+  caption: "Performance Google Search Console sur 6 mois — croissance légère mais constance, Léo a obtenu un nouveau client grâce à un référencement clibé 1 mois après la mise en ligne."
 
 roi:
   context: "Tes sorties vont de 280 à 500 CHF. Prenons une moyenne de 350 CHF."
   calculation: "→ 3 réservations supplémentaires = site rentabilisé"
   result: "Sur une saison (mai-septembre), si le SEO t'apporte ne serait-ce qu'1 client par mois, c'est +1'750 CHF."
+
+disclaimer:
+  title: "Une précision importante"
+  content: "Soyons clairs : je ne peux pas te promettre \"3 clients dans 2 mois grâce au SEO\".<br>Quiconque te dit ça te ment.<br>Le référencement, c'est un marathon, pas un sprint.<br><br>Par contre, ce que je sais : un site bien fait + une fiche Google optimisée + des avis qui rentrent = plus de visibilité.<br>Et plus de visibilité = plus de chances d'être trouvé.<br>Les résultats viendront — mais sur la durée, comme on en a parlé."
 
 portfolio:
   - name: "Barber Concept"
@@ -79,7 +83,7 @@ portfolio:
 postponed:
   title: "Site coaching — reporté"
   reason: "Le projet coaching nécessite un travail de positionnement avant de créer un site. Je préfère me concentrer sur ce qui est important pour toi maintenant. Et comme ça tu pourras aussi voir si mon travail t'a convaincu et continuer avec moi."
-  action: "Formulaire de cadrage à remplir"
+  action: "Formulaire de cadrage à remplir - (celui que je t'ai déjà envoyé)"
   link: "https://tally.so/r/b5eDa1"
 
 nextSteps:
