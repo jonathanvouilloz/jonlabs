@@ -29,6 +29,20 @@
     }
 }
 
+/* État initial pour les animations data-animate - évite le flash */
+[data-animate],
+[data-animate-item] {
+    opacity: 0;
+}
+
+/* Fallback si JS ne charge pas ou prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+    [data-animate],
+    [data-animate-item] {
+        opacity: 1;
+    }
+}
+
 /* Font Komigo3D pour Le Lab */
 @font-face {
     font-family: 'Komigo3D';
