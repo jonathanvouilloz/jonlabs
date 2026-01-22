@@ -32,6 +32,11 @@ const progressPercent = (totalShipped / 24) * 100;
 const months = ['jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'];
 const currentMonth = new Date().getMonth();
 
+// Calculate streak: days since January 1, 2026
+const challengeStart = new Date('2026-01-01');
+const today = new Date();
+const streakDays = Math.floor((today.getTime() - challengeStart.getTime()) / (1000 * 60 * 60 * 24));
+
 // Status labels
 const statusLabels: Record<string, string> = {
   live: '> live',
@@ -146,7 +151,7 @@ const statusLabels: Record<string, string> = {
       </div>
       <div class="status-item">
         <span class="status-label">streak</span>
-        <span class="status-value">{jonvolio.status.streak} days building</span>
+        <span class="status-value">{streakDays} days building</span>
       </div>
       <div class="status-item">
         <span class="status-label">shipped</span>

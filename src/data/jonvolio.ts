@@ -7,7 +7,7 @@ export const jonvolio = {
   location: 'geneva, switzerland',
   currentLocation: 'chiang mai, thailand',
   twitter: 'https://x.com/jonvolio',
-  github: 'https://github.com/jonvolio',
+  github: 'https://github.com/jonathanvouilloz',
 
   // Status dashboard
   status: {
@@ -28,7 +28,7 @@ export const jonvolio = {
   // External links
   elsewhere: [
     { name: 'x.com/jonvolio', url: 'https://x.com/jonvolio', desc: 'daily brain dumps' },
-    { name: 'github.com/jonvolio', url: 'https://github.com/jonvolio', desc: 'the code' },
+    { name: 'github.com/jonathanvouilloz', url: 'https://github.com/jonathanvouilloz', desc: 'the code' },
     { name: 'jonlabs.ch', url: 'https://jonlabs.ch', desc: 'my swiss freelance thing (in french)' },
   ],
 };
