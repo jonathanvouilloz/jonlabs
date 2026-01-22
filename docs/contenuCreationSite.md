@@ -56,7 +56,7 @@
 
 **Transition:**
 
-> La bonne nouvelle ? Avoir un site professionnel ne demande ni des mois de travail, ni un budget démesuré. Voici comment on procède.
+> La bonne nouvelle ? Avoir un site professionnel ne demande ni des mois de travail, ni un budget démesuré. Voici comment je procède.
 
 ---
 
@@ -72,7 +72,7 @@
 
 ### Étape 1 : Échange
 
-**Description:** On discute de votre activité, vos objectifs, vos clients. Qu'est-ce que vous voulez que les visiteurs comprennent en 10 secondes ? C'est la base de tout. **Durée:** 30-45 min (gratuit, sans engagement)
+**Description:** Je discute avec vous de votre activité, vos objectifs, vos clients. Qu'est-ce que vous voulez que les visiteurs comprennent en 10 secondes ? C'est la base de tout. **Durée:** 30-45 min (gratuit, sans engagement)
 
 ### Étape 2 : Contenu
 
@@ -99,7 +99,7 @@
 > - **Pas de surprise** : vous validez chaque étape avant qu'on avance
 > - **Pas de dépendance** : votre site vous appartient, vous pouvez le faire évoluer
 > - **Pas de jargon** : je vous explique tout en français, pas en "dev"
-> - **Option express** : besoin urgent ? On peut accélérer le calendrier
+> - **Option express** : besoin urgent ? Je peux accélérer le calendrier
 
 ---
 
@@ -260,11 +260,11 @@
 
 ### Q7 : Et si le résultat ne me plaît pas ?
 
-**R:** On valide ensemble à chaque étape (maquette, puis développement). Vous ne découvrez pas le site à la fin — vous participez à sa création. Si quelque chose ne va pas, on ajuste avant de continuer.
+**R:** Je valide avec vous à chaque étape (maquette, puis développement). Vous ne découvrez pas le site à la fin — vous participez à sa création. Si quelque chose ne va pas, j'ajuste avant de continuer.
 
 ### Q8 : Est-ce que je serai visible sur Google tout de suite ?
 
-**R:** Le référencement prend du temps (quelques semaines à quelques mois selon la concurrence). Mais votre site sera techniquement optimisé dès le jour 1. C'est la fondation. Ensuite, si vous voulez aller plus loin, on peut travailler sur une stratégie SEO plus poussée.
+**R:** Le référencement prend du temps (quelques semaines à quelques mois selon la concurrence). Mais votre site sera techniquement optimisé dès le jour 1. C'est la fondation. Ensuite, si vous voulez aller plus loin, je peux travailler avec vous sur une stratégie SEO plus poussée.
 
 ---
 
@@ -284,7 +284,7 @@
 
 Travailler avec quelqu'un dans la même région, ce n'est pas juste une question de proximité géographique. C'est aussi :
 
-✓ **Des échanges facilités** On peut se voir en personne si besoin. Un café pour discuter du projet, un atelier pour affiner les détails. Parfois, c'est plus simple que 10 emails.
+✓ **Des échanges facilités** Je peux vous rencontrer en personne si besoin. Un café pour discuter du projet, un atelier pour affiner les détails. Parfois, c'est plus simple que 10 emails.
 
 ✓ **La même réalité business** Je connais le marché suisse, les attentes des clients locaux, les spécificités légales (LPD, facturation). Votre site sera adapté à votre contexte, pas à celui d'une agence parisienne.
 
@@ -308,7 +308,7 @@ Travailler avec quelqu'un dans la même région, ce n'est pas juste une question
 
 **Phrase de réassurance:**
 
-> Premier échange gratuit et sans engagement. On discute de votre projet, je vous donne mon avis honnête, vous décidez ensuite.
+> Premier échange gratuit et sans engagement. Je discute de votre projet avec vous, je vous donne mon avis honnête, vous décidez ensuite.
 
 ---
 
@@ -324,7 +324,7 @@ Travailler avec quelqu'un dans la même région, ce n'est pas juste une question
 - Type de projet (dropdown) : Site vitrine / Site + blog / E-commerce / Je ne sais pas encore
 - Votre message : Décrivez brièvement votre activité et ce que vous recherchez *
 - Budget approximatif (dropdown) : < 1'000 CHF / 1'000 - 2'000 CHF / 2'000 - 5'000 CHF / > 5'000 CHF / Je ne sais pas
-- Comment nous avez-vous trouvé ? (optionnel)
+- Comment m'avez-vous trouvé ? (optionnel)
 
 **Bouton:** Envoyer ma demande →
 

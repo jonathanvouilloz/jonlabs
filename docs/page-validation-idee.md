@@ -55,7 +55,7 @@ Une approche itérative qui minimise le risque et maximise l'apprentissage.
 
 ### La méthode en 3 phases
 
-La plupart des prestataires vous livrent une landing page et vous souhaitent bonne chance. Ici, on procède par étapes — chaque phase nous apprend quelque chose avant de passer à la suivante.
+La plupart des prestataires vous livrent une landing page et vous souhaitent bonne chance. Ici, je procède par étapes — chaque phase nous apprend quelque chose avant de passer à la suivante.
 
 **Phase 1 : Le signal faible**
 
@@ -85,7 +85,7 @@ Pas un template générique. Du copywriting stratégique pensé pour votre offre
 
 **3. Configuration de la campagne**
 
-Ciblage précis sur Meta Ads (Facebook/Instagram). On définit ensemble les audiences pertinentes, le budget est maîtrisé, et on peut cibler géographiquement si votre offre est locale.
+Ciblage précis sur Meta Ads (Facebook/Instagram). Je définis avec vous les audiences pertinentes, le budget est maîtrisé, et je peux cibler géographiquement si votre offre est locale.
 
 **4. Analyse et rapport**
 
@@ -180,11 +180,11 @@ Premier échange gratuit et sans engagement. On parle de votre idée, je vous di
 
 **Quel budget pub faut-il prévoir ?**
 
-Entre 150 et 200 CHF suffisent généralement pour un premier test significatif. Ce budget est payé directement à Meta (Facebook/Instagram), pas à moi. C'est vous qui contrôlez les dépenses, et on peut ajuster en cours de route.
+Entre 150 et 200 CHF suffisent généralement pour un premier test significatif. Ce budget est payé directement à Meta (Facebook/Instagram), pas à moi. C'est vous qui contrôlez les dépenses, et je peux ajuster en cours de route.
 
 **Que se passe-t-il si le test est négatif ?**
 
-C'est une bonne nouvelle, pas une mauvaise. Vous venez d'économiser des semaines — voire des mois — de travail sur une idée qui n'aurait pas fonctionné. On peut discuter ensemble de comment pivoter ou affiner le concept. Parfois, c'est juste le message qui ne passait pas, pas l'idée elle-même.
+C'est une bonne nouvelle, pas une mauvaise. Vous venez d'économiser des semaines — voire des mois — de travail sur une idée qui n'aurait pas fonctionné. Je peux discuter avec vous de comment pivoter ou affiner le concept. Parfois, c'est juste le message qui ne passait pas, pas l'idée elle-même.
 
 **La landing page m'appartient-elle après le test ?**
 
@@ -196,7 +196,7 @@ Non. En Suisse, vous pouvez facturer jusqu'à 100'000 CHF par an en Raison Indiv
 
 **Quels types d'idées peut-on tester ?**
 
-Pratiquement tout : un nouveau service, un produit physique ou digital, une formation, une app, un SaaS, une offre de consulting... Si ça peut s'expliquer sur une page et intéresser une audience ciblable sur les réseaux sociaux, on peut tester.
+Pratiquement tout : un nouveau service, un produit physique ou digital, une formation, une app, un SaaS, une offre de consulting... Si ça peut s'expliquer sur une page et intéresser une audience ciblable sur les réseaux sociaux, je peux tester.
 
 **Comment je sais si mon idée est "testable" ?**
 
@@ -204,11 +204,11 @@ On en discute lors du premier échange. Si votre idée est trop floue, si le mar
 
 **Pourquoi Meta Ads et pas Google Ads ?**
 
-Meta Ads permet de cibler des gens qui ne cherchent pas encore activement votre solution — c'est idéal pour tester une idée nouvelle. Google Ads fonctionne mieux quand les gens savent déjà ce qu'ils cherchent. Pour la validation de concept, Meta est généralement plus pertinent. Mais si votre offre répond à une recherche claire, on peut combiner les deux.
+Meta Ads permet de cibler des gens qui ne cherchent pas encore activement votre solution — c'est idéal pour tester une idée nouvelle. Google Ads fonctionne mieux quand les gens savent déjà ce qu'ils cherchent. Pour la validation de concept, Meta est généralement plus pertinent. Mais si votre offre répond à une recherche claire, je peux combiner les deux.
 
 **Et si le test est positif, vous pouvez développer la suite ?**
 
-Oui. Si votre idée est validée et que vous voulez passer à un vrai site ou une application, on peut en discuter. Mais ce n'est pas une obligation — le test est un service autonome, vous êtes libre de continuer avec qui vous voulez.
+Oui. Si votre idée est validée et que vous voulez passer à un vrai site ou une application, je peux en discuter avec vous. Mais ce n'est pas une obligation — le test est un service autonome, vous êtes libre de continuer avec qui vous voulez.
 
 Autre question ? [Contactez-moi directement →](/contact)
 
@@ -373,7 +373,7 @@ Niveau de design requis
 
 Note rassurante :
 
-Premier échange gratuit et sans engagement. On discute de votre idée, je vous dis honnêtement si ce service fait sens pour vous.
+Premier échange gratuit et sans engagement. Je discute de votre idée avec vous, je vous dis honnêtement si ce service fait sens pour vous.
 
 CTA : Demander un devis personnalisé →
 
@@ -384,7 +384,7 @@ Entre 150 et 200 CHF suffisent généralement pour un premier test significatif.
 
 Q2 : Que se passe-t-il si le test est négatif ?
 
-C'est une bonne nouvelle, pas une mauvaise. Vous venez d'économiser des semaines (voire des mois) de travail sur une idée qui n'aurait pas fonctionné. On peut discuter ensemble de comment pivoter ou affiner le concept.
+C'est une bonne nouvelle, pas une mauvaise. Vous venez d'économiser des semaines (voire des mois) de travail sur une idée qui n'aurait pas fonctionné. Je peux discuter avec vous de comment pivoter ou affiner le concept.
 
 Q3 : La landing page m'appartient-elle après le test ?
 
@@ -397,7 +397,7 @@ Non. En Suisse, vous pouvez facturer jusqu'à 100'000 CHF par an en Raison Indiv
 
 Q5 : Quels types d'idées peut-on tester ?
 
-Pratiquement tout : un nouveau service, un produit physique ou digital, une formation, une app, un SaaS... Si ça peut s'expliquer sur une page et intéresser une audience ciblable, on peut tester.
+Pratiquement tout : un nouveau service, un produit physique ou digital, une formation, une app, un SaaS... Si ça peut s'expliquer sur une page et intéresser une audience ciblable, je peux tester.
 
 Q6 : Comment je sais si mon idée est "testable" ?
 

@@ -14,7 +14,7 @@ Accroche :
 Relancer les factures. Copier-coller des emails. Vérifier trois fois la même info. Vous passez des heures chaque semaine sur des tâches répétitives qui pourraient se faire toutes seules. Pendant ce temps, votre vrai métier attend.
 
 CTA Principal : Récupérer mes heures →
-CTA Secondaire : Voir ce qu'on peut automatiser
+CTA Secondaire : Voir ce que je peux automatiser
 
 [illustration]
 Illustration conceptuelle montrant une personne submergée par des tâches répétitives (emails, tableaux, notifications) d'un côté, et la même personne libérée/sereine de l'autre côté avec un robot/machine qui gère les tâches en arrière-plan.
@@ -171,7 +171,7 @@ Résultat : Le trésorier récupère ses soirées. Les cotisations rentrent mieu
 👉 Lire l'article complet : Pourquoi Excel ne suffit plus pour gérer votre club sportif
 
 6. SECTION OUTILS
-Titre : Les outils d'automatisation qu'on utilise
+Titre : Les outils d'automatisation que j'utilise
 Sous-titre : La technique est mon problème, pas le vôtre.
 
 Make (ex-Integromat)
@@ -216,7 +216,7 @@ Un indépendant qui facture 150 CHF de l'heure et récupère 5 heures par semain
 Même si vous ne facturez pas ces heures, c'est du temps que vous pouvez investir dans le développement de votre activité, vos clients existants, ou simplement votre qualité de vie.
 
 Zones couvertes : Genève, Vaud, Valais, Neuchâtel, Fribourg — et toute la Suisse romande en remote.
-On peut se voir pour un café si ça aide à clarifier le projet. Mais 90% du travail se fait à distance, sans friction.
+Je peux vous rencontrer pour un café si ça aide à clarifier le projet. Mais 90% du travail se fait à distance, sans friction.
 
 8. SECTION PRICING
 Titre : Investissement
@@ -267,7 +267,7 @@ C'est fiable ? Ça ne va pas buguer ?
 Les automatisations sont testées avant mise en production. Elles incluent des mécanismes de détection d'erreur et de notification si quelque chose coince. Et le support est inclus pour corriger rapidement si nécessaire. Cela dit, aucun système n'est infaillible à 100% — mais c'est nettement plus fiable qu'un humain fatigué un vendredi soir.
 
 Et si mes besoins changent ?
-Les automatisations sont modulaires. On peut les ajuster, les compléter ou les désactiver selon l'évolution de votre activité. Rien n'est gravé dans le marbre.
+Les automatisations sont modulaires. Je peux les ajuster, les compléter ou les désactiver selon l'évolution de votre activité. Rien n'est gravé dans le marbre.
 
 Je n'y connais rien techniquement, c'est un problème ?
 Pas du tout. Vous m'expliquez ce que vous faites manuellement aujourd'hui, et je m'occupe de le transformer en automatisation. La technique, c'est mon problème.
@@ -276,7 +276,7 @@ Combien de temps avant de voir des résultats ?
 Dès que l'automatisation est en place. Si on automatise vos relances de paiement, la prochaine relance part toute seule. Pas de période d'adaptation — ça fonctionne immédiatement.
 
 Et si ça ne correspond pas à mes attentes ?
-On valide ensemble à chaque étape. Vous voyez le système fonctionner sur des cas réels avant qu'on considère le projet terminé. Et le support post-projet permet d'ajuster ce qui doit l'être.
+Je valide avec vous à chaque étape. Vous voyez le système fonctionner sur des cas réels avant que je considère le projet terminé. Et le support post-projet permet d'ajuster ce qui doit l'être.
 
 Autre question ? Contactez-moi directement →
 

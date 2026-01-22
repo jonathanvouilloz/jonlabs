@@ -30,11 +30,11 @@ T'as raison de te poser la question. Dépend de ce que tu veux. Site sur-mesure 
 
 > "C'est quoi la différence ?"
 
-La plupart des sites ont 80% de contenu inutile. On garde l'essentiel : qui t'es, ce que tu fais, pourquoi te choisir, comment te contacter.
+La plupart des sites ont 80% de contenu inutile. Je garde l'essentiel : qui t'es, ce que tu fais, pourquoi te choisir, comment te contacter.
 
 > "Mais j'ai besoin d'un portfolio, d'un blog, de 15 pages services..."
 
-Tu penses. En vrai, 90% de tes visiteurs vont sur 3 pages max. On lance avec ça, on itère après si vraiment besoin.
+Tu penses. En vrai, 90% de tes visiteurs vont sur 3 pages max. Je lance avec ça, j'itère après si vraiment besoin.
 
 > "Ok mais ça va m'apporter quoi concrètement ?"
 
@@ -64,7 +64,7 @@ Pour exister, oui. Pour convertir, non. Un post LinkedIn disparaît en 48h. Un s
 
 > "Je saurais pas quoi mettre dessus..."
 
-Personne ne sait au début. On commence par l'essentiel : qui t'es, ce que tu fais, comment te contacter. Le reste vient après.
+Personne ne sait au début. Je commence par l'essentiel : qui t'es, ce que tu fais, comment te contacter. Le reste vient après.
 
 > "C'est vraiment utile si je fais déjà du bouche-à-oreille ?"
 
@@ -92,7 +92,7 @@ Classique. T'as empilé des outils au fil du temps, chacun fait son job, mais en
 
 > "Du coup faut tout changer ?"
 
-Non. On garde tes outils, on les fait communiquer. Une info rentrée une fois, elle se propage partout automatiquement.
+Non. Je garde tes outils, je les fais communiquer. Une info rentrée une fois, elle se propage partout automatiquement.
 
 > "C'est compliqué techniquement ?"
 
@@ -100,11 +100,11 @@ Pour toi, non. Je m'occupe des connexions. Toi tu continues à bosser comme avan
 
 > "Et si j'ai besoin de tout voir au même endroit ?"
 
-On peut aussi créer un tableau de bord sur-mesure qui centralise toutes tes données importantes. Une seule interface, plus besoin de jongler entre 10 onglets. Tu vois tout d'un coup d'œil.
+Je peux aussi créer un tableau de bord sur-mesure qui centralise toutes tes données importantes. Une seule interface, plus besoin de jongler entre 10 onglets. Tu vois tout d'un coup d'œil.
 
 > "Et si un outil change ou si j'en ajoute un ?"
 
-C'est prévu. Les automatisations sont modulaires, on peut ajuster sans tout reconstruire.
+C'est prévu. Les automatisations sont modulaires, je peux ajuster sans tout reconstruire.
 
 > "Délai ?"
 
@@ -134,7 +134,7 @@ Moins cher que ton temps. Une automatisation bien faite se rentabilise en quelqu
 
 > "Par où on commence ?"
 
-On identifie ensemble tes tâches les plus chronophages. On automatise la plus douloureuse d'abord. Tu vois le résultat, on continue.
+J'identifie avec toi tes tâches les plus chronophages. J'automatise la plus douloureuse d'abord. Tu vois le résultat, je continue.
 
 **CTA :** En savoir plus → `/services/automatisation`
 
@@ -184,11 +184,11 @@ Tu réponds "c'est prévu dans la roadmap." Tout le monde sait qu'un MVP c'est u
 
 > "C'est quoi le process ?"
 
-Semaine 1 : on définit le scope minimal ensemble. Semaine 2-3 : je développe, tu testes au fur et à mesure. À la fin t'as un truc que tu peux montrer et utiliser.
+Semaine 1 : je définis le scope minimal avec toi. Semaine 2-3 : je développe, tu testes au fur et à mesure. À la fin t'as un truc que tu peux montrer et utiliser.
 
 > "Et après le MVP ?"
 
-Soit on continue ensemble pour la vraie V1, soit tu repars avec une base solide et documentée. Pas de dépendance forcée.
+Soit je continue avec toi pour la vraie V1, soit tu repars avec une base solide et documentée. Pas de dépendance forcée.
 
 **CTA :** En savoir plus → `/services/developpement-mvp`
 

@@ -5,7 +5,7 @@
 ## Votre site date de 2015 ? Il est temps de passer à la vitesse supérieure.
 
 Site lent, design vieillot, impossible à modifier vous-même, invisible sur Google ? 
-On refait tout. Proprement. En 3 semaines.
+Je refais tout. Proprement. En 3 semaines.
 
 [CTA primaire] Audit gratuit de mon site →
 [CTA secondaire] Voir des exemples →
@@ -36,7 +36,7 @@ Vous êtes au bon endroit si votre site :
 
 **Bonne nouvelle : Tout ça, c'est réparable. Et plus vite que vous pensez.**
 
-## On ne refait pas "pareil mais plus joli". On reconstruit stratégiquement.
+## Je ne refais pas "pareil mais plus joli". Je reconstruis stratégiquement.
 
 ### Méthode en 4 étapes (3 semaines)
 
@@ -58,10 +58,10 @@ Vous êtes au bon endroit si votre site :
 - Formation express pour que VOUS puissiez modifier du contenu
 → *Livrable* : Site live + accès admin + documentation
 
-### Ce qui nous différencie
+### Ce qui me différencie
 
 **Stack moderne, pas WordPress**
-On utilise Astro et Tailwind. Résultat : site 10x plus rapide, 100x plus sécurisé, 0 plugin à maintenir.
+J'utilise Astro et Tailwind. Résultat : site 10x plus rapide, 100x plus sécurisé, 0 plugin à maintenir.
 
 **Modification facile**
 Vous voulez changer du texte ? Un fichier Markdown suffit. Pas besoin de nous rappeler à chaque fois.
@@ -117,7 +117,7 @@ Vous modifiez textes, images, pages vous-même. Sans nous rappeler à chaque foi
 **La plupart des devs :** "J'ai un marteau, donc tout ressemble à un clou"
 **Jon Labs :** "Voici votre problème, voici le meilleur outil pour le résoudre"
 
-On décide ensemble lors de l'audit (gratuit). Vous n'avez pas besoin de comprendre la technique.
+Je décide avec vous lors de l'audit (gratuit). Vous n'avez pas besoin de comprendre la technique.
 
 
 ## Combien de temps ? Combien ça coûte ?
@@ -161,25 +161,25 @@ On décide ensemble lors de l'audit (gratuit). Vous n'avez pas besoin de compren
 ## Questions fréquentes
 
 **Je dois refaire TOUT mon site ou on peut garder des choses ?**
-Ça dépend. Si votre contenu est bon, on le réutilise. Si votre design est sauvable, on s'en inspire. On ne jette pas par principe, on optimise.
+Ça dépend. Si votre contenu est bon, je le réutilise. Si votre design est sauvable, je m'en inspire. Je ne jette pas par principe, j'optimise.
 
 **Mon ancien dev va-t-il me bloquer l'accès ?**
-Normalement non, c'est votre site. Mais on a déjà vu le cas. Dans le pire scénario, on repart de zéro (avec votre contenu sauvegardé). Le nouveau site sera tellement mieux que vous ne le regretterez pas.
+Normalement non, c'est votre site. Mais j'ai déjà vu le cas. Dans le pire scénario, je repars de zéro (avec votre contenu sauvegardé). Le nouveau site sera tellement mieux que vous ne le regretterez pas.
 
 **Je ne suis pas à Genève, vous travaillez quand même avec moi ?**
 Oui, sans problème. Je suis basé à Genève mais je travaille avec toute la Suisse romande (Lausanne, Valais, Fribourg, Neuchâtel, Jura). Tout se fait en remote, avec des visios si besoin.
 
 **Qu'est-ce qui se passe après le lancement ?**
-1 mois de support inclus pour les ajustements mineurs. Après, soit vous gérez vous-même (c'est fait pour), soit on met en place un forfait maintenance léger (50-150 CHF/mois selon besoins).
+1 mois de support inclus pour les ajustements mineurs. Après, soit vous gérez vous-même (c'est fait pour), soit je mets en place un forfait maintenance léger (50-150 CHF/mois selon besoins).
 
 **Et si je veux ajouter un blog ou une boutique plus tard ?**
-Tout est prévu dans l'architecture. On peut faire évoluer le site facilement. C'est l'avantage d'un code propre et moderne.
+Tout est prévu dans l'architecture. Je peux faire évoluer le site facilement. C'est l'avantage d'un code propre et moderne.
 
 **Vous reprenez mon nom de domaine et mes emails ?**
-Oui, on garde tout. Migration transparente. Vos emails continuent de fonctionner, votre nom de domaine reste le vôtre.
+Oui, je garde tout. Migration transparente. Vos emails continuent de fonctionner, votre nom de domaine reste le vôtre.
 
 **Vous utilisez quelle technologie ?**
-Ça dépend de votre projet. Framer pour du simple et rapide, Webflow pour du design poussé, Astro pour du contenu riche. On n'impose pas une stack par dogme, on choisit ce qui est optimal pour VOUS.
+Ça dépend de votre projet. Framer pour du simple et rapide, Webflow pour du design poussé, Astro pour du contenu riche. Je n'impose pas une stack par dogme, je choisis ce qui est optimal pour VOUS.
 
 **Pourquoi pas WordPress comme tout le monde ?**
 Parce que "tout le monde" = 90% des sites piratés. WordPress est une techno de 2003, lourde, vulnérable, coûteuse en maintenance. Les alternatives modernes sont 10x plus rapides, 100x plus sécurisées, et moins chères à long terme.

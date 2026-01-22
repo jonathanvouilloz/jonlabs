@@ -40,11 +40,11 @@ Le problème n'est pas vos outils. C'est qu'ils ne communiquent pas entre eux. E
 
 4. SECTION MÉTHODE
 Titre : Comment ça se passe ?
-Sous-titre : On garde vos outils actuels. On les fait parler entre eux.
+Sous-titre : Je garde vos outils actuels. Je les fais parler entre eux.
 
 Étape 1 — Diagnostic
 Durée : 30-60 minutes
-On fait le point ensemble. Quels outils vous utilisez, comment l'information circule (ou pas), où vous perdez du temps. Pas de jargon technique — juste des questions concrètes sur votre quotidien.
+Je fais le point avec vous. Quels outils vous utilisez, comment l'information circule (ou pas), où vous perdez du temps. Pas de jargon technique — juste des questions concrètes sur votre quotidien.
 L'objectif : comprendre votre façon de travailler pour proposer une solution qui s'y adapte.
 
 Étape 2 — Proposition
@@ -63,8 +63,8 @@ Encart différenciateur
 Ce qui change avec Jon Labs
 
 Objectivité : Je ne vends pas de la technologie pour la technologie. Si votre problème se résout autrement, je vous le dis.
-Vos outils restent : Pas besoin de tout changer. On travaille avec ce que vous avez déjà.
-Support inclus : Après la mise en place, je reste disponible. Si quelque chose casse, on le répare ensemble.
+Vos outils restent : Pas besoin de tout changer. Je travaille avec ce que vous avez déjà.
+Support inclus : Après la mise en place, je reste disponible. Si quelque chose casse, je le répare avec vous.
 
 
 
@@ -93,7 +93,7 @@ Zéro intervention. Zéro oubli. Et lui, il peut se concentrer sur son métier.
 
 
 6. SECTION OUTILS
-Titre : Les outils qu'on utilise
+Titre : Les outils que j'utilise
 Sous-titre : Je m'adapte à votre écosystème — pas l'inverse.
 
 Make (ex-Integromat)
@@ -103,7 +103,7 @@ Pour les connexions sur-mesure quand les outils standards ne suffisent pas. Ça 
 MCP & Scripts custom
 Quand la situation l'exige, je développe des solutions spécifiques à votre besoin. Pas de limite technique si le cas le justifie.
 Vos outils existants
-Notion, Bexio, Brevo, Tally, Google Sheets, Airtable, Slack, votre CRM, votre outil de facturation... On travaille avec ce que vous avez déjà.
+Notion, Bexio, Brevo, Tally, Google Sheets, Airtable, Slack, votre CRM, votre outil de facturation... Je travaille avec ce que vous avez déjà.
 
 
 Note importante
@@ -180,13 +180,13 @@ Premier échange gratuit et sans engagement. On regarde ensemble si une automati
 Titre : Questions fréquentes
 
 Je dois changer mes outils actuels ?
-Non. On travaille avec ce que vous avez. Le but, c'est justement de faire communiquer vos outils existants — Bexio, Notion, votre CRM, vos formulaires — pas de tout recommencer de zéro.
+Non. Je travaille avec ce que vous avez. Le but, c'est justement de faire communiquer vos outils existants — Bexio, Notion, votre CRM, vos formulaires — pas de tout recommencer de zéro.
 
 C'est compliqué à maintenir après ?
 Non. Les automatisations sont documentées et conçues pour être robustes. Elles tournent toutes seules une fois en place. Et si quelque chose coince, je reste disponible pour le support.
 
 Et si un de mes outils change ou si j'en ajoute un ?
-Les connexions sont modulaires. On peut ajuster, ajouter ou modifier un flux sans tout reconstruire. Votre système évolue avec votre activité.
+Les connexions sont modulaires. Je peux ajuster, ajouter ou modifier un flux sans tout reconstruire. Votre système évolue avec votre activité.
 
 Mes données restent sécurisées ?
 Oui. Les outils utilisés (Make notamment) sont hébergés en Europe et conformes au RGPD et à la nLPD suisse. Pour les données sensibles, on peut ajouter des couches de sécurité supplémentaires.
@@ -198,10 +198,10 @@ Je n'y connais rien techniquement, c'est un problème ?
 Pas du tout. Je m'occupe de la technique. Vous, vous m'expliquez votre façon de travailler et ce qui vous fait perdre du temps. C'est tout ce dont j'ai besoin pour construire une solution adaptée.
 
 Combien de temps ça prend ?
-Entre 3-4 jours pour une intégration simple et 1-2 semaines pour quelque chose de plus complexe. On définit le périmètre ensemble lors du diagnostic, et je vous donne un délai précis avant de commencer.
+Entre 3-4 jours pour une intégration simple et 1-2 semaines pour quelque chose de plus complexe. Je définis le périmètre avec vous lors du diagnostic, et je vous donne un délai précis avant de commencer.
 
 Et si le résultat ne correspond pas à ce que j'attendais ?
-On ajuste. Le processus inclut des phases de test et de validation. Vous voyez le système fonctionner avant qu'on considère le projet terminé. Et le support post-projet est là pour corriger ce qui doit l'être.
+J'ajuste. Le processus inclut des phases de test et de validation. Vous voyez le système fonctionner avant que je considère le projet terminé. Et le support post-projet est là pour corriger ce qui doit l'être.
 
 
 Autre question ? [Contactez-moi directement →]
@@ -211,7 +211,7 @@ Autre question ? [Contactez-moi directement →]
 Titre : Vos outils peuvent travailler ensemble
 
 [Illustration : Deux mains qui se serrent ou des pièces de puzzle qui s'emboîtent, symbolisant la connexion et le partenariat. Style épuré, professionnel mais chaleureux. Alt : "Illustration symbolisant la connexion entre outils et le partenariat avec Jon Labs"]
-Premier échange gratuit. On regarde ensemble votre situation — que vous soyez une PME genevoise avec 15 outils qui ne se parlent pas, ou un commerce local qui veut automatiser sa récolte d'avis Google.
+Premier échange gratuit. Je regarde avec vous votre situation — que vous soyez une PME genevoise avec 15 outils qui ne se parlent pas, ou un commerce local qui veut automatiser sa récolte d'avis Google.
 Si une automatisation peut vous aider, je vous dis comment. Si ce n'est pas la bonne solution pour vous, je vous le dis aussi.
 
 CTA Principal : Réserver un appel découverte →
