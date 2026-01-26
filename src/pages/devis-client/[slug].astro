@@ -18,7 +18,7 @@ const dateFormat = new Intl.DateTimeFormat('fr-CH', {
   year: 'numeric'
 });
 
-const { hero, offers, timeline, advice, proof, constat, roi, portfolio, postponed, nextSteps, disclaimer } = entry.data;
+const { hero, offers, timeline, advice, proof, constat, roi, portfolio, postponed, nextSteps, disclaimer, comparison } = entry.data;
 ---
 
 <html lang="fr">
@@ -286,18 +286,38 @@ const { hero, offers, timeline, advice, proof, constat, roi, portfolio, postpone
                   <td><strong>Prix</strong></td>
                   {offers.map(o => <td style="text-align:center; font-weight:800; font-size:1.2rem;">{o.price}</td>)}
                 </tr>
-                <tr>
-                  <td>SEO Local</td>
-                  {offers.map(o => <td style="text-align:center">{o.name.includes('Starter') ? <span class="cross">✕</span> : <span class="check">✓</span>}</td>)}
-                </tr>
-                <tr>
-                  <td>Bilingue FR/EN</td>
-                  {offers.map(o => <td style="text-align:center">{o.name.includes('Starter') ? <span class="cross">✕</span> : <span class="check">✓</span>}</td>)}
-                </tr>
-                <tr>
-                  <td>Avis Automatisés</td>
-                  {offers.map(o => <td style="text-align:center">{o.name.includes('Starter') ? <span class="cross">✕</span> : <span class="check">✓</span>}</td>)}
-                </tr>
+                {comparison ? (
+                  comparison.map(row => (
+                    <tr>
+                      <td>{row.label}</td>
+                      <td style="text-align:center">
+                        {typeof row.starter === 'boolean'
+                          ? (row.starter ? <span class="check">✓</span> : <span class="cross">✕</span>)
+                          : row.starter}
+                      </td>
+                      <td style="text-align:center">
+                        {typeof row.premium === 'boolean'
+                          ? (row.premium ? <span class="check">✓</span> : <span class="cross">✕</span>)
+                          : row.premium}
+                      </td>
+                    </tr>
+                  ))
+                ) : (
+                  <>
+                    <tr>
+                      <td>SEO Local</td>
+                      {offers.map(o => <td style="text-align:center">{o.name.includes('Starter') ? <span class="cross">✕</span> : <span class="check">✓</span>}</td>)}
+                    </tr>
+                    <tr>
+                      <td>Bilingue FR/EN</td>
+                      {offers.map(o => <td style="text-align:center">{o.name.includes('Starter') ? <span class="cross">✕</span> : <span class="check">✓</span>}</td>)}
+                    </tr>
+                    <tr>
+                      <td>Avis Automatisés</td>
+                      {offers.map(o => <td style="text-align:center">{o.name.includes('Starter') ? <span class="cross">✕</span> : <span class="check">✓</span>}</td>)}
+                    </tr>
+                  </>
+                )}
               </tbody>
             </table>
           </div>

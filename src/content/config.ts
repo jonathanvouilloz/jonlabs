@@ -106,6 +106,13 @@ const devisCollection = defineCollection({
       details: z.string().optional(),
     })).optional(),
 
+    // Tableau comparatif personnalisé
+    comparison: z.array(z.object({
+      label: z.string(),
+      starter: z.union([z.string(), z.boolean()]),
+      premium: z.union([z.string(), z.boolean()]),
+    })).optional(),
+
     // Timeline
     timeline: z.array(z.object({
       step: z.string(),
