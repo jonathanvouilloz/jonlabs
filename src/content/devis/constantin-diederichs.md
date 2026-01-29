@@ -80,12 +80,6 @@ portfolio:
     description: "Portfolio coutelier professionnel"
     url: "https://ugomighali.ch"
 
-postponed:
-  title: "Site coaching — reporté"
-  reason: "Le projet coaching nécessite un travail de positionnement avant de créer un site. Je préfère me concentrer sur ce qui est important pour toi maintenant. Et comme ça tu pourras aussi voir si mon travail t'a convaincu et continuer avec moi."
-  action: "Formulaire de cadrage à remplir - (celui que je t'ai déjà envoyé)"
-  link: "https://tally.so/r/b5eDa1"
-
 nextSteps:
   - "Choisis l'offre qui te convient"
   - "Je te prépare un devis formel avec calendrier précis"

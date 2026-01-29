@@ -13,6 +13,7 @@
     "@astrojs/react": "^4.4.2",
     "@astrojs/sitemap": "^3.6.0",
     "@paper-design/shaders-react": "^0.0.68",
+    "@rollup/rollup-win32-x64-msvc": "^4.56.0",
     "@tailwindcss/vite": "^4.1.1",
     "@types/react": "^19.2.7",
     "@types/react-dom": "^19.2.3",

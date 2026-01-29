@@ -192,3 +192,17 @@ Arrête de tourner en rond. En 30 minutes, on regarde ton projet ensemble et je 
 ---
 
 *Développeur MVP freelance à Genève — Jon Labs accompagne les entrepreneurs, startups et PME de Suisse romande dans la création de prototypes fonctionnels.*
+
+
+B. Optimisation des Images (Alt Text)
+Tu as mis des descriptions pour créer les images, c'est top. Une fois les images créées :
+
+Nom du fichier : developpement-mvp-geneve-jon-labs.jpg (pas IMG_0234.jpg).
+
+Texte Alternatif (Alt Tag) : C'est ici qu'on place les variantes.
+
+Hero : "Prototype MVP fonctionnel sur smartphone développé à Genève".
+
+Méthode : "Processus de création agile pour startup suisse".
+
+Portrait : "Jonathan, développeur freelance MVP à Genève".
