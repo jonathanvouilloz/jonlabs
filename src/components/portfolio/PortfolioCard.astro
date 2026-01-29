@@ -1,0 +1,82 @@
+---
+/**
+ * PortfolioCard - Card for portfolio listing page
+ *
+ * Design minimaliste en liste horizontale avec image à gauche
+ */
+
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  project: CollectionEntry<'portfolio'>;
+}
+
+const { project } = Astro.props;
+const { title, description, heroImage, client, project: projectData, results } = project.data;
+
+const categoryLabels: Record<string, string> = {
+  'site-vitrine': 'Site vitrine',
+  'e-commerce': 'E-commerce',
+  'application': 'Application',
+  'seo': 'SEO',
+  'automatisation': 'Automatisation'
+};
+
+// Get top 3 results for preview
+const previewResults = results.slice(0, 3);
+---
+
+<a
+  href={`/portfolio/${project.slug}`}
+  class="portfolio-item group flex flex-col sm:flex-row gap-5 bg-white border border-gray-200 p-4 sm:p-5 transition-all duration-200 hover:shadow-lg hover:-translate-y-0.5"
+>
+  <!-- Image -->
+  <div class="portfolio-item-image flex-shrink-0 w-full sm:w-[280px] aspect-[16/10] overflow-hidden bg-gray-100">
+    {heroImage.url ? (
+      <img
+        src={heroImage.url}
+        alt={heroImage.alt}
+        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+        loading="lazy"
+      />
+    ) : (
+      <div class="w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+        <i class="ri-image-line text-4xl text-gray-400"></i>
+      </div>
+    )}
+  </div>
+
+  <!-- Content -->
+  <div class="portfolio-item-content flex-1 flex flex-col justify-center">
+    <!-- Meta: Category · Client -->
+    <div class="text-sm text-gray-500 mb-2">
+      <span class="uppercase tracking-wide font-medium text-gray-600">
+        {categoryLabels[projectData.category] || projectData.category}
+      </span>
+      <span class="mx-2">·</span>
+      <span>{client.name}</span>
+    </div>
+
+    <!-- Title -->
+    <h3 class="text-xl font-semibold text-gray-900 mb-2 group-hover:text-[var(--violet)] transition-colors">
+      {title}
+    </h3>
+
+    <!-- Description -->
+    <p class="text-gray-600 text-[0.95rem] leading-relaxed mb-4 line-clamp-2">
+      {description}
+    </p>
+
+    <!-- Results -->
+    {previewResults.length > 0 && (
+      <div class="flex flex-wrap gap-x-5 gap-y-1 text-sm text-gray-600">
+        {previewResults.map((result) => (
+          <span>
+            <strong class="text-black font-bold">{result.value}</strong>
+            {' '}{result.label}
+          </span>
+        ))}
+      </div>
+    )}
+  </div>
+</a>
