@@ -1,6 +1,7 @@
 ---
 import svgRedStar from '../assets/red-star.svg'
 import svgPinkStar from '../assets/pink-star.svg'
+import profilePhoto from '../assets/jonathan-vouilloz.webp'
 ---
 
 <section class="py-20 md:py-32 relative overflow-hidden" id="about">
@@ -38,15 +39,13 @@ import svgPinkStar from '../assets/pink-star.svg'
 
                     <!-- Signature -->
                     <div class="mt-6 pt-4 border-t border-dashed border-gray-300 flex items-center gap-4">
-                        <div class="
-                            w-11 h-11
-                            bg-[var(--violet)] border-2 border-black
-                            flex items-center justify-center
-                            text-white font-bold text-sm
-                            shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                        ">
-                            JV
-                        </div>
+                        <img
+                            src={profilePhoto.src}
+                            alt="Jonathan Vouilloz"
+                            width="44"
+                            height="44"
+                            class="w-11 h-11 object-cover border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)]"
+                        />
                         <div>
                             <p class="font-bold text-sm">Jonathan Vouilloz</p>
                             <p class="text-xs text-gray-500">Genève, Suisse</p>
@@ -93,7 +92,7 @@ import svgPinkStar from '../assets/pink-star.svg'
                         Pourquoi Jon Labs ?
                     </h2>
                     <h3 class="text-xl md:text-2xl font-medium text-gray-700 mb-8">
-                        Partenaire Digital, pas juste exécutant.
+                        Partenaire digital, pas juste exécutant.
                     </h3>
                 </div>
 
@@ -102,7 +101,7 @@ import svgPinkStar from '../assets/pink-star.svg'
                         Je suis <strong class="text-black">Jonathan Vouilloz</strong>, informaticien de gestion et entrepreneur digital basé à <strong class="text-black">Genève</strong>.
                     </p>
                     <p>
-                        Mon approche ? <span class="bg-[var(--yellow)] px-1 font-bold">L'Action > La Perfection.</span>
+                        Mon approche ? <span class="bg-[var(--yellow)] px-1 font-bold">L'Action ></span> <span class="bg-white px-1 font-bold">La Perfection.</span>
                     </p>
                     <p>
                         Contrairement aux agences classiques, je ne suis pas là pour vous vendre des heures, mais pour apporter une vision globale.
