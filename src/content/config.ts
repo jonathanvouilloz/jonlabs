@@ -75,6 +75,97 @@ const jonvolioProjectsCollection = defineCollection({
   }),
 });
 
+const portfolioCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    // Base
+    title: z.string(),
+    description: z.string().max(160),
+    date: z.coerce.date(),
+    draft: z.boolean().default(false),
+    featured: z.boolean().default(false),
+
+    // Client
+    client: z.object({
+      name: z.string(),
+      sector: z.string(),
+      website: z.string().url().optional(),
+    }),
+
+    // Projet
+    project: z.object({
+      duration: z.string(),           // "~80h" ou "3 mois"
+      period: z.string(),             // "Juin - Sept 2025"
+      measurementPeriod: z.string().optional(),
+      platform: z.string().optional(), // "Framer"
+      category: z.enum(['site-vitrine', 'e-commerce', 'seo', 'automatisation', 'application']),
+    }),
+
+    // Images
+    heroImage: z.object({ url: z.string(), alt: z.string() }),
+
+    // Résultats clés (4-6 métriques)
+    results: z.array(z.object({
+      label: z.string(),
+      value: z.string(),
+      detail: z.string().optional(),
+      icon: z.string().optional(),
+    })),
+
+    // Contexte (3 blocs)
+    context: z.object({
+      clientDescription: z.string(),
+      challenge: z.string(),
+      whyThisProject: z.string().optional(),
+    }),
+
+    // Approche (phases)
+    approach: z.array(z.object({
+      phase: z.number(),
+      title: z.string(),
+      description: z.string(),
+      tasks: z.array(z.string()).optional(),
+      image: z.object({
+        url: z.string(),
+        alt: z.string(),
+        caption: z.string().optional(),
+      }).optional(),
+    })),
+
+    // Ce qui a fonctionné
+    successFactors: z.array(z.object({
+      title: z.string(),
+      description: z.string(),
+      icon: z.string().optional(),
+    })).optional(),
+
+    // Limites & apprentissages
+    learnings: z.object({
+      limitations: z.array(z.string()).optional(),
+      insights: z.array(z.string()).optional(),
+    }).optional(),
+
+    // Témoignage
+    testimonial: z.object({
+      quote: z.string(),
+      author: z.string(),
+      role: z.string().optional(),
+      avatar: z.string().optional(),
+    }).optional(),
+
+    // Images de résultats (graphs, screenshots)
+    resultImages: z.array(z.object({
+      url: z.string(),
+      alt: z.string(),
+      caption: z.string().optional(),
+    })).optional(),
+
+    // Liens
+    tags: z.array(z.string()).default([]),
+    liveUrl: z.string().url().optional(),
+  }),
+});
+
 const devisCollection = defineCollection({
   type: 'content',
   schema: z.object({
@@ -173,4 +264,5 @@ export const collections = {
   'jonvolio-blog': jonvolioBlogCollection,
   'jonvolio-projects': jonvolioProjectsCollection,
   devis: devisCollection,
+  portfolio: portfolioCollection,
 };
