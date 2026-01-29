@@ -18,7 +18,7 @@ const categoryColor = getCategoryColor(category);
   data-title={title.toLowerCase()}
   data-tags={tags.join(' ').toLowerCase()}
 >
-  <a href={`/blog/${post.slug}/`} class="block">
+  <a href={`/blog/${post.slug}`} class="block">
     <!-- First line: Category indicator, Title, Reading time, Date -->
     <div class="flex flex-wrap items-center gap-x-3 gap-y-1 mb-2">
       <!-- Subtle category: colored dot + text -->

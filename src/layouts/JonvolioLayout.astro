@@ -24,9 +24,13 @@ const {
 	robots
 } = Astro.props;
 
-const siteUrl = "https://jonlabs.ch";
+const siteUrl = "https://www.jonlabs.ch";
 const fullTitle = title === "jonvolio" ? title : `${title} | jonvolio`;
-const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+// Generate canonical URL without trailing slash (matching trailingSlash: 'never')
+const rawCanonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const canonicalUrl = rawCanonicalUrl.endsWith('/') && Astro.url.pathname !== '/'
+  ? rawCanonicalUrl.slice(0, -1)
+  : rawCanonicalUrl;
 
 // Navigation items
 const navItems = [
@@ -93,8 +97,8 @@ const currentPath = Astro.url.pathname;
 
 		<!-- hreflang for multilingual SEO -->
 		<link rel="alternate" hreflang="en" href={canonicalUrl} />
-		<link rel="alternate" hreflang="fr" href={`${siteUrl}/`} />
-		<link rel="alternate" hreflang="x-default" href={`${siteUrl}/`} />
+		<link rel="alternate" hreflang="fr" href={siteUrl} />
+		<link rel="alternate" hreflang="x-default" href={siteUrl} />
 
 		<meta name="generator" content={Astro.generator} />
 	</head>

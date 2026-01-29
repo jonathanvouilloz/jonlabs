@@ -18,7 +18,7 @@ const { featured, recentPosts } = Astro.props;
       <article
         class="group relative bg-[var(--main-bg)] border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,0.3)] overflow-hidden transition-all duration-300 hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] md:row-span-3"
       >
-        <a href={`/blog/${featured.slug}/`} class="absolute inset-0 z-10" aria-label={`Lire: ${featured.data.title}`}></a>
+        <a href={`/blog/${featured.slug}`} class="absolute inset-0 z-10" aria-label={`Lire: ${featured.data.title}`}></a>
 
         <!-- Image -->
         <div class="relative aspect-[16/9] overflow-hidden border-b-2 border-black">
@@ -70,7 +70,7 @@ const { featured, recentPosts } = Astro.props;
         <article
           class="group relative bg-white border-2 border-black shadow-[3px_3px_0px_rgba(0,0,0,0.2)] overflow-hidden transition-all duration-200 hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] p-4 flex flex-col justify-center"
         >
-          <a href={`/blog/${post.slug}/`} class="absolute inset-0 z-10" aria-label={`Lire: ${post.data.title}`}></a>
+          <a href={`/blog/${post.slug}`} class="absolute inset-0 z-10" aria-label={`Lire: ${post.data.title}`}></a>
 
           <!-- Meta -->
           <div class="flex items-center gap-2 mb-2 text-xs text-gray-400">

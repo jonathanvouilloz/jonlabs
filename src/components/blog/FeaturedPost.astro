@@ -24,7 +24,7 @@ const { title, description, image, category, tags, pubDate, readingTime } = post
     <!-- Featured card -->
     <article class="group relative bg-[var(--main-bg)] border-2 border-black shadow-[6px_6px_0px_rgba(0,0,0,0.3)] overflow-hidden transition-all duration-300 hover:shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:translate-x-[3px] hover:translate-y-[3px]">
       <!-- Clickable overlay -->
-      <a href={`/blog/${post.slug}/`} class="absolute inset-0 z-10" aria-label={`Lire: ${title}`}></a>
+      <a href={`/blog/${post.slug}`} class="absolute inset-0 z-10" aria-label={`Lire: ${title}`}></a>
 
       <div class="grid grid-cols-1 md:grid-cols-[55%_45%]">
         <!-- Image -->
