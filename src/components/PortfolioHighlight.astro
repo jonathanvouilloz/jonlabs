@@ -1,52 +1,43 @@
 ---
-// TODO: Téléchargez les images depuis les URLs dans src/assets/portfolio/README.md
-// Puis décommentez les imports ci-dessous et commentez les URLs dans le tableau projects
-
-// import { Image } from 'astro:assets';
-// import imgEcommerce from '../assets/portfolio/ecommerce.jpg';
-// import imgDashboard from '../assets/portfolio/dashboard.jpg';
-// import imgPWA from '../assets/portfolio/pwa.jpg';
-
+import { getCollection } from 'astro:content';
 import svgArrowCard from '../assets/arrow-card.svg'
 import svgRedStar from '../assets/red-star.svg'
 import svgPinkStar from '../assets/pink-star.svg'
 
-// Portfolio projects data
-const projects = [
-    {
-        id: 'ecommerce',
-        title: 'Boutique E-commerce',
-        description: 'Site de vente en ligne complet avec gestion de stock, paiements Stripe et tableau de bord admin.',
-        // image: imgEcommerce,  // Décommenter après téléchargement
-        imageUrl: 'https://images.pexels.com/photos/5632402/pexels-photo-5632402.jpeg?auto=compress&cs=tinysrgb&w=800',
-        imageAlt: 'Interface e-commerce avec panier d\'achat et produits',
-        technologies: ['React', 'Node.js', 'Stripe'],
-        category: 'Dev Web',
-        link: '#'
-    },
-    {
-        id: 'dashboard',
-        title: 'Dashboard Analytics',
-        description: 'Tableau de bord temps réel pour visualiser les métriques clés et générer des rapports automatisés.',
-        // image: imgDashboard,  // Décommenter après téléchargement
-        imageUrl: 'https://images.pexels.com/photos/7947541/pexels-photo-7947541.jpeg?auto=compress&cs=tinysrgb&w=800',
-        imageAlt: 'Tableau de bord analytics avec graphiques et métriques',
-        technologies: ['Astro', 'Supabase', 'Chart.js'],
-        category: 'Application',
-        link: '#'
-    },
-    {
-        id: 'pwa',
-        title: 'App Mobile PWA',
-        description: 'Application progressive installable sur mobile pour la gestion de tâches et la collaboration d\'équipe.',
-        // image: imgPWA,  // Décommenter après téléchargement
-        imageUrl: 'https://images.pexels.com/photos/5082579/pexels-photo-5082579.jpeg?auto=compress&cs=tinysrgb&w=800',
-        imageAlt: 'Application mobile progressive sur smartphone',
-        technologies: ['React', 'Tailwind', 'PWA'],
-        category: 'Application',
-        link: '#'
-    }
-]
+// Fetch lab projects
+const labProjects = await getCollection('lab', ({ data }) => !data.draft);
+const labNormalized = labProjects.map(project => ({
+    id: project.slug,
+    title: project.data.title,
+    description: project.data.description,
+    imageUrl: project.data.thumbnail,
+    imageAlt: project.data.title,
+    tags: project.data.tags,
+    category: 'Lab',
+    type: 'lab' as const,
+    link: `/lab/${project.slug}`,
+    date: project.data.date,
+}));
+
+// Fetch portfolio (études de cas)
+const portfolioProjects = await getCollection('portfolio', ({ data }) => !data.draft);
+const portfolioNormalized = portfolioProjects.map(project => ({
+    id: project.slug,
+    title: project.data.title,
+    description: project.data.description,
+    imageUrl: project.data.heroImage.url,
+    imageAlt: project.data.heroImage.alt,
+    tags: project.data.tags,
+    category: 'Étude de cas',
+    type: 'portfolio' as const,
+    link: `/portfolio/${project.slug}`,
+    date: project.data.date,
+}));
+
+// Combine and sort by date (most recent first), take 3
+const projects = [...labNormalized, ...portfolioNormalized]
+    .sort((a, b) => b.date.getTime() - a.date.getTime())
+    .slice(0, 3);
 ---
 
 <section class="py-20 md:py-32 bg-[var(--main-bg)] relative overflow-hidden" id="portfolio">
@@ -135,18 +126,6 @@ const projects = [
                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                             loading="lazy"
                         />
-                        <!-- TODO: Remplacer par Image component après téléchargement des images:
-                        <Image
-                            src={project.image}
-                            alt={project.imageAlt}
-                            width={800}
-                            height={450}
-                            format="webp"
-                            quality={80}
-                            loading="lazy"
-                            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                        />
-                        -->
                         <!-- Subtle gradient overlay on hover -->
                         <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
 
@@ -191,9 +170,9 @@ const projects = [
                             {project.description}
                         </p>
 
-                        <!-- Technologies -->
+                        <!-- Tags -->
                         <div class="flex flex-wrap gap-2 mb-4">
-                            {project.technologies.map((tech) => (
+                            {project.tags.slice(0, 3).map((tag) => (
                                 <span class="
                                     px-2 py-1
                                     bg-gray-50 border border-gray-200
@@ -202,7 +181,7 @@ const projects = [
                                     group-hover:border-[var(--accent)]/40
                                     group-hover:text-gray-700
                                 ">
-                                    {tech}
+                                    {tag}
                                 </span>
                             ))}
                         </div>
@@ -217,7 +196,7 @@ const projects = [
                                 before:transition-all before:duration-300
                                 group-hover:before:w-full
                             ">
-                                Voir le projet
+                                {project.type === 'portfolio' ? "Voir l'étude de cas" : 'Voir le projet'}
                             </span>
                             <i class="ri-arrow-right-line text-sm transition-transform duration-200 group-hover:translate-x-1"></i>
                         </span>
