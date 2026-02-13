@@ -1,4 +1,5 @@
 {
+  "trailingSlash": false,
   "redirects": [
     { "source": "/blog/astro-vs-next", "destination": "/blog", "permanent": true },
     { "source": "/blog/astro-vs-next/", "destination": "/blog", "permanent": true },
