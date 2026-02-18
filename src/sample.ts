@@ -24,21 +24,21 @@ const services = [
         title: 'Création de Sites Web & E-commerce',
         description: 'Sites vitrines ultra-rapides (Astro) et boutiques en ligne. Je crée des expériences digitales qui convertissent les visiteurs en clients.',
         icon: 'ri-code-s-slash-line',
-        link: '/services/#web-dev'
+        link: '/services'
     },
     {
         id: 'automation',
         title: 'Automatisation & Processus Métiers',
         description: 'Faites travailler les robots à votre place. Je connecte vos outils (Make, Zapier, API) pour éliminer les tâches répétitives.',
         icon: 'ri-loop-left-line',
-        link: '/services/#automation'
+        link: '/services'
     },
     {
         id: 'custom-apps',
         title: 'Applications Web & SaaS Sur-Mesure',
         description: 'Votre besoin est unique ? Je développe des outils métiers, dashboards et MVPs spécifiques pour votre activité.',
         icon: 'ri-smartphone-line',
-        link: '/services/#custom-apps'
+        link: '/services'
     }
 ]
 
