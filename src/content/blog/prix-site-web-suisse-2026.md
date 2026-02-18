@@ -103,7 +103,7 @@ Et devine quoi ? Plus c'est long, plus ça coûte.
 
 Bon, assez de théorie. Tu veux des chiffres. Les voici.
 
-**Important :** Les tarifs que je te donne ici sont **mes tarifs chez Jon Labs**. Je me positionne volontairement accessible pour rendre le web de qualité disponible au plus grand nombre. D'autres prestataires peuvent avoir des prix différents (souvent plus élevés).
+**Important :** Les tarifs que je te donne ici sont **mes tarifs chez Jon Labs**. Je me positionne volontairement accessible pour rendre le web de qualité disponible au plus grand nombre. D'autres prestataires peuvent avoir des prix différents (souvent plus élevés). Et si tu te demandes si un freelance ou une agence est le meilleur choix pour ton projet, j'ai comparé les deux options en détail — avec les vrais critères de décision — dans cet article sur [comment choisir entre freelance et agence web](/blog/freelance-ou-agence-web).
 
 ### Site vitrine simple (5-10 pages)
 
@@ -189,6 +189,8 @@ Je préfère te livrer un site imparfait mais **en ligne** en 1 semaine qu'un si
 Parce qu'un site en ligne, même imparfait, **tu peux le tester, l'améliorer, apprendre de tes utilisateurs**.
 
 Un site parfait dans ta tête ? Ça ne sert à rien.
+
+Une mise en garde toutefois : même un site en ligne rapide ne vaut rien si personne ne le trouve. C'est le piège de nombreux sites créés avec des outils IA — ils existent techniquement, mais restent invisibles sur Google. J'explique pourquoi et comment y remédier dans cet article sur les [sites vitrines créés par IA et la visibilité Google](/blog/creer-site-vitrine-ia-visibilite-google).
 
 ---
 

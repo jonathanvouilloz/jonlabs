@@ -41,7 +41,7 @@ const schemaData = {
 ---
 
 <Layout
-  title={`${title} - Blog - Jon Labs`}
+  title={title}
   description={description}
   ogImage={image.url}
   ogType="article"
@@ -64,6 +64,8 @@ const schemaData = {
         src={image.url}
         alt={image.alt}
         class="w-full h-full object-cover"
+        loading="eager"
+        fetchpriority="high"
       />
       <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
     </div>

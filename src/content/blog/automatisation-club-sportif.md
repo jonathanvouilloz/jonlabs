@@ -1,5 +1,5 @@
 ---
-title: "Gestion de club sportif en Suisse : Pourquoi Excel ne suffit plus en 2025"
+title: "Club sportif : pourquoi Excel ne suffit plus"
 description: "Cotisations impayées, fichiers Excel chaotiques, conformité nLPD : découvrez comment l'automatisation peut soulager les bénévoles de votre club."
 pubDate: 2025-11-27
 image:
@@ -70,7 +70,7 @@ Je connais les objections. Je les ai entendues cent fois.
 
 **"Les logiciels, c'est compliqué."** Certains le sont. Mais pas tous. Et surtout : est-ce plus compliqué que de passer trois soirées par mois à faire des relances manuelles ?
 
-**"On n'a pas le budget."** C'est souvent une question de perception. Le temps bénévole a une valeur. Si votre trésorier passe 10 heures par mois sur des tâches automatisables, c'est un coût — même s'il n'apparaît pas dans la comptabilité.
+**"On n'a pas le budget."** C'est souvent une question de perception. Le temps bénévole a une valeur. Si votre trésorier passe 10 heures par mois sur des tâches automatisables, c'est un coût — même s'il n'apparaît pas dans la comptabilité. C'est exactement le même calcul que font les PME romandes : une étude chiffre à [654 heures par an le temps perdu en tâches administratives](/blog/temps-perdu-pme-automatisation) — des tâches qui seraient évitables avec les bons outils.
 
 **"On n'a pas le temps de migrer."** Là, je comprends. Personne n'a envie de se lancer dans un projet technique en pleine saison. Mais attendre "le bon moment", c'est souvent attendre indéfiniment.
 
@@ -84,7 +84,7 @@ Des solutions existent. ClubDesk, Fairgate, GestiClub... Ces logiciels sont pens
 
 **Leur limite** : ils imposent un cadre. Votre club doit s'adapter à leur logique, pas l'inverse. Pour une grande fédération, ça passe. Pour un club de 40 membres avec des processus un peu particuliers, c'est parfois frustrant. Et le coût mensuel, même modeste, s'additionne année après année.
 
-Ce que j'observe sur le terrain, c'est que beaucoup de clubs n'ont pas besoin d'une usine à gaz. Ils ont besoin d'une chose simple : que l'inscription et le paiement se fassent sans friction, et que les relances ne dépendent plus de la bonne volonté d'un bénévole.
+Ce que j'observe sur le terrain, c'est que beaucoup de clubs n'ont pas besoin d'une usine à gaz. Ils ont besoin d'une chose simple : que l'inscription et le paiement se fassent sans friction, et que les relances ne dépendent plus de la bonne volonté d'un bénévole. Ce principe vaut d'ailleurs bien au-delà des clubs : les thérapeutes et praticiens indépendants font face au même problème avec les absences aux rendez-vous — et les mêmes leviers d'automatisation s'appliquent, comme je l'explique dans cet article sur [comment sécuriser ses rendez-vous et réduire les no-shows](/blog/no-show-rendez-vous-2026).
 
 ---
 

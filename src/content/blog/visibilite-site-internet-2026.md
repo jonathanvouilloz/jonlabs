@@ -1,5 +1,5 @@
 ---
-title: "3.5% : pourquoi chaque indépendant romand devrait avoir un site web en 2026"
+title: "Pourquoi chaque indépendant a besoin d'un site"
 description: "Seuls 3.5% de tes abonnés voient tes posts Instagram. Découvre pourquoi un site web est devenu indispensable pour les indépendants en Suisse romande."
 pubDate: 2025-12-01
 image:
@@ -7,7 +7,7 @@ image:
   alt: "Comparaison visibilité réseaux sociaux vs site web - illustration sketchnote"
 category: "tech"
 tags: ["site-web", "visibilite", "independant", "seo-local", "suisse-romande"]
-featured: true
+featured: false
 draft: false
 readingTime: 10
 ---
@@ -96,7 +96,7 @@ Un site daté, pas responsive, lent à charger — ça envoie un message. Et ce 
 
 Un site propre, moderne, qui se charge vite et qui dit clairement ce que tu fais — ça envoie un autre message : **"Je prends mon métier au sérieux."**
 
-En 2026, avoir un site web professionnel n'est plus du confort. C'est la **norme minimum**. C'est ce que les gens s'attendent à trouver quand ils te cherchent.
+En 2026, avoir un site web professionnel n'est plus du confort. C'est la **norme minimum**. C'est ce que les gens s'attendent à trouver quand ils te cherchent. Et si tu te demandes ce que ça représente comme investissement, j'ai détaillé les [vrais tarifs d'un site web en Suisse](/blog/prix-site-web-suisse-2026) pour que tu aies une idée claire avant de te lancer.
 
 ---
 
@@ -187,7 +187,7 @@ On commence par l'essentiel : **qui tu es, ce que tu fais, comment te contacter*
 
 Le reste — portfolio, témoignages, blog, pages détaillées — ça vient après, quand tu en ressens le besoin. Un bon site est évolutif. Tu n'es pas obligé de tout avoir dès le jour 1.
 
-Si tu sens que ton site actuel a besoin d'un coup de neuf, jette un œil à ce que je propose en [refonte de site web](/services/refonte-site-web/). Et si tu pars de zéro, c'est par là pour la [création de site](/services/creation-site-web/).
+Si tu sens que ton site actuel a besoin d'un coup de neuf, jette un œil à ce que je propose en [refonte de site web](/services/refonte-site-web). Et si tu pars de zéro, c'est par là pour la [création de site](/services/creation-site-web). Une fois ton site en ligne, la vraie question devient : comment être trouvé ? J'ai rédigé un [plan d'action en 30 jours pour être visible sur Google](/blog/0a30joursgooglevisible) — concret, étape par étape.
 
 ---
 

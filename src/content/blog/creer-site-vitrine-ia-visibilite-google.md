@@ -1,5 +1,5 @@
 ---
-title: "Créer un site vitrine avec l'IA en 2026 : pourquoi ça ne suffit pas pour être visible sur Google"
+title: "Site vitrine IA : pourquoi Google t'ignore"
 description: "Lovable, Bolt, Claude Code : créer un site web n'a jamais été aussi simple. Mais sans stratégie de visibilité, ton site reste invisible."
 pubDate: 2026-02-13
 image:
@@ -37,7 +37,7 @@ Je ne suis pas là pour basher l'IA. Je l'utilise tous les jours. Et je sais exa
 - Des prototypes pour tester un concept avant d'investir
 - Des itérations rapides quand tu sais exactement ce que tu veux
 
-Et côté **prix site internet** ? Quasi gratuit pour démarrer. Lovable, c'est quelques dollars par mois. Bolt a un plan gratuit. Claude Code, tu paies l'abonnement et c'est parti.
+Et côté **prix site internet** ? Quasi gratuit pour démarrer. Lovable, c'est quelques dollars par mois. Bolt a un plan gratuit. Claude Code, tu paies l'abonnement et c'est parti. Si tu compares ça avec le coût d'un site fait par un professionnel, les [vrais tarifs d'un site web en Suisse en 2026](/blog/prix-site-web-suisse-2026) te donnent une base réaliste pour peser les deux options.
 
 Les chiffres parlent d'eux-mêmes : [**65% des organisations mondiales**](https://www.incremys.com/en/resources/blog/llm-statistics) utilisent déjà l'IA générative dans leur quotidien. Plus de [**50% du contenu web**](https://www.incremys.com/en/resources/blog/llm-statistics) est désormais généré par IA.
 

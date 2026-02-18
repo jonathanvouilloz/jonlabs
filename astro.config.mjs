@@ -18,7 +18,8 @@ export default defineConfig({
       filter: (page) =>
         !page.includes('/cv-pdf') &&
         !page.includes('/merci-') &&
-        !page.includes('-pdf/')
+        !page.includes('-pdf/') &&
+        !page.includes('/devis-client/')
     })
   ],
   markdown: {

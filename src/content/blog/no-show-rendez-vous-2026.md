@@ -1,5 +1,5 @@
 ---
-title: "Rendez-vous manqués et No-shows : Le système de réservation pour sécuriser votre CA"
+title: "No-shows : le système pour sécuriser vos RDV"
 description: "Réduisez les no-shows avec un système de réservation adapté : comparatif des outils, rappels SMS/WhatsApp et acomptes TWINT."
 pubDate: 2025-12-06
 image:
@@ -64,7 +64,7 @@ Pourquoi ? Parce que le no-show n'est pas un problème de réservation. C'est un
 
 ## Les trois leviers qui changent vraiment la donne
 
-Après avoir observé ce qui fonctionne chez différents praticiens, je vois trois éléments qui font la différence entre un système qui "marche à peu près" et un système qui sécurise vraiment l'agenda.
+Après avoir observé ce qui fonctionne chez différents praticiens, je vois trois éléments qui font la différence entre un système qui "marche à peu près" et un système qui sécurise vraiment l'agenda. Ce besoin d'automatisation des rappels et des engagements n'est d'ailleurs pas propre aux praticiens : les clubs sportifs vivent exactement la même frustration avec les cotisations impayées et les relances manuelles — un problème que j'ai décrit dans cet article sur [pourquoi Excel ne suffit plus pour un club sportif](/blog/automatisation-club-sportif).
 
 ### Levier 1 : Le rappel qui est vraiment lu
 
@@ -138,7 +138,7 @@ Le système de réservation n'est probablement pas le problème. C'est le rappel
 
 ## Ce qu'il faut retenir
 
-Le problème des rendez-vous manqués n'est pas un problème de clients irrespectueux. C'est un problème de système qui n'est pas adapté à la façon dont les gens fonctionnent aujourd'hui.
+Le problème des rendez-vous manqués n'est pas un problème de clients irrespectueux. C'est un problème de système qui n'est pas adapté à la façon dont les gens fonctionnent aujourd'hui. Si vous gérez une structure plus grande — une PME ou une petite équipe — les mêmes logiques d'automatisation s'appliquent à l'ensemble de vos tâches répétitives : une [étude chiffre à 654 heures par an le temps perdu en admin par les PME romandes](/blog/temps-perdu-pme-automatisation), avec des solutions concrètes pour y remédier.
 
 **Un bon système de réservation, c'est trois choses :**
 

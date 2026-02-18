@@ -1,5 +1,5 @@
 ---
-title: "Freelance ou agence web en 2026 : comment choisir en Suisse romande ?"
+title: "Freelance ou agence web : comment choisir ?"
 description: "Tarifs, avantages, limites : le guide complet pour choisir entre freelance et agence pour ton projet web."
 pubDate: 2025-12-09
 image:
@@ -7,7 +7,7 @@ image:
   alt: "Agence vs Freelance - Que choisir en 2026 ?"
 category: "perso"
 tags: ["freelance", "agence", "suisse", "budget", "web"]
-featured: true
+featured: false
 draft: false
 readingTime: 8
 ---
@@ -62,7 +62,7 @@ Avant de comparer les avantages, mettons les chiffres sur la table. Parce que ou
 
 La raison est simple : pas de locaux à payer, pas de salaires fixes, pas de hiérarchie. Moins de frais de structure = prix plus bas.
 
-Mais attention : moins cher ne veut pas dire "moins bien". Et plus cher ne garantit pas "mieux". Tout dépend de ce que tu cherches.
+Mais attention : moins cher ne veut pas dire "moins bien". Et plus cher ne garantit pas "mieux". Tout dépend de ce que tu cherches. Si tu veux des chiffres précis avant de comparer les deux options, j'ai publié un guide complet sur les [tarifs réels d'un site web en Suisse en 2026](/blog/prix-site-web-suisse-2026) — avec les fourchettes par type de projet.
 
 ---
 
@@ -180,7 +180,7 @@ Le plus important ? Bien définir tes besoins avant de chercher un prestataire. 
 
 C'est normal. Chaque projet est unique, et parfois il faut en discuter pour y voir clair.
 
-**Tu as une idée mais tu n'es pas sûr qu'elle vaille un site complet ?** Avant d'investir dans un site, tu peux [tester ton concept](/services/validation-idee/) avec une landing page et une campagne ciblée. Réponse en 2 semaines.
+**Tu as une idée mais tu n'es pas sûr qu'elle vaille un site complet ?** Avant d'investir dans un site, tu peux [tester ton concept](/services/validation-idee) avec une landing page et une campagne ciblée. Réponse en 2 semaines.
 
 Si tu veux qu'on regarde ensemble quelle approche correspond le mieux à ta situation, je te propose un appel découverte de 30 minutes — gratuit et sans engagement.
 

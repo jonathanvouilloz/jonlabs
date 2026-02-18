@@ -1,5 +1,5 @@
 ---
-title: "52% des PME romandes utilisent l'IA pour traduire. Voici 5 usages qui changent vraiment la donne"
+title: "IA pour PME : 5 usages qui changent la donne"
 description: "L'IA est partout, mais mal utilisée. Découvrez les quick wins concrets pour PME suisses : workflow, outils conformes LPD, et calcul ROI réaliste."
 pubDate: 2025-12-16
 image:
@@ -7,7 +7,7 @@ image:
   alt: "Illustration sketchnote montrant une Ferrari garée devant une boîte aux lettres - métaphore de l'IA sous-utilisée par les PME"
 category: "tech"
 tags: ["ia", "pme", "suisse-romande", "productivite", "automatisation"]
-featured: true
+featured: false
 draft: false
 readingTime: 12
 ---
@@ -233,6 +233,8 @@ Quelques suspects habituels :
 - La rédaction de devis/propositions
 - Les comptes-rendus de réunion
 - La veille (concurrence, actualités)
+
+Si tu ne sais pas encore où ton entreprise perd vraiment du temps, j'ai analysé les 5 postes les plus courants dans cet article sur les [654 heures par an perdues en admin par les PME romandes](/blog/temps-perdu-pme-automatisation) — un bon point de départ avant d'introduire l'IA.
 
 Tu as trouvé ? Parfait.
 

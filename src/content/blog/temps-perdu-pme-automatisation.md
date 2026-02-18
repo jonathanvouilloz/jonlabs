@@ -83,7 +83,7 @@ Une étude de l'Office fédéral du développement économique estime le coût a
 
 Et le plus frustrant ? **Seulement 9% des PME suisses utilisent l'automatisation de manière systématique.**
 
-91% laissent de l'argent sur la table. Ou plutôt, du temps. Et le temps, dans une PME, c'est de l'argent.
+91% laissent de l'argent sur la table. Ou plutôt, du temps. Et le temps, dans une PME, c'est de l'argent. Ce n'est pas un problème réservé aux entreprises : même les clubs sportifs et associations vivent exactement cette situation — j'en parle dans cet article sur [pourquoi Excel ne suffit plus pour gérer un club](/blog/automatisation-club-sportif).
 
 ---
 
@@ -175,6 +175,8 @@ Les études montrent que les petites PME gagnent **PLUS** que les grandes avec l
 Pourquoi ? Parce que les petites partent de plus loin. Chaque heure récupérée compte trois fois plus quand tu es une équipe de 5 que quand tu es 500.
 
 **L'automatisation, c'est pas un truc de grands groupes avec des budgets IT. C'est justement l'inverse : c'est l'outil qui permet aux petits de jouer dans la même cour.**
+
+Et si tu veux aller plus loin, l'IA peut démultiplier ces gains — pas juste pour automatiser, mais pour des tâches de réflexion et de structuration que tu fais chaque semaine. J'ai listé [5 usages concrets de l'IA pour les PME romandes](/blog/ia-pragmatique-pme-suisse) avec un calcul de ROI réaliste.
 
 ---
 

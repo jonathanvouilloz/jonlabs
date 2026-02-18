@@ -1,5 +1,5 @@
 ---
-title: "NotebookLM : l'IA qui analyse VOS documents sans halluciner (guide complet 2026)"
+title: "NotebookLM : analyser vos documents sans halluciner"
 description: "Découvrez comment NotebookLM transforme des heures de lecture en minutes. Guide pratique avec nouveautés 2025-2026, workflows concrets et cas d'usage."
 pubDate: 2026-01-06
 image:
@@ -7,7 +7,7 @@ image:
   alt: "Illustration d'un personnage blob analysant des documents avec NotebookLM"
 category: "tech"
 tags: ["ia", "notebooklm", "productivite", "documents", "google", "outils"]
-featured: true
+featured: false
 draft: false
 readingTime: 14
 ---
@@ -392,7 +392,7 @@ NotebookLM n'est pas parfait.
 
 NotebookLM est optimisé pour analyser et synthétiser, pas pour écrire de longs documents.
 
-Si tu veux rédiger un article de blog ou un rapport complet, Claude ou Gemini sont plus adaptés.
+Si tu veux rédiger un article de blog ou un rapport complet, Claude ou Gemini sont plus adaptés. Et si tu utilises l'IA pour créer ton site web directement, méfie-toi d'un piège fréquent : les outils IA génèrent du code, mais pas la visibilité sur Google. J'explique pourquoi dans cet article sur les [sites vitrines créés par IA et leur invisibilité sur Google](/blog/creer-site-vitrine-ia-visibilite-google).
 
 ### Pas de données en temps réel
 

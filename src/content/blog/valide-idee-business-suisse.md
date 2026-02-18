@@ -86,7 +86,7 @@ Une page simple qui explique :
 - Comment ça marche
 - Un bouton d'action (inscription, pré-commande, demande d'info)
 
-Pas besoin de 15 pages. Une seule suffit. L'important c'est la clarté du message.
+Pas besoin de 15 pages. Une seule suffit. L'important c'est la clarté du message. Si tu te demandes combien ça coûte de faire faire cette page par un professionnel, j'ai publié un guide transparent sur les [tarifs réels d'un site web en Suisse en 2026](/blog/prix-site-web-suisse-2026) — tu verras qu'un site simple ne coûte pas ce que tu imagines.
 
 **2. L'acquisition ciblée**
 
@@ -174,6 +174,8 @@ Tu construis uniquement ce qui a été validé par ton test. Tu itères sur les 
 
 Et c'est seulement à ce stade que tu considères la structure juridique. Parce que maintenant, **t'as des données. T'as des clients. T'as une raison de créer cette Sàrl.**
 
+Une chose à garder en tête quand tu passes à l'étape site web : de nombreux outils IA permettent aujourd'hui de créer un site très vite, mais être en ligne ne veut pas dire être visible sur Google. C'est un point crucial que j'explique dans cet article sur les [sites vitrines créés par IA et leur invisibilité sur Google](/blog/creer-site-vitrine-ia-visibilite-google) — à lire avant de te lancer.
+
 ---
 
 ## Le vrai risque, c'est de ne pas tester
@@ -208,7 +210,7 @@ Si tu préfères déléguer la partie technique — landing page, campagne pub, 
 - Un rapport avec métriques concrètes
 - Un appel de debrief pour interpréter les résultats
 
-[Découvrir le service Test de concept →](/services/validation-idee/)
+[Découvrir le service Test de concept →](/services/validation-idee)
 
 ---
 
