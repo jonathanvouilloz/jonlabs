@@ -88,8 +88,6 @@ Je ne prends pas tout. Je challenge, j'ajuste, je réorganise. Mais partir d'une
 
 ---
 
-![Illustration sketchnote montrant la transformation d'une pile de documents en résumé clair via l'IA en 5 minutes](/images/blog/ia-pragmatique-analyse-docs.png)
-
 ### 3. L'analyse de documents longs
 
 OK, celui-là va te sembler bizarre, mais c'est mon préféré.
@@ -160,8 +158,6 @@ Je passe moins de temps à chercher dans la doc, à tester des trucs au hasard.
 
 ---
 
-![Illustration VS comparant les données envoyées vers le cloud US versus stockées dans un coffre-fort suisse](/images/blog/ia-pragmatique-souverainete.png)
-
 ## L'angle souveraineté : tes données, c'est ton business
 
 Je dois aborder un sujet qui fâche.
@@ -223,8 +219,6 @@ L'IA ne me rend pas plus intelligent. Elle me rend plus fluide.
 
 ---
 
-![Illustration des 4 étapes du premier mois : Identifier, Tester, Mesurer, Décoller](/images/blog/ia-pragmatique-checklist.webp)
-
 ## Par où commencer ? La checklist du premier mois
 
 Assez de théorie. Voici ce que je te propose de faire concrètement.
@@ -270,8 +264,6 @@ Si le test est concluant :
 ---
 
 ## Ce qu'il faut retenir
-
-![Ce qu'il faut retenir - Points clés à mémoriser](/images/blog/resume-end-article.webp)
 
 1. **L'IA est sous-utilisée** : 52% des usages se limitent à la traduction alors que le potentiel est bien plus large
 2. **5 quick wins accessibles** : Brainstorming, planification, analyse de docs, rédaction assistée, développement accéléré

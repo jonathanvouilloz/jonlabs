@@ -164,8 +164,6 @@ C'est d'ailleurs l'approche que je privilégie chez Jon Labs. Je gère ton proje
 
 ## Ce qu'il faut retenir
 
-![Ce qu'il faut retenir - Points clés à mémoriser](/images/blog/resume-end-article.webp)
-
 Le choix freelance vs agence n'est pas une question de "mieux" ou "moins bien". C'est une question d'adéquation avec ton projet.
 
 **En résumé :**

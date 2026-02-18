@@ -46,8 +46,6 @@ Tu as peut-être déjà vécu ça : un post qui performe moins bien sans raison 
 
 **Et tu n'as aucun recours.** Parce que tu joues sur leur terrain.
 
-![Construis sur ton terrain - Maison sur nuage vs terrain solide](/images/blog/visibilite-2026-terrain.png)
-
 ---
 
 ## Pendant ce temps, sur Google...
@@ -105,8 +103,6 @@ En 2026, avoir un site web professionnel n'est plus du confort. C'est la **norme
 ## Trois histoires vraies
 
 Je pourrais continuer à te balancer des stats, mais les chiffres ne racontent pas tout. Voici trois situations réelles que j'ai vécues avec des clients.
-
-![3 histoires vraies - Juriste, Barbershop, Cheffe d'orchestre](/images/blog/visibilite-2026-histoires.png)
 
 ### Le juriste genevois
 
@@ -214,8 +210,6 @@ Si la réponse te met mal à l'aise, c'est peut-être le signe qu'il est temps d
 ---
 
 ## Ce qu'il faut retenir
-
-![Ce qu'il faut retenir - Points clés à mémoriser](/images/blog/resume-end-article.webp)
 
 1. **Ta visibilité sur les réseaux sociaux ne t'appartient pas** — avec 3.5% de portée organique sur Instagram, tu construis sur un terrain loué
 2. **89% des gens recherchent sur Google avant de contacter un prestataire** — si tu n'as pas de site, tu n'existes pas pour eux

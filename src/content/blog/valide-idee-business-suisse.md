@@ -56,8 +56,6 @@ Voici un truc que beaucoup ignorent en Suisse : **tu n'as pas besoin d'une Sàrl
 
 Tu peux facturer jusqu'à 100'000 CHF par an en tant que Raison Individuelle sans même être assujetti à la TVA. Pas de capital à déposer. Pas de notaire. Pas de registre du commerce obligatoire en dessous de ce seuil.
 
-![Infographie comparant Sàrl vs Raison Individuelle en Suisse](/images/blog/valide-idee-business-suisse-sarl-vs-ri.webp)
-
 Concrètement, ça veut dire que tu peux :
 
 - **Créer une landing page** qui présente ton offre
@@ -113,8 +111,6 @@ Si personne ne clique, t'as ta réponse. L'idée ne résout pas un problème ass
 ## Les outils pour monter ton test
 
 C'est là que ça peut devenir technique. Voici ce qu'il te faut :
-
-![Schéma du flux Smoke Test en 4 étapes](/images/blog/valide-idee-business-suisse-smoke-test.webp)
 
 ### Pour la landing page
 
@@ -194,8 +190,6 @@ Mieux vaut un "non" rapide qu'un "non" après 6 mois de dev.
 
 ## Ce qu'il faut retenir
 
-![Ce qu'il faut retenir - Points clés à mémoriser](/images/blog/resume-end-article.webp)
-
 1. **Tu n'as pas besoin d'une Sàrl** pour commencer à vendre en Suisse (Raison Individuelle jusqu'à 100k CHF/an)
 2. **Le smoke test** te permet de valider une idée avant de construire quoi que ce soit
 3. **200 CHF de pub + une landing page** = réponse du marché en quelques jours
@@ -221,7 +215,5 @@ Si tu préfères déléguer la partie technique — landing page, campagne pub, 
 **Tu préfères d'abord en discuter ?**
 
 Si t'as besoin d'un regard extérieur pour challenger ton idée avant de te lancer, on peut en parler. Pas de pitch commercial, juste 30 minutes de questions cash pour voir si ton concept tient la route.
-
-![Illustration de deux personnes en discussion pour challenger une idée business](/images/blog/valide-idee-business-suisse-cta.webp)
 
 [Réserver un appel découverte →](https://cal.com/jonathan-vouilloz/appel-de-bienvenue)

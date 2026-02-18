@@ -193,8 +193,6 @@ Et cette stratégie, aucun outil IA ne la génère en 30 minutes.
 
 ## Ce qu'il faut retenir
 
-![Ce qu'il faut retenir - Points clés à mémoriser](/images/blog/resume-end-article.webp)
-
 1. **Créer un site avec l'IA, c'est facile.** Être visible sur Google, c'est un autre métier.
 2. **Google reste dominant** mais les AI Overviews changent la donne : 69% de recherches sans clic.
 3. **Les LLM puisent dans le web.** Être visible sur Google = être visible pour ChatGPT et Perplexity aussi.

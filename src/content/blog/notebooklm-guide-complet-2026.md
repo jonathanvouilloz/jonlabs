@@ -60,8 +60,6 @@ C'est gratuit. C'est en français. Et tu peux commencer en 2 minutes avec un com
 
 **Le site :** [notebooklm.google.com](https://notebooklm.google.com)
 
-![Illustration du concept de "grounding" : une IA enfermée dans une bulle avec uniquement les documents de l'utilisateur, contrairement à une IA classique connectée à tout internet](/images/blog/notebooklm-grounding-concept.webp)
-
 ---
 
 ## Ce qui a changé en 2025-2026 (les nouveautés qui comptent)
@@ -205,8 +203,6 @@ Tu as reçu de nouvelles Conditions Générales de Vente ou un contrat de travai
 
 **Application concrète :** Un client m'envoie un cahier des charges de 25 pages ? En 10 minutes, j'ai identifié les points clés, les zones floues, et les questions à poser.
 
-![Illustration montrant la transformation d'un document complexe en réponses claires avec citations](/images/blog/notebooklm-citations-cliquables.webp)
-
 ---
 
 ### 4. La synthèse de réunions
@@ -279,8 +275,6 @@ Les nouveaux formats incluent :
 - **Débats** (deux IA confrontent des points de vue)
 - **Critiques** (analyse approfondie d'un texte)
 - **Présentations** (version concise pour un exposé oral)
-
-![Illustration de la fonctionnalité Audio Overview : des documents transformés en podcast](/images/blog/notebooklm-audio-overview.webp)
 
 ---
 
@@ -441,8 +435,6 @@ C'est tout. Pas d'installation. Pas de configuration. Pas de CB.
 ---
 
 ## Ce qu'il faut retenir
-
-![Ce qu'il faut retenir - Points clés à mémoriser](/images/blog/resume-end-article.webp)
 
 1. **NotebookLM = IA pour VOS documents** — Pas d'hallucination, réponses sourcées avec citations cliquables
 2. **Capacité massive** — Jusqu'à 300 sources et 150 millions de mots par notebook

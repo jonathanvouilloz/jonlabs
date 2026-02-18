@@ -48,8 +48,6 @@ Mais attention, "plus simple" ne veut pas dire "cheap" ou "au rabais". Ça veut 
 
 OK, maintenant qu'on a posé les bases, voyons ce qui fait qu'un site peut coûter CHF 800 ou CHF 8'000.
 
-![Les 4 facteurs qui influencent le prix d'un site web](/images/blog/prix-site-web-suisse-2026-facteurs.webp)
-
 ### 1. La complexité technique
 
 Un site vitrine avec 5 pages statiques (Accueil, Services, À propos, Portfolio, Contact) ≠ une plateforme e-commerce avec gestion de stock, paiements en ligne, comptes clients, etc.
@@ -241,8 +239,6 @@ Dernier point hyper important qu'on oublie souvent.
 
 **En 2026, +70% du trafic web vient du mobile.**
 
-![Approche mobile-first pour un site web réussi](/images/blog/prix-site-web-suisse-2026-mobile.webp)
-
 Si ton site est moche sur smartphone, tu perds 70% de tes visiteurs. Point.
 
 Et pourtant, je vois encore des sites magnifiques sur desktop qui sont INJOUABLES sur mobile.
@@ -258,8 +254,6 @@ Parce que c'est plus dur de designer pour un petit écran. Si ça marche sur mob
 ---
 
 ## Ce qu'il faut retenir
-
-![Ce qu'il faut retenir - Points clés à mémoriser](/images/blog/resume-end-article.webp)
 
 1. **Un site vitrine pro coûte entre CHF 750 et 1'500** chez Jon Labs (moins cher que la moyenne suisse)
 2. **Le facteur #1 qui fait exploser les coûts, c'est le manque de contenu** au départ — prépare tes textes et images AVANT

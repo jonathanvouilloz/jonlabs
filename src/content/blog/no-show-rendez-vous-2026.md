@@ -102,8 +102,6 @@ Dernier point, et pas des moindres : l'expérience client.
 
 Envoyer vos clients sur une page Calendly externe, avec le logo Calendly, les couleurs Calendly, et une URL calendly.com, ça fonctionne. Mais ça crée une rupture. Le client quitte votre univers pour entrer dans celui d'un outil générique.
 
-![Page externe Calendly vs module intégré à votre site](/images/blog/calendly-solution-custom.webp)
-
 Un module de réservation intégré directement à votre site web, avec vos couleurs, votre ton, votre identité, c'est une tout autre histoire. Le client reste dans votre environnement. Ça renforce la crédibilité et la confiance.
 
 Et bonus non négligeable : les données de réservation restent chez vous. Pas chez un prestataire américain. Pour la conformité nLPD et pour votre indépendance à long terme, c'est un vrai avantage.
@@ -139,8 +137,6 @@ Le système de réservation n'est probablement pas le problème. C'est le rappel
 ---
 
 ## Ce qu'il faut retenir
-
-![Ce qu'il faut retenir - Points clés à mémoriser](/images/blog/resume-end-article.webp)
 
 Le problème des rendez-vous manqués n'est pas un problème de clients irrespectueux. C'est un problème de système qui n'est pas adapté à la façon dont les gens fonctionnent aujourd'hui.
 

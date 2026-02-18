@@ -191,8 +191,6 @@ Pour un commerce qui peut ensuite tourner en "pilote automatique" et t'amener de
 
 ## Ce qu'il faut retenir
 
-![Ce qu'il faut retenir - Points clés à mémoriser](/images/blog/resume-end-article.webp)
-
 1. **Google Business Profile = priorité absolue** — c'est gratuit et c'est là que tes clients te cherchent
 2. **Un site one-page suffit** pour 90% des commerces locaux
 3. **Système de contact/réservation sans commission** pour ne plus dépendre des plateformes

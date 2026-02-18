@@ -112,8 +112,6 @@ Tous les clubs n'ont pas besoin de la même chose. Certains trouveront leur bonh
 
 ## Ce qu'il faut retenir
 
-![Ce qu'il faut retenir - Points clés à mémoriser](/images/blog/resume-end-article.webp)
-
 1. **Excel a ses limites** : fichiers éparpillés, formules fragiles, passation difficile
 2. **Les relances manuelles épuisent les bénévoles** — et c'est souvent un problème de système, pas de mauvaise volonté des membres
 3. **La conformité nLPD impose de repenser la gestion des données** personnelles

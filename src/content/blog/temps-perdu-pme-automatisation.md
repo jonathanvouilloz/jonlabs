@@ -37,8 +37,6 @@ Cet article, c'est pour toi si tu diriges une PME en Suisse romande et que tu se
 
 ## Où part vraiment le temps ? Les 5 vampires de ta PME
 
-![Les 5 vampires de temps dans les PME - facturation, relances, synchro, emails, reporting](/images/blog/temps-perdu-pme-vampires.webp)
-
 J'ai discuté avec pas mal de dirigeants de PME romandes ces derniers mois. Le constat est toujours le même : ils savent que "ça pourrait être mieux", mais ils n'arrivent pas à mettre le doigt sur où exactement.
 
 Voici les 5 postes qui reviennent systématiquement.
@@ -90,8 +88,6 @@ Et le plus frustrant ? **Seulement 9% des PME suisses utilisent l'automatisation
 ---
 
 ## 3 automatisations qui changent la donne (sans projet IT à 50k)
-
-![Avant et après automatisation - outils déconnectés vs flux automatiques](/images/blog/temps-perdu-pme-avant-apres.png)
 
 Passons aux solutions concrètes. Pas des trucs théoriques — des automatisations que tu peux tester cette semaine.
 
@@ -183,8 +179,6 @@ Pourquoi ? Parce que les petites partent de plus loin. Chaque heure récupérée
 ---
 
 ## Ce qu'il faut retenir
-
-![Ce qu'il faut retenir - Points clés à mémoriser](/images/blog/resume-end-article.webp)
 
 1. **654h/an perdues en admin** = presque 3 mois de travail à temps plein
 2. **Les 5 vampires** : facturation, relances, synchro outils, emails répétitifs, reporting
