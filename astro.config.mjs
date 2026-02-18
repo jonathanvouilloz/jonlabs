@@ -19,7 +19,12 @@ export default defineConfig({
         !page.includes('/cv-pdf') &&
         !page.includes('/merci-') &&
         !page.includes('-pdf/') &&
-        !page.includes('/devis-client/')
+        !page.includes('/devis-client/'),
+      serialize(item) {
+        // Default lastmod for all pages
+        item.lastmod = new Date().toISOString();
+        return item;
+      }
     })
   ],
   markdown: {

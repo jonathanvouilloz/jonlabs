@@ -1,0 +1,64 @@
+---
+import '../../../styles/global.css';
+import { getCollection } from 'astro:content';
+import Layout from '../../../layouts/Layout.astro';
+import AppHeader from '../../../components/Header.astro';
+import AppFooter from '../../../components/Footer.astro';
+import PostCard from '../../../components/blog/PostCard.astro';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+
+  // Collect all unique tags
+  const tags = [...new Set(allPosts.flatMap((post) => post.data.tags))];
+
+  return tags.map((tag) => ({
+    params: { tag },
+    props: {
+      tag,
+      posts: allPosts
+        .filter((post) => post.data.tags.includes(tag))
+        .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()),
+    },
+  }));
+}
+
+const { tag, posts } = Astro.props;
+---
+
+<Layout
+  title={`Articles sur "${tag}"`}
+  description={`Tous les articles du blog Jon Labs sur le thème : ${tag}`}
+  robots="noindex, follow"
+>
+  <AppHeader />
+
+  <main class="max-w-6xl mx-auto px-4 py-12">
+    <!-- Back + title -->
+    <div class="mb-10">
+      <a
+        href="/blog"
+        class="inline-flex items-center gap-2 text-sm font-medium mb-6 hover:text-[var(--violet)] transition-colors"
+      >
+        <i class="ri-arrow-left-line"></i>
+        Retour au blog
+      </a>
+
+      <h1 class="text-3xl md:text-4xl font-black">
+        Articles sur <span class="bg-[var(--accent)] px-2">#{tag}</span>
+      </h1>
+      <p class="text-gray-500 mt-2">
+        {posts.length} article{posts.length > 1 ? 's' : ''}
+      </p>
+    </div>
+
+    <!-- Posts grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {posts.map((post) => (
+        <PostCard post={post} />
+      ))}
+    </div>
+  </main>
+
+  <AppFooter />
+</Layout>

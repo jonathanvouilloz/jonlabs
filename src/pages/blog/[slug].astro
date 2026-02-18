@@ -10,6 +10,8 @@ import RelatedPosts from '../../components/blog/RelatedPosts.astro';
 import ReadingProgress from '../../components/blog/ReadingProgress.astro';
 import { formatDate, getRelatedPosts } from '../../lib/blog';
 import { author } from '../../sample';
+import { getBlogPostingSchema, getBreadcrumbSchema } from '../../lib/seo';
+import { SITE_URL } from '../../data/schema';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
@@ -25,8 +27,8 @@ const { Content } = await post.render();
 
 const relatedPosts = getRelatedPosts(post, allPosts, 3);
 
-// Prepare BlogPosting schema data
-const schemaData = {
+// Generate schemas
+const blogPostingSchema = getBlogPostingSchema({
   title,
   description,
   url: Astro.url.href,
@@ -37,7 +39,13 @@ const schemaData = {
   category,
   tags,
   readingTime
-};
+});
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Accueil', url: SITE_URL },
+  { name: 'Blog', url: `${SITE_URL}/blog` },
+  { name: title, url: Astro.url.href },
+]);
 ---
 
 <Layout
@@ -45,8 +53,7 @@ const schemaData = {
   description={description}
   ogImage={image.url}
   ogType="article"
-  schema="BlogPosting"
-  schemaData={schemaData}
+  schemas={[blogPostingSchema, breadcrumbSchema]}
   article={{
     publishedTime: pubDate,
     modifiedTime: post.data.updatedDate,
@@ -172,9 +179,9 @@ const schemaData = {
             {tags.length > 0 && (
               <div class="flex flex-wrap gap-2 mb-8 pb-8 border-b border-gray-200">
                 {tags.map((tag) => (
-                  <span class="px-3 py-1 bg-gray-100 text-sm text-gray-600">
+                  <a href={`/blog/tag/${tag}`} class="px-3 py-1 bg-gray-100 text-sm text-gray-600 hover:bg-[var(--accent)] hover:text-black transition-colors">
                     #{tag}
-                  </span>
+                  </a>
                 ))}
               </div>
             )}
