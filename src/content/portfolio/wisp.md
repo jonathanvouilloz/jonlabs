@@ -1,6 +1,6 @@
 ---
 title: "Wisp"
-description: "Une webapp d'écriture quotidienne où le texte s'efface si tu t'arrêtes. 300 mots par jour, zéro excuses."
+description: "Une webapp d'écriture quotidienne où le texte s'efface si tu t'arrêtes. 300 mots par jour, zéro excuses. Local-first, 100% privé, style zen."
 date: 2026-01-20
 draft: false
 featured: false

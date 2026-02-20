@@ -1,0 +1,423 @@
+---
+// Page Tarifs - Jon Labs
+// Packages combinés création de site web + SEO local
+
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import FAQ from "../components/FAQ.astro";
+import CTASection from "../components/CTASection.astro";
+
+import { SITE_URL } from '../data/schema';
+import { getWebPageSchema } from '../lib/seo';
+
+const pageTitle = "Tarifs création de site web & SEO local Genève | Jon Labs";
+const pageDescription = "Packages clairs combinant création de site web et référencement local pour PME à Genève. À partir de 1'490 CHF. Comparatif inclus. Devis gratuit.";
+
+const webPageSchema = getWebPageSchema({
+  url: `${SITE_URL}/tarifs`,
+  name: pageTitle,
+  description: pageDescription
+});
+
+// Schema.org Offer
+const offerSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": pageTitle,
+  "description": pageDescription,
+  "url": `${SITE_URL}/tarifs`,
+  "mainEntity": {
+    "@type": "ItemList",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "name": "Présence",
+        "description": "Site vitrine + SEO local de base + Google Business Profile",
+        "price": "1490",
+        "priceCurrency": "CHF",
+        "url": `${SITE_URL}/tarifs#packages`
+      },
+      {
+        "@type": "Offer",
+        "name": "Visibilité",
+        "description": "Site vitrine jusqu'à 30 pages + blog SEO + 5 articles + suivi 3 mois + formation",
+        "price": "2490",
+        "priceCurrency": "CHF",
+        "url": `${SITE_URL}/tarifs#packages`
+      },
+      {
+        "@type": "Offer",
+        "name": "Autorité",
+        "description": "Solution sur-mesure pour projets complexes et stratégie SEO long terme",
+        "url": `${SITE_URL}/tarifs#packages`
+      }
+    ]
+  }
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quels sont les délais de livraison ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le pack Présence est livré en 2-3 semaines. Le pack Visibilité en 4-8 semaines (incluant la rédaction des 5 articles). Pour le pack Autorité, le planning est défini ensemble selon la complexité du projet."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Est-ce que le SEO est inclus dans tous les packs ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Oui. Chaque pack inclut une optimisation SEO technique de base (balises, vitesse, mobile). Les packs Visibilité et Autorité ajoutent une stratégie de contenu et un suivi des positions Google."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Qu'est-ce qui n'est PAS inclus ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "L'hébergement (environ 10-20 CHF/mois), le nom de domaine (environ 15 CHF/an), et les abonnements à des outils tiers (newsletter, CRM). Je vous guide dans les choix."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Et si j'ai besoin de modifications après la livraison ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Le pack Visibilité inclut 3 mois de suivi avec modifications mineures. Pour les autres packs, je propose une maintenance à 90 CHF/h ou un forfait mensuel adapté à vos besoins."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Vous travaillez avec quelles technologies ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Principalement Astro et Framer pour les sites vitrines (rapides, optimisés SEO). Pour les projets plus complexes : React, SvelteKit, ou la stack adaptée à votre besoin."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Comment se passe le paiement ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "50% à la signature du devis, 50% à la livraison. Pour le pack Autorité, un échéancier sur mesure est proposé selon la durée du projet."
+      }
+    }
+  ]
+};
+
+const schemas = [webPageSchema, offerSchema, faqSchema];
+
+// Pricing data
+const packages = [
+  {
+    name: "Présence",
+    price: "1'490",
+    subtitle: "Exister en ligne, bien",
+    highlighted: false,
+    features: [
+      "Site vitrine jusqu'à 5 pages",
+      "Design responsive sur-mesure",
+      "Optimisation SEO technique",
+      "Google Business Profile configuré",
+      "Formulaire de contact",
+      "Score Lighthouse 90+",
+      "Formation utilisation (1h)",
+    ],
+    ideal: "Indépendants et micro-entreprises qui veulent un site pro rapidement.",
+    delay: "2-3 semaines",
+  },
+  {
+    name: "Visibilité",
+    price: "2'490",
+    subtitle: "Être trouvé sur Google",
+    highlighted: true,
+    features: [
+      "Tout le pack Présence +",
+      "Site jusqu'à 30 pages",
+      "Blog intégré avec 5 articles SEO",
+      "Recherche de mots-clés locale",
+      "Stratégie de contenu initiale",
+      "Suivi Google Search Console",
+      "3 mois de suivi & ajustements",
+      "Formation SEO autonomie (2h)",
+    ],
+    ideal: "PME locales qui veulent attirer des clients via Google.",
+    delay: "4-8 semaines",
+  },
+  {
+    name: "Autorité",
+    price: "Sur devis",
+    subtitle: "Dominer votre marché local",
+    highlighted: false,
+    features: [
+      "Tout le pack Visibilité +",
+      "Site complexe ou e-commerce",
+      "Stratégie SEO long terme",
+      "Contenu mensuel (articles, landing pages)",
+      "Automatisations sur-mesure",
+      "Suivi mensuel avec reporting",
+      "Support prioritaire",
+    ],
+    ideal: "Entreprises ambitieuses qui veulent une présence digitale complète.",
+    delay: "Sur mesure",
+  },
+];
+
+// Inclusion grid
+const inclusions = [
+  { feature: "Pages du site", presence: "Jusqu'à 5", visibilite: "Jusqu'à 30", autorite: "Illimité" },
+  { feature: "Design responsive", presence: true, visibilite: true, autorite: true },
+  { feature: "SEO technique", presence: true, visibilite: true, autorite: true },
+  { feature: "Google Business Profile", presence: true, visibilite: true, autorite: true },
+  { feature: "Blog intégré", presence: false, visibilite: true, autorite: true },
+  { feature: "Articles SEO rédigés", presence: "—", visibilite: "5 articles", autorite: "Mensuel" },
+  { feature: "Recherche mots-clés", presence: false, visibilite: true, autorite: true },
+  { feature: "Suivi Search Console", presence: false, visibilite: true, autorite: true },
+  { feature: "Suivi post-livraison", presence: "—", visibilite: "3 mois", autorite: "6-12 mois" },
+  { feature: "Formation", presence: "1h", visibilite: "2h", autorite: "Sur mesure" },
+  { feature: "Automatisations", presence: false, visibilite: false, autorite: true },
+  { feature: "Support prioritaire", presence: false, visibilite: false, autorite: true },
+];
+
+// FAQ data
+const faqs = [
+  {
+    question: "Quels sont les délais de livraison ?",
+    answer: "Le pack Présence est livré en 2-3 semaines. Le pack Visibilité en 4-8 semaines (incluant la rédaction des 5 articles). Pour le pack Autorité, le planning est défini ensemble selon la complexité du projet.",
+  },
+  {
+    question: "Est-ce que le SEO est inclus dans tous les packs ?",
+    answer: "Oui. Chaque pack inclut une optimisation SEO technique de base (balises, vitesse, mobile). Les packs Visibilité et Autorité ajoutent une stratégie de contenu et un suivi des positions Google.",
+  },
+  {
+    question: "Qu'est-ce qui n'est PAS inclus ?",
+    answer: "L'hébergement (environ 10-20 CHF/mois), le nom de domaine (environ 15 CHF/an), et les abonnements à des outils tiers (newsletter, CRM). Je vous guide dans les choix.",
+  },
+  {
+    question: "Et si j'ai besoin de modifications après la livraison ?",
+    answer: "Le pack Visibilité inclut 3 mois de suivi avec modifications mineures. Pour les autres packs, je propose une maintenance à 90 CHF/h ou un forfait mensuel adapté à vos besoins.",
+  },
+  {
+    question: "Vous travaillez avec quelles technologies ?",
+    answer: "Principalement Astro et Framer pour les sites vitrines (rapides, optimisés SEO). Pour les projets plus complexes : React, SvelteKit, ou la stack adaptée à votre besoin.",
+  },
+  {
+    question: "Comment se passe le paiement ?",
+    answer: "50% à la signature du devis, 50% à la livraison. Pour le pack Autorité, un échéancier sur mesure est proposé selon la durée du projet.",
+  },
+];
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  schemas={schemas}
+>
+  <Header />
+
+  <main>
+    <!-- Hero -->
+    <section class="pt-32 pb-16 md:pt-40 md:pb-24 px-4 bg-[var(--main-bg)]">
+      <div class="max-w-4xl mx-auto text-center">
+        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+          <span class="w-8 h-px bg-gray-400"></span>
+          tarifs
+          <span class="w-8 h-px bg-gray-400"></span>
+        </span>
+
+        <h1 class="text-4xl md:text-6xl font-normal tracking-tight mb-6">
+          Tarifs <span class="bg-[var(--yellow)] px-2">transparents</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+          Des packages clairs combinant création de site web et référencement local.
+          Pas de surprise, pas de jargon. Vous savez ce que vous payez.
+        </p>
+
+        <a
+          href="#packages"
+          class="
+            inline-flex items-center gap-2
+            text-sm font-bold uppercase tracking-wide
+            border-b-2 border-black pb-1
+            transition-all duration-200
+            hover:border-[var(--blue)] hover:gap-3
+          "
+        >
+          Voir les packages
+          <i class="ri-arrow-down-line"></i>
+        </a>
+      </div>
+    </section>
+
+    <!-- Packages -->
+    <section id="packages" class="py-16 md:py-24 px-4 bg-white" style="scroll-margin-top: 80px;">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-normal mb-4">
+            Choisissez votre package
+          </h2>
+          <p class="text-lg text-gray-600">Site web + SEO local. Tout inclus, prix fixe.</p>
+        </div>
+
+        <!-- Pricing cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
+          {packages.map((plan) => (
+            <div class={`
+              bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 relative
+              ${plan.highlighted ? 'shadow-[8px_8px_0px_rgba(0,0,0,1)] ring-2 ring-[var(--blue)]' : 'shadow-[4px_4px_0px_rgba(0,0,0,0.3)]'}
+            `}>
+              {plan.highlighted && (
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-bold">
+                  RECOMMANDÉ
+                </div>
+              )}
+
+              <h3 class="text-xl font-bold mb-1">{plan.name}</h3>
+              <p class="text-sm text-gray-500 mb-4">{plan.subtitle}</p>
+
+              <div class="mb-6">
+                <p class="text-3xl font-bold text-[var(--text)]">
+                  {plan.price}
+                  {plan.price !== "Sur devis" && <span class="text-lg"> CHF</span>}
+                </p>
+              </div>
+
+              <ul class="space-y-3 mb-6">
+                {plan.features.map((feature) => (
+                  <li class="flex items-start gap-2 text-sm">
+                    <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              <div class="pt-4 border-t border-dashed border-gray-300 mb-6">
+                <p class="text-xs text-gray-500">
+                  <strong>Idéal pour :</strong> {plan.ideal}
+                </p>
+                <p class="text-xs text-gray-500 mt-1">
+                  <strong>Délai :</strong> {plan.delay}
+                </p>
+              </div>
+
+              <a
+                href="/contact"
+                class={`
+                  w-full inline-flex items-center justify-center gap-2
+                  border-2 border-black px-6 py-3 font-bold text-sm
+                  transition-all duration-200
+                  ${plan.highlighted
+                    ? 'bg-[var(--blue)] shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-[var(--yellow)] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]'
+                    : 'bg-white shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--blue)] hover:shadow-[1px_1px_0px_rgba(0,0,0,0.3)] hover:translate-x-[2px] hover:translate-y-[2px]'
+                  }
+                `}
+              >
+                {plan.price === "Sur devis" ? "Demander un devis" : "Choisir ce pack"}
+                <i class="ri-arrow-right-line"></i>
+              </a>
+            </div>
+          ))}
+        </div>
+
+        <!-- Notes -->
+        <div class="bg-[var(--main-bg)] border-2 border-black p-6 md:p-8">
+          <h3 class="font-bold mb-4 flex items-center gap-2">
+            <i class="ri-information-line text-[var(--blue)]"></i>
+            Bon à savoir
+          </h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2">
+                <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
+                Paiement : 50% à la commande, 50% à la livraison
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
+                Hébergement et domaine non inclus (~30 CHF/an)
+              </li>
+            </ul>
+            <ul class="space-y-2">
+              <li class="flex items-center gap-2">
+                <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
+                Chaque projet commence par un appel découverte gratuit
+              </li>
+              <li class="flex items-center gap-2">
+                <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
+                Tous les prix sont en CHF, HT (exonéré TVA)
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Inclusions grid -->
+    <section class="py-16 md:py-24 px-4 bg-[var(--main-bg)]">
+      <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl md:text-4xl font-normal mb-4">
+            Ce qui est inclus
+          </h2>
+          <p class="text-lg text-gray-600">Comparaison détaillée des 3 packages.</p>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full border-3 border-black bg-white text-sm">
+            <thead>
+              <tr class="border-b-3 border-black bg-[var(--main-bg)]">
+                <th class="text-left p-4 font-bold">Fonctionnalité</th>
+                <th class="text-center p-4 font-bold">Présence</th>
+                <th class="text-center p-4 font-bold border-x-2 border-black bg-[var(--blue)] bg-opacity-20">Visibilité</th>
+                <th class="text-center p-4 font-bold">Autorité</th>
+              </tr>
+            </thead>
+            <tbody>
+              {inclusions.map((row, i) => (
+                <tr class={`border-b border-gray-200 ${i % 2 === 0 ? '' : 'bg-gray-50'}`}>
+                  <td class="p-4 font-medium">{row.feature}</td>
+                  {[row.presence, row.visibilite, row.autorite].map((val, colIdx) => (
+                    <td class={`text-center p-4 ${colIdx === 1 ? 'border-x-2 border-black bg-[var(--blue)] bg-opacity-5' : ''}`}>
+                      {typeof val === 'boolean'
+                        ? (val
+                          ? <i class="ri-check-line text-green-600 text-lg"></i>
+                          : <i class="ri-close-line text-gray-300 text-lg"></i>)
+                        : <span>{val}</span>
+                      }
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <FAQ
+      faqs={faqs}
+      title="Questions fréquentes"
+      subtitle="Les réponses aux questions que vous vous posez sûrement."
+    />
+
+    <!-- CTA -->
+    <CTASection
+      title="Prêt à lancer votre projet ?"
+      description="Discutons de votre besoin. Premier appel découverte gratuit et sans engagement."
+      buttonText="Prendre rendez-vous"
+      buttonLink="/contact"
+      buttonIcon="ri-calendar-line"
+      subtext="Réponse sous 48h · Devis gratuit"
+    />
+  </main>
+
+  <Footer />
+</Layout>

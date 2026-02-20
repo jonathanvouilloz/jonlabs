@@ -1,6 +1,6 @@
 ---
 title: "SEO local pour un juriste à Genève"
-description: "De zéro à Top 1 Google en 5 mois — Comment j'ai positionné un juriste sur une niche juridique inexploitée"
+description: "De zéro à Top 1 Google en 5 mois — Comment j'ai positionné un juriste en droit de la restauration à Genève. Étude de cas SEO local."
 date: 2025-09-01
 draft: false
 featured: true
