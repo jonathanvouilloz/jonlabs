@@ -19,22 +19,6 @@ const blogCollection = defineCollection({
   }),
 });
 
-const labCollection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    description: z.string().max(155),
-    date: z.coerce.date(),
-    status: z.enum(['live', 'en-cours', 'archive']),
-    category: z.enum(['app', 'jeux', 'photo', 'experiment']),
-    tags: z.array(z.string()).default([]),
-    url: z.string().url().optional(),
-    repo: z.string().url().optional(),
-    thumbnail: z.string(),
-    featured: z.boolean().default(false),
-  }),
-});
-
 // LinkedIn drafts (internal use, no frontmatter required)
 const linkedinCollection = defineCollection({
   type: 'content',
@@ -86,12 +70,16 @@ const portfolioCollection = defineCollection({
     draft: z.boolean().default(false),
     featured: z.boolean().default(false),
 
-    // Client
+    // Type d'entrée
+    entryType: z.enum(['case-study', 'side-project']).default('case-study'),
+    status: z.enum(['live', 'en-cours', 'archive']).optional(),
+
+    // Client (optionnel pour side-projects)
     client: z.object({
       name: z.string(),
       sector: z.string(),
       website: z.string().url().optional(),
-    }),
+    }).optional(),
 
     // Projet
     project: z.object({
@@ -99,28 +87,28 @@ const portfolioCollection = defineCollection({
       period: z.string(),             // "Juin - Sept 2025"
       measurementPeriod: z.string().optional(),
       platform: z.string().optional(), // "Framer"
-      category: z.enum(['site-vitrine', 'e-commerce', 'seo', 'automatisation', 'application']),
+      category: z.enum(['site-vitrine', 'e-commerce', 'seo', 'automatisation', 'application', 'side-project']),
     }),
 
     // Images
     heroImage: z.object({ url: z.string(), alt: z.string() }),
 
-    // Résultats clés (4-6 métriques)
+    // Résultats clés (optionnel pour side-projects)
     results: z.array(z.object({
       label: z.string(),
       value: z.string(),
       detail: z.string().optional(),
       icon: z.string().optional(),
-    })),
+    })).default([]),
 
-    // Contexte (3 blocs)
+    // Contexte (optionnel pour side-projects)
     context: z.object({
-      clientDescription: z.string(),
-      challenge: z.string(),
+      clientDescription: z.string().optional(),
+      challenge: z.string().optional(),
       whyThisProject: z.string().optional(),
-    }),
+    }).optional(),
 
-    // Approche (phases)
+    // Approche (optionnel pour side-projects)
     approach: z.array(z.object({
       phase: z.number(),
       title: z.string(),
@@ -131,7 +119,7 @@ const portfolioCollection = defineCollection({
         alt: z.string(),
         caption: z.string().optional(),
       }).optional(),
-    })),
+    })).default([]),
 
     // Ce qui a fonctionné
     successFactors: z.array(z.object({
@@ -260,7 +248,6 @@ const devisCollection = defineCollection({
 
 export const collections = {
   blog: blogCollection,
-  lab: labCollection,
   linkedin: linkedinCollection,
   'jonvolio-blog': jonvolioBlogCollection,
   'jonvolio-projects': jonvolioProjectsCollection,

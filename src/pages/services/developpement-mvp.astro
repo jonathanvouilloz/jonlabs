@@ -21,12 +21,13 @@ import imgCtaFinal from '../../assets/services/mvp-cta-final.png';
 
 // Schema.org
 import { serviceSchemas, SITE_URL } from '../../data/schema';
+import { getFAQPageSchema } from '../../lib/seo';
 import { getBreadcrumbSchema } from '../../lib/seo';
 
 // SEO Data
 const seoData = {
-    title: "Développement MVP Genève & Suisse | Développeur Freelance | Jon Labs",
-    description: "Transforme ton idée en prototype fonctionnel en 2-3 semaines. Développeur MVP freelance à Genève pour startups, entrepreneurs et PME romandes."
+    title: "Développement MVP à Genève | Jon Labs",
+    description: "Transformez votre idée en prototype fonctionnel en 2-3 semaines. Développeur MVP freelance à Genève pour startups, entrepreneurs et PME romandes."
 };
 
 // Schema.org data
@@ -35,7 +36,7 @@ const breadcrumb = getBreadcrumbSchema([
     { name: "Services", url: `${SITE_URL}/services` },
     { name: "Développement MVP", url: `${SITE_URL}/services/developpement-mvp` }
 ]);
-const schemas = [serviceSchemas["developpement-mvp"], breadcrumb];
+const schemas: any[] = [serviceSchemas["developpement-mvp"], breadcrumb];
 
 // Pain points data
 const painPoints = [
@@ -161,6 +162,7 @@ const faqs = [
         answer: "Trois raisons principales. La proximité : on peut se voir, on parle la même langue, on comprend le contexte suisse. La réactivité : pas de décalage horaire, pas de chef de projet intermédiaire, tu parles directement à celui qui code. La confiance : tes données restent en Suisse, conformes à la nLPD, et tu sais exactement qui travaille sur ton projet."
     }
 ];
+schemas.push(getFAQPageSchema(faqs));
 
 // Local zones
 const zones = [

@@ -19,7 +19,7 @@ import puzzleImage from '../../assets/services/puzzle-connexion.png';
 
 // Schema.org
 import { serviceSchemas, SITE_URL } from '../../data/schema';
-import { getBreadcrumbSchema } from '../../lib/seo';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
 
 // SEO Data
 const seoData = {
@@ -33,7 +33,7 @@ const breadcrumb = getBreadcrumbSchema([
     { name: "Services", url: `${SITE_URL}/services` },
     { name: "Intégration d'outils", url: `${SITE_URL}/services/integration-outils` }
 ]);
-const schemas = [serviceSchemas["integration-outils"], breadcrumb];
+const schemas: any[] = [serviceSchemas["integration-outils"], breadcrumb];
 
 // Pain points (4 items)
 const painPoints = [
@@ -257,6 +257,7 @@ const faqs = [
         answer: "On ajuste. Le processus inclut des phases de test et de validation. Vous voyez le système fonctionner avant qu'on considère le projet terminé. Et le support post-projet est là pour corriger ce qui doit l'être."
     }
 ];
+schemas.push(getFAQPageSchema(faqs));
 
 // Local zones
 const zones = [

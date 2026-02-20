@@ -23,12 +23,12 @@ import type { FAQItem } from '../../components/FAQ.astro';
 
 // Schema.org
 import { serviceSchemas, SITE_URL } from '../../data/schema';
-import { getBreadcrumbSchema } from '../../lib/seo';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
 
 // SEO Data
 const seoData = {
-    title: "Refonte de site web Genève | Jon Labs - Site moderne en 3 semaines",
-    description: "Refonte de site web à Genève. Design moderne, ultra-rapide, optimisé SEO. Stack Astro/Tailwind. Devis transparent. Contact : Jon Labs"
+    title: "Refonte de site web à Genève | Jon Labs",
+    description: "Modernisez votre site web avec un design responsive et des performances optimisées. Stack moderne, SEO intégré, devis transparent. Basé à Genève."
 };
 
 // Schema.org data
@@ -37,7 +37,7 @@ const breadcrumb = getBreadcrumbSchema([
     { name: "Services", url: `${SITE_URL}/services` },
     { name: "Refonte de site web", url: `${SITE_URL}/services/refonte-site-web` }
 ]);
-const schemas = [serviceSchemas["refonte-site-web"], breadcrumb];
+const schemas: any[] = [serviceSchemas["refonte-site-web"], breadcrumb];
 
 // Pain points data
 const painPoints = [
@@ -261,6 +261,7 @@ const faqs: FAQItem[] = [
         answer: "Vous remplissez le formulaire ou m'envoyez un email. Je vous réponds sous 24-48h avec quelques questions. Ensuite on planifie un appel de 15-30 min pour discuter de votre projet."
     }
 ];
+schemas.push(getFAQPageSchema(faqs));
 
 // Local zones
 const zones = [

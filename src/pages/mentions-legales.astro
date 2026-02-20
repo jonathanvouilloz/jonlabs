@@ -1,0 +1,158 @@
+---
+import '../styles/global.css'
+import Layout from "../layouts/Layout.astro"
+import Header from '../components/Header.astro'
+import Footer from '../components/Footer.astro'
+
+const pageTitle = "Mentions légales & Politique de confidentialité | Jon Labs";
+const pageDescription = "Mentions légales, conditions d'utilisation et politique de confidentialité du site jonlabs.ch. Responsable : Jonathan Vouilloz, Genève.";
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  robots="noindex, follow"
+>
+  <Header />
+
+  <main class="py-16 px-4">
+    <div class="max-w-3xl mx-auto">
+
+      <h1 class="text-3xl md:text-4xl font-normal mb-12 tracking-tight">
+        Mentions légales & Confidentialité
+      </h1>
+
+      <!-- Mentions légales -->
+      <section class="mb-12">
+        <h2 class="text-2xl font-bold mb-6 pb-3 border-b-2 border-black">Mentions légales</h2>
+
+        <div class="space-y-6 text-gray-700 leading-relaxed">
+          <div>
+            <h3 class="text-lg font-bold mb-2">Responsable du site</h3>
+            <p>
+              Jonathan Vouilloz<br>
+              Jon Labs — Raison individuelle<br>
+              120, chemin de la montagne<br>
+              1224 Chêne-Bougeries, Genève<br>
+              Suisse
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-2">Contact</h3>
+            <p>
+              Email : <a href="mailto:contact@jonlabs.ch" class="underline hover:text-[var(--violet)]">contact@jonlabs.ch</a><br>
+              Téléphone : +41 78 944 77 07
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-2">Hébergement</h3>
+            <p>
+              Le site est hébergé par <strong>Vercel Inc.</strong><br>
+              440 N Barranca Ave #4133, Covina, CA 91723, États-Unis<br>
+              <a href="https://vercel.com" target="_blank" rel="noopener noreferrer" class="underline hover:text-[var(--violet)]">vercel.com</a>
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-2">Propriété intellectuelle</h3>
+            <p>
+              L'ensemble du contenu de ce site (textes, images, code, design) est la propriété de Jonathan Vouilloz / Jon Labs, sauf mention contraire. Toute reproduction, même partielle, est interdite sans autorisation préalable.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-2">Responsabilité</h3>
+            <p>
+              Les informations publiées sur ce site sont fournies à titre indicatif. Jon Labs ne saurait être tenu responsable de l'utilisation qui en est faite, ni des éventuelles erreurs ou omissions. Les liens vers des sites externes sont fournis à titre informatif et n'engagent pas la responsabilité de Jon Labs.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Politique de confidentialité -->
+      <section id="confidentialite" class="mb-12">
+        <h2 class="text-2xl font-bold mb-6 pb-3 border-b-2 border-black">Politique de confidentialité</h2>
+
+        <div class="space-y-6 text-gray-700 leading-relaxed">
+          <p>
+            Cette politique de confidentialité s'applique au site <strong>jonlabs.ch</strong> et est conforme à la Loi fédérale sur la protection des données (LPD) en vigueur en Suisse.
+          </p>
+
+          <div>
+            <h3 class="text-lg font-bold mb-2">Responsable du traitement</h3>
+            <p>
+              Jonathan Vouilloz — Jon Labs<br>
+              Email : <a href="mailto:contact@jonlabs.ch" class="underline hover:text-[var(--violet)]">contact@jonlabs.ch</a>
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-2">Données collectées</h3>
+            <p>Ce site peut collecter les données suivantes :</p>
+            <ul class="list-disc ml-6 mt-2 space-y-1">
+              <li><strong>Formulaire de contact</strong> : nom, email, message (via Web3Forms). Ces données sont utilisées uniquement pour répondre à votre demande.</li>
+              <li><strong>Données de navigation</strong> : adresse IP, type de navigateur, pages visitées, via les logs serveur de l'hébergeur (Vercel).</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-2">Finalité du traitement</h3>
+            <p>Les données collectées servent exclusivement à :</p>
+            <ul class="list-disc ml-6 mt-2 space-y-1">
+              <li>Répondre aux demandes de contact</li>
+              <li>Assurer le bon fonctionnement technique du site</li>
+              <li>Améliorer l'expérience utilisateur</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-2">Partage des données</h3>
+            <p>
+              Vos données ne sont ni vendues, ni louées, ni partagées avec des tiers à des fins commerciales. Elles peuvent être transmises aux prestataires techniques suivants, dans le cadre strict du fonctionnement du site :
+            </p>
+            <ul class="list-disc ml-6 mt-2 space-y-1">
+              <li><strong>Web3Forms</strong> — Traitement des formulaires de contact</li>
+              <li><strong>Vercel</strong> — Hébergement du site</li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-2">Cookies</h3>
+            <p>
+              Ce site n'utilise pas de cookies de suivi ni de cookies publicitaires. Seuls des cookies techniques strictement nécessaires au fonctionnement du site peuvent être utilisés.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-2">Durée de conservation</h3>
+            <p>
+              Les données issues du formulaire de contact sont conservées le temps nécessaire au traitement de la demande, puis supprimées dans un délai raisonnable. Les logs serveur sont conservés selon la politique de l'hébergeur (Vercel).
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-2">Vos droits</h3>
+            <p>
+              Conformément à la LPD, vous disposez d'un droit d'accès, de rectification et de suppression de vos données personnelles. Pour exercer ces droits, contactez-moi à l'adresse <a href="mailto:contact@jonlabs.ch" class="underline hover:text-[var(--violet)]">contact@jonlabs.ch</a>.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-2">Modifications</h3>
+            <p>
+              Cette politique de confidentialité peut être mise à jour à tout moment. La date de dernière modification est indiquée ci-dessous.
+            </p>
+            <p class="text-sm text-gray-500 mt-2">
+              Dernière mise à jour : 20 février 2026
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

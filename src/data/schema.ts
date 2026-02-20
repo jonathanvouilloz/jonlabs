@@ -12,11 +12,11 @@ export const organizationData = {
   "url": SITE_URL,
   "logo": {
     "@type": "ImageObject",
-    "url": `${SITE_URL}/og-image.svg`,
+    "url": `${SITE_URL}/og-image.png`,
     "width": 512,
     "height": 512
   },
-  "image": `${SITE_URL}/og-image.svg`,
+  "image": `${SITE_URL}/og-image.png`,
   "description": "Laboratoire créatif de Jonathan Vouilloz. Développement web, automatisation et validation d'idées pour entrepreneurs et PME en Suisse romande.",
   "founder": {
     "@type": "Person",
@@ -71,7 +71,7 @@ export const personData = {
   "familyName": "Vouilloz",
   "alternateName": "Jon",
   "url": `${SITE_URL}/about`,
-  "image": `${SITE_URL}/og-image.svg`,
+  "image": `${SITE_URL}/og-image.png`,
   "jobTitle": "Créateur de solutions digitales",
   "description": "Développeur web et créateur polyvalent basé à Genève. Spécialisé en développement web, automatisation et validation d'idées pour entrepreneurs.",
   "worksFor": {
@@ -107,7 +107,7 @@ export const localBusinessData = {
   "@type": "ProfessionalService",
   "@id": `${SITE_URL}/#localbusiness`,
   "name": "Jon Labs",
-  "image": `${SITE_URL}/og-image.svg`,
+  "image": `${SITE_URL}/og-image.png`,
   "url": SITE_URL,
   "telephone": "+41789447707",
   "priceRange": "$$",
@@ -130,7 +130,11 @@ export const localBusinessData = {
     "opens": "09:00",
     "closes": "18:00"
   },
-  "areaServed": ["Genève", "Vaud", "Valais", "Suisse Romande"]
+  "areaServed": ["Genève", "Vaud", "Valais", "Suisse Romande"],
+  "sameAs": [
+    "https://www.linkedin.com/in/jonathan-vouilloz-3b5741139/",
+    "https://github.com/jonathanvouilloz"
+  ]
 };
 
 export const websiteData = {
@@ -142,12 +146,7 @@ export const websiteData = {
   "publisher": {
     "@id": `${SITE_URL}/#organization`
   },
-  "inLanguage": "fr-CH",
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": `${SITE_URL}/blog?q={search_term_string}`,
-    "query-input": "required name=search_term_string"
-  }
+  "inLanguage": "fr-CH"
 };
 
 // Services data pour ItemList
@@ -157,7 +156,7 @@ export const servicesListData = {
   "name": "Services Jon Labs",
   "description": "Services de développement web, automatisation et validation d'idées pour entrepreneurs et PME",
   "url": `${SITE_URL}/services`,
-  "numberOfItems": 7,
+  "numberOfItems": 8,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -220,6 +219,15 @@ export const servicesListData = {
         "@type": "Service",
         "name": "Développement MVP",
         "url": `${SITE_URL}/services/developpement-mvp`
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@type": "Service",
+        "name": "Référencement local SEO",
+        "url": `${SITE_URL}/services/referencement-local`
       }
     }
   ]
@@ -313,6 +321,17 @@ export const serviceSchemas = {
     "provider": { "@id": `${SITE_URL}/#organization` },
     "areaServed": ["Genève", "Vaud", "Suisse Romande"],
     "serviceType": "Développement MVP"
+  },
+  "referencement-local": {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${SITE_URL}/services/referencement-local/#service`,
+    "name": "Référencement local SEO à Genève",
+    "url": `${SITE_URL}/services/referencement-local`,
+    "description": "Stratégie SEO local pour PME à Genève et Suisse romande. Position #1 prouvée en 5 mois. Audit gratuit, outils Google, résultats mesurables.",
+    "provider": { "@id": `${SITE_URL}/#organization` },
+    "areaServed": ["Genève", "Vaud", "Suisse Romande"],
+    "serviceType": "Référencement local"
   }
 };
 

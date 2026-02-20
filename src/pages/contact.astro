@@ -12,10 +12,10 @@ import Modal from "../components/Modal.astro";
 
 // Schema.org
 import { SITE_URL } from '../data/schema';
-import { getContactPageSchema } from '../lib/seo';
+import { getContactPageSchema, getFAQPageSchema } from '../lib/seo';
 
-const pageTitle = "Contact - Jon Labs";
-const pageDescription = "Discutons de votre projet. Développement web, automatisation, applications sur-mesure. Je suis disponible pour de nouvelles collaborations.";
+const pageTitle = "Contact | Développeur Web Freelance Genève | Jon Labs";
+const pageDescription = "Discutons de votre projet digital. Développement web, automatisation, applications sur-mesure à Genève. Réponse garantie sous 24h.";
 
 const contactPageSchema = getContactPageSchema({
   url: `${SITE_URL}/contact`,
@@ -23,7 +23,15 @@ const contactPageSchema = getContactPageSchema({
   description: pageDescription
 });
 
-const schemas = [contactPageSchema];
+// FAQ data for schema (mirrors ContactFAQ.astro)
+const contactFaqs = [
+  { question: "Vous travaillez en remote ou sur site ?", answer: "Principalement en remote, mais je peux me déplacer en Suisse romande pour des réunions si nécessaire. La plupart de mes clients préfèrent le remote pour sa flexibilité." },
+  { question: "Quels sont vos tarifs ?", answer: "Chaque projet est unique, donc je propose des devis sur-mesure. Contactez-moi avec les détails de votre projet et je vous ferai une proposition adaptée à vos besoins et votre budget." },
+  { question: "Vous prenez des petits projets ?", answer: "Absolument ! Les petits projets peuvent avoir un gros impact. Que ce soit une landing page, une automatisation simple ou un prototype, je suis ouvert à discuter." },
+  { question: "Quels sont les délais typiques ?", answer: "Ça dépend de la complexité : 2-3 semaines pour un site vitrine, 1-2 mois pour une web app, et plusieurs mois pour une application complète. Je vous donnerai une estimation précise après avoir discuté de votre projet." }
+];
+
+const schemas = [contactPageSchema, getFAQPageSchema(contactFaqs)];
 ---
 
 <Layout

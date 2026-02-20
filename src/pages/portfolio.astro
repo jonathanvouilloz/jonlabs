@@ -10,8 +10,8 @@ import PortfolioCard from '../components/portfolio/PortfolioCard.astro';
 import { SITE_URL } from '../data/schema';
 import { getCollectionPageSchema } from '../lib/seo';
 
-const pageTitle = "Portfolio | Jon Labs - Études de cas & Réalisations";
-const pageDescription = "Découvrez mes études de cas détaillées : sites web, SEO local et automatisations pour des clients suisses.";
+const pageTitle = "Réalisations Web & Études de Cas | Jon Labs";
+const pageDescription = "Sites web, SEO local et automatisations : découvrez mes réalisations détaillées pour des clients suisses. Résultats mesurables à l'appui.";
 
 const portfolioSchema = getCollectionPageSchema({
   url: `${SITE_URL}/portfolio`,
@@ -46,7 +46,7 @@ const sortedProjects = portfolioEntries.sort((a, b) => {
     <section class="py-12 md:py-16 px-4">
       <div class="max-w-3xl mx-auto text-center">
         <h1 class="text-3xl md:text-4xl font-normal mb-4 tracking-tight" data-animate>
-          Études de cas
+          Réalisations web & études de cas
         </h1>
         <p class="text-lg text-gray-600 max-w-xl mx-auto" data-animate data-delay="0.1">
           Projets détaillés avec contexte, approche et résultats mesurables

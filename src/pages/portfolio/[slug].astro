@@ -27,6 +27,7 @@ const {
   results,
   context,
   approach,
+  entryType,
   successFactors,
   learnings,
   testimonial,
@@ -35,6 +36,7 @@ const {
   tags,
 } = entry.data;
 
+const isSideProject = entryType === 'side-project';
 const pageTitle = `${title} | Portfolio - Jon Labs`;
 const pageDescription = description;
 
@@ -44,13 +46,18 @@ const formattedDate = new Date(entry.data.date).toLocaleDateString('fr-CH', {
   month: 'long'
 });
 
-// Build TOC items
-const tocItems = [
-  { id: 'fiche-projet', label: 'Fiche projet' },
-  { id: 'resultats', label: 'Résultats' },
-  { id: 'contexte', label: 'Contexte' },
-  { id: 'approche', label: 'Approche' },
-];
+// Build TOC items dynamically
+const tocItems: { id: string; label: string }[] = [];
+tocItems.push({ id: 'fiche-projet', label: 'Fiche projet' });
+if (results && results.length > 0) {
+  tocItems.push({ id: 'resultats', label: 'Résultats' });
+}
+if (context) {
+  tocItems.push({ id: 'contexte', label: 'Contexte' });
+}
+if (approach && approach.length > 0) {
+  tocItems.push({ id: 'approche', label: 'Approche' });
+}
 if (resultImages && resultImages.length > 0) {
   tocItems.push({ id: 'captures', label: 'Captures' });
 }
@@ -64,8 +71,8 @@ if (testimonial) {
   tocItems.push({ id: 'temoignage', label: 'Témoignage' });
 }
 
-// Schema.org for case study
-const caseStudySchema = {
+// Schema.org for case study / side-project
+const caseStudySchema: Record<string, any> = {
   "@context": "https://schema.org",
   "@type": "Article",
   "headline": title,
@@ -82,12 +89,15 @@ const caseStudySchema = {
     "url": SITE_URL
   },
   "mainEntityOfPage": `${SITE_URL}/portfolio/${entry.slug}`,
-  "about": {
+};
+
+if (client) {
+  caseStudySchema["about"] = {
     "@type": "Organization",
     "name": client.name,
     "url": client.website
-  }
-};
+  };
+}
 
 const schemas = [caseStudySchema];
 ---
@@ -128,10 +138,14 @@ const schemas = [caseStudySchema];
     <header class="max-w-3xl mx-auto px-4 mb-12">
       <div class="flex flex-wrap items-center gap-3 mb-4 text-sm">
         <span class="px-2 py-0.5 bg-gray-100 text-gray-700 rounded text-xs font-medium uppercase tracking-wide">
-          {project.category}
+          {isSideProject ? 'Side project' : project.category}
         </span>
-        <span class="text-gray-300">·</span>
-        <span class="text-gray-500">{client.sector}</span>
+        {client && (
+          <>
+            <span class="text-gray-300">·</span>
+            <span class="text-gray-500">{client.sector}</span>
+          </>
+        )}
         <span class="text-gray-300">·</span>
         <span class="text-gray-500">{formattedDate}</span>
       </div>
@@ -168,7 +182,7 @@ const schemas = [caseStudySchema];
             Voir le projet
           </a>
         )}
-        {client.website && client.website !== liveUrl && (
+        {client?.website && client.website !== liveUrl && (
           <a
             href={client.website}
             target="_blank"
@@ -190,14 +204,16 @@ const schemas = [caseStudySchema];
         <div class="tldr">
           <h2 class="tldr-title">En bref</h2>
           <p class="tldr-text">{description}</p>
-          <div class="tldr-metrics">
-            {results.slice(0, 4).map(result => (
-              <div class="tldr-metric">
-                <span class="tldr-metric-value">{result.value}</span>
-                <span class="tldr-metric-label">{result.label}</span>
-              </div>
-            ))}
-          </div>
+          {results && results.length > 0 && (
+            <div class="tldr-metrics">
+              {results.slice(0, 4).map(result => (
+                <div class="tldr-metric">
+                  <span class="tldr-metric-value">{result.value}</span>
+                  <span class="tldr-metric-label">{result.label}</span>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
 
         <!-- Table des matières -->
@@ -217,14 +233,23 @@ const schemas = [caseStudySchema];
           <h2>Fiche projet</h2>
           <table>
             <tbody>
-              <tr>
-                <td><strong>Client</strong></td>
-                <td>{client.name}</td>
-              </tr>
-              <tr>
-                <td><strong>Secteur</strong></td>
-                <td>{client.sector}</td>
-              </tr>
+              {client ? (
+                <>
+                  <tr>
+                    <td><strong>Client</strong></td>
+                    <td>{client.name}</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Secteur</strong></td>
+                    <td>{client.sector}</td>
+                  </tr>
+                </>
+              ) : (
+                <tr>
+                  <td><strong>Type</strong></td>
+                  <td>Projet personnel</td>
+                </tr>
+              )}
               <tr>
                 <td><strong>Durée</strong></td>
                 <td>{project.duration}</td>
@@ -254,61 +279,75 @@ const schemas = [caseStudySchema];
         </section>
 
         <!-- Résultats -->
-        <section id="resultats">
-          <h2>Résultats</h2>
-          <div class="results-grid">
-            {results.map(result => (
-              <div class="result-item">
-                <i class={`${result.icon} result-icon`}></i>
-                <div class="result-content">
-                  <span class="result-value">{result.value}</span>
-                  <span class="result-label">{result.label}</span>
-                  {result.detail && <span class="result-detail">{result.detail}</span>}
+        {results && results.length > 0 && (
+          <section id="resultats">
+            <h2>Résultats</h2>
+            <div class="results-grid">
+              {results.map(result => (
+                <div class="result-item">
+                  <i class={`${result.icon} result-icon`}></i>
+                  <div class="result-content">
+                    <span class="result-value">{result.value}</span>
+                    <span class="result-label">{result.label}</span>
+                    {result.detail && <span class="result-detail">{result.detail}</span>}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
+        )}
 
         <!-- Contexte -->
-        <section id="contexte">
-          <h2>Contexte</h2>
+        {context && (
+          <section id="contexte">
+            <h2>Contexte</h2>
 
-          <h3>Le client</h3>
-          <p>{context.clientDescription}</p>
+            {context.clientDescription && (
+              <>
+                <h3>Le client</h3>
+                <p>{context.clientDescription}</p>
+              </>
+            )}
 
-          <h3>Le défi</h3>
-          <p>{context.challenge}</p>
+            {context.challenge && (
+              <>
+                <h3>Le défi</h3>
+                <p>{context.challenge}</p>
+              </>
+            )}
 
-          {context.whyThisProject && (
-            <>
-              <h3>Pourquoi ce projet</h3>
-              <p>{context.whyThisProject}</p>
-            </>
-          )}
-        </section>
+            {context.whyThisProject && (
+              <>
+                <h3>Pourquoi ce projet</h3>
+                <p>{context.whyThisProject}</p>
+              </>
+            )}
+          </section>
+        )}
 
         <!-- Approche -->
-        <section id="approche">
-          <h2>Approche</h2>
-          <div class="approach-timeline">
-            {approach.map((phase, index) => (
-              <div class={`approach-card ${index % 2 === 0 ? 'align-left' : 'align-right'}`}>
-                <span class="approach-bg-number">{phase.phase}</span>
-                <div class="approach-card-content">
-                  <span class="approach-phase-num">Phase {phase.phase}</span>
-                  <h3 class="approach-title">{phase.title}</h3>
-                  <p class="approach-desc">{phase.description}</p>
-                  {phase.tasks && phase.tasks.length > 0 && (
-                    <ul class="approach-tasks">
-                      {phase.tasks.map(task => <li>{task}</li>)}
-                    </ul>
-                  )}
+        {approach && approach.length > 0 && (
+          <section id="approche">
+            <h2>Approche</h2>
+            <div class="approach-timeline">
+              {approach.map((phase, index) => (
+                <div class={`approach-card ${index % 2 === 0 ? 'align-left' : 'align-right'}`}>
+                  <span class="approach-bg-number">{phase.phase}</span>
+                  <div class="approach-card-content">
+                    <span class="approach-phase-num">Phase {phase.phase}</span>
+                    <h3 class="approach-title">{phase.title}</h3>
+                    <p class="approach-desc">{phase.description}</p>
+                    {phase.tasks && phase.tasks.length > 0 && (
+                      <ul class="approach-tasks">
+                        {phase.tasks.map(task => <li>{task}</li>)}
+                      </ul>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
-        </section>
+              ))}
+            </div>
+          </section>
+        )}
 
         <!-- Captures -->
         {resultImages && resultImages.length > 0 && (

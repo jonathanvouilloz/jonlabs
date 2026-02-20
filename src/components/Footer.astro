@@ -11,8 +11,8 @@ const socials = [
 
 const footerLinks = [
     { name: 'Services', path: '/services' },
+    { name: 'Tarifs', path: '/tarifs' },
     { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Lab', path: '/lab' },
     { name: 'Blog', path: '/blog' },
     { name: 'À propos', path: '/about' },
     { name: 'Contact', path: '/contact' },
@@ -159,8 +159,8 @@ const footerLinks = [
                 © {new Date().getFullYear()} {author.nickname} - <strong>Développement Web Genève</strong>
             </p>
             <div class="flex gap-6 text-sm">
-                <span class="text-gray-500">Mentions légales</span>
-                <span class="text-gray-500">Confidentialité</span>
+                <a href="/mentions-legales" class="text-gray-500 hover:text-[var(--blue)] transition-colors">Mentions légales</a>
+                <a href="/mentions-legales#confidentialite" class="text-gray-500 hover:text-[var(--blue)] transition-colors">Confidentialité</a>
             </div>
         </div>
     </div>

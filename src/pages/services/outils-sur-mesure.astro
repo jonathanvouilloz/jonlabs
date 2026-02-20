@@ -16,11 +16,12 @@ import dashboardScreen from '../../assets/services/dashboard-custom-screen.webp'
 
 // Schema.org
 import { serviceSchemas, SITE_URL } from '../../data/schema';
+import { getFAQPageSchema } from '../../lib/seo';
 import { getBreadcrumbSchema } from '../../lib/seo';
 
 // SEO Data
 const seoData = {
-    title: "Outils sur mesure à Genève | Applications métier | Jon Labs",
+    title: "Outils & Applications sur mesure | Jon Labs Genève",
     description: "Développement d'applications et dashboards sur mesure pour PME et indépendants. Sortez d'Excel, centralisez vos données. Prototype en 2 semaines."
 };
 
@@ -30,7 +31,7 @@ const breadcrumb = getBreadcrumbSchema([
     { name: "Services", url: `${SITE_URL}/services` },
     { name: "Outils sur mesure", url: `${SITE_URL}/services/outils-sur-mesure` }
 ]);
-const schemas = [serviceSchemas["outils-sur-mesure"], breadcrumb];
+const schemas: any[] = [serviceSchemas["outils-sur-mesure"], breadcrumb];
 
 // Pain points data (4 items) - Format conversationnel
 const painPoints = [
@@ -234,6 +235,7 @@ const faqs = [
         answer: "Pas du tout. La plupart de mes clients ne le sont pas. Mon job c'est de traduire ton besoin métier en solution technique — pas de t'assommer de jargon."
     }
 ];
+schemas.push(getFAQPageSchema(faqs));
 
 // Local advantages
 const localAdvantages = [

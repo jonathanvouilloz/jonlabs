@@ -18,7 +18,7 @@ import workflowImage from '../../assets/services/automatisation-workflow.png';
 
 // Schema.org
 import { serviceSchemas, SITE_URL } from '../../data/schema';
-import { getBreadcrumbSchema } from '../../lib/seo';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
 
 // SEO Data
 const seoData = {
@@ -32,7 +32,7 @@ const breadcrumb = getBreadcrumbSchema([
     { name: "Services", url: `${SITE_URL}/services` },
     { name: "Automatisation", url: `${SITE_URL}/services/automatisation` }
 ]);
-const schemas = [serviceSchemas["automatisation"], breadcrumb];
+const schemas: any[] = [serviceSchemas["automatisation"], breadcrumb];
 
 // Pain points (4 items)
 const painPoints = [
@@ -288,6 +288,7 @@ const faqs = [
         answer: "On valide ensemble à chaque étape. Vous voyez le système fonctionner sur des cas réels avant qu'on considère le projet terminé. Et le support post-projet permet d'ajuster ce qui doit l'être."
     }
 ];
+schemas.push(getFAQPageSchema(faqs));
 
 // Local zones
 const zones = [

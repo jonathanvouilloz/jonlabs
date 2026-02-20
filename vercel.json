@@ -18,6 +18,12 @@
     { "source": "/blog/warren-buffett-seven-rules", "destination": "/blog", "permanent": true },
     { "source": "/blog/warren-buffett-seven-rules/", "destination": "/blog", "permanent": true },
     { "source": "/blog/freelance-suisse", "destination": "/blog/freelance-ou-agence-web", "permanent": true },
-    { "source": "/blog/freelance-suisse/", "destination": "/blog/freelance-ou-agence-web", "permanent": true }
+    { "source": "/blog/freelance-suisse/", "destination": "/blog/freelance-ou-agence-web", "permanent": true },
+    { "source": "/lab", "destination": "/portfolio", "permanent": true },
+    { "source": "/lab/", "destination": "/portfolio", "permanent": true },
+    { "source": "/lab/isla-plomo", "destination": "/portfolio/isla-plomo", "permanent": true },
+    { "source": "/lab/isla-plomo/", "destination": "/portfolio/isla-plomo", "permanent": true },
+    { "source": "/lab/wisp", "destination": "/portfolio/wisp", "permanent": true },
+    { "source": "/lab/wisp/", "destination": "/portfolio/wisp", "permanent": true }
   ]
 }

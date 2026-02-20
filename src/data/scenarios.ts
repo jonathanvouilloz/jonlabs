@@ -221,6 +221,20 @@ export const serviceSections: ServiceSection[] = [
         ],
         ctaText: 'En savoir plus',
         link: '/services/outils-sur-mesure'
+      },
+      {
+        id: 'referencement-local',
+        title: 'Référencement local SEO',
+        description: 'Passez de invisible à #1 sur Google. Stratégie SEO local prouvée pour PME à Genève.',
+        features: [
+          'Audit SEO complet + plan d\'action',
+          'Optimisation technique (Lighthouse 90+)',
+          'Contenu localisé qui attire vos clients',
+          'Google Business Profile optimisé',
+          'Rapports mensuels clairs'
+        ],
+        ctaText: 'En savoir plus',
+        link: '/services/referencement-local'
       }
     ],
     ctaText: 'Lancer mon projet web'

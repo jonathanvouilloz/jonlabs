@@ -12,15 +12,18 @@ interface Props {
 }
 
 const { project } = Astro.props;
-const { title, description, heroImage, client, project: projectData, results } = project.data;
+const { title, description, heroImage, client, project: projectData, results, entryType } = project.data;
 
 const categoryLabels: Record<string, string> = {
   'site-vitrine': 'Site vitrine',
   'e-commerce': 'E-commerce',
   'application': 'Application',
   'seo': 'SEO',
-  'automatisation': 'Automatisation'
+  'automatisation': 'Automatisation',
+  'side-project': 'Side project',
 };
+
+const isSideProject = entryType === 'side-project';
 
 // Get top 3 results for preview
 const previewResults = results.slice(0, 3);
@@ -51,10 +54,10 @@ const previewResults = results.slice(0, 3);
     <!-- Meta: Category · Client -->
     <div class="text-sm text-gray-500 mb-2">
       <span class="uppercase tracking-wide font-medium text-gray-600">
-        {categoryLabels[projectData.category] || projectData.category}
+        {isSideProject ? 'Side project' : (categoryLabels[projectData.category] || projectData.category)}
       </span>
       <span class="mx-2">·</span>
-      <span>{client.name}</span>
+      <span>{client ? client.name : 'Projet personnel'}</span>
     </div>
 
     <!-- Title -->

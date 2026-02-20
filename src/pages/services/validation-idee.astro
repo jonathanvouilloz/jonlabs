@@ -14,7 +14,7 @@ import BackgroundProgressFlow from '../../components/backgrounds/BackgroundProgr
 
 // Schema.org
 import { serviceSchemas, SITE_URL } from '../../data/schema';
-import { getBreadcrumbSchema } from '../../lib/seo';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
 
 // SEO Data
 const seoData = {
@@ -28,7 +28,7 @@ const breadcrumb = getBreadcrumbSchema([
     { name: "Services", url: `${SITE_URL}/services` },
     { name: "Validation d'idée", url: `${SITE_URL}/services/validation-idee` }
 ]);
-const schemas = [serviceSchemas["validation-idee"], breadcrumb];
+const schemas: any[] = [serviceSchemas["validation-idee"], breadcrumb];
 
 // Pain points data
 const painPoints = [
@@ -185,6 +185,7 @@ const faqs = [
         answer: "Oui. Si votre idée est validée et que vous voulez passer à un vrai site ou une application, on peut en discuter. Mais ce n'est pas une obligation — le test est un service autonome, vous êtes libre de continuer avec qui vous voulez."
     }
 ];
+schemas.push(getFAQPageSchema(faqs));
 
 // Local zones
 const zones = [

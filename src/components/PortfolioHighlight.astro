@@ -4,38 +4,21 @@ import svgArrowCard from '../assets/arrow-card.svg'
 import svgRedStar from '../assets/red-star.svg'
 import svgPinkStar from '../assets/pink-star.svg'
 
-// Fetch lab projects
-const labProjects = await getCollection('lab', ({ data }) => !data.draft);
-const labNormalized = labProjects.map(project => ({
-    id: project.slug,
-    title: project.data.title,
-    description: project.data.description,
-    imageUrl: project.data.thumbnail,
-    imageAlt: project.data.title,
-    tags: project.data.tags,
-    category: 'Lab',
-    type: 'lab' as const,
-    link: `/lab/${project.slug}`,
-    date: project.data.date,
-}));
-
-// Fetch portfolio (études de cas)
+// Fetch portfolio (études de cas + side-projects)
 const portfolioProjects = await getCollection('portfolio', ({ data }) => !data.draft);
-const portfolioNormalized = portfolioProjects.map(project => ({
-    id: project.slug,
-    title: project.data.title,
-    description: project.data.description,
-    imageUrl: project.data.heroImage.url,
-    imageAlt: project.data.heroImage.alt,
-    tags: project.data.tags,
-    category: 'Étude de cas',
-    type: 'portfolio' as const,
-    link: `/portfolio/${project.slug}`,
-    date: project.data.date,
-}));
-
-// Combine and sort by date (most recent first), take 3
-const projects = [...labNormalized, ...portfolioNormalized]
+const projects = portfolioProjects
+    .map(project => ({
+        id: project.slug,
+        title: project.data.title,
+        description: project.data.description,
+        imageUrl: project.data.heroImage.url,
+        imageAlt: project.data.heroImage.alt,
+        tags: project.data.tags,
+        category: project.data.entryType === 'side-project' ? 'Side Project' : 'Étude de cas',
+        type: 'portfolio' as const,
+        link: `/portfolio/${project.slug}`,
+        date: project.data.date,
+    }))
     .sort((a, b) => b.date.getTime() - a.date.getTime())
     .slice(0, 3);
 ---
@@ -196,7 +179,7 @@ const projects = [...labNormalized, ...portfolioNormalized]
                                 before:transition-all before:duration-300
                                 group-hover:before:w-full
                             ">
-                                {project.type === 'portfolio' ? "Voir l'étude de cas" : 'Voir le projet'}
+                                {project.category === 'Étude de cas' ? "Voir l'étude de cas" : 'Voir le projet'}
                             </span>
                             <i class="ri-arrow-right-line text-sm transition-transform duration-200 group-hover:translate-x-1"></i>
                         </span>
