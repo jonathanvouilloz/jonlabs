@@ -34,7 +34,7 @@
 - [x] ~~**Homepage** — Ajouté CTA "Devis gratuit"~~
 - [x] ~~**Portfolio** — Allongée + "Résultats mesurables à l'appui"~~
 - [x] ~~**Blog** — Plus spécifique + "Retours d'expérience concrets"~~
-- [x] ~~**Lab** (85 car.) → allongée à ~130 car.~~
+- [x] ~~**Lab** (85 car.) → allongée à ~130 car. (page supprimée depuis)~~
 - [x] ~~**Outils** — Développée avec bénéfice utilisateur~~
 - [x] ~~**Refonte** — Reformulée, moins technique~~
 - [x] ~~**MVP** — Harmonisé en "vous"~~
@@ -45,7 +45,7 @@
 ## P1 - Schema.org manquants
 
 - [x] ~~**FAQPage schema sur Contact** — Ajouté avec 4 questions~~
-- [x] ~~**FAQPage schema sur les 7 landing pages services** — Ajouté sur création, refonte, automatisation, intégration, outils-sur-mesure, MVP, validation~~
+- [x] ~~**FAQPage schema sur les 8 landing pages services** — Ajouté sur création, refonte, automatisation, intégration, outils-sur-mesure, MVP, validation, référencement local~~
 - [x] ~~**Supprimer SearchAction** du WebSite schema — Supprimé (le blog n'a pas de recherche côté serveur)~~
 - [x] ~~**Ajouter `sameAs`** au ProfessionalService schema — LinkedIn + GitHub ajoutés~~
 
@@ -87,7 +87,6 @@
 | About | `/about` | ✅ | ✅ | ✅ | ✅ |
 | Contact | `/contact` | ✅ | ✅ | ✅ FAQ | ✅ |
 | Blog | `/blog` | ✅ | ✅ | ✅ | ✅ |
-| Lab | `/lab` | ✅ | ✅ | ✅ | ✅ |
 | Création site | `/services/creation-site-web` | ✅ | ✅ | ✅ FAQ | ✅ |
 | Refonte | `/services/refonte-site-web` | ✅ | ✅ | ✅ FAQ | ✅ |
 | Automatisation | `/services/automatisation` | ✅ | ✅ | ✅ FAQ | ✅ |
@@ -95,5 +94,7 @@
 | Outils mesure | `/services/outils-sur-mesure` | ✅ | ✅ | ✅ FAQ | ✅ |
 | MVP | `/services/developpement-mvp` | ✅ | ✅ | ✅ FAQ | ✅ |
 | Validation | `/services/validation-idee` | ✅ | ✅ | ✅ FAQ | ✅ |
+| SEO local | `/services/referencement-local` | ✅ | ✅ | ✅ FAQ | ✅ |
+| Mentions légales | `/mentions-legales` | ✅ | ✅ | — | ✅ |
 | CV | `/cv` | ✅ | ✅ | ✅ | ? |
 | Outils | `/outils` | ✅ | ✅ | ✅ | ✅ |
