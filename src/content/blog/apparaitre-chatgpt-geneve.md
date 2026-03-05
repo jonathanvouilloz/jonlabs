@@ -12,6 +12,17 @@ draft: false
 readingTime: 8
 ---
 
+## L'essentiel en bref
+
+- Les IA comme ChatGPT citent des sources qu'elles trouvent sur internet — si tu n'as pas de présence claire en ligne, tu n'existes pas pour elles
+- Apparaître sur ChatGPT passe d'abord par un bon **référencement Google** classique — il n'existe pas de raccourci
+- Les mots-clés à intention forte ("meilleur", "recommandé", "pas cher", "pour freelance") sont ceux que tes clients tapent aux IA — intègre-les dans tes textes
+- Une fiche **Google Business Profile** complète et active est le point de départ non-négociable
+- Répondre à des questions concrètes de tes clients dans un article de blog ou une FAQ est l'une des actions les plus efficaces pour apparaître dans les réponses des IA
+- Les IA favorisent les contenus clairs, sourcés, écrits par quelqu'un qui connaît son sujet — c'est ce qu'on appelle le principe **E-E-A-T**
+
+---
+
 Un client potentiel ouvre ChatGPT et tape : "Meilleur comptable indépendant à Genève".
 
 ChatGPT lui répond. Il cite deux ou trois noms. Il explique pourquoi.
@@ -24,24 +35,13 @@ La bonne nouvelle ? Apparaître dans ces réponses, c'est plus accessible qu'on 
 
 ---
 
-## L'essentiel en bref
-
-- Les IA comme ChatGPT citent des sources qu'elles trouvent sur internet — si tu n'as pas de présence claire en ligne, tu n'existes pas pour elles
-- Apparaître sur ChatGPT passe d'abord par un bon **référencement Google** classique — il n'existe pas de raccourci
-- Les mots-clés à intention forte ("meilleur", "recommandé", "pas cher", "pour freelance") sont ceux que tes clients tapent aux IA — intègre-les dans tes textes
-- Une fiche **Google Business Profile** complète et active est le point de départ non-négociable
-- Répondre à des questions concrètes de tes clients dans un article de blog ou une FAQ est l'une des actions les plus efficaces pour apparaître dans les réponses des IA
-- Les IA favorisent les contenus clairs, sourcés, écrits par quelqu'un qui connaît son sujet — c'est ce qu'on appelle le principe **E-E-A-T**
-
----
-
 ## Mais d'abord : comment ChatGPT "choisit" qui recommander ?
 
 C'est la question que tout le monde se pose, et la réponse est moins mystérieuse qu'on l'imagine.
 
 ChatGPT — comme Perplexity, comme Gemini — ne sort pas ses recommandations de nulle part. Ces outils lisent du contenu existant sur internet. Des articles de blog, des avis Google, des fiches de présentation, des pages de sites web. Ils synthétisent tout ça pour donner une réponse.
 
-Autrement dit : si tu n'as pas de présence lisible en ligne, tu n'existes pas pour eux.
+Autrement dit : si tu n'as pas de présence lisible en ligne, tu n'existes pas pour eux. Et ça commence par un [site vitrine bien construit](/blog/creer-site-vitrine-ia-visibilite-google) — un HTML propre que les IA peuvent lire.
 
 Et si tu as une présence — mais que ton site est vague, que ta fiche Google est à moitié remplie, que personne n'a laissé d'avis — tu risques d'être "visible" sans jamais être cité.
 
@@ -227,4 +227,4 @@ On peut en discuter ensemble — je t'aide à identifier ce qui bloque ta visibi
 - **Google Business Profile** — Documentation officielle sur l'optimisation des fiches locales : [business.google.com](https://business.google.com)
 - **Jon Labs — Étude de cas** — Référencement d'un juriste à Genève spécialisé restauration : [/portfolio/leo-lecureux-seo](/portfolio/leo-lecureux-seo)
 
-*Cet article fait partie d'une série sur le **GEO** et la visibilité sur les IA. Pour le guide complet sur toutes les plateformes IA → [GEO : apparaître sur ChatGPT, Perplexity, Gemini et les autres](/blog/geo-llm-hub)*
+*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur Claude](/blog/apparaitre-claude) — Apparaître sur Perplexity (à venir) — Apparaître sur Gemini (à venir)*

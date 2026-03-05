@@ -62,7 +62,7 @@ Ce n'est pas l'IA qui décide. C'est moi. Mais elle me force à structurer ma pe
 
 **Résultat :** Des idées plus solides, plus vite. Et surtout, moins de "syndrome de la page blanche" — tu sais, ce moment où tu fixes ton écran en te demandant par où commencer.
 
-**Mon outil :** Claude. Mais ChatGPT ou Gemini font aussi le job.
+**Mon outil :** Claude. Mais ChatGPT ou Gemini font aussi le job. D'ailleurs, si tu veux comprendre comment Claude fonctionne côté recherche web et pourquoi il cite certaines sources plutôt que d'autres, j'ai détaillé ça dans [comment apparaître sur Claude](/blog/apparaitre-claude).
 
 > **Le "prompting", c'est quoi ?**
 >

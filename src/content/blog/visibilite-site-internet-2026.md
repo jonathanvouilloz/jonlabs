@@ -72,7 +72,7 @@ Sur Google, les gens cherchent. Ils sont actifs. Ils ont un problème et veulent
 
 Et ton site web, lui, atteint **100% de ceux qui te cherchent**. Pas 3.5%. Pas 1.65%. Cent pour cent.
 
-C'est le seul canal où la portée dépend de toi, pas d'un algorithme qui change tous les trois mois.
+C'est le seul canal où la portée dépend de toi, pas d'un algorithme qui change tous les trois mois. Et ce site visible sur Google, il nourrit aussi ta présence sur les IA : [ChatGPT](/blog/apparaitre-chatgpt-geneve) puise dans Bing, [Claude](/blog/apparaitre-claude) dans Brave Search — mais tous deux ont besoin d'un site bien construit pour te citer.
 
 ---
 

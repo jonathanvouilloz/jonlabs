@@ -132,7 +132,7 @@ Autrement dit : si tu es visible sur Google → tu seras dans les réponses des 
 
 Ce n'est pas Google OU l'IA. C'est le même combat.
 
-**Investir dans ta visibilité Google aujourd'hui = investir dans ta visibilité IA demain.** Si tu veux comprendre concrètement comment ça fonctionne, j'ai détaillé [comment apparaître sur ChatGPT quand on cherche ton service à Genève](/blog/apparaitre-chatgpt-geneve).
+**Investir dans ta visibilité Google aujourd'hui = investir dans ta visibilité IA demain.** Si tu veux comprendre concrètement comment ça fonctionne, j'ai détaillé [comment apparaître sur ChatGPT quand on cherche ton service à Genève](/blog/apparaitre-chatgpt-geneve). Et pour Claude, c'est encore différent — il utilise Brave Search, pas Google : [apparaître sur Claude](/blog/apparaitre-claude).
 
 Et les marques qui sont citées par les IA en récoltent les fruits : [**+35% de clics organiques** et **+91% de clics payants**](https://evolvagency.io/learn/generative-search/llm-statistics-2026) par rapport aux marques non citées. Le trafic IA convertit même [**23 fois mieux**](https://evolvagency.io/learn/generative-search/llm-statistics-2026) que le trafic organique classique.
 
