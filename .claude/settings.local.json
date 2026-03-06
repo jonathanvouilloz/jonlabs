@@ -44,7 +44,10 @@
       "Bash(git stash:*)",
       "Bash(git restore:*)",
       "mcp__plugin_context7_context7__resolve-library-id",
-      "mcp__plugin_context7_context7__query-docs"
+      "mcp__plugin_context7_context7__query-docs",
+      "mcp__nano-banana__get_configuration_status",
+      "mcp__nano-banana__configure_gemini_token",
+      "mcp__nano-banana__continue_editing"
     ],
     "deny": [],
     "ask": []

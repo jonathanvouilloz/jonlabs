@@ -1,0 +1,31 @@
+{
+  "fiche_id": "5169306032527013289",
+  "business_name": "Jon Labs",
+  "location": "Geneve, Suisse",
+  "sector": "Developpement web, SEO local, automatisation",
+  "tone": "professionnel, pragmatique, transparent, oriente resultats",
+  "keywords": [
+    "developpeur web Geneve",
+    "SEO local Geneve",
+    "creation site web Geneve",
+    "referencement local",
+    "automatisation PME",
+    "refonte site web",
+    "optimisation site web"
+  ],
+  "whatsapp_number": "+41789447707",
+  "art_direction": {
+    "primary_color": "#00D9A3",
+    "secondary_color": "#A300D9",
+    "text_color": "#FFFFFF",
+    "style": "brutaliste",
+    "typography": "bold sans-serif",
+    "mood": "professionnel, creatif, maker",
+    "target_audience": "PME, independants, artisans, startups Geneve",
+    "ratio": "4:3",
+    "source": "docs/styleguide.md"
+  },
+  "post_frequency": "3/week",
+  "period_months": 3,
+  "image_folder": "jonlabs"
+}

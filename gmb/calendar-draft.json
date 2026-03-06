@@ -1,0 +1,726 @@
+{
+  "meta": {
+    "business": "Jon Labs",
+    "period": "2026-03-09 / 2026-06-05",
+    "total_posts": 39,
+    "frequency": "3/week (lun/mer/ven)",
+    "generated_at": "2026-03-06",
+    "status": "draft"
+  },
+  "stats": {
+    "by_theme": {
+      "seo_local_optim": 31,
+      "automatisation_ia": 4,
+      "portfolio_resultats": 4
+    },
+    "by_type": {
+      "whats_new": 28,
+      "offer": 7,
+      "event": 4
+    }
+  },
+  "posts": [
+    {
+      "id": 1,
+      "week": "S1",
+      "scheduled_at": "2026-03-09T09:00:00+01:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "Votre PME invisible sur Google Maps ? Voici pourquoi.",
+      "content": "À Genève, 46% des recherches Google sont locales. Si votre PME n'apparaît pas sur Google Maps, vous perdez des clients chaque jour. Fiche incomplète, mauvaise catégorie, zéro avis : les causes sont souvent simples à corriger. Jon Labs vous aide à devenir visible là où vos clients cherchent.",
+      "cta": {
+        "type": "link",
+        "url": "/services/referencement-local",
+        "label": "Découvrir le référencement local"
+      },
+      "image_template": "split-vertical",
+      "image_style": "illustration",
+      "image_text": "Invisible sur Google Maps ?",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple flat design social media graphic, left 55% is a solid #00D9A3 panel, right 45% is a white panel with illustration, left panel has large bold sans-serif white text reading exactly \"Invisible sur Google Maps ?\" exact spelling, no misspellings, no typos, each letter must be correct, right panel has ONE simple flat icon of a map location pin, #00D9A3 and white only, minimal line art, very few elements, clean, minimal, professional, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no complex gradients, no visual clutter, no busy backgrounds, no multiple overlapping elements, keep it extremely simple and clean"
+    },
+    {
+      "id": 2,
+      "week": "S1",
+      "scheduled_at": "2026-03-11T12:30:00+01:00",
+      "type": "whats_new",
+      "theme": "portfolio_resultats",
+      "title": "#1 sur Google en 5 mois : étude de cas juriste Genève",
+      "content": "Léo Lecureux, juriste indépendant à Genève, est passé de la page 3 à la position #1 sur Google en 5 mois. Stratégie SEO locale, contenu optimisé et fiche Google travaillée. 20'400 impressions et des demandes qui arrivent chaque semaine. Résultats concrets, méthode transparente.",
+      "cta": {
+        "type": "link",
+        "url": "/portfolio/leo-lecureux-seo",
+        "label": "Voir l'étude de cas"
+      },
+      "image_template": "centered-minimal",
+      "image_style": "photo-object",
+      "image_text": "#1 Google en 5 mois",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple social media graphic, white background, small centered photograph of a laptop screen showing analytics dashboard with rising graph, warm natural lighting, shallow depth of field, clean uncluttered background, below the photo a solid #00D9A3 strip with large bold sans-serif white text reading exactly \"#1 Google en 5 mois\" exact spelling, no misspellings, no typos, each letter must be correct, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no geographic landmarks, no visual clutter, no complex patterns, no busy backgrounds, keep it extremely simple and clean"
+    },
+    {
+      "id": 3,
+      "week": "S1",
+      "scheduled_at": "2026-03-13T08:30:00+01:00",
+      "type": "offer",
+      "theme": "seo_local_optim",
+      "title": "-20% audit SEO local commerces de Genève",
+      "content": "Commerçants et artisans de Genève : profitez de -20% sur l'audit SEO local de votre site et fiche Google. On analyse votre visibilité, vos concurrents locaux et on vous livre un plan d'action clair. Offre valable jusqu'au 31 mars. Places limitées, premiers arrivés, premiers servis.",
+      "cta": {
+        "type": "link",
+        "url": "/contact",
+        "label": "Réservez votre audit"
+      },
+      "image_template": "fullscreen-band",
+      "image_style": "photo-object",
+      "image_text": "-20% audit SEO",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple social media graphic, full bleed photograph of a clean desk with a magnifying glass and a notebook, warm natural lighting, shallow depth of field, clean uncluttered background, a solid #00D9A3 horizontal banner across the center of the image, large bold sans-serif white text on the banner reading exactly \"-20% audit SEO\" exact spelling, no misspellings, no typos, each letter must be correct, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no geographic landmarks, no visual clutter, no complex patterns, no busy backgrounds, keep it extremely simple and clean"
+    },
+    {
+      "id": 4,
+      "week": "S2",
+      "scheduled_at": "2026-03-16T12:00:00+01:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "3 erreurs qui empêchent votre fiche Google d'apparaître",
+      "content": "À Genève, beaucoup de PME ont une fiche Google Business mal configurée. Erreur #1 : mauvaise catégorie principale. #2 : description vide ou générique. #3 : horaires non mis à jour. Ces 3 erreurs suffisent à vous rendre invisible. Corrigez-les aujourd'hui, les résultats suivent vite.",
+      "cta": {
+        "type": "link",
+        "url": "/services/referencement-local",
+        "label": "Optimiser ma fiche Google"
+      },
+      "image_template": "split-vertical",
+      "image_style": "sketch",
+      "image_text": "3 erreurs fiche Google",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, white background, hand-drawn sketch style like excalidraw, rough pencil lines, imperfect strokes, minimalist, left 55% white with handwritten text, right 45% white with sketch drawing, ONE simple line drawing of three X marks next to a Google pin, black ink on white paper feel, only 3-5 strokes maximum, extremely minimal, no colors except subtle #00D9A3 accent on the Google pin, handwritten style text reading exactly \"3 erreurs fiche Google\" exact spelling, no misspellings, no typos, each letter must be correct, in black, clean, airy, lots of white space, almost empty feeling, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no shading, no gradients, no visual clutter, no complex patterns, keep it extremely simple and clean"
+    },
+    {
+      "id": 5,
+      "week": "S2",
+      "scheduled_at": "2026-03-18T09:00:00+01:00",
+      "type": "event",
+      "theme": "seo_local_optim",
+      "title": "Le printemps arrive à Genève : votre site est-il prêt ?",
+      "content": "Le printemps, c'est la reprise pour beaucoup de commerces genevois. Votre site web est-il prêt à accueillir les nouveaux visiteurs ? Vitesse, mobile, contenu à jour : un check-up rapide peut faire la différence. Profitez de la saison pour repartir sur de bonnes bases à Genève.",
+      "cta": {
+        "type": "link",
+        "url": "/services/refonte-site-web",
+        "label": "Préparer mon site"
+      },
+      "image_template": "split-horizontal",
+      "image_style": "photo-object",
+      "image_text": "Site prêt pour le printemps ?",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple social media graphic, top 60% photograph of a laptop on a bright desk near a window with spring sunlight, warm natural lighting, shallow depth of field, clean uncluttered background, bottom 40% solid #00D9A3 panel with large bold sans-serif white text reading exactly \"Site prêt pour le printemps ?\" exact spelling, no misspellings, no typos, each letter must be correct, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no geographic landmarks, no visual clutter, no complex patterns, no busy backgrounds, keep it extremely simple and clean"
+    },
+    {
+      "id": 6,
+      "week": "S2",
+      "scheduled_at": "2026-03-20T12:30:00+01:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "Core Web Vitals : site +3s = clients perdus",
+      "content": "Si votre site met plus de 3 secondes à charger, 53% des visiteurs partent. À Genève, la concurrence est rude : un site lent, c'est un client chez le voisin. Les Core Web Vitals mesurent vitesse, stabilité et réactivité. Jon Labs optimise votre site pour que chaque visite compte.",
+      "cta": {
+        "type": "link",
+        "url": "/blog/visibilite-site-internet-2026",
+        "label": "Lire l'article complet"
+      },
+      "image_template": "centered-minimal",
+      "image_style": "illustration",
+      "image_text": "Site lent = clients perdus",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple flat design social media graphic, white background, small simple icon centered above: a flat speedometer gauge with needle on slow, #00D9A3 and white only, minimal line art, very few elements, below the icon large bold sans-serif text in #00D9A3 reading exactly \"Site lent = clients perdus\" exact spelling, no misspellings, no typos, each letter must be correct, clean, minimal, professional, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no complex gradients, no visual clutter, no busy backgrounds, no multiple overlapping elements, keep it extremely simple and clean"
+    },
+    {
+      "id": 7,
+      "week": "S3",
+      "scheduled_at": "2026-03-23T08:00:00+01:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "Comment choisir la bonne catégorie Google Business",
+      "content": "La catégorie principale de votre fiche Google Business détermine quand vous apparaissez dans les recherches à Genève. Boulanger, consultant, coach : chaque métier a sa catégorie optimale. Un mauvais choix et vous êtes invisible. Jon Labs vous guide pour sélectionner la catégorie qui attire vos vrais clients.",
+      "cta": {
+        "type": "link",
+        "url": "/services/referencement-local",
+        "label": "Choisir ma catégorie"
+      },
+      "image_template": "split-vertical",
+      "image_style": "illustration",
+      "image_text": "Bonne catégorie Google",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple flat design social media graphic, left 55% is a solid #00D9A3 panel, right 45% is a white panel with illustration, left panel has large bold sans-serif white text reading exactly \"Bonne catégorie Google\" exact spelling, no misspellings, no typos, each letter must be correct, right panel has ONE simple flat icon of a dropdown menu with a checkmark, #00D9A3 and white only, minimal line art, very few elements, clean, minimal, professional, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no complex gradients, no visual clutter, no busy backgrounds, no multiple overlapping elements, keep it extremely simple and clean"
+    },
+    {
+      "id": 8,
+      "week": "S3",
+      "scheduled_at": "2026-03-25T12:00:00+01:00",
+      "type": "offer",
+      "theme": "seo_local_optim",
+      "title": "Checklist gratuite : votre commerce visible sur Google ?",
+      "content": "Téléchargez la checklist gratuite Jon Labs pour vérifier si votre commerce genevois est bien visible sur Google. 15 points à vérifier en 10 minutes : fiche Google, site web, avis, mots-clés locaux. Aucun jargon, que du concret pour les PME et artisans de Genève.",
+      "cta": {
+        "type": "link",
+        "url": "/outils/checklist-commerce-google",
+        "label": "Télécharger la checklist"
+      },
+      "image_template": "fullscreen-band",
+      "image_style": "illustration",
+      "image_text": "Checklist Google gratuite",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple flat design social media graphic, full #00D9A3 background with a solid white horizontal banner across the center, large bold sans-serif text in #00D9A3 on the white banner reading exactly \"Checklist Google gratuite\" exact spelling, no misspellings, no typos, each letter must be correct, above and below the banner ONE simple flat clipboard icon with checkmarks, #00D9A3 and white only, minimal line art, very few elements, clean, minimal, professional, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no complex gradients, no visual clutter, no busy backgrounds, no multiple overlapping elements, keep it extremely simple and clean"
+    },
+    {
+      "id": 9,
+      "week": "S3",
+      "scheduled_at": "2026-03-27T09:30:00+01:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "Schema LocalBusiness : le code invisible qui booste le SEO",
+      "content": "Le balisage Schema LocalBusiness est un code invisible que Google lit pour mieux comprendre votre entreprise à Genève. Adresse, horaires, services : tout est structuré pour les moteurs de recherche. Peu de sites genevois l'utilisent. C'est un avantage concurrentiel simple à mettre en place.",
+      "cta": {
+        "type": "link",
+        "url": "/blog/creer-site-vitrine-ia-visibilite-google",
+        "label": "En savoir plus"
+      },
+      "image_template": "split-vertical",
+      "image_style": "sketch",
+      "image_text": "Schema LocalBusiness SEO",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, white background, hand-drawn sketch style like excalidraw, rough pencil lines, imperfect strokes, minimalist, left 55% white with handwritten text, right 45% white with sketch drawing, ONE simple line drawing of code brackets with a map pin inside, black ink on white paper feel, only 3-5 strokes maximum, extremely minimal, no colors except subtle #00D9A3 accent on the map pin, handwritten style text reading exactly \"Schema LocalBusiness SEO\" exact spelling, no misspellings, no typos, each letter must be correct, in black, clean, airy, lots of white space, almost empty feeling, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no shading, no gradients, no visual clutter, no complex patterns, keep it extremely simple and clean"
+    },
+    {
+      "id": 10,
+      "week": "S4",
+      "scheduled_at": "2026-03-30T12:30:00+02:00",
+      "type": "whats_new",
+      "theme": "portfolio_resultats",
+      "title": "Coutelier d'art Genève : un site à la hauteur de ses créations",
+      "content": "Ugo Mighali, coutelier d'art à Genève, avait besoin d'un site qui reflète son savoir-faire. Design brutaliste, photos plein écran, navigation fluide. Un portfolio digital qui met en valeur chaque pièce unique. Quand l'artisanat rencontre le web, les résultats parlent d'eux-mêmes.",
+      "cta": {
+        "type": "link",
+        "url": "/portfolio/ugo-mighali-coutelier",
+        "label": "Voir le projet"
+      },
+      "image_template": "centered-minimal",
+      "image_style": "photo-object",
+      "image_text": "Portfolio coutelier Genève",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple social media graphic, white background, small centered photograph of an artisan knife on a wooden surface, warm natural lighting, shallow depth of field, clean uncluttered background, below the photo a solid #00D9A3 strip with large bold sans-serif white text reading exactly \"Portfolio coutelier Genève\" exact spelling, no misspellings, no typos, each letter must be correct, the è accent on Genève must be correct, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no geographic landmarks, no visual clutter, no complex patterns, no busy backgrounds, keep it extremely simple and clean"
+    },
+    {
+      "id": 11,
+      "week": "S4",
+      "scheduled_at": "2026-04-01T08:00:00+02:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "Les avis Google : l'arme secrète des PME genevoises",
+      "content": "À Genève, 88% des consommateurs font autant confiance aux avis en ligne qu'aux recommandations personnelles. Plus d'avis positifs = meilleur classement Google Maps. Jon Labs vous montre comment obtenir des avis authentiques et y répondre stratégiquement pour votre PME genevoise.",
+      "cta": {
+        "type": "link",
+        "url": "/services/referencement-local",
+        "label": "Booster mes avis Google"
+      },
+      "image_template": "split-vertical",
+      "image_style": "illustration",
+      "image_text": "Avis Google PME Genève",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple flat design social media graphic, left 55% is a solid #00D9A3 panel, right 45% is a white panel with illustration, left panel has large bold sans-serif white text reading exactly \"Avis Google PME Genève\" exact spelling, no misspellings, no typos, each letter must be correct, the è accent on Genève must be correct, right panel has ONE simple flat five-star rating icon, #00D9A3 and white only, minimal line art, very few elements, clean, minimal, professional, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no complex gradients, no visual clutter, no busy backgrounds, no multiple overlapping elements, keep it extremely simple and clean"
+    },
+    {
+      "id": 12,
+      "week": "S4",
+      "scheduled_at": "2026-04-03T12:00:00+02:00",
+      "type": "event",
+      "theme": "seo_local_optim",
+      "title": "Atelier gratuit : optimisez votre fiche Google en 30 min",
+      "content": "Rejoignez l'atelier en ligne gratuit Jon Labs. En 30 minutes, apprenez à optimiser votre fiche Google Business pour votre commerce à Genève. Catégorie, description, photos, avis : on couvre l'essentiel. Places limitées, inscription par message. Idéal pour commerçants et artisans genevois.",
+      "cta": {
+        "type": "link",
+        "url": "/contact",
+        "label": "S'inscrire à l'atelier"
+      },
+      "image_template": "split-horizontal",
+      "image_style": "photo-object",
+      "image_text": "Atelier fiche Google gratuit",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple social media graphic, top 60% photograph of a laptop open on a clean desk with a coffee cup, warm natural lighting, shallow depth of field, clean uncluttered background, bottom 40% solid #00D9A3 panel with large bold sans-serif white text reading exactly \"Atelier fiche Google gratuit\" exact spelling, no misspellings, no typos, each letter must be correct, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no geographic landmarks, no visual clutter, no complex patterns, no busy backgrounds, keep it extremely simple and clean"
+    },
+    {
+      "id": 13,
+      "week": "S5",
+      "scheduled_at": "2026-04-06T09:00:00+02:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "Balises title et meta : les bases que 90% des sites négligent",
+      "content": "À Genève, la majorité des sites de PME ont des balises title et meta description génériques ou absentes. Ce sont pourtant les premières choses que Google et vos clients voient. Un title bien rédigé avec votre ville et service peut doubler votre taux de clic. Simple, gratuit, efficace.",
+      "cta": {
+        "type": "link",
+        "url": "/blog/visibilite-site-internet-2026",
+        "label": "Lire nos conseils SEO"
+      },
+      "image_template": "split-vertical",
+      "image_style": "sketch",
+      "image_text": "Balises title et meta",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, white background, hand-drawn sketch style like excalidraw, rough pencil lines, imperfect strokes, minimalist, left 55% white with handwritten text, right 45% white with sketch drawing, ONE simple line drawing of a browser tab with a title tag highlighted, black ink on white paper feel, only 3-5 strokes maximum, extremely minimal, no colors except subtle #00D9A3 accent on the title tag, handwritten style text reading exactly \"Balises title et meta\" exact spelling, no misspellings, no typos, each letter must be correct, in black, clean, airy, lots of white space, almost empty feeling, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no shading, no gradients, no visual clutter, no complex patterns, keep it extremely simple and clean"
+    },
+    {
+      "id": 14,
+      "week": "S5",
+      "scheduled_at": "2026-04-08T12:30:00+02:00",
+      "type": "offer",
+      "theme": "seo_local_optim",
+      "title": "Pâques Genève : vos horaires spéciaux sont-ils à jour ?",
+      "content": "Les fêtes de Pâques approchent à Genève. Vos clients cherchent vos horaires sur Google avant de se déplacer. Fiche pas à jour = client perdu. Mettez à jour vos horaires spéciaux en 2 minutes. Besoin d'aide ? Jon Labs propose un check-up rapide gratuit pour les commerces genevois.",
+      "cta": {
+        "type": "link",
+        "url": "/outils/checklist-commerce-google",
+        "label": "Vérifier ma fiche"
+      },
+      "image_template": "fullscreen-band",
+      "image_style": "photo-object",
+      "image_text": "Horaires Pâques à jour ?",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple social media graphic, full bleed photograph of a shop door with an open/closed sign, warm natural lighting, shallow depth of field, clean uncluttered background, a solid #00D9A3 horizontal banner across the center of the image, large bold sans-serif white text on the banner reading exactly \"Horaires Pâques à jour ?\" exact spelling, no misspellings, no typos, each letter must be correct, the â accent on Pâques and à must be correct, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no geographic landmarks, no visual clutter, no complex patterns, no busy backgrounds, keep it extremely simple and clean"
+    },
+    {
+      "id": 15,
+      "week": "S5",
+      "scheduled_at": "2026-04-10T08:30:00+02:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "Google Maps intégré sur votre site : indispensable SEO",
+      "content": "Intégrer Google Maps sur votre site web renforce votre SEO local à Genève. Ça confirme votre adresse aux moteurs de recherche et facilite la vie de vos clients. Beaucoup de sites genevois oublient ce détail simple. Un embed Maps bien placé peut améliorer votre visibilité locale rapidement.",
+      "cta": {
+        "type": "link",
+        "url": "/services/creation-site-web",
+        "label": "Intégrer Maps à mon site"
+      },
+      "image_template": "centered-minimal",
+      "image_style": "illustration",
+      "image_text": "Google Maps sur votre site",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple flat design social media graphic, white background, small simple icon centered above: a flat website wireframe with a map pin embedded inside, #00D9A3 and white only, minimal line art, very few elements, below the icon large bold sans-serif text in #00D9A3 reading exactly \"Google Maps sur votre site\" exact spelling, no misspellings, no typos, each letter must be correct, clean, minimal, professional, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no complex gradients, no visual clutter, no busy backgrounds, no multiple overlapping elements, keep it extremely simple and clean"
+    },
+    {
+      "id": 16,
+      "week": "S6",
+      "scheduled_at": "2026-04-13T12:00:00+02:00",
+      "type": "whats_new",
+      "theme": "automatisation_ia",
+      "title": "Apparaître sur ChatGPT quand on cherche un pro à Genève",
+      "content": "De plus en plus de gens utilisent ChatGPT pour trouver un professionnel à Genève. Être référencé par l'IA, ça se travaille : contenu structuré, autorité en ligne, mentions cohérentes. Jon Labs est déjà visible sur ChatGPT. On vous montre comment faire pareil pour votre activité genevoise.",
+      "cta": {
+        "type": "link",
+        "url": "/blog/apparaitre-chatgpt-geneve",
+        "label": "Lire l'article"
+      },
+      "image_template": "split-vertical",
+      "image_style": "illustration",
+      "image_text": "Visible sur ChatGPT",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple flat design social media graphic, left 55% is a solid #00D9A3 panel, right 45% is a white panel with illustration, left panel has large bold sans-serif white text reading exactly \"Visible sur ChatGPT\" exact spelling, no misspellings, no typos, each letter must be correct, right panel has ONE simple flat icon of a chat bubble with a sparkle, #00D9A3 and white only, minimal line art, very few elements, clean, minimal, professional, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no complex gradients, no visual clutter, no busy backgrounds, no multiple overlapping elements, keep it extremely simple and clean"
+    },
+    {
+      "id": 17,
+      "week": "S6",
+      "scheduled_at": "2026-04-15T09:00:00+02:00",
+      "type": "offer",
+      "theme": "seo_local_optim",
+      "title": "Site vitrine pro à Genève dès 2490 CHF",
+      "content": "Un site vitrine professionnel, rapide et optimisé SEO pour votre activité à Genève dès 2490 CHF. Design sur mesure, mobile-first, fiche Google connectée. Pas de template générique : chaque site est conçu pour convertir vos visiteurs en clients. Devis gratuit en 24h.",
+      "cta": {
+        "type": "link",
+        "url": "/tarifs",
+        "label": "Voir les tarifs"
+      },
+      "image_template": "fullscreen-band",
+      "image_style": "photo-object",
+      "image_text": "Site vitrine dès 2490 CHF",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple social media graphic, full bleed photograph of a modern laptop on a minimal white desk, warm natural lighting, shallow depth of field, clean uncluttered background, a solid #00D9A3 horizontal banner across the center of the image, large bold sans-serif white text on the banner reading exactly \"Site vitrine dès 2490 CHF\" exact spelling, no misspellings, no typos, each letter must be correct, the è accent on dès must be correct, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no geographic landmarks, no visual clutter, no complex patterns, no busy backgrounds, keep it extremely simple and clean"
+    },
+    {
+      "id": 18,
+      "week": "S6",
+      "scheduled_at": "2026-04-17T12:30:00+02:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "Photos Google Business : ce que les PME font mal",
+      "content": "Les fiches Google avec photos reçoivent 42% plus de demandes d'itinéraire à Genève. Pourtant, la plupart des PME postent des photos floues ou pas du tout. Façade, intérieur, équipe, produits : chaque type de photo a son rôle. Jon Labs vous guide pour des visuels qui convertissent.",
+      "cta": {
+        "type": "link",
+        "url": "/services/referencement-local",
+        "label": "Optimiser mes photos GMB"
+      },
+      "image_template": "centered-minimal",
+      "image_style": "sketch",
+      "image_text": "Photos Google Business",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, white background, hand-drawn sketch style like excalidraw, rough pencil lines, imperfect strokes, minimalist, all white, small centered sketch, handwritten text below, ONE simple line drawing of a camera icon, black ink on white paper feel, only 3-5 strokes maximum, extremely minimal, no colors except subtle #00D9A3 accent on the camera lens, handwritten style text reading exactly \"Photos Google Business\" exact spelling, no misspellings, no typos, each letter must be correct, in black, clean, airy, lots of white space, almost empty feeling, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no shading, no gradients, no visual clutter, no complex patterns, keep it extremely simple and clean"
+    },
+    {
+      "id": 19,
+      "week": "S7",
+      "scheduled_at": "2026-04-20T08:00:00+02:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "Mots-clés locaux : comment les trouver et les placer",
+      "content": "Les mots-clés locaux comme « boulanger Genève » ou « plombier Carouge » sont la base du SEO local. Mais comment les trouver et où les placer sur votre site ? Title, H1, URL, contenu : chaque emplacement compte. Jon Labs vous montre la méthode pour cibler les bonnes recherches genevoises.",
+      "cta": {
+        "type": "link",
+        "url": "/blog/creer-site-vitrine-ia-visibilite-google",
+        "label": "Découvrir la méthode"
+      },
+      "image_template": "split-vertical",
+      "image_style": "illustration",
+      "image_text": "Mots-clés locaux SEO",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple flat design social media graphic, left 55% is a solid #00D9A3 panel, right 45% is a white panel with illustration, left panel has large bold sans-serif white text reading exactly \"Mots-clés locaux SEO\" exact spelling, no misspellings, no typos, each letter must be correct, the é accent on clés must be correct, right panel has ONE simple flat icon of a magnifying glass over a tag, #00D9A3 and white only, minimal line art, very few elements, clean, minimal, professional, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no complex gradients, no visual clutter, no busy backgrounds, no multiple overlapping elements, keep it extremely simple and clean"
+    },
+    {
+      "id": 20,
+      "week": "S7",
+      "scheduled_at": "2026-04-22T12:00:00+02:00",
+      "type": "whats_new",
+      "theme": "portfolio_resultats",
+      "title": "20'400 impressions en 5 mois pour un indépendant genevois",
+      "content": "Léo Lecureux, juriste à Genève, cumule 20'400 impressions Google en 5 mois grâce à une stratégie SEO locale ciblée. Position #1 sur ses mots-clés principaux, demandes entrantes régulières. Pas de magie, juste du travail méthodique et des résultats mesurables. Ça pourrait être votre tour.",
+      "cta": {
+        "type": "link",
+        "url": "/portfolio/leo-lecureux-seo",
+        "label": "Voir les résultats"
+      },
+      "image_template": "centered-minimal",
+      "image_style": "photo-object",
+      "image_text": "20'400 impressions en 5 mois",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple social media graphic, white background, small centered photograph of a laptop screen showing a Google Search Console graph going up, warm natural lighting, shallow depth of field, clean uncluttered background, below the photo a solid #00D9A3 strip with large bold sans-serif white text reading exactly \"20'400 impressions en 5 mois\" exact spelling, no misspellings, no typos, each letter must be correct, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no geographic landmarks, no visual clutter, no complex patterns, no busy backgrounds, keep it extremely simple and clean"
+    },
+    {
+      "id": 21,
+      "week": "S7",
+      "scheduled_at": "2026-04-24T09:30:00+02:00",
+      "type": "event",
+      "theme": "automatisation_ia",
+      "title": "Webinaire : comment l'IA peut créer votre premier site",
+      "content": "Rejoignez le webinaire gratuit Jon Labs depuis Genève. Découvrez comment l'IA accélère la création de sites web professionnels : structure, contenu, design. Pas de buzzwords, que du concret pour indépendants et PME genevoises qui veulent se lancer en ligne sans perdre de temps.",
+      "cta": {
+        "type": "link",
+        "url": "/contact",
+        "label": "S'inscrire au webinaire"
+      },
+      "image_template": "split-horizontal",
+      "image_style": "illustration",
+      "image_text": "Webinaire IA et site web",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple flat design social media graphic, top 60% white with ONE simple flat icon of a laptop with a sparkle symbol on screen, #00D9A3 and white only, minimal line art, very few elements, bottom 40% solid #00D9A3 panel with large bold sans-serif white text reading exactly \"Webinaire IA et site web\" exact spelling, no misspellings, no typos, each letter must be correct, clean, minimal, professional, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no complex gradients, no visual clutter, no busy backgrounds, no multiple overlapping elements, keep it extremely simple and clean"
+    },
+    {
+      "id": 22,
+      "week": "S8",
+      "scheduled_at": "2026-04-27T12:30:00+02:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "Pages dédiées par service : la stratégie SEO ignorée",
+      "content": "Avoir une seule page « Services » nuit à votre SEO à Genève. Chaque service mérite sa page dédiée avec ses propres mots-clés locaux. « Création site web Genève », « référencement local Genève » : une page par intention de recherche. C'est simple, peu de PME le font, et ça change tout.",
+      "cta": {
+        "type": "link",
+        "url": "/services",
+        "label": "Voir nos pages services"
+      },
+      "image_template": "split-vertical",
+      "image_style": "sketch",
+      "image_text": "Une page par service",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, white background, hand-drawn sketch style like excalidraw, rough pencil lines, imperfect strokes, minimalist, left 55% white with handwritten text, right 45% white with sketch drawing, ONE simple line drawing of a sitemap tree with three branches, black ink on white paper feel, only 3-5 strokes maximum, extremely minimal, no colors except subtle #00D9A3 accent on the branches, handwritten style text reading exactly \"Une page par service\" exact spelling, no misspellings, no typos, each letter must be correct, in black, clean, airy, lots of white space, almost empty feeling, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no shading, no gradients, no visual clutter, no complex patterns, keep it extremely simple and clean"
+    },
+    {
+      "id": 23,
+      "week": "S8",
+      "scheduled_at": "2026-04-29T08:00:00+02:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "1er mai : votre site tourne même en congé",
+      "content": "Le 1er mai, Genève fait relâche. Mais votre site web, lui, continue de travailler. C'est l'avantage d'un bon site : il génère des visites et des contacts 24h/24, même les jours fériés. Investir dans votre présence en ligne, c'est investir dans un commercial qui ne dort jamais.",
+      "cta": {
+        "type": "link",
+        "url": "/services/creation-site-web",
+        "label": "Créer mon site pro"
+      },
+      "image_template": "split-horizontal",
+      "image_style": "photo-object",
+      "image_text": "Votre site travaille 24/7",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple social media graphic, top 60% photograph of a laptop glowing in a dim room, warm natural lighting, shallow depth of field, clean uncluttered background, bottom 40% solid #00D9A3 panel with large bold sans-serif white text reading exactly \"Votre site travaille 24/7\" exact spelling, no misspellings, no typos, each letter must be correct, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no geographic landmarks, no visual clutter, no complex patterns, no busy backgrounds, keep it extremely simple and clean"
+    },
+    {
+      "id": 24,
+      "week": "S8",
+      "scheduled_at": "2026-05-01T12:00:00+02:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "CTA click-to-call : le bouton qui transforme en appels",
+      "content": "Sur mobile, un bouton click-to-call bien placé peut multiplier vos appels entrants à Genève. 60% des recherches locales aboutissent à un appel dans l'heure. Votre site doit faciliter ce passage à l'action. Jon Labs intègre des CTA stratégiques pour transformer vos visiteurs en clients.",
+      "cta": {
+        "type": "link",
+        "url": "/services/referencement-local",
+        "label": "Ajouter un CTA à mon site"
+      },
+      "image_template": "centered-minimal",
+      "image_style": "illustration",
+      "image_text": "Bouton appel = plus de clients",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple flat design social media graphic, white background, small simple icon centered above: a flat smartphone with a phone call button, #00D9A3 and white only, minimal line art, very few elements, below the icon large bold sans-serif text in #00D9A3 reading exactly \"Bouton appel = plus de clients\" exact spelling, no misspellings, no typos, each letter must be correct, clean, minimal, professional, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no complex gradients, no visual clutter, no busy backgrounds, no multiple overlapping elements, keep it extremely simple and clean"
+    },
+    {
+      "id": 25,
+      "week": "S9",
+      "scheduled_at": "2026-05-04T09:00:00+02:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "Combien coûte un site web en Suisse en 2026 ?",
+      "content": "En Suisse, un site web pro coûte entre 2'000 et 15'000 CHF selon la complexité. À Genève, les tarifs varient beaucoup. Vitrine simple, e-commerce, sur mesure : chaque projet a son budget. Jon Labs propose des solutions transparentes et adaptées aux PME genevoises. Zéro surprise.",
+      "cta": {
+        "type": "link",
+        "url": "/blog/prix-site-web-suisse-2026",
+        "label": "Lire le guide des prix"
+      },
+      "image_template": "split-vertical",
+      "image_style": "illustration",
+      "image_text": "Prix site web Suisse 2026",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple flat design social media graphic, left 55% is a solid #00D9A3 panel, right 45% is a white panel with illustration, left panel has large bold sans-serif white text reading exactly \"Prix site web Suisse 2026\" exact spelling, no misspellings, no typos, each letter must be correct, right panel has ONE simple flat icon of a price tag with CHF symbol, #00D9A3 and white only, minimal line art, very few elements, clean, minimal, professional, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no complex gradients, no visual clutter, no busy backgrounds, no multiple overlapping elements, keep it extremely simple and clean"
+    },
+    {
+      "id": 26,
+      "week": "S9",
+      "scheduled_at": "2026-05-06T12:30:00+02:00",
+      "type": "offer",
+      "theme": "seo_local_optim",
+      "title": "Refonte site web : d'invisible à incontournable sur Google",
+      "content": "Votre site date de plus de 3 ans ? Il freine probablement votre visibilité à Genève. La refonte Jon Labs : design moderne, vitesse optimisée, SEO intégré dès le départ. On transforme votre site en machine à clients. Audit gratuit pour évaluer le potentiel de votre site actuel.",
+      "cta": {
+        "type": "link",
+        "url": "/services/refonte-site-web",
+        "label": "Demander un audit gratuit"
+      },
+      "image_template": "fullscreen-band",
+      "image_style": "photo-object",
+      "image_text": "Refonte site web Genève",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple social media graphic, full bleed photograph of hands typing on a modern keyboard with a screen in background, warm natural lighting, shallow depth of field, clean uncluttered background, a solid #00D9A3 horizontal banner across the center of the image, large bold sans-serif white text on the banner reading exactly \"Refonte site web Genève\" exact spelling, no misspellings, no typos, each letter must be correct, the è accent on Genève must be correct, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no geographic landmarks, no visual clutter, no complex patterns, no busy backgrounds, keep it extremely simple and clean"
+    },
+    {
+      "id": 27,
+      "week": "S9",
+      "scheduled_at": "2026-05-08T08:30:00+02:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "QR code pour collecter des avis Google : méthode artisans",
+      "content": "Les artisans de Genève peuvent collecter des avis Google facilement avec un QR code. Imprimé sur carte de visite, facture ou devanture, il redirige directement vers votre page d'avis. Simple, gratuit, redoutablement efficace. Jon Labs vous montre comment le créer en 5 minutes.",
+      "cta": {
+        "type": "link",
+        "url": "/services/referencement-local",
+        "label": "Créer mon QR code avis"
+      },
+      "image_template": "split-vertical",
+      "image_style": "sketch",
+      "image_text": "QR code avis Google",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, white background, hand-drawn sketch style like excalidraw, rough pencil lines, imperfect strokes, minimalist, left 55% white with handwritten text, right 45% white with sketch drawing, ONE simple line drawing of a QR code square with a star, black ink on white paper feel, only 3-5 strokes maximum, extremely minimal, no colors except subtle #00D9A3 accent on the star, handwritten style text reading exactly \"QR code avis Google\" exact spelling, no misspellings, no typos, each letter must be correct, in black, clean, airy, lots of white space, almost empty feeling, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no shading, no gradients, no visual clutter, no complex patterns, keep it extremely simple and clean"
+    },
+    {
+      "id": 28,
+      "week": "S10",
+      "scheduled_at": "2026-05-11T12:00:00+02:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "Description fiche Google : la plupart des PME n'en ont pas",
+      "content": "À Genève, trop de fiches Google Business n'ont aucune description. C'est 750 caractères gratuits pour expliquer ce que vous faites et où. Incluez vos services, votre zone (Genève, Carouge, Vernier) et ce qui vous différencie. Jon Labs rédige des descriptions qui font la différence.",
+      "cta": {
+        "type": "link",
+        "url": "/services/referencement-local",
+        "label": "Rédiger ma description"
+      },
+      "image_template": "centered-minimal",
+      "image_style": "illustration",
+      "image_text": "Description fiche Google",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple flat design social media graphic, white background, small simple icon centered above: a flat text document with an empty field highlighted, #00D9A3 and white only, minimal line art, very few elements, below the icon large bold sans-serif text in #00D9A3 reading exactly \"Description fiche Google\" exact spelling, no misspellings, no typos, each letter must be correct, clean, minimal, professional, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no complex gradients, no visual clutter, no busy backgrounds, no multiple overlapping elements, keep it extremely simple and clean"
+    },
+    {
+      "id": 29,
+      "week": "S10",
+      "scheduled_at": "2026-05-13T09:00:00+02:00",
+      "type": "whats_new",
+      "theme": "portfolio_resultats",
+      "title": "Portfolio artisan : le digital sublime le savoir-faire",
+      "content": "Pour Ugo Mighali, coutelier à Genève, le portfolio digital est devenu un outil de vente. Chaque création photographiée, chaque détail mis en valeur sur un site pro. Les artisans genevois qui investissent dans leur vitrine en ligne attirent une clientèle plus qualifiée.",
+      "cta": {
+        "type": "link",
+        "url": "/portfolio/ugo-mighali-coutelier",
+        "label": "Voir le portfolio"
+      },
+      "image_template": "split-horizontal",
+      "image_style": "photo-object",
+      "image_text": "Artisan digital Genève",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple social media graphic, top 60% photograph of artisan tools on a wooden workbench, warm natural lighting, shallow depth of field, clean uncluttered background, bottom 40% solid #00D9A3 panel with large bold sans-serif white text reading exactly \"Artisan digital Genève\" exact spelling, no misspellings, no typos, each letter must be correct, the è accent on Genève must be correct, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no geographic landmarks, no visual clutter, no complex patterns, no busy backgrounds, keep it extremely simple and clean"
+    },
+    {
+      "id": 30,
+      "week": "S10",
+      "scheduled_at": "2026-05-15T12:30:00+02:00",
+      "type": "whats_new",
+      "theme": "automatisation_ia",
+      "title": "Apparaître sur Claude AI : nouveau canal de visibilité",
+      "content": "Après ChatGPT, Claude AI est une nouvelle porte d'entrée pour trouver des pros à Genève. Structure de site, contenu de qualité, mentions cohérentes : les critères sont différents mais la logique est la même. Jon Labs vous explique comment être référencé sur ces nouveaux moteurs IA.",
+      "cta": {
+        "type": "link",
+        "url": "/blog/apparaitre-claude",
+        "label": "Lire l'article"
+      },
+      "image_template": "split-vertical",
+      "image_style": "sketch",
+      "image_text": "Visible sur Claude AI",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, white background, hand-drawn sketch style like excalidraw, rough pencil lines, imperfect strokes, minimalist, left 55% white with handwritten text, right 45% white with sketch drawing, ONE simple line drawing of a brain icon with a search cursor, black ink on white paper feel, only 3-5 strokes maximum, extremely minimal, no colors except subtle #00D9A3 accent on the brain, handwritten style text reading exactly \"Visible sur Claude AI\" exact spelling, no misspellings, no typos, each letter must be correct, in black, clean, airy, lots of white space, almost empty feeling, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no shading, no gradients, no visual clutter, no complex patterns, keep it extremely simple and clean"
+    },
+    {
+      "id": 31,
+      "week": "S11",
+      "scheduled_at": "2026-05-18T08:00:00+02:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "Performance mobile : 60% de vos visiteurs sont sur tél",
+      "content": "À Genève, plus de 60% des recherches locales se font sur smartphone. Si votre site n'est pas optimisé mobile, vous perdez la majorité de vos visiteurs. Temps de chargement, taille des boutons, lisibilité : chaque détail compte. Jon Labs crée des sites mobile-first qui convertissent.",
+      "cta": {
+        "type": "link",
+        "url": "/blog/visibilite-site-internet-2026",
+        "label": "Optimiser mon site mobile"
+      },
+      "image_template": "split-vertical",
+      "image_style": "illustration",
+      "image_text": "60% visiteurs sur mobile",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple flat design social media graphic, left 55% is a solid #00D9A3 panel, right 45% is a white panel with illustration, left panel has large bold sans-serif white text reading exactly \"60% visiteurs sur mobile\" exact spelling, no misspellings, no typos, each letter must be correct, right panel has ONE simple flat icon of a smartphone, #00D9A3 and white only, minimal line art, very few elements, clean, minimal, professional, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no complex gradients, no visual clutter, no busy backgrounds, no multiple overlapping elements, keep it extremely simple and clean"
+    },
+    {
+      "id": 32,
+      "week": "S11",
+      "scheduled_at": "2026-05-20T12:00:00+02:00",
+      "type": "offer",
+      "theme": "automatisation_ia",
+      "title": "Automatisez vos rappels clients, gagnez 5h/semaine",
+      "content": "Les PME genevoises perdent des heures chaque semaine en rappels manuels. Automatisez vos confirmations de rendez-vous, suivis et relances. Jon Labs met en place des workflows simples qui tournent tout seuls. Gagnez 5h par semaine pour vous concentrer sur votre cœur de métier à Genève.",
+      "cta": {
+        "type": "link",
+        "url": "/services/automatisation",
+        "label": "Découvrir l'automatisation"
+      },
+      "image_template": "fullscreen-band",
+      "image_style": "illustration",
+      "image_text": "Gagnez 5h par semaine",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple flat design social media graphic, full #00D9A3 background with a solid white horizontal banner across the center, large bold sans-serif text in #00D9A3 on the white banner reading exactly \"Gagnez 5h par semaine\" exact spelling, no misspellings, no typos, each letter must be correct, above and below the banner ONE simple flat clock icon with an arrow, #00D9A3 and white only, minimal line art, very few elements, clean, minimal, professional, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no complex gradients, no visual clutter, no busy backgrounds, no multiple overlapping elements, keep it extremely simple and clean"
+    },
+    {
+      "id": 33,
+      "week": "S11",
+      "scheduled_at": "2026-05-22T09:30:00+02:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "Attributs GMB : wifi, accessibilité, paiement sans contact",
+      "content": "Google Business propose des dizaines d'attributs pour votre fiche à Genève : wifi gratuit, accessibilité PMR, paiement sans contact, terrasse. Chaque attribut activé est un filtre de recherche en plus. Peu de PME genevoises les remplissent. C'est gratuit et ça prend 5 minutes.",
+      "cta": {
+        "type": "link",
+        "url": "/outils/checklist-commerce-google",
+        "label": "Voir la checklist attributs"
+      },
+      "image_template": "centered-minimal",
+      "image_style": "sketch",
+      "image_text": "Attributs Google Business",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, white background, hand-drawn sketch style like excalidraw, rough pencil lines, imperfect strokes, minimalist, all white, small centered sketch of three simple icons (wifi, wheelchair, card), handwritten text below, black ink on white paper feel, only 3-5 strokes per icon, extremely minimal, no colors except subtle #00D9A3 accent on one icon, handwritten style text reading exactly \"Attributs Google Business\" exact spelling, no misspellings, no typos, each letter must be correct, in black, clean, airy, lots of white space, almost empty feeling, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no shading, no gradients, no visual clutter, no complex patterns, keep it extremely simple and clean"
+    },
+    {
+      "id": 34,
+      "week": "S12",
+      "scheduled_at": "2026-05-25T12:30:00+02:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "L'été approche : préparez votre site pour la haute saison",
+      "content": "L'été à Genève, c'est touristes, événements et activité accrue. Votre site web doit être prêt : contenu saisonnier, horaires d'été, offres spéciales mises en avant. Jon Labs vous aide à anticiper la haute saison pour capter un maximum de clients. Préparez-vous maintenant.",
+      "cta": {
+        "type": "link",
+        "url": "/services/refonte-site-web",
+        "label": "Préparer la haute saison"
+      },
+      "image_template": "split-horizontal",
+      "image_style": "photo-object",
+      "image_text": "Site prêt pour l'été",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple social media graphic, top 60% photograph of a bright sunny workspace with a laptop and sunglasses on desk, warm natural lighting, shallow depth of field, clean uncluttered background, bottom 40% solid #00D9A3 panel with large bold sans-serif white text reading exactly \"Site prêt pour l'été\" exact spelling, no misspellings, no typos, each letter must be correct, the ê accent on prêt and é accent on été must be correct, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no geographic landmarks, no visual clutter, no complex patterns, no busy backgrounds, keep it extremely simple and clean"
+    },
+    {
+      "id": 35,
+      "week": "S12",
+      "scheduled_at": "2026-05-27T08:00:00+02:00",
+      "type": "whats_new",
+      "theme": "automatisation_ia",
+      "title": "IA pragmatique PME : ni buzzword, juste du concret",
+      "content": "L'IA pour les PME genevoises, ce n'est pas du marketing. C'est automatiser les tâches répétitives, générer du contenu plus vite, analyser ses données sans Excel. Jon Labs utilise l'IA au quotidien pour ses clients à Genève. Pragmatique, mesurable, adapté aux petites structures.",
+      "cta": {
+        "type": "link",
+        "url": "/blog/ia-pragmatique-pme-suisse",
+        "label": "Lire l'article"
+      },
+      "image_template": "split-vertical",
+      "image_style": "illustration",
+      "image_text": "IA pragmatique pour PME",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple flat design social media graphic, left 55% is a solid #00D9A3 panel, right 45% is a white panel with illustration, left panel has large bold sans-serif white text reading exactly \"IA pragmatique pour PME\" exact spelling, no misspellings, no typos, each letter must be correct, right panel has ONE simple flat icon of a gear with a sparkle, #00D9A3 and white only, minimal line art, very few elements, clean, minimal, professional, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no complex gradients, no visual clutter, no busy backgrounds, no multiple overlapping elements, keep it extremely simple and clean"
+    },
+    {
+      "id": 36,
+      "week": "S12",
+      "scheduled_at": "2026-05-29T12:00:00+02:00",
+      "type": "event",
+      "theme": "seo_local_optim",
+      "title": "Session découverte : auditez votre visibilité en 15 min",
+      "content": "Réservez une session découverte gratuite de 15 minutes avec Jon Labs. On analyse ensemble votre visibilité en ligne à Genève : site web, fiche Google, positionnement. Vous repartez avec 3 actions concrètes à mettre en place immédiatement. Sans engagement, 100% actionnable.",
+      "cta": {
+        "type": "link",
+        "url": "/contact",
+        "label": "Réserver ma session"
+      },
+      "image_template": "split-horizontal",
+      "image_style": "photo-object",
+      "image_text": "Audit visibilité 15 min",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple social media graphic, top 60% photograph of a notebook and pen on a clean white desk with a timer, warm natural lighting, shallow depth of field, clean uncluttered background, bottom 40% solid #00D9A3 panel with large bold sans-serif white text reading exactly \"Audit visibilité 15 min\" exact spelling, no misspellings, no typos, each letter must be correct, the é accent on visibilité must be correct, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no geographic landmarks, no visual clutter, no complex patterns, no busy backgrounds, keep it extremely simple and clean"
+    },
+    {
+      "id": 37,
+      "week": "S13",
+      "scheduled_at": "2026-06-01T09:00:00+02:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "UGC et Local Guides : faites travailler vos clients",
+      "content": "Le contenu généré par vos clients (photos, avis, questions) booste votre fiche Google à Genève. Les Local Guides ont un impact encore plus fort. Encouragez vos clients satisfaits à partager leur expérience. Jon Labs vous donne les techniques pour activer cette visibilité gratuite.",
+      "cta": {
+        "type": "link",
+        "url": "/services/referencement-local",
+        "label": "Activer l'UGC pour ma fiche"
+      },
+      "image_template": "split-vertical",
+      "image_style": "sketch",
+      "image_text": "Clients = visibilité gratuite",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, white background, hand-drawn sketch style like excalidraw, rough pencil lines, imperfect strokes, minimalist, left 55% white with handwritten text, right 45% white with sketch drawing, ONE simple line drawing of two people icons with an arrow pointing to a star, black ink on white paper feel, only 3-5 strokes maximum, extremely minimal, no colors except subtle #00D9A3 accent on the star, handwritten style text reading exactly \"Clients = visibilité gratuite\" exact spelling, no misspellings, no typos, each letter must be correct, the é accent on visibilité must be correct, in black, clean, airy, lots of white space, almost empty feeling, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no shading, no gradients, no visual clutter, no complex patterns, keep it extremely simple and clean"
+    },
+    {
+      "id": 38,
+      "week": "S13",
+      "scheduled_at": "2026-06-03T12:30:00+02:00",
+      "type": "whats_new",
+      "theme": "seo_local_optim",
+      "title": "Validez votre idée business avant d'investir dans un site",
+      "content": "Avant de dépenser des milliers de CHF dans un site web à Genève, validez votre idée. Recherche de mots-clés, analyse de la concurrence locale, test de la demande. Jon Labs vous aide à prendre la bonne décision avant d'investir. Un site rentable commence par une idée validée.",
+      "cta": {
+        "type": "link",
+        "url": "/blog/valide-idee-business-suisse",
+        "label": "Lire le guide"
+      },
+      "image_template": "centered-minimal",
+      "image_style": "illustration",
+      "image_text": "Validez avant d'investir",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple flat design social media graphic, white background, small simple icon centered above: a flat lightbulb with a checkmark, #00D9A3 and white only, minimal line art, very few elements, below the icon large bold sans-serif text in #00D9A3 reading exactly \"Validez avant d'investir\" exact spelling, no misspellings, no typos, each letter must be correct, clean, minimal, professional, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no stock photography, no geographic landmarks, no complex gradients, no visual clutter, no busy backgrounds, no multiple overlapping elements, keep it extremely simple and clean"
+    },
+    {
+      "id": 39,
+      "week": "S13",
+      "scheduled_at": "2026-06-05T08:30:00+02:00",
+      "type": "offer",
+      "theme": "seo_local_optim",
+      "title": "Bilan 3 mois : votre stratégie mérite un expert à Genève",
+      "content": "3 mois de conseils SEO local pour les PME de Genève. Si vous avez suivi nos posts, vous savez maintenant ce qui compte. Prêt à passer à l'action avec un expert ? Jon Labs propose un accompagnement sur mesure pour votre visibilité à Genève. Premier échange gratuit et sans engagement.",
+      "cta": {
+        "type": "link",
+        "url": "/contact",
+        "label": "Prendre rendez-vous"
+      },
+      "image_template": "fullscreen-band",
+      "image_style": "photo-object",
+      "image_text": "Bilan 3 mois SEO Genève",
+      "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall, simple social media graphic, full bleed photograph of a clean desk with a notebook showing checkmarks and a pen, warm natural lighting, shallow depth of field, clean uncluttered background, a solid #00D9A3 horizontal banner across the center of the image, large bold sans-serif white text on the banner reading exactly \"Bilan 3 mois SEO Genève\" exact spelling, no misspellings, no typos, each letter must be correct, the è accent on Genève must be correct, high contrast, text legible at thumbnail size, no realistic human faces, no identifiable people, no geographic landmarks, no visual clutter, no complex patterns, no busy backgrounds, keep it extremely simple and clean"
+    }
+  ]
+}
