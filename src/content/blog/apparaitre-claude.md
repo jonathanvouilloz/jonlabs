@@ -180,4 +180,4 @@ Ou si tu préfères discuter de ta stratégie GEO directement :
 - **Brave Search** — Architecture indépendante de l'index Brave, différences avec Google et Bing : [brave.com/search](https://brave.com/search)
 - **Données sur le comportement utilisateur Claude (2025)** — 57% d'utilisation en mode augmentation (vérification active des sources) : recherche comportementale sur les plateformes IA
 
-*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve) — Apparaître sur Perplexity (à venir) — Apparaître sur Gemini (à venir)*
+*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve) — [Apparaître sur Gemini](/blog/apparaitre-gemini) — Apparaître sur Perplexity (à venir)*
