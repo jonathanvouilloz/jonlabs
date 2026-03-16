@@ -197,7 +197,7 @@ On récapitule.
 
 Les algorithmes des réseaux sociaux ne sont pas tes amis. Ils sont conçus pour maximiser le temps passé sur leurs plateformes et les revenus publicitaires. Ta visibilité est une variable d'ajustement dans leur équation.
 
-Google, lui, montre ton site à **100% de ceux qui te cherchent activement**. Ces gens ont un besoin, ils veulent une solution, et ils sont prêts à agir.
+Google, lui, montre ton site à **100% de ceux qui te cherchent activement**. Ces gens ont un besoin, ils veulent une solution, et ils sont prêts à agir. Et avec les AI Overviews, [Gemini cite directement les sites bien optimisés](/blog/apparaitre-gemini) dans ses réponses — une raison de plus d'investir dans ta visibilité Google.
 
 Un site professionnel en 2026, c'est plus du confort ou un "nice to have". C'est la **norme minimum**. C'est ce que les gens s'attendent à trouver quand ils tapent ton nom ou ton métier dans une barre de recherche.
 

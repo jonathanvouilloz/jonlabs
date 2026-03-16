@@ -16,7 +16,7 @@ Quand un client tape "consultant automation PME Genève" dans Google en 2026, il
 
 Il voit une réponse générée par Gemini. Une synthèse. Un ou deux noms cités, avec une explication. Et en dessous, les résultats classiques.
 
-Si tu n'es pas dans la synthèse Gemini, tu es déjà en deuxième page — même si tu es numéro un sur Google.
+Si tu n'es pas dans la synthèse Gemini, tu es déjà en deuxième page — même si tu es numéro un sur Google. Voici comment optimiser ta présence dans l'écosystème Google pour être cité par Gemini.
 
 C'est la réalité des AI Overviews, le nom que Google donne à ces réponses générées par Gemini directement dans les résultats de recherche. En 2026, ces encadrés apparaissent sur 30% des recherches liées aux services, et le taux de clic sur les résultats organiques sous un AI Overview a chuté de 34,5% selon les données récentes de l'industrie. Les clients ne scrollent plus — ils lisent la synthèse, ils cliquent sur le lien cité dedans, et ils partent.
 
@@ -100,7 +100,7 @@ Voilà la différence entre un avis inutile et un avis qui travaille pour toi :
 **Avis utile pour Gemini :**
 > "Jon nous a aidé à automatiser le suivi de nos devis sur Make.com. En tant que PME de 8 personnes à Genève, on perdait 4 heures par semaine sur des tâches manuelles. Depuis l'automatisation, c'est résolu. Intervenant réactif et pédagogue."
 
-Le deuxième avis contient : un service précis, un résultat chiffré, une localisation, un profil client, et un outil mentionné. Gemini peut l'utiliser pour répondre à "consultant automation Make.com Genève", "automatisation PME Suisse romande", "gain de temps gestion PME", et une dizaine d'autres requêtes.
+Le deuxième avis contient : un service précis, un résultat chiffré, une localisation, un profil client, et un outil mentionné. Gemini peut l'utiliser pour répondre à "consultant automation Make.com Genève", "automatisation PME Suisse romande", "gain de temps gestion PME", et une dizaine d'autres requêtes. Pour voir des exemples concrets de ce type de résultats, consulte nos [études de cas en portfolio](/portfolio).
 
 Tu peux demander à tes clients de structurer leurs avis. Ce n'est pas de la manipulation — c'est les aider à être précis. "Est-ce que tu pourrais mentionner ce qu'on a résolu ensemble, en combien de temps, et dans quelle ville ?" est une demande tout à fait légitime.
 
@@ -124,7 +124,7 @@ Une vidéo par trimestre sur une question précise de ta clientèle est suffisan
 
 Voici le plan dans l'ordre qui fait sens pour un indépendant ou une petite structure partant d'une présence Google standard.
 
-**Priorité 1 : Audit et optimisation de ta fiche Google Business Profile.**
+### Priorité 1 : Audit et optimisation de ta fiche Google Business Profile
 
 C'est le point d'entrée non négociable. Ta fiche GBP est la base de données structurée que Gemini lit en premier pour les requêtes locales.
 
@@ -138,7 +138,7 @@ Checklist minimum :
 
 Si tu n'as pas encore fait ça, c'est ta première heure de travail GEO/Gemini.
 
-**Priorité 2 : Structure de ton site alignée avec les intentions de recherche Google.**
+### Priorité 2 : Structure de ton site alignée avec les intentions de recherche Google
 
 Gemini lit ce que Google indexe. Chaque page de ton site doit correspondre à une intention de recherche précise — pas à ce que tu veux dire, mais à ce que tes clients cherchent.
 
@@ -147,13 +147,13 @@ Format qui fonctionne bien pour les AI Overviews :
 - Premier paragraphe : réponse directe en 2-3 phrases (ce que tu fais, pour qui, avec quels résultats)
 - Section FAQ en bas de page : 5-7 questions en langage naturel avec réponses de 2-3 phrases
 
-Les pages FAQ avec schema markup FAQPage sont citées 28% plus souvent dans les AI Overviews selon les données de l'industrie. C'est une heure de travail technique pour un impact mesurable.
+Les pages FAQ avec schema markup FAQPage sont citées 28% plus souvent dans les AI Overviews selon les données de l'industrie. C'est une heure de travail technique pour un impact mesurable. Si tu veux aller plus loin sur l'optimisation de tes pages pour le référencement local, découvre notre [service de référencement local](/services/referencement-local).
 
-**Priorité 3 : Cohérence de tes données sur toutes tes surfaces Google.**
+### Priorité 3 : Cohérence de tes données sur toutes tes surfaces Google
 
 Nom, adresse, numéro de téléphone, description de service — tout doit être identique entre ta fiche GBP, ton site, ton profil LinkedIn, et tous les annuaires où tu es référencé. Gemini triangule ces informations pour évaluer ta fiabilité en tant qu'entité. Des données incohérentes = signal de méfiance.
 
-**Priorité 4 : Backlinks depuis des sources que Google reconnaît.**
+### Priorité 4 : Backlinks depuis des sources que Google reconnaît
 
 Un lien depuis l'annuaire de la Chambre de commerce de Genève, depuis un article de la Tribune de Genève, ou depuis un site professionnel reconnu dans ton secteur a un impact double : il améliore ton autorité de domaine pour Google, et il signale à Gemini que tu es une entité reconnue en dehors de ton propre site. Ce sont les mentions que Gemini valorise le plus pour les recommandations locales.
 
@@ -180,9 +180,6 @@ Tu veux un état des lieux de ta présence actuelle dans l'écosystème Google e
 Ou si tu préfères qu'on regarde ça ensemble :
 
 [Réserver un appel découverte →](https://cal.com/jonathan-vouilloz/appel-de-bienvenue)
-
----
-
 
 ---
 
