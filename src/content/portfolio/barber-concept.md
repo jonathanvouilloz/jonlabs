@@ -46,8 +46,8 @@ resultImages:
 
 context:
   clientDescription: "Barber Concept est une chaîne de salons de barbiers en pleine expansion en Suisse romande, avec 6 établissements (4 à Genève, 1 à Lausanne, 1 à Sion). La marque se positionne sur un créneau premium dans l'univers de la coiffure masculine, avec des ambassadeurs comme Zakaria, Gazo, Gims et Tiakola."
-  challenge: "Le site existant était vieillissant et ne reflétait plus l'image de la marque. Barber Concept lançait en parallèle une application mobile de réservation personnalisée (développée par Kusari, kusari.ch) — il fallait un site à la hauteur de cette nouvelle identité, capable de présenter les salons, le programme de franchise et de gérer le recrutement."
-  whyThisProject: "Je travaillais chez Kusari (kusari.ch), la startup qui a développé l'application mobile de Barber Concept. La collaboration directe avec le client a naturellement mené à la création du site web dans le cadre du rebrand global de la marque."
+  challenge: "Le site existant était vieillissant et ne reflétait plus l'image de la marque. Barber Concept lançait en parallèle une application mobile de réservation personnalisée (développée par Kusari) — il fallait un site à la hauteur de cette nouvelle identité, capable de présenter les salons, le programme de franchise et de gérer le recrutement."
+  whyThisProject: "Je travaillais chez Kusari, la startup qui a développé l'application mobile de Barber Concept. La collaboration directe avec le client a naturellement mené à la création du site web dans le cadre du rebrand global de la marque."
 
 approach:
   - phase: 1
