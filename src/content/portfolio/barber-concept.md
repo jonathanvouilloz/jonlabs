@@ -107,7 +107,7 @@ liveUrl: "https://barberconcept.ch"
 
 ## Un rebrand digital pour une marque qui grandit
 
-Barber Concept, c'est une chaîne de barbiers qui ne fait rien comme les autres en Suisse romande. Avec 6 salons, des ambassadeurs comme Gazo et Gims et une app mobile de réservation, la marque avait besoin d'un site à la hauteur de ses ambitions. J'ai créé barberconcept.ch sur Webflow dans le cadre d'un rebrand complet, en parallèle du lancement de l'application mobile développée par Kusari (kusari.ch).
+Barber Concept, c'est une chaîne de barbiers qui ne fait rien comme les autres en Suisse romande. Avec 6 salons, des ambassadeurs comme Gazo et Gims et une app mobile de réservation, la marque avait besoin d'un site à la hauteur de ses ambitions. J'ai créé barberconcept.ch sur Webflow dans le cadre d'un rebrand complet, en parallèle du lancement de l'application mobile développée par [Kusari](https://kusari.ch).
 
 Le site va bien au-delà d'une simple vitrine : un CMS structuré gère dynamiquement les 6 salons avec filtres par ville, une page franchise présente le modèle d'expansion, et un formulaire multi-step de recrutement génère régulièrement des candidatures spontanées. Un blog est également en place, mais n'a jamais été exploité jusqu'ici. Chaque section a été pensée pour refléter le positionnement premium de la marque.
 
