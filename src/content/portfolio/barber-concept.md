@@ -38,16 +38,16 @@ resultImages:
     alt: "Page franchise Barber Concept — Votre succès nous tient à coeur"
     caption: "Page dédiée au programme de franchise"
   - url: "/images/portfolio/barber-concept/ambassadeurs.webp"
-    alt: "Section ambassadeurs — Kingsley Coman, Corentin Tolisso, Tiakola"
+    alt: "Section ambassadeurs — Zakaria, Gazo, Gims, Tiakola"
     caption: "Les personnalités qui soutiennent Barber Concept"
   - url: "/images/portfolio/barber-concept/recrutement.webp"
     alt: "Formulaire de recrutement multi-step — Parle nous de toi avec upload CV"
     caption: "Formulaire multi-step de candidature intégré au site"
 
 context:
-  clientDescription: "Barber Concept est une chaîne de salons de barbiers en pleine expansion en Suisse romande, avec 6 établissements (4 à Genève, 1 à Lausanne, 1 à Sion). La marque se positionne sur un créneau premium dans l'univers de la coiffure masculine, avec des ambassadeurs comme Kingsley Coman et Corentin Tolisso."
-  challenge: "Le site existant était vieillissant et ne reflétait plus l'image de la marque. Barber Concept lançait en parallèle une application mobile de réservation personnalisée (développée par Kuzari) — il fallait un site à la hauteur de cette nouvelle identité, capable de présenter les salons, le programme de franchise et de gérer le recrutement."
-  whyThisProject: "Je travaillais chez Kuzari, la startup qui a développé l'application mobile de Barber Concept. La collaboration directe avec le client a naturellement mené à la création du site web dans le cadre du rebrand global de la marque."
+  clientDescription: "Barber Concept est une chaîne de salons de barbiers en pleine expansion en Suisse romande, avec 6 établissements (4 à Genève, 1 à Lausanne, 1 à Sion). La marque se positionne sur un créneau premium dans l'univers de la coiffure masculine, avec des ambassadeurs comme Zakaria, Gazo, Gims et Tiakola."
+  challenge: "Le site existant était vieillissant et ne reflétait plus l'image de la marque. Barber Concept lançait en parallèle une application mobile de réservation personnalisée (développée par Kusari, kusari.ch) — il fallait un site à la hauteur de cette nouvelle identité, capable de présenter les salons, le programme de franchise et de gérer le recrutement."
+  whyThisProject: "Je travaillais chez Kusari (kusari.ch), la startup qui a développé l'application mobile de Barber Concept. La collaboration directe avec le client a naturellement mené à la création du site web dans le cadre du rebrand global de la marque."
 
 approach:
   - phase: 1
@@ -70,11 +70,12 @@ approach:
       - "Custom code pour les interactions avancées"
   - phase: 3
     title: "Optimisation SEO (en cours)"
-    description: "Phase actuelle : retravail du site pour améliorer le référencement naturel. Barber Concept est une marque forte localement mais sous-représentée sur Google face à des concurrents comme Agile."
+    description: "Phase actuelle : retravail du site pour améliorer le référencement naturel. Barber Concept est une marque forte localement mais sous-représentée sur Google face à des concurrents comme Agile. Le blog existant n'a jamais été exploité — c'est un levier clé à activer."
     tasks:
       - "Audit SEO du site actuel"
       - "Optimisation des balises, structure et contenu"
       - "Stratégie de mots-clés locaux (barbier Genève, etc.)"
+      - "Reprise et développement du blog (existant mais jamais travaillé)"
 
 successFactors:
   - title: "Positionnement premium"
@@ -106,8 +107,8 @@ liveUrl: "https://barberconcept.ch"
 
 ## Un rebrand digital pour une marque qui grandit
 
-Barber Concept, c'est une chaîne de barbiers qui ne fait rien comme les autres en Suisse romande. Avec 6 salons, des ambassadeurs comme Kingsley Coman et une app mobile de réservation, la marque avait besoin d'un site à la hauteur de ses ambitions. J'ai créé barberconcept.ch sur Webflow dans le cadre d'un rebrand complet, en parallèle du lancement de l'application mobile développée par Kuzari.
+Barber Concept, c'est une chaîne de barbiers qui ne fait rien comme les autres en Suisse romande. Avec 6 salons, des ambassadeurs comme Gazo et Gims et une app mobile de réservation, la marque avait besoin d'un site à la hauteur de ses ambitions. J'ai créé barberconcept.ch sur Webflow dans le cadre d'un rebrand complet, en parallèle du lancement de l'application mobile développée par Kusari (kusari.ch).
 
-Le site va bien au-delà d'une simple vitrine : un CMS structuré gère dynamiquement les 6 salons avec filtres par ville, une page franchise présente le modèle d'expansion, et un formulaire multi-step de recrutement génère régulièrement des candidatures spontanées. Chaque section a été pensée pour refléter le positionnement premium de la marque.
+Le site va bien au-delà d'une simple vitrine : un CMS structuré gère dynamiquement les 6 salons avec filtres par ville, une page franchise présente le modèle d'expansion, et un formulaire multi-step de recrutement génère régulièrement des candidatures spontanées. Un blog est également en place, mais n'a jamais été exploité jusqu'ici. Chaque section a été pensée pour refléter le positionnement premium de la marque.
 
-Aujourd'hui, une phase 2 SEO est en cours pour rattraper le retard en référencement naturel. Le site est solide visuellement, mais il doit maintenant performer sur Google face à des concurrents bien implantés localement.
+Aujourd'hui, une phase 2 SEO est en cours pour rattraper le retard en référencement naturel — et le blog sera un des premiers leviers à activer. Le site est solide visuellement, mais il doit maintenant performer sur Google face à des concurrents bien implantés localement.
