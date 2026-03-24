@@ -98,7 +98,7 @@ Si tu n'es pas **visible sur Google**, tu n'existes pas pour 9 clients sur 10.
 
 ### Mais il y a un nouveau problème
 
-Les AI Overviews de Google — ces réponses générées par IA qui apparaissent en haut des résultats — changent la donne.
+Les AI Overviews de Google, ces réponses générées par IA qui apparaissent en haut des résultats, changent la donne.
 
 En juillet 2025, [**69% des recherches Google**](https://evolvagency.io/learn/generative-search/llm-statistics-2026) se terminent sans clic sur un site web. Un an plus tôt, c'était 56%. Une hausse de 13 points en 12 mois.
 
@@ -132,7 +132,7 @@ Autrement dit : si tu es visible sur Google → tu seras dans les réponses des 
 
 Ce n'est pas Google OU l'IA. C'est le même combat.
 
-**Investir dans ta visibilité Google aujourd'hui = investir dans ta visibilité IA demain.** Si tu veux comprendre concrètement comment ça fonctionne, j'ai détaillé [comment apparaître sur ChatGPT quand on cherche ton service à Genève](/blog/apparaitre-chatgpt-geneve), [comment être cité par Gemini et les AI Overviews](/blog/apparaitre-gemini). Et pour Claude, c'est encore différent — il utilise Brave Search, pas Google : [apparaître sur Claude](/blog/apparaitre-claude).
+**Investir dans ta visibilité Google aujourd'hui = investir dans ta visibilité IA demain.** Si tu veux comprendre concrètement comment ça fonctionne, j'ai détaillé [comment apparaître sur ChatGPT quand on cherche ton service à Genève](/blog/apparaitre-chatgpt-geneve), [comment être cité par Gemini et les AI Overviews](/blog/apparaitre-gemini). Et pour Claude, c'est encore différent : il utilise Brave Search, pas Google : [apparaître sur Claude](/blog/apparaitre-claude).
 
 Et les marques qui sont citées par les IA en récoltent les fruits : [**+35% de clics organiques** et **+91% de clics payants**](https://evolvagency.io/learn/generative-search/llm-statistics-2026) par rapport aux marques non citées. Le trafic IA convertit même [**23 fois mieux**](https://evolvagency.io/learn/generative-search/llm-statistics-2026) que le trafic organique classique.
 
@@ -151,7 +151,7 @@ Le SEO n'est pas mort. Il est plus important que jamais.
 - Le **prix site internet** est ton critère numéro 1
 - Tu n'as pas besoin d'être trouvé sur Google (vraiment ?)
 
-Dans ce cas, fonce. Lovable, Bolt, Claude Code — ce sont des outils formidables pour lancer vite. Je les utilise moi-même pour mes projets perso.
+Dans ce cas, fonce. Lovable, Bolt, Claude Code, ce sont des outils formidables pour lancer vite. Je les utilise moi-même pour mes projets perso.
 
 ### Fais appel à un freelance création site web si...
 
@@ -168,7 +168,7 @@ C'est comme la cuisine. Tout le monde a accès aux mêmes ingrédients au superm
 
 L'outil ne fait pas le résultat. C'est l'expertise derrière.
 
-Un **freelance création site web** qui maîtrise ces outils + le SEO + le branding + la stratégie digitale, c'est un multiplicateur. Il ne remplace pas l'IA — il la démultiplie.
+Un **freelance création site web** qui maîtrise ces outils + le SEO + le branding + la stratégie digitale, c'est un multiplicateur. Il ne remplace pas l'IA, il la démultiplie.
 
 ---
 
@@ -205,12 +205,12 @@ Et cette stratégie, aucun outil IA ne la génère en 30 minutes.
 
 Les données citées dans cet article proviennent des études et rapports suivants :
 
-- [Incremys — LLM Statistics 2026](https://www.incremys.com/en/resources/blog/llm-statistics) : adoption IA, citations, contenu web généré par IA
-- [IMD — Battle for Search Dominance](https://www.imd.org/ibyimd/artificial-intelligence/battle-for-search-dominance/) : parts de marché Google, revenus publicitaires
-- [Search Engine Land — LLM Perception Drift](https://searchengineland.com/why-llm-perception-drift-will-be-2026s-key-seo-metric-465676) : comportement acheteurs B2B, visibilité des marques dans les LLM
-- [Evolv Agency — LLM Statistics 2026](https://evolvagency.io/learn/generative-search/llm-statistics-2026) : zero-click, AI Overviews, trafic organique perdu, citations IA
-- [Semactic — LLM Search vs Google](https://semactic.com/fr/blog/llm-search-vs-google) : chevauchement entre moteurs traditionnels et LLM
-- [Fuel Online — State of Generative Search 2026](https://fuelonline.com/2026-state-of-generative-search-ai-seo-statistics/) : invisibilité des marques pour ChatGPT
+- [Incremys | LLM Statistics 2026](https://www.incremys.com/en/resources/blog/llm-statistics) : adoption IA, citations, contenu web généré par IA
+- [IMD | Battle for Search Dominance](https://www.imd.org/ibyimd/artificial-intelligence/battle-for-search-dominance/) : parts de marché Google, revenus publicitaires
+- [Search Engine Land | LLM Perception Drift](https://searchengineland.com/why-llm-perception-drift-will-be-2026s-key-seo-metric-465676) : comportement acheteurs B2B, visibilité des marques dans les LLM
+- [Evolv Agency | LLM Statistics 2026](https://evolvagency.io/learn/generative-search/llm-statistics-2026) : zero-click, AI Overviews, trafic organique perdu, citations IA
+- [Semactic | LLM Search vs Google](https://semactic.com/fr/blog/llm-search-vs-google) : chevauchement entre moteurs traditionnels et LLM
+- [Fuel Online | State of Generative Search 2026](https://fuelonline.com/2026-state-of-generative-search-ai-seo-statistics/) : invisibilité des marques pour ChatGPT
 
 ---
 
@@ -218,10 +218,10 @@ Les données citées dans cet article proviennent des études et rapports suivan
 
 C'est exactement le problème que je résous.
 
-Je crée des sites web qui ne sont pas juste beaux — ils sont **trouvables**. Visibles sur Google. Optimisés pour le SEO. Pensés pour convertir tes visiteurs en clients.
+Je crée des sites web qui ne sont pas juste beaux : ils sont **trouvables**. Visibles sur Google. Optimisés pour le SEO. Pensés pour convertir tes visiteurs en clients.
 
 Et oui, j'utilise l'IA pour aller plus vite. Mais la stratégie, le branding, et l'optimisation ? C'est de l'expertise humaine.
 
-**[→ Réserve un appel découverte gratuit](https://cal.com/jonlabs/decouverte)** — On regarde ensemble ta situation en 20 minutes. Sans engagement.
+**[→ Réserve un appel découverte gratuit](https://cal.com/jonlabs/decouverte)**. On regarde ensemble ta situation en 20 minutes. Sans engagement.
 
 Tu veux d'abord comprendre les bases ? Lis mon guide : **[Comment passer de 0 à visible sur Google en 30 jours →](/blog/0a30joursgooglevisible)**

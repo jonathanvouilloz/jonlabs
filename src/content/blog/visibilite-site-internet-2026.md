@@ -72,7 +72,7 @@ Sur Google, les gens cherchent. Ils sont actifs. Ils ont un problème et veulent
 
 Et ton site web, lui, atteint **100% de ceux qui te cherchent**. Pas 3.5%. Pas 1.65%. Cent pour cent.
 
-C'est le seul canal où la portée dépend de toi, pas d'un algorithme qui change tous les trois mois. Et ce site visible sur Google, il nourrit aussi ta présence sur les IA : [ChatGPT](/blog/apparaitre-chatgpt-geneve) puise dans Bing, [Claude](/blog/apparaitre-claude) dans Brave Search — mais tous deux ont besoin d'un site bien construit pour te citer.
+C'est le seul canal où la portée dépend de toi, pas d'un algorithme qui change tous les trois mois. Et ce site visible sur Google, il nourrit aussi ta présence sur les IA : [ChatGPT](/blog/apparaitre-chatgpt-geneve) puise dans Bing, [Claude](/blog/apparaitre-claude) dans Brave Search, mais tous deux ont besoin d'un site bien construit pour te citer.
 
 ---
 
@@ -92,9 +92,9 @@ Tu irais voir un avocat dont le bureau est en désordre, avec des piles de dossi
 
 Ton site web, c'est pareil. C'est ton bureau virtuel. Ta vitrine. La première impression que tu donnes à quelqu'un qui ne te connaît pas.
 
-Un site daté, pas responsive, lent à charger — ça envoie un message. Et ce message, c'est : "Je ne suis peut-être pas très pro."
+Un site daté, pas responsive, lent à charger, ça envoie un message. Et ce message, c'est : "Je ne suis peut-être pas très pro."
 
-Un site propre, moderne, qui se charge vite et qui dit clairement ce que tu fais — ça envoie un autre message : **"Je prends mon métier au sérieux."**
+Un site propre, moderne, qui se charge vite et qui dit clairement ce que tu fais, ça envoie un autre message : **"Je prends mon métier au sérieux."**
 
 En 2026, avoir un site web professionnel n'est plus du confort. C'est la **norme minimum**. C'est ce que les gens s'attendent à trouver quand ils te cherchent. Et si tu te demandes ce que ça représente comme investissement, j'ai détaillé les [vrais tarifs d'un site web en Suisse](/blog/prix-site-web-suisse-2026) pour que tu aies une idée claire avant de te lancer.
 
@@ -118,7 +118,7 @@ Ce n'est pas spectaculaire. C'est juste logique. Mais c'est un prospect qu'il n'
 
 ### Barber Concept
 
-Barber Concept, c'est un salon de coiffure qui avait besoin de professionnaliser son image. Pas juste pour attirer des clients — pour ça, le bouche-à-oreille fonctionnait déjà — mais pour **structurer leur croissance**.
+Barber Concept, c'est un salon de coiffure qui avait besoin de professionnaliser son image. Pas juste pour attirer des clients (pour ça, le bouche-à-oreille fonctionnait déjà) mais pour **structurer leur croissance**.
 
 On a créé un site qui reflète leur identité de marque. Avec un truc en plus : un **formulaire de candidature personnalisé** pour le recrutement.
 
@@ -138,7 +138,7 @@ Elle avait besoin d'un **CV vivant**. Un endroit pour montrer son parcours, ses 
 Elle est actuellement en phase d'obtenir un poste, et son site joue un rôle clé dans ce processus. C'est devenu son **outil de communication principal** pour partager ses événements et démontrer son professionnalisme.
 
 > "Jonathan a été super flexible, rapide et a compris exactement ce que je voulais. Il a été très rapide en plus car j'avais un besoin urgent."
-> — Solène Derbal, cheffe d'orchestre
+> - Solène Derbal, cheffe d'orchestre
 
 Pour les métiers créatifs et les professions libérales, le site web **EST** le CV. C'est la preuve tangible de ce que tu fais et de comment tu le fais.
 
@@ -185,9 +185,9 @@ Personne ne sait au début. Et c'est normal.
 
 On commence par l'essentiel : **qui tu es, ce que tu fais, comment te contacter**. Trois éléments. C'est suffisant pour démarrer.
 
-Le reste — portfolio, témoignages, blog, pages détaillées — ça vient après, quand tu en ressens le besoin. Un bon site est évolutif. Tu n'es pas obligé de tout avoir dès le jour 1.
+Le reste (portfolio, témoignages, blog, pages détaillées) ça vient après, quand tu en ressens le besoin. Un bon site est évolutif. Tu n'es pas obligé de tout avoir dès le jour 1.
 
-Si tu sens que ton site actuel a besoin d'un coup de neuf, jette un œil à ce que je propose en [refonte de site web](/services/refonte-site-web). Et si tu pars de zéro, c'est par là pour la [création de site](/services/creation-site-web). Une fois ton site en ligne, la vraie question devient : comment être trouvé ? J'ai rédigé un [plan d'action en 30 jours pour être visible sur Google](/blog/0a30joursgooglevisible) — concret, étape par étape.
+Si tu sens que ton site actuel a besoin d'un coup de neuf, jette un œil à ce que je propose en [refonte de site web](/services/refonte-site-web). Et si tu pars de zéro, c'est par là pour la [création de site](/services/creation-site-web). Une fois ton site en ligne, la vraie question devient : comment être trouvé ? J'ai rédigé un [plan d'action en 30 jours pour être visible sur Google](/blog/0a30joursgooglevisible), concret, étape par étape.
 
 ---
 
@@ -197,7 +197,7 @@ On récapitule.
 
 Les algorithmes des réseaux sociaux ne sont pas tes amis. Ils sont conçus pour maximiser le temps passé sur leurs plateformes et les revenus publicitaires. Ta visibilité est une variable d'ajustement dans leur équation.
 
-Google, lui, montre ton site à **100% de ceux qui te cherchent activement**. Ces gens ont un besoin, ils veulent une solution, et ils sont prêts à agir. Et avec les AI Overviews, [Gemini cite directement les sites bien optimisés](/blog/apparaitre-gemini) dans ses réponses — une raison de plus d'investir dans ta visibilité Google.
+Google, lui, montre ton site à **100% de ceux qui te cherchent activement**. Ces gens ont un besoin, ils veulent une solution, et ils sont prêts à agir. Et avec les AI Overviews, [Gemini cite directement les sites bien optimisés](/blog/apparaitre-gemini) dans ses réponses, une raison de plus d'investir dans ta visibilité Google.
 
 Un site professionnel en 2026, c'est plus du confort ou un "nice to have". C'est la **norme minimum**. C'est ce que les gens s'attendent à trouver quand ils tapent ton nom ou ton métier dans une barre de recherche.
 
@@ -211,11 +211,11 @@ Si la réponse te met mal à l'aise, c'est peut-être le signe qu'il est temps d
 
 ## Ce qu'il faut retenir
 
-1. **Ta visibilité sur les réseaux sociaux ne t'appartient pas** — avec 3.5% de portée organique sur Instagram, tu construis sur un terrain loué
-2. **89% des gens recherchent sur Google avant de contacter un prestataire** — si tu n'as pas de site, tu n'existes pas pour eux
-3. **75% des gens jugent ta crédibilité sur le design de ton site** — en 0.05 seconde, la première impression est faite
-4. **Un site web travaille pour toi 24/7** — contrairement aux posts qui disparaissent en 48h
-5. **Les réseaux sociaux et ton site sont complémentaires** — l'un crée la notoriété, l'autre convertit
+1. **Ta visibilité sur les réseaux sociaux ne t'appartient pas** : avec 3.5% de portée organique sur Instagram, tu construis sur un terrain loué
+2. **89% des gens recherchent sur Google avant de contacter un prestataire** : si tu n'as pas de site, tu n'existes pas pour eux
+3. **75% des gens jugent ta crédibilité sur le design de ton site** : en 0.05 seconde, la première impression est faite
+4. **Un site web travaille pour toi 24/7** : contrairement aux posts qui disparaissent en 48h
+5. **Les réseaux sociaux et ton site sont complémentaires** : l'un crée la notoriété, l'autre convertit
 
 ---
 
@@ -235,25 +235,25 @@ Ou découvre les services :
 
 ### Portée organique des réseaux sociaux
 
-- [Social.plus (2025)](https://www.social.plus/blog/only-3-5-of-followers-see-your-instagram-posts---why-organic-reach-is-no-longer-a-growth-strategy) — 3.5% de portée organique Instagram
-- [Martech Zone (2024)](https://martech.zone/organic-reach-is-dead-how-to-grow-on-social-media/) — 4% Instagram, 1.65% Facebook
-- [Addictive Digital](https://addictivedigital.co.uk/the-decline-of-organic-reach-on-social-media/) — Évolution historique de la portée organique
-- [Socialinsider — Benchmarks Instagram 2025](https://www.socialinsider.io/social-media-benchmarks/instagram)
-- [Socialinsider — Social Media Reach Statistics](https://www.socialinsider.io/blog/social-media-reach/)
+- [Social.plus (2025)](https://www.social.plus/blog/only-3-5-of-followers-see-your-instagram-posts---why-organic-reach-is-no-longer-a-growth-strategy) : 3.5% de portée organique Instagram
+- [Martech Zone (2024)](https://martech.zone/organic-reach-is-dead-how-to-grow-on-social-media/) : 4% Instagram, 1.65% Facebook
+- [Addictive Digital](https://addictivedigital.co.uk/the-decline-of-organic-reach-on-social-media/) : Évolution historique de la portée organique
+- [Socialinsider, Benchmarks Instagram 2025](https://www.socialinsider.io/social-media-benchmarks/instagram)
+- [Socialinsider, Social Media Reach Statistics](https://www.socialinsider.io/blog/social-media-reach/)
 
 ### Comportement de recherche Google
 
-- [Search Engine Guidelines (2024)](https://www.searchengineguidelines.com/news/how-many-people-use-search-before-buying-in-2024-a-data-driven-insight/) — 89% utilisent les moteurs de recherche avant d'acheter
-- [Thrive Agency](https://thriveagency.com/news/100-online-review-statistics-for-2023-2024/) — 81% consultent Google Reviews, 95% lisent les avis en ligne
-- [Swipe Insight (2024)](https://web.swipeinsight.app/posts/curated-google-search-statistics-and-insights-for-2024-5812) — 63.6% vérifient Google Reviews
-- [EmbedSocial](https://embedsocial.com/blog/online-google-reviews-statistics/) — Statistiques Google Reviews 2024
+- [Search Engine Guidelines (2024)](https://www.searchengineguidelines.com/news/how-many-people-use-search-before-buying-in-2024-a-data-driven-insight/) : 89% utilisent les moteurs de recherche avant d'acheter
+- [Thrive Agency](https://thriveagency.com/news/100-online-review-statistics-for-2023-2024/) : 81% consultent Google Reviews, 95% lisent les avis en ligne
+- [Swipe Insight (2024)](https://web.swipeinsight.app/posts/curated-google-search-statistics-and-insights-for-2024-5812) : 63.6% vérifient Google Reviews
+- [EmbedSocial](https://embedsocial.com/blog/online-google-reviews-statistics/) : Statistiques Google Reviews 2024
 
 ### Crédibilité & Design web
 
-- [Paradigm Marketing](https://www.paradigmmarketinganddesign.com/get-it-together-people-why-website-first-impression-statistics-matter/) — 75% jugent la crédibilité sur le design (Stanford)
-- [Kinesis Inc](https://www.kinesisinc.com/the-truth-about-web-design/) — Stanford Web Credibility Research
-- [Most Studios](https://moststudios.com/learn/how-web-design-shapes-user-trust-and-credibility/) — 94% des premières impressions liées au design
-- [SAMPS (via Forbes)](https://www.samps.org/blog/the-science-of-first-impressions-why-your-website-matters-more-than-you-think) — Science des premières impressions
-- [Tenacity](https://tenacity.io/facts/how-web-design-shapes-94-of-first-impressions/) — Impact du design sur les impressions
-- [Clique Studios](https://cliquestudios.com/web-design-statistics/) — 48% considèrent le design comme facteur principal (Blue Corona)
-- [Mighty Fine Design](https://mightyfinedesign.co/good-web-design/) — Première impression en 0.05 seconde
+- [Paradigm Marketing](https://www.paradigmmarketinganddesign.com/get-it-together-people-why-website-first-impression-statistics-matter/) : 75% jugent la crédibilité sur le design (Stanford)
+- [Kinesis Inc](https://www.kinesisinc.com/the-truth-about-web-design/) : Stanford Web Credibility Research
+- [Most Studios](https://moststudios.com/learn/how-web-design-shapes-user-trust-and-credibility/) : 94% des premières impressions liées au design
+- [SAMPS (via Forbes)](https://www.samps.org/blog/the-science-of-first-impressions-why-your-website-matters-more-than-you-think) : Science des premières impressions
+- [Tenacity](https://tenacity.io/facts/how-web-design-shapes-94-of-first-impressions/) : Impact du design sur les impressions
+- [Clique Studios](https://cliquestudios.com/web-design-statistics/) : 48% considèrent le design comme facteur principal (Blue Corona)
+- [Mighty Fine Design](https://mightyfinedesign.co/good-web-design/) : Première impression en 0.05 seconde

@@ -12,13 +12,13 @@ draft: false
 readingTime: 8
 ---
 
-Tu as un projet web en tête — un site vitrine, une refonte, peut-être un e-commerce — et tu te poses LA question : freelance ou agence ?
+Tu as un projet web en tête (un site vitrine, une refonte, peut-être un e-commerce) et tu te poses LA question : freelance ou agence ?
 
 C'est une question légitime. Et la réponse honnête, c'est : ça dépend.
 
 Pas très satisfaisant, je sais. Mais c'est la vérité. Ce qui compte, c'est de comprendre les vrais critères de choix pour **ton** projet, **ton** budget, et **tes** attentes.
 
-Dans cet article, je te donne les clés pour décider en connaissance de cause — sans bullshit, avec des chiffres concrets du marché suisse romand en 2026.
+Dans cet article, je te donne les clés pour décider en connaissance de cause, sans bullshit, avec des chiffres concrets du marché suisse romand en 2026.
 
 ---
 
@@ -62,7 +62,7 @@ Avant de comparer les avantages, mettons les chiffres sur la table. Parce que ou
 
 La raison est simple : pas de locaux à payer, pas de salaires fixes, pas de hiérarchie. Moins de frais de structure = prix plus bas.
 
-Mais attention : moins cher ne veut pas dire "moins bien". Et plus cher ne garantit pas "mieux". Tout dépend de ce que tu cherches. Si tu veux des chiffres précis avant de comparer les deux options, j'ai publié un guide complet sur les [tarifs réels d'un site web en Suisse en 2026](/blog/prix-site-web-suisse-2026) — avec les fourchettes par type de projet.
+Mais attention : moins cher ne veut pas dire "moins bien". Et plus cher ne garantit pas "mieux". Tout dépend de ce que tu cherches. Si tu veux des chiffres précis avant de comparer les deux options, j'ai publié un guide complet sur les [tarifs réels d'un site web en Suisse en 2026](/blog/prix-site-web-suisse-2026), avec les fourchettes par type de projet.
 
 ---
 
@@ -74,7 +74,7 @@ Mais attention : moins cher ne veut pas dire "moins bien". Et plus cher ne garan
 
 **Flexibilité.** Un freelance peut souvent s'adapter à tes horaires, tes urgences, tes changements de dernière minute. La communication est plus fluide.
 
-**Expertise pointue.** Les bons freelances se spécialisent. Tu ne paies pas pour une équipe généraliste — tu paies pour quelqu'un qui maîtrise exactement ce dont tu as besoin.
+**Expertise pointue.** Les bons freelances se spécialisent. Tu ne paies pas pour une équipe généraliste, tu paies pour quelqu'un qui maîtrise exactement ce dont tu as besoin.
 
 **Coût maîtrisé.** Budget serré ? Le freelance reste l'option la plus accessible pour les TPE, indépendants et petites structures.
 
@@ -172,7 +172,7 @@ Le choix freelance vs agence n'est pas une question de "mieux" ou "moins bien". 
 - **Agence** = équipe complète, vision stratégique, continuité, projets complexes
 - **Freelance augmenté** = le compromis intelligent pour beaucoup de PME
 
-Le plus important ? Bien définir tes besoins avant de chercher un prestataire. Plus ton brief est clair, plus tu trouveras la bonne personne — freelance ou agence.
+Le plus important ? Bien définir tes besoins avant de chercher un prestataire. Plus ton brief est clair, plus tu trouveras la bonne personne, freelance ou agence.
 
 ---
 
@@ -182,7 +182,7 @@ C'est normal. Chaque projet est unique, et parfois il faut en discuter pour y vo
 
 **Tu as une idée mais tu n'es pas sûr qu'elle vaille un site complet ?** Avant d'investir dans un site, tu peux [tester ton concept](/services/validation-idee) avec une landing page et une campagne ciblée. Réponse en 2 semaines.
 
-Si tu veux qu'on regarde ensemble quelle approche correspond le mieux à ta situation, je te propose un appel découverte de 30 minutes — gratuit et sans engagement.
+Si tu veux qu'on regarde ensemble quelle approche correspond le mieux à ta situation, je te propose un appel découverte de 30 minutes, gratuit et sans engagement.
 
 On fait le point sur ton projet, tes objectifs, ton budget, et je te dis honnêtement si je suis la bonne personne pour t'aider (ou pas).
 

@@ -14,7 +14,7 @@ readingTime: 12
 
 J'utilise l'IA tous les jours.
 
-Pour développer, brainstormer, planifier mes projets. Même pour analyser des livrets de règles de jeux de société (oui, vraiment — j'y reviendrai).
+Pour développer, brainstormer, planifier mes projets. Même pour analyser des livrets de règles de jeux de société (oui, vraiment, j'y reviendrai).
 
 Et quand je parle avec des indépendants ou des PME romandes, je réalise un truc : la plupart utilisent ChatGPT pour... traduire des emails. Ou reformuler un texte.
 
@@ -24,7 +24,7 @@ Et les chiffres le confirment : **52% des usages professionnels de l'IA en Suiss
 
 Pas de jugement. L'IA, c'est nouveau, c'est flou, et personne ne t'a montré ce que tu pouvais vraiment en faire.
 
-Cet article, c'est exactement ça : **5 usages concrets qui changent la donne** — avec des outils, des exemples, et un calcul ROI réaliste pour le marché suisse.
+Cet article, c'est exactement ça : **5 usages concrets qui changent la donne**, avec des outils, des exemples, et un calcul ROI réaliste pour le marché suisse.
 
 C'est parti.
 
@@ -34,7 +34,7 @@ C'est parti.
 
 Avant de te montrer ce que je fais, posons les chiffres.
 
-**37% des PME suisses utilisent l'IA** (AXA/Sotomo, octobre 2025). Ça semble pas mal. Sauf que la part de celles qui ne l'utilisent jamais est passée de 45% à 29% en un an — signe que ça bouge, mais lentement.
+**37% des PME suisses utilisent l'IA** (AXA/Sotomo, octobre 2025). Ça semble pas mal. Sauf que la part de celles qui ne l'utilisent jamais est passée de 45% à 29% en un an, signe que ça bouge, mais lentement.
 
 Côté Suisse romande, **55% des professionnels utilisent l'IA pour des tâches administratives** (Qualinsight, juin 2024). Mais quand on creuse les usages concrets... c'est surtout de la traduction (52%) et de la correspondance (47%).
 
@@ -60,7 +60,7 @@ Je pose le contexte à Claude (mon outil principal), je lui demande de challenge
 
 Ce n'est pas l'IA qui décide. C'est moi. Mais elle me force à structurer ma pensée, à considérer des options que j'aurais zappées.
 
-**Résultat :** Des idées plus solides, plus vite. Et surtout, moins de "syndrome de la page blanche" — tu sais, ce moment où tu fixes ton écran en te demandant par où commencer.
+**Résultat :** Des idées plus solides, plus vite. Et surtout, moins de "syndrome de la page blanche" (tu sais, ce moment où tu fixes ton écran en te demandant par où commencer).
 
 **Mon outil :** Claude. Mais ChatGPT ou Gemini font aussi le job. D'ailleurs, si tu veux comprendre comment Claude fonctionne côté recherche web et pourquoi il cite certaines sources plutôt que d'autres, j'ai détaillé ça dans [comment apparaître sur Claude](/blog/apparaitre-claude).
 
@@ -84,7 +84,7 @@ Je ne prends pas tout. Je challenge, j'ajuste, je réorganise. Mais partir d'une
 
 **Résultat :** Je gagne 1-2h de réflexion initiale sur chaque nouveau projet.
 
-**Mon outil :** Claude avec le mode "Projects" — ça permet de garder le contexte d'un projet sur plusieurs conversations.
+**Mon outil :** Claude avec le mode "Projects", qui permet de garder le contexte d'un projet sur plusieurs conversations.
 
 ---
 
@@ -92,11 +92,11 @@ Je ne prends pas tout. Je challenge, j'ajuste, je réorganise. Mais partir d'une
 
 OK, celui-là va te sembler bizarre, mais c'est mon préféré.
 
-Dans mon activité parallèle (les jeux de société — longue histoire), j'utilise **NotebookLM** pour analyser des livrets de règles. Tu sais, ces pavés de 20-30 pages où tu cherches désespérément une clarification sur un point précis ?
+Dans mon activité parallèle (les jeux de société, longue histoire), j'utilise **NotebookLM** pour analyser des livrets de règles. Tu sais, ces pavés de 20-30 pages où tu cherches désespérément une clarification sur un point précis ?
 
 Je les uploade, et je peux poser des questions directement. "Comment fonctionne la phase de combat ?", "Quelle est la différence entre ces deux actions ?". L'IA me répond en citant les passages concernés.
 
-**Application business :** Contrats, cahiers des charges, rapports annuels, documentation technique — tout document de +10 pages que tu dois digérer rapidement.
+**Application business :** Contrats, cahiers des charges, rapports annuels, documentation technique, tout document de +10 pages que tu dois digérer rapidement.
 
 Un client m'envoie un cahier des charges de 25 pages ? En 10 minutes, j'ai identifié les points clés, les zones floues, et les questions à poser.
 
@@ -120,9 +120,9 @@ Tu lis cet article ? C'est moi qui l'ai écrit. Avec mes mots, mes tournures, me
 
 Par contre, l'IA m'aide à :
 
-- **Structurer mes idées** — Je lui balance un braindump, elle me propose un plan
-- **Débloquer un passage** — Quand une phrase ne veut pas sortir, je lui demande 3 reformulations
-- **Trouver des accroches** — "Propose-moi 5 façons de commencer ce paragraphe"
+- **Structurer mes idées** : je lui balance un braindump, elle me propose un plan
+- **Débloquer un passage** : quand une phrase ne veut pas sortir, je lui demande 3 reformulations
+- **Trouver des accroches** : "Propose-moi 5 façons de commencer ce paragraphe"
 
 Le piège à éviter ? Copier-coller du texte généré. Ça se voit. C'est fade. Et surtout, ça ne te ressemble pas.
 
@@ -138,9 +138,9 @@ Celui-là est spécifique à mon métier de dev, mais il illustre bien le princi
 
 L'IA m'aide à :
 
-- **Debugger plus vite** — Je colle l'erreur, elle m'explique le problème et propose des solutions
-- **Générer du code "boilerplate"** — Les structures répétitives que je fais 100 fois par an, [les skills de Anthropic](https://support.claude.com/en/articles/12512176-what-are-skills) illustrent la puissance de l'IA
-- **Explorer des solutions techniques** — "Comment connecter X à Y ?" avec des exemples de code
+- **Debugger plus vite** : je colle l'erreur, elle m'explique le problème et propose des solutions
+- **Générer du code "boilerplate"** : les structures répétitives que je fais 100 fois par an, [les skills de Anthropic](https://support.claude.com/en/articles/12512176-what-are-skills) illustrent la puissance de l'IA
+- **Explorer des solutions techniques** : "Comment connecter X à Y ?" avec des exemples de code
 
 Ma productivité a clairement augmenté, mais attention à ne pas tomber dans le piège de l'objet brillant. Le code généré brut est rarement utilisable tel quel pour des projets de grande envergue, mais pour du proto, du MVP, c'est LARGEMENT suffisant. On réduit la friction au max.
 
@@ -175,7 +175,7 @@ La bonne nouvelle : des alternatives existent.
 | **ChatGPT Team** | USA (avec DPA) | RGPD ✅ | 25$/mois | Bon compromis perf/conformité |
 | **Claude Pro** | USA (Anthropic) | RGPD ✅ | 20$/mois | Mon choix quotidien |
 
-**Mon setup perso :** J'utilise Claude Pro pour 90% de mes usages. Pour des données vraiment sensibles (contrats clients, infos confidentielles), je recommande EURIA — hébergé chez Infomaniak à Genève, impossible de faire plus local.
+**Mon setup perso :** J'utilise Claude Pro pour 90% de mes usages. Pour des données vraiment sensibles (contrats clients, infos confidentielles), je recommande EURIA, hébergé chez Infomaniak à Genève, impossible de faire plus local.
 
 Le message : tu n'es pas obligé de choisir entre performance et conformité. Les solutions existent, et elles sont accessibles.
 
@@ -195,7 +195,7 @@ OK, mais combien ? Parce que "du temps", ça ne veut rien dire.
 
 ### Les chiffres d'études
 
-Selon une étude du cabinet Asterès pour le FAFCEA (mai 2025), les utilisateurs d'IA générative gagnent en moyenne **2,1 heures par semaine** — et jusqu'à **4,3 heures** pour les plus avancés. Une autre étude de la London School of Economics (octobre 2025) évoque même des gains allant jusqu'à 11 heures pour les salariés formés.
+Selon une étude du cabinet Asterès pour le FAFCEA (mai 2025), les utilisateurs d'IA générative gagnent en moyenne **2,1 heures par semaine**, et jusqu'à **4,3 heures** pour les plus avancés. Une autre étude de la London School of Economics (octobre 2025) évoque même des gains allant jusqu'à 11 heures pour les salariés formés.
 
 ### Mon calcul perso (conservateur)
 
@@ -234,7 +234,7 @@ Quelques suspects habituels :
 - Les comptes-rendus de réunion
 - La veille (concurrence, actualités)
 
-Si tu ne sais pas encore où ton entreprise perd vraiment du temps, j'ai analysé les 5 postes les plus courants dans cet article sur les [654 heures par an perdues en admin par les PME romandes](/blog/temps-perdu-pme-automatisation) — un bon point de départ avant d'introduire l'IA.
+Si tu ne sais pas encore où ton entreprise perd vraiment du temps, j'ai analysé les 5 postes les plus courants dans cet article sur les [654 heures par an perdues en admin par les PME romandes](/blog/temps-perdu-pme-automatisation), un bon point de départ avant d'introduire l'IA.
 
 Tu as trouvé ? Parfait.
 
@@ -242,9 +242,9 @@ Tu as trouvé ? Parfait.
 
 Pas besoin de sortir la carte bleue tout de suite.
 
-- **Claude** (claude.ai) — Gratuit avec limitations
-- **ChatGPT** (chat.openai.com) — Gratuit avec limitations
-- **Gemini** (gemini.google.com) — Excellent dans toutes les tâches.
+- **Claude** (claude.ai) : gratuit avec limitations
+- **ChatGPT** (chat.openai.com) : gratuit avec limitations
+- **Gemini** (gemini.google.com) : excellent dans toutes les tâches.
 
 Prends ta tâche pénible. Essaie de la faire avec l'IA. Note ce qui marche, ce qui coince.
 
@@ -254,7 +254,7 @@ Pendant deux semaines, note :
 - Le temps passé sur cette tâche AVANT (de mémoire ou estimation)
 - Le temps passé AVEC l'IA
 
-Tu auras ton propre ROI. Pas un chiffre théorique — ton chiffre à toi.
+Tu auras ton propre ROI. Pas un chiffre théorique, ton chiffre à toi.
 
 ### Mois 2 : Passe aux choses sérieuses
 
@@ -307,7 +307,7 @@ Autant apprendre à la conduire.
 
 **Tu veux automatiser des workflows complets dans ton entreprise ?**
 
-Si tu veux connecter tes outils, créer des processus sur-mesure, intégrer l'IA de façon durable — c'est exactement ce que je fais chez Jon Labs.
+Si tu veux connecter tes outils, créer des processus sur-mesure, intégrer l'IA de façon durable, c'est exactement ce que je fais chez Jon Labs.
 
 Pas de l'IA pour le buzz. De l'automatisation pragmatique, adaptée à ton contexte suisse.
 

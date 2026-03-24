@@ -103,7 +103,7 @@ Et devine quoi ? Plus c'est long, plus ça coûte.
 
 Bon, assez de théorie. Tu veux des chiffres. Les voici.
 
-**Important :** Les tarifs que je te donne ici sont **mes tarifs chez Jon Labs**. Je me positionne volontairement accessible pour rendre le web de qualité disponible au plus grand nombre. D'autres prestataires peuvent avoir des prix différents (souvent plus élevés). Et si tu te demandes si un freelance ou une agence est le meilleur choix pour ton projet, j'ai comparé les deux options en détail — avec les vrais critères de décision — dans cet article sur [comment choisir entre freelance et agence web](/blog/freelance-ou-agence-web).
+**Important :** Les tarifs que je te donne ici sont **mes tarifs chez Jon Labs**. Je me positionne volontairement accessible pour rendre le web de qualité disponible au plus grand nombre. D'autres prestataires peuvent avoir des prix différents (souvent plus élevés). Et si tu te demandes si un freelance ou une agence est le meilleur choix pour ton projet, j'ai comparé les deux options en détail, avec les vrais critères de décision, dans cet article sur [comment choisir entre freelance et agence web](/blog/freelance-ou-agence-web).
 
 ### Site vitrine simple (5-10 pages)
 
@@ -190,7 +190,7 @@ Parce qu'un site en ligne, même imparfait, **tu peux le tester, l'améliorer, a
 
 Un site parfait dans ta tête ? Ça ne sert à rien.
 
-Une mise en garde toutefois : même un site en ligne rapide ne vaut rien si personne ne le trouve. C'est le piège de nombreux sites créés avec des outils IA — ils existent techniquement, mais restent invisibles sur Google. J'explique pourquoi et comment y remédier dans cet article sur les [sites vitrines créés par IA et la visibilité Google](/blog/creer-site-vitrine-ia-visibilite-google).
+Une mise en garde toutefois : même un site en ligne rapide ne vaut rien si personne ne le trouve. C'est le piège de nombreux sites créés avec des outils IA : ils existent techniquement, mais restent invisibles sur Google. J'explique pourquoi et comment y remédier dans cet article sur les [sites vitrines créés par IA et la visibilité Google](/blog/creer-site-vitrine-ia-visibilite-google).
 
 ---
 
@@ -258,10 +258,10 @@ Parce que c'est plus dur de designer pour un petit écran. Si ça marche sur mob
 ## Ce qu'il faut retenir
 
 1. **Un site vitrine pro coûte entre CHF 750 et 1'500** chez Jon Labs (moins cher que la moyenne suisse)
-2. **Le facteur #1 qui fait exploser les coûts, c'est le manque de contenu** au départ — prépare tes textes et images AVANT
-3. **Fuis les devis à CHF 300** — c'est soit une arnaque, soit du travail bâclé
-4. **Mobile-first obligatoire** — 70% du trafic vient du smartphone
-5. **Action > Perfection** — mieux vaut un site en ligne qu'un site parfait jamais lancé
+2. **Le facteur #1 qui fait exploser les coûts, c'est le manque de contenu** au départ : prépare tes textes et images AVANT
+3. **Fuis les devis à CHF 300** : c'est soit une arnaque, soit du travail bâclé
+4. **Mobile-first obligatoire** : 70% du trafic vient du smartphone
+5. **Action > Perfection** : mieux vaut un site en ligne qu'un site parfait jamais lancé
 
 ---
 

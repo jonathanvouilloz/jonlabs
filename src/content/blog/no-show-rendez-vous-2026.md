@@ -58,13 +58,13 @@ Le constat que je fais : la plupart de ces outils font le job de base. Vous pouv
 
 **Mais aucun ne résout vraiment le problème du no-show à lui seul.**
 
-Pourquoi ? Parce que le no-show n'est pas un problème de réservation. C'est un problème de rappel et d'engagement. Et ça, ça demande d'aller un cran plus loin — souvent avec une couche d'automatisation adaptée à votre pratique.
+Pourquoi ? Parce que le no-show n'est pas un problème de réservation. C'est un problème de rappel et d'engagement. Et ça, ça demande d'aller un cran plus loin, souvent avec une couche d'automatisation adaptée à votre pratique.
 
 ---
 
 ## Les trois leviers qui changent vraiment la donne
 
-Après avoir observé ce qui fonctionne chez différents praticiens, je vois trois éléments qui font la différence entre un système qui "marche à peu près" et un système qui sécurise vraiment l'agenda. Ce besoin d'automatisation des rappels et des engagements n'est d'ailleurs pas propre aux praticiens : les clubs sportifs vivent exactement la même frustration avec les cotisations impayées et les relances manuelles — un problème que j'ai décrit dans cet article sur [pourquoi Excel ne suffit plus pour un club sportif](/blog/automatisation-club-sportif).
+Après avoir observé ce qui fonctionne chez différents praticiens, je vois trois éléments qui font la différence entre un système qui "marche à peu près" et un système qui sécurise vraiment l'agenda. Ce besoin d'automatisation des rappels et des engagements n'est d'ailleurs pas propre aux praticiens : les clubs sportifs vivent exactement la même frustration avec les cotisations impayées et les relances manuelles, un problème que j'ai décrit dans cet article sur [pourquoi Excel ne suffit plus pour un club sportif](/blog/automatisation-club-sportif).
 
 ### Levier 1 : Le rappel qui est vraiment lu
 
@@ -86,7 +86,7 @@ Je sais que le sujet peut être sensible. Demander de l'argent avant la prestati
 
 Mais regardons les choses autrement.
 
-Un client qui réserve sans rien payer n'a aucun engagement concret. Annuler ne lui coûte rien — même pas un message, puisque souvent il ne prévient pas.
+Un client qui réserve sans rien payer n'a aucun engagement concret. Annuler ne lui coûte rien, même pas un message, puisque souvent il ne prévient pas.
 
 Un client qui a versé 50 francs d'acompte ? Il viendra. Ou au minimum, il préviendra s'il doit annuler, parce qu'il veut récupérer son acompte ou le reporter.
 
@@ -138,7 +138,7 @@ Le système de réservation n'est probablement pas le problème. C'est le rappel
 
 ## Ce qu'il faut retenir
 
-Le problème des rendez-vous manqués n'est pas un problème de clients irrespectueux. C'est un problème de système qui n'est pas adapté à la façon dont les gens fonctionnent aujourd'hui. Si vous gérez une structure plus grande — une PME ou une petite équipe — les mêmes logiques d'automatisation s'appliquent à l'ensemble de vos tâches répétitives : une [étude chiffre à 654 heures par an le temps perdu en admin par les PME romandes](/blog/temps-perdu-pme-automatisation), avec des solutions concrètes pour y remédier.
+Le problème des rendez-vous manqués n'est pas un problème de clients irrespectueux. C'est un problème de système qui n'est pas adapté à la façon dont les gens fonctionnent aujourd'hui. Si vous gérez une structure plus grande, une PME ou une petite équipe, les mêmes logiques d'automatisation s'appliquent à l'ensemble de vos tâches répétitives : une [étude chiffre à 654 heures par an le temps perdu en admin par les PME romandes](/blog/temps-perdu-pme-automatisation), avec des solutions concrètes pour y remédier.
 
 **Un bon système de réservation, c'est trois choses :**
 

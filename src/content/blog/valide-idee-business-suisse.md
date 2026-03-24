@@ -69,9 +69,9 @@ La seule chose importante : **des Conditions Générales de Vente claires** si t
 
 ---
 
-## La méthode du "Smoke Test" — Tester sans construire
+## La méthode du "Smoke Test" : tester sans construire
 
-Le smoke test, c'est l'art de vendre quelque chose qui n'existe pas encore. Pas pour arnaquer les gens — pour **valider que le besoin est réel**.
+Le smoke test, c'est l'art de vendre quelque chose qui n'existe pas encore. Pas pour arnaquer les gens, mais pour **valider que le besoin est réel**.
 
 L'idée : tu présentes ton offre comme si elle existait, tu mesures l'intérêt, et tu décides ensuite si ça vaut la peine de construire.
 
@@ -86,7 +86,7 @@ Une page simple qui explique :
 - Comment ça marche
 - Un bouton d'action (inscription, pré-commande, demande d'info)
 
-Pas besoin de 15 pages. Une seule suffit. L'important c'est la clarté du message. Si tu te demandes combien ça coûte de faire faire cette page par un professionnel, j'ai publié un guide transparent sur les [tarifs réels d'un site web en Suisse en 2026](/blog/prix-site-web-suisse-2026) — tu verras qu'un site simple ne coûte pas ce que tu imagines.
+Pas besoin de 15 pages. Une seule suffit. L'important c'est la clarté du message. Si tu te demandes combien ça coûte de faire faire cette page par un professionnel, j'ai publié un guide transparent sur les [tarifs réels d'un site web en Suisse en 2026](/blog/prix-site-web-suisse-2026), tu verras qu'un site simple ne coûte pas ce que tu imagines.
 
 **2. L'acquisition ciblée**
 
@@ -166,7 +166,7 @@ En Suisse romande, t'as plusieurs options :
 
 ## Et si le test est positif ?
 
-Là, tu passes au **MVP — le Produit Minimum Viable**.
+Là, tu passes au **MVP (le Produit Minimum Viable)**.
 
 Pas le produit parfait. Pas le produit avec toutes les features dont tu rêves. **Le produit minimum qui délivre la promesse que t'as vendue.**
 
@@ -174,7 +174,7 @@ Tu construis uniquement ce qui a été validé par ton test. Tu itères sur les 
 
 Et c'est seulement à ce stade que tu considères la structure juridique. Parce que maintenant, **t'as des données. T'as des clients. T'as une raison de créer cette Sàrl.**
 
-Une chose à garder en tête quand tu passes à l'étape site web : de nombreux outils IA permettent aujourd'hui de créer un site très vite, mais être en ligne ne veut pas dire être visible sur Google. C'est un point crucial que j'explique dans cet article sur les [sites vitrines créés par IA et leur invisibilité sur Google](/blog/creer-site-vitrine-ia-visibilite-google) — à lire avant de te lancer.
+Une chose à garder en tête quand tu passes à l'étape site web : de nombreux outils IA permettent aujourd'hui de créer un site très vite, mais être en ligne ne veut pas dire être visible sur Google. C'est un point crucial que j'explique dans cet article sur les [sites vitrines créés par IA et leur invisibilité sur Google](/blog/creer-site-vitrine-ia-visibilite-google), à lire avant de te lancer.
 
 ---
 
@@ -196,13 +196,13 @@ Mieux vaut un "non" rapide qu'un "non" après 6 mois de dev.
 2. **Le smoke test** te permet de valider une idée avant de construire quoi que ce soit
 3. **200 CHF de pub + une landing page** = réponse du marché en quelques jours
 4. **Le crowdfunding** est une alternative pour tester ET financer en même temps
-5. **Le vrai risque, c'est de construire sans avoir validé** — pas de tester et d'échouer
+5. **Le vrai risque, c'est de construire sans avoir validé**, pas de tester et d'échouer
 
 ---
 
 ## Tu veux qu'on teste ton idée ensemble ?
 
-Si tu préfères déléguer la partie technique — landing page, campagne pub, analyse des résultats — je propose un service clé en main. En 2 semaines, tu as une réponse du marché.
+Si tu préfères déléguer la partie technique (landing page, campagne pub, analyse des résultats), je propose un service clé en main. En 2 semaines, tu as une réponse du marché.
 
 **Ce que tu obtiens :**
 - Une landing page professionnelle avec copywriting stratégique

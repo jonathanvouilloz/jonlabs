@@ -69,8 +69,8 @@ NotebookLM a explosé en 2025. Google l'a boosté avec Gemini 3 et a ajouté des
 ### Les changements majeurs
 
 **Capacité décuplée :**
-- Limite passée de 50 à **300 sources par notebook** — soit environ 150 millions de mots par projet (Source : [Anthem Création, mai 2025](https://anthemcreation.com/intelligence-artificielle/notebooklm-2025-innovations-majeures-nouvelles-fonctionnalites-assistant-ia-google/))
-- Fenêtre de contexte élargie à **1 million de tokens** — 8 fois plus qu'avant (Source : [NotebookCheck, novembre 2025](https://www.notebookcheck.biz/Une-mise-a-jour-rend-le-NotebookLM-de-Google-nettement-plus-puissant-et-permet-de-jouer-a-des-jeux-de-role.1153673.0.html))
+- Limite passée de 50 à **300 sources par notebook**, soit environ 150 millions de mots par projet (Source : [Anthem Création, mai 2025](https://anthemcreation.com/intelligence-artificielle/notebooklm-2025-innovations-majeures-nouvelles-fonctionnalites-assistant-ia-google/))
+- Fenêtre de contexte élargie à **1 million de tokens**, 8 fois plus qu'avant (Source : [NotebookCheck, novembre 2025](https://www.notebookcheck.biz/Une-mise-a-jour-rend-le-NotebookLM-de-Google-nettement-plus-puissant-et-permet-de-jouer-a-des-jeux-de-role.1153673.0.html))
 
 **Application mobile :**
 - Disponible sur Android et iOS depuis mai 2025
@@ -78,10 +78,10 @@ NotebookLM a explosé en 2025. Google l'a boosté avec Gemini 3 et a ajouté des
 - Upload de photos (notes manuscrites, documents papier) directement depuis la caméra
 
 **Nouveaux formats de sortie (grâce à Gemini 3) :**
-- **Infographies** — L'IA génère des visuels professionnels à partir de tes documents (Source : [Paperblog, novembre 2025](https://www.paperblog.fr/10647726/guide-ultime-de-google-notebooklm-novembre-2025/))
-- **Diapositives** — Présentations structurées prêtes à l'emploi
-- **Mind Maps interactives** — Visualisation des concepts, téléchargeables en PNG
-- **Flashcards et quiz** — Pour tester ta compréhension
+- **Infographies** : L'IA génère des visuels professionnels à partir de tes documents (Source : [Paperblog, novembre 2025](https://www.paperblog.fr/10647726/guide-ultime-de-google-notebooklm-novembre-2025/))
+- **Diapositives** : Présentations structurées prêtes à l'emploi
+- **Mind Maps interactives** : Visualisation des concepts, téléchargeables en PNG
+- **Flashcards et quiz** : Pour tester ta compréhension
 
 **Deep Research :**
 - Nouvelle fonction qui parcourt le web pour enrichir tes sources existantes
@@ -90,10 +90,10 @@ NotebookLM a explosé en 2025. Google l'a boosté avec Gemini 3 et a ajouté des
 **Audio Overview amélioré :**
 - Podcast maintenant disponible en français
 - Nouveaux formats : débats, critiques, présentations synthétiques
-- Mode interactif — tu peux poser des questions aux "hôtes" en temps réel (Source : [Siècle Digital, septembre 2025](https://siecledigital.fr/2025/09/10/google-transforme-notebooklm-en-coach-detude-complet-grace-a-de-nouvelles-fonctionnalites/))
+- Mode interactif : tu peux poser des questions aux "hôtes" en temps réel (Source : [Siècle Digital, septembre 2025](https://siecledigital.fr/2025/09/10/google-transforme-notebooklm-en-coach-detude-complet-grace-a-de-nouvelles-fonctionnalites/))
 
 **Learning Guide :**
-- L'IA ne donne plus juste des réponses — elle pose des questions
+- L'IA ne donne plus juste des réponses, elle pose des questions
 - Décompose les problèmes étape par étape
 - S'adapte à ton niveau de compréhension
 - Comme avoir un tuteur personnel (Source : [Siècle Digital, septembre 2025](https://siecledigital.fr/2025/09/10/google-transforme-notebooklm-en-coach-detude-complet-grace-a-de-nouvelles-fonctionnalites/))
@@ -120,7 +120,7 @@ Une IA classique peut te sortir des informations qui n'existent pas dans ton fic
 
 Pas idéal quand tu analyses un contrat ou un rapport financier.
 
-NotebookLM est "source-grounded" — elle ne peut répondre que sur base de ce que tu lui as donné. Littéralement incapable d'inventer.
+NotebookLM est "source-grounded" : elle ne peut répondre que sur base de ce que tu lui as donné. Littéralement incapable d'inventer.
 
 ### Le problème de la vérification
 
@@ -436,12 +436,12 @@ C'est tout. Pas d'installation. Pas de configuration. Pas de CB.
 
 ## Ce qu'il faut retenir
 
-1. **NotebookLM = IA pour VOS documents** — Pas d'hallucination, réponses sourcées avec citations cliquables
-2. **Capacité massive** — Jusqu'à 300 sources et 150 millions de mots par notebook
-3. **Nouveautés 2025-2026** — App mobile, infographies, Deep Research, podcast interactif en français
-4. **Complémentaire aux autres IA** — Utilise Claude/Gemini pour créer, NotebookLM pour analyser
-5. **Simple à utiliser** — Upload, pose des questions, vérifie les citations
-6. **Gratuit et en français** — Aucune excuse pour ne pas tester
+1. **NotebookLM = IA pour VOS documents** : pas d'hallucination, réponses sourcées avec citations cliquables
+2. **Capacité massive** : Jusqu'à 300 sources et 150 millions de mots par notebook
+3. **Nouveautés 2025-2026** : App mobile, infographies, Deep Research, podcast interactif en français
+4. **Complémentaire aux autres IA** : Utilise Claude/Gemini pour créer, NotebookLM pour analyser
+5. **Simple à utiliser** : Upload, pose des questions, vérifie les citations
+6. **Gratuit et en français** : Aucune excuse pour ne pas tester
 
 ---
 
@@ -474,4 +474,4 @@ Et si tu as besoin d'aide pour automatiser tes processus ou connecter tes outils
 
 ---
 
-_Article mis à jour en janvier 2026. NotebookLM évolue régulièrement — les fonctionnalités décrites reflètent la version actuelle._
+_Article mis à jour en janvier 2026. NotebookLM évolue régulièrement, les fonctionnalités décrites reflètent la version actuelle._

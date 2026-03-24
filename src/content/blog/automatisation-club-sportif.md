@@ -20,7 +20,7 @@ Il est 22h30. Le président de mon club de badminton est encore devant son ordin
 
 Et pendant ce temps, le fichier Excel des membres affiche fièrement "payé : non" sur 23 lignes. Sur 85 membres.
 
-Cette scène, je la vois se répéter dans tous les clubs que je côtoie. Des bénévoles qui donnent leur temps pour faire vivre une association — et qui finissent par passer plus d'heures sur l'administratif que sur le terrain.
+Cette scène, je la vois se répéter dans tous les clubs que je côtoie. Des bénévoles qui donnent leur temps pour faire vivre une association, et qui finissent par passer plus d'heures sur l'administratif que sur le terrain.
 
 **Et si le problème n'était pas les mauvais payeurs, mais les outils qu'on utilise pour les gérer ?**
 
@@ -34,7 +34,7 @@ Relancer quelqu'un pour de l'argent, c'est inconfortable. Surtout quand c'est un
 
 Alors on repousse. On envoie un email "gentil". Puis un autre. Puis on se dit qu'on fera le point à la fin du mois. Le mois passe, et on recommence.
 
-Le résultat ? Des trésoriers épuisés. Des impayés qui s'accumulent. Et parfois, des bénévoles qui jettent l'éponge — pas à cause du club, mais à cause de cette charge mentale qu'ils n'avaient pas signée pour porter.
+Le résultat ? Des trésoriers épuisés. Des impayés qui s'accumulent. Et parfois, des bénévoles qui jettent l'éponge, pas à cause du club, mais à cause de cette charge mentale qu'ils n'avaient pas signée pour porter.
 
 Le plus frustrant : ce n'est souvent même pas de la mauvaise volonté. Les gens oublient, repoussent, perdent l'IBAN. Le problème n'est pas humain. Il est systémique.
 
@@ -46,17 +46,17 @@ Ce fichier, il existe en trois versions : une sur l'ordinateur du président, un
 
 Laquelle est la bonne ? Personne ne sait vraiment.
 
-Et le jour où le trésorier quitte le comité — ce qui arrive, la vie des bénévoles change — il part souvent avec le savoir-faire. Le nouveau hérite d'un fichier qu'il ne comprend pas, sans historique, sans contexte.
+Et le jour où le trésorier quitte le comité (ce qui arrive, la vie des bénévoles change), il part souvent avec le savoir-faire. Le nouveau hérite d'un fichier qu'il ne comprend pas, sans historique, sans contexte.
 
 On repart de zéro. Encore.
 
 ### 3. La conformité qu'on préfère ignorer
 
-La [nouvelle Loi sur la Protection des Données (nLPD)](https://www.ge.ch/actualite/nouvelle-loi-protection-donnees-nlpd-est-entree-vigueur-4-09-2023) est entrée en vigueur en septembre 2023. Elle impose des règles strictes sur la gestion des données personnelles — y compris celles de vos membres.
+La [nouvelle Loi sur la Protection des Données (nLPD)](https://www.ge.ch/actualite/nouvelle-loi-protection-donnees-nlpd-est-entree-vigueur-4-09-2023) est entrée en vigueur en septembre 2023. Elle impose des règles strictes sur la gestion des données personnelles, y compris celles de vos membres.
 
 Ce fichier Excel partagé sur Google Drive avec les noms, adresses, emails et numéros de téléphone de 150 personnes ? Techniquement, c'est un risque.
 
-Et la facture QR, obligatoire depuis 2022 pour les paiements en Suisse ? Beaucoup de clubs envoient encore des bulletins de versement à l'ancienne — ou pire, un simple IBAN par email.
+Et la facture QR, obligatoire depuis 2022 pour les paiements en Suisse ? Beaucoup de clubs envoient encore des bulletins de versement à l'ancienne, ou pire, un simple IBAN par email.
 
 Ce n'est pas de la négligence. C'est juste que personne n'a eu le temps de s'en occuper. Mais le jour où un membre demande la suppression de ses données, ou qu'un contrôle tombe... on fait comment ?
 
@@ -70,13 +70,13 @@ Je connais les objections. Je les ai entendues cent fois.
 
 **"Les logiciels, c'est compliqué."** Certains le sont. Mais pas tous. Et surtout : est-ce plus compliqué que de passer trois soirées par mois à faire des relances manuelles ?
 
-**"On n'a pas le budget."** C'est souvent une question de perception. Le temps bénévole a une valeur. Si votre trésorier passe 10 heures par mois sur des tâches automatisables, c'est un coût — même s'il n'apparaît pas dans la comptabilité. C'est exactement le même calcul que font les PME romandes : une étude chiffre à [654 heures par an le temps perdu en tâches administratives](/blog/temps-perdu-pme-automatisation) — des tâches qui seraient évitables avec les bons outils.
+**"On n'a pas le budget."** C'est souvent une question de perception. Le temps bénévole a une valeur. Si votre trésorier passe 10 heures par mois sur des tâches automatisables, c'est un coût, même s'il n'apparaît pas dans la comptabilité. C'est exactement le même calcul que font les PME romandes : une étude chiffre à [654 heures par an le temps perdu en tâches administratives](/blog/temps-perdu-pme-automatisation), des tâches qui seraient évitables avec les bons outils.
 
 **"On n'a pas le temps de migrer."** Là, je comprends. Personne n'a envie de se lancer dans un projet technique en pleine saison. Mais attendre "le bon moment", c'est souvent attendre indéfiniment.
 
 ---
 
-## Ce qui existe — et ce qui manque
+## Ce qui existe, et ce qui manque
 
 Des solutions existent. ClubDesk, Fairgate, GestiClub... Ces logiciels sont pensés pour les associations suisses. Ils intègrent la gestion des membres, la facturation QR, parfois même la comptabilité.
 
@@ -84,7 +84,7 @@ Des solutions existent. ClubDesk, Fairgate, GestiClub... Ces logiciels sont pens
 
 **Leur limite** : ils imposent un cadre. Votre club doit s'adapter à leur logique, pas l'inverse. Pour une grande fédération, ça passe. Pour un club de 40 membres avec des processus un peu particuliers, c'est parfois frustrant. Et le coût mensuel, même modeste, s'additionne année après année.
 
-Ce que j'observe sur le terrain, c'est que beaucoup de clubs n'ont pas besoin d'une usine à gaz. Ils ont besoin d'une chose simple : que l'inscription et le paiement se fassent sans friction, et que les relances ne dépendent plus de la bonne volonté d'un bénévole. Ce principe vaut d'ailleurs bien au-delà des clubs : les thérapeutes et praticiens indépendants font face au même problème avec les absences aux rendez-vous — et les mêmes leviers d'automatisation s'appliquent, comme je l'explique dans cet article sur [comment sécuriser ses rendez-vous et réduire les no-shows](/blog/no-show-rendez-vous-2026).
+Ce que j'observe sur le terrain, c'est que beaucoup de clubs n'ont pas besoin d'une usine à gaz. Ils ont besoin d'une chose simple : que l'inscription et le paiement se fassent sans friction, et que les relances ne dépendent plus de la bonne volonté d'un bénévole. Ce principe vaut d'ailleurs bien au-delà des clubs : les thérapeutes et praticiens indépendants font face au même problème avec les absences aux rendez-vous, et les mêmes leviers d'automatisation s'appliquent, comme je l'explique dans cet article sur [comment sécuriser ses rendez-vous et réduire les no-shows](/blog/no-show-rendez-vous-2026).
 
 ---
 
@@ -94,7 +94,7 @@ Dans mon club de badminton, le président passait plusieurs heures chaque mois �
 
 J'ai proposé de construire quelque chose de simple.
 
-**Le principe** : un formulaire d'inscription en ligne, connecté à un système de paiement (QR-facture et TWINT). Dès que le paiement est reçu, le fichier des membres se met à jour automatiquement. Si le paiement n'arrive pas sous 10 jours, un email de rappel part tout seul — poli, factuel, sans que personne n'ait à intervenir.
+**Le principe** : un formulaire d'inscription en ligne, connecté à un système de paiement (QR-facture et TWINT). Dès que le paiement est reçu, le fichier des membres se met à jour automatiquement. Si le paiement n'arrive pas sous 10 jours, un email de rappel part tout seul, poli, factuel, sans que personne n'ait à intervenir.
 
 **Le résultat** : le président ne passe plus ses soirées à relancer. Les membres paient plus vite parce que c'est facile. Et surtout, il n'y a plus ce malaise de devoir "faire la police" auprès de gens qu'on apprécie.
 
@@ -113,7 +113,7 @@ Tous les clubs n'ont pas besoin de la même chose. Certains trouveront leur bonh
 ## Ce qu'il faut retenir
 
 1. **Excel a ses limites** : fichiers éparpillés, formules fragiles, passation difficile
-2. **Les relances manuelles épuisent les bénévoles** — et c'est souvent un problème de système, pas de mauvaise volonté des membres
+2. **Les relances manuelles épuisent les bénévoles**, et c'est souvent un problème de système, pas de mauvaise volonté des membres
 3. **La conformité nLPD impose de repenser la gestion des données** personnelles
 4. **Une automatisation ciblée** (inscription + paiement + relances) peut libérer des heures chaque mois sans nécessiter un logiciel lourd
 
@@ -121,7 +121,7 @@ Tous les clubs n'ont pas besoin de la même chose. Certains trouveront leur bonh
 
 **Vous vous reconnaissez dans ce que j'ai décrit ?**
 
-Les relances sans fin, le fichier Excel mystérieux, le sentiment de perdre du temps sur des tâches qui devraient être simples — je vous propose qu'on en parle.
+Les relances sans fin, le fichier Excel mystérieux, le sentiment de perdre du temps sur des tâches qui devraient être simples, je vous propose qu'on en parle.
 
 Un échange de 30 minutes, sans engagement, pour comprendre ce qui coince dans votre club et voir si je peux vous aider.
 

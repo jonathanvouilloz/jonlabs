@@ -31,7 +31,7 @@ On a des ordinateurs partout, des logiciels pour tout, le cloud, l'IA... et on p
 
 C'est le paradoxe de la digitalisation : on a multiplié les outils, mais on n'a pas automatisé les ponts entre eux. Résultat ? On ressaisit, on copie-colle, on vérifie manuellement. On perd un temps fou sur des tâches qu'une machine pourrait faire en 3 secondes.
 
-Cet article, c'est pour toi si tu diriges une PME en Suisse romande et que tu sens que ton équipe (ou toi-même) passe trop de temps sur des trucs qui devraient "juste marcher". Je vais te montrer où part vraiment ce temps, et surtout comment en récupérer une bonne partie — sans projet IT à 50'000 francs.
+Cet article, c'est pour toi si tu diriges une PME en Suisse romande et que tu sens que ton équipe (ou toi-même) passe trop de temps sur des trucs qui devraient "juste marcher". Je vais te montrer où part vraiment ce temps, et surtout comment en récupérer une bonne partie, sans projet IT à 50'000 francs.
 
 ---
 
@@ -63,7 +63,7 @@ Et aucun ne se parle.
 
 Alors ton équipe passe son temps à faire le pont : "Attends, je vérifie dans l'autre système." "C'est mis à jour chez toi ?" "Non mais moi j'ai la bonne version."
 
-**Les silos, ça coûte cher. Pas en logiciels — en temps humain.**
+**Les silos, ça coûte cher. Pas en logiciels, en temps humain.**
 
 ### 4. Les emails répétitifs
 
@@ -83,13 +83,13 @@ Une étude de l'Office fédéral du développement économique estime le coût a
 
 Et le plus frustrant ? **Seulement 9% des PME suisses utilisent l'automatisation de manière systématique.**
 
-91% laissent de l'argent sur la table. Ou plutôt, du temps. Et le temps, dans une PME, c'est de l'argent. Ce n'est pas un problème réservé aux entreprises : même les clubs sportifs et associations vivent exactement cette situation — j'en parle dans cet article sur [pourquoi Excel ne suffit plus pour gérer un club](/blog/automatisation-club-sportif).
+91% laissent de l'argent sur la table. Ou plutôt, du temps. Et le temps, dans une PME, c'est de l'argent. Ce n'est pas un problème réservé aux entreprises : même les clubs sportifs et associations vivent exactement cette situation (j'en parle dans cet article sur [pourquoi Excel ne suffit plus pour gérer un club](/blog/automatisation-club-sportif)).
 
 ---
 
 ## 3 automatisations qui changent la donne (sans projet IT à 50k)
 
-Passons aux solutions concrètes. Pas des trucs théoriques — des automatisations que tu peux tester cette semaine.
+Passons aux solutions concrètes. Pas des trucs théoriques, des automatisations que tu peux tester cette semaine.
 
 ### Quick win #1 : Les relances automatiques d'impayés
 
@@ -151,7 +151,7 @@ C'est souvent la tâche la plus répétitive. Celle qui revient chaque semaine, 
 
 ### Étape 2 : Chronomètre (vraiment)
 
-Pendant une semaine, note le temps réel passé sur cette tâche. Pas ton estimation — le temps réel.
+Pendant une semaine, note le temps réel passé sur cette tâche. Pas ton estimation, le temps réel.
 
 Tu seras probablement choqué. On sous-estime systématiquement le temps qu'on passe sur les micro-tâches répétitives. "Ça prend 5 minutes" devient vite 2 heures par semaine quand on additionne.
 
@@ -176,7 +176,7 @@ Pourquoi ? Parce que les petites partent de plus loin. Chaque heure récupérée
 
 **L'automatisation, c'est pas un truc de grands groupes avec des budgets IT. C'est justement l'inverse : c'est l'outil qui permet aux petits de jouer dans la même cour.**
 
-Et si tu veux aller plus loin, l'IA peut démultiplier ces gains — pas juste pour automatiser, mais pour des tâches de réflexion et de structuration que tu fais chaque semaine. J'ai listé [5 usages concrets de l'IA pour les PME romandes](/blog/ia-pragmatique-pme-suisse) avec un calcul de ROI réaliste.
+Et si tu veux aller plus loin, l'IA peut démultiplier ces gains, pas juste pour automatiser, mais pour des tâches de réflexion et de structuration que tu fais chaque semaine. J'ai listé [5 usages concrets de l'IA pour les PME romandes](/blog/ia-pragmatique-pme-suisse) avec un calcul de ROI réaliste.
 
 ---
 
@@ -192,7 +192,7 @@ Et si tu veux aller plus loin, l'IA peut démultiplier ces gains — pas juste p
 
 **Tu veux savoir où ta PME perd vraiment du temps ?**
 
-Je propose un audit gratuit de 30 minutes. On passe en revue tes outils actuels, on identifie ensemble les 2-3 quick wins les plus rentables pour ta situation, et je te dis honnêtement ce qui vaut le coup d'automatiser maintenant — et ce qui peut attendre.
+Je propose un audit gratuit de 30 minutes. On passe en revue tes outils actuels, on identifie ensemble les 2-3 quick wins les plus rentables pour ta situation, et je te dis honnêtement ce qui vaut le coup d'automatiser maintenant, et ce qui peut attendre.
 
 Sans engagement, sans bullshit commercial. Juste une discussion pour voir si ça fait sens pour toi.
 

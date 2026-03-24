@@ -16,22 +16,22 @@ Quand un client tape "consultant automation PME Genève" dans Google en 2026, il
 
 Il voit une réponse générée par Gemini. Une synthèse. Un ou deux noms cités, avec une explication. Et en dessous, les résultats classiques.
 
-Si tu n'es pas dans la synthèse Gemini, tu es déjà en deuxième page — même si tu es numéro un sur Google. Voici comment optimiser ta présence dans l'écosystème Google pour être cité par Gemini.
+Si tu n'es pas dans la synthèse Gemini, tu es déjà en deuxième page, même si tu es numéro un sur Google. Voici comment optimiser ta présence dans l'écosystème Google pour être cité par Gemini.
 
-C'est la réalité des AI Overviews, le nom que Google donne à ces réponses générées par Gemini directement dans les résultats de recherche. En 2026, ces encadrés apparaissent sur 30% des recherches liées aux services, et le taux de clic sur les résultats organiques sous un AI Overview a chuté de 34,5% selon les données récentes de l'industrie. Les clients ne scrollent plus — ils lisent la synthèse, ils cliquent sur le lien cité dedans, et ils partent.
+C'est la réalité des AI Overviews, le nom que Google donne à ces réponses générées par Gemini directement dans les résultats de recherche. En 2026, ces encadrés apparaissent sur 30% des recherches liées aux services, et le taux de clic sur les résultats organiques sous un AI Overview a chuté de 34,5% selon les données récentes de l'industrie. Les clients ne scrollent plus : ils lisent la synthèse, ils cliquent sur le lien cité dedans, et ils partent.
 
-La bonne nouvelle : Gemini est l'IA la plus accessible pour un freelance ou une PME qui a déjà commencé à travailler son référencement. Parce que Gemini s'appuie directement sur l'écosystème Google — et tu travailles peut-être déjà dans cet écosystème sans le savoir.
+La bonne nouvelle : Gemini est l'IA la plus accessible pour un freelance ou une PME qui a déjà commencé à travailler son référencement. Parce que Gemini s'appuie directement sur l'écosystème Google, et tu travailles peut-être déjà dans cet écosystème sans le savoir.
 
 ---
 
 ## L'essentiel en bref
 
-- Gemini **est** Google — il s'appuie directement sur l'index Search, le Knowledge Graph, Maps, GBP, YouTube et Workspace, pas sur un index externe
-- Les AI Overviews de Google apparaissent sur **30% des recherches liées aux services** — le taux de clic sur les résultats organiques sous un AI Overview a chuté de **34,5%**
+- Gemini **est** Google : il s'appuie directement sur l'index Search, le Knowledge Graph, Maps, GBP, YouTube et Workspace, pas sur un index externe
+- Les AI Overviews de Google apparaissent sur **30% des recherches liées aux services**, et le taux de clic sur les résultats organiques sous un AI Overview a chuté de **34,5%**
 - Ton **Google Business Profile est une base de données structurée** que Gemini interroge directement pour les recommandations locales
 - L'E-E-A-T est appliqué de façon encore plus stricte par Gemini que par l'algorithme Google classique
 - Les pages FAQ avec schema markup **FAQPage sont citées 28% plus souvent** dans les AI Overviews
-- YouTube est un vecteur de citation Gemini sous-exploité par les freelances francophones — une vidéo de 4 minutes peut suffire
+- YouTube est un vecteur de citation Gemini sous-exploité par les freelances francophones, et une vidéo de 4 minutes peut suffire
 - Google Search Console (gratuit) est le seul outil qui mesure partiellement l'impact des AI Overviews sur ton trafic
 
 ---
@@ -48,12 +48,12 @@ Ce que ça change concrètement :
 
 Premièrement, **ton travail SEO classique a un impact direct sur Gemini**. Une page bien optimisée, qui se positionne en première page Google, a de bonnes chances d'être citée dans un AI Overview Gemini sur la même requête. Les deux systèmes partagent les mêmes signaux de base. Si tu as déjà un [site vitrine bien construit](/blog/creer-site-vitrine-ia-visibilite-google), tu as une longueur d'avance.
 
-Deuxièmement, **ton Google Business Profile est devenu une base de données structurée que Gemini interroge directement**. Depuis fin 2025, Gemini affiche des résultats locaux visuels — photos, notes, données Maps — pour les requêtes géolocalisées. Ta fiche GBP n'est plus juste un annuaire. C'est la source principale depuis laquelle Gemini construit sa recommandation locale.
+Deuxièmement, **ton Google Business Profile est devenu une base de données structurée que Gemini interroge directement**. Depuis fin 2025, Gemini affiche des résultats locaux visuels (photos, notes, données Maps) pour les requêtes géolocalisées. Ta fiche GBP n'est plus juste un annuaire. C'est la source principale depuis laquelle Gemini construit sa recommandation locale.
 
-Troisièmement, **l'E-E-A-T compte plus pour Gemini que pour les autres IA**. Google a développé ce critère pendant des années pour évaluer la qualité des contenus. Gemini l'applique de façon encore plus stricte que l'algorithme de recherche classique, parce qu'il sélectionne des sources qu'il va citer en son nom — et il ne peut pas se permettre de citer des sources douteuses.
+Troisièmement, **l'E-E-A-T compte plus pour Gemini que pour les autres IA**. Google a développé ce critère pendant des années pour évaluer la qualité des contenus. Gemini l'applique de façon encore plus stricte que l'algorithme de recherche classique, parce qu'il sélectionne des sources qu'il va citer en son nom, et il ne peut pas se permettre de citer des sources douteuses.
 
 
-Pour comprendre ce qui rend Gemini unique — et ce que ça implique pour ta stratégie — voici comment il se positionne par rapport aux autres moteurs IA.
+Pour comprendre ce qui rend Gemini unique (et ce que ça implique pour ta stratégie), voici comment il se positionne par rapport aux autres moteurs IA.
 
 | Moteur IA | Source d'index principale | Levier local clé | Outil de mesure officiel | Point fort |
 |---|---|---|---|---|
@@ -62,9 +62,9 @@ Pour comprendre ce qui rend Gemini unique — et ce que ça implique pour ta str
 | **Perplexity** | Index propre (RAG temps réel) | Citations externes, mentions | Analytics (trafic perplexity.ai) | Citations visibles et cliquables |
 | **Copilot** | Bing (index Microsoft) | Bing Places for Business | Bing WMT → AI Performance | Intégration Windows/Teams/Edge |
 | **Claude** | Brave Search | Brave Webmaster + mentions | Analytics (trafic claude.ai) | Valorise l'authenticité et la densité factuelle |
-| **Grok** | X (Twitter) + web | Profil X actif et vérifié | — | Seul accès au flux social temps réel |
+| **Grok** | X (Twitter) + web | Profil X actif et vérifié | - | Seul accès au flux social temps réel |
 
-Ce tableau montre pourquoi il n'existe pas de stratégie GEO universelle — chaque moteur IA lit internet différemment. Mais Gemini reste le plus stratégique pour les PME et indépendants suisses, parce que c'est lui qui touche le plus grand volume de recherches locales via Google Search. On a détaillé les différences d'approche dans notre [guide pour apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve) et notre [article sur Claude et Brave Search](/blog/apparaitre-claude).
+Ce tableau montre pourquoi il n'existe pas de stratégie GEO universelle : chaque moteur IA lit internet différemment. Mais Gemini reste le plus stratégique pour les PME et indépendants suisses, parce que c'est lui qui touche le plus grand volume de recherches locales via Google Search. On a détaillé les différences d'approche dans notre [guide pour apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve) et notre [article sur Claude et Brave Search](/blog/apparaitre-claude).
 
 
 
@@ -80,9 +80,9 @@ En pratique, voici ce qu'il analyse :
 
 **Ce que dit ta fiche Google Business Profile.** La description de ton activité, tes catégories principales et secondaires, tes attributs (prestation à domicile, langues parlées, spécialisations), tes horaires, tes photos récentes. Tout ça constitue la "fiche d'identité" que Gemini lit pour comprendre qui tu es et ce que tu fais.
 
-**Ce que disent tes avis — et comment tu y réponds.** Gemini analyse les patterns dans les avis clients pour évaluer la qualité et la pertinence d'une prestation. Un avis qui mentionne "Jonathan m'a aidé à automatiser mes relances email en moins d'une semaine, résultat immédiat sur mon taux de réponse" donne à Gemini un signal beaucoup plus fort qu'un simple "Super, je recommande !" Tes réponses aux avis comptent aussi — elles montrent un business actif et attentif.
+**Ce que disent tes avis, et comment tu y réponds.** Gemini analyse les patterns dans les avis clients pour évaluer la qualité et la pertinence d'une prestation. Un avis qui mentionne "Jonathan m'a aidé à automatiser mes relances email en moins d'une semaine, résultat immédiat sur mon taux de réponse" donne à Gemini un signal beaucoup plus fort qu'un simple "Super, je recommande !" Tes réponses aux avis comptent aussi : elles montrent un business actif et attentif.
 
-**La cohérence de ton positionnement entre toutes tes surfaces Google.** Si ta fiche GBP dit "consultant automation", ton site dit "développeur web freelance", et ta page Google Scholar dit autre chose — Gemini a du mal à construire une entité claire. La cohérence entre toutes tes présences dans l'écosystème Google est un signal de confiance fort.
+**La cohérence de ton positionnement entre toutes tes surfaces Google.** Si ta fiche GBP dit "consultant automation", ton site dit "développeur web freelance", et ta page Google Scholar dit autre chose, Gemini a du mal à construire une entité claire. La cohérence entre toutes tes présences dans l'écosystème Google est un signal de confiance fort.
 
 **Le contenu de ton site que Google indexe.** Gemini lit ce que Google indexe. Si tes pages de service répondent précisément aux questions que tes clients tapent dans Google, tu as une double visibilité : position organique + citation possible dans l'AI Overview. Pour aller plus loin sur ce sujet, consulte notre [guide sur la visibilité de ton site en 2026](/blog/visibilite-site-internet-2026).
 
@@ -102,21 +102,21 @@ Voilà la différence entre un avis inutile et un avis qui travaille pour toi :
 
 Le deuxième avis contient : un service précis, un résultat chiffré, une localisation, un profil client, et un outil mentionné. Gemini peut l'utiliser pour répondre à "consultant automation Make.com Genève", "automatisation PME Suisse romande", "gain de temps gestion PME", et une dizaine d'autres requêtes. Pour voir des exemples concrets de ce type de résultats, consulte nos [études de cas en portfolio](/portfolio).
 
-Tu peux demander à tes clients de structurer leurs avis. Ce n'est pas de la manipulation — c'est les aider à être précis. "Est-ce que tu pourrais mentionner ce qu'on a résolu ensemble, en combien de temps, et dans quelle ville ?" est une demande tout à fait légitime.
+Tu peux demander à tes clients de structurer leurs avis. Ce n'est pas de la manipulation, c'est les aider à être précis. "Est-ce que tu pourrais mentionner ce qu'on a résolu ensemble, en combien de temps, et dans quelle ville ?" est une demande tout à fait légitime.
 
 ---
 
 ## YouTube : l'accélérateur Gemini que tout le monde ignore
 
-Gemini intègre le contenu YouTube dans ses réponses de façon croissante. C'est l'opportunité la moins exploitée par les freelances francophones — et probablement la plus asymétrique.
+Gemini intègre le contenu YouTube dans ses réponses de façon croissante. C'est l'opportunité la moins exploitée par les freelances francophones, et probablement la plus asymétrique.
 
-Pourquoi asymétrique ? Parce que le seuil de qualité attendu pour une vidéo "expert" sur YouTube est beaucoup plus bas que ce qu'on imagine. Une vidéo de 4 minutes filmée avec ton téléphone, bien éclairée, qui répond précisément à "comment automatiser ses relances client avec Make.com" peut être citée par Gemini sur cette requête — parce que peu de personnes ont fait cette vidéo en français, pour le marché romand.
+Pourquoi asymétrique ? Parce que le seuil de qualité attendu pour une vidéo "expert" sur YouTube est beaucoup plus bas que ce qu'on imagine. Une vidéo de 4 minutes filmée avec ton téléphone, bien éclairée, qui répond précisément à "comment automatiser ses relances client avec Make.com" peut être citée par Gemini sur cette requête, parce que peu de personnes ont fait cette vidéo en français, pour le marché romand.
 
 Quelques précisions techniques qui comptent pour Gemini et YouTube :
 
 Le titre de la vidéo doit contenir la question ou le mot-clé principal. La description doit être rédigée (pas juste un lien), avec les mots-clés naturels que tes clients utiliseraient. Les transcriptions et sous-titres améliorent la capacité de Gemini à lire et citer le contenu de ta vidéo.
 
-Une vidéo par trimestre sur une question précise de ta clientèle est suffisant pour construire une présence YouTube pertinente. Ce n'est pas une chaîne YouTube — c'est une bibliothèque de réponses.
+Une vidéo par trimestre sur une question précise de ta clientèle est suffisant pour construire une présence YouTube pertinente. Ce n'est pas une chaîne YouTube, c'est une bibliothèque de réponses.
 
 ---
 
@@ -132,7 +132,7 @@ Checklist minimum :
 - Description avec tes mots-clés réels (pas du jargon) et ta ville
 - Catégorie principale et catégories secondaires à jour
 - Attributs activés (langues, type de service, accessibilité)
-- Photos récentes — au moins 5, mises à jour dans les 6 derniers mois
+- Photos récentes : au moins 5, mises à jour dans les 6 derniers mois
 - Réponse à tous les avis existants, anciens compris
 - Au moins 10 avis avec du contexte (pas juste des notes)
 
@@ -140,7 +140,7 @@ Si tu n'as pas encore fait ça, c'est ta première heure de travail GEO/Gemini.
 
 ### Priorité 2 : Structure de ton site alignée avec les intentions de recherche Google
 
-Gemini lit ce que Google indexe. Chaque page de ton site doit correspondre à une intention de recherche précise — pas à ce que tu veux dire, mais à ce que tes clients cherchent.
+Gemini lit ce que Google indexe. Chaque page de ton site doit correspondre à une intention de recherche précise, pas à ce que tu veux dire, mais à ce que tes clients cherchent.
 
 Format qui fonctionne bien pour les AI Overviews :
 - H1 avec la requête cible naturelle : "Consultant automation pour PME à Genève"
@@ -151,7 +151,7 @@ Les pages FAQ avec schema markup FAQPage sont citées 28% plus souvent dans les 
 
 ### Priorité 3 : Cohérence de tes données sur toutes tes surfaces Google
 
-Nom, adresse, numéro de téléphone, description de service — tout doit être identique entre ta fiche GBP, ton site, ton profil LinkedIn, et tous les annuaires où tu es référencé. Gemini triangule ces informations pour évaluer ta fiabilité en tant qu'entité. Des données incohérentes = signal de méfiance.
+Nom, adresse, numéro de téléphone, description de service : tout doit être identique entre ta fiche GBP, ton site, ton profil LinkedIn, et tous les annuaires où tu es référencé. Gemini triangule ces informations pour évaluer ta fiabilité en tant qu'entité. Des données incohérentes = signal de méfiance.
 
 ### Priorité 4 : Backlinks depuis des sources que Google reconnaît
 
@@ -167,7 +167,7 @@ C'est plus simple que pour les autres IA, parce que Gemini est intégré à Goog
 
 **Google Search Console :** Depuis fin 2025, la Search Console donne des données partielles sur les requêtes qui déclenchent des AI Overviews. C'est incomplet, mais c'est le seul outil gratuit qui te donne une vue directe sur l'impact Gemini.
 
-**Suivi régulier :** Teste une fois par mois les 5-10 requêtes les plus importantes pour ton activité. Note si tu es cité, et si oui, quel passage est utilisé. Ça te dit exactement quel contenu de ton site fonctionne pour Gemini — et tu peux dupliquer le format sur les autres pages.
+**Suivi régulier :** Teste une fois par mois les 5-10 requêtes les plus importantes pour ton activité. Note si tu es cité, et si oui, quel passage est utilisé. Ça te dit exactement quel contenu de ton site fonctionne pour Gemini, et tu peux dupliquer le format sur les autres pages.
 
 ---
 
@@ -185,12 +185,12 @@ Ou si tu préfères qu'on regarde ça ensemble :
 
 ## Sources
 
-- **Google** — Documentation sur les AI Overviews et leur fonctionnement : [support.google.com](https://support.google.com/websearch/answer/14901683)
-- **BrightEdge / Conductor (2025-2026)** — Données sur la prévalence des AI Overviews (30% des recherches services) et impact sur le CTR organique (-34,5%)
-- **Google — E-E-A-T** — Search Quality Evaluator Guidelines, section Experience, Expertise, Authoritativeness, Trustworthiness : [developers.google.com](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)
-- **AirOps (2025)** — Étude sur l'impact du schema markup FAQPage sur les citations AI Overviews (+28%)
-- **Google Business Profile** — Documentation officielle sur les attributs et catégories : [support.google.com/business](https://support.google.com/business)
-- **Google Search Console** — Rapport sur les performances dans les AI Overviews : [search.google.com/search-console](https://search.google.com/search-console)
-- **YouTube Creator Academy** — Bonnes pratiques SEO YouTube pour la visibilité dans les résultats de recherche Google/Gemini
+- **Google** : Documentation sur les AI Overviews et leur fonctionnement : [support.google.com](https://support.google.com/websearch/answer/14901683)
+- **BrightEdge / Conductor (2025-2026)** : Données sur la prévalence des AI Overviews (30% des recherches services) et impact sur le CTR organique (-34,5%)
+- **Google, E-E-A-T** : Search Quality Evaluator Guidelines, section Experience, Expertise, Authoritativeness, Trustworthiness : [developers.google.com](https://developers.google.com/search/docs/fundamentals/creating-helpful-content)
+- **AirOps (2025)** : Étude sur l'impact du schema markup FAQPage sur les citations AI Overviews (+28%)
+- **Google Business Profile** : Documentation officielle sur les attributs et catégories : [support.google.com/business](https://support.google.com/business)
+- **Google Search Console** : Rapport sur les performances dans les AI Overviews : [search.google.com/search-console](https://search.google.com/search-console)
+- **YouTube Creator Academy** : Bonnes pratiques SEO YouTube pour la visibilité dans les résultats de recherche Google/Gemini
 
-*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve) — [Apparaître sur Claude](/blog/apparaitre-claude) — [Apparaître sur Perplexity](/blog/apparaitre-perplexity)*
+*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve) · [Apparaître sur Claude](/blog/apparaitre-claude) · [Apparaître sur Perplexity](/blog/apparaitre-perplexity)*
