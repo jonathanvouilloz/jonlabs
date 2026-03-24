@@ -227,4 +227,4 @@ On peut en discuter ensemble — je t'aide à identifier ce qui bloque ta visibi
 - **Google Business Profile** — Documentation officielle sur l'optimisation des fiches locales : [business.google.com](https://business.google.com)
 - **Jon Labs — Étude de cas** — Référencement d'un juriste à Genève spécialisé restauration : [/portfolio/leo-lecureux-seo](/portfolio/leo-lecureux-seo)
 
-*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur Claude](/blog/apparaitre-claude) — [Apparaître sur Gemini](/blog/apparaitre-gemini) — Apparaître sur Perplexity (à venir)*
+*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur Claude](/blog/apparaitre-claude) — [Apparaître sur Gemini](/blog/apparaitre-gemini) — [Apparaître sur Perplexity](/blog/apparaitre-perplexity)*
