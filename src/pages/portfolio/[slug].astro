@@ -6,6 +6,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import CTASection from '../../components/CTASection.astro';
 import { SITE_URL } from '../../data/schema';
+import { inlineLinks } from '../../lib/markdown';
 
 export async function getStaticPaths() {
   const portfolioEntries = await getCollection('portfolio', ({ data }) => !data.draft);
@@ -305,21 +306,21 @@ const schemas = [caseStudySchema];
             {context.clientDescription && (
               <>
                 <h3>Le client</h3>
-                <p>{context.clientDescription}</p>
+                <p set:html={inlineLinks(context.clientDescription)} />
               </>
             )}
 
             {context.challenge && (
               <>
                 <h3>Le défi</h3>
-                <p>{context.challenge}</p>
+                <p set:html={inlineLinks(context.challenge)} />
               </>
             )}
 
             {context.whyThisProject && (
               <>
                 <h3>Pourquoi ce projet</h3>
-                <p>{context.whyThisProject}</p>
+                <p set:html={inlineLinks(context.whyThisProject)} />
               </>
             )}
           </section>
@@ -336,10 +337,10 @@ const schemas = [caseStudySchema];
                   <div class="approach-card-content">
                     <span class="approach-phase-num">Phase {phase.phase}</span>
                     <h3 class="approach-title">{phase.title}</h3>
-                    <p class="approach-desc">{phase.description}</p>
+                    <p class="approach-desc" set:html={inlineLinks(phase.description)} />
                     {phase.tasks && phase.tasks.length > 0 && (
                       <ul class="approach-tasks">
-                        {phase.tasks.map(task => <li>{task}</li>)}
+                        {phase.tasks.map(task => <li set:html={inlineLinks(task)} />)}
                       </ul>
                     )}
                   </div>
@@ -380,7 +381,7 @@ const schemas = [caseStudySchema];
                   <i class={`${factor.icon} success-icon`}></i>
                   <div>
                     <strong>{factor.title}</strong>
-                    <span class="success-desc">{factor.description}</span>
+                    <span class="success-desc" set:html={inlineLinks(factor.description)} />
                   </div>
                 </li>
               ))}
@@ -398,7 +399,7 @@ const schemas = [caseStudySchema];
                 <h3>Ce que j'ai appris</h3>
                 <ul>
                   {learnings.insights.map(insight => (
-                    <li>{insight}</li>
+                    <li set:html={inlineLinks(insight)} />
                   ))}
                 </ul>
               </>
@@ -409,7 +410,7 @@ const schemas = [caseStudySchema];
                 <h3>Limites & améliorations</h3>
                 <ul>
                   {learnings.limitations.map(limitation => (
-                    <li>{limitation}</li>
+                    <li set:html={inlineLinks(limitation)} />
                   ))}
                 </ul>
               </>

@@ -83,9 +83,9 @@ Remix Icon via CDN: `<i class="ri-code-line"></i>`
 | Homepage | `/` | Customize existing |
 | Blog | `/blog` | Customize existing |
 | Services | `/services` | Create new |
-| Portfolio | `/portfolio` | Create new |
+| Portfolio | `/portfolio` | ✅ Done |
 | About | `/about` | Create new |
-| Lab | `/lab` | Create new |
+| Lab | `/lab` | Supprimée |
 | Contact | `/contact` | Create new |
 
 ## Important Notes

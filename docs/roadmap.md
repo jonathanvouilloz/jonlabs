@@ -92,7 +92,7 @@
 
 ## Phase 3 : Pages Services & Portfolio
 
-**Statut** : 🔄 En cours
+**Statut** : ✅ Terminé
 
 ### Tâches
 
@@ -131,12 +131,11 @@
     - [x] Bouton "Discutons..." semi-transparent avec blur
     - [x] Bouton email style terminal (→ hello@jonlabs.ch)
     - [x] Trust indicators
-- [ ] **Page Portfolio** (`/portfolio`)
-  - [ ] Hero
-  - [ ] Filtres par catégorie (optionnel)
-  - [ ] Grid de projets
-  - [ ] Cartes projet avec screenshots, descriptions, technos
-  - [ ] CTA final
+- [x] **Page Portfolio** (`/portfolio`)
+  - [x] Hero
+  - [x] Grid de projets
+  - [x] Cartes projet avec screenshots, descriptions, technos
+  - [x] CTA final
 - [x] **Landing Page Refonte Site Web** (`/services/refonte-site-web`)
   - [x] Hero centré avec browser mockup + screenshot réalisation
   - [x] Gradient mesh background subtil (blobs blur)
@@ -156,7 +155,7 @@
 
 - ✅ Page Services complète et fonctionnelle
 - ✅ Landing page SEO "Refonte site web Genève"
-- ⏳ Page Portfolio à créer
+- ✅ Page Portfolio complète
 - ✅ Navigation mise à jour
 - ✅ Liens inter-pages fonctionnels
 
@@ -164,7 +163,7 @@
 
 ## Phase 4 : Pages About, Lab, Contact
 
-**Statut** : À faire
+**Statut** : ✅ Terminé
 
 ### Tâches
 
@@ -176,14 +175,7 @@
   - [ ] Section Philosophie
   - [ ] Section "Au-delà du code"
   - [ ] CTA contact
-- [ ] **Page Lab** (`/lab`)
-  - [ ] Hero
-  - [ ] Section Projets en cours
-  - [ ] Section Jeux de Société
-  - [ ] Section Photographie + mini-galerie
-  - [ ] Section Badminton
-  - [ ] Section Blog & Réflexions
-  - [ ] Section Idées en vrac
+- [x] ~~**Page Lab** (`/lab`)~~ — Supprimée (contenu intégré ailleurs)
 - [x] **Page Contact** (`/contact`)
   - [x] Hero
   - [x] Formulaire de contact (Web3Forms)
@@ -193,9 +185,9 @@
 
 ### Livrables
 
-- 3 nouvelles pages complètes
-- Formulaire de contact fonctionnel
-- Galerie photo intégrée
+- ✅ Page About complète
+- ✅ Page Contact complète avec formulaire Web3Forms
+- ✅ Page Lab supprimée (contenu redistribué)
 
 ---
 
