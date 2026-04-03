@@ -9,6 +9,13 @@ import rehypeExternalLinks from 'rehype-external-links';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.jonlabs.ch',
+  redirects: {
+    '/blog/apparaitre-copilot': '/blog/apparaitre-copilot-2026',
+    '/blog/apparaitre-perplexity': '/blog/apparaitre-perplexity-2026',
+    '/blog/apparaitre-gemini': '/blog/apparaitre-gemini-2026',
+    '/blog/apparaitre-claude': '/blog/apparaitre-claude-2026',
+    '/blog/apparaitre-chatgpt-geneve': '/blog/apparaitre-chatgpt-geneve-2026',
+  },
   image: { service: { entrypoint: 'astro/assets/services/noop' } },
   trailingSlash: 'never',
   integrations: [

@@ -24,7 +24,7 @@ readingTime: 10
 
 ---
 
-Tu connais ChatGPT. Tu as peut-être lu nos guides sur [apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve), sur [apparaître sur Gemini](/blog/apparaitre-gemini) ou sur [apparaître sur Perplexity](/blog/apparaitre-perplexity). Mais il y a une IA dont personne ne parle en Suisse romande, et qui touche pourtant des millions de professionnels chaque jour.
+Tu connais ChatGPT. Tu as peut-être lu nos guides sur [apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve-2026), sur [apparaître sur Gemini](/blog/apparaitre-gemini-2026) ou sur [apparaître sur Perplexity](/blog/apparaitre-perplexity-2026). Mais il y a une IA dont personne ne parle en Suisse romande, et qui touche pourtant des millions de professionnels chaque jour.
 
 **Microsoft Copilot** est intégré dans Windows 11, dans le navigateur Edge, dans Teams, dans Outlook, dans Word. Les gens ne l'installent pas. Ils tombent dessus. Et quand ils lui posent une question ("freelance web à **Genève** ?", "meilleur outil pour automatiser mes relances ?"), Copilot leur répond. Avec des sources. Avec des liens.
 
@@ -206,7 +206,7 @@ Tu peux tester ta visibilité actuelle avec la [checklist visibilité Google](/o
 
 ## Tableau comparatif : 6 moteurs IA et leurs leviers
 
-Voici où Copilot se situe par rapport aux autres moteurs IA. Ce tableau complète ceux publiés dans les guides [apparaître sur Claude](/blog/apparaitre-claude) et [apparaître sur Perplexity](/blog/apparaitre-perplexity).
+Voici où Copilot se situe par rapport aux autres moteurs IA. Ce tableau complète ceux publiés dans les guides [apparaître sur Claude](/blog/apparaitre-claude-2026) et [apparaître sur Perplexity](/blog/apparaitre-perplexity-2026).
 
 | Moteur IA | Source d'index | Levier local clé | Outil mesure officiel | Point fort |
 |---|---|---|---|---|
@@ -251,4 +251,4 @@ Ou si tu préfères qu'on regarde ça ensemble :
 - **Ahrefs, 2025** : Étude sur l'overlap IA/Google (12%) et la sélectivité des citations, 3,13 liens par réponse Copilot, domaines jeunes favorisés
 - **Search Engine Journal** : Lancement du nouveau Bing Places for Business : [searchenginejournal.com](https://www.searchenginejournal.com/microsoft-launches-new-bing-places-for-business/557520/)
 
-*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve) | [Apparaître sur Claude](/blog/apparaitre-claude) | [Apparaître sur Gemini](/blog/apparaitre-gemini) | [Apparaître sur Perplexity](/blog/apparaitre-perplexity)*
+*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve-2026) | [Apparaître sur Claude](/blog/apparaitre-claude-2026) | [Apparaître sur Gemini](/blog/apparaitre-gemini-2026) | [Apparaître sur Perplexity](/blog/apparaitre-perplexity-2026)*

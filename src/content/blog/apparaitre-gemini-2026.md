@@ -64,7 +64,7 @@ Pour comprendre ce qui rend Gemini unique (et ce que ça implique pour ta strat�
 | **Claude** | Brave Search | Brave Webmaster + mentions | Analytics (trafic claude.ai) | Valorise l'authenticité et la densité factuelle |
 | **Grok** | X (Twitter) + web | Profil X actif et vérifié | - | Seul accès au flux social temps réel |
 
-Ce tableau montre pourquoi il n'existe pas de stratégie GEO universelle : chaque moteur IA lit internet différemment. Mais Gemini reste le plus stratégique pour les PME et indépendants suisses, parce que c'est lui qui touche le plus grand volume de recherches locales via Google Search. On a détaillé les différences d'approche dans notre [guide pour apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve) et notre [article sur Claude et Brave Search](/blog/apparaitre-claude).
+Ce tableau montre pourquoi il n'existe pas de stratégie GEO universelle : chaque moteur IA lit internet différemment. Mais Gemini reste le plus stratégique pour les PME et indépendants suisses, parce que c'est lui qui touche le plus grand volume de recherches locales via Google Search. On a détaillé les différences d'approche dans notre [guide pour apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve-2026) et notre [article sur Claude et Brave Search](/blog/apparaitre-claude-2026).
 
 
 
@@ -193,4 +193,4 @@ Ou si tu préfères qu'on regarde ça ensemble :
 - **Google Search Console** : Rapport sur les performances dans les AI Overviews : [search.google.com/search-console](https://search.google.com/search-console)
 - **YouTube Creator Academy** : Bonnes pratiques SEO YouTube pour la visibilité dans les résultats de recherche Google/Gemini
 
-*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve) · [Apparaître sur Claude](/blog/apparaitre-claude) · [Apparaître sur Perplexity](/blog/apparaitre-perplexity) · [Apparaître sur Copilot](/blog/apparaitre-copilot)*
+*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve-2026) · [Apparaître sur Claude](/blog/apparaitre-claude-2026) · [Apparaître sur Perplexity](/blog/apparaitre-perplexity-2026) · [Apparaître sur Copilot](/blog/apparaitre-copilot-2026)*

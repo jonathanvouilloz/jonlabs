@@ -22,7 +22,7 @@ readingTime: 9
 
 ---
 
-Tu connais ChatGPT. Tu as peut-être lu nos guides sur [apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve) et [apparaître sur Claude](/blog/apparaitre-claude). Mais il y a un moteur IA dont personne ne parle en Suisse romande, et qui mériterait qu'on s'y intéresse.
+Tu connais ChatGPT. Tu as peut-être lu nos guides sur [apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve-2026) et [apparaître sur Claude](/blog/apparaitre-claude-2026). Mais il y a un moteur IA dont personne ne parle en Suisse romande, et qui mériterait qu'on s'y intéresse.
 
 **Perplexity** ne fonctionne pas comme les autres. Quand tu lui poses une question, il ne te donne pas juste une réponse. Il te donne une réponse avec des numéros de référence en bas de page. Comme un article de recherche. Chaque fait est rattaché à sa source.
 
@@ -151,7 +151,7 @@ Tu peux tester ta visibilité actuelle avec la [checklist visibilité Google](/o
 
 ## Tableau comparatif : 6 moteurs IA et leurs leviers
 
-Voici où Perplexity se situe par rapport aux autres moteurs IA. Ce tableau complète ceux qu'on a publiés dans les guides [apparaître sur Claude](/blog/apparaitre-claude) et [apparaître sur Gemini](/blog/apparaitre-gemini).
+Voici où Perplexity se situe par rapport aux autres moteurs IA. Ce tableau complète ceux qu'on a publiés dans les guides [apparaître sur Claude](/blog/apparaitre-claude-2026) et [apparaître sur Gemini](/blog/apparaitre-gemini-2026).
 
 | Moteur IA | Source d'index principale | Levier local clé | Outil mesure officiel | Point fort |
 |---|---|---|---|---|
@@ -194,4 +194,4 @@ Ou si tu préfères discuter de ta stratégie GEO directement :
 - **TrySight AI, Comment Perplexity sélectionne ses sources** : Facteurs de sélection (crédibilité, fraîcheur, cross-référencement). [trysight.ai](https://www.trysight.ai/blog/how-perplexity-ai-selects-sources)
 - **RankWeave, Analyse de 300 requêtes Perplexity** : Patterns de citation et facteurs de ranking. [rankweave.top](https://rankweave.top/blog/en/perplexity-optimization)
 
-*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve) | [Apparaître sur Claude](/blog/apparaitre-claude) | [Apparaître sur Gemini](/blog/apparaitre-gemini) | [Apparaître sur Copilot](/blog/apparaitre-copilot)*
+*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve-2026) | [Apparaître sur Claude](/blog/apparaitre-claude-2026) | [Apparaître sur Gemini](/blog/apparaitre-gemini-2026) | [Apparaître sur Copilot](/blog/apparaitre-copilot-2026)*

@@ -152,7 +152,7 @@ Pour toi, ça signifie que le contenu dense, les explications approfondies, les 
 
 **Ajouter de la densité factuelle.** Sur chaque page de service, intègre au moins : un résultat concret que tu as obtenu pour un client (avec chiffres), la durée typique d'une prestation, et une comparaison ou mise en contexte qui aide à comprendre la valeur. Ces éléments sont exactement ce que Claude cherche à extraire pour construire une réponse informative.
 
-**Créer du contenu frais avec des signaux temporels.** Pour les requêtes locales et sectorielles que Claude va chercher sur le web, la date compte. Un article sur "comment choisir son consultant automation en Suisse en 2026" avec la date visible et des données récentes sera privilégié par rapport au même article sans date ou avec une date ancienne. On a détaillé cette stratégie appliquée à ChatGPT dans notre [guide pour apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve), et les principes de fraîcheur sont similaires.
+**Créer du contenu frais avec des signaux temporels.** Pour les requêtes locales et sectorielles que Claude va chercher sur le web, la date compte. Un article sur "comment choisir son consultant automation en Suisse en 2026" avec la date visible et des données récentes sera privilégié par rapport au même article sans date ou avec une date ancienne. On a détaillé cette stratégie appliquée à ChatGPT dans notre [guide pour apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve-2026), et les principes de fraîcheur sont similaires.
 
 **Construire des mentions sur des sources externes.** Claude valide ton autorité en croisant plusieurs sources. Un profil LinkedIn complet avec tes spécialités claires, une mention dans un article de blog d'un partenaire, une fiche dans un annuaire professionnel reconnu en Suisse, chaque mention externe sur une source que Brave indexe renforce ton autorité aux yeux de Claude.
 
@@ -180,4 +180,4 @@ Ou si tu préfères discuter de ta stratégie GEO directement :
 - **Brave Search** : Architecture indépendante de l'index Brave, différences avec Google et Bing : [brave.com/search](https://brave.com/search)
 - **Données sur le comportement utilisateur Claude (2025)** : 57% d'utilisation en mode augmentation (vérification active des sources) : recherche comportementale sur les plateformes IA
 
-*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve) · [Apparaître sur Gemini](/blog/apparaitre-gemini) · [Apparaître sur Perplexity](/blog/apparaitre-perplexity) · [Apparaître sur Copilot](/blog/apparaitre-copilot)*
+*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve-2026) · [Apparaître sur Gemini](/blog/apparaitre-gemini-2026) · [Apparaître sur Perplexity](/blog/apparaitre-perplexity-2026) · [Apparaître sur Copilot](/blog/apparaitre-copilot-2026)*

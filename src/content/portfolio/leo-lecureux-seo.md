@@ -138,4 +138,4 @@ Ce projet a été l'occasion de mettre en pratique mes apprentissages en SEO sur
 
 Le site reste un actif pleinement fonctionnel, prêt à être réactivé dès la fin de son stage — preuve que le travail SEO bien fait crée de la valeur durable.
 
-Ce type de résultat — un site de niche bien structuré qui atteint le top 1 Google — est exactement ce que les IA génératives cherchent à citer. J'ai détaillé pourquoi dans mes articles sur la visibilité IA : [comment apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve) et [comment apparaître sur Claude](/blog/apparaitre-claude), qui utilise Brave Search plutôt que Google.
+Ce type de résultat — un site de niche bien structuré qui atteint le top 1 Google — est exactement ce que les IA génératives cherchent à citer. J'ai détaillé pourquoi dans mes articles sur la visibilité IA : [comment apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve-2026) et [comment apparaître sur Claude](/blog/apparaitre-claude-2026), qui utilise Brave Search plutôt que Google.
