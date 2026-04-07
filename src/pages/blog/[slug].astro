@@ -65,25 +65,13 @@ const breadcrumbSchema = getBreadcrumbSchema([
   <AppHeader />
 
   <article class="mb-20">
-    <!-- Hero image -->
-    <div class="relative w-full aspect-[4/3] md:aspect-[16/9] max-h-[400px] overflow-hidden border-b-2 border-black">
-      <img
-        src={image.url}
-        alt={image.alt}
-        class="w-full h-full object-cover"
-        loading="eager"
-        fetchpriority="high"
-      />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-    </div>
-
     <!-- Grid layout: content + sidebar -->
-    <div class="max-w-6xl mx-auto px-4 -mt-48 relative z-10">
+    <div class="max-w-6xl mx-auto px-4 pt-12 relative z-10">
       <div class="grid grid-cols-1 xl:grid-cols-3 xl:gap-8">
         <!-- Article content (col 1-2) -->
         <div class="col-span-1 xl:col-span-2 order-2 xl:order-1">
           <!-- Mobile TOC - visible only below xl -->
-          <div class="xl:hidden mb-6 mt-20">
+          <div class="xl:hidden mb-6">
             <button
               id="mobile-toc-toggle"
               class="w-full bg-white border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,0.3)] p-4 flex justify-between items-center"
@@ -109,30 +97,20 @@ const breadcrumbSchema = getBreadcrumbSchema([
           </div>
 
           <!-- Top bar: back + share -->
-          <div class="flex items-center justify-between mb-4">
-            <div class="flex items-center gap-2">
-              <a
-                href="/blog"
-                class="inline-flex items-center gap-2 text-sm font-medium bg-white border-2 border-black px-4 py-2 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:shadow-[1px_1px_0px_rgba(0,0,0,0.3)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
-              >
-                <i class="ri-arrow-left-line"></i>
-                Retour au blog
-              </a>
-              <button
-                class="focus-mode-toggle inline-flex items-center gap-2 text-sm font-medium bg-white border-2 border-black px-4 py-2 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:shadow-[1px_1px_0px_rgba(0,0,0,0.3)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all cursor-pointer"
-                aria-label="Mode lecture focus"
-                title="Activer/Désactiver le mode lecture focus"
-              >
-                <i class="focus-mode-icon ri-book-read-line"></i>
-                <span>Focus mode</span>
-              </button>
-            </div>
-            <div class="flex items-center gap-2">
+          <div class="flex items-center justify-between mb-8">
+            <a
+              href="/blog"
+              class="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-[var(--violet)] transition-colors"
+            >
+              <i class="ri-arrow-left-line"></i>
+              Retour au blog
+            </a>
+            <div class="flex items-center gap-3 text-gray-500">
               <a
                 href={`https://twitter.com/intent/tweet?text=${encodeURIComponent(title)}&url=${encodeURIComponent(Astro.url.href)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="bg-white border-2 border-black p-2 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:shadow-[1px_1px_0px_rgba(0,0,0,0.3)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
+                class="hover:text-[var(--violet)] transition-colors"
                 aria-label="Partager sur X"
               >
                 <i class="ri-twitter-x-line"></i>
@@ -141,13 +119,13 @@ const breadcrumbSchema = getBreadcrumbSchema([
                 href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(Astro.url.href)}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="bg-white border-2 border-black p-2 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:shadow-[1px_1px_0px_rgba(0,0,0,0.3)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
+                class="hover:text-[var(--violet)] transition-colors"
                 aria-label="Partager sur LinkedIn"
               >
                 <i class="ri-linkedin-fill"></i>
               </a>
               <button
-                class="bg-white border-2 border-black p-2 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:shadow-[1px_1px_0px_rgba(0,0,0,0.3)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all"
+                class="hover:text-[var(--violet)] transition-colors cursor-pointer"
                 aria-label="Copier le lien"
                 onclick="navigator.clipboard.writeText(window.location.href); this.innerHTML='<i class=\'ri-check-line text-green-500\'></i>'; setTimeout(() => this.innerHTML='<i class=\'ri-link\'></i>', 2000)"
               >
@@ -156,8 +134,8 @@ const breadcrumbSchema = getBreadcrumbSchema([
             </div>
           </div>
 
-          <!-- Card with content -->
-          <div class="bg-white border-2 border-black shadow-[6px_6px_0px_rgba(0,0,0,0.3)] p-6 md:p-10">
+          <!-- Article container (minimalist, no border) -->
+          <div>
             <!-- Meta -->
             <div class="flex flex-wrap items-center gap-3 mb-6">
               <CategoryBadge category={category} size="md" />
@@ -230,61 +208,14 @@ const breadcrumbSchema = getBreadcrumbSchema([
   <RelatedPosts posts={relatedPosts} />
   <AuthorBio />
   <AppFooter />
-
-<script is:inline>
-  document.addEventListener('DOMContentLoaded', () => {
-    const toggleButtons = document.querySelectorAll('.focus-mode-toggle');
-    const toggleIcons = document.querySelectorAll('.focus-mode-icon');
-
-    if (toggleButtons.length > 0) {
-      const applyFocusMode = (isActive) => {
-        if (isActive) {
-          document.body.classList.add('focus-mode-active');
-        } else {
-          document.body.classList.remove('focus-mode-active');
-        }
-        // Update icons
-        toggleIcons.forEach(icon => {
-            const currentClasses = icon.className.split(' ').filter(c => !c.startsWith('ri-'));
-            currentClasses.push(isActive ? 'ri-book-open-line' : 'ri-book-read-line');
-            icon.className = currentClasses.join(' ');
-        });
-      };
-
-      // Load initial state
-      const isMobile = window.innerWidth < 1280; // xl breakpoint
-      const savedState = localStorage.getItem('focusMode');
-
-      // Default: ON for mobile, OFF for desktop
-      // User preference (savedState) overrides default
-      let initialState;
-      if (savedState !== null) {
-        initialState = savedState === 'true';
-      } else {
-        initialState = isMobile;
-      }
-      applyFocusMode(initialState);
-
-      // Add event listeners
-      toggleButtons.forEach(button => {
-        button.addEventListener('click', (e) => {
-          e.stopPropagation(); // Stop click from propagating to other elements
-          const isActive = document.body.classList.toggle('focus-mode-active');
-          localStorage.setItem('focusMode', isActive);
-          applyFocusMode(isActive);
-        });
-      });
-    }
-  });
-</script>
-
 </Layout>
 
 <style is:global>
-  /* Prose styling for article content */
+  /* Prose styling for article content - minimalist reading style */
   .prose {
-    color: #1a1a1a;
-    line-height: 1.75;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #2D2D2D;
   }
 
   .prose p {
@@ -292,17 +223,19 @@ const breadcrumbSchema = getBreadcrumbSchema([
   }
 
   .prose h2 {
-    font-size: 1.5rem;
-    font-weight: 700;
-    margin-top: 2.5rem;
-    margin-bottom: 1rem;
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #141413;
+    margin-top: 1.8em;
+    margin-bottom: 0.7em;
   }
 
   .prose h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #141413;
+    margin-top: 1.4em;
+    margin-bottom: 0.6em;
   }
 
   .prose ul {
@@ -362,8 +295,7 @@ const breadcrumbSchema = getBreadcrumbSchema([
     background: #1a1a1a;
     color: #f5f5f5;
     padding: 1rem;
-    border-radius: 0;
-    border: 2px solid black;
+    border-radius: 6px;
     overflow-x: auto;
     margin: 1.5rem 0;
   }
@@ -374,57 +306,54 @@ const breadcrumbSchema = getBreadcrumbSchema([
   }
 
   .prose img {
-    border: 2px solid black;
-    margin: 1.5rem 0;
+    display: block;
+    max-width: 85%;
+    margin: 2rem auto;
+    border-radius: 6px;
   }
 
   .prose hr {
     border: none;
-    border-top: 2px solid #e5e5e5;
+    border-top: 1px solid #e5e5e5;
     margin: 3rem 0;
   }
 
-  /* Table styling */
+  /* Table styling - softer */
   .prose table {
     width: 100%;
     border-collapse: collapse;
-    border: 3px solid black;
+    border: 1px solid #ccc;
+    border-radius: 4px;
     margin: 1.5rem 0;
     background: white;
-    font-size: 0.9rem;
+    font-size: 0.95em;
     display: table;
     overflow-x: auto;
   }
 
   .prose thead {
-    background: #1a1a1a;
-    color: white;
+    background: #eee;
+    color: #333;
   }
 
   .prose th {
-    padding: 0.75rem 1rem;
+    padding: 0.6em 0.8em;
     text-align: left;
-    font-weight: 700;
-    border: 2px solid black;
+    font-weight: 600;
+    border: 1px solid #ddd;
   }
 
   .prose td {
-    padding: 0.75rem 1rem;
+    padding: 0.6em 0.8em;
     border: 1px solid #ddd;
-    border-left: 2px solid black;
-    border-right: 2px solid black;
-  }
-
-  .prose tbody tr {
-    border-bottom: 1px solid #ddd;
   }
 
   .prose tbody tr:last-child {
-    border-bottom: 3px solid black;
+    border-bottom: 1px solid #ccc;
   }
 
   .prose tbody tr:hover {
-    background: var(--main-bg);
+    background: #f9f9f9;
   }
 
   /* Responsive wrapper */

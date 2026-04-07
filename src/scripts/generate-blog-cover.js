@@ -28,7 +28,7 @@ const CONFIG = {
   textAreaWidth: 700, // Position du blob (rapproché du texte)
   backgroundColor: '#fcfbfc',
   textColor: '#000000',
-  fontFamily: 'Space Grotesk, Arial, sans-serif',
+  fontFamily: 'Plus Jakarta Sans, Arial, sans-serif',
   fontSize: 120,
   fontWeight: 700,
   padding: 120,

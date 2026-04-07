@@ -25,7 +25,7 @@ const CONFIG = {
   backgroundColor: '#fcfbfc',
   textColor: '#000000',
   boxBorderColor: '#000000',
-  fontFamily: 'Space Grotesk',
+  fontFamily: 'Plus Jakarta Sans',
   blobSize: 500
 };
 

@@ -14,12 +14,12 @@
   <circle cx="200" cy="315" r="180" fill="#00D9A3" opacity="0.1"/>
 
   <!-- Logo text -->
-  <text x="600" y="280" font-family="Space Grotesk, sans-serif" font-size="72" font-weight="700" fill="#FFFFFF" text-anchor="middle">
+  <text x="600" y="280" font-family="Plus Jakarta Sans, sans-serif" font-size="72" font-weight="700" fill="#FFFFFF" text-anchor="middle">
     Jon Labs
   </text>
 
   <!-- Tagline -->
-  <text x="600" y="360" font-family="Space Grotesk, sans-serif" font-size="28" fill="#94A3B8" text-anchor="middle">
+  <text x="600" y="360" font-family="Plus Jakarta Sans, sans-serif" font-size="28" fill="#94A3B8" text-anchor="middle">
     Solutions Digitales Sur-Mesure
   </text>
 
@@ -27,7 +27,7 @@
   <rect x="500" y="400" width="200" height="4" fill="#00D9A3"/>
 
   <!-- Location -->
-  <text x="600" y="480" font-family="Space Grotesk, sans-serif" font-size="20" fill="#64748B" text-anchor="middle">
+  <text x="600" y="480" font-family="Plus Jakarta Sans, sans-serif" font-size="20" fill="#64748B" text-anchor="middle">
     Genève, Suisse
   </text>
 </svg>

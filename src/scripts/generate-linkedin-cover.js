@@ -24,7 +24,7 @@ const CONFIG = {
   textAreaWidth: 480,
   backgroundColor: '#fcfbfc',
   textColor: '#000000',
-  fontFamily: 'Space Grotesk',
+  fontFamily: 'Plus Jakarta Sans',
   fontSize: 64,
   fontWeight: 700,
   padding: 60,
