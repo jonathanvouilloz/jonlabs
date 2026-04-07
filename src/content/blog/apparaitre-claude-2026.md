@@ -1,5 +1,5 @@
 ---
-title: "Apparaître sur Claude : l'IA qui cherche dans Brave, pas dans Google"
+title: "Apparaître sur Claude : guide GEO Brave Search 2026"
 description: "Claude utilise Brave Search, pas Google. Voici comment optimiser votre site pour apparaître dans ses réponses et toucher une audience qualifiée."
 pubDate: 2026-03-05
 image:
@@ -180,4 +180,4 @@ Ou si tu préfères discuter de ta stratégie GEO directement :
 - **Brave Search** : Architecture indépendante de l'index Brave, différences avec Google et Bing : [brave.com/search](https://brave.com/search)
 - **Données sur le comportement utilisateur Claude (2025)** : 57% d'utilisation en mode augmentation (vérification active des sources) : recherche comportementale sur les plateformes IA
 
-*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve-2026) · [Apparaître sur Gemini](/blog/apparaitre-gemini-2026) · [Apparaître sur Perplexity](/blog/apparaitre-perplexity-2026) · [Apparaître sur Copilot](/blog/apparaitre-copilot-2026)*
+*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve-2026) · [Apparaître sur Gemini](/blog/apparaitre-gemini-2026) · [Apparaître sur Perplexity](/blog/apparaitre-perplexity-2026) · [Apparaître sur Copilot](/blog/apparaitre-copilot-2026) · [Apparaître sur Grok](/blog/apparaitre-grok-2026)*

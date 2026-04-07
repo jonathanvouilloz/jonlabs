@@ -194,4 +194,4 @@ Ou si tu préfères discuter de ta stratégie GEO directement :
 - **TrySight AI, Comment Perplexity sélectionne ses sources** : Facteurs de sélection (crédibilité, fraîcheur, cross-référencement). [trysight.ai](https://www.trysight.ai/blog/how-perplexity-ai-selects-sources)
 - **RankWeave, Analyse de 300 requêtes Perplexity** : Patterns de citation et facteurs de ranking. [rankweave.top](https://rankweave.top/blog/en/perplexity-optimization)
 
-*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve-2026) | [Apparaître sur Claude](/blog/apparaitre-claude-2026) | [Apparaître sur Gemini](/blog/apparaitre-gemini-2026) | [Apparaître sur Copilot](/blog/apparaitre-copilot-2026)*
+*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve-2026) · [Apparaître sur Claude](/blog/apparaitre-claude-2026) · [Apparaître sur Gemini](/blog/apparaitre-gemini-2026) · [Apparaître sur Copilot](/blog/apparaitre-copilot-2026) · [Apparaître sur Grok](/blog/apparaitre-grok-2026)*
