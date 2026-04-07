@@ -4,7 +4,7 @@ description: "Grok cite 27% de ses sources contre 0,59% pour ChatGPT. Sa source 
 pubDate: 2026-04-13
 slug: "apparaitre-grok-2026"
 image:
-  url: "/images/blog/apparaitre-grok.webp"
+  url: "/images/blog/apparaitre-grok-2026.webp"
   alt: "Apparaître sur Grok et X/Twitter"
 category: "tech"
 tags: ["grok", "xai", "x", "twitter", "geo", "seo", "ia", "visibilité"]
