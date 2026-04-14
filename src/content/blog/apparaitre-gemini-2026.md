@@ -193,4 +193,4 @@ Ou si tu préfères qu'on regarde ça ensemble :
 - **Google Search Console** : Rapport sur les performances dans les AI Overviews : [search.google.com/search-console](https://search.google.com/search-console)
 - **YouTube Creator Academy** : Bonnes pratiques SEO YouTube pour la visibilité dans les résultats de recherche Google/Gemini
 
-*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve-2026) · [Apparaître sur Claude](/blog/apparaitre-claude-2026) · [Apparaître sur Perplexity](/blog/apparaitre-perplexity-2026) · [Apparaître sur Copilot](/blog/apparaitre-copilot-2026) · [Apparaître sur Grok](/blog/apparaitre-grok-2026)*
+*Cet article fait partie du [cluster GEO de Jon Labs](/blog/geo-seo-ia-2026). Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve-2026) · [Apparaître sur Claude](/blog/apparaitre-claude-2026) · [Apparaître sur Perplexity](/blog/apparaitre-perplexity-2026) · [Apparaître sur Copilot](/blog/apparaitre-copilot-2026) · [Apparaître sur Grok](/blog/apparaitre-grok-2026)*

@@ -15,6 +15,8 @@ export default defineConfig({
     '/blog/apparaitre-gemini': '/blog/apparaitre-gemini-2026',
     '/blog/apparaitre-claude': '/blog/apparaitre-claude-2026',
     '/blog/apparaitre-chatgpt-geneve': '/blog/apparaitre-chatgpt-geneve-2026',
+    '/blog/apparaitre-grok': '/blog/apparaitre-grok-2026',
+    '/blog/geo-seo-ia': '/blog/geo-seo-ia-2026',
   },
   image: { service: { entrypoint: 'astro/assets/services/noop' } },
   trailingSlash: 'never',

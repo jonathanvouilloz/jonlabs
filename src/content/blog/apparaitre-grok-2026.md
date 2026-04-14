@@ -144,7 +144,7 @@ Il y a quelque chose d'assez cohérent dans le fait que l'IA de la plateforme "p
 
 Tu veux savoir comment ta présence sur X est lue par Grok, et quelles actions prioriser pour ta stratégie GEO complète ?
 
-[Faire l'audit GEO gratuit →](/outils/audit-geo)
+[Demander un audit GEO gratuit →](/contact)
 
 Ou si tu veux qu'on regarde ça ensemble :
 
@@ -162,4 +162,4 @@ Ou si tu veux qu'on regarde ça ensemble :
 - **Bay Tech Consulting (2026)** : Analyse du projet Grokipedia et implications pour la visibilité IA. [baytechconsulting.com](https://www.baytechconsulting.com/blog/grokipedia-ai-encyclopedia-challenges-wikipedia-2025)
 - **Opollo (2025)** : Guide sur l'optimisation de contenu pour Grok, schema, fraîcheur, structure de page. [opollo.com](https://opollo.com/blog/optimizing-your-website-for-grok-ai-search-a-fun-no-fluff-guide/)
 
-*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve-2026) · [Apparaître sur Claude](/blog/apparaitre-claude-2026) · [Apparaître sur Gemini](/blog/apparaitre-gemini-2026) · [Apparaître sur Perplexity](/blog/apparaitre-perplexity-2026) · [Apparaître sur Copilot](/blog/apparaitre-copilot-2026)*
+*Cet article fait partie du [cluster GEO de Jon Labs](/blog/geo-seo-ia-2026). Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve-2026) · [Apparaître sur Claude](/blog/apparaitre-claude-2026) · [Apparaître sur Gemini](/blog/apparaitre-gemini-2026) · [Apparaître sur Perplexity](/blog/apparaitre-perplexity-2026) · [Apparaître sur Copilot](/blog/apparaitre-copilot-2026)*

@@ -227,4 +227,4 @@ On peut en discuter ensemble, je t'aide à identifier ce qui bloque ta visibilit
 - **Google Business Profile** : Documentation officielle sur l'optimisation des fiches locales : [business.google.com](https://business.google.com)
 - **Jon Labs, Étude de cas** : Référencement d'un juriste à Genève spécialisé restauration : [/portfolio/leo-lecureux-seo](/portfolio/leo-lecureux-seo)
 
-*Cet article fait partie du cluster GEO de Jon Labs. Autres articles du cluster : [Apparaître sur Claude](/blog/apparaitre-claude-2026) · [Apparaître sur Gemini](/blog/apparaitre-gemini-2026) · [Apparaître sur Perplexity](/blog/apparaitre-perplexity-2026) · [Apparaître sur Copilot](/blog/apparaitre-copilot-2026) · [Apparaître sur Grok](/blog/apparaitre-grok-2026)*
+*Cet article fait partie du [cluster GEO de Jon Labs](/blog/geo-seo-ia-2026). Autres articles du cluster : [Apparaître sur Claude](/blog/apparaitre-claude-2026) · [Apparaître sur Gemini](/blog/apparaitre-gemini-2026) · [Apparaître sur Perplexity](/blog/apparaitre-perplexity-2026) · [Apparaître sur Copilot](/blog/apparaitre-copilot-2026) · [Apparaître sur Grok](/blog/apparaitre-grok-2026)*
