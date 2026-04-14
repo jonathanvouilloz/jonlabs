@@ -71,7 +71,7 @@ Utiliser `mcp__nano-banana__edit_image` avec le template de référence :
 
 ```
 mcp__nano-banana__edit_image(
-  imagePath: "C:/Users/jojo-/Desktop/angie/src/assets/template-blog-cover.png",
+  imagePath: "C:/Users/jojo-/Desktop/jonlabs/src/assets/template-blog-cover.png",
   prompt: "[PROMPT CI-DESSOUS]"
 )
 ```

@@ -1,0 +1,48 @@
+{
+  "hub_project_slug": "jonlabs",
+  "locations": [
+    {
+      "fiche_id": "locations/5169306032527013289",
+      "label": "Jon Labs",
+      "city": "Genève, Suisse",
+      "specifics": "Freelance développement web, automatisation, SEO local pour PME et indépendants"
+    }
+  ],
+  "business_name": "Jon Labs",
+  "sector": "Développement web & automatisation",
+  "tone": "direct, authentique, maker",
+  "keywords": ["développement web Genève", "automatisation PME", "SEO local Suisse", "freelance web Genève", "site vitrine Genève"],
+  "whatsapp_number": "",
+  "art_direction": {
+    "primary_color": "#00D9A3",
+    "secondary_color": "#A300D9",
+    "text_color": "#0F172A",
+    "style": "brutaliste",
+    "typography": "bold sans-serif",
+    "mood": "professionnel, créatif, maker",
+    "target_audience": "PME, indépendants, entrepreneurs",
+    "ratio": "4:3",
+    "source": "docs/styleguide.md"
+  },
+  "post_frequency": "3/week",
+  "period_months": 1,
+  "image_folder": "jonlabs",
+  "content_sources": [
+    {
+      "type": "files",
+      "directories": ["src/content/blog/", "src/content/portfolio/"],
+      "extensions": [".md", ".mdx"]
+    },
+    {
+      "type": "static_pages",
+      "pages": [
+        { "url": "/services", "title": "Services" },
+        { "url": "/contact", "title": "Contact" },
+        { "url": "/tarifs", "title": "Tarifs" },
+        { "url": "/portfolio", "title": "Portfolio" },
+        { "url": "/services/referencement-local", "title": "Référencement local" },
+        { "url": "/services/refonte-site-web", "title": "Refonte site web" }
+      ]
+    }
+  ]
+}
