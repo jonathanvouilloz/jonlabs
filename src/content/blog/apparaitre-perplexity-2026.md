@@ -3,7 +3,7 @@ title: "Apparaître sur Perplexity : guide citations IA 2026"
 description: "Perplexity cite ses sources par défaut. Voici comment structurer ton contenu pour apparaître dans ses réponses, guide concret pour PME en Suisse romande."
 pubDate: 2026-03-24
 image:
-  url: "/images/blog/apparaitre-perplexity.webp"
+  url: "/images/blog/apparaitre-perplexity-2026.webp"
   alt: "Apparaître sur Perplexity AI avec des citations sources"
 category: "tech"
 tags: ["perplexity", "geo", "seo", "ia", "visibilité", "citations"]

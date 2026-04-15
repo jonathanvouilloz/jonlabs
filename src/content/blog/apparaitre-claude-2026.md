@@ -3,7 +3,7 @@ title: "Apparaître sur Claude : guide GEO Brave Search 2026"
 description: "Claude utilise Brave Search, pas Google. Voici comment optimiser votre site pour apparaître dans ses réponses et toucher une audience qualifiée."
 pubDate: 2026-03-05
 image:
-  url: "/images/blog/apparaitre-claude-geneve.webp"
+  url: "/images/blog/apparaitre-claude-2026.webp"
   alt: "Apparaître sur Claude et Brave Search"
 category: "tech"
 tags: ["claude", "anthropic", "brave-search", "geo", "seo", "ia", "visibilité"]

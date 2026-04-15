@@ -3,7 +3,7 @@ title: "Apparaître sur Gemini : guide AI Overviews 2026"
 description: "Gemini s'appuie sur Google Search, Maps et GBP. Optimisez votre fiche et votre contenu pour apparaître dans les AI Overviews."
 pubDate: 2026-03-16
 image:
-  url: "/images/blog/apparaitre-gemini.webp"
+  url: "/images/blog/apparaitre-gemini-2026.webp"
   alt: "Apparaître sur Gemini et les AI Overviews de Google"
 category: "tech"
 tags: ["gemini", "google", "geo", "seo", "ai-overviews", "visibilite", "ia"]

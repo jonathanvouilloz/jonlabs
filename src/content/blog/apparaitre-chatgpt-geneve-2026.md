@@ -3,7 +3,7 @@ title: "Apparaître sur ChatGPT à Genève : guide GEO 2026"
 description: "Vos clients demandent à ChatGPT le meilleur prestataire à Genève. Si votre nom n'apparaît pas, voici 3 actions concrètes pour y remédier."
 pubDate: 2026-02-18
 image:
-  url: "/images/blog/apparaitre-chatgpt-geneve.webp"
+  url: "/images/blog/apparaitre-chatgpt-geneve-2026.webp"
   alt: "Apparaître sur ChatGPT pour les commerces genevois"
 category: "tech"
 tags: ["chatgpt", "geo", "seo", "genève", "visibilité", "ia"]

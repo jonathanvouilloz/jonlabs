@@ -3,7 +3,7 @@ title: "Apparaître sur Copilot : guide Bing + IA 2026"
 description: "Copilot s'appuie sur Bing et s'intègre dans Windows, Edge et Teams. Voici comment optimiser ta présence pour apparaître dans ses réponses IA."
 pubDate: 2026-03-30
 image:
-  url: "/images/blog/apparaitre-copilot.webp"
+  url: "/images/blog/apparaitre-copilot-2026.webp"
   alt: "Apparaître sur Microsoft Copilot via Bing et l'écosystème Microsoft"
 category: "tech"
 tags: ["copilot", "microsoft", "bing", "geo", "seo", "ia", "visibilité"]
