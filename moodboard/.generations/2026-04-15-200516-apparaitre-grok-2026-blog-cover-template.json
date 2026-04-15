@@ -1,0 +1,35 @@
+{
+  "timestamp": "2026-04-15T20:05:16.523841+00:00",
+  "slug": "apparaitre-grok-2026",
+  "preset": "blog-cover-template",
+  "prompt_text": "[template — no prompt]",
+  "reference_image": null,
+  "output": "C:\\Users\\jojo-\\Desktop\\jonlabs\\public\\images\\blog\\apparaitre-grok-2026.webp",
+  "model": "nano-banana-pro-preview",
+  "response_metadata": {
+    "source": "template",
+    "compose": {
+      "composed": true,
+      "source": "template",
+      "template_image": "C:\\Users\\jojo-\\Desktop\\jonlabs\\src\\assets\\bg-template.png",
+      "font_path": "C:\\Users\\jojo-\\Desktop\\jonlabs\\moodboard\\fonts\\PlusJakartaSans-VariableFont_wght.ttf",
+      "title_text": "Apparaître sur Grok : guide GEO X/Twitter 2026",
+      "text_overlay_cfg": {
+        "position": "bottom-left",
+        "title_anchor": "bottom",
+        "title_y_ratio": 0.96,
+        "gradient": false,
+        "banner": false,
+        "rotation": 0,
+        "uppercase": false,
+        "shadow": false,
+        "text_color": "#1a1a1a",
+        "font_size_ratio": 0.06,
+        "font_weight": 700,
+        "tracking": -0.04,
+        "line_spacing": 1.1,
+        "max_title_width_ratio": 0.65
+      }
+    }
+  }
+}

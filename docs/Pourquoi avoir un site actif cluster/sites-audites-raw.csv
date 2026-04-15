@@ -1,0 +1,51 @@
+id,url,secteur,canton,ville,notes_selection
+A01,https://www.carletti-sanitaire.ch,artisan-plombier,GE,Genève,Entreprise familiale fondée 1981 – sanitaire gaz eau
+A02,https://expresseau.com,artisan-plombier,GE,Genève,15 ans d'activité – site vitrine
+A03,https://www.elpintor.ch,artisan-peintre,GE,Genève,Fondée 2008 – peintre artisan genevois
+A04,https://www.serrurerieklein.ch,artisan-serrurier,GE,Genève,Entreprise familiale taille humaine ~5 employés
+A05,https://www.cipriano-electricite-geneve.ch,artisan-electricien,GE,Genève,Électricien TPE dépannage 24/24
+A06,https://www.dubi-menuiserie.ch,artisan-menuisier,VD,Lausanne,Fondée 1952 – entreprise familiale de proximité
+A07,https://www.suarato.ch,artisan-menuisier,VD,Lausanne,4 générations – menuiserie ébénisterie
+A08,https://www.vonguntenfreres.ch,artisan-menuisier-charpentier,VD,Lausanne,Fondée 1999 – 2 frères
+A09,https://www.menuiserierenovation.ch,artisan-menuisier,VD,Lausanne,Guy Raffalli – indépendant
+A10,https://www.bateg.swiss,artisan-peintre-platrerie,GE,Genève,TPE peinture plâtrerie rénovation
+A11,https://osteopathe-lausanne.ch,sante-osteopathe,VD,Lausanne,Boris Hueber – cabinet indépendant
+A12,https://osteopathelausannemichaud.ch,sante-osteopathe,VD,Lausanne,Pascal Michaud 24 ans d'expérience CDS
+A13,https://alphysio.ch,sante-physiotherapeute,GE,Genève,Cabinet indépendant physiothérapie
+A14,https://www.physiorivedroite.ch,sante-physiotherapeute,GE,Genève,Sylvie Dubuis – réhabilitation vestibulaire
+A15,https://psy-neuchatel.ch,sante-psychologue,NE,Neuchâtel,Gaëtane Donzé – psychothérapeute indépendante
+A16,https://www.lo-psychotherapie.ch,sante-psychologue,NE,Neuchâtel,Leitja Oechslin – TCC – cabinet indépendant
+A17,https://nutritionniste-geneve.ch,sante-nutritionniste,GE,Genève,Céline Gianfrancesco – 15 ans d'expérience
+A18,https://www.scbdiet.ch,sante-dieteticienne,VD,Morges,Sylvie Chenaux-Boisselet – cabinet indépendant depuis 2007
+A19,https://www.swissavocat.ch,profession-lib-avocat,GE,Genève,Pont-Rouge Avocats – small firm
+A20,https://ad-hoc-avocats.com,profession-lib-avocat,GE,Genève,3 avocats inscrits au barreau genevois
+A21,https://www.fiduciaire-sv.ch,profession-lib-fiduciaire,VD,Chavornay,Sandrine Viglino – indépendante 25 ans d'expérience
+A22,https://www.fiduciaire-staehli.ch,profession-lib-fiduciaire,VD,Morrens,Fiduciaire indépendante Gros-de-Vaud
+A23,https://leroy.archi,profession-lib-architecte,VD,Nyon,Philippe Le Roy – indépendant depuis 2016
+A24,https://www.atelier-a-architectes.ch,profession-lib-architecte,GE,Carouge,Atelier A – bureau créé 2020
+A25,https://le23emelieu.ch,beaute-coiffeur,GE,Genève,Salon coiffure + bar + concept store Eaux-Vives
+A26,https://evidencecoiffure.ch,beaute-coiffeur,GE,Genève,Salon indépendant ouvert mars 2022
+A27,https://www.theyogarden.ch,beaute-yoga,VD,Lausanne,Studio yoga centre-ville
+A28,https://ooom.ch,beaute-yoga-therapie,VD,Lausanne,Yoga & thérapie cabinet indépendant
+A29,https://www.sydneyfierro.com,beaute-masseur-yoga,VD,Lausanne,Massothérapeute certifié RME ASCA + yoga
+A30,https://www.lebarbier-de-fribourg.ch,beaute-barbier,FR,Fribourg,Le Barbier de Fribourg – indépendant
+A31,https://www.lastationlausanne.ch,restauration,VD,Lausanne,Bistrot de quartier indépendant – chef Lucas Lepoutre
+A32,https://jacques-restaurant.ch,restauration,VD,Lausanne,Restaurant bistronomique indépendant
+A33,https://cafedesamisneuchatel.ch,restauration,NE,Neuchâtel,Café restaurant indépendant
+A34,https://www.apothecapurefood.ch,restauration,NE,Neuchâtel,Café bio local indépendant
+A35,https://brasserie-le-national.ch,restauration,VS,Sierre,Brasserie indépendante reprise 2017
+A36,https://delphica.ch,commerce-niche-librairie,GE,Genève,Librairie spécialisée ésotérisme-spiritualité
+A37,https://librairieduboulevard.ch,commerce-niche-librairie,GE,Genève,Librairie autogérée depuis 1975
+A38,https://librairiebasta.ch,commerce-niche-librairie,VD,Lausanne,Librairie autogérée engagée Lausanne
+A39,https://www.lachaumiere-verbier.ch,commerce-niche-fromagerie,VS,Verbier,Fromagerie artisanale 200+ fromages – père et fils
+A40,https://www.junglepop.ch,commerce-niche-fleuriste,GE,Genève,Fleuriste moderne indépendant
+A41,https://vipvoyages.ch,services-PME-agence-voyage,GE,Genève,V.I.P. Voyages – agence indépendante
+A42,https://genevamove.ch,services-PME-demenagement,GE,Genève,Geneva Move – déménagement TPE
+A43,https://mika-transports.ch,services-PME-transport,VD,Lausanne,Mika Déménagements – 10 ans d'expérience
+A44,https://authenticar.ch,services-PME-garage,NE,Neuchâtel,AuthentiCar – garage toutes marques indépendant
+A45,https://www.autopassion.ch,services-PME-garage,NE,Neuchâtel,Auto Passion SA – fondée 1994 – Luis Freire
+A46,https://www.mcscoach.ch,formateur-coach-vie,GE,Genève,MCS Coach – coaching vie privée et professionnelle
+A47,https://my-ikigai.ch,formateur-coach,GE,Genève,My Ikigaï – formation coach ikigaï
+A48,https://neswa.ch,formateur-coaching-formation,NE,Neuchâtel,NESWA – coaching formation outplacement
+A49,https://www.formation-conseil.ch,formateur-coach-professionnel,FR,Fribourg,Formation-Conseil – certifié EduQua depuis 1997
+A50,https://www.aurelienfaussurier.ch,formateur-coach-sportif,FR,Fribourg,Aurélien Faussurier – coach sportif indépendant

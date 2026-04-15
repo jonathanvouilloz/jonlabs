@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-04-14T10:55:23.302071+00:00",
+  "slug": "geo-seo-ia-2026",
+  "preset": "blog-cover-template",
+  "prompt_text": "[template — no prompt]",
+  "reference_image": null,
+  "output": "C:\\Users\\jojo-\\Desktop\\jonlabs\\public\\images\\blog\\geo-seo-ia-2026.webp",
+  "model": "nano-banana-pro-preview",
+  "response_metadata": {
+    "source": "template",
+    "compose": {
+      "composed": true,
+      "source": "template",
+      "template_image": "C:\\Users\\jojo-\\Desktop\\jonlabs\\src\\assets\\bg-template.png",
+      "font_path": "C:\\Users\\jojo-\\Desktop\\jonlabs\\moodboard\\fonts\\PlusJakartaSans-SemiBold.ttf",
+      "title_text": "GEO : comment apparaitre sur ChatGPT, Perplexity, Gemini et les autres IA",
+      "text_overlay_cfg": {
+        "position": "bottom-left",
+        "gradient": false,
+        "banner": false,
+        "rotation": 0,
+        "uppercase": false,
+        "shadow": false,
+        "text_color": "#1a1a1a",
+        "font_size_ratio": 0.042,
+        "tracking": -0.02,
+        "line_spacing": 1.1,
+        "max_title_width_ratio": 0.65
+      }
+    }
+  }
+}

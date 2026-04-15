@@ -1,0 +1,33 @@
+{
+  "timestamp": "2026-04-15T19:52:07.039535+00:00",
+  "slug": "audit-50-sites-indeps-romands",
+  "preset": "blog-cover-template",
+  "prompt_text": "[template — no prompt]",
+  "reference_image": null,
+  "output": "C:\\Users\\jojo-\\Desktop\\jonlabs\\public\\images\\blog\\audit-50-sites-indeps-romands.webp",
+  "model": "nano-banana-pro-preview",
+  "response_metadata": {
+    "source": "template",
+    "compose": {
+      "composed": true,
+      "source": "template",
+      "template_image": "C:\\Users\\jojo-\\Desktop\\jonlabs\\src\\assets\\bg-template.png",
+      "font_path": "C:\\Users\\jojo-\\Desktop\\jonlabs\\moodboard\\fonts\\PlusJakartaSans-VariableFont_wght.ttf",
+      "title_text": "J'ai audité 50 sites d'indépendants romands",
+      "text_overlay_cfg": {
+        "position": "bottom-left",
+        "gradient": false,
+        "banner": false,
+        "rotation": 0,
+        "uppercase": false,
+        "shadow": false,
+        "text_color": "#1a1a1a",
+        "font_size_ratio": 0.05,
+        "font_weight": 800,
+        "tracking": -0.02,
+        "line_spacing": 1.1,
+        "max_title_width_ratio": 0.65
+      }
+    }
+  }
+}
