@@ -1,31 +1,32 @@
 # Calendrier éditorial — Cluster "Site actif"
 
-> **Statut global** : 🟡 En cours — Sprint 1 + 2 rédigés, en attente de data externe + PDF
+> **Statut global** : 🟡 En cours — Sprint 1 ✅ + Sprint 2 A2 ✅ data injectée — prochain : A3 (calculateur)
 > **Démarrage** : 2026-04-15
-> **Dernière mise à jour** : 2026-04-15 (fin de session)
+> **Dernière mise à jour** : 2026-04-17
 > **Production** : via `/seo-article` (pipeline complet) ou `/seo-brief` → `/seo-write` → `/humanizer` → `/seo-enrich` → `/seo-review`
 > **Pilier** : refonte de `visibilite-site-internet-2026.md` (pas un nouveau fichier)
 > **Mantra** : pilier + 3 assets différenciants en 6 semaines avant tout le reste
 
-## 📍 Où on en est (fin session 2026-04-15)
+## 📍 Où on en est (fin session 2026-04-17)
 
 **Fait** :
 - 3 articles rédigés via vrai pipeline `/seo-article` (P, A1, A2) — scores 13/14, 12/14, 12/14
 - Briefs complets dans `docs/Pourquoi avoir un site actif cluster/` (BRIEF-PILIER, BRIEF-A1, BRIEF-A2)
 - Briefs sémantiques auto-générés dans `.briefs/` + `src/content/blog/.briefs/`
-- 20 covers webp regénérées (tous les articles du blog) avec nouveau template overlay Plus Jakarta Sans variable, weight 700, anchor bottom
-- Skill `generate-images` amélioré : `font_weight`, `title_anchor` (top/middle/bottom), override correct de `title_y_ratio` sur `position`, fix fonte accents en mode mixed-case
-- Titles frontmatter ≤60c, metas ≤155c sur P, A1, A2
-- Prompt cowork prêt (`COWORK-PROMPT-AUDIT-50-SITES.md`)
+- 20 covers webp regénérées (tous les articles du blog)
+- **Audit terrain 50 sites finalisé** : CSV + constats agrégés + patterns positifs + log dans `docs/Pourquoi avoir un site actif cluster/`
+- **A2 data injectée** : tous les `[DATA-À-INJECTER]` et `<!-- TODO-DATA -->` remplacés par les chiffres réels de l'audit (76% dormants, 64/100 Lighthouse, 36% sans schema, etc.)
+- A2 `draft: false`, build Astro OK
 
-**En attente d'action externe** :
-- ⏳ **Collecte data A2** via Claude Cowork : lancer le prompt `COWORK-PROMPT-AUDIT-50-SITES.md`, récupérer les 5 livrables (CSV + 3 markdown + log), puis injecter les chiffres dans les 25 placeholders `[DATA-À-INJECTER]` et 14 zones `<!-- TODO-DATA -->` dans `audit-50-sites-indeps-romands.md`
-- ⏳ **PDF lead magnet** `/public/ressources/checklist-15-signes-site-dort.pdf` — référencé depuis P + A1 mais pas produit. Option Canva/Figma OU HTML→PDF via Puppeteer depuis les 15 signes de A1.
+**En attente / non bloquant** :
+- ⏳ **PDF lead magnet** `/public/ressources/checklist-15-signes-site-dort.pdf` — référencé depuis P + A1 mais pas produit. Option Canva/Figma OU HTML→PDF. Non bloquant pour publier A2.
+- ⏳ **4 images A2** — `<!-- TODO:image -->` dans l'article (cover composite, flowchart méthodo, triptyque archétypes, checklist patterns). Hors scope texte, à générer via `/generate-images` ou design.
+- ⏳ **Décision CSV public** — `<!-- TODO-DATA: si Jonathan publie le CSV anonymisé -->` en ligne 114 de A2.
 
 **Prochaine session — à reprendre** :
-1. Si la data cowork est arrivée → injecter dans A2 + finaliser
-2. Sinon → Sprint 2 suite : A3 (calculateur Astro + article). Se débloque sans dépendance externe.
-3. Puis A5 (cas Léo version contenu) + A4 (concurrent) en Sprint 3 via 2-3 sous-agents parallèles comme précédemment (prompts seo-article).
+1. **Publier A2** (article prêt, `draft: false`) — optionnel : générer d'abord les 4 images
+2. **Sprint 2 suite — A3** : calculateur Astro interactif "combien te coûte ton site dormant" + article (`cout-site-web-dormant-calculateur.md`). Se débloque sans dépendance externe.
+3. Puis A5 (cas Léo, 20 400 impressions) + A4 (concurrent) en Sprint 3 via sous-agents parallèles.
 
 ---
 

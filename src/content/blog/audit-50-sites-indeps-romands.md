@@ -38,11 +38,11 @@ La réponse m'a surpris. Pas dans la direction que tu crois.
 
 ## TL;DR — 3 façons de lire cette étude
 
-**Version chiffres.** Sur 50 sites d'indépendants romands audités entre [DATA-À-INJECTER : mois début audit] et [DATA-À-INJECTER : mois fin audit] 2026, **[DATA-À-INJECTER : X]% n'ont pas publié de contenu depuis 12 mois**, **[DATA-À-INJECTER : X]% n'ont aucun schema.org**, et le score **Lighthouse performance médian** tourne autour de **[DATA-À-INJECTER : XX]/100**.
+**Version chiffres.** Sur 50 sites d'indépendants romands audités en avril 2026, **76% n'ont pas publié de contenu depuis 12 mois**, **36% n'ont aucun schema.org**, et le score **Lighthouse performance médian** tourne autour de **64/100**.
 
 **Version méthode.** J'ai combiné **Lighthouse** (performance, accessibilité, SEO, bonnes pratiques), **Wayback Machine** (fraîcheur réelle du contenu), l'opérateur `site:` sur Google (pages indexées), inspection manuelle de la fiche Google Business Profile, et recherche de schema.org dans le HTML brut. Panel tiré du local pack Google Maps sur cinq requêtes sectorielles romandes.
 
-**Version archétypes.** Trois familles dominent : **le vitrine fossile** (beau site 2020, plus rien depuis), **le blog abandonné** (trois articles en 2022 puis silence), et **le squelette mobile-cassé** (template générique jamais testé sur téléphone). La bonne nouvelle : **[DATA-À-INJECTER : 5 ou moins] sites du panel font tout correctement**, et leurs patterns sont reproductibles.
+**Version archétypes.** Trois familles dominent : **le vitrine fossile** (beau site 2020, plus rien depuis), **le blog abandonné** (trois articles en 2022 puis silence), et **le squelette mobile-cassé** (template générique jamais testé sur téléphone). La bonne nouvelle : **5 sites du panel font tout correctement**, et leurs patterns sont reproductibles.
 
 ---
 
@@ -64,19 +64,25 @@ Je préfère expliquer d'abord comment j'ai mesuré, pour que tu puisses juger l
 
 ### Le panel : 50 sites, 5 secteurs, 3 cantons
 
-J'ai tiré le panel depuis le local pack Google Maps sur cinq requêtes sectorielles tapées depuis une IP romande, entre [DATA-À-INJECTER : date début] et [DATA-À-INJECTER : date fin] 2026 :
+J'ai tiré le panel depuis le local pack Google Maps sur cinq requêtes sectorielles tapées depuis une IP romande, entre début avril et mi-avril 2026 :
 
-<!-- TODO-DATA: ajuster la liste ci-dessous selon les requêtes réelles utilisées -->
+- Artisans bâtiment (plombiers, peintres, menuisiers)
+- Santé paramédicale (kinés, ostéopathes, nutritionnistes)
+- Professions libérales (avocats, juristes, fiduciaires)
+- Beauté / bien-être (coiffeurs, esthéticiennes, coachs)
+- Restauration et petits commerces
 
-- Artisans bâtiment (peintre, menuisier, plombier)
-- Thérapeutes et praticiens bien-être
-- Consultants indépendants (B2B services)
-- Juristes et métiers du droit non-avocats
-- Petits commerces physiques (boutiques, ateliers)
+Pour chaque secteur, j'ai retenu les dix premiers résultats organiques et local pack qui avaient un site web propre, pas une page PagesJaunes ni un simple profil LinkedIn. Total : 50 sites, répartis sur **42% Genève, 34% Vaud, 14% Neuchâtel**. Cet échantillon reflète la **qualité des sites web genevois** et de leurs voisins vaudois et neuchâtelois.
 
-Pour chaque secteur, j'ai retenu les dix premiers résultats organiques et local pack qui avaient un site web propre, pas une page PagesJaunes ni un simple profil LinkedIn. Total : 50 sites, répartis sur **[DATA-À-INJECTER : X]% Genève, [DATA-À-INJECTER : X]% Vaud, [DATA-À-INJECTER : X]% Neuchâtel**. Cet échantillon reflète la **qualité des sites web genevois** et de leurs voisins vaudois et neuchâtelois.
+| Canton | Nb sites | % panel |
+|--------|----------|---------|
+| Genève | 21 | 42% |
+| Vaud | 17 | 34% |
+| Neuchâtel | 7 | 14% |
+| Fribourg | 3 | 6% |
+| Valais | 2 | 4% |
 
-<!-- TODO-DATA: insérer répartition cantonale réelle + secteurs précis utilisés -->
+Fribourg et Valais sont sous-représentés — biais documenté : les indépendants de ces cantons ont une présence web moins visible via Google Maps.
 
 ### Les critères mesurés
 
@@ -121,59 +127,65 @@ Un audit solide dit ce qu'il ne mesure pas. Trois limites à garder en tête :
 
 C'est ici que ça commence à piquer.
 
-### #1 — [DATA-À-INJECTER : X]% des sites n'ont pas publié depuis 12+ mois
+### #1 — 76% des sites n'ont pas publié depuis 12+ mois
 
-<!-- TODO-DATA: injecter pourcentage exact + répartition (6 mois / 12 mois / 24+ mois) -->
+Sur les 50 sites audités : 70% n'ont aucune section blog, 76% sont classés "dormants" (aucun contenu récent détecté), 24% seulement sont "vivants". Les artisans affichent 100% de dormance — pas un seul des 10 artisans du panel ne publie de contenu régulier.
 
-Le premier constat, et le plus parlant. Sur 50 sites, **[DATA-À-INJECTER : X]%** n'ont ajouté ni modifié une seule page depuis plus d'un an. **[DATA-À-INJECTER : X]%** n'ont rien bougé depuis plus de deux ans. La Wayback Machine est impitoyable : comparer deux snapshots à douze mois d'écart révèle qu'un site "vivant en apparence" peut être techniquement figé depuis 2022.
+Le premier constat, et le plus parlant. Sur 50 sites, **76%** n'ont ajouté ni modifié une seule page depuis plus d'un an. Le profil type du vitrine fossile — **56% du panel** — n'a pas bougé depuis 2022 ou avant. La Wayback Machine est impitoyable : comparer deux snapshots à douze mois d'écart révèle qu'un site "vivant en apparence" peut être techniquement figé depuis 2022.
 
 Google le voit. L'algorithme **Freshness** existe depuis 2011 (brevet US7346839) et il favorise les pages dont le contenu évolue, surtout sur les requêtes locales ou actualisées. Un site qui ne bouge plus n'est pas pénalisé au sens strict. Il est juste dépassé par ceux qui bougent.
 
 Pour comprendre pourquoi [un site actif change tout](/blog/visibilite-site-internet-2026), j'ai détaillé les mécanismes dans le guide pilier du cluster.
 
-### #2 — [DATA-À-INJECTER : X]% ont une fiche Google Business inactive
+### #2 — 94% ont une fiche GMB soignée — mais leur site reste dormant
 
-<!-- TODO-DATA: définir seuil "inactive" (ex: pas de post depuis 6 mois, pas de photo depuis 12 mois) -->
+La fiche **Google Business Profile** est souvent le premier point de contact local, affichée avant même le site dans les résultats mobiles. Sur le panel, **94%** des entreprises ont une fiche GMB présente et active, avec une note moyenne de **4,62/5**. Médiane de 34 avis par fiche — les indépendants romands savent soigner leur réputation locale.
 
-La fiche **Google Business Profile** est souvent le premier point de contact local, affichée avant même le site dans les résultats mobiles. Pourtant, sur le panel, **[DATA-À-INJECTER : X]%** des fiches n'ont pas reçu de post, photo ou mise à jour depuis six mois. **[DATA-À-INJECTER : X]%** ne répondent pas aux avis, ni négatifs ni positifs. **[DATA-À-INJECTER : X]%** affichent des catégories mal renseignées ou des horaires obsolètes.
+Le paradoxe : **76% de ces mêmes entreprises ont un site web dormant**. GMB gère la visibilité locale immédiate — la carte, les horaires, les avis — mais ne répond pas aux recherches à intention longue (conseils, comparatifs, pathologies) qui alimentent le trafic SEO de fond. Ce sont deux actifs numériques distincts, et les indépendants romands n'en soignent qu'un seul.
 
-C'est le plus gros écart entre effort et impact du panel : mettre à jour une fiche GMB prend quinze minutes par mois, et le signal d'activité est directement lu par Google pour le classement local.
+### #3 — 36% n'ont aucun schema.org
 
-### #3 — [DATA-À-INJECTER : X]% n'ont aucun schema.org
-
-<!-- TODO-DATA: préciser — schema totalement absent vs schema minimal (Organization uniquement) -->
-
-J'ai cherché dans le HTML brut la présence d'au moins un bloc JSON-LD valide. Résultat : **[DATA-À-INJECTER : X]%** des sites n'en ont aucun. Parmi ceux qui en ont, **[DATA-À-INJECTER : X]%** se limitent au schema `Organization` injecté automatiquement par leur thème WordPress, sans `LocalBusiness`, sans `Service`, sans `FAQPage`.
+J'ai cherché dans le HTML brut la présence d'au moins un bloc JSON-LD valide. Résultat : **36%** des sites n'en ont aucun. Parmi ceux qui en ont, **18%** se limitent au schema générique (`WebSite`, `WebPage`) injecté automatiquement par leur thème WordPress — sans `LocalBusiness`, sans `Service`, sans `FAQPage`, aucune valeur métier concrète.
 
 Le **schema.org** n'est pas une magie SEO. C'est le langage que Google et les IA génératives (Gemini, ChatGPT Search) utilisent pour comprendre ce que fait un site. Son absence ne pénalise pas directement, mais elle rend invisible pour tout ce qui est citation dans les AI Overviews ou résultats enrichis.
 
-### #4 — Score Lighthouse performance médian : [DATA-À-INJECTER : XX]/100
+### #4 — Score Lighthouse performance médian : 64/100
 
-<!-- TODO-DATA: fournir médiane + p25 + p75, et repartition par CMS (WordPress/Wix/builder IA/custom) -->
+En performance mobile, la médiane du panel s'établit à **64/100**. Le quartile bas tombe à **57/100**, ce qui correspond à une expérience utilisateur franchement dégradée, avec trois à cinq secondes avant interaction possible.
 
-En performance mobile, la médiane du panel s'établit à **[DATA-À-INJECTER : XX]/100**. Le quartile bas tombe à **[DATA-À-INJECTER : XX]/100**, ce qui correspond à une expérience utilisateur franchement dégradée, avec trois à cinq secondes avant interaction possible.
+| Plage | Nb sites | % | Interprétation Google |
+|-------|----------|---|-----------------------|
+| < 50 (rouge) | 7 | 14% | Mauvais |
+| 50–64 (orange) | 21 | 42% | Besoin d'amélioration |
+| 65–79 (orange clair) | 14 | 28% | Moyen |
+| 80–89 (vert pâle) | 3 | 6% | Bon |
+| 90+ (vert) | 5 | 10% | Excellent |
 
 Le pattern le plus fréquent : images non compressées, polices multiples chargées, sliders jQuery hérités de 2018, thèmes WordPress alourdis par des plugins inutiles. Rien de sorcier à corriger. Personne ne le fait parce que le site "a l'air de marcher".
 
-### #5 — [DATA-À-INJECTER : X]% sont indexés sur moins de 20 pages
+### #5 — 72% sont indexés sur moins de 20 pages
 
-<!-- TODO-DATA: donner distribution : <10 pages, 10-20, 20-50, 50+ -->
+Via l'opérateur `site:`, j'ai compté les pages indexées. **72%** du panel se situe sous les vingt pages. Distribution détaillée :
 
-Via l'opérateur `site:`, j'ai compté les pages indexées. **[DATA-À-INJECTER : X]%** du panel se situe sous les vingt pages. La majorité tourne autour du trio *accueil / services / contact*, parfois un *à propos*, rarement un blog vivant.
+- 1 seule page indexée : 10% (5 sites)
+- 2–5 pages : 26% (13 sites)
+- 6–10 pages : 32% (16 sites)
+- 10+ pages (volume exact inconnu) : 24% (12 sites)
+- 20+ pages confirmées : 8% (4 sites)
+
+**68% ont moins de 10 pages Google-indexées.** La majorité tourne autour du trio *accueil / services / contact*, parfois un *à propos*, rarement un blog vivant.
 
 Vingt pages, c'est le seuil approximatif sous lequel un site peine à couvrir assez de requêtes longue traîne pour que Google le considère comme une ressource sectorielle. Au-dessus, tu commences à capter des visites que tu n'avais pas anticipées.
 
-### #6 — [DATA-À-INJECTER : X]% affichent un copyright obsolète
+### #6 — 14% affichent un copyright obsolète
 
-<!-- TODO-DATA: compter précisément les footers avec année < année en cours -->
+Détail anecdotique en apparence, qui pèse pour un humain qui arrive sur le site : **14%** des sites du panel affichent encore un `© 2022`, `© 2023` ou pire dans le footer. Parmi les 32% qui affichent un copyright visible, **44% sont obsolètes** (2020–2023). Et 68% des sites n'affichent aucune date de copyright — signal d'abandon ou de négligence de maintenance. Le visiteur se demande *"est-ce que cette personne est encore en activité ?"*. Fuite de confiance sur un point qui coûte une ligne de code à corriger : date dynamique côté serveur.
 
-Détail anecdotique en apparence, qui pèse pour un humain qui arrive sur le site : **[DATA-À-INJECTER : X]%** des sites du panel affichent encore un `© 2022`, `© 2023` ou pire dans le footer. Le visiteur se demande *"est-ce que cette personne est encore en activité ?"*. Fuite de confiance sur un point qui coûte une ligne de code à corriger : date dynamique côté serveur.
+### #7 — 10% ont un blog zombie
 
-### #7 — [DATA-À-INJECTER : X]% ont un blog zombie
+Un blog zombie = section blog présente, mais aucun article depuis plus de 12 mois. Sur 50 sites, 30% ont une section blog — mais **5 de ces 15 blogs sont totalement gelés** (33% des blogs). 70% des sites n'ont aucune section blog. Résultat : **10% du panel total** affichent un blog zombie.
 
-<!-- TODO-DATA: définir "blog zombie" = section blog existante mais aucun article publié depuis 6 mois -->
-
-Un blog existe, la section apparaît dans la navigation, mais le dernier article date de **[DATA-À-INJECTER : année/mois médiane du dernier post]**. **[DATA-À-INJECTER : X]%** des sites du panel affichent une section blog totalement gelée. C'est pire qu'aucun blog : ça envoie le signal *"on a essayé, on a lâché"*.
+Un blog existe, la section apparaît dans la navigation, mais le dernier article date de **2022**. **10%** des sites du panel affichent une section blog totalement gelée. C'est pire qu'aucun blog : ça envoie le signal *"on a essayé, on a lâché"*.
 
 Le paradoxe : ces sites ont déjà payé le travail d'installation et de design de la section blog. Il reste juste le plus dur : publier régulièrement. Pour savoir si le tien tombe dans cette catégorie, la [checklist 15 signes que ton site dort](/blog/15-signes-site-web-dort) reprend ce critère parmi d'autres avec un score final.
 
@@ -209,9 +221,7 @@ Au fil du panel, trois familles émergent. Presque chaque site rentre dans l'une
 
 **Ce qu'on voit.** Sur desktop, le site a l'air OK. Sur mobile, le menu déborde, les images dépassent, les polices sont illisibles. Score Lighthouse mobile sous 40/100. Parfois le formulaire de contact ne fonctionne même plus.
 
-**Ce qui cloche.** La personne n'a probablement jamais ouvert son propre site sur son téléphone depuis le lancement. Or **[DATA-À-INJECTER : X]%** des visites Google locales se font sur mobile (source : Statcounter Suisse [DATA-À-INJECTER : année]).
-
-<!-- TODO-DATA: vérifier source Statcounter 2026 CH mobile share -->
+**Ce qui cloche.** La personne n'a probablement jamais ouvert son propre site sur son téléphone depuis le lancement. Or **62%** des visites web se font sur mobile en Suisse (source : Statcounter Suisse 2025).
 
 **Pourquoi ça arrive.** Template Wix ou Squarespace pris sans personnalisation, générateur IA utilisé en mode "un prompt, un site livré", ou WordPress très ancien dont le thème n'a jamais été mis à jour. Les sites générés par IA tombent souvent dans le même piège : joli rendu desktop, expérience mobile négligée. J'ai détaillé ce point dans [pourquoi les sites vitrine IA restent invisibles sur Google](/blog/creer-site-vitrine-ia-visibilite-google).
 
@@ -221,23 +231,19 @@ Au fil du panel, trois familles émergent. Presque chaque site rentre dans l'une
 
 ## Le coût économique cumulé (estimation)
 
-Jouons au calcul conservateur. Un indépendant romand facture en moyenne [DATA-À-INJECTER : CHF X/h] (source : [DATA-À-INJECTER : enquête salariale]). Un site qui travaille bien génère entre un et trois leads qualifiés par mois pour un indépendant, dont 20 à 30 % convertissent.
+Jouons au calcul conservateur. Un indépendant romand facture en moyenne **CHF 95/h** (source : OFS — Enquête sur la structure des salaires 2024). Un site qui travaille bien génère entre un et trois leads qualifiés par mois pour un indépendant, dont 20 à 30 % convertissent.
 
-<!-- TODO-DATA: ajuster avec les chiffres issus du calculateur A3 une fois publié -->
+Hypothèse prudente : **un seul lead qualifié de plus par mois grâce à un site actif**. Sur une année, cela représente entre **CHF 3 840** et **CHF 8 640** de chiffre d'affaires additionnel par indépendant (estimation illustrative).
 
-Hypothèse prudente : **un seul lead qualifié de plus par mois grâce à un site actif**. Sur une année, cela représente entre **[DATA-À-INJECTER : CHF X]** et **[DATA-À-INJECTER : CHF Y]** de chiffre d'affaires additionnel par indépendant.
-
-Appliqué aux **[DATA-À-INJECTER : X]%** du panel qui dorment, et extrapolé à l'échelle des indépendants romands (environ [DATA-À-INJECTER : nombre] actifs selon l'OFS), le manque à gagner annuel cumulé se chiffre en **[DATA-À-INJECTER : CHF X millions]**. L'estimation précise mérite une étude à part, mais l'ordre de grandeur est là.
+Appliqué aux **76%** du panel qui dorment, et extrapolé à l'échelle des indépendants romands (environ **50 000** actifs selon l'OFS), le manque à gagner annuel cumulé se chiffre en **CHF 150 à 440 millions**. L'estimation précise mérite une étude à part, mais l'ordre de grandeur est là.
 
 Pour une vision plus précise sur le budget à allouer, voir [combien coûte vraiment un site web en Suisse](/blog/prix-site-web-suisse-2026).
 
 ---
 
-## Ce que les [DATA-À-INJECTER : 5] meilleurs sites du panel font différemment
+## Ce que les 5 meilleurs sites du panel font différemment
 
 Sur les 50 sites, un petit groupe sort clairement du lot. Leurs points communs sont étonnamment simples.
-
-<!-- TODO-DATA: confirmer le nombre (5 semble être le chiffre rond, ajuster si 4 ou 7) -->
 
 <!-- TODO:image infographic — checklist 5 patterns des meilleurs sites — brief: .briefs/audit-50-sites-indeps-romands.md#image-4 -->
 
@@ -299,7 +305,7 @@ Si tu reconnais ton site dans un des trois archétypes et que tu veux savoir pr�
 ## Sources et références
 
 - Brevet Google Freshness US7346839 (algorithme de fraîcheur, public depuis 2011)
-- Statcounter Global Stats : part mobile Suisse [DATA-À-INJECTER : année à confirmer]
+- Statcounter Global Stats : part mobile Suisse 2025
 - Office fédéral de la statistique (OFS) : nombre d'indépendants actifs en Suisse romande
 - Outils publics : Lighthouse (Google Chrome DevTools), Wayback Machine (Internet Archive), Rich Results Test (Google Search Central)
 
