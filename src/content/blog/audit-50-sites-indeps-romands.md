@@ -8,7 +8,7 @@ image:
 category: "tech"
 tags: ["audit", "seo", "suisse-romande", "site-web", "data", "etude"]
 featured: false
-draft: false
+draft: true
 readingTime: 12
 ---
 
@@ -236,6 +236,8 @@ Jouons au calcul conservateur. Un indépendant romand facture en moyenne **CHF 9
 Hypothèse prudente : **un seul lead qualifié de plus par mois grâce à un site actif**. Sur une année, cela représente entre **CHF 3 840** et **CHF 8 640** de chiffre d'affaires additionnel par indépendant (estimation illustrative).
 
 Appliqué aux **76%** du panel qui dorment, et extrapolé à l'échelle des indépendants romands (environ **50 000** actifs selon l'OFS), le manque à gagner annuel cumulé se chiffre en **CHF 150 à 440 millions**. L'estimation précise mérite une étude à part, mais l'ordre de grandeur est là.
+
+Pour estimer le manque à gagner propre à ta situation, le [calculateur de coût d'un site dormant](/blog/cout-site-web-dormant-calculateur) fait ce calcul en moins de 60 secondes avec tes propres chiffres.
 
 Pour une vision plus précise sur le budget à allouer, voir [combien coûte vraiment un site web en Suisse](/blog/prix-site-web-suisse-2026).
 

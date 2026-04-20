@@ -56,7 +56,11 @@
       "Skill(seo-write)",
       "Skill(content-pipeline)",
       "Skill(publish-hub)",
-      "Skill(linkedin-weekly-posts)"
+      "Skill(linkedin-weekly-posts)",
+      "Skill(generate-images)",
+      "Bash(rm -rf \"C:/Users/jojo-/.claude/skills/generate-images/scripts/__pycache__/\")",
+      "Read(//c/Users/jojo-/.claude/skills/generate-images/scripts/**)",
+      "Skill(gmb-post)"
     ],
     "deny": [],
     "ask": []

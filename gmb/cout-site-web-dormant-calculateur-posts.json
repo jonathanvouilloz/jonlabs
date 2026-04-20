@@ -1,0 +1,18 @@
+[
+  {
+    "type": "gmb",
+    "title": "Calculateur coût site dormant",
+    "content": "Ton hébergement te coûte 250 CHF/an. Ton site n'a pas bougé depuis 18 mois. Calcule en 60 secondes combien ça te coûte vraiment — frais fixes, clients perdus, manque à gagner. Chiffres adaptés au marché suisse.",
+    "post_type": "whats_new",
+    "scheduled_at": "2026-04-29T09:00:00",
+    "cta": {
+      "action": "LEARN_MORE",
+      "url": "https://jonlabs.ch/blog/cout-site-web-dormant-calculateur"
+    },
+    "location_target": "all",
+    "image_template": "centered-minimal",
+    "image_style": "illustration",
+    "image_text": "Coût d'inaction calculé",
+    "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall. Centered layout on solid #00D9A3 background. Central illustration: a brutaliste calculator icon with thick black borders displaying 'CHF 4200' on screen, upward red arrow beside it, and a clock icon above. Below the calculator: 'Coût d'inaction calculé' in bold sans-serif dark text #0F172A. Flat illustration style, no gradients, geometric shapes only. Professionnel, créatif, maker atmosphere, brutaliste illustration style. No realistic human faces, no identifiable people, no geographic landmarks, no visible text except the designated text zone. No visual clutter, no complex patterns, no busy backgrounds."
+  }
+]

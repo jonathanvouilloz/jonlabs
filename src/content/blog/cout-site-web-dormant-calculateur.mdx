@@ -1,0 +1,149 @@
+---
+title: "Calculateur : combien coûte un site web dormant ?"
+description: "Calcule en 60 secondes le coût réel de ton site inactif : frais fixes + clients perdus + manque à gagner. Chiffres adaptés au marché suisse."
+pubDate: 2026-04-19
+image:
+  url: "/images/blog/cout-site-web-dormant-calculateur.webp"
+  alt: "Calculateur du coût réel d'un site web dormant - combien ça te coûte chaque année"
+category: "tech"
+tags: ["calculateur", "roi", "site-web", "suisse-romande", "pme", "outil"]
+featured: false
+draft: true
+readingTime: 8
+---
+import CoutDormantCalculateur from '../../components/CoutDormantCalculateur.astro';
+
+*Les chiffres présentés dans cet article sont des estimations basées sur des moyennes sectorielles suisses (OFS 2024, panel terrain de 50 sites romands). Ton résultat réel peut varier selon ton secteur, ta zone géographique et ton positionnement.*
+
+Ton hébergement te coûte entre 150 et 400 CHF par an. Ton site n'a pas bougé depuis dix-huit mois. Les textes datent de 2022, le copyright affiche encore 2021. Et pourtant, tu continues à payer la facture chaque année — sans te demander combien cette inaction te coûte vraiment.
+
+Le problème, c'est que le coût d'un **site web inactif** est invisible. Il ne se voit pas sur un relevé bancaire. Il se cache dans les clients qui ont tapé ton nom sur Google, n'ont pas trouvé ce qu'ils cherchaient, et sont allés ailleurs. Sans te laisser un message.
+
+J'ai construit ce calculateur après avoir audité 50 sites d'indépendants romands en avril 2026. Les chiffres que j'ai trouvés — 76% sans publication depuis 12 mois, un score Lighthouse médian de 64/100 — m'ont confirmé ce que je soupçonnais : le vrai coût d'un site dormant, c'est rarement l'hébergement. C'est ce qui ne se passe pas.
+
+---
+
+**L'essentiel en bref**
+
+- Un **site web dormant** génère trois types de coûts : frais fixes, clients manqués, et crédibilité érodée
+- Le manque à gagner annuel dépasse souvent 5× les frais d'hébergement pour une PME active
+- 76% des sites d'indépendants romands n'ont pas publié depuis 12 mois (données terrain, avril 2026)
+- Le calculateur ci-dessous te donne un chiffre concret en moins de 60 secondes
+- Quand le manque à gagner dépasse le coût d'une refonte sur 12-18 mois, agir devient rentable
+
+---
+
+## Le calculateur — entre tes chiffres, obtiens ton résultat
+
+3 chiffres suffisent. Le résultat s'affiche immédiatement. Pas de formulaire, pas d'email à renseigner.
+
+<CoutDormantCalculateur />
+
+Si le chiffre affiché te surprend, voici d'où il vient, et pourquoi il est probablement conservateur.
+
+---
+
+## Ce que le calculateur prend en compte (et ce que les gens oublient)
+
+Le calcul repose sur trois composantes. La première est visible. Les deux autres, presque jamais.
+
+{/* TODO:image infographic — Décomposition des 3 composantes du coût d'un site web inactif (frais fixes, clients perdus, crédibilité) — brief: src/content/blog/.briefs/cout-site-web-dormant-calculateur.md#image-2 */}
+
+### 1. Les frais fixes annuels
+
+C'est la partie que tout le monde connaît : **hébergement + nom de domaine**. En Suisse romande, ça tourne entre 150 et 400 CHF par an selon le prestataire. Auquel il faut parfois ajouter une licence de thème ou un plugin de sécurité payant.
+
+C'est le coût minimal de "garder le site en vie". Il ne produit rien. Il consomme.
+
+### 2. Le coût d'opportunité — les clients qui ne te trouvent pas
+
+C'est là que ça devient intéressant — et douloureux.
+
+Un **site web invisible sur Google** ne génère pas de trafic. Pas de trafic, pas de formulaires remplis, pas de demandes de devis. Le calculateur estime ce manque à gagner à partir de trois variables :
+
+- **Le volume de recherche estimé** sur les requêtes liées à ton activité (adapté au marché local romand)
+- **Le taux de conversion moyen** d'un site vitrine local : entre 1% et 3% selon le secteur. Le calculateur utilise 1.5% par défaut, valeur conservatrice
+- **Ton panier moyen** (ce qu'un client te rapporte en moyenne)
+
+Exemple concret : si tu es photographe à Genève, avec un panier moyen de 1'200 CHF, et que ton site rate 2 leads qualifiés par mois, le manque à gagner annuel avoisine les 28'800 CHF. Sur trois ans : 86'400 CHF.
+
+Pour [comprendre pourquoi un site actif change tout](/blog/visibilite-site-internet-2026), les mécanismes sont détaillés dans l'article sur la visibilité web en 2026.
+
+### 3. Le coût de crédibilité — l'argent que tu ne verras jamais
+
+Celui-là, on ne peut pas le chiffrer précisément. Mais il est réel.
+
+Dans mon audit, [76% des sites d'indépendants romands n'ont pas publié de contenu depuis 12 mois](/blog/audit-50-sites-indeps-romands). Et 14% affichaient encore un copyright daté de 2021 ou avant. Ce sont des signaux que le visiteur lit en quelques secondes, souvent inconsciemment : *"Ce site n'est plus maintenu. Est-ce que cette entreprise existe encore ?"*
+
+Le calculateur ne comptabilise pas cet effet, difficile à isoler. Mais il existe. Et il s'accumule.
+
+---
+
+## Comment le calculateur calcule (la méthode, transparente)
+
+Je préfère que tu comprennes d'où viennent les chiffres plutôt que tu les acceptes aveuglément. Voici les paramètres utilisés et leurs limites.
+
+Le calculateur utilise ~95 CHF/h comme **tarif horaire moyen** d'un indépendant romand (source : Enquête sur la structure des salaires OFS 2024). C'est la base qui calibre la valeur d'un lead qualifié dans le temps.
+
+Le **taux de conversion** retenu est 1.5% par défaut, valeur conservatrice au regard de la fourchette observée (1-3% selon la qualité du site, le secteur et la concurrence locale). Pour un site très optimisé, on monte à 3%. Pour un site dormant, on est souvent sous 0.5%, voire à zéro si le site ne ranke plus.
+
+Le volume de recherche est estimé à partir de données sectorielles suisses pondérées. Le calculateur ne connaît pas tes requêtes exactes, il utilise une approximation conservatrice pour ton secteur.
+
+Sur l'ancienneté : plus un site est dormant longtemps, plus Google lui retire de la confiance. Le **coefficient de dépréciation** est progressif, modéré à 12 mois, significatif à 24 mois, critique au-delà.
+
+Ces chiffres ne remplacent pas une analyse de tes données réelles (Search Console, Analytics). J'ai calibré ce calculateur sur les données de l'audit 50 sites mené en avril 2026, pas sur des études américaines ou des moyennes européennes qui ne reflètent pas le marché romand. Ton cas peut diverger. C'est une estimation, pas une facture.
+
+Pour savoir [combien coûte vraiment un site web en Suisse](/blog/prix-site-web-suisse-2026), les tarifs du marché sont détaillés dans un article dédié.
+
+---
+
+## Ce qu'un site actif change — quelques ordres de grandeur
+
+Pas de promesses magiques. Des ordres de grandeur réalistes, issus de données observées.
+
+{/* TODO:image before-after — Comparaison performances site dormant vs site actif : Lighthouse, impressions Google, clics formulaire, taux de conversion — brief: src/content/blog/.briefs/cout-site-web-dormant-calculateur.md#image-3 */}
+
+**Score Lighthouse : de 64 à 85/100**
+
+Le score médian du panel romand était de 64/100 à l'audit. Un site passant de 64 à 85/100 sur les métriques de performance (Largest Contentful Paint, First Input Delay) voit typiquement son **taux de conversion sur formulaire** multiplié par 2 à 3. Google l'a documenté : chaque seconde de chargement en moins réduit le taux de rebond de 7%.
+
+**Publication mensuelle : ×4 à ×8 impressions en 6 mois**
+
+Un site publiant un article de fond par mois — ciblé sur des requêtes réelles de ses clients — peut multiplier ses impressions dans Google Search par 4 à 8 en six mois. Ce sont des ordres de grandeur observés en Search Console sur des sites qui partent d'une base faible. Ça ne se passe pas en un mois. Et ça ne se passe pas non plus avec n'importe quel contenu — il faut cibler les bonnes requêtes.
+
+**Fiche Google Business Profile active vs dormante : +40% de clics**
+
+Selon les données Google 2024, une fiche Google Business Profile régulièrement mise à jour (posts, photos, réponses aux avis) génère en moyenne 40% de clics supplémentaires vers le site par rapport à une fiche inactive. Pour les recherches locales — "photographe Genève", "menuisier Lausanne" — c'est souvent la première chose que voit un prospect.
+
+Pour décider si tu dois faire appel à un [freelance ou à une agence web](/blog/freelance-ou-agence-web) pour remettre ton site en ordre, l'article compare les deux options sur les critères qui comptent pour une TPE.
+
+Pour savoir ce qui bloque précisément ton site, un **audit gratuit** part exactement de ces métriques : Lighthouse, Search Console, structure de contenu. [Obtenir un audit gratuit →](/services/refonte-site-web)
+
+---
+
+## FAQ
+
+**Le calculateur est-il fiable pour le marché suisse ?**
+
+Il est calibré sur des données suisses romandes : tarifs OFS 2024, panel de 50 sites d'indépendants locaux audités en avril 2026, comportements de recherche adaptés au marché francophone. Ce n'est pas un outil générique copié depuis des données américaines. Reste que c'est une estimation, pas un chiffre comptable. Pour une analyse précise de ta situation, l'audit est le bon point de départ.
+
+**Mon site n'est pas "dormant" mais je ne sais pas s'il rapporte quelque chose. Comment savoir ?**
+
+Il y a des signaux concrets : dernière publication de contenu, score Lighthouse sous 70, pas d'analytics configuré, copyright obsolète, aucun appel ou formulaire provenant du site depuis 6 mois. La [checklist des 15 signes que ton site web dort](/blog/15-signes-site-web-dort) couvre ça point par point.
+
+**À partir de quel résultat est-ce que ça vaut le coup de refaire son site ?**
+
+Règle simple : quand le manque à gagner annuel estimé dépasse le coût d'une refonte sur 12 à 18 mois, agir devient rentable. Si ton calculateur affiche 8'000 CHF/an de manque à gagner et qu'une refonte coûte 4'500 CHF, le ROI est positif dès la fin de la première année. Si le chiffre est plus bas, d'autres leviers (fiche GMB, contenu ciblé) peuvent d'abord être activés à moindre coût.
+
+**Est-ce que je peux réactiver mon site moi-même sans faire appel à quelqu'un ?**
+
+Oui, en partie. Mettre à jour tes textes, publier un article ciblé, activer ta fiche Google Business Profile, corriger les liens cassés — tout ça se fait sans développeur. En revanche, améliorer significativement ton score Lighthouse, restructurer le SEO technique, ou migrer vers une architecture plus rapide, c'est une autre paire de manches. La réponse honnête : tu peux gagner 20% de résultats seul, les 80% restants nécessitent soit de monter en compétences, soit de déléguer.
+
+---
+
+## Sources et références
+
+- OFS — Enquête sur la structure des salaires 2024 (tarif horaire moyen indépendant suisse, ~95 CHF/h)
+- Google Business Profile Insights 2024 — impact d'une fiche active vs dormante sur les clics vers le site (+40%)
+- Audit terrain jonlabs.ch — 50 sites d'indépendants romands, avril 2026 (score Lighthouse médian 64/100, 76% sans publication depuis 12 mois)
+- Google Web Vitals — impact de la performance sur le taux de conversion (source : Deloitte / Google, 2023)

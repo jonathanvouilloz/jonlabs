@@ -166,7 +166,7 @@ Trois cas de figure selon l'âge et la techno du site.
 
 **Cas 2, ton site a été monté récemment avec un générateur IA** (Lovable, Bolt, Claude Code ou équivalent). Il est probablement beau et complètement invisible. [Les sites montés sur Lovable, Bolt ou Claude Code stagnent pour la même raison](/blog/creer-site-vitrine-ia-visibilite-google) : ils n'ont pas été pensés pour Google, seulement pour les captures d'écran.
 
-**Cas 3, ton site a moins de deux ans et il est « classique »** (WordPress, Squarespace, Webflow bien monté). Il est sauvable, mais il te faut un accompagnement méthodique. L'audit pro devient rentable à partir de onze signes cochés, parce qu'à ce niveau, chaque semaine d'attente coûte un client.
+**Cas 3, ton site a moins de deux ans et il est « classique »** (WordPress, Squarespace, Webflow bien monté). Il est sauvable, mais il te faut un accompagnement méthodique. L'audit pro devient rentable à partir de onze signes cochés, parce qu'à ce niveau, chaque semaine d'attente coûte un client. Si tu veux mettre un chiffre dessus avant de décider, le [calculateur de coût d'un site web dormant](/blog/cout-site-web-dormant-calculateur) te donne une estimation personnalisée en 60 secondes.
 
 Dans tous les cas, reviens ensuite au pilier stratégique pour comprendre [comment tenir un site dans la durée](/blog/visibilite-site-internet-2026). La checklist diagnostique l'état, le guide explique la méthode.
 
