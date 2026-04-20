@@ -1,5 +1,10 @@
 /**
- * Generate Blog Cover Image
+ * @deprecated Ne plus utiliser. Remplacé par le skill generate-cover qui
+ * appelle ~/.claude/skills/generate-images/scripts/cli.py avec les paramètres
+ * de moodboard/presets.yaml. Ce script ignore presets.yaml et a des paramètres
+ * hardcodés incorrects (police Arial, ratio appliqué à la hauteur).
+ *
+ * Generate Blog Cover Image (LEGACY)
  *
  * Compose une image de couverture de blog en combinant :
  * - Une image blob/ghost generee par IA (sans texte)

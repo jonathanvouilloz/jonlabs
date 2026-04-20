@@ -28,7 +28,7 @@ presets:
       uppercase: false
       shadow: false
       text_color: "#1a1a1a"
-      font_size_ratio: 0.06
+      font_size_ratio: 0.06    # × largeur image (pas hauteur) — 1920 × 0.06 = 115px
       font_weight: 700
       tracking: -0.04
       line_spacing: 1.1
