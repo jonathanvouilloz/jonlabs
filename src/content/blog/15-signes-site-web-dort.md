@@ -200,7 +200,7 @@ Pour la technique (vitesse, HTTPS, mobile), effet visible en deux à quatre sema
 
 J'ai fait une version PDF imprimable de cette **checklist de site web professionnel** pour que tu puisses la remplir au stylo, la partager à un associé ou la glisser dans un dossier client.
 
-👉 **[Télécharger la checklist « 15 signes que ton site dort » (PDF)](/ressources/checklist-15-signes-site-dort.pdf)**
+👉 **[Accéder à la checklist interactive « 15 signes que ton site dort »](/outils/checklist-15-signes-site-dort)**
 
 Tu préfères qu'on regarde ça ensemble sur ton site réel, avec un œil extérieur et des chiffres concrets ? C'est exactement ce que je fais dans mon audit de refonte. Score au-dessus de dix et tu n'as pas envie de tout refaire seul, on peut [regarder ensemble ton site avec un œil extérieur](/services/refonte-site-web). Ça commence souvent là.
 

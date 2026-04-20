@@ -1,0 +1,126 @@
+---
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+const seoData = {
+    title: "Merci ! Ta checklist diagnostic est prête | Jon Labs",
+    description: "Ta checklist 15 signes que ton site dort est prête. Télécharge le PDF pour la remplir au stylo ou la partager."
+};
+---
+
+<Layout
+    title={seoData.title}
+    description={seoData.description}
+    robots="noindex, nofollow"
+>
+    <Header />
+
+    <main class="min-h-[70vh] flex items-center justify-center py-20 px-4">
+        <div class="max-w-xl mx-auto text-center">
+            <!-- Success icon -->
+            <div class="w-20 h-20 bg-green-500 border-3 border-black mx-auto mb-8 flex items-center justify-center shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+                <i class="ri-check-line text-white text-4xl"></i>
+            </div>
+
+            <!-- Title -->
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">
+                Ta checklist diagnostic est prête.
+            </h1>
+
+            <p class="text-lg text-gray-600 mb-8">
+                Clique sur le bouton ci-dessous pour accéder à la version PDF imprimable.
+            </p>
+
+            <!-- Download button -->
+            <a
+                href="/outils/checklist-15-signes-site-dort-pdf"
+                class="
+                    inline-flex items-center gap-3
+                    bg-[var(--blue)]
+                    border-3 border-black
+                    px-8 py-4
+                    text-xl font-bold
+                    shadow-[6px_6px_0px_rgba(0,0,0,1)]
+                    transition-all duration-200
+                    hover:bg-[var(--yellow)]
+                    hover:shadow-[3px_3px_0px_rgba(0,0,0,1)]
+                    hover:translate-x-[3px] hover:translate-y-[3px]
+                "
+            >
+                <i class="ri-download-line"></i>
+                Télécharger le PDF
+            </a>
+
+            <!-- Instructions -->
+            <div class="mt-8 bg-white border-2 border-black p-6 text-left">
+                <h2 class="font-bold mb-3 flex items-center gap-2">
+                    <i class="ri-information-line text-[var(--blue)]"></i>
+                    Comment ça marche ?
+                </h2>
+                <ol class="space-y-2 text-gray-600">
+                    <li class="flex items-start gap-2">
+                        <span class="font-bold text-black">1.</span>
+                        Clique sur "Télécharger le PDF" ci-dessus
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="font-bold text-black">2.</span>
+                        Une page s'ouvre avec la checklist complète mise en page
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="font-bold text-black">3.</span>
+                        Clique sur le bouton "Télécharger PDF" en haut à droite
+                    </li>
+                    <li class="flex items-start gap-2">
+                        <span class="font-bold text-black">4.</span>
+                        Imprime-la ou garde-la sur ton téléphone
+                    </li>
+                </ol>
+            </div>
+
+            <!-- PDF contents reminder -->
+            <div class="mt-6 bg-[var(--main-bg)] border-2 border-black p-4">
+                <p class="text-sm">
+                    <strong>Dans ton PDF :</strong> Les 15 signes groupés par catégorie avec cases à cocher + tableau des 3 paliers de diagnostic + plan d'action par niveau
+                </p>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="mt-12 pt-8 border-t-2 border-gray-200">
+                <p class="text-gray-600 mb-3 font-medium">Score au-dessus de 10 ?</p>
+                <p class="text-gray-500 text-sm mb-6">
+                    Je peux regarder ton site avec toi, chiffres concrets en main, et te dire ce qui saigne le plus.
+                </p>
+                <a
+                    href="/services/refonte-site-web"
+                    class="
+                        inline-flex items-center gap-2
+                        bg-[var(--blue)]
+                        border-2 border-black
+                        px-6 py-3
+                        font-bold
+                        shadow-[3px_3px_0px_rgba(0,0,0,1)]
+                        transition-all duration-200
+                        hover:bg-[var(--yellow)]
+                        hover:shadow-[1px_1px_0px_rgba(0,0,0,1)]
+                        hover:translate-x-[2px] hover:translate-y-[2px]
+                    "
+                >
+                    <i class="ri-search-eye-line"></i>
+                    Demander un audit personnalisé
+                </a>
+            </div>
+
+            <!-- Back link -->
+            <div class="mt-8">
+                <a href="/outils/checklist-15-signes-site-dort" class="text-gray-500 hover:text-[var(--blue)] transition-colors">
+                    <i class="ri-arrow-left-line"></i>
+                    Retour à la checklist interactive
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <Footer />
+</Layout>
