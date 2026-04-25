@@ -1,0 +1,819 @@
+---
+import "../../styles/global.css";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from "../../lib/seo";
+import { SITE_URL, localBusinessData } from "../../data/schema";
+import { villesFrontalieres, getVoisines, type VilleData } from "../../data/villes-frontalieres";
+
+// ============================================
+// STATIC PATHS — programmatic SEO
+// ============================================
+export async function getStaticPaths() {
+  return villesFrontalieres.map(ville => ({
+    params: { ville: ville.slug },
+    props: { ville }
+  }));
+}
+
+interface Props {
+  ville: VilleData;
+}
+
+const { ville } = Astro.props;
+
+// ============================================
+// SEO META
+// ============================================
+const pageUrl = `${SITE_URL}/developpement-web/${ville.slug}`;
+// Title : on adapte la longueur pour passer sous 60 chars sur les noms longs
+const titleLong = `Développeur web ${ville.nom} — sites sur-mesure | Jon Labs`;
+const pageTitle = titleLong.length <= 60
+  ? titleLong
+  : `Développeur web ${ville.nom} | Jon Labs`;
+// Description : version compacte si nom de ville long pour rester sous 160 chars
+const descLong = `Développement web sur mesure à ${ville.nom} (${ville.distanceGeneve} de Genève). Sites pro, refonte, MVP. Tarifs CHF/EUR transparents, freelance basé à Genève.`;
+const pageDescription = descLong.length <= 158
+  ? descLong
+  : `Développeur web freelance pour ${ville.nom} (${ville.distanceGeneve} de Genève). Sites sur-mesure, refonte, MVP. Tarifs CHF/EUR. Basé à Genève.`;
+
+// ============================================
+// SCHEMA.ORG
+// ============================================
+const webPageSchema = getWebPageSchema({
+  url: pageUrl,
+  name: pageTitle,
+  description: pageDescription
+});
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: "Accueil", url: SITE_URL },
+  { name: "Développement web", url: `${SITE_URL}/services` },
+  { name: ville.nom, url: pageUrl }
+]);
+
+const faqSchema = getFAQPageSchema(ville.faqs);
+
+const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
+
+// ============================================
+// MAILLAGE — villes voisines
+// ============================================
+const voisines = getVoisines(ville);
+
+// ============================================
+// SERVICES (5 cards génériques)
+// ============================================
+const services = [
+  {
+    icon: "ri-window-line",
+    title: "Création de site web",
+    description: `Site vitrine sur-mesure pour PME et indépendants de ${ville.nom}. Design unique, performance Google, livré en 3-4 semaines.`,
+    price: "Dès CHF 1'490 / EUR 1'550",
+    href: "/services/creation-site-web"
+  },
+  {
+    icon: "ri-refresh-line",
+    title: "Refonte de site web",
+    description: "Modernisation d'un site existant. Migration depuis WordPress, Wix ou Squarespace vers une stack rapide et maintenable.",
+    price: "Dès CHF 2'500 / EUR 2'600",
+    href: "/services/refonte-site-web"
+  },
+  {
+    icon: "ri-rocket-line",
+    title: "Développement MVP",
+    description: "Prototype fonctionnel en 2-3 semaines pour tester ton idée auprès de vrais utilisateurs avant de t'engager plus loin.",
+    price: "Dès CHF 4'500 / EUR 4'700",
+    href: "/services/developpement-mvp"
+  },
+  {
+    icon: "ri-tools-line",
+    title: "Outils sur mesure",
+    description: "Applications internes, tableaux de bord, portails clients. Pour automatiser ce qu'Excel ne sait plus faire seul.",
+    price: "Sur devis",
+    href: "/services/outils-sur-mesure"
+  },
+  {
+    icon: "ri-map-pin-2-line",
+    title: "Référencement local",
+    description: `SEO local pour exister sur Google quand un habitant de ${ville.nom} ou un Genevois cherche ton métier.`,
+    price: "Dès CHF 800/mois",
+    href: "/services/referencement-local"
+  }
+];
+
+// ============================================
+// PRICING — version EUR/CHF
+// ============================================
+const pricingPlans = [
+  {
+    name: "Site vitrine",
+    priceChf: "1'490",
+    priceEur: "1'550",
+    description: `Pour indépendants et artisans de ${ville.nom} qui veulent une présence en ligne propre.`,
+    features: ["1 à 5 pages", "Design sur-mesure", "Responsive", "SEO de base", "Hébergement 1 an"],
+    highlighted: false
+  },
+  {
+    name: "Site sur-mesure",
+    priceChf: "4'000",
+    priceEur: "4'150",
+    description: `Pour PME de ${ville.nom} avec contenu, blog, intégrations spécifiques.`,
+    features: ["Pages illimitées", "CMS / blog", "SEO avancé", "Intégrations (Stripe, GMB...)", "Formation incluse"],
+    highlighted: true
+  },
+  {
+    name: "Application web",
+    priceChf: "8'000",
+    priceEur: "8'300",
+    description: "Pour outils internes, MVP, plateformes avec authentification et données.",
+    features: ["Backend custom", "Base de données", "Authentification", "API tiers", "Maintenance évolutive"],
+    highlighted: false
+  }
+];
+
+// ============================================
+// ARTICLES BLOG (maillage)
+// ============================================
+const blogArticles = [
+  {
+    title: "Combien coûte vraiment un site web en Suisse en 2026 ?",
+    description: "Fourchettes en CHF et EUR par profil de prestataire (freelance, agence, no-code) et par type de projet.",
+    href: "/blog/prix-site-web-suisse-2026",
+    icon: "ri-money-cny-circle-line"
+  },
+  {
+    title: "Spécialiste dev web Suisse : comment bien choisir",
+    description: "Les 7 critères pour différencier un bon développeur d'un copieur de templates en 2026.",
+    href: "/blog/specialiste-developpement-web-suisse",
+    icon: "ri-user-search-line"
+  }
+];
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  schemas={schemas}
+>
+  <Header />
+
+  <!-- ============================================== -->
+  <!-- HERO LOCAL -->
+  <!-- ============================================== -->
+  <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-20 px-4 relative overflow-hidden">
+    <!-- Gradient mesh background -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
+      <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-[var(--violet)] opacity-15 blur-[100px] rounded-full"></div>
+      <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-[var(--blue)] opacity-10 blur-[80px] rounded-full"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto relative z-10 text-center">
+      <!-- Badges -->
+      <div class="flex flex-wrap justify-center gap-3 mb-8">
+        <span class="inline-flex items-center gap-2 bg-white border-2 border-black px-3 py-1 text-xs font-mono shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+          <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+          Disponible
+        </span>
+        <span class="inline-flex items-center gap-2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-mono shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+          <i class="ri-map-pin-fill"></i>
+          {ville.nom} · {ville.distanceGeneve} de Genève
+        </span>
+      </div>
+
+      <!-- H1 -->
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6 leading-[1.05]">
+        Développeur web<br/>
+        sur mesure à
+        <span class="relative inline-block">
+          <span class="relative z-10">{ville.nom}</span>
+          <span class="absolute bg-[var(--yellow)] w-full h-[35%] left-0 bottom-1 -z-1"></span>
+        </span>
+      </h1>
+
+      <!-- Sous-titre -->
+      <p class="text-lg md:text-2xl text-gray-700 mb-8 leading-relaxed max-w-3xl mx-auto">
+        {ville.angleHero}<br class="hidden md:block"/>
+        Devis transparent en <strong>CHF ou EUR</strong>, freelance basé à <strong>Genève</strong>.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+        <a
+          href="/contact"
+          class="
+            bg-[var(--blue)]
+            border-2 border-black
+            px-6 py-4
+            text-lg font-bold
+            shadow-[4px_4px_0px_rgba(0,0,0,1)]
+            transition-all duration-200
+            hover:bg-[var(--yellow)]
+            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
+            hover:translate-x-[2px] hover:translate-y-[2px]
+            flex items-center justify-center gap-2
+          "
+        >
+          <i class="ri-mail-send-line"></i>
+          Demander un devis
+        </a>
+        <a
+          href="/portfolio"
+          class="
+            bg-white
+            border-2 border-black
+            px-6 py-4
+            text-lg font-medium
+            transition-all duration-200
+            hover:bg-gray-100
+            flex items-center justify-center gap-2
+          "
+        >
+          Voir mes réalisations
+          <i class="ri-arrow-right-line"></i>
+        </a>
+      </div>
+
+      <!-- Trust line -->
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600">
+        <span class="flex items-center gap-2">
+          <i class="ri-time-line text-[var(--blue)]"></i>
+          {ville.tempsTrajetGeneve}
+        </span>
+        <span class="flex items-center gap-2">
+          <i class="ri-stack-line text-[var(--blue)]"></i>
+          50+ sites livrés
+        </span>
+        <span class="flex items-center gap-2">
+          <i class="ri-currency-line text-[var(--blue)]"></i>
+          Facturation CHF / EUR
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- POURQUOI UN DEV À VILLE -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+          <span class="w-8 h-px bg-gray-400"></span>
+          contexte local
+          <span class="w-8 h-px bg-gray-400"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black mb-4">
+          Pourquoi un <strong>développeur web pour {ville.nom}</strong> ?
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          {ville.description}
+        </p>
+      </div>
+
+      <!-- Contexte économique -->
+      <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] max-w-3xl mx-auto relative mb-12">
+        <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+        <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+        <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+        <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+
+        <h3 class="font-bold text-lg mb-3 flex items-center gap-2">
+          <i class="ri-building-line text-[var(--blue)]"></i>
+          Tissu économique de {ville.nomComplet}
+        </h3>
+        <p class="text-gray-700 leading-relaxed">
+          {ville.contexteEconomique}
+        </p>
+      </div>
+
+      <!-- Spécificités locales (grid) -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {ville.specificites.map((item, idx) => (
+          <div class="bg-[var(--main-bg)] border-2 border-black p-5 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] flex items-start gap-4">
+            <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0 font-mono font-black text-sm">
+              {String(idx + 1).padStart(2, '0')}
+            </div>
+            <p class="text-sm text-gray-700 leading-relaxed pt-1">{item}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- SERVICES ADAPTÉS -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-28 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+          <span class="w-8 h-px bg-gray-400"></span>
+          services
+          <span class="w-8 h-px bg-gray-400"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black mb-4">
+          Services adaptés au tissu de {ville.nom}
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Du <strong>créateur de site web {ville.nom}</strong> au développement d'outils internes — toute la chaîne, un seul interlocuteur.
+        </p>
+      </div>
+
+      <!-- Public cible -->
+      <div class="mb-12">
+        <h3 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4 text-center">À qui je m'adresse à {ville.nom}</h3>
+        <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+          {ville.publicCible.map((p) => (
+            <span class="inline-flex items-center gap-2 bg-white border-2 border-black px-4 py-2 text-sm shadow-[2px_2px_0px_rgba(0,0,0,0.3)]">
+              <i class="ri-check-line text-[var(--blue)]"></i>
+              {p}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Services grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        {services.map((service) => (
+          <a
+            href={service.href}
+            class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
+          >
+            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4 group-hover:bg-[var(--yellow)] transition-colors">
+              <i class={`${service.icon} text-2xl`}></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">{service.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">{service.description}</p>
+            <div class="pt-4 border-t border-dashed border-gray-300 flex items-center justify-between">
+              <span class="text-sm font-mono text-[var(--blue)]">{service.price}</span>
+              <i class="ri-arrow-right-line text-lg group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </a>
+        ))}
+
+        <!-- Card "Tous les services" -->
+        <a
+          href="/services"
+          class="group bg-[var(--blue)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] flex flex-col items-center justify-center text-center"
+        >
+          <div class="w-12 h-12 bg-white border-2 border-black flex items-center justify-center mb-4">
+            <i class="ri-arrow-right-up-line text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold mb-2">Voir tous les services</h3>
+          <p class="text-sm">Automatisation, validation d'idée, intégrations…</p>
+        </a>
+      </div>
+
+      <!-- Exemples de projets -->
+      <div class="bg-white border-3 border-black p-6 md:p-10 shadow-[6px_6px_0px_rgba(0,0,0,1)]">
+        <h3 class="text-2xl font-black mb-6 flex items-center gap-3">
+          <span class="w-10 h-10 bg-[var(--yellow)] border-2 border-black flex items-center justify-center">
+            <i class="ri-lightbulb-line text-xl"></i>
+          </span>
+          Exemples de projets typiques à {ville.nom}
+        </h3>
+        <ul class="space-y-3">
+          {ville.exemplesProjets.map((projet) => (
+            <li class="flex items-start gap-3 text-gray-700">
+              <i class="ri-arrow-right-s-line text-[var(--blue)] mt-1 flex-shrink-0 text-xl"></i>
+              <span>{projet}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- TARIFS CHF / EUR -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+          <span class="w-8 h-px bg-gray-400"></span>
+          tarifs
+          <span class="w-8 h-px bg-gray-400"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black mb-4">
+          Tarifs en <span class="text-[var(--blue)]">CHF</span> et en <span class="text-[var(--blue)]">EUR</span>
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Trois fourchettes pour situer ton projet à {ville.nom}. Devis personnalisé après notre premier échange.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-10">
+        {pricingPlans.map((plan) => (
+          <div class={`
+            bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 relative
+            ${plan.highlighted ? 'shadow-[8px_8px_0px_rgba(0,0,0,1)] ring-2 ring-[var(--blue)]' : 'shadow-[4px_4px_0px_rgba(0,0,0,0.3)]'}
+          `}>
+            {plan.highlighted && (
+              <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-bold whitespace-nowrap">
+                LE PLUS DEMANDÉ
+              </div>
+            )}
+
+            <h3 class="text-xl font-bold mb-2">{plan.name}</h3>
+            <p class="text-sm text-gray-600 mb-4">{plan.description}</p>
+
+            <div class="mb-6 pb-6 border-b-2 border-dashed border-gray-300">
+              <span class="text-sm text-gray-500">À partir de</span>
+              <p class="text-3xl md:text-4xl font-black leading-tight">
+                {plan.priceChf}<span class="text-base text-gray-500"> CHF</span>
+              </p>
+              <p class="text-lg text-gray-600 mt-1 font-mono">
+                ≈ {plan.priceEur} EUR
+              </p>
+            </div>
+
+            <ul class="space-y-3">
+              {plan.features.map((feature) => (
+                <li class="flex items-start gap-2 text-sm">
+                  <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0 font-bold"></i>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-center text-sm text-gray-600 mb-6">
+        <i class="ri-information-line text-[var(--blue)] mr-1"></i>
+        Facturation possible en CHF (IBAN suisse) ou en EUR (virement SEPA). TVA française appliquée pour les sociétés assujetties.
+      </p>
+
+      <div class="text-center">
+        <a href="/tarifs" class="inline-flex items-center gap-2 bg-white border-2 border-black px-6 py-3 font-medium hover:bg-[var(--yellow)] transition-all shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]">
+          <i class="ri-price-tag-3-line"></i>
+          Voir tous les tarifs
+          <i class="ri-arrow-right-line"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- FAQ VILLE-SPÉCIFIQUE -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-28 px-4">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+          <span class="w-8 h-px bg-gray-400"></span>
+          faq
+          <span class="w-8 h-px bg-gray-400"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black mb-4">Questions fréquentes ({ville.nom})</h2>
+        <p class="text-lg text-gray-600">
+          Ce que les clients de {ville.nom} et du Genevois français me demandent en premier.
+        </p>
+      </div>
+
+      <div class="faq-list space-y-4">
+        {ville.faqs.map((faq, index) => (
+          <div class="faq-item border-2 border-black bg-[var(--main-bg)] shadow-[3px_3px_0px_rgba(0,0,0,0.3)]" data-faq-item>
+            <button
+              class="
+                faq-trigger
+                w-full
+                flex items-center justify-between gap-4
+                p-5
+                text-left
+                font-medium
+                cursor-pointer
+                transition-colors duration-200
+                hover:bg-[var(--blue)] hover:bg-opacity-10
+              "
+              aria-expanded="false"
+              data-faq-trigger
+            >
+              <span class="flex items-start gap-3">
+                <span class="font-mono text-sm text-gray-400 mt-0.5">{String(index + 1).padStart(2, '0')}</span>
+                <span class="text-base md:text-lg">{faq.question}</span>
+              </span>
+              <span class="
+                faq-icon
+                w-8 h-8
+                border-2 border-black
+                bg-white
+                flex items-center justify-center
+                transition-transform duration-300
+                flex-shrink-0
+              ">
+                <i class="ri-add-line text-lg"></i>
+              </span>
+            </button>
+            <div
+              class="faq-content overflow-hidden transition-all duration-300"
+              style="max-height: 0;"
+              data-faq-content
+            >
+              <div class="p-6 pt-2 pl-12">
+                <p class="text-gray-600 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-center mt-10 text-gray-500 text-sm">
+        Une autre question sur {ville.nom} ? <a href="/contact" class="text-[var(--blue)] font-medium hover:underline">Écris-moi</a>, je réponds sous 24h.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- AUTRES VILLES + PAGE PILIER -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+          <span class="w-8 h-px bg-gray-400"></span>
+          zones
+          <span class="w-8 h-px bg-gray-400"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black mb-4">
+          Autres zones d'intervention
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Je couvre l'ensemble du Genevois français et la <strong>Suisse romande</strong>. Voici les autres communes voisines de {ville.nom} où j'interviens régulièrement.
+        </p>
+      </div>
+
+      <!-- Villes voisines -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        {voisines.map((v) => (
+          <a
+            href={`/developpement-web/${v.slug}`}
+            class="group bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] flex flex-col"
+          >
+            <div class="flex items-center justify-between mb-3">
+              <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center">
+                <i class="ri-map-pin-fill text-lg"></i>
+              </div>
+              <span class="text-xs font-mono text-gray-500">{v.distanceGeneve}</span>
+            </div>
+            <h3 class="text-lg font-bold mb-1">{v.nom}</h3>
+            <p class="text-xs text-gray-500 font-mono mb-3">{v.populationLabel} hab.</p>
+            <p class="text-sm text-gray-600 leading-relaxed flex-grow">
+              Développement web pour {v.nom} — {v.publicCible[0]}, {v.publicCible[1]}.
+            </p>
+            <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-[var(--blue)] font-medium flex items-center gap-1">
+              Voir la page
+              <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
+            </span>
+          </a>
+        ))}
+      </div>
+
+      <!-- Page pilier Genève -->
+      <div class="bg-[var(--text)] text-white border-3 border-black p-6 md:p-10 shadow-[8px_8px_0px_rgba(0,0,0,1)] relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-[var(--blue)] opacity-20 blur-[80px] rounded-full pointer-events-none"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div class="flex-grow">
+            <span class="inline-flex items-center gap-2 bg-[var(--blue)] text-[var(--text)] border-2 border-white px-3 py-1 text-xs font-mono mb-4">
+              <i class="ri-star-fill"></i>
+              Page pilier
+            </span>
+            <h3 class="text-2xl md:text-3xl font-black mb-3">
+              Voir la page principale Genève
+            </h3>
+            <p class="text-gray-300 leading-relaxed max-w-2xl">
+              La page de référence pour le <strong>développement web Suisse</strong>, avec stack technique détaillée, comparaison freelance/agence, méthodologie et FAQ étendue.
+            </p>
+          </div>
+          <a
+            href="/developpeur-web-freelance-geneve"
+            class="
+              flex-shrink-0
+              bg-[var(--blue)]
+              text-[var(--text)]
+              border-2 border-[var(--blue)]
+              px-6 py-3
+              font-bold
+              shadow-[4px_4px_0px_white]
+              transition-all duration-200
+              hover:bg-[var(--yellow)]
+              hover:border-[var(--yellow)]
+              hover:shadow-[2px_2px_0px_white]
+              hover:translate-x-[2px] hover:translate-y-[2px]
+              flex items-center justify-center gap-2 whitespace-nowrap
+            "
+          >
+            Page Genève
+            <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Liens secondaires -->
+      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <a href="/services" class="bg-white border-2 border-black p-4 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--yellow)] transition-colors flex items-center justify-between gap-3 font-medium">
+          <span class="flex items-center gap-3">
+            <i class="ri-briefcase-line text-[var(--blue)]"></i>
+            Tous les services
+          </span>
+          <i class="ri-arrow-right-line"></i>
+        </a>
+        <a href="/tarifs" class="bg-white border-2 border-black p-4 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--yellow)] transition-colors flex items-center justify-between gap-3 font-medium">
+          <span class="flex items-center gap-3">
+            <i class="ri-price-tag-3-line text-[var(--blue)]"></i>
+            Page tarifs
+          </span>
+          <i class="ri-arrow-right-line"></i>
+        </a>
+        <a href="/portfolio" class="bg-white border-2 border-black p-4 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--yellow)] transition-colors flex items-center justify-between gap-3 font-medium">
+          <span class="flex items-center gap-3">
+            <i class="ri-stack-line text-[var(--blue)]"></i>
+            Portfolio
+          </span>
+          <i class="ri-arrow-right-line"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- À LIRE -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-28 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+          <span class="w-8 h-px bg-gray-400"></span>
+          ressources
+          <span class="w-8 h-px bg-gray-400"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black mb-4">
+          À lire avant de te décider
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Deux articles pour cadrer ton projet de <strong>création site web {ville.nom}</strong> avant même d'envoyer un mail.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {blogArticles.map((article) => (
+          <a
+            href={article.href}
+            class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
+          >
+            <div class="w-12 h-12 bg-[var(--yellow)] border-2 border-black flex items-center justify-center mb-4">
+              <i class={`${article.icon} text-2xl`}></i>
+            </div>
+            <h3 class="text-lg font-bold mb-2 leading-tight">{article.title}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed flex-grow">{article.description}</p>
+            <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-[var(--blue)] font-medium flex items-center gap-1">
+              Lire l'article
+              <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- CTA FINAL -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-28 px-4 bg-[var(--text)] text-white relative overflow-hidden">
+    <!-- Grid background -->
+    <div class="absolute inset-0 opacity-[0.07]" aria-hidden="true">
+      <div style="background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px); background-size: 40px 40px; width: 100%; height: 100%;"></div>
+    </div>
+
+    <!-- Glow accents -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute top-0 left-1/4 w-[400px] h-[400px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
+      <div class="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-[var(--violet)] opacity-15 blur-[100px] rounded-full"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto relative z-10 text-center">
+      <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-400 mb-6">
+        <span class="w-8 h-px bg-gray-600"></span>
+        prêt ?
+        <span class="w-8 h-px bg-gray-600"></span>
+      </span>
+
+      <h2 class="text-4xl md:text-6xl font-black mb-6 leading-[1.05]">
+        Discutons de ton projet à
+        <span class="relative inline-block">
+          <span class="relative z-10">{ville.nom}</span>
+          <span class="absolute bg-[var(--blue)] w-full h-[35%] left-0 bottom-1 -z-1 opacity-50"></span>
+        </span>
+      </h2>
+
+      <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+        Premier échange gratuit, sans engagement. Je viens si nécessaire à {ville.nom} ({ville.tempsTrajetGeneve} depuis Genève) ou on cale une visio. Réponse sous 24h.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+        <a
+          href="/contact"
+          class="
+            bg-[var(--blue)]
+            text-[var(--text)]
+            border-2 border-[var(--blue)]
+            px-8 py-4
+            text-lg font-bold
+            shadow-[4px_4px_0px_white]
+            transition-all duration-200
+            hover:bg-[var(--yellow)]
+            hover:border-[var(--yellow)]
+            hover:shadow-[2px_2px_0px_white]
+            hover:translate-x-[2px] hover:translate-y-[2px]
+            flex items-center justify-center gap-2
+          "
+        >
+          <i class="ri-mail-send-line"></i>
+          Demander un devis
+        </a>
+        <a
+          href="mailto:hello@jonlabs.ch"
+          class="
+            bg-transparent
+            text-white
+            border-2 border-white
+            px-8 py-4
+            text-lg font-medium
+            transition-all duration-200
+            hover:bg-white
+            hover:text-[var(--text)]
+            flex items-center justify-center gap-2
+            font-mono
+          "
+        >
+          <i class="ri-mail-line"></i>
+          hello@jonlabs.ch
+        </a>
+      </div>
+
+      <p class="text-sm text-gray-400 flex items-center justify-center gap-2">
+        <i class="ri-time-line text-[var(--blue)]"></i>
+        Réponse sous 24h · Lun-Ven, 9h-18h (CET) · Facturation CHF ou EUR
+      </p>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* FAQ animations */
+  .faq-item[data-open="true"] .faq-icon {
+    transform: rotate(45deg);
+    background-color: var(--blue);
+  }
+
+  /* Scroll margin */
+  section[id] {
+    scroll-margin-top: 100px;
+  }
+</style>
+
+<script>
+  // FAQ accordion logic
+  const faqItems = document.querySelectorAll('[data-faq-item]');
+
+  faqItems.forEach(item => {
+    const trigger = item.querySelector('[data-faq-trigger]');
+    const content = item.querySelector('[data-faq-content]') as HTMLElement;
+
+    trigger?.addEventListener('click', () => {
+      const isOpen = item.getAttribute('data-open') === 'true';
+
+      // Close all others
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.setAttribute('data-open', 'false');
+          const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
+          const otherTrigger = otherItem.querySelector('[data-faq-trigger]');
+          if (otherContent) otherContent.style.maxHeight = '0';
+          otherTrigger?.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Toggle current
+      if (isOpen) {
+        item.setAttribute('data-open', 'false');
+        content.style.maxHeight = '0';
+        trigger.setAttribute('aria-expanded', 'false');
+      } else {
+        item.setAttribute('data-open', 'true');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>

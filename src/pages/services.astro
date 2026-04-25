@@ -16,8 +16,8 @@ import { services } from "../sample";
 import { servicesListData, SITE_URL } from '../data/schema';
 import { getWebPageSchema } from '../lib/seo';
 
-const pageTitle = "Services de développement web à Genève | Jon Labs";
-const pageDescription = "Développement web, automatisation et applications sur-mesure pour entrepreneurs et PME en Suisse romande. Devis gratuit, réponse sous 24h.";
+const pageTitle = "Services de développement web à Genève — Jon Labs";
+const pageDescription = "Développeur web freelance à Genève : sites, automatisation et applications sur-mesure pour entrepreneurs et PME en Suisse romande. Devis gratuit, réponse sous 24h.";
 
 const webPageSchema = getWebPageSchema({
   url: `${SITE_URL}/services`,
@@ -67,8 +67,101 @@ const schemas = [servicesListData, webPageSchema];
       </div>
     </section>
 
+    <!-- Section locale : Genève + Suisse romande -->
+    <section class="local-section">
+      <div class="local-card">
+        <h2 class="local-title">
+          <span class="local-highlight">Genève</span>, Suisse romande
+          et zone frontalière
+        </h2>
+        <p class="local-text">
+          Basé à Genève, je travaille comme <strong>développeur web freelance</strong>
+          avec des clients de toute la Suisse romande (Vaud, Valais, Fribourg,
+          Neuchâtel, Jura) et de la zone frontalière française (Haute-Savoie,
+          Pays de Gex). Échanges en visio, déplacements ponctuels possibles à
+          Genève et Lausanne.
+        </p>
+        <div class="local-cities">
+          <span class="city-tag">Genève</span>
+          <span class="city-tag">Lausanne</span>
+          <span class="city-tag">Vevey</span>
+          <span class="city-tag">Montreux</span>
+          <span class="city-tag">Sion</span>
+          <span class="city-tag">Nyon</span>
+          <span class="city-tag">Morges</span>
+          <span class="city-tag">Annemasse</span>
+          <span class="city-tag">Saint-Julien</span>
+        </div>
+        <a href="/developpeur-web-freelance-geneve" class="local-cta">
+          Voir la page développeur web freelance à Genève
+          <i class="ri-arrow-right-line"></i>
+        </a>
+      </div>
+    </section>
+
     <!-- CTA Final -->
     <ServicesCTA />
+
+    <!-- Ressources (blog resources) -->
+    <section class="resources-section">
+      <div class="resources-container">
+        <div class="resources-header">
+          <span class="resources-eyebrow">
+            <span class="resources-line"></span>
+            ressources
+            <span class="resources-line"></span>
+          </span>
+          <h2 class="resources-title">
+            Pour aller <span class="resources-highlight">plus loin</span>
+          </h2>
+          <p class="resources-subtitle">
+            Articles et guides pour t'aider à mieux cadrer ton projet avant qu'on en discute.
+          </p>
+        </div>
+
+        <div class="resources-grid">
+          <a href="/blog/15-signes-site-web-dort" class="resource-card group">
+            <div class="resource-eyebrow">Article blog</div>
+            <h3 class="resource-title">15 signes que ton site web dort</h3>
+            <p class="resource-teaser">Une checklist en 4 minutes pour repérer si ton site travaille ou s'il dort sur Google.</p>
+            <span class="resource-cta">
+              Lire l'article
+              <i class="ri-arrow-right-line"></i>
+            </span>
+          </a>
+
+          <a href="/blog/audit-50-sites-indeps-romands" class="resource-card group">
+            <div class="resource-eyebrow">Étude</div>
+            <h3 class="resource-title">Audit 50 sites d'indépendants romands</h3>
+            <p class="resource-teaser">Ce qui marche, ce qui ne marche pas. Données réelles, captures d'écran, conclusions actionnables.</p>
+            <span class="resource-cta">
+              Lire l'article
+              <i class="ri-arrow-right-line"></i>
+            </span>
+          </a>
+
+          <a href="/blog/geo-seo-ia-2026" class="resource-card group">
+            <div class="resource-eyebrow">Guide</div>
+            <h3 class="resource-title">Apparaître dans les IA en 2026</h3>
+            <p class="resource-teaser">Le guide complet pour exister dans ChatGPT, Claude, Perplexity, Gemini, Copilot et Grok.</p>
+            <span class="resource-cta">
+              Lire l'article
+              <i class="ri-arrow-right-line"></i>
+            </span>
+          </a>
+
+          <a href="/blog/prix-site-web-suisse-2026" class="resource-card group">
+            <div class="resource-eyebrow">Article blog</div>
+            <h3 class="resource-title">Combien coûte un site web en Suisse ?</h3>
+            <p class="resource-teaser">Un guide transparent des fourchettes en CHF, sans bullshit ni clauses cachées.</p>
+            <span class="resource-cta">
+              Lire l'article
+              <i class="ri-arrow-right-line"></i>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
   </main>
 
   <!-- Modal pour les conversations -->
@@ -157,6 +250,236 @@ const schemas = [servicesListData, webPageSchema];
 
     .services-grid {
       gap: 2rem;
+    }
+  }
+
+  /* Resources Section */
+  .resources-section {
+    padding: 5rem 1rem;
+    background: #fefff0;
+    border-top: 3px solid black;
+  }
+
+  .resources-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .resources-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .resources-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #6b7280;
+    margin-bottom: 1rem;
+  }
+
+  .resources-line {
+    width: 2rem;
+    height: 1px;
+    background: #9ca3af;
+  }
+
+  .resources-title {
+    font-size: clamp(1.875rem, 4vw, 2.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    margin: 0 0 1rem;
+    color: #0f172a;
+  }
+
+  .resources-highlight {
+    background: var(--yellow, #FFDC58);
+    padding: 0 0.5rem;
+  }
+
+  .resources-subtitle {
+    font-size: 1.125rem;
+    color: #4b5563;
+    max-width: 36rem;
+    margin: 0 auto;
+  }
+
+  .resources-grid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1.5rem;
+  }
+
+  @media (min-width: 768px) {
+    .resources-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .resources-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .resource-card {
+    display: block;
+    background: white;
+    border: 2px solid black;
+    padding: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+  }
+
+  .resource-card:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  .resource-eyebrow {
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #6b7280;
+    margin-bottom: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .resource-title {
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin: 0 0 0.75rem;
+    color: #0f172a;
+  }
+
+  .resource-card:hover .resource-title {
+    text-decoration: underline;
+  }
+
+  .resource-teaser {
+    font-size: 0.875rem;
+    color: #374151;
+    line-height: 1.5;
+    margin: 0 0 1rem;
+  }
+
+  .resource-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #0f172a;
+  }
+
+  .resource-card:hover .resource-cta i {
+    transform: translateX(4px);
+    transition: transform 0.2s ease;
+  }
+
+  @media (max-width: 768px) {
+    .resources-section {
+      padding: 3rem 1rem;
+    }
+  }
+
+  /* Section locale (Genève / Suisse romande) */
+  .local-section {
+    padding: 4rem 1rem;
+    background: var(--main-bg, #FEFFF0);
+    border-top: 3px solid black;
+  }
+
+  .local-card {
+    max-width: 64rem;
+    margin: 0 auto;
+    background: white;
+    border: 2px solid black;
+    padding: 2rem;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (min-width: 768px) {
+    .local-card {
+      padding: 2.5rem;
+    }
+  }
+
+  .local-title {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    font-weight: 900;
+    line-height: 1.15;
+    margin: 0 0 1.5rem;
+    color: #0f172a;
+  }
+
+  .local-highlight {
+    background: var(--yellow, #FFDC58);
+    padding: 0 0.5rem;
+  }
+
+  .local-text {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    color: #374151;
+    margin: 0 0 1.5rem;
+  }
+
+  .local-text strong {
+    font-weight: 700;
+    color: #0f172a;
+  }
+
+  .local-cities {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.75rem;
+  }
+
+  .city-tag {
+    padding: 0.375rem 0.75rem;
+    background: rgba(186, 230, 255, 0.4);
+    border: 1px solid black;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: #0f172a;
+  }
+
+  .local-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--yellow, #FFDC58);
+    border: 2px solid black;
+    padding: 0.75rem 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    text-decoration: none;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+  }
+
+  .local-cta:hover {
+    background: var(--blue, #BAE6FF);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (max-width: 768px) {
+    .local-section {
+      padding: 3rem 1rem;
+    }
+
+    .local-card {
+      padding: 1.5rem;
     }
   }
 </style>
