@@ -8,7 +8,7 @@ image:
 category: "tech"
 tags: ["audit", "seo", "suisse-romande", "site-web", "data", "etude"]
 featured: false
-draft: true
+draft: false
 readingTime: 12
 ---
 
