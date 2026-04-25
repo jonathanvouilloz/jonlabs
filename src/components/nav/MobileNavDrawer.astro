@@ -1,0 +1,347 @@
+---
+import { mainNav, ctaContact } from '../../data/navigation';
+import NavLink from './NavLink.astro';
+import { author } from '../../sample';
+
+const { pathname } = Astro.url;
+
+const isActive = (href: string) => {
+  if (href === '/') return pathname === '/';
+  return pathname === href || pathname.startsWith(href + '/');
+};
+
+const slugify = (str: string) =>
+  str.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+---
+
+<div
+  class="mobile-menu md:hidden fixed inset-0 z-50 flex flex-col"
+  id="menu-content"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Menu de navigation"
+>
+  {/* Header drawer */}
+  <div class="flex items-center justify-between p-6 border-b-2 border-black flex-shrink-0">
+    <a href="/" class="menu-logo" aria-label="Retour à l'accueil">
+      <span class="font-bold text-lg">Jon Labs</span>
+    </a>
+    <button id="menu-close" aria-label="Fermer le menu" class="menu-close-btn">
+      <i class="ri-close-line text-2xl" aria-hidden="true"></i>
+    </button>
+  </div>
+
+  {/* Navigation scrollable */}
+  <nav class="flex-1 overflow-y-auto px-4 py-6">
+    <ul class="space-y-1">
+      {mainNav.map((section, index) => {
+        const sectionId = `mobile-mega-${slugify(section.label)}`;
+        const sectionActive = isActive(section.href);
+
+        if (section.type === 'flat') {
+          return (
+            <li class="menu-item" style={`--i: ${index}`}>
+              <NavLink
+                item={{ label: section.label, href: section.href }}
+                variant="mobile-flat"
+                active={sectionActive}
+              />
+            </li>
+          );
+        }
+
+        return (
+          <li class="menu-item" style={`--i: ${index}`}>
+            <button
+              type="button"
+              aria-expanded="false"
+              aria-controls={sectionId}
+              data-mobile-mega-trigger
+              class:list={['menu-link w-full text-left', sectionActive && 'is-active']}
+            >
+              <span class="menu-text flex-1">{section.label}</span>
+              <i class="ri-arrow-down-s-line text-2xl transition-transform duration-200" aria-hidden="true" data-mobile-chevron></i>
+            </button>
+            <div
+              id={sectionId}
+              data-mobile-mega-panel
+              class="mobile-mega-panel"
+              aria-hidden="true"
+            >
+              <div class="py-2 pl-2 border-l-2 border-dashed border-black/20 ml-6 mt-1 mb-3">
+                {section.columns?.map((column) => (
+                  <div class="mb-3">
+                    <h4 class="text-[10px] uppercase tracking-wider font-bold text-gray-500 px-4 mb-1">
+                      {column.title}
+                    </h4>
+                    <ul>
+                      {column.items.map((item) => (
+                        <li>
+                          <NavLink item={item} variant="mobile-mega-item" active={isActive(item.href)} />
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+
+                {section.spotlight && (
+                  <div class="px-3 mt-3">
+                    <NavLink
+                      item={{
+                        label: section.spotlight.title,
+                        href: section.spotlight.href,
+                        icon: section.spotlight.icon,
+                      }}
+                      variant="spotlight"
+                    />
+                  </div>
+                )}
+
+                {section.footer && (
+                  <a
+                    href={section.footer.href}
+                    class="block px-4 py-2 mt-2 text-sm font-bold underline"
+                  >
+                    {section.footer.label}
+                  </a>
+                )}
+              </div>
+            </div>
+          </li>
+        );
+      })}
+    </ul>
+
+    {/* CTA Contact */}
+    <a href={ctaContact.href} class="menu-cta mt-8">
+      Contact
+      <i class="ri-arrow-right-line" aria-hidden="true"></i>
+    </a>
+  </nav>
+
+  {/* Footer drawer */}
+  <div class="flex items-center justify-between p-6 border-t-2 border-dashed border-black/30 flex-shrink-0">
+    <div class="flex gap-3">
+      <a href={author.linkedin} target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="LinkedIn">
+        <i class="ri-linkedin-fill" aria-hidden="true"></i>
+      </a>
+      <a href={author.github} target="_blank" rel="noopener noreferrer" class="social-icon" aria-label="GitHub">
+        <i class="ri-github-fill" aria-hidden="true"></i>
+      </a>
+      <a href={author.email} class="social-icon" aria-label="Email">
+        <i class="ri-mail-fill" aria-hidden="true"></i>
+      </a>
+    </div>
+    <span class="flex items-center gap-2 text-sm font-medium">
+      <i class="ri-map-pin-fill" aria-hidden="true"></i>
+      {author.location}
+    </span>
+  </div>
+</div>
+
+<style>
+  .mobile-menu {
+    background: var(--blue);
+    transform: translateY(-100%);
+    opacity: 0;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+    pointer-events: none;
+  }
+
+  .mobile-menu.is-open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu-close-btn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    background: white;
+    transition: all 0.2s;
+  }
+
+  .menu-close-btn:hover,
+  .menu-close-btn:focus {
+    background: black;
+    color: white;
+    outline: none;
+  }
+
+  .menu-link {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.875rem 1.25rem;
+    font-size: 1.5rem;
+    font-weight: 400;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+    width: 100%;
+  }
+
+  .menu-link:hover,
+  .menu-link:focus {
+    background: black;
+    color: white;
+    border-color: black;
+    outline: none;
+  }
+
+  .menu-link.is-active {
+    background: rgba(0, 0, 0, 0.1);
+  }
+
+  [data-mobile-mega-trigger][aria-expanded="true"] [data-mobile-chevron] {
+    transform: rotate(180deg);
+  }
+
+  .menu-item {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  .mobile-menu.is-open .menu-item {
+    animation: menuSlideIn 0.4s ease forwards;
+    animation-delay: calc(var(--i) * 0.05s + 0.1s);
+  }
+
+  @keyframes menuSlideIn {
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  /* Mobile mega panel — accordion expand/collapse */
+  .mobile-mega-panel {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease, opacity 0.2s ease;
+    opacity: 0;
+  }
+
+  .mobile-mega-panel.is-open {
+    max-height: 2000px;
+    opacity: 1;
+  }
+
+  .menu-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1.125rem 2rem;
+    background: black;
+    color: white;
+    font-size: 1.125rem;
+    font-weight: 700;
+    border: 3px solid black;
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+    text-align: center;
+  }
+
+  .menu-cta:hover,
+  .menu-cta:focus {
+    background: var(--yellow);
+    color: black;
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
+    outline: none;
+  }
+
+  .social-icon {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black;
+    background: white;
+    font-size: 1.125rem;
+    transition: all 0.2s ease;
+  }
+
+  .social-icon:hover,
+  .social-icon:focus {
+    background: black;
+    color: white;
+    transform: translateY(-2px);
+    outline: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mobile-menu,
+    .menu-link,
+    .mobile-mega-panel {
+      transition: none;
+    }
+    .menu-item {
+      animation: none;
+      opacity: 1;
+      transform: none;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const menuContent = document.querySelector<HTMLElement>('#menu-content');
+    const menuOpen = document.querySelector<HTMLButtonElement>('#menu-open');
+    const menuClose = document.querySelector<HTMLButtonElement>('#menu-close');
+
+    function openMenu() {
+      menuContent?.classList.add('is-open');
+      menuOpen?.setAttribute('aria-expanded', 'true');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMenu() {
+      menuContent?.classList.remove('is-open');
+      menuOpen?.setAttribute('aria-expanded', 'false');
+      document.body.style.overflow = '';
+      // Reset les sous-panels
+      menuContent?.querySelectorAll<HTMLDivElement>('[data-mobile-mega-panel]').forEach((p) => p.classList.remove('is-open'));
+      menuContent?.querySelectorAll<HTMLButtonElement>('[data-mobile-mega-trigger]').forEach((b) => b.setAttribute('aria-expanded', 'false'));
+    }
+
+    menuOpen?.addEventListener('click', (e) => {
+      e.preventDefault();
+      openMenu();
+    });
+
+    menuClose?.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeMenu();
+    });
+
+    // Toggle des accordions mega
+    menuContent?.querySelectorAll<HTMLButtonElement>('[data-mobile-mega-trigger]').forEach((trigger) => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const panelId = trigger.getAttribute('aria-controls');
+        if (!panelId) return;
+        const panel = document.getElementById(panelId);
+        if (!panel) return;
+        const isOpen = trigger.getAttribute('aria-expanded') === 'true';
+        trigger.setAttribute('aria-expanded', String(!isOpen));
+        panel.classList.toggle('is-open', !isOpen);
+      });
+    });
+
+    // Fermer au clic sur un lien (sauf bouton accordion)
+    menuContent?.querySelectorAll('a').forEach((link) => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Fermer avec Escape
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menuContent?.classList.contains('is-open')) closeMenu();
+    });
+  });
+</script>

@@ -1,345 +1,62 @@
 ---
-import logo from '../assets/logo.svg'
-import svgPinkStar from '../assets/pink-star.svg'
-import { author, cta } from '../sample'
+import logo from '../assets/logo.svg';
+import MegaMenu from './nav/MegaMenu.astro';
+import MobileNavDrawer from './nav/MobileNavDrawer.astro';
 
-// Interface Props pour variantes
 interface Props {
-    variant?: 'default' | 'transparent';
-    scrollTransition?: boolean; // Active la transition au scroll (transparent -> solid)
+  variant?: 'default' | 'transparent';
+  scrollTransition?: boolean;
 }
 
 const { variant = 'default', scrollTransition = false } = Astro.props;
 const isTransparent = variant === 'transparent';
 const hasScrollTransition = isTransparent && scrollTransition;
-
-// Interface typée pour les liens de navigation
-interface NavLink {
-    name: string;
-    path: string;
-    target: string;
-}
-
-const links: NavLink[] = [
-    { name: 'Services', path: '/services', target: '_self' },
-    { name: 'Tarifs', path: '/tarifs', target: '_self' },
-    { name: 'Portfolio', path: '/portfolio', target: '_self' },
-    { name: 'Blog', path: '/blog', target: '_self' },
-    { name: 'About', path: '/about', target: '_self' },
-    { name: 'Outils', path: '/outils', target: '_self' },
-]
-
-const { pathname } = Astro.url
 ---
 
-<header class={`sticky top-0 z-40 p-6 overflow-hidden ${isTransparent ? 'bg-transparent border-b-0' : 'bg-transparent'} ${hasScrollTransition ? 'scroll-transition' : ''}`} data-scroll-transition={hasScrollTransition ? 'true' : undefined}>
+<header
+  class={`sticky top-0 z-40 p-6 overflow-visible ${isTransparent ? 'bg-transparent border-b-0' : 'bg-transparent'} ${hasScrollTransition ? 'scroll-transition' : ''}`}
+  data-scroll-transition={hasScrollTransition ? 'true' : undefined}
+>
+  <div class={`flex border-3 max-w-[360px] md:max-w-6xl m-auto relative z-10 ${isTransparent ? 'border-white/20 bg-transparent' : 'border-black bg-white'}`}>
+    {/* Corner boxes */}
+    <div class={`size-2 border-2 absolute -top-2 -right-2 ${isTransparent ? 'bg-transparent border-white/30' : 'bg-white border-black'}`}></div>
+    <div class={`size-2 border-2 absolute -top-2 -left-2 ${isTransparent ? 'bg-transparent border-white/30' : 'bg-white border-black'}`}></div>
+    <div class={`size-2 border-2 absolute -bottom-2 -left-2 ${isTransparent ? 'bg-transparent border-white/30' : 'bg-white border-black'}`}></div>
+    <div class={`size-2 border-2 absolute -bottom-2 -right-2 ${isTransparent ? 'bg-transparent border-white/30' : 'bg-white border-black'}`}></div>
 
-    <div class={`flex border-3 max-w-[360px] md:max-w-6xl m-auto relative z-10 ${isTransparent ? 'border-white/20 bg-transparent' : 'border-black bg-white'}`}>
-        <!-- top boxes -->
-        <div class={`size-2 border-2 absolute -top-2 -right-2 ${isTransparent ? 'bg-transparent border-white/30' : 'bg-white border-black'}`}></div>
-        <div class={`size-2 border-2 absolute -top-2 -left-2 ${isTransparent ? 'bg-transparent border-white/30' : 'bg-white border-black'}`}></div>
-
-        <!-- bottom boxes -->
-        <div class={`size-2 border-2 absolute -bottom-2 -left-2 ${isTransparent ? 'bg-transparent border-white/30' : 'bg-white border-black'}`}></div>
-        <div class={`size-2 border-2 absolute -bottom-2 -right-2 ${isTransparent ? 'bg-transparent border-white/30' : 'bg-white border-black'}`}></div>
-
-        <nav class="flex w-full items-center p-2 md:p-0">
-            <div class="flex-1 font-bold">
-                <a href="/" class="flex items-center pl-3 group">
-                    <img
-                        src={logo.src}
-                        alt="Jon Labs"
-                        class={`h-6 md:h-7 w-auto transition-transform duration-300 ${isTransparent ? 'brightness-0 invert' : ''}`}
-                    />
-                </a>
-            </div>
-            <button
-                class={`flex md:hidden p-2 focus:ring-2 focus:outline-none ${isTransparent ? 'text-white focus:ring-white' : 'focus:ring-black'}`}
-                id="menu-open"
-                aria-label="Ouvrir le menu de navigation"
-                aria-expanded="false"
-                aria-controls="menu-content"
-            >
-                <i class="ri-menu-2-line text-2xl" aria-hidden="true"></i>
-            </button>
-            <ul class="hidden md:flex items-center">
-                {links.map((item) => (
-                    <li class={`relative px-1 py-3 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-5 before:w-[2px] ${isTransparent ? 'before:bg-white/30' : 'before:bg-black'}`}>
-                        <a
-                            href={item.path}
-                            target={item.target}
-                            class={`relative flex items-center whitespace-nowrap px-5 py-1 group ${isTransparent ? 'text-white' : ''}`}
-                        >
-                            <span class={`
-                                relative
-                                before:absolute before:left-0 before:-bottom-1
-                                before:h-[6px] before:w-0
-                                before:transition-all before:duration-300
-                                group-hover:before:w-full
-                                ${isTransparent ? 'before:bg-[var(--blue)]' : 'before:bg-[var(--accent)]'}
-                                ${pathname === item.path ? 'before:w-full' : ''}
-                            `}>{item.name}</span>
-                        </a>
-                    </li>
-                ))}
-                {/* CTA Contact avec effet "stamp" */}
-                <li class="relative px-2 py-2 flex items-center">
-                    <a
-                        href="/contact"
-                        class={isTransparent
-                            ? `
-                                bg-white/10 border-2 border-white/40
-                                px-4 py-1.5
-                                font-medium text-sm text-white
-                                transition-all duration-200
-                                hover:bg-white/20
-                                hover:border-white/60
-                                focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent focus:outline-none
-                            `
-                            : `
-                                bg-[var(--blue)] border-2 border-black
-                                px-4 py-1.5
-                                font-medium text-sm
-                                shadow-[3px_3px_0px_rgba(0,0,0,1)]
-                                transition-all duration-200
-                                hover:bg-[var(--yellow)]
-                                hover:shadow-[1px_1px_0px_rgba(0,0,0,1)]
-                                hover:translate-x-[2px] hover:translate-y-[2px]
-                                focus:ring-2 focus:ring-black focus:ring-offset-2 focus:outline-none
-                            `
-                        }
-                    >
-                        Contact
-                    </a>
-                </li>
-            </ul>
-        </nav>
-    </div>
-  </header>
-
-  <!-- Menu Mobile Full-Screen Brutalist -->
-  <div
-    class="mobile-menu md:hidden fixed inset-0 z-50 flex flex-col"
-    id="menu-content"
-    role="dialog"
-    aria-modal="true"
-    aria-label="Menu de navigation"
-  >
-    <!-- Header -->
-    <div class="flex items-center justify-between p-6 border-b-2 border-black">
-      <a href="/" class="menu-logo" aria-label="Retour à l'accueil">
-        <img
-          src={logo.src}
-          alt="Jon Labs"
-          class="h-7 w-auto"
-        />
-      </a>
-      <button
-        id="menu-close"
-        aria-label="Fermer le menu"
-        class="menu-close-btn"
-      >
-        <i class="ri-close-line text-2xl" aria-hidden="true"></i>
-      </button>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="flex-1 flex flex-col justify-center px-6">
-      <ul class="space-y-1">
-        {links.map((item, index) => (
-          <li class="menu-item" style={`--i: ${index}`}>
-            <a
-              href={item.path}
-              target={item.target}
-              class={`menu-link ${pathname === item.path ? 'is-active' : ''}`}
-            >
-              <span class="menu-number">0{index + 1}</span>
-              <span class="menu-separator">—</span>
-              <span class="menu-text">{item.name}</span>
-              {pathname === item.path && (
-                <i class="ri-arrow-right-line ml-auto text-lg" aria-hidden="true"></i>
-              )}
-            </a>
-          </li>
-        ))}
-      </ul>
-
-      <!-- CTA Contact -->
-      <a href="/contact" class="menu-cta mt-8">
-        Contact
-        <i class="ri-arrow-right-line" aria-hidden="true"></i>
-      </a>
-    </nav>
-
-    <!-- Footer -->
-    <div class="flex items-center justify-between p-6 border-t-2 border-dashed border-black/30">
-      <div class="flex gap-3">
-        <a
-          href={author.linkedin}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="social-icon"
-          aria-label="LinkedIn"
-        >
-          <i class="ri-linkedin-fill" aria-hidden="true"></i>
-        </a>
-        <a
-          href={author.github}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="social-icon"
-          aria-label="GitHub"
-        >
-          <i class="ri-github-fill" aria-hidden="true"></i>
-        </a>
-        <a
-          href={author.email}
-          class="social-icon"
-          aria-label="Email"
-        >
-          <i class="ri-mail-fill" aria-hidden="true"></i>
+    <nav class="flex w-full items-center p-2 md:p-0" aria-label="Navigation principale">
+      <div class="flex-1 font-bold">
+        <a href="/" class="flex items-center pl-3 group" aria-label="Accueil Jon Labs">
+          <img
+            src={logo.src}
+            alt="Jon Labs"
+            class={`h-6 md:h-7 w-auto transition-transform duration-300 ${isTransparent ? 'brightness-0 invert' : ''}`}
+          />
         </a>
       </div>
-      <span class="flex items-center gap-2 text-sm font-medium">
-        <i class="ri-map-pin-fill" aria-hidden="true"></i>
-        {author.location}
-      </span>
-    </div>
-  </div>
 
+      {/* Bouton burger mobile */}
+      <button
+        class={`flex md:hidden p-2 focus:ring-2 focus:outline-none ${isTransparent ? 'text-white focus:ring-white' : 'focus:ring-black'}`}
+        id="menu-open"
+        aria-label="Ouvrir le menu de navigation"
+        aria-expanded="false"
+        aria-controls="menu-content"
+      >
+        <i class="ri-menu-2-line text-2xl" aria-hidden="true"></i>
+      </button>
+
+      {/* Mega menu desktop */}
+      <MegaMenu variant={variant} />
+    </nav>
+  </div>
+</header>
+
+{/* Drawer mobile (rendu en dehors du header sticky pour fullscreen) */}
+<MobileNavDrawer />
 
 <style>
-  /* Menu Mobile Full-Screen Brutalist */
-  .mobile-menu {
-    background: var(--blue);
-    transform: translateY(-100%);
-    opacity: 0;
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-    pointer-events: none;
-  }
-
-  .mobile-menu.is-open {
-    transform: translateY(0);
-    opacity: 1;
-    pointer-events: auto;
-  }
-
-  .menu-close-btn {
-    width: 44px;
-    height: 44px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid black;
-    background: white;
-    transition: all 0.2s;
-  }
-
-  .menu-close-btn:hover,
-  .menu-close-btn:focus {
-    background: black;
-    color: white;
-    outline: none;
-  }
-
-  .menu-link {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.875rem 1.25rem;
-    font-size: 1.75rem;
-    font-weight: 400;
-    transition: all 0.2s ease;
-    border: 2px solid transparent;
-  }
-
-  .menu-link:hover,
-  .menu-link:focus {
-    background: black;
-    color: white;
-    transform: translateX(8px);
-    border-color: black;
-    outline: none;
-  }
-
-  .menu-link.is-active {
-    background: rgba(0, 0, 0, 0.1);
-  }
-
-  .menu-number {
-    font-family: ui-monospace, monospace;
-    font-size: 0.75rem;
-    opacity: 0.5;
-    min-width: 1.5rem;
-  }
-
-  .menu-separator {
-    opacity: 0.3;
-  }
-
-  .menu-item {
-    opacity: 0;
-    transform: translateX(-20px);
-  }
-
-  .mobile-menu.is-open .menu-item {
-    animation: menuSlideIn 0.4s ease forwards;
-    animation-delay: calc(var(--i) * 0.05s + 0.1s);
-  }
-
-  @keyframes menuSlideIn {
-    to {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-
-  .menu-cta {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    padding: 1.125rem 2rem;
-    background: black;
-    color: white;
-    font-size: 1.125rem;
-    font-weight: 700;
-    border: 3px solid black;
-    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.3);
-    transition: all 0.2s ease;
-  }
-
-  .menu-cta:hover,
-  .menu-cta:focus {
-    background: var(--yellow);
-    color: black;
-    transform: translate(2px, 2px);
-    box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.3);
-    outline: none;
-  }
-
-  .social-icon {
-    width: 40px;
-    height: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid black;
-    background: white;
-    font-size: 1.125rem;
-    transition: all 0.2s ease;
-  }
-
-  .social-icon:hover,
-  .social-icon:focus {
-    background: black;
-    color: white;
-    transform: translateY(-2px);
-    outline: none;
-  }
-
   /* ===== SCROLL TRANSITION STYLES ===== */
-  /* Header avec transition au scroll (transparent -> solid) */
   header.scroll-transition {
     transition: all 0.3s ease;
   }
@@ -348,13 +65,11 @@ const { pathname } = Astro.url
     transition: all 0.3s ease;
   }
 
-  /* État après scroll: fond solide */
   header.scroll-transition.is-scrolled > div {
     border-color: black;
     background-color: white;
   }
 
-  /* Corner boxes transition */
   header.scroll-transition .size-2 {
     transition: all 0.3s ease;
   }
@@ -364,7 +79,6 @@ const { pathname } = Astro.url
     border-color: black;
   }
 
-  /* Logo transition */
   header.scroll-transition img[alt="Jon Labs"] {
     transition: filter 0.3s ease;
   }
@@ -375,11 +89,13 @@ const { pathname } = Astro.url
 
   /* Nav links transition */
   header.scroll-transition nav a,
-  header.scroll-transition nav span {
+  header.scroll-transition nav span,
+  header.scroll-transition nav button {
     transition: color 0.3s ease;
   }
 
-  header.scroll-transition.is-scrolled nav ul li a {
+  header.scroll-transition.is-scrolled nav ul li a,
+  header.scroll-transition.is-scrolled nav ul li button {
     color: black;
   }
 
@@ -414,61 +130,23 @@ const { pathname } = Astro.url
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    const menuContent = document.querySelector('#menu-content');
-    const menuOpen = document.querySelector('#menu-open');
-    const menuClose = document.querySelector('#menu-close');
-
-    function openMenu() {
-        menuContent?.classList.add('is-open');
-        menuOpen?.setAttribute('aria-expanded', 'true');
-        document.body.style.overflow = 'hidden';
-    }
-
-    function closeMenu() {
-        menuContent?.classList.remove('is-open');
-        menuOpen?.setAttribute('aria-expanded', 'false');
-        document.body.style.overflow = '';
-    }
-
-    menuOpen?.addEventListener('click', (e) => {
-        e.preventDefault();
-        openMenu();
-    });
-
-    menuClose?.addEventListener('click', (e) => {
-        e.preventDefault();
-        closeMenu();
-    });
-
-    // Fermer au clic sur un lien
-    menuContent?.querySelectorAll('a').forEach(item => {
-        item.addEventListener('click', closeMenu);
-    });
-
-    // Fermer avec la touche Escape
-    document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') closeMenu();
-    });
-
+  document.addEventListener('DOMContentLoaded', () => {
     // Scroll transition: transparent -> solid quand le hero sort de l'écran
     const header = document.querySelector('header[data-scroll-transition="true"]');
-    // Support plusieurs classes de hero (.hero-section, .hero-hub, etc.)
     const heroSection = document.querySelector('.hero-section, .hero-hub, section[class*="hero"]');
 
     if (header && heroSection) {
-        const observer = new IntersectionObserver(
-            ([entry]) => {
-                // Quand le hero n'est plus visible (ou presque plus)
-                if (entry.intersectionRatio < 0.1) {
-                    header.classList.add('is-scrolled');
-                } else {
-                    header.classList.remove('is-scrolled');
-                }
-            },
-            { threshold: [0, 0.1, 0.5, 1] }
-        );
-        observer.observe(heroSection);
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.intersectionRatio < 0.1) {
+            header.classList.add('is-scrolled');
+          } else {
+            header.classList.remove('is-scrolled');
+          }
+        },
+        { threshold: [0, 0.1, 0.5, 1] }
+      );
+      observer.observe(heroSection);
     }
-});
+  });
 </script>

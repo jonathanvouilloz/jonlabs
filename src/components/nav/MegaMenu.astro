@@ -1,0 +1,310 @@
+---
+import { mainNav, ctaContact } from '../../data/navigation';
+import NavLink from './NavLink.astro';
+
+interface Props {
+  variant?: 'default' | 'transparent';
+}
+
+const { variant = 'default' } = Astro.props;
+const isTransparent = variant === 'transparent';
+const { pathname } = Astro.url;
+
+const isActive = (href: string) => {
+  if (href === '/') return pathname === '/';
+  return pathname === href || pathname.startsWith(href + '/');
+};
+
+const slugify = (str: string) =>
+  str.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+---
+
+<ul class="hidden md:flex items-center" data-mega-menu>
+  {mainNav.map((section) => {
+    const panelId = `mega-${slugify(section.label)}`;
+    const sectionActive = isActive(section.href);
+
+    if (section.type === 'flat') {
+      return (
+        <li
+          class:list={[
+            'relative px-1 py-3 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-5 before:w-[2px]',
+            isTransparent ? 'before:bg-white/30' : 'before:bg-black',
+          ]}
+        >
+          <NavLink
+            item={{ label: section.label, href: section.href }}
+            variant={isTransparent ? 'transparent' : 'default'}
+            active={sectionActive}
+          />
+        </li>
+      );
+    }
+
+    return (
+      <li
+        class:list={[
+          'relative px-1 py-3 before:absolute before:left-0 before:top-1/2 before:-translate-y-1/2 before:h-5 before:w-[2px]',
+          isTransparent ? 'before:bg-white/30' : 'before:bg-black',
+        ]}
+        data-mega-section
+      >
+        <button
+          type="button"
+          aria-haspopup="true"
+          aria-expanded="false"
+          aria-controls={panelId}
+          data-mega-trigger
+          class:list={[
+            'relative flex items-center gap-1 whitespace-nowrap px-5 py-1 group cursor-pointer',
+            isTransparent && 'text-white',
+          ]}
+        >
+          <span
+            class:list={[
+              'relative before:absolute before:left-0 before:-bottom-1 before:h-[6px] before:w-0 before:transition-all before:duration-300 group-hover:before:w-full',
+              isTransparent ? 'before:bg-[var(--blue)]' : 'before:bg-[var(--accent)]',
+              sectionActive && 'before:w-full',
+            ]}
+          >
+            {section.label}
+          </span>
+          <i class="ri-arrow-down-s-line text-base transition-transform duration-200" aria-hidden="true" data-mega-chevron></i>
+        </button>
+      </li>
+    );
+  })}
+
+  {/* CTA Contact en flat */}
+  <li class="relative px-2 py-2 flex items-center">
+    <a
+      href={ctaContact.href}
+      class:list={[
+        isTransparent
+          ? 'bg-white/10 border-2 border-white/40 px-4 py-1.5 font-medium text-sm text-white transition-all duration-200 hover:bg-white/20 hover:border-white/60 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-transparent focus:outline-none'
+          : 'bg-[var(--blue)] border-2 border-black px-4 py-1.5 font-medium text-sm shadow-[3px_3px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:bg-[var(--yellow)] hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] focus:ring-2 focus:ring-black focus:ring-offset-2 focus:outline-none',
+      ]}
+    >
+      Contact
+    </a>
+  </li>
+</ul>
+
+{/* Mega panels — un par section avec type 'mega' */}
+<div class="hidden md:block" aria-hidden="true" data-mega-panels-host>
+  {mainNav.filter((s) => s.type === 'mega').map((section) => {
+    const panelId = `mega-${slugify(section.label)}`;
+    const colCount = section.columns?.length ?? 0;
+    const gridCols = colCount === 4 ? 'md:grid-cols-4' : colCount === 3 ? 'md:grid-cols-3' : colCount === 2 ? 'md:grid-cols-2' : 'md:grid-cols-1';
+
+    return (
+      <div
+        id={panelId}
+        data-mega-panel
+        data-section={slugify(section.label)}
+        role="region"
+        aria-label={`Menu ${section.label}`}
+        class="mega-panel fixed left-1/2 -translate-x-1/2 top-[var(--mega-top,80px)] z-30 w-[min(96vw,1100px)] bg-white border-2 border-black shadow-[6px_6px_0px_rgba(0,0,0,0.4)] hidden"
+      >
+        <div class={`grid grid-cols-1 ${gridCols} gap-x-6 gap-y-4 p-6`}>
+          {section.columns?.map((column) => (
+            <div>
+              <h3 class="font-bold text-xs uppercase tracking-wider text-gray-500 mb-3 pb-2 border-b border-black/10">
+                {column.title}
+              </h3>
+              <ul class="space-y-1">
+                {column.items.map((item) => (
+                  <li>
+                    <NavLink item={item} variant="mega-item" active={isActive(item.href)} />
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+
+        {(section.spotlight || section.footer) && (
+          <div class="border-t-2 border-black bg-[var(--main-bg)] px-6 py-4 flex flex-col md:flex-row items-stretch md:items-center gap-4">
+            {section.spotlight && (
+              <div class="flex-1">
+                <NavLink
+                  item={{
+                    label: section.spotlight.title,
+                    href: section.spotlight.href,
+                    icon: section.spotlight.icon,
+                  }}
+                  variant="spotlight"
+                />
+                <p class="text-xs text-gray-600 mt-1.5 ml-1">{section.spotlight.description}</p>
+              </div>
+            )}
+            {section.footer && (
+              <a
+                href={section.footer.href}
+                class="inline-flex items-center gap-2 text-sm font-bold underline hover:text-[var(--blue)] transition-colors whitespace-nowrap"
+              >
+                {section.footer.label}
+              </a>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  })}
+</div>
+
+<style>
+  .mega-panel {
+    opacity: 0;
+    transform: translate(-50%, -8px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+    pointer-events: none;
+  }
+  .mega-panel.is-open {
+    opacity: 1;
+    transform: translate(-50%, 0);
+    pointer-events: auto;
+    display: block;
+  }
+
+  [data-mega-trigger][aria-expanded="true"] [data-mega-chevron] {
+    transform: rotate(180deg);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mega-panel {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const triggers = document.querySelectorAll<HTMLButtonElement>('[data-mega-trigger]');
+    const panels = document.querySelectorAll<HTMLDivElement>('[data-mega-panel]');
+    const panelMap = new Map<string, HTMLDivElement>();
+    panels.forEach((p) => {
+      const section = p.getAttribute('data-section');
+      if (section) panelMap.set(section, p);
+    });
+
+    let openSection: string | null = null;
+    let closeTimer: number | null = null;
+    const HOVER_OPEN_DELAY = 80;
+    const HOVER_CLOSE_DELAY = 180;
+
+    const slugify = (str: string) =>
+      str.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+    const updateMegaTopPosition = () => {
+      // Position le panel sous le header sticky
+      const header = document.querySelector('header');
+      if (header) {
+        const rect = header.getBoundingClientRect();
+        document.documentElement.style.setProperty('--mega-top', `${rect.bottom + 8}px`);
+      }
+    };
+    updateMegaTopPosition();
+    window.addEventListener('scroll', updateMegaTopPosition, { passive: true });
+    window.addEventListener('resize', updateMegaTopPosition);
+
+    const openPanel = (section: string) => {
+      if (closeTimer) {
+        window.clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+      if (openSection === section) return;
+      // Ferme tout panel ouvert
+      if (openSection) closePanel(openSection);
+      const panel = panelMap.get(section);
+      const trigger = document.querySelector<HTMLButtonElement>(`[data-mega-trigger][aria-controls="mega-${section}"]`);
+      if (panel && trigger) {
+        updateMegaTopPosition();
+        panel.classList.add('is-open');
+        trigger.setAttribute('aria-expanded', 'true');
+        openSection = section;
+      }
+    };
+
+    const closePanel = (section: string) => {
+      const panel = panelMap.get(section);
+      const trigger = document.querySelector<HTMLButtonElement>(`[data-mega-trigger][aria-controls="mega-${section}"]`);
+      if (panel) panel.classList.remove('is-open');
+      if (trigger) trigger.setAttribute('aria-expanded', 'false');
+      if (openSection === section) openSection = null;
+    };
+
+    const closeAll = () => {
+      if (openSection) closePanel(openSection);
+    };
+
+    const scheduleClose = () => {
+      if (closeTimer) window.clearTimeout(closeTimer);
+      closeTimer = window.setTimeout(() => {
+        closeAll();
+      }, HOVER_CLOSE_DELAY);
+    };
+
+    triggers.forEach((trigger) => {
+      const section = trigger.getAttribute('aria-controls')?.replace('mega-', '') ?? '';
+      const li = trigger.closest('li');
+
+      // Hover open with small delay
+      let openTimer: number | null = null;
+      li?.addEventListener('mouseenter', () => {
+        if (openTimer) window.clearTimeout(openTimer);
+        openTimer = window.setTimeout(() => openPanel(section), HOVER_OPEN_DELAY);
+      });
+      li?.addEventListener('mouseleave', () => {
+        if (openTimer) {
+          window.clearTimeout(openTimer);
+          openTimer = null;
+        }
+        scheduleClose();
+      });
+
+      // Click toggle (et focus management)
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (openSection === section) {
+          closePanel(section);
+        } else {
+          openPanel(section);
+        }
+      });
+
+      // Focus / blur
+      trigger.addEventListener('focus', () => {
+        // Pas d'ouverture automatique au focus pour ne pas surprendre l'utilisateur clavier
+      });
+    });
+
+    // Garder le panel ouvert quand on hover dessus
+    panels.forEach((panel) => {
+      panel.addEventListener('mouseenter', () => {
+        if (closeTimer) {
+          window.clearTimeout(closeTimer);
+          closeTimer = null;
+        }
+      });
+      panel.addEventListener('mouseleave', scheduleClose);
+    });
+
+    // Escape ferme + remet focus sur le trigger
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && openSection) {
+        const trigger = document.querySelector<HTMLButtonElement>(`[data-mega-trigger][aria-controls="mega-${openSection}"]`);
+        closeAll();
+        trigger?.focus();
+      }
+    });
+
+    // Click outside ferme
+    document.addEventListener('click', (e) => {
+      const target = e.target as Node;
+      const isTrigger = (target as Element)?.closest?.('[data-mega-trigger]');
+      const isPanel = (target as Element)?.closest?.('[data-mega-panel]');
+      if (!isTrigger && !isPanel) closeAll();
+    });
+  });
+</script>

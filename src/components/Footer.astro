@@ -2,6 +2,7 @@
 import logo from '../assets/logo.svg'
 import svgPinkStar from '../assets/pink-star.svg'
 import { author } from '../sample'
+import { mainNav, ctaContact } from '../data/navigation'
 
 const socials = [
     { icon: 'ri-linkedin-fill', link: author.linkedin, label: 'LinkedIn' },
@@ -9,13 +10,10 @@ const socials = [
     { icon: 'ri-mail-fill', link: author.email, label: 'Email' },
 ]
 
+// Source de vérité unique : mainNav (data/navigation.ts) + Contact + CV
 const footerLinks = [
-    { name: 'Services', path: '/services' },
-    { name: 'Tarifs', path: '/tarifs' },
-    { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Blog', path: '/blog' },
-    { name: 'À propos', path: '/about' },
-    { name: 'Contact', path: '/contact' },
+    ...mainNav.map((section) => ({ name: section.label, path: section.href })),
+    { name: ctaContact.label, path: ctaContact.href },
     { name: 'CV', path: '/cv' },
 ]
 ---

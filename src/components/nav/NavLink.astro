@@ -1,0 +1,132 @@
+---
+import type { NavItem } from '../../data/navigation';
+
+interface Props {
+  item: NavItem;
+  variant?: 'default' | 'transparent' | 'mega-item' | 'spotlight' | 'mobile-flat' | 'mobile-mega-item' | 'mobile-spotlight';
+  active?: boolean;
+}
+
+const { item, variant = 'default', active = false } = Astro.props;
+
+const ariaCurrent = active ? 'page' : undefined;
+const externalProps = item.external
+  ? { target: '_blank', rel: 'noopener noreferrer' }
+  : {};
+---
+
+{variant === 'default' && (
+  <a
+    href={item.href}
+    aria-current={ariaCurrent}
+    {...externalProps}
+    class="relative flex items-center whitespace-nowrap px-5 py-1 group"
+  >
+    <span
+      class:list={[
+        'relative before:absolute before:left-0 before:-bottom-1 before:h-[6px] before:w-0 before:bg-[var(--accent)] before:transition-all before:duration-300 group-hover:before:w-full',
+        active && 'before:w-full',
+      ]}
+    >
+      {item.label}
+    </span>
+  </a>
+)}
+
+{variant === 'transparent' && (
+  <a
+    href={item.href}
+    aria-current={ariaCurrent}
+    {...externalProps}
+    class="relative flex items-center whitespace-nowrap px-5 py-1 group text-white"
+  >
+    <span
+      class:list={[
+        'relative before:absolute before:left-0 before:-bottom-1 before:h-[6px] before:w-0 before:bg-[var(--blue)] before:transition-all before:duration-300 group-hover:before:w-full',
+        active && 'before:w-full',
+      ]}
+    >
+      {item.label}
+    </span>
+  </a>
+)}
+
+{variant === 'mega-item' && (
+  <a
+    href={item.href}
+    aria-current={ariaCurrent}
+    {...externalProps}
+    class:list={[
+      'group flex items-center gap-3 px-3 py-2.5 border-2 border-transparent text-sm transition-all duration-200',
+      'hover:border-black hover:bg-[var(--main-bg)] hover:translate-x-[2px]',
+      active && 'border-black bg-[var(--yellow)]',
+    ]}
+  >
+    {item.icon && (
+      <i class={`${item.icon} text-base text-gray-500 group-hover:text-black transition-colors`} aria-hidden="true"></i>
+    )}
+    <span class="flex-1 font-medium text-gray-800 group-hover:text-black">
+      {item.label}
+    </span>
+    {item.badge === 'featured' && (
+      <span class="text-[10px] uppercase tracking-wider bg-[var(--yellow)] border border-black px-1.5 py-0.5 font-bold">
+        À la une
+      </span>
+    )}
+    {item.badge === 'new' && (
+      <span class="text-[10px] uppercase tracking-wider bg-[var(--blue)] border border-black px-1.5 py-0.5 font-bold">
+        Nouveau
+      </span>
+    )}
+    {item.external && (
+      <i class="ri-external-link-line text-xs text-gray-400" aria-hidden="true"></i>
+    )}
+  </a>
+)}
+
+{variant === 'spotlight' && (
+  <a
+    href={item.href}
+    {...externalProps}
+    class="group flex items-center gap-3 bg-[var(--yellow)] border-2 border-black px-4 py-3 shadow-[3px_3px_0px_rgba(0,0,0,0.2)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_rgba(0,0,0,0.25)] transition-all"
+  >
+    {item.icon && (
+      <i class={`${item.icon} text-xl`} aria-hidden="true"></i>
+    )}
+    <span class="flex-1 font-bold text-sm">{item.label}</span>
+    <i class="ri-arrow-right-line text-base group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
+  </a>
+)}
+
+{variant === 'mobile-flat' && (
+  <a
+    href={item.href}
+    aria-current={ariaCurrent}
+    {...externalProps}
+    class:list={['menu-link', active && 'is-active']}
+  >
+    <span class="menu-text">{item.label}</span>
+  </a>
+)}
+
+{variant === 'mobile-mega-item' && (
+  <a
+    href={item.href}
+    aria-current={ariaCurrent}
+    {...externalProps}
+    class="flex items-center gap-3 px-4 py-2.5 text-base border-l-2 border-transparent hover:border-black hover:bg-black/5 transition-all"
+  >
+    {item.icon && (
+      <i class={`${item.icon} text-base text-gray-600`} aria-hidden="true"></i>
+    )}
+    <span class="flex-1">{item.label}</span>
+    {item.badge === 'featured' && (
+      <span class="text-[10px] uppercase tracking-wider bg-[var(--yellow)] border border-black px-1.5 py-0.5 font-bold">
+        À la une
+      </span>
+    )}
+    {item.external && (
+      <i class="ri-external-link-line text-xs text-gray-400" aria-hidden="true"></i>
+    )}
+  </a>
+)}
