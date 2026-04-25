@@ -8,8 +8,21 @@ image:
 category: "tech"
 tags: ["calculateur", "roi", "site-web", "suisse-romande", "pme", "outil"]
 featured: false
-draft: true
+draft: false
 readingTime: 8
+faqs:
+  - question: "Le calculateur est-il fiable pour le marché suisse ?"
+    answer: "Il est calibré sur des données suisses romandes : tarifs OFS 2024, panel de 50 sites d'indépendants locaux audités en avril 2026, comportements de recherche adaptés au marché francophone. Ce n'est pas un outil générique copié depuis des données américaines. Reste que c'est une estimation, pas un chiffre comptable. Pour une analyse précise de ta situation, l'audit est le bon point de départ."
+  - question: "Mon site n'est pas dormant mais je ne sais pas s'il rapporte quelque chose. Comment savoir ?"
+    answer: "Il y a des signaux concrets : dernière publication de contenu, score Lighthouse sous 70, pas d'analytics configuré, copyright obsolète, aucun appel ou formulaire provenant du site depuis 6 mois. La checklist des 15 signes que ton site web dort couvre ça point par point."
+  - question: "À partir de quel résultat est-ce que ça vaut le coup de refaire son site ?"
+    answer: "Règle simple : quand le manque à gagner annuel estimé dépasse le coût d'une refonte sur 12 à 18 mois, agir devient rentable. Si ton calculateur affiche 8'000 CHF/an de manque à gagner et qu'une refonte coûte 4'500 CHF, le ROI est positif dès la fin de la première année. Si le chiffre est plus bas, d'autres leviers (fiche GMB, contenu ciblé) peuvent d'abord être activés à moindre coût."
+  - question: "Est-ce que je peux réactiver mon site moi-même sans faire appel à quelqu'un ?"
+    answer: "Oui, en partie. Mettre à jour tes textes, publier un article ciblé, activer ta fiche Google Business Profile, corriger les liens cassés — tout ça se fait sans développeur. En revanche, améliorer significativement ton score Lighthouse, restructurer le SEO technique, ou migrer vers une architecture plus rapide, c'est une autre paire de manches. Tu peux gagner 20% de résultats seul, les 80% restants nécessitent soit de monter en compétences, soit de déléguer."
+  - question: "Combien coûte vraiment un site web qui rapporte en Suisse ?"
+    answer: "Le marché romand se situe entre 2'500 et 8'000 CHF pour un site vitrine TPE/PME bien fait, avec stratégie SEO, contenu et fiche Google Business intégrés. Au-delà, on entre dans le e-commerce ou le sur-mesure. En dessous, on tombe sur du template non optimisé qui rejoindra les 76% de sites dormants dans 18 mois."
+  - question: "Le calculateur stocke-t-il mes données ?"
+    answer: "Non. Aucune donnée n'est envoyée à un serveur. Le calcul se fait entièrement dans ton navigateur, en JavaScript local. Pas de formulaire, pas d'email demandé, pas de tracking sur les valeurs saisies. Tu peux fermer l'onglet, rien n'est conservé."
 ---
 import CoutDormantCalculateur from '../../components/CoutDormantCalculateur.astro';
 
@@ -39,7 +52,7 @@ J'ai construit ce calculateur après avoir audité 50 sites d'indépendants roma
 
 <CoutDormantCalculateur />
 
-Si le chiffre affiché te surprend, voici d'où il vient, et pourquoi il est probablement conservateur.
+Si le chiffre affiché te surprend, voici d'où il vient, et pourquoi il est probablement conservateur. Avant d'aller plus loin, si tu veux d'abord vérifier objectivement que ton site est vraiment dormant, [la checklist des 15 signes que ton site web dort](/blog/15-signes-site-web-dort) te donne un score sur 15 en 4 minutes.
 
 ---
 
@@ -138,6 +151,16 @@ Règle simple : quand le manque à gagner annuel estimé dépasse le coût d'une
 **Est-ce que je peux réactiver mon site moi-même sans faire appel à quelqu'un ?**
 
 Oui, en partie. Mettre à jour tes textes, publier un article ciblé, activer ta fiche Google Business Profile, corriger les liens cassés — tout ça se fait sans développeur. En revanche, améliorer significativement ton score Lighthouse, restructurer le SEO technique, ou migrer vers une architecture plus rapide, c'est une autre paire de manches. La réponse honnête : tu peux gagner 20% de résultats seul, les 80% restants nécessitent soit de monter en compétences, soit de déléguer.
+
+---
+
+## Et après ?
+
+Tu connais maintenant le coût annuel de ton inaction. Trois pistes selon ton profil :
+
+- Tu veux comprendre ce qu'on peut faire concrètement : [découvre l'ensemble de mes services](/services) (refonte, SEO local, contenu).
+- Tu veux savoir combien ça coûte avant de décider : [mes tarifs sont publics](/tarifs), packs détaillés, sans devis-piège.
+- Tu hésites entre faire appel à un freelance ou à une agence : [le comparatif honnête est ici](/blog/freelance-ou-agence-web).
 
 ---
 
