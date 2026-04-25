@@ -35,3 +35,13 @@ presets:
       max_title_width_ratio: 0.65
     output_dir: public/images/blog
     output_naming: "{slug}.webp"
+
+  linkedin-cover-gemini:
+    description: "Cover LinkedIn cartoon/absurde via Gemini, format carré 1:1, aucun overlay texte"
+    source: gemini
+    base_style_override: flat-illustration
+    no_reference: true
+    layout_directives: "Generate a square 1:1 cartoon illustration, 1280x1280px, centered composition suitable for a LinkedIn feed post."
+    compose_text: false
+    output_dir: public/images/linkedin
+    output_naming: "{slug}.webp"

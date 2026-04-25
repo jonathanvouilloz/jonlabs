@@ -1,0 +1,29 @@
+{
+  "timestamp": "2026-04-23T07:24:53.590180+00:00",
+  "slug": "test-formulaire-abandonne",
+  "preset": "linkedin-cover-gemini",
+  "prompt_text": "Generate a square 1:1 cartoon illustration, 1280x1280px, centered composition suitable for a LinkedIn feed post.\n\nModern flat vector illustration.\nClean geometric shapes, minimal shadows, brand-palette colors.\nInspired by Stripe, Linear, Notion illustration style.\nFlat 2D perspective or subtle depth only.\nConsistent line weight, rounded corners.\nNo photoreal elements, no CGI, no 3D render.\n\nLighting: Natural ambient, clean and modern.\nMood: Professional but approachable, tech-forward.\nComposition: Clean backgrounds, minimal clutter.\n\nSUBJECT: Fun absurd cartoon scene on warm off-white background. Center: a personified contact form character sitting alone on a wooden park bench like an abandoned puppy, big sad cartoon eyes, single fat tear, its body shaped like a browser window showing input fields labeled 'Nom', 'Email', 'Message' and a yellow 'Envoyer' button covered in spiderwebs and dust. Cardboard sign hanging around its neck in messy handwriting reads 'Abandonne - 6 mois'. Two cartoon tumbleweeds rolling past in the background. From the right edge, three paper airplanes fly in but bounce off an invisible wall above the bench and fall flat on the ground with little cartoon impact stars. From the form's pockets, tiny Swiss franc bills and coins are being carried off by the wind, drifting up and out of the top of the frame. Top-right corner: a cartoon stopwatch character with arms, legs, and a cheeky wink, its hand frozen at the 90-second mark drawn in bright yellow highlight, holding a speech bubble that reads '90s pour me sauver'. Thick black inked outlines, slightly wobbly and playful, flat cel-shading. Brand palette: light blue (#BAE6FF) for cool accents and bright yellow (#FFDC58) for highlights, warm off-white background (#FEFFF0). Overall mood: slightly melancholic but funny, visually light, the kind of image that makes a freelancer smile while feeling gently called out. NOT realistic photography, NOT 3D render, NOT AI-shiny plastic look - clean flat cartoon with confident inked lines.\n\nNEGATIVE: blurry text, watermarks, stock photo feel, corporate clichés, photograph, photorealistic, realistic rendering, 3D render, volumetric lighting, depth of field, sketchy, hand-drawn pencil, watercolor, chaotic composition, visual noise, watermark, text overlay, logo of real brand",
+  "reference_image": null,
+  "output": "C:\\Users\\jojo-\\Desktop\\jonlabs\\public\\images\\linkedin\\test-formulaire-abandonne.webp",
+  "model": "nano-banana-pro-preview",
+  "response_metadata": {
+    "usage": {
+      "promptTokenCount": 511,
+      "candidatesTokenCount": 1493,
+      "totalTokenCount": 2360,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 511
+        }
+      ],
+      "candidatesTokensDetails": [
+        {
+          "modality": "IMAGE",
+          "tokenCount": 1120
+        }
+      ],
+      "thoughtsTokenCount": 356
+    }
+  }
+}

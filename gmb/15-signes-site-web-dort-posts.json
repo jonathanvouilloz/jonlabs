@@ -1,0 +1,50 @@
+[
+  {
+    "type": "gmb",
+    "title": "Checklist 15 signes site web dort",
+    "content": "7 indépendants romands sur 10 ont un site web qui a arrêté de travailler. Checklist 15 questions oui/non : tu sais en 4 minutes si c'est ton cas, avec un score sur 15 et un diagnostic honnête.",
+    "post_type": "whats_new",
+    "scheduled_at": "2026-05-04T09:00:00",
+    "cta": {
+      "action": "LEARN_MORE",
+      "url": "https://jonlabs.ch/blog/15-signes-site-web-dort"
+    },
+    "location_target": "all",
+    "image_template": "centered-minimal",
+    "image_style": "illustration",
+    "image_text": "15 signes, 4 minutes",
+    "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall. Centered layout on solid #00D9A3 background. Central illustration: a brutaliste checklist clipboard icon with thick black borders, 15 checkbox rows, several marked with bold black X marks and a few with thick dark checkmarks. Above the clipboard: a small brutaliste clock icon showing 4 minutes. Below the clipboard: '15 signes, 4 minutes' in bold sans-serif dark text #0F172A. Flat illustration style, no gradients, thick black outlines, geometric shapes only. Professionnel, créatif, maker atmosphere, brutaliste illustration style. No realistic human faces, no identifiable people, no geographic landmarks, no visible text except the designated text zone. No visual clutter, no complex patterns, no busy backgrounds."
+  },
+  {
+    "type": "gmb",
+    "title": "Teste ton formulaire de contact",
+    "content": "Ton formulaire de contact, tu l'as testé récemment depuis une adresse extérieure ? C'est le signe n°11 de la checklist qui détecte un site web qui dort. 90 secondes pour vérifier, parfois 10 demandes clients ratées par an en jeu.",
+    "post_type": "whats_new",
+    "scheduled_at": "2026-05-06T13:00:00",
+    "cta": {
+      "action": "LEARN_MORE",
+      "url": "https://jonlabs.ch/blog/15-signes-site-web-dort"
+    },
+    "location_target": "all",
+    "image_template": "split-vertical",
+    "image_style": "illustration",
+    "image_text": "Teste ton formulaire",
+    "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall. Split vertical layout. Left zone 55%: solid #00D9A3 background, 'Teste ton formulaire' in bold sans-serif white text #FFFFFF, large letters wrapping on 2 lines, high contrast. Right zone 45%: white background with an illustration of a stylized contact form showing 3 input fields and a large 'Envoyer' button with a bold red X crossing it out, a small crossed-out envelope icon beside it. Thick black borders, flat illustration style, no gradients, geometric shapes only. Professionnel, créatif, maker atmosphere, brutaliste illustration style. No realistic human faces, no identifiable people, no geographic landmarks, no visible text except the designated text zone. No visual clutter, no complex patterns, no busy backgrounds."
+  },
+  {
+    "type": "gmb",
+    "title": "3 paliers diagnostic site web",
+    "content": "Site réveillé, en sommeil, ou mort clinique ? 3 paliers de diagnostic sur la checklist 15 signes. Tu comptes tes oui, tu lis ton palier, tu sais exactement ce que tu fais lundi matin pour ton site.",
+    "post_type": "whats_new",
+    "scheduled_at": "2026-05-08T09:00:00",
+    "cta": {
+      "action": "LEARN_MORE",
+      "url": "https://jonlabs.ch/blog/15-signes-site-web-dort"
+    },
+    "location_target": "all",
+    "image_template": "split-horizontal",
+    "image_style": "illustration",
+    "image_text": "3 paliers de diagnostic",
+    "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall. Split horizontal layout. Top zone 60%: white background with three vertical bars representing diagnostic tiers, aligned bottom, thick black borders on each — left bar short in #00D9A3 labeled '0-5', middle bar medium height in #FFDC58 labeled '6-10', right bar tall in #EF4444 labeled '11-15'. Above each bar, one simple icon: a smiley, a sleeping Zzz bubble, a skull outline. Bottom zone 40%: solid #00D9A3 band with '3 paliers de diagnostic' in bold sans-serif dark text #0F172A, centered. Flat illustration style, no gradients, geometric shapes only. Professionnel, créatif, maker atmosphere, brutaliste illustration style. No realistic human faces, no identifiable people, no geographic landmarks, no visible text except the designated text zone. No visual clutter, no complex patterns, no busy backgrounds."
+  }
+]

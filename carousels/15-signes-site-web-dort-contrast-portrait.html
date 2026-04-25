@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Jon Labs — L'inaction coûte plus que la refonte (Contrast)</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════ tokens ═══════════════ */
+:root {
+  --ink:        #0a0a0a;
+  --bone:       #FEFFF0;
+  --paper:      #f5efd8;
+  --accent:     #00D4AA;
+  --accent-hi:  #FFDC58;
+  --muted:      #555555;
+  --danger:     #EF4444;
+
+  --accent-a-ee: color-mix(in srgb, var(--accent) 93%, transparent);
+  --accent-a-22: color-mix(in srgb, var(--accent) 13%, transparent);
+  --accent-a-08: color-mix(in srgb, var(--accent) 8%, transparent);
+
+  --bg:          var(--bone);
+  --fg:          var(--ink);
+  --rail:        color-mix(in srgb, var(--fg) 62%, transparent);
+  --rail-soft:   color-mix(in srgb, var(--fg) 35%, transparent);
+  --line:        color-mix(in srgb, var(--fg) 12%, transparent);
+  --line-strong: color-mix(in srgb, var(--fg) 25%, transparent);
+
+  --font-display: 'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-sans:    'Plus Jakarta Sans', -apple-system, sans-serif;
+  --font-mono:    'IBM Plex Mono', 'SF Mono', Menlo, monospace;
+
+  --w:           1080px;
+  --h:           1350px;
+  --pad:         80px;
+  --rail-top:    80px;
+  --rail-bottom: 100px;
+  --safe-top:    0px;
+  --safe-bottom: 0px;
+
+  --fs-hero:   130px;
+  --fs-h1:     100px;
+  --fs-stat:   380px;
+  --fs-h2:     72px;
+  --fs-body:   24px;
+  --fs-body-l: 30px;
+  --fs-label:  17px;
+  --fs-mono:   18px;
+
+  --ls-display: -0.035em;
+  --ls-stat:    -0.055em;
+  --ls-mono:    0.18em;
+  --ls-mono-sm: 0.20em;
+}
+
+/* Themes avec rails réajustés pour contraste sur fond dark */
+.slide--invert {
+  --bg: var(--ink);
+  --fg: var(--bone);
+  --rail:        color-mix(in srgb, var(--bone) 85%, transparent);
+  --rail-soft:   color-mix(in srgb, var(--bone) 60%, transparent);
+  --line:        color-mix(in srgb, var(--bone) 18%, transparent);
+  --line-strong: color-mix(in srgb, var(--bone) 32%, transparent);
+}
+.slide--paper  { --bg: var(--paper); --fg: var(--ink); }
+.slide--accent {
+  --bg: var(--accent);
+  --fg: var(--ink);
+  --rail: color-mix(in srgb, var(--ink) 78%, transparent);
+}
+
+body[data-format="portrait"] { --h: 1350px; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body {
+  background: #d4d4d4;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+body {
+  padding: 40px;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 28px;
+  min-height: 100vh;
+}
+
+.slide {
+  position: relative;
+  width: var(--w); height: var(--h);
+  background: var(--bg); color: var(--fg);
+  overflow: hidden; flex-shrink: 0;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+.slide__bg      { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.slide__content { position: absolute; inset: 0; z-index: 1; display: flex; flex-direction: column; }
+.slide__shell   { position: absolute; inset: 0; pointer-events: none; z-index: 2; }
+
+em { font-style: italic; color: var(--accent); }
+
+/* ═══════════════ shell ═══════════════ */
+.shell__top, .shell__bottom {
+  position: absolute;
+  left: var(--pad); right: var(--pad);
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 24px;
+}
+.shell__top    { top: 60px; }
+.shell__bottom { bottom: 60px; }
+
+.shell__brand     { display: inline-flex; align-items: center; gap: 14px; }
+.shell__logo      { flex-shrink: 0; width: 32px; height: 32px; color: var(--fg); }
+.shell__logo svg  { display: block; width: 100%; height: 100%; }
+
+.shell__brand-name {
+  font-family: var(--font-sans);
+  font-size: 17px; font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--fg);
+}
+.shell__brand-tagline {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  letter-spacing: var(--ls-mono-sm);
+  text-transform: uppercase;
+  color: var(--rail);
+  margin-left: 12px; padding-left: 12px;
+  border-left: 1px solid var(--line);
+}
+
+/* Variante wordmark : logo SVG contient déjà le nom */
+.shell__brand--wordmark .shell__brand-name { display: none; }
+.shell__brand--wordmark .shell__logo { width: auto; height: 38px; }
+
+.shell__paginator {
+  font-family: var(--font-mono);
+  font-size: var(--fs-mono);
+  letter-spacing: var(--ls-mono-sm);
+  text-transform: uppercase;
+  color: var(--rail);
+  font-feature-settings: "tnum";
+}
+.shell__paginator .current { color: var(--fg); }
+.shell__paginator .sep     { opacity: 0.4; margin: 0 4px; }
+.shell__paginator .total   { opacity: 0.5; }
+
+.shell__url {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  letter-spacing: var(--ls-mono);
+  text-transform: uppercase;
+  color: var(--rail);
+}
+.shell__url::before { content: "→ "; color: var(--accent); margin-right: 4px; }
+
+.shell__pager-bars { display: inline-flex; gap: 8px; align-items: center; }
+.shell__pager-bar  { width: 8px; height: 8px; border-radius: 2px; background: var(--fg); opacity: 0.2; }
+.shell__pager-bar.is-active { width: 32px; opacity: 1; background: var(--accent); }
+
+/* ═══════════════ shapes ═══════════════ */
+.orb {
+  position: absolute; border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, var(--accent-a-ee) 0%, var(--accent-a-22) 55%, transparent 75%);
+  pointer-events: none; filter: blur(0.5px);
+}
+.orb--md { width: 520px;  height: 520px; }
+.orb--lg { width: 800px;  height: 800px; }
+.orb--xl { width: 1200px; height: 1200px; }
+.orb--tl { top: -15%; left: -15%; }
+.orb--tr { top: -18%; right: -18%; }
+.orb--bl { bottom: -15%; left: -15%; }
+
+.ring {
+  position: absolute; border-radius: 50%;
+  border: 1px solid var(--accent);
+  background: transparent; pointer-events: none;
+}
+.ring--md { width: 420px;  height: 420px; }
+.ring--lg { width: 700px;  height: 700px; }
+.ring--tr { top: -12%; right: -12%; }
+.ring--bl { bottom: -12%; left: -12%; }
+.ring--subtle { border-color: var(--line-strong); }
+
+.wave-underline { position: relative; display: inline-block; }
+.wave-underline::after {
+  content: "";
+  position: absolute; left: -4px; right: -4px; bottom: -18px;
+  height: 22px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 22' preserveAspectRatio='none'%3E%3Cpath d='M3 12 Q 75 2, 150 11 T 297 10' fill='none' stroke='%2300D4AA' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.strike-heavy {
+  text-decoration: line-through;
+  text-decoration-color: var(--danger);
+  text-decoration-thickness: 6px;
+  text-decoration-skip-ink: none;
+}
+
+/* ═══════════════ blocks ═══════════════ */
+.block {
+  position: absolute; inset: 0;
+  padding: calc(var(--rail-top) + 40px) var(--pad) calc(var(--rail-bottom) + 40px);
+  display: flex; flex-direction: column;
+}
+.block > * + * { margin-top: var(--gap, 28px); }
+
+/* Cover */
+.block--cover { justify-content: center; }
+
+.cover__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-mono-sm);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 40px;
+}
+
+.cover__title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--fs-hero);
+  line-height: 0.96;
+  letter-spacing: var(--ls-display);
+  color: var(--fg);
+  margin-bottom: 40px;
+}
+.cover__title em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.cover__rule {
+  width: 72px; height: 3px;
+  background: var(--accent);
+  margin-bottom: 32px; border: none;
+}
+
+.cover__subtitle {
+  font-family: var(--font-sans);
+  font-size: 26px; line-height: 1.5;
+  color: var(--rail); font-weight: 400;
+  max-width: 860px;
+}
+
+/* Split compare */
+.block--split-compare {
+  padding: calc(var(--rail-top) + 30px) var(--pad) calc(var(--rail-bottom) + 30px);
+  gap: 24px;
+  --gap: 0;
+}
+
+.split__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-mono-sm);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 18px;
+}
+
+.split__card {
+  flex: 1;
+  padding: 44px 52px;
+  display: flex; flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  border-radius: 2px;
+}
+.split__card--bad {
+  background: var(--paper);
+  color: var(--ink);
+  border: 2px solid var(--ink);
+}
+.split__card--good {
+  background: var(--ink);
+  color: var(--bone);
+  border: 2px solid var(--ink);
+  box-shadow: 8px 8px 0 var(--accent);
+}
+
+.split__badge {
+  display: inline-flex; align-items: center; gap: 12px;
+  font-family: var(--font-mono);
+  font-size: 15px;
+  letter-spacing: var(--ls-mono-sm);
+  text-transform: uppercase;
+}
+.split__badge::before {
+  content: ""; display: block;
+  width: 14px; height: 14px; border-radius: 50%;
+  background: var(--danger);
+}
+.split__card--good .split__badge::before { background: var(--accent); }
+
+.split__label {
+  color: var(--muted);
+  margin-top: 8px;
+  font-family: var(--font-sans);
+  font-size: 24px; font-weight: 600;
+  line-height: 1.2;
+}
+.split__card--good .split__label { color: var(--accent-hi); }
+
+.split__figure {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 140px;
+  line-height: 0.9;
+  letter-spacing: var(--ls-stat);
+  margin: 8px 0;
+}
+.split__card--bad .split__figure { color: var(--ink); }
+.split__card--bad .split__figure .strike-heavy { text-decoration-thickness: 8px; }
+
+.split__note {
+  font-family: var(--font-sans);
+  font-size: 20px; line-height: 1.45;
+  max-width: 720px;
+}
+.split__card--bad .split__note  { color: var(--muted); }
+.split__card--good .split__note { color: rgba(254, 255, 240, 0.88); }
+
+/* CTA filled */
+.block--cta-filled { justify-content: center; }
+
+.cta__eyebrow {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: var(--ls-mono-sm);
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 36px;
+}
+
+.cta__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 100px;
+  line-height: 0.98;
+  letter-spacing: var(--ls-display);
+  color: var(--fg);
+  margin-bottom: 40px;
+  max-width: 920px;
+}
+.cta__title em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.cta__body {
+  font-family: var(--font-sans);
+  font-size: 26px; line-height: 1.5;
+  color: var(--rail);
+  margin-bottom: 48px;
+  max-width: 800px;
+}
+
+.cta__button {
+  display: inline-flex; align-items: center; gap: 20px;
+  background: var(--fg); color: var(--bg);
+  padding: 26px 40px 26px 52px;
+  border-radius: 2px;
+  align-self: flex-start;
+  font-family: var(--font-sans);
+  font-size: 22px; font-weight: 600;
+  letter-spacing: -0.01em;
+  text-decoration: none;
+}
+
+.cta__button-arrow {
+  width: 52px; height: 52px; border-radius: 50%;
+  background: var(--accent); color: var(--ink);
+  display: inline-flex; align-items: center; justify-content: center;
+  font-size: 24px; flex-shrink: 0;
+}
+.cta__button-arrow::before { content: "→"; }
+</style>
+</head>
+
+<body class="shell-preset--compact-topleft direction--contrast" data-format="portrait">
+
+<!-- ═════════════ SLIDE 1 — COVER ═════════════ -->
+<div class="slide">
+  <div class="slide__bg">
+    <div class="ring ring--lg ring--tr ring--subtle"></div>
+    <div class="orb orb--md orb--bl"></div>
+  </div>
+
+  <div class="slide__content">
+    <div class="block block--cover">
+      <p class="cover__eyebrow">Idée reçue · Refonte vs inaction</p>
+      <h1 class="cover__title">
+        Refaire,<br>
+        <span class="wave-underline"><em>c'est cher</em></span>.<br>
+        Dormir aussi.
+      </h1>
+      <hr class="cover__rule">
+      <p class="cover__subtitle">4 paires de chiffres qui retournent la décision pour les indépendants romands dont le site n'a pas bougé depuis 18 mois.</p>
+    </div>
+  </div>
+
+  <div class="slide__shell">
+    <div class="shell__top">
+      <div class="shell__brand shell__brand--wordmark">
+        <span class="shell__logo"><svg viewBox="0 0 444.25 120" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><g><path stroke="currentColor" stroke-miterlimit="10" d="M24.09,16.82c2.79-.52,11.16-1.69,18.83,3.14a26.9,26.9,0,0,1,7.38,7.16,30.5,30.5,0,0,1,5.29,12,29.47,29.47,0,0,1,.55,6.5L77.2,26.57a29.16,29.16,0,0,0-8-17.09,27,27,0,0,0-5-3.85C61.73,4.08,53.44-1.11,43,1A26,26,0,0,0,32,6.18,26.29,26.29,0,0,0,24.09,16.82Z"/><path stroke="currentColor" stroke-miterlimit="10" d="M58.46,68.68,77.2,51.38a120.6,120.6,0,0,0,.11,18.19,37.11,37.11,0,0,1,0,8.15,30.19,30.19,0,0,1-2.65,9.7,26.84,26.84,0,0,1-8.15,10.37,26.3,26.3,0,0,1-7.94,4.08Q58.51,85.28,58.46,68.68Z"/><path stroke="currentColor" stroke-miterlimit="10" d="M.53,93.54,21.69,73.86c-.11,3.15,0,12.21,6.12,20A25.36,25.36,0,0,0,36.25,101a26.06,26.06,0,0,0,11.41,2.82,28.47,28.47,0,0,0,6.28-.5c-1,2.46-5.29,11.78-14.88,15a25.86,25.86,0,0,1-10.75,1,30.75,30.75,0,0,1-16.87-6C2.38,106.41.82,95.92.53,93.54Z"/><path stroke="currentColor" stroke-miterlimit="10" d="M.86,68.82,19.54,51.54q.09-16.83.17-33.65A31,31,0,0,0,5.41,29.05a28.25,28.25,0,0,0-3.56,7.53A26.57,26.57,0,0,0,.86,46Z"/><path d="M116.41,116.9V105h2.67c3.08,0,5.26-.71,6.56-2.15s1.94-3.54,1.94-6.34V35.09h12.58v67.12q0,6.87-4,10.78T125,116.9Zm11.17-90.41V14.9h12.58V26.49Z"/><path d="M173.25,93.3a28.2,28.2,0,0,1-14.84-3.83,26,26,0,0,1-9.83-10.57,33.14,33.14,0,0,1-3.49-15.49,32.8,32.8,0,0,1,3.57-15.63,26.3,26.3,0,0,1,9.91-10.49,30.7,30.7,0,0,1,29.57.05A26.31,26.31,0,0,1,198,47.91a33.07,33.07,0,0,1,3.52,15.5A33,33,0,0,1,198,79a26.31,26.31,0,0,1-9.89,10.54A28.37,28.37,0,0,1,173.25,93.3Zm0-11.85q7.56,0,11.22-5t3.67-13q0-8.23-3.72-13.14t-11.17-4.9a14.3,14.3,0,0,0-8.36,2.28A13.39,13.39,0,0,0,160,54a26,26,0,0,0-1.58,9.42q0,8.24,3.75,13.13T173.25,81.45Z"/><path d="M206.13,91.72V35.09H217.4V52.66h1.53V91.72Zm39.28,0V64.46a54.42,54.42,0,0,0-.37-5.93,21.45,21.45,0,0,0-1.7-6.27,12.23,12.23,0,0,0-4-4.95,11.9,11.9,0,0,0-7.16-1.94,15.08,15.08,0,0,0-4.77.78,10.88,10.88,0,0,0-4.27,2.71,13.47,13.47,0,0,0-3.07,5.24,26.44,26.44,0,0,0-1.15,8.52l-7.5-3.2a30.06,30.06,0,0,1,2.8-13.11A22.34,22.34,0,0,1,222.49,37a24.48,24.48,0,0,1,13.43-3.49,22.66,22.66,0,0,1,10.38,2.1,18.4,18.4,0,0,1,6.5,5.35,23.38,23.38,0,0,1,3.57,6.92,35.76,35.76,0,0,1,1.49,7,52.92,52.92,0,0,1,.34,5.32V91.72Z"/><path d="M266.07,91.72V14.64H278.7V91.72Z"/><path d="M303.45,93.3A21.24,21.24,0,0,1,293.07,91a15.89,15.89,0,0,1-6.42-6.21,17.21,17.21,0,0,1-2.18-8.55,19.24,19.24,0,0,1,1.36-7.37,14.75,14.75,0,0,1,4.2-5.66,22.49,22.49,0,0,1,7.34-3.91,71.23,71.23,0,0,1,8-2q4.59-.89,10-1.65T326.58,54l-4.51,2.57q0-5.88-2.62-8.65c-1.78-1.86-4.79-2.78-9-2.78a16.36,16.36,0,0,0-7.4,1.78,9.93,9.93,0,0,0-5,6.13l-11.53-3.61a21.35,21.35,0,0,1,8-11.54q5.91-4.35,15.92-4.35A33.52,33.52,0,0,1,323.72,36a16.5,16.5,0,0,1,8.52,8.08,17.08,17.08,0,0,1,1.84,6.11,67.88,67.88,0,0,1,.31,6.79V91.72H323.33V79.45l1.83,2a25.28,25.28,0,0,1-8.94,9A25.94,25.94,0,0,1,303.45,93.3ZM306,83.23a16.31,16.31,0,0,0,7.34-1.52A14.57,14.57,0,0,0,318.16,78a13,13,0,0,0,2.44-4.15,16.07,16.07,0,0,0,1.13-5.53c.09-2.08.13-3.77.13-5.06l3.88,1.15c-3.81.6-7.08,1.12-9.8,1.58s-5.08.88-7,1.28a47.25,47.25,0,0,0-5.19,1.34A16.41,16.41,0,0,0,300,70.43a7.85,7.85,0,0,0-2.33,2.42,6.14,6.14,0,0,0-.81,3.2,6.56,6.56,0,0,0,1,3.69A7.14,7.14,0,0,0,301,82.29,12,12,0,0,0,306,83.23Z"/><path d="M341.1,91.72V16.21h12.75V52h-1.58V91.72Zm27.33,1.58q-8.3,0-13.9-3.94a24,24,0,0,1-8.44-10.72,39.18,39.18,0,0,1-2.84-15.23,39.32,39.32,0,0,1,2.84-15.32,24.23,24.23,0,0,1,8.31-10.67A22.77,22.77,0,0,1,368,33.52a24.7,24.7,0,0,1,13.93,3.9A26.14,26.14,0,0,1,391,48.07a35,35,0,0,1,3.25,15.34,35.32,35.32,0,0,1-3.2,15.26,26,26,0,0,1-9,10.69A23.72,23.72,0,0,1,368.43,93.3ZM366.48,82a12.94,12.94,0,0,0,8.13-2.46,14.59,14.59,0,0,0,4.75-6.69,27.2,27.2,0,0,0,1.55-9.41,26.56,26.56,0,0,0-1.58-9.36,14.59,14.59,0,0,0-4.87-6.72,13.58,13.58,0,0,0-8.4-2.49,12.54,12.54,0,0,0-7.86,2.34,13.43,13.43,0,0,0-4.48,6.5,29.52,29.52,0,0,0-1.45,9.73,29.59,29.59,0,0,0,1.45,9.7A12.29,12.29,0,0,0,366.48,82Z"/><path d="M420.86,93.3q-10.49,0-17-4.72a19.57,19.57,0,0,1-8-13.27l12.9-2a10.86,10.86,0,0,0,4.41,6.61,14.56,14.56,0,0,0,8.6,2.41,11.88,11.88,0,0,0,7.05-1.81,5.81,5.81,0,0,0,2.49-5,5,5,0,0,0-.92-3.12,9.21,9.21,0,0,0-4-2.28q-3.09-1.1-9.49-2.78a56.93,56.93,0,0,1-11.33-4.06,14.73,14.73,0,0,1-6-5.17,13.58,13.58,0,0,1-1.83-7.23,15.53,15.53,0,0,1,2.78-9.23,17.73,17.73,0,0,1,7.76-6.06A29.69,29.69,0,0,1,420,33.52a31.43,31.43,0,0,1,11.72,2A20.41,20.41,0,0,1,440,41.38a17.44,17.44,0,0,1,3.88,8.86l-12.9,2.31a8.16,8.16,0,0,0-3.27-5.71,13.5,13.5,0,0,0-7.48-2.36A12.61,12.61,0,0,0,413,45.81a5,5,0,0,0-2.73,4.49,3.91,3.91,0,0,0,1.1,2.78,11.7,11.7,0,0,0,4.43,2.3q3.33,1.15,9.94,2.84a47,47,0,0,1,10.83,4,14.69,14.69,0,0,1,5.87,5.32,14.57,14.57,0,0,1,1.81,7.5q0,8.55-6.21,13.42T420.86,93.3Z"/></g></svg></span>
+        <span class="shell__brand-name">Jon Labs</span>
+        <span class="shell__brand-tagline">Genève</span>
+      </div>
+      <div class="shell__paginator"><span class="current">01</span><span class="sep">/</span><span class="total">06</span></div>
+    </div>
+    <div class="shell__bottom">
+      <span class="shell__url">jonlabs.ch</span>
+      <div class="shell__pager-bars">
+        <span class="shell__pager-bar is-active"></span>
+        <span class="shell__pager-bar"></span><span class="shell__pager-bar"></span>
+        <span class="shell__pager-bar"></span><span class="shell__pager-bar"></span>
+        <span class="shell__pager-bar"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════ SLIDE 2 — Coût visible vs invisible ═════════════ -->
+<div class="slide">
+  <div class="slide__content">
+    <div class="block block--split-compare">
+      <p class="split__eyebrow">01 — Coût visible vs invisible</p>
+      <div class="split__card split__card--bad">
+        <div>
+          <span class="split__badge">CE QUE TOUT LE MONDE PENSE</span>
+          <div class="split__label">Refonte = gros budget</div>
+        </div>
+        <div class="split__figure"><span class="strike-heavy">8k CHF</span></div>
+        <p class="split__note">Facture unique, visible sur le relevé. Ça fait mal sur le moment, puis c'est fini.</p>
+      </div>
+      <div class="split__card split__card--good">
+        <div>
+          <span class="split__badge">CE QUI SE PASSE VRAIMENT</span>
+          <div class="split__label">Inaction = budget silencieux</div>
+        </div>
+        <div class="split__figure">20k / an</div>
+        <p class="split__note">Clients perdus qui n'apparaissent nulle part. Zéro alerte sur le compte. Impact annuel permanent.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide__shell">
+    <div class="shell__top">
+      <div class="shell__brand shell__brand--wordmark">
+        <span class="shell__logo"><svg viewBox="0 0 444.25 120" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><g><path stroke="currentColor" stroke-miterlimit="10" d="M24.09,16.82c2.79-.52,11.16-1.69,18.83,3.14a26.9,26.9,0,0,1,7.38,7.16,30.5,30.5,0,0,1,5.29,12,29.47,29.47,0,0,1,.55,6.5L77.2,26.57a29.16,29.16,0,0,0-8-17.09,27,27,0,0,0-5-3.85C61.73,4.08,53.44-1.11,43,1A26,26,0,0,0,32,6.18,26.29,26.29,0,0,0,24.09,16.82Z"/><path stroke="currentColor" stroke-miterlimit="10" d="M58.46,68.68,77.2,51.38a120.6,120.6,0,0,0,.11,18.19,37.11,37.11,0,0,1,0,8.15,30.19,30.19,0,0,1-2.65,9.7,26.84,26.84,0,0,1-8.15,10.37,26.3,26.3,0,0,1-7.94,4.08Q58.51,85.28,58.46,68.68Z"/><path stroke="currentColor" stroke-miterlimit="10" d="M.53,93.54,21.69,73.86c-.11,3.15,0,12.21,6.12,20A25.36,25.36,0,0,0,36.25,101a26.06,26.06,0,0,0,11.41,2.82,28.47,28.47,0,0,0,6.28-.5c-1,2.46-5.29,11.78-14.88,15a25.86,25.86,0,0,1-10.75,1,30.75,30.75,0,0,1-16.87-6C2.38,106.41.82,95.92.53,93.54Z"/><path stroke="currentColor" stroke-miterlimit="10" d="M.86,68.82,19.54,51.54q.09-16.83.17-33.65A31,31,0,0,0,5.41,29.05a28.25,28.25,0,0,0-3.56,7.53A26.57,26.57,0,0,0,.86,46Z"/><path d="M116.41,116.9V105h2.67c3.08,0,5.26-.71,6.56-2.15s1.94-3.54,1.94-6.34V35.09h12.58v67.12q0,6.87-4,10.78T125,116.9Zm11.17-90.41V14.9h12.58V26.49Z"/><path d="M173.25,93.3a28.2,28.2,0,0,1-14.84-3.83,26,26,0,0,1-9.83-10.57,33.14,33.14,0,0,1-3.49-15.49,32.8,32.8,0,0,1,3.57-15.63,26.3,26.3,0,0,1,9.91-10.49,30.7,30.7,0,0,1,29.57.05A26.31,26.31,0,0,1,198,47.91a33.07,33.07,0,0,1,3.52,15.5A33,33,0,0,1,198,79a26.31,26.31,0,0,1-9.89,10.54A28.37,28.37,0,0,1,173.25,93.3Zm0-11.85q7.56,0,11.22-5t3.67-13q0-8.23-3.72-13.14t-11.17-4.9a14.3,14.3,0,0,0-8.36,2.28A13.39,13.39,0,0,0,160,54a26,26,0,0,0-1.58,9.42q0,8.24,3.75,13.13T173.25,81.45Z"/><path d="M206.13,91.72V35.09H217.4V52.66h1.53V91.72Zm39.28,0V64.46a54.42,54.42,0,0,0-.37-5.93,21.45,21.45,0,0,0-1.7-6.27,12.23,12.23,0,0,0-4-4.95,11.9,11.9,0,0,0-7.16-1.94,15.08,15.08,0,0,0-4.77.78,10.88,10.88,0,0,0-4.27,2.71,13.47,13.47,0,0,0-3.07,5.24,26.44,26.44,0,0,0-1.15,8.52l-7.5-3.2a30.06,30.06,0,0,1,2.8-13.11A22.34,22.34,0,0,1,222.49,37a24.48,24.48,0,0,1,13.43-3.49,22.66,22.66,0,0,1,10.38,2.1,18.4,18.4,0,0,1,6.5,5.35,23.38,23.38,0,0,1,3.57,6.92,35.76,35.76,0,0,1,1.49,7,52.92,52.92,0,0,1,.34,5.32V91.72Z"/><path d="M266.07,91.72V14.64H278.7V91.72Z"/><path d="M303.45,93.3A21.24,21.24,0,0,1,293.07,91a15.89,15.89,0,0,1-6.42-6.21,17.21,17.21,0,0,1-2.18-8.55,19.24,19.24,0,0,1,1.36-7.37,14.75,14.75,0,0,1,4.2-5.66,22.49,22.49,0,0,1,7.34-3.91,71.23,71.23,0,0,1,8-2q4.59-.89,10-1.65T326.58,54l-4.51,2.57q0-5.88-2.62-8.65c-1.78-1.86-4.79-2.78-9-2.78a16.36,16.36,0,0,0-7.4,1.78,9.93,9.93,0,0,0-5,6.13l-11.53-3.61a21.35,21.35,0,0,1,8-11.54q5.91-4.35,15.92-4.35A33.52,33.52,0,0,1,323.72,36a16.5,16.5,0,0,1,8.52,8.08,17.08,17.08,0,0,1,1.84,6.11,67.88,67.88,0,0,1,.31,6.79V91.72H323.33V79.45l1.83,2a25.28,25.28,0,0,1-8.94,9A25.94,25.94,0,0,1,303.45,93.3ZM306,83.23a16.31,16.31,0,0,0,7.34-1.52A14.57,14.57,0,0,0,318.16,78a13,13,0,0,0,2.44-4.15,16.07,16.07,0,0,0,1.13-5.53c.09-2.08.13-3.77.13-5.06l3.88,1.15c-3.81.6-7.08,1.12-9.8,1.58s-5.08.88-7,1.28a47.25,47.25,0,0,0-5.19,1.34A16.41,16.41,0,0,0,300,70.43a7.85,7.85,0,0,0-2.33,2.42,6.14,6.14,0,0,0-.81,3.2,6.56,6.56,0,0,0,1,3.69A7.14,7.14,0,0,0,301,82.29,12,12,0,0,0,306,83.23Z"/><path d="M341.1,91.72V16.21h12.75V52h-1.58V91.72Zm27.33,1.58q-8.3,0-13.9-3.94a24,24,0,0,1-8.44-10.72,39.18,39.18,0,0,1-2.84-15.23,39.32,39.32,0,0,1,2.84-15.32,24.23,24.23,0,0,1,8.31-10.67A22.77,22.77,0,0,1,368,33.52a24.7,24.7,0,0,1,13.93,3.9A26.14,26.14,0,0,1,391,48.07a35,35,0,0,1,3.25,15.34,35.32,35.32,0,0,1-3.2,15.26,26,26,0,0,1-9,10.69A23.72,23.72,0,0,1,368.43,93.3ZM366.48,82a12.94,12.94,0,0,0,8.13-2.46,14.59,14.59,0,0,0,4.75-6.69,27.2,27.2,0,0,0,1.55-9.41,26.56,26.56,0,0,0-1.58-9.36,14.59,14.59,0,0,0-4.87-6.72,13.58,13.58,0,0,0-8.4-2.49,12.54,12.54,0,0,0-7.86,2.34,13.43,13.43,0,0,0-4.48,6.5,29.52,29.52,0,0,0-1.45,9.73,29.59,29.59,0,0,0,1.45,9.7A12.29,12.29,0,0,0,366.48,82Z"/><path d="M420.86,93.3q-10.49,0-17-4.72a19.57,19.57,0,0,1-8-13.27l12.9-2a10.86,10.86,0,0,0,4.41,6.61,14.56,14.56,0,0,0,8.6,2.41,11.88,11.88,0,0,0,7.05-1.81,5.81,5.81,0,0,0,2.49-5,5,5,0,0,0-.92-3.12,9.21,9.21,0,0,0-4-2.28q-3.09-1.1-9.49-2.78a56.93,56.93,0,0,1-11.33-4.06,14.73,14.73,0,0,1-6-5.17,13.58,13.58,0,0,1-1.83-7.23,15.53,15.53,0,0,1,2.78-9.23,17.73,17.73,0,0,1,7.76-6.06A29.69,29.69,0,0,1,420,33.52a31.43,31.43,0,0,1,11.72,2A20.41,20.41,0,0,1,440,41.38a17.44,17.44,0,0,1,3.88,8.86l-12.9,2.31a8.16,8.16,0,0,0-3.27-5.71,13.5,13.5,0,0,0-7.48-2.36A12.61,12.61,0,0,0,413,45.81a5,5,0,0,0-2.73,4.49,3.91,3.91,0,0,0,1.1,2.78,11.7,11.7,0,0,0,4.43,2.3q3.33,1.15,9.94,2.84a47,47,0,0,1,10.83,4,14.69,14.69,0,0,1,5.87,5.32,14.57,14.57,0,0,1,1.81,7.5q0,8.55-6.21,13.42T420.86,93.3Z"/></g></svg></span>
+        <span class="shell__brand-name">Jon Labs</span>
+        <span class="shell__brand-tagline">Genève</span>
+      </div>
+      <div class="shell__paginator"><span class="current">02</span><span class="sep">/</span><span class="total">06</span></div>
+    </div>
+    <div class="shell__bottom">
+      <span class="shell__url">jonlabs.ch</span>
+      <div class="shell__pager-bars">
+        <span class="shell__pager-bar"></span><span class="shell__pager-bar is-active"></span>
+        <span class="shell__pager-bar"></span><span class="shell__pager-bar"></span>
+        <span class="shell__pager-bar"></span><span class="shell__pager-bar"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════ SLIDE 3 — L'amortissement ═════════════ -->
+<div class="slide">
+  <div class="slide__content">
+    <div class="block block--split-compare">
+      <p class="split__eyebrow">02 — L'amortissement</p>
+      <div class="split__card split__card--bad">
+        <div>
+          <span class="split__badge">IDÉE REÇUE</span>
+          <div class="split__label">Un poids pour des années</div>
+        </div>
+        <div class="split__figure"><span class="strike-heavy">3 ans</span></div>
+        <p class="split__note">La refonte resterait un poids qu'il faut amortir sur le long terme, d'après ce qu'on entend en apéro.</p>
+      </div>
+      <div class="split__card split__card--good">
+        <div>
+          <span class="split__badge">RÉALITÉ TERRAIN</span>
+          <div class="split__label">Un site qui travaille rembourse vite</div>
+        </div>
+        <div class="split__figure">6 mois</div>
+        <p class="split__note">5 000 à 12 000 CHF pour un site d'indépendant bien fait. Amorti dès qu'il capte 5 à 6 leads de plus.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide__shell">
+    <div class="shell__top">
+      <div class="shell__brand shell__brand--wordmark">
+        <span class="shell__logo"><svg viewBox="0 0 444.25 120" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><g><path stroke="currentColor" stroke-miterlimit="10" d="M24.09,16.82c2.79-.52,11.16-1.69,18.83,3.14a26.9,26.9,0,0,1,7.38,7.16,30.5,30.5,0,0,1,5.29,12,29.47,29.47,0,0,1,.55,6.5L77.2,26.57a29.16,29.16,0,0,0-8-17.09,27,27,0,0,0-5-3.85C61.73,4.08,53.44-1.11,43,1A26,26,0,0,0,32,6.18,26.29,26.29,0,0,0,24.09,16.82Z"/><path stroke="currentColor" stroke-miterlimit="10" d="M58.46,68.68,77.2,51.38a120.6,120.6,0,0,0,.11,18.19,37.11,37.11,0,0,1,0,8.15,30.19,30.19,0,0,1-2.65,9.7,26.84,26.84,0,0,1-8.15,10.37,26.3,26.3,0,0,1-7.94,4.08Q58.51,85.28,58.46,68.68Z"/><path stroke="currentColor" stroke-miterlimit="10" d="M.53,93.54,21.69,73.86c-.11,3.15,0,12.21,6.12,20A25.36,25.36,0,0,0,36.25,101a26.06,26.06,0,0,0,11.41,2.82,28.47,28.47,0,0,0,6.28-.5c-1,2.46-5.29,11.78-14.88,15a25.86,25.86,0,0,1-10.75,1,30.75,30.75,0,0,1-16.87-6C2.38,106.41.82,95.92.53,93.54Z"/><path stroke="currentColor" stroke-miterlimit="10" d="M.86,68.82,19.54,51.54q.09-16.83.17-33.65A31,31,0,0,0,5.41,29.05a28.25,28.25,0,0,0-3.56,7.53A26.57,26.57,0,0,0,.86,46Z"/><path d="M116.41,116.9V105h2.67c3.08,0,5.26-.71,6.56-2.15s1.94-3.54,1.94-6.34V35.09h12.58v67.12q0,6.87-4,10.78T125,116.9Zm11.17-90.41V14.9h12.58V26.49Z"/><path d="M173.25,93.3a28.2,28.2,0,0,1-14.84-3.83,26,26,0,0,1-9.83-10.57,33.14,33.14,0,0,1-3.49-15.49,32.8,32.8,0,0,1,3.57-15.63,26.3,26.3,0,0,1,9.91-10.49,30.7,30.7,0,0,1,29.57.05A26.31,26.31,0,0,1,198,47.91a33.07,33.07,0,0,1,3.52,15.5A33,33,0,0,1,198,79a26.31,26.31,0,0,1-9.89,10.54A28.37,28.37,0,0,1,173.25,93.3Zm0-11.85q7.56,0,11.22-5t3.67-13q0-8.23-3.72-13.14t-11.17-4.9a14.3,14.3,0,0,0-8.36,2.28A13.39,13.39,0,0,0,160,54a26,26,0,0,0-1.58,9.42q0,8.24,3.75,13.13T173.25,81.45Z"/><path d="M206.13,91.72V35.09H217.4V52.66h1.53V91.72Zm39.28,0V64.46a54.42,54.42,0,0,0-.37-5.93,21.45,21.45,0,0,0-1.7-6.27,12.23,12.23,0,0,0-4-4.95,11.9,11.9,0,0,0-7.16-1.94,15.08,15.08,0,0,0-4.77.78,10.88,10.88,0,0,0-4.27,2.71,13.47,13.47,0,0,0-3.07,5.24,26.44,26.44,0,0,0-1.15,8.52l-7.5-3.2a30.06,30.06,0,0,1,2.8-13.11A22.34,22.34,0,0,1,222.49,37a24.48,24.48,0,0,1,13.43-3.49,22.66,22.66,0,0,1,10.38,2.1,18.4,18.4,0,0,1,6.5,5.35,23.38,23.38,0,0,1,3.57,6.92,35.76,35.76,0,0,1,1.49,7,52.92,52.92,0,0,1,.34,5.32V91.72Z"/><path d="M266.07,91.72V14.64H278.7V91.72Z"/><path d="M303.45,93.3A21.24,21.24,0,0,1,293.07,91a15.89,15.89,0,0,1-6.42-6.21,17.21,17.21,0,0,1-2.18-8.55,19.24,19.24,0,0,1,1.36-7.37,14.75,14.75,0,0,1,4.2-5.66,22.49,22.49,0,0,1,7.34-3.91,71.23,71.23,0,0,1,8-2q4.59-.89,10-1.65T326.58,54l-4.51,2.57q0-5.88-2.62-8.65c-1.78-1.86-4.79-2.78-9-2.78a16.36,16.36,0,0,0-7.4,1.78,9.93,9.93,0,0,0-5,6.13l-11.53-3.61a21.35,21.35,0,0,1,8-11.54q5.91-4.35,15.92-4.35A33.52,33.52,0,0,1,323.72,36a16.5,16.5,0,0,1,8.52,8.08,17.08,17.08,0,0,1,1.84,6.11,67.88,67.88,0,0,1,.31,6.79V91.72H323.33V79.45l1.83,2a25.28,25.28,0,0,1-8.94,9A25.94,25.94,0,0,1,303.45,93.3ZM306,83.23a16.31,16.31,0,0,0,7.34-1.52A14.57,14.57,0,0,0,318.16,78a13,13,0,0,0,2.44-4.15,16.07,16.07,0,0,0,1.13-5.53c.09-2.08.13-3.77.13-5.06l3.88,1.15c-3.81.6-7.08,1.12-9.8,1.58s-5.08.88-7,1.28a47.25,47.25,0,0,0-5.19,1.34A16.41,16.41,0,0,0,300,70.43a7.85,7.85,0,0,0-2.33,2.42,6.14,6.14,0,0,0-.81,3.2,6.56,6.56,0,0,0,1,3.69A7.14,7.14,0,0,0,301,82.29,12,12,0,0,0,306,83.23Z"/><path d="M341.1,91.72V16.21h12.75V52h-1.58V91.72Zm27.33,1.58q-8.3,0-13.9-3.94a24,24,0,0,1-8.44-10.72,39.18,39.18,0,0,1-2.84-15.23,39.32,39.32,0,0,1,2.84-15.32,24.23,24.23,0,0,1,8.31-10.67A22.77,22.77,0,0,1,368,33.52a24.7,24.7,0,0,1,13.93,3.9A26.14,26.14,0,0,1,391,48.07a35,35,0,0,1,3.25,15.34,35.32,35.32,0,0,1-3.2,15.26,26,26,0,0,1-9,10.69A23.72,23.72,0,0,1,368.43,93.3ZM366.48,82a12.94,12.94,0,0,0,8.13-2.46,14.59,14.59,0,0,0,4.75-6.69,27.2,27.2,0,0,0,1.55-9.41,26.56,26.56,0,0,0-1.58-9.36,14.59,14.59,0,0,0-4.87-6.72,13.58,13.58,0,0,0-8.4-2.49,12.54,12.54,0,0,0-7.86,2.34,13.43,13.43,0,0,0-4.48,6.5,29.52,29.52,0,0,0-1.45,9.73,29.59,29.59,0,0,0,1.45,9.7A12.29,12.29,0,0,0,366.48,82Z"/><path d="M420.86,93.3q-10.49,0-17-4.72a19.57,19.57,0,0,1-8-13.27l12.9-2a10.86,10.86,0,0,0,4.41,6.61,14.56,14.56,0,0,0,8.6,2.41,11.88,11.88,0,0,0,7.05-1.81,5.81,5.81,0,0,0,2.49-5,5,5,0,0,0-.92-3.12,9.21,9.21,0,0,0-4-2.28q-3.09-1.1-9.49-2.78a56.93,56.93,0,0,1-11.33-4.06,14.73,14.73,0,0,1-6-5.17,13.58,13.58,0,0,1-1.83-7.23,15.53,15.53,0,0,1,2.78-9.23,17.73,17.73,0,0,1,7.76-6.06A29.69,29.69,0,0,1,420,33.52a31.43,31.43,0,0,1,11.72,2A20.41,20.41,0,0,1,440,41.38a17.44,17.44,0,0,1,3.88,8.86l-12.9,2.31a8.16,8.16,0,0,0-3.27-5.71,13.5,13.5,0,0,0-7.48-2.36A12.61,12.61,0,0,0,413,45.81a5,5,0,0,0-2.73,4.49,3.91,3.91,0,0,0,1.1,2.78,11.7,11.7,0,0,0,4.43,2.3q3.33,1.15,9.94,2.84a47,47,0,0,1,10.83,4,14.69,14.69,0,0,1,5.87,5.32,14.57,14.57,0,0,1,1.81,7.5q0,8.55-6.21,13.42T420.86,93.3Z"/></g></svg></span>
+        <span class="shell__brand-name">Jon Labs</span>
+        <span class="shell__brand-tagline">Genève</span>
+      </div>
+      <div class="shell__paginator"><span class="current">03</span><span class="sep">/</span><span class="total">06</span></div>
+    </div>
+    <div class="shell__bottom">
+      <span class="shell__url">jonlabs.ch</span>
+      <div class="shell__pager-bars">
+        <span class="shell__pager-bar"></span><span class="shell__pager-bar"></span>
+        <span class="shell__pager-bar is-active"></span><span class="shell__pager-bar"></span>
+        <span class="shell__pager-bar"></span><span class="shell__pager-bar"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════ SLIDE 4 — Le concurrent récupère ═════════════ -->
+<div class="slide">
+  <div class="slide__content">
+    <div class="block block--split-compare">
+      <p class="split__eyebrow">03 — Le concurrent récupère</p>
+      <div class="split__card split__card--bad">
+        <div>
+          <span class="split__badge">IDÉE REÇUE</span>
+          <div class="split__label">Personne ne cherche en ligne</div>
+        </div>
+        <div class="split__figure"><span class="strike-heavy">0 lead</span></div>
+        <p class="split__note">Tu crois que ton secteur n'a plus de trafic organique, que personne ne cherche ton métier.</p>
+      </div>
+      <div class="split__card split__card--good">
+        <div>
+          <span class="split__badge">RÉALITÉ TERRAIN</span>
+          <div class="split__label">Google envoie chez le concurrent</div>
+        </div>
+        <div class="split__figure">5-10 / an</div>
+        <p class="split__note">Chaque prospect qui tape ton métier plus ta ville et n'atterrit pas chez toi, il atterrit chez quelqu'un.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide__shell">
+    <div class="shell__top">
+      <div class="shell__brand shell__brand--wordmark">
+        <span class="shell__logo"><svg viewBox="0 0 444.25 120" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><g><path stroke="currentColor" stroke-miterlimit="10" d="M24.09,16.82c2.79-.52,11.16-1.69,18.83,3.14a26.9,26.9,0,0,1,7.38,7.16,30.5,30.5,0,0,1,5.29,12,29.47,29.47,0,0,1,.55,6.5L77.2,26.57a29.16,29.16,0,0,0-8-17.09,27,27,0,0,0-5-3.85C61.73,4.08,53.44-1.11,43,1A26,26,0,0,0,32,6.18,26.29,26.29,0,0,0,24.09,16.82Z"/><path stroke="currentColor" stroke-miterlimit="10" d="M58.46,68.68,77.2,51.38a120.6,120.6,0,0,0,.11,18.19,37.11,37.11,0,0,1,0,8.15,30.19,30.19,0,0,1-2.65,9.7,26.84,26.84,0,0,1-8.15,10.37,26.3,26.3,0,0,1-7.94,4.08Q58.51,85.28,58.46,68.68Z"/><path stroke="currentColor" stroke-miterlimit="10" d="M.53,93.54,21.69,73.86c-.11,3.15,0,12.21,6.12,20A25.36,25.36,0,0,0,36.25,101a26.06,26.06,0,0,0,11.41,2.82,28.47,28.47,0,0,0,6.28-.5c-1,2.46-5.29,11.78-14.88,15a25.86,25.86,0,0,1-10.75,1,30.75,30.75,0,0,1-16.87-6C2.38,106.41.82,95.92.53,93.54Z"/><path stroke="currentColor" stroke-miterlimit="10" d="M.86,68.82,19.54,51.54q.09-16.83.17-33.65A31,31,0,0,0,5.41,29.05a28.25,28.25,0,0,0-3.56,7.53A26.57,26.57,0,0,0,.86,46Z"/><path d="M116.41,116.9V105h2.67c3.08,0,5.26-.71,6.56-2.15s1.94-3.54,1.94-6.34V35.09h12.58v67.12q0,6.87-4,10.78T125,116.9Zm11.17-90.41V14.9h12.58V26.49Z"/><path d="M173.25,93.3a28.2,28.2,0,0,1-14.84-3.83,26,26,0,0,1-9.83-10.57,33.14,33.14,0,0,1-3.49-15.49,32.8,32.8,0,0,1,3.57-15.63,26.3,26.3,0,0,1,9.91-10.49,30.7,30.7,0,0,1,29.57.05A26.31,26.31,0,0,1,198,47.91a33.07,33.07,0,0,1,3.52,15.5A33,33,0,0,1,198,79a26.31,26.31,0,0,1-9.89,10.54A28.37,28.37,0,0,1,173.25,93.3Zm0-11.85q7.56,0,11.22-5t3.67-13q0-8.23-3.72-13.14t-11.17-4.9a14.3,14.3,0,0,0-8.36,2.28A13.39,13.39,0,0,0,160,54a26,26,0,0,0-1.58,9.42q0,8.24,3.75,13.13T173.25,81.45Z"/><path d="M206.13,91.72V35.09H217.4V52.66h1.53V91.72Zm39.28,0V64.46a54.42,54.42,0,0,0-.37-5.93,21.45,21.45,0,0,0-1.7-6.27,12.23,12.23,0,0,0-4-4.95,11.9,11.9,0,0,0-7.16-1.94,15.08,15.08,0,0,0-4.77.78,10.88,10.88,0,0,0-4.27,2.71,13.47,13.47,0,0,0-3.07,5.24,26.44,26.44,0,0,0-1.15,8.52l-7.5-3.2a30.06,30.06,0,0,1,2.8-13.11A22.34,22.34,0,0,1,222.49,37a24.48,24.48,0,0,1,13.43-3.49,22.66,22.66,0,0,1,10.38,2.1,18.4,18.4,0,0,1,6.5,5.35,23.38,23.38,0,0,1,3.57,6.92,35.76,35.76,0,0,1,1.49,7,52.92,52.92,0,0,1,.34,5.32V91.72Z"/><path d="M266.07,91.72V14.64H278.7V91.72Z"/><path d="M303.45,93.3A21.24,21.24,0,0,1,293.07,91a15.89,15.89,0,0,1-6.42-6.21,17.21,17.21,0,0,1-2.18-8.55,19.24,19.24,0,0,1,1.36-7.37,14.75,14.75,0,0,1,4.2-5.66,22.49,22.49,0,0,1,7.34-3.91,71.23,71.23,0,0,1,8-2q4.59-.89,10-1.65T326.58,54l-4.51,2.57q0-5.88-2.62-8.65c-1.78-1.86-4.79-2.78-9-2.78a16.36,16.36,0,0,0-7.4,1.78,9.93,9.93,0,0,0-5,6.13l-11.53-3.61a21.35,21.35,0,0,1,8-11.54q5.91-4.35,15.92-4.35A33.52,33.52,0,0,1,323.72,36a16.5,16.5,0,0,1,8.52,8.08,17.08,17.08,0,0,1,1.84,6.11,67.88,67.88,0,0,1,.31,6.79V91.72H323.33V79.45l1.83,2a25.28,25.28,0,0,1-8.94,9A25.94,25.94,0,0,1,303.45,93.3ZM306,83.23a16.31,16.31,0,0,0,7.34-1.52A14.57,14.57,0,0,0,318.16,78a13,13,0,0,0,2.44-4.15,16.07,16.07,0,0,0,1.13-5.53c.09-2.08.13-3.77.13-5.06l3.88,1.15c-3.81.6-7.08,1.12-9.8,1.58s-5.08.88-7,1.28a47.25,47.25,0,0,0-5.19,1.34A16.41,16.41,0,0,0,300,70.43a7.85,7.85,0,0,0-2.33,2.42,6.14,6.14,0,0,0-.81,3.2,6.56,6.56,0,0,0,1,3.69A7.14,7.14,0,0,0,301,82.29,12,12,0,0,0,306,83.23Z"/><path d="M341.1,91.72V16.21h12.75V52h-1.58V91.72Zm27.33,1.58q-8.3,0-13.9-3.94a24,24,0,0,1-8.44-10.72,39.18,39.18,0,0,1-2.84-15.23,39.32,39.32,0,0,1,2.84-15.32,24.23,24.23,0,0,1,8.31-10.67A22.77,22.77,0,0,1,368,33.52a24.7,24.7,0,0,1,13.93,3.9A26.14,26.14,0,0,1,391,48.07a35,35,0,0,1,3.25,15.34,35.32,35.32,0,0,1-3.2,15.26,26,26,0,0,1-9,10.69A23.72,23.72,0,0,1,368.43,93.3ZM366.48,82a12.94,12.94,0,0,0,8.13-2.46,14.59,14.59,0,0,0,4.75-6.69,27.2,27.2,0,0,0,1.55-9.41,26.56,26.56,0,0,0-1.58-9.36,14.59,14.59,0,0,0-4.87-6.72,13.58,13.58,0,0,0-8.4-2.49,12.54,12.54,0,0,0-7.86,2.34,13.43,13.43,0,0,0-4.48,6.5,29.52,29.52,0,0,0-1.45,9.73,29.59,29.59,0,0,0,1.45,9.7A12.29,12.29,0,0,0,366.48,82Z"/><path d="M420.86,93.3q-10.49,0-17-4.72a19.57,19.57,0,0,1-8-13.27l12.9-2a10.86,10.86,0,0,0,4.41,6.61,14.56,14.56,0,0,0,8.6,2.41,11.88,11.88,0,0,0,7.05-1.81,5.81,5.81,0,0,0,2.49-5,5,5,0,0,0-.92-3.12,9.21,9.21,0,0,0-4-2.28q-3.09-1.1-9.49-2.78a56.93,56.93,0,0,1-11.33-4.06,14.73,14.73,0,0,1-6-5.17,13.58,13.58,0,0,1-1.83-7.23,15.53,15.53,0,0,1,2.78-9.23,17.73,17.73,0,0,1,7.76-6.06A29.69,29.69,0,0,1,420,33.52a31.43,31.43,0,0,1,11.72,2A20.41,20.41,0,0,1,440,41.38a17.44,17.44,0,0,1,3.88,8.86l-12.9,2.31a8.16,8.16,0,0,0-3.27-5.71,13.5,13.5,0,0,0-7.48-2.36A12.61,12.61,0,0,0,413,45.81a5,5,0,0,0-2.73,4.49,3.91,3.91,0,0,0,1.1,2.78,11.7,11.7,0,0,0,4.43,2.3q3.33,1.15,9.94,2.84a47,47,0,0,1,10.83,4,14.69,14.69,0,0,1,5.87,5.32,14.57,14.57,0,0,1,1.81,7.5q0,8.55-6.21,13.42T420.86,93.3Z"/></g></svg></span>
+        <span class="shell__brand-name">Jon Labs</span>
+        <span class="shell__brand-tagline">Genève</span>
+      </div>
+      <div class="shell__paginator"><span class="current">04</span><span class="sep">/</span><span class="total">06</span></div>
+    </div>
+    <div class="shell__bottom">
+      <span class="shell__url">jonlabs.ch</span>
+      <div class="shell__pager-bars">
+        <span class="shell__pager-bar"></span><span class="shell__pager-bar"></span>
+        <span class="shell__pager-bar"></span><span class="shell__pager-bar is-active"></span>
+        <span class="shell__pager-bar"></span><span class="shell__pager-bar"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════ SLIDE 5 — La vraie question ═════════════ -->
+<div class="slide">
+  <div class="slide__content">
+    <div class="block block--split-compare">
+      <p class="split__eyebrow">04 — La vraie question</p>
+      <div class="split__card split__card--bad">
+        <div>
+          <span class="split__badge">LA QUESTION QU'ON POSE</span>
+          <div class="split__label">Puis-je me permettre de refaire ?</div>
+        </div>
+        <div class="split__figure"><span class="strike-heavy">???</span></div>
+        <p class="split__note">Cadre budgétaire classique : coût de l'action. Résultat prévisible : on repousse encore 6 mois.</p>
+      </div>
+      <div class="split__card split__card--good">
+        <div>
+          <span class="split__badge">LA QUESTION QU'IL FAUT POSER</span>
+          <div class="split__label">Puis-je continuer sans ?</div>
+        </div>
+        <div class="split__figure">Non.</div>
+        <p class="split__note">Cadre pertinent : coût de l'inaction. Résultat clair : on décide.</p>
+      </div>
+    </div>
+  </div>
+  <div class="slide__shell">
+    <div class="shell__top">
+      <div class="shell__brand shell__brand--wordmark">
+        <span class="shell__logo"><svg viewBox="0 0 444.25 120" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><g><path stroke="currentColor" stroke-miterlimit="10" d="M24.09,16.82c2.79-.52,11.16-1.69,18.83,3.14a26.9,26.9,0,0,1,7.38,7.16,30.5,30.5,0,0,1,5.29,12,29.47,29.47,0,0,1,.55,6.5L77.2,26.57a29.16,29.16,0,0,0-8-17.09,27,27,0,0,0-5-3.85C61.73,4.08,53.44-1.11,43,1A26,26,0,0,0,32,6.18,26.29,26.29,0,0,0,24.09,16.82Z"/><path stroke="currentColor" stroke-miterlimit="10" d="M58.46,68.68,77.2,51.38a120.6,120.6,0,0,0,.11,18.19,37.11,37.11,0,0,1,0,8.15,30.19,30.19,0,0,1-2.65,9.7,26.84,26.84,0,0,1-8.15,10.37,26.3,26.3,0,0,1-7.94,4.08Q58.51,85.28,58.46,68.68Z"/><path stroke="currentColor" stroke-miterlimit="10" d="M.53,93.54,21.69,73.86c-.11,3.15,0,12.21,6.12,20A25.36,25.36,0,0,0,36.25,101a26.06,26.06,0,0,0,11.41,2.82,28.47,28.47,0,0,0,6.28-.5c-1,2.46-5.29,11.78-14.88,15a25.86,25.86,0,0,1-10.75,1,30.75,30.75,0,0,1-16.87-6C2.38,106.41.82,95.92.53,93.54Z"/><path stroke="currentColor" stroke-miterlimit="10" d="M.86,68.82,19.54,51.54q.09-16.83.17-33.65A31,31,0,0,0,5.41,29.05a28.25,28.25,0,0,0-3.56,7.53A26.57,26.57,0,0,0,.86,46Z"/><path d="M116.41,116.9V105h2.67c3.08,0,5.26-.71,6.56-2.15s1.94-3.54,1.94-6.34V35.09h12.58v67.12q0,6.87-4,10.78T125,116.9Zm11.17-90.41V14.9h12.58V26.49Z"/><path d="M173.25,93.3a28.2,28.2,0,0,1-14.84-3.83,26,26,0,0,1-9.83-10.57,33.14,33.14,0,0,1-3.49-15.49,32.8,32.8,0,0,1,3.57-15.63,26.3,26.3,0,0,1,9.91-10.49,30.7,30.7,0,0,1,29.57.05A26.31,26.31,0,0,1,198,47.91a33.07,33.07,0,0,1,3.52,15.5A33,33,0,0,1,198,79a26.31,26.31,0,0,1-9.89,10.54A28.37,28.37,0,0,1,173.25,93.3Zm0-11.85q7.56,0,11.22-5t3.67-13q0-8.23-3.72-13.14t-11.17-4.9a14.3,14.3,0,0,0-8.36,2.28A13.39,13.39,0,0,0,160,54a26,26,0,0,0-1.58,9.42q0,8.24,3.75,13.13T173.25,81.45Z"/><path d="M206.13,91.72V35.09H217.4V52.66h1.53V91.72Zm39.28,0V64.46a54.42,54.42,0,0,0-.37-5.93,21.45,21.45,0,0,0-1.7-6.27,12.23,12.23,0,0,0-4-4.95,11.9,11.9,0,0,0-7.16-1.94,15.08,15.08,0,0,0-4.77.78,10.88,10.88,0,0,0-4.27,2.71,13.47,13.47,0,0,0-3.07,5.24,26.44,26.44,0,0,0-1.15,8.52l-7.5-3.2a30.06,30.06,0,0,1,2.8-13.11A22.34,22.34,0,0,1,222.49,37a24.48,24.48,0,0,1,13.43-3.49,22.66,22.66,0,0,1,10.38,2.1,18.4,18.4,0,0,1,6.5,5.35,23.38,23.38,0,0,1,3.57,6.92,35.76,35.76,0,0,1,1.49,7,52.92,52.92,0,0,1,.34,5.32V91.72Z"/><path d="M266.07,91.72V14.64H278.7V91.72Z"/><path d="M303.45,93.3A21.24,21.24,0,0,1,293.07,91a15.89,15.89,0,0,1-6.42-6.21,17.21,17.21,0,0,1-2.18-8.55,19.24,19.24,0,0,1,1.36-7.37,14.75,14.75,0,0,1,4.2-5.66,22.49,22.49,0,0,1,7.34-3.91,71.23,71.23,0,0,1,8-2q4.59-.89,10-1.65T326.58,54l-4.51,2.57q0-5.88-2.62-8.65c-1.78-1.86-4.79-2.78-9-2.78a16.36,16.36,0,0,0-7.4,1.78,9.93,9.93,0,0,0-5,6.13l-11.53-3.61a21.35,21.35,0,0,1,8-11.54q5.91-4.35,15.92-4.35A33.52,33.52,0,0,1,323.72,36a16.5,16.5,0,0,1,8.52,8.08,17.08,17.08,0,0,1,1.84,6.11,67.88,67.88,0,0,1,.31,6.79V91.72H323.33V79.45l1.83,2a25.28,25.28,0,0,1-8.94,9A25.94,25.94,0,0,1,303.45,93.3ZM306,83.23a16.31,16.31,0,0,0,7.34-1.52A14.57,14.57,0,0,0,318.16,78a13,13,0,0,0,2.44-4.15,16.07,16.07,0,0,0,1.13-5.53c.09-2.08.13-3.77.13-5.06l3.88,1.15c-3.81.6-7.08,1.12-9.8,1.58s-5.08.88-7,1.28a47.25,47.25,0,0,0-5.19,1.34A16.41,16.41,0,0,0,300,70.43a7.85,7.85,0,0,0-2.33,2.42,6.14,6.14,0,0,0-.81,3.2,6.56,6.56,0,0,0,1,3.69A7.14,7.14,0,0,0,301,82.29,12,12,0,0,0,306,83.23Z"/><path d="M341.1,91.72V16.21h12.75V52h-1.58V91.72Zm27.33,1.58q-8.3,0-13.9-3.94a24,24,0,0,1-8.44-10.72,39.18,39.18,0,0,1-2.84-15.23,39.32,39.32,0,0,1,2.84-15.32,24.23,24.23,0,0,1,8.31-10.67A22.77,22.77,0,0,1,368,33.52a24.7,24.7,0,0,1,13.93,3.9A26.14,26.14,0,0,1,391,48.07a35,35,0,0,1,3.25,15.34,35.32,35.32,0,0,1-3.2,15.26,26,26,0,0,1-9,10.69A23.72,23.72,0,0,1,368.43,93.3ZM366.48,82a12.94,12.94,0,0,0,8.13-2.46,14.59,14.59,0,0,0,4.75-6.69,27.2,27.2,0,0,0,1.55-9.41,26.56,26.56,0,0,0-1.58-9.36,14.59,14.59,0,0,0-4.87-6.72,13.58,13.58,0,0,0-8.4-2.49,12.54,12.54,0,0,0-7.86,2.34,13.43,13.43,0,0,0-4.48,6.5,29.52,29.52,0,0,0-1.45,9.73,29.59,29.59,0,0,0,1.45,9.7A12.29,12.29,0,0,0,366.48,82Z"/><path d="M420.86,93.3q-10.49,0-17-4.72a19.57,19.57,0,0,1-8-13.27l12.9-2a10.86,10.86,0,0,0,4.41,6.61,14.56,14.56,0,0,0,8.6,2.41,11.88,11.88,0,0,0,7.05-1.81,5.81,5.81,0,0,0,2.49-5,5,5,0,0,0-.92-3.12,9.21,9.21,0,0,0-4-2.28q-3.09-1.1-9.49-2.78a56.93,56.93,0,0,1-11.33-4.06,14.73,14.73,0,0,1-6-5.17,13.58,13.58,0,0,1-1.83-7.23,15.53,15.53,0,0,1,2.78-9.23,17.73,17.73,0,0,1,7.76-6.06A29.69,29.69,0,0,1,420,33.52a31.43,31.43,0,0,1,11.72,2A20.41,20.41,0,0,1,440,41.38a17.44,17.44,0,0,1,3.88,8.86l-12.9,2.31a8.16,8.16,0,0,0-3.27-5.71,13.5,13.5,0,0,0-7.48-2.36A12.61,12.61,0,0,0,413,45.81a5,5,0,0,0-2.73,4.49,3.91,3.91,0,0,0,1.1,2.78,11.7,11.7,0,0,0,4.43,2.3q3.33,1.15,9.94,2.84a47,47,0,0,1,10.83,4,14.69,14.69,0,0,1,5.87,5.32,14.57,14.57,0,0,1,1.81,7.5q0,8.55-6.21,13.42T420.86,93.3Z"/></g></svg></span>
+        <span class="shell__brand-name">Jon Labs</span>
+        <span class="shell__brand-tagline">Genève</span>
+      </div>
+      <div class="shell__paginator"><span class="current">05</span><span class="sep">/</span><span class="total">06</span></div>
+    </div>
+    <div class="shell__bottom">
+      <span class="shell__url">jonlabs.ch</span>
+      <div class="shell__pager-bars">
+        <span class="shell__pager-bar"></span><span class="shell__pager-bar"></span>
+        <span class="shell__pager-bar"></span><span class="shell__pager-bar"></span>
+        <span class="shell__pager-bar is-active"></span><span class="shell__pager-bar"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═════════════ SLIDE 6 — CTA FILLED INVERTED ═════════════ -->
+<div class="slide slide--invert">
+  <div class="slide__bg">
+    <div class="orb orb--lg orb--tr"></div>
+    <div class="ring ring--md ring--bl"></div>
+  </div>
+
+  <div class="slide__content">
+    <div class="block block--cta-filled">
+      <p class="cta__eyebrow">Checklist interactive · 4 minutes</p>
+      <h2 class="cta__title">Compte tes <em>oui</em><br>avant de décider.</h2>
+      <p class="cta__body">15 signes oui/non, un score sur 15, un palier et un plan d'action. En 4 minutes tu sais où ton site est et ce que tu fais lundi matin.</p>
+      <a href="https://jonlabs.ch/outils/checklist-15-signes-site-dort" class="cta__button">
+        <span>Lancer la checklist</span>
+        <span class="cta__button-arrow"></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="slide__shell">
+    <div class="shell__top">
+      <div class="shell__brand shell__brand--wordmark">
+        <span class="shell__logo"><svg viewBox="0 0 444.25 120" xmlns="http://www.w3.org/2000/svg" fill="currentColor"><g><path stroke="currentColor" stroke-miterlimit="10" d="M24.09,16.82c2.79-.52,11.16-1.69,18.83,3.14a26.9,26.9,0,0,1,7.38,7.16,30.5,30.5,0,0,1,5.29,12,29.47,29.47,0,0,1,.55,6.5L77.2,26.57a29.16,29.16,0,0,0-8-17.09,27,27,0,0,0-5-3.85C61.73,4.08,53.44-1.11,43,1A26,26,0,0,0,32,6.18,26.29,26.29,0,0,0,24.09,16.82Z"/><path stroke="currentColor" stroke-miterlimit="10" d="M58.46,68.68,77.2,51.38a120.6,120.6,0,0,0,.11,18.19,37.11,37.11,0,0,1,0,8.15,30.19,30.19,0,0,1-2.65,9.7,26.84,26.84,0,0,1-8.15,10.37,26.3,26.3,0,0,1-7.94,4.08Q58.51,85.28,58.46,68.68Z"/><path stroke="currentColor" stroke-miterlimit="10" d="M.53,93.54,21.69,73.86c-.11,3.15,0,12.21,6.12,20A25.36,25.36,0,0,0,36.25,101a26.06,26.06,0,0,0,11.41,2.82,28.47,28.47,0,0,0,6.28-.5c-1,2.46-5.29,11.78-14.88,15a25.86,25.86,0,0,1-10.75,1,30.75,30.75,0,0,1-16.87-6C2.38,106.41.82,95.92.53,93.54Z"/><path stroke="currentColor" stroke-miterlimit="10" d="M.86,68.82,19.54,51.54q.09-16.83.17-33.65A31,31,0,0,0,5.41,29.05a28.25,28.25,0,0,0-3.56,7.53A26.57,26.57,0,0,0,.86,46Z"/><path d="M116.41,116.9V105h2.67c3.08,0,5.26-.71,6.56-2.15s1.94-3.54,1.94-6.34V35.09h12.58v67.12q0,6.87-4,10.78T125,116.9Zm11.17-90.41V14.9h12.58V26.49Z"/><path d="M173.25,93.3a28.2,28.2,0,0,1-14.84-3.83,26,26,0,0,1-9.83-10.57,33.14,33.14,0,0,1-3.49-15.49,32.8,32.8,0,0,1,3.57-15.63,26.3,26.3,0,0,1,9.91-10.49,30.7,30.7,0,0,1,29.57.05A26.31,26.31,0,0,1,198,47.91a33.07,33.07,0,0,1,3.52,15.5A33,33,0,0,1,198,79a26.31,26.31,0,0,1-9.89,10.54A28.37,28.37,0,0,1,173.25,93.3Zm0-11.85q7.56,0,11.22-5t3.67-13q0-8.23-3.72-13.14t-11.17-4.9a14.3,14.3,0,0,0-8.36,2.28A13.39,13.39,0,0,0,160,54a26,26,0,0,0-1.58,9.42q0,8.24,3.75,13.13T173.25,81.45Z"/><path d="M206.13,91.72V35.09H217.4V52.66h1.53V91.72Zm39.28,0V64.46a54.42,54.42,0,0,0-.37-5.93,21.45,21.45,0,0,0-1.7-6.27,12.23,12.23,0,0,0-4-4.95,11.9,11.9,0,0,0-7.16-1.94,15.08,15.08,0,0,0-4.77.78,10.88,10.88,0,0,0-4.27,2.71,13.47,13.47,0,0,0-3.07,5.24,26.44,26.44,0,0,0-1.15,8.52l-7.5-3.2a30.06,30.06,0,0,1,2.8-13.11A22.34,22.34,0,0,1,222.49,37a24.48,24.48,0,0,1,13.43-3.49,22.66,22.66,0,0,1,10.38,2.1,18.4,18.4,0,0,1,6.5,5.35,23.38,23.38,0,0,1,3.57,6.92,35.76,35.76,0,0,1,1.49,7,52.92,52.92,0,0,1,.34,5.32V91.72Z"/><path d="M266.07,91.72V14.64H278.7V91.72Z"/><path d="M303.45,93.3A21.24,21.24,0,0,1,293.07,91a15.89,15.89,0,0,1-6.42-6.21,17.21,17.21,0,0,1-2.18-8.55,19.24,19.24,0,0,1,1.36-7.37,14.75,14.75,0,0,1,4.2-5.66,22.49,22.49,0,0,1,7.34-3.91,71.23,71.23,0,0,1,8-2q4.59-.89,10-1.65T326.58,54l-4.51,2.57q0-5.88-2.62-8.65c-1.78-1.86-4.79-2.78-9-2.78a16.36,16.36,0,0,0-7.4,1.78,9.93,9.93,0,0,0-5,6.13l-11.53-3.61a21.35,21.35,0,0,1,8-11.54q5.91-4.35,15.92-4.35A33.52,33.52,0,0,1,323.72,36a16.5,16.5,0,0,1,8.52,8.08,17.08,17.08,0,0,1,1.84,6.11,67.88,67.88,0,0,1,.31,6.79V91.72H323.33V79.45l1.83,2a25.28,25.28,0,0,1-8.94,9A25.94,25.94,0,0,1,303.45,93.3ZM306,83.23a16.31,16.31,0,0,0,7.34-1.52A14.57,14.57,0,0,0,318.16,78a13,13,0,0,0,2.44-4.15,16.07,16.07,0,0,0,1.13-5.53c.09-2.08.13-3.77.13-5.06l3.88,1.15c-3.81.6-7.08,1.12-9.8,1.58s-5.08.88-7,1.28a47.25,47.25,0,0,0-5.19,1.34A16.41,16.41,0,0,0,300,70.43a7.85,7.85,0,0,0-2.33,2.42,6.14,6.14,0,0,0-.81,3.2,6.56,6.56,0,0,0,1,3.69A7.14,7.14,0,0,0,301,82.29,12,12,0,0,0,306,83.23Z"/><path d="M341.1,91.72V16.21h12.75V52h-1.58V91.72Zm27.33,1.58q-8.3,0-13.9-3.94a24,24,0,0,1-8.44-10.72,39.18,39.18,0,0,1-2.84-15.23,39.32,39.32,0,0,1,2.84-15.32,24.23,24.23,0,0,1,8.31-10.67A22.77,22.77,0,0,1,368,33.52a24.7,24.7,0,0,1,13.93,3.9A26.14,26.14,0,0,1,391,48.07a35,35,0,0,1,3.25,15.34,35.32,35.32,0,0,1-3.2,15.26,26,26,0,0,1-9,10.69A23.72,23.72,0,0,1,368.43,93.3ZM366.48,82a12.94,12.94,0,0,0,8.13-2.46,14.59,14.59,0,0,0,4.75-6.69,27.2,27.2,0,0,0,1.55-9.41,26.56,26.56,0,0,0-1.58-9.36,14.59,14.59,0,0,0-4.87-6.72,13.58,13.58,0,0,0-8.4-2.49,12.54,12.54,0,0,0-7.86,2.34,13.43,13.43,0,0,0-4.48,6.5,29.52,29.52,0,0,0-1.45,9.73,29.59,29.59,0,0,0,1.45,9.7A12.29,12.29,0,0,0,366.48,82Z"/><path d="M420.86,93.3q-10.49,0-17-4.72a19.57,19.57,0,0,1-8-13.27l12.9-2a10.86,10.86,0,0,0,4.41,6.61,14.56,14.56,0,0,0,8.6,2.41,11.88,11.88,0,0,0,7.05-1.81,5.81,5.81,0,0,0,2.49-5,5,5,0,0,0-.92-3.12,9.21,9.21,0,0,0-4-2.28q-3.09-1.1-9.49-2.78a56.93,56.93,0,0,1-11.33-4.06,14.73,14.73,0,0,1-6-5.17,13.58,13.58,0,0,1-1.83-7.23,15.53,15.53,0,0,1,2.78-9.23,17.73,17.73,0,0,1,7.76-6.06A29.69,29.69,0,0,1,420,33.52a31.43,31.43,0,0,1,11.72,2A20.41,20.41,0,0,1,440,41.38a17.44,17.44,0,0,1,3.88,8.86l-12.9,2.31a8.16,8.16,0,0,0-3.27-5.71,13.5,13.5,0,0,0-7.48-2.36A12.61,12.61,0,0,0,413,45.81a5,5,0,0,0-2.73,4.49,3.91,3.91,0,0,0,1.1,2.78,11.7,11.7,0,0,0,4.43,2.3q3.33,1.15,9.94,2.84a47,47,0,0,1,10.83,4,14.69,14.69,0,0,1,5.87,5.32,14.57,14.57,0,0,1,1.81,7.5q0,8.55-6.21,13.42T420.86,93.3Z"/></g></svg></span>
+        <span class="shell__brand-name">Jon Labs</span>
+        <span class="shell__brand-tagline">Genève</span>
+      </div>
+      <div class="shell__paginator"><span class="current">06</span><span class="sep">/</span><span class="total">06</span></div>
+    </div>
+    <div class="shell__bottom">
+      <span class="shell__url">jonlabs.ch/outils</span>
+      <div class="shell__pager-bars">
+        <span class="shell__pager-bar"></span><span class="shell__pager-bar"></span>
+        <span class="shell__pager-bar"></span><span class="shell__pager-bar"></span>
+        <span class="shell__pager-bar"></span><span class="shell__pager-bar is-active"></span>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

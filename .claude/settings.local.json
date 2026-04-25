@@ -60,7 +60,8 @@
       "Skill(generate-images)",
       "Bash(rm -rf \"C:/Users/jojo-/.claude/skills/generate-images/scripts/__pycache__/\")",
       "Read(//c/Users/jojo-/.claude/skills/generate-images/scripts/**)",
-      "Skill(gmb-post)"
+      "Skill(gmb-post)",
+      "Skill(open-carrusel)"
     ],
     "deny": [],
     "ask": []
