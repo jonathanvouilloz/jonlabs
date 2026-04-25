@@ -16,6 +16,10 @@ const blogCollection = defineCollection({
     featured: z.boolean().default(false),
     draft: z.boolean().default(false),
     readingTime: z.number().optional(),
+    faqs: z.array(z.object({
+      question: z.string(),
+      answer: z.string(),
+    })).optional(),
   }),
 });
 
@@ -35,12 +39,18 @@ const jonvolioBlogCollection = defineCollection({
     title: z.string(),
     description: z.string().max(160),
     pubDate: z.date(),
+    updatedDate: z.date().optional(),
     image: z.object({
       url: z.string(),
       alt: z.string(),
     }).optional(),
     tags: z.array(z.string()).default([]),
     draft: z.boolean().default(false),
+    readingTime: z.number().optional(),
+    faqs: z.array(z.object({
+      question: z.string(),
+      answer: z.string(),
+    })).optional(),
   }),
 });
 

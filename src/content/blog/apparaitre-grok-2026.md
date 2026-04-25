@@ -1,6 +1,6 @@
 ---
-title: "Apparaître sur Grok : guide GEO X/Twitter 2026"
-description: "Grok cite 27% de ses sources contre 0,59% pour ChatGPT. Sa source principale : X/Twitter. Guide pour apparaître dans ses réponses IA."
+title: "Apparaître sur Grok : 27% de citations vs 0,59% GPT"
+description: "Grok cite 46x plus que ChatGPT et lit X en temps réel. Plan d'action concret pour apparaître via threads, profil et bio optimisée en 2026."
 pubDate: 2026-04-13
 slug: "apparaitre-grok-2026"
 image:
@@ -11,6 +11,19 @@ tags: ["grok", "xai", "x", "twitter", "geo", "seo", "ia", "visibilité"]
 featured: false
 draft: false
 readingTime: 8
+faqs:
+  - question: "Pourquoi Grok cite-t-il autant de sources ?"
+    answer: "Le taux de citation de Grok est de 27% contre 0,59% pour ChatGPT, soit 46 fois plus selon une étude Superlines de janvier-février 2026 portant sur 34 234 réponses IA. Grok est conçu pour citer ses sources de façon systématique."
+  - question: "Quelle est la source principale de Grok ?"
+    answer: "Grok est le seul moteur IA avec un accès temps réel au flux X (Twitter), traitant plus de 100 millions de posts par jour. Il combine X Search (social temps réel) et Web Search (web classique)."
+  - question: "Quel format de contenu X est le plus citable par Grok ?"
+    answer: "Les threads de 5 à 10 posts sur un sujet précis sont le format le plus citable. Grok peut piocher dans différents posts du thread selon la question posée et construire une réponse complète."
+  - question: "Comment renforcer son autorité X aux yeux de Grok ?"
+    answer: "Quatre signaux comptent : la vérification Premium (checkmark), la qualité de l'engagement (qui répond et repost), la cohérence thématique dans le temps, et les Community Notes qui nourrissent l'évaluation de fiabilité."
+  - question: "Faut-il une bio optimisée sur X pour apparaître sur Grok ?"
+    answer: "Oui. Grok lit les bios pour comprendre qui tu es. La bio doit contenir tes mots-clés métier et géographiques, par exemple : Freelance développement web et automatisation, Genève, Suisse romande, Make.com, PME."
+  - question: "Pour quel type de requête Grok est-il le plus fort ?"
+    answer: "Grok domine sur l'actualité et les tendances, ainsi que sur les requêtes personnes/prestataires (qui est X, qui travaille sur Y). C'est le seul moteur IA capable d'aller chercher en temps réel dans les conversations sociales récentes."
 ---
 
 Voilà une stat qui mérite qu'on s'arrête dessus.

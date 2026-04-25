@@ -7,7 +7,7 @@ image:
   alt: "Checklist papier avec croix rouges sur un bureau d'indépendant romand - diagnostic site web qui dort"
 category: "tech"
 tags: ["site-web", "checklist", "audit", "diagnostic", "seo", "independant", "suisse-romande"]
-featured: true
+featured: false
 draft: false
 readingTime: 8
 ---

@@ -1,6 +1,8 @@
 ---
 import JonvolioLayout from '../../../layouts/JonvolioLayout.astro';
 import { getCollection } from 'astro:content';
+import { getFAQPageSchema, getBreadcrumbSchema } from '../../../lib/seo';
+import { SITE_URL } from '../../../data/schema';
 
 export async function getStaticPaths() {
   const posts = await getCollection('jonvolio-blog', ({ data }) => !data.draft);
@@ -20,14 +22,49 @@ function formatDate(date: Date): string {
     day: 'numeric',
   });
 }
+
+const articleUrl = new URL(`/jonvolio/blog/${post.slug}`, SITE_URL).toString();
+const imageUrl = post.data.image?.url
+  ? new URL(post.data.image.url, SITE_URL).toString()
+  : `${SITE_URL}/og-jonvolio.png`;
+
+const blogPostingSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  url: articleUrl,
+  image: { '@type': 'ImageObject', url: imageUrl },
+  datePublished: post.data.pubDate.toISOString(),
+  dateModified: (post.data.updatedDate || post.data.pubDate).toISOString(),
+  author: { '@id': `${SITE_URL}/#person` },
+  publisher: { '@id': `${SITE_URL}/#organization` },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': articleUrl },
+  keywords: post.data.tags.join(', '),
+  wordCount: post.data.readingTime ? post.data.readingTime * 200 : undefined,
+  inLanguage: 'en-US',
+};
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'jonvolio', url: `${SITE_URL}/jonvolio` },
+  { name: 'Blog', url: `${SITE_URL}/jonvolio/blog` },
+  { name: post.data.title, url: articleUrl },
+]);
+
+const schemas = [blogPostingSchema, breadcrumbSchema];
+if (post.data.faqs && post.data.faqs.length > 0) {
+  schemas.push(getFAQPageSchema(post.data.faqs));
+}
 ---
 
 <JonvolioLayout
   title={post.data.title}
   description={post.data.description}
   ogType="article"
+  schemas={schemas}
   article={{
     publishedTime: post.data.pubDate,
+    modifiedTime: post.data.updatedDate,
     author: 'Jon Vouilloz',
     tags: post.data.tags,
   }}

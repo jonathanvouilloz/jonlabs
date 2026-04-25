@@ -1,6 +1,6 @@
 ---
-title: "Apparaître sur Gemini : guide AI Overviews 2026"
-description: "Gemini s'appuie sur Google Search, Maps et GBP. Optimisez votre fiche et votre contenu pour apparaître dans les AI Overviews."
+title: "Apparaître sur Gemini : guide GEO Google AI 2026"
+description: "Les AI Overviews captent 30% des recherches services et font chuter le CTR de 34,5%. 4 priorités pour être cité par Gemini et garder du trafic."
 pubDate: 2026-03-16
 image:
   url: "/images/blog/apparaitre-gemini-2026.webp"
@@ -10,6 +10,19 @@ tags: ["gemini", "google", "geo", "seo", "ai-overviews", "visibilite", "ia"]
 featured: false
 draft: false
 readingTime: 9
+faqs:
+  - question: "Sur quel index Gemini s'appuie-t-il ?"
+    answer: "Gemini est câblé directement dans l'écosystème Google : Search, Knowledge Graph, Maps, Google Business Profile, YouTube et Workspace. Ce n'est pas une IA externe qui lit Google, c'est une IA qui est Google."
+  - question: "Quel impact ont les AI Overviews sur le trafic organique ?"
+    answer: "Les AI Overviews apparaissent sur 30% des recherches liées aux services. Le taux de clic sur les résultats organiques sous un AI Overview a chuté de 34,5%. Si tu n'es pas dans la synthèse Gemini, tu es déjà en deuxième page même en étant numéro un sur Google."
+  - question: "Le schema FAQPage améliore-t-il les chances d'être cité par Gemini ?"
+    answer: "Oui, de façon mesurable. Les pages FAQ avec schema markup FAQPage sont citées 28% plus souvent dans les AI Overviews selon les données de l'industrie. C'est une heure de travail technique pour un impact direct."
+  - question: "Pourquoi Google Business Profile est-il critique pour Gemini ?"
+    answer: "Ton GBP est devenu une base de données structurée que Gemini interroge directement pour les recommandations locales. Catégories, attributs, photos, avis et réponses aux avis sont lus pour construire la fiche d'identité de ton activité."
+  - question: "Les avis clients influencent-ils les recommandations Gemini ?"
+    answer: "Oui, mais leur structure compte. Un avis qui mentionne le service précis, le résultat chiffré, la localisation et le profil client donne à Gemini un signal beaucoup plus fort qu'un simple Super, je recommande. Demande à tes clients d'être précis."
+  - question: "YouTube est-il un levier pour apparaître sur Gemini ?"
+    answer: "Oui, et c'est l'opportunité la moins exploitée par les freelances francophones. Une vidéo de 4 minutes qui répond précisément à une question peut être citée par Gemini, car peu de personnes ont fait cette vidéo en français pour le marché romand."
 ---
 
 Quand un client tape "consultant automation PME Genève" dans Google en 2026, il ne voit plus forcément dix liens bleus en premier.

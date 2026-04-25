@@ -10,7 +10,7 @@ import RelatedPosts from '../../components/blog/RelatedPosts.astro';
 import ReadingProgress from '../../components/blog/ReadingProgress.astro';
 import { formatDate, getRelatedPosts } from '../../lib/blog';
 import { author } from '../../sample';
-import { getBlogPostingSchema, getBreadcrumbSchema } from '../../lib/seo';
+import { getBlogPostingSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
 import { SITE_URL } from '../../data/schema';
 
 export async function getStaticPaths() {
@@ -46,6 +46,11 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'Blog', url: `${SITE_URL}/blog` },
   { name: title, url: Astro.url.href },
 ]);
+
+const schemas = [blogPostingSchema, breadcrumbSchema];
+if (post.data.faqs && post.data.faqs.length > 0) {
+  schemas.push(getFAQPageSchema(post.data.faqs));
+}
 ---
 
 <Layout
@@ -53,7 +58,7 @@ const breadcrumbSchema = getBreadcrumbSchema([
   description={description}
   ogImage={image.url}
   ogType="article"
-  schemas={[blogPostingSchema, breadcrumbSchema]}
+  schemas={schemas}
   article={{
     publishedTime: pubDate,
     modifiedTime: post.data.updatedDate,

@@ -1,6 +1,6 @@
 ---
-title: "Apparaître sur Perplexity : guide citations IA 2026"
-description: "Perplexity cite ses sources par défaut. Voici comment structurer ton contenu pour apparaître dans ses réponses, guide concret pour PME en Suisse romande."
+title: "Apparaître sur Perplexity : structure 4× plus citée"
+description: "Pages structurées citées 2,6× plus, contenu chiffré 4,1× plus. Guide concret pour structurer ton site et être cité par Perplexity en 2026."
 pubDate: 2026-03-24
 image:
   url: "/images/blog/apparaitre-perplexity-2026.webp"
@@ -10,6 +10,19 @@ tags: ["perplexity", "geo", "seo", "ia", "visibilité", "citations"]
 featured: false
 draft: false
 readingTime: 9
+faqs:
+  - question: "Comment Perplexity choisit-il ses sources ?"
+    answer: "Perplexity utilise un pipeline en trois étapes : scoring lexical, embeddings vectoriels, puis reranking qui croise plusieurs sources entre elles. Son index couvre 200 milliards d'URLs uniques crawlées par PerplexityBot."
+  - question: "Quel format de contenu est le plus cité par Perplexity ?"
+    answer: "Le contenu structuré avec H2/H3 descriptifs, listes à puces et tableaux est cité 2,6 fois plus souvent que le texte en blocs continus. Les pages avec au moins 3 données chiffrées par 500 mots sont citées 4,1 fois plus."
+  - question: "Faut-il autoriser PerplexityBot dans son robots.txt ?"
+    answer: "Oui, c'est la recommandation pragmatique pour apparaître avec des citations détaillées. Ajoute User-agent: PerplexityBot suivi de Allow: /. Sans cet accès, Perplexity peut indexer le titre mais pas citer tes passages précis."
+  - question: "Combien d'utilisateurs Perplexity a-t-il en 2026 ?"
+    answer: "Perplexity compte 45 millions d'utilisateurs actifs début 2026 et 780 millions de requêtes par mois, avec une croissance de 800% sur un an. C'est le troisième chatbot IA en part de marché derrière ChatGPT et Copilot."
+  - question: "Pourquoi Perplexity affiche-t-il systématiquement des citations ?"
+    answer: "Perplexity est un moteur de réponses qui doit justifier chaque affirmation par une note de bas de page numérotée. C'est le seul moteur IA qui cite ses sources par défaut avec un lien cliquable vers le site source."
+  - question: "Comment structurer une page pour être cité par Perplexity ?"
+    answer: "Utilise le format question-réponse directe : H2 sous forme de question, première phrase qui donne la réponse, puis paragraphe qui développe. Ajoute au moins 3 données chiffrées par 500 mots et une date de mise à jour visible."
 ---
 
 ## L'essentiel en bref

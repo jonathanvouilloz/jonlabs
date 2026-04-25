@@ -1,9 +1,24 @@
 ---
-title: "Claude Skills Deep Dive: Build Once, Use Forever — A Builder's Guide"
-description: "Learn how to create Claude Skills that automate your workflows. Real examples and step-by-step code from an indie hacker."
+title: "Claude Skills: Builder's Guide with 11 Real Examples (2026)"
+description: "Build Claude Skills that automate your workflows. 11 real examples, complete code, and honest takes from an indie hacker shipping in 2026."
 pubDate: 2026-01-26
+updatedDate: 2026-04-25
+readingTime: 13
 tags: ["claude", "skills", "ai-tools", "automation", "indie-hacker"]
 draft: false
+faqs:
+  - question: "What are Claude Skills?"
+    answer: "Claude Skills are folders containing a SKILL.md file with YAML frontmatter and markdown instructions. Claude loads them automatically when relevant, turning repeatable workflows like code reviews, post writing, or debugging into reusable procedural knowledge that survives across conversations."
+  - question: "How are Skills different from MCP servers?"
+    answer: "MCP connects Claude to external data (APIs, databases, tools). Skills teach Claude what to do with that data. They compose: an MCP server can fetch your GitHub issues, while a Skill encodes your specific review process (security checks, OWASP standards, output formatting) on top of that data."
+  - question: "When should I use a Skill versus a Slash Command?"
+    answer: "Use a Slash Command for one-off shortcuts you invoke explicitly with /command. Use a Skill when you want Claude to discover and apply procedural knowledge automatically based on context. Skills win on discovery and determinism; slash commands win on explicit, manual triggering."
+  - question: "Can Skills build other Skills?"
+    answer: "Yes. Anthropic ships a meta-skill called skill-creator that interviews you about your workflow, asks clarifying questions, and generates a ready-to-upload .skill ZIP file with the SKILL.md, reference files, and any scripts you need."
+  - question: "What are the best Claude Skills for developers?"
+    answer: "The most-shipped developer skills cover four phases: planning (software-architecture, feature-spec), coding (test-driven-development, artifacts-builder), quality (code-review, systematic-debugging), and shipping (git-commit, deploy-skill). Jesse Vincent's Superpowers library on GitHub has 33k+ stars and is a solid starting point."
+  - question: "How long does it take to build a Skill?"
+    answer: "A first usable Skill takes 30 to 60 minutes: write the description, draft instructions, test with real tasks, iterate. Spend 80% of that time on the description, since that is what determines whether Claude activates the skill at the right moment."
 ---
 
 I've told Claude how to format my X posts maybe 47 times. Same instructions. Same style rules. Same "no emoji, all lowercase, end with a `>` punchline" pattern.
@@ -17,6 +32,16 @@ That's the pitch. But Skills are way more than tweet formatters.
 They're how you package your expertise into something Claude can actually use — across any conversation, any project, any context. Think of them as the difference between explaining your job to a new intern every Monday versus having a senior colleague who already knows your playbook.
 
 This guide breaks down everything I've learned building Skills for my own workflows. Real code, real examples, honest takes on what works and what doesn't.
+
+---
+
+## TL;DR
+
+- A Claude Skill is a folder with a single `SKILL.md` file: YAML frontmatter (name + description) plus markdown instructions Claude loads only when relevant.
+- Skills differ from MCP and Slash Commands: MCP fetches data, Slash Commands are manual shortcuts, Skills teach Claude *how* to do something and activate automatically.
+- Progressive disclosure keeps things cheap: Claude sees ~100 tokens of metadata per skill and only loads the full instructions (under 5k tokens) when it picks the skill.
+- This article walks through 11 real examples — 9 dev workflows (code-review, systematic-debugging, git-commit, deploy-skill, subagent-driven-development...), the meta `skill-creator`, and my own `x-post-writer` with full SKILL.md code.
+- Spend 80% of your effort on the description: it's the 200 characters that decide whether Claude activates your skill at the right moment. Start with one workflow you do 5+ times a week, ship a v1 in under an hour, iterate.
 
 ---
 
@@ -348,6 +373,12 @@ The builders who invest in this now will have a significant advantage. Not becau
 4. **Iterate** based on where Claude gets it wrong
 
 Don't try to automate everything at once. One good skill that actually works beats 10 half-baked ones.
+
+---
+
+## Read in French
+
+- [Apparaître sur Claude : guide GEO Brave Search (FR)](/blog/apparaitre-claude-2026) — French version of the AI visibility angle, focused on Brave Search and GEO for francophone audiences.
 
 ---
 

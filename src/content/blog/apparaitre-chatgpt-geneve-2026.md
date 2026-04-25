@@ -1,6 +1,6 @@
 ---
-title: "Apparaître sur ChatGPT à Genève : guide GEO 2026"
-description: "Vos clients demandent à ChatGPT le meilleur prestataire à Genève. Si votre nom n'apparaît pas, voici 3 actions concrètes pour y remédier."
+title: "Apparaître sur ChatGPT à Genève : 3 actions GEO"
+description: "Tes clients demandent à ChatGPT le meilleur prestataire à Genève. 3 actions concrètes basées sur l'E-E-A-T pour être cité dans ses réponses en 2026."
 pubDate: 2026-02-18
 image:
   url: "/images/blog/apparaitre-chatgpt-geneve-2026.webp"
@@ -10,6 +10,19 @@ tags: ["chatgpt", "geo", "seo", "genève", "visibilité", "ia"]
 featured: false
 draft: false
 readingTime: 8
+faqs:
+  - question: "Comment ChatGPT choisit-il qui recommander à Genève ?"
+    answer: "ChatGPT lit du contenu existant sur internet (articles, avis Google, fiches GBP, sites web) et synthétise les sources qu'il trouve. Si tu n'as pas de présence lisible en ligne, tu n'existes pas pour lui. La règle : l'IA cite ce que Google indexe et ce que les gens recommandent."
+  - question: "Qu'est-ce que l'E-E-A-T et pourquoi c'est important pour ChatGPT ?"
+    answer: "L'E-E-A-T regroupe quatre critères : Experience, Expertise, Authoritativeness, Trustworthiness. Les IA valorisent le contenu qui démontre une expérience concrète, une expertise précise, une autorité reconnue par d'autres sites, et des signaux de confiance comme des avis Google."
+  - question: "Faut-il optimiser sa fiche Google Business Profile pour apparaître sur ChatGPT ?"
+    answer: "Oui, c'est le point de départ non-négociable. Une fiche complète avec description précise, catégories à jour, avis avec contexte et photos récentes donne aux IA les infos de base sur ton activité. Une fiche incomplète te fait passer à un concurrent."
+  - question: "Quels mots-clés tape-t-on aux IA pour trouver un prestataire ?"
+    answer: "Les mots d'intention forte : meilleur (meilleur comptable Genève), pas cher, recommandé, proche, urgent, ou pour un profil spécifique (avocat pour divorce Genève). Si tes textes utilisent ces formulations naturelles plutôt que du jargon corporate, tu as l'avantage."
+  - question: "Faut-il publier des articles de blog pour apparaître sur ChatGPT ?"
+    answer: "Oui. Un article de 400 à 600 mots qui répond précisément à une question concrète de tes clients (que faire en cas de fuite d'eau un dimanche à Genève) est suffisant pour apparaître dans des réponses d'IA. C'est du carburant direct pour les recommandations."
+  - question: "Existe-t-il un raccourci pour apparaître sur ChatGPT ?"
+    answer: "Non. Les agences qui vendent du GEO sans avoir d'abord les bases en ordre vendent du vent. Apparaître sur ChatGPT, c'est du bon référencement classique : être clair sur qui tu es, être trouvable, être recommandé. Le reste suit."
 ---
 
 ## L'essentiel en bref

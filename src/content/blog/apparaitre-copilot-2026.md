@@ -1,6 +1,6 @@
 ---
-title: "Apparaître sur Copilot : guide Bing + IA 2026"
-description: "Copilot s'appuie sur Bing et s'intègre dans Windows, Edge et Teams. Voici comment optimiser ta présence pour apparaître dans ses réponses IA."
+title: "Apparaître sur Copilot : guide Bing pour 33M users"
+description: "Copilot ne cite que 3 liens par réponse et touche 33M users via Windows, Edge, Teams. 4 actions GEO pour être dans le top 3 cité en 2026."
 pubDate: 2026-03-30
 image:
   url: "/images/blog/apparaitre-copilot-2026.webp"
@@ -10,6 +10,19 @@ tags: ["copilot", "microsoft", "bing", "geo", "seo", "ia", "visibilité"]
 featured: false
 draft: false
 readingTime: 10
+faqs:
+  - question: "Sur quel index repose Microsoft Copilot ?"
+    answer: "Copilot fonctionne en RAG (Retrieval-Augmented Generation) sur l'index Bing, pas Google ni Brave. Il interroge Bing à chaque requête et synthétise une réponse avec citations."
+  - question: "Combien de liens Copilot cite-t-il par réponse ?"
+    answer: "Copilot ne cite que 3,13 liens par réponse en moyenne, contre plus de 10 pour ChatGPT. Si tu n'es pas dans les trois sources sélectionnées, tu n'existes pas dans cette réponse."
+  - question: "Pourquoi Copilot est-il stratégique malgré sa baisse de part de marché ?"
+    answer: "Copilot est intégré nativement dans Windows 11, Edge, Teams et Microsoft 365. 33 millions de professionnels y accèdent sans l'avoir choisi, via leur environnement de travail quotidien."
+  - question: "Faut-il un site ancien pour être cité par Copilot ?"
+    answer: "Non, c'est même un avantage pour les sites récents. L'âge moyen des domaines cités par Copilot est inférieur à 12 ans, contre plus de 17 ans pour les sources citées par Google AI Overviews."
+  - question: "Qu'est-ce que le dashboard AI Performance de Bing ?"
+    answer: "Lancé en février 2026 dans Bing Webmaster Tools, c'est le premier outil natif d'un moteur de recherche qui mesure les citations IA. Il affiche le volume de citations, les URLs référencées et les grounding queries."
+  - question: "Comment optimiser ma fiche Bing Places for Business ?"
+    answer: "Remplis chaque champ avec des données NAP cohérentes (identiques à Google Business Profile), utilise le Recommendation Tool, ajoute des photos récentes et réponds à tous les avis. La majorité des PME romandes n'ont pas de fiche Bing Places."
 ---
 
 ## L'essentiel en bref

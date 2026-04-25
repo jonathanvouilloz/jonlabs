@@ -1,6 +1,6 @@
 ---
-title: "Apparaître sur Claude : guide GEO Brave Search 2026"
-description: "Claude utilise Brave Search, pas Google. Voici comment optimiser votre site pour apparaître dans ses réponses et toucher une audience qualifiée."
+title: "Apparaître sur Claude (Brave Search) en 2026"
+description: "Claude cite Brave à 86,7% : index moins concurrentiel, audience qualifiée. 5 actions GEO concrètes pour être cité par Claude en 2026."
 pubDate: 2026-03-05
 image:
   url: "/images/blog/apparaitre-claude-2026.webp"
@@ -10,6 +10,19 @@ tags: ["claude", "anthropic", "brave-search", "geo", "seo", "ia", "visibilité"]
 featured: false
 draft: false
 readingTime: 8
+faqs:
+  - question: "Comment Claude trouve-t-il ses sources sur le web ?"
+    answer: "Claude interroge Brave Search, pas Google ni Bing. Une étude de corrélation confirme un chevauchement de 86,7% entre les citations Claude et les résultats organiques de Brave Search."
+  - question: "Faut-il beaucoup d'autorité pour apparaître sur Claude ?"
+    answer: "L'autorité requise est plus accessible que sur Google. Brave est moins concurrentiel et favorise les sites de niche bien structurés, ce qui profite aux freelances et aux PME même peu connus."
+  - question: "Quand Claude lance-t-il une recherche web ?"
+    answer: "Claude ne cherche pas pour toutes les questions. Il déclenche une recherche uniquement quand la requête contient un signal de fraîcheur, de localité ou de complexité que son entraînement ne couvre pas."
+  - question: "Qu'est-ce que le dynamic filtering de Claude ?"
+    answer: "Déployé en février 2026, le dynamic filtering fait que Claude écrit du code pendant la recherche pour filtrer les résultats avant qu'ils entrent dans son contexte. Gain mesuré : +11% de précision et -24% de tokens consommés."
+  - question: "Comment vérifier si ClaudeBot peut crawler mon site ?"
+    answer: "ClaudeBot respecte le robots.txt. Vérifie que tu n'as pas ajouté Disallow: / sur User-agent: ClaudeBot. Soumets ensuite ton sitemap via search.brave.com/webmaster pour être indexé dans la source de Claude."
+  - question: "Pourquoi l'audience Claude est-elle plus qualifiée ?"
+    answer: "57% des utilisateurs Claude utilisent l'outil en mode augmentation : ils vérifient les sources et lisent en profondeur. C'est une audience à haute intention, plus qualifiée que la plupart des autres plateformes IA."
 ---
 
 ## L'essentiel en bref
