@@ -180,6 +180,13 @@ const slugify = (str: string) =>
 
 <script>
   document.addEventListener('DOMContentLoaded', () => {
+    // Portail : déplace les panels au <body> pour éviter les problèmes de containing block
+    // (un ancêtre du header peut avoir une transform/filter qui casse position:fixed)
+    const panelsHost = document.querySelector<HTMLDivElement>('[data-mega-panels-host]');
+    if (panelsHost && panelsHost.parentElement !== document.body) {
+      document.body.appendChild(panelsHost);
+    }
+
     const triggers = document.querySelectorAll<HTMLButtonElement>('[data-mega-trigger]');
     const panels = document.querySelectorAll<HTMLDivElement>('[data-mega-panel]');
     const panelMap = new Map<string, HTMLDivElement>();
