@@ -176,7 +176,13 @@ const cities = [
   { name: "Morges", primary: false }
 ];
 
-const frontierCities = ["Annemasse", "Gaillard", "Saint-Julien", "Ferney-Voltaire"];
+const frontierCities = [
+  { name: "Annemasse", slug: "annemasse" },
+  { name: "Gaillard", slug: "gaillard" },
+  { name: "Ville-la-Grand", slug: "ville-la-grand" },
+  { name: "Saint-Julien-en-Genevois", slug: "saint-julien-en-genevois" },
+  { name: "La Roche-sur-Foron", slug: "la-roche-sur-foron" },
+];
 
 // ============================================
 // RÉALISATIONS
@@ -667,12 +673,19 @@ const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
         <h3 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4 text-center">Zone frontalière France</h3>
         <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
           {frontierCities.map((city) => (
-            <span class="inline-flex items-center gap-2 bg-white border-2 border-black px-4 py-2 text-sm shadow-[2px_2px_0px_rgba(0,0,0,0.3)]">
+            <a
+              href={`/developpement-web/${city.slug}`}
+              class="inline-flex items-center gap-2 bg-white border-2 border-black px-4 py-2 text-sm shadow-[2px_2px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--yellow)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_rgba(0,0,0,0.3)] transition-all"
+            >
               <i class="ri-map-pin-line text-gray-500"></i>
-              {city}
-            </span>
+              {city.name}
+              <i class="ri-arrow-right-line text-xs opacity-50"></i>
+            </a>
           ))}
         </div>
+        <p class="mt-4 text-center text-xs text-gray-500">
+          Page dédiée par ville frontalière → tarifs en EUR + spécificités locales
+        </p>
       </div>
 
       <!-- Note -->
