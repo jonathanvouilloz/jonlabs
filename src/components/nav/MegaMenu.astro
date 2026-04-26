@@ -104,7 +104,7 @@ const slugify = (str: string) =>
         data-section={slugify(section.label)}
         role="region"
         aria-label={`Menu ${section.label}`}
-        class="mega-panel fixed left-1/2 -translate-x-1/2 top-[var(--mega-top,80px)] z-30 w-[min(96vw,1100px)] bg-white border-2 border-black shadow-[6px_6px_0px_rgba(0,0,0,0.4)] hidden"
+        class="mega-panel"
       >
         <div class={`grid grid-cols-1 ${gridCols} gap-x-6 gap-y-4 p-6`}>
           {section.columns?.map((column) => (
@@ -153,18 +153,28 @@ const slugify = (str: string) =>
   })}
 </div>
 
-<style>
+<style is:global>
   .mega-panel {
-    opacity: 0;
+    position: fixed;
+    top: var(--mega-top, 96px);
+    left: 50%;
     transform: translate(-50%, -8px);
-    transition: opacity 0.18s ease, transform 0.18s ease;
+    width: min(96vw, 1100px);
+    z-index: 50;
+    background: white;
+    border: 2px solid black;
+    box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.4);
+    display: none;
+    opacity: 0;
     pointer-events: none;
+    transition: opacity 0.18s ease, transform 0.18s ease;
   }
+
   .mega-panel.is-open {
+    display: block;
     opacity: 1;
     transform: translate(-50%, 0);
     pointer-events: auto;
-    display: block;
   }
 
   [data-mega-trigger][aria-expanded="true"] [data-mega-chevron] {
