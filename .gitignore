@@ -39,3 +39,9 @@ nul
 
 # Generated images (AI tools)
 generated_imgs/
+
+# Moodboard generation logs (cache of cli.py runs)
+moodboard/.generations/
+
+# Local backups (calendar drafts during pipeline iterations)
+*.PREVIOUS.json

@@ -45,3 +45,40 @@ presets:
     compose_text: false
     output_dir: public/images/linkedin
     output_naming: "{slug}.webp"
+
+  gmb-post-template:
+    description: "Image GMB 1200x900 (4:3) — template Jon Labs avec bande noire centrale, titre noir au-dessus, sous-titre lavande dans la bande. Tout config local au projet (couleurs/sizes/positions). Mode dual-text — lu par compose_dual_text_overlay."
+    source: template
+    template_image: moodboard/refs/gmb-bg.png
+    compose_text: true
+    font_file: fonts/PlusJakartaSans-VariableFont_wght.ttf
+    dimensions: "1200x900"
+    # Recommandations longueur (le composer wrap/shrink auto, mais pour briefing humain) :
+    # title    : 12-22 caractères (1 ligne, gros) — idéal "Optimiser sa GMB"
+    # subtitle : 30-50 caractères (2 lignes max), 4-7 mots
+    title_overlay:
+      text_color: "#1a1a1a"
+      font_size_ratio: 0.10        # 120px sur 1200 de large
+      font_weight: 700
+      tracking: -0.02
+      max_width_ratio: 0.92        # auto-shrink si dépasse 92% de la largeur
+      auto_shrink: true
+      align: center
+      anchor: above_band           # ancre au-dessus de la bande noire pré-existante
+      band_top_ratio: 0.5167       # haut de bande à y=465 sur 900
+      gap_to_band: 58              # 58px entre bas du titre et haut de bande
+      v_offset: 0
+    subtitle_overlay:
+      text_color: "#00D9A3"        # vert/turquoise brand Jon Labs
+      font_size_ratio: 0.060       # 72px sur 1200
+      font_weight: 700
+      tracking: -0.01
+      max_width_ratio: 0.78        # 78% pour wrap propre sur 2 lignes
+      line_spacing: 1.1
+      align: center
+      anchor: band_center          # centré dans la bande noire
+      band_top_ratio: 0.5167       # haut de bande
+      band_bot_ratio: 0.7767       # bas de bande à y=699 sur 900
+      v_offset: -4                 # léger nudge vers le haut pour balance optique
+    output_dir: static/gmb-assets
+    output_naming: "post-{index:02d}.png"
