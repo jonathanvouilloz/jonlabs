@@ -1,0 +1,577 @@
+{
+  "site_url": "sc-domain:physiopommier.ch",
+  "period": {
+    "start": "2026-03-28",
+    "end": "2026-04-24",
+    "days": 28
+  },
+  "page_filter": null,
+  "generated_at": "2026-04-26T11:14:22Z",
+  "totals": {
+    "impressions": 1531,
+    "clicks": 103,
+    "ctr": 0.0673,
+    "avg_position": 7.6
+  },
+  "site_median_ctr": 0.0619,
+  "top_queries": [
+    {
+      "impressions": 40,
+      "clicks": 18,
+      "ctr": 0.45,
+      "position": 1.1,
+      "query": "physio pommier"
+    },
+    {
+      "impressions": 97,
+      "clicks": 6,
+      "ctr": 0.0619,
+      "position": 3.7,
+      "query": "physio grand saconnex"
+    },
+    {
+      "impressions": 4,
+      "clicks": 2,
+      "ctr": 0.5,
+      "position": 3,
+      "query": "virginie donnet"
+    },
+    {
+      "impressions": 10,
+      "clicks": 1,
+      "ctr": 0.1,
+      "position": 10.6,
+      "query": "fitness grand saconnex"
+    },
+    {
+      "impressions": 42,
+      "clicks": 1,
+      "ctr": 0.0238,
+      "position": 3.7,
+      "query": "physio grand-saconnex"
+    },
+    {
+      "impressions": 23,
+      "clicks": 1,
+      "ctr": 0.0435,
+      "position": 3.7,
+      "query": "physiothérapie grand saconnex"
+    },
+    {
+      "impressions": 1,
+      "clicks": 1,
+      "ctr": 1,
+      "position": 1,
+      "query": "thilby"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 1,
+      "query": "cabinet physiothérapie"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 32.5,
+      "query": "chemin du pommier"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 93,
+      "query": "chemin du pommier 40"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 6,
+      "query": "cours collectifs"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 16,
+      "query": "cours de gym douce genève"
+    },
+    {
+      "impressions": 26,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 75.3,
+      "query": "drainage lymphatique geneve"
+    },
+    {
+      "impressions": 6,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 32.2,
+      "query": "drainage lymphatique genève rééducation"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 1,
+      "query": "du pommier"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 23,
+      "query": "ecole du pommier grand saconnex"
+    },
+    {
+      "impressions": 4,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 6.5,
+      "query": "estelle noyer"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7.7,
+      "query": "eva pommier"
+    },
+    {
+      "impressions": 11,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 58,
+      "query": "gymnastique douce thônex"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 1,
+      "query": "kinésithérapeute"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7,
+      "query": "kundalini"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 10,
+      "query": "le pommier grand saconnex"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 49.5,
+      "query": "migros gardiol"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 88,
+      "query": "migros pommier"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 43,
+      "query": "mobilisation de la cheville raide"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 45,
+      "query": "nutritionniste grand saconnex"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 4,
+      "query": "ora studio pilates"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 55,
+      "query": "pharmacie du pommier"
+    },
+    {
+      "impressions": 6,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 73.3,
+      "query": "physio centre founex"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 63,
+      "query": "physio founex"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 1,
+      "query": "physio near me"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 5.3,
+      "query": "physio petit saconnex"
+    },
+    {
+      "impressions": 8,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7.5,
+      "query": "physio saconnex"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 73.5,
+      "query": "physio santé founex"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 12.7,
+      "query": "physio taverney"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 3,
+      "query": "physiotherapie meyrin"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 1,
+      "query": "physiothérapeute autour de moi"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 1,
+      "query": "physiothérapeute remboursement"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 1,
+      "query": "physiothérapie autour de moi"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 52,
+      "query": "pilates bernex"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7,
+      "query": "pilates en groupe"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 4,
+      "query": "pilates maman bebe"
+    },
+    {
+      "impressions": 30,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 11.6,
+      "query": "pilates nations le grand-saconnex"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 8,
+      "query": "pommier geneve"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 9,
+      "query": "remboursement physiothérapie lamal"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 8,
+      "query": "rééducation passive"
+    },
+    {
+      "impressions": 6,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 18.5,
+      "query": "rééducation post-opératoire geneve"
+    },
+    {
+      "impressions": 4,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 11,
+      "query": "salle de sport grand saconnex"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 39,
+      "query": "yoga bernex"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 8,
+      "query": "はい"
+    }
+  ],
+  "top_pages": [
+    {
+      "impressions": 764,
+      "clicks": 66,
+      "ctr": 0.0864,
+      "position": 5.3,
+      "page": "https://physiopommier.ch/"
+    },
+    {
+      "impressions": 272,
+      "clicks": 18,
+      "ctr": 0.0662,
+      "position": 6.5,
+      "page": "https://physiopommier.ch/cours-collectifs/"
+    },
+    {
+      "impressions": 95,
+      "clicks": 4,
+      "ctr": 0.0421,
+      "position": 5.0,
+      "page": "https://physiopommier.ch/notre-equipe/"
+    },
+    {
+      "impressions": 29,
+      "clicks": 3,
+      "ctr": 0.1034,
+      "position": 5.3,
+      "page": "https://physiopommier.ch/cours-collectifs/yoga/"
+    },
+    {
+      "impressions": 122,
+      "clicks": 3,
+      "ctr": 0.0246,
+      "position": 5.9,
+      "page": "https://physiopommier.ch/prestations/"
+    },
+    {
+      "impressions": 282,
+      "clicks": 3,
+      "ctr": 0.0106,
+      "position": 4.8,
+      "page": "https://physiopommier.ch/remboursement-assurance/"
+    },
+    {
+      "impressions": 50,
+      "clicks": 2,
+      "ctr": 0.04,
+      "position": 6.2,
+      "page": "https://physiopommier.ch/cours-collectifs/pilates-parents-enfants/"
+    },
+    {
+      "impressions": 17,
+      "clicks": 2,
+      "ctr": 0.1176,
+      "position": 5.5,
+      "page": "https://physiopommier.ch/notre-equipe"
+    },
+    {
+      "impressions": 84,
+      "clicks": 1,
+      "ctr": 0.0119,
+      "position": 3.4,
+      "page": "https://physiopommier.ch/contactez-nous/"
+    },
+    {
+      "impressions": 79,
+      "clicks": 1,
+      "ctr": 0.0127,
+      "position": 9.3,
+      "page": "https://physiopommier.ch/cours-collectifs/pilates/"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 6,
+      "page": "https://physiopommier.ch/_astro/cours-yoga-chien-tete-en-bas.DOu6GgBE_Lg9M5.webp"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 3,
+      "page": "https://physiopommier.ch/approches/"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 8.7,
+      "page": "https://physiopommier.ch/approches/approche-active/"
+    },
+    {
+      "impressions": 8,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 12.1,
+      "page": "https://physiopommier.ch/approches/approche-passive/"
+    },
+    {
+      "impressions": 46,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 5.7,
+      "page": "https://physiopommier.ch/avis-physio-grand-saconnex/"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 32.5,
+      "page": "https://physiopommier.ch/contactez-nous"
+    },
+    {
+      "impressions": 5,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 15,
+      "page": "https://physiopommier.ch/cours-collectifs"
+    },
+    {
+      "impressions": 29,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 25.3,
+      "page": "https://physiopommier.ch/cours-collectifs/gym-seniors/"
+    },
+    {
+      "impressions": 12,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7.7,
+      "page": "https://physiopommier.ch/cours-collectifs/yoga-apaisant/"
+    },
+    {
+      "impressions": 48,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 5.4,
+      "page": "https://physiopommier.ch/faq/"
+    },
+    {
+      "impressions": 9,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 4.8,
+      "page": "https://physiopommier.ch/mentions-legales"
+    },
+    {
+      "impressions": 4,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 1.8,
+      "page": "https://physiopommier.ch/politique-de-confidentialite"
+    },
+    {
+      "impressions": 11,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 3.1,
+      "page": "https://physiopommier.ch/prestations"
+    },
+    {
+      "impressions": 98,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 24.6,
+      "page": "https://physiopommier.ch/prestations/drainage-lymphatique/"
+    },
+    {
+      "impressions": 14,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 5.3,
+      "page": "https://physiopommier.ch/prestations/neuro-reeducation/"
+    },
+    {
+      "impressions": 13,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 4.5,
+      "page": "https://physiopommier.ch/prestations/physiotherapie-a-domicile/"
+    },
+    {
+      "impressions": 10,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 4.2,
+      "page": "https://physiopommier.ch/prestations/physiotherapie-en-cabinet/"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 1,
+      "page": "https://physiopommier.ch/prestations/prevention-chutes-seniors/"
+    },
+    {
+      "impressions": 7,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 16.1,
+      "page": "https://physiopommier.ch/prestations/reeducation-post-operatoire/"
+    }
+  ],
+  "quick_wins": [],
+  "ctr_gaps": [],
+  "content_gaps": []
+}

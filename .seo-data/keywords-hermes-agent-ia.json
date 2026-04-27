@@ -1,0 +1,21 @@
+{
+  "topic": "Hermes agent IA autonome",
+  "location_code": 2756,
+  "location_name": "Switzerland",
+  "language_code": "fr",
+  "generated_at": "2026-04-26T20:31:21Z",
+  "primary": {
+    "keyword": "Hermes agent IA autonome",
+    "search_volume": 0,
+    "cpc": 0,
+    "competition": null,
+    "competition_index": null,
+    "difficulty": null,
+    "intent": "navigational",
+    "intent_probability": 0.7690374
+  },
+  "secondaries": [],
+  "long_tail": [],
+  "related": [],
+  "quick_wins": []
+}

@@ -1,0 +1,99 @@
+{
+  "topic": "automatisation entreprise",
+  "location_code": 2250,
+  "location_name": "France",
+  "language_code": "fr",
+  "generated_at": "2026-04-26T20:33:10Z",
+  "primary": {
+    "keyword": "automatisation entreprise",
+    "search_volume": 90,
+    "cpc": 3.92,
+    "competition": "LOW",
+    "competition_index": 17,
+    "difficulty": 7,
+    "intent": "commercial",
+    "intent_probability": 0.94349015
+  },
+  "secondaries": [],
+  "long_tail": [
+    {
+      "keyword": "activateur france num",
+      "search_volume": 210,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "transformation numérique des entreprises",
+      "search_volume": 110,
+      "cpc": 6.15,
+      "competition": "LOW",
+      "competition_index": 6
+    },
+    {
+      "keyword": "entreprise automatisation industrielle",
+      "search_volume": 70,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 8
+    }
+  ],
+  "related": [
+    {
+      "keyword": "timetonic",
+      "search_volume": 1900,
+      "cpc": 0.72,
+      "competition": "LOW",
+      "competition_index": 5
+    },
+    {
+      "keyword": "francenum",
+      "search_volume": 170,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "timetonic connexion",
+      "search_volume": 90,
+      "cpc": 0.99,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "timetonic aphp",
+      "search_volume": 70,
+      "cpc": 4.53,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "entreprise automatisation",
+      "search_volume": 50,
+      "cpc": 6.03,
+      "competition": "LOW",
+      "competition_index": 31
+    },
+    {
+      "keyword": "secrétaire ia",
+      "search_volume": 50,
+      "cpc": 3.96,
+      "competition": "MEDIUM",
+      "competition_index": 60
+    }
+  ],
+  "quick_wins": [
+    {
+      "keyword": "timetonic",
+      "search_volume": 1900,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "activateur france num",
+      "search_volume": 210,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}

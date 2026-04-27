@@ -1,0 +1,86 @@
+{
+  "keyword": "automatisation PME Suisse romande",
+  "location": "Suisse romande",
+  "scanned_at": "2026-04-26T10:00:00Z",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://blog.weacend.com",
+      "title": "Le Blog We Acend – Automatisation & IA pour PME",
+      "page_type": "blog",
+      "competitor_type": "local-business",
+      "covers": ["automatisation PME Genève", "comparatifs outils", "chatbots", "IA productivité", "voicebots"],
+      "missing": ["guide complet step-by-step", "ROI chiffré", "comparaison outils n8n/Make/Zapier", "agents IA autonomes", "cas clients suisses détaillés"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 2,
+      "url": "https://mivelaz-consulting.ch/blog",
+      "title": "Actualités & conseils web – Mivelaz Consulting",
+      "page_type": "blog",
+      "competitor_type": "local-business",
+      "covers": ["SEO Suisse", "transformation digitale", "automatisation n8n", "consultant IA"],
+      "missing": ["guide dirigeants PME", "agents autonomes 2026", "ROI automatisation", "comparaison workflows vs agents IA"],
+      "eeat_signals": ["author", "pricing data"]
+    },
+    {
+      "rank": 3,
+      "url": "https://www.justincappelle.ch/blog",
+      "title": "Blog – Justin Cappelle",
+      "page_type": "blog",
+      "competitor_type": "local-business",
+      "covers": ["web suisse", "automatisation IA", "e-commerce", "SEO"],
+      "missing": ["automatisation PME spécifique", "guide complet agents IA", "outils comparatifs", "ROI"],
+      "eeat_signals": ["author"]
+    },
+    {
+      "rank": 4,
+      "url": "https://www.vixaldigital.com/blog",
+      "title": "Blog – Vixal Digital",
+      "page_type": "blog",
+      "competitor_type": "local-business",
+      "covers": ["création site Suisse", "freelance vs agence"],
+      "missing": ["automatisation", "IA", "agents autonomes", "ROI"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 5,
+      "url": "https://louisdescamps.fr/blog",
+      "title": "Blog SEO – Louis Descamps",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["SEO local", "Google My Business", "WordPress SEO"],
+      "missing": ["automatisation PME suisse", "IA agents", "Make/n8n/Zapier comparatif"],
+      "eeat_signals": ["author", "sources"]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "Comment automatiser une PME en Suisse ?",
+      "Quels outils d'automatisation pour les petites entreprises ?",
+      "Quel est le ROI de l'automatisation pour une PME ?",
+      "n8n ou Make pour une PME suisse ?"
+    ],
+    "featured_snippet": false,
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "informational",
+  "common_ground": [
+    "mention des outils d'automatisation (n8n, Make, Zapier)",
+    "cible PME/indépendants",
+    "ton conseils pratiques"
+  ],
+  "gap": {
+    "description": "Aucun acteur local ne publie un guide complet dirigeant (non-technique) sur l'automatisation PME avec ROI chiffré, critères de priorisation et distinction claire workflows déterministes vs agents IA autonomes (Hermes, OpenClaw) — les deux nouvelles catégories qui émergent en 2026",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "WeAcend : articles courts sans données, peu de profondeur",
+    "Mivelaz : bon volume mais ton agence générique, pas de personal brand",
+    "Aucun ne couvre les agents autonomes (Hermes Agent, OpenClaw) — sujet chaud 2026 totalement absent de la blogosphère suisse romande"
+  ],
+  "recommended_angle": "Guide complet pour dirigeant de PME suisse (non-technique) : pourquoi automatiser, quoi automatiser en premier (ROI), quelle stack choisir (n8n/Make vs agents IA), avec données réelles et ancrage CHF — le seul guide romand qui distingue workflows déterministes et agents autonomes 2026."
+}

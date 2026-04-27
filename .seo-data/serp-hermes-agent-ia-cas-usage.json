@@ -1,0 +1,83 @@
+{
+  "keyword": "Hermes agent IA Nous Research avis test",
+  "location": "France / Suisse romande",
+  "scanned_at": "2026-04-26T10:20:00Z",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://hermes-agent.nousresearch.com",
+      "title": "Hermes Agent – The Agent That Grows With You | Nous Research",
+      "page_type": "homepage",
+      "competitor_type": "institutional",
+      "covers": ["présentation produit", "features", "installation"],
+      "missing": ["avis utilisateur", "cas d'usage PME", "comparaison OpenClaw", "coûts réels"],
+      "eeat_signals": ["sources", "data"]
+    },
+    {
+      "rank": 2,
+      "url": "https://virtualuncle.com/hermes-agent-complete-guide-2026/",
+      "title": "Hermes Agent: Complete Guide 2026",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["guide complet installation", "coûts", "comparaison OpenClaw", "avis communauté"],
+      "missing": ["angle PME suisse", "cas d'usage business concrets", "FR-CH pricing"],
+      "eeat_signals": ["data", "sources", "comparaison"]
+    },
+    {
+      "rank": 3,
+      "url": "https://github.com/NousResearch/hermes-agent",
+      "title": "NousResearch/hermes-agent – GitHub",
+      "page_type": "other",
+      "competitor_type": "institutional",
+      "covers": ["code source", "documentation technique", "releases"],
+      "missing": ["guide non-technique", "cas d'usage PME", "pricing"],
+      "eeat_signals": ["data", "sources"]
+    },
+    {
+      "rank": 4,
+      "url": "https://hermesagent.best/",
+      "title": "Hermes Agent – An Agent That Grows With You",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["présentation Hermes Agent", "features"],
+      "missing": ["comparaison approfondie OpenClaw", "cas PME", "coûts réels"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 5,
+      "url": "https://thenewstack.io/persistent-ai-agents-compared/",
+      "title": "OpenClaw vs. Hermes Agent: The race to build AI assistants that never forget",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["comparaison OpenClaw vs Hermes", "mémoire persistante"],
+      "missing": ["angle PME non-technique", "français", "cas usage business suisse"],
+      "eeat_signals": ["author", "sources", "data"]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "Comment installer Hermes Agent ?",
+      "Quelle différence entre Hermes Agent et OpenClaw ?",
+      "Hermes Agent est-il gratuit ?",
+      "Nous Research c'est quoi ?"
+    ],
+    "featured_snippet": false,
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "informational",
+  "common_ground": ["présentation features", "installation", "comparaison OpenClaw"],
+  "gap": {
+    "description": "Aucun contenu francophone ne présente Hermes Agent depuis l'angle d'une PME non-technique — tous les guides existants sont en anglais ou très techniques. Opportunité de premier contenu FR sur le sujet.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "Tous les contenus sont en anglais",
+    "Guides très techniques (CLI, Docker, WSL2)",
+    "Aucun angle business/PME non-technique",
+    "Aucun contenu francophone de qualité indexé"
+  ],
+  "recommended_angle": "Premier guide francophone sur Hermes Agent pour non-développeurs : ce que c'est, ce que ça fait concrètement pour une PME, combien ça coûte, et pourquoi c'est différent de ChatGPT — depuis un regard terrain suisse."
+}

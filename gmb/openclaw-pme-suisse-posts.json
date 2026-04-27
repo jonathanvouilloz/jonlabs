@@ -1,0 +1,34 @@
+[
+  {
+    "type": "gmb",
+    "title": "OpenClaw — assistant IA via WhatsApp",
+    "content": "OpenClaw : un assistant IA qui vit dans ton WhatsApp et se souvient de tout. Open source, créé par Peter Steinberger (Nutrient/PSPDFKit). Cas d'usage et coûts réels en CHF pour un dirigeant de TPE ou PME romande.",
+    "post_type": "whats_new",
+    "scheduled_at": "2026-05-01T09:00:00",
+    "cta": {
+      "action": "LEARN_MORE",
+      "url": "https://jonlabs.ch/blog/openclaw-pme-suisse"
+    },
+    "location_target": "all",
+    "image_template": "split-vertical",
+    "image_style": "illustration",
+    "image_text": "OpenClaw dans WhatsApp",
+    "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall. Left zone 55%: solid #00D4AA background, 'OpenClaw dans WhatsApp' in bold sans-serif, high contrast dark text #1a1a1a. Right zone 45%: flat brutaliste illustration of a smartphone showing a chat bubble with a small robot icon replying, alongside a memory chip and a Mac laptop with a green ON light. Thick black borders, no gradients, white background on right zone. Professionnel, créatif, maker atmosphere, brutaliste illustration style. No realistic human faces, no identifiable people, no geographic landmarks, no visible text except the designated text zone. No visual clutter, no complex patterns, no busy backgrounds."
+  },
+  {
+    "type": "gmb",
+    "title": "OpenClaw vs Hermes Agent — lequel choisir",
+    "content": "Tu hésites entre OpenClaw et Hermes Agent ? OpenClaw : usage solo, accessible WhatsApp, setup CHF 200-800. Hermes : workflows d'équipe, multi-agents, setup CHF 400-1200. La comparaison complète + recommandation par profil.",
+    "post_type": "whats_new",
+    "scheduled_at": "2026-05-04T13:00:00",
+    "cta": {
+      "action": "LEARN_MORE",
+      "url": "https://jonlabs.ch/blog/openclaw-pme-suisse"
+    },
+    "location_target": "all",
+    "image_template": "split-vertical",
+    "image_style": "illustration",
+    "image_text": "OpenClaw vs Hermes Agent",
+    "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall. Left zone 55%: solid #00D4AA background, 'OpenClaw vs Hermes Agent' in bold sans-serif, high contrast dark text #1a1a1a. Right zone 45%: flat brutaliste illustration of two robot heads facing each other, one labeled with a smartphone icon, the other with a server/cloud icon, separated by a vs symbol. Thick black borders, no gradients, white background on right zone. Professionnel, créatif, maker atmosphere, brutaliste illustration style. No realistic human faces, no identifiable people, no geographic landmarks, no visible text except the designated text zone. No visual clutter, no complex patterns, no busy backgrounds."
+  }
+]

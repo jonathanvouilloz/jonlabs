@@ -1,0 +1,21 @@
+{
+  "topic": "agent IA autonome entreprise",
+  "location_code": 2250,
+  "location_name": "France",
+  "language_code": "fr",
+  "generated_at": "2026-04-26T20:31:39Z",
+  "primary": {
+    "keyword": "agent IA autonome entreprise",
+    "search_volume": 0,
+    "cpc": 0,
+    "competition": null,
+    "competition_index": null,
+    "difficulty": null,
+    "intent": "navigational",
+    "intent_probability": 0.79639596
+  },
+  "secondaries": [],
+  "long_tail": [],
+  "related": [],
+  "quick_wins": []
+}

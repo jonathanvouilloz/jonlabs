@@ -1,0 +1,22 @@
+# Production log — automatisation-pme-suisse-guide-complet
+Date : 2026-04-26 23:10
+Worker : @article-producer
+
+## Etapes
+- [✓] /seo-write    : draft repris de session précédente (~2 250 mots existants, validé conforme au brief)
+- [✓] /humanizer    : 28 patterns IA corrigés (tous em dashes supprimés, inline-headers allégés, fillers retirés, surbolding réduit)
+- [✓] /seo-enrich   : src/content/blog/automatisation-pme-suisse-guide-complet.md créé (frontmatter complet : title 44 car., description 147 car., faqs × 4, featured: true, draft: false, pubDate: 2026-04-26). Schema JSON-LD généré automatiquement par le template Astro (BlogPosting + BreadcrumbList + FAQPage). Build Astro OK — 146 pages, 0 erreur.
+- [✓] /seo-review   : 14/14 PASS après correction immédiate du critère #5 (bold keywords insuffisants — 3 bolds entity ajoutés dans le corps). 0 bloquant.
+- [✓] /generate-cover : public/images/blog/automatisation-pme-suisse-guide-complet.webp (37 KB, pipeline template, aucun appel API)
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-04-26)
+
+## Bloquants éventuels
+aucun
+
+## Notes de production
+- Draft existant de session précédente repris directement (étape /seo-write skippée conformément à la règle d'idempotence)
+- TODO:image commentaires du draft (.draft.md) : 3 commentaires d'images inline (schéma workflows vs agents, tableau comparatif stack, roadmap 3 étapes) ont été supprimés du fichier final car ces images inline ne sont pas encore produites. Elles peuvent être générées ultérieurement avec /generate-images en mode batch depuis le brief.
+- Maillage interne : 5 liens vers les satellites du cluster insérés (workflows-vs-agents-ia-pme, comment-choisir-quoi-automatiser-pme, avantages-limites-automatisation-pme, hermes-agent-ia-pme, openclaw-pme-suisse)
+- CTA Calendly présent en conclusion avec UTM tracking

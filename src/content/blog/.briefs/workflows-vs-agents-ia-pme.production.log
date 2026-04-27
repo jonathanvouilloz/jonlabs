@@ -1,0 +1,21 @@
+# Production log — workflows-vs-agents-ia-pme
+Date : 2026-04-26 23:11
+Worker : @article-producer
+
+## Étapes
+- [✓] /seo-write    : draft écrit (2 377 mots)
+- [✓] /humanizer    : 18 patterns IA corrigés (em dashes ×14, inline-header bullets, negative parallelism, weasel words, conclusion IA)
+- [✓] /seo-enrich   : src/content/blog/workflows-vs-agents-ia-pme.md créé (16.8 kB) — build OK, sitemap mis à jour, FAQPage JSON-LD auto via frontmatter
+- [✓] /seo-review   : 0 warning bloquant, 1 correction mineure appliquée (bold phrase entière → bold mots uniquement), 4 images TODO non produites signalées
+- [✓] /generate-cover : public/images/blog/workflows-vs-agents-ia-pme.webp (36 kB) — pipeline template (bg-cover-template, aucun appel API)
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-04-27)
+
+## Bloquants éventuels
+aucun
+
+## Notes de production
+- 4 images inline TODO dans l'article (types : illustration, infographic ×2, schema) — non bloquantes à la publication (commentaires HTML invisibles), mais à produire avec `/generate-images workflows-vs-agents-ia-pme` avant indexation complète
+- Maillage retour suggéré : automatisation-pme-suisse-guide-complet.md, ia-pragmatique-pme-suisse.md, automatisation-club-sportif.md
+- Schema JSON-LD BlogPosting + BreadcrumbList + FAQPage (4 questions) générés automatiquement par [slug].astro

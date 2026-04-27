@@ -1,0 +1,274 @@
+{
+  "topic": "OpenClaw",
+  "location_code": 2250,
+  "location_name": "France",
+  "language_code": "fr",
+  "generated_at": "2026-04-26T20:34:03Z",
+  "primary": {
+    "keyword": "OpenClaw",
+    "search_volume": 22200,
+    "cpc": 1.51,
+    "competition": "LOW",
+    "competition_index": 25,
+    "difficulty": 44,
+    "intent": "commercial",
+    "intent_probability": 0.99841005
+  },
+  "secondaries": [
+    {
+      "keyword": "openclaw",
+      "search_volume": 22200,
+      "cpc": 1.51,
+      "competition": "LOW",
+      "competition_index": 25
+    },
+    {
+      "keyword": "openclaw github",
+      "search_volume": 880,
+      "cpc": 2.64,
+      "competition": "LOW",
+      "competition_index": 3
+    },
+    {
+      "keyword": "openclaw docker",
+      "search_volume": 260,
+      "cpc": 2.67,
+      "competition": "LOW",
+      "competition_index": 11
+    },
+    {
+      "keyword": "openclaw ai",
+      "search_volume": 260,
+      "cpc": 2.55,
+      "competition": "MEDIUM",
+      "competition_index": 35
+    },
+    {
+      "keyword": "hostinger openclaw",
+      "search_volume": 260,
+      "cpc": 0.41,
+      "competition": "MEDIUM",
+      "competition_index": 42
+    },
+    {
+      "keyword": "installer openclaw",
+      "search_volume": 170,
+      "cpc": 2.54,
+      "competition": "LOW",
+      "competition_index": 31
+    },
+    {
+      "keyword": "openclaw doc",
+      "search_volume": 170,
+      "cpc": 3.1,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "openclaw install",
+      "search_volume": 170,
+      "cpc": 1.97,
+      "competition": "LOW",
+      "competition_index": 20
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "openclaw browser relay",
+      "search_volume": 140,
+      "cpc": 3.7,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "openclaw home assistant",
+      "search_volume": 70,
+      "cpc": 1.31,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "openclaw c'est quoi",
+      "search_volume": 70,
+      "cpc": 0.68,
+      "competition": "LOW",
+      "competition_index": 21
+    },
+    {
+      "keyword": "mission control openclaw",
+      "search_volume": 50,
+      "cpc": 2.06,
+      "competition": "LOW",
+      "competition_index": 6
+    },
+    {
+      "keyword": "openclaw docker compose",
+      "search_volume": 40,
+      "cpc": 2.05,
+      "competition": "LOW",
+      "competition_index": 20
+    },
+    {
+      "keyword": "peter steinberger openclaw",
+      "search_volume": 40,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "openclaw chrome extension",
+      "search_volume": 40,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "comment installer openclaw",
+      "search_volume": 20,
+      "cpc": 2.37,
+      "competition": "MEDIUM",
+      "competition_index": 45
+    },
+    {
+      "keyword": "openclaw docker image",
+      "search_volume": 20,
+      "cpc": 1.22,
+      "competition": "LOW",
+      "competition_index": 7
+    },
+    {
+      "keyword": "openclaw vs n8n",
+      "search_volume": 20,
+      "cpc": 1.07,
+      "competition": "LOW",
+      "competition_index": 5
+    },
+    {
+      "keyword": "mac mini for openclaw",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 16
+    },
+    {
+      "keyword": "openclaw add model",
+      "search_volume": 10,
+      "cpc": 2.38,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "openclaw gemma 3",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "que faire avec openclaw",
+      "search_volume": 10,
+      "cpc": 0.49,
+      "competition": "LOW",
+      "competition_index": 27
+    },
+    {
+      "keyword": "openclaw docker install",
+      "search_volume": 10,
+      "cpc": 1.76,
+      "competition": "LOW",
+      "competition_index": 15
+    }
+  ],
+  "related": [
+    {
+      "keyword": "openclaw documentation",
+      "search_volume": 170,
+      "cpc": 3.1,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "openclaw ollama",
+      "search_volume": 140,
+      "cpc": 1.46,
+      "competition": "LOW",
+      "competition_index": 9
+    },
+    {
+      "keyword": "openclaw alternative",
+      "search_volume": 110,
+      "cpc": 2.71,
+      "competition": "LOW",
+      "competition_index": 13
+    },
+    {
+      "keyword": "openclaw hub",
+      "search_volume": 110,
+      "cpc": 2.87,
+      "competition": "LOW",
+      "competition_index": 6
+    },
+    {
+      "keyword": "openclaw tuto",
+      "search_volume": 90,
+      "cpc": 1.07,
+      "competition": "LOW",
+      "competition_index": 17
+    },
+    {
+      "keyword": "openclaw vps",
+      "search_volume": 90,
+      "cpc": 5.58,
+      "competition": "HIGH",
+      "competition_index": 67
+    },
+    {
+      "keyword": "vps openclaw",
+      "search_volume": 70,
+      "cpc": 5.13,
+      "competition": "HIGH",
+      "competition_index": 73
+    },
+    {
+      "keyword": "openclaw whatsapp",
+      "search_volume": 70,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 5
+    },
+    {
+      "keyword": "openclaw windows",
+      "search_volume": 70,
+      "cpc": 1.97,
+      "competition": "LOW",
+      "competition_index": 11
+    },
+    {
+      "keyword": "openclaw security",
+      "search_volume": 70,
+      "cpc": 2.19,
+      "competition": "LOW",
+      "competition_index": 15
+    }
+  ],
+  "quick_wins": [
+    {
+      "keyword": "openclaw",
+      "search_volume": 22200,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "openclaw github",
+      "search_volume": 880,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "openclaw docker",
+      "search_volume": 260,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "topic": "n8n automatisation",
+  "location_code": 2250,
+  "location_name": "France",
+  "language_code": "fr",
+  "generated_at": "2026-04-26T20:31:49Z",
+  "primary": {
+    "keyword": "n8n automatisation",
+    "search_volume": 70,
+    "cpc": 3.31,
+    "competition": "MEDIUM",
+    "competition_index": 35,
+    "difficulty": 8,
+    "intent": "navigational",
+    "intent_probability": 0.60544455
+  },
+  "secondaries": [],
+  "long_tail": [
+    {
+      "keyword": "agence automatisation n8n",
+      "search_volume": 90,
+      "cpc": 3.25,
+      "competition": "LOW",
+      "competition_index": 3
+    }
+  ],
+  "related": [
+    {
+      "keyword": "automatisation n8n",
+      "search_volume": 210,
+      "cpc": 3.65,
+      "competition": "LOW",
+      "competition_index": 30
+    },
+    {
+      "keyword": "n8n #automatisation",
+      "search_volume": 70,
+      "cpc": 3.31,
+      "competition": "MEDIUM",
+      "competition_index": 35
+    }
+  ],
+  "quick_wins": [
+    {
+      "keyword": "automatisation n8n",
+      "search_volume": 210,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}

@@ -1,0 +1,82 @@
+{
+  "keyword": "avantages limites automatisation PME bilan honnête",
+  "location": "Suisse romande / France",
+  "scanned_at": "2026-04-26T10:15:00Z",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://blog.weacend.com/ia-productivite",
+      "title": "IA et productivité : le duo gagnant des PME – WeAcend",
+      "page_type": "blog",
+      "competitor_type": "local-business",
+      "covers": ["avantages IA productivité PME"],
+      "missing": ["limites réelles", "bilan honnête", "risques", "cas d'échec", "données chiffrées"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 2,
+      "url": "https://make.com/blog/automation-benefits",
+      "title": "Benefits of Automation – Make",
+      "page_type": "blog",
+      "competitor_type": "institutional",
+      "covers": ["bénéfices automatisation", "gains de temps"],
+      "missing": ["limites et risques", "bilan neutre", "contexte PME suisse"],
+      "eeat_signals": ["data"]
+    },
+    {
+      "rank": 3,
+      "url": "https://zapier.com/blog/business-process-automation/",
+      "title": "Business Process Automation Guide – Zapier",
+      "page_type": "blog",
+      "competitor_type": "institutional",
+      "covers": ["processus automatisables", "avantages"],
+      "missing": ["limites honnêtes", "coûts cachés", "risques terrain"],
+      "eeat_signals": ["data", "sources"]
+    },
+    {
+      "rank": 4,
+      "url": "https://mivelaz-consulting.ch/automatisation",
+      "title": "Automatisation – Mivelaz Consulting",
+      "page_type": "service",
+      "competitor_type": "local-business",
+      "covers": ["services automatisation", "n8n Suisse"],
+      "missing": ["bilan honnête avantages/limites", "risques", "cas d'échec"],
+      "eeat_signals": ["author"]
+    },
+    {
+      "rank": 5,
+      "url": "https://florian-perrier.com/blog",
+      "title": "Automatisation & IA – Florian Perrier",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["outils IA", "automatisation dev"],
+      "missing": ["bilan PME dirigeant", "limites réelles", "ancrage suisse"],
+      "eeat_signals": ["author"]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "Quels sont les risques de l'automatisation pour une PME ?",
+      "Est-ce que l'automatisation crée ou détruit des emplois ?",
+      "Combien de temps pour voir un ROI sur l'automatisation ?",
+      "Quelles tâches ne peut-on pas automatiser ?"
+    ],
+    "featured_snippet": false,
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "informational",
+  "common_ground": ["avantages gains de temps", "exemples d'outils"],
+  "gap": {
+    "description": "Aucun article francophone ne fait un bilan honnête (avantages ET limites réelles) de l'automatisation PME avec des cas d'échec terrain, des coûts cachés et un regard critique — tous les contenus existants sont des contenus de vente déguisés",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "Tous les articles existants sont des contenus marketing pro-automatisation",
+    "Aucun ne mentionne les risques, coûts de maintenance, cas d'échec",
+    "Aucun ancrage suisse romand"
+  ],
+  "recommended_angle": "Le premier bilan vraiment honnête de l'automatisation pour PME suisse : ce que ça apporte réellement, ce que ça coûte vraiment, et les 3 situations où il vaut mieux ne pas automatiser — sans langue de bois."
+}

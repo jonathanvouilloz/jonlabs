@@ -1,0 +1,28 @@
+# Production log — comment-choisir-quoi-automatiser-pme
+Date : 2026-04-26 23:11
+Worker : @article-producer
+
+## Etapes
+- [OK] /seo-write    : draft écrit (2630 mots)
+- [OK] /humanizer    : ~18 patterns IA corrigés (em dashes ×14, headings H3 reformatés, inline-header lists converties en prose, formule de conclusion humanisée, "significativement" remplacé)
+- [OK] /seo-enrich   : src/content/blog/comment-choisir-quoi-automatiser-pme.md créé (18.4 kB) — build Astro OK (150 pages, 0 erreur)
+- [OK] /seo-review   : 0 warnings bloquants, 0 FAIL critique — 14/14 PASS. 1 warning non-bloquant : lien S3 (/blog/avantages-limites-automatisation-pme) temporairement brisé (article S3 non encore produit)
+- [OK] /generate-cover : public/images/blog/comment-choisir-quoi-automatiser-pme.webp (40 kB, 1920×1080, pipeline template)
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-04-28)
+
+## Bloquants éventuels
+aucun
+
+## Warnings non-bloquants
+1. Lien interne S3 (/blog/avantages-limites-automatisation-pme) brisé jusqu'à la publication de l'article S3 du cluster. À corriger soit en publiant S3, soit en remplaçant temporairement par /blog/automatisation-pme-suisse-guide-complet.
+2. 3 images infographic/illustration (TODO:image #2, #3, #4) non produites — type non-photo, à générer en Figma ou via /generate-images. Les commentaires HTML ne s'affichent pas en production.
+
+## Maillage interne
+- Pillar vers S2 : déjà en place dans automatisation-pme-suisse-guide-complet.md (ligne 114)
+- S2 vers pillar : 2 liens
+- S2 vers S1 (workflows-vs-agents-ia-pme) : 1 lien (signal 3)
+- S2 vers S3 (avantages-limites-automatisation-pme) : 1 lien (conclusion)
+- S2 vers Calendly : 1 lien (étape 3)
+- S2 vers /contact : 1 lien CTA (conclusion)

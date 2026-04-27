@@ -1,0 +1,21 @@
+{
+  "topic": "Hermes agent",
+  "location_code": 2250,
+  "location_name": "France",
+  "language_code": "fr",
+  "generated_at": "2026-04-26T20:33:46Z",
+  "primary": {
+    "keyword": "Hermes agent",
+    "search_volume": 320,
+    "cpc": 5.57,
+    "competition": "LOW",
+    "competition_index": 0,
+    "difficulty": null,
+    "intent": "navigational",
+    "intent_probability": 0.75457823
+  },
+  "secondaries": [],
+  "long_tail": [],
+  "related": [],
+  "quick_wins": []
+}

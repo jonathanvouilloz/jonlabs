@@ -1,0 +1,21 @@
+{
+  "topic": "OpenClaw agent IA",
+  "location_code": 2250,
+  "location_name": "France",
+  "language_code": "fr",
+  "generated_at": "2026-04-26T20:31:38Z",
+  "primary": {
+    "keyword": "OpenClaw agent IA",
+    "search_volume": 10,
+    "cpc": 2.63,
+    "competition": "MEDIUM",
+    "competition_index": 58,
+    "difficulty": null,
+    "intent": "commercial",
+    "intent_probability": 0.9776498
+  },
+  "secondaries": [],
+  "long_tail": [],
+  "related": [],
+  "quick_wins": []
+}

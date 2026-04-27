@@ -1,0 +1,82 @@
+{
+  "keyword": "workflows automatisation vs agents IA n8n Make Zapier",
+  "location": "Suisse romande / France",
+  "scanned_at": "2026-04-26T10:05:00Z",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://n8n.io/blog",
+      "title": "n8n Blog – Automation tutorials",
+      "page_type": "blog",
+      "competitor_type": "institutional",
+      "covers": ["tutoriels n8n", "workflows techniques", "intégrations"],
+      "missing": ["comparaison agents IA autonomes", "angle PME non-technique", "ROI", "Hermes/OpenClaw"],
+      "eeat_signals": ["sources", "data"]
+    },
+    {
+      "rank": 2,
+      "url": "https://virtualuncle.com/make-vs-zapier-vs-n8n-2026/",
+      "title": "Make.com vs Zapier vs n8n in 2026",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["comparaison Make/Zapier/n8n", "prix", "fonctionnalités"],
+      "missing": ["agents IA autonomes comme catégorie distincte", "ancrage suisse", "ROI terrain"],
+      "eeat_signals": ["data", "comparaison"]
+    },
+    {
+      "rank": 3,
+      "url": "https://florian-perrier.com/blog",
+      "title": "Blog dev – Automatisation & IA",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["IA developer tools", "automatisation dev"],
+      "missing": ["angle PME dirigeant", "distinction workflow vs agent", "cas concrets PME"],
+      "eeat_signals": ["author"]
+    },
+    {
+      "rank": 4,
+      "url": "https://mivelaz-consulting.ch/blog",
+      "title": "Consultant n8n Suisse romande",
+      "page_type": "service",
+      "competitor_type": "local-business",
+      "covers": ["n8n Suisse", "consultant automatisation"],
+      "missing": ["workflows vs agents IA", "guide comparaison", "Hermes/OpenClaw"],
+      "eeat_signals": ["author"]
+    },
+    {
+      "rank": 5,
+      "url": "https://zapier.com/blog/",
+      "title": "Zapier Blog – Automation guides",
+      "page_type": "blog",
+      "competitor_type": "institutional",
+      "covers": ["tutoriels Zapier", "automatisation workflows"],
+      "missing": ["agents IA autonomes", "comparaison neutre", "ancrage PME suisse"],
+      "eeat_signals": ["data", "sources"]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "Quelle différence entre n8n et Make ?",
+      "Quand utiliser un agent IA plutôt qu'un workflow ?",
+      "n8n ou Zapier pour une PME ?",
+      "Les agents IA peuvent-ils remplacer les workflows ?"
+    ],
+    "featured_snippet": false,
+    "image_pack": false,
+    "video": true
+  },
+  "intent_signal": "informational",
+  "common_ground": ["comparaison des outils", "fonctionnalités techniques", "tarifs"],
+  "gap": {
+    "description": "Aucun article FR ne fait la distinction conceptuelle claire entre workflows déterministes (n8n/Make/Zapier) et agents IA autonomes (Hermes Agent, OpenClaw) depuis un angle dirigeant PME non-technique — la question de 2026",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "Comparatifs existants sont techniques ou orientés développeurs",
+    "Aucun n'aborde Hermes Agent / OpenClaw comme nouvelle catégorie",
+    "Pas d'ancrage suisse romand"
+  ],
+  "recommended_angle": "La vraie question n'est pas n8n vs Make : c'est 'workflow déterministe ou agent autonome' ? Premier article FR à expliquer cette distinction pour un dirigeant PME, avec exemples concrets et critères de choix."
+}

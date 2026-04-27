@@ -1,0 +1,18 @@
+[
+  {
+    "type": "gmb",
+    "title": "Hermes Agent — guide PME romande",
+    "content": "Hermes Agent : 61 000 étoiles GitHub en 3 mois. Agent IA open source avec mémoire persistante, lancé par Nous Research. Ce que ça fait pour une PME genevoise, et combien ça coûte vraiment en CHF (sans le bullshit).",
+    "post_type": "whats_new",
+    "scheduled_at": "2026-04-29T13:00:00",
+    "cta": {
+      "action": "LEARN_MORE",
+      "url": "https://jonlabs.ch/blog/hermes-agent-ia-pme"
+    },
+    "location_target": "all",
+    "image_template": "split-vertical",
+    "image_style": "illustration",
+    "image_text": "Hermes Agent expliqué",
+    "image_prompt": "4:3 aspect ratio, landscape orientation, 1200x900 pixels, image must be wider than tall. Left zone 55%: solid #00D4AA background, 'Hermes Agent expliqué' in bold sans-serif, high contrast dark text #1a1a1a. Right zone 45%: flat brutaliste illustration of an AI agent — a stylized robot head with a memory chip icon next to it, three arrows looping back to a clock and a notebook, symbolizing persistent memory. Thick black borders, no gradients, white background on right zone. Professionnel, créatif, maker atmosphere, brutaliste illustration style. No realistic human faces, no identifiable people, no geographic landmarks, no visible text except the designated text zone. No visual clutter, no complex patterns, no busy backgrounds."
+  }
+]

@@ -1,0 +1,78 @@
+{
+  "keyword": "comment choisir quoi automatiser PME ROI",
+  "location": "Suisse romande / France",
+  "scanned_at": "2026-04-26T10:10:00Z",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://blog.weacend.com/erreurs-automatisation",
+      "title": "Les erreurs à éviter lors d'une automatisation – WeAcend",
+      "page_type": "blog",
+      "competitor_type": "local-business",
+      "covers": ["erreurs d'automatisation"],
+      "missing": ["critères de priorisation", "méthode ROI", "matrice décision", "exemples chiffrés CHF"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 2,
+      "url": "https://virtualuncle.com/5-tasks-automate",
+      "title": "The 5 Tasks You Should've Automated Yesterday",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["5 tâches à automatiser", "exemples"],
+      "missing": ["méthode ROI structurée", "ancrage PME suisse", "critères priorisation", "CHF"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 3,
+      "url": "https://make.com/blog",
+      "title": "Make Blog – Automation use cases",
+      "page_type": "blog",
+      "competitor_type": "institutional",
+      "covers": ["cas d'usage Make", "tâches automatisables"],
+      "missing": ["critères de priorisation ROI", "méthode structurée", "PME suisse"],
+      "eeat_signals": ["data"]
+    },
+    {
+      "rank": 4,
+      "url": "https://zapier.com/blog/what-to-automate/",
+      "title": "What to Automate at Work – Zapier",
+      "page_type": "blog",
+      "competitor_type": "institutional",
+      "covers": ["quoi automatiser", "liste de tâches"],
+      "missing": ["méthode ROI chiffrée", "critères priorisation PME", "ancrage suisse"],
+      "eeat_signals": ["data"]
+    },
+    {
+      "rank": 5,
+      "url": "https://justincappelle.ch/blog",
+      "title": "Blog – Justin Cappelle",
+      "page_type": "blog",
+      "competitor_type": "local-business",
+      "covers": ["automatisation IA", "conseils web"],
+      "missing": ["guide priorisation ROI", "matrice décision", "données chiffrées"],
+      "eeat_signals": ["author"]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "Par où commencer l'automatisation dans une PME ?",
+      "Comment calculer le ROI d'une automatisation ?",
+      "Quelles tâches automatiser en priorité ?",
+      "Combien coûte l'automatisation pour une PME ?"
+    ],
+    "featured_snippet": false,
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "informational",
+  "common_ground": ["liste de tâches automatisables", "exemples d'outils"],
+  "gap": {
+    "description": "Aucun article FR ne propose une méthode structurée de priorisation (matrice effort/impact/fréquence) avec ROI calculé en CHF et exemples terrain PME romande",
+    "opportunity_score": "high"
+  },
+  "weakness": ["Listes sans méthode", "Aucun ROI chiffré", "Aucun ancrage suisse"],
+  "recommended_angle": "Une méthode en 3 étapes pour choisir quoi automatiser en premier dans votre PME : matrice effort/impact, calcul ROI en CHF, et les 5 processus qui rapportent le plus vite — avec exemples terrain Suisse romande."
+}

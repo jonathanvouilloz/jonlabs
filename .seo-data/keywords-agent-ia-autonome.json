@@ -1,0 +1,108 @@
+{
+  "topic": "agent IA autonome",
+  "location_code": 2250,
+  "location_name": "France",
+  "language_code": "fr",
+  "generated_at": "2026-04-26T20:33:26Z",
+  "primary": {
+    "keyword": "agent IA autonome",
+    "search_volume": 110,
+    "cpc": 4.27,
+    "competition": "MEDIUM",
+    "competition_index": 51,
+    "difficulty": 0,
+    "intent": "navigational",
+    "intent_probability": 0.81187487
+  },
+  "secondaries": [
+    {
+      "keyword": "agent ia autonome",
+      "search_volume": 110,
+      "cpc": 4.27,
+      "competition": "MEDIUM",
+      "competition_index": 51
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "agent ia gratuit",
+      "search_volume": 590,
+      "cpc": 5.03,
+      "competition": "MEDIUM",
+      "competition_index": 64
+    },
+    {
+      "keyword": "comment créer un agent ia",
+      "search_volume": 390,
+      "cpc": 3.89,
+      "competition": "MEDIUM",
+      "competition_index": 40
+    },
+    {
+      "keyword": "agent ia c'est quoi",
+      "search_volume": 320,
+      "cpc": 1.5,
+      "competition": "MEDIUM",
+      "competition_index": 46
+    },
+    {
+      "keyword": "créer un agent ia",
+      "search_volume": 260,
+      "cpc": 5.73,
+      "competition": "HIGH",
+      "competition_index": 69
+    },
+    {
+      "keyword": "agent autonome ia",
+      "search_volume": 90,
+      "cpc": 6.26,
+      "competition": "MEDIUM",
+      "competition_index": 41
+    },
+    {
+      "keyword": "agent ia exemple",
+      "search_volume": 90,
+      "cpc": 3.48,
+      "competition": "MEDIUM",
+      "competition_index": 47
+    },
+    {
+      "keyword": "agent ia claude",
+      "search_volume": 90,
+      "cpc": 2.52,
+      "competition": "LOW",
+      "competition_index": 30
+    },
+    {
+      "keyword": "créer un agent ia gratuit",
+      "search_volume": 90,
+      "cpc": 7.74,
+      "competition": "MEDIUM",
+      "competition_index": 65
+    },
+    {
+      "keyword": "créer agent ia gratuit",
+      "search_volume": 50,
+      "cpc": 8.1,
+      "competition": "HIGH",
+      "competition_index": 68
+    },
+    {
+      "keyword": "comment créer un agent ia avec chatgpt",
+      "search_volume": 50,
+      "cpc": 1.56,
+      "competition": "LOW",
+      "competition_index": 30
+    }
+  ],
+  "related": [
+    {
+      "keyword": "agent autonome",
+      "search_volume": 90,
+      "cpc": 3.31,
+      "competition": "LOW",
+      "competition_index": 11
+    }
+  ],
+  "quick_wins": []
+}
