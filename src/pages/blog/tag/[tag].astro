@@ -5,9 +5,10 @@ import Layout from '../../../layouts/Layout.astro';
 import AppHeader from '../../../components/Header.astro';
 import AppFooter from '../../../components/Footer.astro';
 import PostCard from '../../../components/blog/PostCard.astro';
+import { isPublished } from '../../../lib/blog';
 
 export async function getStaticPaths() {
-  const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+  const allPosts = await getCollection('blog', ({ data }) => isPublished(data));
 
   // Collect all unique tags
   const tags = [...new Set(allPosts.flatMap((post) => post.data.tags))];

@@ -7,13 +7,13 @@ import AppFooter from '../../components/Footer.astro';
 import BlogHero from '../../components/blog/BlogHero.astro';
 import BlogSidebar from '../../components/blog/BlogSidebar.astro';
 import PostCard from '../../components/blog/PostCard.astro';
-import { formatDateShort, getCategoryName, getCategoryColor } from '../../lib/blog';
+import { formatDateShort, getCategoryName, getCategoryColor, isPublished } from '../../lib/blog';
 
 // Schema.org
 import { blogSchema } from '../../data/schema';
 
-// Get all published posts
-const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+// Get all published posts (drafts excluded + future pubDate gated)
+const allPosts = await getCollection('blog', ({ data }) => isPublished(data));
 
 // Sort by date (newest first)
 const sortedPosts = allPosts.sort((a, b) =>

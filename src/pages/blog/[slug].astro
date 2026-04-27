@@ -8,13 +8,13 @@ import CategoryBadge from '../../components/blog/CategoryBadge.astro';
 import AuthorBio from '../../components/blog/AuthorBio.astro';
 import RelatedPosts from '../../components/blog/RelatedPosts.astro';
 import ReadingProgress from '../../components/blog/ReadingProgress.astro';
-import { formatDate, getRelatedPosts } from '../../lib/blog';
+import { formatDate, getRelatedPosts, isPublished } from '../../lib/blog';
 import { author } from '../../sample';
 import { getBlogPostingSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
 import { SITE_URL } from '../../data/schema';
 
 export async function getStaticPaths() {
-  const posts = await getCollection('blog', ({ data }) => !data.draft);
+  const posts = await getCollection('blog', ({ data }) => isPublished(data));
   return posts.map((post) => ({
     params: { slug: post.slug },
     props: { post, allPosts: posts },
