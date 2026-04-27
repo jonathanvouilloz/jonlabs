@@ -1,62 +1,51 @@
+---
+extends: identity
+expertise: Astro/Tailwind/Node.js, automatisation Make/Zapier/n8n, SEO local Suisse romande, applications sur-mesure
+location: Genève, Suisse — service Suisse romande
+eeat_proof: Audit terrain de 50 sites d'indépendants romands réalisé et publié (2026) ; projets clients livrés pour TPE/PME ; site jonlabs.ch en production ; expérience terrain en automatisation et intégration API
+goals:
+  cluster: Construire la visibilité organique sur les requêtes "développeur web Genève", "site web suisse romande", "automatisation PME suisse" — asseoir l'expertise E-E-A-T locale
+  transactional: Générer des leads qualifiés vers /services/refonte-site-web ou /contact — lecteur qui reconnaît son problème et veut passer à l'action
+  local: Apparaître pour les recherches géolocalisées romandes — "freelance web Genève", "développeur web Lausanne", "automatisation PME suisse"
+  evergreen: Nurturing — amener le lecteur vers le prochain article du cluster ou vers le CTA email
+cta_map:
+  hot:
+    url: /services/refonte-site-web
+    anchor: "Obtenir un audit gratuit"
+  warm:
+    url: /contact
+    anchor: "Discuter de votre projet"
+  nurturing: article suivant du cluster (lien interne contextuel)
+  email: "[à compléter si newsletter active]"
+  calendly:
+    url: https://cal.com/jonathan-vouilloz/appel-de-bienvenue
+    anchor: "Réserver un appel découverte"
+---
+
 # SEO Context — Jon Labs
 
-> Généré le 2026-04-19 par /init-seo-context.
-> Les skills /seo-brief, /seo-write et /seo-enrich lisent ce fichier automatiquement.
-
-## Auteur / Marque
-
-- Nom: Jonathan Vouilloz (Jon)
-- Rôle / titre: Développeur web freelance & créateur polyvalent
-- Expertise déclarée: Développement web (Astro, Tailwind, Node.js), automatisation (Make, Zapier), applications sur-mesure, PME romandes
-- Localisation: Genève, Suisse — service Suisse romande
-- Preuve E-E-A-T: Audit terrain de 50 sites d'indépendants romands réalisé et publié (2026) ; projets clients livrés pour TPE/PME ; site jonlabs.ch en production ; expérience terrain en automatisation et intégration API
+> Extension d'`identity.md`. Personas détaillés, CTA map, objectifs business par type de contenu, concurrents.
+> `tone`, `register`, `banned_words` sont dans `identity.md`.
+> `sounds_like`, auteur sont dans `voice.md`.
+>
+> Lu par `/seo-brief`, `/seo-write`, `/seo-enrich`.
 
 ## Personas
 
 ### Persona principal
 
-- Label: Indépendant romand ou dirigeant TPE/PME
-- Profil: Entrepreneur 30-55 ans, Suisse romande (Genève, Vaud, Neuchâtel), entreprise de 1 à 15 personnes
-- Ce qu'il sait déjà: Il a un site web, il connaît WordPress de nom, il comprend les bases du business digital, il sait que "le SEO c'est important" sans savoir pourquoi
-- Ce qu'il veut savoir: Combien ça coûte vraiment, combien de temps ça prend, si ça vaut le coup par rapport à son budget, comment ses concurrents font
-- Ce qu'il devrait savoir (angle expert): Son site lui coûte des clients de façon invisible chaque mois ; la vitesse mobile et l'architecture SEO ont un impact direct mesurable sur les revenus ; l'IA change les règles de visibilité en 2025-2026 et un site sans schema.org devient invisible pour les AI Overviews
-- Pain points: Site vieilli ou invisible sur Google, dépendance à un prestataire qui ne répond plus, coûts de maintenance imprévisibles, aucune idée du ROI de son site, concurrent qui le dépasse sur Google
+- **Label** : Indépendant romand ou dirigeant TPE/PME
+- **Profil** : Entrepreneur 30-55 ans, Suisse romande (Genève, Vaud, Neuchâtel), entreprise de 1 à 15 personnes
+- **Ce qu'il sait déjà** : Il a un site web, il connaît WordPress de nom, il comprend les bases du business digital, il sait que "le SEO c'est important" sans savoir pourquoi
+- **Ce qu'il veut savoir** : Combien ça coûte vraiment, combien de temps ça prend, si ça vaut le coup par rapport à son budget, comment ses concurrents font
+- **Ce qu'il devrait savoir (angle expert)** : Son site lui coûte des clients de façon invisible chaque mois ; la vitesse mobile et l'architecture SEO ont un impact direct mesurable sur les revenus ; l'IA change les règles de visibilité en 2025-2026 et un site sans schema.org devient invisible pour les AI Overviews
+- **Pain points** : Site vieilli ou invisible sur Google, dépendance à un prestataire qui ne répond plus, coûts de maintenance imprévisibles, aucune idée du ROI de son site, concurrent qui le dépasse sur Google
 
-### Persona secondaire (optionnel)
+### Persona secondaire
 
-- Label: Association ou club sportif / culturel
-- Profil: Responsable communication non-technique, budget très contraint, besoin de gérer le site sans développeur
-- Ce qu'il veut savoir: Solutions simples et économiques, comment faire les mises à jour soi-même
-
-## Objectifs business par type de contenu
-
-- Article cluster/autorité: Construire la visibilité organique sur les requêtes "développeur web Genève", "site web suisse romande", "automatisation PME suisse" — asseoir l'expertise E-E-A-T locale
-- Article transactionnel: Générer des leads qualifiés vers /services/refonte-site-web ou /contact — lecteur qui reconnaît son problème et veut passer à l'action
-- Article local: Apparaître pour les recherches géolocalisées romandes — "freelance web Genève", "développeur web Lausanne", "automatisation PME suisse"
-- Article evergreen: Nurturing — amener le lecteur vers le prochain article du cluster ou vers le CTA email
-
-## CTA Map
-
-- Lead chaud: /services/refonte-site-web — "Obtenir un audit gratuit"
-- Lead tiède: /contact — "Discuter de votre projet"
-- Nurturing: article suivant du cluster (lien interne contextuel)
-- Email / Newsletter: [à compléter si newsletter active]
-- Calendly: https://cal.com/jonathan-vouilloz/appel-de-bienvenue — "Réserver un appel découverte"
-
-## Voix et ton
-
-- Registre: tutoiement dans les articles de blog ; vouvoiement dans les méta descriptions et pages de services
-- Ton: Direct, franc, sans bullshit marketing — 1ère personne, pragmatique, franco-suisse. Expert qui partage ses vraies observations terrain, pas un consultant en costume
-- Persona de l'auteur dans les articles: Quelqu'un qui a fait les audits lui-même, qui a vu les chiffres, qui parle de ce qu'il observe — pas de théorie générique
-- Exemples "ça sonne comme":
-  - "Si tu me poses la question 'Combien coûte un site web ?', c'est un peu comme si tu me demandais 'Combien coûte une voiture ?'"
-  - "Je vais être 100% transparent sur les tarifs dans le web en Suisse. Les vrais chiffres. Pas de bullshit marketing."
-  - "Pendant trois semaines, j'ai audité 50 sites d'indépendants romands. Voici ce que j'ai trouvé."
-- Exemples "ça ne sonne pas comme":
-  - "Dans un contexte numérique en constante évolution, il est crucial de..."
-  - "Notre approche innovante permet de synergiser vos assets digitaux."
-  - "En tant qu'expert reconnu du développement web genevois..."
-- Mots bannis: ["crucial", "innovant", "l'ère du numérique", "dans un monde où", "solutions", "expertise reconnue", "game-changer", "disruptif", "pivot", "synergies", "digitalisation", "transformation digitale", "écosystème", "paradigme"]
+- **Label** : Association ou club sportif / culturel
+- **Profil** : Responsable communication non-technique, budget très contraint, besoin de gérer le site sans développeur
+- **Ce qu'il veut savoir** : Solutions simples et économiques, comment faire les mises à jour soi-même
 
 ## Concurrents de référence
 
