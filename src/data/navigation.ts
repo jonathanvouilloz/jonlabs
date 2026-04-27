@@ -120,12 +120,17 @@ export const mainNav: NavSection[] = [
       },
     ],
     spotlight: {
-      icon: 'ri-global-line',
-      title: 'Indie hacker content (EN)',
-      description: 'jonvolio — building things I want to exist',
-      href: '/jonvolio',
+      icon: 'ri-article-line',
+      title: 'Voir tous les articles',
+      description: 'Guides, retours d\'expérience et analyses sur le web et l\'automatisation',
+      href: '/blog',
     },
-    footer: { label: 'Tous les articles →', href: '/blog' },
+    footer: {
+      label: 'Indie hacker (EN)',
+      href: '/jonvolio',
+      icon: 'ri-global-line',
+      description: 'jonvolio — building things I want to exist',
+    },
   },
   {
     label: 'À propos',

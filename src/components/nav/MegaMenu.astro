@@ -123,31 +123,62 @@ const slugify = (str: string) =>
           ))}
         </div>
 
-        {(section.spotlight || section.footer) && (
-          <div class="border-t-2 border-black bg-[var(--main-bg)] px-6 py-4 flex flex-col md:flex-row items-stretch md:items-center gap-4">
-            {section.spotlight && (
-              <div class="flex-1">
-                <NavLink
-                  item={{
-                    label: section.spotlight.title,
-                    href: section.spotlight.href,
-                    icon: section.spotlight.icon,
-                  }}
-                  variant="spotlight"
-                />
-                <p class="text-xs text-gray-600 mt-1.5 ml-1">{section.spotlight.description}</p>
-              </div>
-            )}
-            {section.footer && (
-              <a
-                href={section.footer.href}
-                class="inline-flex items-center gap-2 text-sm font-bold underline hover:text-[var(--blue)] transition-colors whitespace-nowrap"
-              >
-                {section.footer.label}
-              </a>
-            )}
-          </div>
-        )}
+        {(section.spotlight || section.footer) && (() => {
+          const dualCards = section.spotlight && section.footer && section.footer.description;
+          return (
+            <div
+              class:list={[
+                'border-t-2 border-black bg-[var(--main-bg)] px-6 py-4',
+                dualCards
+                  ? 'grid grid-cols-1 md:grid-cols-2 gap-4'
+                  : 'flex flex-col md:flex-row items-stretch md:items-center gap-4',
+              ]}
+            >
+              {section.spotlight && (
+                <a
+                  href={section.spotlight.href}
+                  class="group flex items-start gap-3 bg-[var(--blue)] border-2 border-black px-4 py-3 shadow-[3px_3px_0px_rgba(0,0,0,0.2)] hover:bg-[var(--yellow)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[4px_4px_0px_rgba(0,0,0,0.25)] transition-all"
+                >
+                  {section.spotlight.icon && (
+                    <i class={`${section.spotlight.icon} text-xl mt-0.5`} aria-hidden="true"></i>
+                  )}
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2">
+                      <span class="font-bold text-sm">{section.spotlight.title}</span>
+                      <i class="ri-arrow-right-line text-base group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
+                    </div>
+                    <p class="text-xs text-gray-700 mt-0.5">{section.spotlight.description}</p>
+                  </div>
+                </a>
+              )}
+              {section.footer && dualCards && (
+                <a
+                  href={section.footer.href}
+                  class="group flex items-start gap-3 bg-white border-2 border-black px-4 py-3 hover:bg-[var(--main-bg)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_rgba(0,0,0,0.15)] transition-all"
+                >
+                  {section.footer.icon && (
+                    <i class={`${section.footer.icon} text-xl mt-0.5 text-gray-700`} aria-hidden="true"></i>
+                  )}
+                  <div class="flex-1 min-w-0">
+                    <div class="flex items-center gap-2">
+                      <span class="font-bold text-sm">{section.footer.label}</span>
+                      <i class="ri-arrow-right-line text-base group-hover:translate-x-1 transition-transform" aria-hidden="true"></i>
+                    </div>
+                    <p class="text-xs text-gray-600 mt-0.5">{section.footer.description}</p>
+                  </div>
+                </a>
+              )}
+              {section.footer && !dualCards && (
+                <a
+                  href={section.footer.href}
+                  class="inline-flex items-center gap-2 text-sm font-bold underline hover:text-[var(--blue)] transition-colors whitespace-nowrap"
+                >
+                  {section.footer.label}
+                </a>
+              )}
+            </div>
+          );
+        })()}
       </div>
     );
   })}

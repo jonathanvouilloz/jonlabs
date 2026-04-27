@@ -86,18 +86,45 @@ const slugify = (str: string) =>
 
                 {section.spotlight && (
                   <div class="px-3 mt-3">
-                    <NavLink
-                      item={{
-                        label: section.spotlight.title,
-                        href: section.spotlight.href,
-                        icon: section.spotlight.icon,
-                      }}
-                      variant="spotlight"
-                    />
+                    <a
+                      href={section.spotlight.href}
+                      class="flex items-start gap-3 bg-[var(--blue)] border-2 border-black px-4 py-3 shadow-[3px_3px_0px_rgba(0,0,0,0.2)]"
+                    >
+                      {section.spotlight.icon && (
+                        <i class={`${section.spotlight.icon} text-xl mt-0.5`} aria-hidden="true"></i>
+                      )}
+                      <div class="flex-1 min-w-0">
+                        <div class="font-bold text-sm flex items-center gap-2">
+                          {section.spotlight.title}
+                          <i class="ri-arrow-right-line text-base" aria-hidden="true"></i>
+                        </div>
+                        <p class="text-xs text-gray-700 mt-0.5">{section.spotlight.description}</p>
+                      </div>
+                    </a>
                   </div>
                 )}
 
-                {section.footer && (
+                {section.footer && section.footer.description && (
+                  <div class="px-3 mt-3">
+                    <a
+                      href={section.footer.href}
+                      class="flex items-start gap-3 bg-white border-2 border-black px-4 py-3"
+                    >
+                      {section.footer.icon && (
+                        <i class={`${section.footer.icon} text-xl mt-0.5 text-gray-700`} aria-hidden="true"></i>
+                      )}
+                      <div class="flex-1 min-w-0">
+                        <div class="font-bold text-sm flex items-center gap-2">
+                          {section.footer.label}
+                          <i class="ri-arrow-right-line text-base" aria-hidden="true"></i>
+                        </div>
+                        <p class="text-xs text-gray-600 mt-0.5">{section.footer.description}</p>
+                      </div>
+                    </a>
+                  </div>
+                )}
+
+                {section.footer && !section.footer.description && (
                   <a
                     href={section.footer.href}
                     class="block px-4 py-2 mt-2 text-sm font-bold underline"
