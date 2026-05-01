@@ -1,0 +1,90 @@
+{
+  "keyword": "fiche google my business",
+  "location": "France (francophonie globale)",
+  "scanned_at": "2026-05-01T16:08:57Z",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://support.google.com/business/answer/2911778",
+      "title": "Créer une fiche d'établissement Google — Aide Google Business Profile",
+      "page_type": "other",
+      "competitor_type": "institutional",
+      "covers": ["création fiche", "étapes de base", "vérification", "types d'établissements"],
+      "missing": ["optimisation avancée", "signaux de ranking 2026", "AI Search", "stratégie contenu", "erreurs fréquentes", "suspension"],
+      "eeat_signals": ["source officielle Google"]
+    },
+    {
+      "rank": 2,
+      "url": "https://business.google.com/",
+      "title": "Google Business Profile — Gérez votre présence en ligne",
+      "page_type": "homepage",
+      "competitor_type": "institutional",
+      "covers": ["accès dashboard", "fonctionnalités de base"],
+      "missing": ["éducatif", "stratégie", "ranking factors", "comparaison concurrents"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 3,
+      "url": "https://www.louisdescamps.fr/blog/google-my-business/",
+      "title": "Google My Business : Le Guide Complet 2025 — Louis Descamps",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["création fiche", "optimisation basique", "catégories", "photos", "avis", "posts GMB"],
+      "missing": ["Whitespark LSRF 2026", "AI Search Visibility", "mythe backlinks GBP", "signaux ranking 2026 pondérés", "cycle de vie complet", "suspension/recours"],
+      "eeat_signals": ["auteur nommé", "date visible"]
+    },
+    {
+      "rank": 4,
+      "url": "https://www.seo-sans-migraine.fr/google-my-business/",
+      "title": "Google My Business : tout comprendre en 2025 — SEO sans migraine",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["définition GMB", "création", "optimisation", "avis", "posts"],
+      "missing": ["chiffres Whitespark 2026", "AI Search dual-algorithm", "cycle de vie structuré", "stratégie pillar-satellites"],
+      "eeat_signals": ["auteur", "sources citées"]
+    },
+    {
+      "rank": 5,
+      "url": "https://www.semrush.com/blog/google-my-business/",
+      "title": "Google My Business (Business Profile) : Guide Complet 2025",
+      "page_type": "blog",
+      "competitor_type": "marketplace",
+      "covers": ["création", "vérification", "optimisation", "outils Semrush", "métriques"],
+      "missing": ["angle PME francophone sans outil payant", "LSRF 2026 local pack weights", "AI Overviews impact", "ton accessible non-corporate"],
+      "eeat_signals": ["sources", "screenshots", "données"]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "C'est quoi une fiche Google My Business ?",
+      "Comment créer une fiche Google My Business gratuitement ?",
+      "Comment optimiser sa fiche Google My Business ?",
+      "Google My Business est-il gratuit ?",
+      "Comment apparaître sur Google Maps ?"
+    ],
+    "featured_snippet": true,
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "informational",
+  "common_ground": [
+    "Définition de la fiche GMB / Google Business Profile",
+    "Étapes de création basique",
+    "Mention de la vérification",
+    "Liste des fonctionnalités (photos, avis, posts)",
+    "Optimisation généraliste sans données chiffrées récentes"
+  ],
+  "gap": {
+    "description": "Aucun concurrent francophone ne couvre (1) les chiffres Whitespark LSRF 2026 sur les poids réels des signaux de ranking (GBP 32%, Reviews 20%, On-Page 15%), (2) le dual-algorithme Local Pack vs AI Search Visibility avec les poids distincts, (3) le mythe des backlinks vers GBP démystifié avec données, (4) le cycle de vie structuré créer→optimiser→animer→mesurer comme framework pillar.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "Guides datés 2024-2025 sans les chiffres LSRF 2026",
+    "Aucun article ne traite l'impact de l'AI Search sur la visibilité locale",
+    "Le ton reste corporate/agence — aucun angle praticien terrain franco-suisse",
+    "Pas de structure pillar qui lie vers des satellites (articles autonomes uniquement)"
+  ],
+  "recommended_angle": "Positionner comme le seul guide FR 2026 qui explique les vrais poids des signaux (Whitespark LSRF 2026), intègre le dual-algorithme Local Pack + AI Search, démystifie le mythe des backlinks GBP, et structure un cycle de vie complet créer→optimiser→animer→mesurer — avec ton de praticien terrain, pas d'agence corporate."
+}

@@ -1,0 +1,92 @@
+{
+  "keyword": "optimiser fiche google my business",
+  "location": "France (francophonie globale)",
+  "scanned_at": "2026-05-01T10:10:00Z",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://support.google.com/business/answer/3038177",
+      "title": "Améliorer votre classement sur Google — Aide Google Business Profile",
+      "page_type": "other",
+      "competitor_type": "institutional",
+      "covers": ["pertinence", "distance", "notoriété — les 3 piliers officiels"],
+      "missing": ["checklist actionnable", "poids chiffrés Whitespark 2026", "quick wins classés par impact", "attributs d'identité", "horaires exceptionnels", "stratégie posts + avis"],
+      "eeat_signals": ["source officielle Google"]
+    },
+    {
+      "rank": 2,
+      "url": "https://www.louisdescamps.fr/blog/optimiser-fiche-google-my-business/",
+      "title": "Optimiser sa fiche Google My Business : le guide complet 2025",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["catégories", "description", "photos", "avis", "posts GMB", "NAP"],
+      "missing": ["checklist 25 points organisée", "poids réels des signaux (Whitespark 2026)", "section attributs d'accessibilité", "horaires exceptionnels impact ranking", "GBP vs site web dual-optimisation"],
+      "eeat_signals": ["auteur nommé", "date visible"]
+    },
+    {
+      "rank": 3,
+      "url": "https://www.seo-sans-migraine.fr/optimiser-google-my-business/",
+      "title": "Comment optimiser sa fiche Google My Business en 2025 — SEO sans migraine",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["liste de conseils", "catégorie", "description", "photos", "avis", "posts"],
+      "missing": ["structure checklist organisée par section", "pourquoi et impact chiffré de chaque point", "attributs spécifiques secteur", "horaires fêtes et exceptionnels"],
+      "eeat_signals": ["auteur", "sources"]
+    },
+    {
+      "rank": 4,
+      "url": "https://www.semrush.com/blog/google-my-business-optimization/",
+      "title": "Google My Business Optimization: Complete Guide 2025 — Semrush",
+      "page_type": "blog",
+      "competitor_type": "marketplace",
+      "covers": ["optimisation complète", "photos", "avis", "posts", "Q&A", "métriques"],
+      "missing": ["checklist prête à l'emploi", "poids signaux LSRF 2026", "format actionnable sans outil payant", "dual-algorithme Local Pack + AI Search"],
+      "eeat_signals": ["données", "screenshots", "sources"]
+    },
+    {
+      "rank": 5,
+      "url": "https://www.brightlocal.com/learn/google-business-profile-optimization/",
+      "title": "Google Business Profile Optimization: 2025 Guide — BrightLocal",
+      "page_type": "blog",
+      "competitor_type": "marketplace",
+      "covers": ["guide complet", "checklist", "photos", "avis", "catégories", "posts", "Q&A"],
+      "missing": ["version FR accessible PME", "sans dépendance outils payants", "dual-algorithme AI Search 2026", "angle praticien terrain"],
+      "eeat_signals": ["données LSRF", "études", "auteur"]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "Comment optimiser sa fiche Google My Business gratuitement ?",
+      "Quels sont les critères de ranking de Google My Business ?",
+      "Comment améliorer son classement sur Google Maps ?",
+      "Combien de photos faut-il sur une fiche Google My Business ?",
+      "À quelle fréquence publier des posts Google My Business ?"
+    ],
+    "featured_snippet": true,
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "informational",
+  "common_ground": [
+    "Catégorie principale correcte",
+    "Description optimisée avec mots-clés",
+    "Photos régulières",
+    "Collecte d'avis",
+    "Posts réguliers",
+    "NAP cohérent"
+  ],
+  "gap": {
+    "description": "Aucun guide francophone ne présente une checklist 25 points organisée par section (identité / contenu / visuel / attributs / horaires / posts / avis / maillage GBP-site) avec l'impact chiffré (Whitespark LSRF 2026) de chaque signal, ni ne distingue l'optimisation Local Pack vs AI Search Visibility avec des actions concrètes différentes pour chaque.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "Les guides existants sont des listes non priorisées — aucun ne classe par impact réel",
+    "Whitespark LSRF 2026 cité nulle part dans les guides FR",
+    "Section 'attributs' (accessibilité, identité) absente dans la majorité des guides",
+    "Dual-optimisation GBP (Local Pack) + site web (AI Search) non traitée",
+    "Format checklist actionnable sans outil payant = gap majeur"
+  ],
+  "recommended_angle": "Positionner comme la seule checklist FR 2026 qui classe les 25 points par impact réel (basé sur Whitespark LSRF 2026), distingue explicitement les actions pour le Local Pack vs pour l'AI Search Visibility, et est entièrement actionnable sans outil payant — avec le 'pourquoi' chiffré derrière chaque point."
+}

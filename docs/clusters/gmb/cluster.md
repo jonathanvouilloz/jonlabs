@@ -10,7 +10,7 @@ start_date: 2026-05-04
 end_date: 2026-07-23
 service_cta:
   url: /services/gestion-fiche-google
-  status: to_create
+  status: live
   fallback: /contact
 geo_focus: Francophonie globale (FR-FR), spécialisations CH romande / Genève en mois 3
 created_at: 2026-05-01
@@ -62,10 +62,10 @@ Aucun chevauchement direct détecté.
 
 | # | Date | Slug | Type | Vol | Diff | État |
 |---|---|---|---|---|---|---|
-| **M1.01** | 2026-05-04 | fiche-google-my-business-guide-complet-2026 | Pillar | 5400 | 16 | todo |
-| **M1.02** | 2026-05-07 | comment-apparaitre-google-maps-pme-debutant | Naïf | 140 | 0 | todo |
-| **M1.03** | 2026-05-11 | creer-fiche-google-my-business-etape-par-etape | Setup | 590 | 10 | todo |
-| **M1.04** | 2026-05-14 | optimiser-fiche-google-my-business-checklist-2026 | Optim | 260 | 4 | todo |
+| **M1.01** | 2026-05-04 | fiche-google-my-business-guide-complet-2026 | Pillar | 5400 | 16 | reviewed |
+| **M1.02** | 2026-05-07 | comment-apparaitre-google-maps-pme-debutant | Naïf | 140 | 0 | reviewed |
+| **M1.03** | 2026-05-11 | creer-fiche-google-my-business-etape-par-etape | Setup | 590 | 10 | reviewed |
+| **M1.04** | 2026-05-14 | optimiser-fiche-google-my-business-checklist-2026 | Optim | 260 | 4 | reviewed |
 | **M1.05** | 2026-05-18 | google-post-business-profile-conversion | Posts | 480 | 3 | todo |
 | **M1.06** | 2026-05-21 | qr-code-avis-google-collecte-pme | Avis | 1000 | 0 | todo |
 | **M1.07** | 2026-05-25 | repondre-avis-google-modeles-2026 | Avis | 480 | 2 | todo |

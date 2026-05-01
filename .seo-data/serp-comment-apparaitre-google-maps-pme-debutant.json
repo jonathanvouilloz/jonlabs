@@ -1,0 +1,90 @@
+{
+  "keyword": "comment apparaitre sur google maps",
+  "location": "France (francophonie globale)",
+  "scanned_at": "2026-05-01T10:00:00Z",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://support.google.com/business/answer/2904596",
+      "title": "Ajouter votre établissement sur Google Maps — Aide Google Business Profile",
+      "page_type": "other",
+      "competitor_type": "institutional",
+      "covers": ["créer une fiche GBP", "vérification de base", "types d'établissements"],
+      "missing": ["explications pour débutants", "délais réalistes", "pourquoi ça ne marche pas", "erreurs courantes", "Local Pack vs organic", "AI Search"],
+      "eeat_signals": ["source officielle Google"]
+    },
+    {
+      "rank": 2,
+      "url": "https://www.louisdescamps.fr/blog/apparaitre-sur-google-maps/",
+      "title": "Comment apparaître sur Google Maps en 2025 — Guide complet — Louis Descamps",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["créer une fiche GBP", "optimisation basique", "vérification", "catégorie principale"],
+      "missing": ["angle débutant absolu (zéro jargon)", "Local Pack vs Maps vs organic distincts", "délais réalistes chiffrés", "cas 'fiche sans adresse physique'", "signaux ranking 2026", "AI Search Visibility"],
+      "eeat_signals": ["auteur nommé", "date visible"]
+    },
+    {
+      "rank": 3,
+      "url": "https://www.seo-sans-migraine.fr/apparaitre-google-maps/",
+      "title": "Apparaître sur Google Maps : le guide 2025 — SEO sans migraine",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["création fiche", "vérification", "optimisation photos", "avis"],
+      "missing": ["pourquoi on n'apparaît pas malgré une fiche existante", "délais Google (2-8 semaines)", "distinction Local Pack 3 résultats vs Maps général", "ton ultra-pédagogique sans jargon"],
+      "eeat_signals": ["auteur", "sources citées"]
+    },
+    {
+      "rank": 4,
+      "url": "https://www.semrush.com/blog/google-maps-seo/",
+      "title": "Google Maps SEO : Comment ranker sur Maps en 2025 — Semrush",
+      "page_type": "blog",
+      "competitor_type": "marketplace",
+      "covers": ["optimisation GBP", "NAP", "backlinks locaux", "avis", "métriques Semrush"],
+      "missing": ["angle débutant", "PME sans connaissances SEO", "ton accessible", "cas pratiques sans outils payants"],
+      "eeat_signals": ["sources", "data", "screenshots"]
+    },
+    {
+      "rank": 5,
+      "url": "https://www.codeur.com/blog/google-my-business-apparaitre-google-maps/",
+      "title": "Comment apparaître sur Google Maps avec Google My Business — Codeur",
+      "page_type": "blog",
+      "competitor_type": "marketplace",
+      "covers": ["création GBP", "vérification", "optimisation de base"],
+      "missing": ["délais réalistes", "4 raisons de ne pas apparaître", "distinction Maps vs Local Pack", "AI Search en 2026"],
+      "eeat_signals": []
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "Comment faire apparaître mon entreprise sur Google Maps ?",
+      "Comment référencer mon entreprise sur Google gratuitement ?",
+      "Combien de temps pour apparaître sur Google Maps ?",
+      "Comment se positionner sur Google Maps sans site web ?",
+      "Pourquoi mon entreprise n'apparaît pas sur Google Maps ?"
+    ],
+    "featured_snippet": true,
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "informational",
+  "common_ground": [
+    "Créer une fiche Google Business Profile",
+    "Vérifier la fiche (carte postale / téléphone)",
+    "Remplir catégorie et informations de base",
+    "Ajouter photos",
+    "Mentionner les avis"
+  ],
+  "gap": {
+    "description": "Aucun concurrent ne répond vraiment à l'intent débutant absolu : 'J'ai un commerce, je ne sais pas ce qu'est GBP, pourquoi est-ce que je n'apparais pas sur Maps et qu'est-ce que je fais concrètement dans les 30 prochains jours'. Pas de délais chiffrés réalistes, pas de distinction claire Local Pack 3 résultats vs Maps général, pas de ton zéro-jargon SEO.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "Tous les guides supposent que le lecteur sait ce qu'est une 'fiche GBP' — aucun ne part de zéro",
+    "Les délais ('combien de temps avant d'apparaître') sont absents ou vagues",
+    "Distinction Maps (navigation) vs Local Pack (recherche) vs Organic (résultats bleus) jamais expliquée clairement",
+    "Aucun article ne liste les 4 raisons typiques de non-apparition avec diagnostic"
+  ],
+  "recommended_angle": "Positionner comme le seul guide qui part du niveau zéro — 'j'ai un commerce, je veux être sur Maps, je ne sais pas par où commencer' — avec un ton commerçant-à-commerçant, des délais réalistes chiffrés, et une distinction claire entre Maps / Local Pack / organic que personne n'explique simplement."
+}

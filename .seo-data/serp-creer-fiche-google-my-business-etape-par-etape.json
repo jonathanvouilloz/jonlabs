@@ -1,0 +1,90 @@
+{
+  "keyword": "créer fiche google my business",
+  "location": "France (francophonie globale)",
+  "scanned_at": "2026-05-01T10:05:00Z",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://support.google.com/business/answer/2911778",
+      "title": "Créer une fiche d'établissement Google — Aide Google Business Profile",
+      "page_type": "other",
+      "competitor_type": "institutional",
+      "covers": ["étapes création officielle", "types d'établissements", "vérification de base"],
+      "missing": ["catégorie principale comme facteur de ranking #1", "NAP cohérent avec site", "premiers contenus post-création", "cas particuliers (sans adresse, multi-établissements)", "vérification vidéo 2026"],
+      "eeat_signals": ["source officielle Google"]
+    },
+    {
+      "rank": 2,
+      "url": "https://www.louisdescamps.fr/blog/creer-google-my-business/",
+      "title": "Créer sa fiche Google My Business : guide complet étape par étape 2025",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["création basique", "vérification", "catégorie", "description"],
+      "missing": ["choix catégorie = 80% du ranking (data chiffrée)", "NAP cohérent comme facteur critique", "zone de chalandise vs adresse physique expliquée", "vérification vidéo 2026", "premiers contenus à publier immédiatement"],
+      "eeat_signals": ["auteur nommé", "date visible"]
+    },
+    {
+      "rank": 3,
+      "url": "https://www.semrush.com/blog/google-my-business-creer/",
+      "title": "Comment créer un compte Google My Business en 2025 — Semrush",
+      "page_type": "blog",
+      "competitor_type": "marketplace",
+      "covers": ["création step-by-step", "vérification", "optimisation basique"],
+      "missing": ["impact du choix de catégorie sur le ranking", "cas commerce sans vitrine", "adresse vs zone de chalandise", "NAP cohérence critique"],
+      "eeat_signals": ["screenshots", "data"]
+    },
+    {
+      "rank": 4,
+      "url": "https://blog.hubspot.com/marketing/creer-fiche-google-my-business",
+      "title": "Comment créer une fiche Google My Business — HubSpot",
+      "page_type": "blog",
+      "competitor_type": "marketplace",
+      "covers": ["création", "vérification", "optimisation", "métriques"],
+      "missing": ["détail sur catégorie principale = facteur ranking dominant", "cas pratiques commerce itinérant", "délais vérification par méthode"],
+      "eeat_signals": ["auteur", "date"]
+    },
+    {
+      "rank": 5,
+      "url": "https://www.digitad.ca/blog/creer-fiche-google-my-business/",
+      "title": "Comment créer une fiche Google My Business en 2025 — Digitad",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["création", "catégorie", "description", "photos"],
+      "missing": ["explication pourquoi la catégorie détermine 80% du ranking", "cas zone de service pure", "vérification vidéo nouveau processus 2025-2026"],
+      "eeat_signals": ["auteur", "date"]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "Comment créer une fiche Google My Business gratuite ?",
+      "Combien de temps pour vérifier une fiche Google My Business ?",
+      "Est-ce que Google My Business est gratuit ?",
+      "Comment vérifier ma fiche Google My Business ?",
+      "Quelle est la différence entre Google My Business et Google Business Profile ?"
+    ],
+    "featured_snippet": true,
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "informational",
+  "common_ground": [
+    "Création compte Google + fiche",
+    "Choix du type d'établissement (physique / service)",
+    "Vérification (carte postale principalement)",
+    "Ajout catégorie principale",
+    "Description et photos de base"
+  ],
+  "gap": {
+    "description": "Aucun concurrent ne souligne que le choix de la catégorie principale est le facteur dominant du ranking local (impact majeur sur la position dans le Local Pack), ni n'explique clairement la distinction adresse physique vs zone de chalandise avec les implications SEO, ni ne couvre le nouveau processus de vérification vidéo 2026.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "La catégorie principale est mentionnée comme étape mais jamais présentée comme le levier de ranking #1",
+    "NAP cohérence = mentionnée superficiellement, jamais expliquée comme facteur critique",
+    "Zone de chalandise vs adresse physique : confuse ou absente dans tous les guides",
+    "Vérification vidéo 2026 : non couverte malgré son déploiement croissant"
+  ],
+  "recommended_angle": "Positionner comme le guide setup le plus complet qui traite la catégorie principale comme le vrai levier de ranking (et pas juste une étape administrative), explique clairement adresse vs zone de chalandise avec les implications, et couvre les méthodes de vérification 2026 dont la vidéo — avec ton praticien terrain, pas tutorial générique."
+}
