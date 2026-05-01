@@ -1,0 +1,259 @@
+{
+  "topic": "google business profile francais",
+  "location_code": 2250,
+  "location_name": "France",
+  "language_code": "fr",
+  "generated_at": "2026-05-01T08:48:57Z",
+  "primary": {
+    "keyword": "google business profile francais",
+    "search_volume": 170,
+    "cpc": 6.64,
+    "competition": "MEDIUM",
+    "competition_index": 41,
+    "difficulty": 13,
+    "intent": "navigational",
+    "intent_probability": 0.7563771
+  },
+  "secondaries": [],
+  "long_tail": [
+    {
+      "keyword": "google my business",
+      "search_volume": 74000,
+      "cpc": 5.87,
+      "competition": "LOW",
+      "competition_index": 8
+    },
+    {
+      "keyword": "google my business login",
+      "search_volume": 880,
+      "cpc": 5.09,
+      "competition": "LOW",
+      "competition_index": 4
+    },
+    {
+      "keyword": "google business profile manager",
+      "search_volume": 720,
+      "cpc": 6.31,
+      "competition": "LOW",
+      "competition_index": 10
+    },
+    {
+      "keyword": "google my business mon compte",
+      "search_volume": 720,
+      "cpc": 4.56,
+      "competition": "LOW",
+      "competition_index": 5
+    },
+    {
+      "keyword": "google my business gratuit",
+      "search_volume": 590,
+      "cpc": 6.48,
+      "competition": "MEDIUM",
+      "competition_index": 48
+    },
+    {
+      "keyword": "ma fiche google",
+      "search_volume": 590,
+      "cpc": 2.43,
+      "competition": "LOW",
+      "competition_index": 5
+    },
+    {
+      "keyword": "mon entreprise plus",
+      "search_volume": 480,
+      "cpc": 31.91,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "gérer mon entreprise",
+      "search_volume": 390,
+      "cpc": 5.74,
+      "competition": "LOW",
+      "competition_index": 32
+    },
+    {
+      "keyword": "google my business créer un compte",
+      "search_volume": 320,
+      "cpc": 6.12,
+      "competition": "MEDIUM",
+      "competition_index": 45
+    },
+    {
+      "keyword": "ma fiche google my business",
+      "search_volume": 320,
+      "cpc": 2.08,
+      "competition": "LOW",
+      "competition_index": 5
+    },
+    {
+      "keyword": "vérifier mon entreprise",
+      "search_volume": 320,
+      "cpc": 5.08,
+      "competition": "LOW",
+      "competition_index": 15
+    },
+    {
+      "keyword": "comment accéder à mon google my business",
+      "search_volume": 210,
+      "cpc": 5.54,
+      "competition": "LOW",
+      "competition_index": 10
+    },
+    {
+      "keyword": "mon entreprise sur google maps",
+      "search_volume": 140,
+      "cpc": 6.09,
+      "competition": "MEDIUM",
+      "competition_index": 43
+    },
+    {
+      "keyword": "business google com add",
+      "search_volume": 140,
+      "cpc": 7.39,
+      "competition": "MEDIUM",
+      "competition_index": 40
+    },
+    {
+      "keyword": "créer une page google gratuitement",
+      "search_volume": 140,
+      "cpc": 6.03,
+      "competition": "MEDIUM",
+      "competition_index": 57
+    }
+  ],
+  "related": [
+    {
+      "keyword": "mon entreprise",
+      "search_volume": 201000,
+      "cpc": 10.09,
+      "competition": "LOW",
+      "competition_index": 4
+    },
+    {
+      "keyword": "google business",
+      "search_volume": 49500,
+      "cpc": 7.04,
+      "competition": "LOW",
+      "competition_index": 15
+    },
+    {
+      "keyword": "my business",
+      "search_volume": 33100,
+      "cpc": 5.69,
+      "competition": "LOW",
+      "competition_index": 7
+    },
+    {
+      "keyword": "google my business français",
+      "search_volume": 70,
+      "cpc": 5.47,
+      "competition": "LOW",
+      "competition_index": 20
+    },
+    {
+      "keyword": "my business mon compte",
+      "search_volume": 70,
+      "cpc": 4.02,
+      "competition": "LOW",
+      "competition_index": 12
+    },
+    {
+      "keyword": "google business profile gratuit",
+      "search_volume": 70,
+      "cpc": 7.63,
+      "competition": "MEDIUM",
+      "competition_index": 55
+    },
+    {
+      "keyword": "ajouter mon entreprise sur google maps",
+      "search_volume": 70,
+      "cpc": 5.69,
+      "competition": "MEDIUM",
+      "competition_index": 42
+    },
+    {
+      "keyword": "mon entreprise google business",
+      "search_volume": 50,
+      "cpc": 2.58,
+      "competition": "LOW",
+      "competition_index": 19
+    },
+    {
+      "keyword": "google my business assistance",
+      "search_volume": 50,
+      "cpc": 3.35,
+      "competition": "LOW",
+      "competition_index": 13
+    },
+    {
+      "keyword": "mon entreprise inpi",
+      "search_volume": 40,
+      "cpc": 4.94,
+      "competition": "MEDIUM",
+      "competition_index": 37
+    }
+  ],
+  "quick_wins": [
+    {
+      "keyword": "mon entreprise",
+      "search_volume": 201000,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "google my business",
+      "search_volume": 74000,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "google business",
+      "search_volume": 49500,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "my business",
+      "search_volume": 33100,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "google my business login",
+      "search_volume": 880,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "google business profile manager",
+      "search_volume": 720,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "google my business mon compte",
+      "search_volume": 720,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "ma fiche google",
+      "search_volume": 590,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "mon entreprise plus",
+      "search_volume": 480,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "gérer mon entreprise",
+      "search_volume": 390,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}

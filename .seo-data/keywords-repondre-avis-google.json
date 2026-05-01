@@ -1,0 +1,237 @@
+{
+  "topic": "repondre avis google",
+  "location_code": 2250,
+  "location_name": "France",
+  "language_code": "fr",
+  "generated_at": "2026-05-01T08:23:58Z",
+  "primary": {
+    "keyword": "repondre avis google",
+    "search_volume": 480,
+    "cpc": 2.7,
+    "competition": "LOW",
+    "competition_index": 2,
+    "difficulty": 0,
+    "intent": "commercial",
+    "intent_probability": 0.7553753
+  },
+  "secondaries": [
+    {
+      "keyword": "comment repondre avis google",
+      "search_volume": 30,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 5
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "mes avis google",
+      "search_volume": 9900,
+      "cpc": 2.47,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "google maps avis",
+      "search_volume": 1300,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "écrire un avis positif exemple",
+      "search_volume": 590,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "répondre avis google",
+      "search_volume": 480,
+      "cpc": 2.7,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "comment repondre a un avis sur google",
+      "search_volume": 260,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "compte google avis",
+      "search_volume": 170,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "modèle réponse avis positif",
+      "search_volume": 140,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "gestion des avis google",
+      "search_volume": 140,
+      "cpc": 3.7,
+      "competition": "LOW",
+      "competition_index": 9
+    },
+    {
+      "keyword": "donner un avis sur une entreprise sur google",
+      "search_volume": 140,
+      "cpc": 1.86,
+      "competition": "LOW",
+      "competition_index": 10
+    },
+    {
+      "keyword": "donner un avis sur google sans compte",
+      "search_volume": 140,
+      "cpc": 2.26,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "voir les avis google d'une personne",
+      "search_volume": 140,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "repondre a un avis sur google",
+      "search_volume": 110,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "donner un avis sur google exemple",
+      "search_volume": 110,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "exemple d'avis client",
+      "search_volume": 110,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "exemple avis client satisfait",
+      "search_volume": 110,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 4
+    }
+  ],
+  "related": [
+    {
+      "keyword": "comment repondre a un avis google",
+      "search_volume": 90,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "exemple d'avis positif entreprise",
+      "search_volume": 90,
+      "cpc": 0.2,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "je n'arrive pas à répondre à un avis google",
+      "search_volume": 90,
+      "cpc": 3.07,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "répondre à un avis négatif",
+      "search_volume": 90,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "support avis google",
+      "search_volume": 90,
+      "cpc": 2.36,
+      "competition": "HIGH",
+      "competition_index": 100
+    },
+    {
+      "keyword": "repondre a un avis google",
+      "search_volume": 70,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "exemple réponse avis google positif",
+      "search_volume": 70,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "comment voir les avis google d'une entreprise",
+      "search_volume": 70,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 5
+    },
+    {
+      "keyword": "répondre à un avis google négatif",
+      "search_volume": 50,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "comment répondre à un avis google sur mon entreprise",
+      "search_volume": 50,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 3
+    }
+  ],
+  "quick_wins": [
+    {
+      "keyword": "mes avis google",
+      "search_volume": 9900,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "google maps avis",
+      "search_volume": 1300,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "écrire un avis positif exemple",
+      "search_volume": 590,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "répondre avis google",
+      "search_volume": 480,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "comment repondre a un avis sur google",
+      "search_volume": 260,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}

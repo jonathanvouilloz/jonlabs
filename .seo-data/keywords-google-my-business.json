@@ -1,0 +1,316 @@
+{
+  "topic": "google my business",
+  "location_code": 2250,
+  "location_name": "France",
+  "language_code": "fr",
+  "generated_at": "2026-05-01T08:23:26Z",
+  "primary": {
+    "keyword": "google my business",
+    "search_volume": 74000,
+    "cpc": 5.87,
+    "competition": "LOW",
+    "competition_index": 8,
+    "difficulty": 33,
+    "intent": "navigational",
+    "intent_probability": 0.9011707
+  },
+  "secondaries": [
+    {
+      "keyword": "google google my business",
+      "search_volume": 74000,
+      "cpc": 5.87,
+      "competition": "LOW",
+      "competition_index": 8
+    },
+    {
+      "keyword": "my google my business",
+      "search_volume": 74000,
+      "cpc": 5.87,
+      "competition": "LOW",
+      "competition_index": 8
+    },
+    {
+      "keyword": "google my business google",
+      "search_volume": 74000,
+      "cpc": 5.87,
+      "competition": "LOW",
+      "competition_index": 8
+    },
+    {
+      "keyword": "google my business business",
+      "search_volume": 74000,
+      "cpc": 5.87,
+      "competition": "LOW",
+      "competition_index": 8
+    },
+    {
+      "keyword": "google my business profile",
+      "search_volume": 18100,
+      "cpc": 6.78,
+      "competition": "LOW",
+      "competition_index": 16
+    },
+    {
+      "keyword": "fiches google my business",
+      "search_volume": 5400,
+      "cpc": 5.48,
+      "competition": "LOW",
+      "competition_index": 5
+    },
+    {
+      "keyword": "fiche google my business",
+      "search_volume": 5400,
+      "cpc": 5.48,
+      "competition": "LOW",
+      "competition_index": 5
+    },
+    {
+      "keyword": "pages google my business",
+      "search_volume": 1600,
+      "cpc": 5.8,
+      "competition": "LOW",
+      "competition_index": 15
+    }
+  ],
+  "long_tail": [
+    {
+      "keyword": "business google my",
+      "search_volume": 74000,
+      "cpc": 5.87,
+      "competition": "LOW",
+      "competition_index": 8
+    },
+    {
+      "keyword": "my business on google",
+      "search_volume": 74000,
+      "cpc": 5.87,
+      "competition": "LOW",
+      "competition_index": 8
+    },
+    {
+      "keyword": "my business in google",
+      "search_volume": 74000,
+      "cpc": 5.87,
+      "competition": "LOW",
+      "competition_index": 8
+    },
+    {
+      "keyword": "google business my",
+      "search_volume": 74000,
+      "cpc": 5.87,
+      "competition": "LOW",
+      "competition_index": 8
+    },
+    {
+      "keyword": "google business my business",
+      "search_volume": 74000,
+      "cpc": 5.87,
+      "competition": "LOW",
+      "competition_index": 8
+    },
+    {
+      "keyword": "my google business",
+      "search_volume": 3600,
+      "cpc": 6.09,
+      "competition": "LOW",
+      "competition_index": 7
+    },
+    {
+      "keyword": "my business google",
+      "search_volume": 2400,
+      "cpc": 6.02,
+      "competition": "LOW",
+      "competition_index": 8
+    },
+    {
+      "keyword": "my business by google",
+      "search_volume": 2400,
+      "cpc": 6.02,
+      "competition": "LOW",
+      "competition_index": 8
+    },
+    {
+      "keyword": "google my business connexion",
+      "search_volume": 1600,
+      "cpc": 5.3,
+      "competition": "LOW",
+      "competition_index": 2
+    },
+    {
+      "keyword": "my business google page",
+      "search_volume": 1600,
+      "cpc": 5.8,
+      "competition": "LOW",
+      "competition_index": 15
+    },
+    {
+      "keyword": "page google my business",
+      "search_volume": 1600,
+      "cpc": 5.8,
+      "competition": "LOW",
+      "competition_index": 15
+    },
+    {
+      "keyword": "ma fiche d'établissement",
+      "search_volume": 1000,
+      "cpc": 3.6,
+      "competition": "LOW",
+      "competition_index": 4
+    },
+    {
+      "keyword": "google my business login",
+      "search_volume": 880,
+      "cpc": 5.09,
+      "competition": "LOW",
+      "competition_index": 4
+    },
+    {
+      "keyword": "my business google login",
+      "search_volume": 880,
+      "cpc": 5.09,
+      "competition": "LOW",
+      "competition_index": 4
+    },
+    {
+      "keyword": "google my business log in",
+      "search_volume": 880,
+      "cpc": 5.09,
+      "competition": "LOW",
+      "competition_index": 4
+    }
+  ],
+  "related": [
+    {
+      "keyword": "mon entreprise",
+      "search_volume": 201000,
+      "cpc": 10.09,
+      "competition": "LOW",
+      "competition_index": 4
+    },
+    {
+      "keyword": "google business",
+      "search_volume": 49500,
+      "cpc": 7.04,
+      "competition": "LOW",
+      "competition_index": 15
+    },
+    {
+      "keyword": "my business",
+      "search_volume": 33100,
+      "cpc": 5.69,
+      "competition": "LOW",
+      "competition_index": 7
+    },
+    {
+      "keyword": "my business google log in",
+      "search_volume": 880,
+      "cpc": 5.09,
+      "competition": "LOW",
+      "competition_index": 4
+    },
+    {
+      "keyword": "contact google about my business",
+      "search_volume": 720,
+      "cpc": 6.61,
+      "competition": "LOW",
+      "competition_index": 8
+    },
+    {
+      "keyword": "contacter google my business",
+      "search_volume": 720,
+      "cpc": 6.61,
+      "competition": "LOW",
+      "competition_index": 8
+    },
+    {
+      "keyword": "contact google my business",
+      "search_volume": 720,
+      "cpc": 6.61,
+      "competition": "LOW",
+      "competition_index": 8
+    },
+    {
+      "keyword": "contact my google business",
+      "search_volume": 720,
+      "cpc": 6.61,
+      "competition": "LOW",
+      "competition_index": 8
+    },
+    {
+      "keyword": "google my business mon compte",
+      "search_volume": 720,
+      "cpc": 4.56,
+      "competition": "LOW",
+      "competition_index": 5
+    },
+    {
+      "keyword": "contact my business google",
+      "search_volume": 720,
+      "cpc": 6.61,
+      "competition": "LOW",
+      "competition_index": 8
+    }
+  ],
+  "quick_wins": [
+    {
+      "keyword": "mon entreprise",
+      "search_volume": 201000,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "google google my business",
+      "search_volume": 74000,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "business google my",
+      "search_volume": 74000,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "my google my business",
+      "search_volume": 74000,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "my business on google",
+      "search_volume": 74000,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "google my business google",
+      "search_volume": 74000,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "my business in google",
+      "search_volume": 74000,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "google business my",
+      "search_volume": 74000,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "google business my business",
+      "search_volume": 74000,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "google my business business",
+      "search_volume": 74000,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}

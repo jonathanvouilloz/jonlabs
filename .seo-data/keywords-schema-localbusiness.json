@@ -1,0 +1,29 @@
+{
+  "topic": "schema localbusiness",
+  "location_code": 2250,
+  "location_name": "France",
+  "language_code": "fr",
+  "generated_at": "2026-05-01T08:48:53Z",
+  "primary": {
+    "keyword": "schema localbusiness",
+    "search_volume": 10,
+    "cpc": 2.63,
+    "competition": "LOW",
+    "competition_index": 2,
+    "difficulty": null,
+    "intent": "navigational",
+    "intent_probability": 0.7356187
+  },
+  "secondaries": [],
+  "long_tail": [
+    {
+      "keyword": "schema org localbusiness",
+      "search_volume": 30,
+      "cpc": 3.11,
+      "competition": "LOW",
+      "competition_index": 8
+    }
+  ],
+  "related": [],
+  "quick_wins": []
+}

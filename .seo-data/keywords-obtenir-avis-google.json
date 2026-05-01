@@ -1,0 +1,43 @@
+{
+  "topic": "obtenir avis google",
+  "location_code": 2250,
+  "location_name": "France",
+  "language_code": "fr",
+  "generated_at": "2026-05-01T08:23:50Z",
+  "primary": {
+    "keyword": "obtenir avis google",
+    "search_volume": 20,
+    "cpc": 3.11,
+    "competition": "MEDIUM",
+    "competition_index": 63,
+    "difficulty": 26,
+    "intent": "commercial",
+    "intent_probability": 0.6675551
+  },
+  "secondaries": [],
+  "long_tail": [
+    {
+      "keyword": "obtenir des avis google",
+      "search_volume": 50,
+      "cpc": 6.15,
+      "competition": "MEDIUM",
+      "competition_index": 49
+    },
+    {
+      "keyword": "comment obtenir des avis google",
+      "search_volume": 30,
+      "cpc": 4.3,
+      "competition": "MEDIUM",
+      "competition_index": 65
+    },
+    {
+      "keyword": "obtenir qr code avis google",
+      "search_volume": 30,
+      "cpc": 3.17,
+      "competition": "HIGH",
+      "competition_index": 100
+    }
+  ],
+  "related": [],
+  "quick_wins": []
+}
