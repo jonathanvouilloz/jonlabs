@@ -229,6 +229,15 @@ export const servicesListData = {
         "name": "Référencement local SEO",
         "url": `${SITE_URL}/services/referencement-local`
       }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@type": "Service",
+        "name": "Gestion fiche Google My Business",
+        "url": `${SITE_URL}/services/gestion-fiche-google`
+      }
     }
   ]
 };
@@ -332,6 +341,41 @@ export const serviceSchemas = {
     "provider": { "@id": `${SITE_URL}/#organization` },
     "areaServed": ["Genève", "Vaud", "Suisse Romande"],
     "serviceType": "Référencement local"
+  },
+  "gestion-fiche-google": {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${SITE_URL}/services/gestion-fiche-google/#service`,
+    "name": "Gestion de fiche Google My Business",
+    "url": `${SITE_URL}/services/gestion-fiche-google`,
+    "description": "Création, optimisation et gestion mensuelle de votre fiche Google Business Profile : posts hebdomadaires, gestion illimitée des avis, suivi positions. Setup unique CHF 590 + mensuel CHF 300 sans engagement.",
+    "provider": { "@id": `${SITE_URL}/#organization` },
+    "areaServed": ["Genève", "Vaud", "Suisse Romande", "Francophonie"],
+    "serviceType": "Gestion Google Business Profile",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Setup unique",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "590",
+          "priceCurrency": "CHF"
+        },
+        "description": "Audit + optimisation complète + schema LocalBusiness + système d'avis"
+      },
+      {
+        "@type": "Offer",
+        "name": "Mensuel tout inclus",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "300",
+          "priceCurrency": "CHF",
+          "billingIncrement": 1,
+          "unitCode": "MON"
+        },
+        "description": "Posts hebdomadaires, réponses avis illimitées, reporting mensuel — sans engagement"
+      }
+    ]
   }
 };
 

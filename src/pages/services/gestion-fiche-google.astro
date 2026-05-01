@@ -1,0 +1,1094 @@
+---
+import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+import arrowUnderline from '../../assets/arrow-3.svg';
+
+import BackgroundGlitchGrid from '../../components/backgrounds/BackgroundGlitchGrid.astro';
+import BackgroundProgressFlow from '../../components/backgrounds/BackgroundProgressFlow.astro';
+import BackgroundCircuitBoard from '../../components/backgrounds/BackgroundCircuitBoard.astro';
+import BackgroundQuestionMarks from '../../components/backgrounds/BackgroundQuestionMarks.astro';
+import BackgroundMapContours from '../../components/backgrounds/BackgroundMapContours.astro';
+
+import FAQ from '../../components/FAQ.astro';
+import type { FAQItem } from '../../components/FAQ.astro';
+
+import { serviceSchemas, SITE_URL } from '../../data/schema';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
+
+const seoData = {
+    title: "Gestion de fiche Google My Business | Jon Labs",
+    description: "Confiez la gestion de votre fiche Google Business Profile : création, optimisation, posts hebdomadaires, gestion des avis. Forfait unique CHF 300/mois, tout inclus, sans engagement."
+};
+
+const breadcrumb = getBreadcrumbSchema([
+    { name: "Accueil", url: SITE_URL },
+    { name: "Services", url: `${SITE_URL}/services` },
+    { name: "Gestion de fiche Google", url: `${SITE_URL}/services/gestion-fiche-google` }
+]);
+const schemas: any[] = [serviceSchemas["gestion-fiche-google"], breadcrumb];
+
+const painPoints = [
+    {
+        icon: "ri-eye-off-line",
+        title: "Invisible sur Google Maps",
+        description: "Vos clients vous cherchent et tombent sur vos concurrents. Le pack local Google capte 32% des clics — vous n'y êtes pas."
+    },
+    {
+        icon: "ri-time-line",
+        title: "Pas le temps de poster",
+        description: "Vous savez qu'il faut publier régulièrement sur votre fiche, mais entre vos clients et votre activité, ça passe en dernier. Tous les mois."
+    },
+    {
+        icon: "ri-message-3-line",
+        title: "Avis qui dorment sans réponse",
+        description: "20% du ranking pack local vient des avis. Les vôtres s'accumulent depuis 6 mois sans une réponse — Google et les clients voient la même chose."
+    },
+    {
+        icon: "ri-error-warning-line",
+        title: "Fiche suspendue ou bloquée",
+        description: "Du jour au lendemain, votre fiche disparaît. Réclamation refusée, formulaire opaque, support Google injoignable. Vous saignez du chiffre d'affaires."
+    },
+    {
+        icon: "ri-image-line",
+        title: "Description bâclée, photos floues",
+        description: "Catégorie principale mal choisie, 3 photos pixelisées de 2018, description copiée d'un site web. Tout ce qui plombe le ranking sans que vous le sachiez."
+    },
+    {
+        icon: "ri-question-line",
+        title: "Vous gérez à l'aveugle",
+        description: "Aucun reporting, aucun chiffre. Vous ne savez ni si ça marche, ni ce qui marche. Juste l'impression que « ça pourrait être mieux »."
+    }
+];
+
+const piliers = [
+    {
+        icon: "ri-store-2-line",
+        title: "Setup & vérification",
+        description: "Création de A à Z, ou récupération si la fiche existe sans accès. Vérification (carte postale, vidéo, téléphone), désuspension si nécessaire.",
+        items: ["Création / récupération / vérification", "Désuspension fiche bloquée", "Migration multi-établissements"]
+    },
+    {
+        icon: "ri-tools-line",
+        title: "Optimisation complète",
+        description: "Le travail de fond qui détermine 80% du ranking. Catégorie principale, description 750 caractères, photos, attributs, services, horaires, schema LocalBusiness sur le site.",
+        items: ["Catégorie + description optimisées KW", "Photos (hero, intérieur, équipe)", "Schema LocalBusiness sur votre site"]
+    },
+    {
+        icon: "ri-edit-2-line",
+        title: "Posts hebdomadaires",
+        description: "1-2 posts par semaine rédigés à votre voix : nouveautés, offres, événements. Premier 100 caractères critiques, CTA tracking UTM, photo cohérente avec votre marque.",
+        items: ["1-2 posts/semaine sans copier-coller", "Tracking UTM sur les CTA", "Cohérence visuelle marque"]
+    },
+    {
+        icon: "ri-chat-smile-2-line",
+        title: "Gestion des avis",
+        description: "Système de collecte (lien court + QR code + relance post-prestation) et réponses signature business sur tous les avis, positifs comme négatifs. Sans copier-coller.",
+        items: ["Lien avis + QR code à afficher", "Réponses illimitées (positifs + négatifs)", "Signalement avis injuste"]
+    }
+];
+
+const methodSteps = [
+    {
+        week: "Semaine 1",
+        title: "Audit & Setup",
+        tasks: [
+            "Audit fiche actuelle (catégorie, NAP, attributs)",
+            "Optimisation complète (description 750c, photos, services)",
+            "Schema LocalBusiness sur votre site"
+        ],
+        deliverable: "Fiche propre + cohérence GBP ↔ site"
+    },
+    {
+        week: "Semaine 2",
+        title: "Système d'avis",
+        tasks: [
+            "Lien GMB court + QR code à afficher",
+            "Modèle SMS / email post-prestation",
+            "Réponses aux avis existants en attente"
+        ],
+        deliverable: "Système collecte + tous les avis traités"
+    },
+    {
+        week: "Mois 1+",
+        title: "Cadence récurrente",
+        tasks: [
+            "1-2 posts par semaine (rédaction + publication)",
+            "Réponses avis sous 48h",
+            "Suivi positions + reporting mensuel"
+        ],
+        deliverable: "Reporting mensuel + ajustements"
+    }
+];
+
+const differentiators = [
+    {
+        icon: "ri-quill-pen-line",
+        title: "Voice authentique",
+        description: "Posts et réponses écrits à votre ton. Pas de phrases qui sentent l'IA générique ou le copier-coller d'agence."
+    },
+    {
+        icon: "ri-link",
+        title: "GBP ↔ site cohérent",
+        description: "NAP identique, schema LocalBusiness sur votre site, citations alignées. Google voit un signal cohérent au lieu de bruit."
+    },
+    {
+        icon: "ri-bar-chart-2-line",
+        title: "Reporting sans jargon",
+        description: "Itinéraires demandés, appels reçus, demandes site. Les chiffres qui comptent — pas un PDF de 30 pages que vous ne lirez jamais."
+    },
+    {
+        icon: "ri-user-line",
+        title: "Un interlocuteur",
+        description: "Moi (Jon) du début à la fin. Pas un junior que vous formez à votre métier tous les 3 mois."
+    }
+];
+
+const forQui = [
+    { type: "for", icon: "ri-checkbox-circle-line", text: "Commerce physique avec adresse (boutique, restaurant, salon)" },
+    { type: "for", icon: "ri-checkbox-circle-line", text: "Profession libérale (cabinet médical, paramédical, juridique)" },
+    { type: "for", icon: "ri-checkbox-circle-line", text: "Artisan zone de service (paysagiste, plombier, électricien)" },
+    { type: "for", icon: "ri-checkbox-circle-line", text: "PME B2C avec dimension locale forte" },
+    { type: "not", icon: "ri-close-circle-line", text: "Pure player web sans dimension locale" },
+    { type: "not", icon: "ri-close-circle-line", text: "E-commerce sans store physique ni zone de service" },
+    { type: "not", icon: "ri-close-circle-line", text: "Activité B2B nationale sans clientèle locale" }
+];
+
+const inclusions = [
+    "1-2 posts hebdomadaires rédigés à votre voix",
+    "Réponses illimitées sur tous les avis (positifs + négatifs)",
+    "Photos mensuelles (vous fournissez, j'optimise et publie)",
+    "Suivi positions sur 5-10 mots-clés locaux",
+    "Reporting mensuel chiffré (itinéraires, appels, demandes)",
+    "Signalement avis injustes",
+    "Ajustements catégorie / attributs / services au fil de l'eau",
+    "Mensuel résiliable, 1 mois de préavis"
+];
+
+const faqs: FAQItem[] = [
+    {
+        question: "Combien de temps avant de voir des résultats ?",
+        answer: "Pour une fiche existante mal optimisée, les premiers effets se voient en 30-60 jours sur les itinéraires demandés et les appels. Pour une fiche neuve à créer, compte 60-90 jours pour entrer dans le pack local sur votre commune. Le SEO local n'est pas instantané, mais c'est plus rapide que le SEO classique."
+    },
+    {
+        question: "Pourquoi pas Google Ads à la place ?",
+        answer: "Ads et fiche optimisée ne couvrent pas la même intention. Ads = vous payez à chaque clic, dès que vous coupez le budget plus rien. Fiche optimisée = présence organique permanente, qui se renforce avec le temps. Les deux sont compatibles, mais commencer par la fiche est presque toujours plus rentable pour une PME locale."
+    },
+    {
+        question: "Vous gérez ma fiche ou je garde la main ?",
+        answer: "Vous gardez 100% le contrôle. Je suis ajouté comme manager sur votre Business Profile, vous restez propriétaire. À tout moment vous pouvez consulter ce que je publie, voir les réponses aux avis, et révoquer mes accès si vous arrêtez le forfait."
+    },
+    {
+        question: "Que se passe-t-il si ma fiche est suspendue ?",
+        answer: "Première chose : on diagnostique pourquoi (les 7 causes typiques sont documentées). Ensuite réclamation auprès de Google avec dossier complet (preuves activité, photos local, factures). Si elle est validée, retour rapide. Si elle est refusée, on passe par les recours forum produit. Je l'ai déjà fait, ça prend 2-4 semaines en général.",
+        linkText: "Lire le guide complet →",
+        linkUrl: "/blog/fiche-google-my-business-suspendue-recours"
+    },
+    {
+        question: "Vous écrivez vraiment les réponses aux avis ?",
+        answer: "Oui, chaque réponse est rédigée à la main pour matcher l'avis spécifique. Pas de templates copier-coller (Google et les clients voient la différence). Vous validez les 3-5 premières pour caler le ton, ensuite je suis autonome avec un brief de voix."
+    },
+    {
+        question: "Et si j'ai plusieurs établissements ?",
+        answer: "Le forfait à CHF 300/mois couvre 1 fiche. Pour 2-5 établissements, on passe à un forfait multi-locations dégressif. Pour 6+, on bascule sur Google Business Profile API pour automatiser une partie (devis sur mesure)."
+    },
+    {
+        question: "Vous travaillez avec quels secteurs ?",
+        answer: "Tous les secteurs avec une dimension locale forte : restaurants, salons de coiffure, cabinets médicaux et paramédicaux, artisans (paysagistes, plombiers, électriciens), commerces, écoles, associations. Pas de niches secret — la mécanique GMB est universelle, ce qui change c'est le ton et les types de posts adaptés."
+    },
+    {
+        question: "Faut-il signer un engagement long ?",
+        answer: "Non. Le mensuel est résiliable avec 1 mois de préavis. Je ne crois pas aux engagements 12 mois fermes — si le travail est sérieux, vous n'aurez pas envie de partir. Si vous partez, j'ai mal fait mon job."
+    },
+    {
+        question: "Ça inclut le SEO local complet ou juste la fiche ?",
+        answer: "Juste la fiche et son écosystème direct (posts, avis, photos, schema sur votre site, NAP cohérent). Pour du SEO local complet (contenu blog, citations annuaires, netlinking, optimisation site), c'est un autre service.",
+        linkText: "Voir le service Référencement local →",
+        linkUrl: "/services/referencement-local"
+    },
+    {
+        question: "Comment se passe le premier contact ?",
+        answer: "Vous remplissez le formulaire avec l'URL de votre fiche actuelle (ou indiquez si vous n'en avez pas). Je vous réponds sous 24-48h avec un mini-audit gratuit : ce qui est en place, ce qui manque, le potentiel. Ensuite on planifie un appel de 15 min pour caler le démarrage."
+    }
+];
+schemas.push(getFAQPageSchema(faqs));
+
+const zones = [
+    { name: "Genève", type: "primary", icon: "ri-map-pin-fill" },
+    { name: "Vaud", type: "secondary", icon: "ri-map-pin-line" },
+    { name: "Valais", type: "secondary", icon: "ri-map-pin-line" },
+    { name: "Toute Suisse romande + francophonie distante", type: "tertiary", icon: "ri-global-line" }
+];
+
+const localAdvantages = [
+    { icon: "ri-bar-chart-line", title: "Connaissance des annuaires CH", description: "search.ch, local.ch, twixtel — citations cohérentes avec votre fiche." },
+    { icon: "ri-search-line", title: "Pack local Genève / Vaud", description: "Spécialisation marché romand : concurrence, saisonnalité, requêtes typiques." },
+    { icon: "ri-time-line", title: "Même fuseau horaire", description: "Réponses dans la journée, en français, sans décalage." },
+    { icon: "ri-shield-check-line", title: "Conformité LPD", description: "Vos données et celles de vos clients restent en Suisse." }
+];
+
+const trustItems = [
+    { icon: "ri-file-search-line", text: "Audit gratuit sous 24-48h" },
+    { icon: "ri-handshake-line", text: "Sans engagement long" },
+    { icon: "ri-eye-2-line", text: "Reporting mensuel transparent" }
+];
+---
+
+<Layout
+    title={seoData.title}
+    description={seoData.description}
+    schemas={schemas}
+>
+    <Header />
+
+    <!-- HERO - Faux GMB card mockup -->
+    <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-20 px-4 relative overflow-hidden">
+        <!-- Gradient mesh background -->
+        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+            <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
+            <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-[var(--violet)] opacity-15 blur-[100px] rounded-full"></div>
+            <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-[var(--blue)] opacity-10 blur-[80px] rounded-full"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="text-center">
+                <h1 class="seo-h1 mb-8 mt-8">Gestion de fiche Google My Business</h1>
+
+                <p class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6" data-animate="fade-up">
+                    Votre fiche Google,<br/>
+                    gérée
+                    <span class="relative inline-block">
+                        <span class="relative z-10">comme un actif</span>
+                        <img
+                            src={arrowUnderline.src}
+                            alt=""
+                            class="absolute -bottom-0 left-0 w-full h-8 pointer-events-none"
+                            aria-hidden="true"
+                        />
+                    </span>
+                </p>
+
+                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="0.1">
+                    Création, optimisation, posts hebdomadaires, gestion des avis.<br class="hidden md:block"/>
+                    <strong class="text-[var(--text)]">Vous gardez la main, je m'occupe du reste.</strong>
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16 md:mb-20" data-animate="fade-up" data-delay="0.2">
+                    <a
+                        href="#contact"
+                        class="
+                            bg-[var(--blue)]
+                            border-2 border-black
+                            px-6 py-4
+                            text-lg font-medium
+                            shadow-[4px_4px_0px_rgba(0,0,0,1)]
+                            transition-all duration-200
+                            hover:bg-[var(--yellow)]
+                            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
+                            hover:translate-x-[2px] hover:translate-y-[2px]
+                            flex items-center justify-center gap-2
+                        "
+                    >
+                        <i class="ri-search-eye-line"></i>
+                        Audit gratuit de ma fiche
+                    </a>
+                    <a
+                        href="#prix"
+                        class="
+                            bg-white
+                            border-2 border-black
+                            px-6 py-4
+                            text-lg font-medium
+                            transition-all duration-200
+                            hover:bg-gray-100
+                            flex items-center justify-center gap-2
+                        "
+                    >
+                        Voir le forfait
+                        <i class="ri-arrow-down-line"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Faux GMB card mockup -->
+            <div class="w-full max-w-2xl mx-auto relative" data-animate="scale" data-delay="0.3">
+                <div class="bg-white border-3 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] relative">
+                    <!-- Browser bar -->
+                    <div class="flex items-center gap-2 p-3 border-b-2 border-black bg-gray-50">
+                        <div class="flex gap-1.5">
+                            <div class="w-3 h-3 rounded-full bg-red-400 border border-black"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-400 border border-black"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-400 border border-black"></div>
+                        </div>
+                        <div class="flex-1 bg-white border border-black px-3 py-1 text-xs text-gray-400 font-mono text-center">
+                            google.com/maps
+                        </div>
+                    </div>
+
+                    <!-- GMB card content -->
+                    <div class="p-6">
+                        <!-- Business header -->
+                        <div class="flex items-start justify-between mb-4">
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-800">Votre commerce</h3>
+                                <p class="text-sm text-gray-500">Votre catégorie · Genève</p>
+                            </div>
+                            <div class="bg-green-50 border-2 border-green-400 px-2 py-1">
+                                <span class="text-xs font-bold text-green-700 flex items-center gap-1">
+                                    <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                                    Ouvert
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Rating -->
+                        <div class="flex items-center gap-2 mb-4">
+                            <div class="flex text-yellow-400">
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                                <i class="ri-star-fill"></i>
+                            </div>
+                            <span class="font-bold text-gray-800">4.9</span>
+                            <span class="text-sm text-gray-500">· 127 avis</span>
+                        </div>
+
+                        <!-- Photos preview -->
+                        <div class="grid grid-cols-3 gap-1 mb-4">
+                            <div class="aspect-square bg-gradient-to-br from-[var(--blue)]/40 to-[var(--violet)]/30 border border-gray-200"></div>
+                            <div class="aspect-square bg-gradient-to-br from-[var(--yellow)]/40 to-orange-200 border border-gray-200"></div>
+                            <div class="aspect-square bg-gradient-to-br from-pink-200 to-[var(--blue)]/40 border border-gray-200"></div>
+                        </div>
+
+                        <!-- Quick info -->
+                        <div class="space-y-2 text-sm text-gray-700">
+                            <div class="flex items-center gap-2">
+                                <i class="ri-map-pin-line text-[var(--blue)]"></i>
+                                <span>Rue du Marché 1, 1204 Genève</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="ri-time-line text-[var(--blue)]"></i>
+                                <span>Ouvre 9:00 · Ferme 19:00</span>
+                            </div>
+                            <div class="flex items-center gap-2">
+                                <i class="ri-phone-line text-[var(--blue)]"></i>
+                                <span>+41 22 123 45 67</span>
+                            </div>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-gray-200">
+                            <button class="flex flex-col items-center gap-1 text-xs text-[var(--blue)] font-medium">
+                                <i class="ri-direction-line text-lg"></i>
+                                Itinéraire
+                            </button>
+                            <button class="flex flex-col items-center gap-1 text-xs text-[var(--blue)] font-medium">
+                                <i class="ri-phone-line text-lg"></i>
+                                Appeler
+                            </button>
+                            <button class="flex flex-col items-center gap-1 text-xs text-[var(--blue)] font-medium">
+                                <i class="ri-global-line text-lg"></i>
+                                Site web
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stat badges -->
+                <div class="absolute -top-4 -left-4 bg-white border-2 border-black px-3 py-2 shadow-[3px_3px_0px_rgba(0,0,0,1)] -rotate-6">
+                    <span class="font-mono text-sm font-bold text-[var(--blue)]">+520%</span>
+                    <span class="text-xs text-gray-500 block">itinéraires</span>
+                </div>
+                <div class="absolute -bottom-4 -right-4 bg-[var(--blue)] border-2 border-black px-4 py-2 shadow-[3px_3px_0px_rgba(0,0,0,1)] rotate-3">
+                    <span class="font-bold text-sm">Pack local</span>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-center gap-2 text-sm text-gray-500 mt-12">
+                <i class="ri-map-pin-fill text-[var(--blue)]"></i>
+                <span>Basé à Genève | Service francophonie complète</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- PAIN POINTS SECTION -->
+    <section id="problemes" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
+        <BackgroundGlitchGrid />
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    problèmes
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                    Votre fiche Google vous fait <span class="relative inline-block">
+                        <span class="absolute bg-red-200 w-full h-[40%] left-0 bottom-1 -z-1"></span>
+                        perdre des clients
+                    </span><br/>
+                    au lieu d'en attirer ?
+                </h2>
+                <p class="text-lg text-gray-600">Vous êtes au bon endroit si...</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12" data-animate-stagger>
+                {painPoints.map((point) => (
+                    <div class="pain-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
+                        <div class="w-10 h-10 bg-red-100 border-2 border-red-300 flex items-center justify-center mb-4">
+                            <i class={`${point.icon} text-red-500 text-xl`}></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">{point.title}</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">{point.description}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-6 md:p-8 text-center" data-animate="fade-up">
+                <p class="text-lg md:text-xl font-medium">
+                    <i class="ri-lightbulb-line text-[var(--blue)] mr-2"></i>
+                    <strong>Bonne nouvelle :</strong> tout ça est réparable. Et plus rapidement qu'une refonte de site.
+                </p>
+            </div>
+
+            <p class="mt-8 p-4 bg-[var(--yellow)]/30 border-l-4 border-black text-sm md:text-base max-w-3xl mx-auto">
+                <strong>Pas sûr du potentiel de votre fiche ?</strong> Le
+                <a href="/blog/referencement-local-geneve" class="underline font-bold hover:text-[var(--violet)]">guide référencement local Genève</a>
+                explique comment Google classe les fiches en 2026, et pourquoi 80% du ranking se joue dans 3 paramètres souvent négligés.
+            </p>
+        </div>
+    </section>
+
+    <!-- POUR QUI / PAS POUR QUI -->
+    <section id="pour-qui" class="py-20 md:py-28 px-4 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    cadrage
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                    Pour qui ce service est <span class="text-[var(--blue)]">utile</span><br/>
+                    et pour qui il ne l'est pas
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Une fiche Google n'a de sens que si votre clientèle vous cherche localement. Sans dimension locale, c'est de l'argent jeté.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8" data-animate-stagger>
+                <!-- For -->
+                <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)]" data-animate-item>
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <i class="ri-checkbox-circle-fill text-[var(--blue)] text-2xl"></i>
+                        Pour vous si vous êtes...
+                    </h3>
+                    <ul class="space-y-3">
+                        {forQui.filter(i => i.type === 'for').map((item) => (
+                            <li class="flex items-start gap-3">
+                                <i class={`${item.icon} text-[var(--blue)] text-lg mt-0.5 flex-shrink-0`}></i>
+                                <span class="text-gray-700">{item.text}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                <!-- Not for -->
+                <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)]" data-animate-item>
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                        <i class="ri-close-circle-fill text-red-400 text-2xl"></i>
+                        Pas pour vous si...
+                    </h3>
+                    <ul class="space-y-3">
+                        {forQui.filter(i => i.type === 'not').map((item) => (
+                            <li class="flex items-start gap-3 text-gray-500">
+                                <i class={`${item.icon} text-red-400 text-lg mt-0.5 flex-shrink-0`}></i>
+                                <span>{item.text}</span>
+                            </li>
+                        ))}
+                    </ul>
+                    <p class="mt-6 text-sm text-gray-500 italic border-t border-dashed border-gray-300 pt-4">
+                        Dans ces cas, mieux vaut investir ailleurs : SEO classique, contenu, partenariats sectoriels.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4 PILIERS -->
+    <section id="ce-que-je-fais" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
+        <BackgroundCircuitBoard animated={true} />
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    périmètre
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                    Concrètement,<br/>
+                    <span class="text-[var(--blue)]">ce que je fais sur votre fiche</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8" data-animate-stagger>
+                {piliers.map((pilier, index) => (
+                    <div class="bg-[var(--main-bg)] border-2 border-black p-6 md:p-7 relative" data-animate-item>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center">
+                                <i class={`${pilier.icon} text-2xl`}></i>
+                            </div>
+                            <span class="font-mono text-sm text-gray-500">0{index + 1}</span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">{pilier.title}</h3>
+                        <p class="text-gray-600 mb-4">{pilier.description}</p>
+                        <ul class="space-y-2 pt-4 border-t border-dashed border-gray-300">
+                            {pilier.items.map((item) => (
+                                <li class="flex items-start gap-2 text-sm text-gray-700">
+                                    <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
+                                    <span>{item}</span>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- METHODOLOGY -->
+    <section id="methode" class="py-20 md:py-28 px-4 relative overflow-hidden">
+        <BackgroundProgressFlow />
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    méthode
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                    Le setup d'abord.<br/>
+                    <span class="text-[var(--blue)]">La cadence ensuite.</span>
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-animate-stagger>
+                {methodSteps.map((step, index) => (
+                    <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
+                                0{index + 1}
+                            </span>
+                            <span class="bg-[var(--yellow)] px-3 py-1 text-sm font-mono font-bold border-2 border-black">
+                                {step.week}
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-4">{step.title}</h3>
+                        <ul class="space-y-2 mb-4">
+                            {step.tasks.map((task) => (
+                                <li class="flex items-start gap-2 text-gray-600">
+                                    <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
+                                    <span>{task}</span>
+                                </li>
+                            ))}
+                        </ul>
+                        <div class="flex flex-col gap-1 text-sm pt-4 border-t border-dashed border-gray-300">
+                            <span class="text-gray-400">Livrable</span>
+                            <span class="bg-gray-100 border border-gray-300 px-2 py-1 font-medium text-xs">{step.deliverable}</span>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div class="mt-16 md:mt-20">
+                <h3 class="text-xl md:text-2xl font-bold text-center mb-8" data-animate="fade-up">Ce qui me différencie</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" data-animate-stagger>
+                    {differentiators.map((diff) => (
+                        <div class="bg-white border-2 border-black p-5" data-animate-item>
+                            <i class={`${diff.icon} text-2xl text-[var(--blue)] mb-3 block`}></i>
+                            <h4 class="font-bold mb-2">{diff.title}</h4>
+                            <p class="text-sm text-gray-600">{diff.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section id="prix" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
+        <div class="max-w-5xl mx-auto">
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    investissement
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal">
+                    Un setup unique,<br/>
+                    <span class="text-[var(--blue)]">un mensuel tout inclus</span>
+                </h2>
+                <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
+                    Pas de palier compliqué, pas de surprise. Vous voyez ce que vous payez et ce que vous recevez.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12" data-animate-stagger>
+                <!-- Setup card -->
+                <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate-item>
+                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+
+                    <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
+                        <i class="ri-tools-line text-[var(--blue)]"></i>
+                        Setup unique
+                    </h3>
+                    <p class="text-sm text-gray-500 mb-6">Le travail de fond — fait une seule fois, propre.</p>
+
+                    <div class="mb-6">
+                        <p class="text-5xl font-bold text-[var(--text)]">CHF 590</p>
+                        <p class="text-sm text-gray-600">Une fois, en début de mission</p>
+                    </div>
+
+                    <ul class="space-y-2 text-sm">
+                        <li class="flex items-start gap-2">
+                            <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
+                            <span>Audit complet fiche actuelle</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
+                            <span>Création / récupération / vérification</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
+                            <span>Optimisation complète (catégorie, description 750c, photos, attributs, services, horaires)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
+                            <span>Schema LocalBusiness sur votre site</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
+                            <span>Système d'avis (lien court + QR code)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
+                            <span>Réponses aux avis existants en attente</span>
+                        </li>
+                    </ul>
+
+                    <p class="mt-6 text-xs text-gray-500 bg-white border border-gray-300 p-3">
+                        <strong>Setup-only possible :</strong> on s'arrête là, je vous laisse une feuille de route, vous gérez seul ensuite.
+                    </p>
+                </div>
+
+                <!-- Mensuel card -->
+                <div class="bg-[var(--blue)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate-item>
+                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-black border-2 border-black"></div>
+                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-black border-2 border-black"></div>
+                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-black border-2 border-black"></div>
+                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-black border-2 border-black"></div>
+
+                    <span class="absolute -top-3 right-4 bg-[var(--yellow)] border-2 border-black px-3 py-1 text-xs font-mono font-bold rotate-3">
+                        Recommandé
+                    </span>
+
+                    <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
+                        <i class="ri-loop-left-line"></i>
+                        Mensuel tout inclus
+                    </h3>
+                    <p class="text-sm text-gray-800 mb-6">La cadence qui transforme une fiche en actif.</p>
+
+                    <div class="mb-6">
+                        <p class="text-5xl font-bold">CHF 300<span class="text-xl font-normal">/mois</span></p>
+                        <p class="text-sm text-gray-800">Sans engagement, 1 mois de préavis</p>
+                    </div>
+
+                    <ul class="space-y-2 text-sm">
+                        {inclusions.map((item) => (
+                            <li class="flex items-start gap-2">
+                                <i class="ri-check-line text-black mt-0.5 flex-shrink-0 font-bold"></i>
+                                <span>{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="bg-[var(--main-bg)] border-2 border-black p-6 md:p-8" data-animate="fade-up">
+                <p class="text-sm text-gray-700 mb-2 flex items-start gap-2">
+                    <i class="ri-information-line text-[var(--blue)] mt-1"></i>
+                    <span>
+                        <strong>Multi-établissements ?</strong> Le forfait couvre 1 fiche.
+                        Pour 2-5 fiches, dégressif sur devis. Pour 6+, on bascule sur Google Business Profile API (automatisation partielle).
+                    </span>
+                </p>
+                <p class="text-sm text-gray-700 flex items-start gap-2">
+                    <i class="ri-information-line text-[var(--blue)] mt-1"></i>
+                    <span>
+                        <strong>Pour aller plus loin :</strong> ce service couvre la fiche et son écosystème direct.
+                        Pour du <a href="/services/referencement-local" class="underline font-bold hover:text-[var(--violet)]">SEO local complet</a> (contenu blog, citations, netlinking), c'est un autre périmètre.
+                    </span>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <FAQ faqs={faqs} sectionId="faq">
+        <BackgroundQuestionMarks slot="background" animated={true} />
+    </FAQ>
+
+    <!-- LOCAL SEO -->
+    <section id="local" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
+        <BackgroundMapContours />
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    local
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal">
+                    Basé à <span class="text-[var(--blue)]">Genève</span>,<br/>
+                    service francophonie complète
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <div data-animate="fade-left">
+                    <h3 class="text-xl font-bold mb-6">Pourquoi un prestataire qui connaît le marché ?</h3>
+                    <div class="space-y-4">
+                        {localAdvantages.map((adv) => (
+                            <div class="flex items-start gap-4 p-4 bg-[var(--main-bg)] border-2 border-black">
+                                <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
+                                    <i class={`${adv.icon} text-lg`}></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold mb-1">{adv.title}</h4>
+                                    <p class="text-sm text-gray-600">{adv.description}</p>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+
+                <div data-animate="fade-right">
+                    <h3 class="text-xl font-bold mb-6">Zones d'intervention prioritaires</h3>
+                    <div class="space-y-3">
+                        {zones.map((zone) => (
+                            <div class={`
+                                flex items-center gap-4 p-4 border-2 border-black
+                                ${zone.type === 'primary' ? 'bg-[var(--blue)] bg-opacity-20 border-[var(--blue)]' : 'bg-white'}
+                            `}>
+                                <i class={`${zone.icon} text-xl ${zone.type === 'primary' ? 'text-[var(--blue)]' : 'text-gray-600'}`}></i>
+                                <span class={`font-medium ${zone.type === 'primary' ? 'text-lg font-bold' : ''}`}>
+                                    {zone.name}
+                                    {zone.type === 'primary' && <span class="text-sm font-normal text-gray-600 ml-2">(basé sur place)</span>}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                    <p class="mt-6 text-sm text-gray-500">
+                        <i class="ri-information-line mr-1"></i>
+                        La gestion de fiche se fait à 100% en remote. Aucun déplacement nécessaire.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA + FORM -->
+    <section id="contact" class="py-20 md:py-28 px-4 bg-[var(--main-bg)] relative overflow-hidden">
+        <div class="absolute inset-0 dots-bg opacity-[0.4]"></div>
+
+        <div class="max-w-4xl mx-auto relative z-10">
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <h2 class="text-3xl md:text-4xl font-normal mb-4 text-[var(--text)]">
+                    Prêt à confier votre fiche ?
+                </h2>
+                <p class="text-lg text-gray-600">2 façons de démarrer</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" data-animate-stagger>
+                <div class="bg-white border-2 border-black p-6 text-center shadow-[4px_4px_0px_rgba(0,0,0,0.15)]" data-animate-item>
+                    <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black mx-auto mb-4 flex items-center justify-center">
+                        <i class="ri-search-eye-line text-xl text-black"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Option 1 : Audit gratuit</h3>
+                    <p class="text-gray-600 text-sm mb-4">Donnez l'URL de votre fiche.<br/>Je vous envoie un mini-rapport sous 24-48h.</p>
+                </div>
+                <div class="bg-white border-2 border-black p-6 text-center shadow-[4px_4px_0px_rgba(0,0,0,0.15)]" data-animate-item>
+                    <div class="w-12 h-12 bg-[var(--violet)] border-2 border-black mx-auto mb-4 flex items-center justify-center">
+                        <i class="ri-chat-3-line text-xl text-white"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Option 2 : Discutons</h3>
+                    <p class="text-gray-600 text-sm mb-4">Idée claire ?<br/>Direct un appel de 15 min via Cal.com.</p>
+                    <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener" class="text-sm text-[var(--violet)] underline font-mono">
+                        → Réserver un créneau
+                    </a>
+                </div>
+            </div>
+
+            <div class="contact-form-container" data-animate="scale">
+                <form
+                    class="bg-white text-[var(--text)] border-3 border-black p-6 md:p-8 shadow-[8px_8px_0px_rgba(0,217,163,0.3)] relative"
+                    id="gmb-form"
+                >
+                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+
+                    <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
+                    <input type="hidden" name="subject" value="Demande gestion fiche Google - Jon Labs">
+                    <input type="hidden" name="from_name" value="Jon Labs - GMB">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="form-field">
+                            <label for="name" class="flex items-center gap-2 text-sm font-medium mb-2">
+                                <span class="font-mono text-xs text-gray-400">01</span>
+                                Votre nom <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" id="name" name="name" required placeholder="Jean Dupont"
+                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all" />
+                        </div>
+
+                        <div class="form-field">
+                            <label for="email" class="flex items-center gap-2 text-sm font-medium mb-2">
+                                <span class="font-mono text-xs text-gray-400">02</span>
+                                Votre email <span class="text-red-500">*</span>
+                            </label>
+                            <input type="email" id="email" name="email" required placeholder="vous@exemple.ch"
+                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all" />
+                        </div>
+
+                        <div class="form-field">
+                            <label for="business" class="flex items-center gap-2 text-sm font-medium mb-2">
+                                <span class="font-mono text-xs text-gray-400">03</span>
+                                Nom de votre commerce <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" id="business" name="business" required placeholder="Salon Tendance"
+                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all" />
+                        </div>
+
+                        <div class="form-field">
+                            <label for="activity" class="flex items-center gap-2 text-sm font-medium mb-2">
+                                <span class="font-mono text-xs text-gray-400">04</span>
+                                Secteur d'activité <span class="text-red-500">*</span>
+                            </label>
+                            <input type="text" id="activity" name="activity" required placeholder="Coiffeur, Restaurant, Artisan..."
+                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all" />
+                        </div>
+
+                        <div class="form-field md:col-span-2">
+                            <label for="fiche-url" class="flex items-center gap-2 text-sm font-medium mb-2">
+                                <span class="font-mono text-xs text-gray-400">05</span>
+                                URL de votre fiche Google (si elle existe)
+                            </label>
+                            <input type="url" id="fiche-url" name="fiche_url" placeholder="https://maps.app.goo.gl/..."
+                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all" />
+                            <p class="text-xs text-gray-500 mt-2">
+                                <i class="ri-information-line mr-1"></i>
+                                Laissez vide si vous n'avez pas encore de fiche — je m'en occupe.
+                            </p>
+                        </div>
+
+                        <div class="form-field md:col-span-2">
+                            <label class="flex items-center gap-2 text-sm font-medium mb-3">
+                                <span class="font-mono text-xs text-gray-400">06</span>
+                                Situation actuelle <span class="text-red-500">*</span>
+                            </label>
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                                <label class="flex items-start gap-2 cursor-pointer group p-3 border-2 border-gray-300 hover:border-black transition-colors">
+                                    <input type="radio" name="situation" value="pas-de-fiche" required class="mt-1" />
+                                    <span class="text-sm">Je n'ai pas de fiche (à créer)</span>
+                                </label>
+                                <label class="flex items-start gap-2 cursor-pointer group p-3 border-2 border-gray-300 hover:border-black transition-colors">
+                                    <input type="radio" name="situation" value="fiche-pas-optim" class="mt-1" />
+                                    <span class="text-sm">J'ai une fiche, jamais optimisée</span>
+                                </label>
+                                <label class="flex items-start gap-2 cursor-pointer group p-3 border-2 border-gray-300 hover:border-black transition-colors">
+                                    <input type="radio" name="situation" value="fiche-suspendue" class="mt-1" />
+                                    <span class="text-sm">Ma fiche est suspendue / bloquée</span>
+                                </label>
+                                <label class="flex items-start gap-2 cursor-pointer group p-3 border-2 border-gray-300 hover:border-black transition-colors">
+                                    <input type="radio" name="situation" value="recuperer" class="mt-1" />
+                                    <span class="text-sm">Je veux récupérer une fiche existante</span>
+                                </label>
+                                <label class="flex items-start gap-2 cursor-pointer group p-3 border-2 border-gray-300 hover:border-black transition-colors md:col-span-2">
+                                    <input type="radio" name="situation" value="autre" class="mt-1" />
+                                    <span class="text-sm">Autre / je ne sais pas</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-field md:col-span-2">
+                            <label for="message" class="flex items-center gap-2 text-sm font-medium mb-2">
+                                <span class="font-mono text-xs text-gray-400">07</span>
+                                Message (optionnel)
+                            </label>
+                            <textarea id="message" name="message" rows="4"
+                                placeholder="Vos questions, votre contexte, ce que vous attendez du service..."
+                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"></textarea>
+                        </div>
+
+                        <div class="form-field md:col-span-2">
+                            <label class="flex items-start gap-3 cursor-pointer group">
+                                <input type="checkbox" name="consent" required
+                                    class="mt-1 w-5 h-5 border-2 border-black appearance-none cursor-pointer checked:bg-[var(--blue)] checked:border-black relative transition-all" />
+                                <span class="text-sm text-gray-600 group-hover:text-black transition-colors">
+                                    J'accepte d'être contacté par Jon Labs concernant ma demande. <span class="text-red-500">*</span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <div class="md:col-span-2 pt-4">
+                            <button type="submit" class="
+                                submit-btn w-full
+                                bg-[var(--blue)] border-2 border-black
+                                px-8 py-4 text-lg font-bold
+                                shadow-[4px_4px_0px_rgba(0,0,0,1)]
+                                transition-all duration-200
+                                hover:bg-[var(--yellow)]
+                                hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
+                                hover:translate-x-[2px] hover:translate-y-[2px]
+                                focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2
+                                flex items-center justify-center gap-3
+                            ">
+                                <span>Demander mon audit gratuit</span>
+                                <i class="ri-send-plane-line text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="flex flex-wrap justify-center gap-6 mt-8 text-sm text-gray-600">
+                    {trustItems.map((t) => (
+                        <span class="flex items-center gap-2">
+                            <i class={`${t.icon} text-[var(--blue)]`}></i>
+                            {t.text}
+                        </span>
+                    ))}
+                </div>
+
+                <div class="text-center mt-8">
+                    <p class="text-gray-500 text-sm mb-2">Besoin d'une réponse rapide ?</p>
+                    <a href="mailto:contact@jonlabs.ch" class="text-[var(--blue)] font-mono hover:underline">
+                        → contact@jonlabs.ch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>
+
+<style>
+    .dots-bg {
+        background-image: radial-gradient(circle, #000 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+
+    .seo-h1 {
+        font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace;
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: rgba(15, 15, 15, 0.5);
+        letter-spacing: 0.05em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    input[type="checkbox"]:checked::after {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 1px;
+        width: 6px;
+        height: 12px;
+        border: solid black;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+    }
+
+    input[type="radio"] {
+        accent-color: var(--blue);
+    }
+
+    .submit-btn.loading {
+        pointer-events: none;
+        opacity: 0.7;
+    }
+
+    .submit-btn.loading i {
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    section[id] {
+        scroll-margin-top: 100px;
+    }
+</style>
+
+<script>
+    const form = document.getElementById('gmb-form') as HTMLFormElement;
+    const submitBtn = form?.querySelector('.submit-btn') as HTMLButtonElement;
+    const btnText = submitBtn?.querySelector('span');
+    const btnIcon = submitBtn?.querySelector('i');
+
+    form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        const situation = form.querySelector('input[name="situation"]:checked');
+        if (!situation) {
+            alert('Veuillez sélectionner votre situation actuelle.');
+            return;
+        }
+
+        if (submitBtn) {
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+            if (btnText) btnText.textContent = 'Envoi en cours...';
+            if (btnIcon) btnIcon.className = 'ri-loader-4-line text-xl animate-spin';
+        }
+
+        try {
+            const formData = new FormData(form);
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+
+            const result = await response.json();
+
+            if (result.success) {
+                alert('Merci ! Votre demande a bien été envoyée. Je vous réponds sous 24-48h avec un mini-audit de votre fiche.');
+                form.reset();
+            } else {
+                alert("Erreur lors de l'envoi. Veuillez réessayer ou m'écrire directement à contact@jonlabs.ch");
+            }
+        } catch (error) {
+            alert('Erreur de connexion. Veuillez réessayer.');
+        } finally {
+            if (submitBtn) {
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+                if (btnText) btnText.textContent = 'Demander mon audit gratuit';
+                if (btnIcon) btnIcon.className = 'ri-send-plane-line text-xl';
+            }
+        }
+    });
+</script>

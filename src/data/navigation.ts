@@ -56,6 +56,7 @@ export const mainNav: NavSection[] = [
         title: 'Acquisition',
         items: [
           { label: 'Référencement local', href: '/services/referencement-local', icon: 'ri-map-pin-line' },
+          { label: 'Gestion fiche Google', href: '/services/gestion-fiche-google', icon: 'ri-store-2-line' },
           { label: "Validation d'idée", href: '/services/validation-idee', icon: 'ri-test-tube-line' },
         ],
       },
