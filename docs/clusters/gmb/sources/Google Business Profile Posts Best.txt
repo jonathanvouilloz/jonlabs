@@ -1,0 +1,205 @@
+Google Business Profile Posts Best Practices
+3K Views
+9 Upvotes
+Standard Operating Procedure for Scheduling Google Business Profile Posts
+ 
+Written by Claudia Tomina — Google Business Profile Product Expert
+ 
+Google Business Profile (GBP) posts are a critical bottom-of-funnel marketing tool that appear directly in Google Search and Maps. Unlike social media, GBP is designed for conversion—users are actively searching for your business and ready to take action. This SOP ensures all posts comply with Google’s policies, maximize visibility, and drive measurable results through strategic CTAs and landing pages.
+ 
+Key Success Metrics
+Compliance with Google’s strict policies (no phone numbers in text or media)
+Clear, action-oriented CTAs with properly tagged landing pages (UTM parameters)
+Bottom-of-funnel messaging that answers last-mile questions (price, timing, availability)
+Strategic posting cadence to keep high-value offers prominently displayed
+Google Business Profile Dashboard
+NMX Dashboard
+ 
+Understanding GBP Post Types
+Google supports three distinct post types, each with specific use cases and formatting requirements:
+ 
+
+ 
+Post Creation Interfaces
+ 
+Update Post
+Offer Post
+Event Post
+ 
+Where Posts Appear
+Post visibility varies by device and business category:
+ 
+Mobile Visibility
+Updates tab or Overview tab within the Business Profile
+Featured posts module for eligible food & drink businesses may appear prominently near the top
+‘By owner’ tab shows latest updates from the business
+Near the bottom of the search results page, you can see the “What’s New” from “business”
+Featured Event Post
+ 
+Google Maps Updates Tab
+By Owner Tab View (Mobile)
+What’s new section
+ 
+Desktop Visibility
+‘From the owner’ section shows latest posts in the knowledge panel
+Offer and Event posts may surface as dedicated cards when users expand business updates
+Google Maps event feeds can highlight events with complete metadata
+Critical Compliance Rules
+ 
+Violating these rules will result in post rejection or removal:
+ 
+
+ 
+Official Google Policy: Create & manage posts on your Business Profile – Google Business Profile Help
+ 
+Why GBP Posts ≠ Social Media
+ 
+Google may automatically pull posts from your social channels for eligible businesses. If you duplicate social captions on GBP, you risk:
+Redundant content: Users see the same post twice, reducing effectiveness
+Missed conversion opportunities: Social copy is awareness-focused, not action-focused
+Poor user experience: Generic messaging doesn’t answer last-mile questions
+The Bottom-of-Funnel Mindset
+When someone finds your GBP, they’re actively searching for your business—they’re ready to convert. Your posts should:
+Answer last-mile questions: price, availability, timing, location, redemption steps
+Include a clear CTA that drives immediate action (Book, Order, Shop, Reserve)
+Link to specific landing pages where users can complete the action
+The Bottom-of-Funnel Mindset
+When someone finds your GBP, they’re actively searching for your business—they’re ready to convert. Your posts should:
+Answer last-mile questions: price, availability, timing, location, redemption steps
+Include a clear CTA that drives immediate action (Book, Order, Shop, Reserve)
+Link to specific landing pages where users can complete the action
+
+Post Creation Workflow
+ 
+Step 1: Choose the Right Post Type
+Updates: General announcements, new products/services, company news
+Offers: Limited-time promotions with specific discount/value
+Events: Time-specific happenings (performances, classes, tastings)
+Step 2: Prepare Your Content
+Copy: 100-300 characters, lead with value, include timing and redemption
+Media: One high-quality image or video (no phone numbers or excessive text)
+CTA Button: Book, Order, Shop, Learn more, Sign up, or Call
+Landing Page: Direct link where users complete the action (with UTM parameters)
+Available CTA Button Options
+CTA Options Available for Posts
+ 
+Step 3: Create the Post in GBP
+Open your Business Profile → Posts → Add post
+Select post type (Update, Offer, or Event)
+Add copy (value proposition in first 100-150 characters)
+Upload one image or video
+Complete required fields (title, dates for Offers/Events)
+Add CTA button and landing page URL (include UTM parameters)
+Preview on mobile and desktop if possible
+Step 4: Add UTM Parameters for Tracking
+ 
+Always tag your landing page URLs with UTM parameters to track performance:
+source=google
+medium=organic
+campaign=gbp_post
+Use Google’s UTM Builder: https://ga-dev-tools.google/ga4/campaign-url-builder/
+ 
+Step 5: Schedule Strategically
+Events: Publish early (1-2 weeks ahead) to give Google time to index
+Offers: Align with peak demand periods (weekends, holidays)
+Cadence: Avoid posting too frequently—keep high-value offers front and center
+
+ 
+Post Scheduling Option
+ 
+Step 6: Copy to Multiple Locations (If Applicable)
+For businesses with multiple locations, Google offers a time-saving feature to copy the same post across up to 20 locations at once.
+How It Works
+After completing your post: When you click ‘Post,’ Google will prompt you with an option to copy the update to other profiles you manage
+Select locations: Choose which locations should receive the same post (maximum 20 locations)
+Confirm or skip: You can either apply to selected locations or skip to post only to the current location
+Post is scheduled: Once confirmed, the post is scheduled for all selected locations simultaneously
+
+ 
+Copy Post to Other Locations
+ 
+When to Use Multi-Location Posting
+Recommended for: Company-wide announcements, brand promotions, seasonal campaigns, or events happening at all locations
+Avoid for: Location-specific offers, events unique to one store, or content mentioning specific addresses/landmarks
+Pro tip: This feature is ideal for franchise businesses or multi-location brands maintaining consistent messaging across all storefronts
+Offer Posts: Detailed Checklist
+Use Offer posts for limited-time promotions and deals. These are the strongest conversion drivers when complete.
+Define the offer: discount or value, applicable recipients, and exclusions
+Create post → Offer type
+Add a clear title (e.g., ‘Buy 1 Get 1 Free Burgers’)
+Set precise start and end dates
+Add coupon code if applicable
+Include terms and conditions: exclusions, limits, store eligibility
+Upload one high-quality photo or video (exclude phone numbers)
+Write 100–300 characters describing value, scarcity, and redemption
+Add ‘View offer’ link to landing page with redemption details
+Include UTM parameters in URL (source=google, medium=organic, campaign=gbp_post)
+Preview on mobile and desktop after publishing
+Offer Copy Framework
+Value + Scarcity + Redemption Path
+Example: “Save 20% on online orders this week. Use code SAVE20 at checkout. Tap View offer for details.”
+ 
+Event Posts: Getting Featured in Google Maps
+Google Maps is integrating more experiences for the user. With Gemini integrated into Maps, we’re now seeing live events, classes, and activities surface directly inside the app.
+ 
+Event Post Requirements
+Title: Clear, descriptive (e.g., ‘Live Jazz Night’ not ‘Event’)
+Exact date and time: No vague phrasing like ‘this weekend’
+High-quality media: Show the experience, not just text
+CTA: Book, Sign up, Learn more, or Reserve
+Landing page: Event details, ticket link, or registration form
+How to Get Events Featured
+Publish early: 1-2 weeks ahead to give Google time to index
+Complete metadata: Title, exact dates/times, location
+Landing page signals: Include structured event details on your website
+Consistent naming: Use same event name across GBP, website, ticketing partners
+Avoid Ambiguous Phrasing
+Google won’t show events with unclear timing:
+ 
+
+Event Copy Framework
+Hook + When/Where + CTA
+Example: “Live jazz returns Friday 8-11pm. Reserve your table now.”
+ 
+High-Converting Copy Frameworks
+Use these proven formulas to write posts that drive action:
+ 
+
+ 
+ 
+The First 100-150 Characters Matter Most
+Users skim the opening snippet in search results and mobile views. Lead with your value proposition—don’t bury it with preamble or generic language.
+ 
+The First 100-150 Characters Matter Most
+Users skim the opening snippet in search results and mobile views. Lead with your value proposition—don’t bury it with preamble or generic language.
+ 
+
+CTA Button Best Practices
+Book: Reservations, appointments, consultations
+Order/Shop: Ecommerce, food ordering, retail
+Learn more: Detailed product/service pages
+Sign up: Events, newsletters, memberships
+Call: When no landing page or offer page is available
+Optimization Tips for Maximum Visibility
+ 
+Posting Cadence
+Don’t over-post: Posting too frequently pushes current offers down
+Keep high-value content front and center: Prioritize your best offers
+For recurring events: Set start/end dates for the entire month instead of reposting weekly
+Media Best Practices
+Use high-quality, on-brand hero visuals designed to convert
+Show the product or experience users will get
+No phone numbers or excessive text overlay
+One image or video per post (more is not better)
+Landing Page Strategy
+Every CTA should link to a specific, relevant landing page
+Landing pages must match the offer/event details
+Include clear redemption steps on the landing page
+Linking to social media pages is allowed and encouraged
+Always add UTM parameters for tracking
+References & Further Reading
+Official Google Documentation:
+Create & manage posts on your Business Profile – Google Business Profile Help Google Business Profile Posts Policy
+Tracking & Analytics:
+https://ga-dev-tools.google/ga4/campaign-url-builder/
+💡 Remember: Google Business Profile is a bottom-of-funnel conversion tool. Every post should answer the question: ‘What action do I want users to take right now?’

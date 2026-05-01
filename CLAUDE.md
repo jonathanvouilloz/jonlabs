@@ -100,18 +100,21 @@ Remix Icon via CDN: `<i class="ri-code-line"></i>`
 
 ## Documentation
 
+Voir `docs/README.md` pour l'index complet (4 zones : sources de vérité, standards, clusters de contenu, recherche).
+
 | File | Purpose |
 |------|---------|
+| `docs/README.md` | Index documentaire (à lire en premier) |
 | `docs/project-context.md` | Identity, positioning, stack, architecture |
 | `docs/roadmap.md` | Development phases and tasks |
 | `docs/guidelines.md` | Coding standards, conventions, best practices |
-| `docs/content.md` | All text content for the site |
 | `docs/styleguide.md` | Design system, colors, components, patterns |
+| `docs/schema-guide.md` | Schema.org implementation guide |
 | `.claude/checklist.md` | Pre-commit checklist and starter prompts |
 
 ## Workflow
 
-1. **Before coding**: Read relevant docs (content.md, styleguide.md)
+1. **Before coding**: Read relevant docs (project-context.md, styleguide.md)
 2. **During coding**: Follow guidelines.md conventions
 3. **Before committing**: Run checklist.md
 4. **Track progress**: Update roadmap.md tasks

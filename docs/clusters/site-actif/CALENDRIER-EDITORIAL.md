@@ -11,10 +11,10 @@
 
 **Fait** :
 - 3 articles rédigés via vrai pipeline `/seo-article` (P, A1, A2) — scores 13/14, 12/14, 12/14
-- Briefs complets dans `docs/Pourquoi avoir un site actif cluster/` (BRIEF-PILIER, BRIEF-A1, BRIEF-A2)
+- Briefs complets dans `docs/clusters/site-actif/` (BRIEF-PILIER, BRIEF-A1, BRIEF-A2)
 - Briefs sémantiques auto-générés dans `.briefs/` + `src/content/blog/.briefs/`
 - 20 covers webp regénérées (tous les articles du blog)
-- **Audit terrain 50 sites finalisé** : CSV + constats agrégés + patterns positifs + log dans `docs/Pourquoi avoir un site actif cluster/`
+- **Audit terrain 50 sites finalisé** : CSV + constats agrégés + patterns positifs + log dans `docs/clusters/site-actif/`
 - **A2 data injectée** : tous les `[DATA-À-INJECTER]` et `<!-- TODO-DATA -->` remplacés par les chiffres réels de l'audit (76% dormants, 64/100 Lighthouse, 36% sans schema, etc.)
 - A2 `draft: false`, build Astro OK
 

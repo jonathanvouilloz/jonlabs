@@ -140,7 +140,7 @@ Document markdown qui me donne les chiffres à injecter dans l'article `audit-50
 - Citation marquante : "[observation terrain saillante]"
 ```
 
-Reprends **chacun des 7 constats** du brief A2 (`docs/Pourquoi avoir un site actif cluster/BRIEF-A2.md`) et fournis les chiffres. Plus :
+Reprends **chacun des 7 constats** du brief A2 (`docs/clusters/site-actif/BRIEF-A2.md`) et fournis les chiffres. Plus :
 - Répartition cantonale finale du panel (nombre exact par canton)
 - Répartition sectorielle finale
 - Médiane + p25 + p75 du score Lighthouse perf mobile

@@ -21,7 +21,7 @@ Workflow complet pour créer un article à partir d'un fichier markdown brut, av
 
 #### Étape 2: Génération de la cover (workflow en 3 phases)
 
-**Lire** `docs/generateImageForBlog.md` pour le guide de style visuel complet.
+**Lire** `docs/generate-image-blog.md` pour le guide de style visuel complet.
 
 ---
 
