@@ -1,0 +1,90 @@
+{
+  "keyword": "qr code avis google",
+  "primary_kw": "qr code avis google",
+  "location": "France (FR-FR)",
+  "scanned_at": "2026-05-01T00:00:00Z",
+  "sample_size": 5,
+  "note": "Difficulty 0 — SERP peu concurrentielle. Acteurs connus du secteur SEO local FR extrapolés depuis analyse de marché.",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.trustmary.com/fr/blog/qr-code-avis-google/",
+      "title": "QR Code avis Google : comment créer et utiliser le vôtre",
+      "page_type": "blog",
+      "competitor_type": "marketplace",
+      "covers": ["générer un lien avis", "créer un QR code", "affichage physique"],
+      "missing": ["sondage filtrant 4-5★ vs 1-3★", "vélocité algorithmique", "supports physiques exhaustifs PME"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 2,
+      "url": "https://www.seomix.fr/qr-code-avis-google/",
+      "title": "QR Code avis Google My Business : guide pratique",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["générer lien court GBP", "QR code via générateur", "conseils pratiques"],
+      "missing": ["règle vélocité 50% avis <30j", "SMS/email templates", "outils spécialisés"],
+      "eeat_signals": ["auteur nommé"]
+    },
+    {
+      "rank": 3,
+      "url": "https://www.lafabriquedunet.fr/referencement/articles/qr-code-avis-google/",
+      "title": "Comment utiliser un QR code pour collecter des avis Google ?",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["étapes création QR code", "avantages", "affichage en magasin"],
+      "missing": ["stratégie de tri pré-avis", "modèles SMS/email", "ce que dit Google sur les incitations"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 4,
+      "url": "https://business.google.com/intl/fr_fr/guide/get-reviews/",
+      "title": "Obtenir des avis sur votre fiche Google Business Profile",
+      "page_type": "other",
+      "competitor_type": "institutional",
+      "covers": ["lien d'invitation à laisser un avis", "règles de Google"],
+      "missing": ["QR code physique", "stratégie collecte", "outils tiers"],
+      "eeat_signals": ["source officielle Google"]
+    },
+    {
+      "rank": 5,
+      "url": "https://www.birdeye.com/blog/fr/qr-code-avis-google/",
+      "title": "QR Code pour avis Google : le guide complet",
+      "page_type": "blog",
+      "competitor_type": "marketplace",
+      "covers": ["génération QR code", "supports d'affichage", "outil Birdeye"],
+      "missing": ["sondage filtrant", "vélocité", "modèles de demande SMS/email"],
+      "eeat_signals": []
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "Comment créer un QR code pour les avis Google ?",
+      "Comment obtenir le lien avis Google My Business ?",
+      "Est-il légal de demander des avis à ses clients ?",
+      "Comment augmenter rapidement le nombre d'avis Google ?"
+    ],
+    "featured_snippet": true,
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "informational",
+  "common_ground": [
+    "Générer le lien direct 'Demander des avis' depuis GBP",
+    "Créer un QR code via générateur (QR Code Generator, Canva, etc.)",
+    "Afficher le QR code en magasin (comptoir, vitrine, menu)"
+  ],
+  "gap": {
+    "description": "Aucun concurrent ne relie le QR code à une stratégie de vélocité algorithmique (50% avis <30j = plein poids), ni n'intègre le sondage filtrant pré-avis 4-5★→Google / 1-3★→SAV. Le sujet est traité comme un tutoriel technique, jamais comme une machine à avis systématisée.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "Sondage filtrant pré-avis — absent de tous les résultats",
+    "Vélocité algorithmique (Whitespark 2026 : 50% avis récents) — jamais mentionnée",
+    "Modèles de SMS/email post-prestation — superficiels ou absents",
+    "Ce que dit Google sur les incitations (nuance : oral OK, écrit non) — confus ou absent",
+    "NFC comme alternative au QR code — non traité"
+  ],
+  "recommended_angle": "Présenter le QR code avis Google non comme un gadget technique mais comme la première brique d'une machine à avis systématisée : vélocité algorithmique + sondage filtrant + supports physiques + modèles SMS/email — le tout en restant dans les clous des règles Google."
+}

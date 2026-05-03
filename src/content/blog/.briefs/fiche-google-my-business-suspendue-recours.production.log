@@ -1,0 +1,27 @@
+# Production log — fiche-google-my-business-suspendue-recours
+Date : 2026-05-03 11:30
+Worker : @article-producer
+
+## Étapes
+- [✓] /seo-write    : draft écrit (2 762 mots)
+- [✓] /humanizer    : 35+ patterns IA corrigés (em dashes, listes inline, copula avoidance)
+- [✓] /seo-enrich   : src/content/blog/fiche-google-my-business-suspendue-recours.md créé (13.4 kB) — frontmatter validé (title 47 car., desc 142 car., H1 distinct, FAQPage schema auto via template, build OK)
+- [✓] /seo-review   : 0 warning, 0 bloquant (score 14/14 après correction em dash dans alt image)
+- [✓] /generate-cover : public/images/blog/fiche-google-my-business-suspendue-recours.webp (37.1 kB)
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-05-28)
+
+## Notes de production
+- Pipeline T (source: template) utilisé pour la cover — preset blog-cover-template
+- Article exclu du sitemap jusqu'au 28 mai 2026 (pubDate future, comportement normal du filtre isPublished)
+- 4 images inline TODO:image à produire avant publication (illustrations/schémas non-photoréalistes) :
+  - image-1 : écran GBP avec bannière "Fiche suspendue" (illustration brutaliste)
+  - image-2 : tableau comparatif soft/hard/fiche invisible (schéma)
+  - image-3 : checklist des preuves en deux colonnes (infographic)
+  - image-4 : flowchart "Réclamation refusée" deux branches (schéma)
+- Liens sortants cluster : /blog/fiche-google-my-business-guide-complet-2026 ✓, /blog/optimiser-fiche-google-my-business-checklist-2026 ✓, /blog/creer-fiche-google-my-business-etape-par-etape ✓
+- CTA principal : /services/gestion-fiche-google (×2 dans le corps + ×1 conclusion)
+
+## Bloquants éventuels
+aucun

@@ -1,7 +1,7 @@
 ---
 title: "Fiche Google My Business : guide complet 2026"
 description: "GBP signals = 32% du Local Pack selon Whitespark 2026. Ce guide couvre tout : créer, optimiser, animer et mesurer ta fiche Google My Business en 2026."
-pubDate: 2026-05-04
+pubDate: 2026-05-05
 image:
   url: "/images/blog/fiche-google-my-business-guide-complet-2026.webp"
   alt: "Guide complet fiche Google My Business 2026 — optimisation PME francophone"

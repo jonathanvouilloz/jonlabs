@@ -1,7 +1,7 @@
 ---
 title: "Créer fiche Google My Business : guide étape par étape 2026"
 description: "Créer ta fiche Google My Business en 7 étapes : catégorie, adresse, vérification vidéo, NAP. Le guide 2026 qui explique le pourquoi derrière chaque choix."
-pubDate: 2026-05-11
+pubDate: 2026-05-12
 image:
   url: "/images/blog/creer-fiche-google-my-business-etape-par-etape.webp"
   alt: "Créer fiche Google My Business étape par étape — guide 2026"

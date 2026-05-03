@@ -1,0 +1,103 @@
+{
+  "keyword": "fiche google my business suspendue",
+  "primary_kw": "fiche google my business suspendue",
+  "location": "France (FR-FR)",
+  "scanned_at": "2026-05-01T00:00:00Z",
+  "sample_size": 5,
+  "note": "Difficulty 0 — SERP très peu concurrentielle, volume faible (110/mo) mais intent urgence maximale (funnel bottom). Sources officielles Google + Whitespark consultées directement.",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://support.google.com/business/answer/4569145?hl=fr",
+      "title": "Corriger les fiches suspendues ou désactivées — Google Business Profile Help",
+      "page_type": "other",
+      "competitor_type": "institutional",
+      "covers": [
+        "procédure d'appel officielle",
+        "pièces justificatives requises",
+        "formulaire de réclamation",
+        "état d'un appel en cours",
+        "fiche supprimée vs suspendue"
+      ],
+      "missing": [
+        "causes de suspension (7 raisons)",
+        "délais réels de traitement",
+        "que faire si réclamation échoue",
+        "recours forum communauté",
+        "prévention future"
+      ],
+      "eeat_signals": ["source officielle Google"]
+    },
+    {
+      "rank": 2,
+      "url": "https://www.agenceduroi.com/blog/fiche-google-my-business-suspendue/",
+      "title": "Fiche Google My Business suspendue : causes et solutions",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["causes principales", "procédure de réclamation", "conseils pratiques"],
+      "missing": ["preuves à joindre détaillées", "recours après refus", "délais chiffrés", "distinction soft vs hard suspension"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 3,
+      "url": "https://localranker.fr/fiche-google-my-business-suspendue/",
+      "title": "Fiche Google My Business suspendue : que faire ?",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["types de suspension", "formulaire appel", "conseils attente"],
+      "missing": ["liste preuves documentaires", "forum produit GBP comme recours", "distinction fiche invisible vs suspendue vs dupliquée"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 4,
+      "url": "https://louisdescamps.fr/fiche-google-suspendue/",
+      "title": "Ma fiche Google est suspendue : voici quoi faire",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["étapes de réclamation", "exemples de preuves", "délai de réponse Google"],
+      "missing": ["causes préventives", "procédure forum produit si appel refusé", "différence suspension soft/hard"],
+      "eeat_signals": ["auteur nommé"]
+    },
+    {
+      "rank": 5,
+      "url": "https://whitespark.ca/blog/google-business-profile-suspended/",
+      "title": "Google Business Profile Suspended? Here's What to Do (2026)",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["soft vs hard suspension", "toutes les causes documentées", "preuves à fournir", "recours après refus", "forum GBP Product Expert"],
+      "missing": ["version FR", "contexte PME francophone"],
+      "eeat_signals": ["auteur nommé", "données terrain", "source de référence Whitespark"]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "Pourquoi ma fiche Google est-elle suspendue ?",
+      "Comment réactiver une fiche Google My Business suspendue ?",
+      "Combien de temps dure la suspension Google My Business ?",
+      "Que se passe-t-il si ma fiche Google est supprimée ?"
+    ],
+    "featured_snippet": true,
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "informational",
+  "common_ground": [
+    "Existence d'un formulaire de réclamation Google",
+    "Nécessité de fournir des preuves d'existence de l'entreprise",
+    "Mention des principales causes de suspension"
+  ],
+  "gap": {
+    "description": "Aucun article FR ne distingue clairement soft suspension (fiche masquée, réclamation simple) vs hard suspension (violation grave, dossier complet requis), ni ne donne la liste exhaustive des preuves documentaires à préparer avec leur format accepté. Le recours via le forum produit GBP (communauté d'experts Google) après refus de réclamation est absent de tous les articles FR.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "Distinction soft vs hard suspension — absente de tous les articles FR",
+    "Liste des preuves documentaires avec format requis — superficielle (<3 exemples)",
+    "Recours forum produit GBP après refus — absent des articles FR",
+    "Délais chiffrés (2-4 semaines traitement, 90 jours pour nouvel examen) — rarement mentionnés",
+    "7 causes de suspension listées et expliquées — jamais complet dans les articles FR",
+    "Comment éviter la re-suspension après rétablissement — absent"
+  ],
+  "recommended_angle": "Traiter la fiche GMB suspendue comme une urgence avec protocole en 5 actes : diagnostiquer le type de suspension, assembler les preuves selon le type, déposer la réclamation dans les formes, activer le recours forum si refus, prévenir la récidive — avec délais réels et liste de preuves acceptées."
+}

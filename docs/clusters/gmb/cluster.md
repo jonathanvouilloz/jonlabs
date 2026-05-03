@@ -5,8 +5,8 @@ project: jonlabs
 brand: Jon Labs
 total_articles: 24
 months: 3
-cadence: 2/semaine (lun + jeu)
-start_date: 2026-05-04
+cadence: 2/semaine (mar + jeu)
+start_date: 2026-05-05
 end_date: 2026-07-23
 service_cta:
   url: /services/gestion-fiche-google
@@ -14,7 +14,7 @@ service_cta:
   fallback: /contact
 geo_focus: Francophonie globale (FR-FR), spécialisations CH romande / Genève en mois 3
 created_at: 2026-05-01
-updated_at: 2026-05-01
+updated_at: 2026-05-03
 states_legend:
   - todo: Pas encore commencé
   - keywords: Recherche keywords DataForSEO faite
@@ -31,7 +31,7 @@ states_legend:
 > Source de vérité opérationnelle pour le cluster "Fiche Google My Business".
 > Mise à jour au fil de la production. Lu par humain + futurs runs `/calendar`.
 >
-> **Mois 1 validé** pour production immédiate (2026-05-04 → 2026-05-31).
+> **Mois 1 validé** pour production immédiate (2026-05-05 → 2026-05-31).
 > **Mois 2 et 3** validés conceptuellement, à confirmer au fil de l'eau (signaux GSC, opportunités émergentes).
 
 ## Données stratégiques
@@ -62,36 +62,36 @@ Aucun chevauchement direct détecté.
 
 | # | Date | Slug | Type | Vol | Diff | État |
 |---|---|---|---|---|---|---|
-| **M1.01** | 2026-05-04 | fiche-google-my-business-guide-complet-2026 | Pillar | 5400 | 16 | reviewed |
+| **M1.01** | 2026-05-05 | fiche-google-my-business-guide-complet-2026 | Pillar | 5400 | 16 | reviewed |
 | **M1.02** | 2026-05-07 | comment-apparaitre-google-maps-pme-debutant | Naïf | 140 | 0 | reviewed |
-| **M1.03** | 2026-05-11 | creer-fiche-google-my-business-etape-par-etape | Setup | 590 | 10 | reviewed |
+| **M1.03** | 2026-05-12 | creer-fiche-google-my-business-etape-par-etape | Setup | 590 | 10 | reviewed |
 | **M1.04** | 2026-05-14 | optimiser-fiche-google-my-business-checklist-2026 | Optim | 260 | 4 | reviewed |
-| **M1.05** | 2026-05-18 | google-post-business-profile-conversion | Posts | 480 | 3 | todo |
-| **M1.06** | 2026-05-21 | qr-code-avis-google-collecte-pme | Avis | 1000 | 0 | todo |
-| **M1.07** | 2026-05-25 | repondre-avis-google-modeles-2026 | Avis | 480 | 2 | todo |
-| **M1.08** | 2026-05-28 | fiche-google-my-business-suspendue-recours | Diag | 110 | 0 | todo |
-| **M2.09** | 2026-06-01 | supprimer-avis-google-fictif-methode | Avis | 1300 | 0 | todo |
+| **M1.05** | 2026-05-19 | google-post-business-profile-conversion | Posts | 480 | 3 | reviewed |
+| **M1.06** | 2026-05-21 | qr-code-avis-google-collecte-pme | Avis | 1000 | 0 | reviewed |
+| **M1.07** | 2026-05-26 | repondre-avis-google-modeles-2026 | Avis | 480 | 2 | reviewed |
+| **M1.08** | 2026-05-28 | fiche-google-my-business-suspendue-recours | Diag | 110 | 0 | reviewed |
+| **M2.09** | 2026-06-02 | supprimer-avis-google-fictif-methode | Avis | 1300 | 0 | todo |
 | **M2.10** | 2026-06-04 | repondre-avis-negatif-google-modeles | Avis | 90 | 0 | todo |
-| **M2.11** | 2026-06-08 | modele-reponse-avis-positif-google | Avis | 140 | 0 | todo |
+| **M2.11** | 2026-06-09 | modele-reponse-avis-positif-google | Avis | 140 | 0 | todo |
 | **M2.12** | 2026-06-11 | gestion-avis-google-pme-strategie | Avis (CTA) | 140 | 9 | todo |
-| **M2.13** | 2026-06-15 | categorie-principale-fiche-google-business | Cocon | 10-50 | — | todo |
+| **M2.13** | 2026-06-16 | categorie-principale-fiche-google-business | Cocon | 10-50 | — | todo |
 | **M2.14** | 2026-06-18 | description-fiche-google-my-business-750-caracteres | Cocon | 10-50 | — | todo |
-| **M2.15** | 2026-06-22 | photos-fiche-google-my-business-strategie | Cocon | 10-50 | — | todo |
+| **M2.15** | 2026-06-23 | photos-fiche-google-my-business-strategie | Cocon | 10-50 | — | todo |
 | **M2.16** | 2026-06-25 | verifier-fiche-google-my-business-methodes | Setup | 320 | 15 | todo |
-| **M3.17** | 2026-06-29 | modifier-fiche-google-my-business-changement-info | Diag | 110 | 2 | todo |
+| **M3.17** | 2026-06-30 | modifier-fiche-google-my-business-changement-info | Diag | 110 | 2 | todo |
 | **M3.18** | 2026-07-02 | supprimer-fiche-google-my-business-fermeture | Diag | 140 | 2 | todo |
-| **M3.19** | 2026-07-06 | backlinks-fiche-google-mythe-whitespark-2026 | Authority | 0 | — | todo |
+| **M3.19** | 2026-07-07 | backlinks-fiche-google-mythe-whitespark-2026 | Authority | 0 | — | todo |
 | **M3.20** | 2026-07-09 | nap-coherent-fiche-google-site-web-romand | CH romand | <50 | — | todo |
-| **M3.21** | 2026-07-13 | gestion-fiche-google-business-pme-romande | CH romand | <50 | — | todo |
+| **M3.21** | 2026-07-14 | gestion-fiche-google-business-pme-romande | CH romand | <50 | — | todo |
 | **M3.22** | 2026-07-16 | audit-fiche-google-business-geneve | Genève | <50 | — | todo |
-| **M3.23** | 2026-07-20 | gestion-fiche-google-restaurant-pme | Niche secteur | <50 | — | todo |
+| **M3.23** | 2026-07-21 | gestion-fiche-google-restaurant-pme | Niche secteur | <50 | — | todo |
 | **M3.24** | 2026-07-23 | gestion-fiche-google-artisan-paysagiste | Niche secteur | <50 | — | todo |
 
 ---
 
 # MOIS 1 — Fondations (validé pour production)
 
-## M1.01 — Pillar — 2026-05-04
+## M1.01 — Pillar — 2026-05-05
 
 - **Slug** : `fiche-google-my-business-guide-complet-2026`
 - **État** : todo
@@ -143,7 +143,7 @@ Aucun chevauchement direct détecté.
 - **Maillage** : Pillar M1.01 + M1.03 (créer fiche)
 - **Note** : ton ultra-pédagogique, zéro jargon SEO, parle au commerçant qui découvre
 
-## M1.03 — Setup — 2026-05-11
+## M1.03 — Setup — 2026-05-12
 
 - **Slug** : `creer-fiche-google-my-business-etape-par-etape`
 - **État** : todo
@@ -196,10 +196,10 @@ Aucun chevauchement direct détecté.
 - **Sources prioritaires** : 21 notes Obsidian "Optimisation GMB"
 - **Maillage** : pillar + tous les satellites M1 + M2 (cocons sémantiques détaillés)
 
-## M1.05 — Posts — 2026-05-18
+## M1.05 — Posts — 2026-05-19
 
 - **Slug** : `google-post-business-profile-conversion`
-- **État** : todo
+- **État** : reviewed
 - **Type** : Contenu / how-to copy
 - **Intent** : "Comment écrire des Google Posts qui convertissent"
 - **Primary KW** : `google post` — 480/mo, difficulty 3, intent navigational
@@ -224,7 +224,7 @@ Aucun chevauchement direct détecté.
 ## M1.06 — Avis collecte — 2026-05-21
 
 - **Slug** : `qr-code-avis-google-collecte-pme`
-- **État** : todo
+- **État** : reviewed
 - **Type** : Avis / méthode actionnable ⭐ quick win majeur
 - **Intent** : "Comment récupérer plus d'avis Google facilement"
 - **Primary KW** : `qr code avis google` — 1,000/mo, difficulty 0, intent navigational ⭐
@@ -247,10 +247,10 @@ Aucun chevauchement direct détecté.
 - **CTA** : `/services/gestion-fiche-google` (anchor : "Mettre en place un système d'avis automatique")
 - **Sources prioritaires** : Obsidian Avis & réputation (Fréquence, Collecte, Faciliter le dépôt, Éviter les incitations)
 
-## M1.07 — Avis réponses — 2026-05-25
+## M1.07 — Avis réponses — 2026-05-26
 
 - **Slug** : `repondre-avis-google-modeles-2026`
-- **État** : todo
+- **État** : reviewed
 - **Type** : Avis / modèles ⭐ quick win
 - **Intent** : "J'ai un avis (positif ou négatif), comment je réponds"
 - **Primary KW** : `répondre avis google` — 480/mo, difficulty 2, intent commercial ⭐
@@ -276,7 +276,7 @@ Aucun chevauchement direct détecté.
 ## M1.08 — Diagnostic — 2026-05-28
 
 - **Slug** : `fiche-google-my-business-suspendue-recours`
-- **État** : todo
+- **État** : reviewed
 - **Type** : Diagnostic / urgence ⭐ funnel-bottom
 - **Intent** : urgence "ma fiche est suspendue, comment je récupère"
 - **Primary KW** : `fiche google my business suspendue` — 110/mo, difficulty 0, intent navigational ⭐
@@ -300,7 +300,7 @@ Aucun chevauchement direct détecté.
 
 # MOIS 2 — Approfondissement avis & cocon optim (à confirmer)
 
-## M2.09 — Supprimer avis Google fictif — 2026-06-01
+## M2.09 — Supprimer avis Google fictif — 2026-06-02
 - **Slug** : `supprimer-avis-google-fictif-methode`
 - **État** : todo | **Type** : Avis ⭐ quick win majeur
 - **Intent** : "On a laissé un faux avis ou un avis injuste, comment je le fais retirer"
@@ -316,7 +316,7 @@ Aucun chevauchement direct détecté.
 - **Cocon** : `répondre à un avis google négatif` (50), `comment répondre avis négatif`
 - **Note** : article séparé du M1.07 car intent différent (urgence/crise vs panorama général)
 
-## M2.11 — Modèle réponse avis positif — 2026-06-08
+## M2.11 — Modèle réponse avis positif — 2026-06-09
 - **Slug** : `modele-reponse-avis-positif-google`
 - **État** : todo | **Type** : Avis spécialisé
 - **Intent** : "Je veux un modèle de réponse pour un avis positif"
@@ -331,7 +331,7 @@ Aucun chevauchement direct détecté.
 - **Primary KW** : `gestion des avis google` — 140/mo, difficulty 9, intent commercial ⭐ MATCH CTA service
 - **Note** : article funnel-bottom — la page service va probablement reprendre cet angle
 
-## M2.13 — Catégorie principale fiche Google Business — 2026-06-15
+## M2.13 — Catégorie principale fiche Google Business — 2026-06-16
 - **Slug** : `categorie-principale-fiche-google-business`
 - **État** : todo | **Type** : Cocon sémantique
 - **Intent** : "Comment choisir la bonne catégorie principale"
@@ -347,7 +347,7 @@ Aucun chevauchement direct détecté.
 - **Length** : 1,500-2,000 mots
 - **Sources** : Obsidian "Description qualitative"
 
-## M2.15 — Photos fiche GMB stratégie — 2026-06-22
+## M2.15 — Photos fiche GMB stratégie — 2026-06-23
 - **Slug** : `photos-fiche-google-my-business-strategie`
 - **État** : todo | **Type** : Cocon sémantique
 - **Intent** : "Quelles photos publier sur ma fiche"
@@ -366,7 +366,7 @@ Aucun chevauchement direct détecté.
 
 # MOIS 3 — Spécialisation & cas (à confirmer)
 
-## M3.17 — Modifier fiche GMB info — 2026-06-29
+## M3.17 — Modifier fiche GMB info — 2026-06-30
 - **Slug** : `modifier-fiche-google-my-business-changement-info`
 - **État** : todo | **Type** : Diagnostic
 - **Primary KW** : `modifier ma fiche google my business` — 110/mo, difficulty 2
@@ -376,7 +376,7 @@ Aucun chevauchement direct détecté.
 - **État** : todo | **Type** : Diagnostic
 - **Primary KW** : `supprimer fiche google my business` — 140/mo, difficulty 2
 
-## M3.19 — Backlinks GMB mythe Whitespark — 2026-07-06
+## M3.19 — Backlinks GMB mythe Whitespark — 2026-07-07
 - **Slug** : `backlinks-fiche-google-mythe-whitespark-2026`
 - **État** : todo | **Type** : Authority builder (0 vol mais angle différenciant fort)
 - **Intent** : "Est-ce que les backlinks vers ma fiche GMB aident vraiment ?"
@@ -389,7 +389,7 @@ Aucun chevauchement direct détecté.
 - **Intent** : "Comment maintenir un NAP cohérent sur GBP + site + annuaires CH (search.ch, local.ch, twixtel)"
 - **Note** : premier article géo-spécialisé du cluster
 
-## M3.21 — Gestion fiche Google PME romande — 2026-07-13
+## M3.21 — Gestion fiche Google PME romande — 2026-07-14
 - **Slug** : `gestion-fiche-google-business-pme-romande`
 - **État** : todo | **Type** : Spécialisé CH romande
 - **Intent** : "Spécificités du marché CH romand pour la gestion de fiche"
@@ -401,7 +401,7 @@ Aucun chevauchement direct détecté.
 - **Intent** : "Faire auditer ma fiche par un pro à Genève"
 - **CTA** : très fort, lien direct vers service + cal.com
 
-## M3.23 — Gestion fiche Google restaurant — 2026-07-20
+## M3.23 — Gestion fiche Google restaurant — 2026-07-21
 - **Slug** : `gestion-fiche-google-restaurant-pme`
 - **État** : todo | **Type** : Niche secteur
 - **Spécificités** : posts featured (food & drink), événements live (jazz, dégustations), photos plats
@@ -434,7 +434,7 @@ Aucun chevauchement direct détecté.
 5. **Mois 2-3 validés conceptuellement** ; à confirmer au fil de l'eau selon signaux GSC + opportunités émergentes
 6. **Articles cocon sémantique (M2.13-15)** : format léger 1,500-2,000 mots, vocation autorité topical
 7. **Article M3.19 mythe backlinks** : volume zéro mais conservé pour autorité ; reprise possible en LinkedIn long format
-8. **Cadence** : 2 articles/semaine (lundi + jeudi) sur 12 semaines (S19 → S30)
+8. **Cadence** : 2 articles/semaine (mardi + jeudi) sur 12 semaines (S19 → S30)
 
 # Pipeline de production
 

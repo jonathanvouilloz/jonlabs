@@ -1,0 +1,22 @@
+# Production log — qr-code-avis-google-collecte-pme
+Date : 2026-05-03 11:30
+Worker : @article-producer
+
+## Etapes
+- [✓] /seo-write    : draft écrit (2704 mots)
+- [✓] /humanizer    : 22 patterns IA corrigés (em dashes, copula avoidance, rule of three, filler phrases, inline-headers)
+- [✓] /seo-enrich   : src/content/blog/qr-code-avis-google-collecte-pme.md créé (19.3 kB) — build Astro OK (164 pages, 0 erreur)
+- [✓] /seo-review   : 14/14 PASS, 0 warning, 0 bloquant (1 mineur corrigé en place : em dash dans alt text image)
+- [✓] /generate-cover : public/images/blog/qr-code-avis-google-collecte-pme.webp (40 kB, 1920x1080px, pipeline template)
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-05-21)
+
+## Bloquants éventuels
+Aucun.
+
+## Notes de production
+- CTA redirige vers /services/gestion-fiche-google (conforme contexte cluster GMB M1.05-M1.08)
+- 4 images inline en TODO:image (infographies + schémas — à générer manuellement ou via /generate-images)
+- Article absent du sitemap jusqu'au 2026-05-21 (filtrage isPublished par date — comportement normal)
+- Maillage retour à appliquer sur : fiche-google-my-business-guide-complet-2026.md, optimiser-fiche-google-my-business-checklist-2026.md, creer-fiche-google-my-business-etape-par-etape.md

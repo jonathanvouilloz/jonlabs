@@ -1,0 +1,34 @@
+# Production log — google-post-business-profile-conversion
+Date : 2026-05-03 11:37
+Worker : @article-producer
+
+## Étapes
+- [✓] /seo-write    : draft écrit (2655 mots) — réalisé par worker précédent, reprise à l'étape 3
+- [✓] /humanizer    : 18 patterns IA corrigés (em dashes, bold excessif, formules robotiques) — réalisé par worker précédent
+- [✓] /seo-enrich   : src/content/blog/google-post-business-profile-conversion.md créé (19.1 kB)
+- [✓] /seo-review   : 14/14 PASS, 0 bloquant (1 correctif appliqué : bold dans lien CTA retiré)
+- [✓] /generate-cover : public/images/blog/google-post-business-profile-conversion.webp (40 kB, 1920×1080px, pipeline template)
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-05-18)
+
+Note : l'article n'apparaît pas dans le build avant le 2026-05-18 (pubDate future).
+Comportement normal — isPublished() filtre les articles dont pubDate > Date.now().
+Build Astro OK : 164 pages générées, 0 erreur.
+
+## Bloquants éventuels
+aucun
+
+## Images inline
+3 blocs TODO:image (types de posts, framework V+S+R, UTM schéma) retirés du corps final
+pour ne pas publier avec des placeholders. Ces illustrations schémas sont optionnelles
+et peuvent être produites via /generate-images si souhaité.
+
+## Maillage interne produit
+- /blog/fiche-google-my-business-guide-complet-2026 (intro)
+- /blog/optimiser-fiche-google-my-business-checklist-2026 (section types de posts)
+- /blog/comment-apparaitre-google-maps-pme-debutant (section cadence)
+- /blog/creer-fiche-google-my-business-etape-par-etape (section multi-établissements)
+- /blog/repondre-avis-google-modeles-2026 (conclusion)
+- /blog/qr-code-avis-google-collecte-pme (conclusion)
+- /services/gestion-fiche-google?utm_source=blog&utm_medium=article&utm_campaign=google-post-business-profile-conversion (CTA x2)

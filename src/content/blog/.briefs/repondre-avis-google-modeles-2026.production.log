@@ -1,0 +1,27 @@
+# Production log — repondre-avis-google-modeles-2026
+Date : 2026-05-03 11:29
+Worker : @article-producer
+
+## Etapes
+- [✓] /seo-write    : draft écrit (3319 mots) — src/content/blog/.briefs/repondre-avis-google-modeles-2026.draft.md
+- [✓] /humanizer    : ~18 patterns IA corrigés (em dashes → virgules/deux-points, guillemets courbes → droits, formules robotiques lissées)
+- [✓] /seo-enrich   : src/content/blog/repondre-avis-google-modeles-2026.md créé (23.5 kB) — frontmatter complet, 4 FAQs en frontmatter pour schema FAQPage automatique, build Astro OK
+- [✓] /seo-review   : 2 warnings mineurs, 0 bloquant — score 13/14 (lien OBLIGATOIRE qr-code ajouté pendant la review, score réel 14/14 après correction)
+- [✓] /generate-cover : public/images/blog/repondre-avis-google-modeles-2026.webp (41 KB) — pipeline template, aucun appel API
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-05-25)
+
+## Bloquants éventuels
+Aucun bloquant.
+
+## Warnings non-bloquants
+- Bold "Avis positifs" et "Avis négatifs" apparaissent 2 fois chacun (dans listes de longueur et de cadence) — acceptable dans ce contexte structurel
+- Alt text de la cover dans le frontmatter contient un em dash (—) — non-bloquant, correction optionnelle : remplacer par virgule
+- 4 TODO:image résiduels dans le corps (cover + 3 schémas) : la cover est générée ; les 3 images schema/before-after/flowchart nécessitent /generate-images ou production manuelle avant publication
+
+## Notes de production
+- Catégorie du brief "seo-local" non valide dans le schéma Astro → corrigée en "tech" (seules valeurs valides : tech/creatif/perso)
+- PubDate 2026-05-25 (future) : l'article n'apparaît pas dans le dist tant que la date n'est pas atteinte (comportement attendu via isPublished())
+- Lien OBLIGATOIRE /blog/qr-code-avis-google-collecte-pme manquait dans l'intro → ajouté pendant seo-review
+- Pillar fiche-google-my-business-guide-complet-2026 contenait déjà un lien vers cet article (ligne 123) — maillage amont déjà en place

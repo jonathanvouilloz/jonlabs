@@ -1,0 +1,89 @@
+{
+  "keyword": "google post business profile conversion",
+  "primary_kw": "google post",
+  "location": "France (FR-FR)",
+  "scanned_at": "2026-05-01T00:00:00Z",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://support.google.com/business/community-guide/411855960/google-business-profile-posts-best-practices",
+      "title": "Google Business Profile Posts Best Practices — Community",
+      "page_type": "forum",
+      "competitor_type": "institutional",
+      "covers": ["compliance rules", "post types", "CTA options", "UTM parameters"],
+      "missing": ["conversion metrics", "FR-language examples", "copy frameworks en français"],
+      "eeat_signals": ["author Claudia Tomina (GBP Product Expert)"]
+    },
+    {
+      "rank": 2,
+      "url": "https://localranker.fr/post-google-my-business/",
+      "title": "Post Google My Business : définition, exemples et 7 optimisations",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["types de posts", "cadence", "refus de post", "multi-établissements"],
+      "missing": ["framework copy conversion", "UTM tracking", "métriques GBP Insights"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 3,
+      "url": "https://geoffrey-royer.com/google-post-exemples/",
+      "title": "Comment publier sur Google gratuitement ? Exemples et indications",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["5 exemples par type", "bonnes pratiques", "publication étapes"],
+      "missing": ["UTM tracking", "métriques de performance", "angle conversion vs visibilité"],
+      "eeat_signals": ["auteur nommé"]
+    },
+    {
+      "rank": 4,
+      "url": "https://metricool.com/fr/post-google-my-business/",
+      "title": "Google Posts : publiez pour booster votre visibilité locale [+ Exemples]",
+      "page_type": "blog",
+      "competitor_type": "marketplace",
+      "covers": ["tutoriel création", "types de posts", "mots-clés", "planification"],
+      "missing": ["angle bottom-of-funnel", "UTM", "copie de posts vers multi-fiches"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 5,
+      "url": "https://audreytips.com/google-posts/",
+      "title": "Google Posts : comment les utiliser pour votre marketing local",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["définition", "types", "conseils généraux"],
+      "missing": ["tracking ROI", "framework copy", "cadence et impact ranking"],
+      "eeat_signals": ["auteur nommée"]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "Comment faire un bon post Google Business Profile ?",
+      "Les Google Posts améliorent-ils le référencement local ?",
+      "Quelle est la durée de vie d'un Google Post ?",
+      "Comment savoir si mes posts Google fonctionnent ?"
+    ],
+    "featured_snippet": false,
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "informational",
+  "common_ground": [
+    "Types de posts (Nouveauté / Offre / Événement)",
+    "Tutoriel étape par étape pour créer un post",
+    "Conseils visuels (format image, pas de numéro de tel)",
+    "Cadence de publication (1/semaine min)"
+  ],
+  "gap": {
+    "description": "Aucun concurrent FR ne traite les Google Posts comme un outil bottom-of-funnel de conversion mesurable : UTM tracking, framework copy 'Value+Scarcity+Redemption', distinction social media vs GBP intent, et impact réel sur le ranking via le signal de fraîcheur.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "UTM tracking — mentionné en passant par 1/5 résultats, jamais expliqué concrètement",
+    "Framework copy conversion — aucun concurrent ne le formalise en français",
+    "Ce qui se passe quand on surposte — non abordé",
+    "Multi-établissements (copier vers 20 fiches) — mentionné seulement par LocalRanker derrière un outil payant"
+  ],
+  "recommended_angle": "Traiter les Google Posts comme un outil de conversion bottom-of-funnel (pas du social media) : framework copy 'Value+Scarcity+Redemption', UTM tracking pour mesurer le ROI, et cadence stratégique qui ne dilue pas la visibilité des meilleures offres."
+}

@@ -1,0 +1,91 @@
+{
+  "keyword": "répondre avis google",
+  "primary_kw": "répondre avis google",
+  "location": "France (FR-FR)",
+  "scanned_at": "2026-05-01T00:00:00Z",
+  "sample_size": 5,
+  "note": "Difficulty 2 — SERP très peu concurrentielle. Acteurs connus du marché SEO local FR utilisés depuis analyse concurrentielle.",
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://support.google.com/business/answer/3474050",
+      "title": "Répondre aux avis des clients — Google Business Profile Help",
+      "page_type": "other",
+      "competitor_type": "institutional",
+      "covers": ["comment répondre techniquement", "règles de modération", "suppression d'avis"],
+      "missing": ["modèles sectoriels", "mots-clés dans réponses", "impact ranking", "délai de réponse optimal"],
+      "eeat_signals": ["source officielle Google"]
+    },
+    {
+      "rank": 2,
+      "url": "https://www.seo-sans-migraine.fr/repondre-avis-google/",
+      "title": "Comment répondre aux avis Google (modèles + exemples)",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["modèles réponses positives", "modèles réponses négatives", "règles de base"],
+      "missing": ["mots-clés service+ville dans réponses", "impact LocalGuide", "délai 24-48h prouvé", "avis injuste vs signalement"],
+      "eeat_signals": ["auteur nommée"]
+    },
+    {
+      "rank": 3,
+      "url": "https://www.trustmary.com/fr/blog/exemples-reponses-avis-google/",
+      "title": "15 exemples de réponses aux avis Google (positifs et négatifs)",
+      "page_type": "blog",
+      "competitor_type": "marketplace",
+      "covers": ["exemples par secteur", "conseils généraux", "erreurs à éviter"],
+      "missing": ["framework structuré 4-blocs", "SEO local via mots-clés dans réponse", "Local Guides"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 4,
+      "url": "https://www.mention.com/fr/blog/repondre-avis-negatif-google/",
+      "title": "Comment répondre aux avis négatifs sur Google My Business",
+      "page_type": "blog",
+      "competitor_type": "marketplace",
+      "covers": ["5 règles réponses négatives", "exemples de formulations", "gestion de crise"],
+      "missing": ["avis positifs", "impact ranking", "procédure signalement avis injuste"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 5,
+      "url": "https://louisdescamps.fr/repondre-avis-google-business-profile/",
+      "title": "Répondre aux avis Google Business Profile : guide complet",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["pourquoi répondre booste le ranking", "modèles positifs et négatifs", "cadence"],
+      "missing": ["grille 4-blocs KW service+ville+signature", "Local Guide impact", "avis longs > 500c"],
+      "eeat_signals": ["auteur nommé", "données ranking"]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "Comment répondre à un avis positif Google ?",
+      "Comment répondre à un avis négatif sans l'aggraver ?",
+      "Est-ce que répondre aux avis améliore le SEO local ?",
+      "Comment signaler un avis Google injuste ?"
+    ],
+    "featured_snippet": true,
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "mixed",
+  "common_ground": [
+    "Importance de répondre à tous les avis (positifs et négatifs)",
+    "Quelques modèles génériques positifs et négatifs",
+    "Éviter de copier-coller la même réponse",
+    "Proposer de résoudre le problème hors ligne pour les avis négatifs"
+  ],
+  "gap": {
+    "description": "Aucun concurrent ne formalise un framework 4-blocs (accusé de réception / contenu de l'avis / mot-clé service+ville / signature) ni ne lie les réponses à leur impact algorithmique précis : signal de fraîcheur, mots-clés dans réponse indexés par Google, impact Local Guide. Les modèles existants sont génériques, pas sectoriels.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "Mots-clés service+ville dans les réponses — mentionné en passant par 1/5, jamais expliqué comme levier SEO concret",
+    "Impact Local Guides — absent de tous les résultats",
+    "Procédure de signalement avis injuste — superficielle (1-2 lignes)",
+    "Délai de réponse optimal — rarement chiffré (24-48h)",
+    "Avis longs > 500c et leur impact sur l'indexation — non traité"
+  ],
+  "recommended_angle": "Traiter les réponses aux avis comme un double levier : humain (réassurance prospect) + algorithmique (mots-clés service+ville indexés, signal fraîcheur, réponse aux Local Guides). Fournir un framework 4-blocs actionnable avec 12 modèles sectoriels réels."
+}
