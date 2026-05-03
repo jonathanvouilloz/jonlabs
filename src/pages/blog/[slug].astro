@@ -11,7 +11,7 @@ import ReadingProgress from '../../components/blog/ReadingProgress.astro';
 import { formatDate, getRelatedPosts, isPublished } from '../../lib/blog';
 import { author } from '../../sample';
 import { getBlogPostingSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
-import { SITE_URL } from '../../data/schema';
+import { SITE_URL, personData, organizationData } from '../../data/schema';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => isPublished(data));
@@ -47,7 +47,12 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: title, url: Astro.url.href },
 ]);
 
-const schemas = [blogPostingSchema, breadcrumbSchema];
+const schemas = [
+  personData,
+  organizationData,
+  blogPostingSchema,
+  breadcrumbSchema,
+];
 if (post.data.faqs && post.data.faqs.length > 0) {
   schemas.push(getFAQPageSchema(post.data.faqs));
 }

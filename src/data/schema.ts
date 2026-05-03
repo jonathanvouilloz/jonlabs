@@ -71,9 +71,19 @@ export const personData = {
   "familyName": "Vouilloz",
   "alternateName": "Jon",
   "url": `${SITE_URL}/about`,
-  "image": `${SITE_URL}/og-image.png`,
-  "jobTitle": "Créateur de solutions digitales",
-  "description": "Développeur web et créateur polyvalent basé à Genève. Spécialisé en développement web, automatisation et validation d'idées pour entrepreneurs.",
+  "image": {
+    "@type": "ImageObject",
+    "url": `${SITE_URL}/images/jonathan-vouilloz.webp`,
+    "caption": "Jonathan Vouilloz — développeur web freelance à Genève"
+  },
+  "jobTitle": "Développeur web freelance",
+  "description": "Développeur web freelance basé à Genève. Plus de 8 ans d'expérience à accompagner des PME romandes sur trois fronts : sites web sur-mesure, automatisation (Make, Zapier, n8n) et SEO local.",
+  "email": "contact@jonlabs.ch",
+  "telephone": "+41789447707",
+  "nationality": {
+    "@type": "Country",
+    "name": "Suisse"
+  },
   "worksFor": {
     "@type": "Organization",
     "@id": `${SITE_URL}/#organization`
@@ -85,17 +95,34 @@ export const personData = {
     "postalCode": "1224",
     "addressCountry": "CH"
   },
+  "alumniOf": [
+    {
+      "@type": "CollegeOrUniversity",
+      "name": "Haute École de Gestion de Genève (HEG)",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Genève",
+        "addressCountry": "CH"
+      }
+    }
+  ],
   "knowsAbout": [
     "Développement Web",
-    "Automatisation",
-    "MVP",
     "Astro",
     "React",
     "Node.js",
-    "Supabase",
+    "TypeScript",
+    "Automatisation",
     "Make",
-    "Zapier"
+    "Zapier",
+    "n8n",
+    "Supabase",
+    "PostgreSQL",
+    "SEO local",
+    "Google Business Profile",
+    "GEO / IA Search"
   ],
+  "knowsLanguage": ["fr-CH", "en"],
   "sameAs": [
     "https://www.linkedin.com/in/jonathan-vouilloz-3b5741139/",
     "https://github.com/jonathanvouilloz"
