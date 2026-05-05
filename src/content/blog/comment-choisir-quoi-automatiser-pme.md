@@ -143,6 +143,8 @@ L'aller-retour email pour fixer un appel ou une réunion est l'une des tâches l
 
 Outil recommandé : **Calendly** (intégré à n8n ou Make pour les notifications). Gain estimé : **30 à 60 minutes par jour**. Le ROI en CHF est modeste sur la prise de RDV seule, mais le gain en réactivité commerciale est réel.
 
+Pour les praticiens et indépendants qui facturent à l'heure, le ROI bascule complètement quand on ajoute la couche anti no-show : un rendez-vous manqué à CHF 150, c'est tout le gain mensuel d'une simple automatisation de prise de RDV qui s'envole. J'ai détaillé [le système complet pour sécuriser les rendez-vous avec rappels SMS/WhatsApp et acomptes TWINT](/blog/no-show-rendez-vous-2026), avec un calcul concret qui chiffre les CHF 14 000 perdus par an que la plupart des indépendants ne voient pas.
+
 ### 5. Suivi et mise à jour du CRM
 
 Saisie automatique depuis les formulaires, les emails acceptés ou les devis signés. Évite la double saisie et les erreurs humaines.

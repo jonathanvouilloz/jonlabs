@@ -106,8 +106,10 @@ Les 5 processus les plus rentables dans une PME romande, par ordre de ROI terrai
 | Facturation et relances clients | 3-6h/semaine | n8n ou Make | CHF 700-1 500 |
 | Réponses aux demandes standard | 1-3h/jour | n8n + LLM | CHF 1 500-4 000 |
 | Reporting hebdomadaire | 2-4h/semaine | Make ou n8n | CHF 500-1 000 |
-| Prise de rendez-vous | 30-60 min/jour | Calendly + webhook | CHF 400-800 |
+| [Prise de rendez-vous et anti no-show](/blog/no-show-rendez-vous-2026) | 30-60 min/jour | Calendly + webhook | CHF 400-800 |
 | Mise à jour CRM | 1-2h/jour | Zapier ou Make | CHF 700-1 500 |
+
+Pour les praticiens et indépendants, la prise de rendez-vous mérite un traitement spécifique : j'ai détaillé [comment construire un système anti no-show qui sécurise les revenus](/blog/no-show-rendez-vous-2026) avec rappels SMS/WhatsApp et acomptes TWINT. Et pour les associations et clubs sportifs (un cas d'usage souvent oublié), [voici comment j'ai sorti des clubs de l'enfer Excel](/blog/automatisation-club-sportif) sur cotisations et gestion des membres.
 
 Ce qu'il ne faut PAS automatiser en premier : tout processus que tu ne peux pas décrire en 5 étapes précises. Un processus flou automatisé tourne en boucle et amplifie les erreurs.
 
@@ -130,6 +132,10 @@ n8n en self-hosted. Gratuit, open source, bien plus puissant que Make sur les ca
 ### Tu as des tâches non-structurées ou qui demandent du jugement contextuel
 
 Hermes Agent ou OpenClaw. Ces agents IA vont au-delà des règles fixes : ils décident, mémorisent, personnalisent. Coût : hébergement + API LLM, soit CHF 20-100/mois selon l'usage.
+
+### Tu veux d'abord apprivoiser l'IA sur tes propres documents avant d'automatiser
+
+Avant de te lancer dans n'importe quel workflow, **NotebookLM** de Google est un point d'entrée pragmatique : tu lui donnes tes PDFs, contrats, procédures, et il les rend interrogeables sans halluciner. Aucune config, gratuit, pédagogique. J'ai détaillé [comment l'utiliser concrètement dans une PME](/blog/notebooklm-guide-complet-2026) avec des cas d'usage qui font gagner 5-10h/semaine sans toucher à la moindre ligne de code.
 
 ## Hermes Agent et OpenClaw, les agents IA autonomes à connaître en 2026
 

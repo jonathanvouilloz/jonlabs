@@ -100,7 +100,7 @@ Je les uploade, et je peux poser des questions directement. "Comment fonctionne 
 
 Un client m'envoie un cahier des charges de 25 pages ? En 10 minutes, j'ai identifié les points clés, les zones floues, et les questions à poser.
 
-**Mon outil :** NotebookLM (Google, gratuit). Tu peux aussi utiliser Claude en uploadant directement tes fichiers.
+**Mon outil :** NotebookLM (Google, gratuit). Tu peux aussi utiliser Claude en uploadant directement tes fichiers. Pour aller plus loin sur les workflows concrets et les nouveautés 2025-2026, j'ai écrit [le guide complet de NotebookLM avec cas d'usage PME](/blog/notebooklm-guide-complet-2026).
 
 > **NotebookLM, c'est quoi ?**
 >
