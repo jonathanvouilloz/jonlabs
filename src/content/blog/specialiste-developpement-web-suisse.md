@@ -2,6 +2,7 @@
 title: "Spécialiste développement web suisse : comment bien choisir"
 description: "Freelance ou agence ? Tarifs, 5 critères concrets, pièges courants : le guide terrain pour choisir un spécialiste en développement web en Suisse."
 pubDate: 2026-04-25
+updatedDate: 2026-05-06
 image:
   url: "/images/blog/specialiste-developpement-web-suisse.webp"
   alt: "Spécialiste en développement web en Suisse romande — guide pour choisir entre freelance et agence web"
@@ -27,7 +28,7 @@ faqs:
     answer: "Oui, si tu collectes des données via formulaire, newsletter ou tracking analytics. La nLPD impose une politique de confidentialité spécifique, des bases légales claires pour le traitement, et des obligations de transparence qui ne sont pas identiques au RGPD. Un prestataire qui ignore cette différence te met juridiquement à risque."
 ---
 
-# Comment choisir un spécialiste en développement web en Suisse, sans te faire avoir
+# Spécialiste en développement web suisse : comment choisir (sans te faire avoir)
 
 Tu tapes ta requête sur Google et tu te retrouves face à des pages d'agences génériques, des annuaires, et des prestataires parisiens qui ont ajouté "Suisse" dans leur title pour capter tes clics.
 
