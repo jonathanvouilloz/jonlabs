@@ -181,9 +181,9 @@ export const servicesListData = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   "name": "Services Jon Labs",
-  "description": "Services de développement web, automatisation et validation d'idées pour entrepreneurs et PME",
+  "description": "Services de développement web et de référencement local pour entrepreneurs et PME en Suisse romande",
   "url": `${SITE_URL}/services`,
-  "numberOfItems": 8,
+  "numberOfItems": 5,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -199,8 +199,8 @@ export const servicesListData = {
       "position": 2,
       "item": {
         "@type": "Service",
-        "name": "Refonte de site web",
-        "url": `${SITE_URL}/services/refonte-site-web`
+        "name": "Développement MVP",
+        "url": `${SITE_URL}/services/developpement-mvp`
       }
     },
     {
@@ -217,49 +217,13 @@ export const servicesListData = {
       "position": 4,
       "item": {
         "@type": "Service",
-        "name": "Intégration d'outils",
-        "url": `${SITE_URL}/services/integration-outils`
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 5,
-      "item": {
-        "@type": "Service",
-        "name": "Automatisation",
-        "url": `${SITE_URL}/services/automatisation`
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 6,
-      "item": {
-        "@type": "Service",
-        "name": "Validation d'idée",
-        "url": `${SITE_URL}/services/validation-idee`
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 7,
-      "item": {
-        "@type": "Service",
-        "name": "Développement MVP",
-        "url": `${SITE_URL}/services/developpement-mvp`
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 8,
-      "item": {
-        "@type": "Service",
-        "name": "Référencement local SEO",
+        "name": "Référencement local",
         "url": `${SITE_URL}/services/referencement-local`
       }
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 5,
       "item": {
         "@type": "Service",
         "name": "Gestion fiche Google My Business",

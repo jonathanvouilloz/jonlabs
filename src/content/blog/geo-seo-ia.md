@@ -68,12 +68,12 @@ C'est la pièce maîtresse de ce pillar. Chaque moteur IA a sa propre source d'i
 
 | Moteur | Source principale | Taux / volume citations | Levier #1 | Article complet |
 |---|---|---|---|---|
-| **Claude** (Anthropic) | Brave Search | 86,7% corrélation Brave | Soumettre sitemap sur Brave Webmaster | [Lire le guide](/blog/apparaitre-claude-2026) |
-| **ChatGPT** (OpenAI) | Bing + entraînement | 0,59% (Superlines) | E-E-A-T fort + Google Business | [Lire le guide](/blog/apparaitre-chatgpt-geneve-2026) |
-| **Perplexity** | Index propre (200B URLs) | Cite par défaut, 2,6× plus si structuré | Structure H2/H3 + 3 chiffres / 500 mots | [Lire le guide](/blog/apparaitre-perplexity-2026) |
-| **Gemini** (Google) | Google + Knowledge Graph | AI Overviews sur 30% recherches | Schema FAQPage + Google Business | [Lire le guide](/blog/apparaitre-gemini-2026) |
-| **Copilot** (Microsoft) | Bing | 3,13 liens/réponse | Bing Places + IndexNow + LinkedIn | [Lire le guide](/blog/apparaitre-copilot-2026) |
-| **Grok** (xAI) | X/Twitter temps réel | 27% (vs 0,59% ChatGPT, soit 46×) | Profil X actif + threads thématiques | [Lire le guide](/blog/apparaitre-grok-2026) |
+| **Claude** (Anthropic) | Brave Search | 86,7% corrélation Brave | Soumettre sitemap sur Brave Webmaster | [Lire le guide](/blog/apparaitre-claude) |
+| **ChatGPT** (OpenAI) | Bing + entraînement | 0,59% (Superlines) | E-E-A-T fort + Google Business | [Lire le guide](/blog/apparaitre-chatgpt-geneve) |
+| **Perplexity** | Index propre (200B URLs) | Cite par défaut, 2,6× plus si structuré | Structure H2/H3 + 3 chiffres / 500 mots | [Lire le guide](/blog/apparaitre-perplexity) |
+| **Gemini** (Google) | Google + Knowledge Graph | AI Overviews sur 30% recherches | Schema FAQPage + Google Business | [Lire le guide](/blog/apparaitre-gemini) |
+| **Copilot** (Microsoft) | Bing | 3,13 liens/réponse | Bing Places + IndexNow + LinkedIn | [Lire le guide](/blog/apparaitre-copilot) |
+| **Grok** (xAI) | X/Twitter temps réel | 27% (vs 0,59% ChatGPT, soit 46×) | Profil X actif + threads thématiques | [Lire le guide](/blog/apparaitre-grok) |
 
 Lecture rapide de ce tableau : "faire du GEO" ne peut pas être une approche unique. Gemini et Copilot partagent Bing comme base commune via Microsoft, mais leurs leviers locaux divergent. Claude et Perplexity lisent tous deux le web ouvert, mais avec des critères de sélection différents. Grok est dans une catégorie à part avec son accès temps réel à X.
 
@@ -107,37 +107,37 @@ Chaque article du cluster détaille la mécanique d'un moteur spécifique : comm
 
 Claude interroge **Brave Search**, pas Google ni Bing. Corrélation de 86,7% entre citations Claude et résultats Brave. Brave est moins concurrentiel que Google : seuil d'autorité plus accessible pour un indépendant ou une PME. Action #1 : soumettre ton sitemap via search.brave.com/webmaster.
 
-[Lire le guide complet sur Claude](/blog/apparaitre-claude-2026)
+[Lire le guide complet sur Claude](/blog/apparaitre-claude)
 
 ### Apparaître sur ChatGPT à Genève
 
 ChatGPT s'appuie sur Bing en mode recherche et sur son entraînement pour le reste. Le taux de citation est faible (0,59%), donc chaque mention compte. Levier principal : E-E-A-T fort, mots-clés à intention forte ("meilleur", "recommandé", "pour PME"), Google Business Profile complet.
 
-[Lire le guide complet sur ChatGPT](/blog/apparaitre-chatgpt-geneve-2026)
+[Lire le guide complet sur ChatGPT](/blog/apparaitre-chatgpt-geneve)
 
 ### Apparaître sur Perplexity
 
 Perplexity cite ses sources par défaut avec des notes de bas de page numérotées — quand tu y es, le client voit le lien cliquable. Pages structurées citées 2,6× plus, contenu chiffré 4,1× plus. Index propre de 200 milliards d'URLs crawlées par PerplexityBot. Action #1 : structure H2/H3 + données chiffrées.
 
-[Lire le guide complet sur Perplexity](/blog/apparaitre-perplexity-2026)
+[Lire le guide complet sur Perplexity](/blog/apparaitre-perplexity)
 
 ### Apparaître sur Gemini
 
 Gemini *est* Google. Câblé directement dans Search, Knowledge Graph, Maps, GBP, YouTube. Les **AI Overviews** apparaissent sur 30% des recherches services et font chuter le CTR organique de 34,5%. Levier principal : schema FAQPage, Google Business Profile structuré, YouTube comme source sous-exploitée en français.
 
-[Lire le guide complet sur Gemini](/blog/apparaitre-gemini-2026)
+[Lire le guide complet sur Gemini](/blog/apparaitre-gemini)
 
 ### Apparaître sur Copilot
 
 Copilot fonctionne en RAG sur l'index **Bing**. Il ne cite que **3,13 liens par réponse** en moyenne, donc les places sont chères. Mais 33 millions d'utilisateurs y accèdent via Windows 11, Edge, Teams, Microsoft 365 sans l'avoir choisi. Levier principal : Bing Places + IndexNow + un article LinkedIn par trimestre (LinkedIn appartient à Microsoft).
 
-[Lire le guide complet sur Copilot](/blog/apparaitre-copilot-2026)
+[Lire le guide complet sur Copilot](/blog/apparaitre-copilot)
 
 ### Apparaître sur Grok
 
 Grok cite **27% des sources testées** contre 0,59% pour ChatGPT — soit 46× plus. Seul moteur IA avec accès temps réel au flux X (100M+ posts/jour). Si tu n'es pas sur X, c'est la plateforme GEO la plus sous-exploitée du moment. Levier principal : profil X optimisé (bio avec mots-clés métier + ville) et un thread thématique par mois.
 
-[Lire le guide complet sur Grok](/blog/apparaitre-grok-2026)
+[Lire le guide complet sur Grok](/blog/apparaitre-grok)
 
 ---
 
@@ -246,12 +246,12 @@ Tu veux savoir où tu en es concrètement ? On analyse ta présence sur les crit
 
 **Les 6 guides du cluster IA :**
 
-- [Apparaître sur Claude (Brave Search)](/blog/apparaitre-claude-2026)
-- [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve-2026)
-- [Apparaître sur Perplexity](/blog/apparaitre-perplexity-2026)
-- [Apparaître sur Gemini](/blog/apparaitre-gemini-2026)
-- [Apparaître sur Copilot](/blog/apparaitre-copilot-2026)
-- [Apparaître sur Grok](/blog/apparaitre-grok-2026)
+- [Apparaître sur Claude (Brave Search)](/blog/apparaitre-claude)
+- [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve)
+- [Apparaître sur Perplexity](/blog/apparaitre-perplexity)
+- [Apparaître sur Gemini](/blog/apparaitre-gemini)
+- [Apparaître sur Copilot](/blog/apparaitre-copilot)
+- [Apparaître sur Grok](/blog/apparaitre-grok)
 
 **Articles complémentaires :**
 

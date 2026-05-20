@@ -2,7 +2,6 @@
 title: "Apparaître sur Grok : 27% de citations vs 0,59% GPT"
 description: "Grok cite 46x plus que ChatGPT et lit X en temps réel. Plan d'action concret pour apparaître via threads, profil et bio optimisée en 2026."
 pubDate: 2026-04-13
-slug: "apparaitre-grok-2026"
 image:
   url: "/images/blog/apparaitre-grok-2026.webp"
   alt: "Apparaître sur Grok et X/Twitter"
@@ -175,4 +174,4 @@ Ou si tu veux qu'on regarde ça ensemble :
 - **Bay Tech Consulting (2026)** : Analyse du projet Grokipedia et implications pour la visibilité IA. [baytechconsulting.com](https://www.baytechconsulting.com/blog/grokipedia-ai-encyclopedia-challenges-wikipedia-2025)
 - **Opollo (2025)** : Guide sur l'optimisation de contenu pour Grok, schema, fraîcheur, structure de page. [opollo.com](https://opollo.com/blog/optimizing-your-website-for-grok-ai-search-a-fun-no-fluff-guide/)
 
-*Cet article fait partie du [cluster GEO de Jon Labs](/blog/geo-seo-ia-2026). Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve-2026) · [Apparaître sur Claude](/blog/apparaitre-claude-2026) · [Apparaître sur Gemini](/blog/apparaitre-gemini-2026) · [Apparaître sur Perplexity](/blog/apparaitre-perplexity-2026) · [Apparaître sur Copilot](/blog/apparaitre-copilot-2026)*
+*Cet article fait partie du [cluster GEO de Jon Labs](/blog/geo-seo-ia). Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve) · [Apparaître sur Claude](/blog/apparaitre-claude) · [Apparaître sur Gemini](/blog/apparaitre-gemini) · [Apparaître sur Perplexity](/blog/apparaitre-perplexity) · [Apparaître sur Copilot](/blog/apparaitre-copilot)*

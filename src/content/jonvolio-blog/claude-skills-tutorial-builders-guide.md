@@ -378,7 +378,7 @@ Don't try to automate everything at once. One good skill that actually works bea
 
 ## Read in French
 
-- [Apparaître sur Claude : guide GEO Brave Search (FR)](/blog/apparaitre-claude-2026) — French version of the AI visibility angle, focused on Brave Search and GEO for francophone audiences.
+- [Apparaître sur Claude : guide GEO Brave Search (FR)](/blog/apparaitre-claude) — French version of the AI visibility angle, focused on Brave Search and GEO for francophone audiences.
 
 ---
 

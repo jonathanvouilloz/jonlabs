@@ -186,7 +186,7 @@ Si ton site et ta fiche Google Business Profile n'existent qu'en français, tu l
 
 Une partie croissante des recherches passe désormais par les moteurs IA : Perplexity, ChatGPT, Claude. Sur ces interfaces, le pack local Google n'existe pas. Les critères de visibilité changent.
 
-Pour rester visible côté IA, je détaille la méthode dans [GEO et SEO IA en 2026](/blog/geo-seo-ia-2026) et [Comment apparaître sur Claude en 2026](/blog/apparaitre-claude-2026). Ces angles sont encore très peu exploités à Genève fin avril 2026.
+Pour rester visible côté IA, je détaille la méthode dans [GEO et SEO IA en 2026](/blog/geo-seo-ia) et [Comment apparaître sur Claude en 2026](/blog/apparaitre-claude). Ces angles sont encore très peu exploités à Genève fin avril 2026.
 
 ### Le contenu local hyper-spécifique
 
@@ -274,6 +274,6 @@ Si tu veux un audit de ta visibilité locale actuelle ou un accompagnement pour 
 - [Services de référencement local](/services/referencement-local)
 - [Tarifs et packages SEO](/tarifs)
 - [Prix d'un site web en Suisse en 2026](/blog/prix-site-web-suisse-2026)
-- [Comment apparaître sur ChatGPT à Genève en 2026](/blog/apparaitre-chatgpt-geneve-2026)
+- [Comment apparaître sur ChatGPT à Genève en 2026](/blog/apparaitre-chatgpt-geneve)
 - [Audit de 50 sites d'indépendants romands](/blog/audit-50-sites-indeps-romands)
 - [Développeur web freelance à Genève](/developpeur-web-freelance-geneve)

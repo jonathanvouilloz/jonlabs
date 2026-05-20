@@ -40,24 +40,15 @@ export const mainNav: NavSection[] = [
         title: 'Web & apps',
         items: [
           { label: 'Création de site', href: '/services/creation-site-web', icon: 'ri-layout-line' },
-          { label: 'Refonte de site', href: '/services/refonte-site-web', icon: 'ri-refresh-line' },
           { label: 'Développement MVP', href: '/services/developpement-mvp', icon: 'ri-rocket-line' },
           { label: 'Outils sur mesure', href: '/services/outils-sur-mesure', icon: 'ri-tools-line' },
         ],
       },
       {
-        title: 'Automatisation',
-        items: [
-          { label: 'Automatisation processus', href: '/services/automatisation', icon: 'ri-loop-left-line' },
-          { label: "Intégration d'outils", href: '/services/integration-outils', icon: 'ri-link' },
-        ],
-      },
-      {
-        title: 'Acquisition',
+        title: 'SEO local',
         items: [
           { label: 'Référencement local', href: '/services/referencement-local', icon: 'ri-map-pin-line' },
           { label: 'Gestion fiche Google', href: '/services/gestion-fiche-google', icon: 'ri-store-2-line' },
-          { label: "Validation d'idée", href: '/services/validation-idee', icon: 'ri-test-tube-line' },
         ],
       },
       {
@@ -96,7 +87,7 @@ export const mainNav: NavSection[] = [
       {
         title: 'À la une',
         items: [
-          { label: 'Apparaître dans les IA 2026', href: '/blog/geo-seo-ia-2026', icon: 'ri-fire-fill', badge: 'featured' },
+          { label: 'Apparaître dans les IA 2026', href: '/blog/geo-seo-ia', icon: 'ri-fire-fill', badge: 'featured' },
           { label: 'Prix site web Suisse 2026', href: '/blog/prix-site-web-suisse-2026', icon: 'ri-price-tag-3-line' },
           { label: '15 signes site web dort', href: '/blog/15-signes-site-web-dort', icon: 'ri-pulse-line' },
         ],

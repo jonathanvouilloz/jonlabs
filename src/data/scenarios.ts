@@ -73,7 +73,7 @@ export const scenarios: Scenario[] = [
     title: 'Outils désynchronisés',
     subtitle: 'Notion, Sheets, CRM... rien ne se parle',
     pillar: 'auto',
-    scrollTo: 'automatisation',
+    scrollTo: 'web-outils',
     color: 'rgba(0, 217, 163, 0.15)',
     messages: [
       { speaker: 'client', text: 'J\'ai Notion, Google Sheets, mon CRM, ma compta... rien ne se parle et je perds un temps fou.' },
@@ -96,7 +96,7 @@ export const scenarios: Scenario[] = [
     title: 'Tâches chronophages',
     subtitle: 'Relances, rapports, copier-coller...',
     pillar: 'auto',
-    scrollTo: 'automatisation',
+    scrollTo: 'web-outils',
     color: 'rgba(0, 217, 163, 0.15)',
     messages: [
       { speaker: 'client', text: 'Je passe des heures chaque semaine sur des trucs bêtes : relances, rapports, copier-coller...' },
@@ -119,7 +119,7 @@ export const scenarios: Scenario[] = [
     title: 'Idée à valider',
     subtitle: 'Pas sûr que les gens vont payer',
     pillar: 'validation',
-    scrollTo: 'validation',
+    scrollTo: 'web-outils',
     color: 'rgba(163, 0, 217, 0.15)',
     messages: [
       { speaker: 'client', text: 'J\'ai une idée de produit/service mais je sais pas si les gens vont payer pour ça.' },
@@ -140,7 +140,7 @@ export const scenarios: Scenario[] = [
     title: 'MVP urgent',
     subtitle: '3 semaines pour montrer quelque chose',
     pillar: 'validation',
-    scrollTo: 'validation',
+    scrollTo: 'web-outils',
     color: 'rgba(163, 0, 217, 0.15)',
     messages: [
       { speaker: 'client', text: 'J\'ai 3 semaines pour montrer quelque chose à des investisseurs / partenaires / premiers clients.' },
@@ -179,22 +179,8 @@ export const serviceSections: ServiceSection[] = [
   {
     id: 'web-outils',
     title: 'Sites Web & Applications Sur-Mesure',
-    accroche: `Sites performants et outils internes. Du one-page qui convertit à l'application métier pour les PME suisses.`,
+    accroche: `Sites vitrines, MVP et outils internes. Du one-page qui convertit à l'application métier pour les PME suisses.`,
     subServices: [
-      {
-        id: 'refonte-site',
-        title: 'Refonte de site',
-        description: 'Modernisation design et technique. Temps de chargement éclair (Score 90+ sur Google).',
-        features: [
-          'Design responsive adapté à tous les écrans',
-          'Temps de chargement optimisé (score 90+)',
-          'Référencement Google intégré dès le départ',
-          'Référencement local pour être trouvé dans ta région',
-          'Architecture évolutive pour grandir avec ton activité'
-        ],
-        ctaText: 'En savoir plus',
-        link: '/services/refonte-site-web'
-      },
       {
         id: 'creation-site',
         title: 'Création de site',
@@ -210,6 +196,19 @@ export const serviceSections: ServiceSection[] = [
         link: '/services/creation-site-web'
       },
       {
+        id: 'mvp-rapide',
+        title: 'Développement MVP',
+        description: 'Une première version fonctionnelle de ton app pour convaincre investisseurs ou premiers clients.',
+        features: [
+          'Focus sur LA fonctionnalité clé qui prouve ta valeur',
+          'Itérations rapides basées sur les retours terrain',
+          'Livrable démontrable à des investisseurs/partenaires/clients',
+          'Base solide pour continuer le développement'
+        ],
+        ctaText: 'En savoir plus',
+        link: '/services/developpement-mvp'
+      },
+      {
         id: 'outils-mesure',
         title: 'Outils sur mesure',
         description: 'Applications et tableaux de bord adaptés à tes besoins spécifiques.',
@@ -221,91 +220,45 @@ export const serviceSections: ServiceSection[] = [
         ],
         ctaText: 'En savoir plus',
         link: '/services/outils-sur-mesure'
-      },
-      {
-        id: 'referencement-local',
-        title: 'Référencement local SEO',
-        description: 'Passez de invisible à #1 sur Google. Stratégie SEO local prouvée pour PME à Genève.',
-        features: [
-          'Audit SEO complet + plan d\'action',
-          'Optimisation technique (Lighthouse 90+)',
-          'Contenu localisé qui attire vos clients',
-          'Google Business Profile optimisé',
-          'Rapports mensuels clairs'
-        ],
-        ctaText: 'En savoir plus',
-        link: '/services/referencement-local'
       }
     ],
     ctaText: 'Lancer mon projet web'
   },
   {
-    id: 'automatisation',
-    title: 'Automatisation & Workflows (No-Code)',
-    accroche: 'Libère-toi des tâches répétitives. Je connecte tes logiciels pour que tes données circulent toutes seules.',
+    id: 'seo-local',
+    title: 'Référencement local & Fiche Google',
+    accroche: `Sois visible quand on te cherche à Genève. Référencement local pour le site et gestion de la fiche Google Business Profile.`,
     subServices: [
       {
-        id: 'connexion-outils',
-        title: 'Connexion d\'outils',
-        description: 'Fais parler ton CRM avec ta facturation (ex: Stripe vers Bexio/Excel).',
+        id: 'referencement-local',
+        title: 'Référencement local',
+        description: 'Passe d\'invisible à #1 sur Google. Stratégie de référencement local pour PME à Genève.',
         features: [
-          'Nouveau client Stripe → création auto dans ton CRM',
-          'Email de bienvenue déclenché sans action manuelle',
-          'Synchronisation bidirectionnelle de tes contacts',
-          'Une info saisie une fois, propagée partout'
+          'Audit de référencement complet + plan d\'action',
+          'Optimisation technique (Lighthouse 90+)',
+          'Contenu localisé qui attire tes clients',
+          'Google Business Profile optimisé',
+          'Rapports mensuels clairs'
         ],
         ctaText: 'En savoir plus',
-        link: '/services/integration-outils'
+        link: '/services/referencement-local'
       },
       {
-        id: 'automatisation-taches',
-        title: 'Automatisation de tâches',
-        description: 'Récupère 5 à 10h/semaine. Fini les copier-coller d\'emails et les erreurs de saisie manuelle',
+        id: 'gestion-fiche-google',
+        title: 'Gestion fiche Google',
+        description: 'Confie-moi la gestion de ta fiche Google Business Profile : création, optimisation, posts hebdomadaires, gestion des avis.',
         features: [
-          'Relances clients et factures envoyées automatiquement',
-          'Rapports générés sans intervention',
-          'Notifications consolidées (fini les 50 apps à checker)',
-          'Processus de validation simplifiés'
+          'Création ou reprise de ta fiche existante',
+          'Optimisation complète (catégories, attributs, photos)',
+          'Posts hebdomadaires pour rester visible',
+          'Gestion des avis clients',
+          'Forfait unique CHF 300/mois, sans engagement'
         ],
         ctaText: 'En savoir plus',
-        link: '/services/automatisation'
+        link: '/services/gestion-fiche-google'
       }
     ],
-    ctaText: 'Automatiser mes process'
-  },
-  {
-    id: 'validation',
-    title: 'Lancement de Projet & MVP',
-    accroche: 'Teste ton concept rapidement avant d\'investir des milliers de francs.',
-    subServices: [
-      {
-        id: 'test-concept',
-        title: 'Test de concept',
-        description: 'Landing page de conversion + Campagne ciblée pour vérifier si "ça mord" en 2 semaines.',
-        features: [
-          'Landing page claire avec ta proposition de valeur',
-          'Campagne pub ciblée avec budget minimal (dès 100 CHF)',
-          'Métriques concrètes : visiteurs, clics, inscriptions',
-          'Réponse en 1-2 semaines : ça mord ou pas ?'
-        ],
-        ctaText: 'En savoir plus',
-        link: '/services/validation-idee'
-      },
-      {
-        id: 'mvp-rapide',
-        title: 'MVP rapide',
-        description: 'Une première version fonctionnelle de ton app pour convaincre investisseurs ou premiers clients.',
-        features: [
-          'Focus sur LA fonctionnalité clé qui prouve ta valeur',
-          'Itérations rapides basées sur les retours terrain',
-          'Livrable démontrable à des investisseurs/partenaires/clients',
-          'Base solide pour continuer le développement'
-        ],
-        ctaText: 'En savoir plus',
-        link: '/services/developpement-mvp'
-      }
-    ],
-    ctaText: 'Valider mon idée'
+    ctaText: 'Booster ma visibilité locale'
   }
 ];
 
