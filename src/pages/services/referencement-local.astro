@@ -17,15 +17,15 @@ import { getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
 
 // SEO Data
 const seoData = {
-    title: "Référencement local SEO à Genève | Jon Labs",
-    description: "Passez de invisible à #1 sur Google. Stratégie SEO local pour PME à Genève et Suisse romande. Cas réel : position #1 en 5 mois. Audit gratuit."
+    title: "Référencement à Genève — Freelance SEO local PME romandes",
+    description: "Référencement local pour PME à Genève et Suisse romande. Freelance SEO transparent, outils Google gratuits, position #1 prouvée en 5 mois. Audit gratuit."
 };
 
 // Schema.org data
 const breadcrumb = getBreadcrumbSchema([
     { name: "Accueil", url: SITE_URL },
     { name: "Services", url: `${SITE_URL}/services` },
-    { name: "Référencement local SEO", url: `${SITE_URL}/services/referencement-local` }
+    { name: "Référencement local", url: `${SITE_URL}/services/referencement-local` }
 ]);
 const schemas: any[] = [serviceSchemas["referencement-local"], breadcrumb];
 
@@ -43,7 +43,7 @@ const painPoints = [
     },
     {
         icon: "ri-question-line",
-        title: "Le SEO fait peur",
+        title: "Le référencement vous semble opaque",
         description: "Backlinks, maillage interne, Core Web Vitals... Le jargon est incompréhensible. Et à qui faire confiance quand tout le monde promet la lune ?"
     },
     {
@@ -145,7 +145,7 @@ const results = [
     {
         icon: "ri-route-line",
         title: "Stratégie long terme",
-        description: "Pas un coup de peinture SEO. Une stratégie qui construit votre autorité locale mois après mois, avec des résultats durables."
+        description: "Pas un coup de peinture rapide. Une stratégie de référencement qui construit votre autorité locale mois après mois, avec des résultats durables."
     }
 ];
 
@@ -156,7 +156,7 @@ const pricingPlans = [
         price: "1'490",
         priceLabel: "À partir de",
         features: [
-            "Audit SEO complet",
+            "Audit de référencement complet",
             "Optimisation technique du site",
             "Fiche Google Business Profile",
             "Référencement local de base",
@@ -187,7 +187,7 @@ const pricingPlans = [
         features: [
             "Tout ce qui est inclus dans Visibilité",
             "Stratégie de contenu avancée",
-            "Accompagnement SEO mensuel",
+            "Accompagnement référencement mensuel",
             "Veille concurrentielle",
             "Multi-localités si nécessaire"
         ],
@@ -200,20 +200,20 @@ const pricingPlans = [
 const seoApproaches = [
     {
         icon: "ri-search-eye-line",
-        name: "Audit SEO",
+        name: "Audit de référencement",
         description: "Diagnostic complet de votre visibilité actuelle + plan d'action priorisé. Vous savez exactement où vous en êtes et quoi faire.",
         idealFor: "Comprendre votre situation avant de vous engager"
     },
     {
         icon: "ri-layout-line",
-        name: "SEO + Site web",
-        description: "Création ou refonte de site avec le SEO intégré dès le jour 1. L'approche la plus efficace : on ne rattrape pas, on part bien.",
+        name: "Référencement + Site web",
+        description: "Création ou refonte de site avec le référencement intégré dès le jour 1. L'approche la plus efficace : on ne rattrape pas, on part bien.",
         idealFor: "Nouveau site ou refonte nécessaire"
     },
     {
         icon: "ri-refresh-line",
-        name: "Accompagnement SEO",
-        description: "Suivi mensuel continu : optimisations, contenu, rapports. Le SEO, c'est un marathon, pas un sprint.",
+        name: "Accompagnement référencement",
+        description: "Suivi mensuel continu : optimisations, contenu, rapports. Le référencement, c'est un marathon, pas un sprint.",
         idealFor: "Site existant, résultats dans la durée"
     }
 ];
@@ -249,8 +249,8 @@ const faqs = [
         answer: "Non, et méfiez-vous de quiconque le fait. Google change ses algorithmes régulièrement, et personne ne peut garantir une position précise. Ce que je garantis : une méthodologie éprouvée, des optimisations concrètes, et des rapports transparents. Le cas Lécureux (#1 en 5 mois) montre ce qui est possible, mais chaque marché est différent."
     },
     {
-        question: "Pourquoi pas une agence SEO classique ?",
-        answer: "Les agences SEO facturent souvent des contrats 12 mois minimum, utilisent des outils coûteux dont vous payez l'abonnement, et sous-traitent le travail technique. Chez moi : un interlocuteur unique qui code ET optimise, des outils gratuits, pas de contrat longue durée, et une connaissance réelle du marché suisse romand."
+        question: "Pourquoi un freelance plutôt qu'une agence de référencement à Genève ?",
+        answer: "Les agences de référencement à Genève facturent souvent des contrats 12 mois minimum (1'500 à 5'000 CHF/mois), utilisent des outils coûteux comme SEMrush ou Ahrefs dont vous payez l'abonnement, et sous-traitent le travail technique à des juniors ou à l'étranger. En face, un freelance SEO à Genève : un interlocuteur unique qui code ET optimise, des outils Google gratuits (Search Console, Analytics, PageSpeed), pas de contrat longue durée, et une connaissance réelle du marché suisse romand. Vous gardez le contrôle sur votre budget et sur vos données."
     },
     {
         question: "C'est quoi le SEO local exactement ?",
@@ -258,7 +258,7 @@ const faqs = [
     },
     {
         question: "Est-ce que je peux le faire moi-même ?",
-        answer: "Oui, en partie. Les bases (fiche Google Business, contenu de qualité, site rapide) sont faisables seul. La partie technique (Schema.org, audit de crawl, architecture de pages) et la stratégie (analyse concurrentielle, mots-clés de niche) demandent plus d'expertise. Mon audit SEO peut vous donner un plan d'action que vous exécutez vous-même si vous préférez."
+        answer: "Oui, en partie. Les bases (fiche Google Business, contenu de qualité, site rapide) sont faisables seul. La partie technique (Schema.org, audit de crawl, architecture de pages) et la stratégie (analyse concurrentielle, mots-clés de niche) demandent plus d'expertise. Mon audit de référencement peut vous donner un plan d'action que vous exécutez vous-même si vous préférez."
     }
 ];
 schemas.push(getFAQPageSchema(faqs));
@@ -299,8 +299,8 @@ const zones = [
 
 // Project type options for form
 const projectTypes = [
-    { value: "audit-seo", label: "Audit SEO" },
-    { value: "seo-nouveau-site", label: "SEO + nouveau site" },
+    { value: "audit-seo", label: "Audit de référencement" },
+    { value: "seo-nouveau-site", label: "Référencement + nouveau site" },
     { value: "optimiser-existant", label: "Optimiser mon site existant" },
     { value: "accompagnement-mensuel", label: "Accompagnement mensuel" },
     { value: "ne-sait-pas", label: "Je ne sais pas encore" }
@@ -338,7 +338,7 @@ const budgetOptions = [
             <!-- Centered text content -->
             <div class="text-center">
                 <!-- H1 SEO discret -->
-                <h1 class="seo-h1 mb-8 mt-8">Référencement local SEO à Genève</h1>
+                <h1 class="seo-h1 mb-8 mt-8">Référencement à Genève pour PME : passez d'invisible à visible sur Google</h1>
 
                 <!-- Main title -->
                 <p class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6" data-animate="fade-up">
@@ -352,7 +352,7 @@ const budgetOptions = [
                 <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="0.1">
                     <strong class="text-[var(--text)]">46% des recherches Google sont locales.</strong><br class="hidden md:block"/>
                     Si vous n'êtes pas visible, vos concurrents récupèrent vos clients.<br class="hidden md:block"/>
-                    Cas prouvé : <strong class="text-[var(--blue)]">position #1 en 5 mois</strong> dans une niche concurrentielle.
+                    Freelance référencement à Genève, cas prouvé : <strong class="text-[var(--blue)]">position #1 en 5 mois</strong> dans une niche concurrentielle.
                 </p>
 
                 <!-- CTAs centered -->
@@ -436,7 +436,7 @@ const budgetOptions = [
             <!-- Location badge centered -->
             <div class="flex items-center justify-center gap-2 text-sm text-gray-500 mt-12">
                 <i class="ri-map-pin-fill text-[var(--blue)]"></i>
-                <span>Basé à Genève · SEO Suisse romande</span>
+                <span>Basé à Genève · Référencement Suisse romande</span>
             </div>
         </div>
     </section>
@@ -481,7 +481,7 @@ const budgetOptions = [
             <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-6 md:p-8 text-center" data-animate="fade-up">
                 <p class="text-lg md:text-xl font-medium">
                     <i class="ri-lightbulb-line text-[var(--blue)] mr-2"></i>
-                    <strong>La bonne nouvelle ?</strong> Pas besoin d'un gros budget ni d'être expert en SEO. Il faut juste la bonne méthode et quelqu'un qui sait ce qu'il fait.
+                    <strong>La bonne nouvelle ?</strong> Pas besoin d'un gros budget ni d'être expert en référencement. Il faut juste la bonne méthode et quelqu'un qui sait ce qu'il fait.
                 </p>
             </div>
         </div>
@@ -548,7 +548,7 @@ const budgetOptions = [
                         </li>
                         <li class="flex items-center gap-2">
                             <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            Outils gratuits uniquement (pas de budget SEO)
+                            Outils Google gratuits uniquement (pas de budget logiciels SEO)
                         </li>
                     </ul>
                 </div>
@@ -792,7 +792,7 @@ const budgetOptions = [
                         </li>
                         <li class="flex items-center gap-2">
                             <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            Combo SEO + site web = meilleur rapport qualité-prix
+                            Combo référencement + site web = meilleur rapport qualité-prix
                         </li>
                     </ul>
                 </div>
@@ -892,7 +892,7 @@ const budgetOptions = [
                     <span class="w-8 h-px bg-gray-400"></span>
                 </span>
                 <h2 class="text-3xl md:text-4xl font-normal">
-                    Un expert SEO à <span class="text-[var(--blue)]">Genève</span>,<br/>
+                    Un freelance référencement à <span class="text-[var(--blue)]">Genève</span>,<br/>
                     ça change quoi ?
                 </h2>
             </div>
@@ -973,12 +973,12 @@ const budgetOptions = [
                     <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
                     <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
 
-                    <h3 class="text-xl font-bold mb-6 text-center">Demandez votre audit SEO gratuit</h3>
+                    <h3 class="text-xl font-bold mb-6 text-center">Demandez votre audit de référencement gratuit</h3>
 
                     <!-- Hidden fields for Web3Forms -->
                     <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
-                    <input type="hidden" name="subject" value="Demande référencement local SEO - Jon Labs">
-                    <input type="hidden" name="from_name" value="Jon Labs - SEO Local">
+                    <input type="hidden" name="subject" value="Demande référencement local - Jon Labs">
+                    <input type="hidden" name="from_name" value="Jon Labs - Référencement local">
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -1029,11 +1029,11 @@ const budgetOptions = [
                             />
                         </div>
 
-                        <!-- Besoin SEO -->
+                        <!-- Besoin référencement -->
                         <div class="form-field">
                             <label for="project-type" class="flex items-center gap-2 text-sm font-medium mb-2">
                                 <span class="font-mono text-xs text-gray-400">04</span>
-                                Besoin SEO <span class="text-red-500">*</span>
+                                Besoin en référencement <span class="text-red-500">*</span>
                             </label>
                             <select
                                 id="project-type"

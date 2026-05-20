@@ -3,7 +3,7 @@
 > **Suivi maître du gros chantier de refonte SEO multi-sessions.**
 > Démarré le 2026-05-20. À mettre à jour à chaque session.
 >
-> **⏸️ État au 2026-05-20** : Sessions 1-3 terminées et commitées. Reprise prévue Session 4 (fusion `developpement-mvp` + `outils-sur-mesure` → `applications-sur-mesure` avec brief SEO propre). Voir détail Session 4 ci-dessous.
+> **⏸️ État au 2026-05-20** : Sessions 1-4a terminées et commitées. Session 4a = pivot keyword `/services/referencement-local` (sans "agence" dans Title/H1). Reportés : page Tarifs, sweep vocab sitewide, fusion mvp+outils (annulée — pages gardées séparées).
 
 ---
 
@@ -34,7 +34,8 @@
 | 1 — Snapshot + données réelles | ✅ Terminée | 2026-05-20 |
 | 2 — Skill + slugs apparaître | ✅ Terminée | 2026-05-20 |
 | 3 — Refonte page Services | ✅ Terminée | 2026-05-20 |
-| 4 — Page Tarifs + sweep vocab | ⬜ À faire | — |
+| 4a — Pivot keyword `/services/referencement-local` | ✅ Terminée | 2026-05-20 |
+| 4b — Page Tarifs + sweep vocab sitewide | ⬜ À faire | — |
 | 5 — Maillage + indexation | ⬜ À faire | — |
 | 6 — Refresh articles à fort potentiel | ⬜ À faire | — |
 | 7 — Vérif + commit final | ⬜ À faire | — |
@@ -149,7 +150,53 @@
 
 ---
 
-### Session 4 — Page Tarifs + sweep vocabulaire ⬜
+### Session 4a — Pivot keyword `/services/referencement-local` ✅
+
+**Statut** : terminée
+**Date** : 2026-05-20
+**Risque** : 🟡 modéré (changement Title/H1 sur page établie)
+**Livrable** : [`docs/snapshots/2026-05-20-brief-pivot-referencement-local.md`](./snapshots/2026-05-20-brief-pivot-referencement-local.md)
+
+#### Décisions
+- **Pivot keyword** : ancienne page rankait sur `référencement local Genève` (0/mois sur DataForSEO). Pivot vers `référencement Genève` (estimé 10-30/mois) + capture du money keyword `agence référencement Genève` (110/mois) via FAQ et sections "freelance vs agence" — sans mettre "agence" dans Title/H1
+- **Positionnement** : freelance/indé assumé (vs. agence)
+- **Slug gardé** : `/services/referencement-local` — règle universelle du chantier
+- **Sweep vocab limité à cette page** (pas sitewide cette fois)
+
+#### Checklist
+- [x] Brief SEO complet (`docs/snapshots/2026-05-20-brief-pivot-referencement-local.md`) — cluster KW, structure H2/H3, snippets x3, maillage, gap concurrent, banned words
+- [x] `seoData.title` : "Référencement local SEO à Genève | Jon Labs" → "Référencement à Genève — Freelance SEO local PME romandes" (58 car. ✓)
+- [x] `seoData.description` : sweep + mention freelance + 155 car. ✓
+- [x] Breadcrumb label : "Référencement local SEO" → "Référencement local"
+- [x] H1 : "Référencement local SEO à Genève" → "Référencement à Genève pour PME : passez d'invisible à visible sur Google"
+- [x] Pain points card #3 : "Le SEO fait peur" → "Le référencement vous semble opaque"
+- [x] Hero subtitle : mention "Freelance référencement à Genève" ajoutée
+- [x] 3 approches names : "Audit SEO" / "SEO + Site web" / "Accompagnement SEO" → "Audit de référencement" / "Référencement + Site web" / "Accompagnement référencement"
+- [x] FAQ #8 musclée : "Pourquoi pas une agence SEO classique ?" → "Pourquoi un freelance plutôt qu'une agence de référencement à Genève ?" — réponse enrichie avec chiffres (1'500-5'000 CHF/mois) et différenciateurs (SEMrush vs outils Google gratuits)
+- [x] Section Local H2 : "Un expert SEO à Genève" → "Un freelance référencement à Genève"
+- [x] Form subject Web3Forms : "Demande référencement local SEO" → "Demande référencement local"
+- [x] Form labels : "Audit SEO" / "SEO + nouveau site" / "Besoin SEO" → versions "référencement"
+- [x] Form h3 : "Demandez votre audit SEO gratuit" → "Demandez votre audit de référencement gratuit"
+- [x] Pricing bullets : "Audit SEO complet" / "Accompagnement SEO mensuel" → versions "référencement"
+- [x] Pricing note : "Combo SEO + site web" → "Combo référencement + site web"
+- [x] Results card : "Pas un coup de peinture SEO" → "Pas un coup de peinture rapide. Une stratégie de référencement..."
+- [x] Hero footer badge : "SEO Suisse romande" → "Référencement Suisse romande"
+- [x] Good news callout : "expert en SEO" → "expert en référencement"
+- [x] Case study context : "pas de budget SEO" → "pas de budget logiciels SEO"
+- [x] `serviceSchemas["referencement-local"]` (schema.ts) : `name` + `description` alignés
+- [x] **Conservé intentionnellement** : `id="seo-form"` (JS), `serviceSchemas["referencement-local"]` (clé export), FAQ "Quelle différence entre SEO et Google Ads" / "C'est quoi le SEO local exactement ?" (matchent queries utilisateur), "Score SEO" (terme technique), commentaires HTML/JS
+- [x] Build OK : 182 pages, schema JSON-LD vérifié dans dist/, liens internes (7) intacts
+
+#### Actions utilisateur post-déploiement (Jonathan)
+- [ ] Push + déployer (Vercel auto)
+- [ ] Resoumettre sitemap dans GSC : `https://www.jonlabs.ch/sitemap-index.xml`
+- [ ] Demander indexation de la page via URL Inspection :
+  - `https://www.jonlabs.ch/services/referencement-local`
+- [ ] Monitoring S+2, S+4 : positions sur primary KW `référencement Genève` + secondaires `agence référencement Genève`, `freelance SEO Genève`, `référencement local Genève`
+
+---
+
+### Session 4b — Page Tarifs + sweep vocabulaire sitewide ⬜
 
 **Risque** : 🟢 faible
 
@@ -228,7 +275,8 @@
 
 | Document | Session | Statut |
 |----------|---------|--------|
-| `docs/snapshots/2026-05-20-pre-refactor.md` | 1 | ⏳ à créer |
+| `docs/snapshots/2026-05-20-pre-refactor.md` | 1 | ✅ |
+| `docs/snapshots/2026-05-20-brief-pivot-referencement-local.md` | 4a | ✅ |
 | `docs/snapshots/2026-05-XX-internal-linking-fix.md` | 5 | ⬜ |
 
 ---
@@ -286,3 +334,11 @@
   - `servicesListData` (schema.ts) : 5 items au lieu de 9, aligné avec le hub
   - Build OK : 182 pages, noindex confirmé dans dist/, sitemap propre
   - Reportés : fusion mvp+outils-sur-mesure → Session 4 ; pivot keyword referencement-local → session dédiée
+- ✅ Session 4a terminée — Pivot keyword `/services/referencement-local` :
+  - Décision validée : pas de mot "agence" dans Title/H1 (positionnement freelance/indé assumé)
+  - Décision révisée : pas de fusion mvp + outils-sur-mesure — pages gardées séparées
+  - Keyword research DataForSEO 10 topics services CH (`.seo-data/keywords-*.json` 2026-05-20)
+  - Brief SEO complet (`docs/snapshots/2026-05-20-brief-pivot-referencement-local.md`) — cluster, structure, snippets x3, gap concurrent
+  - Page refondue : Title (58 car), Meta (155 car), H1, breadcrumb, FAQ "agence", sections éditoriales, schema serviceSchemas["referencement-local"]
+  - **Conservé** : slug, @id schema, id="seo-form", FAQ techniques (SEO/Ads, SEO local, etc.)
+  - Build OK : 182 pages, 3 JSON-LD blocks (Service + Breadcrumb + FAQPage), 7 liens internes intacts

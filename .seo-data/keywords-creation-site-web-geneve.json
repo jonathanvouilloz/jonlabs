@@ -1,0 +1,29 @@
+{
+  "topic": "création site web Genève",
+  "location_code": 2756,
+  "location_name": "Switzerland",
+  "language_code": "fr",
+  "generated_at": "2026-05-20T10:39:45Z",
+  "primary": {
+    "keyword": "création site web Genève",
+    "search_volume": 90,
+    "cpc": 10.06,
+    "competition": "LOW",
+    "competition_index": 23,
+    "difficulty": null,
+    "intent": "navigational",
+    "intent_probability": 0.9007
+  },
+  "secondaries": [
+    {
+      "keyword": "création site web genève",
+      "search_volume": 90,
+      "cpc": 10.06,
+      "competition": "LOW",
+      "competition_index": 23
+    }
+  ],
+  "long_tail": [],
+  "related": [],
+  "quick_wins": []
+}

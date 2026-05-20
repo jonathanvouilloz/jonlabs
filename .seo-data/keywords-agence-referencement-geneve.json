@@ -1,0 +1,29 @@
+{
+  "topic": "agence référencement Genève",
+  "location_code": 2756,
+  "location_name": "Switzerland",
+  "language_code": "fr",
+  "generated_at": "2026-05-20T10:40:01Z",
+  "primary": {
+    "keyword": "agence référencement Genève",
+    "search_volume": 110,
+    "cpc": 0,
+    "competition": "LOW",
+    "competition_index": 0,
+    "difficulty": null,
+    "intent": "commercial",
+    "intent_probability": 0.9649
+  },
+  "secondaries": [
+    {
+      "keyword": "agence référencement genève",
+      "search_volume": 110,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "long_tail": [],
+  "related": [],
+  "quick_wins": []
+}
