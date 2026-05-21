@@ -1,0 +1,127 @@
+{
+  "topic": "tarif site web",
+  "location_code": 2756,
+  "location_name": "Switzerland",
+  "language_code": "fr",
+  "generated_at": "2026-05-21T06:44:39Z",
+  "primary": {
+    "keyword": "tarif site web",
+    "search_volume": 10,
+    "cpc": 0,
+    "competition": "LOW",
+    "competition_index": 11,
+    "difficulty": null,
+    "intent": "commercial",
+    "intent_probability": 0.9106
+  },
+  "secondaries": [],
+  "long_tail": [
+    {
+      "keyword": "tarif création site web",
+      "search_volume": 20,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "création site web tarif",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 7
+    },
+    {
+      "keyword": "tarif contrat de maintenance site web",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "création site web algérie tarif",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "tarif creation site web",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "site web tarif",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 11
+    },
+    {
+      "keyword": "tarif hébergement site web",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "creation site web tarif",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 7
+    },
+    {
+      "keyword": "wix site web tarif",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "tarif refonte site web",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "tarif creation site web maroc",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "creation de site web tarif",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "tarif maintenance site web",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": null,
+      "competition_index": null
+    },
+    {
+      "keyword": "tarif maquette site web",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    },
+    {
+      "keyword": "création de site web tarif",
+      "search_volume": 10,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "related": [],
+  "quick_wins": []
+}

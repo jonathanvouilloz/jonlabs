@@ -1,6 +1,6 @@
 ---
 // Page Tarifs - Jon Labs
-// Packages combinés création de site web + SEO local
+// Packages combinés création de site web + référencement local
 
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
@@ -10,10 +10,10 @@ import FAQ from "../components/FAQ.astro";
 import CTASection from "../components/CTASection.astro";
 
 import { SITE_URL } from '../data/schema';
-import { getWebPageSchema } from '../lib/seo';
+import { getWebPageSchema, getBreadcrumbSchema } from '../lib/seo';
 
-const pageTitle = "Tarifs création de site web & SEO local Genève | Jon Labs";
-const pageDescription = "Packages clairs combinant création de site web et référencement local pour PME à Genève. À partir de 1'490 CHF. Comparatif inclus. Devis gratuit.";
+const pageTitle = "Tarifs site web & référencement freelance Genève | Jon Labs";
+const pageDescription = "Tarifs transparents pour la création de site web et le référencement local à Genève. Packages freelance dès 1'490 CHF, sans contrat 12 mois. Devis gratuit.";
 
 const webPageSchema = getWebPageSchema({
   url: `${SITE_URL}/tarifs`,
@@ -21,20 +21,34 @@ const webPageSchema = getWebPageSchema({
   description: pageDescription
 });
 
-// Schema.org Offer
-const offerSchema = {
+// Breadcrumb schema
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: "Accueil", url: SITE_URL },
+  { name: "Tarifs", url: `${SITE_URL}/tarifs` }
+]);
+
+// Service + AggregateOffer schema (page-specific, inline)
+const serviceWithPricing = {
   "@context": "https://schema.org",
-  "@type": "WebPage",
-  "name": pageTitle,
-  "description": pageDescription,
+  "@type": "Service",
+  "@id": `${SITE_URL}/tarifs#service`,
+  "name": "Création de site web et référencement à Genève",
+  "description": "Packages combinant création de site web et référencement local pour PME et indépendants en Suisse romande.",
+  "provider": { "@id": `${SITE_URL}/#organization` },
+  "areaServed": ["Genève", "Vaud", "Suisse Romande"],
+  "serviceType": "Création de site web et référencement",
   "url": `${SITE_URL}/tarifs`,
-  "mainEntity": {
-    "@type": "ItemList",
-    "itemListElement": [
+  "offers": {
+    "@type": "AggregateOffer",
+    "priceCurrency": "CHF",
+    "lowPrice": "1490",
+    "highPrice": "2490",
+    "offerCount": 3,
+    "offers": [
       {
         "@type": "Offer",
         "name": "Présence",
-        "description": "Site vitrine + SEO local de base + Google Business Profile",
+        "description": "Site vitrine + référencement local de base + Google Business Profile",
         "price": "1490",
         "priceCurrency": "CHF",
         "url": `${SITE_URL}/tarifs#packages`
@@ -42,7 +56,7 @@ const offerSchema = {
       {
         "@type": "Offer",
         "name": "Visibilité",
-        "description": "Site vitrine jusqu'à 30 pages + blog SEO + 5 articles + suivi 3 mois + formation",
+        "description": "Site vitrine jusqu'à 30 pages + blog + 5 articles + suivi 3 mois + formation",
         "price": "2490",
         "priceCurrency": "CHF",
         "url": `${SITE_URL}/tarifs#packages`
@@ -50,7 +64,8 @@ const offerSchema = {
       {
         "@type": "Offer",
         "name": "Autorité",
-        "description": "Solution sur-mesure pour projets complexes et stratégie SEO long terme",
+        "description": "Solution sur-mesure pour projets complexes et stratégie de référencement long terme",
+        "priceCurrency": "CHF",
         "url": `${SITE_URL}/tarifs#packages`
       }
     ]
@@ -71,10 +86,10 @@ const faqSchema = {
     },
     {
       "@type": "Question",
-      "name": "Est-ce que le SEO est inclus dans tous les packs ?",
+      "name": "Est-ce que le référencement est inclus dans tous les packs ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Oui. Chaque pack inclut une optimisation SEO technique de base (balises, vitesse, mobile). Les packs Visibilité et Autorité ajoutent une stratégie de contenu et un suivi des positions Google."
+        "text": "Oui. Chaque pack inclut une optimisation technique de référencement de base (balises, vitesse, mobile, schema). Les packs Visibilité et Autorité ajoutent une stratégie de contenu et un suivi des positions Google via Search Console."
       }
     },
     {
@@ -98,7 +113,7 @@ const faqSchema = {
       "name": "Vous travaillez avec quelles technologies ?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Principalement Astro et Framer pour les sites vitrines (rapides, optimisés SEO). Pour les projets plus complexes : React, SvelteKit, ou la stack adaptée à votre besoin."
+        "text": "Principalement Astro et Framer pour les sites vitrines (rapides, optimisés référencement). Pour les projets plus complexes : React, SvelteKit, ou la stack adaptée à votre besoin."
       }
     },
     {
@@ -108,11 +123,27 @@ const faqSchema = {
         "@type": "Answer",
         "text": "50% à la signature du devis, 50% à la livraison. Pour le pack Autorité, un échéancier sur mesure est proposé selon la durée du projet."
       }
+    },
+    {
+      "@type": "Question",
+      "name": "Pourquoi vos tarifs sont moins chers qu'une agence à Genève ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Une agence web à Genève facture en moyenne 8'000 à 15'000 CHF pour un site équivalent à mon pack Visibilité (2'490 CHF). La différence : pas de locaux à payer, pas de commerciaux, pas de chef de projet entre vous et le développeur. Vous parlez directement à la personne qui code. Le tarif finance le travail, pas la structure. Pour les projets très volumineux qui demandent plusieurs profils en parallèle (design, dev, marketing, ops), l'agence reste pertinente."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Y a-t-il un contrat d'engagement de 12 mois ?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Non. Les packs Présence et Visibilité sont des forfaits one-shot, sans abonnement. Pour le pack Autorité avec suivi mensuel, le mensuel est résiliable avec 1 mois de préavis. Je ne crois pas aux engagements 12 mois fermes : si le travail est sérieux, vous n'aurez pas envie de partir. Si vous partez, j'ai mal fait mon job."
+      }
     }
   ]
 };
 
-const schemas = [webPageSchema, offerSchema, faqSchema];
+const schemas = [webPageSchema, breadcrumbSchema, serviceWithPricing, faqSchema];
 
 // Pricing data
 const packages = [
@@ -124,7 +155,7 @@ const packages = [
     features: [
       "Site vitrine jusqu'à 5 pages",
       "Design responsive sur-mesure",
-      "Optimisation SEO technique",
+      "Optimisation référencement technique",
       "Google Business Profile configuré",
       "Formulaire de contact",
       "Score Lighthouse 90+",
@@ -141,12 +172,12 @@ const packages = [
     features: [
       "Tout le pack Présence +",
       "Site jusqu'à 30 pages",
-      "Blog intégré avec 5 articles SEO",
+      "Blog intégré avec 5 articles optimisés référencement",
       "Recherche de mots-clés locale",
       "Stratégie de contenu initiale",
       "Suivi Google Search Console",
       "3 mois de suivi & ajustements",
-      "Formation SEO autonomie (2h)",
+      "Formation référencement autonomie (2h)",
     ],
     ideal: "PME locales qui veulent attirer des clients via Google.",
     delay: "4-8 semaines",
@@ -159,7 +190,7 @@ const packages = [
     features: [
       "Tout le pack Visibilité +",
       "Site complexe ou e-commerce",
-      "Stratégie SEO long terme",
+      "Stratégie de référencement long terme",
       "Contenu mensuel (articles, landing pages)",
       "Automatisations sur-mesure",
       "Suivi mensuel avec reporting",
@@ -174,10 +205,10 @@ const packages = [
 const inclusions = [
   { feature: "Pages du site", presence: "Jusqu'à 5", visibilite: "Jusqu'à 30", autorite: "Illimité" },
   { feature: "Design responsive", presence: true, visibilite: true, autorite: true },
-  { feature: "SEO technique", presence: true, visibilite: true, autorite: true },
+  { feature: "Référencement technique", presence: true, visibilite: true, autorite: true },
   { feature: "Google Business Profile", presence: true, visibilite: true, autorite: true },
   { feature: "Blog intégré", presence: false, visibilite: true, autorite: true },
-  { feature: "Articles SEO rédigés", presence: "—", visibilite: "5 articles", autorite: "Mensuel" },
+  { feature: "Articles rédigés", presence: "—", visibilite: "5 articles", autorite: "Mensuel" },
   { feature: "Recherche mots-clés", presence: false, visibilite: true, autorite: true },
   { feature: "Suivi Search Console", presence: false, visibilite: true, autorite: true },
   { feature: "Suivi post-livraison", presence: "—", visibilite: "3 mois", autorite: "6-12 mois" },
@@ -193,8 +224,8 @@ const faqs = [
     answer: "Le pack Présence est livré en 2-3 semaines. Le pack Visibilité en 4-8 semaines (incluant la rédaction des 5 articles). Pour le pack Autorité, le planning est défini ensemble selon la complexité du projet.",
   },
   {
-    question: "Est-ce que le SEO est inclus dans tous les packs ?",
-    answer: "Oui. Chaque pack inclut une optimisation SEO technique de base (balises, vitesse, mobile). Les packs Visibilité et Autorité ajoutent une stratégie de contenu et un suivi des positions Google.",
+    question: "Est-ce que le référencement est inclus dans tous les packs ?",
+    answer: "Oui. Chaque pack inclut une optimisation technique de référencement de base (balises, vitesse, mobile, schema). Les packs Visibilité et Autorité ajoutent une stratégie de contenu et un suivi des positions Google via Search Console.",
   },
   {
     question: "Qu'est-ce qui n'est PAS inclus ?",
@@ -206,11 +237,19 @@ const faqs = [
   },
   {
     question: "Vous travaillez avec quelles technologies ?",
-    answer: "Principalement Astro et Framer pour les sites vitrines (rapides, optimisés SEO). Pour les projets plus complexes : React, SvelteKit, ou la stack adaptée à votre besoin.",
+    answer: "Principalement Astro et Framer pour les sites vitrines (rapides, optimisés référencement). Pour les projets plus complexes : React, SvelteKit, ou la stack adaptée à votre besoin.",
   },
   {
     question: "Comment se passe le paiement ?",
     answer: "50% à la signature du devis, 50% à la livraison. Pour le pack Autorité, un échéancier sur mesure est proposé selon la durée du projet.",
+  },
+  {
+    question: "Pourquoi vos tarifs sont moins chers qu'une agence à Genève ?",
+    answer: "Une agence web à Genève facture en moyenne 8'000 à 15'000 CHF pour un site équivalent à mon pack Visibilité (2'490 CHF). La différence : pas de locaux à payer, pas de commerciaux, pas de chef de projet entre vous et le développeur. Vous parlez directement à la personne qui code. Le tarif finance le travail, pas la structure. Pour les projets très volumineux qui demandent plusieurs profils en parallèle (design, dev, marketing, ops), l'agence reste pertinente.",
+  },
+  {
+    question: "Y a-t-il un contrat d'engagement de 12 mois ?",
+    answer: "Non. Les packs Présence et Visibilité sont des forfaits one-shot, sans abonnement. Pour le pack Autorité avec suivi mensuel, le mensuel est résiliable avec 1 mois de préavis. Je ne crois pas aux engagements 12 mois fermes : si le travail est sérieux, vous n'aurez pas envie de partir. Si vous partez, j'ai mal fait mon job.",
   },
 ];
 ---
@@ -233,12 +272,12 @@ const faqs = [
         </span>
 
         <h1 class="text-4xl md:text-6xl font-normal tracking-tight mb-6">
-          Tarifs <span class="bg-[var(--yellow)] px-2">transparents</span>
+          <span class="bg-[var(--yellow)] px-2">Tarifs</span> freelance — site web & référencement à Genève
         </h1>
 
         <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
           Des packages clairs combinant création de site web et référencement local.
-          Pas de surprise, pas de jargon. Vous savez ce que vous payez.
+          Tarif fixe, pas de contrat 12 mois, pas de marge cachée d'agence. Vous savez ce que vous payez.
         </p>
 
         <a
@@ -264,7 +303,7 @@ const faqs = [
           <h2 class="text-3xl md:text-4xl font-normal mb-4">
             Choisissez votre package
           </h2>
-          <p class="text-lg text-gray-600">Site web + SEO local. Tout inclus, prix fixe.</p>
+          <p class="text-lg text-gray-600">Site web + référencement local. Tout inclus, prix fixe.</p>
         </div>
 
         <!-- Pricing cards -->
@@ -343,6 +382,10 @@ const faqs = [
                 <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
                 Hébergement et domaine non inclus (~30 CHF/an)
               </li>
+              <li class="flex items-center gap-2">
+                <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
+                Pas de contrat 12 mois — engagement projet par projet
+              </li>
             </ul>
             <ul class="space-y-2">
               <li class="flex items-center gap-2">
@@ -352,6 +395,10 @@ const faqs = [
               <li class="flex items-center gap-2">
                 <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
                 Tous les prix sont en CHF, HT (exonéré TVA)
+              </li>
+              <li class="flex items-start gap-2">
+                <i class="ri-arrow-right-s-line text-[var(--blue)] mt-0.5"></i>
+                <span>Service détaillé : <a href="/services/referencement-local" class="underline hover:text-black">page référencement local</a></span>
               </li>
             </ul>
           </div>

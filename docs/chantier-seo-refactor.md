@@ -3,7 +3,7 @@
 > **Suivi maître du gros chantier de refonte SEO multi-sessions.**
 > Démarré le 2026-05-20. À mettre à jour à chaque session.
 >
-> **⏸️ État au 2026-05-20** : Sessions 1-4a terminées et commitées. Session 4a = pivot keyword `/services/referencement-local` (sans "agence" dans Title/H1). Reportés : page Tarifs, sweep vocab sitewide, fusion mvp+outils (annulée — pages gardées séparées).
+> **⏸️ État au 2026-05-21** : Sessions 1-4b terminées et commitées. Session 4b = refonte `/tarifs` (scope page only, sweep sitewide reporté en Session 4c). Reportés : Session 4c (sweep vocab sitewide), fusion mvp+outils (annulée — pages gardées séparées).
 
 ---
 
@@ -35,7 +35,8 @@
 | 2 — Skill + slugs apparaître | ✅ Terminée | 2026-05-20 |
 | 3 — Refonte page Services | ✅ Terminée | 2026-05-20 |
 | 4a — Pivot keyword `/services/referencement-local` | ✅ Terminée | 2026-05-20 |
-| 4b — Page Tarifs + sweep vocab sitewide | ⬜ À faire | — |
+| 4b — Refonte page Tarifs (scope page only) | ✅ Terminée | 2026-05-21 |
+| 4c — Sweep vocabulaire sitewide | ⬜ À faire | — |
 | 5 — Maillage + indexation | ⬜ À faire | — |
 | 6 — Refresh articles à fort potentiel | ⬜ À faire | — |
 | 7 — Vérif + commit final | ⬜ À faire | — |
@@ -196,22 +197,111 @@
 
 ---
 
-### Session 4b — Page Tarifs + sweep vocabulaire sitewide ⬜
+### Session 4b — Refonte page Tarifs (scope page only) ✅
 
-**Risque** : 🟢 faible
+**Statut** : terminée
+**Date** : 2026-05-21
+**Risque** : 🟢 faible (page transactionnelle, slug gardé, scope réduit à 1 fichier)
+**Livrable** : [`docs/snapshots/2026-05-21-brief-tarifs.md`](./snapshots/2026-05-21-brief-tarifs.md)
+
+#### Décisions
+- **Scope réduit** : refonte `/tarifs.astro` uniquement. Le sweep vocabulaire sitewide (navigation, schema central, pages services, composants CV, villes-frontalieres, etc.) est reporté en Session 4c — pour un commit propre par session
+- **Stratégie KW hybride** : Phase 0 DataForSEO préalable sur 5 topics tarifs ; conclusion = marché FR-CH petit (10-20/mois max sur les variations directes), KW primary composite (`tarif site web` + `création site web Genève` 90/mois + différenciateur "freelance") + capture `agence référencement Genève` (110/mois) en FAQ #7 long-tail
+- **Positionnement freelance assumé** : pas de "agence" dans Title/H1, "agence" autorisée dans FAQ et hero (sweep S4a)
+- **Pas de cannibalisation `/blog/prix-site-web-suisse-2026`** : intent transactional (tarifs) vs educational (article)
+- **Schema restructuré** : WebPage + Breadcrumb + Service+AggregateOffer + FAQPage (4 blocs JSON-LD propres, vs 3 mal typés avant)
 
 #### Checklist
-- [ ] Refonte `/tarifs.astro` :
-  - [ ] Title (selon data Session 1)
-  - [ ] Meta description (référencement local au lieu de SEO local)
-  - [ ] Schema Offer (3 packages)
-  - [ ] Corps de page (sweep SEO → référencement)
-- [ ] Sweep global :
-  - [ ] `/index.astro` (home)
-  - [ ] `/about.astro`
-  - [ ] Footer
-  - [ ] Navigation
-- [ ] **Garder "SEO"** : usage technique uniquement (balises SEO, schémas Schema.org, ids JS comme `serviceSchemas["referencement-local"]`)
+- [x] Phase 0 — DataForSEO research sur 5 topics tarifs (output : `.seo-data/keywords-tarif-*.json` + `keywords-prix-*.json`)
+- [x] Title (58 car) : `Tarifs site web & référencement freelance Genève | Jon Labs`
+- [x] Meta description (155 car) : `Tarifs transparents pour la création de site web et le référencement local à Genève. Packages freelance dès 1'490 CHF, sans contrat 12 mois. Devis gratuit.`
+- [x] H1 : `<span>Tarifs</span> freelance — site web & référencement à Genève`
+- [x] Hero subtitle : "Tarif fixe, pas de contrat 12 mois, pas de marge cachée d'agence" ajouté
+- [x] Subtitle "Choisissez votre package" : "Site web + référencement local" (sweep)
+- [x] Packages — sweep features : `Optimisation référencement technique` (Présence), `5 articles optimisés référencement` + `Formation référencement autonomie` (Visibilité), `Stratégie de référencement long terme` (Autorité)
+- [x] Inclusions grid — sweep : "Référencement technique" / "Articles rédigés"
+- [x] FAQ passe de 6 à 8 entries (sync `faqs[]` display + `faqSchema.mainEntity[]`) :
+  - [x] FAQ #2 reformulée : "Est-ce que le référencement est inclus dans tous les packs ?" (mention schema + Search Console)
+  - [x] FAQ #5 sweep léger : "optimisés référencement"
+  - [x] FAQ #7 (NEW) : "Pourquoi vos tarifs sont moins chers qu'une agence à Genève ?" — capture `agence référencement Genève` 110/mois
+  - [x] FAQ #8 (NEW) : "Y a-t-il un contrat d'engagement de 12 mois ?" — différenciateur freelance/indé
+- [x] Schema restructuré (4 blocs) :
+  - [x] WebPage (helper existant)
+  - [x] BreadcrumbList via `getBreadcrumbSchema()`
+  - [x] Service + AggregateOffer (low=1490 high=2490 count=3) inline (pas dans serviceSchemas central — page-specific)
+  - [x] FAQPage (8 questions)
+- [x] Section "Bon à savoir" : 5e bullet "Pas de contrat 12 mois — engagement projet par projet" + 6e bullet lien sortant vers `/services/referencement-local`
+- [x] Commentaire ligne 3 sweep : "Packages combinés création de site web + référencement local"
+- [x] Sweep interne tarifs.astro : 13 → 0 occurrence "SEO" éditoriale (vérifié via Grep sur le source + grep sur `dist/tarifs/index.html` : 3 résidus restants viennent du mega-menu chrome, reportés Session 4c)
+- [x] Build OK : 186 pages, 4 blocs JSON-LD propres parsés par script Python (`Block 3: @type=Service | offers.@type=AggregateOffer | low=1490 high=2490 count=3` / `Block 4: @type=FAQPage | questions=8`)
+
+#### Hors scope Session 4b (Session 4c — sweep sitewide)
+- `src/data/navigation.ts` (label "SEO local")
+- `src/data/schema.ts` (knowsAbout, descriptions)
+- `src/data/villes-frontalieres.ts` (FAQs villes)
+- `src/pages/about.astro`, `cv-pdf.astro`, `portfolio.astro`, `developpeur-web-freelance-geneve.astro`
+- `src/pages/services/creation-site-web.astro`, `gestion-fiche-google.astro`
+- `src/pages/developpement-web/[ville].astro`
+- Composants : `AboutHome.astro`, `blog/AuthorBio.astro`, `portfolio/PortfolioCard.astro`, `services/ServiceAccordion.astro`, `cv/*.astro`
+
+#### Actions utilisateur post-déploiement (Jonathan)
+- [ ] Push + déployer (Vercel auto)
+- [ ] Resoumettre sitemap dans GSC : `https://www.jonlabs.ch/sitemap-index.xml`
+- [ ] Demander indexation : `https://www.jonlabs.ch/tarifs` via URL Inspection API
+- [ ] Validateur Rich Results : tester `/tarifs` sur https://search.google.com/test/rich-results → confirmer AggregateOffer + FAQPage eligibles
+- [ ] Monitoring S+2 et S+4 : positions sur `tarif site web`, `tarif création site web`, `agence référencement Genève` (capture FAQ), `freelance dev web Genève`
+
+---
+
+### Session 4c — Sweep vocabulaire sitewide ⬜
+
+**Risque** : 🟢 faible (modifications éditoriales sur passages non-techniques uniquement)
+
+#### Cibles identifiées (inventaire S4b)
+
+~25-30 occurrences "SEO" éditoriales à remplacer par "référencement", réparties sur :
+
+**Pages racine** (~7 occurrences)
+- [ ] `src/pages/about.astro` ligne ~242 : "copywriting, au SEO, à l'automatisation"
+- [ ] `src/pages/portfolio.astro` ligne ~14 : meta description "Sites web, SEO local"
+- [ ] `src/pages/developpeur-web-freelance-geneve.astro` lignes ~120, ~194, ~196, ~223, ~231 (2-3 à sweep, garder commentaires techniques)
+- [ ] `src/pages/cv-pdf.astro` lignes ~440, ~459, ~482 (skills + achievement + learning ; hybride "Référencement (SEO)" sur le CV)
+
+**Pages services publiques** (~10 occurrences)
+- [ ] `src/pages/services/creation-site-web.astro` lignes ~201, ~254 (sweep éditorial, garder commentaires)
+- [ ] `src/pages/services/gestion-fiche-google.astro` lignes ~173, ~206, ~207, ~514, ~735 (FAQ + body éditorial)
+
+**Pages programmatic** (~5 occurrences)
+- [ ] `src/pages/developpement-web/[ville].astro` lignes ~101, ~116, ~124 (descriptions + features)
+- [ ] `src/data/villes-frontalieres.ts` (FAQs 5 villes ; garder champ structurel `motCleSEO`)
+
+**Composants** (~5 occurrences)
+- [ ] `src/components/AboutHome.astro` ligne ~128 : "Référencement SEO" tautologique
+- [ ] `src/components/blog/AuthorBio.astro` ligne ~43 : "SEO local"
+- [ ] `src/components/portfolio/PortfolioCard.astro` ligne ~21 : label tag `'seo': 'SEO'`
+- [ ] `src/components/services/ServiceAccordion.astro` ligne ~87 : "SEO optimisé"
+- [ ] `src/components/cv/*` (CVSkills, CVProjects, CVTimeline, CVFormation)
+
+**Data / Schema central** (~2 occurrences)
+- [ ] `src/data/navigation.ts` ligne ~48 : title colonne mega-menu "SEO local" → "Référencement local"
+- [ ] `src/data/schema.ts` ligne ~121 : `knowsAbout` "SEO local"
+
+#### À NE PAS toucher (garder explicitement)
+- `src/lib/seo.ts` (lib technique, nom de fichier)
+- `src/components/SEO.astro` (composant technique)
+- `src/data/navigation.ts` label tag `/blog/tag/seo` (URL établie, jus SEO)
+- Commentaires HTML/JS `<!-- LOCAL SEO -->`, `// SEO Data`, `// SEO META`
+- IDs JS `#seo-form`, classes CSS
+- Champ TS `motCleSEO` dans `villes-frontalieres.ts` (clé de schéma, pas du contenu)
+- Stack labels `["SEO", "Webflow"]` dans CVProjects (labels techniques)
+- 4 services en draft soft (`automatisation`, `integration-outils`, `validation-idee`, `refonte-site-web`) — noindex donc pas de signal SEO
+- `src/pages/services/referencement-local.astro` (déjà refondu S4a)
+- `src/pages/tarifs.astro` (déjà refondu S4b)
+
+#### Vérification finale
+- [ ] Build OK : 186 pages, 0 erreur
+- [ ] `grep "SEO" dist/` : occurrences restantes uniquement techniques (id, classe, URL `/blog/tag/seo`, etc.)
+- [ ] Commit unique : `feat(seo): sweep vocab SEO→référencement sitewide (S4c)`
 
 #### Notes / Décisions
 
@@ -277,6 +367,7 @@
 |----------|---------|--------|
 | `docs/snapshots/2026-05-20-pre-refactor.md` | 1 | ✅ |
 | `docs/snapshots/2026-05-20-brief-pivot-referencement-local.md` | 4a | ✅ |
+| `docs/snapshots/2026-05-21-brief-tarifs.md` | 4b | ✅ |
 | `docs/snapshots/2026-05-XX-internal-linking-fix.md` | 5 | ⬜ |
 
 ---
@@ -342,3 +433,15 @@
   - Page refondue : Title (58 car), Meta (155 car), H1, breadcrumb, FAQ "agence", sections éditoriales, schema serviceSchemas["referencement-local"]
   - **Conservé** : slug, @id schema, id="seo-form", FAQ techniques (SEO/Ads, SEO local, etc.)
   - Build OK : 182 pages, 3 JSON-LD blocks (Service + Breadcrumb + FAQPage), 7 liens internes intacts
+
+### 2026-05-21
+- ✅ Session 4b terminée — Refonte page Tarifs (scope page only) :
+  - Décision méthodo : scope réduit à `tarifs.astro` uniquement ; sweep vocab sitewide → Session 4c (commit propre par session)
+  - Phase 0 DataForSEO sur 5 topics tarifs : marché FR-CH petit, seul `tarif création site web` mesurable (20/mois). Output : `.seo-data/keywords-tarif-*.json` + `keywords-prix-*.json`
+  - Stratégie KW composite : capture `tarif site web` (10/mois) + variations (10-20/mois cumulées) + `agence référencement Genève` (110/mois) en FAQ #7 + différenciateur "freelance / sans contrat 12 mois"
+  - Brief SEO complet (`docs/snapshots/2026-05-21-brief-tarifs.md`) — cluster KW, FAQ verbatim, gap concurrent
+  - Page refondue : Title (58 car), Meta (155 car), H1, hero subtitle, packages features sweep, FAQ 6→8 (NEW : freelance vs agence + engagement 12 mois), inclusions grid, bullet "Bon à savoir" +2, lien sortant vers `/services/referencement-local`
+  - Schema restructuré (4 blocs propres vs 3 mal typés avant) : WebPage + BreadcrumbList + Service+AggregateOffer (low=1490 high=2490 count=3) + FAQPage (8 Q)
+  - Sweep interne tarifs.astro : 13 → 0 occurrence "SEO" éditoriale. 3 résidus dist (mega-menu chrome) reportés S4c
+  - Build OK : 186 pages, 4 JSON-LD parsés et validés par script Python
+  - **Action utilisateur en attente** : push + resoumettre sitemap GSC + URL Inspection sur `/tarifs` + Rich Results Test pour valider AggregateOffer
