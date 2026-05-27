@@ -1,8 +1,8 @@
 ---
 title: "Apparaître dans les IA en 2026 : guide complet (6 moteurs)"
-description: "Le pillar GEO 2026 : Claude, ChatGPT, Perplexity, Gemini, Copilot, Grok. Tableau comparatif, 5 leviers transversaux, plan d'action 30 jours."
+description: "GEO 2026 : Claude, ChatGPT, Perplexity, Gemini, Copilot, Grok comparés, les outils pour suivre ta visibilité IA et un plan d'action 30 jours."
 pubDate: 2026-04-14
-updatedDate: 2026-04-25
+updatedDate: 2026-05-27
 image:
   url: "/images/blog/geo-seo-ia-2026.webp"
   alt: "GEO Generative Engine Optimization — apparaître sur les IA en 2026"
@@ -10,7 +10,7 @@ category: "tech"
 tags: ["geo", "seo", "ia", "chatgpt", "perplexity", "gemini", "copilot", "claude", "grok", "visibilité", "suisse"]
 featured: true
 draft: false
-readingTime: 14
+readingTime: 15
 faqs:
   - question: "Qu'est-ce que le GEO (Generative Engine Optimization) ?"
     answer: "Le GEO est la discipline qui consiste à optimiser ton contenu pour qu'il soit cité par les moteurs IA générateurs de réponses (ChatGPT, Perplexity, Gemini, Claude, Copilot, Grok). Il prolonge le SEO classique avec des signaux spécifiques : structure claire, données chiffrées, fraîcheur, cohérence multi-source."
@@ -28,6 +28,8 @@ faqs:
     answer: "C'est même plus facile pour une PME locale bien positionnée que pour une grande marque généraliste. Les IA cherchent la réponse la plus précise à une question. Un freelance qui répond à consultant automation Make.com Genève bat une agence nationale qui parle de tout. La précision bat la notoriété."
   - question: "Combien ça coûte de se positionner sur les IA ?"
     answer: "DIY : 4-8h/semaine pendant 3 mois pour les bases (audit, GBP, schema, FAQ, contenu). En freelance accompagné : compter CHF 1'500-4'000 de setup et CHF 400-1'200/mois selon le périmètre. Le ROI dépend du secteur, mais une seule citation IA peut générer plusieurs leads qualifiés par mois."
+  - question: "Quels outils pour suivre sa visibilité dans ChatGPT, Perplexity ou Gemini ?"
+    answer: "Trois options. Gratuit : pose tes 10-20 requêtes-clés chaque mois dans chaque moteur et note si tu es cité (1-2h/mois). Outils dédiés : Otterly.ai (dès ~30 CHF/mois), Peec AI, Scrunch ou Profound automatisent le suivi des citations par moteur. Et Google Search Console remonte déjà les clics venant des AI Overviews. Pour un indépendant, la méthode manuelle ou Otterly suffisent largement."
 ---
 
 Ton client ouvre son téléphone. Il ne va pas sur Google. Il tape sa question dans ChatGPT, Perplexity, ou Gemini. Il obtient une réponse avec deux ou trois noms. Il choisit l'un d'eux.
@@ -138,6 +140,29 @@ Copilot fonctionne en RAG sur l'index **Bing**. Il ne cite que **3,13 liens par 
 Grok cite **27% des sources testées** contre 0,59% pour ChatGPT — soit 46× plus. Seul moteur IA avec accès temps réel au flux X (100M+ posts/jour). Si tu n'es pas sur X, c'est la plateforme GEO la plus sous-exploitée du moment. Levier principal : profil X optimisé (bio avec mots-clés métier + ville) et un thread thématique par mois.
 
 [Lire le guide complet sur Grok](/blog/apparaitre-grok)
+
+---
+
+## Comment suivre sa visibilité dans les moteurs IA ?
+
+Suivre sa visibilité dans les IA, c'est mesurer à quelle fréquence ton nom est **cité** en réponse à des requêtes-cibles, moteur par moteur. Différence clé avec le SEO classique : tu ne suis pas des positions dans une liste, tu suis des citations — apparais-tu dans la réponse, à quel moment, avec quel lien ? Trois approches, du gratuit à l'outil dédié.
+
+**1. La méthode manuelle (gratuite).** Liste 10 à 20 requêtes que tes clients taperaient vraiment ("meilleur [métier] à [ville]", "qui peut m'aider à [problème]"). Pose-les chaque mois dans ChatGPT, Perplexity, Gemini et Claude, et note si tu es cité. C'est rudimentaire, mais ça suffit pour démarrer et ça te montre exactement ce que voit ton client. Compte 1 à 2 heures par mois.
+
+**2. Les plateformes de suivi GEO/AEO.** Plusieurs outils sont apparus en 2026 pour automatiser ce travail : ils interrogent les moteurs à ta place sur des centaines de requêtes et te sortent un score de visibilité par moteur, son évolution dans le temps, et les sources que l'IA cite à ta place (donc tes concurrents). Les principaux :
+
+| Outil | Ce qu'il mesure | Moteurs couverts | Prix indicatif | Pour qui |
+|---|---|---|---|---|
+| **Otterly.ai** | Citations de marque + sources concurrentes | ChatGPT, Perplexity, AI Overviews Google | dès ~30 CHF/mois | Indépendant / PME |
+| **Peec AI** | Score de visibilité + part de voix | ChatGPT, Perplexity, Gemini | dès ~90 CHF/mois | PME / agence |
+| **Scrunch AI** | Présence de marque + sentiment | ChatGPT, Perplexity, Copilot | sur devis | PME / marque |
+| **Profound** | Analytics avancés multi-moteurs | ChatGPT, Perplexity, Copilot, Gemini | entreprise (élevé) | Grand compte |
+
+Les prix bougent vite et la plupart offrent un essai gratuit : teste avant de t'engager. Pour un indépendant romand, **Otterly** ou la méthode manuelle couvrent largement le besoin. Une plateforme à plusieurs centaines de francs par mois ne se justifie qu'avec un vrai budget marketing.
+
+**3. Les outils que tu as déjà.** Google Search Console remonte les clics venant des AI Overviews (filtre *search appearance*), et les outils SEO classiques (Ahrefs, Semrush) ajoutent progressivement des modules de suivi IA. Avant de payer un abonnement de plus, regarde ce que tes outils actuels couvrent déjà.
+
+Le suivi n'est pas une fin en soi : il sert à voir quelles actions de fond — schema, contenu, présence locale — font bouger l'aiguille. Si tu veux qu'on mette ce suivi en place et qu'on agisse sur les résultats, c'est exactement le cœur de notre [accompagnement en référencement local](/services/referencement-local).
 
 ---
 
