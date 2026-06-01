@@ -210,7 +210,7 @@ Gestion des avis (réponses sous 7 jours), 1 à 2 contenus locaux par mois, ajus
 
 C'est faisable. La **fiche Google Business Profile** prend 1h par semaine à entretenir correctement. Les avis, 30 minutes. Le contenu local, 2h par mois si tu écris vite. La partie technique (schema, NAP cohérent) se fait une fois et reste en place.
 
-Pour le détail des tarifs sur l'ensemble des prestations web, j'ai écrit [Prix d'un site web en Suisse en 2026](/blog/prix-site-web-suisse-2026). Et la [page tarifs](/tarifs) liste mes packages SEO.
+Pour le détail des tarifs sur l'ensemble des prestations web, j'ai écrit [Prix d'un site web en Suisse en 2026](/blog/prix-site-web-suisse-2026). Et pour le référencement local précisément, [ce que coûte un package SEO local selon ton profil](/blog/tarif-package-seo-local-suisse) et la [page tarifs](/tarifs) détaillent ce qui est inclus.
 
 ---
 
@@ -277,3 +277,4 @@ Si tu veux un audit de ta visibilité locale actuelle ou un accompagnement pour 
 - [Comment apparaître sur ChatGPT à Genève en 2026](/blog/apparaitre-chatgpt-geneve)
 - [Audit de 50 sites d'indépendants romands](/blog/audit-50-sites-indeps-romands)
 - [Développeur web freelance à Genève](/developpeur-web-freelance-geneve)
+- [Référencement local à Lausanne : le même guide pour le canton de Vaud](/blog/referencement-local-lausanne)

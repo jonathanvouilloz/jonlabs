@@ -340,6 +340,8 @@ Dans Google Business Profile, clique sur les trois points à côté de l'avis, p
 
 **Répondre aux avis Google** n'est pas une corvée administrative. C'est l'un des rares leviers SEO locaux gratuits et sous ton contrôle direct. Le framework 4 blocs transforme une tâche répétitive en process reproductible : chaque réponse améliore ton ranking, protège ton image et montre aux prospects que tu es réactif.
 
+Reste à combiner ce levier avec [ta visibilité dans les recherches locales genevoises](/blog/referencement-local-geneve) au sens large — catégorie, avis, citations et contenu géolocalisé travaillent ensemble.
+
 Si tu préfères déléguer ça à quelqu'un qui applique ce framework chaque jour à ta place, et qui s'assure que chaque avis reçoit une réponse dans les 24 heures, c'est ce que je propose.
 
 [**Confier la gestion de mes réponses aux avis →**](/services/gestion-fiche-google?utm_source=blog&utm_medium=article&utm_campaign=repondre-avis-google-modeles-2026)

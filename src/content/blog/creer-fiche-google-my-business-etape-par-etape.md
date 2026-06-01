@@ -181,7 +181,7 @@ Code envoyé par SMS ou appel vocal. Disponible pour certains profils seulement.
 
 Nouveau processus déployé en 2025-2026. Tu enregistres une vidéo montrant l'extérieur de ton commerce (enseigne visible), le trajet jusqu'à l'intérieur, puis l'intérieur avec des preuves d'activité (matériel, produits, équipements). Cette vidéo est soumise à un examen manuel chez Google, délai : 48 à 72h. C'est la méthode la plus rapide si tu as un commerce physique.
 
-Si tu bloques sur la vérification ou si tu dois re-vérifier après un déménagement, le guide détaillé est là : [vérifier ta fiche — toutes les méthodes en détail](/blog/verifier-fiche-google-my-business-methodes).
+Si tu bloques sur la vérification, ou si tu dois re-vérifier après un déménagement, reprends simplement la méthode la plus rapide proposée dans ton dashboard (vidéo ou téléphone en priorité, carte postale en dernier recours).
 
 ---
 
@@ -256,7 +256,7 @@ Depuis le dashboard GBP, Informations, Catégorie principale, modifier. Le chang
 
 Créer une fiche Google My Business correctement du premier coup, c'est éviter des mois de corrections, de re-vérifications et de ranking perdu. Les deux décisions critiques (**catégorie principale** et **adresse vs zone de service**) méritent 5 minutes de réflexion avant de cliquer.
 
-Une fois la fiche créée et vérifiée, le travail commence vraiment : photos fraîches, posts réguliers, avis collectés systématiquement. Si tu préfères déléguer, de la création à la gestion mensuelle :
+Une fois la fiche créée et vérifiée, le travail commence vraiment : photos fraîches, posts réguliers, avis collectés systématiquement. C'est là que ta fiche s'inscrit dans une vraie [démarche de référencement local](/blog/referencement-local-geneve), aux côtés des avis, des citations et du contenu géolocalisé. Si tu préfères déléguer, de la création à la gestion mensuelle :
 
 [**Faire créer ma fiche par un pro →**](/services/gestion-fiche-google?utm_source=blog&utm_medium=article&utm_campaign=creer-fiche-google-my-business-etape-par-etape)
 
