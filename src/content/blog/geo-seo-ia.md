@@ -1,6 +1,6 @@
 ---
-title: "Apparaître dans les IA en 2026 : guide complet (6 moteurs)"
-description: "GEO 2026 : Claude, ChatGPT, Perplexity, Gemini, Copilot, Grok comparés, les outils pour suivre ta visibilité IA et un plan d'action 30 jours."
+title: "Apparaître dans les IA en 2026 : 6 moteurs + outils GEO"
+description: "GEO 2026 : les 6 moteurs IA comparés, les meilleurs outils pour suivre ta visibilité et l'optimiser, plus un plan d'action concret en 30 jours."
 pubDate: 2026-04-14
 updatedDate: 2026-05-27
 image:
