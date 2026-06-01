@@ -3,7 +3,7 @@
 > **Suivi maître du gros chantier de refonte SEO multi-sessions.**
 > Démarré le 2026-05-20. À mettre à jour à chaque session.
 >
-> **⏸️ État au 2026-05-21** : Sessions 1-4b terminées et commitées. Session 4b = refonte `/tarifs` (scope page only, sweep sitewide reporté en Session 4c). Reportés : Session 4c (sweep vocab sitewide), fusion mvp+outils (annulée — pages gardées séparées).
+> **⏸️ État au 2026-06-01** : Sessions 1-4b + 5 terminées et commitées. Session 5 = maillage interne ciblé (cluster GMB → pilier local), scope réduit au maillage (le volet indexation/orphelins est reporté). Reportés : Session 4c (sweep vocab sitewide), Session 6 (refresh `prix-site-web`), Session 7 (vérif finale).
 
 ---
 
@@ -37,7 +37,7 @@
 | 4a — Pivot keyword `/services/referencement-local` | ✅ Terminée | 2026-05-20 |
 | 4b — Refonte page Tarifs (scope page only) | ✅ Terminée | 2026-05-21 |
 | 4c — Sweep vocabulaire sitewide | ⬜ À faire | — |
-| 5 — Maillage + indexation | ⬜ À faire | — |
+| 5 — Maillage interne (cluster local) | ✅ Terminée | 2026-06-01 |
 | 6 — Refresh articles à fort potentiel | ⬜ À faire | — |
 | 7 — Vérif + commit final | ⬜ À faire | — |
 
@@ -309,24 +309,38 @@
 
 ---
 
-### Session 5 — Maillage interne + indexation ⬜
+### Session 5 — Maillage interne (cluster local) ✅
 
-**Risque** : 🟢 zéro
+**Statut** : terminée
+**Date** : 2026-06-01
+**Risque** : 🟢 faible (édition `.md` uniquement, aucun `.astro`/schema/config)
+**Commit** : `526f689`
+
+#### Décisions
+- **Scope réduit au maillage** : le volet "indexation / tri des pages non indexées / orphelins" (prévu initialement) est **reporté**. Session pilotée par les données GSC réelles (91 j), focalisée sur 2 pages page-2 à fort potentiel.
+- **Pivot data-driven** : `prix-site-web-suisse-2026` **exclu** du maillage (déjà ~10 liens entrants → levier = contenu, Session 6). Cibles retenues : `referencement-local-geneve` (pos 20) et `tarif-package-seo-local-suisse` (pos 33).
+- **Cannibalisation résolue** : `/blog/referencement-local-geneve` = pilier ÉDUCATIF (hub des liens inter-articles) ; `/services/referencement-local` = CTA TRANSACTIONNEL (déjà bien maillé, non touché). Mirror du pattern cluster GMB.
+- **Système réutilisé** : maillage auto `getRelatedPosts()` (`src/lib/blog.ts:41`, score catégorie+tags) laissé intact ; on a agi sur les **liens contextuels** dans le corps (signal le plus fort).
 
 #### Checklist
-- [ ] Trier les pages non indexées (Session 1) :
-  - [ ] Bucket "améliorer" → action contenu/title
-  - [ ] Bucket "consolider" → fusion vers page mère
-  - [ ] Bucket "laisser tomber" → noindex ou suppression
-- [ ] Audit maillage :
-  - [ ] Articles orphelins → ajouter liens entrants
-  - [ ] Pages services → liens depuis articles cluster
-  - [ ] Hub `/blog` → vérifier exhaustivité
-- [ ] Livrable : `docs/snapshots/2026-05-XX-internal-linking-fix.md`
+- [x] Up-links contextuels cluster GMB/Maps → `/blog/referencement-local-geneve` : **3 → 12 liens entrants** (9 ajoutés, ancres variées anti-sur-optimisation)
+  - entrer-top-3, comment-apparaitre, optimiser-fiche, choisir-categorie, obtenir-plus-avis, qr-code-avis, repondre-avis, google-post, creer-fiche
+  - `fiche-suspendue` **volontairement skippé** (sujet "récupérer une fiche suspendue" hors-thème du pilier)
+- [x] Boost `/blog/tarif-package-seo-local-suisse` : **2 → 5 liens entrants** (optimiser-fiche, entrer-top-3, + pilier `referencement-local-geneve` qui ne liait pas sa sous-page tarifs)
+- [x] Fix lien interne cassé : `/blog/verifier-fiche-google-my-business-methodes` (article inexistant) dans `creer-fiche` → phrase réécrite sans lien mort
+- [x] Build OK : 191 pages, 0 erreur
+- [x] Commit + push (`526f689`) — inclut aussi 3 nouveaux articles du cluster (entrer-top-3, choisir-categorie, obtenir-plus-avis) + referencement-local-lausanne, non commités jusque-là
+
+#### Hors scope (reporté)
+- Tri indexation / pages non indexées (Session 1) → à traiter dans une session dédiée ou en S7
+- Audit orphelins exhaustif + hygiène tags sitewide → option "Complet" non retenue (scope ciblé local)
+
+#### Actions utilisateur post-déploiement (Jonathan)
+- [ ] Re-soumettre le sitemap GSC
+- [ ] Mesurer positions `referencement-local-geneve` + `tarif-package-seo-local-suisse` à S+3 / S+4 (validation de l'impact maillage)
 
 #### Notes / Décisions
-
-*À remplir*
+- Contexte : session précédée le même jour d'un volet ad hoc hors-chantier (réécriture CTR titles geo-seo-ia + homepage, commit `d0b91e7` ; fix DNS apex → www en 308). Diagnostic GSC : problème principal = CTR (0,58 %), pas le ranking (pos moy 10,5).
 
 ---
 
@@ -368,7 +382,7 @@
 | `docs/snapshots/2026-05-20-pre-refactor.md` | 1 | ✅ |
 | `docs/snapshots/2026-05-20-brief-pivot-referencement-local.md` | 4a | ✅ |
 | `docs/snapshots/2026-05-21-brief-tarifs.md` | 4b | ✅ |
-| `docs/snapshots/2026-05-XX-internal-linking-fix.md` | 5 | ⬜ |
+| Commit `526f689` (pas de snapshot MD — maillage direct) | 5 | ✅ |
 
 ---
 
@@ -445,3 +459,16 @@
   - Sweep interne tarifs.astro : 13 → 0 occurrence "SEO" éditoriale. 3 résidus dist (mega-menu chrome) reportés S4c
   - Build OK : 186 pages, 4 JSON-LD parsés et validés par script Python
   - **Action utilisateur en attente** : push + resoumettre sitemap GSC + URL Inspection sur `/tarifs` + Rich Results Test pour valider AggregateOffer
+
+### 2026-06-01
+- **Volet ad hoc (hors numérotation chantier)** — diagnostic GSC réel 91 j + optimisations rapides :
+  - Diagnostic : 9'618 imp / 56 clics / CTR 0,58 % / pos moy 10,5 → problème = **clic**, pas ranking. Cluster frontalier FR (Haute-Savoie) = ~40 % des imp pour 0 clic (décision : garder, ne plus investir). Lead Webflow = pas d'origine SEO organique (0 requête webflow sur 434).
+  - CTR : réécriture title/meta `geo-seo-ia` (intention "meilleurs outils/plateformes moteurs IA") + homepage en mot-clé-first. Commit `d0b91e7`.
+  - Doublon www/non-www : DNS apex `jonlabs.ch` migré vers IP Vercel `216.150.1.1` + redirect **308 permanent** vers `www.jonlabs.ch` (vérifié). Consolide ~1'800 imp homepage éparpillées sur 2 URLs.
+- ✅ **Session 5 terminée — Maillage interne (cluster local)** :
+  - Piloté par GSC : cibles `referencement-local-geneve` (pos 20, ~3 liens entrants) et `tarif-package-seo-local-suisse` (pos 33, ~2). `prix-site-web` exclu (déjà ~10 liens → Session 6).
+  - Cluster GMB/Maps routé vers le pilier local : **referencement-local-geneve 3 → 12 liens entrants** (ancres variées), **tarif-package 2 → 5**.
+  - Cannibalisation cadrée : pilier `referencement-local-geneve` éducatif vs service `referencement-local` transactionnel.
+  - Fix lien interne cassé `verifier-fiche-google-my-business-methodes` (article inexistant).
+  - `fiche-suspendue` skippé (discipline anti-forçage). Build OK 191 pages. Commit + push `526f689`.
+  - **Action utilisateur en attente** : resoumettre sitemap GSC + mesurer positions à S+3/S+4.
