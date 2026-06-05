@@ -1,0 +1,930 @@
+{
+  "site_url": "sc-domain:jonlabs.ch",
+  "generated_at": "2026-05-05T08:51:51Z",
+  "source": "sitemap",
+  "sitemap_url": "https://www.jonlabs.ch/sitemap-index.xml",
+  "page_filter": null,
+  "language": "en-US",
+  "urls_total": 159,
+  "urls_inspected": 50,
+  "summary": {
+    "blocked_robots": 0,
+    "blocked_noindex": 7,
+    "redirect": 0,
+    "soft_404": 0,
+    "not_found": 0,
+    "server_error": 0,
+    "canonical_conflict": 0,
+    "crawled_not_indexed": 3,
+    "discovered_not_indexed": 9,
+    "url_unknown": 12,
+    "indexed": 19,
+    "unknown": 0
+  },
+  "by_state": {
+    "Submitted and indexed": 19,
+    "URL is unknown to Google": 12,
+    "Discovered - currently not indexed": 9,
+    "Excluded by ‘noindex’ tag": 7,
+    "Crawled - currently not indexed": 3
+  },
+  "buckets": {
+    "blocked_robots": [],
+    "blocked_noindex": [
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/agence",
+        "bucket": "blocked_noindex",
+        "coverage_state": "Excluded by ‘noindex’ tag",
+        "indexing_state": "BLOCKED_BY_META_TAG",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": "2026-02-22T16:54:27Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/tag/agence",
+        "user_canonical": "https://www.jonlabs.ch/blog/tag/agence",
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Balise meta robots noindex (ou header X-Robots-Tag) presente sur la page.",
+        "suggested_action": "verifier que c'est intentionnel ; si oui, retirer du sitemap pour eviter le bruit ; si non, supprimer la balise et resoumettre via Indexing API"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/agence-web",
+        "bucket": "blocked_noindex",
+        "coverage_state": "Excluded by ‘noindex’ tag",
+        "indexing_state": "BLOCKED_BY_META_TAG",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": "2026-04-25T21:13:35Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/tag/agence-web",
+        "user_canonical": "https://www.jonlabs.ch/blog/tag/agence-web",
+        "referring_urls": [
+          "https://www.jonlabs.ch/sitemap-0.xml"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Balise meta robots noindex (ou header X-Robots-Tag) presente sur la page.",
+        "suggested_action": "verifier que c'est intentionnel ; si oui, retirer du sitemap pour eviter le bruit ; si non, supprimer la balise et resoumettre via Indexing API"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/agent-ia",
+        "bucket": "blocked_noindex",
+        "coverage_state": "Excluded by ‘noindex’ tag",
+        "indexing_state": "BLOCKED_BY_META_TAG",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": "2026-04-29T03:42:20Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/tag/agent-ia",
+        "user_canonical": "https://www.jonlabs.ch/blog/tag/agent-ia",
+        "referring_urls": [],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Balise meta robots noindex (ou header X-Robots-Tag) presente sur la page.",
+        "suggested_action": "verifier que c'est intentionnel ; si oui, retirer du sitemap pour eviter le bruit ; si non, supprimer la balise et resoumettre via Indexing API"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/associations",
+        "bucket": "blocked_noindex",
+        "coverage_state": "Excluded by ‘noindex’ tag",
+        "indexing_state": "BLOCKED_BY_META_TAG",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": "2026-04-30T18:53:36Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/tag/associations",
+        "user_canonical": "https://www.jonlabs.ch/blog/tag/associations",
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/tag/automatisation",
+          "https://www.jonlabs.ch/blog"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Balise meta robots noindex (ou header X-Robots-Tag) presente sur la page.",
+        "suggested_action": "verifier que c'est intentionnel ; si oui, retirer du sitemap pour eviter le bruit ; si non, supprimer la balise et resoumettre via Indexing API"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/automatisation",
+        "bucket": "blocked_noindex",
+        "coverage_state": "Excluded by ‘noindex’ tag",
+        "indexing_state": "BLOCKED_BY_META_TAG",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": "2026-04-30T15:55:48Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/tag/automatisation",
+        "user_canonical": "https://www.jonlabs.ch/blog/tag/automatisation",
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/tag/agent-ia",
+          "https://www.jonlabs.ch/blog/tag/mvp",
+          "https://www.jonlabs.ch/blog"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Balise meta robots noindex (ou header X-Robots-Tag) presente sur la page.",
+        "suggested_action": "verifier que c'est intentionnel ; si oui, retirer du sitemap pour eviter le bruit ; si non, supprimer la balise et resoumettre via Indexing API"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/clubs",
+        "bucket": "blocked_noindex",
+        "coverage_state": "Excluded by ‘noindex’ tag",
+        "indexing_state": "BLOCKED_BY_META_TAG",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": "2026-04-30T17:51:06Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/tag/clubs",
+        "user_canonical": "https://www.jonlabs.ch/blog/tag/clubs",
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/tag/automatisation",
+          "https://www.jonlabs.ch/blog"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Balise meta robots noindex (ou header X-Robots-Tag) presente sur la page.",
+        "suggested_action": "verifier que c'est intentionnel ; si oui, retirer du sitemap pour eviter le bruit ; si non, supprimer la balise et resoumettre via Indexing API"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/commerce",
+        "bucket": "blocked_noindex",
+        "coverage_state": "Excluded by ‘noindex’ tag",
+        "indexing_state": "BLOCKED_BY_META_TAG",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": "2026-02-22T17:05:02Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/tag/commerce",
+        "user_canonical": "https://www.jonlabs.ch/blog/tag/commerce",
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Balise meta robots noindex (ou header X-Robots-Tag) presente sur la page.",
+        "suggested_action": "verifier que c'est intentionnel ; si oui, retirer du sitemap pour eviter le bruit ; si non, supprimer la balise et resoumettre via Indexing API"
+      }
+    ],
+    "redirect": [],
+    "soft_404": [],
+    "not_found": [],
+    "server_error": [],
+    "canonical_conflict": [],
+    "crawled_not_indexed": [
+      {
+        "url": "https://www.jonlabs.ch/blog/creer-site-vitrine-ia-visibilite-google",
+        "bucket": "crawled_not_indexed",
+        "coverage_state": "Crawled - currently not indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": "2026-03-28T03:33:21Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/creer-site-vitrine-ia-visibilite-google",
+        "user_canonical": "https://www.jonlabs.ch/blog/creer-site-vitrine-ia-visibilite-google",
+        "referring_urls": [],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Google a crawle la page mais a choisi de ne pas l'indexer. Causes typiques : contenu thin, similarite avec d'autres pages du site, faibles signaux de qualite (E-E-A-T), absence d'auteur identifie.",
+        "suggested_action": "enrichir le contenu (sections originales, exemples concrets, donnees uniques), renforcer le maillage interne entrant, identifier l'auteur, citer des sources, ajouter une raison d'etre claire vs les autres pages"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/no-show-rendez-vous-2026",
+        "bucket": "crawled_not_indexed",
+        "coverage_state": "Crawled - currently not indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": "2026-03-06T19:00:47Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/no-show-rendez-vous-2026",
+        "user_canonical": "https://www.jonlabs.ch/blog/no-show-rendez-vous-2026",
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/tag/suisse"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Google a crawle la page mais a choisi de ne pas l'indexer. Causes typiques : contenu thin, similarite avec d'autres pages du site, faibles signaux de qualite (E-E-A-T), absence d'auteur identifie.",
+        "suggested_action": "enrichir le contenu (sections originales, exemples concrets, donnees uniques), renforcer le maillage interne entrant, identifier l'auteur, citer des sources, ajouter une raison d'etre claire vs les autres pages"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/anthropic",
+        "bucket": "crawled_not_indexed",
+        "coverage_state": "Crawled - currently not indexed",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": "2026-04-26T20:17:01Z",
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/ia-pragmatique-pme-suisse"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Google a crawle la page mais a choisi de ne pas l'indexer. Causes typiques : contenu thin, similarite avec d'autres pages du site, faibles signaux de qualite (E-E-A-T), absence d'auteur identifie.",
+        "suggested_action": "enrichir le contenu (sections originales, exemples concrets, donnees uniques), renforcer le maillage interne entrant, identifier l'auteur, citer des sources, ajouter une raison d'etre claire vs les autres pages"
+      }
+    ],
+    "discovered_not_indexed": [
+      {
+        "url": "https://www.jonlabs.ch/blog/apparaitre-chatgpt-geneve-2026",
+        "bucket": "discovered_not_indexed",
+        "coverage_state": "Discovered - currently not indexed",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/apparaitre-copilot"
+        ],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google connait l'URL (via sitemap ou lien) mais ne l'a pas crawlee. Causes : crawl budget faible, signaux d'autorite insuffisants, site percu comme peu prioritaire.",
+        "suggested_action": "renforcer le maillage interne (3+ liens internes vers la page depuis des hubs), soumettre via Indexing API si eligible, gagner des backlinks externes, verifier que la page est bien dans le sitemap a jour"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/notebooklm-guide-complet-2026",
+        "bucket": "discovered_not_indexed",
+        "coverage_state": "Discovered - currently not indexed",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/notebooklm-guide-complet-2026/"
+        ],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google connait l'URL (via sitemap ou lien) mais ne l'a pas crawlee. Causes : crawl budget faible, signaux d'autorite insuffisants, site percu comme peu prioritaire.",
+        "suggested_action": "renforcer le maillage interne (3+ liens internes vers la page depuis des hubs), soumettre via Indexing API si eligible, gagner des backlinks externes, verifier que la page est bien dans le sitemap a jour"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/agents-ia",
+        "bucket": "discovered_not_indexed",
+        "coverage_state": "Discovered - currently not indexed",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/automatisation-pme-suisse-guide-complet"
+        ],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google connait l'URL (via sitemap ou lien) mais ne l'a pas crawlee. Causes : crawl budget faible, signaux d'autorite insuffisants, site percu comme peu prioritaire.",
+        "suggested_action": "renforcer le maillage interne (3+ liens internes vers la page depuis des hubs), soumettre via Indexing API si eligible, gagner des backlinks externes, verifier que la page est bien dans le sitemap a jour"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/audit",
+        "bucket": "discovered_not_indexed",
+        "coverage_state": "Discovered - currently not indexed",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/prix-site-web-suisse-2026"
+        ],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google connait l'URL (via sitemap ou lien) mais ne l'a pas crawlee. Causes : crawl budget faible, signaux d'autorite insuffisants, site percu comme peu prioritaire.",
+        "suggested_action": "renforcer le maillage interne (3+ liens internes vers la page depuis des hubs), soumettre via Indexing API si eligible, gagner des backlinks externes, verifier que la page est bien dans le sitemap a jour"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/bing",
+        "bucket": "discovered_not_indexed",
+        "coverage_state": "Discovered - currently not indexed",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/tag/copilot"
+        ],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google connait l'URL (via sitemap ou lien) mais ne l'a pas crawlee. Causes : crawl budget faible, signaux d'autorite insuffisants, site percu comme peu prioritaire.",
+        "suggested_action": "renforcer le maillage interne (3+ liens internes vers la page depuis des hubs), soumettre via Indexing API si eligible, gagner des backlinks externes, verifier que la page est bien dans le sitemap a jour"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/brave-search",
+        "bucket": "discovered_not_indexed",
+        "coverage_state": "Discovered - currently not indexed",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/ia-pragmatique-pme-suisse"
+        ],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google connait l'URL (via sitemap ou lien) mais ne l'a pas crawlee. Causes : crawl budget faible, signaux d'autorite insuffisants, site percu comme peu prioritaire.",
+        "suggested_action": "renforcer le maillage interne (3+ liens internes vers la page depuis des hubs), soumettre via Indexing API si eligible, gagner des backlinks externes, verifier que la page est bien dans le sitemap a jour"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/chatgpt",
+        "bucket": "discovered_not_indexed",
+        "coverage_state": "Discovered - currently not indexed",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/apparaitre-chatgpt-geneve"
+        ],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google connait l'URL (via sitemap ou lien) mais ne l'a pas crawlee. Causes : crawl budget faible, signaux d'autorite insuffisants, site percu comme peu prioritaire.",
+        "suggested_action": "renforcer le maillage interne (3+ liens internes vers la page depuis des hubs), soumettre via Indexing API si eligible, gagner des backlinks externes, verifier que la page est bien dans le sitemap a jour"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/citations",
+        "bucket": "discovered_not_indexed",
+        "coverage_state": "Discovered - currently not indexed",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/apparaitre-perplexity"
+        ],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google connait l'URL (via sitemap ou lien) mais ne l'a pas crawlee. Causes : crawl budget faible, signaux d'autorite insuffisants, site percu comme peu prioritaire.",
+        "suggested_action": "renforcer le maillage interne (3+ liens internes vers la page depuis des hubs), soumettre via Indexing API si eligible, gagner des backlinks externes, verifier que la page est bien dans le sitemap a jour"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/contenu",
+        "bucket": "discovered_not_indexed",
+        "coverage_state": "Discovered - currently not indexed",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google connait l'URL (via sitemap ou lien) mais ne l'a pas crawlee. Causes : crawl budget faible, signaux d'autorite insuffisants, site percu comme peu prioritaire.",
+        "suggested_action": "renforcer le maillage interne (3+ liens internes vers la page depuis des hubs), soumettre via Indexing API si eligible, gagner des backlinks externes, verifier que la page est bien dans le sitemap a jour"
+      }
+    ],
+    "url_unknown": [
+      {
+        "url": "https://www.jonlabs.ch/blog/apparaitre-claude-2026",
+        "bucket": "url_unknown",
+        "coverage_state": "URL is unknown to Google",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google ne reconnait pas cette URL. Soit elle est trop recente, soit elle n'est pas dans le sitemap, soit elle est hors de la propriete GSC inspectee.",
+        "suggested_action": "verifier que l'URL appartient bien a la propriete GSC, l'ajouter au sitemap, soumettre via Indexing API, ajouter des liens internes pour la rendre decouvrable"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/apparaitre-copilot-2026",
+        "bucket": "url_unknown",
+        "coverage_state": "URL is unknown to Google",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google ne reconnait pas cette URL. Soit elle est trop recente, soit elle n'est pas dans le sitemap, soit elle est hors de la propriete GSC inspectee.",
+        "suggested_action": "verifier que l'URL appartient bien a la propriete GSC, l'ajouter au sitemap, soumettre via Indexing API, ajouter des liens internes pour la rendre decouvrable"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/apparaitre-gemini-2026",
+        "bucket": "url_unknown",
+        "coverage_state": "URL is unknown to Google",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google ne reconnait pas cette URL. Soit elle est trop recente, soit elle n'est pas dans le sitemap, soit elle est hors de la propriete GSC inspectee.",
+        "suggested_action": "verifier que l'URL appartient bien a la propriete GSC, l'ajouter au sitemap, soumettre via Indexing API, ajouter des liens internes pour la rendre decouvrable"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/apparaitre-perplexity-2026",
+        "bucket": "url_unknown",
+        "coverage_state": "URL is unknown to Google",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google ne reconnait pas cette URL. Soit elle est trop recente, soit elle n'est pas dans le sitemap, soit elle est hors de la propriete GSC inspectee.",
+        "suggested_action": "verifier que l'URL appartient bien a la propriete GSC, l'ajouter au sitemap, soumettre via Indexing API, ajouter des liens internes pour la rendre decouvrable"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/automatisation-club-sportif",
+        "bucket": "url_unknown",
+        "coverage_state": "URL is unknown to Google",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google ne reconnait pas cette URL. Soit elle est trop recente, soit elle n'est pas dans le sitemap, soit elle est hors de la propriete GSC inspectee.",
+        "suggested_action": "verifier que l'URL appartient bien a la propriete GSC, l'ajouter au sitemap, soumettre via Indexing API, ajouter des liens internes pour la rendre decouvrable"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/admin",
+        "bucket": "url_unknown",
+        "coverage_state": "URL is unknown to Google",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google ne reconnait pas cette URL. Soit elle est trop recente, soit elle n'est pas dans le sitemap, soit elle est hors de la propriete GSC inspectee.",
+        "suggested_action": "verifier que l'URL appartient bien a la propriete GSC, l'ajouter au sitemap, soumettre via Indexing API, ajouter des liens internes pour la rendre decouvrable"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/ai-overviews",
+        "bucket": "url_unknown",
+        "coverage_state": "URL is unknown to Google",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google ne reconnait pas cette URL. Soit elle est trop recente, soit elle n'est pas dans le sitemap, soit elle est hors de la propriete GSC inspectee.",
+        "suggested_action": "verifier que l'URL appartient bien a la propriete GSC, l'ajouter au sitemap, soumettre via Indexing API, ajouter des liens internes pour la rendre decouvrable"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/budget",
+        "bucket": "url_unknown",
+        "coverage_state": "URL is unknown to Google",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google ne reconnait pas cette URL. Soit elle est trop recente, soit elle n'est pas dans le sitemap, soit elle est hors de la propriete GSC inspectee.",
+        "suggested_action": "verifier que l'URL appartient bien a la propriete GSC, l'ajouter au sitemap, soumettre via Indexing API, ajouter des liens internes pour la rendre decouvrable"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/calculateur",
+        "bucket": "url_unknown",
+        "coverage_state": "URL is unknown to Google",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google ne reconnait pas cette URL. Soit elle est trop recente, soit elle n'est pas dans le sitemap, soit elle est hors de la propriete GSC inspectee.",
+        "suggested_action": "verifier que l'URL appartient bien a la propriete GSC, l'ajouter au sitemap, soumettre via Indexing API, ajouter des liens internes pour la rendre decouvrable"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/checklist",
+        "bucket": "url_unknown",
+        "coverage_state": "URL is unknown to Google",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google ne reconnait pas cette URL. Soit elle est trop recente, soit elle n'est pas dans le sitemap, soit elle est hors de la propriete GSC inspectee.",
+        "suggested_action": "verifier que l'URL appartient bien a la propriete GSC, l'ajouter au sitemap, soumettre via Indexing API, ajouter des liens internes pour la rendre decouvrable"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/choix-prestataire",
+        "bucket": "url_unknown",
+        "coverage_state": "URL is unknown to Google",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google ne reconnait pas cette URL. Soit elle est trop recente, soit elle n'est pas dans le sitemap, soit elle est hors de la propriete GSC inspectee.",
+        "suggested_action": "verifier que l'URL appartient bien a la propriete GSC, l'ajouter au sitemap, soumettre via Indexing API, ajouter des liens internes pour la rendre decouvrable"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/tag/claude",
+        "bucket": "url_unknown",
+        "coverage_state": "URL is unknown to Google",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google ne reconnait pas cette URL. Soit elle est trop recente, soit elle n'est pas dans le sitemap, soit elle est hors de la propriete GSC inspectee.",
+        "suggested_action": "verifier que l'URL appartient bien a la propriete GSC, l'ajouter au sitemap, soumettre via Indexing API, ajouter des liens internes pour la rendre decouvrable"
+      }
+    ],
+    "indexed": [
+      {
+        "url": "https://www.jonlabs.ch",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-05-01T08:13:51Z",
+        "google_canonical": "https://www.jonlabs.ch",
+        "user_canonical": "https://www.jonlabs.ch/",
+        "referring_urls": [
+          "https://jonlabs.ch/services/developpement-mvp/",
+          "http://jonlabs.ch/"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://www.jonlabs.ch/about",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-04-05T03:52:14Z",
+        "google_canonical": "https://www.jonlabs.ch/about",
+        "user_canonical": "https://www.jonlabs.ch/about",
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/automatisation-club-sportif",
+          "https://www.jonlabs.ch/sitemap-0.xml",
+          "https://jonlabs.ch/services/developpement-mvp/"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-04-24T19:30:37Z",
+        "google_canonical": "https://www.jonlabs.ch/blog",
+        "user_canonical": "https://www.jonlabs.ch/blog",
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/automatisation-club-sportif",
+          "https://www.jonlabs.ch/services/creation-site-web"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/0a30joursgooglevisible",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-05-01T07:33:47Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/0a30joursgooglevisible",
+        "user_canonical": "https://www.jonlabs.ch/blog/0a30joursgooglevisible",
+        "referring_urls": [
+          "https://www.jonlabs.ch/outils/checklist-commerce-google"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/15-signes-site-web-dort",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-04-20T11:47:04Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/15-signes-site-web-dort",
+        "user_canonical": "https://www.jonlabs.ch/blog/15-signes-site-web-dort",
+        "referring_urls": [
+          "https://www.jonlabs.ch/developpement-web/annemasse"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/apparaitre-grok-2026",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-04-07T09:31:07Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/apparaitre-grok-2026",
+        "user_canonical": "https://www.jonlabs.ch/blog/apparaitre-grok-2026",
+        "referring_urls": [],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/audit-50-sites-indeps-romands",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-05-03T13:52:41Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/audit-50-sites-indeps-romands",
+        "user_canonical": "https://www.jonlabs.ch/blog/audit-50-sites-indeps-romands",
+        "referring_urls": [
+          "https://www.jonlabs.ch/services/refonte-site-web",
+          "https://www.jonlabs.ch/sitemap-0.xml"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/automatisation-pme-suisse-guide-complet",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-04-30T01:01:39Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/automatisation-pme-suisse-guide-complet",
+        "user_canonical": "https://www.jonlabs.ch/blog/automatisation-pme-suisse-guide-complet",
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/tag/automatisation",
+          "https://www.jonlabs.ch/blog/workflows-vs-agents-ia-pme"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/avantages-limites-automatisation-pme",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-05-04T09:15:38Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/avantages-limites-automatisation-pme",
+        "user_canonical": "https://www.jonlabs.ch/blog/avantages-limites-automatisation-pme",
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/automatisation-pme-suisse-guide-complet"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/comment-choisir-quoi-automatiser-pme",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-04-28T07:46:18Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/comment-choisir-quoi-automatiser-pme",
+        "user_canonical": "https://www.jonlabs.ch/blog/comment-choisir-quoi-automatiser-pme",
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/automatisation-pme-suisse-guide-complet"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/cout-site-web-dormant-calculateur",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-04-25T18:28:59Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/cout-site-web-dormant-calculateur",
+        "user_canonical": "https://www.jonlabs.ch/blog/cout-site-web-dormant-calculateur",
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/15-signes-site-web-dort"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/freelance-ou-agence-web",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-05-03T15:41:15Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/freelance-ou-agence-web",
+        "user_canonical": "https://www.jonlabs.ch/blog/freelance-ou-agence-web",
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/tag/freelance",
+          "https://www.jonlabs.ch/blog/tag/suisse"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/geo-seo-ia-2026",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-04-14T11:03:50Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/geo-seo-ia-2026",
+        "user_canonical": "https://www.jonlabs.ch/blog/geo-seo-ia-2026",
+        "referring_urls": [],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/hermes-agent-ia-pme",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-05-04T09:15:38Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/hermes-agent-ia-pme",
+        "user_canonical": "https://www.jonlabs.ch/blog/hermes-agent-ia-pme",
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/workflows-vs-agents-ia-pme"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/ia-pragmatique-pme-suisse",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-04-26T12:36:16Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/ia-pragmatique-pme-suisse",
+        "user_canonical": "https://www.jonlabs.ch/blog/ia-pragmatique-pme-suisse",
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/automatisation-club-sportif",
+          "https://www.jonlabs.ch/blog/notebooklm-guide-complet-2026/"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/openclaw-pme-suisse",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-05-04T09:15:38Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/openclaw-pme-suisse",
+        "user_canonical": "https://www.jonlabs.ch/blog/openclaw-pme-suisse",
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/automatisation-pme-suisse-guide-complet",
+          "https://www.jonlabs.ch/blog/workflows-vs-agents-ia-pme"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/prix-site-web-suisse-2026",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-04-23T12:10:22Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/prix-site-web-suisse-2026",
+        "user_canonical": "https://www.jonlabs.ch/blog/prix-site-web-suisse-2026",
+        "referring_urls": [
+          "https://www.jonlabs.ch/services/integration-outils",
+          "https://www.jonlabs.ch/blog/prix-site-web-suisse-2026/"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/referencement-local-geneve",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-04-25T18:27:00Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/referencement-local-geneve",
+        "user_canonical": "https://www.jonlabs.ch/blog/referencement-local-geneve",
+        "referring_urls": [
+          "https://www.jonlabs.ch/sitemap-0.xml"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://www.jonlabs.ch/blog/specialiste-developpement-web-suisse",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-04-27T07:35:46Z",
+        "google_canonical": "https://www.jonlabs.ch/blog/specialiste-developpement-web-suisse",
+        "user_canonical": "https://www.jonlabs.ch/blog/specialiste-developpement-web-suisse",
+        "referring_urls": [
+          "https://www.jonlabs.ch/sitemap-0.xml"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      }
+    ],
+    "unknown": []
+  }
+}

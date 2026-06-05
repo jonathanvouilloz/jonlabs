@@ -1,0 +1,26 @@
+# Production log — entrer-top-3-google-maps
+Date : 2026-05-29 19:47
+Worker : @article-producer
+
+## Étapes
+- [SKIP] /seo-write    : draft existant réutilisé (reprise pipeline à l'étape humanizer)
+- [✓] /humanizer    : 14 patterns IA corrigés (12 em dashes, rule of three reformulée, 2 constructions rhétoriques)
+- [✓] /seo-enrich   : src/content/blog/entrer-top-3-google-maps.md créé (21.7 kB) — frontmatter valide, FAQPage schema via template, maillage 9 liens internes
+- [✓] /seo-review   : 0 warning bloquant, 1 correction appliquée (description 158→153 car.), 1 avertissement non bloquant (lien /blog/referencement-local-lausanne non encore publié, texte le signale explicitement)
+- [✓] /generate-cover : public/images/blog/entrer-top-3-google-maps.webp (41 kB) — Pipeline T (template)
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-06-05)
+
+## Bloquants éventuels
+aucun
+
+## Avertissements non bloquants
+- /blog/referencement-local-lausanne : lien vers article non encore publié, le texte mentionne "(en cours de publication)" — à publier avant le 5 juin ou retirer le lien
+- 4 commentaires TODO:image résiduels (image-cover, image-2, image-3, image-4) — à traiter avec /generate-images avant publication si souhaité
+
+## Maillage retour suggéré
+- src/content/blog/choisir-categorie-google-business-profile.md : lien retour déjà en place (ligne ~49)
+- src/content/blog/fiche-google-my-business-guide-complet-2026.md : ajouter lien vers /blog/entrer-top-3-google-maps (ancre "entrer dans le top 3 du Local Pack")
+- src/content/blog/referencement-local-geneve.md : ajouter lien (ancre "les 3 facteurs qui gouvernent le classement Maps")
+- src/content/blog/optimiser-fiche-google-my-business-checklist-2026.md : ajouter lien (ancre "comprendre pourquoi tu n'apparais pas dans le top 3")

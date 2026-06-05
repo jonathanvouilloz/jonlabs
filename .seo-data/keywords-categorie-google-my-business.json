@@ -1,21 +1,252 @@
 {
-  "topic": "categorie google my business",
+  "topic": "catégorie google my business",
   "location_code": 2250,
   "location_name": "France",
   "language_code": "fr",
-  "generated_at": "2026-05-01T08:48:19Z",
+  "generated_at": "2026-05-29T17:10:27Z",
   "primary": {
-    "keyword": "categorie google my business",
-    "search_volume": 10,
-    "cpc": 5.43,
+    "keyword": "catégorie google my business",
+    "search_volume": 30,
+    "cpc": 0.03,
     "competition": "LOW",
     "competition_index": 2,
-    "difficulty": null,
+    "difficulty": 13,
     "intent": "navigational",
-    "intent_probability": 0.5980061
+    "intent_probability": 0.8743
   },
   "secondaries": [],
-  "long_tail": [],
-  "related": [],
-  "quick_wins": []
+  "long_tail": [
+    {
+      "keyword": "google my business",
+      "search_volume": 74000,
+      "cpc": 5.28,
+      "competition": "LOW",
+      "competition_index": 7
+    },
+    {
+      "keyword": "google business profil",
+      "search_volume": 18100,
+      "cpc": 6.52,
+      "competition": "LOW",
+      "competition_index": 17
+    },
+    {
+      "keyword": "fiche google my business",
+      "search_volume": 5400,
+      "cpc": 3.57,
+      "competition": "LOW",
+      "competition_index": 6
+    },
+    {
+      "keyword": "fiche d'établissement google",
+      "search_volume": 5400,
+      "cpc": 3.08,
+      "competition": "LOW",
+      "competition_index": 4
+    },
+    {
+      "keyword": "google my business connexion",
+      "search_volume": 1600,
+      "cpc": 6.12,
+      "competition": "LOW",
+      "competition_index": 1
+    },
+    {
+      "keyword": "contacter google par téléphone",
+      "search_volume": 1300,
+      "cpc": 1.07,
+      "competition": "LOW",
+      "competition_index": 6
+    },
+    {
+      "keyword": "google my business gratuit",
+      "search_volume": 590,
+      "cpc": 5.72,
+      "competition": "MEDIUM",
+      "competition_index": 50
+    },
+    {
+      "keyword": "google my business créer un compte",
+      "search_volume": 320,
+      "cpc": 7.32,
+      "competition": "MEDIUM",
+      "competition_index": 45
+    },
+    {
+      "keyword": "contacter google france",
+      "search_volume": 260,
+      "cpc": 1.29,
+      "competition": "LOW",
+      "competition_index": 3
+    },
+    {
+      "keyword": "google business account",
+      "search_volume": 210,
+      "cpc": 6.8,
+      "competition": "LOW",
+      "competition_index": 13
+    },
+    {
+      "keyword": "comment accéder à mon google my business",
+      "search_volume": 210,
+      "cpc": 2.66,
+      "competition": "LOW",
+      "competition_index": 14
+    },
+    {
+      "keyword": "google business contact",
+      "search_volume": 170,
+      "cpc": 6.09,
+      "competition": "LOW",
+      "competition_index": 13
+    },
+    {
+      "keyword": "google business profile français",
+      "search_volume": 170,
+      "cpc": 6.42,
+      "competition": "LOW",
+      "competition_index": 29
+    },
+    {
+      "keyword": "business google com add",
+      "search_volume": 170,
+      "cpc": 6.62,
+      "competition": "MEDIUM",
+      "competition_index": 37
+    },
+    {
+      "keyword": "google business login",
+      "search_volume": 140,
+      "cpc": 3.46,
+      "competition": "LOW",
+      "competition_index": 3
+    }
+  ],
+  "related": [
+    {
+      "keyword": "mon entreprise",
+      "search_volume": 201000,
+      "cpc": 9.45,
+      "competition": "LOW",
+      "competition_index": 3
+    },
+    {
+      "keyword": "google business",
+      "search_volume": 49500,
+      "cpc": 6.71,
+      "competition": "LOW",
+      "competition_index": 13
+    },
+    {
+      "keyword": "modifier ma fiche google my business",
+      "search_volume": 140,
+      "cpc": 5.74,
+      "competition": "LOW",
+      "competition_index": 4
+    },
+    {
+      "keyword": "contacter google my business par téléphone",
+      "search_volume": 140,
+      "cpc": 7.22,
+      "competition": "LOW",
+      "competition_index": 6
+    },
+    {
+      "keyword": "google my business contact",
+      "search_volume": 110,
+      "cpc": 16.29,
+      "competition": "LOW",
+      "competition_index": 6
+    },
+    {
+      "keyword": "google my business français",
+      "search_volume": 70,
+      "cpc": 8.66,
+      "competition": "LOW",
+      "competition_index": 26
+    },
+    {
+      "keyword": "audit google my business",
+      "search_volume": 50,
+      "cpc": 4.69,
+      "competition": "MEDIUM",
+      "competition_index": 35
+    },
+    {
+      "keyword": "créer ma fiche google my business",
+      "search_volume": 50,
+      "cpc": 6.22,
+      "competition": "LOW",
+      "competition_index": 21
+    },
+    {
+      "keyword": "google my business téléphone gratuit",
+      "search_volume": 50,
+      "cpc": 2.55,
+      "competition": "LOW",
+      "competition_index": 14
+    }
+  ],
+  "quick_wins": [
+    {
+      "keyword": "mon entreprise",
+      "search_volume": 201000,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "google my business",
+      "search_volume": 74000,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "google business",
+      "search_volume": 49500,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "google business profil",
+      "search_volume": 18100,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "fiche google my business",
+      "search_volume": 5400,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "fiche d'établissement google",
+      "search_volume": 5400,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "google my business connexion",
+      "search_volume": 1600,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "contacter google par téléphone",
+      "search_volume": 1300,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "contacter google france",
+      "search_volume": 260,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    },
+    {
+      "keyword": "google business account",
+      "search_volume": 210,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
 }

@@ -1,0 +1,37 @@
+# Production log — referencement-local-lausanne
+Date : 2026-05-29 19:44
+Worker : @article-producer
+
+## Étapes
+- [SKIP] /seo-write    : draft existant (3201 mots) — non réécrit selon instruction
+- [SKIP] /humanizer    : humanisation déjà effectuée — non relancée selon instruction
+- [✓] /seo-enrich   : src/content/blog/referencement-local-lausanne.md créé (~3.2 kB)
+- [✓] /seo-review   : 2 warnings corrigés en ligne (bold dans lien, bold keyword 3×, pattern #15), 0 bloquant — score final 14/14
+- [✓] /generate-cover : public/images/blog/referencement-local-lausanne.webp (35 kB, 1920×1080px)
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-06-26)
+
+## Décisions prises en autonomie
+- Pipeline repris à l'étape /seo-enrich (draft + humanisation déjà faits)
+- Schema LocalBusiness non injecté en inline : le template [slug].astro génère automatiquement BlogPosting + FAQPage + BreadcrumbList + Person + Organization via src/lib/seo.ts — pas de doublon nécessaire
+- Champ h1: conservé en frontmatter (méta-signal interne) même si ignoré par le template courant
+- Cover : pipeline T (source: template, bg-template.png) — même fond brand que Genève, titre overlay distinct → hash pixel différent confirmé (762ffb97 vs 163e99d0)
+- Maillage retour : lien vers Lausanne ajouté dans la section "Pour aller plus loin" de referencement-local-geneve.md
+- pubDate 2026-06-26 : article filtré du sitemap jusqu'au 26/06 par isPublished() — comportement attendu
+
+## Vérification anti-duplicate
+Sections ré-ancrées Lausanne/Vaud (preuve) :
+- Intro : "Flon", "EPFL", "Ouchy", "Renens, Prilly, Pully, Bussigny, Lutry" — absent de Genève
+- Section "Ce que les concurrents oublient" : angles EPFL/startups + agglo peu disputée + francophonie pure — Genève traite multilingue FR/EN + organisations internationales
+- Section "7 leviers" : exemples électricien Flon/Ouchy/Renens/Prilly/Pully vs exemples plombier Plainpalais/Eaux-Vives/Carouge/Meyrin dans Genève
+- Schema LocalBusiness exemple : Place de la Palud 4, 1003 Lausanne, coords 46.5197/6.6323 — vs Rue du Mont-Blanc 14, 1201 Genève dans Genève
+- FAQ Q3 : différence Lausanne/Genève traite spécificités vaudoises (EPFL, tourisme lémanique, francophonie monolithique)
+- Annuaires : CVCI + FVE (vaudois) vs CCIG (genevois)
+- Backlinks : 24 Heures, La Côte (vaudois) vs Tribune de Genève, Léman Bleu (genevois)
+
+## Bloquants éventuels
+Aucun — tous les FAIL /seo-review corrigés avant finalisation.
+
+## Images inline
+Deux commentaires TODO:image présents dans le draft source (image infographic 7 leviers + carte agglo) n'ont pas été intégrés. Ces images ne sont pas dans le corps de l'article final (commentaires supprimés à l'enrich). À générer si nécessaire via /generate-images.
