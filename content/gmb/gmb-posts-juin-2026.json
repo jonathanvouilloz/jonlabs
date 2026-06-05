@@ -1,0 +1,104 @@
+[
+  {
+    "type": "gmb",
+    "title": "Guide complet fiche Google My Business 2026",
+    "content": "Ta fiche Google pèse 32% de ton classement dans le top 3 Maps. Le chiffre vient du Local Search Ranking Factors 2026, 47 experts SEO. Créer, optimiser, animer, mesurer : le guide complet pour une PME romande.",
+    "post_type": "whats_new",
+    "scheduled_at": "2026-06-01T09:00:00+02:00",
+    "cta": {
+      "action": "LEARN_MORE",
+      "url": "https://jonlabs.ch/blog/fiche-google-my-business-guide-complet-2026"
+    },
+    "location_target": "all",
+    "image_text": "Fiche Google = 32% | Le levier n°1 de ta visibilité locale",
+    "image": {
+      "url": "C:/Users/jojo-/Desktop/jonlabs/static/gmb-assets/post-13.png",
+      "text": "Fiche Google = 32% | Le levier n°1 de ta visibilité locale",
+      "template": "gmb-post-template"
+    },
+    "image_title": "Fiche Google = 32%",
+    "image_subtitle": "Le levier n°1 de ta visibilité locale"
+  },
+  {
+    "type": "gmb",
+    "title": "Top 3 Google Maps : les 3 facteurs de classement",
+    "content": "Ton concurrent te dépasse sur Google Maps avec moins d'avis que toi ? Le classement repose sur 3 facteurs : proximité, pertinence, notoriété. La pertinence et la fraîcheur de tes avis, c'est toi qui les contrôles.",
+    "post_type": "whats_new",
+    "scheduled_at": "2026-06-08T09:00:00+02:00",
+    "cta": {
+      "action": "LEARN_MORE",
+      "url": "https://jonlabs.ch/blog/entrer-top-3-google-maps"
+    },
+    "location_target": "all",
+    "image_text": "Top 3 Google Maps | Proximité, pertinence, notoriété",
+    "image": {
+      "url": "C:/Users/jojo-/Desktop/jonlabs/static/gmb-assets/post-14.png",
+      "text": "Top 3 Google Maps | Proximité, pertinence, notoriété",
+      "template": "gmb-post-template"
+    },
+    "image_title": "Top 3 Google Maps",
+    "image_subtitle": "Proximité, pertinence, notoriété"
+  },
+  {
+    "type": "gmb",
+    "title": "Catégorie Google Business Profile : le bon choix",
+    "content": "La catégorie de ta fiche décide sur quelles recherches Google te montre. Plus que tes photos, plus que tes avis. Choisis le métier exact, pas le métier large : l'erreur n°1 des PME romandes se corrige en 2 minutes.",
+    "post_type": "whats_new",
+    "scheduled_at": "2026-06-15T09:00:00+02:00",
+    "cta": {
+      "action": "LEARN_MORE",
+      "url": "https://jonlabs.ch/blog/choisir-categorie-google-business-profile"
+    },
+    "location_target": "all",
+    "image_text": "La catégorie décide | Le 1er signal de pertinence Google",
+    "image": {
+      "url": "C:/Users/jojo-/Desktop/jonlabs/static/gmb-assets/post-15.png",
+      "text": "La catégorie décide | Le 1er signal de pertinence Google",
+      "template": "gmb-post-template"
+    },
+    "image_title": "La catégorie décide",
+    "image_subtitle": "Le 1er signal de pertinence Google"
+  },
+  {
+    "type": "gmb",
+    "title": "Obtenir plus d'avis Google : la fraîcheur compte",
+    "content": "60 avis récents battent 200 avis vieux de trois ans : Google pèse la fraîcheur, pas seulement le total. Pour une PME romande, 4 à 8 nouveaux avis par mois suffisent. Sans quémander, juste avec le bon timing.",
+    "post_type": "whats_new",
+    "scheduled_at": "2026-06-22T09:00:00+02:00",
+    "cta": {
+      "action": "LEARN_MORE",
+      "url": "https://jonlabs.ch/blog/obtenir-plus-avis-google"
+    },
+    "location_target": "all",
+    "image_text": "Plus d'avis Google | La fraîcheur compte plus que le total",
+    "image": {
+      "url": "C:/Users/jojo-/Desktop/jonlabs/static/gmb-assets/post-16.png",
+      "text": "Plus d'avis Google | La fraîcheur compte plus que le total",
+      "template": "gmb-post-template"
+    },
+    "image_title": "Plus d'avis Google",
+    "image_subtitle": "La fraîcheur compte plus que le total"
+  },
+  {
+    "type": "gmb",
+    "title": "Audit visibilité Google offert",
+    "content": "Tu ne sais pas pourquoi tu n'apparais pas dans le top 3 Maps à Genève ? J'audite ta fiche et ta visibilité locale gratuitement : catégorie, avis, NAP, concurrents. Tu repars avec 3 actions concrètes à appliquer.",
+    "post_type": "offer",
+    "scheduled_at": "2026-06-29T09:00:00+02:00",
+    "event_start_date": "2026-06-29",
+    "event_end_date": "2026-07-31",
+    "cta": {
+      "action": "BOOK",
+      "url": "https://jonlabs.ch/services/referencement-local"
+    },
+    "location_target": "all",
+    "image_text": "Audit offert | Ta visibilité Google passée au crible",
+    "image": {
+      "url": "C:/Users/jojo-/Desktop/jonlabs/static/gmb-assets/post-17.png",
+      "text": "Audit offert | Ta visibilité Google passée au crible",
+      "template": "gmb-post-template"
+    },
+    "image_title": "Audit offert",
+    "image_subtitle": "Ta visibilité Google passée au crible"
+  }
+]
