@@ -89,6 +89,8 @@ Voici un tableau comparatif honnête des fourchettes du marché suisse romand en
 | E-commerce sur-mesure | 8 000 | 15 000 | 25 000 |
 | Application web ou MVP | 2 000 | 8 000 | 30 000 |
 
+Si ton site actuel est dans la première ligne du tableau et qu'il commence à dater, j'ai une offre dédiée de [refonte et migration WordPress](/services/developpeur-wordpress) — avec un audit gratuit pour savoir si ça vaut le coup. Et pour les sites visuels gérés en autonomie, je travaille aussi comme [développeur Webflow](/services/developpeur-webflow).
+
 **Comment lire ce tableau ?**
 
 - **Bas** : prix plancher honnête. En dessous, tu paies pour un stagiaire, un template brut sans personnalisation, ou un copain qui te fait ça le week-end.

@@ -54,7 +54,7 @@ La plupart des développeurs web te diront "je fais du sur-mesure, du WordPress,
 
 ### Généraliste vs spécialiste : la vraie différence
 
-Un généraliste met en ligne n'importe quel type de site. Un spécialiste peut te dire pourquoi **Astro + Supabase** convient mieux à ton cas qu'un WordPress avec 47 plugins, et t'expliquer en quoi ça change tes coûts de maintenance sur 3 ans. C'est une question de profondeur, pas de prétention.
+Un généraliste met en ligne n'importe quel type de site. Un spécialiste peut te dire pourquoi **Astro + Supabase** convient mieux à ton cas qu'un WordPress avec 47 plugins, et t'expliquer en quoi ça change tes coûts de maintenance sur 3 ans. C'est une question de profondeur, pas de prétention. Le même raisonnement vaut par plateforme : un [développeur Webflow](/services/developpeur-webflow) qui connaît les limites de l'outil, ou un [freelance WordPress](/services/developpeur-wordpress) qui sait quand refondre et quand migrer, te rendra toujours un meilleur service qu'un touche-à-tout.
 
 Quand tu confies ton projet à quelqu'un qui maîtrise vraiment sa stack, tu obtiens un produit qui ne casse pas six mois après le lancement. Si tu n'es pas sûr de l'état actuel de ton site, [15 signes que ton site web dort](/blog/15-signes-site-web-dort) te donne une checklist concrète pour faire le diagnostic toi-même.
 

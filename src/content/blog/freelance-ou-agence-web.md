@@ -49,6 +49,8 @@ Avant de comparer les avantages, mettons les chiffres sur la table. Parce que ou
 |E-commerce|CHF 5'000 – 10'000|
 |Taux horaire moyen|CHF 120 – 150/h|
 
+Ces fourchettes valent aussi pour les projets sur CMS : un [freelance WordPress à Genève](/services/developpeur-wordpress) facture la création dès CHF 1'490 et la refonte dès CHF 2'490 — bien en dessous des grilles d'agence pour le même périmètre.
+
 ### Côté agence
 
 |Type de projet|Fourchette de prix|

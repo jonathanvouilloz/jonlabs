@@ -3,7 +3,7 @@
 > **Session 8 du chantier SEO** (cf. `docs/chantier-seo-refactor.md`).
 > Suivi par checklist au fil des sessions : cocher au fur et à mesure, noter date + commit en fin de phase.
 >
-> **État au 2026-06-07** : Phases 0-1 terminées (data + briefs). Briefs en attente de validation. Phases 2-7 à faire.
+> **État au 2026-06-07 (2e session)** : Phases 0-5 terminées — les 2 pages services sont buildées et commitées. Restent : actions GSC post-deploy (Jonathan), phase 6 (satellites blog) et phase 7 (suivi).
 
 ## Contexte
 
@@ -50,28 +50,22 @@ Un lead réel a trouvé Jon Labs en cherchant un **développeur Webflow pour sit
 - [x] Brief page WordPress → `content/_drafts/services/developpeur-wordpress.md`
 - [ ] **Validation des 2 briefs par Jonathan** (notamment fourchettes tarifs CHF à afficher)
 
-## Phase 2 — Page `/services/developpeur-webflow` ⬜
+## Phase 2 — Page `/services/developpeur-webflow` ✅ 2026-06-07
 
-Template : copier `src/pages/services/creation-site-web.astro` (structure 7 sections).
+Template : copié depuis `src/pages/services/creation-site-web.astro`.
 
-- [ ] Créer `src/pages/services/developpeur-webflow.astro`
-  - Title : `Développeur Webflow freelance en Suisse romande | Jon Labs` (57 car.)
-  - H1 : `Un développeur Webflow basé à Genève, pour des sites qui tournent`
-  - Sections : hero → offres (création/refonte/intégrations) → **H2 e-commerce Webflow** (70/mois, intent du lead réel) → freelance vs agence → méthode → tarifs CHF affichés → FAQ 10 questions → CTA final avec pont sur-mesure
-- [ ] `serviceSchemas["developpeur-webflow"]` dans `src/data/schema.ts` (Service + BreadcrumbList + FAQPage)
-- [ ] `servicesListData` : incrémenter `numberOfItems` + ajouter au hub `/services`
-- [ ] Mega-menu `src/data/navigation.ts` (colonne "Web & apps")
+- [x] Créé `src/pages/services/developpeur-webflow.astro` (Title 58c, H1 distinct, H2 e-commerce avec grille suffit/coince, tarifs 1'490/2'490/devis, FAQ 10q, form Webflow)
+- [x] `serviceSchemas["developpeur-webflow"]` (Service + BreadcrumbList + FAQPage — 3 JSON-LD vérifiés dans dist/)
+- [x] `servicesListData` numberOfItems 5→7 + hub `/services` (2 cards dans scenarios.ts web-outils)
+- [x] Mega-menu navigation.ts (colonne "Web & apps", 2 items)
 
-## Phase 3 — Page `/services/developpeur-wordpress` ⬜
+## Phase 3 — Page `/services/developpeur-wordpress` ✅ 2026-06-07
 
-- [ ] Créer `src/pages/services/developpeur-wordpress.astro`
-  - Title : `Freelance WordPress à Genève — création & refonte | Jon Labs` (60 car.)
-  - H1 : `Freelance WordPress à Genève : création, refonte et migration`
-  - 3 H2 = 3 intents : **Création** (30/mois) / **Refonte** (site lent — pain point n°1 persona) / **Migration vers stack moderne** (50/mois — angle inoccupé, pont sur-mesure) + méthode/maintenance + tarifs + FAQ 10 questions
-- [ ] Schema + `servicesListData` + navigation (idem Phase 2)
-- [ ] **Anti-contradiction** : reformuler *"Pas de WordPress qui rame, pas de template générique"* dans `creation-site-web.astro` (~l.58) → sans dénigrer WP (ex. "pas de template générique qui rame")
+- [x] Créé `src/pages/services/developpeur-wordpress.astro` (Title "Freelance WordPress à Genève — création, refonte | Jon Labs" 60c, 3 blocs intents création/refonte/migration, méthode audit-first 4 étapes, tarifs 1'490/2'490/devis, FAQ 10q, form audit gratuit avec champ URL)
+- [x] Schema + `servicesListData` + navigation (idem Phase 2)
+- [x] **Anti-contradiction** : creation-site-web.astro L85 → "Pas de template générique qui rame, pas d'usine à gaz" + FAQ "Pourquoi pas WordPress" nuancée ("je le propose aussi quand c'est le bon choix")
 
-## Phase 4 — Anti-cannibalisation + maillage interne ⬜
+## Phase 4 — Anti-cannibalisation + maillage interne ✅ 2026-06-07
 
 **Partition des intents (règle à respecter sur tout le cluster) :**
 
@@ -84,22 +78,22 @@ Template : copier `src/pages/services/creation-site-web.astro` (structure 7 sect
 | `création site web genève` | `/services/creation-site-web` (inchangé) |
 
 Liens entrants (ancres variées, contextuels dans le corps — pattern Session 5) :
-- [ ] `/developpeur-web-freelance-geneve` : mention stack → liens vers les 2 pages
-- [ ] `/blog/prix-site-web-suisse-2026` : FAQ #4 WordPress → lien page WordPress
-- [ ] `/blog/specialiste-developpement-web-suisse` : FAQ #6 → liens vers les 2 pages
-- [ ] `/blog/freelance-ou-agence-web` : lien contextuel page WordPress
-- [ ] `/developpement-web/[ville].astro` : "Refonte depuis WordPress, Wix..." → lien page WordPress (**1 lien template = ~10 pages**)
-- [ ] Liens sortants depuis les nouvelles pages : `/tarifs`, `/portfolio`, `/contact`, article freelance-ou-agence
-- [ ] Grep final `webflow|wordpress` dans les `<title>` existants (zéro collision)
+- [x] `/developpeur-web-freelance-geneve` : encart "Pourquoi pas WordPress" → liens vers les 2 pages
+- [x] `/blog/prix-site-web-suisse-2026` : après tableau des fourchettes → liens vers les 2 pages
+- [x] `/blog/specialiste-developpement-web-suisse` : section généraliste vs spécialiste → liens vers les 2 pages
+- [x] `/blog/freelance-ou-agence-web` : après tableau tarifs freelance → lien page WordPress
+- [x] `/developpement-web/[ville].astro` : card "Refonte" → href /services/developpeur-wordpress (≈10 pages, remplace l'ancien lien vers refonte-site-web noindex)
+- [x] Liens sortants depuis les nouvelles pages : /tarifs, /portfolio, /contact, blog prix + freelance-ou-agence, lien croisé Webflow↔WordPress
+- [x] Grep titles : zéro collision (seules les 2 nouvelles pages ciblent les keywords)
 
-## Phase 5 — Vérification & déploiement ⬜
+## Phase 5 — Vérification & déploiement ✅ 2026-06-07 (deploy + GSC = action Jonathan)
 
-- [ ] `npm run build` OK
-- [ ] `/seo-review` sur les 2 pages
-- [ ] Sitemap : les 2 URLs présentes, pas de noindex (pages publiques, contrairement aux 4 draft soft)
-- [ ] Commit `feat(seo): pages services developpeur-webflow + developpeur-wordpress (cluster plateformes)` + push/deploy
-- [ ] Rich Results Test (post-deploy)
-- [ ] GSC : URL Inspection → Request indexing sur les 2 URLs
+- [x] `npm run build` OK — 194 pages
+- [x] Review SEO : titles 58/60c, H1 ≠ title, meta <155c, 3 JSON-LD valides par page (Service+Breadcrumb+FAQPage), 39-40 liens internes par page
+- [x] Sitemap : les 2 URLs présentes, `index, follow` confirmé dans dist/
+- [x] Commit + push
+- [ ] **Action Jonathan** : Rich Results Test (post-deploy)
+- [ ] **Action Jonathan** : GSC URL Inspection → Request indexing sur les 2 URLs
 
 ## Phase 6 — Satellites comparatifs blog (sessions suivantes) ⬜
 
@@ -135,6 +129,10 @@ Pipeline par article : `/seo-keywords` → `/seo-serp` → `/seo-brief` → vali
 
 ## Journal
 
-### 2026-06-07
+### 2026-06-07 (session 2 — implémentation)
+- Phases 2-5 : 2 pages services créées + schema/nav/hub + maillage (5 sources entrantes dont template [ville] ≈10 pages) + anti-contradiction creation-site-web + build 194 pages vérifié (JSON-LD, sitemap, robots).
+- Bonus : card "Refonte" des pages [ville] repointée de /services/refonte-site-web (noindex) vers la page WordPress publique.
+
+### 2026-06-07 (session 1 — data + briefs)
 - Phases 0-1 : GSC 91j (0 query webflow ; freelance wordpress geneve 47 imp pos 40), volumes CH+FR (3 batchs DataForSEO), 2 SERP scans, 2 clusters keywords, 2 briefs complets.
 - Décisions : 1 page WP unique, focus 100% plateforme par page, satellites au blog, prestashop droppé, routes /services/*.

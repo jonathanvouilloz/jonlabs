@@ -196,6 +196,32 @@ export const serviceSections: ServiceSection[] = [
         link: '/services/creation-site-web'
       },
       {
+        id: 'developpeur-webflow',
+        title: 'Développeur Webflow',
+        description: 'Création, refonte et e-commerce sur Webflow. Un site que tu peux éditer toi-même, sans dépendre de personne.',
+        features: [
+          'Site Webflow sur-mesure, pas un template recyclé',
+          'E-commerce Webflow : conseil honnête sur ce qui tient la route',
+          'SEO et performance intégrés dès le build',
+          'Formation à l\'éditeur Webflow incluse'
+        ],
+        ctaText: 'En savoir plus',
+        link: '/services/developpeur-webflow'
+      },
+      {
+        id: 'developpeur-wordpress',
+        title: 'Freelance WordPress',
+        description: 'Création de site WordPress propre, refonte de site lent, ou migration vers une stack moderne.',
+        features: [
+          'Création : thème léger sur-mesure, pas d\'usine à gaz',
+          'Refonte : ton site WordPress qui rame redevient rapide',
+          'Migration : vers une stack moderne sans perdre ton référencement',
+          'Maintenance optionnelle, sans dépendance forcée'
+        ],
+        ctaText: 'En savoir plus',
+        link: '/services/developpeur-wordpress'
+      },
+      {
         id: 'mvp-rapide',
         title: 'Développement MVP',
         description: 'Une première version fonctionnelle de ton app pour convaincre investisseurs ou premiers clients.',

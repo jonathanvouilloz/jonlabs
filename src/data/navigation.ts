@@ -40,6 +40,8 @@ export const mainNav: NavSection[] = [
         title: 'Web & apps',
         items: [
           { label: 'Création de site', href: '/services/creation-site-web', icon: 'ri-layout-line' },
+          { label: 'Développeur Webflow', href: '/services/developpeur-webflow', icon: 'ri-pencil-ruler-2-line' },
+          { label: 'Freelance WordPress', href: '/services/developpeur-wordpress', icon: 'ri-wordpress-line' },
           { label: 'Développement MVP', href: '/services/developpement-mvp', icon: 'ri-rocket-line' },
           { label: 'Outils sur mesure', href: '/services/outils-sur-mesure', icon: 'ri-tools-line' },
         ],

@@ -4,11 +4,8 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
-// Import SVG pour surlignement
-import arrowUnderline from '../../assets/arrow-3.svg';
-
-// Import image hero (réutiliser temporairement refonte1.webp)
-import creationHero from '../../assets/services/refonte-1.webp';
+// Import image hero (réutiliser temporairement refonte-1.webp)
+import webflowHero from '../../assets/services/refonte-1.webp';
 
 // Import background components
 import BackgroundGlitchGrid from '../../components/backgrounds/BackgroundGlitchGrid.astro';
@@ -23,40 +20,78 @@ import { getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
 
 // SEO Data
 const seoData = {
-    title: "Création de site web à Genève | Jon Labs",
-    description: "Site web professionnel en 3-4 semaines. Design sur-mesure, optimisé Google, sans WordPress. Pour indépendants et PME à Genève. Devis gratuit."
+    title: "Développeur Webflow freelance en Suisse romande | Jon Labs",
+    description: "Création, refonte et e-commerce Webflow pour PME romandes. Tarifs transparents en CHF, SEO intégré. Discutons de votre projet."
 };
 
 // Schema.org data
 const breadcrumb = getBreadcrumbSchema([
     { name: "Accueil", url: SITE_URL },
     { name: "Services", url: `${SITE_URL}/services` },
-    { name: "Création de site web", url: `${SITE_URL}/services/creation-site-web` }
+    { name: "Développeur Webflow", url: `${SITE_URL}/services/developpeur-webflow` }
 ]);
-const schemas: any[] = [serviceSchemas["creation-site-web"], breadcrumb];
+const schemas: any[] = [serviceSchemas["developpeur-webflow"], breadcrumb];
 
 // Pain points data (4 items)
 const painPoints = [
     {
-        icon: "ri-search-line",
-        title: "Invisible sur Google",
-        description: "Vos concurrents apparaissent en premier quand quelqu'un cherche votre métier à Genève. Vous, non. Les clients potentiels ne savent même pas que vous existez."
+        icon: "ri-money-dollar-circle-line",
+        title: "Des devis d'agence hors budget",
+        description: "Vous avez demandé des devis pour un site Webflow et les agences vous annoncent des montants à cinq chiffres, avec trois interlocuteurs et des délais flous."
     },
     {
-        icon: "ri-chat-voice-line",
-        title: "Dépendant du bouche-à-oreille",
-        description: "Votre réseau actuel vous amène des clients, mais c'est limité. Vous aimeriez que des gens vous trouvent sans avoir besoin de vous connaître."
+        icon: "ri-question-line",
+        title: "Un site Webflow que personne ne maîtrise",
+        description: "Votre prestataire a livré le site puis a disparu. Vous avez les accès, mais vous n'osez toucher à rien de peur de tout casser."
     },
     {
-        icon: "ri-image-line",
-        title: "Une image qui ne vous ressemble pas",
-        description: "Votre seule vitrine, c'est une page Facebook ou un profil LinkedIn. Ça fait le job, mais ça ne reflète pas vraiment qui vous êtes ni le sérieux de votre travail."
+        icon: "ri-file-copy-line",
+        title: "Un template qui ne vous ressemble pas",
+        description: "Vous avez acheté un template Webflow, mais le résultat fait générique. Votre site ressemble à celui de centaines d'autres entreprises."
     },
     {
-        icon: "ri-settings-3-line",
-        title: "Peur de la complexité technique",
-        description: "Vous avez déjà regardé WordPress, Wix, Squarespace... et vous avez abandonné. Trop compliqué, trop de temps, trop de choix. Vous voulez juste un truc qui marche."
+        icon: "ri-shopping-cart-line",
+        title: "Bloqué sur la vente en ligne",
+        description: "Vous voulez vendre vos produits ou services en ligne, mais vous ne savez pas si Webflow suffit pour votre boutique — et personne ne vous donne de réponse claire."
     }
+];
+
+// Offres (3 cards)
+const offers = [
+    {
+        icon: "ri-add-box-line",
+        title: "Création de site Webflow",
+        description: "Un site Webflow sur-mesure, construit depuis vos maquettes Figma ou de zéro. Structure propre (style Client-First), animations sobres, CMS configuré pour que vous publiiez vous-même.",
+        idealFor: "Indépendants et PME qui veulent un site élégant et gérable en autonomie"
+    },
+    {
+        icon: "ri-refresh-line",
+        title: "Refonte de site Webflow existant",
+        description: "Votre site Webflow plafonne : structure brouillonne, pages lentes, SEO inexistant. Je reprends le projet, je nettoie, je restructure et je remets les performances à niveau.",
+        idealFor: "Sites Webflow hérités d'un autre prestataire ou montés en interne"
+    },
+    {
+        icon: "ri-plug-line",
+        title: "Intégrations & automatisations",
+        description: "Webflow ne vit pas seul : formulaires connectés à votre CRM, contenus synchronisés via l'API, automatisations Make ou n8n. Votre site devient un vrai outil de travail.",
+        idealFor: "Entreprises qui veulent connecter leur site à leurs outils métier"
+    }
+];
+
+// E-commerce : quand ça marche / quand ça coince
+const ecomWorks = [
+    "Catalogue simple : moins de 100 produits, peu de variantes",
+    "Vente de services, formations ou produits digitaux",
+    "Marché suisse ou zone unique (TVA et livraison simples)",
+    "Priorité au design : une boutique qui ressemble à votre marque",
+    "Paiement par carte via Stripe, sans usine à gaz"
+];
+const ecomLimits = [
+    "Gros catalogue avec variantes complexes (tailles × couleurs × stocks)",
+    "Multi-devises ou règles de TVA internationales",
+    "Logistique avancée : multi-entrepôts, click & collect, abonnements",
+    "Besoin de TWINT ou de moyens de paiement suisses spécifiques",
+    "Marketplace ou fonctionnalités sur-mesure côté serveur"
 ];
 
 // Methodology steps (5 étapes)
@@ -64,221 +99,148 @@ const methodSteps = [
     {
         step: "1",
         title: "Échange",
-        description: "Je discute avec vous de votre activité, vos objectifs, vos clients. Qu'est-ce que vous voulez que les visiteurs comprennent en 10 secondes ? C'est la base de tout.",
+        description: "Je discute avec vous de votre activité et de votre projet. Première question honnête : est-ce que Webflow est le bon outil pour ce que vous voulez faire ? Si non, je vous le dis.",
         duration: "30-45 min (gratuit, sans engagement)"
     },
     {
         step: "2",
-        title: "Contenu",
-        description: "Vous me fournissez l'essentiel : textes, photos, logo si vous en avez un. Pas besoin d'être parfait — j'affine avec vous. Je structure le tout pour que ce soit clair et efficace.",
-        duration: "1 semaine (à votre rythme)"
-    },
-    {
-        step: "3",
-        title: "Maquette",
-        description: "Je crée une maquette visuelle de votre site. Vous voyez exactement à quoi ça ressemblera avant que je code quoi que ce soit. J'ajuste jusqu'à ce que ça vous plaise.",
+        title: "Structure & maquette",
+        description: "Je définis l'architecture des pages et le design — depuis vos maquettes Figma si vous en avez, sinon je les crée. Vous validez avant que je construise quoi que ce soit.",
         duration: "3-5 jours"
     },
     {
-        step: "4",
-        title: "Développement",
-        description: "Je code votre site. Pas de template générique qui rame, pas d'usine à gaz. Un site sur-mesure, rapide, optimisé pour Google dès le départ.",
+        step: "3",
+        title: "Build Webflow",
+        description: "Je construis le site avec une structure de classes propre et un CMS bien pensé. Pas de bricolage : un projet Webflow que n'importe quel professionnel pourra reprendre après moi.",
         duration: "1-2 semaines"
     },
     {
+        step: "4",
+        title: "SEO & performance",
+        description: "Balises, maillage interne, données structurées, images optimisées, temps de chargement. Votre site Webflow est prêt à remonter sur Google, pas juste joli.",
+        duration: "2-3 jours"
+    },
+    {
         step: "5",
-        title: "Lancement",
-        description: "Mise en ligne, vérifications techniques, et une formation rapide pour que vous puissiez faire les modifications simples vous-même si besoin.",
-        duration: "1 jour"
+        title: "Formation & autonomie",
+        description: "Je vous forme à l'éditeur Webflow : textes, images, articles, produits. Vous gérez votre contenu vous-même, sans repasser par moi pour chaque virgule.",
+        duration: "1 session + support"
     }
 ];
 
-// Differentiators (encart)
+// Differentiators : freelance vs agence
 const differentiators = [
     {
-        icon: "ri-eye-line",
-        title: "Pas de surprise",
-        description: "vous validez chaque étape avant qu'on avance"
+        icon: "ri-user-voice-line",
+        title: "Un seul interlocuteur",
+        description: "vous parlez à celui qui construit, pas à un chef de projet"
     },
     {
-        icon: "ri-key-line",
-        title: "Pas de dépendance",
-        description: "votre site vous appartient, vous pouvez le faire évoluer"
+        icon: "ri-price-tag-3-line",
+        title: "Tarifs en CHF affichés",
+        description: "des fourchettes claires, pas de devis surprise"
     },
     {
-        icon: "ri-chat-smile-2-line",
-        title: "Pas de jargon",
-        description: "je vous explique tout en français, pas en \"dev\""
+        icon: "ri-map-pin-line",
+        title: "Basé à Genève",
+        description: "même fuseau, même marché, café possible"
     },
     {
-        icon: "ri-flashlight-line",
-        title: "Option express",
-        description: "besoin urgent ? On peut accélérer le calendrier"
+        icon: "ri-scales-3-line",
+        title: "Conseil honnête",
+        description: "si Webflow n'est pas adapté, je vous le dis et je propose mieux"
     }
 ];
 
-// Results (6 items)
-const results = [
-    {
-        icon: "ri-smartphone-line",
-        title: "Un site responsive (mobile + ordinateur)",
-        description: "Vos visiteurs restent et naviguent confortablement, peu importe leur appareil. Plus de 60% des visites viennent du mobile."
-    },
-    {
-        icon: "ri-search-eye-line",
-        title: "Optimisé pour Google (référencement inclus)",
-        description: "Votre site est construit pour remonter dans les recherches locales. Quelqu'un cherche \"[votre métier] Genève\" ? Vous avez une chance d'apparaître."
-    },
-    {
-        icon: "ri-speed-line",
-        title: "Chargement ultra-rapide (score 90+)",
-        description: "Un site lent fait fuir les visiteurs. Le vôtre charge en moins de 2 secondes. Google adore, vos clients aussi."
-    },
-    {
-        icon: "ri-palette-line",
-        title: "Design sur-mesure, pas un template",
-        description: "Votre site ne ressemble à aucun autre. Il reflète votre identité, pas celle d'un modèle utilisé par 10'000 autres entreprises."
-    },
-    {
-        icon: "ri-pencil-line",
-        title: "Autonomie pour les modifications simples",
-        description: "Changer un texte, ajouter une photo, mettre à jour vos horaires : vous pouvez le faire vous-même. Formation incluse."
-    },
-    {
-        icon: "ri-shield-check-line",
-        title: "Hébergement sécurisé et performant",
-        description: "Votre site est en ligne 99.9% du temps, avec certificat SSL (le petit cadenas). Vos visiteurs sont en confiance."
-    }
-];
-
-// Tech stack
-const techStack = [
-    {
-        name: "Framer",
-        description: "Idéal pour les sites vitrines élégants. Modifications faciles, animations fluides.",
-        icon: "ri-layout-line",
-        idealFor: "Indépendants, consultants, portfolios créatifs"
-    },
-    {
-        name: "Webflow",
-        description: "Pour les projets plus ambitieux. CMS intégré, interactions avancées.",
-        icon: "ri-grid-line",
-        idealFor: "PME, agences, sites avec beaucoup de contenu"
-    },
-    {
-        name: "Site sur-mesure",
-        description: "Performance maximale et contrôle total. Pour les besoins spécifiques.",
-        icon: "ri-code-s-slash-line",
-        idealFor: "E-commerce, applications web, besoins techniques spécifiques"
-    }
-];
-
-// Pricing plans
+// Pricing plans (alignés sur /tarifs)
 const pricingPlans = [
     {
-        name: "Site Vitrine",
-        price: "950",
+        name: "Site Webflow essentiel",
+        price: "1'490",
         priceLabel: "À partir de",
         features: [
-            "1 à 5 pages",
-            "Design sur-mesure",
+            "1 à 5 pages sur-mesure",
             "Responsive (mobile + desktop)",
-            "Optimisation Google de base",
-            "Formulaire de contact",
-            "Hébergement 1ère année inclus"
+            "SEO de base : balises, structure, vitesse",
+            "Formulaire de contact connecté",
+            "Formation à l'éditeur Webflow"
         ],
-        ideal: "Artisans, indépendants, consultants qui veulent une présence en ligne simple et efficace.",
+        ideal: "Indépendants et consultants qui veulent une présence pro, gérable en autonomie.",
         highlighted: false
     },
     {
-        name: "Site Vitrine + Blog",
-        price: "1'650",
+        name: "Site Webflow + CMS",
+        price: "2'490",
         priceLabel: "À partir de",
         features: [
-            "Tout ce qui est inclus dans Site Vitrine",
-            "Section blog intégrée",
-            "Système de publication simple",
-            "Optimisation SEO avancée",
-            "Formation à la rédaction web"
+            "Tout ce qui est inclus dans Essentiel",
+            "CMS configuré : blog, portfolio, fiches",
+            "SEO avancé + données structurées",
+            "Animations et interactions sur-mesure",
+            "Intégrations (CRM, newsletter, Make/n8n)"
         ],
-        ideal: "Coachs, thérapeutes, experts qui veulent démontrer leur expertise et améliorer leur référencement.",
+        ideal: "PME et marques qui publient du contenu et veulent un site qui travaille pour elles.",
         highlighted: true
     },
     {
-        name: "E-commerce & Applications",
+        name: "E-commerce & projets complexes",
         price: "Sur devis",
         priceLabel: "",
         features: [
-            "Boutique en ligne",
-            "Paiement sécurisé (Stripe, TWINT)",
-            "Gestion des stocks",
-            "Fonctionnalités sur-mesure"
+            "Boutique Webflow Ecommerce",
+            "Paiement sécurisé via Stripe",
+            "Ou alternative sur-mesure si Webflow ne suffit pas",
+            "Intégrations logistique et facturation"
         ],
-        ideal: "Commerçants, créateurs, entreprises avec des besoins spécifiques.",
+        ideal: "Commerçants et créateurs qui veulent vendre en ligne — on valide d'abord la faisabilité ensemble.",
         highlighted: false
     }
 ];
 
-// FAQs (8 questions)
+// FAQs (10 questions)
 const faqs = [
     {
-        question: "Combien de temps pour avoir mon site ?",
-        answer: "Entre 3 et 4 semaines pour un site vitrine standard. Si vous avez une urgence (événement, lancement), j'ai une option express. On en parle lors du premier échange."
+        question: "Webflow ou WordPress : que choisir en 2026 ?",
+        answer: "Webflow si vous voulez un site visuel, rapide, hébergé et sécurisé sans plugins à maintenir. WordPress si vous avez besoin d'un blog très actif, de plugins métier spécifiques ou d'un budget plus serré au départ. Je travaille avec les deux — je vous oriente selon votre projet, pas selon mes préférences."
     },
     {
-        question: "Qu'est-ce que je dois fournir ?",
-        answer: "Vos textes (même bruts, on les retravaille ensemble), vos photos, votre logo si vous en avez un. Pas de panique si vous n'avez pas tout : je peux vous guider ou vous recommander des professionnels."
+        question: "Combien coûte un site Webflow en Suisse ?",
+        answer: "Comptez à partir de CHF 1'490 pour un site essentiel de 1 à 5 pages, à partir de CHF 2'490 avec un CMS (blog, portfolio), et sur devis pour l'e-commerce. S'y ajoute l'abonnement Webflow (environ CHF 15-40/mois selon le plan), qui remplace l'hébergement et la maintenance technique."
     },
     {
-        question: "Je n'y connais rien en technique, c'est un problème ?",
-        answer: "Pas du tout. C'est même la majorité de mes clients. Je m'occupe de toute la partie technique, vous vous concentrez sur votre métier. Et je vous explique tout en termes simples."
+        question: "Webflow peut-il gérer un e-commerce ?",
+        answer: "Oui, pour une boutique simple : moins de 100 produits, paiement Stripe, marché suisse. Au-delà — variantes complexes, multi-devises, TWINT, logistique avancée — Webflow Ecommerce montre ses limites. Dans ce cas je vous propose une alternative (intégration ou solution sur-mesure) plutôt que de forcer l'outil."
     },
     {
-        question: "Et si j'ai besoin de modifications après ?",
-        answer: "Les petites modifications (textes, photos), vous pouvez les faire vous-même — je vous montre comment. Pour des évolutions plus importantes, on en discute et je vous fais un devis."
+        question: "Combien de temps pour créer un site Webflow ?",
+        answer: "Entre 2 et 4 semaines pour un site vitrine, selon le nombre de pages et la complexité du design. Un e-commerce demande 4 à 6 semaines. Si vous avez une échéance serrée, on en parle dès le premier échange."
     },
     {
-        question: "Pourquoi pas WordPress comme tout le monde ?",
-        answer: "WordPress se justifie pour certains usages — blog très actif, plugins métier — et je le propose aussi quand c'est le bon choix. Mais pour un site vitrine, ma stack vous donne un site plus rapide, plus sécurisé, et sans mises à jour constantes ni maintenance pénible."
+        question: "Puis-je modifier mon site moi-même après la livraison ?",
+        answer: "Oui, c'est tout l'intérêt de Webflow. L'éditeur vous permet de changer textes, images, articles et produits sans toucher au design. Je vous forme à la livraison, et vous repartez autonome. Pour les évolutions structurelles, je reste disponible."
     },
     {
-        question: "C'est quoi la différence avec Wix ou Squarespace ?",
-        answer: "Ces outils sont pratiques pour démarrer seul, mais vous êtes limité par leurs templates et leur système. Avec moi, vous avez un site vraiment sur-mesure, optimisé pour Google, et vous n'êtes pas enfermé dans une plateforme."
+        question: "Webflow est-il bon pour le référencement Google ?",
+        answer: "Techniquement, oui : code propre, pages rapides, balises et redirections gérables finement. Mais l'outil ne fait pas tout — c'est la structure, le contenu et le maillage qui font le référencement. C'est précisément ce que j'intègre dans chaque projet, référencement local compris."
     },
     {
-        question: "Et si le résultat ne me plaît pas ?",
-        answer: "On valide ensemble à chaque étape (maquette, puis développement). Vous ne découvrez pas le site à la fin — vous participez à sa création. Si quelque chose ne va pas, on ajuste avant de continuer."
+        question: "Freelance ou agence Webflow : quelle différence ?",
+        answer: "Avec une agence, vous payez aussi les couches de gestion de projet et les allers-retours internes. Avec moi, vous parlez directement à celui qui construit votre site. Résultat : décisions plus rapides, budget plus contenu, et un interlocuteur qui connaît chaque recoin du projet."
     },
     {
-        question: "Est-ce que je serai visible sur Google tout de suite ?",
-        answer: "Le référencement prend du temps (quelques semaines à quelques mois selon la concurrence). Mais votre site sera techniquement optimisé dès le jour 1. C'est la fondation. Ensuite, si vous voulez aller plus loin, on peut travailler sur une stratégie SEO plus poussée."
+        question: "Que se passe-t-il si Webflow ne convient pas à mon projet ?",
+        answer: "Je vous le dis dès le premier échange, et je vous propose l'alternative adaptée : un site sur-mesure (Astro, Next.js) pour la performance et les besoins techniques, ou WordPress si votre projet le justifie. Mon métier est de livrer le bon outil, pas de vendre Webflow à tout prix."
+    },
+    {
+        question: "Travaillez-vous uniquement sur Genève ?",
+        answer: "Je suis basé à Genève et je travaille avec des clients dans toute la Suisse romande — Vaud, Valais, Neuchâtel, Fribourg. Les échanges se font en personne ou en visio selon vos préférences."
+    },
+    {
+        question: "Reprenez-vous des sites Webflow existants ?",
+        answer: "Oui, c'est une demande fréquente : un site monté par un prestataire parti ou construit en interne, qui plafonne. Je commence par un audit du projet (structure, performance, SEO), puis je vous propose un plan de refonte clair avec un budget ferme."
     }
 ];
 schemas.push(getFAQPageSchema(faqs));
-
-// Local advantages
-const localAdvantages = [
-    {
-        icon: "ri-user-voice-line",
-        title: "Des échanges facilités",
-        description: "On peut se voir en personne si besoin. Un café pour discuter du projet, un atelier pour affiner les détails."
-    },
-    {
-        icon: "ri-bar-chart-line",
-        title: "La même réalité business",
-        description: "Je connais le marché suisse, les attentes des clients locaux, les spécificités légales (LPD, facturation)."
-    },
-    {
-        icon: "ri-time-line",
-        title: "Réactivité",
-        description: "Même fuseau horaire, même rythme. Une question urgente ? Vous avez une réponse dans la journée."
-    },
-    {
-        icon: "ri-group-line",
-        title: "Un réseau local",
-        description: "Besoin d'un photographe professionnel ? D'un rédacteur ? Je peux vous recommander des personnes de confiance dans la région."
-    }
-];
 
 // Local zones
 const zones = [
@@ -292,18 +254,18 @@ const zones = [
 
 // Project type options for form
 const projectTypes = [
-    { value: "site-vitrine", label: "Site vitrine" },
-    { value: "site-blog", label: "Site + blog" },
-    { value: "e-commerce", label: "E-commerce" },
+    { value: "creation-webflow", label: "Création de site Webflow" },
+    { value: "refonte-webflow", label: "Refonte d'un site Webflow existant" },
+    { value: "ecommerce-webflow", label: "E-commerce" },
     { value: "ne-sait-pas", label: "Je ne sais pas encore" }
 ];
 
 // Budget options for form
 const budgetOptions = [
-    { value: "moins-1000", label: "< 1'000 CHF" },
-    { value: "1000-2000", label: "1'000 - 2'000 CHF" },
-    { value: "2000-5000", label: "2'000 - 5'000 CHF" },
-    { value: "plus-5000", label: "> 5'000 CHF" },
+    { value: "moins-1500", label: "< 1'500 CHF" },
+    { value: "1500-3000", label: "1'500 - 3'000 CHF" },
+    { value: "3000-6000", label: "3'000 - 6'000 CHF" },
+    { value: "plus-6000", label: "> 6'000 CHF" },
     { value: "ne-sait-pas", label: "Je ne sais pas" }
 ];
 ---
@@ -330,21 +292,21 @@ const budgetOptions = [
             <!-- Centered text content -->
             <div class="text-center">
                 <!-- H1 SEO discret -->
-                <h1 class="seo-h1 mb-8 mt-8">Création de site web à Genève</h1>
+                <h1 class="seo-h1 mb-8 mt-8">Développeur Webflow freelance à Genève</h1>
 
                 <!-- Main title -->
                 <p class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6" data-animate="fade-up">
-                    Un site qui travaille pour vous,<br/>
+                    Un site Webflow qui tourne,<br/>
                     <span class="relative inline-block">
-                        <span class="relative z-10">même quand vous dormez</span>
+                        <span class="relative z-10">et que vous gérez vous-même</span>
                     </span>
                 </p>
 
                 <!-- Description -->
                 <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="0.1">
-                    Vous n'avez pas de site ou juste une page Facebook ?<br class="hidden md:block"/>
-                    <strong class="text-[var(--text)]">Lancez votre présence en ligne en 3-4 semaines.</strong><br class="hidden md:block"/>
-                    Un site simple, efficace, qui vous ramène des clients sans vous prendre la tête.
+                    Création, refonte ou boutique en ligne :<br class="hidden md:block"/>
+                    <strong class="text-[var(--text)]">un développeur Webflow basé à Genève</strong>, qui construit proprement<br class="hidden md:block"/>
+                    et vous dit honnêtement si Webflow est le bon choix pour votre projet.
                 </p>
 
                 <!-- CTAs centered -->
@@ -368,7 +330,7 @@ const budgetOptions = [
                         Discuter de mon projet
                     </a>
                     <a
-                        href="#methode"
+                        href="#ecommerce"
                         class="
                             bg-white
                             border-2 border-black
@@ -379,7 +341,7 @@ const budgetOptions = [
                             flex items-center justify-center gap-2
                         "
                     >
-                        Voir comment ça marche
+                        E-commerce sur Webflow ?
                         <i class="ri-arrow-down-line"></i>
                     </a>
                 </div>
@@ -396,13 +358,13 @@ const budgetOptions = [
                             <div class="w-3 h-3 rounded-full bg-green-400 border border-black"></div>
                         </div>
                         <div class="flex-1 bg-white border border-black px-3 py-1 text-xs text-gray-400 font-mono text-center">
-                            votresite.ch
+                            votresite.webflow.io
                         </div>
                     </div>
                     <!-- Screenshot -->
                     <img
-                        src={creationHero.src}
-                        alt="Exemple de création de site web professionnel"
+                        src={webflowHero.src}
+                        alt="Exemple de site Webflow sur-mesure créé par un développeur freelance"
                         class="w-full h-auto"
                     />
                 </div>
@@ -413,7 +375,7 @@ const budgetOptions = [
                 </div>
                 <!-- Speed badge -->
                 <div class="absolute -bottom-4 -right-4 bg-[var(--blue)] border-2 border-black px-4 py-2 shadow-[3px_3px_0px_rgba(0,0,0,1)] rotate-3">
-                    <span class="font-bold text-sm">3-4 sem.</span>
+                    <span class="font-bold text-sm">2-4 sem.</span>
                 </div>
             </div>
 
@@ -442,7 +404,7 @@ const budgetOptions = [
                         Vous vous reconnaissez ?
                     </span>
                 </h2>
-                <p class="text-lg text-gray-600">Ce sont les situations que rencontrent la plupart de mes clients avant de travailler ensemble.</p>
+                <p class="text-lg text-gray-600">Ce sont les situations typiques des clients qui cherchent un freelance Webflow.</p>
             </div>
 
             <!-- Pain points grid -->
@@ -463,18 +425,120 @@ const budgetOptions = [
             <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-6 md:p-8 text-center" data-animate="fade-up">
                 <p class="text-lg md:text-xl font-medium">
                     <i class="ri-lightbulb-line text-[var(--blue)] mr-2"></i>
-                    <strong>La bonne nouvelle ?</strong> Avoir un site professionnel ne demande ni des mois de travail, ni un budget démesuré.
+                    <strong>La bonne nouvelle ?</strong> Webflow bien construit, c'est un site rapide, élégant, et que vous éditez vous-même — sans dépendre de personne.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- OFFERS SECTION -->
+    <section id="offres" class="py-20 md:py-28 px-4 relative overflow-hidden">
+        <BackgroundCircuitBoard animated={true} />
+        <div class="max-w-5xl mx-auto relative z-10">
+            <!-- Section header -->
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    prestations
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                    Ce que je fais sur Webflow
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Trois types de missions, un même standard : <strong>un projet Webflow propre</strong>, documenté, que n'importe quel professionnel pourrait reprendre.
                 </p>
             </div>
 
-            <!-- Lien contextuel : audit + signes site dort -->
-            <p class="mt-8 p-4 bg-[var(--yellow)]/30 border-l-4 border-black text-sm md:text-base max-w-3xl mx-auto">
-                <strong>Pour aller plus loin :</strong> j'ai analysé
-                <a href="/blog/audit-50-sites-indeps-romands" class="underline font-bold hover:text-[var(--violet)]">50 sites d'indépendants romands</a>
-                pour identifier ce qui marche (et ce qui ne marche pas), et cette
-                <a href="/blog/15-signes-site-web-dort" class="underline font-bold hover:text-[var(--violet)]">checklist en 4 minutes</a>
-                te dit si ton site actuel travaille pour toi ou s'il dort.
-            </p>
+            <!-- Offer cards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12" data-animate-stagger="scale">
+                {offers.map((offer) => (
+                    <div class="tech-card bg-white border-2 border-black p-6 transition-all duration-200 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
+                        <i class={`${offer.icon} text-3xl text-[var(--violet)] mb-4 block`}></i>
+                        <h3 class="text-xl font-bold mb-2">{offer.title}</h3>
+                        <p class="text-sm text-gray-600 mb-3">{offer.description}</p>
+                        <p class="text-xs text-[var(--blue)] font-medium">
+                            <i class="ri-user-star-line mr-1"></i>
+                            {offer.idealFor}
+                        </p>
+                    </div>
+                ))}
+            </div>
+
+            <!-- Reassurance note -->
+            <div class="bg-white border-2 border-black p-6 text-center" data-animate="fade-up">
+                <p class="text-gray-600">
+                    <i class="ri-information-line text-[var(--blue)] mr-2"></i>
+                    <strong>Et le référencement ?</strong> Intégré dans chaque mission — structure, balises, vitesse, <a href="/services/referencement-local" class="text-[var(--blue)] font-medium hover:underline">référencement local</a> compris. Un site Webflow invisible sur Google ne sert à rien.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- E-COMMERCE SECTION -->
+    <section id="ecommerce" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
+        <div class="max-w-5xl mx-auto">
+            <!-- Section header -->
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    vente en ligne
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                    E-commerce Webflow : ce qui marche, ce qui coince
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    On me demande souvent de créer une <strong>boutique en ligne sur Webflow</strong>. Réponse honnête : ça dépend de votre catalogue. Voici la grille de décision que j'utilise.
+                </p>
+            </div>
+
+            <!-- Two columns -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12">
+                <!-- Works -->
+                <div class="bg-[var(--main-bg)] border-2 border-black p-6 md:p-8" data-animate="fade-left">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+                        <span class="w-10 h-10 bg-green-100 border-2 border-green-400 flex items-center justify-center">
+                            <i class="ri-check-line text-green-600 text-xl"></i>
+                        </span>
+                        Webflow Ecommerce suffit
+                    </h3>
+                    <ul class="space-y-3">
+                        {ecomWorks.map((item) => (
+                            <li class="flex items-start gap-2 text-sm text-gray-700">
+                                <i class="ri-check-line text-green-600 mt-0.5 flex-shrink-0"></i>
+                                <span>{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                <!-- Limits -->
+                <div class="bg-[var(--main-bg)] border-2 border-black p-6 md:p-8" data-animate="fade-right">
+                    <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
+                        <span class="w-10 h-10 bg-red-100 border-2 border-red-300 flex items-center justify-center">
+                            <i class="ri-close-line text-red-500 text-xl"></i>
+                        </span>
+                        Webflow montre ses limites
+                    </h3>
+                    <ul class="space-y-3">
+                        {ecomLimits.map((item) => (
+                            <li class="flex items-start gap-2 text-sm text-gray-700">
+                                <i class="ri-close-line text-red-500 mt-0.5 flex-shrink-0"></i>
+                                <span>{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Alternative callout -->
+            <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-6 md:p-8" data-animate="fade-up">
+                <p class="text-base md:text-lg">
+                    <i class="ri-lightbulb-line text-[var(--blue)] mr-2"></i>
+                    <strong>Si votre projet dépasse Webflow Ecommerce</strong>, je ne force pas l'outil : je vous propose une boutique <a href="/services/creation-site-web" class="underline font-bold hover:text-[var(--violet)]">sur-mesure</a> ou une intégration adaptée (Stripe, Snipcart, solution headless). Vous obtenez la réponse dès le premier échange — gratuit — pas après trois semaines de build.
+                </p>
+            </div>
         </div>
     </section>
 
@@ -493,7 +557,7 @@ const budgetOptions = [
                     Comment ça se passe ?
                 </h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Pas de tunnel de développement interminable. Un processus clair, des validations régulières, un site en ligne en <strong class="text-[var(--blue)]">3-4 semaines</strong>.
+                    Un processus clair, des validations à chaque étape, un site Webflow en ligne en <strong class="text-[var(--blue)]">2-4 semaines</strong>.
                 </p>
             </div>
 
@@ -539,7 +603,7 @@ const budgetOptions = [
                 ))}
             </div>
 
-            <!-- Differentiators box -->
+            <!-- Differentiators box : freelance vs agence -->
             <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate="fade-up">
                 <!-- Corner boxes -->
                 <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
@@ -547,7 +611,7 @@ const budgetOptions = [
                 <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
                 <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
 
-                <h3 class="text-xl font-bold text-center mb-6">Ce qui change avec Jon Labs</h3>
+                <h3 class="text-xl font-bold text-center mb-6">Pourquoi un freelance Webflow plutôt qu'une agence ?</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {differentiators.map((diff) => (
                         <div class="text-center">
@@ -563,97 +627,6 @@ const budgetOptions = [
         </div>
     </section>
 
-    <!-- RESULTS SECTION -->
-    <section id="resultats" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-        <div class="max-w-5xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    résultats
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal">
-                    Ce que vous obtenez
-                </h2>
-            </div>
-
-            <!-- Results grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12" data-animate-stagger>
-                {results.map((result) => (
-                    <div class="result-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Green check icon -->
-                        <div class="w-10 h-10 bg-green-100 border-2 border-green-400 flex items-center justify-center mb-4">
-                            <i class="ri-check-line text-green-600 text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2">{result.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">{result.description}</p>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Testimonial placeholder -->
-            <div class="bg-[var(--accent)] bg-opacity-20 border-2 border-[var(--violet)] p-8 text-center" data-animate="fade-up">
-                <i class="ri-double-quotes-l text-4xl text-[var(--violet)] opacity-50 mb-4 block"></i>
-                <p class="text-lg md:text-xl italic text-gray-700 mb-4">
-                    « Jonathan a été super flexible, rapide et a compris exactement ce que je voulais. Il a été très rapide en plus car j'avais un besoin urgent. »
-                </p>
-                <span class="text-gray-500">— Solène Derbal, cheffe d'orchestre</span>
-            </div>
-
-            <!-- Lien contextuel : visibilité -->
-            <p class="mt-8 p-4 bg-[var(--yellow)]/30 border-l-4 border-black text-sm md:text-base max-w-3xl mx-auto">
-                <strong>Et après ?</strong> Avoir un beau site ne suffit pas — encore faut-il le rendre visible. J'ai écrit un guide complet sur
-                <a href="/blog/visibilite-site-internet-2026" class="underline font-bold hover:text-[var(--violet)]">comment rendre ton site visible sur internet en 2026</a>
-                (Google + IA), avec les leviers concrets à activer dès le lancement.
-            </p>
-        </div>
-    </section>
-
-    <!-- TECHNOLOGY SECTION -->
-    <section id="technologie" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <BackgroundCircuitBoard animated={true} />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    sous le capot
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal mb-4">
-                    Technologie moderne
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Pas de solution unique pour tous. <strong>Je choisis l'outil adapté à votre projet</strong> — simplicité, flexibilité ou performance.
-                </p>
-            </div>
-
-            <!-- Tech cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12" data-animate-stagger="scale">
-                {techStack.map((tech) => (
-                    <div class="tech-card bg-white border-2 border-black p-6 text-center transition-all duration-200 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <i class={`${tech.icon} text-3xl text-[var(--violet)] mb-4 block`}></i>
-                        <h3 class="text-xl font-bold mb-2">{tech.name}</h3>
-                        <p class="text-sm text-gray-600 mb-3">{tech.description}</p>
-                        <p class="text-xs text-[var(--blue)] font-medium">
-                            <i class="ri-user-star-line mr-1"></i>
-                            {tech.idealFor}
-                        </p>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Reassurance note -->
-            <div class="bg-white border-2 border-black p-6 text-center" data-animate="fade-up">
-                <p class="text-gray-600">
-                    <i class="ri-information-line text-[var(--blue)] mr-2"></i>
-                    <strong>Dans tous les cas :</strong> un site rapide, sécurisé, et que vous pouvez faire évoluer. On choisit ensemble l'option qui vous convient.
-                </p>
-            </div>
-        </div>
-    </section>
-
     <!-- PRICING SECTION -->
     <section id="prix" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
         <div class="max-w-5xl mx-auto">
@@ -665,9 +638,9 @@ const budgetOptions = [
                     <span class="w-8 h-px bg-gray-400"></span>
                 </span>
                 <h2 class="text-3xl md:text-4xl font-normal mb-4">
-                    Des tarifs clairs
+                    Combien coûte un site Webflow ?
                 </h2>
-                <p class="text-lg text-gray-600">Adaptés à la taille de votre projet. Pas de mauvaise surprise.</p>
+                <p class="text-lg text-gray-600">Des fourchettes claires en CHF. La plupart des freelances Webflow cachent leurs prix — pas ici.</p>
             </div>
 
             <!-- Pricing cards -->
@@ -717,43 +690,37 @@ const budgetOptions = [
             <div class="bg-white border-2 border-black p-6 md:p-8" data-animate="fade-up">
                 <h3 class="font-bold mb-4 flex items-center gap-2">
                     <i class="ri-information-line text-[var(--blue)]"></i>
-                    Ce qui influence le prix :
+                    Bon à savoir :
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600 mb-6">
                     <ul class="space-y-2">
                         <li class="flex items-center gap-2">
                             <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            Nombre de pages
+                            L'abonnement Webflow (CHF 15-40/mois) remplace hébergement et maintenance
                         </li>
                         <li class="flex items-center gap-2">
                             <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            Complexité du design
+                            Le prix dépend du nombre de pages et des intégrations
                         </li>
                     </ul>
                     <ul class="space-y-2">
                         <li class="flex items-center gap-2">
                             <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            Fonctionnalités spécifiques (réservation, multilingue...)
+                            Refonte d'un site Webflow existant : audit d'abord, devis ferme ensuite
                         </li>
                         <li class="flex items-center gap-2">
                             <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            Délai souhaité (option express disponible)
+                            Paiement en 2-3 fois possible selon le montant
                         </li>
                     </ul>
                 </div>
-                <div class="flex flex-wrap gap-6 text-sm">
-                    <span class="flex items-center gap-2">
-                        <i class="ri-bank-card-line text-[var(--blue)]"></i>
-                        <strong>Facilités de paiement :</strong> Paiement en 2-3 fois possible selon le montant.
-                    </span>
-                </div>
                 <p class="mt-4 text-sm text-gray-500 bg-gray-50 p-3 border-l-4 border-[var(--blue)]">
-                    <strong>Pas sûr de la formule ?</strong> On en discute ensemble. Premier échange gratuit et sans engagement.
+                    <strong>Pas sûr de la formule ?</strong> On en discute ensemble. Premier échange gratuit et sans engagement. Voir aussi <a href="/tarifs" class="underline font-medium hover:text-[var(--violet)]">mes tarifs détaillés</a>.
                 </p>
 
                 <!-- Lien contextuel : article prix -->
                 <p class="mt-4 p-4 bg-[var(--yellow)]/30 border-l-4 border-black text-sm">
-                    <strong>À lire avant de te décider :</strong>
+                    <strong>À lire avant de vous décider :</strong>
                     <a href="/blog/prix-site-web-suisse-2026" class="underline font-bold hover:text-[var(--violet)]">Combien coûte vraiment un site web en Suisse en 2026 ?</a>
                     — un guide transparent des fourchettes en CHF, par profil de prestataire.
                 </p>
@@ -846,7 +813,7 @@ const budgetOptions = [
                     <span class="w-8 h-px bg-gray-400"></span>
                 </span>
                 <h2 class="text-3xl md:text-4xl font-normal">
-                    Un prestataire à <span class="text-[var(--blue)]">Genève</span>,<br/>
+                    Un freelance Webflow en <span class="text-[var(--blue)]">Suisse romande</span>,<br/>
                     ça change quoi ?
                 </h2>
             </div>
@@ -855,19 +822,44 @@ const budgetOptions = [
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                 <!-- Why local -->
                 <div data-animate="fade-left">
-                    <h3 class="text-xl font-bold mb-6">Travailler avec quelqu'un dans la région, c'est aussi :</h3>
+                    <h3 class="text-xl font-bold mb-6">La plupart des freelances Webflow francophones sont en France. Travailler avec quelqu'un d'ici, c'est :</h3>
                     <div class="space-y-4">
-                        {localAdvantages.map((adv) => (
-                            <div class="flex items-start gap-4 p-4 bg-[var(--main-bg)] border-2 border-black">
-                                <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                                    <i class={`${adv.icon} text-lg`}></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold mb-1">{adv.title}</h4>
-                                    <p class="text-sm text-gray-600">{adv.description}</p>
-                                </div>
+                        <div class="flex items-start gap-4 p-4 bg-[var(--main-bg)] border-2 border-black">
+                            <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
+                                <i class="ri-bank-card-line text-lg"></i>
                             </div>
-                        ))}
+                            <div>
+                                <h4 class="font-bold mb-1">Des tarifs en CHF, une facture suisse</h4>
+                                <p class="text-sm text-gray-600">Pas de TVA européenne ni de taux de change. Une facturation propre pour votre comptabilité.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-[var(--main-bg)] border-2 border-black">
+                            <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
+                                <i class="ri-bar-chart-line text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">La même réalité business</h4>
+                                <p class="text-sm text-gray-600">Je connais le marché romand, les attentes des clients locaux, les spécificités légales (LPD, mentions).</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-[var(--main-bg)] border-2 border-black">
+                            <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
+                                <i class="ri-user-voice-line text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Des échanges en personne possibles</h4>
+                                <p class="text-sm text-gray-600">Un café à Genève pour cadrer le projet, un atelier pour la formation à l'éditeur Webflow.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-[var(--main-bg)] border-2 border-black">
+                            <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
+                                <i class="ri-time-line text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Réactivité</h4>
+                                <p class="text-sm text-gray-600">Même fuseau horaire, même rythme. Une question urgente ? Réponse dans la journée.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -906,10 +898,10 @@ const budgetOptions = [
             <!-- Section header -->
             <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
                 <h2 class="text-3xl md:text-4xl font-normal mb-4 text-[var(--text)]">
-                    Prêt à lancer votre site ?
+                    Prêt à lancer votre projet Webflow ?
                 </h2>
                 <p class="text-lg text-gray-600">
-                    Premier échange gratuit et sans engagement. Je discute de votre projet avec vous, je vous donne mon avis honnête, vous décidez ensuite.
+                    Premier échange gratuit et sans engagement. Je vous donne mon avis honnête — y compris si Webflow n'est pas le bon outil pour vous.
                 </p>
             </div>
 
@@ -917,7 +909,7 @@ const budgetOptions = [
             <div class="contact-form-container" data-animate="scale">
                 <form
                     class="bg-white text-[var(--text)] border-3 border-black p-6 md:p-8 shadow-[8px_8px_0px_rgba(0,217,163,0.3)] relative"
-                    id="creation-form"
+                    id="webflow-form"
                 >
                     <!-- Corner boxes -->
                     <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
@@ -925,12 +917,12 @@ const budgetOptions = [
                     <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
                     <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
 
-                    <h3 class="text-xl font-bold mb-6 text-center">Parlons de votre projet</h3>
+                    <h3 class="text-xl font-bold mb-6 text-center">Parlons de votre projet Webflow</h3>
 
                     <!-- Hidden fields for Web3Forms -->
                     <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
-                    <input type="hidden" name="subject" value="Demande création site web - Jon Labs">
-                    <input type="hidden" name="from_name" value="Jon Labs - Création site">
+                    <input type="hidden" name="subject" value="Demande développeur Webflow - Jon Labs">
+                    <input type="hidden" name="from_name" value="Jon Labs - Développeur Webflow">
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -1011,7 +1003,7 @@ const budgetOptions = [
                                 name="message"
                                 rows="4"
                                 required
-                                placeholder="Décrivez brièvement votre activité et ce que vous recherchez..."
+                                placeholder="Décrivez brièvement votre activité et votre projet Webflow..."
                                 class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
                             ></textarea>
                         </div>
@@ -1131,10 +1123,10 @@ const budgetOptions = [
                         </a>
                     </div>
 
-                    <!-- Not ready yet -->
+                    <!-- Bridge to custom dev -->
                     <div class="text-center mt-8 p-4 bg-white border-2 border-dashed border-gray-300">
                         <p class="text-gray-500 text-sm">
-                            <strong>Pas encore prêt ?</strong> C'est normal. Vous pouvez aussi consulter mes <a href="/services" class="text-[var(--blue)] hover:underline">autres services</a> ou lire quelques articles sur le <a href="/blog" class="text-[var(--blue)] hover:underline">blog</a> pour mieux me connaître.
+                            <strong>Webflow n'est pas adapté à votre projet ?</strong> Je développe aussi des sites <a href="/services/creation-site-web" class="text-[var(--blue)] hover:underline">sur-mesure</a> et je reprends des sites <a href="/services/developpeur-wordpress" class="text-[var(--blue)] hover:underline">WordPress</a>. Vous pouvez aussi jeter un œil à mes <a href="/portfolio" class="text-[var(--blue)] hover:underline">réalisations</a>.
                         </p>
                     </div>
                 </div>
@@ -1240,7 +1232,7 @@ const budgetOptions = [
     });
 
     // Form submission
-    const form = document.getElementById('creation-form') as HTMLFormElement;
+    const form = document.getElementById('webflow-form') as HTMLFormElement;
     const submitBtn = form?.querySelector('.submit-btn') as HTMLButtonElement;
     const btnText = submitBtn?.querySelector('span');
     const btnIcon = submitBtn?.querySelector('i');

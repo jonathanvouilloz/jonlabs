@@ -4,11 +4,8 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
-// Import SVG pour surlignement
-import arrowUnderline from '../../assets/arrow-3.svg';
-
-// Import image hero (réutiliser temporairement refonte1.webp)
-import creationHero from '../../assets/services/refonte-1.webp';
+// Import image hero (réutiliser temporairement refonte-1.webp)
+import wordpressHero from '../../assets/services/refonte-1.webp';
 
 // Import background components
 import BackgroundGlitchGrid from '../../components/backgrounds/BackgroundGlitchGrid.astro';
@@ -23,262 +20,226 @@ import { getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
 
 // SEO Data
 const seoData = {
-    title: "Création de site web à Genève | Jon Labs",
-    description: "Site web professionnel en 3-4 semaines. Design sur-mesure, optimisé Google, sans WordPress. Pour indépendants et PME à Genève. Devis gratuit."
+    title: "Freelance WordPress à Genève — création, refonte | Jon Labs",
+    description: "Votre site WordPress rame ou date ? Création, refonte et migration vers du moderne. Freelance à Genève, tarifs CHF clairs. Audit gratuit."
 };
 
 // Schema.org data
 const breadcrumb = getBreadcrumbSchema([
     { name: "Accueil", url: SITE_URL },
     { name: "Services", url: `${SITE_URL}/services` },
-    { name: "Création de site web", url: `${SITE_URL}/services/creation-site-web` }
+    { name: "Freelance WordPress", url: `${SITE_URL}/services/developpeur-wordpress` }
 ]);
-const schemas: any[] = [serviceSchemas["creation-site-web"], breadcrumb];
+const schemas: any[] = [serviceSchemas["developpeur-wordpress"], breadcrumb];
 
 // Pain points data (4 items)
 const painPoints = [
     {
-        icon: "ri-search-line",
-        title: "Invisible sur Google",
-        description: "Vos concurrents apparaissent en premier quand quelqu'un cherche votre métier à Genève. Vous, non. Les clients potentiels ne savent même pas que vous existez."
+        icon: "ri-speed-line",
+        title: "Un site WordPress qui rame",
+        description: "Votre site met 6 secondes à charger. Vos visiteurs partent avant d'avoir vu votre offre, et Google vous pénalise pour la lenteur."
     },
     {
-        icon: "ri-chat-voice-line",
-        title: "Dépendant du bouche-à-oreille",
-        description: "Votre réseau actuel vous amène des clients, mais c'est limité. Vous aimeriez que des gens vous trouvent sans avoir besoin de vous connaître."
+        icon: "ri-user-unfollow-line",
+        title: "Un prestataire qui ne répond plus",
+        description: "Le site a été fait il y a des années par quelqu'un d'injoignable. Vous payez encore une maintenance sans savoir pour quoi exactement."
     },
     {
-        icon: "ri-image-line",
-        title: "Une image qui ne vous ressemble pas",
-        description: "Votre seule vitrine, c'est une page Facebook ou un profil LinkedIn. Ça fait le job, mais ça ne reflète pas vraiment qui vous êtes ni le sérieux de votre travail."
+        icon: "ri-stack-line",
+        title: "Des plugins entassés",
+        description: "30 plugins installés au fil du temps, des mises à jour qui font peur, des alertes de sécurité ignorées. Personne n'ose toucher au site."
     },
     {
-        icon: "ri-settings-3-line",
-        title: "Peur de la complexité technique",
-        description: "Vous avez déjà regardé WordPress, Wix, Squarespace... et vous avez abandonné. Trop compliqué, trop de temps, trop de choix. Vous voulez juste un truc qui marche."
+        icon: "ri-money-dollar-circle-line",
+        title: "Des coûts qui s'accumulent",
+        description: "Hébergement, licences de plugins, thème premium, maintenance, dépannages... Le site coûte chaque mois sans rien rapporter de mesurable."
     }
 ];
 
-// Methodology steps (5 étapes)
+// 3 intents : création / refonte / migration
+const intents = [
+    {
+        id: "creation",
+        icon: "ri-add-box-line",
+        title: "Création de site WordPress",
+        intro: "WordPress reste un bon choix quand le projet le justifie : blog actif, édition fréquente par vos équipes, fonctionnalités métier disponibles en plugin. Je le construis proprement dès le départ.",
+        features: [
+            "Thème léger sur-mesure — pas de page builder usine à gaz",
+            "Seulement les plugins nécessaires, maintenus et reconnus",
+            "Performance et référencement natifs dès la mise en ligne",
+            "Interface d'édition simple, adaptée à votre équipe",
+            "Formation incluse pour publier en autonomie"
+        ]
+    },
+    {
+        id: "refonte",
+        icon: "ri-refresh-line",
+        title: "Refonte de site WordPress lent ou vieilli",
+        intro: "C'est le cas le plus fréquent : un site WordPress qui a 5-10 ans, lent, au design daté, gonflé de plugins. Quand la base est saine, pas besoin de tout jeter — on refait bien.",
+        features: [
+            "Audit complet d'abord : vitesse, sécurité, structure, SEO",
+            "Nettoyage des plugins et de la base de données",
+            "Thème refait : design actuel, mobile impeccable",
+            "Référencement préservé : URLs, contenus, positions Google",
+            "Devis ferme après l'audit — pas de chantier sans fin"
+        ]
+    },
+    {
+        id: "migration",
+        icon: "ri-arrow-right-up-line",
+        title: "Migration WordPress vers une stack moderne",
+        intro: "Quand WordPress n'est plus le bon outil — site vitrine sans blog actif, coûts récurrents injustifiés, failles de sécurité à répétition — je migre votre site vers une stack moderne (Astro, Next.js). C'est ma spécialité.",
+        features: [
+            "Contenu intégralement repris : pages, articles, images",
+            "Redirections 301 systématiques — votre référencement est conservé",
+            "Fini les mises à jour de plugins et les alertes de sécurité",
+            "Coûts d'hébergement quasi nuls, vitesse multipliée",
+            "Site éditable via une interface simple, sans WordPress"
+        ]
+    }
+];
+
+// Methodology steps (4 étapes)
 const methodSteps = [
     {
         step: "1",
-        title: "Échange",
-        description: "Je discute avec vous de votre activité, vos objectifs, vos clients. Qu'est-ce que vous voulez que les visiteurs comprennent en 10 secondes ? C'est la base de tout.",
-        duration: "30-45 min (gratuit, sans engagement)"
+        title: "Audit gratuit",
+        description: "J'analyse votre site WordPress existant (ou votre projet) : vitesse, sécurité, structure, référencement. Vous recevez un diagnostic clair et la recommandation honnête : refonte, migration, ou rien du tout.",
+        duration: "Sous 48h (gratuit, sans engagement)"
     },
     {
         step: "2",
-        title: "Contenu",
-        description: "Vous me fournissez l'essentiel : textes, photos, logo si vous en avez un. Pas besoin d'être parfait — j'affine avec vous. Je structure le tout pour que ce soit clair et efficace.",
-        duration: "1 semaine (à votre rythme)"
+        title: "Plan & devis ferme",
+        description: "Sur la base de l'audit, je vous propose un plan d'action précis avec un devis ferme. Pas de forfait flou ni de chantier qui s'éternise.",
+        duration: "2-3 jours"
     },
     {
         step: "3",
-        title: "Maquette",
-        description: "Je crée une maquette visuelle de votre site. Vous voyez exactement à quoi ça ressemblera avant que je code quoi que ce soit. J'ajuste jusqu'à ce que ça vous plaise.",
-        duration: "3-5 jours"
+        title: "Réalisation",
+        description: "Création, refonte ou migration : je travaille sur une copie, votre site reste en ligne pendant toute la durée du chantier. Vous validez avant la bascule.",
+        duration: "2-4 semaines selon le projet"
     },
     {
         step: "4",
-        title: "Développement",
-        description: "Je code votre site. Pas de template générique qui rame, pas d'usine à gaz. Un site sur-mesure, rapide, optimisé pour Google dès le départ.",
-        duration: "1-2 semaines"
-    },
-    {
-        step: "5",
-        title: "Lancement",
-        description: "Mise en ligne, vérifications techniques, et une formation rapide pour que vous puissiez faire les modifications simples vous-même si besoin.",
-        duration: "1 jour"
+        title: "Bascule & formation",
+        description: "Mise en production, vérifications techniques (redirections, indexation), et formation pour que vous gériez le contenu vous-même. La maintenance ensuite ? Optionnelle, jamais imposée.",
+        duration: "1-2 jours"
     }
 ];
 
-// Differentiators (encart)
+// Differentiators
 const differentiators = [
     {
-        icon: "ri-eye-line",
-        title: "Pas de surprise",
-        description: "vous validez chaque étape avant qu'on avance"
+        icon: "ri-user-voice-line",
+        title: "Un seul interlocuteur",
+        description: "celui qui audite est celui qui code"
     },
     {
-        icon: "ri-key-line",
-        title: "Pas de dépendance",
-        description: "votre site vous appartient, vous pouvez le faire évoluer"
+        icon: "ri-price-tag-3-line",
+        title: "Tarifs en CHF affichés",
+        description: "fourchettes claires, devis ferme après audit"
     },
     {
-        icon: "ri-chat-smile-2-line",
-        title: "Pas de jargon",
-        description: "je vous explique tout en français, pas en \"dev\""
+        icon: "ri-lock-unlock-line",
+        title: "Zéro dépendance",
+        description: "site documenté, accès complets, maintenance optionnelle"
     },
     {
-        icon: "ri-flashlight-line",
-        title: "Option express",
-        description: "besoin urgent ? On peut accélérer le calendrier"
+        icon: "ri-scales-3-line",
+        title: "Conseil honnête",
+        description: "si votre WordPress tient la route, je vous le dis aussi"
     }
 ];
 
-// Results (6 items)
-const results = [
-    {
-        icon: "ri-smartphone-line",
-        title: "Un site responsive (mobile + ordinateur)",
-        description: "Vos visiteurs restent et naviguent confortablement, peu importe leur appareil. Plus de 60% des visites viennent du mobile."
-    },
-    {
-        icon: "ri-search-eye-line",
-        title: "Optimisé pour Google (référencement inclus)",
-        description: "Votre site est construit pour remonter dans les recherches locales. Quelqu'un cherche \"[votre métier] Genève\" ? Vous avez une chance d'apparaître."
-    },
-    {
-        icon: "ri-speed-line",
-        title: "Chargement ultra-rapide (score 90+)",
-        description: "Un site lent fait fuir les visiteurs. Le vôtre charge en moins de 2 secondes. Google adore, vos clients aussi."
-    },
-    {
-        icon: "ri-palette-line",
-        title: "Design sur-mesure, pas un template",
-        description: "Votre site ne ressemble à aucun autre. Il reflète votre identité, pas celle d'un modèle utilisé par 10'000 autres entreprises."
-    },
-    {
-        icon: "ri-pencil-line",
-        title: "Autonomie pour les modifications simples",
-        description: "Changer un texte, ajouter une photo, mettre à jour vos horaires : vous pouvez le faire vous-même. Formation incluse."
-    },
-    {
-        icon: "ri-shield-check-line",
-        title: "Hébergement sécurisé et performant",
-        description: "Votre site est en ligne 99.9% du temps, avec certificat SSL (le petit cadenas). Vos visiteurs sont en confiance."
-    }
-];
-
-// Tech stack
-const techStack = [
-    {
-        name: "Framer",
-        description: "Idéal pour les sites vitrines élégants. Modifications faciles, animations fluides.",
-        icon: "ri-layout-line",
-        idealFor: "Indépendants, consultants, portfolios créatifs"
-    },
-    {
-        name: "Webflow",
-        description: "Pour les projets plus ambitieux. CMS intégré, interactions avancées.",
-        icon: "ri-grid-line",
-        idealFor: "PME, agences, sites avec beaucoup de contenu"
-    },
-    {
-        name: "Site sur-mesure",
-        description: "Performance maximale et contrôle total. Pour les besoins spécifiques.",
-        icon: "ri-code-s-slash-line",
-        idealFor: "E-commerce, applications web, besoins techniques spécifiques"
-    }
-];
-
-// Pricing plans
+// Pricing plans (alignés sur /tarifs)
 const pricingPlans = [
     {
-        name: "Site Vitrine",
-        price: "950",
+        name: "Création WordPress",
+        price: "1'490",
         priceLabel: "À partir de",
         features: [
-            "1 à 5 pages",
-            "Design sur-mesure",
-            "Responsive (mobile + desktop)",
-            "Optimisation Google de base",
-            "Formulaire de contact",
-            "Hébergement 1ère année inclus"
+            "Site vitrine 1 à 5 pages",
+            "Thème léger sur-mesure",
+            "Plugins essentiels uniquement",
+            "SEO de base : structure, balises, vitesse",
+            "Formation à l'édition"
         ],
-        ideal: "Artisans, indépendants, consultants qui veulent une présence en ligne simple et efficace.",
+        ideal: "Indépendants et PME qui veulent un WordPress propre et gérable.",
         highlighted: false
     },
     {
-        name: "Site Vitrine + Blog",
-        price: "1'650",
+        name: "Refonte WordPress",
+        price: "2'490",
         priceLabel: "À partir de",
         features: [
-            "Tout ce qui est inclus dans Site Vitrine",
-            "Section blog intégrée",
-            "Système de publication simple",
-            "Optimisation SEO avancée",
-            "Formation à la rédaction web"
+            "Audit complet inclus",
+            "Nettoyage plugins + base de données",
+            "Thème refait, design actuel",
+            "Performance remise à niveau (90+ visé)",
+            "Référencement préservé et renforcé"
         ],
-        ideal: "Coachs, thérapeutes, experts qui veulent démontrer leur expertise et améliorer leur référencement.",
+        ideal: "Sites WordPress de 5-10 ans qui rament ou font fuir les visiteurs.",
         highlighted: true
     },
     {
-        name: "E-commerce & Applications",
+        name: "Migration vers stack moderne",
         price: "Sur devis",
         priceLabel: "",
         features: [
-            "Boutique en ligne",
-            "Paiement sécurisé (Stripe, TWINT)",
-            "Gestion des stocks",
-            "Fonctionnalités sur-mesure"
+            "Reprise intégrale du contenu",
+            "Redirections 301 — SEO conservé",
+            "Hébergement quasi gratuit ensuite",
+            "Plus aucune maintenance WordPress"
         ],
-        ideal: "Commerçants, créateurs, entreprises avec des besoins spécifiques.",
+        ideal: "Sites vitrines qui n'ont plus besoin de WordPress et veulent arrêter les frais.",
         highlighted: false
     }
 ];
 
-// FAQs (8 questions)
+// FAQs (10 questions)
 const faqs = [
     {
-        question: "Combien de temps pour avoir mon site ?",
-        answer: "Entre 3 et 4 semaines pour un site vitrine standard. Si vous avez une urgence (événement, lancement), j'ai une option express. On en parle lors du premier échange."
+        question: "WordPress ou site sur-mesure : comment choisir ?",
+        answer: "WordPress se justifie si vous publiez souvent, si plusieurs personnes éditent le site, ou si un plugin métier couvre un besoin précis. Pour un site vitrine qui change peu, une stack moderne coûte moins cher à l'usage, va plus vite et ne demande aucune maintenance. L'audit gratuit tranche la question pour votre cas précis."
     },
     {
-        question: "Qu'est-ce que je dois fournir ?",
-        answer: "Vos textes (même bruts, on les retravaille ensemble), vos photos, votre logo si vous en avez un. Pas de panique si vous n'avez pas tout : je peux vous guider ou vous recommander des professionnels."
+        question: "Combien coûte un freelance WordPress en Suisse ?",
+        answer: "Chez moi : création à partir de CHF 1'490, refonte à partir de CHF 2'490 (audit inclus), migration sur devis. Le marché suisse romand pratique des tarifs très variables — méfiez-vous des forfaits flous sans audit préalable ni périmètre écrit."
     },
     {
-        question: "Je n'y connais rien en technique, c'est un problème ?",
-        answer: "Pas du tout. C'est même la majorité de mes clients. Je m'occupe de toute la partie technique, vous vous concentrez sur votre métier. Et je vous explique tout en termes simples."
+        question: "Mon site WordPress est lent : refonte ou migration ?",
+        answer: "Ça dépend de l'usage. Si vous publiez régulièrement et que la base est saine : refonte dans WordPress (nettoyage, thème refait). Si c'est un site vitrine qui ne bouge presque jamais : la migration vers une stack moderne élimine le problème à la racine — plus de plugins, plus de lenteur, plus de maintenance. L'audit gratuit vous donne la réponse chiffrée."
     },
     {
-        question: "Et si j'ai besoin de modifications après ?",
-        answer: "Les petites modifications (textes, photos), vous pouvez les faire vous-même — je vous montre comment. Pour des évolutions plus importantes, on en discute et je vous fais un devis."
+        question: "Peut-on migrer un site WordPress sans perdre son référencement ?",
+        answer: "Oui, à condition de faire les choses dans l'ordre : inventaire des URLs existantes, redirections 301 systématiques, reprise des balises et des contenus, vérification de l'indexation après bascule. C'est le cœur de ma méthode de migration — votre historique Google est un actif, on ne le jette pas."
     },
     {
-        question: "Pourquoi pas WordPress comme tout le monde ?",
-        answer: "WordPress se justifie pour certains usages — blog très actif, plugins métier — et je le propose aussi quand c'est le bon choix. Mais pour un site vitrine, ma stack vous donne un site plus rapide, plus sécurisé, et sans mises à jour constantes ni maintenance pénible."
+        question: "Combien de temps prend une refonte WordPress ?",
+        answer: "Entre 2 et 4 semaines après l'audit, selon la taille du site. Votre site actuel reste en ligne pendant tout le chantier : je travaille sur une copie et on bascule seulement quand vous avez validé."
     },
     {
-        question: "C'est quoi la différence avec Wix ou Squarespace ?",
-        answer: "Ces outils sont pratiques pour démarrer seul, mais vous êtes limité par leurs templates et leur système. Avec moi, vous avez un site vraiment sur-mesure, optimisé pour Google, et vous n'êtes pas enfermé dans une plateforme."
+        question: "Faut-il un contrat de maintenance WordPress ?",
+        answer: "Si vous restez sur WordPress : oui, un minimum (mises à jour, sauvegardes, sécurité) — soit par moi, soit en interne après formation. Si vous migrez vers une stack moderne : la question disparaît, il n'y a presque rien à maintenir. Dans tous les cas, chez moi la maintenance est optionnelle, jamais un abonnement forcé."
     },
     {
-        question: "Et si le résultat ne me plaît pas ?",
-        answer: "On valide ensemble à chaque étape (maquette, puis développement). Vous ne découvrez pas le site à la fin — vous participez à sa création. Si quelque chose ne va pas, on ajuste avant de continuer."
+        question: "Pourquoi un freelance plutôt qu'une agence WordPress ?",
+        answer: "Vous parlez directement à celui qui audite et qui code. Pas de chef de projet entre nous, pas de couches de facturation. Sur un projet WordPress typique de PME, ça change le budget du simple au double — et la réactivité avec."
     },
     {
-        question: "Est-ce que je serai visible sur Google tout de suite ?",
-        answer: "Le référencement prend du temps (quelques semaines à quelques mois selon la concurrence). Mais votre site sera techniquement optimisé dès le jour 1. C'est la fondation. Ensuite, si vous voulez aller plus loin, on peut travailler sur une stratégie SEO plus poussée."
+        question: "Travaillez-vous avec WooCommerce ?",
+        answer: "Oui, pour les boutiques existantes : optimisation, nettoyage, refonte. Pour une nouvelle boutique, je compare d'abord WooCommerce avec les alternatives selon votre catalogue et vos moyens de paiement (TWINT, cartes) — WooCommerce n'est pas toujours la meilleure option en Suisse."
+    },
+    {
+        question: "Reprenez-vous des sites créés par un autre prestataire ?",
+        answer: "C'est même la majorité de mes missions WordPress. Site hérité d'une agence fermée, d'un freelance injoignable ou d'un stagiaire parti : je commence par l'audit, je documente ce qui existe, et vous repartez avec un site que vous maîtrisez."
+    },
+    {
+        question: "Webflow ou WordPress en 2026 ?",
+        answer: "Webflow pour un site visuel géré en autonomie sans plugins ; WordPress pour le blog intensif et les besoins couverts par des plugins métier. Je travaille avec les deux — voyez aussi ma page développeur Webflow pour comparer les approches."
     }
 ];
 schemas.push(getFAQPageSchema(faqs));
-
-// Local advantages
-const localAdvantages = [
-    {
-        icon: "ri-user-voice-line",
-        title: "Des échanges facilités",
-        description: "On peut se voir en personne si besoin. Un café pour discuter du projet, un atelier pour affiner les détails."
-    },
-    {
-        icon: "ri-bar-chart-line",
-        title: "La même réalité business",
-        description: "Je connais le marché suisse, les attentes des clients locaux, les spécificités légales (LPD, facturation)."
-    },
-    {
-        icon: "ri-time-line",
-        title: "Réactivité",
-        description: "Même fuseau horaire, même rythme. Une question urgente ? Vous avez une réponse dans la journée."
-    },
-    {
-        icon: "ri-group-line",
-        title: "Un réseau local",
-        description: "Besoin d'un photographe professionnel ? D'un rédacteur ? Je peux vous recommander des personnes de confiance dans la région."
-    }
-];
 
 // Local zones
 const zones = [
@@ -292,18 +253,18 @@ const zones = [
 
 // Project type options for form
 const projectTypes = [
-    { value: "site-vitrine", label: "Site vitrine" },
-    { value: "site-blog", label: "Site + blog" },
-    { value: "e-commerce", label: "E-commerce" },
+    { value: "creation-wordpress", label: "Création de site WordPress" },
+    { value: "refonte-wordpress", label: "Refonte d'un site WordPress existant" },
+    { value: "migration-wordpress", label: "Migration vers une stack moderne" },
     { value: "ne-sait-pas", label: "Je ne sais pas encore" }
 ];
 
 // Budget options for form
 const budgetOptions = [
-    { value: "moins-1000", label: "< 1'000 CHF" },
-    { value: "1000-2000", label: "1'000 - 2'000 CHF" },
-    { value: "2000-5000", label: "2'000 - 5'000 CHF" },
-    { value: "plus-5000", label: "> 5'000 CHF" },
+    { value: "moins-1500", label: "< 1'500 CHF" },
+    { value: "1500-3000", label: "1'500 - 3'000 CHF" },
+    { value: "3000-6000", label: "3'000 - 6'000 CHF" },
+    { value: "plus-6000", label: "> 6'000 CHF" },
     { value: "ne-sait-pas", label: "Je ne sais pas" }
 ];
 ---
@@ -330,21 +291,21 @@ const budgetOptions = [
             <!-- Centered text content -->
             <div class="text-center">
                 <!-- H1 SEO discret -->
-                <h1 class="seo-h1 mb-8 mt-8">Création de site web à Genève</h1>
+                <h1 class="seo-h1 mb-8 mt-8">Freelance WordPress à Genève : création, refonte et migration</h1>
 
                 <!-- Main title -->
                 <p class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6" data-animate="fade-up">
-                    Un site qui travaille pour vous,<br/>
+                    Votre site WordPress mérite mieux<br/>
                     <span class="relative inline-block">
-                        <span class="relative z-10">même quand vous dormez</span>
+                        <span class="relative z-10">que de ramer dans son coin</span>
                     </span>
                 </p>
 
                 <!-- Description -->
                 <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="0.1">
-                    Vous n'avez pas de site ou juste une page Facebook ?<br class="hidden md:block"/>
-                    <strong class="text-[var(--text)]">Lancez votre présence en ligne en 3-4 semaines.</strong><br class="hidden md:block"/>
-                    Un site simple, efficace, qui vous ramène des clients sans vous prendre la tête.
+                    Vous voulez un site WordPress propre, ou votre site actuel vous pose problème ?<br class="hidden md:block"/>
+                    <strong class="text-[var(--text)]">Un freelance WordPress à Genève</strong> qui crée, refait ou migre —<br class="hidden md:block"/>
+                    avec un audit gratuit et un avis honnête pour commencer.
                 </p>
 
                 <!-- CTAs centered -->
@@ -364,11 +325,11 @@ const budgetOptions = [
                             flex items-center justify-center gap-2
                         "
                     >
-                        <i class="ri-chat-3-line"></i>
-                        Discuter de mon projet
+                        <i class="ri-stethoscope-line"></i>
+                        Obtenir un audit gratuit
                     </a>
                     <a
-                        href="#methode"
+                        href="#prestations"
                         class="
                             bg-white
                             border-2 border-black
@@ -379,7 +340,7 @@ const budgetOptions = [
                             flex items-center justify-center gap-2
                         "
                     >
-                        Voir comment ça marche
+                        Création, refonte ou migration ?
                         <i class="ri-arrow-down-line"></i>
                     </a>
                 </div>
@@ -401,8 +362,8 @@ const budgetOptions = [
                     </div>
                     <!-- Screenshot -->
                     <img
-                        src={creationHero.src}
-                        alt="Exemple de création de site web professionnel"
+                        src={wordpressHero.src}
+                        alt="Refonte d'un site WordPress lent par un freelance à Genève"
                         class="w-full h-auto"
                     />
                 </div>
@@ -413,7 +374,7 @@ const budgetOptions = [
                 </div>
                 <!-- Speed badge -->
                 <div class="absolute -bottom-4 -right-4 bg-[var(--blue)] border-2 border-black px-4 py-2 shadow-[3px_3px_0px_rgba(0,0,0,1)] rotate-3">
-                    <span class="font-bold text-sm">3-4 sem.</span>
+                    <span class="font-bold text-sm">Audit 48h</span>
                 </div>
             </div>
 
@@ -439,10 +400,10 @@ const budgetOptions = [
                 <h2 class="text-3xl md:text-4xl font-normal mb-4">
                     <span class="relative inline-block">
                         <span class="absolute bg-red-200 w-full h-[40%] left-0 bottom-1 -z-1"></span>
-                        Vous vous reconnaissez ?
+                        Votre WordPress vous fait ça ?
                     </span>
                 </h2>
-                <p class="text-lg text-gray-600">Ce sont les situations que rencontrent la plupart de mes clients avant de travailler ensemble.</p>
+                <p class="text-lg text-gray-600">Quatre situations que je retrouve chez la plupart des PME romandes qui me contactent.</p>
             </div>
 
             <!-- Pain points grid -->
@@ -463,23 +424,73 @@ const budgetOptions = [
             <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-6 md:p-8 text-center" data-animate="fade-up">
                 <p class="text-lg md:text-xl font-medium">
                     <i class="ri-lightbulb-line text-[var(--blue)] mr-2"></i>
-                    <strong>La bonne nouvelle ?</strong> Avoir un site professionnel ne demande ni des mois de travail, ni un budget démesuré.
+                    <strong>La bonne nouvelle ?</strong> WordPress mal fait rame. Bien fait, il tient la route. Et quand il ne convient plus, on migre — sans perdre votre référencement.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3 INTENTS SECTION -->
+    <section id="prestations" class="py-20 md:py-28 px-4 relative overflow-hidden">
+        <BackgroundCircuitBoard animated={true} />
+        <div class="max-w-5xl mx-auto relative z-10">
+            <!-- Section header -->
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    prestations
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                    Trois trajectoires pour votre site WordPress
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Créer proprement, refaire ce qui rame, ou migrer vers du moderne. <strong>L'audit gratuit détermine la bonne trajectoire</strong> — pas mes préférences.
                 </p>
             </div>
 
-            <!-- Lien contextuel : audit + signes site dort -->
-            <p class="mt-8 p-4 bg-[var(--yellow)]/30 border-l-4 border-black text-sm md:text-base max-w-3xl mx-auto">
-                <strong>Pour aller plus loin :</strong> j'ai analysé
-                <a href="/blog/audit-50-sites-indeps-romands" class="underline font-bold hover:text-[var(--violet)]">50 sites d'indépendants romands</a>
-                pour identifier ce qui marche (et ce qui ne marche pas), et cette
-                <a href="/blog/15-signes-site-web-dort" class="underline font-bold hover:text-[var(--violet)]">checklist en 4 minutes</a>
-                te dit si ton site actuel travaille pour toi ou s'il dort.
-            </p>
+            <!-- Intent blocks -->
+            <div class="space-y-8">
+                {intents.map((intent, index) => (
+                    <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,0.2)]" data-animate="fade-up" id={intent.id}>
+                        <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
+                            <div class="md:col-span-2">
+                                <div class="flex items-center gap-3 mb-4">
+                                    <span class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center">
+                                        <i class={`${intent.icon} text-2xl`}></i>
+                                    </span>
+                                    <span class="font-mono text-sm text-gray-400">0{index + 1}</span>
+                                </div>
+                                <h3 class="text-xl md:text-2xl font-bold mb-3">{intent.title}</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">{intent.intro}</p>
+                            </div>
+                            <div class="md:col-span-3 md:pl-6 md:border-l-2 md:border-dashed md:border-gray-300">
+                                <ul class="space-y-3">
+                                    {intent.features.map((feature) => (
+                                        <li class="flex items-start gap-2 text-sm text-gray-700">
+                                            <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
+                                            <span>{feature}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <!-- Bridge note -->
+            <div class="bg-white border-2 border-black p-6 text-center mt-8" data-animate="fade-up">
+                <p class="text-gray-600">
+                    <i class="ri-information-line text-[var(--blue)] mr-2"></i>
+                    <strong>La migration vous intrigue ?</strong> C'est le pont vers le <a href="/services/creation-site-web" class="text-[var(--blue)] font-medium hover:underline">site sur-mesure</a> : mêmes contenus, zéro maintenance, vitesse maximale. On en parle à l'audit.
+                </p>
+            </div>
         </div>
     </section>
 
     <!-- METHODOLOGY SECTION -->
-    <section id="methode" class="py-20 md:py-28 px-4 relative overflow-hidden">
+    <section id="methode" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
         <BackgroundProgressFlow />
         <div class="max-w-5xl mx-auto relative z-10">
             <!-- Section header -->
@@ -493,39 +504,18 @@ const budgetOptions = [
                     Comment ça se passe ?
                 </h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Pas de tunnel de développement interminable. Un processus clair, des validations régulières, un site en ligne en <strong class="text-[var(--blue)]">3-4 semaines</strong>.
+                    Tout commence par un <strong class="text-[var(--blue)]">audit gratuit</strong> de votre site WordPress. Votre site reste en ligne pendant tout le chantier.
                 </p>
             </div>
 
             <!-- Method steps grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" data-animate-stagger>
-                {methodSteps.slice(0, 3).map((step, index) => (
-                    <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12" data-animate-stagger>
+                {methodSteps.map((step, index) => (
+                    <div class="bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
                         <!-- Number badge -->
                         <div class="flex items-center gap-3 mb-4">
                             <span class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
                                 0{index + 1}
-                            </span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">{step.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">{step.description}</p>
-                        <!-- Duration -->
-                        <div class="flex items-center gap-2 text-sm pt-3 border-t border-dashed border-gray-300">
-                            <i class="ri-time-line text-[var(--blue)]"></i>
-                            <span class="text-gray-500">{step.duration}</span>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Steps 4 and 5 -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-12" data-animate-stagger>
-                {methodSteps.slice(3).map((step, index) => (
-                    <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
-                        <!-- Number badge -->
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
-                                0{index + 4}
                             </span>
                         </div>
                         <h3 class="text-xl font-bold mb-3">{step.title}</h3>
@@ -547,7 +537,7 @@ const budgetOptions = [
                 <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
                 <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
 
-                <h3 class="text-xl font-bold text-center mb-6">Ce qui change avec Jon Labs</h3>
+                <h3 class="text-xl font-bold text-center mb-6">Pourquoi un freelance plutôt qu'une agence WordPress ?</h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {differentiators.map((diff) => (
                         <div class="text-center">
@@ -559,103 +549,19 @@ const budgetOptions = [
                         </div>
                     ))}
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- RESULTS SECTION -->
-    <section id="resultats" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-        <div class="max-w-5xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    résultats
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal">
-                    Ce que vous obtenez
-                </h2>
-            </div>
-
-            <!-- Results grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12" data-animate-stagger>
-                {results.map((result) => (
-                    <div class="result-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Green check icon -->
-                        <div class="w-10 h-10 bg-green-100 border-2 border-green-400 flex items-center justify-center mb-4">
-                            <i class="ri-check-line text-green-600 text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2">{result.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">{result.description}</p>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Testimonial placeholder -->
-            <div class="bg-[var(--accent)] bg-opacity-20 border-2 border-[var(--violet)] p-8 text-center" data-animate="fade-up">
-                <i class="ri-double-quotes-l text-4xl text-[var(--violet)] opacity-50 mb-4 block"></i>
-                <p class="text-lg md:text-xl italic text-gray-700 mb-4">
-                    « Jonathan a été super flexible, rapide et a compris exactement ce que je voulais. Il a été très rapide en plus car j'avais un besoin urgent. »
-                </p>
-                <span class="text-gray-500">— Solène Derbal, cheffe d'orchestre</span>
-            </div>
-
-            <!-- Lien contextuel : visibilité -->
-            <p class="mt-8 p-4 bg-[var(--yellow)]/30 border-l-4 border-black text-sm md:text-base max-w-3xl mx-auto">
-                <strong>Et après ?</strong> Avoir un beau site ne suffit pas — encore faut-il le rendre visible. J'ai écrit un guide complet sur
-                <a href="/blog/visibilite-site-internet-2026" class="underline font-bold hover:text-[var(--violet)]">comment rendre ton site visible sur internet en 2026</a>
-                (Google + IA), avec les leviers concrets à activer dès le lancement.
-            </p>
-        </div>
-    </section>
-
-    <!-- TECHNOLOGY SECTION -->
-    <section id="technologie" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <BackgroundCircuitBoard animated={true} />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    sous le capot
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal mb-4">
-                    Technologie moderne
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Pas de solution unique pour tous. <strong>Je choisis l'outil adapté à votre projet</strong> — simplicité, flexibilité ou performance.
-                </p>
-            </div>
-
-            <!-- Tech cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12" data-animate-stagger="scale">
-                {techStack.map((tech) => (
-                    <div class="tech-card bg-white border-2 border-black p-6 text-center transition-all duration-200 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <i class={`${tech.icon} text-3xl text-[var(--violet)] mb-4 block`}></i>
-                        <h3 class="text-xl font-bold mb-2">{tech.name}</h3>
-                        <p class="text-sm text-gray-600 mb-3">{tech.description}</p>
-                        <p class="text-xs text-[var(--blue)] font-medium">
-                            <i class="ri-user-star-line mr-1"></i>
-                            {tech.idealFor}
-                        </p>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Reassurance note -->
-            <div class="bg-white border-2 border-black p-6 text-center" data-animate="fade-up">
-                <p class="text-gray-600">
-                    <i class="ri-information-line text-[var(--blue)] mr-2"></i>
-                    <strong>Dans tous les cas :</strong> un site rapide, sécurisé, et que vous pouvez faire évoluer. On choisit ensemble l'option qui vous convient.
+                <!-- Lien contextuel : article freelance vs agence -->
+                <p class="mt-8 p-4 bg-[var(--yellow)]/30 border-l-4 border-black text-sm text-center">
+                    <strong>Pour creuser la question :</strong>
+                    <a href="/blog/freelance-ou-agence-web" class="underline font-bold hover:text-[var(--violet)]">Freelance ou agence web : le comparatif honnête</a>
+                    — avantages, limites et tarifs des deux modèles.
                 </p>
             </div>
         </div>
     </section>
 
     <!-- PRICING SECTION -->
-    <section id="prix" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
+    <section id="prix" class="py-20 md:py-28 px-4">
         <div class="max-w-5xl mx-auto">
             <!-- Section header -->
             <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
@@ -665,9 +571,9 @@ const budgetOptions = [
                     <span class="w-8 h-px bg-gray-400"></span>
                 </span>
                 <h2 class="text-3xl md:text-4xl font-normal mb-4">
-                    Des tarifs clairs
+                    Combien coûte un freelance WordPress ?
                 </h2>
-                <p class="text-lg text-gray-600">Adaptés à la taille de votre projet. Pas de mauvaise surprise.</p>
+                <p class="text-lg text-gray-600">Des fourchettes claires en CHF, un devis ferme après l'audit. Aucun concurrent romand n'affiche ses prix — moi, oui.</p>
             </div>
 
             <!-- Pricing cards -->
@@ -717,52 +623,46 @@ const budgetOptions = [
             <div class="bg-white border-2 border-black p-6 md:p-8" data-animate="fade-up">
                 <h3 class="font-bold mb-4 flex items-center gap-2">
                     <i class="ri-information-line text-[var(--blue)]"></i>
-                    Ce qui influence le prix :
+                    Bon à savoir :
                 </h3>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600 mb-6">
                     <ul class="space-y-2">
                         <li class="flex items-center gap-2">
                             <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            Nombre de pages
+                            L'audit gratuit précède tout devis — pas de chiffrage au doigt mouillé
                         </li>
                         <li class="flex items-center gap-2">
                             <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            Complexité du design
+                            Maintenance optionnelle : dès CHF 80/mois, résiliable
                         </li>
                     </ul>
                     <ul class="space-y-2">
                         <li class="flex items-center gap-2">
                             <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            Fonctionnalités spécifiques (réservation, multilingue...)
+                            Après une migration, plus aucun coût de maintenance WordPress
                         </li>
                         <li class="flex items-center gap-2">
                             <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            Délai souhaité (option express disponible)
+                            Paiement en 2-3 fois possible selon le montant
                         </li>
                     </ul>
                 </div>
-                <div class="flex flex-wrap gap-6 text-sm">
-                    <span class="flex items-center gap-2">
-                        <i class="ri-bank-card-line text-[var(--blue)]"></i>
-                        <strong>Facilités de paiement :</strong> Paiement en 2-3 fois possible selon le montant.
-                    </span>
-                </div>
                 <p class="mt-4 text-sm text-gray-500 bg-gray-50 p-3 border-l-4 border-[var(--blue)]">
-                    <strong>Pas sûr de la formule ?</strong> On en discute ensemble. Premier échange gratuit et sans engagement.
+                    <strong>Pas sûr de la formule ?</strong> On en discute ensemble. Premier échange gratuit et sans engagement. Voir aussi <a href="/tarifs" class="underline font-medium hover:text-[var(--violet)]">mes tarifs détaillés</a>.
                 </p>
 
                 <!-- Lien contextuel : article prix -->
                 <p class="mt-4 p-4 bg-[var(--yellow)]/30 border-l-4 border-black text-sm">
-                    <strong>À lire avant de te décider :</strong>
+                    <strong>À lire avant de vous décider :</strong>
                     <a href="/blog/prix-site-web-suisse-2026" class="underline font-bold hover:text-[var(--violet)]">Combien coûte vraiment un site web en Suisse en 2026 ?</a>
-                    — un guide transparent des fourchettes en CHF, par profil de prestataire.
+                    — fourchettes en CHF par profil de prestataire, WordPress compris.
                 </p>
             </div>
         </div>
     </section>
 
     <!-- FAQ SECTION -->
-    <section id="faq" class="py-20 md:py-28 px-4 relative overflow-hidden">
+    <section id="faq" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
         <BackgroundQuestionMarks animated={true} />
         <div class="max-w-3xl mx-auto relative z-10">
             <!-- Section header -->
@@ -828,14 +728,14 @@ const budgetOptions = [
             <!-- Extra question note -->
             <div class="text-center mt-8">
                 <p class="text-gray-500">
-                    Une autre question ? <a href="#contact" class="text-[var(--blue)] font-medium hover:underline">Contactez-moi directement</a>, je réponds sous 24h.
+                    Une autre question ? <a href="#contact" class="text-[var(--blue)] font-medium hover:underline">Contactez-moi directement</a>, je réponds sous 24h. Vous hésitez avec Webflow ? Voyez ma page <a href="/services/developpeur-webflow" class="text-[var(--blue)] font-medium hover:underline">développeur Webflow</a>.
                 </p>
             </div>
         </div>
     </section>
 
     <!-- LOCAL SEO SECTION -->
-    <section id="local" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
+    <section id="local" class="py-20 md:py-28 px-4 relative overflow-hidden">
         <BackgroundMapContours />
         <div class="max-w-5xl mx-auto relative z-10">
             <!-- Section header -->
@@ -846,7 +746,7 @@ const budgetOptions = [
                     <span class="w-8 h-px bg-gray-400"></span>
                 </span>
                 <h2 class="text-3xl md:text-4xl font-normal">
-                    Un prestataire à <span class="text-[var(--blue)]">Genève</span>,<br/>
+                    Un freelance WordPress à <span class="text-[var(--blue)]">Genève</span>,<br/>
                     ça change quoi ?
                 </h2>
             </div>
@@ -855,19 +755,44 @@ const budgetOptions = [
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
                 <!-- Why local -->
                 <div data-animate="fade-left">
-                    <h3 class="text-xl font-bold mb-6">Travailler avec quelqu'un dans la région, c'est aussi :</h3>
+                    <h3 class="text-xl font-bold mb-6">Travailler avec quelqu'un de la région, c'est :</h3>
                     <div class="space-y-4">
-                        {localAdvantages.map((adv) => (
-                            <div class="flex items-start gap-4 p-4 bg-[var(--main-bg)] border-2 border-black">
-                                <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                                    <i class={`${adv.icon} text-lg`}></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-bold mb-1">{adv.title}</h4>
-                                    <p class="text-sm text-gray-600">{adv.description}</p>
-                                </div>
+                        <div class="flex items-start gap-4 p-4 bg-white border-2 border-black">
+                            <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
+                                <i class="ri-user-voice-line text-lg"></i>
                             </div>
-                        ))}
+                            <div>
+                                <h4 class="font-bold mb-1">Des échanges facilités</h4>
+                                <p class="text-sm text-gray-600">On peut se voir en personne pour l'audit ou la formation. Un café à Genève, un atelier dans vos locaux.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-white border-2 border-black">
+                            <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
+                                <i class="ri-bar-chart-line text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">La même réalité business</h4>
+                                <p class="text-sm text-gray-600">Marché suisse, LPD, facturation en CHF, hébergement en Suisse si vous y tenez.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-white border-2 border-black">
+                            <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
+                                <i class="ri-time-line text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Réactivité</h4>
+                                <p class="text-sm text-gray-600">Un site WordPress en panne, c'est urgent. Même fuseau, réponse dans la journée.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 bg-white border-2 border-black">
+                            <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
+                                <i class="ri-search-eye-line text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold mb-1">Le référencement local en plus</h4>
+                                <p class="text-sm text-gray-600">Je fais aussi du <a href="/services/referencement-local" class="text-[var(--blue)] hover:underline">référencement local</a> : votre WordPress refait peut aussi remonter sur Google.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -906,10 +831,10 @@ const budgetOptions = [
             <!-- Section header -->
             <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
                 <h2 class="text-3xl md:text-4xl font-normal mb-4 text-[var(--text)]">
-                    Prêt à lancer votre site ?
+                    On regarde votre site WordPress ensemble ?
                 </h2>
                 <p class="text-lg text-gray-600">
-                    Premier échange gratuit et sans engagement. Je discute de votre projet avec vous, je vous donne mon avis honnête, vous décidez ensuite.
+                    Audit gratuit sous 48h : vitesse, sécurité, structure, référencement. Vous recevez un diagnostic clair — et mon avis honnête sur la suite.
                 </p>
             </div>
 
@@ -917,7 +842,7 @@ const budgetOptions = [
             <div class="contact-form-container" data-animate="scale">
                 <form
                     class="bg-white text-[var(--text)] border-3 border-black p-6 md:p-8 shadow-[8px_8px_0px_rgba(0,217,163,0.3)] relative"
-                    id="creation-form"
+                    id="wordpress-form"
                 >
                     <!-- Corner boxes -->
                     <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
@@ -925,12 +850,12 @@ const budgetOptions = [
                     <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
                     <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
 
-                    <h3 class="text-xl font-bold mb-6 text-center">Parlons de votre projet</h3>
+                    <h3 class="text-xl font-bold mb-6 text-center">Demander mon audit WordPress gratuit</h3>
 
                     <!-- Hidden fields for Web3Forms -->
                     <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
-                    <input type="hidden" name="subject" value="Demande création site web - Jon Labs">
-                    <input type="hidden" name="from_name" value="Jon Labs - Création site">
+                    <input type="hidden" name="subject" value="Demande freelance WordPress - Jon Labs">
+                    <input type="hidden" name="from_name" value="Jon Labs - Freelance WordPress">
                     <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -966,17 +891,17 @@ const budgetOptions = [
                             />
                         </div>
 
-                        <!-- Téléphone -->
+                        <!-- URL du site -->
                         <div class="form-field">
-                            <label for="phone" class="flex items-center gap-2 text-sm font-medium mb-2">
+                            <label for="website" class="flex items-center gap-2 text-sm font-medium mb-2">
                                 <span class="font-mono text-xs text-gray-400">03</span>
-                                Téléphone (optionnel)
+                                URL de votre site (si existant)
                             </label>
                             <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                placeholder="+41 79 123 45 67"
+                                type="url"
+                                id="website"
+                                name="website"
+                                placeholder="https://votresite.ch"
                                 class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
                             />
                         </div>
@@ -1011,7 +936,7 @@ const budgetOptions = [
                                 name="message"
                                 rows="4"
                                 required
-                                placeholder="Décrivez brièvement votre activité et ce que vous recherchez..."
+                                placeholder="Décrivez brièvement votre site et ce qui vous pose problème..."
                                 class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
                             ></textarea>
                         </div>
@@ -1084,7 +1009,7 @@ const budgetOptions = [
                                     flex items-center justify-center gap-3
                                 "
                             >
-                                <span>Envoyer ma demande</span>
+                                <span>Demander mon audit gratuit</span>
                                 <i class="ri-send-plane-line text-xl"></i>
                             </button>
                         </div>
@@ -1097,15 +1022,15 @@ const budgetOptions = [
                     <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-600">
                         <span class="flex items-center gap-2">
                             <i class="ri-time-line text-[var(--blue)]"></i>
-                            Réponse sous 24h
+                            Audit sous 48h
                         </span>
                         <span class="flex items-center gap-2">
                             <i class="ri-gift-line text-[var(--blue)]"></i>
-                            Premier échange gratuit
+                            Gratuit et sans engagement
                         </span>
                         <span class="flex items-center gap-2">
                             <i class="ri-file-list-3-line text-[var(--blue)]"></i>
-                            Devis clair
+                            Devis ferme ensuite
                         </span>
                     </div>
 
@@ -1131,10 +1056,10 @@ const budgetOptions = [
                         </a>
                     </div>
 
-                    <!-- Not ready yet -->
+                    <!-- Bridge -->
                     <div class="text-center mt-8 p-4 bg-white border-2 border-dashed border-gray-300">
                         <p class="text-gray-500 text-sm">
-                            <strong>Pas encore prêt ?</strong> C'est normal. Vous pouvez aussi consulter mes <a href="/services" class="text-[var(--blue)] hover:underline">autres services</a> ou lire quelques articles sur le <a href="/blog" class="text-[var(--blue)] hover:underline">blog</a> pour mieux me connaître.
+                            <strong>Pas encore prêt ?</strong> Jetez un œil à mes <a href="/portfolio" class="text-[var(--blue)] hover:underline">réalisations</a>, ou comparez avec un site <a href="/services/creation-site-web" class="text-[var(--blue)] hover:underline">sur-mesure</a> et <a href="/services/developpeur-webflow" class="text-[var(--blue)] hover:underline">Webflow</a> avant de décider.
                         </p>
                     </div>
                 </div>
@@ -1240,7 +1165,7 @@ const budgetOptions = [
     });
 
     // Form submission
-    const form = document.getElementById('creation-form') as HTMLFormElement;
+    const form = document.getElementById('wordpress-form') as HTMLFormElement;
     const submitBtn = form?.querySelector('.submit-btn') as HTMLButtonElement;
     const btnText = submitBtn?.querySelector('span');
     const btnIcon = submitBtn?.querySelector('i');
@@ -1279,7 +1204,7 @@ const budgetOptions = [
             if (submitBtn) {
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
-                if (btnText) btnText.textContent = 'Envoyer ma demande';
+                if (btnText) btnText.textContent = 'Demander mon audit gratuit';
                 if (btnIcon) btnIcon.className = 'ri-send-plane-line text-xl';
             }
         }

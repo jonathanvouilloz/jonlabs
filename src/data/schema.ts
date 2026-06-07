@@ -183,7 +183,7 @@ export const servicesListData = {
   "name": "Services Jon Labs",
   "description": "Services de développement web et de référencement local pour entrepreneurs et PME en Suisse romande",
   "url": `${SITE_URL}/services`,
-  "numberOfItems": 5,
+  "numberOfItems": 7,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -229,6 +229,24 @@ export const servicesListData = {
         "name": "Gestion fiche Google My Business",
         "url": `${SITE_URL}/services/gestion-fiche-google`
       }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@type": "Service",
+        "name": "Développeur Webflow",
+        "url": `${SITE_URL}/services/developpeur-webflow`
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@type": "Service",
+        "name": "Freelance WordPress",
+        "url": `${SITE_URL}/services/developpeur-wordpress`
+      }
     }
   ]
 };
@@ -254,6 +272,48 @@ export const serviceSchemas = {
         "minPrice": "1500"
       },
       "description": "À partir de CHF 1'500"
+    }
+  },
+  "developpeur-webflow": {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${SITE_URL}/services/developpeur-webflow/#service`,
+    "name": "Développeur Webflow freelance en Suisse romande",
+    "url": `${SITE_URL}/services/developpeur-webflow`,
+    "description": "Création, refonte et e-commerce Webflow pour PME et indépendants en Suisse romande. Sites rapides, gérables en autonomie, optimisés pour Google.",
+    "provider": { "@id": `${SITE_URL}/#organization` },
+    "areaServed": ["Genève", "Vaud", "Suisse Romande"],
+    "serviceType": "Développement Webflow",
+    "offers": {
+      "@type": "Offer",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "1490",
+        "priceCurrency": "CHF",
+        "minPrice": "1490"
+      },
+      "description": "À partir de CHF 1'490"
+    }
+  },
+  "developpeur-wordpress": {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${SITE_URL}/services/developpeur-wordpress/#service`,
+    "name": "Freelance WordPress à Genève",
+    "url": `${SITE_URL}/services/developpeur-wordpress`,
+    "description": "Création de site WordPress, refonte de site lent ou obsolète, migration vers une stack moderne. Freelance basé à Genève, service Suisse romande.",
+    "provider": { "@id": `${SITE_URL}/#organization` },
+    "areaServed": ["Genève", "Vaud", "Suisse Romande"],
+    "serviceType": "Développement WordPress",
+    "offers": {
+      "@type": "Offer",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "1490",
+        "priceCurrency": "CHF",
+        "minPrice": "1490"
+      },
+      "description": "À partir de CHF 1'490"
     }
   },
   "refonte-site-web": {
