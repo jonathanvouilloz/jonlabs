@@ -3,7 +3,7 @@
 > **Suivi maître du gros chantier de refonte SEO multi-sessions.**
 > Démarré le 2026-05-20. À mettre à jour à chaque session.
 >
-> **⏸️ État au 2026-06-01** : Sessions 1-4b + 5 terminées et commitées. Session 5 = maillage interne ciblé (cluster GMB → pilier local), scope réduit au maillage (le volet indexation/orphelins est reporté). Reportés : Session 4c (sweep vocab sitewide), Session 6 (refresh `prix-site-web`), Session 7 (vérif finale).
+> **⏸️ État au 2026-06-07** : Sessions 1-4b + 5 terminées et commitées. Session 8 (cluster plateformes Webflow/WordPress) ouverte — phases data + briefs faites, voir `docs/chantier-cluster-plateformes.md`. Reportés : Session 4c (sweep vocab sitewide), Session 6 (refresh `prix-site-web`), Session 7 (vérif finale).
 
 ---
 
@@ -372,6 +372,18 @@
 - [ ] `/seo-index-diagnose` après 1-2 semaines (mesure impact)
 - [ ] Commit + push
 - [ ] Plan de monitoring positions (semaine S+2, S+4)
+
+---
+
+### Session 8 — Cluster plateformes Webflow + WordPress 🔄
+
+> Chantier dédié avec checklist complète : **`docs/chantier-cluster-plateformes.md`**
+
+Déclencheur : lead réel "développeur webflow pour site e-commerce" + 0 visibilité GSC sur le segment + quick win `freelance wordpress geneve` (47 imp pos 40 sans page dédiée).
+
+- 2 nouvelles pages services : `/services/developpeur-webflow` + `/services/developpeur-wordpress` (création/refonte/migration)
+- Satellites comparatifs blog ensuite (webflow-vs-wordpress, etc.)
+- État au 2026-06-07 : Phases 0-1 (data + briefs) ✅ — briefs en attente de validation, implémentation à suivre
 
 ---
 

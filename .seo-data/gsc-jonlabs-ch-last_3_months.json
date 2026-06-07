@@ -1,0 +1,765 @@
+{
+  "site_url": "sc-domain:jonlabs.ch",
+  "period": {
+    "start": "2026-03-07",
+    "end": "2026-06-05",
+    "days": 91
+  },
+  "page_filter": null,
+  "generated_at": "2026-06-07T07:30:51Z",
+  "totals": {
+    "impressions": 10136,
+    "clicks": 60,
+    "ctr": 0.0059,
+    "avg_position": 11.0
+  },
+  "site_median_ctr": 0,
+  "top_queries": [
+    {
+      "impressions": 67,
+      "clicks": 2,
+      "ctr": 0.0299,
+      "position": 5.1,
+      "query": "développeur web"
+    },
+    {
+      "impressions": 56,
+      "clicks": 1,
+      "ctr": 0.0179,
+      "position": 9.8,
+      "query": "hermes agent"
+    },
+    {
+      "impressions": 2,
+      "clicks": 1,
+      "ctr": 0.5,
+      "position": 36.5,
+      "query": "leo lecureux"
+    },
+    {
+      "impressions": 1,
+      "clicks": 1,
+      "ctr": 1,
+      "position": 1,
+      "query": "tarif seo local"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 3,
+      "query": "\"conductor\" \"intelligence de recherche\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 5.3,
+      "query": "\"conductor\" \"optimisation de site web\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com"
+    },
+    {
+      "impressions": 9,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 1.9,
+      "query": "\"conductor\" \"recherche de mots clés\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 3,
+      "query": "\"conductor\" \"seo\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com"
+    },
+    {
+      "impressions": 9,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 2.3,
+      "query": "\"conductor\" \"stratégie de contenu\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 8.3,
+      "query": "\"conductor\" \"trafic web\" -site:reddit.com -site:twitter.com -site:x.com -site:wykop.pl -site:tripadvisor.com -site:youtube.com -site:yelp.com -site:booking.com -site:facebook.com -site:instagram.com -site:tiktok.com"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 19,
+      "query": "(\"logiciel\" or \"solution\" or \"plateforme\") and (\"intelligence artificielle\" or \"ia\" or \"apprentissage automatique\" or \"deep learning\") and (\"boues activées\" or \"stations d'épuration\" or \"step\" or \"eaux usées\")"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 46,
+      "query": "75 rue de geneve 74240 gaillard"
+    },
+    {
+      "impressions": 16,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 4.9,
+      "query": "agence audit seo ville-la-grand"
+    },
+    {
+      "impressions": 4,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 21,
+      "query": "agence creation site internet gaillard"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 38,
+      "query": "agence creation site internet la-roche-sur-foron"
+    },
+    {
+      "impressions": 4,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 20,
+      "query": "agence création de site gaillard"
+    },
+    {
+      "impressions": 9,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7.4,
+      "query": "agence création de site ville-la-grand"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 31,
+      "query": "agence création site web annemasse"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 20.3,
+      "query": "agence création site web gaillard"
+    },
+    {
+      "impressions": 18,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 10.5,
+      "query": "agence création site web ville-la-grand"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 31,
+      "query": "agence de creation de site internet annemasse"
+    },
+    {
+      "impressions": 16,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 11.9,
+      "query": "agence de creation de site internet ville-la-grand"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 24,
+      "query": "agence de développement web aix-les-bains"
+    },
+    {
+      "impressions": 15,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 14.8,
+      "query": "agence de développement web annemasse"
+    },
+    {
+      "impressions": 17,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 13.6,
+      "query": "agence de développement web bonneville"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 21,
+      "query": "agence de développement web cluses"
+    },
+    {
+      "impressions": 13,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 11.2,
+      "query": "agence de développement web gaillard"
+    },
+    {
+      "impressions": 19,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 12.6,
+      "query": "agence de développement web la-roche-sur-foron"
+    },
+    {
+      "impressions": 16,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 2.8,
+      "query": "agence de développement web saint-julien"
+    },
+    {
+      "impressions": 17,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 1.6,
+      "query": "agence de développement web ville-la-grand"
+    },
+    {
+      "impressions": 5,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 3.8,
+      "query": "agence de référencement"
+    },
+    {
+      "impressions": 5,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 21,
+      "query": "agence de référencement internet annemasse"
+    },
+    {
+      "impressions": 22,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 13.5,
+      "query": "agence de référencement internet ville-la-grand"
+    },
+    {
+      "impressions": 11,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 14.2,
+      "query": "agence digitale 74"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 20,
+      "query": "agence digitale gaillard"
+    },
+    {
+      "impressions": 6,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 16.7,
+      "query": "agence digitale ville-la-grand"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 74,
+      "query": "agence drupal suisse romande"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 10,
+      "query": "agence développement spécifique"
+    },
+    {
+      "impressions": 7,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 58.6,
+      "query": "agence e mail transactionnel genève"
+    },
+    {
+      "impressions": 8,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 59.4,
+      "query": "agence e-mail transactionnel genève"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 42,
+      "query": "agence email transactionnel genève"
+    },
+    {
+      "impressions": 5,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 64.2,
+      "query": "agence email transactionnel lausanne"
+    },
+    {
+      "impressions": 4,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 8,
+      "query": "agence eshop gaillard"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 18.7,
+      "query": "agence internet ville-la-grand"
+    },
+    {
+      "impressions": 7,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 14.9,
+      "query": "agence referencement annemasse"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 5.5,
+      "query": "agence referencement gaillard"
+    },
+    {
+      "impressions": 21,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 10.3,
+      "query": "agence referencement ville-la-grand"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 20.5,
+      "query": "agence seo annemasse"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 13.7,
+      "query": "agence seo gaillard"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 92,
+      "query": "agence seo genève"
+    }
+  ],
+  "top_pages": [
+    {
+      "impressions": 661,
+      "clicks": 15,
+      "ctr": 0.0227,
+      "position": 25.5,
+      "page": "https://www.jonlabs.ch/"
+    },
+    {
+      "impressions": 1433,
+      "clicks": 7,
+      "ctr": 0.0049,
+      "position": 7.8,
+      "page": "https://www.jonlabs.ch/jonvolio/blog/claude-skills-tutorial-builders-guide"
+    },
+    {
+      "impressions": 1428,
+      "clicks": 6,
+      "ctr": 0.0042,
+      "position": 7.4,
+      "page": "https://www.jonlabs.ch/blog/hermes-agent-ia-pme"
+    },
+    {
+      "impressions": 108,
+      "clicks": 4,
+      "ctr": 0.037,
+      "position": 4.9,
+      "page": "https://www.jonlabs.ch/about"
+    },
+    {
+      "impressions": 404,
+      "clicks": 4,
+      "ctr": 0.0099,
+      "position": 6.7,
+      "page": "https://www.jonlabs.ch/blog/apparaitre-claude"
+    },
+    {
+      "impressions": 1280,
+      "clicks": 3,
+      "ctr": 0.0023,
+      "position": 9.8,
+      "page": "https://jonlabs.ch/"
+    },
+    {
+      "impressions": 321,
+      "clicks": 3,
+      "ctr": 0.0093,
+      "position": 32.2,
+      "page": "https://www.jonlabs.ch/blog/tarif-package-seo-local-suisse"
+    },
+    {
+      "impressions": 263,
+      "clicks": 3,
+      "ctr": 0.0114,
+      "position": 7.5,
+      "page": "https://www.jonlabs.ch/blog/workflows-vs-agents-ia-pme"
+    },
+    {
+      "impressions": 45,
+      "clicks": 2,
+      "ctr": 0.0444,
+      "position": 9.2,
+      "page": "https://www.jonlabs.ch/blog/creer-site-vitrine-ia-visibilite-google"
+    },
+    {
+      "impressions": 78,
+      "clicks": 2,
+      "ctr": 0.0256,
+      "position": 7.7,
+      "page": "https://www.jonlabs.ch/blog/fiche-google-my-business-guide-complet-2026"
+    },
+    {
+      "impressions": 1172,
+      "clicks": 2,
+      "ctr": 0.0017,
+      "position": 7.3,
+      "page": "https://www.jonlabs.ch/blog/geo-seo-ia-2026"
+    },
+    {
+      "impressions": 98,
+      "clicks": 2,
+      "ctr": 0.0204,
+      "position": 5.5,
+      "page": "https://www.jonlabs.ch/blog/openclaw-pme-suisse"
+    },
+    {
+      "impressions": 106,
+      "clicks": 2,
+      "ctr": 0.0189,
+      "position": 7.1,
+      "page": "https://www.jonlabs.ch/contact"
+    },
+    {
+      "impressions": 150,
+      "clicks": 1,
+      "ctr": 0.0067,
+      "position": 7.2,
+      "page": "https://www.jonlabs.ch/blog/apparaitre-copilot"
+    },
+    {
+      "impressions": 408,
+      "clicks": 1,
+      "ctr": 0.0025,
+      "position": 6.7,
+      "page": "https://www.jonlabs.ch/blog/apparaitre-grok-2026"
+    },
+    {
+      "impressions": 44,
+      "clicks": 1,
+      "ctr": 0.0227,
+      "position": 8.1,
+      "page": "https://www.jonlabs.ch/blog/cout-site-web-dormant-calculateur"
+    },
+    {
+      "impressions": 159,
+      "clicks": 1,
+      "ctr": 0.0063,
+      "position": 10.0,
+      "page": "https://www.jonlabs.ch/blog/creer-fiche-google-my-business-etape-par-etape"
+    },
+    {
+      "impressions": 24,
+      "clicks": 1,
+      "ctr": 0.0417,
+      "position": 10.6,
+      "page": "https://www.jonlabs.ch/portfolio"
+    },
+    {
+      "impressions": 68,
+      "clicks": 1,
+      "ctr": 0.0147,
+      "position": 12.5,
+      "page": "https://www.jonlabs.ch/tarifs"
+    },
+    {
+      "impressions": 8,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 18.8,
+      "page": "https://jonlabs.ch/services/refonte-site-web/"
+    },
+    {
+      "impressions": 35,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 19.1,
+      "page": "https://www.jonlabs.ch/blog"
+    },
+    {
+      "impressions": 12,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 11.2,
+      "page": "https://www.jonlabs.ch/blog/0a30joursgooglevisible"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 8.5,
+      "page": "https://www.jonlabs.ch/blog/0a30joursgooglevisible/"
+    },
+    {
+      "impressions": 62,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 5.7,
+      "page": "https://www.jonlabs.ch/blog/15-signes-site-web-dort"
+    },
+    {
+      "impressions": 39,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7.8,
+      "page": "https://www.jonlabs.ch/blog/apparaitre-chatgpt-geneve"
+    },
+    {
+      "impressions": 2,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 13.5,
+      "page": "https://www.jonlabs.ch/blog/apparaitre-grok"
+    },
+    {
+      "impressions": 372,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7.5,
+      "page": "https://www.jonlabs.ch/blog/apparaitre-perplexity"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 6.7,
+      "page": "https://www.jonlabs.ch/blog/audit-50-sites-indeps-romands"
+    },
+    {
+      "impressions": 5,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 6.6,
+      "page": "https://www.jonlabs.ch/blog/automatisation-club-sportif/"
+    },
+    {
+      "impressions": 4,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 5.8,
+      "page": "https://www.jonlabs.ch/blog/automatisation-pme-suisse-guide-complet"
+    },
+    {
+      "impressions": 88,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 5.8,
+      "page": "https://www.jonlabs.ch/blog/avantages-limites-automatisation-pme"
+    },
+    {
+      "impressions": 35,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 6.2,
+      "page": "https://www.jonlabs.ch/blog/comment-choisir-quoi-automatiser-pme"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 2.3,
+      "page": "https://www.jonlabs.ch/blog/entrer-top-3-google-maps"
+    },
+    {
+      "impressions": 3,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 5,
+      "page": "https://www.jonlabs.ch/blog/freelance-ou-agence-web"
+    },
+    {
+      "impressions": 22,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 8.3,
+      "page": "https://www.jonlabs.ch/blog/geo-seo-ia"
+    },
+    {
+      "impressions": 8,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 6.5,
+      "page": "https://www.jonlabs.ch/blog/ia-pragmatique-pme-suisse"
+    },
+    {
+      "impressions": 1,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 1,
+      "page": "https://www.jonlabs.ch/blog/ia-pragmatique-pme-suisse/"
+    },
+    {
+      "impressions": 32,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 6.1,
+      "page": "https://www.jonlabs.ch/blog/no-show-rendez-vous-2026"
+    },
+    {
+      "impressions": 28,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 9.5,
+      "page": "https://www.jonlabs.ch/blog/optimiser-fiche-google-my-business-checklist-2026"
+    },
+    {
+      "impressions": 274,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 9.6,
+      "page": "https://www.jonlabs.ch/blog/prix-site-web-suisse-2026"
+    },
+    {
+      "impressions": 39,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7.6,
+      "page": "https://www.jonlabs.ch/blog/qr-code-avis-google-collecte-pme"
+    },
+    {
+      "impressions": 231,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 20.2,
+      "page": "https://www.jonlabs.ch/blog/referencement-local-geneve"
+    },
+    {
+      "impressions": 19,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 13.8,
+      "page": "https://www.jonlabs.ch/blog/repondre-avis-google-modeles-2026"
+    },
+    {
+      "impressions": 242,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 11.5,
+      "page": "https://www.jonlabs.ch/blog/specialiste-developpement-web-suisse"
+    },
+    {
+      "impressions": 16,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 4.6,
+      "page": "https://www.jonlabs.ch/blog/temps-perdu-pme-automatisation"
+    },
+    {
+      "impressions": 24,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 9.4,
+      "page": "https://www.jonlabs.ch/blog/visibilite-site-internet-2026"
+    },
+    {
+      "impressions": 98,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 5.9,
+      "page": "https://www.jonlabs.ch/cv"
+    },
+    {
+      "impressions": 34,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 10.7,
+      "page": "https://www.jonlabs.ch/developpement-web/annemasse"
+    },
+    {
+      "impressions": 83,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 11.0,
+      "page": "https://www.jonlabs.ch/developpement-web/gaillard"
+    },
+    {
+      "impressions": 44,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 11.0,
+      "page": "https://www.jonlabs.ch/developpement-web/la-roche-sur-foron"
+    }
+  ],
+  "quick_wins": [
+    {
+      "query": "quelles sont les meilleures plateformes d'optimisation pour les moteurs ia en 2026 ?",
+      "page": "https://www.jonlabs.ch/blog/geo-seo-ia-2026",
+      "impressions": 397,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7.8,
+      "reason": "position 5-15 + impressions ≥ 100 — push to top 5",
+      "suggested_action": "améliorer title/meta + bold keywords + maillage interne"
+    },
+    {
+      "query": "meilleures plateformes d'optimisation pour les moteurs ia 2026",
+      "page": "https://www.jonlabs.ch/blog/geo-seo-ia-2026",
+      "impressions": 283,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 7.4,
+      "reason": "position 5-15 + impressions ≥ 100 — push to top 5",
+      "suggested_action": "améliorer title/meta + bold keywords + maillage interne"
+    },
+    {
+      "query": "meilleures plateformes suivi performances seo aeo moteurs ia 2025 2026",
+      "page": "https://www.jonlabs.ch/blog/geo-seo-ia-2026",
+      "impressions": 112,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 9.6,
+      "reason": "position 5-15 + impressions ≥ 100 — push to top 5",
+      "suggested_action": "améliorer title/meta + bold keywords + maillage interne"
+    },
+    {
+      "query": "seo local suisse romande",
+      "page": "https://www.jonlabs.ch/blog/tarif-package-seo-local-suisse",
+      "impressions": 101,
+      "clicks": 0,
+      "ctr": 0,
+      "position": 14.9,
+      "reason": "position 5-15 + impressions ≥ 100 — push to top 5",
+      "suggested_action": "améliorer title/meta + bold keywords + maillage interne"
+    }
+  ],
+  "ctr_gaps": [],
+  "content_gaps": []
+}

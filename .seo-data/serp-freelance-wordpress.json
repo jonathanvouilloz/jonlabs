@@ -1,0 +1,82 @@
+{
+  "keyword": "freelance wordpress",
+  "location": "Suisse romande (Genève)",
+  "scanned_at": "2026-06-07",
+  "sample_size": 8,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.studio-nowed.fr/freelance-wordpress-geneve-suisse/",
+      "title": "Freelance Wordpress Suisse - Expert/Développeur Wordpress à Genève",
+      "page_type": "service",
+      "competitor_type": "local-business",
+      "covers": ["page géo-ciblée Genève depuis la France (Bourges/Tours)"],
+      "missing": ["présence locale réelle", "tarifs CHF"],
+      "eeat_signals": [],
+      "note": "Agence française qui fait du programmatic geo-targeting sur Genève — preuve que la SERP locale est faible"
+    },
+    {
+      "rank": 2,
+      "url": "https://samuelmaeder.com/fr/wordpress-websites/",
+      "title": "Freelance WordPress n°1 en Suisse – Samuel Mäder",
+      "page_type": "service",
+      "competitor_type": "local-business",
+      "covers": ["création WordPress", "SEO", "multilingue WPML", "20 ans / 500+ clients", "avis Google 5.0 (17 avis)"],
+      "missing": ["pricing", "FAQ", "portfolio/cas détaillés", "refonte", "migration", "maintenance explicite", "process", "délais"],
+      "eeat_signals": ["20 ans expérience", "500+ clients", "avis Google vérifiés"]
+    },
+    {
+      "rank": 3,
+      "url": "https://www.pixana.ch/",
+      "title": "Création de site Internet Wordpress Genève Nyon Vaud",
+      "page_type": "homepage",
+      "competitor_type": "local-business",
+      "covers": ["stratégie digitale PME", "création/refonte web", "FAQ (6 questions)", "15 ans expérience"],
+      "missing": ["pricing", "cas clients documentés", "résultats chiffrés", "testimonials", "blog SEO", "angle WordPress spécifique (positionnement consulting générique)"],
+      "eeat_signals": ["auteur identifié (Ana Paula Meyer)", "15 ans expérience", "ancrage local Lausanne/Genève/Nyon"]
+    },
+    {
+      "rank": 4,
+      "url": "https://web-dev.fr",
+      "title": "Développeur web freelance bassin lémanique | Genève, Annecy, Annemasse",
+      "page_type": "homepage",
+      "competitor_type": "local-business",
+      "covers": ["WordPress", "front-end", "e-commerce", "maintenance", "SEO technique", "zone lémanique"],
+      "missing": [],
+      "eeat_signals": []
+    },
+    {
+      "rank": 5,
+      "url": "https://www.anibis.ch/...",
+      "title": "Freelance WordPress : Expert en Maintenance et Conception | anibis.ch",
+      "page_type": "directory",
+      "competitor_type": "marketplace",
+      "covers": ["petite annonce"],
+      "missing": [],
+      "eeat_signals": []
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [],
+    "featured_snippet": false,
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "transactional",
+  "common_ground": [
+    "positionnement 'expert WordPress' + années d'expérience",
+    "création de site comme offre principale",
+    "CTA devis/appel"
+  ],
+  "gap": {
+    "description": "Personne ne couvre les 3 intents création + refonte + migration sur une même page structurée. Aucun concurrent n'affiche de tarifs. La refonte/migration de WordPress lent vers stack moderne n'existe nulle part (angle unique compatible avec le positionnement sur-mesure de Jon Labs). FAQ riche absente (max 6 questions). SERP si faible qu'une agence de Bourges ranke sur 'freelance wordpress genève' avec une page programmatic.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "Samuel Mäder ranke fort ('n°1 en Suisse') mais page sans FAQ, sans tarifs, sans cas clients",
+    "Pixana noyée dans un positionnement consulting généraliste",
+    "Social proof faible chez tous sauf Mäder"
+  ],
+  "recommended_angle": "Page 'Freelance WordPress à Genève' structurée en 3 intents (création / refonte / migration) avec transparence tarifaire CHF, FAQ 10+ questions, et l'angle différenciant 'refonte de WordPress lent ou migration vers stack moderne' que personne n'occupe. GSC montre déjà 47 impressions sur 'freelance wordpress geneve' → quick win."
+}

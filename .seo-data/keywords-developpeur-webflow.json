@@ -1,0 +1,21 @@
+{
+  "topic": "développeur webflow",
+  "location_code": 2756,
+  "location_name": "Switzerland",
+  "language_code": "fr",
+  "generated_at": "2026-06-07T07:55:16Z",
+  "primary": {
+    "keyword": "développeur webflow",
+    "search_volume": 10,
+    "cpc": 0,
+    "competition": "MEDIUM",
+    "competition_index": 57,
+    "difficulty": null,
+    "intent": "navigational",
+    "intent_probability": 0.876
+  },
+  "secondaries": [],
+  "long_tail": [],
+  "related": [],
+  "quick_wins": []
+}
