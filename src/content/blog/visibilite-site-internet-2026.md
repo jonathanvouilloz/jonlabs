@@ -70,7 +70,7 @@ Google ne traite pas toutes les requêtes de la même façon. Pour certaines (ty
 
 Le principe documenté dans les brevets officiels (notamment [US7346839](https://patents.google.com/patent/US7346839)) : le moteur évalue la fréquence de mise à jour d'un site, la date de publication des contenus, la vélocité des nouveaux liens entrants, et ajuste son scoring en conséquence. Un site qui publie régulièrement est considéré comme "vivant" et reçoit plus de crawl budget. Un site figé glisse progressivement dans les profondeurs.
 
-J'ai creusé la version technique avec les citations officielles dans mon article dédié à [comment Google détecte un site frais (la version technique)](/blog/google-freshness-qdf-explique). La version courte suffit pour la suite : si vous ne publiez rien, Google finit par ne plus venir vous voir.
+La version courte suffit pour la suite : si vous ne publiez rien, Google finit par ne plus venir vous voir.
 
 ### QDF : Query Deserves Freshness
 
@@ -129,7 +129,7 @@ Le site dynamique coûte plus cher en valeur absolue. Le coût par lead, lui, s'
 
 ### Le mythe "j'ai des réseaux sociaux donc j'ai pas besoin de site"
 
-Je l'entends encore. La réalité : la portée organique Instagram tourne autour de 3,5% en 2026 selon [l'étude Socialinsider 2025](https://www.socialinsider.io/blog/social-media-reach/). Facebook, 1,65%. Un compte qui semble "fort" touche en pratique une fraction ridicule de son audience affichée. J'ai creusé la mécanique du [plafond invisible à 3,5% des réseaux sociaux](/blog/instagram-suffit-plafond-3-5) : si vous misez tout là-dessus, vous plafonnez sans le savoir.
+Je l'entends encore. La réalité : la portée organique Instagram tourne autour de 3,5% en 2026 selon [l'étude Socialinsider 2025](https://www.socialinsider.io/blog/social-media-reach/). Facebook, 1,65%. Un compte qui semble "fort" touche en pratique une fraction ridicule de son audience affichée. Si vous misez tout là-dessus, vous plafonnez sans le savoir.
 
 Les deux canaux sont complémentaires, pas substituables. Les réseaux sociaux créent de la notoriété. Le site capture et convertit.
 
@@ -143,7 +143,7 @@ Voici le cœur de la **stratégie de contenu site web** que j'applique systémat
 
 Un cluster, c'est l'unité de base d'une stratégie de contenu site web sérieuse : une page pilier (longue, exhaustive, sur un sujet large) entourée de 6 à 12 articles satellites qui traitent chacun un sous-sujet précis. Tous pointent vers le pilier, le pilier pointe vers chacun. Google lit cette structure comme un signal fort d'autorité thématique.
 
-J'ai publié une démonstration vivante de [comment ce cluster est construit (anatomie complète)](/blog/anatomie-cluster-seo-page-pilier), une méta-démonstration qui montre la construction de A à Z sur le sujet même du contenu.
+La structure de ce cluster est elle-même une démonstration vivante : chaque article satellite traite un sous-sujet précis et pointe vers cette page pilier.
 
 ### La page pilier comme aimant à autorité
 
@@ -196,7 +196,7 @@ Pour un coût de production d'environ 4 heures de travail, le ROI parle tout seu
 
 Deux raisons. Un, l'article répondait à une vraie question, précisément, avec la profondeur qu'aucun concurrent direct n'avait couverte. Deux, Google a crawlé, indexé, testé, et continue à tester le positionnement mois après mois.
 
-J'ai publié [l'étude de cas Léo Lecureux en détail](/blog/cas-leo-lecureux-contenu-seo) avec les captures Search Console et la méthode complète.
+L'[étude de cas Léo Lecureux](/portfolio/leo-lecureux-seo/) détaille les captures Search Console et la méthode complète.
 
 ---
 
@@ -212,7 +212,7 @@ Cette règle a une conséquence : si vous démarrez aujourd'hui, visez les résu
 
 ### Fréquence réaliste pour un solo ou une PME romande
 
-La bonne réponse n'est pas "un article par semaine". C'est un article toutes les deux à trois semaines, maintenu sur 12 mois. J'ai détaillé [la vraie réponse à "combien d'articles par mois"](/blog/frequence-articles-blog-seo-suisse) avec les chiffres par secteur et par taille d'équipe.
+La bonne réponse n'est pas "un article par semaine". C'est un article toutes les deux à trois semaines, maintenu sur 12 mois.
 
 Mieux vaut 20 articles solides sur 12 mois qu'un blog quotidien tenu pendant 2 mois puis abandonné. La régularité bat la fréquence.
 
@@ -240,7 +240,7 @@ Faux. Ce qui est démodé, c'est le blog lifestyle de 2012 qui parle du quotidie
 
 ### "Je n'ai rien d'intéressant à raconter"
 
-Tout le monde pense ça. Tout le monde a tort. Chaque question que vos prospects vous posent deux fois est un article potentiel. Chaque cas client résolu est un article. Chaque erreur que vous voyez sur le marché est un article. J'ai détaillé [ma méthode pour trouver des sujets d'articles](/blog/methode-redaction-article-seo) avec le canevas exact que j'utilise chez mes clients.
+Tout le monde pense ça. Tout le monde a tort. Chaque question que vos prospects vous posent deux fois est un article potentiel. Chaque cas client résolu est un article. Chaque erreur que vous voyez sur le marché est un article.
 
 ---
 
@@ -252,7 +252,7 @@ Pas demain. Pas lundi. Cette semaine. Quatre étapes, dans cet ordre précis, po
 
 Avant de rédiger quoi que ce soit, diagnostiquez. J'ai compilé un [auto-diagnostic en 15 questions](/blog/15-signes-site-web-dort) : 15 signes concrets qui indiquent qu'un site dort. Utilisable en 20 minutes chrono.
 
-> **→ [Télécharger la checklist "15 signes que ton site dort" (PDF)](/ressources/15-signes-site-web-dort.pdf)**
+> **→ [Télécharger la checklist "15 signes que ton site dort" (PDF)](/outils/checklist-15-signes-site-dort/)**
 > Diagnostic en 20 minutes, utilisable même sans connaissance SEO.
 
 Si vous cochez 5 signes ou plus, votre site est en mort clinique. La priorité est de le réveiller avant toute nouvelle dépense marketing.
@@ -318,7 +318,7 @@ Si la réponse est non, deux portes.
 **Porte 1 : auto-diagnostic gratuit**
 Téléchargez la checklist des 15 signes et évaluez votre site en 20 minutes. Utile même si vous ne travaillez jamais avec moi.
 
-→ [Télécharger la checklist "15 signes que ton site dort"](/ressources/15-signes-site-web-dort.pdf)
+→ [Télécharger la checklist "15 signes que ton site dort"](/outils/checklist-15-signes-site-dort/)
 
 **Porte 2 : audit personnalisé**
 Si vous voulez un regard extérieur concret sur votre situation, avec le plan d'action précis pour votre métier et votre marché, c'est par là.

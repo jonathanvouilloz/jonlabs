@@ -1,0 +1,3439 @@
+{
+  "nodes": {
+    "/blog/0a30joursgooglevisible/": {
+      "slug": "/blog/0a30joursgooglevisible/",
+      "title": "De 0 à visible sur Google en 30 jours : plan d'action pour commerces genevois",
+      "file": "src/content/blog/0a30joursgooglevisible.mdx",
+      "category": "perso",
+      "tags": [
+        "google",
+        "seo",
+        "commerce",
+        "genève",
+        "local"
+      ],
+      "description": "Plan en 4 semaines pour rendre ton commerce visible sur Google. Google Business, site one-page, réservation et avis.",
+      "body_preview": "import { Image } from 'astro:assets'; import googleMapsInvisible from '../../assets/blog/0a30jours/google-maps-invisible.webp'; import siteOnePage from '../../assets/blog/0a30jours/site-one-page-mobil",
+      "links": [
+        {
+          "anchor": "visibilité en ligne pour les indépendants",
+          "href": "/blog/visibilite-site-internet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "j'en parle sur ma page automatisation",
+          "href": "/services/automatisation/",
+          "is_weak": false
+        },
+        {
+          "anchor": "comment apparaître sur ChatGPT à Genève",
+          "href": "/blog/apparaitre-chatgpt-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "cherche dans Brave, pas dans Google",
+          "href": "/blog/apparaitre-claude/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Voir les services →",
+          "href": "/services/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/cout-site-web-dormant-calculateur/": {
+      "slug": "/blog/cout-site-web-dormant-calculateur/",
+      "title": "Calculateur : combien coûte un site web dormant ?",
+      "file": "src/content/blog/cout-site-web-dormant-calculateur.mdx",
+      "category": "tech",
+      "tags": [
+        "calculateur",
+        "roi",
+        "site-web",
+        "suisse-romande",
+        "pme",
+        "outil"
+      ],
+      "description": "Calcule en 60 secondes le coût réel de ton site inactif : frais fixes + clients perdus + manque à gagner. Chiffres adaptés au marché suisse.",
+      "body_preview": "import CoutDormantCalculateur from '../../components/CoutDormantCalculateur.astro'; Les chiffres présentés dans cet article sont des estimations basées sur des moyennes sectorielles suisses (OFS 2024,",
+      "links": [
+        {
+          "anchor": "la checklist des 15 signes que ton site web dort",
+          "href": "/blog/15-signes-site-web-dort/",
+          "is_weak": false
+        },
+        {
+          "anchor": "comprendre pourquoi un site actif change tout",
+          "href": "/blog/visibilite-site-internet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "76% des sites d'indépendants romands n'ont pas publié de contenu depuis 12 mois",
+          "href": "/blog/audit-50-sites-indeps-romands/",
+          "is_weak": false
+        },
+        {
+          "anchor": "combien coûte vraiment un site web en Suisse",
+          "href": "/blog/prix-site-web-suisse-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "freelance ou à une agence web",
+          "href": "/blog/freelance-ou-agence-web/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Obtenir un audit gratuit →",
+          "href": "/services/refonte-site-web/",
+          "is_weak": false
+        },
+        {
+          "anchor": "découvre l'ensemble de mes services",
+          "href": "/services/",
+          "is_weak": false
+        },
+        {
+          "anchor": "mes tarifs sont publics",
+          "href": "/tarifs/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/15-signes-site-web-dort/": {
+      "slug": "/blog/15-signes-site-web-dort/",
+      "title": "15 signes que ton site web dort (checklist honnête)",
+      "file": "src/content/blog/15-signes-site-web-dort.md",
+      "category": "tech",
+      "tags": [
+        "site-web",
+        "checklist",
+        "audit",
+        "diagnostic",
+        "seo",
+        "independant",
+        "suisse-romande"
+      ],
+      "description": "Checklist 15 signes en 4 minutes : score auto-calculé + diagnostic personnalisé. Dis-toi la vérité sur ton site web avant ton concurrent.",
+      "body_preview": "Si tu sens que ton site ne sert à rien, t'as probablement raison. Je vais pas te faire un cours théorique. Je te propose quinze questions fermées, oui ou non, quatre minutes montre en main. À la fin, ",
+      "links": [
+        {
+          "anchor": "le guide complet sur les sites qui travaillent vraiment",
+          "href": "/blog/visibilite-site-internet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "le plan 30 jours pour redevenir visible",
+          "href": "/blog/0a30joursgooglevisible/",
+          "is_weak": false
+        },
+        {
+          "anchor": "demander un audit personnalisé",
+          "href": "/services/refonte-site-web/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Les sites montés sur Lovable, Bolt ou Claude Code stagnent pour la même raison",
+          "href": "/blog/creer-site-vitrine-ia-visibilite-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "calculateur de coût d'un site web dormant",
+          "href": "/blog/cout-site-web-dormant-calculateur/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Accéder à la checklist interactive « 15 signes que ton site dort »",
+          "href": "/outils/checklist-15-signes-site-dort/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/apparaitre-chatgpt-geneve/": {
+      "slug": "/blog/apparaitre-chatgpt-geneve/",
+      "title": "Apparaître sur ChatGPT à Genève : 3 actions GEO",
+      "file": "src/content/blog/apparaitre-chatgpt-geneve.md",
+      "category": "tech",
+      "tags": [
+        "chatgpt",
+        "geo",
+        "seo",
+        "genève",
+        "visibilité",
+        "ia"
+      ],
+      "description": "Tes clients demandent à ChatGPT le meilleur prestataire à Genève. 3 actions concrètes basées sur l'E-E-A-T pour être cité dans ses réponses en 2026.",
+      "body_preview": "L'essentiel en bref - Les IA comme ChatGPT citent des sources qu'elles trouvent sur internet, et si tu n'as pas de présence claire en ligne, tu n'existes pas pour elles - Apparaître sur ChatGPT passe ",
+      "links": [
+        {
+          "anchor": "site vitrine bien construit",
+          "href": "/blog/creer-site-vitrine-ia-visibilite-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "référencement local",
+          "href": "/services/referencement-local/",
+          "is_weak": false
+        },
+        {
+          "anchor": "étude de cas complète est ici",
+          "href": "/portfolio/leo-lecureux-seo/",
+          "is_weak": false
+        },
+        {
+          "anchor": "l'article sur la visibilité Google en 30 jours",
+          "href": "/blog/0a30joursgooglevisible/",
+          "is_weak": false
+        },
+        {
+          "anchor": "combien coûte un site web en Suisse",
+          "href": "/blog/prix-site-web-suisse-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "cluster GEO de Jon Labs",
+          "href": "/blog/geo-seo-ia/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Apparaître sur Claude",
+          "href": "/blog/apparaitre-claude/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Apparaître sur Gemini",
+          "href": "/blog/apparaitre-gemini/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Apparaître sur Perplexity",
+          "href": "/blog/apparaitre-perplexity/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Apparaître sur Copilot",
+          "href": "/blog/apparaitre-copilot/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Apparaître sur Grok",
+          "href": "/blog/apparaitre-grok/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/apparaitre-claude/": {
+      "slug": "/blog/apparaitre-claude/",
+      "title": "Apparaître sur Claude (Brave Search) en 2026",
+      "file": "src/content/blog/apparaitre-claude.md",
+      "category": "tech",
+      "tags": [
+        "claude",
+        "anthropic",
+        "brave-search",
+        "geo",
+        "seo",
+        "ia",
+        "visibilité"
+      ],
+      "description": "Claude cite Brave à 86,7% : index moins concurrentiel, audience qualifiée. 5 actions GEO concrètes pour être cité par Claude en 2026.",
+      "body_preview": "L'essentiel en bref - Quand Claude effectue une recherche web, il interroge Brave Search, pas Google, pas Bing : corrélation de 86,7% entre citations Claude et résultats Brave - Brave est moins concur",
+      "links": [
+        {
+          "anchor": "juriste spécialisé à Genève",
+          "href": "/portfolio/leo-lecureux-seo/",
+          "is_weak": false
+        },
+        {
+          "anchor": "site vitrine bien construit",
+          "href": "/blog/creer-site-vitrine-ia-visibilite-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "référencement local",
+          "href": "/services/referencement-local/",
+          "is_weak": false
+        },
+        {
+          "anchor": "guide pour apparaître sur ChatGPT à Genève",
+          "href": "/blog/apparaitre-chatgpt-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Vérifier avec la checklist GEO gratuite →",
+          "href": "/outils/checklist-commerce-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "cluster GEO de Jon Labs",
+          "href": "/blog/geo-seo-ia/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Apparaître sur Gemini",
+          "href": "/blog/apparaitre-gemini/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Apparaître sur Perplexity",
+          "href": "/blog/apparaitre-perplexity/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Apparaître sur Copilot",
+          "href": "/blog/apparaitre-copilot/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Apparaître sur Grok",
+          "href": "/blog/apparaitre-grok/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/apparaitre-copilot/": {
+      "slug": "/blog/apparaitre-copilot/",
+      "title": "Apparaître sur Copilot : guide Bing pour 33M users",
+      "file": "src/content/blog/apparaitre-copilot.md",
+      "category": "tech",
+      "tags": [
+        "copilot",
+        "microsoft",
+        "bing",
+        "geo",
+        "seo",
+        "ia",
+        "visibilité"
+      ],
+      "description": "Copilot ne cite que 3 liens par réponse et touche 33M users via Windows, Edge, Teams. 4 actions GEO pour être dans le top 3 cité en 2026.",
+      "body_preview": "L'essentiel en bref - Copilot fonctionne en RAG (Retrieval-Augmented Generation) sur l'index Bing, pas Google, pas Brave - Copilot ne cite que 3,13 liens par réponse en moyenne, contre plus de 10 pour",
+      "links": [
+        {
+          "anchor": "apparaître sur ChatGPT à Genève",
+          "href": "/blog/apparaitre-chatgpt-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "apparaître sur Gemini",
+          "href": "/blog/apparaitre-gemini/",
+          "is_weak": false
+        },
+        {
+          "anchor": "apparaître sur Perplexity",
+          "href": "/blog/apparaitre-perplexity/",
+          "is_weak": false
+        },
+        {
+          "anchor": "visibilité de ton site en 2026",
+          "href": "/blog/visibilite-site-internet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "site vitrine bien construit",
+          "href": "/blog/creer-site-vitrine-ia-visibilite-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "études de cas en portfolio",
+          "href": "/portfolio/",
+          "is_weak": false
+        },
+        {
+          "anchor": "référencement local",
+          "href": "/services/referencement-local/",
+          "is_weak": false
+        },
+        {
+          "anchor": "prix",
+          "href": "/blog/prix-site-web-suisse-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "checklist visibilité Google",
+          "href": "/outils/checklist-commerce-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "apparaître sur Claude",
+          "href": "/blog/apparaitre-claude/",
+          "is_weak": false
+        },
+        {
+          "anchor": "cluster GEO de Jon Labs",
+          "href": "/blog/geo-seo-ia/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Apparaître sur Grok",
+          "href": "/blog/apparaitre-grok/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/apparaitre-gemini/": {
+      "slug": "/blog/apparaitre-gemini/",
+      "title": "Apparaître sur Gemini : guide GEO Google AI 2026",
+      "file": "src/content/blog/apparaitre-gemini.md",
+      "category": "tech",
+      "tags": [
+        "gemini",
+        "google",
+        "geo",
+        "seo",
+        "ai-overviews",
+        "visibilite",
+        "ia"
+      ],
+      "description": "Les AI Overviews captent 30% des recherches services et font chuter le CTR de 34,5%. 4 priorités pour être cité par Gemini et garder du trafic.",
+      "body_preview": "Quand un client tape \"consultant automation PME Genève\" dans Google en 2026, il ne voit plus forcément dix liens bleus en premier. Il voit une réponse générée par Gemini. Une synthèse. Un ou deux noms",
+      "links": [
+        {
+          "anchor": "site vitrine bien construit",
+          "href": "/blog/creer-site-vitrine-ia-visibilite-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "guide pour apparaître sur ChatGPT à Genève",
+          "href": "/blog/apparaitre-chatgpt-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "article sur Claude et Brave Search",
+          "href": "/blog/apparaitre-claude/",
+          "is_weak": false
+        },
+        {
+          "anchor": "guide sur la visibilité de ton site en 2026",
+          "href": "/blog/visibilite-site-internet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "études de cas en portfolio",
+          "href": "/portfolio/",
+          "is_weak": false
+        },
+        {
+          "anchor": "service de référencement local",
+          "href": "/services/referencement-local/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Vérifier avec la checklist GEO gratuite →",
+          "href": "/outils/checklist-commerce-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "cluster GEO de Jon Labs",
+          "href": "/blog/geo-seo-ia/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Apparaître sur Perplexity",
+          "href": "/blog/apparaitre-perplexity/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Apparaître sur Copilot",
+          "href": "/blog/apparaitre-copilot/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Apparaître sur Grok",
+          "href": "/blog/apparaitre-grok/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/apparaitre-grok/": {
+      "slug": "/blog/apparaitre-grok/",
+      "title": "Apparaître sur Grok : 27% de citations vs 0,59% GPT",
+      "file": "src/content/blog/apparaitre-grok.md",
+      "category": "tech",
+      "tags": [
+        "grok",
+        "xai",
+        "x",
+        "twitter",
+        "geo",
+        "seo",
+        "ia",
+        "visibilité"
+      ],
+      "description": "Grok cite 46x plus que ChatGPT et lit X en temps réel. Plan d'action concret pour apparaître via threads, profil et bio optimisée en 2026.",
+      "body_preview": "Voilà une stat qui mérite qu'on s'arrête dessus. Une étude de Superlines a analysé 34 234 réponses IA sur 10 plateformes en janvier et février 2026. Résultat : le taux de citation de Grok est de 27%. ",
+      "links": [
+        {
+          "anchor": "Demander un audit GEO gratuit →",
+          "href": "/contact/",
+          "is_weak": false
+        },
+        {
+          "anchor": "cluster GEO de Jon Labs",
+          "href": "/blog/geo-seo-ia/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Apparaître sur ChatGPT à Genève",
+          "href": "/blog/apparaitre-chatgpt-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Apparaître sur Claude",
+          "href": "/blog/apparaitre-claude/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Apparaître sur Gemini",
+          "href": "/blog/apparaitre-gemini/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Apparaître sur Perplexity",
+          "href": "/blog/apparaitre-perplexity/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Apparaître sur Copilot",
+          "href": "/blog/apparaitre-copilot/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/apparaitre-perplexity/": {
+      "slug": "/blog/apparaitre-perplexity/",
+      "title": "Apparaître sur Perplexity : structure 4× plus citée",
+      "file": "src/content/blog/apparaitre-perplexity.md",
+      "category": "tech",
+      "tags": [
+        "perplexity",
+        "geo",
+        "seo",
+        "ia",
+        "visibilité",
+        "citations"
+      ],
+      "description": "Pages structurées citées 2,6× plus, contenu chiffré 4,1× plus. Guide concret pour structurer ton site et être cité par Perplexity en 2026.",
+      "body_preview": "L'essentiel en bref - Perplexity cite ses sources par défaut avec des notes de bas de page numérotées, c'est le seul moteur IA qui le fait systématiquement - L'index de Perplexity couvre 200 milliards",
+      "links": [
+        {
+          "anchor": "apparaître sur ChatGPT à Genève",
+          "href": "/blog/apparaitre-chatgpt-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "apparaître sur Claude",
+          "href": "/blog/apparaitre-claude/",
+          "is_weak": false
+        },
+        {
+          "anchor": "visibilité de ton site en 2026",
+          "href": "/blog/visibilite-site-internet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "site vitrine bien construit pour les IA",
+          "href": "/blog/creer-site-vitrine-ia-visibilite-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "référencement local à Genève",
+          "href": "/services/referencement-local/",
+          "is_weak": false
+        },
+        {
+          "anchor": "checklist visibilité Google",
+          "href": "/outils/checklist-commerce-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "apparaître sur Gemini",
+          "href": "/blog/apparaitre-gemini/",
+          "is_weak": false
+        },
+        {
+          "anchor": "cluster GEO de Jon Labs",
+          "href": "/blog/geo-seo-ia/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Apparaître sur Copilot",
+          "href": "/blog/apparaitre-copilot/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Apparaître sur Grok",
+          "href": "/blog/apparaitre-grok/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/audit-50-sites-indeps-romands/": {
+      "slug": "/blog/audit-50-sites-indeps-romands/",
+      "title": "J'ai audité 50 sites d'indépendants romands",
+      "file": "src/content/blog/audit-50-sites-indeps-romands.md",
+      "category": "tech",
+      "tags": [
+        "audit",
+        "seo",
+        "suisse-romande",
+        "site-web",
+        "data",
+        "etude"
+      ],
+      "description": "Méthodo Lighthouse + GMB + Wayback sur 50 sites d'indépendants romands. 7 constats bruts, 3 archétypes, et le coût cumulé d'un marché endormi.",
+      "body_preview": "Personne n'avait jamais publié de chiffres sur l'état réel des sites PME romandes. Pas une étude. Pas un benchmark. Rien. Alors je l'ai fait. Pendant trois semaines, j'ai mené un audit d'un site web e",
+      "links": [
+        {
+          "anchor": "un site actif change tout",
+          "href": "/blog/visibilite-site-internet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "checklist 15 signes que ton site dort",
+          "href": "/blog/15-signes-site-web-dort/",
+          "is_weak": false
+        },
+        {
+          "anchor": "pourquoi les sites vitrine IA restent invisibles sur Google",
+          "href": "/blog/creer-site-vitrine-ia-visibilite-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "calculateur de coût d'un site dormant",
+          "href": "/blog/cout-site-web-dormant-calculateur/",
+          "is_weak": false
+        },
+        {
+          "anchor": "combien coûte vraiment un site web en Suisse",
+          "href": "/blog/prix-site-web-suisse-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "plan 30 jours pour devenir visible sur Google",
+          "href": "/blog/0a30joursgooglevisible/",
+          "is_weak": false
+        },
+        {
+          "anchor": "demander un audit personnalisé",
+          "href": "/services/refonte-site-web/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/automatisation-club-sportif/": {
+      "slug": "/blog/automatisation-club-sportif/",
+      "title": "Club sportif : pourquoi Excel ne suffit plus",
+      "file": "src/content/blog/automatisation-club-sportif.md",
+      "category": "tech",
+      "tags": [
+        "automatisation",
+        "clubs",
+        "associations",
+        "suisse",
+        "gestion"
+      ],
+      "description": "Cotisations impayées, fichiers Excel chaotiques, conformité nLPD : découvrez comment l'automatisation peut soulager les bénévoles de votre club.",
+      "body_preview": "Le mardi soir du trésorier Il est 22h30. Le président de mon club de badminton est encore devant son ordinateur. Pas pour préparer le prochain tournoi. Pas pour recruter de nouveaux membres. Non. Il e",
+      "links": [
+        {
+          "anchor": "654 heures par an le temps perdu en tâches administratives",
+          "href": "/blog/temps-perdu-pme-automatisation/",
+          "is_weak": false
+        },
+        {
+          "anchor": "comment sécuriser ses rendez-vous et réduire les no-shows",
+          "href": "/blog/no-show-rendez-vous-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Voir les services →",
+          "href": "/services/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/automatisation-pme-suisse-guide-complet/": {
+      "slug": "/blog/automatisation-pme-suisse-guide-complet/",
+      "title": "Automatisation PME Suisse : guide complet 2026",
+      "file": "src/content/blog/automatisation-pme-suisse-guide-complet.md",
+      "category": "tech",
+      "tags": [
+        "automatisation",
+        "pme",
+        "suisse-romande",
+        "n8n",
+        "make",
+        "zapier",
+        "agents-ia",
+        "workflows",
+        "roi"
+      ],
+      "description": "Guide pour PME suisses : quoi automatiser en premier, quelle stack choisir (n8n, Make, agents IA), et les vrais coûts en CHF. Pas de bullshit.",
+      "body_preview": "Dans une PME de 8 personnes à Lausanne, j'ai compté 23 heures par semaine perdues sur des tâches que n8n peut exécuter en 4 minutes. Facturation manuelle, relances clients, mise à jour du CRM, rapport",
+      "links": [
+        {
+          "anchor": "la différence complète entre workflows déterministes et agents IA autonomes",
+          "href": "/blog/workflows-vs-agents-ia-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Prise de rendez-vous et anti no-show",
+          "href": "/blog/no-show-rendez-vous-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "voici comment j'ai sorti des clubs de l'enfer Excel",
+          "href": "/blog/automatisation-club-sportif/",
+          "is_weak": false
+        },
+        {
+          "anchor": "méthode complète pour prioriser et calculer le ROI en CHF",
+          "href": "/blog/comment-choisir-quoi-automatiser-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "comment l'utiliser concrètement dans une PME",
+          "href": "/blog/notebooklm-guide-complet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "le guide détaillé sur Hermes Agent",
+          "href": "/blog/hermes-agent-ia-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "le guide complet sur OpenClaw",
+          "href": "/blog/openclaw-pme-suisse/",
+          "is_weak": false
+        },
+        {
+          "anchor": "le bilan complet des avantages et limites de l'automatisation pour PME",
+          "href": "/blog/avantages-limites-automatisation-pme/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/avantages-limites-automatisation-pme/": {
+      "slug": "/blog/avantages-limites-automatisation-pme/",
+      "title": "Automatisation PME : avantages réels et coûts cachés",
+      "file": "src/content/blog/avantages-limites-automatisation-pme.md",
+      "category": "tech",
+      "tags": [
+        "automatisation",
+        "pme",
+        "suisse-romande",
+        "roi",
+        "n8n",
+        "make",
+        "zapier",
+        "limites",
+        "couts-caches"
+      ],
+      "description": "Bilan honnête : les vrais avantages de l'automatisation pour une PME suisse, les coûts cachés que personne ne mentionne, et les cas où s'abstenir.",
+      "body_preview": "Automatisation dans ta PME : ce qu'elle apporte vraiment, et ce qu'elle ne peut pas faire J'ai vu un dirigeant de PME à Genève automatiser son processus de facturation en trois jours. Résultat : il ré",
+      "links": [
+        {
+          "anchor": "guide complet sur l'automatisation dans ta PME suisse",
+          "href": "/blog/automatisation-pme-suisse-guide-complet/",
+          "is_weak": false
+        },
+        {
+          "anchor": "c'est CHF 14 000 par an que la plupart des praticiens ne récupèrent jamais",
+          "href": "/blog/no-show-rendez-vous-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "la différence entre un workflow et un agent IA autonome",
+          "href": "/blog/workflows-vs-agents-ia-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "comment choisir quoi automatiser en premier",
+          "href": "/blog/comment-choisir-quoi-automatiser-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Hermes Agent pour ta PME",
+          "href": "/blog/hermes-agent-ia-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "**Réserver un appel découverte →**",
+          "href": "/contact/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/choisir-categorie-google-business-profile/": {
+      "slug": "/blog/choisir-categorie-google-business-profile/",
+      "title": "Catégorie Google Business Profile : comment choisir",
+      "file": "src/content/blog/choisir-categorie-google-business-profile.md",
+      "category": "tech",
+      "tags": [
+        "google-business-profile",
+        "google-my-business",
+        "seo-local",
+        "local-pack",
+        "categorie-google",
+        "pme",
+        "suisse-romande"
+      ],
+      "description": "Catégorie principale, catégories secondaires : comment choisir celles qui te font ranker (et l'erreur n°1 des PME). Le guide pour ta fiche Google.",
+      "body_preview": "Tu as créé ta fiche Google, rempli ton adresse, tes horaires, tes photos. Et tu te demandes pourquoi tu n'apparais pas quand tes clients cherchent. La réponse se cache souvent dans un champ que la plu",
+      "links": [
+        {
+          "anchor": "le guide complet de ta fiche Google Business Profile",
+          "href": "/blog/fiche-google-my-business-guide-complet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "les 3 facteurs de classement de Google Maps",
+          "href": "/blog/entrer-top-3-google-maps/",
+          "is_weak": false
+        },
+        {
+          "anchor": "la checklist d'optimisation en 25 points",
+          "href": "/blog/optimiser-fiche-google-my-business-checklist-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "créer ta fiche étape par étape",
+          "href": "/blog/creer-fiche-google-my-business-etape-par-etape/",
+          "is_weak": false
+        },
+        {
+          "anchor": "référencement local pour PME romande",
+          "href": "/blog/referencement-local-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "**Faire auditer ta fiche Google →**",
+          "href": "/contact/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/comment-apparaitre-google-maps-pme-debutant/": {
+      "slug": "/blog/comment-apparaitre-google-maps-pme-debutant/",
+      "title": "Comment apparaître sur Google Maps : guide débutant",
+      "file": "src/content/blog/comment-apparaitre-google-maps-pme-debutant.md",
+      "category": "tech",
+      "tags": [
+        "google-maps",
+        "google-my-business",
+        "local-pack",
+        "pme",
+        "debutant",
+        "fiche-google"
+      ],
+      "description": "Tu as un commerce mais tu n'apparais pas sur Google Maps ? Je t'explique pourquoi et les 5 étapes concrètes pour y être dans les 30 prochains jours.",
+      "body_preview": "Comment apparaître sur Google Maps quand on est une PME qui part de zéro Tu as un commerce, un atelier, un cabinet. Et tu n'apparais pas sur Google Maps. Tes concurrents, oui. Toi, non. C'est frustran",
+      "links": [
+        {
+          "anchor": "le guide complet sur la fiche Google My Business",
+          "href": "/blog/fiche-google-my-business-guide-complet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "l'ensemble de ta visibilité locale",
+          "href": "/blog/referencement-local-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "bien choisir ta catégorie principale",
+          "href": "/blog/optimiser-fiche-google-my-business-checklist-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "créer ta fiche étape par étape",
+          "href": "/blog/creer-fiche-google-my-business-etape-par-etape/",
+          "is_weak": false
+        },
+        {
+          "anchor": "**Faire créer et optimiser ma fiche →**",
+          "href": "/services/gestion-fiche-google/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/comment-choisir-quoi-automatiser-pme/": {
+      "slug": "/blog/comment-choisir-quoi-automatiser-pme/",
+      "title": "Quoi automatiser en premier dans ta PME ? Méthode + ROI CHF",
+      "file": "src/content/blog/comment-choisir-quoi-automatiser-pme.md",
+      "category": "tech",
+      "tags": [
+        "automatisation",
+        "pme",
+        "suisse-romande",
+        "roi",
+        "workflow",
+        "make",
+        "n8n"
+      ],
+      "description": "La méthode pour choisir quoi automatiser en premier dans ta PME : critères concrets, ROI en CHF et les cas où il ne faut surtout PAS automatiser.",
+      "body_preview": "J'ai vu un dirigeant passer trois semaines à configurer un workflow Make pour automatiser une tâche qu'il faisait deux fois par mois. Résultat : six minutes économisées. Le setup lui avait coûté plus ",
+      "links": [
+        {
+          "anchor": "guide complet sur l'automatisation dans ta PME suisse",
+          "href": "/blog/automatisation-pme-suisse-guide-complet/",
+          "is_weak": false
+        },
+        {
+          "anchor": "le système complet pour sécuriser les rendez-vous avec rappels SMS/WhatsApp et acomptes TWINT",
+          "href": "/blog/no-show-rendez-vous-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "la différence entre un workflow et un agent IA",
+          "href": "/blog/workflows-vs-agents-ia-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "avantages et limites réels de l'automatisation pour une PME",
+          "href": "/blog/avantages-limites-automatisation-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "**Réserver un appel découverte →**",
+          "href": "/contact/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/creer-fiche-google-my-business-etape-par-etape/": {
+      "slug": "/blog/creer-fiche-google-my-business-etape-par-etape/",
+      "title": "Créer fiche Google My Business : guide étape par étape 2026",
+      "file": "src/content/blog/creer-fiche-google-my-business-etape-par-etape.md",
+      "category": "tech",
+      "tags": [
+        "google-my-business",
+        "google-business-profile",
+        "creation-fiche",
+        "verification-google",
+        "seo-local"
+      ],
+      "description": "Créer ta fiche Google My Business en 7 étapes : catégorie, adresse, vérification vidéo, NAP. Le guide 2026 qui explique le pourquoi derrière chaque choix.",
+      "body_preview": "Comment créer sa fiche Google My Business en 2026 : les 7 étapes dans l'ordre Créer une fiche Google My Business prend moins d'une heure. La faire bien, de sorte qu'elle ranke dès le départ et n'ait p",
+      "links": [
+        {
+          "anchor": "comment apparaître sur Google Maps si tu pars de zéro",
+          "href": "/blog/comment-apparaitre-google-maps-pme-debutant/",
+          "is_weak": false
+        },
+        {
+          "anchor": "le guide complet sur la fiche Google My Business",
+          "href": "/blog/fiche-google-my-business-guide-complet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "la checklist complète pour optimiser ta fiche",
+          "href": "/blog/optimiser-fiche-google-my-business-checklist-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "démarche de référencement local",
+          "href": "/blog/referencement-local-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "**Faire créer ma fiche par un pro →**",
+          "href": "/services/gestion-fiche-google/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/creer-site-vitrine-ia-visibilite-google/": {
+      "slug": "/blog/creer-site-vitrine-ia-visibilite-google/",
+      "title": "Site vitrine IA : pourquoi Google t'ignore",
+      "file": "src/content/blog/creer-site-vitrine-ia-visibilite-google.md",
+      "category": "tech",
+      "tags": [
+        "ia",
+        "site-vitrine",
+        "seo",
+        "visibilite",
+        "google",
+        "freelance",
+        "creation-site-web"
+      ],
+      "description": "Lovable, Bolt, Claude Code : créer un site web n'a jamais été aussi simple. Mais sans stratégie de visibilité, ton site reste invisible.",
+      "body_preview": "Lovable, Bolt, Claude Code, Cursor... En 30 minutes, tu as un site vitrine en ligne. Félicitations. Maintenant, tape le nom de ton activité sur Google. Tu apparais où ? Page 1 ? Page 2 ? Nulle part ? ",
+      "links": [
+        {
+          "anchor": "vrais tarifs d'un site web en Suisse en 2026",
+          "href": "/blog/prix-site-web-suisse-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "comment apparaître sur ChatGPT quand on cherche ton service à Genève",
+          "href": "/blog/apparaitre-chatgpt-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "comment être cité par Gemini et les AI Overviews",
+          "href": "/blog/apparaitre-gemini/",
+          "is_weak": false
+        },
+        {
+          "anchor": "apparaître sur Claude",
+          "href": "/blog/apparaitre-claude/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Comment passer de 0 à visible sur Google en 30 jours →",
+          "href": "/blog/0a30joursgooglevisible/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/entrer-top-3-google-maps/": {
+      "slug": "/blog/entrer-top-3-google-maps/",
+      "title": "Top 3 Google Maps : les 3 facteurs de classement 2026",
+      "file": "src/content/blog/entrer-top-3-google-maps.md",
+      "category": "tech",
+      "tags": [
+        "seo-local",
+        "google-maps",
+        "google-business-profile",
+        "local-pack",
+        "referencement-local",
+        "pme",
+        "suisse-romande"
+      ],
+      "description": "Proximité, pertinence, notoriété : les 3 facteurs du top 3 Google Maps. Ce que tu contrôles, ce que tu ne contrôles pas, plan d'action en 90 jours.",
+      "body_preview": "Pourquoi ton concurrent est dans le top 3 Google Maps et pas toi Tu as une fiche Google. Tu as des photos. Tu as même quelques avis. Mais ton concurrent s'affiche en premier dès qu'un client potentiel",
+      "links": [
+        {
+          "anchor": "créer ta fiche étape par étape",
+          "href": "/blog/creer-fiche-google-my-business-etape-par-etape/",
+          "is_weak": false
+        },
+        {
+          "anchor": "le guide complet de ta fiche Google Business Profile",
+          "href": "/blog/fiche-google-my-business-guide-complet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "comment choisir la bonne catégorie Google Business Profile",
+          "href": "/blog/choisir-categorie-google-business-profile/",
+          "is_weak": false
+        },
+        {
+          "anchor": "checklist d'optimisation en 25 points",
+          "href": "/blog/optimiser-fiche-google-my-business-checklist-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "collecter des avis avec un QR code",
+          "href": "/blog/qr-code-avis-google-collecte-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "répondre systématiquement à tes avis Google",
+          "href": "/blog/repondre-avis-google-modeles-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "**7 leviers du référencement local**",
+          "href": "/blog/referencement-local-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "référencement local Lausanne",
+          "href": "/blog/referencement-local-lausanne/",
+          "is_weak": false
+        },
+        {
+          "anchor": "le détail des packages SEO local par profil",
+          "href": "/blog/tarif-package-seo-local-suisse/",
+          "is_weak": false
+        },
+        {
+          "anchor": "**Obtenir un audit gratuit de ma visibilité locale →**",
+          "href": "/services/refonte-site-web/",
+          "is_weak": false
+        },
+        {
+          "anchor": "**Discuter de ta stratégie de visibilité Google →**",
+          "href": "/contact/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/fiche-google-my-business-guide-complet-2026/": {
+      "slug": "/blog/fiche-google-my-business-guide-complet-2026/",
+      "title": "Fiche Google My Business : guide complet 2026",
+      "file": "src/content/blog/fiche-google-my-business-guide-complet-2026.md",
+      "category": "tech",
+      "tags": [
+        "google-my-business",
+        "google-business-profile",
+        "seo-local",
+        "local-pack",
+        "gmb",
+        "pme"
+      ],
+      "description": "GBP signals = 32% du Local Pack selon Whitespark 2026. Ce guide couvre tout : créer, optimiser, animer et mesurer ta fiche Google My Business en 2026.",
+      "body_preview": "Fiche Google My Business en 2026 : tout ce qu'une PME doit vraiment savoir Ta fiche Google My Business pèse 32% de ton classement dans le Local Pack. Ces 3 résultats Maps que tout le monde voit avant ",
+      "links": [
+        {
+          "anchor": "visibilité IA en 2026",
+          "href": "/blog/geo-seo-ia/",
+          "is_weak": false
+        },
+        {
+          "anchor": "référencement local à Genève",
+          "href": "/blog/referencement-local-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "créer ta fiche Google My Business étape par étape",
+          "href": "/blog/creer-fiche-google-my-business-etape-par-etape/",
+          "is_weak": false
+        },
+        {
+          "anchor": "checklist complète pour optimiser ta fiche",
+          "href": "/blog/optimiser-fiche-google-my-business-checklist-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "comment publier des Google Posts qui convertissent",
+          "href": "/blog/google-post-business-profile-conversion/",
+          "is_weak": false
+        },
+        {
+          "anchor": "obtenir plus d'avis avec un QR code",
+          "href": "/blog/qr-code-avis-google-collecte-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "répondre à tes avis Google",
+          "href": "/blog/repondre-avis-google-modeles-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "que faire si ta fiche est suspendue",
+          "href": "/blog/fiche-google-my-business-suspendue-recours/",
+          "is_weak": false
+        },
+        {
+          "anchor": "**Confier la gestion de ma fiche →**",
+          "href": "/services/gestion-fiche-google/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/fiche-google-my-business-suspendue-recours/": {
+      "slug": "/blog/fiche-google-my-business-suspendue-recours/",
+      "title": "Fiche Google My Business suspendue : que faire ?",
+      "file": "src/content/blog/fiche-google-my-business-suspendue-recours.md",
+      "category": "tech",
+      "tags": [
+        "google-my-business",
+        "suspension-gmb",
+        "seo-local",
+        "google-business-profile",
+        "réclamation",
+        "local-pack"
+      ],
+      "description": "Soft ou hard suspension ? 7 causes, procédure de réclamation, preuves à joindre et recours forum si refus. Le protocole complet pour les PME.",
+      "body_preview": "Ta fiche Google My Business est suspendue : voici le protocole complet pour la récupérer Si ta fiche Google My Business suspendue ne s'affiche plus ce matin dans Google Maps ou dans les résultats loca",
+      "links": [
+        {
+          "anchor": "Faire débloquer ma fiche par un pro →",
+          "href": "/services/gestion-fiche-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "guide complet de la fiche Google My Business",
+          "href": "/blog/fiche-google-my-business-guide-complet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "checklist d'optimisation complète de ta fiche",
+          "href": "/blog/optimiser-fiche-google-my-business-checklist-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "créer ta fiche correctement dès le départ",
+          "href": "/blog/creer-fiche-google-my-business-etape-par-etape/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/freelance-ou-agence-web/": {
+      "slug": "/blog/freelance-ou-agence-web/",
+      "title": "Freelance ou agence web : comment choisir ?",
+      "file": "src/content/blog/freelance-ou-agence-web.md",
+      "category": "perso",
+      "tags": [
+        "freelance",
+        "agence",
+        "suisse",
+        "budget",
+        "web"
+      ],
+      "description": "Tarifs, avantages, limites : le guide complet pour choisir entre freelance et agence pour ton projet web.",
+      "body_preview": "Tu as un projet web en tête (un site vitrine, une refonte, peut-être un e-commerce) et tu te poses LA question : freelance ou agence ? C'est une question légitime. Et la réponse honnête, c'est : ça dé",
+      "links": [
+        {
+          "anchor": "freelance WordPress à Genève",
+          "href": "/services/developpeur-wordpress/",
+          "is_weak": false
+        },
+        {
+          "anchor": "tarifs réels d'un site web en Suisse en 2026",
+          "href": "/blog/prix-site-web-suisse-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "tester ton concept",
+          "href": "/services/validation-idee/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Voir les services →",
+          "href": "/services/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/geo-seo-ia/": {
+      "slug": "/blog/geo-seo-ia/",
+      "title": "Apparaître dans les IA en 2026 : 6 moteurs + outils GEO",
+      "file": "src/content/blog/geo-seo-ia.md",
+      "category": "tech",
+      "tags": [
+        "geo",
+        "seo",
+        "ia",
+        "chatgpt",
+        "perplexity",
+        "gemini",
+        "copilot",
+        "claude",
+        "grok",
+        "visibilité",
+        "suisse"
+      ],
+      "description": "GEO 2026 : les 6 moteurs IA comparés, les meilleurs outils pour suivre ta visibilité et l'optimiser, plus un plan d'action concret en 30 jours.",
+      "body_preview": "Ton client ouvre son téléphone. Il ne va pas sur Google. Il tape sa question dans ChatGPT, Perplexity, ou Gemini. Il obtient une réponse avec deux ou trois noms. Il choisit l'un d'eux. Ton nom n'est p",
+      "links": [
+        {
+          "anchor": "site qui travaille pour ta visibilité",
+          "href": "/blog/visibilite-site-internet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Lire le guide",
+          "href": "/blog/apparaitre-claude/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Lire le guide",
+          "href": "/blog/apparaitre-chatgpt-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Lire le guide",
+          "href": "/blog/apparaitre-perplexity/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Lire le guide",
+          "href": "/blog/apparaitre-gemini/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Lire le guide",
+          "href": "/blog/apparaitre-copilot/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Lire le guide",
+          "href": "/blog/apparaitre-grok/",
+          "is_weak": false
+        },
+        {
+          "anchor": "accompagnement en référencement local",
+          "href": "/services/referencement-local/",
+          "is_weak": false
+        },
+        {
+          "anchor": "créer un site vitrine pensé pour les IA",
+          "href": "/blog/creer-site-vitrine-ia-visibilite-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "référencement local Genève",
+          "href": "/blog/referencement-local-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "spécialiste développement web Suisse",
+          "href": "/blog/specialiste-developpement-web-suisse/",
+          "is_weak": false
+        },
+        {
+          "anchor": "le détail des packages SEO local en Suisse",
+          "href": "/blog/tarif-package-seo-local-suisse/",
+          "is_weak": false
+        },
+        {
+          "anchor": "la page tarifs Jon Labs",
+          "href": "/tarifs/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Voir nos services GEO →",
+          "href": "/services/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Demander un audit GEO gratuit →",
+          "href": "/contact/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Audit de 50 sites indépendants romands",
+          "href": "/blog/audit-50-sites-indeps-romands/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Claude Skills Tutorial: Builders Guide",
+          "href": "/jonvolio-blog/claude-skills-tutorial-builders-guide/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/google-post-business-profile-conversion/": {
+      "slug": "/blog/google-post-business-profile-conversion/",
+      "title": "Google Posts : le guide pour vraiment convertir (2026)",
+      "file": "src/content/blog/google-post-business-profile-conversion.md",
+      "category": "tech",
+      "tags": [
+        "google-post",
+        "google-my-business",
+        "google-business-profile",
+        "seo-local",
+        "conversion",
+        "pme"
+      ],
+      "description": "Tes Google Posts ne génèrent rien ? Framework V+S+R, UTM tracking et cadence stratégique : tout ce que les tutoriels oublient de dire.",
+      "body_preview": "Google Posts sur ta fiche GBP : comment écrire des publications qui font agir, pas juste scroller L'essentiel en bref - Un Google Post n'est pas un post Instagram. Le lecteur est déjà en mode achat qu",
+      "links": [
+        {
+          "anchor": "guide complet de ta fiche Google My Business",
+          "href": "/blog/fiche-google-my-business-guide-complet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "optimiser ta fiche GMB dans sa globalité",
+          "href": "/blog/optimiser-fiche-google-my-business-checklist-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Confier la rédaction de mes posts →",
+          "href": "/services/gestion-fiche-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "comment apparaître sur Google Maps",
+          "href": "/blog/comment-apparaitre-google-maps-pme-debutant/",
+          "is_weak": false
+        },
+        {
+          "anchor": "créer ta fiche étape par étape",
+          "href": "/blog/creer-fiche-google-my-business-etape-par-etape/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Répondre aux avis Google : modèles 2026",
+          "href": "/blog/repondre-avis-google-modeles-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "QR code avis Google pour PME",
+          "href": "/blog/qr-code-avis-google-collecte-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "comment structurer ton référencement local",
+          "href": "/blog/referencement-local-geneve/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/hermes-agent-ia-pme/": {
+      "slug": "/blog/hermes-agent-ia-pme/",
+      "title": "Hermes Agent pour PME : guide 2026 + prix CHF",
+      "file": "src/content/blog/hermes-agent-ia-pme.md",
+      "category": "tech",
+      "tags": [
+        "hermes-agent",
+        "agent-ia",
+        "automatisation",
+        "pme",
+        "suisse-romande",
+        "nous-research",
+        "open-source",
+        "llm"
+      ],
+      "description": "Hermes Agent par Nous Research, agent IA autonome open source. Cas d'usage PME romande, coûts en CHF, comparaison OpenClaw, regard terrain honnête.",
+      "body_preview": "Hermes Agent pour ta PME : ce que c'est, ce que ça fait, et si ça vaut le coup en 2026 En février 2026, Nous Research a lancé Hermes Agent. En moins de trois mois, l'outil a atteint 61 000 étoiles sur",
+      "links": [
+        {
+          "anchor": "PME en Suisse romande",
+          "href": "/blog/automatisation-pme-suisse-guide-complet/",
+          "is_weak": false
+        },
+        {
+          "anchor": "la différence entre un workflow et un agent IA autonome",
+          "href": "/blog/workflows-vs-agents-ia-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "guide complet sur OpenClaw",
+          "href": "/blog/openclaw-pme-suisse/",
+          "is_weak": false
+        },
+        {
+          "anchor": "le bilan avantages et limites de l'automatisation pour les PME",
+          "href": "/blog/avantages-limites-automatisation-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "**Réserver un appel découverte**",
+          "href": "/contact/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/ia-pragmatique-pme-suisse/": {
+      "slug": "/blog/ia-pragmatique-pme-suisse/",
+      "title": "IA pour PME : 5 usages qui changent la donne",
+      "file": "src/content/blog/ia-pragmatique-pme-suisse.md",
+      "category": "tech",
+      "tags": [
+        "ia",
+        "pme",
+        "suisse-romande",
+        "productivite",
+        "automatisation"
+      ],
+      "description": "L'IA est partout, mais mal utilisée. Découvrez les quick wins concrets pour PME suisses : workflow, outils conformes LPD, et calcul ROI réaliste.",
+      "body_preview": "J'utilise l'IA tous les jours. Pour développer, brainstormer, planifier mes projets. Même pour analyser des livrets de règles de jeux de société (oui, vraiment, j'y reviendrai). Et quand je parle avec",
+      "links": [
+        {
+          "anchor": "comment apparaître sur Claude",
+          "href": "/blog/apparaitre-claude/",
+          "is_weak": false
+        },
+        {
+          "anchor": "le guide complet de NotebookLM avec cas d'usage PME",
+          "href": "/blog/notebooklm-guide-complet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "654 heures par an perdues en admin par les PME romandes",
+          "href": "/blog/temps-perdu-pme-automatisation/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Voir les services →",
+          "href": "/services/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/no-show-rendez-vous-2026/": {
+      "slug": "/blog/no-show-rendez-vous-2026/",
+      "title": "No-shows : le système pour sécuriser vos RDV",
+      "file": "src/content/blog/no-show-rendez-vous-2026.md",
+      "category": "tech",
+      "tags": [
+        "automatisation",
+        "rendez-vous",
+        "no-show",
+        "praticiens",
+        "suisse"
+      ],
+      "description": "Réduisez les no-shows avec un système de réservation adapté : comparatif des outils, rappels SMS/WhatsApp et acomptes TWINT.",
+      "body_preview": "Faisons un calcul rapide. Vous facturez 150 francs de l'heure. Deux clients par semaine ne se présentent pas. Ça fait 300 francs. Par mois, 1'200 francs. Sur une année, plus de 14'000 francs partis en",
+      "links": [
+        {
+          "anchor": "pourquoi Excel ne suffit plus pour un club sportif",
+          "href": "/blog/automatisation-club-sportif/",
+          "is_weak": false
+        },
+        {
+          "anchor": "étude chiffre à 654 heures par an le temps perdu en admin par les PME romandes",
+          "href": "/blog/temps-perdu-pme-automatisation/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Découvrir les solutions d'automatisation →",
+          "href": "/services/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/notebooklm-guide-complet-2026/": {
+      "slug": "/blog/notebooklm-guide-complet-2026/",
+      "title": "NotebookLM : analyser vos documents sans halluciner",
+      "file": "src/content/blog/notebooklm-guide-complet-2026.md",
+      "category": "tech",
+      "tags": [
+        "ia",
+        "notebooklm",
+        "productivite",
+        "documents",
+        "google",
+        "outils"
+      ],
+      "description": "Découvrez comment NotebookLM transforme des heures de lecture en minutes. Guide pratique avec nouveautés 2025-2026, workflows concrets et cas d'usage.",
+      "body_preview": "Great Western Trail New Zealand. 25 pages de règles. C'est un jeu de société. Et comme tous les jeux de société modernes, le livret ressemble plus à un manuel technique qu'à une invitation à s'amuser.",
+      "links": [
+        {
+          "anchor": "sites vitrines créés par IA et leur invisibilité sur Google",
+          "href": "/blog/creer-site-vitrine-ia-visibilite-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Lire : 52% des PME romandes utilisent l'IA pour traduire. Voici 5 usages qui changent vraiment la donne →",
+          "href": "/blog/ia-pragmatique-pme-suisse/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Découvrir mes services →",
+          "href": "/services/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/obtenir-plus-avis-google/": {
+      "slug": "/blog/obtenir-plus-avis-google/",
+      "title": "Obtenir plus d'avis Google : la méthode pour PME",
+      "file": "src/content/blog/obtenir-plus-avis-google.md",
+      "category": "tech",
+      "tags": [
+        "avis-google",
+        "google-my-business",
+        "seo-local",
+        "google-business-profile",
+        "pme",
+        "obtenir-avis-google"
+      ],
+      "description": "Quand demander, à qui, par quel canal : la méthode complète pour générer des avis Google en continu, légalement, sans harceler tes clients.",
+      "body_preview": "La plupart des PME romandes ont entre 4 et 15 avis sur leur fiche. Elles savent que c'est peu. Elles ont peut-être essayé de demander une ou deux fois, se sont senties gênées, et ont arrêté. Résultat ",
+      "links": [
+        {
+          "anchor": "guide complet de ta fiche Google Business Profile",
+          "href": "/blog/fiche-google-my-business-guide-complet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "comment entrer dans le top 3 de Google Maps",
+          "href": "/blog/entrer-top-3-google-maps/",
+          "is_weak": false
+        },
+        {
+          "anchor": "collecter des avis avec un QR code",
+          "href": "/blog/qr-code-avis-google-collecte-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "répondre systématiquement à tes avis",
+          "href": "/blog/repondre-avis-google-modeles-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "référencement local pour une PME romande",
+          "href": "/blog/referencement-local-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "**Mettre en place ton système d'avis →**",
+          "href": "/contact/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/openclaw-pme-suisse/": {
+      "slug": "/blog/openclaw-pme-suisse/",
+      "title": "OpenClaw pour PME suisse : guide complet 2026 + CHF",
+      "file": "src/content/blog/openclaw-pme-suisse.md",
+      "category": "tech",
+      "tags": [
+        "openclaw",
+        "agent-ia",
+        "automatisation",
+        "pme",
+        "tpe",
+        "suisse-romande",
+        "whatsapp",
+        "open-source",
+        "peter-steinberger"
+      ],
+      "description": "OpenClaw, agent IA persistant accessible depuis WhatsApp. Cas d'usage PME romande, coûts en CHF, comparaison Hermes Agent et marché. Regard terrain.",
+      "body_preview": "OpenClaw pour une PME suisse : ce que c'est, ce que ça fait, combien ça coûte et si ça vaut le coup OpenClaw a atteint 100 000 étoiles sur GitHub et 2 millions de visiteurs en une semaine lors de son ",
+      "links": [
+        {
+          "anchor": "guide complet sur l'automatisation dans ta PME suisse",
+          "href": "/blog/automatisation-pme-suisse-guide-complet/",
+          "is_weak": false
+        },
+        {
+          "anchor": "la différence entre un workflow et un agent IA autonome",
+          "href": "/blog/workflows-vs-agents-ia-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "méthode pour choisir quoi automatiser dans ton entreprise",
+          "href": "/blog/comment-choisir-quoi-automatiser-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "bilan avantages et limites de l'automatisation pour une PME",
+          "href": "/blog/avantages-limites-automatisation-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "guide complet sur Hermes Agent",
+          "href": "/blog/hermes-agent-ia-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "**Réserver un appel découverte →**",
+          "href": "/contact/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/optimiser-fiche-google-my-business-checklist-2026/": {
+      "slug": "/blog/optimiser-fiche-google-my-business-checklist-2026/",
+      "title": "Optimiser fiche Google My Business : checklist 25 points 2026",
+      "file": "src/content/blog/optimiser-fiche-google-my-business-checklist-2026.md",
+      "category": "tech",
+      "tags": [
+        "google-my-business",
+        "optimisation-gmb",
+        "local-pack",
+        "checklist",
+        "whitespark",
+        "seo-local"
+      ],
+      "description": "Checklist 25 points GMB 2026 : chaque point classé par impact selon Whitespark LSRF. Photos, avis, posts, attributs, maillage GBP-site. Ce qui ranke vraiment.",
+      "body_preview": "Optimiser sa fiche Google My Business en 2026 : la checklist des 25 points qui font vraiment la différence Ta fiche Google My Business existe. Elle est vérifiée. Et pourtant, tu n'es pas dans le Top 3",
+      "links": [
+        {
+          "anchor": "comment apparaître sur Google Maps",
+          "href": "/blog/comment-apparaitre-google-maps-pme-debutant/",
+          "is_weak": false
+        },
+        {
+          "anchor": "créer ta fiche de A à Z",
+          "href": "/blog/creer-fiche-google-my-business-etape-par-etape/",
+          "is_weak": false
+        },
+        {
+          "anchor": "le guide complet sur la fiche Google My Business",
+          "href": "/blog/fiche-google-my-business-guide-complet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "guide complet des Google Posts",
+          "href": "/blog/google-post-business-profile-conversion/",
+          "is_weak": false
+        },
+        {
+          "anchor": "obtenir des avis avec un QR code",
+          "href": "/blog/qr-code-avis-google-collecte-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "modèles pour répondre aux avis",
+          "href": "/blog/repondre-avis-google-modeles-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "référencement local à Genève",
+          "href": "/blog/referencement-local-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "combien coûte un accompagnement SEO local par profil",
+          "href": "/blog/tarif-package-seo-local-suisse/",
+          "is_weak": false
+        },
+        {
+          "anchor": "**Audit complet de ma fiche →**",
+          "href": "/services/gestion-fiche-google/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/prix-site-web-suisse-2026/": {
+      "slug": "/blog/prix-site-web-suisse-2026/",
+      "title": "Combien coûte vraiment un site web en Suisse en 2026 ?",
+      "file": "src/content/blog/prix-site-web-suisse-2026.md",
+      "category": "tech",
+      "tags": [
+        "prix",
+        "site-web",
+        "suisse",
+        "freelance",
+        "tarifs",
+        "geneve"
+      ],
+      "description": "Guide transparent des vrais tarifs web en Suisse : CHF 750-2000 pour un site vitrine. Facteurs de coût et conseils d'un développeur genevois.",
+      "body_preview": "Si tu me poses la question \"Combien coûte un site web ?\", c'est un peu comme si tu me demandais \"Combien coûte une voiture ?\" Ben... ça dépend. Une Fiat 500 d'occasion ou une Tesla Model S neuve ? Sau",
+      "links": [
+        {
+          "anchor": "refonte et migration WordPress",
+          "href": "/services/developpeur-wordpress/",
+          "is_weak": false
+        },
+        {
+          "anchor": "développeur Webflow",
+          "href": "/services/developpeur-webflow/",
+          "is_weak": false
+        },
+        {
+          "anchor": "page tarifs Jon Labs",
+          "href": "/tarifs/",
+          "is_weak": false
+        },
+        {
+          "anchor": "comment choisir entre freelance et agence web",
+          "href": "/blog/freelance-ou-agence-web/",
+          "is_weak": false
+        },
+        {
+          "anchor": "création de site web",
+          "href": "/services/creation-site-web/",
+          "is_weak": false
+        },
+        {
+          "anchor": "refonte de site web",
+          "href": "/services/refonte-site-web/",
+          "is_weak": false
+        },
+        {
+          "anchor": "comment être un spécialiste développement web en Suisse",
+          "href": "/blog/specialiste-developpement-web-suisse/",
+          "is_weak": false
+        },
+        {
+          "anchor": "sites vitrines créés par IA et la visibilité Google",
+          "href": "/blog/creer-site-vitrine-ia-visibilite-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "l'audit complet",
+          "href": "/blog/audit-50-sites-indeps-romands/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Voir les services →",
+          "href": "/services/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/qr-code-avis-google-collecte-pme/": {
+      "slug": "/blog/qr-code-avis-google-collecte-pme/",
+      "title": "QR code avis Google : guide complet pour PME (2026)",
+      "file": "src/content/blog/qr-code-avis-google-collecte-pme.md",
+      "category": "tech",
+      "tags": [
+        "qr-code-avis-google",
+        "avis-google",
+        "google-my-business",
+        "seo-local",
+        "pme",
+        "collecte-avis"
+      ],
+      "description": "Lien court GBP, QR code, sondage filtrant 4-5★→Google / 1-3★→SAV, modèles SMS et email. La méthode pour collecter des avis sans inciter illégalement.",
+      "body_preview": "QR code avis Google : comment construire une vraie machine à avis pour ta PME Si tu affiches un QR code sur ton comptoir sans rien changer d'autre, tu récolteras peut-être 3 avis supplémentaires par m",
+      "links": [
+        {
+          "anchor": "guide complet de ta fiche Google My Business",
+          "href": "/blog/fiche-google-my-business-guide-complet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "optimiser ta fiche GMB dans sa globalité",
+          "href": "/blog/optimiser-fiche-google-my-business-checklist-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "comment créer ta fiche étape par étape",
+          "href": "/blog/creer-fiche-google-my-business-etape-par-etape/",
+          "is_weak": false
+        },
+        {
+          "anchor": "**Mettre en place ce système pour ta fiche →**",
+          "href": "/services/gestion-fiche-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "comment répondre à ces avis une fois collectés",
+          "href": "/blog/repondre-avis-google-modeles-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "améliorer ton positionnement local sur Google",
+          "href": "/blog/referencement-local-geneve/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/referencement-local-geneve/": {
+      "slug": "/blog/referencement-local-geneve/",
+      "title": "Référencement local Genève : 7 leviers concrets pour PME",
+      "file": "src/content/blog/referencement-local-geneve.md",
+      "category": "tech",
+      "tags": [
+        "seo",
+        "referencement-local",
+        "geneve",
+        "google-business-profile",
+        "suisse-romande",
+        "pme"
+      ],
+      "description": "Comment apparaître sur Google quand un client tape ton métier à Genève : Google Business Profile, schema, avis, citations. Le guide terrain pour PME romandes.",
+      "body_preview": "Référencement local Genève : 7 leviers concrets pour les PME romandes Quand un Genevois tape \"agence web Genève\" ou \"plombier proche de moi\", Google affiche en premier un bloc de 3 fiches d'entreprise",
+      "links": [
+        {
+          "anchor": "contacte-moi",
+          "href": "/contact/",
+          "is_weak": false
+        },
+        {
+          "anchor": "15 signes que ton site web dort",
+          "href": "/blog/15-signes-site-web-dort/",
+          "is_weak": false
+        },
+        {
+          "anchor": "GEO et SEO IA en 2026",
+          "href": "/blog/geo-seo-ia/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Comment apparaître sur Claude en 2026",
+          "href": "/blog/apparaitre-claude/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Prix d'un site web en Suisse en 2026",
+          "href": "/blog/prix-site-web-suisse-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "ce que coûte un package SEO local selon ton profil",
+          "href": "/blog/tarif-package-seo-local-suisse/",
+          "is_weak": false
+        },
+        {
+          "anchor": "page tarifs",
+          "href": "/tarifs/",
+          "is_weak": false
+        },
+        {
+          "anchor": "page services référencement local",
+          "href": "/services/referencement-local/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Comment apparaître sur ChatGPT à Genève en 2026",
+          "href": "/blog/apparaitre-chatgpt-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Audit de 50 sites d'indépendants romands",
+          "href": "/blog/audit-50-sites-indeps-romands/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Développeur web freelance à Genève",
+          "href": "/developpeur-web-freelance-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Référencement local à Lausanne : le même guide pour le canton de Vaud",
+          "href": "/blog/referencement-local-lausanne/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/referencement-local-lausanne/": {
+      "slug": "/blog/referencement-local-lausanne/",
+      "title": "Référencement local Lausanne : 7 leviers pour PME",
+      "file": "src/content/blog/referencement-local-lausanne.md",
+      "category": "tech",
+      "tags": [
+        "seo",
+        "referencement-local",
+        "lausanne",
+        "vaud",
+        "google-business-profile",
+        "suisse-romande",
+        "pme"
+      ],
+      "description": "Apparaître sur Google quand un client tape ton métier à Lausanne : Google Business Profile, avis, citations, schema. Le guide terrain pour PME vaudoises.",
+      "body_preview": "Quand quelqu'un tape \"coiffeur Lausanne\" ou \"électricien Flon\" depuis son téléphone, Google affiche un bloc de trois fiches d'entreprises en haut des résultats : des noms, des photos, des étoiles et u",
+      "links": [
+        {
+          "anchor": "le même guide pour Genève",
+          "href": "/blog/referencement-local-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "choisir la bonne catégorie de ta fiche",
+          "href": "/blog/choisir-categorie-google-business-profile/",
+          "is_weak": false
+        },
+        {
+          "anchor": "la checklist d'optimisation en 25 points",
+          "href": "/blog/optimiser-fiche-google-my-business-checklist-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "obtenir plus d'avis Google",
+          "href": "/blog/obtenir-plus-avis-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "les tarifs d'un package SEO local en Suisse",
+          "href": "/blog/tarif-package-seo-local-suisse/",
+          "is_weak": false
+        },
+        {
+          "anchor": "les 3 facteurs de classement de Google Maps",
+          "href": "/blog/entrer-top-3-google-maps/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Demander un audit de visibilité →",
+          "href": "/contact/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/repondre-avis-google-modeles-2026/": {
+      "slug": "/blog/repondre-avis-google-modeles-2026/",
+      "title": "Répondre aux avis Google : 12 modèles prêts à copier",
+      "file": "src/content/blog/repondre-avis-google-modeles-2026.md",
+      "category": "tech",
+      "tags": [
+        "google-my-business",
+        "avis-google",
+        "seo-local",
+        "google-business-profile",
+        "gestion-avis",
+        "pme"
+      ],
+      "description": "Répondre aux avis Google booste ton ranking local. Framework 4 blocs + 12 modèles positifs et négatifs par secteur, prêts à copier.",
+      "body_preview": "Tu viens de recevoir un avis sur ta fiche Google. Un 5 étoiles qui fait plaisir, ou un 1 étoile qui pique. Dans les deux cas, tu ouvres l'interface et tu fixes l'écran vide en te demandant quoi écrire",
+      "links": [
+        {
+          "anchor": "collecter ces avis avec un QR code",
+          "href": "/blog/qr-code-avis-google-collecte-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "guide complet de ta fiche Google My Business",
+          "href": "/blog/fiche-google-my-business-guide-complet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "service de gestion de fiche Google",
+          "href": "/services/gestion-fiche-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "ta visibilité dans les recherches locales genevoises",
+          "href": "/blog/referencement-local-geneve/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/specialiste-developpement-web-suisse/": {
+      "slug": "/blog/specialiste-developpement-web-suisse/",
+      "title": "Spécialiste développement web suisse : comment bien choisir",
+      "file": "src/content/blog/specialiste-developpement-web-suisse.md",
+      "category": "tech",
+      "tags": [
+        "developpement-web",
+        "suisse-romande",
+        "freelance",
+        "agence-web",
+        "geneve",
+        "choix-prestataire",
+        "tarifs-web"
+      ],
+      "description": "Freelance ou agence ? Tarifs, 5 critères concrets, pièges courants : le guide terrain pour choisir un spécialiste en développement web en Suisse.",
+      "body_preview": "Spécialiste en développement web suisse : comment choisir (sans te faire avoir) Tu tapes ta requête sur Google et tu te retrouves face à des pages d'agences génériques, des annuaires, et des prestatai",
+      "links": [
+        {
+          "anchor": "là",
+          "href": "/contact/",
+          "is_weak": false
+        },
+        {
+          "anchor": "développeur Webflow",
+          "href": "/services/developpeur-webflow/",
+          "is_weak": false
+        },
+        {
+          "anchor": "freelance WordPress",
+          "href": "/services/developpeur-wordpress/",
+          "is_weak": false
+        },
+        {
+          "anchor": "15 signes que ton site web dort",
+          "href": "/blog/15-signes-site-web-dort/",
+          "is_weak": false
+        },
+        {
+          "anchor": "ce que ça change d'avoir un site actif",
+          "href": "/blog/visibilite-site-internet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "audit terrain de 50 sites d'indépendants romands",
+          "href": "/blog/audit-50-sites-indeps-romands/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Voir mes réalisations",
+          "href": "/portfolio/",
+          "is_weak": false
+        },
+        {
+          "anchor": "page tarifs",
+          "href": "/tarifs/",
+          "is_weak": false
+        },
+        {
+          "anchor": "prix d'un site web suisse en 2026",
+          "href": "/blog/prix-site-web-suisse-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "freelance ou agence web",
+          "href": "/blog/freelance-ou-agence-web/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Mon parcours complet",
+          "href": "/about/",
+          "is_weak": false
+        },
+        {
+          "anchor": "développeur web freelance Genève",
+          "href": "/developpeur-web-freelance-geneve/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/tarif-package-seo-local-suisse/": {
+      "slug": "/blog/tarif-package-seo-local-suisse/",
+      "title": "Tarif package SEO local en Suisse : guide transparent 2026",
+      "file": "src/content/blog/tarif-package-seo-local-suisse.md",
+      "category": "tech",
+      "tags": [
+        "seo",
+        "tarifs",
+        "referencement-local",
+        "suisse",
+        "geneve",
+        "prix",
+        "pme"
+      ],
+      "description": "Combien coûte un package SEO local en Suisse ? Setup, basic, premium : fourchettes CHF, livrables détaillés et conseils pour bien choisir.",
+      "body_preview": "Tarif package SEO local en Suisse : ce que tu paies vraiment Tu cherches combien coûte un package SEO local pour ton commerce ou ton cabinet en Suisse romande, et tu te retrouves face à des agences qu",
+      "links": [
+        {
+          "anchor": "freelance ou agence web",
+          "href": "/blog/freelance-ou-agence-web/",
+          "is_weak": false
+        },
+        {
+          "anchor": "le formulaire de contact",
+          "href": "/contact/",
+          "is_weak": false
+        },
+        {
+          "anchor": "mes services en référencement local",
+          "href": "/services/referencement-local/",
+          "is_weak": false
+        },
+        {
+          "anchor": "mes tarifs",
+          "href": "/tarifs/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Combien coûte vraiment un site web en Suisse en 2026",
+          "href": "/blog/prix-site-web-suisse-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Spécialiste développement web suisse : comment bien choisir",
+          "href": "/blog/specialiste-developpement-web-suisse/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Audit de 50 sites d'indépendants romands",
+          "href": "/blog/audit-50-sites-indeps-romands/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/temps-perdu-pme-automatisation/": {
+      "slug": "/blog/temps-perdu-pme-automatisation/",
+      "title": "654 heures par an : le temps que les PME romandes perdent en admin",
+      "file": "src/content/blog/temps-perdu-pme-automatisation.md",
+      "category": "tech",
+      "tags": [
+        "automatisation",
+        "PME",
+        "productivite",
+        "suisse-romande",
+        "admin"
+      ],
+      "description": "Où votre PME perd du temps en admin et 3 automatisations rapides pour récupérer des heures chaque semaine. Guide pratique Suisse romande.",
+      "body_preview": "Je bosse à 20% dans une ludothèque. Rien de très tech, on est d'accord. L'autre jour, je regarde une collègue recopier à la main les informations d'une fiche d'inscription papier dans un fichier Excel",
+      "links": [
+        {
+          "anchor": "pourquoi Excel ne suffit plus pour gérer un club",
+          "href": "/blog/automatisation-club-sportif/",
+          "is_weak": false
+        },
+        {
+          "anchor": "5 usages concrets de l'IA pour les PME romandes",
+          "href": "/blog/ia-pragmatique-pme-suisse/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Voir les services →",
+          "href": "/services/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/valide-idee-business-suisse/": {
+      "slug": "/blog/valide-idee-business-suisse/",
+      "title": "Valider ton idée de business en Suisse sans créer de Sàrl",
+      "file": "src/content/blog/valide-idee-business-suisse.md",
+      "category": "tech",
+      "tags": [
+        "startup",
+        "validation",
+        "suisse",
+        "mvp",
+        "entrepreneuriat"
+      ],
+      "description": "Tu peux tester ton idée business en Suisse sans 20k CHF. Découvre la méthode du smoke test et la raison individuelle pour valider avant d'investir.",
+      "body_preview": "Tu as une idée de produit ou de service qui te trotte dans la tête depuis des mois. Tu y penses sous la douche, en marchant, avant de t'endormir. Tu sais que ça pourrait marcher. Et puis tu regardes c",
+      "links": [
+        {
+          "anchor": "tarifs réels d'un site web en Suisse en 2026",
+          "href": "/blog/prix-site-web-suisse-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "sites vitrines créés par IA et leur invisibilité sur Google",
+          "href": "/blog/creer-site-vitrine-ia-visibilite-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Découvrir le service Test de concept →",
+          "href": "/services/validation-idee/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/visibilite-site-internet-2026/": {
+      "slug": "/blog/visibilite-site-internet-2026/",
+      "title": "Site web actif : pourquoi c'est vital en 2026 (guide CH)",
+      "file": "src/content/blog/visibilite-site-internet-2026.md",
+      "category": "tech",
+      "tags": [
+        "site-web",
+        "contenu",
+        "seo",
+        "freelance-romand",
+        "strategie-editoriale"
+      ],
+      "description": "Pourquoi un site sans contenu frais coûte plus qu'il ne rapporte. Méthode, chiffres CH, étude de cas et plan d'action concret.",
+      "body_preview": "70% des sites d'indépendants romands n'ont pas été mis à jour depuis plus de 12 mois. Voici ce que ça leur coûte, et comment inverser la courbe sans y passer ses week-ends. Je passe mes journées à aud",
+      "links": [
+        {
+          "anchor": "calculer combien votre site dormant vous coûte chaque mois",
+          "href": "/blog/cout-site-web-dormant-calculateur/",
+          "is_weak": false
+        },
+        {
+          "anchor": "pourquoi les sites générés par IA stagnent en SERP",
+          "href": "/blog/creer-site-vitrine-ia-visibilite-google/",
+          "is_weak": false
+        },
+        {
+          "anchor": "étude de cas Léo Lecureux",
+          "href": "/portfolio/leo-lecureux-seo/",
+          "is_weak": false
+        },
+        {
+          "anchor": "auto-diagnostic en 15 questions",
+          "href": "/blog/15-signes-site-web-dort/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Télécharger la checklist \"15 signes que ton site dort\" (PDF)",
+          "href": "/outils/checklist-15-signes-site-dort/",
+          "is_weak": false
+        },
+        {
+          "anchor": "le plan 30 jours pour devenir visible",
+          "href": "/blog/0a30joursgooglevisible/",
+          "is_weak": false
+        },
+        {
+          "anchor": "freelance ou agence : comment choisir",
+          "href": "/blog/freelance-ou-agence-web/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Demander un audit personnalisé",
+          "href": "/services/refonte-site-web/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/workflows-vs-agents-ia-pme/": {
+      "slug": "/blog/workflows-vs-agents-ia-pme/",
+      "title": "Workflow ou agent IA : lequel choisir pour ta PME ?",
+      "file": "src/content/blog/workflows-vs-agents-ia-pme.md",
+      "category": "tech",
+      "tags": [
+        "automatisation",
+        "agent-ia",
+        "workflow",
+        "n8n",
+        "make",
+        "zapier",
+        "pme",
+        "suisse-romande"
+      ],
+      "description": "n8n, Make, Zapier vs Hermes Agent, OpenClaw : quelle différence ? Guide non-technique pour choisir selon ton cas, avec critères concrets.",
+      "body_preview": "Workflow déterministe ou agent IA autonome : ce que personne n'explique clairement aux dirigeants de PME Depuis six mois, j'ai au moins une conversation par semaine avec un dirigeant romand qui me pos",
+      "links": [
+        {
+          "anchor": "Découvre le guide détaillé sur Hermes Agent",
+          "href": "/blog/hermes-agent-ia-pme/",
+          "is_weak": false
+        },
+        {
+          "anchor": "Le guide complet sur OpenClaw",
+          "href": "/blog/openclaw-pme-suisse/",
+          "is_weak": false
+        },
+        {
+          "anchor": "guide complet sur l'automatisation pour PME suisses",
+          "href": "/blog/automatisation-pme-suisse-guide-complet/",
+          "is_weak": false
+        },
+        {
+          "anchor": "**Réserver un appel découverte →**",
+          "href": "/contact/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/devis/constantin-coaching/": {
+      "slug": "/devis/constantin-coaching/",
+      "title": "Proposition — Coaching d'équipe",
+      "file": "src/content/devis/constantin-coaching.md",
+      "category": "",
+      "tags": [],
+      "description": "",
+      "body_preview": "Pourquoi ces choix ? SEO B2B ciblé Les responsables RH et dirigeants cherchent activement des solutions de team building sur Google. Avec un SEO bien travaillé, tu peux apparaître sur des requêtes com",
+      "links": []
+    },
+    "/devis/constantin-diederichs/": {
+      "slug": "/devis/constantin-diederichs/",
+      "title": "Proposition — Geneva Sunset Sailing",
+      "file": "src/content/devis/constantin-diederichs.md",
+      "category": "",
+      "tags": [],
+      "description": "",
+      "body_preview": "Pourquoi ces choix ? Site bilingue FR/EN La majorité des touristes sur le Lac Léman sont anglophones. Sans version anglaise, tu passes à côté d'une grosse partie de ta clientèle potentielle. Un site b",
+      "links": []
+    },
+    "/jonvolio-blog/claude-skills-tutorial-builders-guide/": {
+      "slug": "/jonvolio-blog/claude-skills-tutorial-builders-guide/",
+      "title": "Claude Skills: Builder's Guide with 11 Real Examples (2026)",
+      "file": "src/content/jonvolio-blog/claude-skills-tutorial-builders-guide.md",
+      "category": "",
+      "tags": [
+        "claude",
+        "skills",
+        "ai-tools",
+        "automation",
+        "indie-hacker"
+      ],
+      "description": "Build Claude Skills that automate your workflows. 11 real examples, complete code, and honest takes from an indie hacker shipping in 2026.",
+      "body_preview": "I've told Claude how to format my X posts maybe 47 times. Same instructions. Same style rules. Same \"no emoji, all lowercase, end with a punchline\" pattern. every. single. time. Then I discovered Skil",
+      "links": [
+        {
+          "anchor": "Apparaître sur Claude : guide GEO Brave Search (FR)",
+          "href": "/blog/apparaitre-claude/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/jonvolio-blog/serverless-latency-vercel-neon-slow/": {
+      "slug": "/jonvolio-blog/serverless-latency-vercel-neon-slow/",
+      "title": "I vibe-coded a slow app: fixing Vercel + Neon latency the hard way",
+      "file": "src/content/jonvolio-blog/serverless-latency-vercel-neon-slow.md",
+      "category": "",
+      "tags": [
+        "serverless",
+        "vercel",
+        "neon",
+        "latency",
+        "vibe-coding"
+      ],
+      "description": "AI wrote my code perfectly. But my app was still 800ms slow. The fix had nothing to do with code—it was physics.",
+      "body_preview": "My first project of 2026, kidou.dev(https://kidou.dev), was supposed to be a quick win. Modern stack (Vercel + Neon), AI-assisted code, clean architecture. I'd vibe-coded the whole thing in a weekend.",
+      "links": []
+    },
+    "/jonvolio-projects/glana/": {
+      "slug": "/jonvolio-projects/glana/",
+      "title": "Glana",
+      "file": "src/content/jonvolio-projects/glana.md",
+      "category": "",
+      "tags": [],
+      "description": "Personal project tracker and idea validation tool.",
+      "body_preview": "Glana was my attempt at building a project management tool specifically for indie hackers. The Idea Track side projects from idea to launch: - Capture ideas quickly - Validate before building - Track ",
+      "links": []
+    },
+    "/jonvolio-projects/isla-plomo/": {
+      "slug": "/jonvolio-projects/isla-plomo/",
+      "title": "Isla Plomo",
+      "file": "src/content/jonvolio-projects/isla-plomo.md",
+      "category": "",
+      "tags": [],
+      "description": "A web app for playing Resistance/Avalon-style games with friends.",
+      "body_preview": "Isla Plomo is a web-based companion app for social deduction board games like The Resistance and Avalon. The Problem Playing Resistance/Avalon requires someone to be the \"game master\" who assigns role",
+      "links": []
+    },
+    "/jonvolio-projects/kidou/": {
+      "slug": "/jonvolio-projects/kidou/",
+      "title": "Kidou",
+      "file": "src/content/jonvolio-projects/kidou.md",
+      "category": "",
+      "tags": [],
+      "description": "Track your projects in a terminal/code aesthetic. Upload PRDs, extract milestones, ship in public.",
+      "body_preview": "Kidou is a project tracker for indie hackers who want to build in public with a developer-friendly aesthetic. The Problem Most project management tools are either too complex (Jira, Linear) or too cas",
+      "links": []
+    },
+    "/jonvolio-projects/noko/": {
+      "slug": "/jonvolio-projects/noko/",
+      "title": "Noko",
+      "file": "src/content/jonvolio-projects/noko.md",
+      "category": "",
+      "tags": [],
+      "description": "A simple, fast Linktree alternative for creators and businesses.",
+      "body_preview": "Noko is a lightweight link-in-bio tool I'm building for my clients who need a simple, branded landing page. Why Another Linktree? Most link-in-bio tools are either: - Bloated with features nobody uses",
+      "links": []
+    },
+    "/portfolio/barber-concept/": {
+      "slug": "/portfolio/barber-concept/",
+      "title": "Site Webflow pour une chaîne de 6 salons",
+      "file": "src/content/portfolio/barber-concept.md",
+      "category": "",
+      "tags": [
+        "Site vitrine",
+        "Barbier",
+        "Genève",
+        "Local",
+        "Webflow"
+      ],
+      "description": "Création du site barberconcept.ch — CMS multi-salon, page franchise et système de recrutement intégré sur Webflow.",
+      "body_preview": "Un rebrand digital pour une marque qui grandit Barber Concept, c'est une chaîne de barbiers qui ne fait rien comme les autres en Suisse romande. Avec 6 salons, des ambassadeurs comme Gazo et Gims et u",
+      "links": []
+    },
+    "/portfolio/isla-plomo/": {
+      "slug": "/portfolio/isla-plomo/",
+      "title": "Isla Plomo",
+      "file": "src/content/portfolio/isla-plomo.md",
+      "category": "",
+      "tags": [
+        "PWA",
+        "Jeu",
+        "Svelte",
+        "Side-project",
+        "IA"
+      ],
+      "description": "Un jeu de rôles cachés jouable sur un seul téléphone, inspiré d'Avalon. PWA hors ligne, style Mutafukaz/Gorillaz.",
+      "body_preview": "Un jeu de bluff et de trahison. Un téléphone. Zéro connexion requise. !Isla Plomo - Écran d'accueil(/images/lab/isla-plomo/gallery/homescreen.webp) --- La solution Isla Plomo — une PWA (Progressive We",
+      "links": [
+        {
+          "anchor": "Contacte-moi →",
+          "href": "/contact/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/portfolio/leo-lecureux-seo/": {
+      "slug": "/portfolio/leo-lecureux-seo/",
+      "title": "SEO local pour un juriste à Genève",
+      "file": "src/content/portfolio/leo-lecureux-seo.md",
+      "category": "",
+      "tags": [
+        "SEO",
+        "Site vitrine",
+        "Genève",
+        "Juridique",
+        "Framer",
+        "Local"
+      ],
+      "description": "De zéro à Top 1 Google en 5 mois — Comment j'ai positionné un juriste en droit de la restauration à Genève. Étude de cas SEO local.",
+      "body_preview": "Le contexte complet Ce projet a été l'occasion de mettre en pratique mes apprentissages en SEO sur un cas réel avec de vrais enjeux business. La collaboration avec Léo m'a permis de comprendre les spé",
+      "links": [
+        {
+          "anchor": "comment apparaître sur ChatGPT à Genève",
+          "href": "/blog/apparaitre-chatgpt-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "comment apparaître sur Claude",
+          "href": "/blog/apparaitre-claude/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/portfolio/ugo-mighali-coutelier/": {
+      "slug": "/portfolio/ugo-mighali-coutelier/",
+      "title": "Site portfolio pour un coutelier d'art",
+      "file": "src/content/portfolio/ugo-mighali-coutelier.md",
+      "category": "",
+      "tags": [
+        "Portfolio",
+        "Webflow",
+        "Artisanat",
+        "Coutellerie",
+        "Design",
+        "Genève"
+      ],
+      "description": "Création d'un site portfolio minimaliste et artistique pour Ugo Mighali, jeune coutelier d'art formé à Genève. Design épuré sur Webflow.",
+      "body_preview": "Un site qui laisse parler le métal Ce projet est avant tout une vitrine artistique. Ugo Mighali ne cherchait ni à vendre en ligne, ni à apparaître sur Google — il voulait simplement un endroit pour mo",
+      "links": []
+    },
+    "/portfolio/wisp/": {
+      "slug": "/portfolio/wisp/",
+      "title": "Wisp",
+      "file": "src/content/portfolio/wisp.md",
+      "category": "",
+      "tags": [
+        "SvelteKit",
+        "Dexie",
+        "Écriture",
+        "Side-project",
+        "IA"
+      ],
+      "description": "Une webapp d'écriture quotidienne où le texte s'efface si tu t'arrêtes. 300 mots par jour, zéro excuses. Local-first, 100% privé, style zen.",
+      "body_preview": "Écris ou tout disparaît. 300 mots. Chaque jour. Sans filtre. !Wisp - Écran d'écriture(/images/lab/wisp/gallery/writing-screen.webp) --- La solution Wisp — une webapp d'écriture quotidienne, style \"Zen",
+      "links": [
+        {
+          "anchor": "Contacte-moi →",
+          "href": "/contact/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/about/": {
+      "slug": "/about/",
+      "title": "About",
+      "file": "src/pages/about.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={pageTitle} description={pageDescription} schemas={schemas} Header / main !-- Hero Section -- section class=\"py-16 md:py-24 px-4 relative overflow-hidden\" img src={svgPinkStar.src} alt=\"\"",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/blog/specialiste-developpement-web-suisse/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/cv/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/portfolio/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/contact/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/contact/": {
+      "slug": "/contact/",
+      "title": "Contact",
+      "file": "src/pages/contact.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={pageTitle} description={pageDescription} schemas={schemas} Header / main !-- Hero Section -- ContactHero / !-- Main Content: Form + Info -- section class=\"pb-16 md:pb-24 px-4\" div class=",
+      "links": []
+    },
+    "/cv-pdf/": {
+      "slug": "/cv-pdf/",
+      "title": "Cv Pdf",
+      "file": "src/pages/cv-pdf.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "!DOCTYPE html html lang=\"fr\" head meta charset=\"UTF-8\" meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" meta name=\"robots\" content=\"noindex, nofollow\" titleCV - Jonathan Vouilloz/t",
+      "links": []
+    },
+    "/cv/": {
+      "slug": "/cv/",
+      "title": "Cv",
+      "file": "src/pages/cv.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={pageTitle} description={pageDescription} schemas={schemas} Header / main class=\"cv-page\" CVHero / CVProfile / CVFormation / CVTimeline / CVProjects / CVSkills / CVLanguages / CVInterests",
+      "links": []
+    },
+    "/developpeur-web-freelance-geneve/": {
+      "slug": "/developpeur-web-freelance-geneve/",
+      "title": "Developpeur Web Freelance Geneve",
+      "file": "src/pages/developpeur-web-freelance-geneve.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={pageTitle} description={pageDescription} schemas={schemas} Header / !-- ============================================== -- !-- HERO LOCAL -- !-- ==========================================",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/contact/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/portfolio/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/freelance-ou-agence-web/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/services/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/services/developpeur-wordpress/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/services/developpeur-webflow/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/tarifs/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/about/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/": {
+      "slug": "/",
+      "title": "Index",
+      "file": "src/pages/index.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={pageTitle} description={pageDescription} schemas={schemas} Header / main Hero / ClientsBanner / ServicesHome / AboutHome / PortfolioHighlight / TechStack / /main Footer / /Layout",
+      "links": []
+    },
+    "/mentions-legales/": {
+      "slug": "/mentions-legales/",
+      "title": "Mentions Legales",
+      "file": "src/pages/mentions-legales.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={pageTitle} description={pageDescription} robots=\"noindex, follow\" Header / main class=\"py-16 px-4\" div class=\"max-w-3xl mx-auto\" h1 class=\"text-3xl md:text-4xl font-normal mb-12 tracking",
+      "links": []
+    },
+    "/merci-checklist-15-signes/": {
+      "slug": "/merci-checklist-15-signes/",
+      "title": "Merci Checklist 15 Signes",
+      "file": "src/pages/merci-checklist-15-signes.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={seoData.title} description={seoData.description} robots=\"noindex, nofollow\" Header / main class=\"min-h-70vh flex items-center justify-center py-20 px-4\" div class=\"max-w-xl mx-auto text-",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/outils/checklist-15-signes-site-dort-pdf/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/services/refonte-site-web/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/outils/checklist-15-signes-site-dort/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/merci-checklist/": {
+      "slug": "/merci-checklist/",
+      "title": "Merci Checklist",
+      "file": "src/pages/merci-checklist.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={seoData.title} description={seoData.description} robots=\"noindex, nofollow\" Header / main class=\"min-h-70vh flex items-center justify-center py-20 px-4\" div class=\"max-w-xl mx-auto text-",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/outils/checklist-commerce-google-pdf/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/contact/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/outils/checklist-commerce-google/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/portfolio/": {
+      "slug": "/portfolio/",
+      "title": "Portfolio",
+      "file": "src/pages/portfolio.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={pageTitle} description={pageDescription} schemas={schemas} Header / main !-- Hero Section -- section class=\"py-12 md:py-16 px-4\" div class=\"max-w-3xl mx-auto text-center\" h1 class=\"text-",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/contact/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/services/": {
+      "slug": "/services/",
+      "title": "Services",
+      "file": "src/pages/services.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={pageTitle} description={pageDescription} schemas={schemas} Header variant=\"transparent\" scrollTransition={true} / main !-- Section Hero avec caméléon et bulles constellation -- HeroScena",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/contact/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/developpeur-web-freelance-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/specialiste-developpement-web-suisse/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/15-signes-site-web-dort/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/audit-50-sites-indeps-romands/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/geo-seo-ia/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/prix-site-web-suisse-2026/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/tarifs/": {
+      "slug": "/tarifs/",
+      "title": "Tarifs",
+      "file": "src/pages/tarifs.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={pageTitle} description={pageDescription} schemas={schemas} Header / main !-- Hero -- section class=\"pt-32 pb-16 md:pt-40 md:pb-24 px-4 bg-var(--main-bg)\" div class=\"max-w-4xl mx-auto tex",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/contact/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/services/referencement-local/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/prix-site-web-suisse-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/specialiste-developpement-web-suisse/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/freelance-ou-agence-web/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/blog/": {
+      "slug": "/blog/",
+      "title": "Index",
+      "file": "src/pages/blog/index.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title=\"Blog | Développement Web & Automatisation | Jon Labs\" description=\"Articles et réflexions sur le développement web, l'automatisation et l'entrepreneuriat digital. Retours d'expérience co",
+      "links": []
+    },
+    "/jonvolio/": {
+      "slug": "/jonvolio/",
+      "title": "Index",
+      "file": "src/pages/jonvolio/index.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "JonvolioLayout title=\"jonvolio\" description=\"building things i want to exist. indie hacker from geneva, switzerland.\" !-- 1. HERO -- section class=\"home-hero\" div class=\"hero-content\" img src=\"/jonvol",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/jonvolio/projects/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/outils/checklist-15-signes-site-dort-pdf/": {
+      "slug": "/outils/checklist-15-signes-site-dort-pdf/",
+      "title": "Checklist 15 Signes Site Dort Pdf",
+      "file": "src/pages/outils/checklist-15-signes-site-dort-pdf.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "!DOCTYPE html html lang=\"fr\" head meta charset=\"UTF-8\" meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" meta name=\"robots\" content=\"noindex, nofollow\" titleChecklist 15 signes que ",
+      "links": []
+    },
+    "/outils/checklist-15-signes-site-dort/": {
+      "slug": "/outils/checklist-15-signes-site-dort/",
+      "title": "Checklist 15 Signes Site Dort",
+      "file": "src/pages/outils/checklist-15-signes-site-dort.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={seoData.title} description={seoData.description} schemas={schemas} Header / !-- HERO SECTION -- section class=\"hero-section pt-32 pb-16 md:pt-40 md:pb-20 px-4 relative overflow-hidden\" d",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/outils/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/15-signes-site-web-dort/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/0a30joursgooglevisible/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/services/refonte-site-web/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/cout-site-web-dormant-calculateur/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/outils/checklist-commerce-google-pdf/": {
+      "slug": "/outils/checklist-commerce-google-pdf/",
+      "title": "Checklist Commerce Google Pdf",
+      "file": "src/pages/outils/checklist-commerce-google-pdf.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "!DOCTYPE html html lang=\"fr\" head meta charset=\"UTF-8\" meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\" meta name=\"robots\" content=\"noindex, nofollow\" titleChecklist Commerce Googl",
+      "links": []
+    },
+    "/outils/checklist-commerce-google/": {
+      "slug": "/outils/checklist-commerce-google/",
+      "title": "Checklist Commerce Google",
+      "file": "src/pages/outils/checklist-commerce-google.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={seoData.title} description={seoData.description} schemas={schemas} Header / !-- HERO SECTION -- section class=\"hero-section pt-32 pb-16 md:pt-40 md:pb-20 px-4 relative overflow-hidden\" !",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/0a30joursgooglevisible/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/services/automatisation/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/outils/": {
+      "slug": "/outils/",
+      "title": "Index",
+      "file": "src/pages/outils/index.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={seoData.title} description={seoData.description} schemas={schemas} Header / main class=\"pt-32 pb-16 md:pt-40 md:pb-24 px-4\" div class=\"max-w-4xl mx-auto\" !-- Header -- div class=\"text-ce",
+      "links": []
+    },
+    "/services/automatisation/": {
+      "slug": "/services/automatisation/",
+      "title": "Automatisation",
+      "file": "src/pages/services/automatisation.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={seoData.title} description={seoData.description} schemas={schemas} robots=\"noindex, follow\" Header / !-- ============================================== -- !-- HERO SECTION -- !-- =======",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/services/integration-outils/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/services/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/services/creation-site-web/": {
+      "slug": "/services/creation-site-web/",
+      "title": "Creation Site Web",
+      "file": "src/pages/services/creation-site-web.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={seoData.title} description={seoData.description} schemas={schemas} Header / !-- ============================================== -- !-- HERO SECTION -- !-- ================================",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/blog/audit-50-sites-indeps-romands/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/15-signes-site-web-dort/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/visibilite-site-internet-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/prix-site-web-suisse-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/services/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/services/developpement-mvp/": {
+      "slug": "/services/developpement-mvp/",
+      "title": "Developpement Mvp",
+      "file": "src/pages/services/developpement-mvp.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={seoData.title} description={seoData.description} schemas={schemas} Header / !-- ============================================== -- !-- HERO SECTION -- !-- ================================",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/contact/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/about/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/services/validation-idee/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/services/developpeur-webflow/": {
+      "slug": "/services/developpeur-webflow/",
+      "title": "Developpeur Webflow",
+      "file": "src/pages/services/developpeur-webflow.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={seoData.title} description={seoData.description} schemas={schemas} Header / !-- ============================================== -- !-- HERO SECTION -- !-- ================================",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/services/referencement-local/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/services/creation-site-web/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/tarifs/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/prix-site-web-suisse-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/services/developpeur-wordpress/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/portfolio/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/services/developpeur-wordpress/": {
+      "slug": "/services/developpeur-wordpress/",
+      "title": "Developpeur Wordpress",
+      "file": "src/pages/services/developpeur-wordpress.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={seoData.title} description={seoData.description} schemas={schemas} Header / !-- ============================================== -- !-- HERO SECTION -- !-- ================================",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/services/creation-site-web/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/freelance-ou-agence-web/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/tarifs/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/prix-site-web-suisse-2026/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/services/developpeur-webflow/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/services/referencement-local/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/portfolio/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/services/gestion-fiche-google/": {
+      "slug": "/services/gestion-fiche-google/",
+      "title": "Gestion Fiche Google",
+      "file": "src/pages/services/gestion-fiche-google.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={seoData.title} description={seoData.description} schemas={schemas} Header / !-- HERO - Faux GMB card mockup -- section class=\"hero-section -mt-120px pt-150px pb-16 md:pt-160px md:pb-20 p",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/blog/referencement-local-geneve/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/services/referencement-local/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/services/integration-outils/": {
+      "slug": "/services/integration-outils/",
+      "title": "Integration Outils",
+      "file": "src/pages/services/integration-outils.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={seoData.title} description={seoData.description} schemas={schemas} robots=\"noindex, follow\" Header / !-- ============================================== -- !-- HERO SECTION -- !-- =======",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/blog/0a30joursgooglevisible/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/services/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/services/outils-sur-mesure/": {
+      "slug": "/services/outils-sur-mesure/",
+      "title": "Outils Sur Mesure",
+      "file": "src/pages/services/outils-sur-mesure.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={seoData.title} description={seoData.description} schemas={schemas} Header / !-- ============================================== -- !-- HERO SECTION - Layout centré -- !-- ================",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/services/automatisation/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/automatisation-club-sportif/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/services/referencement-local/": {
+      "slug": "/services/referencement-local/",
+      "title": "Referencement Local",
+      "file": "src/pages/services/referencement-local.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={seoData.title} description={seoData.description} schemas={schemas} Header / !-- ============================================== -- !-- HERO SECTION -- !-- ================================",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/portfolio/leo-lecureux-seo/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/tarifs/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/services/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/services/refonte-site-web/": {
+      "slug": "/services/refonte-site-web/",
+      "title": "Refonte Site Web",
+      "file": "src/pages/services/refonte-site-web.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={seoData.title} description={seoData.description} schemas={schemas} robots=\"noindex, follow\" Header / !-- ============================================== -- !-- HERO OPTION A - Browser Sho",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/portfolio/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/15-signes-site-web-dort/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/audit-50-sites-indeps-romands/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/blog/visibilite-site-internet-2026/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/services/validation-idee/": {
+      "slug": "/services/validation-idee/",
+      "title": "Validation Idee",
+      "file": "src/pages/services/validation-idee.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "Layout title={seoData.title} description={seoData.description} schemas={schemas} robots=\"noindex, follow\" Header / !-- ============================================== -- !-- HERO SECTION -- !-- =======",
+      "links": [
+        {
+          "anchor": "",
+          "href": "/blog/valide-idee-business-suisse/",
+          "is_weak": false
+        },
+        {
+          "anchor": "",
+          "href": "/contact/",
+          "is_weak": false
+        }
+      ]
+    },
+    "/jonvolio/blog/": {
+      "slug": "/jonvolio/blog/",
+      "title": "Index",
+      "file": "src/pages/jonvolio/blog/index.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "JonvolioLayout title=\"Blog\" description=\"Dev logs, build-in-public updates, and thoughts on indie hacking.\" section class=\"jonvolio-hero\" h1Blog/h1 p class=\"tagline\"Dev logs, experiments, and thoughts",
+      "links": []
+    },
+    "/jonvolio/inspirations/": {
+      "slug": "/jonvolio/inspirations/",
+      "title": "Index",
+      "file": "src/pages/jonvolio/inspirations/index.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "JonvolioLayout title=\"Inspirations\" description=\"Books, films, people, and tools that shape my thinking and work.\" section class=\"jonvolio-hero\" h1Inspirations/h1 p class=\"tagline\"What shapes my think",
+      "links": []
+    },
+    "/jonvolio/projects/": {
+      "slug": "/jonvolio/projects/",
+      "title": "Index",
+      "file": "src/pages/jonvolio/projects/index.astro",
+      "category": "pages-statiques",
+      "tags": [],
+      "description": "",
+      "body_preview": "JonvolioLayout title=\"Projects\" description=\"Side projects, experiments, and shipped products. Here's what I'm building.\" section class=\"jonvolio-hero\" h1Projects/h1 p class=\"tagline\"Side projects, ex",
+      "links": []
+    }
+  },
+  "stats": {
+    "total_pages": 88,
+    "total_links": 381,
+    "orphans": [
+      "/cv-pdf/",
+      "/devis/constantin-coaching/",
+      "/devis/constantin-diederichs/",
+      "/jonvolio-blog/serverless-latency-vercel-neon-slow/",
+      "/jonvolio-projects/glana/",
+      "/jonvolio-projects/isla-plomo/",
+      "/jonvolio-projects/kidou/",
+      "/jonvolio-projects/noko/",
+      "/jonvolio/",
+      "/jonvolio/blog/",
+      "/jonvolio/inspirations/",
+      "/mentions-legales/",
+      "/merci-checklist-15-signes/",
+      "/merci-checklist/",
+      "/portfolio/barber-concept/",
+      "/portfolio/isla-plomo/",
+      "/portfolio/ugo-mighali-coutelier/",
+      "/portfolio/wisp/",
+      "/services/developpement-mvp/",
+      "/services/outils-sur-mesure/"
+    ],
+    "no_outlinks": [
+      "/",
+      "/blog/",
+      "/contact/",
+      "/cv-pdf/",
+      "/cv/",
+      "/devis/constantin-coaching/",
+      "/devis/constantin-diederichs/",
+      "/jonvolio-blog/serverless-latency-vercel-neon-slow/",
+      "/jonvolio-projects/glana/",
+      "/jonvolio-projects/isla-plomo/",
+      "/jonvolio-projects/kidou/",
+      "/jonvolio-projects/noko/",
+      "/jonvolio/blog/",
+      "/jonvolio/inspirations/",
+      "/jonvolio/projects/",
+      "/mentions-legales/",
+      "/outils/",
+      "/outils/checklist-15-signes-site-dort-pdf/",
+      "/outils/checklist-commerce-google-pdf/",
+      "/portfolio/barber-concept/",
+      "/portfolio/ugo-mighali-coutelier/"
+    ],
+    "weak_anchors": {},
+    "broken_links": {},
+    "categories": {
+      "perso": [
+        "/blog/0a30joursgooglevisible/",
+        "/blog/freelance-ou-agence-web/"
+      ],
+      "tech": [
+        "/blog/cout-site-web-dormant-calculateur/",
+        "/blog/15-signes-site-web-dort/",
+        "/blog/apparaitre-chatgpt-geneve/",
+        "/blog/apparaitre-claude/",
+        "/blog/apparaitre-copilot/",
+        "/blog/apparaitre-gemini/",
+        "/blog/apparaitre-grok/",
+        "/blog/apparaitre-perplexity/",
+        "/blog/audit-50-sites-indeps-romands/",
+        "/blog/automatisation-club-sportif/",
+        "/blog/automatisation-pme-suisse-guide-complet/",
+        "/blog/avantages-limites-automatisation-pme/",
+        "/blog/choisir-categorie-google-business-profile/",
+        "/blog/comment-apparaitre-google-maps-pme-debutant/",
+        "/blog/comment-choisir-quoi-automatiser-pme/",
+        "/blog/creer-fiche-google-my-business-etape-par-etape/",
+        "/blog/creer-site-vitrine-ia-visibilite-google/",
+        "/blog/entrer-top-3-google-maps/",
+        "/blog/fiche-google-my-business-guide-complet-2026/",
+        "/blog/fiche-google-my-business-suspendue-recours/",
+        "/blog/geo-seo-ia/",
+        "/blog/google-post-business-profile-conversion/",
+        "/blog/hermes-agent-ia-pme/",
+        "/blog/ia-pragmatique-pme-suisse/",
+        "/blog/no-show-rendez-vous-2026/",
+        "/blog/notebooklm-guide-complet-2026/",
+        "/blog/obtenir-plus-avis-google/",
+        "/blog/openclaw-pme-suisse/",
+        "/blog/optimiser-fiche-google-my-business-checklist-2026/",
+        "/blog/prix-site-web-suisse-2026/",
+        "/blog/qr-code-avis-google-collecte-pme/",
+        "/blog/referencement-local-geneve/",
+        "/blog/referencement-local-lausanne/",
+        "/blog/repondre-avis-google-modeles-2026/",
+        "/blog/specialiste-developpement-web-suisse/",
+        "/blog/tarif-package-seo-local-suisse/",
+        "/blog/temps-perdu-pme-automatisation/",
+        "/blog/valide-idee-business-suisse/",
+        "/blog/visibilite-site-internet-2026/",
+        "/blog/workflows-vs-agents-ia-pme/"
+      ],
+      "sans-catégorie": [
+        "/devis/constantin-coaching/",
+        "/devis/constantin-diederichs/",
+        "/jonvolio-blog/claude-skills-tutorial-builders-guide/",
+        "/jonvolio-blog/serverless-latency-vercel-neon-slow/",
+        "/jonvolio-projects/glana/",
+        "/jonvolio-projects/isla-plomo/",
+        "/jonvolio-projects/kidou/",
+        "/jonvolio-projects/noko/",
+        "/portfolio/barber-concept/",
+        "/portfolio/isla-plomo/",
+        "/portfolio/leo-lecureux-seo/",
+        "/portfolio/ugo-mighali-coutelier/",
+        "/portfolio/wisp/"
+      ],
+      "pages-statiques": [
+        "/about/",
+        "/contact/",
+        "/cv-pdf/",
+        "/cv/",
+        "/developpeur-web-freelance-geneve/",
+        "/",
+        "/mentions-legales/",
+        "/merci-checklist-15-signes/",
+        "/merci-checklist/",
+        "/portfolio/",
+        "/services/",
+        "/tarifs/",
+        "/blog/",
+        "/jonvolio/",
+        "/outils/checklist-15-signes-site-dort-pdf/",
+        "/outils/checklist-15-signes-site-dort/",
+        "/outils/checklist-commerce-google-pdf/",
+        "/outils/checklist-commerce-google/",
+        "/outils/",
+        "/services/automatisation/",
+        "/services/creation-site-web/",
+        "/services/developpement-mvp/",
+        "/services/developpeur-webflow/",
+        "/services/developpeur-wordpress/",
+        "/services/gestion-fiche-google/",
+        "/services/integration-outils/",
+        "/services/outils-sur-mesure/",
+        "/services/referencement-local/",
+        "/services/refonte-site-web/",
+        "/services/validation-idee/",
+        "/jonvolio/blog/",
+        "/jonvolio/inspirations/",
+        "/jonvolio/projects/"
+      ]
+    },
+    "top_pages": [
+      [
+        "/contact/",
+        24
+      ],
+      [
+        "/services/",
+        15
+      ],
+      [
+        "/blog/prix-site-web-suisse-2026/",
+        15
+      ],
+      [
+        "/blog/referencement-local-geneve/",
+        13
+      ],
+      [
+        "/services/referencement-local/",
+        12
+      ],
+      [
+        "/blog/creer-site-vitrine-ia-visibilite-google/",
+        12
+      ],
+      [
+        "/blog/apparaitre-claude/",
+        12
+      ],
+      [
+        "/blog/visibilite-site-internet-2026/",
+        11
+      ],
+      [
+        "/blog/apparaitre-chatgpt-geneve/",
+        10
+      ],
+      [
+        "/blog/fiche-google-my-business-guide-complet-2026/",
+        10
+      ],
+      [
+        "/tarifs/",
+        10
+      ],
+      [
+        "/blog/15-signes-site-web-dort/",
+        9
+      ],
+      [
+        "/blog/geo-seo-ia/",
+        9
+      ],
+      [
+        "/blog/audit-50-sites-indeps-romands/",
+        9
+      ],
+      [
+        "/blog/optimiser-fiche-google-my-business-checklist-2026/",
+        9
+      ]
+    ],
+    "cross_links": {
+      "perso → tech": 4,
+      "perso → pages-statiques": 5,
+      "tech → perso": 10,
+      "tech → pages-statiques": 68,
+      "tech → sans-catégorie": 4,
+      "sans-catégorie → tech": 3,
+      "sans-catégorie → pages-statiques": 2,
+      "pages-statiques → tech": 22,
+      "pages-statiques → perso": 6,
+      "pages-statiques → sans-catégorie": 1
+    }
+  }
+}

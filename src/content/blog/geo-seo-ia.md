@@ -288,7 +288,7 @@ Tu veux savoir où tu en es concrètement ? On analyse ta présence sur les crit
 
 **English (cross-langue) :**
 
-- [Claude Skills Tutorial: Builders Guide](/jonvolio/blog/claude-skills-tutorial-builders-guide)
+- [Claude Skills Tutorial: Builders Guide](/jonvolio-blog/claude-skills-tutorial-builders-guide)
 
 ---
 

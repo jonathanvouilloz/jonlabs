@@ -150,7 +150,7 @@ Ce qui ne marche pas (et peut être contre-productif) :
 - Acheter des liens pointant vers ta fiche GBP sur des plateformes
 - Bots de clics sur ta fiche
 
-Pour l'analyse complète avec les données sources : [l'analyse complète sur le mythe des backlinks GBP](/blog/backlinks-fiche-google-mythe-whitespark-2026).
+Pour l'analyse complète avec les données sources, consulte la documentation officielle Whitespark Local Search Ranking Factors 2023.
 
 ---
 
