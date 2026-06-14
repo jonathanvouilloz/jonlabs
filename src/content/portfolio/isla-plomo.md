@@ -1,6 +1,6 @@
 ---
 title: "Isla Plomo"
-description: "Un jeu de rôles cachés jouable sur un seul téléphone, inspiré d'Avalon. PWA hors ligne, style Mutafukaz/Gorillaz."
+description: "Adaptation d'Avalon (The Resistance) en PWA mobile — jouable sur un seul téléphone, hors ligne."
 date: 2025-01-15
 draft: false
 featured: true

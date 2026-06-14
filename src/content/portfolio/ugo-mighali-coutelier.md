@@ -1,6 +1,6 @@
 ---
-title: "Site portfolio pour un coutelier d'art"
-description: "Création d'un site portfolio minimaliste et artistique pour Ugo Mighali, jeune coutelier d'art formé à Genève. Design épuré sur Webflow."
+title: "Ugo Mighali Coutelier"
+description: "Portfolio pour un coutelier d'art à Genève — design épuré sur Webflow."
 date: 2026-02-01
 draft: false
 featured: false

@@ -1,6 +1,6 @@
 ---
-title: "Site Webflow pour une chaîne de 6 salons"
-description: "Création du site barberconcept.ch — CMS multi-salon, page franchise et système de recrutement intégré sur Webflow."
+title: "Barber Concept"
+description: "Site Webflow pour une chaîne de barbiers à Genève — CMS multi-salon, SEO local et pages franchise."
 date: 2023-09-01
 draft: false
 featured: false
@@ -15,7 +15,7 @@ project:
   duration: "~2 mois"
   period: "Septembre - Octobre 2023"
   platform: "Webflow"
-  category: "site-vitrine"
+  category: "seo"
 
 heroImage:
   url: "/images/portfolio/barber-concept/hero.webp"
