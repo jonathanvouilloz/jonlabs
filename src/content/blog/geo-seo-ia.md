@@ -286,10 +286,6 @@ Tu veux savoir où tu en es concrètement ? On analyse ta présence sur les crit
 - [Référencement local à Genève](/blog/referencement-local-geneve)
 - [Tarif package SEO local Suisse](/blog/tarif-package-seo-local-suisse)
 
-**English (cross-langue) :**
-
-- [Claude Skills Tutorial: Builders Guide](/jonvolio-blog/claude-skills-tutorial-builders-guide)
-
 ---
 
 ## Sources

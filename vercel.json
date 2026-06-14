@@ -1,5 +1,9 @@
 {
   "trailingSlash": false,
+  "rewrites": [
+    { "source": "/jonvolio", "destination": "/api/gone" },
+    { "source": "/jonvolio/:path*", "destination": "/api/gone" }
+  ],
   "redirects": [
     { "source": "/blog/astro-vs-next", "destination": "/blog", "permanent": true },
     { "source": "/blog/astro-vs-next/", "destination": "/blog", "permanent": true },

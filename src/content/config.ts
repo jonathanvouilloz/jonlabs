@@ -32,44 +32,6 @@ const linkedinCollection = defineCollection({
   }),
 });
 
-// jonvolio collections (English indie hacker section)
-const jonvolioBlogCollection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    description: z.string().max(160),
-    pubDate: z.date(),
-    updatedDate: z.date().optional(),
-    image: z.object({
-      url: z.string(),
-      alt: z.string(),
-    }).optional(),
-    tags: z.array(z.string()).default([]),
-    draft: z.boolean().default(false),
-    readingTime: z.number().optional(),
-    faqs: z.array(z.object({
-      question: z.string(),
-      answer: z.string(),
-    })).optional(),
-  }),
-});
-
-const jonvolioProjectsCollection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string(),
-    description: z.string().max(155),
-    date: z.coerce.date(),
-    status: z.enum(['live', 'wip', 'archived']),
-    stack: z.array(z.string()).default([]),
-    url: z.string().url().optional(),
-    repo: z.string().url().optional(),
-    thumbnail: z.string().optional(),
-    blogPost: z.string().optional(), // slug of related blog post
-    featured: z.boolean().default(false),
-  }),
-});
-
 const portfolioCollection = defineCollection({
   type: 'content',
   schema: z.object({
@@ -259,8 +221,6 @@ const devisCollection = defineCollection({
 export const collections = {
   blog: blogCollection,
   linkedin: linkedinCollection,
-  'jonvolio-blog': jonvolioBlogCollection,
-  'jonvolio-projects': jonvolioProjectsCollection,
   devis: devisCollection,
   portfolio: portfolioCollection,
 };

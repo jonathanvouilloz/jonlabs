@@ -119,12 +119,6 @@ export const mainNav: NavSection[] = [
       description: 'Guides, retours d\'expérience et analyses sur le web et l\'automatisation',
       href: '/blog',
     },
-    footer: {
-      label: 'Indie hacker (EN)',
-      href: '/jonvolio',
-      icon: 'ri-global-line',
-      description: 'jonvolio — building things I want to exist',
-    },
   },
   {
     label: 'À propos',
