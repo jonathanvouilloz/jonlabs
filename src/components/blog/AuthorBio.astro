@@ -78,6 +78,18 @@ import imgJonathan from '../../assets/jonathan-vouilloz.webp';
                 <span>GitHub</span>
               </a>
             )}
+            {author.youtube && author.youtube !== '#' && (
+              <a
+                href={author.youtube}
+                target="_blank"
+                rel="noopener noreferrer me"
+                class="flex items-center gap-2 text-sm font-medium hover:text-[var(--violet)] transition-colors"
+                aria-label="Chaîne YouTube de Jonathan Vouilloz"
+              >
+                <i class="ri-youtube-fill text-xl"></i>
+                <span>YouTube</span>
+              </a>
+            )}
             {author.email && (
               <a
                 href={author.email}

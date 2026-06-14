@@ -44,7 +44,8 @@ export const organizationData = {
   },
   "sameAs": [
     "https://www.linkedin.com/in/jonathan-vouilloz-3b5741139/",
-    "https://github.com/jonathanvouilloz"
+    "https://github.com/jonathanvouilloz",
+    "https://www.youtube.com/@jonlabs1005"
   ],
   "areaServed": [
     {
