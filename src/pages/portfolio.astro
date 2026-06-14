@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 import Layout from "../layouts/Layout.astro"
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
-import PortfolioCard from '../components/portfolio/PortfolioCard.astro';
+import PortfolioCardEditorial from '../components/portfolio/PortfolioCardEditorial.astro';
 
 // Schema.org
 import { SITE_URL } from '../data/schema';
@@ -32,6 +32,26 @@ const sortedProjects = portfolioEntries.sort((a, b) => {
   // Then by date
   return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
 });
+
+// Catégorie d'affichage/filtre (mêmes labels que la carte)
+const categoryLabels: Record<string, string> = {
+  'site-vitrine': 'Site vitrine',
+  'e-commerce': 'E-commerce',
+  'application': 'Application',
+  'seo': 'SEO',
+  'automatisation': 'Automatisation',
+  'side-project': 'Projet perso',
+};
+
+const getCategoryKey = (project: typeof sortedProjects[number]) =>
+  project.data.entryType === 'side-project' ? 'side-project' : project.data.project.category;
+
+// Chips : "Tous" + catégories réellement présentes (ordre d'apparition)
+const presentCategories = [...new Set(sortedProjects.map(getCategoryKey))];
+const filters = [
+  { slug: 'all', name: 'Tous' },
+  ...presentCategories.map((slug) => ({ slug, name: categoryLabels[slug] || slug })),
+];
 ---
 
 <Layout
@@ -56,15 +76,36 @@ const sortedProjects = portfolioEntries.sort((a, b) => {
 
     <!-- Projects List -->
     <section class="py-8 md:py-12 px-4">
-      <div class="max-w-[900px] mx-auto">
+      <div class="max-w-6xl mx-auto">
         {sortedProjects.length > 0 ? (
-          <div class="flex flex-col gap-6" data-animate-stagger>
-            {sortedProjects.map(project => (
-              <div data-animate-item>
-                <PortfolioCard project={project} />
-              </div>
-            ))}
-          </div>
+          <>
+            <!-- Filtres catégories -->
+            <div class="flex flex-wrap justify-center gap-2 mb-8 md:mb-10" id="portfolio-filters" data-animate>
+              {filters.map((filter) => (
+                <button
+                  type="button"
+                  data-category={filter.slug}
+                  class:list={[
+                    'filter-btn px-4 py-2 text-sm font-medium border-2 border-black transition-all duration-200',
+                    filter.slug === 'all'
+                      ? 'bg-[var(--blue)] shadow-[2px_2px_0px_rgba(0,0,0,1)] active'
+                      : 'bg-white hover:bg-gray-100',
+                  ]}
+                >
+                  {filter.name}
+                </button>
+              ))}
+            </div>
+
+            <!-- Grille 2 colonnes -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" id="portfolio-grid" data-animate-stagger>
+              {sortedProjects.map(project => (
+                <div data-animate-item data-category={getCategoryKey(project)}>
+                  <PortfolioCardEditorial project={project} />
+                </div>
+              ))}
+            </div>
+          </>
         ) : (
           <div class="text-center py-16" data-animate>
             <i class="ri-folder-open-line text-6xl text-gray-300 mb-4"></i>
@@ -95,3 +136,36 @@ const sortedProjects = portfolioEntries.sort((a, b) => {
 
   <Footer />
 </Layout>
+
+<script>
+  function initPortfolioFilters() {
+    const filterButtons = document.querySelectorAll<HTMLButtonElement>('#portfolio-filters .filter-btn');
+    const grid = document.getElementById('portfolio-grid');
+    if (!filterButtons.length || !grid) return;
+
+    const items = Array.from(grid.querySelectorAll<HTMLElement>('[data-category]'));
+
+    filterButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const category = btn.getAttribute('data-category') || 'all';
+
+        // État actif des chips
+        filterButtons.forEach((b) => {
+          b.classList.remove('active', 'bg-[var(--blue)]', 'shadow-[2px_2px_0px_rgba(0,0,0,1)]');
+          b.classList.add('bg-white', 'hover:bg-gray-100');
+        });
+        btn.classList.remove('bg-white', 'hover:bg-gray-100');
+        btn.classList.add('active', 'bg-[var(--blue)]', 'shadow-[2px_2px_0px_rgba(0,0,0,1)]');
+
+        // Filtrage
+        items.forEach((item) => {
+          const itemCategory = item.getAttribute('data-category') || '';
+          item.style.display = category === 'all' || itemCategory === category ? '' : 'none';
+        });
+      });
+    });
+  }
+
+  initPortfolioFilters();
+  document.addEventListener('astro:page-load', initPortfolioFilters);
+</script>
