@@ -1,0 +1,21 @@
+{
+  "topic": "créer application mobile",
+  "location_code": 2756,
+  "location_name": "Switzerland",
+  "language_code": "fr",
+  "generated_at": "2026-06-15T08:47:55Z",
+  "primary": {
+    "keyword": "créer application mobile",
+    "search_volume": 20,
+    "cpc": 9.97,
+    "competition": "HIGH",
+    "competition_index": 76,
+    "difficulty": 59,
+    "intent": "transactional",
+    "intent_probability": 0.9476
+  },
+  "secondaries": [],
+  "long_tail": [],
+  "related": [],
+  "quick_wins": []
+}

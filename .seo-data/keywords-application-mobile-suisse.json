@@ -1,0 +1,36 @@
+{
+  "topic": "application mobile suisse",
+  "location_code": 2756,
+  "location_name": "Switzerland",
+  "language_code": "fr",
+  "generated_at": "2026-06-15T08:48:03Z",
+  "primary": {
+    "keyword": "application mobile suisse",
+    "search_volume": 0,
+    "cpc": 0,
+    "competition": null,
+    "competition_index": null,
+    "difficulty": null,
+    "intent": "navigational",
+    "intent_probability": 0.822
+  },
+  "secondaries": [
+    {
+      "keyword": "développement application mobile suisse",
+      "search_volume": 210,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "long_tail": [],
+  "related": [],
+  "quick_wins": [
+    {
+      "keyword": "développement application mobile suisse",
+      "search_volume": 210,
+      "competition": "LOW",
+      "reason": "high volume + low competition"
+    }
+  ]
+}
