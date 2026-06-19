@@ -34,6 +34,10 @@ Jonathan Vouilloz — développeur et créateur de solutions digitales, basé à
 - https://jonlabs.ch/blog/prix-site-web-suisse-2026 — Combien coûte vraiment un site web en Suisse en 2026
 - https://jonlabs.ch/blog/referencement-local-geneve — Référencement local à Genève : 7 leviers concrets pour PME
 
+### Outils gratuits
+- https://jonlabs.ch/outils — Outils et ressources gratuits pour entrepreneurs et PME
+- https://jonlabs.ch/outils/reddit-dashboard — Reddit Dashboard : outil local gratuit (Python) pour scraper les discussions Reddit sur un mot-clé, sans API, et nourrir des prompts SEO
+
 ### Page auteur
 - https://jonlabs.ch/about — Parcours et expertise de Jonathan Vouilloz
 
@@ -42,4 +46,4 @@ Ce contenu est produit par Jonathan Vouilloz (Jon Labs), expert en développemen
 Pour toute question, contacter : https://jonlabs.ch/contact
 
 ## Dernière mise à jour
-2026-06-19
+2026-06-19 (ajout de l'outil gratuit Reddit Dashboard)

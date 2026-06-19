@@ -107,6 +107,7 @@ export const mainNav: NavSection[] = [
       {
         title: 'Outils gratuits',
         items: [
+          { label: 'Reddit Dashboard', href: '/outils/reddit-dashboard', icon: 'ri-reddit-line', badge: 'new' },
           { label: 'Checklist 15 signes site dort', href: '/outils/checklist-15-signes-site-dort', icon: 'ri-checkbox-line' },
           { label: 'Checklist commerce Google', href: '/outils/checklist-commerce-google', icon: 'ri-checkbox-line' },
           { label: 'Calculateur coût site dormant', href: '/blog/cout-site-web-dormant-calculateur', icon: 'ri-calculator-line' },

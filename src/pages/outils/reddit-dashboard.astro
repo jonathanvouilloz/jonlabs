@@ -1,0 +1,434 @@
+---
+import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import FAQ from '../../components/FAQ.astro';
+import CTASection from '../../components/CTASection.astro';
+
+// Schema.org
+import { SITE_URL } from '../../data/schema';
+import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
+
+const pageUrl = `${SITE_URL}/outils/reddit-dashboard`;
+
+const seoData = {
+    title: "Reddit Dashboard — outil gratuit pour scraper Reddit (sans API) | Jon Labs",
+    description: "Outil local gratuit qui scrape les discussions Reddit sur un mot-clé, sans API ni compte, et les affiche dans une interface web. Parfait pour nourrir tes prompts SEO. Téléchargement direct."
+};
+
+// Bénéfices
+const benefits = [
+    {
+        icon: "ri-chat-quote-line",
+        title: "De la vraie parole",
+        text: "Récupère les questions, doutes et formulations réelles des gens sur Reddit — la matière brute pour un contenu qui répond vraiment."
+    },
+    {
+        icon: "ri-shield-keyhole-line",
+        title: "Sans API ni compte",
+        text: "Aucune clé API, aucun compte Reddit. Le scraping passe par DuckDuckGo + un navigateur invisible. Tu lances, ça tourne."
+    },
+    {
+        icon: "ri-clipboard-line",
+        title: "Prêt pour un prompt",
+        text: "Le résultat est un fichier texte propre (titres + commentaires), prêt à coller dans ChatGPT, Claude ou ton prompt SEO."
+    }
+];
+
+// Les 3 fichiers
+const files = [
+    { name: "dashboard.py", role: "Le serveur local. C'est le seul fichier que tu lances." },
+    { name: "dashboard.html", role: "L'interface web, chargée automatiquement par le serveur." },
+    { name: "reddit_scraper.py", role: "Le scraper, lancé en arrière-plan quand tu cliques sur « run »." }
+];
+
+// Étapes d'utilisation
+const steps = [
+    {
+        n: "1",
+        title: "Lancer le serveur",
+        text: "Dans PowerShell (ou ton terminal), lance le serveur. Laisse la fenêtre ouverte : si tu la fermes, le dashboard s'éteint.",
+        cmd: "python dashboard.py"
+    },
+    {
+        n: "2",
+        title: "Ouvrir le dashboard",
+        text: "Dans ton navigateur, va sur l'adresse locale affichée par le serveur.",
+        cmd: "http://localhost:8765"
+    },
+    {
+        n: "3",
+        title: "Lancer un scrape",
+        text: "Entre ton mot-clé (ex : « chiang mai dtv »), choisis le nombre de threads (10 par défaut, max 50), puis clique sur « run ». Compte de quelques secondes à ~3 min selon le volume.",
+        cmd: null
+    },
+    {
+        n: "4",
+        title: "Lire & réutiliser",
+        text: "Le contenu s'affiche directement. Un fichier extraction_reddit_<mot-clé>.txt est sauvé à côté des scripts. Tu peux rouvrir n'importe quelle extraction précédente depuis la liste.",
+        cmd: null
+    },
+    {
+        n: "5",
+        title: "Arrêter le serveur",
+        text: "Dans la fenêtre du terminal, fais Ctrl + C.",
+        cmd: null
+    }
+];
+
+// Options CLI
+const cliOptions = [
+    { opt: "--keyword", def: "price dtv thailand", desc: "Le mot-clé à rechercher" },
+    { opt: "--threads", def: "10", desc: "Nombre de threads à scraper" },
+    { opt: "--output", def: "auto", desc: "Nom du fichier de sortie" }
+];
+
+// Dépannage (FAQ)
+const troubleshooting = [
+    {
+        question: "ModuleNotFoundError: ddgs (ou playwright)",
+        answer: "Les dépendances ne sont pas installées. Relance : pip install -r requirements.txt"
+    },
+    {
+        question: "« Executable doesn't exist » au moment du scrape",
+        answer: "Le navigateur Playwright est manquant. Lance : python -m playwright install chromium"
+    },
+    {
+        question: "« dashboard.html introuvable »",
+        answer: "Les fichiers ne sont pas dans le même dossier. Garde dashboard.py, dashboard.html et reddit_scraper.py ensemble."
+    },
+    {
+        question: "La page localhost:8765 ne charge pas",
+        answer: "Le serveur n'est pas lancé ou la fenêtre a été fermée. Relance python dashboard.py et laisse le terminal ouvert."
+    },
+    {
+        question: "« Aucun thread trouvé »",
+        answer: "Pas de connexion, ou mot-clé trop rare. Vérifie ta connexion et essaie un mot-clé plus courant."
+    },
+    {
+        question: "Timeout (plus de 180 s)",
+        answer: "Trop de threads ou Reddit est lent. Réduis le nombre de threads et relance."
+    }
+];
+
+// Schema.org : SoftwareApplication
+const softwareSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Reddit Dashboard',
+    applicationCategory: 'DeveloperApplication',
+    operatingSystem: 'Windows, macOS, Linux',
+    description: seoData.description,
+    url: pageUrl,
+    softwareRequirements: 'Python 3, ddgs, Playwright',
+    downloadUrl: `${pageUrl.replace('/outils/reddit-dashboard', '')}/tools/reddit-dashboard/reddit-dashboard.zip`,
+    author: { '@id': `${SITE_URL}/#person` },
+    offers: {
+        '@type': 'Offer',
+        price: '0',
+        priceCurrency: 'CHF'
+    }
+};
+
+const webPageSchema = getWebPageSchema({
+    url: pageUrl,
+    name: seoData.title,
+    description: seoData.description
+});
+
+const breadcrumb = getBreadcrumbSchema([
+    { name: "Accueil", url: SITE_URL },
+    { name: "Outils", url: `${SITE_URL}/outils` },
+    { name: "Reddit Dashboard", url: pageUrl }
+]);
+
+const faqSchema = getFAQPageSchema(troubleshooting);
+
+const schemas = [webPageSchema, breadcrumb, softwareSchema, faqSchema];
+
+const ZIP = "/tools/reddit-dashboard/reddit-dashboard.zip";
+const BASE = "/tools/reddit-dashboard";
+---
+
+<Layout
+    title={seoData.title}
+    description={seoData.description}
+    schemas={schemas}
+>
+    <Header />
+
+    <main class="pt-28 md:pt-36 pb-16">
+        <!-- ============ HERO ============ -->
+        <section class="px-4">
+            <div class="max-w-4xl mx-auto">
+                <!-- Breadcrumb -->
+                <nav class="text-sm text-gray-500 mb-8 flex items-center gap-2 flex-wrap" aria-label="Fil d'ariane">
+                    <a href="/" class="hover:text-[var(--violet)]">Accueil</a>
+                    <i class="ri-arrow-right-s-line"></i>
+                    <a href="/outils" class="hover:text-[var(--violet)]">Outils</a>
+                    <i class="ri-arrow-right-s-line"></i>
+                    <span class="text-black font-medium">Reddit Dashboard</span>
+                </nav>
+
+                <div class="text-center">
+                    <span class="inline-flex items-center gap-2 bg-[var(--blue)] border-2 border-black px-4 py-1 text-sm font-medium mb-6">
+                        <i class="ri-reddit-line text-black"></i>
+                        Outil gratuit · Open source
+                    </span>
+
+                    <h1 class="text-3xl md:text-5xl font-normal tracking-tight mb-5">
+                        Reddit Dashboard
+                    </h1>
+
+                    <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
+                        Un petit outil <strong>local</strong> qui scrape les discussions Reddit sur un mot-clé —
+                        <strong>sans API ni compte</strong> — et te les sert dans une interface web propre.
+                        Idéal pour nourrir tes prompts SEO avec de la vraie parole d'utilisateurs.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a
+                            href={ZIP}
+                            download
+                            class="inline-flex items-center gap-2 bg-[var(--blue)] text-black border-2 border-black px-8 py-4 text-lg font-bold shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:bg-[var(--yellow)] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]"
+                        >
+                            <i class="ri-download-2-line"></i>
+                            Télécharger (ZIP)
+                        </a>
+                        <a
+                            href="#guide"
+                            class="inline-flex items-center gap-2 bg-white text-black border-2 border-black px-8 py-4 text-lg font-medium shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:shadow-[2px_2px_0px_rgba(0,0,0,0.3)] hover:translate-x-[2px] hover:translate-y-[2px]"
+                        >
+                            <i class="ri-book-open-line"></i>
+                            Voir le guide
+                        </a>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-4">
+                        Python 3 requis · Windows, macOS &amp; Linux · Aucune inscription
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ BÉNÉFICES ============ -->
+        <section class="px-4 py-16 md:py-24">
+            <div class="max-w-5xl mx-auto">
+                <h2 class="text-2xl md:text-3xl font-normal text-center mb-12">À quoi ça sert&nbsp;?</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {benefits.map((b) => (
+                        <div class="bg-white border-3 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+                            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4">
+                                <i class={`${b.icon} text-2xl`}></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">{b.title}</h3>
+                            <p class="text-gray-600">{b.text}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ COMMENT ÇA MARCHE ============ -->
+        <section class="px-4 py-16 md:py-20 bg-white border-y-2 border-black">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-2xl md:text-3xl font-normal text-center mb-4">Comment ça marche</h2>
+                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">
+                    Trois fichiers travaillent ensemble. Tu n'en lances qu'un seul ; le reste est automatique.
+                </p>
+
+                <!-- Flux -->
+                <div class="bg-[var(--main-bg)] border-2 border-black p-6 md:p-8 mb-10">
+                    <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 text-center">
+                        <div class="flex-1 bg-white border-2 border-black p-4">
+                            <i class="ri-global-line text-2xl block mb-2"></i>
+                            <span class="font-bold block">Toi (navigateur)</span>
+                            <span class="text-xs text-gray-500 font-mono">localhost:8765</span>
+                        </div>
+                        <i class="ri-arrow-right-line text-2xl text-gray-400 hidden md:block"></i>
+                        <i class="ri-arrow-down-line text-2xl text-gray-400 md:hidden mx-auto"></i>
+                        <div class="flex-1 bg-white border-2 border-black p-4">
+                            <i class="ri-server-line text-2xl block mb-2"></i>
+                            <span class="font-bold block">dashboard.py</span>
+                            <span class="text-xs text-gray-500">le serveur</span>
+                        </div>
+                        <i class="ri-arrow-right-line text-2xl text-gray-400 hidden md:block"></i>
+                        <i class="ri-arrow-down-line text-2xl text-gray-400 md:hidden mx-auto"></i>
+                        <div class="flex-1 bg-white border-2 border-black p-4">
+                            <i class="ri-radar-line text-2xl block mb-2"></i>
+                            <span class="font-bold block">reddit_scraper.py</span>
+                            <span class="text-xs text-gray-500">Playwright + DuckDuckGo</span>
+                        </div>
+                    </div>
+                    <p class="text-center text-sm text-gray-500 mt-6">
+                        Le scraper cherche les threads Reddit, ouvre chaque page sur <span class="font-mono">old.reddit.com</span>
+                        avec un navigateur invisible, extrait titres + commentaires, et écrit le tout dans
+                        <span class="font-mono">extraction_reddit_&lt;mot-clé&gt;.txt</span>.
+                    </p>
+                </div>
+
+                <!-- Les 3 fichiers -->
+                <div class="space-y-3">
+                    {files.map((f) => (
+                        <div class="flex items-start gap-4 bg-white border-2 border-black p-4">
+                            <span class="font-mono text-sm bg-[var(--blue)] border-2 border-black px-2 py-1 whitespace-nowrap">{f.name}</span>
+                            <span class="text-gray-600">{f.role}</span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ TÉLÉCHARGEMENT ============ -->
+        <section id="download" class="px-4 py-16 md:py-24" style="scroll-margin-top: 100px;">
+            <div class="max-w-3xl mx-auto">
+                <div class="bg-white border-3 border-black p-8 md:p-12 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative">
+                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 border-2 border-black bg-[var(--blue)]"></div>
+                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 border-2 border-black bg-[var(--blue)]"></div>
+                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 border-2 border-black bg-[var(--blue)]"></div>
+                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-2 border-black bg-[var(--blue)]"></div>
+
+                    <div class="text-center">
+                        <h2 class="text-2xl md:text-3xl font-bold mb-3">Télécharger l'outil</h2>
+                        <p class="text-gray-600 mb-8 max-w-xl mx-auto">
+                            Un seul fichier ZIP avec tout ce qu'il faut : les scripts, l'interface, le guide et la liste des dépendances.
+                            Décompresse, suis les 2 commandes d'installation, c'est parti.
+                        </p>
+
+                        <a
+                            href={ZIP}
+                            download
+                            class="inline-flex items-center gap-2 bg-[var(--blue)] text-black border-2 border-black px-8 py-4 text-lg font-bold shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:bg-[var(--yellow)] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]"
+                        >
+                            <i class="ri-download-2-line"></i>
+                            reddit-dashboard.zip
+                        </a>
+
+                        <p class="text-sm text-gray-500 mt-8 mb-3">Ou télécharge les fichiers un par un :</p>
+                        <div class="flex flex-wrap items-center justify-center gap-2 text-sm">
+                            <a href={`${BASE}/dashboard.py`} download class="font-mono border-2 border-black px-3 py-1 hover:bg-[var(--yellow)] transition-colors">dashboard.py</a>
+                            <a href={`${BASE}/dashboard.html`} download class="font-mono border-2 border-black px-3 py-1 hover:bg-[var(--yellow)] transition-colors">dashboard.html</a>
+                            <a href={`${BASE}/reddit_scraper.py`} download class="font-mono border-2 border-black px-3 py-1 hover:bg-[var(--yellow)] transition-colors">reddit_scraper.py</a>
+                            <a href={`${BASE}/requirements.txt`} download class="font-mono border-2 border-black px-3 py-1 hover:bg-[var(--yellow)] transition-colors">requirements.txt</a>
+                            <a href={`${BASE}/GUIDE-reddit-dashboard.md`} download class="font-mono border-2 border-black px-3 py-1 hover:bg-[var(--yellow)] transition-colors">GUIDE.md</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ GUIDE : INSTALLATION ============ -->
+        <section id="guide" class="px-4 py-16 md:py-20 bg-white border-y-2 border-black" style="scroll-margin-top: 90px;">
+            <div class="max-w-3xl mx-auto">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    guide
+                </span>
+                <h2 class="text-2xl md:text-3xl font-normal mb-4">Installation</h2>
+                <p class="text-gray-600 mb-6">
+                    À faire une seule fois. Ouvre PowerShell (ou ton terminal) dans le dossier des scripts et lance :
+                </p>
+
+                <div class="bg-[#1e1e1e] border-2 border-black p-5 font-mono text-sm text-gray-100 overflow-x-auto mb-3">
+                    <div class="flex gap-3"><span class="text-[var(--blue)] select-none">$</span><span>pip install -r requirements.txt</span></div>
+                    <div class="flex gap-3 mt-2"><span class="text-[var(--blue)] select-none">$</span><span>python -m playwright install chromium</span></div>
+                </div>
+                <ul class="text-sm text-gray-500 space-y-1 mb-2">
+                    <li><span class="font-mono">ddgs</span> → recherche DuckDuckGo</li>
+                    <li><span class="font-mono">playwright</span> → pilote un navigateur Chromium invisible</li>
+                    <li><span class="font-mono">playwright install chromium</span> → télécharge le navigateur utilisé pour scraper</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ============ GUIDE : UTILISATION ÉTAPE PAR ÉTAPE ============ -->
+        <section class="px-4 py-16 md:py-24">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-2xl md:text-3xl font-normal mb-12">Utilisation, étape par étape</h2>
+
+                <div class="space-y-8">
+                    {steps.map((s) => (
+                        <div class="flex gap-5">
+                            <div class="flex-shrink-0 w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center font-bold">
+                                {s.n}
+                            </div>
+                            <div class="flex-1 pt-1">
+                                <h3 class="text-xl font-bold mb-2">{s.title}</h3>
+                                <p class="text-gray-600 mb-3">{s.text}</p>
+                                {s.cmd && (
+                                    <div class="bg-[#1e1e1e] border-2 border-black p-4 font-mono text-sm text-gray-100 overflow-x-auto">
+                                        <div class="flex gap-3"><span class="text-[var(--blue)] select-none">$</span><span>{s.cmd}</span></div>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ MODE CLI ============ -->
+        <section class="px-4 py-16 md:py-20 bg-white border-y-2 border-black">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-2xl md:text-3xl font-normal mb-4">Mode ligne de commande <span class="text-gray-400 text-lg">(optionnel)</span></h2>
+                <p class="text-gray-600 mb-6">
+                    Tu peux aussi lancer le scraper directement, sans l'interface :
+                </p>
+
+                <div class="bg-[#1e1e1e] border-2 border-black p-5 font-mono text-sm text-gray-100 overflow-x-auto mb-8">
+                    <div class="flex gap-3"><span class="text-[var(--blue)] select-none">$</span><span>python reddit_scraper.py --keyword "chiang mai dtv" --threads 10</span></div>
+                </div>
+
+                <div class="overflow-x-auto">
+                    <table class="w-full border-2 border-black text-left text-sm">
+                        <thead>
+                            <tr class="bg-[var(--blue)] border-b-2 border-black">
+                                <th class="p-3 border-r-2 border-black font-bold">Option</th>
+                                <th class="p-3 border-r-2 border-black font-bold">Défaut</th>
+                                <th class="p-3 font-bold">Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {cliOptions.map((o, i) => (
+                                <tr class={i < cliOptions.length - 1 ? "border-b-2 border-black" : ""}>
+                                    <td class="p-3 border-r-2 border-black font-mono">{o.opt}</td>
+                                    <td class="p-3 border-r-2 border-black font-mono text-gray-600">{o.def}</td>
+                                    <td class="p-3 text-gray-600">{o.desc}</td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ DÉPANNAGE ============ -->
+        <FAQ
+            faqs={troubleshooting}
+            title="Problèmes courants"
+            subtitle="Les pannes les plus fréquentes et comment les régler."
+            sectionId="depannage"
+        />
+    </main>
+
+    <!-- ============ CTA ============ -->
+    <CTASection
+        title="Besoin d'un outil sur mesure&nbsp;?"
+        description="Ce dashboard est un exemple de ce que j'automatise au quotidien. Si tu as un workflow répétitif à transformer en outil, on en parle."
+        buttonText="Discuter d'un outil sur mesure"
+        buttonLink="/services/outils-sur-mesure"
+        buttonIcon="ri-tools-line"
+        subtext="Réponse rapide, sans engagement."
+        variant="dark"
+    />
+
+    <!-- Retour outils -->
+    <div class="px-4 py-10 text-center bg-[var(--main-bg)]">
+        <a href="/outils" class="inline-flex items-center gap-2 text-gray-600 hover:text-[var(--violet)] font-medium">
+            <i class="ri-arrow-left-line"></i>
+            Tous les outils gratuits
+        </a>
+    </div>
+
+    <Footer />
+</Layout>
