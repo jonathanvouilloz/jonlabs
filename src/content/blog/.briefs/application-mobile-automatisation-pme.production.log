@@ -1,0 +1,32 @@
+# Production log — application-mobile-automatisation-pme
+Date : 2026-06-19 08:47
+Worker : @article-producer
+
+## Etapes
+- [✓] /seo-write    : draft écrit (2 126 mots)
+- [✓] /humanizer    : 15 patterns IA corrigés (12 em-dashes, fillers "Voici", attribution vague, parallélisme négatif, "Résultat :" formaté IA)
+- [✓] /seo-enrich   : src/content/blog/application-mobile-automatisation-pme.md créé (15.6 kB)
+- [✓] /seo-review   : 2 warnings, 0 bloquant (score 16/18)
+- [✓] /generate-cover : public/images/blog/application-mobile-automatisation-pme.webp (37 kB)
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-06-19)
+
+## Bloquants éventuels
+Aucun bloquant.
+
+## Warnings /seo-review (non-bloquants)
+- [Low]  Critère 17 — LLM.txt absent dans public/. Lancer /llm-txt pour le générer.
+- [High] Critère 18 — Citation d'expert absente (brief sans source citable verbatim). Ne pas fabriquer. À corriger si un témoignage client réel est disponible.
+
+## Maillage retour à activer
+Une fois publié, ajouter un lien vers cet article depuis :
+- src/content/blog/automatisation-pme-suisse-guide-complet.md
+  → Ancre suggérée : "connecter une app mobile à ses outils via Make"
+  → Section : après la mention de Make/n8n
+- src/content/blog/temps-perdu-pme-automatisation.md
+  → Ancre suggérée : "automatiser les flux depuis une app mobile"
+  → Section : section sur les gains de temps terrain
+- src/content/blog/developper-application-mobile-suisse.md
+  → Ancre suggérée : "intégrer son app mobile aux outils métiers"
+  → Section : section sur l'architecture ou les questions au prestataire

@@ -1,0 +1,21 @@
+# Production log — application-native-vs-hybride
+Date : 2026-06-19 08:46
+Worker : @article-producer
+
+## Etapes
+- [✓] /seo-write    : draft écrit (1 815 mots)
+- [✓] /humanizer    : 12 patterns IA corrigés (em dashes ×10, inline-header lists, negative parallelism, intro AI-essay, heading auto-déclaratif, bold tableau supprimés, voix renforcée)
+- [✓] /seo-enrich   : src/content/blog/application-native-vs-hybride.md créé (13.6 kB) — build OK 212 pages, sitemap ✓
+- [✓] /seo-review   : 16/18 PASS, 0 bloquant, 2 warnings (LLM.txt absent — Low, sources inline dans corps — High)
+- [✓] /generate-cover : public/images/blog/application-native-vs-hybride.webp (45 kB) — pipeline template
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-06-19)
+
+## Bloquants éventuels
+Aucun bloquant.
+
+## Warnings non bloquants
+- [High] GEO sources inline : les liens flutter.dev/showcase et reactnative.dev sont en section Sources de fin mais pas positionnés dans le corps au point de l'affirmation. Amélioration optionnelle pour citabilité IA (+30% selon étude Princeton GEO).
+- [Low] LLM.txt absent : lancer /llm-txt pour créer public/llm.txt. Signal envers les crawlers IA, 30 min de travail.
+- [Note] Aucune citation d'expert attribuée (Quotation Addition) : le brief ne fournissait pas de source citable externe. Règle anti-hallucination appliquée. À compléter manuellement si une source réelle est disponible.

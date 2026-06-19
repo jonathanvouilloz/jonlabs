@@ -1,0 +1,20 @@
+# Production log — prix-application-mobile-suisse
+Date : 2026-06-19 08:26
+Worker : @article-producer
+
+## Étapes
+- [✓] /seo-write    : draft écrit (2 732 mots)
+- [✓] /humanizer    : 18 patterns IA corrigés (em dashes, Avantages/Limites headers, "manque cruellement", "La réalité est plus complexe", "signal d'alerte", intro filler, formulations soulless)
+- [✓] /seo-enrich   : src/content/blog/prix-application-mobile-suisse.md créé (~7.0 kB) — frontmatter complet, 6 FAQs, schema géré par template
+- [✓] /seo-review   : 1 warning (LLM.txt absent — low priority), 0 bloquant — score 17/18
+- [✓] /generate-cover : public/images/blog/prix-application-mobile-suisse.webp (43 kB) — pipeline template, aucun appel API
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-06-19)
+
+## Bloquants éventuels
+aucun
+
+## Warnings non bloquants
+- LLM.txt absent dans public/ — lancer /llm-txt pour le créer (low priority, ~30 min)
+- Liens recommandés /blog/budget-mvp-application-mobile et /services/developpement-mvp non insérés (pages inexistantes au moment de la rédaction — à ajouter quand créées)
