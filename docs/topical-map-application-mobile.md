@@ -1,6 +1,6 @@
 # Topical Map : Développement Application Mobile
 
-> Généré le 2026-06-15. Cluster de 10 articles : 0 existants, 10 à créer.
+> Généré le 2026-06-15. Cluster de 10 articles : 10 publiés ✅ (cluster complet le 2026-06-19).
 > Marché : Suisse romande B2B — PME, startups, indépendants (Genève, Vaud, Neuchâtel).
 > Source de vérité : ce fichier. Produire dans l'ordre du tableau de production.
 
@@ -28,24 +28,24 @@ Vérifier que cette page mentionne explicitement les applications mobiles (iOS/A
 ## Hiérarchie thématique
 
 ### Pillar : Guide complet développement application mobile en Suisse — /blog/developper-application-mobile-suisse
-Keyword : "développement application mobile suisse" (210/mois) | Intent : Informationnel | Statut : À créer
+Keyword : "développement application mobile suisse" (210/mois) | Intent : Informationnel | Statut : ✅ Créé (2026-06-19)
 
 #### Cluster 1 : Décision stratégique (avant d'investir)
-- `application-mobile-pme-suisse` — App mobile pour PME : vaut-il le coup ? (À créer)
-- `application-mobile-ou-pwa` — App mobile ou PWA : comment choisir ? (À créer)
-- `freelance-ou-agence-application-mobile` — Freelance ou agence pour votre app mobile ? (À créer)
+- `application-mobile-pme-suisse` — App mobile pour PME : vaut-il le coup ? (✅ Créé)
+- `application-mobile-ou-pwa` — App mobile ou PWA : comment choisir ? (✅ Créé)
+- `freelance-ou-agence-application-mobile` — Freelance ou agence pour votre app mobile ? (✅ Créé)
 
 #### Cluster 2 : Technologie (comment c'est fait)
-- `flutter-vs-react-native-pme` — Flutter vs React Native : lequel choisir pour votre PME ? (À créer)
-- `application-native-vs-hybride` — App native vs hybride : différences concrètes (À créer)
+- `flutter-vs-react-native-pme` — Flutter vs React Native : lequel choisir pour votre PME ? (✅ Créé)
+- `application-native-vs-hybride` — App native vs hybride : différences concrètes (✅ Créé)
 
 #### Cluster 3 : Budget & prix
-- `prix-application-mobile-suisse` — Prix d'une application mobile en Suisse en 2026 (À créer)
-- `budget-mvp-application-mobile` — MVP application mobile : combien faut-il prévoir ? (À créer)
+- `prix-application-mobile-suisse` — Prix d'une application mobile en Suisse en 2026 (✅ Créé)
+- `budget-mvp-application-mobile` — MVP application mobile : combien faut-il prévoir ? (✅ Créé)
 
 #### Cluster 4 : Cas d'usage métiers
-- `application-metier-pme-sur-mesure` — Application métier sur mesure pour PME : 5 cas concrets (À créer)
-- `application-mobile-automatisation-pme` — App mobile + automatisation : connecter son app à ses outils (À créer)
+- `application-metier-pme-sur-mesure` — Application métier sur mesure pour PME : 5 cas concrets (✅ Créé)
+- `application-mobile-automatisation-pme` — App mobile + automatisation : connecter son app à ses outils (✅ Créé)
 
 ---
 
@@ -55,16 +55,16 @@ Trié par score décroissant. Produire dans cet ordre.
 
 | # | Article | Statut | Brand | Business | Trafic | Score | Module | Slug |
 |---|---|---|---|---|---|---|---|---|
-| 1 | Guide complet : développer une app mobile en Suisse | À créer | 3 | 3 | 2 | **8** | A | `developper-application-mobile-suisse` |
-| 2 | Prix application mobile Suisse 2026 | À créer | 3 | 3 | 2 | **8** | D | `prix-application-mobile-suisse` |
-| 3 | App mobile pour PME : vaut-il le coup ? | À créer | 3 | 3 | 1 | **7** | B | `application-mobile-pme-suisse` |
-| 4 | Flutter vs React Native : lequel choisir pour votre PME | À créer | 3 | 2 | 1 | **6** | E | `flutter-vs-react-native-pme` |
-| 5 | Application mobile ou PWA : comment choisir ? | À créer | 3 | 2 | 1 | **6** | C | `application-mobile-ou-pwa` |
-| 6 | MVP application mobile : combien faut-il prévoir ? | À créer | 3 | 3 | 0 | **6** | D | `budget-mvp-application-mobile` |
-| 7 | Freelance ou agence pour votre app mobile ? | À créer | 3 | 3 | 0 | **6** | E | `freelance-ou-agence-application-mobile` |
-| 8 | App native vs hybride : différences concrètes | À créer | 3 | 1 | 1 | **5** | C | `application-native-vs-hybride` |
-| 9 | Application métier sur mesure pour PME : 5 cas concrets | À créer | 3 | 3 | 0 | **6** | B | `application-metier-pme-sur-mesure` |
-| 10 | App mobile + automatisation : connecter son app à ses outils | À créer | 3 | 2 | 0 | **5** | C | `application-mobile-automatisation-pme` |
+| 1 | Guide complet : développer une app mobile en Suisse | ✅ Créé | 3 | 3 | 2 | **8** | A | `developper-application-mobile-suisse` |
+| 2 | Prix application mobile Suisse 2026 | ✅ Créé | 3 | 3 | 2 | **8** | D | `prix-application-mobile-suisse` |
+| 3 | App mobile pour PME : vaut-il le coup ? | ✅ Créé | 3 | 3 | 1 | **7** | B | `application-mobile-pme-suisse` |
+| 4 | Flutter vs React Native : lequel choisir pour votre PME | ✅ Créé | 3 | 2 | 1 | **6** | E | `flutter-vs-react-native-pme` |
+| 5 | Application mobile ou PWA : comment choisir ? | ✅ Créé | 3 | 2 | 1 | **6** | C | `application-mobile-ou-pwa` |
+| 6 | MVP application mobile : combien faut-il prévoir ? | ✅ Créé | 3 | 3 | 0 | **6** | D | `budget-mvp-application-mobile` |
+| 7 | Freelance ou agence pour votre app mobile ? | ✅ Créé | 3 | 3 | 0 | **6** | E | `freelance-ou-agence-application-mobile` |
+| 8 | App native vs hybride : différences concrètes | ✅ Créé | 3 | 1 | 1 | **5** | C | `application-native-vs-hybride` |
+| 9 | Application métier sur mesure pour PME : 5 cas concrets | ✅ Créé | 3 | 3 | 0 | **6** | B | `application-metier-pme-sur-mesure` |
+| 10 | App mobile + automatisation : connecter son app à ses outils | ✅ Créé | 3 | 2 | 0 | **5** | C | `application-mobile-automatisation-pme` |
 
 **Modules :** A=Pillar hub · B=Cas d'usage · C=Guide comparatif · D=Commercial/Prix · E=Best-of/Décision
 
@@ -295,6 +295,6 @@ L'intent informationnel est à renforcer si on veut optimiser les AI Overviews. 
 
 ## Actions annexes
 
-- [ ] Vérifier que `/services/developpement-mvp` mentionne iOS/Android/PWA explicitement → si non, ajouter 2-3 lignes pour que les liens entrants depuis le cluster soient contextuels
-- [ ] Ajouter un lien sortant depuis `freelance-ou-agence-web` (existant) vers `freelance-ou-agence-application-mobile` quand cet article sera publié
-- [ ] Relier les articles d'automatisation existants vers `application-mobile-automatisation-pme`
+- [x] Vérifier que `/services/developpement-mvp` mentionne iOS/Android/PWA explicitement → fait le 2026-06-19 (étape « Construction »)
+- [x] Ajouter un lien sortant depuis `freelance-ou-agence-web` (existant) vers `freelance-ou-agence-application-mobile` → fait le 2026-06-19
+- [x] Relier les articles d'automatisation existants vers `application-mobile-automatisation-pme` → fait le 2026-06-19 (`automatisation-pme-suisse-guide-complet`, `temps-perdu-pme-automatisation`)

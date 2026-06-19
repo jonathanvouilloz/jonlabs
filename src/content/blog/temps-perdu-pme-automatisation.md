@@ -129,6 +129,8 @@ Tu scannes ou tu uploades → le système extrait fournisseur, montant, date, nu
 
 **Les outils** : Make et Zapier excellent là-dessus. Ils se connectent à Bexio, Winbiz, Crésus, et la plupart des CRM du marché.
 
+Et si ton équipe travaille sur le terrain (interventions, livraisons, chantiers), la double saisie disparaît encore plus vite avec une application mobile qui remonte directement les données dans tes outils : j'explique [comment connecter une app mobile à ton CRM, ton agenda et ta facturation](/blog/application-mobile-automatisation-pme).
+
 ---
 
 ## Un point important sur la conformité

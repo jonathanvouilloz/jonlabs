@@ -115,6 +115,8 @@ Ce qu'il ne faut PAS automatiser en premier : tout processus que tu ne peux pas 
 
 Pour aller plus loin : j'ai rédigé la [méthode complète pour prioriser et calculer le ROI en CHF](/blog/comment-choisir-quoi-automatiser-pme) dans un guide dédié.
 
+Et si une partie de ton activité se passe sur le terrain, l'automatisation peut aussi passer par une application mobile connectée à tes outils : j'explique [comment connecter une app mobile à ton CRM, ton agenda et ta facturation](/blog/application-mobile-automatisation-pme) pour éliminer la double saisie.
+
 ## Quelle stack choisir pour ta PME suisse
 
 Selon ton profil, la réponse change du tout au tout.

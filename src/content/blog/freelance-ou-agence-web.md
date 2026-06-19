@@ -176,6 +176,8 @@ Le choix freelance vs agence n'est pas une question de "mieux" ou "moins bien". 
 
 Le plus important ? Bien définir tes besoins avant de chercher un prestataire. Plus ton brief est clair, plus tu trouveras la bonne personne, freelance ou agence.
 
+Et si ton projet est une **application mobile** plutôt qu'un site web, les arbitrages changent un peu (publication sur les stores, maintenance dans le temps, profils techniques à vérifier) : j'ai détaillé ça dans [freelance ou agence pour développer ton app mobile](/blog/freelance-ou-agence-application-mobile).
+
 ---
 
 ## Tu hésites encore ?
