@@ -158,7 +158,7 @@
 Indépendant des clusters, débloque immédiatement la visibilité.
 - [ ] Canonical : trancher www vs non-www + redirection 301 globale
 - [ ] Rendre découvrables les 3 piliers UNKNOWN (vérif sitemap build + maillage entrant depuis `/services` et la home + Request Indexing GSC)
-- [ ] Mailler les 5 pages géo (liens depuis `/services` + `/services/creation-site-web`)
+- [x] Mailler les 5 pages géo (liens depuis `/services` + `/services/creation-site-web`) — **2026-06-25** : bloc villes liées dans `.local-section` de `/services` + bloc « Création de site web par ville » (5 géo + landing) dans le pilier `creation-site-web.astro` + strip `GeoZonesStrip` sur la home. Source DRY : `villes-frontalieres.ts`
 - [ ] Mailler les 6 fiches portfolio orphelines (depuis `/portfolio` et articles pertinents)
 
 ### Phase 1 — Topical maps des 3 clusters 🗺️
@@ -169,7 +169,7 @@ Une `/seo-topical-map` par cluster pour figer pilier + satellites + gaps + maill
 
 ### Phase 2 — Consolidation & dé-cannibalisation 🔧
 - [x] Pilier SEO local : fusionner `referencement-local-geneve` + `tarif-package-seo-local-suisse` dans `/services/referencement-local` — **2026-06-25** : 301 (×4 dans `vercel.json`) + absorption sélective (bloc 7 leviers + JSON-LD, transparence prix, 5 questions, +4 FAQ) + repointage du maillage + suppression des 2 `.md`
-- [ ] Désambiguïser la home des requêtes locales-ville
+- [~] Désambiguïser la home des requêtes locales-ville — **2026-06-25** : maillage léger fait (strip `GeoZonesStrip` → 5 villes + landing, vote vers les pages dédiées). **Désoptimisation title/H1 reportée** jusqu'à l'indexation de la landing geneve (garder « Genève » pour l'instant)
 - [x] Pilier GMB : élire la page d'autorité + organiser les 11 satellites — **2026-06-25** : hub `fiche-google-my-business-guide-complet-2026` → section descendante vers les 10 satellites + section Ressources sur le pilier service `gestion-fiche-google.astro` + 4 CTA satellites repointés vers le pilier
 
 ### Phase 3 — Création / refonte des pages piliers ✍️

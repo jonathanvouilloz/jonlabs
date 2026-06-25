@@ -8,5 +8,5 @@
 | Cluster application mobile | docs/features/cluster-application-mobile.md | ✅ DONE |
 
 ## Reprendre ici
-**Refonte SEO** — Phase 2 : C3b (SEO local) ✅ et C3d (pilier GMB) ✅ livrés. Prochain : **désambiguïser la home** (décision actée : maillage géo léger, garder « Genève » ; désoptimisation reportée jusqu'à l'indexation de la landing geneve), puis Phase 0 — mailler les 5 pages géo `/developpement-web/{ville}` (0 lien) + la landing depuis `/services`. À surveiller : `/seo-gsc` J+30/60 sur le pilier SEO local.
-Commit : 3b88c7e feat(seo): organisation pilier GMB C3d — hub→10 satellites + ressources pilier + fix CTA
+**Refonte SEO** — Phase 0/2 : maillage des 5 pages géo (home + /services + pilier C3a) ✅ et désambiguïsation légère de la home ✅ livrés. Prochain : **désoptimiser title/H1 de la home** sur « développeur web {ville} » **une fois la landing geneve indexée** (Request Indexing GSC en attente côté Jonathan), puis mailler les 6 fiches portfolio orphelines (Phase 0). À surveiller : `/seo-gsc` J+30/60 sur le pilier SEO local C3b.
+Commit : 21a2d70 feat(seo): maillage des 5 pages géo + désambiguïsation légère home C3a

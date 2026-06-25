@@ -4,6 +4,27 @@
 > **Plan maître** : `docs/restructuration-clusters.md` (archi cible, verdict par page, liste KILL, feuille de route 5 phases).
 > **Diagnostic data** : `.seo-data/diagnostic-gsc-pages-cannibalisation.md`.
 
+## Etat session 2026-06-25 — Phase 0/2 : désambiguïsation home + maillage des pages géo
+
+**Fait :**
+- **Nouveau composant `src/components/GeoZonesStrip.astro`** : strip léger (chips brutalistes) liant les 5 pages ville + la landing geneve, alimenté par `villesFrontalieres` (DRY). Inséré en fin de `<main>` dans `index.astro` (après `<TechStack />`).
+- **`/services.astro`** : bloc « Pages dédiées — zone frontalière française » dans `.local-section` — les 5 villes désormais **liées** vers `/developpement-web/{slug}` (les `city-tag` génériques restent en affichage). CTA landing conservé.
+- **`/services/creation-site-web.astro`** (pilier C3a thin, qui ne linkait aucune géo) : bloc « Création de site web par ville » dans la section locale → 5 villes **+ la landing geneve** (conforme au blueprint de maillage). Style Tailwind brutaliste cohérent.
+- **Désambiguïsation home = maillage léger uniquement** : title/H1 gardent « Genève » volontairement. La désoptimisation réelle est **reportée** jusqu'à l'indexation de la landing geneve.
+- **Build OK (193 pages)** — aucune route ajoutée. Liens entrants vérifiés dans le HTML généré (home + /services + pilier C3a contiennent bien les 5 liens géo ; pilier + home contiennent la landing).
+
+**Prochain :** activer les 3 piliers UNKNOWN (Request Indexing GSC côté Jonathan) ; quand la landing geneve est indexée → désoptimiser title/H1 de la home sur « développeur web {ville} ». Reste Phase 0 : mailler les 6 fiches portfolio orphelines. Phase 3 : étoffer le pilier thin `/services/creation-site-web`. Phase 4 : réécriture CTR GEO (`apparaitre-perplexity`).
+
+**Pièges :**
+- **Source de vérité unique des villes = `src/data/villes-frontalieres.ts`** (`villesFrontalieres`, slug+nom). Les 3 endroits de maillage géo l'importent — ne pas dupliquer la liste. Slugs exacts : `saint-julien-en-genevois`, `la-roche-sur-foron` (pas les formes courtes).
+- **Décision assumée** : maillage géo léger sur la home (pas de désoptimisation title/H1) tant que la landing geneve est UNKNOWN to Google. Ne pas désoptimiser avant indexation, sinon perte de trafic « Genève » sans relais.
+- Surveiller `/seo-gsc` J+30/60 sur le pilier SEO local C3b (pos 41 doit progresser après le 301).
+- Action manuelle toujours en attente côté Jonathan : **Request Indexing** GSC sur les 3 piliers UNKNOWN.
+
+**Commit :** 21a2d70 feat(seo): maillage des 5 pages géo + désambiguïsation légère home C3a
+
+---
+
 ## Etat session 2026-06-25 — Phase 2 / C3d : organisation du pilier GMB
 
 **Fait :**
@@ -113,6 +134,11 @@
 | `src/content/blog/fiche-google-my-business-guide-complet-2026.md` | **Hub blog C3d (GMB)** : section descendante `## Tous les guides du cluster` → 10 satellites groupés par cycle de vie + CTA vers le pilier service |
 | `src/pages/services/gestion-fiche-google.astro` | **Pilier service C3d (GMB)** : page transactionnelle + section Ressources (const `clusterGroups`) reliant les 10 satellites GMB |
 | `src/pages/services/developpement-application-mobile.astro` | **Pilier service C2 (mobile)** : page transactionnelle + section Ressources reliant les 10 articles du cluster |
+| `src/pages/services/creation-site-web.astro` | **Pilier service C3a (création web)** : ajout du bloc « Création de site web par ville » (5 pages géo + landing geneve) dans la section locale |
+| `src/components/GeoZonesStrip.astro` | **Strip géo home** : maillage léger (5 villes + landing) en fin de home pour désambiguïser les requêtes locales-ville. Lit `villes-frontalieres.ts` |
+| `src/pages/index.astro` | Home : insertion de `<GeoZonesStrip />` en fin de `<main>` (désambiguïsation). Title/H1 « Genève » conservés (désoptimisation reportée) |
+| `src/pages/services.astro` | Page /services : bloc villes liées (5 pages géo) ajouté dans `.local-section` |
+| `src/data/villes-frontalieres.ts` | **Source de vérité unique des 5 villes frontalières** (`villesFrontalieres`, slug+nom) : alimente `/developpement-web/[ville]`, le strip home, /services et le pilier C3a |
 | `vercel.json` | Redirects 301 du chantier (slug renames + consolidations blog→service). Pattern `source`/`destination`/`permanent` ±trailing-slash |
 | `src/components/Footer.astro` | Fat footer : liens profonds sitewide (piliers/zones/services) depuis `mainNav.columns` |
 | `src/data/navigation.ts` | Source de vérité du maillage (méga-menu + footer) — piliers & zones y sont déclarés |
@@ -123,3 +149,5 @@
 - Maillage profond = **footer plain-HTML** (le méga-menu JS est sous-pondéré au crawl) ; ne pas compter sur la nav seule pour la découvrabilité.
 - Le fat footer lit `mainNav.columns` — pour ajouter une page au maillage sitewide, l'ajouter dans `navigation.ts`.
 - **Consolidation = 301 dans `vercel.json` + suppression du `.md`** (pas `draft:true` : le filtre sitemap n'exclut pas les drafts). Repointer le maillage interne vers la cible (ou `/tarifs` pour les ancres prix, pour éviter les doublons de lien).
+- **Maillage géo = importer `villesFrontalieres` depuis `villes-frontalieres.ts`** partout (strip home, /services, pilier C3a). Une seule liste de villes, jamais dupliquée en dur.
+- **Home : désoptimisation title/H1 reportée** jusqu'à l'indexation de la landing geneve — d'ici là, seul le maillage léger désambiguïse (vote vers les pages dédiées), « Genève » reste sur la home.
