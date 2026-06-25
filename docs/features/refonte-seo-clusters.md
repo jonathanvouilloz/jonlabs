@@ -4,6 +4,27 @@
 > **Plan maître** : `docs/restructuration-clusters.md` (archi cible, verdict par page, liste KILL, feuille de route 5 phases).
 > **Diagnostic data** : `.seo-data/diagnostic-gsc-pages-cannibalisation.md`.
 
+## Etat session 2026-06-25 — Phase 0 : maillage bidirectionnel des 6 fiches portfolio
+
+**Fait :**
+- **Source de vérité DRY `src/data/portfolio-relations.ts`** : mapping `portfolioServiceLinks` (slug fiche → `{ label, href }` du pilier service qu'elle illustre). Pattern identique à `villes-frontalieres.ts`.
+- **Bloc sortant dans `src/pages/portfolio/[slug].astro`** : nouvelle `<section>` brutaliste insérée entre le retour `/portfolio` et le `CTASection`. Deux sous-blocs — **« Service lié »** (1 lien vers le pilier via le mapping) + **« Projets similaires »** (2 fiches calculées dans `getStaticPaths` : même `project.category` en priorité, complétées par les plus récentes ; passées en `props.relatedEntries`). Relie aussi les fiches entre elles.
+- **5 liens entrants contextuels** (modèle ancre `referencement-local` l.685, encart `border-dashed`) : `creation-site-web` → Physio Pommier + Ugo Mighali ; `developpeur-webflow` → Barber Concept (bridge existant enrichi) ; `developpement-application-mobile` → Isla Plomo ; `developpement-mvp` → Wisp. `referencement-local` → Léo Lécureux était déjà en place (intact).
+- **Build OK (193 pages, aucune route ajoutée)**. HTML `dist` vérifié : chaque fiche pointe vers le bon pilier (target + label corrects) ; les 5 liens entrants présents. Orphelinat levé (entrant + sortant sur les 6 fiches).
+- **Phase 0 (maillage) bouclée** côté code — ligne 162 du plan maître cochée.
+
+**Prochain :** Phase 0 ne reste plus que l'**activation des 3 piliers UNKNOWN** (Request Indexing GSC, action manuelle côté Jonathan). Sinon : quand la landing geneve est indexée → **désoptimiser title/H1 de la home** sur « développeur web {ville} ». Puis Phase 3 (étoffer le pilier thin `/services/creation-site-web`) ou Phase 4 (réécriture CTR GEO `apparaitre-perplexity`).
+
+**Pièges :**
+- **Mapping fiche→service = `src/data/portfolio-relations.ts`** (DRY). Ajouter une fiche ⇒ ajouter son entrée ici, sinon pas de « Service lié ».
+- `relatedEntries` calculé dans `getStaticPaths` (pas un `getCollection` par page) — la logique de fallback prend les fiches les plus récentes si < 2 partagent la catégorie.
+- Surveiller `/seo-gsc` J+30/60 sur le pilier SEO local C3b (pos 41).
+- Action manuelle toujours en attente côté Jonathan : **Request Indexing** GSC sur les 3 piliers UNKNOWN.
+
+**Commit :** 5f3dd71 feat(seo): maillage bidirectionnel des 6 fiches portfolio (Phase 0)
+
+---
+
 ## Etat session 2026-06-25 — Phase 0/2 : désambiguïsation home + maillage des pages géo
 
 **Fait :**
@@ -126,6 +147,12 @@
 
 | Fichier | Role |
 |---------|------|
+| `src/data/portfolio-relations.ts` | **Source de vérité maillage portfolio** (`portfolioServiceLinks`) : slug fiche → pilier service qu'elle illustre. Lu par `[slug].astro` (bloc sortant) ; aligne les liens entrants des piliers |
+| `src/pages/portfolio/[slug].astro` | **Template fiche portfolio** : bloc « Service lié + Projets similaires » avant le CTA. `getStaticPaths` calcule `relatedEntries` (2, par `project.category` + fallback récents) |
+| `src/pages/services/creation-site-web.astro` | Pilier C3a : lien entrant vers Physio Pommier + Ugo Mighali (section `resultats`) + bloc « Création de site web par ville » |
+| `src/pages/services/developpeur-webflow.astro` | Pilier C3a Webflow : lien entrant vers Barber Concept (bridge bas de page) |
+| `src/pages/services/developpement-application-mobile.astro` | Pilier C2 mobile : lien entrant vers Isla Plomo (PWA, section `resultats`) |
+| `src/pages/services/developpement-mvp.astro` | Pilier C1 Build : lien entrant vers Wisp (MVP SvelteKit, section `resultats`) |
 | `docs/restructuration-clusters.md` | Plan maître du chantier : 3 clusters, verdict par page, liste KILL, feuille de route 5 phases (Phase 1 ✅, Phase 2 C3b ✅) |
 | `docs/topical-map-c1-sur-mesure-automatisation.md` | **Topical map C1** : 2 silos (Build/Automate), 4 articles à créer, décisions C1 tranchées, blueprint maillage |
 | `docs/topical-map-c3-web-referencement.md` | **Topical map C3** : 4 silos (web/local/GEO/GMB), cluster mature, plan consolidation/activation/CTR |

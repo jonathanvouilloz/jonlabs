@@ -159,7 +159,7 @@ Indépendant des clusters, débloque immédiatement la visibilité.
 - [ ] Canonical : trancher www vs non-www + redirection 301 globale
 - [ ] Rendre découvrables les 3 piliers UNKNOWN (vérif sitemap build + maillage entrant depuis `/services` et la home + Request Indexing GSC)
 - [x] Mailler les 5 pages géo (liens depuis `/services` + `/services/creation-site-web`) — **2026-06-25** : bloc villes liées dans `.local-section` de `/services` + bloc « Création de site web par ville » (5 géo + landing) dans le pilier `creation-site-web.astro` + strip `GeoZonesStrip` sur la home. Source DRY : `villes-frontalieres.ts`
-- [ ] Mailler les 6 fiches portfolio orphelines (depuis `/portfolio` et articles pertinents)
+- [x] Mailler les 6 fiches portfolio orphelines (depuis `/portfolio` et articles pertinents) — **2026-06-25** : maillage bidirectionnel. Bloc « Service lié + Projets similaires » dans `portfolio/[slug].astro` (mapping DRY `portfolio-relations.ts` + `relatedEntries` calculés en getStaticPaths) + liens entrants contextuels depuis 4 piliers services (creation-site-web ×2, developpeur-webflow, application-mobile, developpement-mvp ; referencement-local déjà OK)
 
 ### Phase 1 — Topical maps des 3 clusters 🗺️
 Une `/seo-topical-map` par cluster pour figer pilier + satellites + gaps + maillage cible.
