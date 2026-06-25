@@ -1,0 +1,185 @@
+# Restructuration du site par clusters — Plan de référence
+
+> Généré le 2026-06-25 à partir de GSC (3 mois), URL Inspection API et du graphe de maillage interne.
+> Objectif : re-simplifier le site autour de **3 clusters**, garder ce qui ranke, virer l'invisible hors-périmètre.
+> Sources data : `.seo-data/diagnostic-gsc-pages-cannibalisation.md`, `.seo-data/_linkgraph.json`.
+
+## Les 3 clusters cibles
+
+| # | Cluster | Périmètre sémantique | Page pilier cible |
+|---|---------|----------------------|-------------------|
+| **C1** | Développement application custom | apps métier/entreprise, logiciel sur-mesure, MVP, **automatisation & IA appliquée** (agents, workflows) | `/services/developpement-mvp` → à promouvoir en vrai pilier « app sur-mesure » |
+| **C2** | Développement application mobile | iOS, Android, natif, hybride, Flutter/React Native, PWA, budget/prix app | ❌ **n'existe pas encore** — à créer |
+| **C3** | Création web + référencement | sites vitrine/sur-mesure, refonte, SEO local, GEO/visibilité IA, (GMB ?) | `/services/referencement-local` (indexée) + landing création web |
+
+## Légende des verdicts
+- 🟢 **KEEP** : ranke / a du jus → garder et amplifier
+- 🔵 **IMPROVE** : dans le périmètre mais faible (thin, mal classée) → enrichir
+- 🟣 **MERGE** : cannibalise une page plus forte → fusionner/301
+- 🟠 **ACTIVATE** : page pilier existante mais invisible (unknown/draft/orpheline) → rendre découvrable + finaliser
+- 🔴 **KILL** : invisible + hors périmètre → supprimer (301 vers cluster parent)
+- ⚪ **UTILITY** : page de service technique (légal, merci, pdf, cv) → garder, hors SEO
+- 🗓️ **SCHEDULED** : contenu déjà produit, pubDate future (0 imp normal)
+
+---
+
+## C1 — Développement application custom (+ automatisation/IA)
+
+| Page | IMP | Pos | Liens | Verdict |
+|------|-----|-----|-------|---------|
+| `/blog/hermes-agent-ia-pme` | 1610 | 10 | 4 | 🟢 **KEEP** — ta 2e page, push top 5 |
+| `/blog/workflows-vs-agents-ia-pme` | 307 | 7.6 | 5 | 🟢 KEEP |
+| `/blog/avantages-limites-automatisation-pme` | 107 | 5.8 | 4 | 🟢 KEEP |
+| `/blog/openclaw-pme-suisse` | 100 | 5.6 | 3 | 🟢 KEEP |
+| `/blog/comment-choisir-quoi-automatiser-pme` | 35 | 6.2 | 3 | 🔵 IMPROVE |
+| `/services/developpement-mvp` | 38 | 25 | 2 | 🟠 ACTIVATE — indexée mais pos 25 + 2 liens → **candidat pilier C1**, à étoffer + mailler |
+| `/services/automatisation` | 0 | — | 4 | 🟠 ACTIVATE — draft/noindex, pilier à finaliser |
+| `/services/integration-outils` | 0 | — | 1 | 🟠 ACTIVATE ou fusionner dans automatisation |
+| `/services/outils-sur-mesure` | 0 | — | 1 | 🔵 IMPROVE — discovered-not-indexed |
+| `/blog/application-metier-pme-sur-mesure` | 0 | — | 1 | 🗓️ SCHEDULED |
+| `/blog/automatisation-pme-suisse-guide-complet` | 5 | 5.6 | 5 | 🔵 IMPROVE — guide à renforcer comme pilier blog |
+| `/blog/temps-perdu-pme-automatisation` | 6 | 6.7 | 3 | 🔵 IMPROVE ou 🟣 merge dans le guide |
+| `/blog/automatisation-club-sportif` | 2 | 4 | 4 | 🔴 KILL ? (cas trop niche, 2 imp) |
+| `/blog/ia-pragmatique-pme-suisse` | 7 | 5.9 | 2 | 🔴 KILL ? (thin) |
+| `/blog/no-show-rendez-vous-2026` | 4 | 4.2 | 4 | 🔴 KILL ? (hors cœur) |
+| `/services/validation-idee` + `/blog/valide-idee-business-suisse` | 0 | — | 3/1 | ❓ DÉCISION — rattacher à C1 (validation d'idée app) ou virer |
+
+## C2 — Développement application mobile
+
+> Cluster **fraîchement produit** (epic mobile clôturé) — 10 articles, tous programmés juillet → 0 imp est normal.
+> Manque : **une page pilier service** (aucune page `/services/...mobile` n'existe).
+
+| Page | Statut | Verdict |
+|------|--------|---------|
+| `/blog/developper-application-mobile-suisse` | 🗓️ 30.06 | 🟢 futur hub du cluster |
+| `/blog/prix-application-mobile-suisse` | 🗓️ 03.07 | 🟢 |
+| `/blog/flutter-vs-react-native-pme` | 🗓️ 10.07 | 🟢 |
+| `/blog/application-mobile-ou-pwa` | 🗓️ 14.07 | 🟢 |
+| `/blog/budget-mvp-application-mobile` | 🗓️ 17.07 | 🟢 |
+| `/blog/freelance-ou-agence-application-mobile` | 🗓️ 21.07 | 🟢 |
+| `/blog/application-metier-pme-sur-mesure` | 🗓️ 24.07 | 🟢 (pont C1/C2) |
+| `/blog/application-native-vs-hybride` | 🗓️ 28.07 | 🟢 |
+| `/blog/application-mobile-automatisation-pme` | 🗓️ 31.07 | 🟢 (pont C1/C2) |
+| `/blog/application-mobile-pme-suisse` | 🗓️ 07.07 | 🟢 |
+| **PILIER service mobile** | ❌ absent | 🆕 **CREATE** — `/services/developpement-application-mobile` |
+
+## C3 — Création web + référencement
+
+### C3a — Création / refonte de sites web
+| Page | IMP | Pos | Liens | Verdict |
+|------|-----|-----|-------|---------|
+| `/blog/prix-site-web-suisse-2026` | 432 | 10 | 15 | 🟢 **KEEP** — top maillé, fort |
+| `/blog/specialiste-developpement-web-suisse` | 410 | 12 | 7 | 🟢 KEEP — requête métier clé |
+| `/blog/creer-site-vitrine-ia-visibilite-google` | 30 | 11 | 12 | 🟢 KEEP — bien maillé |
+| `/blog/15-signes-site-web-dort` | 88 | 6.1 | 9 | 🟢 KEEP |
+| `/blog/visibilite-site-internet-2026` | 21 | 10 | 11 | 🔵 IMPROVE |
+| `/blog/cout-site-web-dormant-calculateur` | 68 | 13 | 4 | 🟢 KEEP (outil) |
+| `/blog/freelance-ou-agence-web` | 3 | 5 | 10 | 🔵 IMPROVE (bien maillé, faibles imp) |
+| `/developpeur-web-freelance-geneve` | 0 | — | 4 | 🟠 **ACTIVATE** — landing perso UNKNOWN to Google |
+| `/services/creation-site-web` | 12 | 3.8 | 3 | 🔵 IMPROVE — thin (crawled-not-indexed) |
+| `/services/refonte-site-web` | 6 | 10 | 9 | 🟠 ACTIVATE — draft/noindex à finaliser |
+| `/services/developpeur-webflow` | 0 | — | 4 | 🟠 ACTIVATE — UNKNOWN to Google |
+| `/services/developpeur-wordpress` | 0 | — | 5 | 🟠 ACTIVATE — UNKNOWN to Google |
+| `/developpement-web/{annemasse,gaillard,ville-la-grand,saint-julien,la-roche}` | 41-211 | 8-13 | **0** | 🟠 ACTIVATE — **5 pages géo ORPHELINES**, cannibalisées par la home. Mailler ou décider du sort |
+
+### C3b — Référencement local / SEO
+| Page | IMP | Pos | Liens | Verdict |
+|------|-----|-----|-------|---------|
+| `/services/referencement-local` | 693 | 41 | 12 | 🟢 **KEEP** = pilier SEO local (indexée, pos à booster) |
+| `/blog/referencement-local-geneve` | 237 | 20 | 13 | 🟣 MERGE/consolider avec le pilier (cannibalisation) |
+| `/blog/tarif-package-seo-local-suisse` | 367 | 30 | 5 | 🟣 MERGE/consolider (cannibalisation) |
+| `/blog/referencement-local-lausanne` | 0 | — | 2 | 🗓️ SCHEDULED 26.06 |
+
+### C3c — GEO / visibilité sur les IA
+| Page | IMP | Pos | Verdict |
+|------|-----|-----|---------|
+| `/blog/apparaitre-perplexity` | 377 | 7.4 | 🟢 KEEP (0 clic → réécrire title/meta) |
+| `/blog/apparaitre-claude` | 283 | 5.9 | 🟢 KEEP |
+| `/blog/apparaitre-copilot` | 202 | 7.4 | 🟢 KEEP |
+| `/blog/geo-seo-ia` | 160 | 9.2 | 🟢 KEEP (= hub GEO) |
+| `/blog/apparaitre-grok` | 54 | 5.4 | 🟢 KEEP |
+| `/blog/apparaitre-chatgpt-geneve` | 11 | 5.8 | 🔵 IMPROVE |
+| `/blog/apparaitre-gemini` | 0 | — | 🔵 IMPROVE (indexation à vérifier) |
+| `/blog/0a30joursgooglevisible` | 34 | 6.3 | 🟢 KEEP |
+
+### C3d — Google My Business ❓ DÉCISION DE PÉRIMÈTRE
+12 pages (sous-cluster lourd). Ranke et reçoit des impressions, mais très spécifique. **À trancher : sous-pilier de C3, ou hors-focus ?**
+`fiche-google-my-business-guide-complet-2026` (78 imp) · `creer-fiche-google-my-business-etape-par-etape` (201) · `optimiser-fiche-google-my-business-checklist-2026` (29) · `choisir-categorie-google-business-profile` (76) · `obtenir-plus-avis-google` (21) · `repondre-avis-google-modeles-2026` (95) · `qr-code-avis-google-collecte-pme` (43) · `google-post-business-profile-conversion` (0) · `entrer-top-3-google-maps` (98) · `comment-apparaitre-google-maps-pme-debutant` (0) · `fiche-google-my-business-suspendue-recours` (0) · `/services/gestion-fiche-google` (0)
+
+---
+
+## Hors périmètre / Utility
+
+| Page | Verdict |
+|------|---------|
+| `/blog/notebooklm-guide-complet-2026` | 🔴 KILL ou archive (tuto outil, hors 3 clusters) |
+| `/outils/reddit-dashboard` | 🔴 KILL (2 imp, orpheline, hors sujet) |
+| `/outils/checklist-*` | ⚪ UTILITY (lead magnets — garder, mailler) |
+| `/portfolio` + 6 fiches | 🟢 KEEP (preuve E-E-A-T) mais **6 fiches orphelines** → mailler |
+| `/about` `/contact` `/tarifs` `/cv` | ⚪ UTILITY KEEP |
+| `/cv-pdf` `/merci-*` `/mentions-legales` `/blog/tag/*` | ⚪ noindex OK |
+
+---
+
+## Problèmes transverses de la « toile »
+
+1. **Homepage trop dominante** : `/` (2590 imp) ranke à la place des pages géo/métier sur leurs propres requêtes → la désambiguïser (hub qui distribue, pas qui capte).
+2. **Pages géo + portfolio = orphelines** (0 lien interne) → aucune autorité ne circule. Décider : mailler depuis les services, ou supprimer les géo (faible valeur, doublon home).
+3. **3 piliers UNKNOWN to Google** (webflow, wordpress, landing freelance) → sitemap + maillage + Request Indexing.
+4. **Cannibalisation SEO local** (3 pages) → 1 pilier d'autorité.
+5. **Canonical www/non-www** non résolu.
+6. **CTR global 0,51 %** → vague de réécriture title/meta sur les pages qui rankent à 0 clic.
+
+## Décisions prises (2026-06-25)
+- ✅ **GMB** (C3d) : **gardé** comme sous-pilier de C3 → à consolider (1 pilier GMB + satellites).
+- ✅ **Pages géo** `/developpement-web/*` : **gardées + maillées**. Principe directeur = **1 page = 1 intention** : la home rank sur « développeur freelance Genève » (présentation du site), chaque page géo rank sur « développeur web {ville} ». Action : désoptimiser la home sur les requêtes locales-ville + mailler les pages géo depuis les services.
+- ✅ **Kill** : **au cas par cas** → voir liste annotée ci-dessous, à valider page par page.
+- ⏳ **Validation d'idée** : à trancher en phase C1.
+
+## Liste KILL à valider (page par page)
+
+| Page | IMP 3 mois | Périmètre | Diagnostic | Action proposée | Verdict ? |
+|------|-----------|-----------|------------|-----------------|-----------|
+| `/blog/automatisation-club-sportif` | 2 | C1-adjacent | Cas très niche, quasi invisible | 301 → guide automatisation **ou** garder comme preuve | ⬜ |
+| `/blog/ia-pragmatique-pme-suisse` | 7 | C1-adjacent | Thin, généraliste | 301 → `/services/automatisation` | ⬜ |
+| `/blog/no-show-rendez-vous-2026` | 4 | C1-adjacent | Use case isolé | 301 → guide automatisation | ⬜ |
+| `/blog/temps-perdu-pme-automatisation` | 6 | C1 | Thin, redondant avec le guide | Fusionner dans `automatisation-pme-suisse-guide-complet` | ⬜ |
+| `/blog/notebooklm-guide-complet-2026` | 0 | **hors** | Tuto outil IA, hors 3 clusters | 301 → `/blog/geo-seo-ia` ou archive | ⬜ |
+| `/outils/reddit-dashboard` | 2 | **hors** | Outil gratuit récent (commit 51f2fcd) mais hors sujet + orphelin | **Garder** (lead magnet récent) mais mailler, ou accepter hors-SEO | ⬜ |
+
+> Note : rien n'est supprimé sans ton OK explicite par ligne.
+
+---
+
+## Feuille de route d'exécution (petit à petit)
+
+### Phase 0 — Quick wins techniques (1 commit, risque faible) ⚡
+Indépendant des clusters, débloque immédiatement la visibilité.
+- [ ] Canonical : trancher www vs non-www + redirection 301 globale
+- [ ] Rendre découvrables les 3 piliers UNKNOWN (vérif sitemap build + maillage entrant depuis `/services` et la home + Request Indexing GSC)
+- [ ] Mailler les 5 pages géo (liens depuis `/services` + `/services/creation-site-web`)
+- [ ] Mailler les 6 fiches portfolio orphelines (depuis `/portfolio` et articles pertinents)
+
+### Phase 1 — Topical maps des 3 clusters 🗺️
+Une `/seo-topical-map` par cluster pour figer pilier + satellites + gaps + maillage cible.
+- [ ] C1 — App custom (+ automatisation/IA) : définir le pilier service + rattacher le contenu auto
+- [ ] C2 — App mobile : **créer le pilier service manquant** + relier les 10 articles
+- [ ] C3 — Web + référencement : sous-cartes (création web / SEO local / GEO / GMB)
+
+### Phase 2 — Consolidation & dé-cannibalisation 🔧
+- [ ] Pilier SEO local : fusionner `referencement-local-geneve` + `tarif-package-seo-local-suisse` dans `/services/referencement-local`
+- [ ] Désambiguïser la home des requêtes locales-ville
+- [ ] Pilier GMB : élire la page d'autorité + organiser les 11 satellites
+
+### Phase 3 — Création / refonte des pages piliers ✍️
+- [ ] Pilier C2 mobile (nouvelle page service)
+- [ ] Finaliser `/services/automatisation` + `/services/refonte-site-web` (retirer noindex)
+- [ ] Étoffer `/services/developpement-mvp`, `/services/creation-site-web`
+- [ ] Landings métier : webflow, wordpress, freelance-genève (contenu + intention claire)
+
+### Phase 4 — Nettoyage & CTR 🧹
+- [ ] Valider et exécuter la liste KILL
+- [ ] Vague de réécriture title/meta sur les pages à 0 clic (apparaitre-perplexity, referencement-local…)
+
+> Ordre recommandé : **Phase 0 d'abord** (gains rapides, débloque l'indexation), puis Phase 1 cluster par cluster.
+</content>

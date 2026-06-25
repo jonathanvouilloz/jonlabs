@@ -11,11 +11,26 @@ const socials = [
     { icon: 'ri-mail-fill', link: author.email, label: 'Email' },
 ]
 
-// Source de vérité unique : mainNav (data/navigation.ts) + Contact + CV
-const footerLinks = [
-    ...mainNav.map((section) => ({ name: section.label, path: section.href })),
-    { name: ctaContact.label, path: ctaContact.href },
-    { name: 'CV', path: '/cv' },
+// Source de vérité unique : mainNav (data/navigation.ts)
+// Fat footer : on expose les liens profonds (services, zones, piliers) en plain HTML,
+// crawlables sitewide — vs le méga-menu JS sous-pondéré au crawl.
+const solutions = mainNav.find((s) => s.label === 'Solutions')
+const ressources = mainNav.find((s) => s.label === 'Ressources')
+const col = (section, title) => section?.columns?.find((c) => c.title === title)?.items ?? []
+
+const servicesLinks = [...col(solutions, 'Web & apps'), ...col(solutions, 'SEO local')]
+const zonesLinks = col(solutions, 'Zones')
+const ressourcesLinks = [
+    { label: 'Freelance web à Genève', href: solutions?.spotlight?.href ?? '/developpeur-web-freelance-geneve' },
+    ...col(ressources, 'À la une'),
+    { label: 'Tous les articles', href: '/blog' },
+]
+const secondaryLinks = [
+    { label: 'Tarifs', href: '/tarifs' },
+    { label: 'Réalisations', href: '/portfolio' },
+    { label: 'À propos', href: '/about' },
+    { label: ctaContact.label, href: ctaContact.href },
+    { label: 'CV', href: '/cv' },
 ]
 ---
 
@@ -52,10 +67,10 @@ const footerLinks = [
         </div>
 
         <!-- Main footer content -->
-        <div class="grid grid-cols-1 md:grid-cols-5 gap-8 md:gap-10 mb-12">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-10 mb-12">
 
             <!-- Brand column -->
-            <div class="md:col-span-2">
+            <div class="col-span-2">
                 <a href="/" class="inline-flex items-center mb-4 group">
                     <img
                         src={logo.src}
@@ -117,33 +132,51 @@ const footerLinks = [
                 </ul>
             </div>
 
-            <!-- Navigation links -->
+            <!-- Services -->
             <div>
-                <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-gray-500">Navigation</h3>
+                <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-gray-500">Services</h3>
                 <ul class="space-y-2">
-                    {footerLinks.slice(0, 3).map(link => (
+                    {servicesLinks.map(link => (
                         <li>
                             <a
-                                href={link.path}
-                                class="text-gray-700 font-medium transition-colors duration-200 hover:text-[var(--blue)]"
+                                href={link.href}
+                                class="text-gray-700 text-sm font-medium transition-colors duration-200 hover:text-[var(--blue)]"
                             >
-                                {link.name}
+                                {link.label}
                             </a>
                         </li>
                     ))}
                 </ul>
             </div>
 
+            <!-- Zones -->
             <div>
-                <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-gray-500">Plus</h3>
+                <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-gray-500">Zones</h3>
                 <ul class="space-y-2">
-                    {footerLinks.slice(3).map(link => (
+                    {zonesLinks.map(link => (
                         <li>
                             <a
-                                href={link.path}
-                                class="text-gray-700 font-medium transition-colors duration-200 hover:text-[var(--blue)]"
+                                href={link.href}
+                                class="text-gray-700 text-sm font-medium transition-colors duration-200 hover:text-[var(--blue)]"
                             >
-                                {link.name}
+                                {link.label}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            <!-- Ressources -->
+            <div>
+                <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-gray-500">Ressources</h3>
+                <ul class="space-y-2">
+                    {ressourcesLinks.map(link => (
+                        <li>
+                            <a
+                                href={link.href}
+                                class="text-gray-700 text-sm font-medium transition-colors duration-200 hover:text-[var(--blue)]"
+                            >
+                                {link.label}
                             </a>
                         </li>
                     ))}
@@ -153,13 +186,20 @@ const footerLinks = [
         </div>
 
         <!-- Bottom bar -->
-        <div class="pt-8 border-t-2 border-dashed border-black flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-sm text-gray-500">
-                © {new Date().getFullYear()} {author.nickname} - <strong>Développement Web Genève</strong>
-            </p>
-            <div class="flex gap-6 text-sm">
-                <a href="/mentions-legales" class="text-gray-500 hover:text-[var(--blue)] transition-colors">Mentions légales</a>
-                <a href="/mentions-legales#confidentialite" class="text-gray-500 hover:text-[var(--blue)] transition-colors">Confidentialité</a>
+        <div class="pt-8 border-t-2 border-dashed border-black">
+            <nav class="flex flex-wrap gap-x-6 gap-y-2 mb-6 text-sm" aria-label="Navigation secondaire">
+                {secondaryLinks.map(link => (
+                    <a href={link.href} class="text-gray-700 font-medium hover:text-[var(--blue)] transition-colors duration-200">{link.label}</a>
+                ))}
+            </nav>
+            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-sm text-gray-500">
+                    © {new Date().getFullYear()} {author.nickname} - <strong>Développement Web Genève</strong>
+                </p>
+                <div class="flex gap-6 text-sm">
+                    <a href="/mentions-legales" class="text-gray-500 hover:text-[var(--blue)] transition-colors">Mentions légales</a>
+                    <a href="/mentions-legales#confidentialite" class="text-gray-500 hover:text-[var(--blue)] transition-colors">Confidentialité</a>
+                </div>
             </div>
         </div>
     </div>

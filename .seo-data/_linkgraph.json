@@ -1,0 +1,1385 @@
+{
+ "inbound": {
+  "/blog/specialiste-developpement-web-suisse": [
+   "/blog/geo-seo-ia",
+   "/blog/prix-site-web-suisse-2026",
+   "/blog/tarif-package-seo-local-suisse",
+   "src/components/AboutHome.astro",
+   "src/pages/about.astro",
+   "src/pages/services.astro",
+   "src/pages/tarifs.astro"
+  ],
+  "/cv": [
+   "src/pages/about.astro"
+  ],
+  "/portfolio": [
+   "/blog/apparaitre-copilot",
+   "/blog/apparaitre-gemini",
+   "/blog/specialiste-developpement-web-suisse",
+   "src/components/PortfolioHighlight.astro",
+   "src/components/cv/CVFooter.astro",
+   "src/pages/about.astro",
+   "src/pages/developpement-web/[ville].astro",
+   "src/pages/developpeur-web-freelance-geneve.astro",
+   "src/pages/portfolio/[slug].astro",
+   "src/pages/services/developpeur-webflow.astro",
+   "src/pages/services/developpeur-wordpress.astro",
+   "src/pages/services/refonte-site-web.astro"
+  ],
+  "/contact": [
+   "/blog/apparaitre-grok",
+   "/blog/application-metier-pme-sur-mesure",
+   "/blog/application-mobile-automatisation-pme",
+   "/blog/avantages-limites-automatisation-pme",
+   "/blog/choisir-categorie-google-business-profile",
+   "/blog/comment-choisir-quoi-automatiser-pme",
+   "/blog/entrer-top-3-google-maps",
+   "/blog/freelance-ou-agence-application-mobile",
+   "/blog/geo-seo-ia",
+   "/blog/hermes-agent-ia-pme",
+   "/blog/obtenir-plus-avis-google",
+   "/blog/openclaw-pme-suisse",
+   "/blog/prix-application-mobile-suisse",
+   "/blog/referencement-local-geneve",
+   "/blog/referencement-local-lausanne",
+   "/blog/specialiste-developpement-web-suisse",
+   "/blog/tarif-package-seo-local-suisse",
+   "/blog/workflows-vs-agents-ia-pme",
+   "src/components/AboutHome.astro",
+   "src/components/Footer.astro",
+   "src/components/cv/CVFooter.astro",
+   "src/components/services/ConversationModal.astro",
+   "src/components/services/ServiceAccordion.astro",
+   "src/components/services/ServiceSection.astro",
+   "src/components/services/ServicesCTA.astro",
+   "src/pages/about.astro",
+   "src/pages/developpement-web/[ville].astro",
+   "src/pages/developpeur-web-freelance-geneve.astro",
+   "src/pages/merci-checklist.astro",
+   "src/pages/portfolio.astro",
+   "src/pages/services.astro",
+   "src/pages/services/developpement-mvp.astro",
+   "src/pages/services/validation-idee.astro",
+   "src/pages/tarifs.astro"
+  ],
+  "/blog/freelance-ou-agence-web": [
+   "/blog/cout-site-web-dormant-calculateur",
+   "/blog/developper-application-mobile-suisse",
+   "/blog/freelance-ou-agence-application-mobile",
+   "/blog/prix-site-web-suisse-2026",
+   "/blog/specialiste-developpement-web-suisse",
+   "/blog/tarif-package-seo-local-suisse",
+   "/blog/visibilite-site-internet-2026",
+   "src/pages/developpeur-web-freelance-geneve.astro",
+   "src/pages/services/developpeur-wordpress.astro",
+   "src/pages/tarifs.astro"
+  ],
+  "/services": [
+   "/blog/0a30joursgooglevisible",
+   "/blog/automatisation-club-sportif",
+   "/blog/cout-site-web-dormant-calculateur",
+   "/blog/freelance-ou-agence-web",
+   "/blog/geo-seo-ia",
+   "/blog/ia-pragmatique-pme-suisse",
+   "/blog/no-show-rendez-vous-2026",
+   "/blog/notebooklm-guide-complet-2026",
+   "/blog/prix-site-web-suisse-2026",
+   "/blog/temps-perdu-pme-automatisation",
+   "src/components/ServicesHome.astro",
+   "src/pages/developpement-web/[ville].astro",
+   "src/pages/developpeur-web-freelance-geneve.astro",
+   "src/pages/services/automatisation.astro",
+   "src/pages/services/creation-site-web.astro",
+   "src/pages/services/integration-outils.astro",
+   "src/pages/services/referencement-local.astro"
+  ],
+  "/services/developpeur-wordpress": [
+   "/blog/freelance-ou-agence-web",
+   "/blog/prix-site-web-suisse-2026",
+   "/blog/specialiste-developpement-web-suisse",
+   "src/pages/developpeur-web-freelance-geneve.astro",
+   "src/pages/services/developpeur-webflow.astro"
+  ],
+  "/services/developpeur-webflow": [
+   "/blog/prix-site-web-suisse-2026",
+   "/blog/specialiste-developpement-web-suisse",
+   "src/pages/developpeur-web-freelance-geneve.astro",
+   "src/pages/services/developpeur-wordpress.astro"
+  ],
+  "/tarifs": [
+   "/blog/cout-site-web-dormant-calculateur",
+   "/blog/geo-seo-ia",
+   "/blog/prix-site-web-suisse-2026",
+   "/blog/referencement-local-geneve",
+   "/blog/specialiste-developpement-web-suisse",
+   "/blog/tarif-package-seo-local-suisse",
+   "src/pages/developpement-web/[ville].astro",
+   "src/pages/developpeur-web-freelance-geneve.astro",
+   "src/pages/services/developpeur-webflow.astro",
+   "src/pages/services/developpeur-wordpress.astro",
+   "src/pages/services/referencement-local.astro"
+  ],
+  "/about": [
+   "/blog/specialiste-developpement-web-suisse",
+   "src/components/blog/AuthorBio.astro",
+   "src/pages/developpeur-web-freelance-geneve.astro",
+   "src/pages/services/developpement-mvp.astro"
+  ],
+  "/outils/checklist-15-signes-site-dort-pdf": [
+   "src/pages/merci-checklist-15-signes.astro"
+  ],
+  "/services/refonte-site-web": [
+   "/blog/15-signes-site-web-dort",
+   "/blog/audit-50-sites-indeps-romands",
+   "/blog/cout-site-web-dormant-calculateur",
+   "/blog/entrer-top-3-google-maps",
+   "/blog/prix-site-web-suisse-2026",
+   "/blog/visibilite-site-internet-2026",
+   "src/components/CoutDormantCalculateur.astro",
+   "src/pages/merci-checklist-15-signes.astro",
+   "src/pages/outils/checklist-15-signes-site-dort.astro"
+  ],
+  "/outils/checklist-15-signes-site-dort": [
+   "/blog/15-signes-site-web-dort",
+   "/blog/visibilite-site-internet-2026",
+   "src/pages/merci-checklist-15-signes.astro"
+  ],
+  "/outils/checklist-commerce-google-pdf": [
+   "src/pages/merci-checklist.astro"
+  ],
+  "/outils/checklist-commerce-google": [
+   "/blog/apparaitre-claude",
+   "/blog/apparaitre-copilot",
+   "/blog/apparaitre-gemini",
+   "/blog/apparaitre-perplexity",
+   "src/pages/merci-checklist.astro"
+  ],
+  "/developpeur-web-freelance-geneve": [
+   "/blog/referencement-local-geneve",
+   "/blog/specialiste-developpement-web-suisse",
+   "src/pages/developpement-web/[ville].astro",
+   "src/pages/services.astro"
+  ],
+  "/blog/15-signes-site-web-dort": [
+   "/blog/audit-50-sites-indeps-romands",
+   "/blog/cout-site-web-dormant-calculateur",
+   "/blog/referencement-local-geneve",
+   "/blog/specialiste-developpement-web-suisse",
+   "/blog/visibilite-site-internet-2026",
+   "src/pages/outils/checklist-15-signes-site-dort.astro",
+   "src/pages/services.astro",
+   "src/pages/services/creation-site-web.astro",
+   "src/pages/services/refonte-site-web.astro"
+  ],
+  "/blog/audit-50-sites-indeps-romands": [
+   "/blog/cout-site-web-dormant-calculateur",
+   "/blog/geo-seo-ia",
+   "/blog/prix-site-web-suisse-2026",
+   "/blog/referencement-local-geneve",
+   "/blog/specialiste-developpement-web-suisse",
+   "/blog/tarif-package-seo-local-suisse",
+   "src/pages/services.astro",
+   "src/pages/services/creation-site-web.astro",
+   "src/pages/services/refonte-site-web.astro"
+  ],
+  "/blog/geo-seo-ia": [
+   "/blog/apparaitre-chatgpt-geneve",
+   "/blog/apparaitre-claude",
+   "/blog/apparaitre-copilot",
+   "/blog/apparaitre-gemini",
+   "/blog/apparaitre-grok",
+   "/blog/apparaitre-perplexity",
+   "/blog/fiche-google-my-business-guide-complet-2026",
+   "/blog/referencement-local-geneve",
+   "src/pages/services.astro"
+  ],
+  "/blog/prix-site-web-suisse-2026": [
+   "/blog/apparaitre-chatgpt-geneve",
+   "/blog/apparaitre-copilot",
+   "/blog/audit-50-sites-indeps-romands",
+   "/blog/cout-site-web-dormant-calculateur",
+   "/blog/creer-site-vitrine-ia-visibilite-google",
+   "/blog/freelance-ou-agence-web",
+   "/blog/referencement-local-geneve",
+   "/blog/specialiste-developpement-web-suisse",
+   "/blog/tarif-package-seo-local-suisse",
+   "/blog/valide-idee-business-suisse",
+   "src/pages/services.astro",
+   "src/pages/services/creation-site-web.astro",
+   "src/pages/services/developpeur-webflow.astro",
+   "src/pages/services/developpeur-wordpress.astro",
+   "src/pages/tarifs.astro"
+  ],
+  "/services/referencement-local": [
+   "/blog/apparaitre-chatgpt-geneve",
+   "/blog/apparaitre-claude",
+   "/blog/apparaitre-copilot",
+   "/blog/apparaitre-gemini",
+   "/blog/apparaitre-perplexity",
+   "/blog/geo-seo-ia",
+   "/blog/referencement-local-geneve",
+   "/blog/tarif-package-seo-local-suisse",
+   "src/pages/services/developpeur-webflow.astro",
+   "src/pages/services/developpeur-wordpress.astro",
+   "src/pages/services/gestion-fiche-google.astro",
+   "src/pages/tarifs.astro"
+  ],
+  "/blog": [
+   "src/components/blog/RelatedPosts.astro",
+   "src/pages/blog/[slug].astro",
+   "src/pages/blog/tag/[tag].astro",
+   "src/pages/services/creation-site-web.astro",
+   "src/pages/services/referencement-local.astro"
+  ],
+  "/": [
+   "src/components/Footer.astro",
+   "src/components/Header.astro",
+   "src/components/nav/MobileNavDrawer.astro",
+   "src/pages/outils/checklist-15-signes-site-dort.astro",
+   "src/pages/outils/checklist-commerce-google.astro",
+   "src/pages/outils/reddit-dashboard.astro"
+  ],
+  "/outils": [
+   "src/pages/outils/checklist-15-signes-site-dort.astro",
+   "src/pages/outils/reddit-dashboard.astro"
+  ],
+  "/blog/0a30joursgooglevisible": [
+   "/blog/15-signes-site-web-dort",
+   "/blog/apparaitre-chatgpt-geneve",
+   "/blog/audit-50-sites-indeps-romands",
+   "/blog/creer-site-vitrine-ia-visibilite-google",
+   "/blog/visibilite-site-internet-2026",
+   "src/pages/outils/checklist-15-signes-site-dort.astro",
+   "src/pages/outils/checklist-commerce-google.astro",
+   "src/pages/services/integration-outils.astro"
+  ],
+  "/blog/cout-site-web-dormant-calculateur": [
+   "/blog/15-signes-site-web-dort",
+   "/blog/audit-50-sites-indeps-romands",
+   "/blog/visibilite-site-internet-2026",
+   "src/pages/outils/checklist-15-signes-site-dort.astro"
+  ],
+  "/services/automatisation": [
+   "/blog/0a30joursgooglevisible",
+   "/blog/application-mobile-automatisation-pme",
+   "src/pages/outils/checklist-commerce-google.astro",
+   "src/pages/services/outils-sur-mesure.astro"
+  ],
+  "/services/integration-outils": [
+   "src/pages/services/automatisation.astro"
+  ],
+  "/blog/visibilite-site-internet-2026": [
+   "/blog/0a30joursgooglevisible",
+   "/blog/15-signes-site-web-dort",
+   "/blog/apparaitre-copilot",
+   "/blog/apparaitre-gemini",
+   "/blog/apparaitre-perplexity",
+   "/blog/audit-50-sites-indeps-romands",
+   "/blog/cout-site-web-dormant-calculateur",
+   "/blog/geo-seo-ia",
+   "/blog/specialiste-developpement-web-suisse",
+   "src/pages/services/creation-site-web.astro",
+   "src/pages/services/refonte-site-web.astro"
+  ],
+  "/services/validation-idee": [
+   "/blog/freelance-ou-agence-web",
+   "/blog/valide-idee-business-suisse",
+   "src/pages/services/developpement-mvp.astro"
+  ],
+  "/services/creation-site-web": [
+   "/blog/prix-site-web-suisse-2026",
+   "src/pages/services/developpeur-webflow.astro",
+   "src/pages/services/developpeur-wordpress.astro"
+  ],
+  "/blog/referencement-local-geneve": [
+   "/blog/choisir-categorie-google-business-profile",
+   "/blog/comment-apparaitre-google-maps-pme-debutant",
+   "/blog/creer-fiche-google-my-business-etape-par-etape",
+   "/blog/entrer-top-3-google-maps",
+   "/blog/fiche-google-my-business-guide-complet-2026",
+   "/blog/geo-seo-ia",
+   "/blog/google-post-business-profile-conversion",
+   "/blog/obtenir-plus-avis-google",
+   "/blog/optimiser-fiche-google-my-business-checklist-2026",
+   "/blog/qr-code-avis-google-collecte-pme",
+   "/blog/referencement-local-lausanne",
+   "/blog/repondre-avis-google-modeles-2026",
+   "src/pages/services/gestion-fiche-google.astro"
+  ],
+  "/blog/automatisation-club-sportif": [
+   "/blog/automatisation-pme-suisse-guide-complet",
+   "/blog/no-show-rendez-vous-2026",
+   "/blog/temps-perdu-pme-automatisation",
+   "src/pages/services/outils-sur-mesure.astro"
+  ],
+  "/portfolio/leo-lecureux-seo": [
+   "/blog/apparaitre-chatgpt-geneve",
+   "/blog/apparaitre-claude",
+   "/blog/visibilite-site-internet-2026",
+   "src/pages/services/referencement-local.astro"
+  ],
+  "/blog/valide-idee-business-suisse": [
+   "src/pages/services/validation-idee.astro"
+  ],
+  "/mentions-legales": [
+   "src/components/Footer.astro"
+  ],
+  "/cv-pdf": [
+   "src/components/cv/CVFooter.astro",
+   "src/components/cv/CVHero.astro"
+  ],
+  "/favicon/favicon.svg": [
+   "src/layouts/Layout.astro"
+  ],
+  "/favicon/favicon-96x96.png": [
+   "src/layouts/Layout.astro"
+  ],
+  "/favicon/favicon.ico": [
+   "src/layouts/Layout.astro"
+  ],
+  "/favicon/apple-touch-icon.png": [
+   "src/layouts/Layout.astro"
+  ],
+  "/favicon/site.webmanifest": [
+   "src/layouts/Layout.astro"
+  ],
+  "/rss.xml": [
+   "src/layouts/Layout.astro"
+  ],
+  "/blog/creer-site-vitrine-ia-visibilite-google": [
+   "/blog/15-signes-site-web-dort",
+   "/blog/apparaitre-chatgpt-geneve",
+   "/blog/apparaitre-claude",
+   "/blog/apparaitre-copilot",
+   "/blog/apparaitre-gemini",
+   "/blog/apparaitre-perplexity",
+   "/blog/audit-50-sites-indeps-romands",
+   "/blog/geo-seo-ia",
+   "/blog/notebooklm-guide-complet-2026",
+   "/blog/prix-site-web-suisse-2026",
+   "/blog/valide-idee-business-suisse",
+   "/blog/visibilite-site-internet-2026"
+  ],
+  "/blog/apparaitre-claude": [
+   "/blog/0a30joursgooglevisible",
+   "/blog/apparaitre-chatgpt-geneve",
+   "/blog/apparaitre-copilot",
+   "/blog/apparaitre-gemini",
+   "/blog/apparaitre-grok",
+   "/blog/apparaitre-perplexity",
+   "/blog/creer-site-vitrine-ia-visibilite-google",
+   "/blog/geo-seo-ia",
+   "/blog/ia-pragmatique-pme-suisse",
+   "/blog/referencement-local-geneve"
+  ],
+  "/blog/apparaitre-gemini": [
+   "/blog/apparaitre-chatgpt-geneve",
+   "/blog/apparaitre-claude",
+   "/blog/apparaitre-copilot",
+   "/blog/apparaitre-grok",
+   "/blog/apparaitre-perplexity",
+   "/blog/creer-site-vitrine-ia-visibilite-google",
+   "/blog/geo-seo-ia"
+  ],
+  "/blog/apparaitre-perplexity": [
+   "/blog/apparaitre-chatgpt-geneve",
+   "/blog/apparaitre-claude",
+   "/blog/apparaitre-copilot",
+   "/blog/apparaitre-gemini",
+   "/blog/apparaitre-grok",
+   "/blog/geo-seo-ia"
+  ],
+  "/blog/apparaitre-copilot": [
+   "/blog/apparaitre-chatgpt-geneve",
+   "/blog/apparaitre-claude",
+   "/blog/apparaitre-gemini",
+   "/blog/apparaitre-grok",
+   "/blog/apparaitre-perplexity",
+   "/blog/geo-seo-ia"
+  ],
+  "/blog/apparaitre-grok": [
+   "/blog/apparaitre-chatgpt-geneve",
+   "/blog/apparaitre-claude",
+   "/blog/apparaitre-copilot",
+   "/blog/apparaitre-gemini",
+   "/blog/apparaitre-perplexity",
+   "/blog/geo-seo-ia"
+  ],
+  "/blog/apparaitre-chatgpt-geneve": [
+   "/blog/0a30joursgooglevisible",
+   "/blog/apparaitre-claude",
+   "/blog/apparaitre-copilot",
+   "/blog/apparaitre-gemini",
+   "/blog/apparaitre-grok",
+   "/blog/apparaitre-perplexity",
+   "/blog/creer-site-vitrine-ia-visibilite-google",
+   "/blog/geo-seo-ia",
+   "/blog/referencement-local-geneve"
+  ],
+  "/blog/budget-mvp-application-mobile": [
+   "/blog/application-metier-pme-sur-mesure",
+   "/blog/developper-application-mobile-suisse"
+  ],
+  "/blog/developper-application-mobile-suisse": [
+   "/blog/application-metier-pme-sur-mesure",
+   "/blog/application-mobile-automatisation-pme",
+   "/blog/application-mobile-ou-pwa",
+   "/blog/application-mobile-pme-suisse",
+   "/blog/application-native-vs-hybride",
+   "/blog/budget-mvp-application-mobile",
+   "/blog/flutter-vs-react-native-pme",
+   "/blog/freelance-ou-agence-application-mobile",
+   "/blog/prix-application-mobile-suisse"
+  ],
+  "/blog/application-mobile-automatisation-pme": [
+   "/blog/application-metier-pme-sur-mesure",
+   "/blog/automatisation-pme-suisse-guide-complet",
+   "/blog/temps-perdu-pme-automatisation"
+  ],
+  "/services/outils-sur-mesure": [
+   "/blog/application-metier-pme-sur-mesure"
+  ],
+  "/blog/application-metier-pme-sur-mesure": [
+   "/blog/application-mobile-automatisation-pme"
+  ],
+  "/blog/flutter-vs-react-native-pme": [
+   "/blog/application-mobile-ou-pwa",
+   "/blog/application-native-vs-hybride",
+   "/blog/budget-mvp-application-mobile",
+   "/blog/developper-application-mobile-suisse"
+  ],
+  "/blog/prix-application-mobile-suisse": [
+   "/blog/application-mobile-ou-pwa",
+   "/blog/application-mobile-pme-suisse",
+   "/blog/budget-mvp-application-mobile",
+   "/blog/developper-application-mobile-suisse"
+  ],
+  "/blog/application-mobile-ou-pwa": [
+   "/blog/application-native-vs-hybride",
+   "/blog/developper-application-mobile-suisse"
+  ],
+  "/blog/temps-perdu-pme-automatisation": [
+   "/blog/automatisation-club-sportif",
+   "/blog/ia-pragmatique-pme-suisse",
+   "/blog/no-show-rendez-vous-2026"
+  ],
+  "/blog/no-show-rendez-vous-2026": [
+   "/blog/automatisation-club-sportif",
+   "/blog/automatisation-pme-suisse-guide-complet",
+   "/blog/avantages-limites-automatisation-pme",
+   "/blog/comment-choisir-quoi-automatiser-pme"
+  ],
+  "/blog/workflows-vs-agents-ia-pme": [
+   "/blog/automatisation-pme-suisse-guide-complet",
+   "/blog/avantages-limites-automatisation-pme",
+   "/blog/comment-choisir-quoi-automatiser-pme",
+   "/blog/hermes-agent-ia-pme",
+   "/blog/openclaw-pme-suisse"
+  ],
+  "/blog/comment-choisir-quoi-automatiser-pme": [
+   "/blog/automatisation-pme-suisse-guide-complet",
+   "/blog/avantages-limites-automatisation-pme",
+   "/blog/openclaw-pme-suisse"
+  ],
+  "/blog/notebooklm-guide-complet-2026": [
+   "/blog/automatisation-pme-suisse-guide-complet",
+   "/blog/ia-pragmatique-pme-suisse"
+  ],
+  "/blog/hermes-agent-ia-pme": [
+   "/blog/automatisation-pme-suisse-guide-complet",
+   "/blog/avantages-limites-automatisation-pme",
+   "/blog/openclaw-pme-suisse",
+   "/blog/workflows-vs-agents-ia-pme"
+  ],
+  "/blog/openclaw-pme-suisse": [
+   "/blog/automatisation-pme-suisse-guide-complet",
+   "/blog/hermes-agent-ia-pme",
+   "/blog/workflows-vs-agents-ia-pme"
+  ],
+  "/blog/avantages-limites-automatisation-pme": [
+   "/blog/automatisation-pme-suisse-guide-complet",
+   "/blog/comment-choisir-quoi-automatiser-pme",
+   "/blog/hermes-agent-ia-pme",
+   "/blog/openclaw-pme-suisse"
+  ],
+  "/blog/automatisation-pme-suisse-guide-complet": [
+   "/blog/avantages-limites-automatisation-pme",
+   "/blog/comment-choisir-quoi-automatiser-pme",
+   "/blog/hermes-agent-ia-pme",
+   "/blog/openclaw-pme-suisse",
+   "/blog/workflows-vs-agents-ia-pme"
+  ],
+  "/blog/application-mobile-pme-suisse": [
+   "/blog/budget-mvp-application-mobile",
+   "/blog/developper-application-mobile-suisse"
+  ],
+  "/blog/fiche-google-my-business-guide-complet-2026": [
+   "/blog/choisir-categorie-google-business-profile",
+   "/blog/comment-apparaitre-google-maps-pme-debutant",
+   "/blog/creer-fiche-google-my-business-etape-par-etape",
+   "/blog/entrer-top-3-google-maps",
+   "/blog/fiche-google-my-business-suspendue-recours",
+   "/blog/google-post-business-profile-conversion",
+   "/blog/obtenir-plus-avis-google",
+   "/blog/optimiser-fiche-google-my-business-checklist-2026",
+   "/blog/qr-code-avis-google-collecte-pme",
+   "/blog/repondre-avis-google-modeles-2026"
+  ],
+  "/blog/entrer-top-3-google-maps": [
+   "/blog/choisir-categorie-google-business-profile",
+   "/blog/obtenir-plus-avis-google",
+   "/blog/referencement-local-lausanne"
+  ],
+  "/blog/optimiser-fiche-google-my-business-checklist-2026": [
+   "/blog/choisir-categorie-google-business-profile",
+   "/blog/comment-apparaitre-google-maps-pme-debutant",
+   "/blog/creer-fiche-google-my-business-etape-par-etape",
+   "/blog/entrer-top-3-google-maps",
+   "/blog/fiche-google-my-business-guide-complet-2026",
+   "/blog/fiche-google-my-business-suspendue-recours",
+   "/blog/google-post-business-profile-conversion",
+   "/blog/qr-code-avis-google-collecte-pme",
+   "/blog/referencement-local-lausanne"
+  ],
+  "/blog/creer-fiche-google-my-business-etape-par-etape": [
+   "/blog/choisir-categorie-google-business-profile",
+   "/blog/comment-apparaitre-google-maps-pme-debutant",
+   "/blog/entrer-top-3-google-maps",
+   "/blog/fiche-google-my-business-guide-complet-2026",
+   "/blog/fiche-google-my-business-suspendue-recours",
+   "/blog/google-post-business-profile-conversion",
+   "/blog/optimiser-fiche-google-my-business-checklist-2026",
+   "/blog/qr-code-avis-google-collecte-pme"
+  ],
+  "/images/blog/comment-apparaitre-google-maps-pme-debutant-1.webp": [
+   "/blog/comment-apparaitre-google-maps-pme-debutant"
+  ],
+  "/services/gestion-fiche-google": [
+   "/blog/comment-apparaitre-google-maps-pme-debutant",
+   "/blog/creer-fiche-google-my-business-etape-par-etape",
+   "/blog/fiche-google-my-business-guide-complet-2026",
+   "/blog/fiche-google-my-business-suspendue-recours",
+   "/blog/google-post-business-profile-conversion",
+   "/blog/optimiser-fiche-google-my-business-checklist-2026",
+   "/blog/qr-code-avis-google-collecte-pme",
+   "/blog/repondre-avis-google-modeles-2026"
+  ],
+  "/blog/comment-apparaitre-google-maps-pme-debutant": [
+   "/blog/creer-fiche-google-my-business-etape-par-etape",
+   "/blog/google-post-business-profile-conversion",
+   "/blog/optimiser-fiche-google-my-business-checklist-2026"
+  ],
+  "/images/blog/creer-fiche-google-my-business-etape-par-etape-1.webp": [
+   "/blog/creer-fiche-google-my-business-etape-par-etape"
+  ],
+  "/blog/application-native-vs-hybride": [
+   "/blog/developper-application-mobile-suisse",
+   "/blog/flutter-vs-react-native-pme"
+  ],
+  "/blog/freelance-ou-agence-application-mobile": [
+   "/blog/developper-application-mobile-suisse",
+   "/blog/freelance-ou-agence-web"
+  ],
+  "/services/developpement-mvp": [
+   "/blog/developper-application-mobile-suisse",
+   "/blog/freelance-ou-agence-application-mobile"
+  ],
+  "/blog/choisir-categorie-google-business-profile": [
+   "/blog/entrer-top-3-google-maps",
+   "/blog/referencement-local-lausanne"
+  ],
+  "/blog/qr-code-avis-google-collecte-pme": [
+   "/blog/entrer-top-3-google-maps",
+   "/blog/fiche-google-my-business-guide-complet-2026",
+   "/blog/google-post-business-profile-conversion",
+   "/blog/obtenir-plus-avis-google",
+   "/blog/optimiser-fiche-google-my-business-checklist-2026",
+   "/blog/repondre-avis-google-modeles-2026"
+  ],
+  "/blog/repondre-avis-google-modeles-2026": [
+   "/blog/entrer-top-3-google-maps",
+   "/blog/fiche-google-my-business-guide-complet-2026",
+   "/blog/google-post-business-profile-conversion",
+   "/blog/obtenir-plus-avis-google",
+   "/blog/optimiser-fiche-google-my-business-checklist-2026",
+   "/blog/qr-code-avis-google-collecte-pme"
+  ],
+  "/blog/referencement-local-lausanne": [
+   "/blog/entrer-top-3-google-maps",
+   "/blog/referencement-local-geneve"
+  ],
+  "/blog/tarif-package-seo-local-suisse": [
+   "/blog/entrer-top-3-google-maps",
+   "/blog/geo-seo-ia",
+   "/blog/optimiser-fiche-google-my-business-checklist-2026",
+   "/blog/referencement-local-geneve",
+   "/blog/referencement-local-lausanne"
+  ],
+  "/images/blog/fiche-google-my-business-guide-complet-2026-1.webp": [
+   "/blog/fiche-google-my-business-guide-complet-2026"
+  ],
+  "/blog/google-post-business-profile-conversion": [
+   "/blog/fiche-google-my-business-guide-complet-2026",
+   "/blog/optimiser-fiche-google-my-business-checklist-2026"
+  ],
+  "/blog/fiche-google-my-business-suspendue-recours": [
+   "/blog/fiche-google-my-business-guide-complet-2026"
+  ],
+  "/blog/ia-pragmatique-pme-suisse": [
+   "/blog/notebooklm-guide-complet-2026",
+   "/blog/temps-perdu-pme-automatisation"
+  ],
+  "/images/blog/optimiser-fiche-google-my-business-checklist-2026-1.webp": [
+   "/blog/optimiser-fiche-google-my-business-checklist-2026"
+  ],
+  "/blog/obtenir-plus-avis-google": [
+   "/blog/referencement-local-lausanne"
+  ],
+  "/images/blog/visibilite-site-internet-2026-1.webp": [
+   "/blog/visibilite-site-internet-2026"
+  ],
+  "/images/blog/visibilite-site-internet-2026-3.webp": [
+   "/blog/visibilite-site-internet-2026"
+  ]
+ },
+ "outbound": {
+  "src/pages/about.astro": [
+   "/blog/specialiste-developpement-web-suisse",
+   "/contact",
+   "/cv",
+   "/portfolio"
+  ],
+  "src/pages/developpeur-web-freelance-geneve.astro": [
+   "/about",
+   "/blog/freelance-ou-agence-web",
+   "/contact",
+   "/portfolio",
+   "/services",
+   "/services/developpeur-webflow",
+   "/services/developpeur-wordpress",
+   "/tarifs"
+  ],
+  "src/pages/merci-checklist-15-signes.astro": [
+   "/outils/checklist-15-signes-site-dort",
+   "/outils/checklist-15-signes-site-dort-pdf",
+   "/services/refonte-site-web"
+  ],
+  "src/pages/merci-checklist.astro": [
+   "/contact",
+   "/outils/checklist-commerce-google",
+   "/outils/checklist-commerce-google-pdf"
+  ],
+  "src/pages/portfolio.astro": [
+   "/contact"
+  ],
+  "src/pages/services.astro": [
+   "/blog/15-signes-site-web-dort",
+   "/blog/audit-50-sites-indeps-romands",
+   "/blog/geo-seo-ia",
+   "/blog/prix-site-web-suisse-2026",
+   "/blog/specialiste-developpement-web-suisse",
+   "/contact",
+   "/developpeur-web-freelance-geneve"
+  ],
+  "src/pages/tarifs.astro": [
+   "/blog/freelance-ou-agence-web",
+   "/blog/prix-site-web-suisse-2026",
+   "/blog/specialiste-developpement-web-suisse",
+   "/contact",
+   "/services/referencement-local"
+  ],
+  "src/pages/blog/[slug].astro": [
+   "/blog"
+  ],
+  "src/pages/blog/tag/[tag].astro": [
+   "/blog"
+  ],
+  "src/pages/developpement-web/[ville].astro": [
+   "/contact",
+   "/developpeur-web-freelance-geneve",
+   "/portfolio",
+   "/services",
+   "/tarifs"
+  ],
+  "src/pages/outils/checklist-15-signes-site-dort.astro": [
+   "/",
+   "/blog/0a30joursgooglevisible",
+   "/blog/15-signes-site-web-dort",
+   "/blog/cout-site-web-dormant-calculateur",
+   "/outils",
+   "/services/refonte-site-web"
+  ],
+  "src/pages/outils/checklist-commerce-google.astro": [
+   "/",
+   "/blog/0a30joursgooglevisible",
+   "/services/automatisation"
+  ],
+  "src/pages/outils/reddit-dashboard.astro": [
+   "/",
+   "/outils"
+  ],
+  "src/pages/portfolio/[slug].astro": [
+   "/portfolio"
+  ],
+  "src/pages/services/automatisation.astro": [
+   "/services",
+   "/services/integration-outils"
+  ],
+  "src/pages/services/creation-site-web.astro": [
+   "/blog",
+   "/blog/15-signes-site-web-dort",
+   "/blog/audit-50-sites-indeps-romands",
+   "/blog/prix-site-web-suisse-2026",
+   "/blog/visibilite-site-internet-2026",
+   "/services"
+  ],
+  "src/pages/services/developpement-mvp.astro": [
+   "/about",
+   "/contact",
+   "/services/validation-idee"
+  ],
+  "src/pages/services/developpeur-webflow.astro": [
+   "/blog/prix-site-web-suisse-2026",
+   "/portfolio",
+   "/services/creation-site-web",
+   "/services/developpeur-wordpress",
+   "/services/referencement-local",
+   "/tarifs"
+  ],
+  "src/pages/services/developpeur-wordpress.astro": [
+   "/blog/freelance-ou-agence-web",
+   "/blog/prix-site-web-suisse-2026",
+   "/portfolio",
+   "/services/creation-site-web",
+   "/services/developpeur-webflow",
+   "/services/referencement-local",
+   "/tarifs"
+  ],
+  "src/pages/services/gestion-fiche-google.astro": [
+   "/blog/referencement-local-geneve",
+   "/services/referencement-local"
+  ],
+  "src/pages/services/integration-outils.astro": [
+   "/blog/0a30joursgooglevisible",
+   "/services"
+  ],
+  "src/pages/services/outils-sur-mesure.astro": [
+   "/blog/automatisation-club-sportif",
+   "/services/automatisation"
+  ],
+  "src/pages/services/referencement-local.astro": [
+   "/blog",
+   "/portfolio/leo-lecureux-seo",
+   "/services",
+   "/tarifs"
+  ],
+  "src/pages/services/refonte-site-web.astro": [
+   "/blog/15-signes-site-web-dort",
+   "/blog/audit-50-sites-indeps-romands",
+   "/blog/visibilite-site-internet-2026",
+   "/portfolio"
+  ],
+  "src/pages/services/validation-idee.astro": [
+   "/blog/valide-idee-business-suisse",
+   "/contact"
+  ],
+  "src/components/AboutHome.astro": [
+   "/blog/specialiste-developpement-web-suisse",
+   "/contact"
+  ],
+  "src/components/CoutDormantCalculateur.astro": [
+   "/services/refonte-site-web"
+  ],
+  "src/components/Footer.astro": [
+   "/",
+   "/contact",
+   "/mentions-legales"
+  ],
+  "src/components/Header.astro": [
+   "/"
+  ],
+  "src/components/PortfolioHighlight.astro": [
+   "/portfolio"
+  ],
+  "src/components/ServicesHome.astro": [
+   "/services"
+  ],
+  "src/components/blog/AuthorBio.astro": [
+   "/about"
+  ],
+  "src/components/blog/RelatedPosts.astro": [
+   "/blog"
+  ],
+  "src/components/cv/CVFooter.astro": [
+   "/contact",
+   "/cv-pdf",
+   "/portfolio"
+  ],
+  "src/components/cv/CVHero.astro": [
+   "/cv-pdf"
+  ],
+  "src/components/nav/MobileNavDrawer.astro": [
+   "/"
+  ],
+  "src/components/services/ConversationModal.astro": [
+   "/contact"
+  ],
+  "src/components/services/ServiceAccordion.astro": [
+   "/contact"
+  ],
+  "src/components/services/ServicesCTA.astro": [
+   "/contact"
+  ],
+  "src/components/services/ServiceSection.astro": [
+   "/contact"
+  ],
+  "src/layouts/Layout.astro": [
+   "/favicon/apple-touch-icon.png",
+   "/favicon/favicon-96x96.png",
+   "/favicon/favicon.ico",
+   "/favicon/favicon.svg",
+   "/favicon/site.webmanifest",
+   "/rss.xml"
+  ],
+  "/blog/15-signes-site-web-dort": [
+   "/blog/0a30joursgooglevisible",
+   "/blog/cout-site-web-dormant-calculateur",
+   "/blog/creer-site-vitrine-ia-visibilite-google",
+   "/blog/visibilite-site-internet-2026",
+   "/outils/checklist-15-signes-site-dort",
+   "/services/refonte-site-web"
+  ],
+  "/blog/apparaitre-chatgpt-geneve": [
+   "/blog/0a30joursgooglevisible",
+   "/blog/apparaitre-claude",
+   "/blog/apparaitre-copilot",
+   "/blog/apparaitre-gemini",
+   "/blog/apparaitre-grok",
+   "/blog/apparaitre-perplexity",
+   "/blog/creer-site-vitrine-ia-visibilite-google",
+   "/blog/geo-seo-ia",
+   "/blog/prix-site-web-suisse-2026",
+   "/portfolio/leo-lecureux-seo",
+   "/services/referencement-local"
+  ],
+  "/blog/apparaitre-claude": [
+   "/blog/apparaitre-chatgpt-geneve",
+   "/blog/apparaitre-copilot",
+   "/blog/apparaitre-gemini",
+   "/blog/apparaitre-grok",
+   "/blog/apparaitre-perplexity",
+   "/blog/creer-site-vitrine-ia-visibilite-google",
+   "/blog/geo-seo-ia",
+   "/outils/checklist-commerce-google",
+   "/portfolio/leo-lecureux-seo",
+   "/services/referencement-local"
+  ],
+  "/blog/apparaitre-copilot": [
+   "/blog/apparaitre-chatgpt-geneve",
+   "/blog/apparaitre-claude",
+   "/blog/apparaitre-gemini",
+   "/blog/apparaitre-grok",
+   "/blog/apparaitre-perplexity",
+   "/blog/creer-site-vitrine-ia-visibilite-google",
+   "/blog/geo-seo-ia",
+   "/blog/prix-site-web-suisse-2026",
+   "/blog/visibilite-site-internet-2026",
+   "/outils/checklist-commerce-google",
+   "/portfolio",
+   "/services/referencement-local"
+  ],
+  "/blog/apparaitre-gemini": [
+   "/blog/apparaitre-chatgpt-geneve",
+   "/blog/apparaitre-claude",
+   "/blog/apparaitre-copilot",
+   "/blog/apparaitre-grok",
+   "/blog/apparaitre-perplexity",
+   "/blog/creer-site-vitrine-ia-visibilite-google",
+   "/blog/geo-seo-ia",
+   "/blog/visibilite-site-internet-2026",
+   "/outils/checklist-commerce-google",
+   "/portfolio",
+   "/services/referencement-local"
+  ],
+  "/blog/apparaitre-grok": [
+   "/blog/apparaitre-chatgpt-geneve",
+   "/blog/apparaitre-claude",
+   "/blog/apparaitre-copilot",
+   "/blog/apparaitre-gemini",
+   "/blog/apparaitre-perplexity",
+   "/blog/geo-seo-ia",
+   "/contact"
+  ],
+  "/blog/apparaitre-perplexity": [
+   "/blog/apparaitre-chatgpt-geneve",
+   "/blog/apparaitre-claude",
+   "/blog/apparaitre-copilot",
+   "/blog/apparaitre-gemini",
+   "/blog/apparaitre-grok",
+   "/blog/creer-site-vitrine-ia-visibilite-google",
+   "/blog/geo-seo-ia",
+   "/blog/visibilite-site-internet-2026",
+   "/outils/checklist-commerce-google",
+   "/services/referencement-local"
+  ],
+  "/blog/application-metier-pme-sur-mesure": [
+   "/blog/application-mobile-automatisation-pme",
+   "/blog/budget-mvp-application-mobile",
+   "/blog/developper-application-mobile-suisse",
+   "/contact",
+   "/services/outils-sur-mesure"
+  ],
+  "/blog/application-mobile-automatisation-pme": [
+   "/blog/application-metier-pme-sur-mesure",
+   "/blog/developper-application-mobile-suisse",
+   "/contact",
+   "/services/automatisation"
+  ],
+  "/blog/application-mobile-ou-pwa": [
+   "/blog/developper-application-mobile-suisse",
+   "/blog/flutter-vs-react-native-pme",
+   "/blog/prix-application-mobile-suisse"
+  ],
+  "/blog/application-mobile-pme-suisse": [
+   "/blog/developper-application-mobile-suisse",
+   "/blog/prix-application-mobile-suisse"
+  ],
+  "/blog/application-native-vs-hybride": [
+   "/blog/application-mobile-ou-pwa",
+   "/blog/developper-application-mobile-suisse",
+   "/blog/flutter-vs-react-native-pme"
+  ],
+  "/blog/audit-50-sites-indeps-romands": [
+   "/blog/0a30joursgooglevisible",
+   "/blog/15-signes-site-web-dort",
+   "/blog/cout-site-web-dormant-calculateur",
+   "/blog/creer-site-vitrine-ia-visibilite-google",
+   "/blog/prix-site-web-suisse-2026",
+   "/blog/visibilite-site-internet-2026",
+   "/services/refonte-site-web"
+  ],
+  "/blog/automatisation-club-sportif": [
+   "/blog/no-show-rendez-vous-2026",
+   "/blog/temps-perdu-pme-automatisation",
+   "/services"
+  ],
+  "/blog/automatisation-pme-suisse-guide-complet": [
+   "/blog/application-mobile-automatisation-pme",
+   "/blog/automatisation-club-sportif",
+   "/blog/avantages-limites-automatisation-pme",
+   "/blog/comment-choisir-quoi-automatiser-pme",
+   "/blog/hermes-agent-ia-pme",
+   "/blog/no-show-rendez-vous-2026",
+   "/blog/notebooklm-guide-complet-2026",
+   "/blog/openclaw-pme-suisse",
+   "/blog/workflows-vs-agents-ia-pme"
+  ],
+  "/blog/avantages-limites-automatisation-pme": [
+   "/blog/automatisation-pme-suisse-guide-complet",
+   "/blog/comment-choisir-quoi-automatiser-pme",
+   "/blog/hermes-agent-ia-pme",
+   "/blog/no-show-rendez-vous-2026",
+   "/blog/workflows-vs-agents-ia-pme",
+   "/contact"
+  ],
+  "/blog/budget-mvp-application-mobile": [
+   "/blog/application-mobile-pme-suisse",
+   "/blog/developper-application-mobile-suisse",
+   "/blog/flutter-vs-react-native-pme",
+   "/blog/prix-application-mobile-suisse"
+  ],
+  "/blog/choisir-categorie-google-business-profile": [
+   "/blog/creer-fiche-google-my-business-etape-par-etape",
+   "/blog/entrer-top-3-google-maps",
+   "/blog/fiche-google-my-business-guide-complet-2026",
+   "/blog/optimiser-fiche-google-my-business-checklist-2026",
+   "/blog/referencement-local-geneve",
+   "/contact"
+  ],
+  "/blog/comment-apparaitre-google-maps-pme-debutant": [
+   "/blog/creer-fiche-google-my-business-etape-par-etape",
+   "/blog/fiche-google-my-business-guide-complet-2026",
+   "/blog/optimiser-fiche-google-my-business-checklist-2026",
+   "/blog/referencement-local-geneve",
+   "/images/blog/comment-apparaitre-google-maps-pme-debutant-1.webp",
+   "/services/gestion-fiche-google"
+  ],
+  "/blog/comment-choisir-quoi-automatiser-pme": [
+   "/blog/automatisation-pme-suisse-guide-complet",
+   "/blog/avantages-limites-automatisation-pme",
+   "/blog/no-show-rendez-vous-2026",
+   "/blog/workflows-vs-agents-ia-pme",
+   "/contact"
+  ],
+  "/blog/creer-fiche-google-my-business-etape-par-etape": [
+   "/blog/comment-apparaitre-google-maps-pme-debutant",
+   "/blog/fiche-google-my-business-guide-complet-2026",
+   "/blog/optimiser-fiche-google-my-business-checklist-2026",
+   "/blog/referencement-local-geneve",
+   "/images/blog/creer-fiche-google-my-business-etape-par-etape-1.webp",
+   "/services/gestion-fiche-google"
+  ],
+  "/blog/creer-site-vitrine-ia-visibilite-google": [
+   "/blog/0a30joursgooglevisible",
+   "/blog/apparaitre-chatgpt-geneve",
+   "/blog/apparaitre-claude",
+   "/blog/apparaitre-gemini",
+   "/blog/prix-site-web-suisse-2026"
+  ],
+  "/blog/developper-application-mobile-suisse": [
+   "/blog/application-mobile-ou-pwa",
+   "/blog/application-mobile-pme-suisse",
+   "/blog/application-native-vs-hybride",
+   "/blog/budget-mvp-application-mobile",
+   "/blog/flutter-vs-react-native-pme",
+   "/blog/freelance-ou-agence-application-mobile",
+   "/blog/freelance-ou-agence-web",
+   "/blog/prix-application-mobile-suisse",
+   "/services/developpement-mvp"
+  ],
+  "/blog/entrer-top-3-google-maps": [
+   "/blog/choisir-categorie-google-business-profile",
+   "/blog/creer-fiche-google-my-business-etape-par-etape",
+   "/blog/fiche-google-my-business-guide-complet-2026",
+   "/blog/optimiser-fiche-google-my-business-checklist-2026",
+   "/blog/qr-code-avis-google-collecte-pme",
+   "/blog/referencement-local-geneve",
+   "/blog/referencement-local-lausanne",
+   "/blog/repondre-avis-google-modeles-2026",
+   "/blog/tarif-package-seo-local-suisse",
+   "/contact",
+   "/services/refonte-site-web"
+  ],
+  "/blog/fiche-google-my-business-guide-complet-2026": [
+   "/blog/creer-fiche-google-my-business-etape-par-etape",
+   "/blog/fiche-google-my-business-suspendue-recours",
+   "/blog/geo-seo-ia",
+   "/blog/google-post-business-profile-conversion",
+   "/blog/optimiser-fiche-google-my-business-checklist-2026",
+   "/blog/qr-code-avis-google-collecte-pme",
+   "/blog/referencement-local-geneve",
+   "/blog/repondre-avis-google-modeles-2026",
+   "/images/blog/fiche-google-my-business-guide-complet-2026-1.webp",
+   "/services/gestion-fiche-google"
+  ],
+  "/blog/fiche-google-my-business-suspendue-recours": [
+   "/blog/creer-fiche-google-my-business-etape-par-etape",
+   "/blog/fiche-google-my-business-guide-complet-2026",
+   "/blog/optimiser-fiche-google-my-business-checklist-2026",
+   "/services/gestion-fiche-google"
+  ],
+  "/blog/flutter-vs-react-native-pme": [
+   "/blog/application-native-vs-hybride",
+   "/blog/developper-application-mobile-suisse"
+  ],
+  "/blog/freelance-ou-agence-application-mobile": [
+   "/blog/developper-application-mobile-suisse",
+   "/blog/freelance-ou-agence-web",
+   "/contact",
+   "/services/developpement-mvp"
+  ],
+  "/blog/freelance-ou-agence-web": [
+   "/blog/freelance-ou-agence-application-mobile",
+   "/blog/prix-site-web-suisse-2026",
+   "/services",
+   "/services/developpeur-wordpress",
+   "/services/validation-idee"
+  ],
+  "/blog/geo-seo-ia": [
+   "/blog/apparaitre-chatgpt-geneve",
+   "/blog/apparaitre-claude",
+   "/blog/apparaitre-copilot",
+   "/blog/apparaitre-gemini",
+   "/blog/apparaitre-grok",
+   "/blog/apparaitre-perplexity",
+   "/blog/audit-50-sites-indeps-romands",
+   "/blog/creer-site-vitrine-ia-visibilite-google",
+   "/blog/referencement-local-geneve",
+   "/blog/specialiste-developpement-web-suisse",
+   "/blog/tarif-package-seo-local-suisse",
+   "/blog/visibilite-site-internet-2026",
+   "/contact",
+   "/services",
+   "/services/referencement-local",
+   "/tarifs"
+  ],
+  "/blog/google-post-business-profile-conversion": [
+   "/blog/comment-apparaitre-google-maps-pme-debutant",
+   "/blog/creer-fiche-google-my-business-etape-par-etape",
+   "/blog/fiche-google-my-business-guide-complet-2026",
+   "/blog/optimiser-fiche-google-my-business-checklist-2026",
+   "/blog/qr-code-avis-google-collecte-pme",
+   "/blog/referencement-local-geneve",
+   "/blog/repondre-avis-google-modeles-2026",
+   "/services/gestion-fiche-google"
+  ],
+  "/blog/hermes-agent-ia-pme": [
+   "/blog/automatisation-pme-suisse-guide-complet",
+   "/blog/avantages-limites-automatisation-pme",
+   "/blog/openclaw-pme-suisse",
+   "/blog/workflows-vs-agents-ia-pme",
+   "/contact"
+  ],
+  "/blog/ia-pragmatique-pme-suisse": [
+   "/blog/apparaitre-claude",
+   "/blog/notebooklm-guide-complet-2026",
+   "/blog/temps-perdu-pme-automatisation",
+   "/services"
+  ],
+  "/blog/no-show-rendez-vous-2026": [
+   "/blog/automatisation-club-sportif",
+   "/blog/temps-perdu-pme-automatisation",
+   "/services"
+  ],
+  "/blog/notebooklm-guide-complet-2026": [
+   "/blog/creer-site-vitrine-ia-visibilite-google",
+   "/blog/ia-pragmatique-pme-suisse",
+   "/services"
+  ],
+  "/blog/obtenir-plus-avis-google": [
+   "/blog/entrer-top-3-google-maps",
+   "/blog/fiche-google-my-business-guide-complet-2026",
+   "/blog/qr-code-avis-google-collecte-pme",
+   "/blog/referencement-local-geneve",
+   "/blog/repondre-avis-google-modeles-2026",
+   "/contact"
+  ],
+  "/blog/openclaw-pme-suisse": [
+   "/blog/automatisation-pme-suisse-guide-complet",
+   "/blog/avantages-limites-automatisation-pme",
+   "/blog/comment-choisir-quoi-automatiser-pme",
+   "/blog/hermes-agent-ia-pme",
+   "/blog/workflows-vs-agents-ia-pme",
+   "/contact"
+  ],
+  "/blog/optimiser-fiche-google-my-business-checklist-2026": [
+   "/blog/comment-apparaitre-google-maps-pme-debutant",
+   "/blog/creer-fiche-google-my-business-etape-par-etape",
+   "/blog/fiche-google-my-business-guide-complet-2026",
+   "/blog/google-post-business-profile-conversion",
+   "/blog/qr-code-avis-google-collecte-pme",
+   "/blog/referencement-local-geneve",
+   "/blog/repondre-avis-google-modeles-2026",
+   "/blog/tarif-package-seo-local-suisse",
+   "/images/blog/optimiser-fiche-google-my-business-checklist-2026-1.webp",
+   "/services/gestion-fiche-google"
+  ],
+  "/blog/prix-application-mobile-suisse": [
+   "/blog/developper-application-mobile-suisse",
+   "/contact"
+  ],
+  "/blog/prix-site-web-suisse-2026": [
+   "/blog/audit-50-sites-indeps-romands",
+   "/blog/creer-site-vitrine-ia-visibilite-google",
+   "/blog/freelance-ou-agence-web",
+   "/blog/specialiste-developpement-web-suisse",
+   "/services",
+   "/services/creation-site-web",
+   "/services/developpeur-webflow",
+   "/services/developpeur-wordpress",
+   "/services/refonte-site-web",
+   "/tarifs"
+  ],
+  "/blog/qr-code-avis-google-collecte-pme": [
+   "/blog/creer-fiche-google-my-business-etape-par-etape",
+   "/blog/fiche-google-my-business-guide-complet-2026",
+   "/blog/optimiser-fiche-google-my-business-checklist-2026",
+   "/blog/referencement-local-geneve",
+   "/blog/repondre-avis-google-modeles-2026",
+   "/services/gestion-fiche-google"
+  ],
+  "/blog/referencement-local-geneve": [
+   "/blog/15-signes-site-web-dort",
+   "/blog/apparaitre-chatgpt-geneve",
+   "/blog/apparaitre-claude",
+   "/blog/audit-50-sites-indeps-romands",
+   "/blog/geo-seo-ia",
+   "/blog/prix-site-web-suisse-2026",
+   "/blog/referencement-local-lausanne",
+   "/blog/tarif-package-seo-local-suisse",
+   "/contact",
+   "/developpeur-web-freelance-geneve",
+   "/services/referencement-local",
+   "/tarifs"
+  ],
+  "/blog/referencement-local-lausanne": [
+   "/blog/choisir-categorie-google-business-profile",
+   "/blog/entrer-top-3-google-maps",
+   "/blog/obtenir-plus-avis-google",
+   "/blog/optimiser-fiche-google-my-business-checklist-2026",
+   "/blog/referencement-local-geneve",
+   "/blog/tarif-package-seo-local-suisse",
+   "/contact"
+  ],
+  "/blog/repondre-avis-google-modeles-2026": [
+   "/blog/fiche-google-my-business-guide-complet-2026",
+   "/blog/qr-code-avis-google-collecte-pme",
+   "/blog/referencement-local-geneve",
+   "/services/gestion-fiche-google"
+  ],
+  "/blog/specialiste-developpement-web-suisse": [
+   "/about",
+   "/blog/15-signes-site-web-dort",
+   "/blog/audit-50-sites-indeps-romands",
+   "/blog/freelance-ou-agence-web",
+   "/blog/prix-site-web-suisse-2026",
+   "/blog/visibilite-site-internet-2026",
+   "/contact",
+   "/developpeur-web-freelance-geneve",
+   "/portfolio",
+   "/services/developpeur-webflow",
+   "/services/developpeur-wordpress",
+   "/tarifs"
+  ],
+  "/blog/tarif-package-seo-local-suisse": [
+   "/blog/audit-50-sites-indeps-romands",
+   "/blog/freelance-ou-agence-web",
+   "/blog/prix-site-web-suisse-2026",
+   "/blog/specialiste-developpement-web-suisse",
+   "/contact",
+   "/services/referencement-local",
+   "/tarifs"
+  ],
+  "/blog/temps-perdu-pme-automatisation": [
+   "/blog/application-mobile-automatisation-pme",
+   "/blog/automatisation-club-sportif",
+   "/blog/ia-pragmatique-pme-suisse",
+   "/services"
+  ],
+  "/blog/valide-idee-business-suisse": [
+   "/blog/creer-site-vitrine-ia-visibilite-google",
+   "/blog/prix-site-web-suisse-2026",
+   "/services/validation-idee"
+  ],
+  "/blog/visibilite-site-internet-2026": [
+   "/blog/0a30joursgooglevisible",
+   "/blog/15-signes-site-web-dort",
+   "/blog/cout-site-web-dormant-calculateur",
+   "/blog/creer-site-vitrine-ia-visibilite-google",
+   "/blog/freelance-ou-agence-web",
+   "/images/blog/visibilite-site-internet-2026-1.webp",
+   "/images/blog/visibilite-site-internet-2026-3.webp",
+   "/outils/checklist-15-signes-site-dort",
+   "/portfolio/leo-lecureux-seo",
+   "/services/refonte-site-web"
+  ],
+  "/blog/workflows-vs-agents-ia-pme": [
+   "/blog/automatisation-pme-suisse-guide-complet",
+   "/blog/hermes-agent-ia-pme",
+   "/blog/openclaw-pme-suisse",
+   "/contact"
+  ],
+  "/blog/0a30joursgooglevisible": [
+   "/blog/apparaitre-chatgpt-geneve",
+   "/blog/apparaitre-claude",
+   "/blog/visibilite-site-internet-2026",
+   "/services",
+   "/services/automatisation"
+  ],
+  "/blog/cout-site-web-dormant-calculateur": [
+   "/blog/15-signes-site-web-dort",
+   "/blog/audit-50-sites-indeps-romands",
+   "/blog/freelance-ou-agence-web",
+   "/blog/prix-site-web-suisse-2026",
+   "/blog/visibilite-site-internet-2026",
+   "/services",
+   "/services/refonte-site-web",
+   "/tarifs"
+  ]
+ },
+ "routes": [
+  "/",
+  "/about",
+  "/blog",
+  "/blog/0a30joursgooglevisible",
+  "/blog/15-signes-site-web-dort",
+  "/blog/apparaitre-chatgpt-geneve",
+  "/blog/apparaitre-claude",
+  "/blog/apparaitre-copilot",
+  "/blog/apparaitre-gemini",
+  "/blog/apparaitre-grok",
+  "/blog/apparaitre-perplexity",
+  "/blog/application-metier-pme-sur-mesure",
+  "/blog/application-mobile-automatisation-pme",
+  "/blog/application-mobile-ou-pwa",
+  "/blog/application-mobile-pme-suisse",
+  "/blog/application-native-vs-hybride",
+  "/blog/audit-50-sites-indeps-romands",
+  "/blog/automatisation-club-sportif",
+  "/blog/automatisation-pme-suisse-guide-complet",
+  "/blog/avantages-limites-automatisation-pme",
+  "/blog/budget-mvp-application-mobile",
+  "/blog/choisir-categorie-google-business-profile",
+  "/blog/comment-apparaitre-google-maps-pme-debutant",
+  "/blog/comment-choisir-quoi-automatiser-pme",
+  "/blog/cout-site-web-dormant-calculateur",
+  "/blog/creer-fiche-google-my-business-etape-par-etape",
+  "/blog/creer-site-vitrine-ia-visibilite-google",
+  "/blog/developper-application-mobile-suisse",
+  "/blog/entrer-top-3-google-maps",
+  "/blog/fiche-google-my-business-guide-complet-2026",
+  "/blog/fiche-google-my-business-suspendue-recours",
+  "/blog/flutter-vs-react-native-pme",
+  "/blog/freelance-ou-agence-application-mobile",
+  "/blog/freelance-ou-agence-web",
+  "/blog/geo-seo-ia",
+  "/blog/google-post-business-profile-conversion",
+  "/blog/hermes-agent-ia-pme",
+  "/blog/ia-pragmatique-pme-suisse",
+  "/blog/no-show-rendez-vous-2026",
+  "/blog/notebooklm-guide-complet-2026",
+  "/blog/obtenir-plus-avis-google",
+  "/blog/openclaw-pme-suisse",
+  "/blog/optimiser-fiche-google-my-business-checklist-2026",
+  "/blog/prix-application-mobile-suisse",
+  "/blog/prix-site-web-suisse-2026",
+  "/blog/qr-code-avis-google-collecte-pme",
+  "/blog/referencement-local-geneve",
+  "/blog/referencement-local-lausanne",
+  "/blog/repondre-avis-google-modeles-2026",
+  "/blog/specialiste-developpement-web-suisse",
+  "/blog/tarif-package-seo-local-suisse",
+  "/blog/temps-perdu-pme-automatisation",
+  "/blog/valide-idee-business-suisse",
+  "/blog/visibilite-site-internet-2026",
+  "/blog/workflows-vs-agents-ia-pme",
+  "/contact",
+  "/cv",
+  "/cv-pdf",
+  "/developpement-web/annemasse",
+  "/developpement-web/gaillard",
+  "/developpement-web/la-roche-sur-foron",
+  "/developpement-web/saint-julien-en-genevois",
+  "/developpement-web/ville-la-grand",
+  "/developpeur-web-freelance-geneve",
+  "/mentions-legales",
+  "/merci-checklist",
+  "/merci-checklist-15-signes",
+  "/outils",
+  "/outils/checklist-15-signes-site-dort",
+  "/outils/checklist-15-signes-site-dort-pdf",
+  "/outils/checklist-commerce-google",
+  "/outils/checklist-commerce-google-pdf",
+  "/outils/reddit-dashboard",
+  "/portfolio",
+  "/portfolio/barber-concept",
+  "/portfolio/isla-plomo",
+  "/portfolio/leo-lecureux-seo",
+  "/portfolio/physio-pommier",
+  "/portfolio/ugo-mighali-coutelier",
+  "/portfolio/wisp",
+  "/services",
+  "/services/automatisation",
+  "/services/creation-site-web",
+  "/services/developpement-mvp",
+  "/services/developpeur-webflow",
+  "/services/developpeur-wordpress",
+  "/services/gestion-fiche-google",
+  "/services/integration-outils",
+  "/services/outils-sur-mesure",
+  "/services/referencement-local",
+  "/services/refonte-site-web",
+  "/services/validation-idee",
+  "/tarifs"
+ ]
+}

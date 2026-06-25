@@ -1,0 +1,270 @@
+{
+  "site_url": "sc-domain:jonlabs.ch",
+  "generated_at": "2026-06-25T05:17:08Z",
+  "source": "list",
+  "sitemap_url": null,
+  "page_filter": null,
+  "language": "en-US",
+  "urls_total": 12,
+  "urls_inspected": 12,
+  "summary": {
+    "blocked_robots": 0,
+    "blocked_noindex": 2,
+    "redirect": 0,
+    "soft_404": 0,
+    "not_found": 0,
+    "server_error": 0,
+    "canonical_conflict": 0,
+    "crawled_not_indexed": 3,
+    "discovered_not_indexed": 2,
+    "url_unknown": 3,
+    "indexed": 2,
+    "unknown": 0
+  },
+  "by_state": {
+    "URL is unknown to Google": 3,
+    "Crawled - currently not indexed": 3,
+    "Excluded by ‘noindex’ tag": 2,
+    "Discovered - currently not indexed": 2,
+    "Submitted and indexed": 2
+  },
+  "buckets": {
+    "blocked_robots": [],
+    "blocked_noindex": [
+      {
+        "url": "https://www.jonlabs.ch/services/integration-outils",
+        "bucket": "blocked_noindex",
+        "coverage_state": "Excluded by ‘noindex’ tag",
+        "indexing_state": "BLOCKED_BY_META_TAG",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": "2026-05-28T14:51:05Z",
+        "google_canonical": "https://www.jonlabs.ch/services/integration-outils",
+        "user_canonical": "https://www.jonlabs.ch/services/integration-outils",
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/tag/developpement-web",
+          "https://www.jonlabs.ch/services",
+          "https://jonlabs.ch/services/automatisation/"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Balise meta robots noindex (ou header X-Robots-Tag) presente sur la page.",
+        "suggested_action": "verifier que c'est intentionnel ; si oui, retirer du sitemap pour eviter le bruit ; si non, supprimer la balise et resoumettre via Indexing API"
+      },
+      {
+        "url": "https://www.jonlabs.ch/services/validation-idee",
+        "bucket": "blocked_noindex",
+        "coverage_state": "Excluded by ‘noindex’ tag",
+        "indexing_state": "BLOCKED_BY_META_TAG",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": "2026-05-20T18:30:17Z",
+        "google_canonical": "https://www.jonlabs.ch/services/validation-idee",
+        "user_canonical": "https://www.jonlabs.ch/services/validation-idee",
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/0a30joursgooglevisible",
+          "https://www.jonlabs.ch/blog/valide-idee-business-suisse/"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Balise meta robots noindex (ou header X-Robots-Tag) presente sur la page.",
+        "suggested_action": "verifier que c'est intentionnel ; si oui, retirer du sitemap pour eviter le bruit ; si non, supprimer la balise et resoumettre via Indexing API"
+      }
+    ],
+    "redirect": [],
+    "soft_404": [],
+    "not_found": [],
+    "server_error": [],
+    "canonical_conflict": [],
+    "crawled_not_indexed": [
+      {
+        "url": "https://www.jonlabs.ch/services/automatisation",
+        "bucket": "crawled_not_indexed",
+        "coverage_state": "Crawled - currently not indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": "2026-02-21T03:50:15Z",
+        "google_canonical": "https://www.jonlabs.ch/services/automatisation",
+        "user_canonical": "https://www.jonlabs.ch/services/automatisation",
+        "referring_urls": [
+          "https://jonlabs.ch/blog/0a30joursgooglevisible/"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Google a crawle la page mais a choisi de ne pas l'indexer. Causes typiques : contenu thin, similarite avec d'autres pages du site, faibles signaux de qualite (E-E-A-T), absence d'auteur identifie.",
+        "suggested_action": "enrichir le contenu (sections originales, exemples concrets, donnees uniques), renforcer le maillage interne entrant, identifier l'auteur, citer des sources, ajouter une raison d'etre claire vs les autres pages"
+      },
+      {
+        "url": "https://www.jonlabs.ch/services/refonte-site-web",
+        "bucket": "crawled_not_indexed",
+        "coverage_state": "Crawled - currently not indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": "2026-04-11T04:59:59Z",
+        "google_canonical": "https://www.jonlabs.ch/services/refonte-site-web",
+        "user_canonical": "https://www.jonlabs.ch/services/refonte-site-web",
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/tag/developpement-web",
+          "https://jonlabs.ch/services/"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Google a crawle la page mais a choisi de ne pas l'indexer. Causes typiques : contenu thin, similarite avec d'autres pages du site, faibles signaux de qualite (E-E-A-T), absence d'auteur identifie.",
+        "suggested_action": "enrichir le contenu (sections originales, exemples concrets, donnees uniques), renforcer le maillage interne entrant, identifier l'auteur, citer des sources, ajouter une raison d'etre claire vs les autres pages"
+      },
+      {
+        "url": "https://www.jonlabs.ch/services/creation-site-web",
+        "bucket": "crawled_not_indexed",
+        "coverage_state": "Crawled - currently not indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": "2026-03-02T23:28:09Z",
+        "google_canonical": "https://www.jonlabs.ch/services/creation-site-web",
+        "user_canonical": "https://www.jonlabs.ch/services/creation-site-web",
+        "referring_urls": [
+          "https://www.jonlabs.ch/outils/reddit-dashboard",
+          "https://www.jonlabs.ch/blog/visibilite-site-internet-2026",
+          "https://jonlabs.ch/services/"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Google a crawle la page mais a choisi de ne pas l'indexer. Causes typiques : contenu thin, similarite avec d'autres pages du site, faibles signaux de qualite (E-E-A-T), absence d'auteur identifie.",
+        "suggested_action": "enrichir le contenu (sections originales, exemples concrets, donnees uniques), renforcer le maillage interne entrant, identifier l'auteur, citer des sources, ajouter une raison d'etre claire vs les autres pages"
+      }
+    ],
+    "discovered_not_indexed": [
+      {
+        "url": "https://www.jonlabs.ch/services/gestion-fiche-google",
+        "bucket": "discovered_not_indexed",
+        "coverage_state": "Discovered - currently not indexed",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/tag/notebooklm"
+        ],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google connait l'URL (via sitemap ou lien) mais ne l'a pas crawlee. Causes : crawl budget faible, signaux d'autorite insuffisants, site percu comme peu prioritaire.",
+        "suggested_action": "renforcer le maillage interne (3+ liens internes vers la page depuis des hubs), soumettre via Indexing API si eligible, gagner des backlinks externes, verifier que la page est bien dans le sitemap a jour"
+      },
+      {
+        "url": "https://www.jonlabs.ch/services/outils-sur-mesure",
+        "bucket": "discovered_not_indexed",
+        "coverage_state": "Discovered - currently not indexed",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [
+          "https://www.jonlabs.ch/outils/reddit-dashboard",
+          "https://jonlabs.ch/services"
+        ],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google connait l'URL (via sitemap ou lien) mais ne l'a pas crawlee. Causes : crawl budget faible, signaux d'autorite insuffisants, site percu comme peu prioritaire.",
+        "suggested_action": "renforcer le maillage interne (3+ liens internes vers la page depuis des hubs), soumettre via Indexing API si eligible, gagner des backlinks externes, verifier que la page est bien dans le sitemap a jour"
+      }
+    ],
+    "url_unknown": [
+      {
+        "url": "https://www.jonlabs.ch/developpeur-web-freelance-geneve",
+        "bucket": "url_unknown",
+        "coverage_state": "URL is unknown to Google",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google ne reconnait pas cette URL. Soit elle est trop recente, soit elle n'est pas dans le sitemap, soit elle est hors de la propriete GSC inspectee.",
+        "suggested_action": "verifier que l'URL appartient bien a la propriete GSC, l'ajouter au sitemap, soumettre via Indexing API, ajouter des liens internes pour la rendre decouvrable"
+      },
+      {
+        "url": "https://www.jonlabs.ch/services/developpeur-webflow",
+        "bucket": "url_unknown",
+        "coverage_state": "URL is unknown to Google",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google ne reconnait pas cette URL. Soit elle est trop recente, soit elle n'est pas dans le sitemap, soit elle est hors de la propriete GSC inspectee.",
+        "suggested_action": "verifier que l'URL appartient bien a la propriete GSC, l'ajouter au sitemap, soumettre via Indexing API, ajouter des liens internes pour la rendre decouvrable"
+      },
+      {
+        "url": "https://www.jonlabs.ch/services/developpeur-wordpress",
+        "bucket": "url_unknown",
+        "coverage_state": "URL is unknown to Google",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google ne reconnait pas cette URL. Soit elle est trop recente, soit elle n'est pas dans le sitemap, soit elle est hors de la propriete GSC inspectee.",
+        "suggested_action": "verifier que l'URL appartient bien a la propriete GSC, l'ajouter au sitemap, soumettre via Indexing API, ajouter des liens internes pour la rendre decouvrable"
+      }
+    ],
+    "indexed": [
+      {
+        "url": "https://www.jonlabs.ch/services/developpement-mvp",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-06-17T17:56:13Z",
+        "google_canonical": "https://www.jonlabs.ch/services/developpement-mvp",
+        "user_canonical": "https://www.jonlabs.ch/services/developpement-mvp",
+        "referring_urls": [
+          "https://www.jonlabs.ch/blog/0a30joursgooglevisible",
+          "https://www.jonlabs.ch/sitemap-0.xml",
+          "https://jonlabs.ch/services"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      },
+      {
+        "url": "https://www.jonlabs.ch/services/referencement-local",
+        "bucket": "indexed",
+        "coverage_state": "Submitted and indexed",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "PASS",
+        "last_crawl_time": "2026-06-20T14:35:48Z",
+        "google_canonical": "https://www.jonlabs.ch/services/referencement-local",
+        "user_canonical": "https://www.jonlabs.ch/services/referencement-local",
+        "referring_urls": [
+          "https://www.jonlabs.ch/services",
+          "https://www.jonlabs.ch/blog/apparaitre-chatgpt-geneve"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "Page indexee par Google.",
+        "suggested_action": "aucune action requise (la page est dans l'index)"
+      }
+    ],
+    "unknown": []
+  }
+}
