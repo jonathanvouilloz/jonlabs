@@ -7,16 +7,35 @@ import Footer from '../../components/Footer.astro';
 import CTASection from '../../components/CTASection.astro';
 import { SITE_URL } from '../../data/schema';
 import { inlineLinks } from '../../lib/markdown';
+import { portfolioServiceLinks } from '../../data/portfolio-relations';
 
 export async function getStaticPaths() {
   const portfolioEntries = await getCollection('portfolio', ({ data }) => !data.draft);
-  return portfolioEntries.map(entry => ({
-    params: { slug: entry.slug },
-    props: { entry },
-  }));
+  // Tri par date décroissante : sert de fallback pour « Projets similaires »
+  const sorted = [...portfolioEntries].sort(
+    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+  );
+
+  return portfolioEntries.map(entry => {
+    const others = sorted.filter(e => e.slug !== entry.slug);
+    // Priorité : même project.category ; complété par les plus récents si < 2
+    const sameCategory = others.filter(
+      e => e.data.project?.category === entry.data.project?.category
+    );
+    const relatedEntries = [
+      ...sameCategory,
+      ...others.filter(e => !sameCategory.includes(e)),
+    ].slice(0, 2);
+
+    return {
+      params: { slug: entry.slug },
+      props: { entry, relatedEntries },
+    };
+  });
 }
 
-const { entry } = Astro.props;
+const { entry, relatedEntries } = Astro.props;
+const serviceLink = portfolioServiceLinks[entry.slug];
 const { Content } = await entry.render();
 
 const {
@@ -448,6 +467,47 @@ const schemas = [caseStudySchema];
         Voir tous les projets
       </a>
     </div>
+
+    <!-- Maillage interne : service lié + projets similaires -->
+    <section class="max-w-3xl mx-auto px-4 mt-16">
+      {serviceLink && (
+        <div class="mb-10">
+          <h2 class="text-sm font-bold uppercase tracking-wider text-gray-500 mb-3">Service lié</h2>
+          <a
+            href={serviceLink.href}
+            class="group flex items-center justify-between gap-4 bg-[var(--blue)] border-2 border-black p-5 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)]"
+          >
+            <span class="font-bold text-lg">
+              Ce projet illustre mon offre <span class="bg-[var(--yellow)] px-1">{serviceLink.label}</span>
+            </span>
+            <i class="ri-arrow-right-line text-2xl shrink-0 transition-transform group-hover:translate-x-1"></i>
+          </a>
+        </div>
+      )}
+
+      {relatedEntries && relatedEntries.length > 0 && (
+        <div>
+          <h2 class="text-sm font-bold uppercase tracking-wider text-gray-500 mb-3">Projets similaires</h2>
+          <div class="grid gap-4 sm:grid-cols-2">
+            {relatedEntries.map((related) => (
+              <a
+                href={`/portfolio/${related.slug}`}
+                class="group block bg-white border-2 border-black p-5 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_rgba(0,0,0,0.25)]"
+              >
+                {related.data.tags?.[0] && (
+                  <span class="inline-block text-xs font-bold uppercase tracking-wider bg-[var(--yellow)] px-2 py-0.5 mb-2">{related.data.tags[0]}</span>
+                )}
+                <h3 class="font-bold leading-snug">{related.data.title}</h3>
+                <span class="mt-3 inline-flex items-center gap-1 text-sm font-medium text-[var(--blue)]">
+                  Voir le projet
+                  <i class="ri-arrow-right-line transition-transform group-hover:translate-x-1"></i>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+    </section>
 
     <!-- CTA -->
     <div class="mt-16">
