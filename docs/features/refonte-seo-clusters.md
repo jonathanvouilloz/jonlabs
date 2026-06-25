@@ -4,6 +4,25 @@
 > **Plan maître** : `docs/restructuration-clusters.md` (archi cible, verdict par page, liste KILL, feuille de route 5 phases).
 > **Diagnostic data** : `.seo-data/diagnostic-gsc-pages-cannibalisation.md`.
 
+## Etat session 2026-06-25 — Phase 2 / C3d : organisation du pilier GMB
+
+**Fait :**
+- **Hub GMB complété → 10 satellites** : section descendante `## Tous les guides du cluster fiche Google` ajoutée dans `fiche-google-my-business-guide-complet-2026.md` (groupée par cycle de vie : Créer & optimiser / Avis & animation / Incident). Le hub ne linkait que 5 satellites contextuels — les 10 sont désormais couverts (liens contextuels conservés).
+- **Section Ressources sur le pilier service** : `gestion-fiche-google.astro` expose maintenant les 10 satellites (const `clusterGroups` + `<section id="ressources">` mirrorée sur le pilier mobile C2), insérée entre la section `local` et le CTA. Le pilier ne linkait aucun satellite avant.
+- **4 CTA satellites repointés vers le pilier** : `entrer-top-3-google-maps` (×2 : un pointait vers `/services/refonte-site-web` = bug net, un vers `/contact`), `choisir-categorie-google-business-profile` (`/contact`), `obtenir-plus-avis-google` (`/contact`) → tous vers `/services/gestion-fiche-google` avec utm_campaign aligné.
+- **Build OK (193 pages)** — aucune route ajoutée (enrichissement de l'existant ; 193 = 195 − 2 articles SEO local supprimés en C3b). Topical map C3 ligne 6 passée en ✅.
+
+**Prochain :** suite Phase 2 — **désambiguïser la home** (décision actée : maillage géo léger uniquement, garder « Genève » ; la vraie désoptimisation attend l'indexation de la landing `/developpeur-web-freelance-geneve`, encore UNKNOWN). Puis activation Phase 0 : mailler les 5 pages géo `/developpement-web/{ville}` (0 lien) + la landing geneve depuis `/services`.
+
+**Pièges :**
+- **Décision assumée** : tous les CTA satellites GMB convergent vers le pilier `/services/gestion-fiche-google` (qui contient le formulaire de contact) plutôt que `/contact` — choix de cohérence de silo, réversible.
+- Surveiller `/seo-gsc` J+30/60 sur le pilier SEO local C3b (pos 41 doit progresser après le 301).
+- Action manuelle toujours en attente côté Jonathan : **Request Indexing** GSC sur les 3 piliers UNKNOWN (developpeur-web-freelance-geneve, services/developpeur-webflow, services/developpeur-wordpress).
+
+**Commit :** 3b88c7e feat(seo): organisation pilier GMB C3d — hub→10 satellites + ressources pilier + fix CTA
+
+---
+
 ## Etat session 2026-06-25 — Phase 2 / C3b : consolidation SEO local
 
 **Fait :**
@@ -91,6 +110,8 @@
 | `docs/topical-map-c3-web-referencement.md` | **Topical map C3** : 4 silos (web/local/GEO/GMB), cluster mature, plan consolidation/activation/CTR |
 | `.seo-data/diagnostic-gsc-pages-cannibalisation.md` | Diagnostic data (GSC perf, indexation, cannibalisation) |
 | `src/pages/services/referencement-local.astro` | **Pilier service C3b (SEO local)** : consolidé Phase 2 — bloc 7 leviers (+JSON-LD), transparence prix (5 questions), FAQ enrichie. Cible des 301 SEO local |
+| `src/content/blog/fiche-google-my-business-guide-complet-2026.md` | **Hub blog C3d (GMB)** : section descendante `## Tous les guides du cluster` → 10 satellites groupés par cycle de vie + CTA vers le pilier service |
+| `src/pages/services/gestion-fiche-google.astro` | **Pilier service C3d (GMB)** : page transactionnelle + section Ressources (const `clusterGroups`) reliant les 10 satellites GMB |
 | `src/pages/services/developpement-application-mobile.astro` | **Pilier service C2 (mobile)** : page transactionnelle + section Ressources reliant les 10 articles du cluster |
 | `vercel.json` | Redirects 301 du chantier (slug renames + consolidations blog→service). Pattern `source`/`destination`/`permanent` ±trailing-slash |
 | `src/components/Footer.astro` | Fat footer : liens profonds sitewide (piliers/zones/services) depuis `mainNav.columns` |

@@ -8,5 +8,5 @@
 | Cluster application mobile | docs/features/cluster-application-mobile.md | ✅ DONE |
 
 ## Reprendre ici
-**Refonte SEO** — Phase 2 entamée : **consolidation SEO local C3b livrée** (301 des 2 articles + merge sélectif dans le pilier `referencement-local` + maillage repointé). Prochain : suite Phase 2 — **désambiguïser la home** des requêtes locales-ville, puis **pilier GMB** (élire `fiche-google-my-business-guide-complet-2026` + organiser les 11 satellites). Alternative : création C1 Build `/seo-brief logiciel-sur-mesure-vs-saas`. À surveiller : `/seo-gsc` J+30/60 sur le pilier (pos 41 doit progresser après le 301).
-Commit : 6dab520 feat(seo): consolidation SEO local C3b — 301 + merge pilier referencement-local
+**Refonte SEO** — Phase 2 : C3b (SEO local) ✅ et C3d (pilier GMB) ✅ livrés. Prochain : **désambiguïser la home** (décision actée : maillage géo léger, garder « Genève » ; désoptimisation reportée jusqu'à l'indexation de la landing geneve), puis Phase 0 — mailler les 5 pages géo `/developpement-web/{ville}` (0 lien) + la landing depuis `/services`. À surveiller : `/seo-gsc` J+30/60 sur le pilier SEO local.
+Commit : 3b88c7e feat(seo): organisation pilier GMB C3d — hub→10 satellites + ressources pilier + fix CTA
