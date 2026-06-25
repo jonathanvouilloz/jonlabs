@@ -19,7 +19,7 @@
 - GEMINI_API_KEY toujours expirée (génération images via OpenAI en dépannage).
 - Action manuelle en attente côté Jonathan : **Request Indexing** GSC sur les 3 piliers UNKNOWN (developpeur-web-freelance-geneve, services/developpeur-webflow, services/developpeur-wordpress).
 
-**Commit :** 6063ab3 docs(seo): topical maps C1 + C3 — Phase 1 clusters bouclée
+**Commit :** 5aa4998 docs(seo): topical maps C1 + C3 — Phase 1 clusters bouclée
 
 ---
 
