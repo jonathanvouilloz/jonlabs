@@ -255,7 +255,7 @@ Non. Le QR code sur comptoir est la première brique, mais sans vélocité activ
 
 Le **QR code pour collecter des avis Google** n'est efficace que s'il fait partie d'un système : vélocité, sondage filtrant, SMS/email dans les 2-4 heures, respect des règles Google. Seule la combinaison transforme un QR code isolé en machine à avis qui tourne en continu.
 
-Et cette machine à avis n'est elle-même qu'un rouage : pour [améliorer ton positionnement local sur Google](/blog/referencement-local-geneve) en entier, elle se combine avec la catégorie, les citations et le contenu géolocalisé.
+Et cette machine à avis n'est elle-même qu'un rouage : pour [améliorer ton positionnement local sur Google](/services/referencement-local) en entier, elle se combine avec la catégorie, les citations et le contenu géolocalisé.
 
 Si tu es une PME en Suisse romande ou en France et que tu n'as pas le temps de monter ce système de A à Z, c'est exactement ce que je mets en place pour mes clients dans le cadre de la gestion de fiche Google.
 

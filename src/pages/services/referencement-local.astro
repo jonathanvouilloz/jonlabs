@@ -149,6 +149,119 @@ const results = [
     }
 ];
 
+// Les 7 leviers concrets du référencement local
+const localLevers = [
+    {
+        icon: "ri-store-2-line",
+        title: "Optimiser la fiche Google Business Profile",
+        description: "Le levier n°1 du SEO local. Catégorie principale précise (« consultant SEO », pas « consultant »), 10 à 20 photos récentes, section Services et FAQ activée avec vos vrais mots-clés métier."
+    },
+    {
+        icon: "ri-equalizer-line",
+        title: "NAP cohérent partout",
+        description: "Nom, Adresse, Téléphone strictement identiques sur votre site, votre fiche Google, LinkedIn et chaque annuaire. Une incohérence est un signal de doute pour Google ; trois, un signal de méfiance."
+    },
+    {
+        icon: "ri-code-s-slash-line",
+        title: "Schema LocalBusiness sur le site",
+        description: "Un bloc JSON-LD invisible pour les visiteurs mais essentiel pour Google : il déclare formellement ce qu'est votre entreprise, où elle est et ce qu'elle fait (exemple complet ci-dessous)."
+    },
+    {
+        icon: "ri-star-smile-line",
+        title: "Avis Google : collecte et réponse",
+        description: "Comptez 30 à 50 avis (moyenne > 4,5) pour entrer dans le top 3 du pack Maps sur une requête concurrentielle. Demande par SMS dans les 48h, réponse à 100 % des avis sous 7 jours."
+    },
+    {
+        icon: "ri-map-pin-range-line",
+        title: "Pages locales par zone",
+        description: "Si vous intervenez sur plusieurs quartiers ou communes, une page dédiée par zone — avec un vrai contenu (rues, types d'immeubles, cas concrets), pas une duplication mécanique."
+    },
+    {
+        icon: "ri-links-line",
+        title: "Backlinks locaux",
+        description: "Des liens de domaines romands pertinents : CCIG, médias locaux (Tribune de Genève, Bilan), partenariats avec des PME complémentaires, sponsoring d'associations. Un lien depuis ccig.ch vaut plus que cent liens anonymes."
+    },
+    {
+        icon: "ri-article-line",
+        title: "Contenu géolocalisé",
+        description: "Citez les quartiers et communes (Plainpalais, Carouge, Meyrin…) et résolvez des problèmes typiquement locaux. C'est ce qui capture la longue traîne hyper-ciblée que vos concurrents ignorent."
+    }
+];
+
+// Exemple de schema LocalBusiness (JSON-LD) — preuve concrète
+const localBusinessSchemaExample = `{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Votre entreprise",
+  "image": "https://votresite.ch/logo.png",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Rue du Mont-Blanc 14",
+    "addressLocality": "Genève",
+    "postalCode": "1201",
+    "addressCountry": "CH"
+  },
+  "telephone": "+41221234567",
+  "url": "https://votresite.ch",
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 46.2044,
+    "longitude": 6.1432
+  }
+}`;
+
+// Ce que les concurrents oublient (angles peu exploités)
+const overlookedAngles = [
+    {
+        icon: "ri-translate-2",
+        title: "Le multilingue FR/EN",
+        description: "Genève compte 40 organisations internationales et 47'000 expatriés qui cherchent en anglais (« web agency Geneva »). Un site et une fiche bilingues ouvrent un marché entier que vos concurrents ignorent."
+    },
+    {
+        icon: "ri-robot-2-line",
+        title: "Le multimoteur, pas que Google",
+        description: "Une part croissante des recherches passe par Perplexity, ChatGPT ou Claude, où le pack local Google n'existe pas. C'est la couche GEO, encore très peu exploitée localement."
+    },
+    {
+        icon: "ri-focus-3-line",
+        title: "Le contenu hyper-spécifique",
+        description: "Un article qui répond à « coworking ouvert le dimanche à Plainpalais » capture une requête que personne ne cible mais qui amène un client qualifié de proximité."
+    }
+];
+
+// Ce qui justifie le prix d'un accompagnement SEO local
+const pricingDrivers = [
+    {
+        icon: "ri-time-line",
+        title: "Le temps réel",
+        description: "Un suivi sérieux, c'est 4 à 15 h par mois : production, veille (les algos changent en continu), reporting et ajustements stratégiques."
+    },
+    {
+        icon: "ri-tools-line",
+        title: "Les outils",
+        description: "Suivi de positions local, audit, reporting. Chez moi, priorité aux outils Google gratuits — pas d'abonnement tiers coûteux dont vous seriez dépendant."
+    },
+    {
+        icon: "ri-map-pin-user-line",
+        title: "L'expertise locale",
+        description: "Savoir quels annuaires romands valent encore quelque chose en 2026, quelles citations Google ignore, comment respecter la nLPD : ça ne s'apprend pas sur YouTube."
+    },
+    {
+        icon: "ri-search-eye-line",
+        title: "L'analyse concurrentielle",
+        description: "Auditer vos 5 concurrents directs (backlinks, contenus, positions) prend 2 à 3 h à chaque actualisation stratégique."
+    }
+];
+
+// 5 questions à poser à tout prestataire avant de signer
+const preSigningQuestions = [
+    "Quel est le contenu exact du livrable mensuel, en heures et en tâches ? Si la réponse est « ça dépend des besoins », c'est qu'on vous facture du flou.",
+    "Quels KPIs sont suivis et à quelle fréquence ? Vous voulez : positions sur X mots-clés, trafic organique, appels depuis la fiche Google, conversions formulaire.",
+    "Quelle est la durée d'engagement ? Méfiez-vous des 12 mois fermes. Un essai de 3 mois renouvelable, ou un mois résiliable, c'est sain.",
+    "Avez-vous des références romandes que je peux contacter ? Des contacts vérifiables, pas des captures d'écran.",
+    "Est-ce que je garde l'accès à mes outils (fiche Google, Search Console, GA4) ? La réponse doit être oui — vos données vous appartiennent."
+];
+
 // Pricing plans (SEO)
 const pricingPlans = [
     {
@@ -259,6 +372,22 @@ const faqs = [
     {
         question: "Est-ce que je peux le faire moi-même ?",
         answer: "Oui, en partie. Les bases (fiche Google Business, contenu de qualité, site rapide) sont faisables seul. La partie technique (Schema.org, audit de crawl, architecture de pages) et la stratégie (analyse concurrentielle, mots-clés de niche) demandent plus d'expertise. Mon audit de référencement peut vous donner un plan d'action que vous exécutez vous-même si vous préférez."
+    },
+    {
+        question: "Mon site n'apparaît pas sur Google Maps, pourquoi ?",
+        answer: "Trois causes principales. Vous n'avez pas de fiche Google Business Profile vérifiée : c'est le prérequis absolu. Votre fiche existe mais n'est pas optimisée : catégorie principale incorrecte, photos manquantes, NAP incohérent avec votre site. Ou votre zone est trop concurrentielle : sans avis et sans signaux locaux, vous ne sortez pas du top 20."
+    },
+    {
+        question: "Combien d'avis Google faut-il pour entrer dans le top 3 ?",
+        answer: "Le seuil critique pour entrer dans le pack des 3 premiers résultats Maps à Genève tourne autour de 30 à 50 avis, avec une moyenne supérieure à 4,5 étoiles. En dessous de 10 avis, vous êtes invisible face à des concurrents qui en ont 100. La régularité compte autant que le volume : 5 avis par mois pèsent plus que 50 avis sur un trimestre suivi de rien."
+    },
+    {
+        question: "Quel est le minimum mensuel viable pour du SEO local ?",
+        answer: "En dessous de 200 CHF par mois, vous payez pour du copier-coller automatisé. Le minimum réellement utile se situe autour de 250 à 350 CHF par mois : suivi de la fiche Google, une citation ajoutée par mois, vérification du NAP et un mini-reporting. En dessous, ce n'est pas du SEO, c'est un abonnement décoratif."
+    },
+    {
+        question: "Le référencement local inclut-il aussi les IA (Perplexity, ChatGPT) ?",
+        answer: "Pas par défaut. Le SEO local classique vise Google (pack local, Maps, organique). Pour apparaître dans Perplexity, ChatGPT ou Claude sur des requêtes locales, il faut une couche GEO (Generative Engine Optimization) : structuration sémantique, FAQ, citations dans des sources autoritaires. C'est un travail complémentaire — je détaille la méthode dans mon guide sur le GEO et la visibilité IA."
     }
 ];
 schemas.push(getFAQPageSchema(faqs));
@@ -629,6 +758,80 @@ const budgetOptions = [
     </section>
 
     <!-- ============================================== -->
+    <!-- LOCAL LEVERS SECTION (7 leviers) -->
+    <!-- ============================================== -->
+    <section id="leviers" class="py-20 md:py-28 px-4">
+        <div class="max-w-5xl mx-auto">
+            <!-- Section header -->
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    leviers
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                    Les 7 leviers du référencement local
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Le SEO local n'est pas du SEO miniature, c'est une discipline à part. Voici les <strong class="text-[var(--blue)]">7 actions concrètes</strong> qui font la différence pour une PME romande.
+                </p>
+            </div>
+
+            <!-- Levers grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12" data-animate-stagger>
+                {localLevers.map((lever, index) => (
+                    <div class="bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center font-mono font-bold text-sm shrink-0">
+                                0{index + 1}
+                            </span>
+                            <i class={`${lever.icon} text-xl text-[var(--violet)]`}></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">{lever.title}</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">{lever.description}</p>
+                    </div>
+                ))}
+            </div>
+
+            <!-- LocalBusiness schema example (E-E-A-T proof) -->
+            <div class="bg-white border-2 border-black p-6 md:p-8 mb-12" data-animate="fade-up">
+                <h3 class="text-lg font-bold mb-2 flex items-center gap-2">
+                    <i class="ri-code-s-slash-line text-[var(--blue)]"></i>
+                    Exemple de schema LocalBusiness (JSON-LD)
+                </h3>
+                <p class="text-sm text-gray-600 mb-4">
+                    Le bloc que j'implémente sur votre site pour déclarer formellement votre entreprise à Google. Invisible pour vos visiteurs, décisif pour le pack Maps.
+                </p>
+                <pre class="bg-[#1e1e2e] text-gray-100 text-xs md:text-sm p-4 overflow-x-auto border-2 border-black"><code>{localBusinessSchemaExample}</code></pre>
+            </div>
+
+            <!-- Overlooked angles -->
+            <div class="bg-[var(--yellow)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate="fade-up">
+                <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-black border-2 border-black"></div>
+                <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-black border-2 border-black"></div>
+                <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-black border-2 border-black"></div>
+                <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-black border-2 border-black"></div>
+
+                <h3 class="text-xl font-bold text-center mb-6">Ce que vos concurrents oublient à Genève</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {overlookedAngles.map((angle) => (
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-white border-2 border-black mx-auto mb-3 flex items-center justify-center">
+                                <i class={`${angle.icon} text-xl`}></i>
+                            </div>
+                            <h4 class="font-bold mb-1">{angle.title}</h4>
+                            <p class="text-sm text-gray-700">{angle.description}</p>
+                        </div>
+                    ))}
+                </div>
+                <p class="text-center text-sm text-gray-700 mt-6">
+                    Pour la visibilité côté IA, je détaille la méthode dans <a href="/blog/geo-seo-ia" class="font-bold underline hover:text-[var(--blue)]">GEO et SEO IA en 2026</a>.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
     <!-- RESULTS SECTION -->
     <!-- ============================================== -->
     <section id="resultats" class="py-20 md:py-28 px-4">
@@ -799,6 +1002,69 @@ const budgetOptions = [
                 <p class="text-sm text-gray-500 bg-gray-50 p-3 border-l-4 border-[var(--blue)]">
                     <strong>Voir le comparatif complet ?</strong> Consultez la <a href="/tarifs" class="text-[var(--blue)] hover:underline">page tarifs</a> pour tous les détails.
                 </p>
+            </div>
+
+            <!-- Pricing transparency (marché) -->
+            <div class="mt-16" data-animate="fade-up">
+                <h3 class="text-2xl md:text-3xl font-normal text-center mb-3">La transparence avant de signer</h3>
+                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-10">
+                    Le marché du SEO local en Suisse est opaque : des prestations qui portent le même nom vont de 200 à 3'000 CHF par mois. Voici comment lire les prix — chez moi comme ailleurs.
+                </p>
+
+                <!-- Ce qui justifie le prix -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10" data-animate-stagger>
+                    {pricingDrivers.map((driver) => (
+                        <div class="bg-[var(--main-bg)] border-2 border-black p-5" data-animate-item>
+                            <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black mb-3 flex items-center justify-center">
+                                <i class={`${driver.icon} text-lg`}></i>
+                            </div>
+                            <h4 class="font-bold mb-1 text-sm">{driver.title}</h4>
+                            <p class="text-xs text-gray-600 leading-relaxed">{driver.description}</p>
+                        </div>
+                    ))}
+                </div>
+
+                <!-- DIY vs pro + agence vs freelance -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-10">
+                    <div class="bg-white border-2 border-black p-6">
+                        <h4 class="font-bold mb-2 flex items-center gap-2">
+                            <i class="ri-scales-3-line text-[var(--blue)]"></i>
+                            DIY ou pro : le vrai calcul
+                        </h4>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            En DIY, comptez 4 à 6 h par mois et 3 à 6 mois de courbe d'apprentissage — soit 400 à 600 CHF de temps non facturé (à 100 CHF/h). Le calcul ROI est simple : avec un panier moyen de 800 CHF et 30 % de conversion, <strong>4 à 5 prospects par mois</strong> rentabilisent un accompagnement, atteignable en 4 à 6 mois sur un secteur local actif.
+                        </p>
+                    </div>
+                    <div class="bg-white border-2 border-black p-6">
+                        <h4 class="font-bold mb-2 flex items-center gap-2">
+                            <i class="ri-building-line text-[var(--blue)]"></i>
+                            Agence vs freelance
+                        </h4>
+                        <p class="text-sm text-gray-600 leading-relaxed">
+                            Pour le même périmètre, une agence à Genève facture <strong>1'200 à 3'000 CHF/mois</strong> (locaux, account managers, marges), là où un freelance romand fait <strong>400 à 900 CHF/mois</strong> — 80 % du tarif part dans la production réelle. L'agence offre du process ; le freelance, du contact direct et un meilleur rapport qualité-prix sur les budgets PME.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 5 questions avant de signer -->
+                <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative">
+                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+
+                    <h4 class="text-xl font-bold text-center mb-6">5 questions à poser à tout prestataire avant de signer</h4>
+                    <ol class="space-y-4">
+                        {preSigningQuestions.map((question, index) => (
+                            <li class="flex items-start gap-4">
+                                <span class="w-8 h-8 bg-[var(--yellow)] border-2 border-black flex items-center justify-center font-mono font-bold text-sm shrink-0">
+                                    {index + 1}
+                                </span>
+                                <p class="text-sm text-gray-700 leading-relaxed pt-1">{question}</p>
+                            </li>
+                        ))}
+                    </ol>
+                </div>
             </div>
         </div>
     </section>

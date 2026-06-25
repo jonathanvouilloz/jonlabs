@@ -30,7 +30,7 @@ Si ta PME vaudoise n'est pas dans ce bloc, tu n'existes pas pour ce client-là. 
 
 Le **référencement local à Lausanne** fonctionne selon des règles différentes du SEO national. Le marché vaudois a ses propres particularités : une économie tirée par le tissu universitaire et les startups de l'EPFL, un tourisme lémanique concentré sur Ouchy et les bords du lac, une agglomération étendue qui regroupe Renens, Prilly, Pully, Bussigny, Lutry. Des zones que tes clients considèrent comme "Lausanne" même quand ce n'est pas la commune administrative.
 
-Si tu opères plutôt depuis Genève, [le même guide pour Genève](/blog/referencement-local-geneve) couvre les spécificités de la rive droite du Léman.
+Si tu opères plutôt depuis Genève, [mes services de référencement local](/services/referencement-local) couvrent les spécificités de la rive droite du Léman.
 
 Ce guide te donne 7 leviers concrets pour apparaître dans le pack local de Google à Lausanne en 2026.
 
@@ -225,7 +225,7 @@ Gestion des avis (réponses sous 7 jours), 1 à 2 contenus locaux par mois, ajus
 
 La fiche Google Business Profile prend environ 1h par semaine à entretenir sérieusement. Les avis, 20 à 30 minutes. Un article de blog géolocalisé, 2h si tu écris régulièrement. La partie technique (schema, NAP) se fait une fois et reste en place.
 
-Pour le détail des fourchettes et ce que chaque package inclut vraiment, [les tarifs d'un package SEO local en Suisse](/blog/tarif-package-seo-local-suisse) liste les livrables concrets à chaque niveau.
+Pour le détail des fourchettes et ce que chaque package inclut vraiment, [les tarifs d'un package SEO local en Suisse](/tarifs) listent les livrables concrets à chaque niveau.
 
 ---
 

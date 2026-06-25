@@ -81,7 +81,7 @@ Une fiche sans photo, sans description, sans catégorie précise, avec zéro avi
 
 **Raison 4 : tu es dans une zone très concurrencée**
 
-Dans certains secteurs (restaurants, coiffeurs, plombiers dans une grande ville), les 3 places du Local Pack sont occupées par des concurrents qui ont des centaines d'avis, des photos fraîches et une fiche optimisée depuis des années. Si c'est ton cas, le problème n'est pas technique : c'est un problème de temps et de stratégie long-terme. Ta fiche n'est alors qu'une pièce du puzzle — il faut travailler [l'ensemble de ta visibilité locale](/blog/referencement-local-geneve) : avis, citations, cohérence des informations et contenu géolocalisé.
+Dans certains secteurs (restaurants, coiffeurs, plombiers dans une grande ville), les 3 places du Local Pack sont occupées par des concurrents qui ont des centaines d'avis, des photos fraîches et une fiche optimisée depuis des années. Si c'est ton cas, le problème n'est pas technique : c'est un problème de temps et de stratégie long-terme. Ta fiche n'est alors qu'une pièce du puzzle — il faut travailler [l'ensemble de ta visibilité locale](/services/referencement-local) : avis, citations, cohérence des informations et contenu géolocalisé.
 
 Les cas 1, 2 et 3 se règlent avec les 5 étapes ci-dessous. Le cas 4 demande plus de patience et de régularité.
 

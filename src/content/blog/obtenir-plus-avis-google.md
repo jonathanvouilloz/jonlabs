@@ -148,7 +148,7 @@ Une demande initiale, une relance si pas de réponse après 7 jours, puis stop. 
 
 Obtenir plus d'avis sur Google, c'est un problème de process : demander au bon moment, par le bon canal, dans le bon cadre légal, et surtout de façon systématique plutôt que par campagnes ponctuelles. La différence entre une fiche qui stagne à 12 avis et une fiche qui monte régulièrement, c'est rarement la qualité du service. C'est presque toujours la méthode.
 
-Et les avis ne sont qu'un levier parmi d'autres : ils prennent toute leur valeur intégrés à une vraie démarche de [référencement local pour une PME romande](/blog/referencement-local-geneve).
+Et les avis ne sont qu'un levier parmi d'autres : ils prennent toute leur valeur intégrés à une vraie démarche de [référencement local pour une PME romande](/services/referencement-local).
 
 Si tu veux mettre en place ce système sans t'en occuper toi-même, du lien d'avis au workflow Make automatisé, je peux regarder ce qui fait sens pour ton activité.
 

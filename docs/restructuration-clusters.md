@@ -168,7 +168,7 @@ Une `/seo-topical-map` par cluster pour figer pilier + satellites + gaps + maill
 - [x] C3 — Web + référencement : **topical map livrée** (`docs/topical-map-c3-web-referencement.md`) — 2026-06-25. Verdict : **4 silos frères** (création web / SEO local / GEO / GMB), cluster **mature** → chantier de **consolidation/activation/CTR**, pas de création (1 seule création : `refonte-site-web-pme`). Pilier GMB élu, consolidation SEO local cadrée.
 
 ### Phase 2 — Consolidation & dé-cannibalisation 🔧
-- [ ] Pilier SEO local : fusionner `referencement-local-geneve` + `tarif-package-seo-local-suisse` dans `/services/referencement-local`
+- [x] Pilier SEO local : fusionner `referencement-local-geneve` + `tarif-package-seo-local-suisse` dans `/services/referencement-local` — **2026-06-25** : 301 (×4 dans `vercel.json`) + absorption sélective (bloc 7 leviers + JSON-LD, transparence prix, 5 questions, +4 FAQ) + repointage du maillage + suppression des 2 `.md`
 - [ ] Désambiguïser la home des requêtes locales-ville
 - [ ] Pilier GMB : élire la page d'autorité + organiser les 11 satellites
 

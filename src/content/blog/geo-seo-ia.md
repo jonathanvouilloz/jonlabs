@@ -186,7 +186,7 @@ Ce plan part du principe que tu as déjà un site et une activité visible. Si t
 **Semaine 3 — Créer un article pilier + une page locale**
 
 - 1 article ciblé sur une question précise que tes clients posent ("combien coûte X pour un Y à Z"). Structure pyramide inversée : réponse directe en première phrase sous chaque H2.
-- 1 page locale optimisée si tu vises une ville ou un canton précis (par exemple [référencement local Genève](/blog/referencement-local-geneve)).
+- 1 page locale optimisée si tu vises une ville ou un canton précis (par exemple [référencement local Genève](/services/referencement-local)).
 
 **Semaine 4 — Présence multi-source**
 
@@ -209,7 +209,7 @@ Les agences qui te vendent du "GEO premium à CHF 5'000 par mois" sans avoir d'a
 
 **Option agence full-service.** CHF 3'000 à 8'000+ par mois. Souvent surdimensionné pour une PME romande ou un freelance. À envisager seulement si tu as un budget marketing structuré et un secteur très concurrentiel.
 
-Pour les détails par profil, voir [le détail des packages SEO local en Suisse](/blog/tarif-package-seo-local-suisse), [nos services référencement local](/services/referencement-local) et [la page tarifs Jon Labs](/tarifs).
+Pour les détails par profil, voir [nos services référencement local](/services/referencement-local) et [la page tarifs Jon Labs](/tarifs).
 
 Le ROI dépend de ton secteur, mais une seule citation IA récurrente sur une requête à intention forte ("meilleur consultant X à Y") peut générer plusieurs leads qualifiés par mois. Le calcul devient vite favorable.
 
@@ -283,8 +283,8 @@ Tu veux savoir où tu en es concrètement ? On analyse ta présence sur les crit
 - [Visibilité site internet en 2026](/blog/visibilite-site-internet-2026)
 - [Audit de 50 sites indépendants romands](/blog/audit-50-sites-indeps-romands)
 - [Spécialiste développement web en Suisse](/blog/specialiste-developpement-web-suisse)
-- [Référencement local à Genève](/blog/referencement-local-geneve)
-- [Tarif package SEO local Suisse](/blog/tarif-package-seo-local-suisse)
+- [Référencement local en Suisse romande](/services/referencement-local)
+- [Tarifs et packages SEO Jon Labs](/tarifs)
 
 ---
 

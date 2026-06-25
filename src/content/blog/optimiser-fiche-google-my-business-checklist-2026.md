@@ -324,7 +324,7 @@ Vérification mensuelle des métriques GBP Insights. Mise à jour des horaires c
 
 **Optimiser sa fiche Google My Business** n'est pas un projet ponctuel : c'est un système de 25 points répartis sur 8 groupes de signaux, à maintenir en continu. Les deux groupes les plus puissants sont GBP Signals (32%) et Reviews (20%). Les 5 quick wins de cette semaine t'y amènent en moins de 2 heures.
 
-Mais la fiche n'est qu'un pilier : pour la combiner avec les autres leviers du [référencement local à Genève](/blog/referencement-local-geneve), et savoir [combien coûte un accompagnement SEO local par profil](/blog/tarif-package-seo-local-suisse) si tu préfères déléguer, ces deux ressources prolongent cette checklist.
+Mais la fiche n'est qu'un pilier : pour la combiner avec les autres leviers du [référencement local](/services/referencement-local), et savoir [combien coûte un accompagnement SEO local](/tarifs) si tu préfères déléguer, ces deux ressources prolongent cette checklist.
 
 Si tu préfères un audit complet avec diagnostic point par point, ou déléguer la gestion mensuelle :
 

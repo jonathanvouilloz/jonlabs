@@ -133,7 +133,7 @@ C3 étant mature, le tableau liste surtout des **actions** (consolider/activer/C
 
 | # | Page | Silo | Action | Statut | Priorité |
 |---|------|------|--------|--------|----------|
-| 1 | `/services/referencement-local` | C3b | **Consolider** : absorber `referencement-local-geneve` + `tarif-package-seo-local-suisse` (301) | Phase 2 | 🔴 haute |
+| 1 | `/services/referencement-local` | C3b | ✅ **Consolidé** (2026-06-25) : 301 des 2 articles + absorption sélective + maillage repointé | Phase 2 ✅ | — |
 | 2 | `/developpeur-web-freelance-geneve` | C3a | **Activer** : maillage entrant + Request Indexing (UNKNOWN) | Activation | 🔴 haute |
 | 3 | 5 pages `/developpement-web/{ville}` | C3a | **Mailler** depuis `/services` + `/services/creation-site-web` (0 lien actuel) | Phase 0 | 🔴 haute |
 | 4 | `apparaitre-perplexity` (+ claude, copilot) | C3c | **Réécrire title/meta** (rankent à 0 clic) | Phase 4 | 🟠 moyenne |

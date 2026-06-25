@@ -256,7 +256,7 @@ Si tu manques de temps pour tenir cette cadence, ou que tu veux déléguer la st
 
 [Confier la rédaction de mes posts →](/services/gestion-fiche-google?utm_source=blog&utm_medium=article&utm_campaign=google-post-business-profile-conversion)
 
-Tu veux aller plus loin sur la gestion de ta réputation en ligne ? Les articles [Répondre aux avis Google : modèles 2026](/blog/repondre-avis-google-modeles-2026) et [QR code avis Google pour PME](/blog/qr-code-avis-google-collecte-pme) complètent ce guide. Et pour replacer les posts dans une démarche d'ensemble, vois [comment structurer ton référencement local](/blog/referencement-local-geneve).
+Tu veux aller plus loin sur la gestion de ta réputation en ligne ? Les articles [Répondre aux avis Google : modèles 2026](/blog/repondre-avis-google-modeles-2026) et [QR code avis Google pour PME](/blog/qr-code-avis-google-collecte-pme) complètent ce guide. Et pour replacer les posts dans une démarche d'ensemble, vois [comment structurer ton référencement local](/services/referencement-local).
 
 ---
 

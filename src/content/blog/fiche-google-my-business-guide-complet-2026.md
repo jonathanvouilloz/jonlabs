@@ -92,7 +92,7 @@ L'**AI Search Visibility**, c'est la visibilité dans les réponses de ChatGPT, 
 
 Si tu n'optimises que ta fiche et que tu négliges ton site, tu rates la moitié des opportunités. C'est exactement ce que font 90% des petits commerçants. Pour aller plus loin, j'ai un article complet sur la [visibilité IA en 2026](/blog/geo-seo-ia).
 
-Et si tu fais du [référencement local à Genève](/blog/referencement-local-geneve), les deux actifs sont encore plus critiques : le marché local est petit et les 3 premières positions font toute la différence.
+Et si tu fais du [référencement local à Genève](/services/referencement-local), les deux actifs sont encore plus critiques : le marché local est petit et les 3 premières positions font toute la différence.
 
 ---
 

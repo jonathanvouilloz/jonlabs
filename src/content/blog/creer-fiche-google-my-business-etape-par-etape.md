@@ -256,7 +256,7 @@ Depuis le dashboard GBP, Informations, Catégorie principale, modifier. Le chang
 
 Créer une fiche Google My Business correctement du premier coup, c'est éviter des mois de corrections, de re-vérifications et de ranking perdu. Les deux décisions critiques (**catégorie principale** et **adresse vs zone de service**) méritent 5 minutes de réflexion avant de cliquer.
 
-Une fois la fiche créée et vérifiée, le travail commence vraiment : photos fraîches, posts réguliers, avis collectés systématiquement. C'est là que ta fiche s'inscrit dans une vraie [démarche de référencement local](/blog/referencement-local-geneve), aux côtés des avis, des citations et du contenu géolocalisé. Si tu préfères déléguer, de la création à la gestion mensuelle :
+Une fois la fiche créée et vérifiée, le travail commence vraiment : photos fraîches, posts réguliers, avis collectés systématiquement. C'est là que ta fiche s'inscrit dans une vraie [démarche de référencement local](/services/referencement-local), aux côtés des avis, des citations et du contenu géolocalisé. Si tu préfères déléguer, de la création à la gestion mensuelle :
 
 [**Faire créer ma fiche par un pro →**](/services/gestion-fiche-google?utm_source=blog&utm_medium=article&utm_campaign=creer-fiche-google-my-business-etape-par-etape)
 

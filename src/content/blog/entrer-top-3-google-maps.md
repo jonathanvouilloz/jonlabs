@@ -166,7 +166,7 @@ Un concurrent qui a son bureau à 200 mètres du chercheur te battra sur la prox
 
 Mais il y a trois façons de compenser. La première : définir précisément ta zone de service dans Google Business Profile. Si tu travailles dans un rayon de 30 km, dis-le. Google utilisera cette information pour te faire apparaître sur des recherches au-delà de ta commune. La deuxième : renforcer pertinence et notoriété. Un concurrent mieux placé géographiquement mais avec une fiche incomplète et 5 avis peut être battu par une fiche bien optimisée avec 80 avis récents et des réponses régulières. La troisième : créer des pages locales par ville desservie. Si tu couvres Genève, Nyon et Morges, avoir une page sur ton site pour chaque zone renforce les signaux locaux pour chaque ville. Ce n'est pas de la duplication, c'est du contenu adapté à chaque marché.
 
-Pour comprendre le jeu des [**7 leviers du référencement local**](/blog/referencement-local-geneve) et comment les combiner sur un marché comme Genève, l'article dédié va plus loin. Le même raisonnement s'applique au [référencement local Lausanne](/blog/referencement-local-lausanne) (en cours de publication) : les dynamiques sont similaires mais les seuils de compétition diffèrent selon les secteurs.
+Pour comprendre le jeu des [**7 leviers du référencement local**](/services/referencement-local) et comment les combiner sur un marché comme Genève, l'article dédié va plus loin. Le même raisonnement s'applique au [référencement local Lausanne](/blog/referencement-local-lausanne) (en cours de publication) : les dynamiques sont similaires mais les seuils de compétition diffèrent selon les secteurs.
 
 ---
 
@@ -210,7 +210,7 @@ L'objectif est d'ancrer ta notoriété avec des signaux externes et de mesurer l
 - [ ] Analyser le profil de tes concurrents dans le top 3 (nombre d'avis, catégories)
 - [ ] Identifier les gaps de pertinence restants et les corriger
 
-Si tu veux savoir ce que coûte un accompagnement structuré plutôt que de tout faire seul, [le détail des packages SEO local par profil](/blog/tarif-package-seo-local-suisse) liste les livrables à chaque niveau. Et si tu veux aller plus vite ou ne pas te tromper dans la priorisation, je propose un audit de ta visibilité locale qui identifie exactement où tu perds des points face à tes concurrents.
+Si tu veux savoir ce que coûte un accompagnement structuré plutôt que de tout faire seul, [le détail des packages SEO local par profil](/services/referencement-local) liste les livrables à chaque niveau. Et si tu veux aller plus vite ou ne pas te tromper dans la priorisation, je propose un audit de ta visibilité locale qui identifie exactement où tu perds des points face à tes concurrents.
 
 [**Obtenir un audit gratuit de ma visibilité locale →**](/services/refonte-site-web?utm_source=blog&utm_medium=article&utm_campaign=entrer-top-3-google-maps)
 

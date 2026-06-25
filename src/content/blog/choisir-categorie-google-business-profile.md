@@ -187,7 +187,7 @@ Cherche son établissement sur Google Maps ou Google Search. Ouvre sa fiche. Des
 
 La catégorie de ta fiche Google Business Profile n'est pas un champ administratif à remplir vite fait. C'est le premier signal que Google lit pour décider si tu mérites d'apparaître sur une recherche locale. Un choix précis, aligné avec ton activité réelle, fait plus pour ta visibilité que beaucoup d'optimisations plus complexes.
 
-Une fois la catégorie bien posée, reste à l'articuler avec les autres leviers de ton [référencement local pour PME romande](/blog/referencement-local-geneve) : avis, citations, cohérence des informations et contenu géolocalisé.
+Une fois la catégorie bien posée, reste à l'articuler avec les autres leviers de ton [référencement local pour PME romande](/services/referencement-local) : avis, citations, cohérence des informations et contenu géolocalisé.
 
 Si tu veux un regard externe sur ta fiche (catégories, cohérence, signaux manquants), je fais des audits GBP concrets pour les indépendants et TPE romands.
 

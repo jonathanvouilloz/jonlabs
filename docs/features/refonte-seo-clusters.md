@@ -4,6 +4,25 @@
 > **Plan maître** : `docs/restructuration-clusters.md` (archi cible, verdict par page, liste KILL, feuille de route 5 phases).
 > **Diagnostic data** : `.seo-data/diagnostic-gsc-pages-cannibalisation.md`.
 
+## Etat session 2026-06-25 — Phase 2 / C3b : consolidation SEO local
+
+**Fait :**
+- **Dé-cannibalisation SEO local exécutée** : `referencement-local-geneve` + `tarif-package-seo-local-suisse` consolidés dans le pilier `/services/referencement-local`.
+- **301 (×4)** ajoutés dans `vercel.json` (les 2 articles, variantes avec/sans trailing-slash) → pilier.
+- **Absorption sélective** dans `referencement-local.astro` (sans toucher aux 3 pricing cards) : nouveau bloc **« Les 7 leviers du référencement local »** (grille + exemple **JSON-LD LocalBusiness** = preuve E-E-A-T + encart « ce que les concurrents oublient » → pont vers `geo-seo-ia`) ; bloc **transparence prix** (justification du prix, DIY vs pro/ROI, agence vs freelance, encart **« 5 questions avant de signer »**) ; **+4 FAQ** non redondantes (Maps invisible, seuil avis 30-50, minimum mensuel viable, IA/GEO).
+- **Maillage repointé** : ~19 liens internes des satellites GMB + `geo-seo-ia` + `gestion-fiche-google.astro` + `referencement-local-lausanne` → pilier (ou `/tarifs` pour les ancres prix afin d'éviter les doublons de lien). Ancres caduques reformulées.
+- **2 `.md` supprimés** via `git rm` (historique préservé ; le 301 Vercel gouverne l'URL). Briefs `.briefs/archived/` laissés tels quels (non indexés).
+
+**Prochain :** suite de Phase 2 — **désambiguïser la home** des requêtes locales-ville + **pilier GMB** (élire la page d'autorité `fiche-google-my-business-guide-complet-2026` + organiser les 11 satellites). Alternative : création C1 Build `/seo-brief logiciel-sur-mesure-vs-saas`.
+
+**Pièges :**
+- **Intent mismatch assumé** : on a 301 deux pages informationnelles/commerciales vers une page transactionnelle — risque SEO connu, mitigé par l'absorption sélective (les mots-clés des articles vivent désormais sur le pilier). À surveiller via `/seo-gsc` à J+30/60 (la pos 41 du pilier doit progresser, pas régresser).
+- Test réel des 301 = post-déploiement Vercel (`curl -I` sur l'URL preview).
+
+**Commit :** _(à venir)_
+
+---
+
 ## Etat session 2026-06-25 — Phase 1 / C1 + C3 : topical maps (Phase 1 bouclée)
 
 **Fait :**
