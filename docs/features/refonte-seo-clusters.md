@@ -22,7 +22,7 @@
 - Article spoke `refonte-site-web-pme` (qui doit feed cette page) = **toujours à créer** (priorité basse au plan), hors scope code.
 - Action manuelle toujours en attente : Request Indexing GSC sur les 3 piliers UNKNOWN + creation-site-web + landing geneve + maintenant refonte-site-web.
 
-**Commit :** [à compléter] feat(seo): activation pilier refonte-site-web — index + Ressources + sibling (Phase 3)
+**Commit :** 62eb6f5 feat(seo): activation pilier refonte-site-web — index + Ressources + sibling (Phase 3)
 
 ---
 
