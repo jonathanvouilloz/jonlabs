@@ -19,7 +19,7 @@
 - **Intent mismatch assumé** : on a 301 deux pages informationnelles/commerciales vers une page transactionnelle — risque SEO connu, mitigé par l'absorption sélective (les mots-clés des articles vivent désormais sur le pilier). À surveiller via `/seo-gsc` à J+30/60 (la pos 41 du pilier doit progresser, pas régresser).
 - Test réel des 301 = post-déploiement Vercel (`curl -I` sur l'URL preview).
 
-**Commit :** _(à venir)_
+**Commit :** 6dab520 feat(seo): consolidation SEO local C3b — 301 + merge pilier referencement-local
 
 ---
 
@@ -86,11 +86,13 @@
 
 | Fichier | Role |
 |---------|------|
-| `docs/restructuration-clusters.md` | Plan maître du chantier : 3 clusters, verdict par page, liste KILL, feuille de route 5 phases (Phase 1 cochée sur les 3 clusters) |
+| `docs/restructuration-clusters.md` | Plan maître du chantier : 3 clusters, verdict par page, liste KILL, feuille de route 5 phases (Phase 1 ✅, Phase 2 C3b ✅) |
 | `docs/topical-map-c1-sur-mesure-automatisation.md` | **Topical map C1** : 2 silos (Build/Automate), 4 articles à créer, décisions C1 tranchées, blueprint maillage |
 | `docs/topical-map-c3-web-referencement.md` | **Topical map C3** : 4 silos (web/local/GEO/GMB), cluster mature, plan consolidation/activation/CTR |
 | `.seo-data/diagnostic-gsc-pages-cannibalisation.md` | Diagnostic data (GSC perf, indexation, cannibalisation) |
+| `src/pages/services/referencement-local.astro` | **Pilier service C3b (SEO local)** : consolidé Phase 2 — bloc 7 leviers (+JSON-LD), transparence prix (5 questions), FAQ enrichie. Cible des 301 SEO local |
 | `src/pages/services/developpement-application-mobile.astro` | **Pilier service C2 (mobile)** : page transactionnelle + section Ressources reliant les 10 articles du cluster |
+| `vercel.json` | Redirects 301 du chantier (slug renames + consolidations blog→service). Pattern `source`/`destination`/`permanent` ±trailing-slash |
 | `src/components/Footer.astro` | Fat footer : liens profonds sitewide (piliers/zones/services) depuis `mainNav.columns` |
 | `src/data/navigation.ts` | Source de vérité du maillage (méga-menu + footer) — piliers & zones y sont déclarés |
 | `.seo-data/gsc-jonlabs-last_3_months.json` | Snapshot GSC brut (régénérable via `/seo-gsc`) |
@@ -99,3 +101,4 @@
 - Canonical = **www** (déjà enforced par 308 infra Vercel) ; tout le code déclare www (Astro.site, SITE_URL, robots, sitemap).
 - Maillage profond = **footer plain-HTML** (le méga-menu JS est sous-pondéré au crawl) ; ne pas compter sur la nav seule pour la découvrabilité.
 - Le fat footer lit `mainNav.columns` — pour ajouter une page au maillage sitewide, l'ajouter dans `navigation.ts`.
+- **Consolidation = 301 dans `vercel.json` + suppression du `.md`** (pas `draft:true` : le filtre sitemap n'exclut pas les drafts). Repointer le maillage interne vers la cible (ou `/tarifs` pour les ancres prix, pour éviter les doublons de lien).

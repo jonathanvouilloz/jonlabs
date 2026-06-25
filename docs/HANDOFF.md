@@ -8,5 +8,5 @@
 | Cluster application mobile | docs/features/cluster-application-mobile.md | ✅ DONE |
 
 ## Reprendre ici
-**Refonte SEO** — Phase 1 terminée : les 3 clusters cartographiés (C1 = 2 silos Build/Automate, C2 mobile, C3 = 4 silos web/local/GEO/GMB). Prochain : **Phase 2 consolidation** — dé-cannibalisation SEO local C3b (301 `referencement-local-geneve` + `tarif-package-seo-local-suisse` → `/services/referencement-local`). Maps : `docs/topical-map-c1-*.md`, `docs/topical-map-c3-*.md`. Plan maître : `docs/restructuration-clusters.md`.
-Commit : 5aa4998 docs(seo): topical maps C1 + C3 — Phase 1 clusters bouclée
+**Refonte SEO** — Phase 2 entamée : **consolidation SEO local C3b livrée** (301 des 2 articles + merge sélectif dans le pilier `referencement-local` + maillage repointé). Prochain : suite Phase 2 — **désambiguïser la home** des requêtes locales-ville, puis **pilier GMB** (élire `fiche-google-my-business-guide-complet-2026` + organiser les 11 satellites). Alternative : création C1 Build `/seo-brief logiciel-sur-mesure-vs-saas`. À surveiller : `/seo-gsc` J+30/60 sur le pilier (pos 41 doit progresser après le 301).
+Commit : 6dab520 feat(seo): consolidation SEO local C3b — 301 + merge pilier referencement-local
