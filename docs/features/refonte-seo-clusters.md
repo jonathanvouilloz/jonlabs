@@ -20,7 +20,7 @@
 - Clé **GEMINI_API_KEY expirée** → la génération d'images est passée par OpenAI cette session. À renouveler côté Google pour réactiver le pipeline `/generate-images` natif.
 - Visuels mobile = doodles OpenAI (corrects, captions lisibles) ; régénérables en Gemini plus tard si on veut l'aligner pixel-perfect sur les MVP.
 
-**Commit :** (à créer)
+**Commit :** d9031b5 feat(seo): pilier service application mobile + maillage cluster C2
 
 ---
 

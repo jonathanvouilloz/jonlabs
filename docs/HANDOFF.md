@@ -8,5 +8,5 @@
 | Cluster application mobile | docs/features/cluster-application-mobile.md | ✅ DONE |
 
 ## Reprendre ici
-**Refonte SEO** — Phase 0 (fat footer) livrée. Prochain : Phase 1 `/seo-topical-map` des 3 clusters, commencer par C2 app mobile (pilier service manquant). Plan maître : `docs/restructuration-clusters.md`.
-Commit : ff2d641 feat(seo): fat footer + diagnostic restructuration clusters
+**Refonte SEO** — Phase 1 / C2 livrée (pilier service `/services/developpement-application-mobile` + maillage). Prochain : Phase 1 `/seo-topical-map` des clusters **C1** (app custom/IA) et **C3** (web/SEO local/GEO/GMB). Plan maître : `docs/restructuration-clusters.md`.
+Commit : d9031b5 feat(seo): pilier service application mobile + maillage cluster C2
