@@ -1,4 +1,4 @@
-# HANDOFF — 2026-06-25 (maj)
+# HANDOFF — 2026-06-25 (maj C1 Build)
 
 ## Features actives
 | Feature | Fichier | Statut |
@@ -8,5 +8,5 @@
 | Cluster application mobile | docs/features/cluster-application-mobile.md | ✅ DONE |
 
 ## Reprendre ici
-**Refonte SEO** — Phase 3 : pilier `refonte-site-web` **activé** (noindex retiré → index,follow + section Ressources 7 spokes + sibling réciproque creation-site-web). Prochaine brique code : **étoffer `/services/developpement-mvp`** (pilier C1 Build faible : section Ressources `clusterGroups` + maillage spokes) — ⚠️ les 4 spokes C1 Build n'existent pas encore (`/seo-brief` à lancer). Action manuelle Jonathan : **Request Indexing** GSC sur refonte-site-web (+ les 3 piliers UNKNOWN + creation-site-web + landing geneve). Surveiller `/seo-gsc` J+30/60.
-Commit : 62eb6f5 feat(seo): activation pilier refonte-site-web — index + Ressources + sibling (Phase 3)
+**Refonte SEO** — Phase 3 : les **4 spokes C1 Build sont créés et publiés** (logiciel-sur-mesure-vs-saas, prix-logiciel-sur-mesure-pme, no-code-vs-developpement-sur-mesure, cahier-des-charges-application-metier), maillage réciproque posé, build vert (219 pages). Prochaine brique code (débloquée) : **étoffer `/services/developpement-mvp`** → section Ressources `clusterGroups` reliant les 5 spokes C1 Build (4 nouveaux + application-metier-pme-sur-mesure). Action manuelle Jonathan : **Request Indexing** GSC sur les 4 nouvelles URLs (+ reliquat piliers UNKNOWN + creation/refonte/landing geneve). Surveiller `/seo-gsc` J+30/60.
+Commit : 80f524e feat(seo): cluster C1 Build — 4 spokes logiciel sur mesure (silo developpement-mvp)

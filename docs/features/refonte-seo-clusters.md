@@ -4,6 +4,30 @@
 > **Plan maître** : `docs/restructuration-clusters.md` (archi cible, verdict par page, liste KILL, feuille de route 5 phases).
 > **Diagnostic data** : `.seo-data/diagnostic-gsc-pages-cannibalisation.md`.
 
+## Etat session 2026-06-25 — Phase 3 / C1 Build : création des 4 spokes
+
+**Fait :**
+- **Cluster C1 Build complété** : les 4 articles satellites manquants du silo Build sont créés, rédigés et publiés (`draft: false`), rattachés au pilier `/services/developpement-mvp` (intent transactionnel, anti-cannibalisation respectée) :
+  - `logiciel-sur-mesure-vs-saas` (comparatif TCO 3 ans en CHF, 3 profils PME + point de bascule)
+  - `prix-logiciel-sur-mesure-pme` (grille de prix par profil + décomposition des postes)
+  - `no-code-vs-developpement-sur-mesure` (framework 3 phases + risques LPD/vendor lock-in)
+  - `cahier-des-charges-application-metier` (guide non-technique « ce que ton dev attend de toi »)
+- **Pipeline complet par article** (write → humanizer → enrich → review SEO → cover) orchestré via workers `@article-producer` en parallèle (4 agents). Chacun : Schema.org (BlogPosting + Breadcrumb + FAQPage) + cover `.webp` template.
+- **Anti-cannibalisation traitée vs l'article existant `application-metier-pme-sur-mesure.md`** : différenciation d'angle (pas de redite des 5 cas concrets ni de la FAQ SaaS) + **maillage réciproque** — 3 liens retour ajoutés dans l'article existant (→ logiciel-vs-saas, → prix, → cahier-des-charges), tous vérifiés survivants aux edits concurrents.
+- **Build propre vérifié post-production : 219 pages, 0 erreur, 0 warning** (le « duplicate id / 212 pages » vu en cours de run était un artefact de production concurrente, disparu au build seul). Pas de fuite de `.draft.md` dans la collection blog (`type: 'content'`, `.briefs/` ignoré).
+
+**Prochain :** **Étoffer le pilier `/services/developpement-mvp`** (objectif initial qui avait motivé la création des spokes) → ajouter `const clusterGroups` + `<section id="ressources">` reliant les 5 spokes C1 Build (4 nouveaux + `application-metier-pme-sur-mesure`), en répliquant le pattern de `creation-site-web.astro`. Le fichier a déjà 1 lien retour inline (FAQ) vers cahier-des-charges — à intégrer dans la future section Ressources.
+
+**Pièges :**
+- Les workers `@article-producer` **s'arrêtent après chaque étape** du pipeline (narration + rendent la main) — il faut les relancer via SendMessage jusqu'au « build vert ». Idem `content-creator` : il **refuse les validations relayées** (n'accepte qu'un message « direct utilisateur ») → boucle de garde-fou inexploitable, contourné en pilotant les workers directement depuis le main.
+- Drafts intermédiaires écrits à 2 emplacements selon le worker (`content/_drafts/blog/*.draft.md` OU `src/content/blog/.briefs/*.draft.md`) — les deux sont versionnés par convention, non routés.
+- Images inline non générées : 3-4 `<!-- TODO:image -->` par article (schémas/illustrations) — optionnel, `/generate-images` en session dédiée.
+- Action manuelle Jonathan : **Request Indexing** GSC sur les 4 nouvelles URLs après déploiement (+ le reliquat des piliers UNKNOWN + creation/refonte/landing geneve).
+
+**Commit :** 80f524e feat(seo): cluster C1 Build — 4 spokes logiciel sur mesure (silo developpement-mvp)
+
+---
+
 ## Etat session 2026-06-25 — Phase 3 : activation du pilier refonte-site-web
 
 **Fait :**
@@ -186,7 +210,7 @@
 ---
 
 ## Carte du code
-> Mise a jour : 2026-06-25 (Phase 3 — refonte-site-web)
+> Mise a jour : 2026-06-25 (Phase 3 — C1 Build : 4 spokes)
 
 | Fichier | Role |
 |---------|------|
@@ -195,7 +219,9 @@
 | `src/pages/services/creation-site-web.astro` | Pilier C3a : lien entrant vers Physio Pommier + Ugo Mighali (section `resultats`) + bloc « Création de site web par ville » |
 | `src/pages/services/developpeur-webflow.astro` | Pilier C3a Webflow : lien entrant vers Barber Concept (bridge bas de page) |
 | `src/pages/services/developpement-application-mobile.astro` | Pilier C2 mobile : lien entrant vers Isla Plomo (PWA, section `resultats`) |
-| `src/pages/services/developpement-mvp.astro` | Pilier C1 Build : lien entrant vers Wisp (MVP SvelteKit, section `resultats`) |
+| `src/pages/services/developpement-mvp.astro` | Pilier C1 Build : lien entrant vers Wisp (MVP SvelteKit, section `resultats`) + 1 lien retour inline (FAQ) → cahier-des-charges. **TODO Phase 3 : section Ressources `clusterGroups` reliant les 5 spokes C1 Build** |
+| `src/content/blog/{logiciel-sur-mesure-vs-saas,prix-logiciel-sur-mesure-pme,no-code-vs-developpement-sur-mesure,cahier-des-charges-application-metier}.md` | **4 spokes C1 Build** (silo developpement-mvp) : comparatif TCO / grille prix / no-code+LPD / cahier des charges. Chacun → pilier + siblings. Briefs dans `.briefs/`, covers dans `public/images/blog/` |
+| `src/content/blog/application-metier-pme-sur-mesure.md` | Spoke C1 Build pivot : 3 liens retour vers les nouveaux spokes (logiciel-vs-saas FAQ, prix, cahier-des-charges) — maillage réciproque du silo |
 | `docs/restructuration-clusters.md` | Plan maître du chantier : 3 clusters, verdict par page, liste KILL, feuille de route 5 phases (Phase 1 ✅, Phase 2 C3b ✅) |
 | `docs/topical-map-c1-sur-mesure-automatisation.md` | **Topical map C1** : 2 silos (Build/Automate), 4 articles à créer, décisions C1 tranchées, blueprint maillage |
 | `docs/topical-map-c3-web-referencement.md` | **Topical map C3** : 4 silos (web/local/GEO/GMB), cluster mature, plan consolidation/activation/CTR |

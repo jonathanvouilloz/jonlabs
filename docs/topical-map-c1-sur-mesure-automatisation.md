@@ -1,6 +1,6 @@
 # Topical Map : C1 — Développement sur-mesure & Automatisation IA
 
-> Généré le 2026-06-25. Cluster de 18 articles + 2 piliers service : 14 existants, 4 à créer.
+> Généré le 2026-06-25. Cluster de 18 articles + 2 piliers service : 18 existants (les 4 spokes Build créés le 2026-06-25, commit 80f524e), 0 à créer.
 > Marché : Suisse romande (PME/indépendants 30-55 ans). Source de vérité : ce fichier + `docs/restructuration-clusters.md` (section C1).
 > Brand : Jon Labs (app sur-mesure + automatisation + SEO local).
 
@@ -27,13 +27,13 @@ Keyword pilier : *développement application / logiciel sur-mesure PME* | Intent
 
 #### A1 : App / logiciel métier sur-mesure — Core
 - `application-metier-pme-sur-mesure` — App métier sur mesure : 5 cas concrets · Existant (🗓️ 24.07) · pont C1↔C2 ⚡
-- `logiciel-sur-mesure-vs-saas` — Logiciel sur-mesure ou abonnement SaaS · **À créer** ⚡
-- `prix-logiciel-sur-mesure-pme` — Combien coûte une application métier sur-mesure · **À créer** ⚡
-- `no-code-vs-developpement-sur-mesure` — No-code (Bubble/Webflow) ou vrai développement · **À créer**
+- `logiciel-sur-mesure-vs-saas` — Logiciel sur-mesure ou abonnement SaaS · **✅ Créé** (80f524e)
+- `prix-logiciel-sur-mesure-pme` — Combien coûte une application métier sur-mesure · **✅ Créé** (80f524e)
+- `no-code-vs-developpement-sur-mesure` — No-code (Bubble/Webflow) ou vrai développement · **✅ Créé** (80f524e)
 
 #### A2 : Validation amont (top-of-funnel) — Outer
 - `valide-idee-business-suisse` — Valider ton idée sans créer de Sàrl · Existant
-- `cahier-des-charges-application-metier` — Rédiger le cahier des charges de ton app métier · **À créer**
+- `cahier-des-charges-application-metier` — Rédiger le cahier des charges de ton app métier · **✅ Créé** (80f524e)
 
 ### SILO B — Automate : `/services/automatisation` → à finaliser (retirer noindex)
 Hub blog informationnel : `automatisation-pme-suisse-guide-complet` | Intent pilier : Transactionnel | Statut : noindex à lever
