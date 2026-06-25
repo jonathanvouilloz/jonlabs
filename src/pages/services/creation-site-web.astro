@@ -21,6 +21,9 @@ import BackgroundMapContours from '../../components/backgrounds/BackgroundMapCon
 import { serviceSchemas, SITE_URL } from '../../data/schema';
 import { getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
 
+// Maillage géo (source de vérité unique des villes)
+import { villesFrontalieres } from '../../data/villes-frontalieres';
+
 // SEO Data
 const seoData = {
     title: "Création de site web à Genève | Jon Labs",
@@ -892,6 +895,32 @@ const budgetOptions = [
                         <i class="ri-information-line mr-1"></i>
                         Les échanges se font en personne ou en visio selon vos préférences.
                     </p>
+                </div>
+            </div>
+
+            <!-- Maillage géo : pages dédiées par ville -->
+            <div class="mt-12 md:mt-16" data-animate="fade-up">
+                <h3 class="text-xl font-bold mb-2 text-center">Création de site web par ville</h3>
+                <p class="text-sm text-gray-600 mb-6 text-center">
+                    Pages dédiées pour Genève et la zone frontalière française :
+                </p>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <a
+                        href="/developpeur-web-freelance-geneve"
+                        class="inline-flex items-center gap-2 px-4 py-2 bg-[var(--blue)] border-2 border-black font-bold text-sm shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_rgba(0,0,0,0.3)] transition-all"
+                    >
+                        <i class="ri-map-pin-fill"></i>
+                        Développeur web à Genève
+                    </a>
+                    {villesFrontalieres.map((ville) => (
+                        <a
+                            href={`/developpement-web/${ville.slug}`}
+                            class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-black font-semibold text-sm shadow-[3px_3px_0px_rgba(0,0,0,0.25)] hover:bg-[var(--blue)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_rgba(0,0,0,0.25)] transition-all"
+                        >
+                            <i class="ri-map-pin-line"></i>
+                            {ville.nom}
+                        </a>
+                    ))}
                 </div>
             </div>
         </div>

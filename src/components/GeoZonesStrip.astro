@@ -1,0 +1,101 @@
+---
+// Strip léger de maillage géo (désambiguïsation home → pages ville dédiées).
+// Source de vérité unique des villes : src/data/villes-frontalieres.ts
+import { villesFrontalieres } from '../data/villes-frontalieres';
+---
+
+<section class="geo-strip" aria-labelledby="geo-strip-title">
+  <div class="geo-strip-inner">
+    <h2 id="geo-strip-title" class="geo-strip-title">
+      Développement web <span class="geo-strip-highlight">dans la région</span>
+    </h2>
+    <p class="geo-strip-sub">
+      Basé à Genève, j'interviens aussi dans les villes frontalières :
+    </p>
+    <ul class="geo-strip-cities">
+      {villesFrontalieres.map((ville) => (
+        <li>
+          <a href={`/developpement-web/${ville.slug}`} class="geo-chip">
+            <i class="ri-map-pin-line"></i>
+            {ville.nom}
+          </a>
+        </li>
+      ))}
+    </ul>
+    <a href="/developpeur-web-freelance-geneve" class="geo-strip-cta">
+      Développeur web freelance à Genève
+      <i class="ri-arrow-right-line"></i>
+    </a>
+  </div>
+</section>
+
+<style>
+  .geo-strip {
+    padding: 3rem 1rem;
+    background: var(--main-bg, #FEFFF0);
+    border-top: 2px solid black;
+  }
+  .geo-strip-inner {
+    max-width: 64rem;
+    margin: 0 auto;
+    text-align: center;
+  }
+  .geo-strip-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+  .geo-strip-highlight {
+    background: var(--yellow, #FFDC58);
+    padding: 0 0.4rem;
+  }
+  .geo-strip-sub {
+    color: #4b5563;
+    margin-bottom: 1.5rem;
+  }
+  .geo-strip-cities {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.75rem;
+  }
+  .geo-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background: white;
+    border: 2px solid black;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    color: inherit;
+    text-decoration: none;
+    box-shadow: 3px 3px 0px rgba(0, 0, 0, 0.25);
+    transition: all 0.2s ease;
+  }
+  .geo-chip:hover {
+    background: var(--blue, #BAE6FF);
+    transform: translate(-2px, -2px);
+    box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.25);
+  }
+  .geo-strip-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--yellow, #FFDC58);
+    border: 2px solid black;
+    padding: 0.75rem 1.5rem;
+    font-weight: 700;
+    color: #0f172a;
+    text-decoration: none;
+    box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
+    transition: all 0.2s ease;
+  }
+  .geo-strip-cta:hover {
+    background: var(--blue, #BAE6FF);
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.3);
+  }
+</style>
