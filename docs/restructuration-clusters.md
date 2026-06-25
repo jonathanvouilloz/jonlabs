@@ -134,7 +134,8 @@
 - ✅ **GMB** (C3d) : **gardé** comme sous-pilier de C3 → à consolider (1 pilier GMB + satellites).
 - ✅ **Pages géo** `/developpement-web/*` : **gardées + maillées**. Principe directeur = **1 page = 1 intention** : la home rank sur « développeur freelance Genève » (présentation du site), chaque page géo rank sur « développeur web {ville} ». Action : désoptimiser la home sur les requêtes locales-ville + mailler les pages géo depuis les services.
 - ✅ **Kill** : **au cas par cas** → voir liste annotée ci-dessous, à valider page par page.
-- ⏳ **Validation d'idée** : à trancher en phase C1.
+- ✅ **Validation d'idée** (tranché en topical map C1, 2026-06-25) : `/blog/valide-idee-business-suisse` **gardé** (Outer spoke amont du Silo Build) ; `/services/validation-idee` (noindex) → **MERGE confirmé** dans `/services/developpement-mvp` (Jonathan, 2026-06-25 — pas vendue comme offre autonome).
+- ✅ **Décisions KILL C1** (tranchées en topical map C1) : `ia-pragmatique-pme-suisse` + `temps-perdu-pme-automatisation` → **301 vers le guide automatisation** (thin/redondants) ; `automatisation-club-sportif` + `no-show-rendez-vous-2026` → **KEEP-demote** en Outer use-cases (servent le persona secondaire / scénario conversion), re-évaluer à J+90 via `/seo-gsc`.
 
 ## Liste KILL à valider (page par page)
 
@@ -162,9 +163,9 @@ Indépendant des clusters, débloque immédiatement la visibilité.
 
 ### Phase 1 — Topical maps des 3 clusters 🗺️
 Une `/seo-topical-map` par cluster pour figer pilier + satellites + gaps + maillage cible.
-- [ ] C1 — App custom (+ automatisation/IA) : définir le pilier service + rattacher le contenu auto
+- [x] C1 — App custom (+ automatisation/IA) : **topical map livrée** (`docs/topical-map-c1-sur-mesure-automatisation.md`) — 2026-06-25. Verdict structurant : **2 silos frères** (Build `/services/developpement-mvp` + Automate `/services/automatisation`), 4 articles à créer côté Build, décisions C1 tranchées (cf. ci-dessous)
 - [x] C2 — App mobile : **pilier service créé** (`/services/developpement-application-mobile`) + relié aux 10 articles (section Ressources + nav/footer + CTA repointé) — 2026-06-25
-- [ ] C3 — Web + référencement : sous-cartes (création web / SEO local / GEO / GMB)
+- [x] C3 — Web + référencement : **topical map livrée** (`docs/topical-map-c3-web-referencement.md`) — 2026-06-25. Verdict : **4 silos frères** (création web / SEO local / GEO / GMB), cluster **mature** → chantier de **consolidation/activation/CTR**, pas de création (1 seule création : `refonte-site-web-pme`). Pilier GMB élu, consolidation SEO local cadrée.
 
 ### Phase 2 — Consolidation & dé-cannibalisation 🔧
 - [ ] Pilier SEO local : fusionner `referencement-local-geneve` + `tarif-package-seo-local-suisse` dans `/services/referencement-local`

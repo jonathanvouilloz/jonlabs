@@ -4,6 +4,25 @@
 > **Plan maître** : `docs/restructuration-clusters.md` (archi cible, verdict par page, liste KILL, feuille de route 5 phases).
 > **Diagnostic data** : `.seo-data/diagnostic-gsc-pages-cannibalisation.md`.
 
+## Etat session 2026-06-25 — Phase 1 / C1 + C3 : topical maps (Phase 1 bouclée)
+
+**Fait :**
+- **Topical map C1 livrée** (`docs/topical-map-c1-sur-mesure-automatisation.md`) — verdict structurant : **2 silos frères** (Build `/services/developpement-mvp` faible + Automate `/services/automatisation` fort, Hermès 1610 imp). 4 articles à créer côté Build (logiciel-vs-saas, prix-logiciel-sur-mesure, no-code-vs-sur-mesure, cahier-des-charges), fan-out couvert, anti-cannibalisation passé.
+- **Décisions C1 tranchées** : `valide-idee-business-suisse` KEEP (Outer) ; `/services/validation-idee` → **MERGE confirmé** dans developpement-mvp ; `ia-pragmatique` + `temps-perdu` → **301** vers le guide auto ; `automatisation-club-sportif` + `no-show` → **KEEP-demote** (re-éval J+90). Rationalisation service : 5 pages → 2 piliers.
+- **Topical map C3 livrée** (`docs/topical-map-c3-web-referencement.md`) — verdict : **4 silos frères** (création web / SEO local / GEO / GMB), cluster **mature** → chantier de **consolidation/activation/CTR**, pas de création (1 seule : `refonte-site-web-pme`). Pilier GMB élu (`fiche-google-my-business-guide-complet-2026`), dé-cannibalisation SEO local cadrée, désambiguïsation home documentée.
+- **Plan maître à jour** : Phase 1 `[x]` sur les 3 clusters (C1, C2, C3 cartographiés).
+
+**Prochain :** Phase 2 — démarrer la **consolidation SEO local C3b** : 301 de `referencement-local-geneve` + `tarif-package-seo-local-suisse` → `/services/referencement-local` (absorber le meilleur contenu). Alternative : lancer la création C1 Build via `/seo-brief logiciel-sur-mesure-vs-saas` (article #1, score 8/9).
+
+**Pièges :**
+- **C1 et C3 sont des multi-silos**, pas des clusters plats : raisonner par pilier (2 pour C1, 4 pour C3), pas par « cluster » global.
+- GEMINI_API_KEY toujours expirée (génération images via OpenAI en dépannage).
+- Action manuelle en attente côté Jonathan : **Request Indexing** GSC sur les 3 piliers UNKNOWN (developpeur-web-freelance-geneve, services/developpeur-webflow, services/developpeur-wordpress).
+
+**Commit :** 6063ab3 docs(seo): topical maps C1 + C3 — Phase 1 clusters bouclée
+
+---
+
 ## Etat session 2026-06-25 — Phase 1 / C2 : pilier service mobile
 
 **Fait :**
@@ -48,7 +67,9 @@
 
 | Fichier | Role |
 |---------|------|
-| `docs/restructuration-clusters.md` | Plan maître du chantier : 3 clusters, verdict par page, liste KILL, feuille de route 5 phases |
+| `docs/restructuration-clusters.md` | Plan maître du chantier : 3 clusters, verdict par page, liste KILL, feuille de route 5 phases (Phase 1 cochée sur les 3 clusters) |
+| `docs/topical-map-c1-sur-mesure-automatisation.md` | **Topical map C1** : 2 silos (Build/Automate), 4 articles à créer, décisions C1 tranchées, blueprint maillage |
+| `docs/topical-map-c3-web-referencement.md` | **Topical map C3** : 4 silos (web/local/GEO/GMB), cluster mature, plan consolidation/activation/CTR |
 | `.seo-data/diagnostic-gsc-pages-cannibalisation.md` | Diagnostic data (GSC perf, indexation, cannibalisation) |
 | `src/pages/services/developpement-application-mobile.astro` | **Pilier service C2 (mobile)** : page transactionnelle + section Ressources reliant les 10 articles du cluster |
 | `src/components/Footer.astro` | Fat footer : liens profonds sitewide (piliers/zones/services) depuis `mainNav.columns` |
