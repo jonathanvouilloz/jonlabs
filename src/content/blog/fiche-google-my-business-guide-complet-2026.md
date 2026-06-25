@@ -281,6 +281,31 @@ La **fiche Google My Business** est l'actif local le plus puissant à ta disposi
 
 Ce guide t'a donné la vue d'ensemble. Les articles satellites du cluster entrent dans le détail de chaque phase. La prochaine étape concrète : auditer ta fiche avec la checklist des 25 points, puis mettre en place la cadence hebdomadaire (1 post, surveillance des avis, nouvelles photos).
 
+---
+
+## Tous les guides du cluster fiche Google
+
+Ce guide est le point d'entrée. Pour creuser chaque phase du cycle de vie, voici les guides détaillés du cluster :
+
+**Créer & optimiser ta fiche**
+
+- [Comment apparaître sur Google Maps quand on débute](/blog/comment-apparaitre-google-maps-pme-debutant) — le point de départ si tu pars de zéro.
+- [Créer ta fiche Google My Business étape par étape](/blog/creer-fiche-google-my-business-etape-par-etape) — la procédure complète de création et de vérification.
+- [Choisir la bonne catégorie Google Business Profile](/blog/choisir-categorie-google-business-profile) — le choix qui détermine 80% de tes opportunités de ranking.
+- [Optimiser ta fiche : la checklist en 25 points](/blog/optimiser-fiche-google-my-business-checklist-2026) — chaque champ classé par impact.
+- [Entrer dans le top 3 de Google Maps](/blog/entrer-top-3-google-maps) — les 3 facteurs de classement et comment agir dessus.
+
+**Avis & animation**
+
+- [Obtenir plus d'avis Google](/blog/obtenir-plus-avis-google) — le process pour collecter des avis de façon systématique.
+- [Répondre à tes avis Google (modèles 2026)](/blog/repondre-avis-google-modeles-2026) — des modèles prêts pour répondre à 100% des avis.
+- [Collecter des avis avec un QR code](/blog/qr-code-avis-google-collecte-pme) — le levier le plus rapide sur tes supports physiques.
+- [Publier des Google Posts qui convertissent](/blog/google-post-business-profile-conversion) — animer ta fiche pour le signal de fraîcheur.
+
+**Incident**
+
+- [Fiche Google suspendue : les recours](/blog/fiche-google-my-business-suspendue-recours) — diagnostiquer la cause et faire débloquer ta fiche.
+
 [**Confier la gestion de ma fiche →**](/services/gestion-fiche-google?utm_source=blog&utm_medium=article&utm_campaign=fiche-google-my-business-guide-complet-2026)
 
 ---

@@ -152,7 +152,7 @@ Et les avis ne sont qu'un levier parmi d'autres : ils prennent toute leur valeur
 
 Si tu veux mettre en place ce système sans t'en occuper toi-même, du lien d'avis au workflow Make automatisé, je peux regarder ce qui fait sens pour ton activité.
 
-[**Mettre en place ton système d'avis →**](/contact?utm_source=blog&utm_medium=article&utm_campaign=obtenir-plus-avis-google)
+[**Mettre en place ton système d'avis →**](/services/gestion-fiche-google?utm_source=blog&utm_medium=article&utm_campaign=obtenir-plus-avis-google)
 
 ---
 

@@ -234,6 +234,38 @@ const trustItems = [
     { icon: "ri-handshake-line", text: "Sans engagement long" },
     { icon: "ri-eye-2-line", text: "Reporting mensuel transparent" }
 ];
+
+// Cluster GMB — maillage interne vers le contenu éditorial du cluster fiche Google
+const clusterGroups = [
+    {
+        label: "Créer & optimiser",
+        icon: "ri-add-circle-line",
+        articles: [
+            { title: "Apparaître sur Google Maps quand on débute", href: "/blog/comment-apparaitre-google-maps-pme-debutant" },
+            { title: "Créer ta fiche étape par étape", href: "/blog/creer-fiche-google-my-business-etape-par-etape" },
+            { title: "Choisir la bonne catégorie GBP", href: "/blog/choisir-categorie-google-business-profile" },
+            { title: "Optimiser ta fiche : la checklist 25 points", href: "/blog/optimiser-fiche-google-my-business-checklist-2026" },
+            { title: "Entrer dans le top 3 de Google Maps", href: "/blog/entrer-top-3-google-maps" }
+        ]
+    },
+    {
+        label: "Avis & animation",
+        icon: "ri-star-line",
+        articles: [
+            { title: "Obtenir plus d'avis Google", href: "/blog/obtenir-plus-avis-google" },
+            { title: "Répondre à tes avis (modèles 2026)", href: "/blog/repondre-avis-google-modeles-2026" },
+            { title: "Collecter des avis avec un QR code", href: "/blog/qr-code-avis-google-collecte-pme" },
+            { title: "Publier des Google Posts qui convertissent", href: "/blog/google-post-business-profile-conversion" }
+        ]
+    },
+    {
+        label: "Incident",
+        icon: "ri-error-warning-line",
+        articles: [
+            { title: "Fiche suspendue : les recours", href: "/blog/fiche-google-my-business-suspendue-recours" }
+        ]
+    }
+];
 ---
 
 <Layout
@@ -803,8 +835,52 @@ const trustItems = [
         </div>
     </section>
 
+    <!-- RESSOURCES — maillage cluster GMB -->
+    <section id="ressources" class="py-20 md:py-28 px-4 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto relative z-10">
+            <!-- Section header -->
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    ressources
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                    Tout comprendre sur ta fiche Google
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Avant de déléguer, fais-toi ton propre avis. J'ai écrit un dossier complet sur la fiche Google My Business pour les PME romandes — commence par le <a href="/blog/fiche-google-my-business-guide-complet-2026" class="text-[var(--blue)] font-medium hover:underline">guide complet</a>.
+                </p>
+            </div>
+
+            <!-- Cluster groups grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6" data-animate-stagger>
+                {clusterGroups.map((group) => (
+                    <div class="bg-white border-2 border-black p-6 relative" data-animate-item>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-9 h-9 bg-[var(--yellow)] border-2 border-black flex items-center justify-center flex-shrink-0">
+                                <i class={`${group.icon} text-base`}></i>
+                            </div>
+                            <h3 class="text-lg font-bold">{group.label}</h3>
+                        </div>
+                        <ul class="space-y-2">
+                            {group.articles.map((article) => (
+                                <li>
+                                    <a href={article.href} class="flex items-start gap-2 text-sm text-gray-700 hover:text-[var(--text)] group">
+                                        <i class="ri-arrow-right-s-line text-[var(--blue)] mt-0.5 group-hover:translate-x-1 transition-transform"></i>
+                                        <span class="group-hover:underline">{article.title}</span>
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
     <!-- CTA + FORM -->
-    <section id="contact" class="py-20 md:py-28 px-4 bg-[var(--main-bg)] relative overflow-hidden">
+    <section id="contact" class="py-20 md:py-28 px-4 bg-[var(--main-bg)] border-t-2 border-black relative overflow-hidden">
         <div class="absolute inset-0 dots-bg opacity-[0.4]"></div>
 
         <div class="max-w-4xl mx-auto relative z-10">

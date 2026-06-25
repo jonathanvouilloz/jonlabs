@@ -212,7 +212,7 @@ L'objectif est d'ancrer ta notoriété avec des signaux externes et de mesurer l
 
 Si tu veux savoir ce que coûte un accompagnement structuré plutôt que de tout faire seul, [le détail des packages SEO local par profil](/services/referencement-local) liste les livrables à chaque niveau. Et si tu veux aller plus vite ou ne pas te tromper dans la priorisation, je propose un audit de ta visibilité locale qui identifie exactement où tu perds des points face à tes concurrents.
 
-[**Obtenir un audit gratuit de ma visibilité locale →**](/services/refonte-site-web?utm_source=blog&utm_medium=article&utm_campaign=entrer-top-3-google-maps)
+[**Obtenir un audit gratuit de ma visibilité locale →**](/services/gestion-fiche-google?utm_source=blog&utm_medium=article&utm_campaign=entrer-top-3-google-maps)
 
 ---
 
@@ -246,7 +246,7 @@ Le **référencement local sur Google Maps** n'est pas une boîte noire. C'est t
 
 Si tu veux savoir exactement où tu perds des points face à tes concurrents dans les 3 premières positions, un audit de 30 minutes suffit pour identifier les actions prioritaires.
 
-[**Discuter de ta stratégie de visibilité Google →**](/contact?utm_source=blog&utm_medium=article&utm_campaign=entrer-top-3-google-maps)
+[**Discuter de ta stratégie de visibilité Google →**](/services/gestion-fiche-google?utm_source=blog&utm_medium=article&utm_campaign=entrer-top-3-google-maps)
 
 ---
 

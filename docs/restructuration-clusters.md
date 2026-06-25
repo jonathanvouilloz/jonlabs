@@ -170,7 +170,7 @@ Une `/seo-topical-map` par cluster pour figer pilier + satellites + gaps + maill
 ### Phase 2 — Consolidation & dé-cannibalisation 🔧
 - [x] Pilier SEO local : fusionner `referencement-local-geneve` + `tarif-package-seo-local-suisse` dans `/services/referencement-local` — **2026-06-25** : 301 (×4 dans `vercel.json`) + absorption sélective (bloc 7 leviers + JSON-LD, transparence prix, 5 questions, +4 FAQ) + repointage du maillage + suppression des 2 `.md`
 - [ ] Désambiguïser la home des requêtes locales-ville
-- [ ] Pilier GMB : élire la page d'autorité + organiser les 11 satellites
+- [x] Pilier GMB : élire la page d'autorité + organiser les 11 satellites — **2026-06-25** : hub `fiche-google-my-business-guide-complet-2026` → section descendante vers les 10 satellites + section Ressources sur le pilier service `gestion-fiche-google.astro` + 4 CTA satellites repointés vers le pilier
 
 ### Phase 3 — Création / refonte des pages piliers ✍️
 - [x] Pilier C2 mobile (nouvelle page service) — `/services/developpement-application-mobile`, 2026-06-25

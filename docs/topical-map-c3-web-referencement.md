@@ -138,7 +138,7 @@ C3 étant mature, le tableau liste surtout des **actions** (consolider/activer/C
 | 3 | 5 pages `/developpement-web/{ville}` | C3a | **Mailler** depuis `/services` + `/services/creation-site-web` (0 lien actuel) | Phase 0 | 🔴 haute |
 | 4 | `apparaitre-perplexity` (+ claude, copilot) | C3c | **Réécrire title/meta** (rankent à 0 clic) | Phase 4 | 🟠 moyenne |
 | 5 | `/services/creation-site-web` | C3a | **Étoffer** (thin, crawled-not-indexed) + mailler géo | Phase 3 | 🟠 moyenne |
-| 6 | `fiche-google-my-business-guide-complet-2026` | C3d | **Élire hub** : linker descendant vers les 11 satellites GMB | Phase 2 | 🟠 moyenne |
+| 6 | `fiche-google-my-business-guide-complet-2026` | C3d | ✅ **Organisé** (2026-06-25) : section descendante hub→10 satellites + section Ressources sur le pilier service + 4 CTA satellites repointés vers le pilier | Phase 2 ✅ | — |
 | 7 | `/services/refonte-site-web` (noindex) | C3a | **Finaliser** (retirer noindex) | Phase 3 | 🟠 moyenne |
 | 8 | `refonte-site-web-pme` | C3a | **À créer** (feed la page refonte, comble l'axe Implication) | Phase 1 | 🟢 basse |
 | 9 | `apparaitre-gemini` | C3c | Vérifier indexation + réécrire CTR | Phase 4 | 🟢 basse |

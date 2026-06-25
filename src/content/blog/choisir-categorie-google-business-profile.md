@@ -191,7 +191,7 @@ Une fois la catégorie bien posée, reste à l'articuler avec les autres leviers
 
 Si tu veux un regard externe sur ta fiche (catégories, cohérence, signaux manquants), je fais des audits GBP concrets pour les indépendants et TPE romands.
 
-[**Faire auditer ta fiche Google →**](/contact?utm_source=blog&utm_medium=article&utm_campaign=choisir-categorie-google-business-profile)
+[**Faire auditer ta fiche Google →**](/services/gestion-fiche-google?utm_source=blog&utm_medium=article&utm_campaign=choisir-categorie-google-business-profile)
 
 ---
 
