@@ -19,7 +19,7 @@
 - Action manuelle en attente côté Jonathan : **Request Indexing** GSC sur les 3 piliers www (developpeur-web-freelance-geneve, services/developpeur-webflow, services/developpeur-wordpress).
 - Re-checker `/seo-gsc` à J+3-10 pour confirmer indexation des piliers + fin du résiduel non-www.
 
-**Commit :** 0e837fe feat(seo): fat footer + diagnostic restructuration clusters
+**Commit :** ff2d641 feat(seo): fat footer + diagnostic restructuration clusters
 
 ---
 

@@ -9,4 +9,4 @@
 
 ## Reprendre ici
 **Refonte SEO** — Phase 0 (fat footer) livrée. Prochain : Phase 1 `/seo-topical-map` des 3 clusters, commencer par C2 app mobile (pilier service manquant). Plan maître : `docs/restructuration-clusters.md`.
-Commit : 0e837fe feat(seo): fat footer + diagnostic restructuration clusters
+Commit : ff2d641 feat(seo): fat footer + diagnostic restructuration clusters
