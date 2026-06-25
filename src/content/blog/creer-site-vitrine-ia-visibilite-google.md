@@ -218,7 +218,7 @@ Les données citées dans cet article proviennent des études et rapports suivan
 
 C'est exactement le problème que je résous.
 
-Je crée des sites web qui ne sont pas juste beaux : ils sont **trouvables**. Visibles sur Google. Optimisés pour le SEO. Pensés pour convertir tes visiteurs en clients.
+[Je crée des sites web](/services/creation-site-web) qui ne sont pas juste beaux : ils sont **trouvables**. Visibles sur Google. Optimisés pour le SEO. Pensés pour convertir tes visiteurs en clients.
 
 Et oui, j'utilise l'IA pour aller plus vite. Mais la stratégie, le branding, et l'optimisation ? C'est de l'expertise humaine.
 

@@ -162,7 +162,7 @@ Le détail étape par étape est dans [le plan 30 jours étape par étape](/blog
 
 Trois cas de figure selon l'âge et la techno du site.
 
-**Cas 1, ton site a plus de 4 ans.** La refonte est probablement plus rapide et moins chère que la rustine. Dix signes à corriger sur une base obsolète, ça coûte plus cher en bout de course qu'un redéveloppement propre. Regarde à quoi ressemble [demander un audit personnalisé](/services/refonte-site-web).
+**Cas 1, ton site a plus de 4 ans.** La refonte est probablement plus rapide et moins chère que la rustine. Dix signes à corriger sur une base obsolète, ça coûte plus cher en bout de course qu'un redéveloppement propre — voir [comment se passe la création d'un site neuf](/services/creation-site-web), pensé pour Google dès le départ. Regarde aussi à quoi ressemble [demander un audit personnalisé](/services/refonte-site-web).
 
 **Cas 2, ton site a été monté récemment avec un générateur IA** (Lovable, Bolt, Claude Code ou équivalent). Il est probablement beau et complètement invisible. [Les sites montés sur Lovable, Bolt ou Claude Code stagnent pour la même raison](/blog/creer-site-vitrine-ia-visibilite-google) : ils n'ont pas été pensés pour Google, seulement pour les captures d'écran.
 

@@ -186,6 +186,8 @@ C'est normal. Chaque projet est unique, et parfois il faut en discuter pour y vo
 
 **Tu as une idée mais tu n'es pas sûr qu'elle vaille un site complet ?** Avant d'investir dans un site, tu peux [tester ton concept](/services/validation-idee) avec une landing page et une campagne ciblée. Réponse en 2 semaines.
 
+**Ton projet est clair et tu veux passer à l'action ?** La page [création de site web](/services/creation-site-web) détaille comment je travaille en freelance : méthode, délais, formules et tarifs transparents.
+
 Si tu veux qu'on regarde ensemble quelle approche correspond le mieux à ta situation, je te propose un appel découverte de 30 minutes, gratuit et sans engagement.
 
 On fait le point sur ton projet, tes objectifs, ton budget, et je te dis honnêtement si je suis la bonne personne pour t'aider (ou pas).

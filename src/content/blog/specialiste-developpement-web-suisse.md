@@ -138,7 +138,7 @@ Stack : **Astro, React, Tailwind CSS, Node.js, TypeScript, Supabase, PostgreSQL*
 
 ## Pour aller plus loin
 
-Si tu cherches plus spécifiquement un **développeur web freelance basé à Genève**, j'ai détaillé mon offre, ma méthode et mes tarifs sur la page [développeur web freelance Genève](/developpeur-web-freelance-geneve). Pour comprendre les fourchettes de prix réelles du marché suisse, l'article [prix site web suisse 2026](/blog/prix-site-web-suisse-2026) compare les budgets typiques par type de projet. Et si tu veux d'abord vérifier l'état de ton site actuel avant d'engager un nouveau prestataire, [15 signes que ton site web dort](/blog/15-signes-site-web-dort) te donne une checklist en 5 minutes.
+Si tu cherches plus spécifiquement un **développeur web freelance basé à Genève**, j'ai détaillé mon offre, ma méthode et mes tarifs sur la page [développeur web freelance Genève](/developpeur-web-freelance-geneve). Si ton besoin est plus large — un site complet pensé pour Google dès le départ — la page [création de site web](/services/creation-site-web) détaille la méthode, les délais et les formules. Pour comprendre les fourchettes de prix réelles du marché suisse, l'article [prix site web suisse 2026](/blog/prix-site-web-suisse-2026) compare les budgets typiques par type de projet. Et si tu veux d'abord vérifier l'état de ton site actuel avant d'engager un nouveau prestataire, [15 signes que ton site web dort](/blog/15-signes-site-web-dort) te donne une checklist en 5 minutes.
 
 ---
 

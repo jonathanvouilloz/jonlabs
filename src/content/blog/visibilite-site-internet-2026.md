@@ -325,6 +325,8 @@ Si vous voulez un regard extérieur concret sur votre situation, avec le plan d'
 
 → [Demander un audit personnalisé](/services/refonte-site-web)
 
+Et si votre site actuel est irrécupérable, repartir sur un site neuf est parfois plus rentable qu'une rustine : voici [comment je crée un site web qui travaille](/services/creation-site-web).
+
 Quoi que vous choisissiez : commencez cette semaine. Dans 6 mois, vous me remercierez. Ou vous regretterez d'avoir attendu. C'est vraiment l'une ou l'autre.
 
 ---

@@ -38,6 +38,29 @@ const breadcrumb = getBreadcrumbSchema([
 ]);
 const schemas: any[] = [serviceSchemas["creation-site-web"], breadcrumb];
 
+// Cluster articles — maillage interne vers le contenu éditorial du silo création web (C3a)
+const clusterGroups = [
+    {
+        label: "Prix & choix du prestataire",
+        icon: "ri-scales-3-line",
+        articles: [
+            { title: "Combien coûte un site web en Suisse en 2026 ?", href: "/blog/prix-site-web-suisse-2026" },
+            { title: "Spécialiste du développement web en Suisse", href: "/blog/specialiste-developpement-web-suisse" },
+            { title: "Freelance ou agence web : comment choisir ?", href: "/blog/freelance-ou-agence-web" }
+        ]
+    },
+    {
+        label: "Diagnostic & visibilité",
+        icon: "ri-search-eye-line",
+        articles: [
+            { title: "15 signes que ton site web dort", href: "/blog/15-signes-site-web-dort" },
+            { title: "Le coût caché d'un site web dormant (calculateur)", href: "/blog/cout-site-web-dormant-calculateur" },
+            { title: "Rendre son site visible sur internet en 2026", href: "/blog/visibilite-site-internet-2026" },
+            { title: "Créer un site vitrine avec visibilité IA", href: "/blog/creer-site-vitrine-ia-visibilite-google" }
+        ]
+    }
+];
+
 // Pain points data (4 items)
 const painPoints = [
     {
@@ -931,6 +954,52 @@ const budgetOptions = [
                         </a>
                     ))}
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- CLUSTER / RESSOURCES SECTION -->
+    <!-- ============================================== -->
+    <section id="ressources" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
+        <div class="max-w-5xl mx-auto relative z-10">
+            <!-- Section header -->
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    ressources
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                    Tout comprendre avant de lancer ton site
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Avant de demander un devis, fais-toi ton propre avis. J'ai écrit des guides détaillés sur la création de site web en Suisse romande — commence par <a href="/blog/prix-site-web-suisse-2026" class="text-[var(--blue)] font-medium hover:underline">combien coûte vraiment un site web</a>.
+                </p>
+            </div>
+
+            <!-- Cluster groups grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6" data-animate-stagger>
+                {clusterGroups.map((group) => (
+                    <div class="bg-[var(--main-bg)] border-2 border-black p-6 relative" data-animate-item>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-9 h-9 bg-[var(--yellow)] border-2 border-black flex items-center justify-center flex-shrink-0">
+                                <i class={`${group.icon} text-base`}></i>
+                            </div>
+                            <h3 class="text-lg font-bold">{group.label}</h3>
+                        </div>
+                        <ul class="space-y-2">
+                            {group.articles.map((article) => (
+                                <li>
+                                    <a href={article.href} class="flex items-start gap-2 text-sm text-gray-700 hover:text-[var(--text)] group">
+                                        <i class="ri-arrow-right-s-line text-[var(--blue)] mt-0.5 group-hover:translate-x-1 transition-transform"></i>
+                                        <span class="group-hover:underline">{article.title}</span>
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
             </div>
         </div>
     </section>
