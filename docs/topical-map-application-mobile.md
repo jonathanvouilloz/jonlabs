@@ -19,9 +19,10 @@ Pas le guide générique "comment créer une app". L'angle c'est : *un développ
 explique honnêtement à une PME locale ce qu'une application mobile lui apportera vraiment —
 et ce que ça coûte vraiment en CHF.* Pragmatique, local, chiffré.
 
-**Page service à activer en parallèle :**
-`/services/developpement-mvp` — c'est le CTA transactionnel de tout le cluster.
-Vérifier que cette page mentionne explicitement les applications mobiles (iOS/Android/PWA).
+**Page pilier service du cluster :**
+`/services/developpement-application-mobile` — ✅ **créée le 2026-06-25**. C'est désormais le CTA
+transactionnel dédié du cluster (intent commercial), reliée aux 10 articles via une section « Ressources ».
+La page `/services/developpement-mvp` reste un cross-link secondaire (« tester une idée d'abord »).
 
 ---
 
@@ -295,6 +296,7 @@ L'intent informationnel est à renforcer si on veut optimiser les AI Overviews. 
 
 ## Actions annexes
 
+- [x] Créer la page pilier service `/services/developpement-application-mobile` + repointer le CTA transactionnel du pillar dessus → fait le 2026-06-25
 - [x] Vérifier que `/services/developpement-mvp` mentionne iOS/Android/PWA explicitement → fait le 2026-06-19 (étape « Construction »)
 - [x] Ajouter un lien sortant depuis `freelance-ou-agence-web` (existant) vers `freelance-ou-agence-application-mobile` → fait le 2026-06-19
 - [x] Relier les articles d'automatisation existants vers `application-mobile-automatisation-pme` → fait le 2026-06-19 (`automatisation-pme-suisse-guide-complet`, `temps-perdu-pme-automatisation`)

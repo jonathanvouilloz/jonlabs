@@ -1,0 +1,845 @@
+---
+import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import FAQ from '../../components/FAQ.astro';
+
+// Import SVG pour surlignement hero
+import svgArrowHero from '../../assets/arrow-3.svg';
+
+// Import background components
+import BackgroundQuestionMarks from '../../components/backgrounds/BackgroundQuestionMarks.astro';
+import BackgroundProgressFlow from '../../components/backgrounds/BackgroundProgressFlow.astro';
+import BackgroundGlitchGrid from '../../components/backgrounds/BackgroundGlitchGrid.astro';
+
+// Import images
+import imgHero from '../../assets/services/mobile-hero.png';
+import imgProblemes from '../../assets/services/mobile-problemes.png';
+import imgMethode from '../../assets/services/mobile-methode.png';
+import imgCtaFinal from '../../assets/services/mobile-cta-final.png';
+
+// Schema.org
+import { serviceSchemas, SITE_URL } from '../../data/schema';
+import { getFAQPageSchema } from '../../lib/seo';
+import { getBreadcrumbSchema } from '../../lib/seo';
+
+// SEO Data
+const seoData = {
+    title: "Développeur application mobile à Genève | Jon Labs",
+    description: "Développement d'applications mobiles iOS et Android pour PME et startups romandes. Freelance à Genève : app native, hybride, Flutter/React Native ou PWA, avec un devis clair en CHF."
+};
+
+// Schema.org data
+const breadcrumb = getBreadcrumbSchema([
+    { name: "Accueil", url: SITE_URL },
+    { name: "Services", url: `${SITE_URL}/services` },
+    { name: "Développement application mobile", url: `${SITE_URL}/services/developpement-application-mobile` }
+]);
+const schemas: any[] = [serviceSchemas["developpement-application-mobile"], breadcrumb];
+
+// Pain points data
+const painPoints = [
+    {
+        title: "Tes clients réclament une app",
+        description: "Tes utilisateurs te demandent une application — pour réserver, suivre une commande, recevoir une notification. Un site responsive ne suffit plus, mais tu ne sais pas par où commencer ni ce que ça implique vraiment."
+    },
+    {
+        title: "Le devis d'agence t'a refroidi",
+        description: "Tu as demandé un devis pour une app mobile et le chiffre t'a fait reculer. 60 000 CHF, 8 mois, trois interlocuteurs et un chef de projet entre toi et le code. Il y a forcément un moyen plus direct et plus raisonnable."
+    },
+    {
+        title: "Tu hésites entre app et site",
+        description: "Application native, application hybride, PWA, site mobile… On t'a vendu plein de termes, mais personne ne t'a dit honnêtement ce dont TON projet a besoin. Tu veux un avis franc avant de dépenser un franc."
+    },
+    {
+        title: "Ton app dort, personne ne la maintient",
+        description: "Tu as déjà une application, mais elle plante, elle n'est plus à jour sur les stores, et le prestataire qui l'a faite a disparu. Tu as besoin de quelqu'un qui reprenne les choses en main proprement."
+    }
+];
+
+// Method steps
+const methodSteps = [
+    {
+        step: "1",
+        title: "Cadrage",
+        description: "On définit ensemble ce que ton app doit vraiment faire — et sur quelles plateformes (iOS, Android, ou les deux). On tranche la question technique : natif, hybride ou PWA, selon ton usage réel et ton budget. Pas de feature inutile, pas de jargon.",
+        duration: "1-2h appel + échanges async"
+    },
+    {
+        step: "2",
+        title: "Construction",
+        description: "Je développe ton app avec des technologies modernes et durables — Flutter ou React Native pour couvrir iOS et Android avec un seul code. Tu vois des versions testables sur ton téléphone à chaque itération. Tu n'as pas besoin de comprendre le code, juste de me dire ce qui va ou pas.",
+        duration: "Quelques semaines selon le périmètre"
+    },
+    {
+        step: "3",
+        title: "Lancement",
+        description: "Je m'occupe de la publication sur l'App Store et le Google Play Store — comptes développeurs, fiches, captures, validation. Tu repars avec ton app en ligne, une documentation claire, et la possibilité de la faire évoluer sans dépendre de moi.",
+        duration: "Publication + passation"
+    }
+];
+
+// Differentiators
+const differentiators = [
+    {
+        icon: "ri-user-line",
+        text: "Un seul interlocuteur : tu parles à celui qui code, pas à un chef de projet"
+    },
+    {
+        icon: "ri-smartphone-line",
+        text: "iOS et Android d'un seul code (Flutter / React Native) : tu ne paies pas deux fois"
+    },
+    {
+        icon: "ri-shield-check-line",
+        text: "Qualité suisse, flexibilité freelance : réactivité et rigueur, données conformes nLPD"
+    },
+    {
+        icon: "ri-door-open-line",
+        text: "Pas de lock-in : tu repars avec un code propre, documenté et publié à ton nom"
+    }
+];
+
+// Results
+const results = [
+    {
+        title: "Une app publiée sur les stores",
+        description: "Pas une maquette cliquable. Une vraie application téléchargeable sur l'App Store et le Play Store, que tes utilisateurs peuvent installer et utiliser."
+    },
+    {
+        title: "iOS + Android sans doubler le budget",
+        description: "Grâce à Flutter ou React Native, ton app tourne sur les deux plateformes à partir d'un seul code. Tu couvres tout le marché sans payer deux développements."
+    },
+    {
+        title: "Une app connectée à tes outils",
+        description: "Ton application peut parler à ton CRM, ton agenda, ta facturation ou tes automatisations. Une app isolée perd l'essentiel de sa valeur — la tienne sera branchée."
+    },
+    {
+        title: "Une base solide pour la suite",
+        description: "Code propre, documenté, sans dette technique cachée. Tu peux itérer dessus, ajouter des fonctionnalités, ou confier la suite à quelqu'un d'autre. Aucun verrou."
+    },
+    {
+        title: "Un avis honnête, dès le départ",
+        description: "Si une PWA ou un site suffit pour ton cas, je te le dis. Tu investis dans une app mobile seulement si elle apporte vraiment quelque chose à ton business."
+    }
+];
+
+// Price factors
+const priceFactors = [
+    "La complexité et le nombre de fonctionnalités",
+    "Le choix technique : natif, hybride ou PWA",
+    "Le nombre de plateformes (iOS, Android, ou les deux)",
+    "Le besoin d'un backend, d'une API ou d'intégrations métier"
+];
+
+// Cluster articles — maillage interne vers le contenu éditorial du cluster mobile
+const clusterGroups = [
+    {
+        label: "Décider",
+        icon: "ri-question-answer-line",
+        articles: [
+            { title: "App mobile pour PME : vaut-il le coup ?", href: "/blog/application-mobile-pme-suisse" },
+            { title: "Application mobile ou PWA : comment choisir ?", href: "/blog/application-mobile-ou-pwa" },
+            { title: "Freelance ou agence pour votre app mobile ?", href: "/blog/freelance-ou-agence-application-mobile" }
+        ]
+    },
+    {
+        label: "Choisir la techno",
+        icon: "ri-cpu-line",
+        articles: [
+            { title: "Flutter vs React Native : lequel choisir ?", href: "/blog/flutter-vs-react-native-pme" },
+            { title: "Application native vs hybride : les différences", href: "/blog/application-native-vs-hybride" }
+        ]
+    },
+    {
+        label: "Budgéter",
+        icon: "ri-coins-line",
+        articles: [
+            { title: "Prix d'une application mobile en Suisse 2026", href: "/blog/prix-application-mobile-suisse" },
+            { title: "MVP application mobile : combien prévoir ?", href: "/blog/budget-mvp-application-mobile" }
+        ]
+    },
+    {
+        label: "S'inspirer",
+        icon: "ri-lightbulb-line",
+        articles: [
+            { title: "Application métier sur mesure : 5 cas concrets", href: "/blog/application-metier-pme-sur-mesure" },
+            { title: "App mobile + automatisation : connecter son app", href: "/blog/application-mobile-automatisation-pme" }
+        ]
+    }
+];
+
+// FAQs
+const faqs = [
+    {
+        question: "Combien coûte le développement d'une application mobile en Suisse ?",
+        answer: "Ça dépend beaucoup du périmètre, mais on parle généralement d'une fourchette à partir de 10 000–15 000 CHF pour une app simple, et qui monte selon la complexité (backend, intégrations, design sur mesure). En passant par un freelance plutôt qu'une agence, tu évites les coûts de structure. Je te détaille tout dans un devis clair, sans surprise. Pour comprendre ce qui fait varier le prix, j'ai écrit un guide complet sur le prix d'une application mobile en Suisse."
+    },
+    {
+        question: "Combien de temps faut-il pour développer une app ?",
+        answer: "Pour un MVP ciblé sur les fonctionnalités essentielles, quelques semaines suffisent. Une application plus complète avec backend, comptes utilisateurs et intégrations prend évidemment plus de temps. On avance par itérations courtes : tu testes des versions sur ton téléphone tout au long, pas seulement à la fin."
+    },
+    {
+        question: "Application native ou hybride : laquelle choisir ?",
+        answer: "Le natif offre les meilleures performances pour des apps très poussées (jeux, accès matériel intensif). L'hybride — via Flutter ou React Native — couvre iOS et Android avec un seul code, pour un coût et un délai réduits : c'est le meilleur choix pour la grande majorité des projets PME. On tranche ensemble selon ton usage réel."
+    },
+    {
+        question: "Faut-il publier sur l'App Store ET le Play Store ?",
+        answer: "Dans la plupart des cas oui, pour toucher à la fois les utilisateurs iPhone et Android. Avec une techno hybride, ça ne double pas le coût de développement. Je m'occupe de la mise en ligne sur les deux stores : comptes développeurs, fiches, captures et validation."
+    },
+    {
+        question: "Et la maintenance une fois l'app lancée ?",
+        answer: "Une app n'est jamais \"finie\" : les systèmes iOS et Android évoluent, et les stores demandent des mises à jour régulières. On peut prévoir un suivi léger après le lancement. Et si tu as déjà une app abandonnée, je peux la reprendre et la remettre à niveau."
+    },
+    {
+        question: "App mobile ou PWA : comment savoir ce qu'il me faut ?",
+        answer: "Une PWA (application web installable) coûte moins cher et se déploie sans passer par les stores, mais elle a des limites — notamment sur iOS et l'accès au matériel. Pour beaucoup de PME, c'est largement suffisant. Mon rôle, c'est de te le dire honnêtement avant que tu investisses. J'ai détaillé les critères de choix dans un article dédié."
+    },
+    {
+        question: "Pourquoi un freelance à Genève plutôt qu'une agence ou un dev offshore ?",
+        answer: "La proximité : on se voit, on parle la même langue, on comprend le contexte suisse. La réactivité : pas de chef de projet intermédiaire, tu parles directement à celui qui code. La confiance : tes données restent en Suisse, conformes à la nLPD, et tu sais exactement qui travaille sur ton app."
+    }
+];
+schemas.push(getFAQPageSchema(faqs));
+
+// Local zones
+const zones = [
+    { name: "Genève", type: "primary", icon: "ri-map-pin-fill" },
+    { name: "Lausanne", type: "secondary", icon: "ri-map-pin-line" },
+    { name: "Vaud", type: "secondary", icon: "ri-map-pin-line" },
+    { name: "Toute Suisse romande", type: "tertiary", icon: "ri-global-line" }
+];
+---
+
+<Layout
+    title={seoData.title}
+    description={seoData.description}
+    schemas={schemas}
+>
+    <Header />
+
+    <!-- ============================================== -->
+    <!-- HERO SECTION -->
+    <!-- ============================================== -->
+    <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-24 px-4 relative overflow-hidden">
+        <!-- Gradient mesh background -->
+        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+            <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--yellow)] opacity-15 blur-[120px] rounded-full"></div>
+            <div class="absolute bottom-0 -right-20 w-[400px] h-[400px] bg-[var(--blue)] opacity-10 blur-[100px] rounded-full"></div>
+        </div>
+
+        <div class="max-w-5xl mx-auto relative z-10">
+            <!-- Centered text content -->
+            <div class="text-center">
+                <!-- H1 SEO discret -->
+                <h1 class="seo-h1 mb-8 mt-8">Développeur application mobile freelance à Genève</h1>
+
+                <!-- Main title -->
+                <p class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6" data-animate="fade-up">
+                    Ton application mobile<br/>
+                    <span class="relative inline-block">
+                        <span class="relative z-10">iOS &amp; Android.</span>
+                        <img
+                            src={svgArrowHero.src}
+                            alt=""
+                            class="absolute -bottom-1 left-0 w-full h-5 md:h-6 pointer-events-none"
+                            aria-hidden="true"
+                        />
+                    </span>
+                </p>
+
+                <!-- Subtitle -->
+                <p class="text-xl md:text-2xl font-medium text-[var(--text)] mb-4" data-animate="fade-up" data-delay="0.1">
+                    Pensée pour tes utilisateurs, pas pour une agence.
+                </p>
+
+                <!-- Description -->
+                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="0.15">
+                    PME, startup ou indépendant : tu n'as pas besoin d'un tunnel de 6 mois à 60 000 CHF. Tu as besoin d'un <strong class="text-[var(--text)]">développeur mobile en Suisse romande</strong> qui code ton app, la publie sur les stores et te dit la vérité sur ce qu'il te faut vraiment.
+                </p>
+
+                <!-- CTAs centered -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 md:mb-16" data-animate="fade-up" data-delay="0.2">
+                    <a
+                        href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="
+                            bg-[var(--blue)]
+                            border-2 border-black
+                            px-6 py-4
+                            text-lg font-medium
+                            shadow-[4px_4px_0px_rgba(0,0,0,1)]
+                            transition-all duration-200
+                            hover:bg-[var(--yellow)]
+                            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
+                            hover:translate-x-[2px] hover:translate-y-[2px]
+                            flex items-center justify-center gap-2
+                        "
+                    >
+                        <i class="ri-smartphone-line"></i>
+                        Discuter de mon app
+                    </a>
+                    <a
+                        href="#methode"
+                        class="
+                            bg-white
+                            border-2 border-black
+                            px-6 py-4
+                            text-lg font-medium
+                            transition-all duration-200
+                            hover:bg-gray-100
+                            flex items-center justify-center gap-2
+                        "
+                    >
+                        Voir comment ça fonctionne
+                        <i class="ri-arrow-down-line"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Visual element: Hero illustration -->
+            <div class="w-full max-w-3xl mx-auto relative" data-animate="scale" data-delay="0.3">
+                <div class="bg-white border-3 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] p-4 md:p-6 relative">
+                    <!-- Corner boxes -->
+                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+
+                    <!-- Image -->
+                    <img
+                        src={imgHero.src}
+                        alt="Application mobile iOS et Android développée par un freelance à Genève"
+                        class="w-full h-auto"
+                        loading="eager"
+                    />
+                </div>
+
+            </div>
+
+            <!-- Location badge centered -->
+            <div class="flex items-center justify-center gap-2 text-sm text-gray-500 mt-12">
+                <i class="ri-map-pin-fill text-[var(--blue)]"></i>
+                <span>Basé à Genève | Service en Suisse romande</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- PAIN POINTS SECTION -->
+    <!-- ============================================== -->
+    <section id="problemes" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
+        <BackgroundGlitchGrid color="rgba(239, 68, 68, 0.4)" opacity={0.08} />
+
+        <div class="max-w-5xl mx-auto relative z-10">
+            <!-- Section header -->
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    situations
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                    <span class="relative inline-block">
+                        <span class="absolute bg-red-200 w-full h-[40%] left-0 bottom-1 -z-1"></span>
+                        Tu te reconnais ?
+                    </span>
+                </h2>
+                <p class="text-lg text-gray-600">Ces moments où une app devient une vraie question.</p>
+            </div>
+
+            <!-- Pain points grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12" data-animate-stagger>
+                {painPoints.map((point) => (
+                    <div class="pain-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
+                        <!-- Red X icon -->
+                        <div class="w-10 h-10 bg-red-100 border-2 border-red-300 flex items-center justify-center mb-4">
+                            <i class="ri-close-line text-red-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">{point.title}</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">{point.description}</p>
+                    </div>
+                ))}
+            </div>
+
+            <!-- Illustration problèmes -->
+            <div class="w-full max-w-md mx-auto mb-12" data-animate="fade-up">
+                <img
+                    src={imgProblemes.src}
+                    alt="PME face au choix de développer une application mobile"
+                    class="w-full h-auto"
+                    loading="lazy"
+                />
+            </div>
+
+            <!-- Personal story callout -->
+            <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate="fade-up">
+                <i class="ri-double-quotes-l text-6xl text-gray-100 absolute -top-4 -left-2 md:-left-4"></i>
+
+                <div class="space-y-4 text-gray-700 leading-relaxed relative z-10">
+                    <p class="font-bold text-lg text-[var(--text)]">Une app, ce n'est pas un site avec des coins arrondis.</p>
+
+                    <p>La plupart des projets mobiles qui dérapent partent du même endroit : <strong>on construit trop, trop tôt, sans avoir validé que les gens utiliseront vraiment l'app.</strong> Quinze écrans, des fonctionnalités que personne n'ouvrira, et une facture qui gonfle.</p>
+
+                    <p>Mon approche est l'inverse : on identifie le cœur de ton app, on le sort vite et bien sur iOS et Android, et on enrichit ensuite — seulement si tes utilisateurs suivent.</p>
+
+                    <div class="bg-[var(--blue)] bg-opacity-20 border-l-4 border-[var(--blue)] p-4 mt-6">
+                        <p class="font-bold text-[var(--text)]">
+                            Une bonne app mobile, c'est d'abord une bonne décision : quoi construire, et surtout quoi ne pas construire.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- METHOD SECTION -->
+    <!-- ============================================== -->
+    <section id="methode" class="py-20 md:py-28 px-4 relative overflow-hidden">
+        <BackgroundProgressFlow opacity={0.08} />
+
+        <div class="max-w-5xl mx-auto relative z-10">
+            <!-- Section header -->
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    méthode
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                    Comment ça se passe ?
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Pas de tunnel de développement. Tu testes ton app sur ton téléphone à chaque étape.
+                </p>
+            </div>
+
+            <!-- Method illustration -->
+            <div class="w-full max-w-2xl mx-auto mb-12" data-animate="fade-up">
+                <img
+                    src={imgMethode.src}
+                    alt="La méthode en 3 étapes: Cadrage, Construction, Lancement sur les stores"
+                    class="w-full h-auto"
+                    loading="lazy"
+                />
+            </div>
+
+            <!-- Process steps -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12" data-animate-stagger>
+                {methodSteps.map((step, index) => (
+                    <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
+                        <!-- Step badge -->
+                        <div class="absolute -top-3 left-4 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-bold">
+                            ÉTAPE {step.step}
+                        </div>
+                        <h3 class="text-xl font-bold mb-3 mt-4">{step.title}</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">{step.description}</p>
+                        <!-- Duration -->
+                        <div class="flex items-center gap-2 text-sm pt-3 border-t border-dashed border-gray-300">
+                            <i class="ri-time-line text-[var(--blue)]"></i>
+                            <span class="text-gray-500">{step.duration}</span>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <!-- Differentiators box -->
+            <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate="fade-up">
+                <!-- Corner boxes -->
+                <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+
+                <h3 class="text-xl font-bold text-center mb-6">Ce qui change avec Jon Labs</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {differentiators.map((diff) => (
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
+                                <i class={`${diff.icon} text-sm`}></i>
+                            </div>
+                            <p class="text-sm text-gray-700">{diff.text}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- RESULTS SECTION -->
+    <!-- ============================================== -->
+    <section id="resultats" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
+        <BackgroundProgressFlow opacity={0.05} />
+
+        <div class="max-w-5xl mx-auto relative z-10">
+            <!-- Section header -->
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    résultats
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal">
+                    Ce que tu obtiens
+                </h2>
+            </div>
+
+            <!-- Results grid: 3 cards on top -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6" data-animate-stagger>
+                {results.slice(0, 3).map((result) => (
+                    <div class="result-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
+                        <!-- Green check icon -->
+                        <div class="w-10 h-10 bg-green-100 border-2 border-green-400 flex items-center justify-center mb-4">
+                            <i class="ri-check-line text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">{result.title}</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">{result.description}</p>
+                    </div>
+                ))}
+            </div>
+
+            <!-- Results grid: 2 cards centered below -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto" data-animate-stagger>
+                {results.slice(3).map((result) => (
+                    <div class="result-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
+                        <!-- Green check icon -->
+                        <div class="w-10 h-10 bg-green-100 border-2 border-green-400 flex items-center justify-center mb-4">
+                            <i class="ri-check-line text-green-600 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">{result.title}</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">{result.description}</p>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- PRICING SECTION -->
+    <!-- ============================================== -->
+    <section id="prix" class="py-20 md:py-28 px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Section header -->
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    investissement
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                    Investissement
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Chaque app est différente. Une PWA pour tester un usage, ce n'est pas la même chose qu'une application native connectée à ton système métier.
+                </p>
+            </div>
+
+            <!-- Pricing info card -->
+            <div class="bg-white border-3 border-black p-8 md:p-10 shadow-[8px_8px_0px_rgba(0,0,0,1)] relative mb-8" data-animate="scale">
+                <!-- Corner boxes -->
+                <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+
+                <div class="text-center mb-8">
+                    <p class="text-xl md:text-2xl font-bold text-[var(--text)] mb-2">
+                        On en discute, je te fais un devis clair avec un périmètre précis.
+                    </p>
+                    <p class="text-gray-600">Pas de coûts cachés, pas de surprise en cours de route.</p>
+                </div>
+
+                <div class="border-t-2 border-dashed border-gray-300 pt-6">
+                    <h4 class="font-bold mb-4 flex items-center justify-center gap-2">
+                        <i class="ri-information-line text-[var(--blue)]"></i>
+                        Ce qui influence le prix :
+                    </h4>
+                    <ul class="space-y-2 max-w-md mx-auto">
+                        {priceFactors.map((factor) => (
+                            <li class="flex items-center gap-2 text-sm text-gray-600">
+                                <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
+                                {factor}
+                            </li>
+                        ))}
+                    </ul>
+                    <p class="text-center text-sm text-gray-500 mt-6">
+                        Pour te faire une idée des fourchettes, lis mon guide sur le <a href="/blog/prix-application-mobile-suisse" class="text-[var(--blue)] font-medium hover:underline">prix d'une application mobile en Suisse</a>.
+                    </p>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center" data-animate="fade-up">
+                <a
+                    href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="
+                        inline-flex items-center gap-2
+                        bg-[var(--blue)]
+                        border-2 border-black
+                        px-8 py-4
+                        text-lg font-bold
+                        shadow-[4px_4px_0px_rgba(0,0,0,1)]
+                        transition-all duration-200
+                        hover:bg-[var(--yellow)]
+                        hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
+                        hover:translate-x-[2px] hover:translate-y-[2px]
+                    "
+                >
+                    <i class="ri-file-list-3-line"></i>
+                    Demander un devis
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- CLUSTER / RESSOURCES SECTION -->
+    <!-- ============================================== -->
+    <section id="ressources" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
+        <div class="max-w-5xl mx-auto relative z-10">
+            <!-- Section header -->
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    ressources
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                    Tout comprendre avant de te lancer
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Avant de demander un devis, fais-toi ton propre avis. J'ai écrit un dossier complet sur le développement d'applications mobiles pour les PME romandes — commence par le <a href="/blog/developper-application-mobile-suisse" class="text-[var(--blue)] font-medium hover:underline">guide complet</a>.
+                </p>
+            </div>
+
+            <!-- Cluster groups grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6" data-animate-stagger>
+                {clusterGroups.map((group) => (
+                    <div class="bg-[var(--main-bg)] border-2 border-black p-6 relative" data-animate-item>
+                        <div class="flex items-center gap-3 mb-4">
+                            <div class="w-9 h-9 bg-[var(--yellow)] border-2 border-black flex items-center justify-center flex-shrink-0">
+                                <i class={`${group.icon} text-base`}></i>
+                            </div>
+                            <h3 class="text-lg font-bold">{group.label}</h3>
+                        </div>
+                        <ul class="space-y-2">
+                            {group.articles.map((article) => (
+                                <li>
+                                    <a href={article.href} class="flex items-start gap-2 text-sm text-gray-700 hover:text-[var(--text)] group">
+                                        <i class="ri-arrow-right-s-line text-[var(--blue)] mt-0.5 group-hover:translate-x-1 transition-transform"></i>
+                                        <span class="group-hover:underline">{article.title}</span>
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- FAQ SECTION -->
+    <!-- ============================================== -->
+    <FAQ
+        faqs={faqs}
+        title="Questions fréquentes"
+        sectionId="faq"
+    >
+        <BackgroundQuestionMarks slot="background" />
+    </FAQ>
+
+    <!-- Extra question note -->
+    <div class="text-center py-8 px-4 -mt-16 relative z-10">
+        <p class="text-gray-500">
+            Autre question ? <a href="/contact" class="text-[var(--blue)] font-medium hover:underline">Contacte-moi directement</a>, je réponds sous 24h.
+        </p>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- ABOUT SECTION -->
+    <!-- ============================================== -->
+    <section id="about" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
+        <div class="max-w-3xl mx-auto">
+            <!-- Section header -->
+            <div class="text-center mb-12" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    à propos
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal">
+                    Qui est derrière Jon Labs ?
+                </h2>
+            </div>
+
+            <!-- About card -->
+            <div class="bg-[var(--main-bg)] border-3 border-black p-8 md:p-10 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate="fade-up">
+                <div class="space-y-4 text-gray-700 leading-relaxed">
+                    <p>Je suis <strong class="text-[var(--text)]">Jonathan</strong>, développeur et créateur de solutions digitales basé à Genève.</p>
+
+                    <p>Je ne suis pas une agence avec 15 commerciaux et des juniors qui font le travail. Je suis <strong class="text-[var(--text)]">ton partenaire technique direct</strong> — celui qui va coder ton application, la publier sur les stores, et t'aider à trancher quand il faut faire des choix.</p>
+
+                    <p>Mon approche : <strong class="text-[var(--text)]">action plutôt que perfection</strong>. Une app utile entre les mains de tes utilisateurs vaut mieux qu'une roadmap parfaite qui ne sort jamais.</p>
+
+                    <p>J'ai accompagné des entrepreneurs romands, des startups en phase d'amorçage et des PME suisses qui avaient besoin d'outiller leur activité — sans exploser leur budget.</p>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-dashed border-gray-300">
+                    <a href="/about" class="inline-flex items-center gap-2 text-[var(--blue)] font-medium hover:underline">
+                        <i class="ri-user-line"></i>
+                        En savoir plus sur mon parcours
+                        <i class="ri-arrow-right-line"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- LOCAL SECTION -->
+    <!-- ============================================== -->
+    <section id="local" class="py-20 md:py-28 px-4">
+        <div class="max-w-4xl mx-auto">
+            <!-- Section header -->
+            <div class="text-center mb-12" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    local
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal">
+                    Basé à <span class="text-[var(--blue)]">Genève</span>, disponible partout en Suisse romande
+                </h2>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-animate="fade-up">
+                <!-- Description -->
+                <div class="space-y-4 text-gray-700">
+                    <p>
+                        Le développement d'une application mobile se fait très bien à distance — échanges, suivi, démos et tests sur ton téléphone, tout peut se gérer en visio. C'est souvent plus efficace.
+                    </p>
+                    <p>
+                        Mais si tu préfères un échange en personne pour le cadrage ou les points d'étape, je suis disponible sur Genève et ses environs.
+                    </p>
+                    <p>
+                        Je connais le contexte suisse romand — les attentes des utilisateurs d'ici, la nLPD pour la protection des données, et les réalités d'une PME locale.
+                    </p>
+                </div>
+
+                <!-- Zones -->
+                <div class="space-y-3">
+                    {zones.map((zone) => (
+                        <div class={`
+                            flex items-center gap-4 p-4 border-2 border-black
+                            ${zone.type === 'primary' ? 'bg-[var(--blue)] bg-opacity-20 border-[var(--blue)]' : 'bg-white'}
+                        `}>
+                            <i class={`${zone.icon} text-xl ${zone.type === 'primary' ? 'text-[var(--text)]' : 'text-gray-600'}`}></i>
+                            <span class={`font-medium ${zone.type === 'primary' ? 'text-lg font-bold' : ''}`}>
+                                {zone.name}
+                                {zone.type === 'primary' && <span class="text-sm font-normal text-gray-600 ml-2">(basé sur place)</span>}
+                            </span>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- CTA FINAL SECTION -->
+    <!-- ============================================== -->
+    <section id="cta-final" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
+        <!-- Dot pattern background -->
+        <div class="absolute inset-0 dots-bg opacity-[0.3]"></div>
+
+        <div class="max-w-3xl mx-auto relative z-10 text-center">
+            <h2 class="text-3xl md:text-4xl font-normal mb-6" data-animate="fade-up">
+                T'as une app en tête ?
+            </h2>
+            <p class="text-xl font-medium text-[var(--text)] mb-4" data-animate="fade-up" data-delay="0.1">
+                Arrête de tourner en rond.
+            </p>
+            <p class="text-lg text-gray-600 mb-8" data-animate="fade-up" data-delay="0.15">
+                En 30 minutes, on regarde ton projet ensemble et je te dis honnêtement ce qu'il te faut — app native, hybride ou PWA — et ce que ça coûterait pour le sortir.
+            </p>
+
+            <!-- CTA illustration -->
+            <div class="w-full max-w-sm mx-auto mb-8" data-animate="fade-up" data-delay="0.2">
+                <img
+                    src={imgCtaFinal.src}
+                    alt="Passer à l'action et lancer son application mobile"
+                    class="w-full h-auto"
+                    loading="lazy"
+                />
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12" data-animate="fade-up" data-delay="0.25">
+                <a
+                    href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="
+                        bg-[var(--blue)]
+                        border-2 border-black
+                        px-8 py-4
+                        text-lg font-bold
+                        shadow-[4px_4px_0px_rgba(0,0,0,1)]
+                        transition-all duration-200
+                        hover:bg-[var(--yellow)]
+                        hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
+                        hover:translate-x-[2px] hover:translate-y-[2px]
+                        flex items-center justify-center gap-2
+                    "
+                >
+                    <i class="ri-calendar-line"></i>
+                    Réserver un appel découverte
+                </a>
+            </div>
+
+            <!-- Alternative -->
+            <div class="bg-[var(--main-bg)] border-2 border-dashed border-gray-300 p-6 inline-block" data-animate="fade-up" data-delay="0.3">
+                <p class="text-gray-500 text-sm mb-2">
+                    <strong>Juste une idée à tester ?</strong> Commence petit avec un prototype fonctionnel avant de développer l'app complète.
+                </p>
+                <a href="/services/developpement-mvp" class="inline-flex items-center gap-2 text-[var(--blue)] font-medium hover:underline">
+                    <i class="ri-rocket-line"></i>
+                    Découvrir le développement de MVP
+                    <i class="ri-arrow-right-line"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>
+
+<style>
+    /* Dot pattern background */
+    .dots-bg {
+        background-image: radial-gradient(circle, #000 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+
+    /* H1 SEO style terminal */
+    .seo-h1 {
+        font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace;
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: rgba(15, 15, 15, 0.5);
+        letter-spacing: 0.05em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* Scroll margin for anchor navigation */
+    section[id] {
+        scroll-margin-top: 100px;
+    }
+</style>

@@ -4,6 +4,26 @@
 > **Plan maître** : `docs/restructuration-clusters.md` (archi cible, verdict par page, liste KILL, feuille de route 5 phases).
 > **Diagnostic data** : `.seo-data/diagnostic-gsc-pages-cannibalisation.md`.
 
+## Etat session 2026-06-25 — Phase 1 / C2 : pilier service mobile
+
+**Fait :**
+- **Pilier service mobile créé** : `src/pages/services/developpement-application-mobile.astro` (modèle = developpement-mvp.astro) — hero, pain points, méthode, résultats, prix, section **Ressources** reliant les 10 articles du cluster, FAQ, about, local, CTA. Intent **transactionnel** (anti-cannibalisation avec le pillar blog informationnel).
+- **4 visuels doodle** générés via OpenAI `gpt-image-1` (clé Gemini expirée) → `src/assets/services/mobile-{hero,problemes,methode,cta-final}.png`, style cohérent avec les visuels MVP.
+- **Schema Service** ajouté (`serviceSchemas["developpement-application-mobile"]`) + breadcrumb + FAQPage.
+- **Découvrabilité** : item « Application mobile » ajouté dans `navigation.ts` (colonne Web & apps) → méga-menu + fat footer sitewide.
+- **CTA repointé** : les 2 CTA transactionnels du pillar blog `developper-application-mobile-suisse` pointent désormais vers le pilier service (le lien MVP contextuel de `freelance-ou-agence` préservé volontairement).
+- Build OK (**195 pages**, +7), page dans le sitemap, dist généré.
+
+**Prochain :** Phase 1 — topical maps **C1 (app custom/IA)** et **C3 (web + réf. local + GEO + GMB)**. Voir feuille de route `docs/restructuration-clusters.md`.
+
+**Pièges :**
+- Clé **GEMINI_API_KEY expirée** → la génération d'images est passée par OpenAI cette session. À renouveler côté Google pour réactiver le pipeline `/generate-images` natif.
+- Visuels mobile = doodles OpenAI (corrects, captions lisibles) ; régénérables en Gemini plus tard si on veut l'aligner pixel-perfect sur les MVP.
+
+**Commit :** (à créer)
+
+---
+
 ## Etat session 2026-06-25
 
 **Fait :**
@@ -30,6 +50,7 @@
 |---------|------|
 | `docs/restructuration-clusters.md` | Plan maître du chantier : 3 clusters, verdict par page, liste KILL, feuille de route 5 phases |
 | `.seo-data/diagnostic-gsc-pages-cannibalisation.md` | Diagnostic data (GSC perf, indexation, cannibalisation) |
+| `src/pages/services/developpement-application-mobile.astro` | **Pilier service C2 (mobile)** : page transactionnelle + section Ressources reliant les 10 articles du cluster |
 | `src/components/Footer.astro` | Fat footer : liens profonds sitewide (piliers/zones/services) depuis `mainNav.columns` |
 | `src/data/navigation.ts` | Source de vérité du maillage (méga-menu + footer) — piliers & zones y sont déclarés |
 | `.seo-data/gsc-jonlabs-last_3_months.json` | Snapshot GSC brut (régénérable via `/seo-gsc`) |

@@ -179,7 +179,7 @@ Je travaille en Flutter et React Native. La majorité des projets PME que j'acco
 
 Ce qui me différencie d'un développeur mobile pur : les intégrations font partie du périmètre standard. CRM, outils d'automatisation, API externes (paiement, logistique, RH), je les intègre directement, sans devoir passer par un deuxième prestataire. Pour les projets PME, ça simplifie considérablement le pilotage.
 
-[Discuter de votre projet mobile](/services/developpement-mvp), cadrage gratuit, sans engagement.
+[Discuter de votre projet mobile](/services/developpement-application-mobile), cadrage gratuit, sans engagement.
 
 ---
 
@@ -213,7 +213,7 @@ C'est même la façon recommandée de procéder. Un MVP bien ciblé (5 à 10 fon
 
 Si tu es au stade de l'exploration ("est-ce que j'ai besoin d'une app ou pas ?"), le cadrage gratuit que je propose répond à cette question en 30 minutes, sans engagement. C'est le point de départ le plus utile avant de contacter plusieurs prestataires et de comparer des devis qui ne parlent pas du même périmètre.
 
-[**Discuter de votre projet mobile →**](/services/developpement-mvp)
+[**Discuter de votre projet mobile →**](/services/developpement-application-mobile)
 
 ---
 

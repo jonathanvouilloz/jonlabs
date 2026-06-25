@@ -47,7 +47,7 @@
 ## C2 — Développement application mobile
 
 > Cluster **fraîchement produit** (epic mobile clôturé) — 10 articles, tous programmés juillet → 0 imp est normal.
-> Manque : **une page pilier service** (aucune page `/services/...mobile` n'existe).
+> ✅ **Pilier service créé le 2026-06-25** : `/services/developpement-application-mobile` (nav + footer sitewide, schema Service, CTA repointé).
 
 | Page | Statut | Verdict |
 |------|--------|---------|
@@ -61,7 +61,7 @@
 | `/blog/application-native-vs-hybride` | 🗓️ 28.07 | 🟢 |
 | `/blog/application-mobile-automatisation-pme` | 🗓️ 31.07 | 🟢 (pont C1/C2) |
 | `/blog/application-mobile-pme-suisse` | 🗓️ 07.07 | 🟢 |
-| **PILIER service mobile** | ❌ absent | 🆕 **CREATE** — `/services/developpement-application-mobile` |
+| **PILIER service mobile** | ✅ créé 25.06 | 🟢 `/services/developpement-application-mobile` — nav + footer + schema + CTA repointé |
 
 ## C3 — Création web + référencement
 
@@ -163,7 +163,7 @@ Indépendant des clusters, débloque immédiatement la visibilité.
 ### Phase 1 — Topical maps des 3 clusters 🗺️
 Une `/seo-topical-map` par cluster pour figer pilier + satellites + gaps + maillage cible.
 - [ ] C1 — App custom (+ automatisation/IA) : définir le pilier service + rattacher le contenu auto
-- [ ] C2 — App mobile : **créer le pilier service manquant** + relier les 10 articles
+- [x] C2 — App mobile : **pilier service créé** (`/services/developpement-application-mobile`) + relié aux 10 articles (section Ressources + nav/footer + CTA repointé) — 2026-06-25
 - [ ] C3 — Web + référencement : sous-cartes (création web / SEO local / GEO / GMB)
 
 ### Phase 2 — Consolidation & dé-cannibalisation 🔧
@@ -172,7 +172,7 @@ Une `/seo-topical-map` par cluster pour figer pilier + satellites + gaps + maill
 - [ ] Pilier GMB : élire la page d'autorité + organiser les 11 satellites
 
 ### Phase 3 — Création / refonte des pages piliers ✍️
-- [ ] Pilier C2 mobile (nouvelle page service)
+- [x] Pilier C2 mobile (nouvelle page service) — `/services/developpement-application-mobile`, 2026-06-25
 - [ ] Finaliser `/services/automatisation` + `/services/refonte-site-web` (retirer noindex)
 - [ ] Étoffer `/services/developpement-mvp`, `/services/creation-site-web`
 - [ ] Landings métier : webflow, wordpress, freelance-genève (contenu + intention claire)

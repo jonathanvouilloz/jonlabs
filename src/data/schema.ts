@@ -383,6 +383,17 @@ export const serviceSchemas = {
     "areaServed": ["Genève", "Vaud", "Suisse Romande"],
     "serviceType": "Développement MVP"
   },
+  "developpement-application-mobile": {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${SITE_URL}/services/developpement-application-mobile/#service`,
+    "name": "Développeur application mobile à Genève",
+    "url": `${SITE_URL}/services/developpement-application-mobile`,
+    "description": "Développement d'applications mobiles iOS et Android pour PME et startups romandes. Freelance à Genève : app native, hybride, Flutter/React Native ou PWA, publication sur les stores, devis clair en CHF.",
+    "provider": { "@id": `${SITE_URL}/#organization` },
+    "areaServed": ["Genève", "Vaud", "Suisse Romande"],
+    "serviceType": "Développement application mobile"
+  },
   "referencement-local": {
     "@context": "https://schema.org",
     "@type": "Service",
