@@ -4,6 +4,27 @@
 > **Plan maître** : `docs/restructuration-clusters.md` (archi cible, verdict par page, liste KILL, feuille de route 5 phases).
 > **Diagnostic data** : `.seo-data/diagnostic-gsc-pages-cannibalisation.md`.
 
+## Etat session 2026-06-25 — Phase 3 / C3a : activation du pilier creation-site-web (indexation-focus)
+
+**Fait :**
+- **Constat clé** : le pilier `/services/creation-site-web` n'était PAS thin en contenu (1185 lignes, plus riche que MVP) — son problème est `crawled-not-indexed`, donc un déficit de **signaux de maillage** (3 liens entrants seulement ; 1 seul des 7 spokes blog le linkait). Décision validée : Phase 3 C3a = **indexation-focus**, pas d'enrichissement E-E-A-T lourd.
+- **Section Ressources** ajoutée sur `creation-site-web.astro` (pattern `clusterGroups` + `<section id="ressources">` répliqué de C2 mobile / C3d GMB) : 7 spokes en 2 groupes (Prix & choix prestataire / Diagnostic & visibilité). Insérée entre la section locale et le CTA. Les 5 pages géo restent dans leur bloc existant (non dupliquées).
+- **Maillage réciproque bouclé** : 1 lien contextuel naturel vers le pilier ajouté dans les **6 articles spokes** manquants (`specialiste-developpement-web-suisse`, `freelance-ou-agence-web`, `15-signes-site-web-dort`, `cout-site-web-dormant-calculateur`, `visibilite-site-internet-2026`, `creer-site-vitrine-ia-visibilite-google`). Résultat : **7/7 spokes → pilier** ET pilier → 7 spokes.
+- **Landing geneve activée** : lien entrant **portfolio → `/developpeur-web-freelance-geneve`** ajouté dans le CTA de `portfolio.astro` (maillon blueprint manquant). Ses 3 liens sortants blueprint (creation-site-web + prix + specialiste) étaient déjà en place.
+- **Build OK (193 pages, aucune route ajoutée)**. Maillage vérifié dans `dist` : section ressources + 7 liens spokes + bloc géo sur le pilier ; 7/7 spokes pointent vers le pilier ; portfolio → landing OK.
+
+**Prochain :** Action manuelle Jonathan = **Request Indexing** GSC sur `/services/creation-site-web` + `/developpeur-web-freelance-geneve` après déploiement (surveiller `/seo-gsc` J+30/60, départ pos 3.8). Côté code, suite Phase 3 : retirer `noindex, follow` de `/services/refonte-site-web` (l.297) + le mailler ; étoffer `/services/developpement-mvp` ; désoptimiser title/H1 home (seulement APRÈS indexation de la landing geneve).
+
+**Pièges :**
+- **Pattern Ressources = `clusterGroups` + `<section id="ressources">`** copié de `developpement-application-mobile.astro` (l.136 / l.611). Réutiliser ce modèle pour tout futur pilier.
+- Un seul lien réciproque par spoke (pas de sur-maillage). `prix-site-web-suisse-2026` linkait déjà le pilier — non retouché.
+- Plusieurs spokes CTA encore vers `/services/refonte-site-web` (en `noindex`) — à reconsidérer quand cette page sera finalisée.
+- Action manuelle toujours en attente : Request Indexing GSC sur les 3 piliers UNKNOWN + maintenant creation-site-web + landing geneve.
+
+**Commit :** 43c62e6 feat(seo): activation pilier C3a creation-site-web — Ressources + maillage réciproque (Phase 3)
+
+---
+
 ## Etat session 2026-06-25 — Phase 0 : maillage bidirectionnel des 6 fiches portfolio
 
 **Fait :**
@@ -143,7 +164,7 @@
 ---
 
 ## Carte du code
-> Mise a jour : 2026-06-25
+> Mise a jour : 2026-06-25 (Phase 3 C3a)
 
 | Fichier | Role |
 |---------|------|
@@ -161,7 +182,9 @@
 | `src/content/blog/fiche-google-my-business-guide-complet-2026.md` | **Hub blog C3d (GMB)** : section descendante `## Tous les guides du cluster` → 10 satellites groupés par cycle de vie + CTA vers le pilier service |
 | `src/pages/services/gestion-fiche-google.astro` | **Pilier service C3d (GMB)** : page transactionnelle + section Ressources (const `clusterGroups`) reliant les 10 satellites GMB |
 | `src/pages/services/developpement-application-mobile.astro` | **Pilier service C2 (mobile)** : page transactionnelle + section Ressources reliant les 10 articles du cluster |
-| `src/pages/services/creation-site-web.astro` | **Pilier service C3a (création web)** : ajout du bloc « Création de site web par ville » (5 pages géo + landing geneve) dans la section locale |
+| `src/pages/services/creation-site-web.astro` | **Pilier service C3a (création web)** : bloc « Création de site web par ville » (5 géo + landing) + **section Ressources** (const `clusterGroups`, `<section id="ressources">`) reliant les 7 spokes du silo. Hub du cluster C3a |
+| `src/pages/portfolio.astro` | Listing portfolio : lien entrant contextuel vers la landing geneve (`/developpeur-web-freelance-geneve`) dans le CTA bas de page — maillon blueprint |
+| `src/content/blog/{specialiste-developpement-web-suisse,freelance-ou-agence-web,15-signes-site-web-dort,cout-site-web-dormant-calculateur,visibilite-site-internet-2026,creer-site-vitrine-ia-visibilite-google}` | **6 spokes C3a** : chacun linke (1×, contextuel) vers le pilier `/services/creation-site-web`. Avec `prix-site-web-suisse-2026` (déjà en place) = 7/7 spokes → pilier |
 | `src/components/GeoZonesStrip.astro` | **Strip géo home** : maillage léger (5 villes + landing) en fin de home pour désambiguïser les requêtes locales-ville. Lit `villes-frontalieres.ts` |
 | `src/pages/index.astro` | Home : insertion de `<GeoZonesStrip />` en fin de `<main>` (désambiguïsation). Title/H1 « Genève » conservés (désoptimisation reportée) |
 | `src/pages/services.astro` | Page /services : bloc villes liées (5 pages géo) ajouté dans `.local-section` |

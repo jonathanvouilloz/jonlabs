@@ -175,8 +175,9 @@ Une `/seo-topical-map` par cluster pour figer pilier + satellites + gaps + maill
 ### Phase 3 — Création / refonte des pages piliers ✍️
 - [x] Pilier C2 mobile (nouvelle page service) — `/services/developpement-application-mobile`, 2026-06-25
 - [ ] Finaliser `/services/automatisation` + `/services/refonte-site-web` (retirer noindex)
-- [ ] Étoffer `/services/developpement-mvp`, `/services/creation-site-web`
-- [ ] Landings métier : webflow, wordpress, freelance-genève (contenu + intention claire)
+- [x] Activer `/services/creation-site-web` (indexation-focus : section Ressources + maillage réciproque 7/7 spokes) — 2026-06-25
+- [ ] Étoffer `/services/developpement-mvp`
+- [ ] Landings métier : webflow, wordpress ; freelance-genève maillée (entrant portfolio + sortants blueprint) — reste Request Indexing
 
 ### Phase 4 — Nettoyage & CTR 🧹
 - [ ] Valider et exécuter la liste KILL

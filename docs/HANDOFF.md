@@ -8,5 +8,5 @@
 | Cluster application mobile | docs/features/cluster-application-mobile.md | ✅ DONE |
 
 ## Reprendre ici
-**Refonte SEO** — Phase 0 quasi bouclée : maillage géo ✅, désambig. home légère ✅, maillage bidirectionnel des 6 fiches portfolio ✅. Reste Phase 0 : **activer les 3 piliers UNKNOWN** (Request Indexing GSC, action manuelle Jonathan). Ensuite : **désoptimiser title/H1 home** une fois la landing geneve indexée, ou attaquer Phase 3 (pilier thin creation-site-web) / Phase 4 (CTR GEO). À surveiller : `/seo-gsc` J+30/60 sur le pilier SEO local C3b.
-Commit : 5f3dd71 feat(seo): maillage bidirectionnel des 6 fiches portfolio (Phase 0)
+**Refonte SEO** — Phase 3 démarrée : pilier C3a `creation-site-web` **activé** (section Ressources + maillage réciproque 7/7 spokes + landing geneve maillée). Prochaine brique code : **retirer le `noindex` de `/services/refonte-site-web`** (l.297) + le mailler, puis étoffer `/services/developpement-mvp`. Action manuelle Jonathan : **Request Indexing** GSC sur creation-site-web + landing geneve + les 3 piliers UNKNOWN. Surveiller `/seo-gsc` J+30/60.
+Commit : 43c62e6 feat(seo): activation pilier C3a creation-site-web — Ressources + maillage réciproque (Phase 3)
