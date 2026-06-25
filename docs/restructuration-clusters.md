@@ -77,7 +77,7 @@
 | `/blog/freelance-ou-agence-web` | 3 | 5 | 10 | 🔵 IMPROVE (bien maillé, faibles imp) |
 | `/developpeur-web-freelance-geneve` | 0 | — | 4 | 🟠 **ACTIVATE** — landing perso UNKNOWN to Google |
 | `/services/creation-site-web` | 12 | 3.8 | 3 | 🔵 IMPROVE — thin (crawled-not-indexed) |
-| `/services/refonte-site-web` | 6 | 10 | 9 | 🟠 ACTIVATE — draft/noindex à finaliser |
+| `/services/refonte-site-web` | 6 | 10 | 9 | ✅ ACTIVÉE — noindex retiré + Ressources + sibling (2026-06-25) |
 | `/services/developpeur-webflow` | 0 | — | 4 | 🟠 ACTIVATE — UNKNOWN to Google |
 | `/services/developpeur-wordpress` | 0 | — | 5 | 🟠 ACTIVATE — UNKNOWN to Google |
 | `/developpement-web/{annemasse,gaillard,ville-la-grand,saint-julien,la-roche}` | 41-211 | 8-13 | **0** | 🟠 ACTIVATE — **5 pages géo ORPHELINES**, cannibalisées par la home. Mailler ou décider du sort |
@@ -174,7 +174,8 @@ Une `/seo-topical-map` par cluster pour figer pilier + satellites + gaps + maill
 
 ### Phase 3 — Création / refonte des pages piliers ✍️
 - [x] Pilier C2 mobile (nouvelle page service) — `/services/developpement-application-mobile`, 2026-06-25
-- [ ] Finaliser `/services/automatisation` + `/services/refonte-site-web` (retirer noindex)
+- [x] Activer `/services/refonte-site-web` (noindex retiré → index,follow ; section Ressources 7 spokes + sibling réciproque creation-site-web) — 2026-06-25
+- [ ] Finaliser `/services/automatisation` (retirer noindex — pilier B C1)
 - [x] Activer `/services/creation-site-web` (indexation-focus : section Ressources + maillage réciproque 7/7 spokes) — 2026-06-25
 - [ ] Étoffer `/services/developpement-mvp`
 - [ ] Landings métier : webflow, wordpress ; freelance-genève maillée (entrant portfolio + sortants blueprint) — reste Request Indexing

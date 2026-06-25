@@ -4,6 +4,28 @@
 > **Plan maître** : `docs/restructuration-clusters.md` (archi cible, verdict par page, liste KILL, feuille de route 5 phases).
 > **Diagnostic data** : `.seo-data/diagnostic-gsc-pages-cannibalisation.md`.
 
+## Etat session 2026-06-25 — Phase 3 : activation du pilier refonte-site-web
+
+**Fait :**
+- **noindex retiré** sur `refonte-site-web.astro` (prop `robots="noindex, follow"` supprimée du `<Layout>`) → la page hérite de `index, follow` (défaut `SEO.astro` l.45). C'était le **seul vrai blocage** : la page n'est PAS thin (1179 lignes, sections complètes + Schema Service/Breadcrumb/FAQPage déjà là) et a **déjà 27 liens entrants** BOFU (CTA « audit gratuit » depuis 9 articles + funnel outils/checklist-15-signes), intacts.
+- **Section Ressources ajoutée** (`const clusterGroups` + `<section id="ressources">`, pattern répliqué de creation-site-web/mobile), insérée entre la section `local` et le CTA `#contact`. 7 spokes en 2 groupes à intent « refonte » : *Diagnostic & quand refondre* (15-signes, cout-dormant, visibilite-2026, audit-50-sites) + *Prix & choix prestataire* (prix-site-web, specialiste, freelance-ou-agence).
+- **Maillage sibling réciproque Création ↔ Refonte** (différenciation d'intent des 2 piliers C3a, anti-cannibalisation) : refonte → creation-site-web (« pas encore de site ? ») dans l'intro Ressources ; creation-site-web → refonte (« déjà un site qui ne performe plus ? ») dans son intro Ressources.
+- **Build OK (193 pages, aucune route ajoutée)**. Vérifié dans `dist` : `<meta robots="index, follow">`, `<section id="ressources">`, 7/7 spokes linkés, les 2 liens siblings présents.
+- Décisions utilisateur de la session : maillage **footer/contextuel seulement** (PAS d'entrée `navigation.ts`, pour éviter la redondance méga-menu Création/Refonte) ; scope **refonte uniquement** (1 commit).
+
+**Prochain :** Action manuelle Jonathan = **Request Indexing** GSC sur `/services/refonte-site-web` après déploiement. Côté code, suite Phase 3 : **étoffer `/services/developpement-mvp`** (pilier C1 Build faible : 767 lignes, 1 seul lien sortant, pas de section Ressources) → ajouter `clusterGroups` + maillage spokes. ⚠️ Les 4 spokes C1 Build (`logiciel-sur-mesure-vs-saas`, `prix-logiciel-sur-mesure-pme`, `no-code-vs-developpement-sur-mesure`, `cahier-des-charges-application-metier`) **n'existent pas encore** — à créer via `/seo-brief` avant ou pendant. Seul `application-metier-pme-sur-mesure` existe.
+
+**Pièges :**
+- **Pattern Ressources = `clusterGroups` + `<section id="ressources">`** (copié de creation-site-web l.42/l.964). Réutiliser tel quel pour developpement-mvp.
+- Décision assumée : refonte & creation = **2 piliers C3a frères**, différenciés par intent (refaire un site existant vs créer un nouveau). Un seul lien réciproque chacun, pas de sur-maillage.
+- Plusieurs spokes ont des CTA BOFU vers refonte (désormais indexable) — bon signal, ne pas y toucher.
+- Article spoke `refonte-site-web-pme` (qui doit feed cette page) = **toujours à créer** (priorité basse au plan), hors scope code.
+- Action manuelle toujours en attente : Request Indexing GSC sur les 3 piliers UNKNOWN + creation-site-web + landing geneve + maintenant refonte-site-web.
+
+**Commit :** [à compléter] feat(seo): activation pilier refonte-site-web — index + Ressources + sibling (Phase 3)
+
+---
+
 ## Etat session 2026-06-25 — Phase 3 / C3a : activation du pilier creation-site-web (indexation-focus)
 
 **Fait :**
@@ -164,7 +186,7 @@
 ---
 
 ## Carte du code
-> Mise a jour : 2026-06-25 (Phase 3 C3a)
+> Mise a jour : 2026-06-25 (Phase 3 — refonte-site-web)
 
 | Fichier | Role |
 |---------|------|
@@ -182,7 +204,8 @@
 | `src/content/blog/fiche-google-my-business-guide-complet-2026.md` | **Hub blog C3d (GMB)** : section descendante `## Tous les guides du cluster` → 10 satellites groupés par cycle de vie + CTA vers le pilier service |
 | `src/pages/services/gestion-fiche-google.astro` | **Pilier service C3d (GMB)** : page transactionnelle + section Ressources (const `clusterGroups`) reliant les 10 satellites GMB |
 | `src/pages/services/developpement-application-mobile.astro` | **Pilier service C2 (mobile)** : page transactionnelle + section Ressources reliant les 10 articles du cluster |
-| `src/pages/services/creation-site-web.astro` | **Pilier service C3a (création web)** : bloc « Création de site web par ville » (5 géo + landing) + **section Ressources** (const `clusterGroups`, `<section id="ressources">`) reliant les 7 spokes du silo. Hub du cluster C3a |
+| `src/pages/services/creation-site-web.astro` | **Pilier service C3a (création web)** : bloc « Création de site web par ville » (5 géo + landing) + **section Ressources** (const `clusterGroups`, `<section id="ressources">`) reliant les 7 spokes du silo + lien sibling réciproque → refonte-site-web. Hub du cluster C3a |
+| `src/pages/services/refonte-site-web.astro` | **Pilier service C3a (refonte web)** : activé Phase 3 (noindex retiré → `index, follow`). Page riche (1179 l.) + **section Ressources** (7 spokes intent refonte) + lien sibling → creation-site-web. Cible de 27 CTA BOFU « audit gratuit » |
 | `src/pages/portfolio.astro` | Listing portfolio : lien entrant contextuel vers la landing geneve (`/developpeur-web-freelance-geneve`) dans le CTA bas de page — maillon blueprint |
 | `src/content/blog/{specialiste-developpement-web-suisse,freelance-ou-agence-web,15-signes-site-web-dort,cout-site-web-dormant-calculateur,visibilite-site-internet-2026,creer-site-vitrine-ia-visibilite-google}` | **6 spokes C3a** : chacun linke (1×, contextuel) vers le pilier `/services/creation-site-web`. Avec `prix-site-web-suisse-2026` (déjà en place) = 7/7 spokes → pilier |
 | `src/components/GeoZonesStrip.astro` | **Strip géo home** : maillage léger (5 villes + landing) en fin de home pour désambiguïser les requêtes locales-ville. Lit `villes-frontalieres.ts` |

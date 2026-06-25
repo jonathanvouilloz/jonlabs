@@ -8,5 +8,5 @@
 | Cluster application mobile | docs/features/cluster-application-mobile.md | ✅ DONE |
 
 ## Reprendre ici
-**Refonte SEO** — Phase 3 démarrée : pilier C3a `creation-site-web` **activé** (section Ressources + maillage réciproque 7/7 spokes + landing geneve maillée). Prochaine brique code : **retirer le `noindex` de `/services/refonte-site-web`** (l.297) + le mailler, puis étoffer `/services/developpement-mvp`. Action manuelle Jonathan : **Request Indexing** GSC sur creation-site-web + landing geneve + les 3 piliers UNKNOWN. Surveiller `/seo-gsc` J+30/60.
-Commit : 43c62e6 feat(seo): activation pilier C3a creation-site-web — Ressources + maillage réciproque (Phase 3)
+**Refonte SEO** — Phase 3 : pilier `refonte-site-web` **activé** (noindex retiré → index,follow + section Ressources 7 spokes + sibling réciproque creation-site-web). Prochaine brique code : **étoffer `/services/developpement-mvp`** (pilier C1 Build faible : section Ressources `clusterGroups` + maillage spokes) — ⚠️ les 4 spokes C1 Build n'existent pas encore (`/seo-brief` à lancer). Action manuelle Jonathan : **Request Indexing** GSC sur refonte-site-web (+ les 3 piliers UNKNOWN + creation-site-web + landing geneve). Surveiller `/seo-gsc` J+30/60.
+Commit : [à compléter] feat(seo): activation pilier refonte-site-web — index + Ressources + sibling (Phase 3)
