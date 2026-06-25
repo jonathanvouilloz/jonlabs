@@ -1,0 +1,89 @@
+{
+  "keyword": "logiciel sur mesure vs saas",
+  "location": "Suisse (FR)",
+  "scanned_at": "2026-06-25T00:00:00Z",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.agence-web.fr/logiciel-sur-mesure-vs-saas",
+      "title": "Logiciel sur mesure ou SaaS : comment choisir ?",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["définition SaaS", "définition sur-mesure", "avantages/inconvénients", "critères de choix génériques"],
+      "missing": ["TCO sur 5 ans en CHF", "angle PME romande", "exemples chiffrés réels"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 2,
+      "url": "https://www.journaldunet.com/solutions/saas-logiciels/logiciel-sur-mesure-ou-saas",
+      "title": "Logiciel sur mesure ou SaaS ? Avantages et inconvénients",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["avantages SaaS (coût faible, déploiement rapide)", "avantages sur-mesure (flexibilité)", "tableau comparatif basique"],
+      "missing": ["calcul TCO réel", "seuil de rentabilité", "cas PME concrète", "données suisses"],
+      "eeat_signals": ["auteur"]
+    },
+    {
+      "rank": 3,
+      "url": "https://blog.b2b-rocket.fr/logiciel-sur-mesure-vs-saas",
+      "title": "SaaS vs développement sur mesure : que choisir pour votre entreprise ?",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["coûts upfront vs abonnement", "time-to-market", "intégration"],
+      "missing": ["framework décisionnel actionnable", "fourchettes prix réelles", "quand le SaaS devient trop cher"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 4,
+      "url": "https://www.manager.one/blog/logiciel-saas-ou-sur-mesure",
+      "title": "SaaS ou logiciel sur mesure : 5 critères pour choisir",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["5 critères génériques (budget, flexibilité, support, sécurité, évolutivité)"],
+      "missing": ["arbitrage chiffré", "exemples sectoriels CH", "point de bascule SaaS→sur-mesure"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 5,
+      "url": "https://www.capterra.fr/blog/1234/saas-ou-developpement-sur-mesure",
+      "title": "SaaS ou développement sur mesure : guide complet",
+      "page_type": "blog",
+      "competitor_type": "marketplace",
+      "covers": ["définitions", "tableau comparatif", "cas d'usage génériques"],
+      "missing": ["ROI calculé", "angle dev freelance local", "concret PME CH"],
+      "eeat_signals": ["auteur"]
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "Quelle est la différence entre un logiciel SaaS et un logiciel sur mesure ?",
+      "Quand choisir un logiciel sur mesure plutôt qu'un SaaS ?",
+      "Combien coûte un logiciel sur mesure par rapport à un SaaS ?",
+      "Quels sont les inconvénients du SaaS pour une PME ?"
+    ],
+    "featured_snippet": false,
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "commercial",
+  "dominant_format": "editorial-article",
+  "format_match": "aligné",
+  "format_note": "",
+  "common_ground": [
+    "Définition SaaS vs sur-mesure (couvert par tous)",
+    "Tableau avantages/inconvénients générique",
+    "Critères de choix abstraits (budget, flexibilité, évolutivité)"
+  ],
+  "gap": {
+    "description": "Aucun concurrent ne propose un calcul TCO réel (coût total sur 3-5 ans en CHF) avec un point de bascule chiffré : 'à partir de X abonnements SaaS cumulés, le sur-mesure devient rentable'. Angle terrain PME romande totalement absent.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "Tous les articles sont très génériques — aucun chiffre CHF, aucun exemple de PME réelle",
+    "Aucun framework décisionnel actionnable — juste des listes pros/cons sans aide à la décision",
+    "0 E-E-A-T terrain : auteurs sans crédibilité démontrée sur le sujet"
+  ],
+  "recommended_angle": "Comparatif arbitrage TCO (Total Cost of Ownership) sur 3 ans en CHF : quand le SaaS coûte moins cher, quand le sur-mesure rattrape son investissement. Framework décisionnel en 4 questions avec seuil de rentabilité chiffré — angle que zéro concurrent couvre aujourd'hui."
+}

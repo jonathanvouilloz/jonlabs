@@ -173,7 +173,7 @@ Exemple concret : ton process coûte 3 h/semaine à 3 personnes à 60 CHF/h.
 
 Règle de décision : si le délai de retour est inférieur à 24 mois, l'app vaut l'investissement. Au-delà de 36 mois, un SaaS sera probablement plus rentable sauf si la dépendance à l'éditeur est un risque stratégique.
 
-Pour aller plus loin sur le budget, l'article sur le [budget d'un MVP d'application mobile](/blog/budget-mvp-application-mobile) détaille les fourchettes de coût selon la complexité.
+Pour aller plus loin sur le budget, l'article sur le [budget d'un MVP d'application mobile](/blog/budget-mvp-application-mobile) détaille les fourchettes de coût selon la complexité. Si tu envisages un projet plus large (10 utilisateurs+, intégrations ERP/CRM), le guide sur les [prix d'un logiciel sur mesure pour PME en Suisse](/blog/prix-logiciel-sur-mesure-pme) donne la grille complète par profil de projet.
 
 ---
 
@@ -198,7 +198,7 @@ Si tu veux comprendre comment construire ton projet d'outils sur mesure, la [pag
 
 ### Quelle est la différence entre une app métier sur mesure et un logiciel SaaS ?
 
-Un SaaS est un logiciel hébergé par un éditeur tiers que tu utilises en abonnement mensuel. Tu paies en permanence, tu n'es pas propriétaire, et tu adaptes tes process à ce que le logiciel propose. Une app sur mesure est développée spécifiquement pour tes process : tu en es propriétaire, il n'y a pas de frais récurrents d'abonnement, et chaque fonctionnalité correspond à un besoin réel de ton équipe.
+Un SaaS est un logiciel hébergé par un éditeur tiers que tu utilises en abonnement mensuel. Tu paies en permanence, tu n'es pas propriétaire, et tu adaptes tes process à ce que le logiciel propose. Une app sur mesure est développée spécifiquement pour tes process : tu en es propriétaire, il n'y a pas de frais récurrents d'abonnement, et chaque fonctionnalité correspond à un besoin réel de ton équipe. Pour un comparatif TCO chiffré sur 3 ans entre les deux options, consulte l'article [logiciel sur mesure ou SaaS : le comparatif TCO pour PME romandes](/blog/logiciel-sur-mesure-vs-saas).
 
 ### Combien coûte une application métier pour PME en Suisse romande ?
 
@@ -223,6 +223,8 @@ Dans les cas présentés : de 5 semaines (restaurant, webapp simple) à 16 semai
 Les 5 cas couvrent des secteurs très différents : artisanat, services, associatif, industrie, restauration. Mais ils ont un point commun : le process manuel coûtait plus cher que l'app à développer.
 
 La formule ROI est simple. Si tu identifies un process qui coûte du temps ou du CA, et que le délai de retour sur investissement est inférieur à 24 mois, l'app sur mesure mérite au moins une estimation sérieuse.
+
+Avant de contacter un prestataire, prépare un [cahier des charges d'application métier](/blog/cahier-des-charges-application-metier) — les 6 blocs qui débloquent un devis en une page.
 
 [**Évaluer le ROI d'une app pour ton process →**](/contact?utm_source=blog&utm_medium=article&utm_campaign=application-metier-pme-sur-mesure)
 

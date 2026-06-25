@@ -164,3 +164,4 @@ Si tu veux cadrer le périmètre MVP de ton projet avec quelqu'un qui a fait les
 - Données tarifaires terrain : taux horaire freelance suisse ~100 CHF/h, fourchettes estimées sur la base de projets réels
 - Retours communautaires : statistiques dépassement budget projets mobiles (70 % des apps, feature creep +20-40 %)
 - [Guide développement application mobile Suisse](/blog/developper-application-mobile-suisse) — Jon Labs, 2026
+- [Prix d'un logiciel sur mesure pour PME en Suisse : grille par profil](/blog/prix-logiciel-sur-mesure-pme) — Jon Labs, 2026

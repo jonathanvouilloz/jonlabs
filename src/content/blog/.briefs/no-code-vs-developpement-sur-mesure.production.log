@@ -1,0 +1,22 @@
+# Production log — no-code-vs-developpement-sur-mesure
+Date : 2026-06-25 16:14
+Worker : @article-producer
+
+## Étapes
+- [✓] /seo-write    : draft écrit (~1 650 mots effectifs)
+- [✓] /humanizer    : 18 patterns IA corrigés (14 em dashes, 2 inline-headers bold→H3, phase 2/3 listes→prose, filler phrases, copula avoidance, conclusion dépouillée)
+- [✓] /seo-enrich   : src/content/blog/no-code-vs-developpement-sur-mesure.md créé (~40 kB) — frontmatter complet, faqs dans frontmatter (FAQPage généré auto), maillage retour déjà en place dans logiciel-sur-mesure-vs-saas.md (ligne 167)
+- [✓] /seo-review   : 17/18 PASS — 0 bloquant, 1 FAIL Medium (citation externe impossible, brief interdit d'inventer) — corrigé partiellement avec lien inline sources ajouté dans le corps Phase 3
+- [✓] /generate-cover : public/images/blog/no-code-vs-developpement-sur-mesure.webp (40 KB, 1920×1080px, Pipeline T template)
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-06-25)
+Build Astro : VERT — 212 pages, 0 erreur, sitemap généré
+
+## Bloquants éventuels
+Aucun bloquant.
+
+## Notes
+- 4 images inline (TODO:image) restent à générer manuellement si souhaité : infographic cover comparatif (image-1), schéma 3 phases (image-2), illustration LPD/vendor lock-in (image-3), arbre de décision (image-4). Non bloquant pour la publication.
+- Maillage retour depuis logiciel-sur-mesure-vs-saas.md était déjà en place avant publication (lien à la ligne 167 de ce fichier).
+- Score SEO Review : 17/18. FAIL Medium unique : absence de citation externe attribuée (conforme au brief qui interdit d'inventer des citations sur ce marché niche CH).

@@ -1,0 +1,89 @@
+{
+  "keyword": "no code vs developpement sur mesure",
+  "location": "Suisse (FR)",
+  "scanned_at": "2026-06-25T00:00:00Z",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.appmaster.io/fr/blog/no-code-vs-developpement-sur-mesure",
+      "title": "No-code vs développement classique : avantages et inconvénients",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["vitesse de développement", "coût upfront", "limitations du no-code", "scalabilité"],
+      "missing": ["quand basculer du no-code au code", "cas PME concrète", "outils no-code romands/CH"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 2,
+      "url": "https://bubble.io/blog/no-code-vs-traditional-development-fr",
+      "title": "No-code ou développement traditionnel ? (Bubble)",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["définition no-code", "cas d'usage Bubble", "comparaison vitesse"],
+      "missing": ["neutralité (Bubble est partial)", "limites sécurité/conformité", "alternatives locales"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 3,
+      "url": "https://www.codeur.com/blog/no-code-ou-developpement-sur-mesure",
+      "title": "No-code ou développement sur mesure : comment choisir ?",
+      "page_type": "blog",
+      "competitor_type": "marketplace",
+      "covers": ["tableau avantages/inconvénients", "critères de choix", "exemples outils no-code"],
+      "missing": ["framework décisionnel clair", "exemples PME suisses", "coûts réels"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 4,
+      "url": "https://www.welcometothejungle.com/fr/articles/no-code-ou-code",
+      "title": "No-code vs code : que choisir pour ton projet ?",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["angle startup/fondateur", "outils populaires", "courbe d'apprentissage"],
+      "missing": ["angle PME (pas startup)", "coûts long terme", "transferabilité des données"],
+      "eeat_signals": ["auteur"]
+    },
+    {
+      "rank": 5,
+      "url": "https://blog.lws.fr/no-code-vs-developpement-sur-mesure",
+      "title": "No-code vs développement sur mesure : tout savoir",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["définitions", "liste d'outils", "avantages généraux"],
+      "missing": ["seuil de décision", "risques vendor lock-in", "conformité RGPD/droit suisse"],
+      "eeat_signals": []
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "Quelles sont les limites du no-code ?",
+      "Le no-code peut-il remplacer les développeurs ?",
+      "Bubble est-il fiable pour une entreprise ?",
+      "Quand passer du no-code au développement sur mesure ?"
+    ],
+    "featured_snippet": false,
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "commercial",
+  "dominant_format": "editorial-article",
+  "format_match": "aligné",
+  "format_note": "",
+  "common_ground": [
+    "Avantages/inconvénients génériques des deux approches",
+    "Rapidité no-code vs flexibilité sur-mesure",
+    "Liste d'outils no-code (Bubble, Webflow, Glide)"
+  ],
+  "gap": {
+    "description": "Aucun article ne traite les risques no-code spécifiques aux PME suisses (vendor lock-in, RGPD/LPD, migration de données si la plateforme ferme, coût réel quand les users scale). L'angle 'no-code comme prototype, sur-mesure comme socle pérenne' n'est pas couvert. Zéro mention des acteurs locaux romands (Lyketil, Webflow agencies CH).",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "Articles très biaisés vers le no-code (souvent écrits par des plateformes no-code)",
+    "Aucune mention des risques légaux (LPD, hébergement données en Suisse)",
+    "Pas de framework 'quand basculer' avec critères objectifs"
+  ],
+  "recommended_angle": "Framework décisionnel en 3 phases : quand le no-code suffit (prototype, < 20 users), quand il montre ses limites (scalabilité, sécurité, intégrations complexes), quand le sur-mesure est incontournable — avec les signaux concrets qui indiquent que tu es à chaque seuil. Angle PME romande : risques LPD + vendor lock-in que les articles FR n'abordent pas."
+}

@@ -1,0 +1,23 @@
+# Production log — prix-logiciel-sur-mesure-pme
+Date : 2026-06-25 16:10
+Worker : @article-producer
+
+## Etapes
+- [✓] /seo-write    : draft écrit (2 767 mots)
+- [✓] /humanizer    : 14 patterns IA corrigés (em dashes, inline-headers profils/prestataires, redites coupées) → 2 561 mots après resserrage
+- [✓] /seo-enrich   : src/content/blog/prix-logiciel-sur-mesure-pme.md créé (19.3 kB) — frontmatter validé (title 54 chars, desc 147 chars, H1 ≠ title), schema BlogPosting + FAQPage auto via template, maillage retour posé dans application-metier-pme-sur-mesure.md et budget-mvp-application-mobile.md
+- [✓] /seo-review   : 1 warning non-bloquant (critère 18 GEO — citation attribuée absente, sources inline insuffisantes), 0 bloquant — score 17/18
+- [✓] /generate-cover : public/images/blog/prix-logiciel-sur-mesure-pme.webp (36 kB, 1920×1080, pipeline template)
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-06-25)
+
+Build Astro : PASS — 202 pages générées, /blog/prix-logiciel-sur-mesure-pme dans sitemap, draft: false
+
+## Bloquants éventuels
+aucun
+
+## Warnings non-bloquants
+- Critère 18 GEO (citation attribuée + sources inline) : brief ne fournissait pas de source externe citable. Article publiable tel quel. Amélioration optionnelle : ajouter une citation Boehm inline ou une auto-citation terrain attribuée explicitement à Jon Labs.
+- 3 commentaires TODO:image dans le corps (images schema/diagram, infographic, illustration) : espaces réservés, non bloquants pour publication. À compléter avec /generate-images si souhaité.
+- Maillage sortant : /blog/logiciel-sur-mesure-vs-saas existait déjà avec lien vers cet article (ligne 75 du fichier) avant même sa publication.

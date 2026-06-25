@@ -1,0 +1,36 @@
+# Production log — cahier-des-charges-application-metier
+Date : 2026-06-25 16:16
+Worker : @article-producer
+
+## Etapes
+- [✓] /seo-write    : draft écrit (2 226 mots hors commentaires TODO)
+- [✓] /humanizer    : 16 patterns IA corrigés (em dashes x16, negative parallelisms x3, filler phrases x2, copula avoidance x2, bold-header inline list → liste numérotée)
+- [✓] /seo-enrich   : src/content/blog/cahier-des-charges-application-metier.md créé (17,3 kB) — frontmatter valide, FAQs posées dans frontmatter, maillage retour posé dans 2 fichiers (application-metier-pme-sur-mesure.md + developpement-mvp.astro)
+- [✓] /seo-review   : 1 warning (double bold "règles métier" corrigé), 1 FAIL justifié (GEO citation absente — brief confirme absence de sources externes), score 17/18
+- [✓] /generate-cover : public/images/blog/cahier-des-charges-application-metier.webp (38,5 kB, Pipeline T — template, aucun appel API)
+
+## Build final
+- [✓] npm run build : 212 pages construites en 6,55s — 0 erreur
+- [✓] Page générée : dist/blog/cahier-des-charges-application-metier/index.html
+- [✓] Présent dans sitemap
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-06-25)
+
+## Bloquants éventuels
+Aucun bloquant.
+
+## Warnings non bloquants
+- GEO citation : 0 citation directe attribuée (Selon [Nom], «…»). Justifié : le brief confirme explicitement l'absence de sources externes publiables. E-E-A-T géré en première personne.
+- 4 TODO:image résiduels dans le corps (illustrations et schémas) : ne s'affichent pas en HTML, l'article est publiable. À traiter avec /generate-images lors d'une session dédiée.
+
+## Maillage retour posé
+- src/content/blog/application-metier-pme-sur-mesure.md : lien ajouté en conclusion ("cahier des charges d'application métier")
+- src/pages/services/developpement-mvp.astro : URL ajoutée dans FAQ "Je n'y connais rien en technique"
+
+## Liens sortants posés dans l'article
+- /blog/application-metier-pme-sur-mesure (ancre : "projets d'applications métier pour PME romandes")
+- /blog/prix-logiciel-sur-mesure-pme (ancre : "le guide sur les prix de logiciel sur mesure pour PME")
+- /blog/valide-idee-business-suisse (ancre : "valider ton idée avant de la développer")
+- /services/developpement-mvp (ancre : "faire développer ton application métier sur mesure")
+- /contact?utm_source=blog&utm_medium=article&utm_campaign=cahier-des-charges-application-metier (CTA conclusion)

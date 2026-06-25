@@ -1,0 +1,89 @@
+{
+  "keyword": "prix logiciel sur mesure pme",
+  "location": "Suisse (FR)",
+  "scanned_at": "2026-06-25T00:00:00Z",
+  "sample_size": 5,
+  "results": [
+    {
+      "rank": 1,
+      "url": "https://www.codeur.com/blog/cout-developpement-logiciel-sur-mesure",
+      "title": "Combien coûte un logiciel sur mesure ? Guide de prix 2024",
+      "page_type": "blog",
+      "competitor_type": "marketplace",
+      "covers": ["fourchettes prix très larges (5k-500k€)", "facteurs de complexité génériques", "coûts de maintenance"],
+      "missing": ["fourchettes CHF marché suisse", "profils de PME avec budgets réels", "grille projets par type"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 2,
+      "url": "https://www.appvizer.fr/magazine/logiciel-sur-mesure-cout",
+      "title": "Coût logiciel sur mesure : tout ce qu'il faut savoir",
+      "page_type": "blog",
+      "competitor_type": "marketplace",
+      "covers": ["postes de coût (analyse, dev, test, déploiement)", "facteurs d'influence (complexité, techno)"],
+      "missing": ["exemples de budgets réels par secteur PME", "TCO vs SaaS", "coûts en Suisse"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 3,
+      "url": "https://blog.agence-dev.fr/prix-application-metier",
+      "title": "Prix d'une application métier sur mesure en 2024",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["grille de prix par module", "distinction MVP vs version complète"],
+      "missing": ["marché CH/CHF", "exemples sectoriels concrets", "coût vs freelance vs agence"],
+      "eeat_signals": ["auteur"]
+    },
+    {
+      "rank": 4,
+      "url": "https://www.journaldunet.com/solutions/developpeur-web/prix-developpement-application",
+      "title": "Développement d'application : les prix en 2024",
+      "page_type": "blog",
+      "competitor_type": "editorial",
+      "covers": ["prix horaire dev", "estimation par type d'app", "différence freelance/agence/ESN"],
+      "missing": ["focus sur-mesure PME", "données suisses", "ROI et amortissement"],
+      "eeat_signals": []
+    },
+    {
+      "rank": 5,
+      "url": "https://www.malt.fr/c/prix-logiciel-sur-mesure",
+      "title": "Prix logiciel sur mesure : tarifs freelances 2024",
+      "page_type": "directory",
+      "competitor_type": "marketplace",
+      "covers": ["tarifs horaires freelances par niveau", "estimation projet moyen"],
+      "missing": ["vision PME cliente", "ROI et payback period", "guidance décisionnelle"],
+      "eeat_signals": []
+    }
+  ],
+  "serp_features": {
+    "local_pack": false,
+    "people_also_ask": [
+      "Quel est le prix moyen d'un logiciel sur mesure ?",
+      "Comment estimer le coût d'un développement sur mesure ?",
+      "Pourquoi un logiciel sur mesure est-il cher ?",
+      "Quelle est la différence de prix entre un SaaS et un logiciel sur mesure ?"
+    ],
+    "featured_snippet": false,
+    "image_pack": false,
+    "video": false
+  },
+  "intent_signal": "commercial",
+  "dominant_format": "editorial-article",
+  "format_match": "aligné",
+  "format_note": "",
+  "common_ground": [
+    "Fourchettes de prix très larges et peu utilisables",
+    "Facteurs de complexité génériques",
+    "Postes de coût théoriques"
+  ],
+  "gap": {
+    "description": "Aucun concurrent ne donne des fourchettes CHF crédibles pour le marché suisse romand, ni ne décompose par profil de PME (10 personnes, gestion de stock, 80k CHF budget vs PME 50 personnes, ERP sur mesure, 300k CHF). L'angle 'freelance vs agence vs ESN pour une PME romande avec des vrais budgets' n'existe nulle part.",
+    "opportunity_score": "high"
+  },
+  "weakness": [
+    "Fourchettes inutilisables (5k à 500k€) — aucune aide réelle à la décision",
+    "Zéro données suisses — marché très différent (taux horaires +40-60% vs France)",
+    "Vision prestataire, pas vision PME cliente"
+  ],
+  "recommended_angle": "Grille de prix CHF réelle par profil de projet PME romande (3 profils : petit outil interne 15-40k, app métier moyenne 40-120k, ERP sur mesure 120k+) avec décomposition des postes, différence freelance/agence, et guide pour ne pas se faire surprendre en cours de projet."
+}
