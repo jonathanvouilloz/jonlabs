@@ -2,7 +2,7 @@
 title: "Logiciel sur mesure PME en Suisse : les vrais prix CHF"
 h1: "Combien coûte un logiciel sur mesure pour une PME en Suisse romande ?"
 description: "Les fourchettes 5 000–500 000 EUR ne t'aident pas. Vrais prix CHF par profil PME, décomposition des postes et pièges qui font exploser les budgets."
-pubDate: 2026-06-25
+pubDate: 2026-07-03
 author: "Jon"
 image:
   url: "/images/blog/prix-logiciel-sur-mesure-pme.webp"

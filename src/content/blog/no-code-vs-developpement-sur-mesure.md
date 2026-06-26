@@ -2,7 +2,7 @@
 title: "No-code ou développement sur-mesure : comment choisir"
 h1: "No-code ou développement sur-mesure : le framework en 3 phases pour ta PME"
 description: "No-code (Bubble, Webflow) ou vrai code sur-mesure pour ton outil métier ? Un framework en 3 phases + les risques LPD et vendor lock-in que personne ne te dit."
-pubDate: 2026-06-25
+pubDate: 2026-07-07
 author: "Jon"
 image:
   url: "/images/blog/no-code-vs-developpement-sur-mesure.webp"
