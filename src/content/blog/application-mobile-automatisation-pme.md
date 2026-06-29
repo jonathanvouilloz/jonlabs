@@ -2,7 +2,7 @@
 title: "App mobile + automatisation : connecter ses outils"
 h1: "Connecter ton app mobile à tes outils métiers : Make, Zapier, n8n ou API ?"
 description: "Une app mobile isolée perd 70% de sa valeur. Connecter son app à CRM, agenda, facturation via Make, Zapier ou API. Guide concret PME romandes."
-pubDate: 2026-07-31
+pubDate: 2026-07-27
 author: "Jon"
 image:
   url: "/images/blog/application-mobile-automatisation-pme.webp"

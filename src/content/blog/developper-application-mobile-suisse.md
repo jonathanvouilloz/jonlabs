@@ -2,7 +2,7 @@
 title: "Application mobile en Suisse : guide complet 2026"
 h1: "Tout ce qu'une PME romande doit savoir avant de commander une application mobile"
 description: "Coûts réels en CHF, technologies, délais, prestataires : le guide mobile pour PME romandes avant de signer un devis. Pragmatique, local, chiffré."
-pubDate: 2026-06-30
+pubDate: 2026-06-29
 author: "Jon"
 image:
   url: "/images/blog/developper-application-mobile-suisse.webp"

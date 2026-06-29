@@ -32,17 +32,17 @@ cta_map:
 
 ## Cadence éditoriale — RÈGLE OBLIGATOIRE
 
-> **2 articles par semaine, publiés le mardi et le vendredi.** Règle ferme : tout nouveau contenu blog est planifié sur un créneau mardi ou vendredi, jamais en vrac.
+> **2 articles par semaine, publiés le lundi et le vendredi.** Règle ferme : tout nouveau contenu blog est planifié sur un créneau lundi ou vendredi, jamais en vrac.
 
 **Comment c'est appliqué (mécanique) :**
 - La mise en ligne est pilotée par le champ `pubDate` du frontmatter. `isPublished = !draft && pubDate <= now` (`src/lib/blog.ts`) gate l'article partout : listing, page, sitemap. Un `pubDate` futur = article programmé, invisible jusqu'à sa date.
-- **Toujours dater un nouvel article sur le prochain créneau mardi/vendredi libre**, jamais sur une date passée ni un autre jour.
-- Le site étant statique, l'article ne passe en ligne qu'au **rebuild postérieur à son `pubDate`**. Un cron GitHub Actions (`.github/workflows/scheduled-publish.yml`) redéploie automatiquement le site chaque mardi et vendredi à 07:00 CEST via un Vercel Deploy Hook. Ne pas supprimer ce workflow.
+- **Toujours dater un nouvel article sur le prochain créneau lundi/vendredi libre**, jamais sur une date passée ni un autre jour.
+- Le site étant statique, l'article ne passe en ligne qu'au **rebuild postérieur à son `pubDate`**. Un cron GitHub Actions (`.github/workflows/scheduled-publish.yml`) redéploie automatiquement le site chaque lundi et vendredi à 07:00 CEST via un Vercel Deploy Hook. Ne pas supprimer ce workflow.
 - Pour voir la file d'attente et les trous de cadence : `/calendar`.
 
 **Au moment de planifier (checklist) :**
 1. Lister les `pubDate` futurs déjà pris (créneaux occupés).
-2. Assigner chaque nouvel article au prochain mardi/vendredi libre, dans l'ordre de priorité du cluster.
+2. Assigner chaque nouvel article au prochain lundi/vendredi libre, dans l'ordre de priorité du cluster.
 3. Attention au maillage : des spokes qui se citent mutuellement et qui sortent à des dates différentes ont des liens internes qui pointent vers une page encore masquée jusqu'à sa mise en ligne (dangling temporaire). Acceptable, mais en tenir compte pour l'ordre.
 
 ## Personas

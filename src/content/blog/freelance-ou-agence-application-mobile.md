@@ -2,7 +2,7 @@
 title: "Freelance ou agence : choisir pour son app mobile ?"
 h1: "Freelance ou agence pour ton application mobile ? Le guide honnête"
 description: "Ce que les agences ne te diront pas sur le dev mobile. Comparatif freelance vs agence pour ton app en Suisse : coûts réels, délais, risques."
-pubDate: 2026-07-21
+pubDate: 2026-07-20
 author: "Jon"
 image:
   url: "/images/blog/freelance-ou-agence-application-mobile.webp"

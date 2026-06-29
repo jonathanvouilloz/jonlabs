@@ -1,9 +1,9 @@
-name: Scheduled publish (mardi/vendredi)
+name: Scheduled publish (lundi/vendredi)
 
-# Cadence éditoriale jonlabs : 2 articles/semaine (mardi + vendredi).
+# Cadence éditoriale jonlabs : 2 articles/semaine (lundi + vendredi).
 # Le site est statique : un article daté du futur (pubDate) reste masqué
 # jusqu'à un rebuild postérieur à sa date. Ce cron redéploie le site
-# chaque mardi et vendredi matin pour faire passer en ligne les articles
+# chaque lundi et vendredi matin pour faire passer en ligne les articles
 # dont le pubDate est arrivé à échéance.
 #
 # Pré-requis : créer un Deploy Hook côté Vercel
@@ -14,8 +14,8 @@ name: Scheduled publish (mardi/vendredi)
 
 on:
   schedule:
-    # 05:00 UTC = 07:00 CEST. minute heure jour mois jour-semaine (2=mardi, 5=vendredi)
-    - cron: '0 5 * * 2,5'
+    # 05:00 UTC = 07:00 CEST. minute heure jour mois jour-semaine (1=lundi, 5=vendredi)
+    - cron: '0 5 * * 1,5'
   workflow_dispatch: {}
 
 jobs:
