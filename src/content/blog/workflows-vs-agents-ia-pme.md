@@ -1,11 +1,12 @@
 ---
 title: "Workflow ou agent IA : lequel choisir pour ta PME ?"
+h1: "Workflow automatisé ou agent IA : lequel déployer dans ta PME, et quand ?"
 description: "n8n, Make, Zapier vs Hermes Agent, OpenClaw : quelle différence ? Guide non-technique pour choisir selon ton cas, avec critères concrets."
 pubDate: 2026-04-27
 image:
   url: "/images/blog/workflows-vs-agents-ia-pme.webp"
   alt: "Workflow déterministe n8n Make vs agent IA autonome Hermes OpenClaw — comparaison pour PME romande"
-category: "tech"
+category: "automatisation"
 tags: ["automatisation", "agent-ia", "workflow", "n8n", "make", "zapier", "pme", "suisse-romande"]
 featured: false
 draft: false

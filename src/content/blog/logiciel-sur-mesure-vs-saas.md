@@ -7,7 +7,7 @@ author: "Jon"
 image:
   url: "/images/blog/logiciel-sur-mesure-vs-saas.webp"
   alt: "Comparatif TCO logiciel sur mesure versus SaaS pour PME romandes — point de croisement à 3 ans"
-category: "tech"
+category: "web"
 tags: ["logiciel sur mesure", "SaaS", "TCO", "PME", "suisse romande", "développement sur mesure", "comparatif"]
 featured: false
 draft: false

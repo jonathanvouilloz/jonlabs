@@ -1,11 +1,12 @@
 ---
 title: "Apparaître sur Perplexity : structure 4× plus citée"
+h1: "Comment apparaître sur Perplexity : la structure de contenu citée 4 fois plus souvent"
 description: "Pages structurées citées 2,6× plus, contenu chiffré 4,1× plus. Guide concret pour structurer ton site et être cité par Perplexity en 2026."
 pubDate: 2026-03-24
 image:
   url: "/images/blog/apparaitre-perplexity-2026.webp"
   alt: "Apparaître sur Perplexity AI avec des citations sources"
-category: "tech"
+category: "geo"
 tags: ["perplexity", "geo", "seo", "ia", "visibilité", "citations"]
 featured: false
 draft: false

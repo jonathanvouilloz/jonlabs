@@ -1,11 +1,12 @@
 ---
 title: "J'ai audité 50 sites d'indépendants romands"
+h1: "J'ai audité 50 sites d'indépendants romands : les erreurs qui les rendent invisibles sur Google"
 description: "Méthodo Lighthouse + GMB + Wayback sur 50 sites d'indépendants romands. 7 constats bruts, 3 archétypes, et le coût cumulé d'un marché endormi."
 pubDate: 2026-04-22
 image:
   url: "/images/blog/audit-50-sites-indeps-romands.webp"
   alt: "Audit de 50 sites d'indépendants romands — constats bruts et archétypes"
-category: "tech"
+category: "web"
 tags: ["audit", "seo", "suisse-romande", "site-web", "data", "etude"]
 featured: false
 draft: false

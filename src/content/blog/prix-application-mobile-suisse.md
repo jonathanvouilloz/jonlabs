@@ -7,7 +7,7 @@ author: "Jon"
 image:
   url: "/images/blog/prix-application-mobile-suisse.webp"
   alt: "Comparatif des prix d'une application mobile en Suisse en 2026 : forfaits CHF par type d'app sur fond crème brutaliste"
-category: "tech"
+category: "mobile"
 tags: ["application mobile", "prix", "budget", "suisse", "mvp", "flutter", "freelance", "pme"]
 featured: false
 draft: false

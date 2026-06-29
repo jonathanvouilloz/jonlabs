@@ -7,7 +7,7 @@ author: "Jonathan Vouilloz"
 image:
   url: "/images/blog/repondre-avis-google-modeles-2026.webp"
   alt: "Répondre aux avis Google sur Google Business Profile — interface propriétaire avec framework 4 blocs"
-category: "tech"
+category: "seo-local"
 tags: ["google-my-business", "avis-google", "seo-local", "google-business-profile", "gestion-avis", "pme"]
 featured: false
 draft: false

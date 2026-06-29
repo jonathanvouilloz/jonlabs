@@ -1,11 +1,12 @@
 ---
 title: "Apparaître sur Gemini : guide GEO Google AI 2026"
+h1: "Comment apparaître sur Gemini, l'IA de Google : le guide GEO complet pour 2026"
 description: "Les AI Overviews captent 30% des recherches services et font chuter le CTR de 34,5%. 4 priorités pour être cité par Gemini et garder du trafic."
 pubDate: 2026-03-16
 image:
   url: "/images/blog/apparaitre-gemini-2026.webp"
   alt: "Apparaître sur Gemini et les AI Overviews de Google"
-category: "tech"
+category: "geo"
 tags: ["gemini", "google", "geo", "seo", "ai-overviews", "visibilite", "ia"]
 featured: false
 draft: false

@@ -1,11 +1,12 @@
 ---
 title: "NotebookLM : analyser vos documents sans halluciner"
+h1: "NotebookLM : analyser vos documents avec l'IA sans risque d'hallucination"
 description: "Découvrez comment NotebookLM transforme des heures de lecture en minutes. Guide pratique avec nouveautés 2025-2026, workflows concrets et cas d'usage."
 pubDate: 2026-01-06
 image:
   url: "/images/blog/notebooklm-guide-complet-2026.webp"
   alt: "Illustration d'un personnage blob analysant des documents avec NotebookLM"
-category: "tech"
+category: "automatisation"
 tags: ["ia", "notebooklm", "productivite", "documents", "google", "outils"]
 featured: false
 draft: false

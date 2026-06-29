@@ -7,7 +7,7 @@ author: "Jon"
 image:
   url: "/images/blog/prix-logiciel-sur-mesure-pme.webp"
   alt: "Grille de prix logiciel sur mesure PME en Suisse, trois profils de 15 000 à 120 000 CHF"
-category: "tech"
+category: "web"
 tags: ["logiciel sur mesure", "prix", "PME", "suisse romande", "budget", "développement", "freelance", "agence"]
 featured: false
 draft: false

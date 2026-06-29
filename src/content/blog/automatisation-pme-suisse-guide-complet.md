@@ -1,11 +1,12 @@
 ---
 title: "Automatisation PME Suisse : guide complet 2026"
+h1: "Automatisation pour PME suisses : le guide complet pour gagner du temps en 2026"
 description: "Guide pour PME suisses : quoi automatiser en premier, quelle stack choisir (n8n, Make, agents IA), et les vrais coûts en CHF. Pas de bullshit."
 pubDate: 2026-04-26
 image:
   url: "/images/blog/automatisation-pme-suisse-guide-complet.webp"
   alt: "Interface n8n ouverte sur un laptop posé sur un bureau de PME suisse, lumière naturelle, ambiance sobre"
-category: "tech"
+category: "automatisation"
 tags: ["automatisation", "pme", "suisse-romande", "n8n", "make", "zapier", "agents-ia", "workflows", "roi"]
 featured: true
 draft: false

@@ -1,11 +1,12 @@
 ---
 title: "Freelance ou agence web : comment choisir ?"
+h1: "Freelance ou agence web : comment choisir le bon partenaire pour votre site"
 description: "Tarifs, avantages, limites : le guide complet pour choisir entre freelance et agence pour ton projet web."
 pubDate: 2025-12-09
 image:
   url: "/images/blog/freelance-ou-agence-web.webp"
   alt: "Agence vs Freelance - Que choisir en 2026 ?"
-category: "perso"
+category: "web"
 tags: ["freelance", "agence", "suisse", "budget", "web"]
 featured: false
 draft: false

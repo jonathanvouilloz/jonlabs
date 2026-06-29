@@ -5,9 +5,9 @@ import Layout from '../../layouts/Layout.astro';
 import AppHeader from '../../components/Header.astro';
 import AppFooter from '../../components/Footer.astro';
 import BlogHero from '../../components/blog/BlogHero.astro';
-import BlogSidebar from '../../components/blog/BlogSidebar.astro';
+import BlogFilters from '../../components/blog/BlogFilters.astro';
 import PostCard from '../../components/blog/PostCard.astro';
-import { formatDateShort, getCategoryName, getCategoryColor, isPublished } from '../../lib/blog';
+import { isPublished } from '../../lib/blog';
 
 // Schema.org
 import { blogSchema } from '../../data/schema';
@@ -19,12 +19,6 @@ const allPosts = await getCollection('blog', ({ data }) => isPublished(data));
 const sortedPosts = allPosts.sort((a, b) =>
   b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
-
-// Get featured post (first one marked as featured, or most recent)
-const featuredPost = sortedPosts.find((post) => post.data.featured) || sortedPosts[0];
-
-// All other posts (excluding featured)
-const otherPosts = sortedPosts.filter((post) => post.slug !== featuredPost?.slug);
 
 const schemas = [blogSchema];
 ---
@@ -41,353 +35,47 @@ const schemas = [blogSchema];
 
     <section class="py-8 md:py-12 bg-[var(--main-bg)]">
       <div class="max-w-6xl mx-auto px-4">
-        <!-- Two column layout with mobile reordering -->
-        <div class="grid grid-cols-1 lg:grid-cols-[240px_1fr] gap-6 lg:gap-8">
 
-          <!-- Sidebar : 2nd on mobile, 1st column on desktop (spans 2 rows) -->
-          <div class="order-2 lg:order-1 lg:row-span-2">
-            <BlogSidebar />
-          </div>
+        <!-- Filtres (catégories + recherche) en haut -->
+        <BlogFilters />
 
-          <!-- Featured post : 1st on mobile, 2nd column row 1 on desktop -->
-          {featuredPost && (
-            <article
-              class="order-1 lg:order-2 group relative bg-white border-2 border-black shadow-[6px_6px_0px_rgba(0,0,0,0.4)] overflow-hidden transition-all duration-300 hover:shadow-[3px_3px_0px_rgba(0,0,0,1)] hover:translate-x-[3px] hover:translate-y-[3px]"
-            >
-                <a href={`/blog/${featuredPost.slug}`} class="absolute inset-0 z-10" aria-label={`Lire: ${featuredPost.data.title}`}></a>
-
-                <!-- Featured banner -->
-                <div class="bg-[var(--violet)] text-white px-4 py-2 flex items-center gap-2 border-b-2 border-black">
-                  <i class="ri-star-fill text-white"></i>
-                  <span class="text-sm font-bold uppercase tracking-wider">A la une</span>
-                </div>
-
-                <!-- Image (large, 16:9) -->
-                <div class="relative aspect-[16/9] overflow-hidden border-b-2 border-black">
-                  <img
-                    src={featuredPost.data.image.url}
-                    alt={featuredPost.data.image.alt}
-                    class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                </div>
-
-                <!-- Content -->
-                <div class="p-6">
-                  <div class="flex items-center gap-3 mb-3 text-sm text-gray-500">
-                    <span class="flex items-center gap-1.5">
-                      <span
-                        class="w-2.5 h-2.5 rounded-full"
-                        style={`background-color: ${getCategoryColor(featuredPost.data.category)};`}
-                      ></span>
-                      {getCategoryName(featuredPost.data.category)}
-                    </span>
-                    <span>·</span>
-                    <span>{formatDateShort(featuredPost.data.pubDate)}</span>
-                    {featuredPost.data.readingTime && (
-                      <>
-                        <span>·</span>
-                        <span class="flex items-center gap-1">
-                          <i class="ri-time-line"></i>
-                          {featuredPost.data.readingTime} min
-                        </span>
-                      </>
-                    )}
-                  </div>
-
-                  <h2 class="text-2xl md:text-3xl font-bold mb-3 leading-tight group-hover:text-[var(--violet)] transition-colors">
-                    {featuredPost.data.title}
-                  </h2>
-
-                  <p class="text-gray-600 text-base leading-relaxed line-clamp-2 mb-4">
-                    {featuredPost.data.description}
-                  </p>
-
-                  <div class="flex items-center text-sm font-semibold text-[var(--violet)] group-hover:underline">
-                    Lire l'article
-                    <i class="ri-arrow-right-line ml-2 transition-transform group-hover:translate-x-1"></i>
-                  </div>
-                </div>
-            </article>
-          )}
-
-          <!-- Posts section : 3rd on mobile, 2nd column row 2 on desktop -->
-          <div class="order-3 lg:order-3">
-            <!-- Section title -->
-            <div class="flex items-center gap-3 mb-6">
-              <span class="text-xs font-mono uppercase tracking-[0.2em] text-gray-500">
-                Tous les articles
-              </span>
-              <span class="h-px flex-1 bg-gray-300"></span>
-            </div>
-
-            <!-- Posts grid -->
-            <div id="posts-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              {otherPosts.map((post) => (
-                <PostCard post={post} />
-              ))}
-            </div>
-
-            <!-- Empty state message -->
-            <div id="no-results" class="hidden bg-white border-2 border-black p-8 text-center">
-              <i class="ri-search-line text-4xl text-gray-300 mb-4 block"></i>
-              <p class="text-gray-500 font-medium">Aucun article ne correspond à votre recherche.</p>
-            </div>
-
-            <!-- Pagination -->
-            <nav id="pagination" class="flex justify-center items-center gap-2 mt-10" aria-label="Pagination">
-              <button
-                id="prev-page"
-                class="w-10 h-10 flex items-center justify-center border-2 border-black bg-white transition-all duration-200 hover:bg-[var(--blue)] disabled:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-gray-100"
-                aria-label="Page précédente"
-              >
-                <i class="ri-arrow-left-line"></i>
-              </button>
-              <div id="page-numbers" class="flex gap-2">
-                <!-- Generated by JS -->
-              </div>
-              <button
-                id="next-page"
-                class="w-10 h-10 flex items-center justify-center border-2 border-black bg-white transition-all duration-200 hover:bg-[var(--blue)] disabled:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-gray-100"
-                aria-label="Page suivante"
-              >
-                <i class="ri-arrow-right-line"></i>
-              </button>
-            </nav>
-          </div>
+        <!-- Grille d'articles : 3 colonnes sur desktop -->
+        <div id="posts-list" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {sortedPosts.map((post) => (
+            <PostCard post={post} />
+          ))}
         </div>
+
+        <!-- Empty state message -->
+        <div id="no-results" class="hidden bg-white border-2 border-black p-8 text-center">
+          <i class="ri-search-line text-4xl text-gray-300 mb-4 block"></i>
+          <p class="text-gray-500 font-medium">Aucun article ne correspond à votre recherche.</p>
+        </div>
+
+        <!-- Pagination -->
+        <nav id="pagination" class="flex justify-center items-center gap-2 mt-10" aria-label="Pagination">
+          <button
+            id="prev-page"
+            class="w-10 h-10 flex items-center justify-center border-2 border-black bg-white transition-all duration-200 hover:bg-[var(--blue)] disabled:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-gray-100"
+            aria-label="Page précédente"
+          >
+            <i class="ri-arrow-left-line"></i>
+          </button>
+          <div id="page-numbers" class="flex gap-2">
+            <!-- Generated by JS -->
+          </div>
+          <button
+            id="next-page"
+            class="w-10 h-10 flex items-center justify-center border-2 border-black bg-white transition-all duration-200 hover:bg-[var(--blue)] disabled:bg-gray-100 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-gray-100"
+            aria-label="Page suivante"
+          >
+            <i class="ri-arrow-right-line"></i>
+          </button>
+        </nav>
+
       </div>
     </section>
   </main>
 
   <AppFooter />
 </Layout>
-
-<script>
-  function initBlogFilters() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const searchInput = document.getElementById('blog-search') as HTMLInputElement;
-    const postsGrid = document.getElementById('posts-grid');
-    const noResults = document.getElementById('no-results');
-    const resetBtn = document.getElementById('reset-filters');
-    const pagination = document.getElementById('pagination');
-    const pageNumbers = document.getElementById('page-numbers');
-    const prevBtn = document.getElementById('prev-page') as HTMLButtonElement;
-    const nextBtn = document.getElementById('next-page') as HTMLButtonElement;
-    const viewButtons = document.querySelectorAll('.view-btn');
-
-    // Get all post cards from the grid
-    const postCards = Array.from(postsGrid?.querySelectorAll('.post-card') || []);
-
-    const ITEMS_PER_PAGE = 6;
-    let currentCategory = 'all';
-    let currentSearch = '';
-    let currentPage = 1;
-    let filteredItems: Element[] = [];
-    let currentView = localStorage.getItem('blog-view') || 'grid';
-
-    // View toggle functions
-    function setView(view: string) {
-      currentView = view;
-      localStorage.setItem('blog-view', view);
-
-      // Toggle button styles
-      viewButtons.forEach((btn) => {
-        const btnView = btn.getAttribute('data-view');
-        if (btnView === view) {
-          btn.classList.add('bg-[var(--blue)]');
-          btn.classList.remove('bg-white');
-        } else {
-          btn.classList.remove('bg-[var(--blue)]');
-          btn.classList.add('bg-white');
-        }
-      });
-
-      // Toggle grid classes
-      if (postsGrid) {
-        if (view === 'grid') {
-          postsGrid.classList.add('sm:grid-cols-2');
-          postsGrid.classList.remove('grid-cols-1');
-        } else {
-          postsGrid.classList.remove('sm:grid-cols-2');
-          postsGrid.classList.add('grid-cols-1');
-        }
-      }
-
-      // Toggle card layouts via data attribute
-      postCards.forEach((card) => {
-        (card as HTMLElement).dataset.viewMode = view;
-      });
-    }
-
-    // Initialize view on load
-    setView(currentView);
-
-    // View toggle click handlers
-    viewButtons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        const view = btn.getAttribute('data-view') || 'grid';
-        setView(view);
-      });
-    });
-
-    function getFilteredItems() {
-      return postCards.filter((item) => {
-        const itemCategory = item.getAttribute('data-category') || '';
-        const title = item.getAttribute('data-title')?.toLowerCase() || '';
-        const tags = item.getAttribute('data-tags')?.toLowerCase() || '';
-
-        const matchesCategory = currentCategory === 'all' || itemCategory === currentCategory;
-        const matchesSearch = !currentSearch ||
-          title.includes(currentSearch) ||
-          tags.includes(currentSearch);
-
-        return matchesCategory && matchesSearch;
-      });
-    }
-
-    function renderPagination() {
-      const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
-
-      // Hide pagination if only 1 page or no results
-      if (pagination) {
-        pagination.style.display = totalPages <= 1 ? 'none' : 'flex';
-      }
-
-      // Update prev/next buttons
-      if (prevBtn) prevBtn.disabled = currentPage === 1;
-      if (nextBtn) nextBtn.disabled = currentPage === totalPages || totalPages === 0;
-
-      // Generate page numbers
-      if (pageNumbers) {
-        pageNumbers.innerHTML = '';
-        for (let i = 1; i <= totalPages; i++) {
-          const btn = document.createElement('button');
-          btn.className = `w-10 h-10 flex items-center justify-center border-2 border-black font-medium text-sm transition-all duration-200 ${
-            i === currentPage
-              ? 'bg-[var(--blue)] shadow-[2px_2px_0px_rgba(0,0,0,1)]'
-              : 'bg-white hover:bg-gray-100'
-          }`;
-          btn.textContent = String(i);
-          btn.addEventListener('click', () => goToPage(i));
-          pageNumbers.appendChild(btn);
-        }
-      }
-    }
-
-    function displayPage() {
-      const start = (currentPage - 1) * ITEMS_PER_PAGE;
-      const end = start + ITEMS_PER_PAGE;
-
-      // Hide all cards first
-      postCards.forEach((item) => {
-        (item as HTMLElement).style.display = 'none';
-      });
-
-      // Show only items for current page
-      filteredItems.slice(start, end).forEach((item) => {
-        (item as HTMLElement).style.display = '';
-      });
-
-      // Show/hide empty state
-      if (noResults && postsGrid) {
-        if (filteredItems.length === 0) {
-          postsGrid.classList.add('hidden');
-          noResults.classList.remove('hidden');
-        } else {
-          postsGrid.classList.remove('hidden');
-          noResults.classList.add('hidden');
-        }
-      }
-
-      // Show/hide reset button
-      if (resetBtn) {
-        resetBtn.classList.toggle('hidden', currentCategory === 'all' && !currentSearch);
-      }
-
-      renderPagination();
-    }
-
-    function goToPage(page: number) {
-      currentPage = page;
-      displayPage();
-      // Scroll to grid
-      postsGrid?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-
-    function filterPosts() {
-      filteredItems = getFilteredItems();
-      currentPage = 1;
-      displayPage();
-    }
-
-    function resetFilters() {
-      currentCategory = 'all';
-      currentSearch = '';
-      currentPage = 1;
-
-      if (searchInput) searchInput.value = '';
-
-      filterButtons.forEach((b) => {
-        b.classList.remove('active', 'bg-[var(--blue)]', 'shadow-[2px_2px_0px_rgba(0,0,0,1)]');
-        b.classList.add('bg-white');
-        if (b.getAttribute('data-category') === 'all') {
-          b.classList.add('active', 'bg-[var(--blue)]', 'shadow-[2px_2px_0px_rgba(0,0,0,1)]');
-          b.classList.remove('bg-white');
-        }
-      });
-
-      filterPosts();
-    }
-
-    // Category filter click
-    filterButtons.forEach((btn) => {
-      btn.addEventListener('click', () => {
-        filterButtons.forEach((b) => {
-          b.classList.remove('active', 'bg-[var(--blue)]', 'shadow-[2px_2px_0px_rgba(0,0,0,1)]');
-          b.classList.add('bg-white');
-        });
-        btn.classList.add('active', 'bg-[var(--blue)]', 'shadow-[2px_2px_0px_rgba(0,0,0,1)]');
-        btn.classList.remove('bg-white');
-
-        currentCategory = btn.getAttribute('data-category') || 'all';
-        filterPosts();
-      });
-    });
-
-    // Search input
-    if (searchInput) {
-      searchInput.addEventListener('input', (e) => {
-        currentSearch = (e.target as HTMLInputElement).value.toLowerCase().trim();
-        filterPosts();
-      });
-    }
-
-    // Reset button
-    if (resetBtn) {
-      resetBtn.addEventListener('click', resetFilters);
-    }
-
-    // Pagination buttons
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => {
-        if (currentPage > 1) goToPage(currentPage - 1);
-      });
-    }
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
-        const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
-        if (currentPage < totalPages) goToPage(currentPage + 1);
-      });
-    }
-
-    // Initial render
-    filterPosts();
-  }
-
-  // Run on page load
-  initBlogFilters();
-
-  // Re-run on Astro page transitions
-  document.addEventListener('astro:page-load', initBlogFilters);
-</script>

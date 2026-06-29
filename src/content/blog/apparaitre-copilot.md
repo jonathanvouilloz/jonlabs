@@ -1,11 +1,12 @@
 ---
 title: "Apparaître sur Copilot : guide Bing pour 33M users"
+h1: "Comment apparaître sur Microsoft Copilot et capter les 33 millions d'utilisateurs de Bing"
 description: "Copilot ne cite que 3 liens par réponse et touche 33M users via Windows, Edge, Teams. 4 actions GEO pour être dans le top 3 cité en 2026."
 pubDate: 2026-03-30
 image:
   url: "/images/blog/apparaitre-copilot-2026.webp"
   alt: "Apparaître sur Microsoft Copilot via Bing et l'écosystème Microsoft"
-category: "tech"
+category: "geo"
 tags: ["copilot", "microsoft", "bing", "geo", "seo", "ia", "visibilité"]
 featured: false
 draft: false

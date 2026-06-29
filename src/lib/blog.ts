@@ -1,9 +1,11 @@
 // Blog helper functions
 
 export const categories = {
-  tech: { name: 'Tech', color: 'var(--blue)' },
-  creatif: { name: 'Créatif', color: 'var(--blue)' },
-  perso: { name: 'Perso', color: 'var(--violet)' },
+  mobile: { name: 'Applications mobiles', color: 'var(--blue)' },
+  automatisation: { name: 'Automatisation & IA', color: 'var(--yellow)' },
+  'seo-local': { name: 'Référencement local', color: 'var(--violet)' },
+  web: { name: 'Sites web', color: 'var(--orange)' },
+  geo: { name: 'Visibilité IA', color: 'var(--cyan)' },
 } as const;
 
 export type CategoryKey = keyof typeof categories;

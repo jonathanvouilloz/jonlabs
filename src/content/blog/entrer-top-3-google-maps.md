@@ -1,11 +1,12 @@
 ---
 title: "Top 3 Google Maps : les 3 facteurs de classement 2026"
+h1: "Entrer dans le top 3 de Google Maps : les 3 facteurs de classement qui comptent en 2026"
 description: "Proximité, pertinence, notoriété : les 3 facteurs du top 3 Google Maps. Ce que tu contrôles, ce que tu ne contrôles pas, plan d'action en 90 jours."
 pubDate: 2026-06-05
 image:
   url: "/images/blog/entrer-top-3-google-maps.webp"
   alt: "Podium des 3 premières positions sur Google Maps (Local Pack), illustration brutaliste"
-category: "tech"
+category: "seo-local"
 tags: ["seo-local", "google-maps", "google-business-profile", "local-pack", "referencement-local", "pme", "suisse-romande"]
 featured: false
 draft: false

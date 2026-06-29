@@ -1,11 +1,12 @@
 ---
 title: "Quoi automatiser en premier dans ta PME ? Méthode + ROI CHF"
+h1: "Par quoi commencer pour automatiser ta PME : la méthode pour prioriser selon le ROI"
 description: "La méthode pour choisir quoi automatiser en premier dans ta PME : critères concrets, ROI en CHF et les cas où il ne faut surtout PAS automatiser."
 pubDate: 2026-04-28
 image:
   url: "/images/blog/comment-choisir-quoi-automatiser-pme.webp"
   alt: "Dirigeant de PME suisse face à une liste de processus à prioriser pour l'automatisation"
-category: "tech"
+category: "automatisation"
 tags: ["automatisation", "pme", "suisse-romande", "roi", "workflow", "make", "n8n"]
 featured: false
 draft: false

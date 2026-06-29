@@ -7,7 +7,7 @@ author: "Jon"
 image:
   url: "/images/blog/flutter-vs-react-native-pme.webp"
   alt: "Comparatif Flutter vs React Native pour PME suisse romande — choisir son framework mobile cross-platform en 2026"
-category: "tech"
+category: "mobile"
 tags: ["flutter", "react native", "application mobile", "PME", "suisse", "développement mobile"]
 featured: false
 draft: false

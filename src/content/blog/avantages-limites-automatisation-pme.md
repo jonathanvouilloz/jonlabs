@@ -1,11 +1,12 @@
 ---
 title: "Automatisation PME : avantages réels et coûts cachés"
+h1: "Automatisation en PME : les avantages réels, les limites et les coûts cachés à connaître"
 description: "Bilan honnête : les vrais avantages de l'automatisation pour une PME suisse, les coûts cachés que personne ne mentionne, et les cas où s'abstenir."
 pubDate: 2026-04-29
 image:
   url: "/images/blog/avantages-limites-automatisation-pme.webp"
   alt: "Tableau de bord d'un dirigeant de PME romande analysant le ROI d'un workflow automatisé, ambiance bureau sobre"
-category: "tech"
+category: "automatisation"
 tags: ["automatisation", "pme", "suisse-romande", "roi", "n8n", "make", "zapier", "limites", "couts-caches"]
 featured: false
 draft: false

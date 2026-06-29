@@ -1,11 +1,12 @@
 ---
 title: "Google Posts : le guide pour vraiment convertir (2026)"
+h1: "Google Posts sur votre fiche d'établissement : publier des posts qui convertissent vraiment"
 description: "Tes Google Posts ne génèrent rien ? Framework V+S+R, UTM tracking et cadence stratégique : tout ce que les tutoriels oublient de dire."
 pubDate: 2026-05-19
 image:
   url: "/images/blog/google-post-business-profile-conversion.webp"
   alt: "Exemple de Google Post bien structuré sur une fiche Google Business Profile — framework copy conversion PME"
-category: "tech"
+category: "seo-local"
 tags: ["google-post", "google-my-business", "google-business-profile", "seo-local", "conversion", "pme"]
 featured: false
 draft: false

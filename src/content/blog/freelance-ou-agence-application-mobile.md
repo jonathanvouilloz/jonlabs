@@ -7,7 +7,7 @@ author: "Jon"
 image:
   url: "/images/blog/freelance-ou-agence-application-mobile.webp"
   alt: "Tableau comparatif freelance vs agence pour développer une application mobile en Suisse, fond crème brutaliste, bordures épaisses noires"
-category: "tech"
+category: "mobile"
 tags: ["application mobile", "freelance", "agence", "suisse", "développement mobile", "flutter"]
 featured: false
 draft: false

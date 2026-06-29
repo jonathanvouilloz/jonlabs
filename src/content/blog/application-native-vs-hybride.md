@@ -7,7 +7,7 @@ author: "Jon"
 image:
   url: "/images/blog/application-native-vs-hybride.webp"
   alt: "Comparatif application native vs hybride pour PME suisse romande — guide de décision avec tableau de critères 2026"
-category: "tech"
+category: "mobile"
 tags: ["application native", "application hybride", "Flutter", "React Native", "PME", "développement mobile", "suisse"]
 featured: false
 draft: false

@@ -1,11 +1,12 @@
 ---
 title: "Apparaître sur Claude (Brave Search) en 2026"
+h1: "Comment apparaître sur Claude et Brave Search en 2026 : le guide GEO complet"
 description: "Claude cite Brave à 86,7% : index moins concurrentiel, audience qualifiée. 5 actions GEO concrètes pour être cité par Claude en 2026."
 pubDate: 2026-03-05
 image:
   url: "/images/blog/apparaitre-claude-2026.webp"
   alt: "Apparaître sur Claude et Brave Search"
-category: "tech"
+category: "geo"
 tags: ["claude", "anthropic", "brave-search", "geo", "seo", "ia", "visibilité"]
 featured: false
 draft: false

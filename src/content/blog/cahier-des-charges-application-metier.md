@@ -7,7 +7,7 @@ author: "Jon"
 image:
   url: "/images/blog/cahier-des-charges-application-metier.webp"
   alt: "Commanditaire non-technique remettant un cahier des charges clair à un développeur pour débloquer un devis d'application métier"
-category: "tech"
+category: "web"
 tags: ["cahier des charges", "application métier", "PME", "développement sur mesure", "cadrage projet", "suisse romande"]
 featured: false
 draft: false

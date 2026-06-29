@@ -1,11 +1,12 @@
 ---
 title: "Fiche Google My Business suspendue : que faire ?"
+h1: "Fiche Google My Business suspendue : pourquoi ça arrive et comment la récupérer"
 description: "Soft ou hard suspension ? 7 causes, procédure de réclamation, preuves à joindre et recours forum si refus. Le protocole complet pour les PME."
 pubDate: 2026-05-28
 image:
   url: "/images/blog/fiche-google-my-business-suspendue-recours.webp"
   alt: "Fiche Google My Business suspendue : procédure de réclamation et recours pour PME"
-category: "tech"
+category: "seo-local"
 tags: ["google-my-business", "suspension-gmb", "seo-local", "google-business-profile", "réclamation", "local-pack"]
 featured: false
 draft: false

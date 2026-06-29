@@ -1,11 +1,12 @@
 ---
 title: "15 signes que ton site web dort (checklist honnête)"
+h1: "15 signes que ton site web dort et ne te rapporte plus rien : la checklist honnête"
 description: "Checklist 15 signes en 4 minutes : score auto-calculé + diagnostic personnalisé. Dis-toi la vérité sur ton site web avant ton concurrent."
 pubDate: 2026-04-15
 image:
   url: "/images/blog/15-signes-site-web-dort.webp"
   alt: "Checklist papier avec croix rouges sur un bureau d'indépendant romand - diagnostic site web qui dort"
-category: "tech"
+category: "web"
 tags: ["site-web", "checklist", "audit", "diagnostic", "seo", "independant", "suisse-romande"]
 featured: false
 draft: false

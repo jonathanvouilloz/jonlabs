@@ -1,11 +1,12 @@
 ---
 title: "Site vitrine IA : pourquoi Google t'ignore"
+h1: "Site vitrine généré par IA : pourquoi Google t'ignore et comment enfin le rendre visible"
 description: "Lovable, Bolt, Claude Code : créer un site web n'a jamais été aussi simple. Mais sans stratégie de visibilité, ton site reste invisible."
 pubDate: 2026-02-13
 image:
   url: "/images/blog/creer-site-vitrine-ia-visibilite-google.webp"
   alt: "Site web créé par IA vs visibilité Google - illustration d'un site invisible dans les résultats de recherche"
-category: "tech"
+category: "web"
 tags: ["ia", "site-vitrine", "seo", "visibilite", "google", "freelance", "creation-site-web"]
 featured: true
 draft: false

@@ -7,7 +7,7 @@ author: "Jon"
 image:
   url: "/images/blog/application-mobile-pme-suisse.webp"
   alt: "Dirigeant PME romand qui évalue si une application mobile vaut l'investissement — guide de décision avec critères concrets"
-category: "tech"
+category: "mobile"
 tags: ["application mobile", "PME", "suisse", "budget", "PWA", "décision"]
 featured: false
 draft: false

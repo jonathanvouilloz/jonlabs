@@ -7,7 +7,7 @@ author: "Jonathan Vouilloz"
 image:
   url: "/images/blog/obtenir-plus-avis-google.webp"
   alt: "Obtenir un flux régulier d'avis Google pour une PME romande — méthode système avec timing et canaux"
-category: "tech"
+category: "seo-local"
 tags: ["avis-google", "google-my-business", "seo-local", "google-business-profile", "pme", "obtenir-avis-google"]
 featured: false
 draft: false

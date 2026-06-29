@@ -1,11 +1,12 @@
 ---
 title: "OpenClaw pour PME suisse : guide complet 2026 + CHF"
+h1: "OpenClaw pour PME suisses : le guide complet 2026 et les vrais coûts en CHF"
 description: "OpenClaw, agent IA persistant accessible depuis WhatsApp. Cas d'usage PME romande, coûts en CHF, comparaison Hermes Agent et marché. Regard terrain."
 pubDate: 2026-05-01
 image:
   url: "/images/blog/openclaw-pme-suisse.webp"
   alt: "Smartphone affichant une conversation WhatsApp avec OpenClaw, ambiance bureau de dirigeant de PME romande"
-category: "tech"
+category: "automatisation"
 tags: ["openclaw", "agent-ia", "automatisation", "pme", "tpe", "suisse-romande", "whatsapp", "open-source", "peter-steinberger"]
 featured: false
 draft: false

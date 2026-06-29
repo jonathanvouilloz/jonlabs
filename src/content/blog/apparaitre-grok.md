@@ -1,11 +1,12 @@
 ---
 title: "Apparaître sur Grok : 27% de citations vs 0,59% GPT"
+h1: "Comment apparaître sur Grok : pourquoi il cite 27% de sources là où ChatGPT en cite 0,59%"
 description: "Grok cite 46x plus que ChatGPT et lit X en temps réel. Plan d'action concret pour apparaître via threads, profil et bio optimisée en 2026."
 pubDate: 2026-04-13
 image:
   url: "/images/blog/apparaitre-grok-2026.webp"
   alt: "Apparaître sur Grok et X/Twitter"
-category: "tech"
+category: "geo"
 tags: ["grok", "xai", "x", "twitter", "geo", "seo", "ia", "visibilité"]
 featured: false
 draft: false

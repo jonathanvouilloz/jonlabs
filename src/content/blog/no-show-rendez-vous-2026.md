@@ -1,11 +1,12 @@
 ---
 title: "No-shows : le système pour sécuriser vos RDV"
+h1: "No-shows et rendez-vous manqués : le système pour sécuriser vos réservations en 2026"
 description: "Réduisez les no-shows avec un système de réservation adapté : comparatif des outils, rappels SMS/WhatsApp et acomptes TWINT."
 pubDate: 2025-12-06
 image:
   url: "/images/blog/no-show-rendez-vous-2026.webp"
   alt: "Système de réservation anti no-show pour praticiens"
-category: "tech"
+category: "automatisation"
 tags: ["automatisation", "rendez-vous", "no-show", "praticiens", "suisse"]
 featured: false
 draft: false

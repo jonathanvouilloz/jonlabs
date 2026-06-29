@@ -7,7 +7,7 @@ author: "Jon"
 image:
   url: "/images/blog/developper-application-mobile-suisse.webp"
   alt: "Mockup smartphone affichant une interface d'application mobile, fond crème brutaliste, bordures épaisses noires — développement app mobile en Suisse pour PME romandes"
-category: "tech"
+category: "mobile"
 tags: ["application mobile", "développement mobile", "suisse", "PME", "flutter", "react native"]
 featured: false
 draft: false

@@ -1,11 +1,12 @@
 ---
 title: "Valider ton idée de business en Suisse sans créer de Sàrl"
+h1: "Valider ton idée de business en Suisse sans créer de Sàrl ni dépenser une fortune"
 description: "Tu peux tester ton idée business en Suisse sans 20k CHF. Découvre la méthode du smoke test et la raison individuelle pour valider avant d'investir."
 pubDate: 2025-12-11
 image:
   url: "/images/blog/valide-idee-business-suisse.webp"
   alt: "Illustration comparant la création d'une Sàrl complexe versus un test rapide d'idée business"
-category: "tech"
+category: "web"
 tags: ["startup", "validation", "suisse", "mvp", "entrepreneuriat"]
 featured: false
 draft: false

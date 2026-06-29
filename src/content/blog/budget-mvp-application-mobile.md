@@ -7,7 +7,7 @@ author: "Jon"
 image:
   url: "/images/blog/budget-mvp-application-mobile.webp"
   alt: "Tableau de fourchettes CHF pour un MVP d'application mobile en Suisse — planification budget développement mobile PME"
-category: "tech"
+category: "mobile"
 tags: ["MVP", "application mobile", "budget", "suisse", "développement mobile", "PME"]
 featured: false
 draft: false

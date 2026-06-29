@@ -1,11 +1,12 @@
 ---
 title: "Comment apparaître sur Google Maps : guide débutant"
+h1: "Comment apparaître sur Google Maps quand on débute : le guide pas à pas pour PME"
 description: "Tu as un commerce mais tu n'apparais pas sur Google Maps ? Je t'explique pourquoi et les 5 étapes concrètes pour y être dans les 30 prochains jours."
 pubDate: 2026-05-07
 image:
   url: "/images/blog/comment-apparaitre-google-maps-pme-debutant.webp"
   alt: "Comment apparaître sur Google Maps — guide PME débutant 2026"
-category: "tech"
+category: "seo-local"
 tags: ["google-maps", "google-my-business", "local-pack", "pme", "debutant", "fiche-google"]
 featured: false
 draft: false

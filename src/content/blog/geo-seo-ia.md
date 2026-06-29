@@ -1,12 +1,13 @@
 ---
 title: "Apparaître dans les IA en 2026 : 6 moteurs + outils GEO"
+h1: "Apparaître dans les réponses des IA en 2026 : les 6 moteurs à viser et les outils GEO"
 description: "GEO 2026 : les 6 moteurs IA comparés, les meilleurs outils pour suivre ta visibilité et l'optimiser, plus un plan d'action concret en 30 jours."
 pubDate: 2026-04-14
 updatedDate: 2026-05-27
 image:
   url: "/images/blog/geo-seo-ia-2026.webp"
   alt: "GEO Generative Engine Optimization — apparaître sur les IA en 2026"
-category: "tech"
+category: "geo"
 tags: ["geo", "seo", "ia", "chatgpt", "perplexity", "gemini", "copilot", "claude", "grok", "visibilité", "suisse"]
 featured: true
 draft: false

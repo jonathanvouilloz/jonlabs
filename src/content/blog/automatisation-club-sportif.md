@@ -1,11 +1,12 @@
 ---
 title: "Club sportif : pourquoi Excel ne suffit plus"
+h1: "Gérer son club sportif sans Excel : pourquoi le tableur ne suffit plus et par quoi le remplacer"
 description: "Cotisations impayées, fichiers Excel chaotiques, conformité nLPD : découvrez comment l'automatisation peut soulager les bénévoles de votre club."
 pubDate: 2025-11-27
 image:
   url: "/images/blog/automatisation-club-sportif.webp"
   alt: "Automatisation pour clubs sportifs en 2025"
-category: "tech"
+category: "automatisation"
 tags: ["automatisation", "clubs", "associations", "suisse", "gestion"]
 featured: false
 draft: false

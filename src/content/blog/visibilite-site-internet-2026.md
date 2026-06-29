@@ -1,12 +1,13 @@
 ---
 title: "Site web actif : pourquoi c'est vital en 2026 (guide CH)"
+h1: "Site web actif ou vitrine passive : pourquoi un site qui travaille est vital en 2026"
 description: "Pourquoi un site sans contenu frais coûte plus qu'il ne rapporte. Méthode, chiffres CH, étude de cas et plan d'action concret."
 pubDate: 2025-12-01
 updatedDate: 2026-04-15
 image:
   url: "/images/blog/visibilite-site-internet-2026.webp"
   alt: "Site web qui dort vs site web qui travaille - guide complet pour indépendants romands"
-category: "tech"
+category: "web"
 tags: ["site-web", "contenu", "seo", "freelance-romand", "strategie-editoriale"]
 featured: true
 draft: false

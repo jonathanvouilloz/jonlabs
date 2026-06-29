@@ -6,7 +6,7 @@ pubDate: 2026-06-12
 image:
   url: "/images/blog/choisir-categorie-google-business-profile.webp"
   alt: "Choisir la catégorie principale de sa fiche Google Business Profile, menu déroulant style brutaliste"
-category: "tech"
+category: "seo-local"
 tags: ["google-business-profile", "google-my-business", "seo-local", "local-pack", "categorie-google", "pme", "suisse-romande"]
 featured: false
 draft: false

@@ -7,7 +7,7 @@ author: "Jon"
 image:
   url: "/images/blog/application-metier-pme-sur-mesure.webp"
   alt: "Écran d'application métier sur mesure affichant un rapport de chantier pour une PME suisse romande"
-category: "tech"
+category: "web"
 tags: ["application métier", "PME", "sur mesure", "suisse romande", "ROI", "flutter", "webapp"]
 featured: false
 draft: false

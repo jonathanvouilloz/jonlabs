@@ -1,11 +1,12 @@
 ---
 title: "Optimiser fiche Google My Business : checklist 25 points 2026"
+h1: "Optimiser sa fiche Google My Business : la checklist de 25 points à appliquer en 2026"
 description: "Checklist 25 points GMB 2026 : chaque point classé par impact selon Whitespark LSRF. Photos, avis, posts, attributs, maillage GBP-site. Ce qui ranke vraiment."
 pubDate: 2026-05-14
 image:
   url: "/images/blog/optimiser-fiche-google-my-business-checklist-2026.webp"
   alt: "Checklist optimiser fiche Google My Business 2026 — 25 points classés par impact"
-category: "tech"
+category: "seo-local"
 tags: ["google-my-business", "optimisation-gmb", "local-pack", "checklist", "whitespark", "seo-local"]
 featured: false
 draft: false

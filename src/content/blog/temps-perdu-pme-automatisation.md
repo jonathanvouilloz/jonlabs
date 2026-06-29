@@ -1,11 +1,12 @@
 ---
 title: "654 heures par an : le temps que les PME romandes perdent en admin"
+h1: "654 heures perdues chaque année : combien l'administratif coûte vraiment aux PME romandes"
 description: "Où votre PME perd du temps en admin et 3 automatisations rapides pour récupérer des heures chaque semaine. Guide pratique Suisse romande."
 pubDate: 2025-12-15
 image:
   url: "/images/blog/temps-perdu-pme-automatisation.webp"
   alt: "Illustration comparant une PME submergée de paperasse vs une PME automatisée efficace"
-category: "tech"
+category: "automatisation"
 tags: ["automatisation", "PME", "productivite", "suisse-romande", "admin"]
 featured: false
 draft: false

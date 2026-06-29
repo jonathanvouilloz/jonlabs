@@ -4,6 +4,8 @@ const blogCollection = defineCollection({
   type: 'content',
   schema: z.object({
     title: z.string(),
+    // H1 on-page, distinct du title SEO (formulation naturelle, peut dépasser 60 car.). Fallback sur title si absent.
+    h1: z.string().optional(),
     description: z.string().max(160),
     pubDate: z.date(),
     updatedDate: z.date().optional(),
@@ -11,11 +13,14 @@ const blogCollection = defineCollection({
       url: z.string(),
       alt: z.string(),
     }),
-    category: z.enum(['tech', 'creatif', 'perso']),
+    category: z.enum(['mobile', 'automatisation', 'seo-local', 'web', 'geo']),
     tags: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
     draft: z.boolean().default(false),
     readingTime: z.number().optional(),
+    // Vidéo YouTube optionnelle embarquée en tête d'article (id seul, ex. "dQw4w9WgXcQ")
+    youtubeId: z.string().optional(),
+    youtubeTitle: z.string().optional(),
     faqs: z.array(z.object({
       question: z.string(),
       answer: z.string(),

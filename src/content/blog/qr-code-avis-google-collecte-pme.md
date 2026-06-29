@@ -1,11 +1,12 @@
 ---
 title: "QR code avis Google : guide complet pour PME (2026)"
+h1: "QR code pour collecter des avis Google : le guide complet pour les PME en 2026"
 description: "Lien court GBP, QR code, sondage filtrant 4-5★→Google / 1-3★→SAV, modèles SMS et email. La méthode pour collecter des avis sans inciter illégalement."
 pubDate: 2026-05-21
 image:
   url: "/images/blog/qr-code-avis-google-collecte-pme.webp"
   alt: "QR code avis Google sur comptoir PME, pour collecter des avis clients facilement"
-category: "tech"
+category: "seo-local"
 tags: ["qr-code-avis-google", "avis-google", "google-my-business", "seo-local", "pme", "collecte-avis"]
 featured: false
 draft: false

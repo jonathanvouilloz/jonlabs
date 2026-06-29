@@ -1,11 +1,12 @@
 ---
 title: "Combien coûte vraiment un site web en Suisse en 2026 ?"
+h1: "Prix d'un site web en Suisse en 2026 : les fourchettes réelles selon le type de projet"
 description: "Guide transparent des vrais tarifs web en Suisse : CHF 750-2000 pour un site vitrine. Facteurs de coût et conseils d'un développeur genevois."
 pubDate: 2025-12-25
 image:
   url: "/images/blog/prix-site-web-suisse-2026.webp"
   alt: "Guide des prix pour un site web en Suisse - blob avec étiquette de prix CHF"
-category: "tech"
+category: "web"
 tags: ["prix", "site-web", "suisse", "freelance", "tarifs", "geneve"]
 featured: false
 draft: false

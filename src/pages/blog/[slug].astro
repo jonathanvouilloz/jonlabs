@@ -5,6 +5,7 @@ import Layout from '../../layouts/Layout.astro';
 import AppHeader from '../../components/Header.astro';
 import AppFooter from '../../components/Footer.astro';
 import CategoryBadge from '../../components/blog/CategoryBadge.astro';
+import VideoEmbed from '../../components/blog/VideoEmbed.astro';
 import AuthorBio from '../../components/blog/AuthorBio.astro';
 import RelatedPosts from '../../components/blog/RelatedPosts.astro';
 import ReadingProgress from '../../components/blog/ReadingProgress.astro';
@@ -22,7 +23,7 @@ export async function getStaticPaths() {
 }
 
 const { post, allPosts } = Astro.props;
-const { title, description, image, category, tags, pubDate, readingTime } = post.data;
+const { title, h1, description, image, category, tags, pubDate, readingTime, youtubeId, youtubeTitle } = post.data;
 const { Content } = await post.render();
 
 const relatedPosts = getRelatedPosts(post, allPosts, 3);
@@ -158,10 +159,13 @@ if (post.data.faqs && post.data.faqs.length > 0) {
               )}
             </div>
 
-            <!-- Title -->
+            <!-- Title (H1 distinct du title SEO ; fallback sur title si absent) -->
             <h1 class="text-3xl md:text-4xl font-black mb-6 leading-tight">
-              {title}
+              {h1 ?? title}
             </h1>
+
+            <!-- Vidéo YouTube (optionnelle, pilotée par le frontmatter youtubeId) -->
+            {youtubeId && <VideoEmbed youtubeId={youtubeId} title={youtubeTitle ?? title} />}
 
             <!-- Tags -->
             {tags.length > 0 && (
