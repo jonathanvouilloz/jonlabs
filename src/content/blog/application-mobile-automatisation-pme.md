@@ -26,7 +26,7 @@ faqs:
     answer: "Dès la première réunion de cadrage, avant même de parler de design ou de fonctionnalités. L'intégration conditionne des choix d'architecture qui sont très coûteux à modifier après. Si ton prestataire soulève la question uniquement en fin de projet, c'est un signal d'alerte."
 ---
 
-J'ai vu des PME investir 20 000 CHF dans une app mobile, puis la regarder se vider de ses utilisateurs six mois après le lancement. La raison est quasi-systématique : **l'app est un îlot**. Les données ne sortent pas vers le CRM. Les commandes ne déclenchent pas de notification Slack. Les rapports ne s'envoient pas automatiquement au comptable.
+J'ai vu des PME investir 8 000 CHF dans une app mobile, puis la regarder se vider de ses utilisateurs six mois après le lancement. La raison est quasi-systématique : **l'app est un îlot**. Les données ne sortent pas vers le CRM. Les commandes ne déclenchent pas de notification Slack. Les rapports ne s'envoient pas automatiquement au comptable.
 
 Les employés gardent leurs anciens outils "en parallèle" et l'app devient redondante. Elle coûte en maintenance, rapporte peu en valeur réelle.
 

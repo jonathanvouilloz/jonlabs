@@ -15,7 +15,7 @@ readingTime: 7
 slug: application-mobile-pme-suisse
 faqs:
   - question: "Combien coûte une application mobile pour une PME suisse ?"
-    answer: "Entre 15 000 et 60 000 CHF pour une app native iOS + Android, selon la complexité fonctionnelle. Une app simple (3-4 écrans, logique métier basique) se situe entre 15 000 et 25 000 CHF. Une PWA représente 4 à 8 fois moins d'investissement pour 90 % des fonctionnalités."
+    answer: "Entre 3 500 et 10 000 CHF pour une app native iOS + Android, selon la complexité fonctionnelle. Une app simple (3-4 écrans, logique métier basique) se situe entre 3 500 et 8 500 CHF, une app métier complète entre 5 000 et 10 000 CHF. Une marketplace ou une app complexe démarre à 15 000 CHF. À titre de comparaison, une agence facture souvent 25 000 à 50 000 CHF pour le même périmètre. Une PWA reste 4 à 8 fois moins chère pour 90 % des fonctionnalités."
   - question: "Quelle est la différence entre une app native et une PWA ?"
     answer: "Une app native est installée depuis l'App Store ou le Google Play Store et a accès au hardware du téléphone (caméra, GPS, Bluetooth, NFC). Une PWA est une webapp accessible depuis le navigateur, installable sur l'écran d'accueil sans passer par les stores. En 2026, 60 à 70 % des demandes de PME suisses peuvent être satisfaites par une PWA."
   - question: "Combien de temps faut-il pour développer une app mobile ?"
@@ -62,7 +62,7 @@ Les apps natives ont un accès direct aux composants hardware du téléphone. Si
 
 ### 4. ROI mesurable : peux-tu quantifier ce que l'app va économiser ou générer ?
 
-C'est la question que la plupart des agences ne te posent pas. Une app mobile pour une PME suisse coûte entre **15 000 et 60 000 CHF** selon la complexité. Si tu ne peux pas calculer un retour sur investissement sur 24 mois, c'est un signal d'alarme.
+C'est la question que la plupart des agences ne te posent pas. Une app mobile sur mesure coûte entre **3 500 et 10 000 CHF** selon la complexité ; une agence facturerait plutôt 25 000 à 50 000 CHF pour le même périmètre. Si tu ne peux pas calculer un retour sur investissement sur 24 mois, c'est un signal d'alarme.
 
 Exemple simple : si l'app fait gagner 3 heures par semaine à 4 employés facturés à 80 CHF/h, c'est 49 920 CHF économisés par an. Le ROI est immédiat. Si le gain est flou ("ça améliorera l'expérience client"), il faut creuser davantage avant de signer quoi que ce soit.
 
@@ -110,7 +110,7 @@ Un électricien de Lausanne avec 3 techniciens. Avant : carnets papier, photos p
 
 Après une app métier sur mesure : rapport de chantier rempli en 5 minutes depuis le terrain, photos géolocalisées automatiquement, client notifié à la fin de l'intervention.
 
-**ROI calculé :** 2 heures gagnées par technicien par semaine × 3 techniciens × 70 CHF/h = **420 CHF économisés par semaine**, soit 21 000 CHF sur l'année. L'app a coûté 18 000 CHF. Retour sur investissement en moins de 12 mois.
+**ROI calculé :** 2 heures gagnées par technicien par semaine × 3 techniciens × 70 CHF/h = **420 CHF économisés par semaine**, soit 21 000 CHF sur l'année. L'app a coûté 8 000 CHF. Retour sur investissement en moins de 5 mois.
 
 C'est le cas idéal : besoin offline, accès caméra/GPS, usage quotidien.
 
@@ -150,7 +150,7 @@ Si tu coches 2 ou 3 : une app mobile est probablement le bon investissement. La 
 
 ### Combien coûte une application mobile pour une PME suisse ?
 
-Entre **15 000 et 60 000 CHF** pour une app native iOS + Android, selon la complexité fonctionnelle. Une app simple (3-4 écrans, logique métier basique) se situe entre 15 000 et 25 000 CHF. Une app avec backend, synchronisation offline et accès hardware complexe peut dépasser 50 000 CHF. Une PWA représente 4 à 8 fois moins d'investissement pour 90 % des fonctionnalités.
+Entre **3 500 et 10 000 CHF** pour une app native iOS + Android, selon la complexité fonctionnelle. Une app simple (3-4 écrans, logique métier basique) se situe entre 3 500 et 8 500 CHF, une app métier complète entre 5 000 et 10 000 CHF. Une marketplace ou une app complexe démarre à 15 000 CHF. À titre de comparaison, une agence facture souvent 25 000 à 50 000 CHF pour le même périmètre. Une PWA reste 4 à 8 fois moins chère pour 90 % des fonctionnalités.
 
 ### Quelle est la différence entre une app native et une PWA ?
 

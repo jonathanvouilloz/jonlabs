@@ -1,12 +1,12 @@
 ---
 title: "Prix d'une app mobile en Suisse 2026 : vrais chiffres"
 h1: "Prix d'une application mobile en Suisse en 2026 : les vrais chiffres"
-description: "Freelance, agence, offshore : combien coûte une application mobile en Suisse ? Fourchettes CHF par type, coûts cachés et comparatif."
+description: "MVP, app métier, marketplace : combien coûte une application mobile en Suisse en 2026 ? Forfaits CHF réels par type, coûts cachés et comparatif agence."
 pubDate: 2026-07-03
 author: "Jon"
 image:
   url: "/images/blog/prix-application-mobile-suisse.webp"
-  alt: "Comparatif des prix d'une application mobile en Suisse en 2026 : fourchettes CHF freelance, agence et offshore sur fond crème brutaliste"
+  alt: "Comparatif des prix d'une application mobile en Suisse en 2026 : forfaits CHF par type d'app sur fond crème brutaliste"
 category: "tech"
 tags: ["application mobile", "prix", "budget", "suisse", "mvp", "flutter", "freelance", "pme"]
 featured: false
@@ -15,30 +15,31 @@ readingTime: 10
 slug: prix-application-mobile-suisse
 faqs:
   - question: "Combien coûte une application mobile en Suisse en 2026 ?"
-    answer: "Entre 5 000 et 100 000 CHF+ selon le type d'app. Une app vitrine simple tient dans 5 000–12 000 CHF. Un MVP pour valider un concept coûte 8 000–25 000 CHF. Une app métier complète nécessite 12 000–30 000 CHF. Une marketplace ou un SaaS avec paiements et back-office démarre à 35 000 CHF et monte facilement à 100 000 CHF+."
+    answer: "Entre 2 000 et 15 000 CHF et plus selon le type d'app. Un MVP pour valider un concept tient dans 2 000–5 000 CHF. Une app vitrine ou un utilitaire simple coûte 3 500–8 500 CHF. Une app métier complète se situe entre 5 000 et 10 000 CHF. Une marketplace ou une app complexe avec paiements et back-office démarre à 15 000 CHF. Ce sont des forfaits : je travaille en solo et j'accélère le développement avec l'IA, ce qui me place sous les tarifs d'agence."
   - question: "Est-ce qu'un développeur offshore peut diviser le prix par 5 ?"
-    answer: "Sur le papier oui : un développeur en Inde facture 15–40 EUR/h contre 80–150 CHF/h en Suisse. Dans la pratique, les surcoûts cachés (briefs mal interprétés, itérations de correction, refactoring 18 mois plus tard, risques sur la propriété du code) réduisent souvent l'économie réelle à 20–40%. L'offshore a du sens pour des tâches très spécifiées, pas pour la conception d'un produit."
+    answer: "Sur le papier, un développeur en Inde facture 15–40 EUR/h contre 80–150 CHF/h pour un freelance suisse. Mais face à un forfait déjà optimisé par l'IA, l'écart fond. Les surcoûts cachés (briefs mal interprétés, itérations de correction, refactoring 18 mois plus tard, risques sur la propriété du code) ramènent souvent l'économie réelle à 20–40%. L'offshore a du sens pour des tâches très spécifiées, pas pour concevoir un produit."
   - question: "Quelle différence entre React Native et Flutter pour le prix ?"
     answer: "Les deux sont cross-platform et permettent de livrer sur iOS et Android depuis une seule base de code, ce qui réduit le coût de 30 à 50% par rapport à deux apps natives séparées. Flutter est mon choix par défaut pour les nouveaux projets : meilleure performance, communauté plus active en 2026, et déploiement web possible si besoin."
   - question: "Faut-il un MVP ou une app complète dès le départ ?"
-    answer: "Presque toujours un MVP d'abord. La majorité des fonctionnalités que les fondateurs pensent indispensables ne sont pas utilisées par les premiers utilisateurs. Un MVP à 15 000 CHF qui valide l'usage coûte moins cher que 80 000 CHF investis dans des fonctionnalités dont personne ne se sert. Lance, mesure, itère."
+    answer: "Presque toujours un MVP d'abord. La majorité des fonctionnalités que les fondateurs pensent indispensables ne sont pas utilisées par les premiers utilisateurs. Un MVP à 3 000 CHF qui valide l'usage coûte moins cher que 12 000 CHF investis dans des fonctionnalités dont personne ne se sert. Lance, mesure, itère."
   - question: "Quels coûts annuels prévoir après le lancement ?"
     answer: "Minimum 10 à 20% du coût de développement par an. Inclus : maintenance OS (Apple et Google changent leurs API chaque année), frais App Store (99 USD/an Apple, 25 USD unique Google), hébergement backend (50–300 CHF/mois), et quelques jours de développement pour les correctifs et petites évolutions."
   - question: "Combien de temps faut-il pour développer une application mobile ?"
-    answer: "Un MVP simple : 4 à 8 semaines. Une app métier complète : 2 à 4 mois. Une marketplace : 4 à 8 mois selon le périmètre. Ces délais supposent un brief clair dès le départ. Chaque semaine de flou sur les specs en milieu de projet double le temps perdu."
+    answer: "Un MVP simple : 2 à 4 semaines. Une app métier complète : 4 à 8 semaines. Une marketplace : 2 à 4 mois selon le périmètre. Le développement accéléré par IA compresse surtout la partie répétitive (CRUD, tests, intégrations standard). Ces délais supposent un brief clair dès le départ."
 ---
 
 Le **coût de développement d'une application mobile en Suisse** reste l'un des sujets les plus opaques du marché tech romand. Les agences ne publient pas leurs tarifs. Les freelances hésitent à afficher des fourchettes. Résultat : les PME arrivent en appel de découverte sans la moindre idée du budget à prévoir.
 
-Je vais être 100% transparent sur les chiffres. Ce que tu lis ici, c'est ce que j'annonce à mes clients dès le premier appel, pas une carotte pour accrocher, pas un "ça dépend" frustrant. Des fourchettes réelles, par type d'app, avec les coûts cachés inclus.
+Je vais être 100% transparent sur les chiffres. Ce que tu lis ici, c'est ce que j'annonce à mes clients dès le premier appel, pas une carotte pour accrocher, pas un "ça dépend" frustrant. Des forfaits réels, par type d'app, avec les coûts cachés inclus.
 
 > **L'essentiel en bref**
 >
-> - Le prix d'une application mobile en Suisse varie de 5 000 CHF (vitrine simple) à 100 000 CHF et plus (marketplace complète).
-> - Les trois variables qui font exploser le budget : la complexité fonctionnelle, le nombre de plateformes, et le besoin d'un backend.
-> - Un freelance suisse facture 80–150 CHF/h, une agence suisse 150–250 CHF/h, un prestataire offshore 15–40 EUR/h.
+> - Le prix d'une application mobile en Suisse va de 2 000 CHF (MVP) à 15 000 CHF et plus (marketplace complète).
+> - Les trois variables qui font varier le budget : la complexité fonctionnelle, le nombre de plateformes, et le besoin d'un backend.
+> - Je travaille au forfait, pas en régie : le prix est annoncé d'avance, avec des jalons de paiement liés aux livrables.
+> - Mes prix passent sous ceux des agences parce que je suis solo (pas de marge commerciale ni de chef de projet à financer) et que j'accélère le développement avec l'IA.
 > - Les coûts cachés (maintenance, App Store, hébergement) représentent 10–25% du budget initial par an.
-> - Un MVP Flutter bien cadré peut tenir dans une enveloppe de 8 000–25 000 CHF.
+> - Un MVP Flutter bien cadré tient dans une enveloppe de 2 000–5 000 CHF.
 
 ---
 
@@ -46,13 +47,13 @@ Je vais être 100% transparent sur les chiffres. Ce que tu lis ici, c'est ce que
 
 Le prix d'une application mobile, c'est la somme de cinq variables. En les comprenant avant de contacter un développeur, tu arrives avec un brief solide et tu évites les devis qui divergent d'un facteur 3.
 
-**La complexité fonctionnelle** est le premier levier. Un écran de liste et un écran de détail, c'est 2 jours de dev. Un moteur de recommandations personnalisées avec historique utilisateur, c'est 3 semaines. La différence entre une app CRUD simple (créer, lire, modifier, supprimer) et une logique métier complexe peut multiplier le budget par 5 à 8.
+**La complexité fonctionnelle** est le premier levier. Un écran de liste et un écran de détail, c'est 2 jours de dev. Un moteur de recommandations personnalisées avec historique utilisateur, c'est plusieurs semaines. La différence entre une app CRUD simple (créer, lire, modifier, supprimer) et une logique métier complexe peut multiplier le budget par 5 à 8.
 
 **Le nombre de plateformes** impacte directement le devis. iOS uniquement ou Android uniquement : le dev estime le périmètre sur une seule base de code native. Cross-platform (Flutter ou React Native) : une seule base de code pour les deux, ce qui réduit le coût de 30 à 50% par rapport à deux apps natives séparées. La contrepartie : quelques limitations d'accès aux fonctionnalités natives très spécifiques.
 
 **Le design sur mesure** versus les composants UI standards représente facilement 20–40% du budget total. Une app avec identité visuelle propre, animations et micro-interactions coûte bien plus qu'une app construite sur des templates Material Design ou Cupertino standard.
 
-**Le backend et les API** font souvent la différence entre une app à 10 000 CHF et une à 50 000 CHF. Une app standalone qui fonctionne en local (liste de tâches, calculateur) n'a besoin de rien. Une app connectée à une base de données distante, avec authentification, synchronisation et gestion des droits, nécessite un serveur, une API REST ou GraphQL, et une couche de sécurité.
+**Le backend et les API** font souvent la différence entre une app à 4 000 CHF et une à 12 000 CHF. Une app standalone qui fonctionne en local (liste de tâches, calculateur) n'a besoin de rien. Une app connectée à une base de données distante, avec authentification, synchronisation et gestion des droits, nécessite un serveur, une API REST ou GraphQL, et une couche de sécurité.
 
 **Les intégrations tierces** s'empilent vite : **paiement en ligne** (Stripe, Twint), **notifications push** (Firebase), **géolocalisation** (Google Maps SDK), **connexion sociale** (Sign in with Apple, Google OAuth). Chaque intégration ajoute 1 à 5 jours de développement selon la complexité.
 
@@ -60,64 +61,46 @@ Le prix d'une application mobile, c'est la somme de cinq variables. En les compr
 
 ## Fourchettes de prix par type d'application (en CHF)
 
-Voici les fourchettes réelles pour le marché suisse en 2026. Ces chiffres correspondent à un développement avec un freelance ou une petite agence suisse, sans offshore.
+Voici mes forfaits réels pour le marché suisse en 2026. Ce sont des prix fixes, annoncés d'avance, pour un développement en solo avec un workflow accéléré par IA, sans offshore.
 
-| Type d'app | Description | Fourchette CHF |
+| Type d'app | Description | Forfait CHF |
 |---|---|---|
-| **App vitrine / catalogue** | Présente des produits ou services, pas de logique métier, contenu statique ou CMS simple | 5 000 – 12 000 CHF |
-| **App métier simple** | Formulaires, suivi de données, gestion interne basique, authentification | 12 000 – 30 000 CHF |
-| **App marketplace / SaaS** | Comptes utilisateurs, paiements, back-office admin, API propre | 35 000 – 100 000 CHF+ |
-| **MVP (version minimale)** | Périmètre réduit pour valider un concept avant de lever des fonds ou scaler | 8 000 – 25 000 CHF |
+| **MVP (version minimale)** | Périmètre réduit à 3–5 écrans pour valider un concept avant d'investir davantage | 2 000 – 5 000 CHF |
+| **App vitrine / utilitaire simple** | Catalogue, contenu, formulaires, pas de logique métier lourde | 3 500 – 8 500 CHF |
+| **App métier complète** | Authentification, synchronisation, back-office léger, règles métier | 5 000 – 10 000 CHF |
+| **Marketplace / app complexe** | Deux types d'utilisateurs, paiements, back-office admin, API propre | dès 15 000 CHF |
 
-**App vitrine (5 000–12 000 CHF)** : c'est l'équivalent mobile d'un site vitrine. Quelques écrans fixes, un catalogue de produits, des formulaires de contact. Pas de backend complexe. Idéal pour un restaurant, un artisan ou une boutique qui veut sa présence mobile. En cross-platform Flutter, on peut tenir le bas de la fourchette. Avec design sur mesure, on monte vers 10 000–12 000 CHF.
+**MVP (2 000–5 000 CHF)** : l'objectif ici est de valider une hypothèse produit, pas de livrer un produit fini. Périmètre réduit à 3–5 écrans clés, une seule plateforme (souvent iOS pour le marché premium), pas de back-office. Un MVP bien cadré se développe en 2 à 4 semaines. C'est le meilleur moyen de vérifier que tes utilisateurs se servent réellement de l'app avant d'investir davantage.
 
-**App métier (12 000–30 000 CHF)** : c'est le territoire des outils internes et des apps de gestion. Technicien terrain qui envoie des rapports depuis son smartphone, commercial qui consulte son CRM, logisticien qui suit ses livraisons. L'authentification, la synchronisation et les règles métier poussent le budget vers 20 000–30 000 CHF dès que le backend se complexifie.
+**App vitrine / utilitaire simple (3 500–8 500 CHF)** : c'est l'équivalent mobile d'un site vitrine. Quelques écrans, un catalogue de produits, des formulaires de contact, ou un petit outil autonome. Pas de backend complexe. Idéal pour un restaurant, un artisan ou une boutique qui veut sa présence mobile. En cross-platform Flutter, on tient le bas de la fourchette. Avec design sur mesure, on monte vers le haut.
 
-**Marketplace / SaaS (35 000–100 000 CHF+)** : dès que tu as deux types d'utilisateurs (acheteur / vendeur, patient / médecin, client / prestataire), le périmètre explose. Le back-office admin, la gestion des paiements, les notifications, les profils, les avis : c'est minimum 35 000 CHF pour un périmètre MVP, et facilement 80 000–100 000 CHF+ pour un produit commercialisable.
+**App métier complète (5 000–10 000 CHF)** : c'est le territoire des outils internes et des apps de gestion. Technicien terrain qui envoie des rapports depuis son smartphone, commercial qui consulte son CRM, logisticien qui suit ses livraisons. L'authentification, la synchronisation et les règles métier poussent le budget vers le haut de la fourchette dès que le backend se complexifie.
 
-**MVP (8 000–25 000 CHF)** : l'objectif ici est de valider une hypothèse produit, pas de livrer un produit fini. Périmètre réduit à 3–5 écrans clés, une seule plateforme (souvent iOS pour le marché premium), pas de back-office. Un MVP bien cadré se développe en 4 à 8 semaines.
+**Marketplace / app complexe (dès 15 000 CHF)** : dès que tu as deux types d'utilisateurs (acheteur / vendeur, patient / médecin, client / prestataire), le périmètre s'élargit nettement. Le back-office admin, la gestion des paiements, les notifications, les profils, les avis : compte au minimum 15 000 CHF, et davantage pour un produit commercialisable complet. Sur ce type de projet, on commence presque toujours par un MVP pour dégrossir avant d'engager le budget complet.
 
 ---
 
-## Freelance suisse vs agence suisse vs offshore : comparatif
+## Pourquoi un forfait, et pourquoi moins cher qu'une agence
 
-Le choix du prestataire est aussi déterminant que le type d'app pour le budget final. Voici le comparatif honnête, avantages et limites compris.
+Le choix du prestataire est aussi déterminant que le type d'app pour le budget final. Voici pourquoi je travaille au forfait, et d'où vient l'écart de prix avec une agence.
 
-### Freelance suisse : 80–150 CHF/h
+### Le forfait plutôt que la régie
 
-Un développeur mobile indépendant en Suisse facture entre **80 et 150 CHF de l'heure** selon son niveau d'expérience et sa spécialisation (iOS natif Swift, Android Kotlin, cross-platform Flutter/React Native). Pour une app à 200 heures de développement, le budget oscille entre 16 000 et 30 000 CHF.
+Je chiffre au forfait, pas au temps passé. Tu connais le prix avant de signer, et le paiement est lié à des jalons (maquettes validées, livraison beta, livraison finale). La facturation en régie (à l'heure) reporte tout le risque de dépassement sur toi : tu n'as aucune visibilité sur le coût final. Le forfait inverse ce risque, c'est à moi de bien estimer.
 
-Contact direct sans intermédiaire commercial, flexibilité sur le périmètre en cours de projet, spécialisation souvent pointue. Un freelance senior connaît son domaine mieux qu'un développeur juniorisé dans une agence généraliste.
+### Pourquoi mes prix passent sous ceux d'une agence
 
-La contrepartie : disponibilité variable (un freelance bien occupé a 4–6 semaines de délai), pas de couverture si la personne tombe malade, et la gestion de projet repose sur toi si le freelance n'a pas de chef de projet dédié.
+Une agence suisse facture une app métier 25 000 à 50 000 CHF, là où je la livre entre 5 000 et 10 000 CHF. L'écart ne vient pas d'une qualité moindre, il vient de la structure de coûts :
 
-### Agence suisse : 150–250 CHF/h
+- **Pas de marge commerciale ni de chef de projet à financer.** Tu paies du développement, pas une couche de coordination interne.
+- **Pas de junior qui apprend sur ton projet.** C'est moi qui conçois, code et livre.
+- **Développement accéléré par IA.** J'utilise l'IA pour compresser la partie répétitive du code (CRUD, tests, intégrations standard, boilerplate). Ce qui prenait des semaines en prend quelques jours, et cette économie de temps se répercute directement sur le prix.
 
-Une agence suisse facture entre **150 et 250 CHF/h**. Le surcoût reflète le chef de projet inclus, les procédures qualité, et les garanties contractuelles plus solides. Pour la même app à 200 heures, le budget passe à 30 000–50 000 CHF (souvent davantage, car les agences chiffrent large).
+La contrepartie d'un solo : la disponibilité est variable (un freelance bien occupé a quelques semaines de délai) et il n'y a pas de structure qui prend le relais en cas d'absence. Pour un projet à fort enjeu de structure et de garanties contractuelles lourdes, une agence reste pertinente. Pour une PME qui veut une app solide à budget maîtrisé, le forfait solo est presque toujours le meilleur rapport.
 
-Structure, documentation, tests automatisés, interlocuteur commercial qui absorbe les imprévus. L'agence porte la responsabilité contractuelle du projet.
+### Et l'offshore ?
 
-Ce qu'on paie en plus : la marge commerciale, les réunions de coordination interne, et parfois du junior qui apprend sur ton projet. Les délais sont souvent plus longs qu'annoncés.
-
-### Offshore (Inde, Ukraine, Maroc) : 15–40 EUR/h
-
-Un développeur offshore facture **15 à 40 EUR/h** selon le pays et le niveau. 200 heures à 25 EUR = 5 000 EUR sur le papier. En pratique, ça se complique.
-
-Décalage horaire (6h à 10h avec l'Inde, problèmes de synchronisation), briefs mal interprétés qui génèrent des itérations longues, qualité variable du code (refactoring coûteux 18 mois après la livraison), questions de propriété intellectuelle (la législation sur le code source varie selon le pays). L'économie réelle, une fois ces surcoûts absorbés, se réduit souvent à 20–40% d'économie réelle.
-
-L'offshore a du sens pour des tâches très bien spécifiées : intégration d'API documentée, QA testing, UI pixel-perfect sur maquette Figma validée. Pas pour la conception et l'architecture d'un produit.
-
-### Tableau comparatif
-
-| Critère | Freelance CH | Agence CH | Offshore |
-|---|---|---|---|
-| Tarif horaire | 80–150 CHF/h | 150–250 CHF/h | 15–40 EUR/h |
-| Contact direct | Oui | Non (chef de projet) | Difficile |
-| Garanties contractuelles | Limitées | Solides | Risquées |
-| Qualité code | Haute si senior | Variable | Variable |
-| Délais | Rapides si dispo | Longs | Imprévisibles |
-| Risque IP | Faible | Faible | Élevé |
-| Idéal pour | MVP, app métier ciblée | Projets >80k CHF avec structure | Tâches très spécifiées |
+Un développeur offshore (Inde, Ukraine, Maroc) facture 15 à 40 EUR/h, contre 80 à 150 CHF/h pour un freelance suisse. Sur le papier, c'est imbattable. En pratique, le décalage horaire, les briefs mal interprétés qui génèrent des itérations longues, la qualité variable du code (refactoring coûteux 18 mois après) et les questions de propriété intellectuelle réduisent l'économie réelle à 20–40%. Face à un forfait déjà optimisé par l'IA, l'écart devient marginal. L'offshore garde du sens pour des tâches très spécifiées (intégration d'API documentée, QA, UI pixel-perfect sur maquette validée), pas pour concevoir et architecturer un produit.
 
 ---
 
@@ -127,7 +110,7 @@ Un budget app ne s'arrête pas à la livraison. Ces coûts sont systématiquemen
 
 **Frais App Store** : la [publication sur l'App Store d'Apple](https://developer.apple.com/programs/) coûte **99 USD par an**. La publication sur le [Google Play Store](https://play.google.com/console/signup) est un **paiement unique de 25 USD**. Ces frais s'appliquent dès le premier jour de mise en ligne.
 
-**Maintenance annuelle** : Apple et Google publient des mises à jour majeures d'iOS et Android chaque automne. Chaque nouvelle version peut déprécier des API existantes, modifier des comportements système, ou exiger une recompilation. Budget à prévoir : **10 à 20% du coût de développement initial, par an**. Pour une app à 30 000 CHF, prévois 3 000 à 6 000 CHF/an de maintenance minimum.
+**Maintenance annuelle** : Apple et Google publient des mises à jour majeures d'iOS et Android chaque automne. Chaque nouvelle version peut déprécier des API existantes, modifier des comportements système, ou exiger une recompilation. Budget à prévoir : **10 à 20% du coût de développement initial, par an**. Pour une app à 8 000 CHF, prévois 800 à 1 600 CHF/an de maintenance minimum.
 
 **Backend et hébergement** : si ton app est connectée à une API et une base de données, l'hébergement coûte entre **50 et 300 CHF/mois** selon le trafic. Sur un an, c'est 600 à 3 600 CHF supplémentaires. Ces coûts augmentent avec le nombre d'utilisateurs.
 
@@ -137,27 +120,21 @@ Un budget app ne s'arrête pas à la livraison. Ces coûts sont systématiquemen
 
 ---
 
-## Ce qu'on peut faire avec 10k, 30k, 80k CHF
+## Trois budgets concrets
 
-Trois scénarios concrets avec leur périmètre réel.
+Trois scénarios avec leur périmètre réel.
 
-### Avec 10 000 CHF
+### Avec 3 000 CHF
 
-Un **MVP cross-platform en Flutter**, 3 à 4 écrans fonctionnels, sans backend complexe. Une app de catalogue avec filtre, une app de réservation avec formulaire, ou un outil interne de checklist pour une équipe terrain. Pas de comptes utilisateurs, pas de paiement, pas de notifications push. Idéal pour vérifier que tes utilisateurs utilisent réellement l'app avant d'investir davantage.
+Un **MVP cross-platform en Flutter**, 3 à 4 écrans fonctionnels, sans backend complexe. Une app de catalogue avec filtre, une app de réservation avec formulaire, ou un outil interne de checklist pour une équipe terrain. Pas de comptes utilisateurs, pas de paiement, pas de notifications push. L'objectif : vérifier que tes utilisateurs se servent réellement de l'app avant d'investir davantage. Compte 2 à 4 semaines de développement.
 
-À ce budget, compte 6 à 8 semaines avec un freelance expérimenté, ou 10 à 12 semaines avec une petite agence.
+### Avec 6 000 CHF
 
-### Avec 30 000 CHF
+Une **app métier solide** : authentification, 2 plateformes (iOS + Android en Flutter), back-office web léger pour l'admin, 6 à 10 écrans fonctionnels. C'est le budget typique d'une app de gestion d'équipe, de suivi de chantier, ou d'outil CRM mobile. Le backend est inclus : API REST avec base de données cloud.
 
-Une **app métier complète** : authentification, 2 plateformes (iOS + Android en Flutter), back-office web léger pour l'admin, 8 à 12 écrans fonctionnels. C'est le budget typique d'une app de gestion d'équipe, de suivi de chantier, ou d'outil CRM mobile. Le backend est inclus : API REST avec base de données cloud.
+### Avec 15 000 CHF
 
-À 30 000 CHF, tu peux aussi faire un MVP marketplace basique avec deux types d'utilisateurs, sans paiement intégré.
-
-### Avec 80 000 CHF
-
-Une **app marketplace ou SaaS commercialisable** : comptes utilisateurs avec rôles, paiements intégrés (Stripe ou Twint), back-office admin complet, notifications push, 15 à 20 écrans, API documentée, tests automatisés, mise en production sur les deux stores. C'est le budget d'un produit qui peut se lancer en beta publique et commencer à générer des revenus.
-
-80 000 CHF couvre le développement initial. Pas le marketing, ni les itérations post-launch.
+Une **marketplace ou un SaaS mobile** : comptes utilisateurs avec rôles, paiements intégrés (Stripe ou Twint), back-office admin, notifications push, API propre, mise en production sur les deux stores. C'est le budget d'un produit qui peut se lancer en beta publique et commencer à générer des revenus. Ce montant couvre le développement initial, pas le marketing ni les itérations post-launch.
 
 ---
 
@@ -167,9 +144,9 @@ Un devis fiable nécessite un brief précis. Sans spécification, tu obtiendras 
 
 **Rédige un cahier des charges avant de contacter un dev.** Pas besoin d'un document de 80 pages : une liste des fonctionnalités (pas des écrans, des fonctionnalités), le nombre de types d'utilisateurs, les intégrations requises, et les plateformes cibles suffisent pour obtenir un devis sérieux.
 
-**Demande un découpage par fonctionnalité**, pas un prix global. Un devis qui dit "développement app : 45 000 CHF" ne te permet pas de prioriser ni de réduire le périmètre. Un devis structuré liste chaque module avec son estimation en jours et en CHF.
+**Demande un découpage par fonctionnalité**, pas un prix global. Un devis qui dit "développement app : 12 000 CHF" ne te permet pas de prioriser ni de réduire le périmètre. Un devis structuré liste chaque module avec son estimation en jours et en CHF.
 
-**Exige un devis fixe ou un budget plafond avec jalons.** La facturation au temps passé (régie) est risquée pour le client : tu n'as aucune visibilité sur le coût final. Privilégie un devis forfaitaire avec jalons de paiement liés aux livrables (maquettes validées : 30%, livraison beta : 40%, livraison finale : 30%).
+**Exige un devis forfaitaire avec jalons.** La facturation au temps passé (régie) est risquée pour le client : tu n'as aucune visibilité sur le coût final. Privilégie un forfait avec jalons de paiement liés aux livrables (maquettes validées : 30%, livraison beta : 40%, livraison finale : 30%).
 
 **Demande à voir du code ou des apps en production.** Tout développeur sérieux peut montrer des apps qu'il a livrées sur les stores. Si ce n'est pas possible, cherche quelqu'un d'autre.
 
@@ -181,11 +158,11 @@ Pour aller plus loin sur les critères de sélection d'un prestataire, consulte 
 
 ### Combien coûte une application mobile en Suisse en 2026 ?
 
-Entre 5 000 et 100 000 CHF+ selon le type d'app. Une app vitrine simple tient dans 5 000–12 000 CHF. Un MVP pour valider un concept coûte 8 000–25 000 CHF. Une app métier complète nécessite 12 000–30 000 CHF. Une marketplace ou un SaaS avec paiements et back-office démarre à 35 000 CHF et monte facilement à 100 000 CHF+.
+Entre 2 000 et 15 000 CHF et plus selon le type d'app. Un MVP pour valider un concept tient dans 2 000–5 000 CHF. Une app vitrine ou un utilitaire simple coûte 3 500–8 500 CHF. Une app métier complète se situe entre 5 000 et 10 000 CHF. Une marketplace ou une app complexe avec paiements et back-office démarre à 15 000 CHF. Ce sont des forfaits : je travaille en solo et j'accélère le développement avec l'IA, ce qui me place sous les tarifs d'agence.
 
 ### Est-ce qu'un développeur offshore peut diviser le prix par 5 ?
 
-Sur le papier oui : un développeur en Inde facture 15–40 EUR/h contre 80–150 CHF/h en Suisse. Dans la pratique, les surcoûts cachés (briefs mal interprétés, itérations de correction, refactoring 18 mois plus tard, risques sur la propriété du code) réduisent souvent l'économie réelle à 20–40%. L'offshore a du sens pour des tâches très spécifiées, pas pour la conception d'un produit.
+Sur le papier, un développeur en Inde facture 15–40 EUR/h contre 80–150 CHF/h pour un freelance suisse. Mais face à un forfait déjà optimisé par l'IA, l'écart fond. Les surcoûts cachés (briefs mal interprétés, itérations de correction, refactoring 18 mois plus tard, risques sur la propriété du code) ramènent souvent l'économie réelle à 20–40%. L'offshore a du sens pour des tâches très spécifiées, pas pour concevoir un produit.
 
 ### Quelle différence entre React Native et Flutter pour le prix ?
 
@@ -193,7 +170,7 @@ Les deux sont cross-platform et permettent de livrer sur iOS et Android depuis u
 
 ### Faut-il un MVP ou une app complète dès le départ ?
 
-Presque toujours un MVP d'abord. La majorité des fonctionnalités que les fondateurs pensent indispensables ne sont pas utilisées par les premiers utilisateurs. Un MVP à 15 000 CHF qui valide l'usage coûte moins cher que 80 000 CHF investis dans des fonctionnalités dont personne ne se sert. Lance, mesure, itère.
+Presque toujours un MVP d'abord. La majorité des fonctionnalités que les fondateurs pensent indispensables ne sont pas utilisées par les premiers utilisateurs. Un MVP à 3 000 CHF qui valide l'usage coûte moins cher que 12 000 CHF investis dans des fonctionnalités dont personne ne se sert. Lance, mesure, itère.
 
 ### Quels coûts annuels prévoir après le lancement ?
 
@@ -201,13 +178,13 @@ Minimum 10 à 20% du coût de développement par an. Inclus : maintenance OS (Ap
 
 ### Combien de temps faut-il pour développer une application mobile ?
 
-Un MVP simple : 4 à 8 semaines. Une app métier complète : 2 à 4 mois. Une marketplace : 4 à 8 mois selon le périmètre. Ces délais supposent un brief clair dès le départ. Chaque semaine de flou sur les specs en milieu de projet double le temps perdu.
+Un MVP simple : 2 à 4 semaines. Une app métier complète : 4 à 8 semaines. Une marketplace : 2 à 4 mois selon le périmètre. Le développement accéléré par IA compresse surtout la partie répétitive (CRUD, tests, intégrations standard). Ces délais supposent un brief clair dès le départ.
 
 ---
 
 ## Conclusion
 
-Le marché suisse du développement mobile manque de transparence sur les prix. Ces fourchettes (5 000 à 100 000 CHF+ selon le type d'app, 80 à 250 CHF/h selon le prestataire) sont les chiffres réels du terrain en 2026.
+Le marché suisse du développement mobile manque de transparence sur les prix. Mes forfaits (de 2 000 à 15 000 CHF et plus selon le type d'app) sont les chiffres réels du terrain en 2026, tirés vers le bas par un workflow solo accéléré à l'IA plutôt que par une structure d'agence.
 
 Tu as maintenant de quoi estimer ton budget avant de décrocher un téléphone. Si tu veux valider ton périmètre, discuter d'un MVP ou d'une app métier sur devis fixe, je suis disponible pour un appel de 30 minutes sans engagement.
 

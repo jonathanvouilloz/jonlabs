@@ -28,7 +28,7 @@ faqs:
 
 **Pinterest a converti son site mobile en Progressive Web App et a vu l'engagement de ses utilisateurs augmenter de 60%.** Starbucks a déployé une PWA capable de prendre des commandes sans connexion, directement depuis le navigateur. Pourtant, quand une PME romande pense "app", elle pense automatiquement App Store.
 
-Ce réflexe coûte cher. Beaucoup de PME paient 30 000 CHF ou plus pour une application mobile native alors qu'une **PWA** aurait répondu à 90% de leurs besoins pour un tiers du budget. Pas parce que la PWA est meilleure dans l'absolu, mais parce que le choix dépend de critères précis que personne ne leur a expliqués.
+Ce réflexe coûte cher. Beaucoup de PME paient 10 000 CHF ou plus pour une application mobile native alors qu'une **PWA** aurait répondu à 90% de leurs besoins pour un tiers du budget. Pas parce que la PWA est meilleure dans l'absolu, mais parce que le choix dépend de critères précis que personne ne leur a expliqués.
 
 Ce guide te donne les critères de bascule. Directement, sans bla-bla.
 
@@ -36,7 +36,7 @@ Ce guide te donne les critères de bascule. Directement, sans bla-bla.
 >
 > - La PWA coûte 2 à 5 fois moins cher qu'une application mobile native et est indexable par Google.
 > - L'application native s'impose quand tu as besoin de Bluetooth, NFC, ou de notifications push critiques sur iOS.
-> - Avec un budget inférieur à 20 000 CHF, commence par une PWA.
+> - Avec un budget inférieur à 10 000 CHF, commence par une PWA.
 > - Les mises à jour d'une PWA sont instantanées, pas de validation App Store qui prend 1 à 3 jours.
 > - La règle des 3 questions à la fin de cet article tranche 80% des cas en 2 minutes.
 
@@ -94,7 +94,7 @@ Voici le tableau de bascule. Si ta situation correspond à la colonne "App nativ
 | Accès Bluetooth ou NFC | ✓ | ✗ |
 | Fonctionnement hors ligne complet (pas partiel) | ✓ | Partiel via cache |
 | Présence sur l'App Store souhaitée | ✓ | ✗ |
-| Budget inférieur à 15 000 CHF | ✗ | ✓ |
+| Budget inférieur à 10 000 CHF | ✗ | ✓ |
 | SEO important pour l'acquisition | ✗ | ✓ |
 | Mises à jour fréquentes sans friction | ✗ | ✓ |
 | Première version ou test de concept | ✗ | ✓ |
@@ -131,7 +131,7 @@ Avant de choisir, réponds honnêtement à ces 3 questions. Elles tranchent 80% 
 
 **1. As-tu besoin d'un accès hardware avancé (Bluetooth, NFC) ou de notifications push critiques sur iOS, sans condition préalable d'installation ?**
 
-**2. Ton budget est-il inférieur à 20 000 CHF ?**
+**2. Ton budget est-il inférieur à 10 000 CHF ?**
 
 **3. Veux-tu que ton outil soit trouvable via Google (SEO) ?**
 
@@ -139,9 +139,9 @@ La grille de lecture :
 
 - Tu réponds **non / oui / oui** : commence par une PWA. Tu peux toujours migrer vers une app native plus tard si les besoins évoluent.
 - Tu réponds **oui** à la question 1 : app native, sans exception.
-- Tu réponds **non / non / non** (budget > 20 000 CHF, pas de SEO, pas d'accès hardware) : les deux options sont viables. La question à se poser : est-ce que la présence sur les stores a une valeur marketing pour toi ?
+- Tu réponds **non / non / non** (budget > 10 000 CHF, pas de SEO, pas d'accès hardware) : les deux options sont viables. La question à se poser : est-ce que la présence sur les stores a une valeur marketing pour toi ?
 
-La bonne stratégie que je recommande souvent : commencer par une PWA, valider le produit avec de vrais utilisateurs, puis migrer vers une app native si la croissance le justifie. Ça évite de brûler 50 000 CHF sur une app que personne n'utilise.
+La bonne stratégie que je recommande souvent : commencer par une PWA, valider le produit avec de vrais utilisateurs, puis migrer vers une app native si la croissance le justifie. Ça évite de brûler 15 000 CHF sur une app que personne n'utilise.
 
 Pour aller plus loin sur les étapes de développement et les budgets réels, le [guide complet sur le développement d'application mobile en Suisse](/blog/developper-application-mobile-suisse) détaille chaque phase et les fourchettes de prix du marché.
 
@@ -175,7 +175,7 @@ Quand tu as besoin d'un ou plusieurs de ces éléments : accès Bluetooth ou NFC
 
 ## Conclusion
 
-Pour une PME romande avec un budget sous 20 000 CHF et sans besoin d'accès hardware avancé, la PWA est la réponse rationnelle. Moins chère, plus rapide à déployer, indexable, multi-plateforme : elle couvre la majorité des usages métier courants.
+Pour une PME romande avec un budget sous 10 000 CHF et sans besoin d'accès hardware avancé, la PWA est la réponse rationnelle. Moins chère, plus rapide à déployer, indexable, multi-plateforme : elle couvre la majorité des usages métier courants.
 
 L'app native n'est pas morte. Elle reste indispensable dès que tu touches au hardware (Bluetooth, NFC), aux notifications push iOS critiques, ou aux paiements in-app. Mais elle mérite d'être choisie pour de bonnes raisons, pas parce que "une app, c'est plus sérieux qu'un site web".
 

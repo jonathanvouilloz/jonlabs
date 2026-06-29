@@ -15,7 +15,7 @@ readingTime: 7
 slug: freelance-ou-agence-application-mobile
 faqs:
   - question: "Quelle est la différence de budget entre un freelance et une agence pour une app mobile ?"
-    answer: "Un freelance spécialisé en Suisse romande facture entre 80 et 130 CHF/h. Une agence mobile facture entre 150 et 250 CHF/h, avec en plus les frais de coordination interne. Sur un projet de 300 heures, l'écart peut représenter 20 000 à 40 000 CHF."
+    answer: "Comme repère de marché, un freelance spécialisé en Suisse romande facture 80 à 150 CHF/h, une agence mobile 150 à 250 CHF/h. Mais l'écart réel se joue sur le forfait total : une app métier coûte 5 000 à 10 000 CHF chez un freelance solo qui développe avec l'aide de l'IA, contre 25 000 à 50 000 CHF en agence."
   - question: "Un freelance peut-il gérer une app iOS et Android en même temps ?"
     answer: "Oui, si le freelance travaille en cross-platform (Flutter ou React Native). Une seule base de code couvre les deux stores. Avec du natif pur (Swift pour iOS, Kotlin pour Android), ça demande soit un freelance très polyvalent, soit deux développeurs, ce qui change le budget de façon significative."
   - question: "Combien de temps faut-il pour développer une application mobile MVP ?"
@@ -28,8 +28,8 @@ faqs:
 
 > **L'essentiel en bref**
 >
-> - Un **freelance spécialisé en développement d'application mobile** coûte 80–130 CHF/h et convient aux budgets < 60 000 CHF avec accès direct au développeur.
-> - Une agence mobile facture 150–250 CHF/h avec une équipe pluridisciplinaire, ce qui est pertinent pour les projets > 80 000 CHF ou avec SLA contractuel.
+> - Un **freelance spécialisé en développement d'application mobile** travaille au forfait : 2 000–10 000 CHF pour la plupart des apps PME (dès 15 000 CHF pour du complexe), prix fixé d'avance et accès direct au développeur.
+> - Une agence mobile facture 150–250 CHF/h avec une équipe pluridisciplinaire, ce qui est pertinent pour les apps complexes ou avec SLA contractuel — compte plutôt 25 000–50 000 CHF pour une app métier.
 > - Le mobile impose des contraintes absentes du web : validation App Store (1–3 jours), maintenance OS obligatoire, tests multi-devices.
 > - Ce guide concerne uniquement les applications mobiles. Pour un projet de site web, consulte le guide [freelance ou agence web](/blog/freelance-ou-agence-web).
 > - Le tableau de décision à mi-article te donne la réponse en 30 secondes selon ton budget et ta situation.
@@ -64,14 +64,14 @@ Ces contraintes s'appliquent quel que soit ton prestataire. La question reste : 
 
 ## Agence mobile : avantages et limites réels
 
-**Une agence est pertinente pour les projets structurés avec budget > 80 000 CHF.** Elle apporte une équipe pluridisciplinaire que peu de freelances peuvent constituer seuls.
+**Une agence est pertinente pour les projets structurés et complexes (dès 25 000 CHF environ).** Elle apporte une équipe pluridisciplinaire que peu de freelances peuvent constituer seuls.
 
 ### Ce qu'une agence apporte vraiment
 
 - **Équipe complète** : chef de projet, designer, développeur(s), QA. Tu as un interlocuteur qui coordonne sans que tu gères chaque rôle.
 - **Portfolio étoffé** : sur des apps critiques, les références en production sont rassurantes.
 - **Cadre contractuel solide** : SLA défini, garanties de maintenance, continuité si un développeur part.
-- **Capacité à absorber les projets > 150 000 CHF** sans sous-traitance non contrôlée.
+- **Capacité à absorber les gros projets** (marketplaces, apps multi-équipes) sans sous-traitance non contrôlée.
 
 ### Ce qu'une agence ne dit pas toujours
 
@@ -84,12 +84,12 @@ Ces contraintes s'appliquent quel que soit ton prestataire. La question reste : 
 
 ## Freelance mobile spécialisé : avantages et limites réels
 
-**Un freelance spécialisé en développement d'application mobile est la meilleure option pour les projets < 60 000 CHF et pour les équipes qui veulent un accès direct au développeur.** C'est mon positionnement, et je suis transparent sur ses limites.
+**Un freelance spécialisé en développement d'application mobile est la meilleure option pour la plupart des apps PME et pour les équipes qui veulent un accès direct au développeur.** C'est mon positionnement, et je suis transparent sur ses limites.
 
 ### Ce qu'un bon freelance mobile apporte
 
 - **Contact direct avec la personne qui code** : pas d'intermédiaire commercial entre ta demande et l'exécution. Quand tu poses une question technique, tu as la réponse technique.
-- **Tarif : 80–130 CHF/h** en Suisse romande pour un freelance mobile expérimenté. Sur un projet de 300 heures, ça représente une différence de 20 000 à 40 000 CHF par rapport à une agence.
+- **Forfait, pas régie** : je travaille à prix fixé d'avance, avec des jalons clairs, pas à l'heure ouverte. Comme je suis solo (pas de marge commerciale ni de chef de projet, pas de junior sur le projet) et que je développe avec l'aide de l'IA pour tout ce qui est standard (CRUD, tests, intégrations courantes), une app métier tombe à 5 000–10 000 CHF en forfait, contre 25 000–50 000 CHF en agence. Repère de marché : un freelance facture 80–150 CHF/h, une agence 150–250 CHF/h, mais ce n'est pas ce qui fait le total.
 - **Réactivité post-lancement** : c'est le principal avantage sur le long terme. Un bug iOS critique à 22h ? Tu as mon numéro de téléphone.
 - **Spécialisation concentrée** : un freelance mobile compétent maîtrise 1–2 technologies en profondeur, pas 8 superficiellement. La qualité du code en bénéficie.
 - **Maintenance long terme possible** : après la livraison, je connais l'app mieux que quiconque. Chaque mise à jour iOS devient une maintenance planifiée, pas une urgence.
@@ -97,7 +97,7 @@ Ces contraintes s'appliquent quel que soit ton prestataire. La question reste : 
 ### Ce qu'un freelance mobile ne peut pas toujours garantir
 
 - **Disponibilité** : un bon freelance mobile est souvent réservé 2–3 mois en avance. Si tu as besoin de démarrer dans 2 semaines, les chances sont faibles.
-- **Capacité projet limitée** : au-delà de 60 000 CHF, un freelance seul commence à sous-traiter, ce qui peut recréer les inconvénients de l'agence sans ses avantages (structure, garanties).
+- **Capacité projet limitée** : sur une marketplace ou une app multi-équipes (gros budgets), un freelance seul commence à sous-traiter, ce qui peut recréer les inconvénients de l'agence sans ses avantages (structure, garanties).
 - **Pas de QA dédié** : les tests sont à planifier explicitement. Je travaille avec des outils de test automatisés, mais une équipe QA dédiée n'est pas incluse par défaut.
 - **Risque de dépendance** : si le freelance arrête son activité, la maintenance de l'app peut poser problème. Un code bien documenté et les accès partagés dès le début limitent ce risque, à négocier contractuellement.
 
@@ -109,15 +109,15 @@ Voici la grille directe selon ta situation :
 
 | Situation | Recommandation |
 |---|---|
-| Budget < 30 000 CHF | Freelance spécialisé |
+| Budget < 10 000 CHF | Freelance spécialisé |
 | MVP en 3 mois | Freelance ou petite agence mobile |
-| Projet > 80 000 CHF avec équipe pluridisciplinaire | Agence mobile |
+| Marketplace / app complexe avec équipe pluridisciplinaire | Agence mobile |
 | Besoin de maintenance long terme | Freelance (relation directe) |
 | Premier projet mobile, specs peu définies | Freelance (itérations rapides) |
 | App critique avec SLA contractuel formalisé | Agence |
-| Budget 30 000–80 000 CHF | Dépend de tes priorités : coût → freelance, garanties → agence |
+| Budget 10 000–25 000 CHF | Dépend de tes priorités : coût → freelance, garanties → agence |
 
-Si tu es dans la zone 30 000–80 000 CHF, la décision tourne autour d'un seul facteur : est-ce que tu as des specs détaillées, ou est-ce que le produit va évoluer en cours de route ? Avec des specs floues, un freelance en itérations rapides est plus efficace qu'une agence qui facture chaque changement de scope.
+Si tu es dans la zone 10 000–25 000 CHF, la décision tourne autour d'un seul facteur : est-ce que tu as des specs détaillées, ou est-ce que le produit va évoluer en cours de route ? Avec des specs floues, un freelance en itérations rapides est plus efficace qu'une agence qui facture chaque changement de scope.
 
 Pour les projets MVP en Suisse, les étapes et le budget type sont détaillés sur la [page service développement MVP](/services/developpement-mvp).
 
@@ -145,7 +145,7 @@ Ces questions s'adressent autant à une agence qu'à un freelance. Un prestatair
 
 ### Quelle est la différence de budget entre un freelance et une agence pour une app mobile ?
 
-Un freelance spécialisé en Suisse romande facture entre 80 et 130 CHF/h. Une agence mobile facture entre 150 et 250 CHF/h, avec en plus les frais de coordination interne. Sur un projet de 300 heures, l'écart peut représenter 20 000 à 40 000 CHF.
+Comme repère de marché, un freelance spécialisé en Suisse romande facture 80 à 150 CHF/h, une agence mobile 150 à 250 CHF/h. Mais l'écart réel se joue sur le forfait total : une app métier coûte 5 000 à 10 000 CHF chez un freelance solo qui développe avec l'aide de l'IA, contre 25 000 à 50 000 CHF en agence.
 
 ### Un freelance peut-il gérer une app iOS et Android en même temps ?
 
@@ -167,9 +167,9 @@ Demande des apps téléchargeables en production (App Store ou Play Store), pas 
 
 ## Conclusion
 
-Freelance ou agence mobile : la bonne réponse dépend de ton budget, de la maturité de tes specs et de l'importance du contact direct avec le développeur. En dessous de 60 000 CHF, avec un MVP à livrer et une relation de maintenance long terme en tête, un freelance spécialisé est le choix le plus cohérent. Au-delà de 80 000 CHF avec des contraintes contractuelles formelles, une agence mobile structurée est plus adaptée.
+Freelance ou agence mobile : la bonne réponse dépend de ton budget, de la maturité de tes specs et de l'importance du contact direct avec le développeur. Pour la plupart des apps PME (jusqu'à 10 000–15 000 CHF), avec un MVP à livrer et une relation de maintenance long terme en tête, un freelance spécialisé est le choix le plus cohérent. Sur un projet complexe avec des contraintes contractuelles formelles (25 000 CHF et plus), une agence mobile structurée est plus adaptée.
 
-Si tu lis ce guide, c'est probablement que ton projet est dans la zone où la question se pose vraiment, entre 20 000 et 80 000 CHF, avec une vision encore en cours de définition. C'est exactement le type de projet pour lequel un appel de 30 minutes permet d'y voir clair.
+Si tu lis ce guide, c'est probablement que ton projet est dans la zone où la question se pose vraiment, entre 10 000 et 25 000 CHF, avec une vision encore en cours de définition. C'est exactement le type de projet pour lequel un appel de 30 minutes permet d'y voir clair.
 
 [**Évaluer si un freelance mobile convient à ton projet →**](/contact?utm_source=blog&utm_medium=article&utm_campaign=freelance-ou-agence-application-mobile)
 

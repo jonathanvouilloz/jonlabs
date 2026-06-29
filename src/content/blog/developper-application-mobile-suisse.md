@@ -15,7 +15,7 @@ readingTime: 10
 slug: developper-application-mobile-suisse
 faqs:
   - question: "Combien coûte une application mobile en Suisse ?"
-    answer: "Entre 8 000 et 200 000 CHF selon la complexité. Un MVP fonctionnel (5 à 10 écrans, backend simple) se situe entre 8 000 et 20 000 CHF. Une app métier avec backend, intégrations et design sur mesure démarre à 30 000 CHF. Pour un chiffrage précis, le périmètre fonctionnel du projet doit être défini au préalable."
+    answer: "Au forfait, entre 2 000 et 15 000 CHF pour la majorité des projets PME. Un MVP fonctionnel (5 à 10 écrans, backend simple) se situe entre 2 000 et 5 000 CHF. Une app métier complète avec backend et intégrations va de 5 000 à 10 000 CHF. Une marketplace ou app complexe démarre à 15 000 CHF. Je travaille à prix fixe annoncé d'avance, pas en régie : le périmètre défini au cadrage fixe le montant."
   - question: "Quelle est la différence entre une app native et une PWA ?"
     answer: "Une app native est installée sur l'appareil et distribuée via les stores (App Store, Google Play). Elle accède au GPS, à l'appareil photo et aux notifications push. Une PWA est un site web qui s'installe comme une app depuis le navigateur, sans passer par les stores. Pour la majorité des cas d'usage PME (catalogue, prise de rendez-vous, consultation de données), une PWA suffit et coûte beaucoup moins cher."
   - question: "Mon application sera-t-elle disponible sur l'App Store ET le Google Play ?"
@@ -23,7 +23,7 @@ faqs:
   - question: "Combien de temps faut-il pour lancer une application mobile ?"
     answer: "Entre 3 et 6 mois du cadrage au lancement sur les stores, pour un projet de complexité standard. Un MVP peut être livré en 8 à 10 semaines si le périmètre est bien défini dès le départ. Les projets qui dérapent le font presque toujours à cause d'un cadrage insuffisant en phase 1."
   - question: "Est-ce qu'on peut commencer par un MVP et l'enrichir ensuite ?"
-    answer: "C'est même la façon recommandée de procéder. Un MVP bien ciblé (5 à 10 fonctionnalités essentielles, un seul flux utilisateur core) permet de tester le concept avec de vrais utilisateurs avant d'investir dans les fonctionnalités secondaires. D'après mon expérience sur les projets PME romands, les fonctionnalités les plus utilisées sont rarement celles qu'on avait mises en priorité initiale. Mieux vaut découvrir ça à 15 000 CHF qu'à 80 000 CHF."
+    answer: "C'est même la façon recommandée de procéder. Un MVP bien ciblé (5 à 10 fonctionnalités essentielles, un seul flux utilisateur core) permet de tester le concept avec de vrais utilisateurs avant d'investir dans les fonctionnalités secondaires. D'après mon expérience sur les projets PME romands, les fonctionnalités les plus utilisées sont rarement celles qu'on avait mises en priorité initiale. Mieux vaut découvrir ça à 3 000 CHF qu'à 15 000 CHF."
 ---
 
 Tu envisages de **développer une application mobile en Suisse** pour ton entreprise. Avant de signer quoi que ce soit, tu veux comprendre ce que ça implique vraiment : combien ça coûte, combien de temps ça prend, et si ça vaut la peine ou si une autre solution ferait le travail pour moins cher.
@@ -32,7 +32,7 @@ Ce guide répond à ces questions avec des chiffres en CHF tirés du marché rom
 
 > **L'essentiel en bref**
 >
-> - Le **développement d'une application mobile en Suisse** coûte entre 8 000 et 200 000 CHF selon la complexité du projet.
+> - Le **développement d'une application mobile en Suisse** coûte entre 2 000 et 15 000 CHF selon la complexité, en forfait à prix fixe annoncé d'avance.
 > - Une app native iOS/Android n'est pas toujours la meilleure réponse : pour beaucoup de PME, une PWA ou un site responsive suffit et coûte 60 à 80% moins cher.
 > - Flutter et React Native permettent de cibler iOS et Android avec un seul code, environ 40 à 50% moins cher qu'une app native, pour 80% des fonctionnalités.
 > - Un projet mobile réaliste prend de 3 à 6 mois du cadrage au lancement sur les stores.
@@ -48,7 +48,7 @@ Trois grandes familles existent. **L'application native** est développée spéc
 
 **L'application hybride** (Flutter, React Native) est développée en un seul code et déployée sur les deux plateformes. Elle couvre 80% des cas d'usage d'une app native pour un coût de développement nettement inférieur. C'est ce que je recommande dans la majorité des projets PME.
 
-**La PWA** (Progressive Web App) est un site web amélioré qui s'installe comme une app et fonctionne partiellement hors-ligne. Elle ne passe pas par les stores. Pour une PME qui veut juste que ses clients consultent ses horaires, son catalogue ou prennent rendez-vous depuis mobile : une PWA ou un site responsive suffit largement. Tu économises 20 000 CHF minimum. Pour aller plus loin sur ce sujet, voir [app mobile ou PWA : comment choisir](/blog/application-mobile-ou-pwa).
+**La PWA** (Progressive Web App) est un site web amélioré qui s'installe comme une app et fonctionne partiellement hors-ligne. Elle ne passe pas par les stores. Pour une PME qui veut juste que ses clients consultent ses horaires, son catalogue ou prennent rendez-vous depuis mobile : une PWA ou un site responsive suffit largement. Tu économises 5 000 CHF minimum. Pour aller plus loin sur ce sujet, voir [app mobile ou PWA : comment choisir](/blog/application-mobile-ou-pwa).
 
 La vraie différence avec un site web, c'est l'accès au hardware et le fonctionnement hors-ligne. Si ton cas d'usage n'a besoin d'aucun des deux, tu n'as probablement pas besoin d'une app.
 
@@ -125,14 +125,14 @@ Pour comprendre les nuances entre ces approches : [Flutter vs React Native : leq
 
 ## Budget indicatif en CHF : fourchettes honnêtes par type de projet
 
-**Le prix d'une application mobile en Suisse** varie entre 8 000 et 200 000 CHF selon la complexité du projet. Voici les fourchettes que j'observe sur le marché romand en 2026.
+**Le prix d'une application mobile en Suisse** varie entre 2 000 et 15 000 CHF selon la complexité du projet, en forfait à prix fixe. Ces montants restent sous ceux des agences pour trois raisons : je travaille en solo (pas de marge commerciale ni de chef de projet à financer), sans junior sur ton projet, et avec un **développement accéléré par IA** qui compresse tout le code répétitif (CRUD, tests, intégrations standard). Repère concret : une agence suisse facture une app métier 25 000 à 50 000 CHF ; je la livre entre 5 000 et 10 000 CHF. Voici les fourchettes que je pratique en 2026.
 
 | Type de projet | Fourchette CHF | Délai estimé |
 |---|---|---|
-| **MVP fonctionnel** (5 à 10 écrans, backend simple) | 8 000 – 20 000 CHF | 6 – 10 semaines |
-| **App vitrine ou utilitaire simple** | 10 000 – 25 000 CHF | 8 – 12 semaines |
-| **App métier avec backend** (gestion, suivi, CRM) | 30 000 – 80 000 CHF | 12 – 20 semaines |
-| **Marketplace ou app complexe** | 80 000 – 200 000 CHF+ | 6 mois+ |
+| **MVP fonctionnel** (5 à 10 écrans, backend simple) | 2 000 – 5 000 CHF | 6 – 10 semaines |
+| **App vitrine ou utilitaire simple** | 3 500 – 8 500 CHF | 8 – 12 semaines |
+| **App métier avec backend** (gestion, suivi, CRM) | 5 000 – 10 000 CHF | 12 – 20 semaines |
+| **Marketplace ou app complexe** | dès 15 000 CHF | 6 mois+ |
 
 Ce qui fait le plus bouger la facture :
 
@@ -175,7 +175,7 @@ Je développe des **applications mobiles à Genève et en Suisse romande** pour 
 
 Mon process : cadrage gratuit (30 min d'appel pour qualifier le projet et identifier le bon périmètre), devis fixe (pas de régie ni de "ça dépend", tu sais exactement ce que tu paies avant de signer), livraison avec publication sur les stores incluse.
 
-Je travaille en Flutter et React Native. La majorité des projets PME que j'accompagne n'ont pas besoin d'une app native à 80 000 CHF. Un MVP bien ciblé à 12 000 à 18 000 CHF teste le concept et génère des retours utilisateurs réels avant d'investir davantage.
+Je travaille en Flutter et React Native. La majorité des projets PME que j'accompagne n'ont pas besoin d'une app à 15 000 CHF. Un MVP bien ciblé entre 2 000 et 5 000 CHF teste le concept et génère des retours utilisateurs réels avant d'investir davantage.
 
 Ce qui me différencie d'un développeur mobile pur : les intégrations font partie du périmètre standard. CRM, outils d'automatisation, API externes (paiement, logistique, RH), je les intègre directement, sans devoir passer par un deuxième prestataire. Pour les projets PME, ça simplifie considérablement le pilotage.
 
@@ -187,7 +187,7 @@ Ce qui me différencie d'un développeur mobile pur : les intégrations font par
 
 ### Combien coûte une application mobile en Suisse ?
 
-Entre 8 000 et 200 000 CHF selon la complexité. Un MVP fonctionnel (5 à 10 écrans, backend simple) se situe entre 8 000 et 20 000 CHF. Une app métier avec backend, intégrations et design sur mesure démarre à 30 000 CHF. Pour un chiffrage précis, le périmètre fonctionnel du projet doit être défini au préalable.
+Au forfait, entre 2 000 et 15 000 CHF pour la majorité des projets PME. Un MVP fonctionnel (5 à 10 écrans, backend simple) se situe entre 2 000 et 5 000 CHF. Une app métier complète avec backend et intégrations va de 5 000 à 10 000 CHF. Une marketplace ou app complexe démarre à 15 000 CHF. Je travaille à prix fixe annoncé d'avance, pas en régie : le périmètre défini au cadrage fixe le montant.
 
 ### Quelle est la différence entre une app native et une PWA ?
 
@@ -203,7 +203,7 @@ Entre 3 et 6 mois du cadrage au lancement sur les stores, pour un projet de comp
 
 ### Est-ce qu'on peut commencer par un MVP et l'enrichir ensuite ?
 
-C'est même la façon recommandée de procéder. Un MVP bien ciblé (5 à 10 fonctionnalités essentielles, un seul flux utilisateur core) permet de tester le concept avec de vrais utilisateurs avant d'investir dans les fonctionnalités secondaires. D'après mon expérience sur les projets PME romands, les fonctionnalités les plus utilisées sont rarement celles qu'on avait mises en priorité initiale. Mieux vaut découvrir ça à 15 000 CHF qu'à 80 000 CHF.
+C'est même la façon recommandée de procéder. Un MVP bien ciblé (5 à 10 fonctionnalités essentielles, un seul flux utilisateur core) permet de tester le concept avec de vrais utilisateurs avant d'investir dans les fonctionnalités secondaires. D'après mon expérience sur les projets PME romands, les fonctionnalités les plus utilisées sont rarement celles qu'on avait mises en priorité initiale. Mieux vaut découvrir ça à 3 000 CHF qu'à 15 000 CHF.
 
 ---
 

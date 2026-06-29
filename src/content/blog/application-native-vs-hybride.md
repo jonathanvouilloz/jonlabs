@@ -19,7 +19,7 @@ faqs:
   - question: "Une application hybride est-elle moins performante qu'une app native ?"
     answer: "Non, dans la quasi-totalité des usages. Les frameworks hybrides modernes atteignent 95 à 99 % des performances d'une app native. L'écart devient perceptible uniquement pour les rendus graphiques intensifs (jeux 3D) ou les applications avec des contraintes de latence extrêmes (trading temps réel)."
   - question: "Combien coûte une application hybride par rapport au natif ?"
-    answer: "Un développement hybride représente en moyenne 50 à 65 % du budget d'un développement natif équivalent. Sur un projet à 80 000 CHF en natif, l'équivalent hybride se situerait entre 40 000 et 52 000 CHF. La maintenance à long terme (3 à 5 ans) est également moins coûteuse avec une seule codebase à entretenir."
+    answer: "Un développement hybride représente en moyenne 50 à 65 % du budget d'un développement natif équivalent. Sur un projet à 14 000 CHF en natif, l'équivalent hybride se situerait entre 7 000 et 9 000 CHF. La maintenance à long terme (3 à 5 ans) est également moins coûteuse avec une seule codebase à entretenir."
   - question: "Flutter ou React Native, lequel choisir pour mon app ?"
     answer: "Les deux sont de bons choix. Flutter (Google) est souvent recommandé pour les nouvelles apps qui visent un rendu visuel soigné et une cible multiplateforme (iOS, Android, web). React Native (Meta) s'intègre mieux si ton équipe a déjà des compétences JavaScript/TypeScript."
   - question: "Mon prestataire me propose du natif à un prix élevé. Est-ce justifié ?"
@@ -84,7 +84,7 @@ L'**application cross-platform** est le choix par défaut pour les PME romandes 
 
 Tu lances un **MVP ou une première version** : l'hybride te permet de sortir sur iOS et Android simultanément, avec un seul budget de développement. Tu valides ton produit 30 à 45 % plus vite qu'en natif, et tu gardes du budget pour les itérations post-lancement.
 
-Ton **budget est limité** : un développement Flutter ou React Native bien exécuté représente environ la moitié du budget natif. Sur un projet à 50 000 CHF en hybride, l'équivalent natif coûterait entre 80 000 et 100 000 CHF.
+Ton **budget est limité** : un développement Flutter ou React Native bien exécuté représente environ la moitié du budget natif. Sur un projet à 8 000 CHF en hybride, l'équivalent natif coûterait entre 12 000 et 16 000 CHF.
 
 Tu fais une **app B2B interne** : les employés, techniciens et commerciaux terrain n'ont pas les mêmes attentes qu'un consommateur final. Des performances "très bonnes" sont tout à fait acceptables, et souvent indiscernables dans l'usage quotidien.
 
@@ -128,7 +128,7 @@ Non, dans la quasi-totalité des usages. Les frameworks hybrides modernes atteig
 
 ### Combien coûte une application hybride par rapport au natif ?
 
-Un développement hybride représente en moyenne 50 à 65 % du budget d'un développement natif équivalent. Sur un projet à 80 000 CHF en natif, l'équivalent hybride se situerait entre 40 000 et 52 000 CHF. La maintenance à long terme (3 à 5 ans) est également moins coûteuse avec une seule codebase à entretenir.
+Un développement hybride représente en moyenne 50 à 65 % du budget d'un développement natif équivalent. Sur un projet à 14 000 CHF en natif, l'équivalent hybride se situerait entre 7 000 et 9 000 CHF. La maintenance à long terme (3 à 5 ans) est également moins coûteuse avec une seule codebase à entretenir.
 
 ### Flutter ou React Native, lequel choisir pour mon app ?
 
