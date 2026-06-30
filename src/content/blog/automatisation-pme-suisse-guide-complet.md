@@ -86,7 +86,7 @@ Un agent IA autonome reçoit un objectif, pas une règle. Il décide lui-même d
 
 Exemple concret : "Identifie les 10 derniers devis sans réponse et envoie à chacun un message de relance personnalisé selon le secteur du prospect." Make ne peut pas faire ça, il ne personnalise pas en contexte. Un agent IA le peut.
 
-Pour aller plus loin sur [la différence complète entre workflows déterministes et agents IA autonomes](/blog/workflows-vs-agents-ia-pme), j'y ai consacré un article entier.
+Pour aller plus loin sur [la différence complète entre workflows déterministes et agents IA autonomes](/blog/workflows-vs-agents-ia-pme), j'y ai consacré un article entier. Et pour voir à quoi ça ressemble une fois en place, secteur par secteur, j'ai documenté [10 cas d'usage d'agents IA observés en PME romande](/blog/agent-ia-entreprise-cas-usage) : fiduciaire, régie immobilière, négoce, cabinet, e-commerce.
 
 ## Comment choisir quoi automatiser en premier, la méthode des 3 critères
 
@@ -134,7 +134,7 @@ n8n en self-hosted. Gratuit, open source, bien plus puissant que Make sur les ca
 
 ### Tu as des tâches non-structurées ou qui demandent du jugement contextuel
 
-Hermes Agent ou OpenClaw. Ces agents IA vont au-delà des règles fixes : ils décident, mémorisent, personnalisent. Coût : hébergement + API LLM, soit CHF 20-100/mois selon l'usage.
+Hermes Agent ou OpenClaw. Ces agents IA vont au-delà des règles fixes : ils décident, mémorisent, personnalisent. Coût : hébergement + API LLM, soit CHF 20-100/mois selon l'usage. Si tu veux un agent IA sur mesure plutôt que déployer toi-même un outil open source, j'ai détaillé [les vrais prix d'un agent IA en CHF](/blog/prix-agent-ia-automatisation-suisse), sans tarif caché.
 
 ### Tu veux d'abord apprivoiser l'IA sur tes propres documents avant d'automatiser
 
