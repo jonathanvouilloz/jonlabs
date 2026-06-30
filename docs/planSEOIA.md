@@ -85,13 +85,15 @@ LA MARQUE — Jon Labs (Genève)
 
 > Cadence : respecter la règle 2 articles blog/semaine (lundi/vendredi). Les **pages** (hub/géo/métiers/landings) ne sont pas soumises à la cadence blog — elles se shippent en continu. Vérifier `/calendar` avant d'ajouter des articles.
 
-### Phase 1 — Fondation conversion (défensif + capter "agent IA entreprise")
+### Phase 1 — Fondation conversion (défensif + capter "agent IA entreprise") — ✅ FAITE (2026-07-01)
 **But : exister sur "consultant IA Genève" et brancher le blog au tunnel.**
-1. **`/consultant-ia`** — hub IA (offre, 6 services, différenciants suisses, preuves, FAQ, CTA cal.com). Pillar.
-2. **`/consultant-ia-geneve`** — page géo locale (angle "vraiment à Genève", preuves locales, FAQ, schema LocalBusiness).
-3. **`services/agent-ia-sur-mesure`** *(ou section du hub — décision §6)*.
-4. **Maillage montant** : ajouter sur les 13 articles IA existants un lien/CTA contextuel vers `/consultant-ia`.
-5. **Articles** : `agent-ia-entreprise-cas-usage` ⚡ + `prix-agent-ia-automatisation-suisse` ⚡ (les 2 plus rentables : captent les requêtes + transparence prix différenciante).
+1. ✅ **`/consultant-ia`** — hub IA (offre, 6 services, section agents sur-mesure, différenciants suisses, preuves, FAQ, CTA `/contact`). Pillar. Title repositionné sur "PME romandes" pour éviter la cannibalisation avec la géo Genève.
+2. ✅ **`/consultant-ia/geneve`** + **`/consultant-ia/lausanne`** — pages géo via route dynamique `[ville].astro` + `src/data/villes-suisse-ia.ts` (contenu local réel, FAQ, schema LocalBusiness). Décision : sous-dossier `/consultant-ia/[ville]` (pas slug plat). Nyon écarté (trop petit). Genève garde l'exact-match "consultant IA Genève".
+3. ✅ **agent-ia-sur-mesure** = **section du hub** (`#agents-sur-mesure`), pas de page dédiée (anti-cannibalisation).
+4. ✅ **Maillage montant** : 1 lien contextuel (ancres variées) sur chacun des 13 articles IA → `/consultant-ia`, + réciproque hub-info ↔ hub-conversion. Boucle cluster fermée (lien retour vers l'article prix depuis hermes + avantages-limites).
+5. ✅ **Articles** : `agent-ia-entreprise-cas-usage` ⚡ (pubDate 2026-08-17) + `prix-agent-ia-automatisation-suisse` ⚡ (pubDate 2026-08-21). Covers template OK, review SEO 17/18. *Reste optionnel : images inline (`TODO:image`) à générer via `/generate-images` avant publication.*
+
+> Build vert (204 pages). Commits : `feat(seo): hub + géo`, `feat(seo): maillage`, `feat(blog): 2 articles`. La file éditoriale étant pleine jusqu'au 14.08, les 2 articles sont datés aux prochains créneaux libres (17 + 21.08) — avançables si on décale un article moins prioritaire.
 
 ### Phase 2 — Verticalisation + produit
 **But : profondeur thématique + offres tangibles.**
