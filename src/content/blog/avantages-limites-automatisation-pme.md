@@ -84,6 +84,8 @@ Si Zapier change son modèle tarifaire (c'est arrivé en 2023), ou si Make suppr
 
 Des workflows construits rapidement sans documentation deviennent incompréhensibles six mois plus tard. Quand la personne qui les a configurés quitte l'entreprise, personne ne sait comment les maintenir ni les modifier. **Le coût de reconstruction** dépasse souvent le coût de la configuration initiale. Un workflow sans documentation lisible égale une bombe à retardement.
 
+Pour un **agent IA**, plus complexe qu'un simple workflow, ces mêmes postes montent d'un cran. J'ai détaillé toutes les fourchettes en CHF dans un article dédié : [le prix réel d'un agent IA en Suisse](/blog/prix-agent-ia-automatisation-suisse), coûts récurrents compris.
+
 Ces quatre coûts ne remettent pas en cause l'automatisation. Ils demandent à être intégrés dans le calcul de rentabilité dès le départ, pas découverts en cours de route.
 
 ---

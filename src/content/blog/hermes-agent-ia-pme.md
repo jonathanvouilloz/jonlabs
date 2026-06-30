@@ -143,6 +143,8 @@ Maintenance : 1 à 2 heures par mois. Hermes Agent est en développement actif. 
 
 **Budget total réaliste pour la première année avec prestataire : CHF 800 à 1 600.**
 
+Ces chiffres valent pour Hermes Agent en particulier. Pour comparer avec les autres types d'agents IA et leurs paliers de prix, j'ai écrit un guide complet : [le prix réel d'un agent IA en Suisse](/blog/prix-agent-ia-automatisation-suisse).
+
 Ce chiffre inclut le setup initial, l'hébergement et l'API LLM sur douze mois. À comparer avec le gain en temps sur tes tâches récurrentes.
 
 Recommandation directe : si tu n'as pas de développeur en interne et que tu veux utiliser Hermes Agent sérieusement, ne te lance pas seul. Mieux vaut [te faire accompagner par un consultant IA](/consultant-ia) qui connaît le terrain romand. Le temps de configuration autonome peut dépasser le bénéfice attendu sur les six premiers mois. [Réserve un appel découverte](https://cal.com/jonathan-vouilloz/appel-de-bienvenue) pour valider si l'investissement a du sens pour ton cas spécifique.

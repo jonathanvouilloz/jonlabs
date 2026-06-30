@@ -1,0 +1,23 @@
+# Production log — prix-agent-ia-automatisation-suisse
+Date : 2026-07-01 00:50
+Worker : @article-producer
+
+## Étapes
+- [✓] /seo-write    : draft écrit dans content/_drafts/blog/prix-agent-ia-automatisation-suisse.draft.md (~1900 mots, structure 7×H2 + TLDR + FAQ 4×H3 + Conclusion + Sources, conforme au brief Module A)
+- [✓] /humanizer    : 2 patterns IA corrigés (2 em dash en zero-tolerance retirés des paragraphes H2 "Pourquoi personne ne te donne de prix" et "Forfait fixe ou régie"). Aucun autre pattern IA détecté (pas de vocabulaire IA, pas de guillemets courbes, pas de rule-of-three forcé, pas de listes à en-têtes gras).
+- [✓] /seo-enrich   : src/content/blog/prix-agent-ia-automatisation-suisse.md créé (~10.5 kB). Frontmatter validé (title 57 car., description 134 car., h1 distinct du title, category "automatisation", pubDate 2026-08-21, 4 FAQ en schema). Build Astro vérifié : 204 pages, exit 0, aucune erreur de parsing du frontmatter. Page non générée en statique pour l'instant (pubDate future vs horloge système — comportement attendu du pipeline pubDate + cron rebuild).
+- [✓] /seo-review   : 17/18 critères PASS. 1 FAIL non bloquant (critère 18, citation d'expert + sources externes inline) — voir Bloquants ci-dessous. 1 correction appliquée pendant la review : bold "coût hébergement agent IA" reformulé en "coût d'hébergement d'un agent IA" (keyword stuffing détecté et corrigé, critère 14).
+- [✓] /generate-cover : public/images/blog/prix-agent-ia-automatisation-suisse.webp créé (39 kB, preset blog-cover-template, source: template, aucun appel API)
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-08-21)
+
+## Bloquants éventuels
+Aucun bloquant critique. Un point non bloquant à noter :
+
+- **Critère 18 (GEO — citation d'expert + sources inline)** : FAIL technique, mais par construction et non par oubli. Le brief indique explicitement "Aucune source externe fournie — fourchettes de prix issues directement de la pratique de l'auteur (Jon Labs)". Aucune citation d'expert ni source publique tierce n'était disponible. Plutôt que fabriquer une attribution (interdit par le garde-fou anti-hallucination du pipeline), l'article s'appuie sur 2 liens inline vers des données déjà publiées sur le site (hermes-agent-ia-pme, avantages-limites-automatisation-pme) — solides en E-E-A-T interne, mais ne comptent pas comme "source externe faisant autorité" au sens strict du critère. Action future possible si une étude tarifaire IA suisse publique devient disponible.
+
+## Notes additionnelles (hors checklist bloquante)
+- Maillage interne : le lien `/blog/agent-ia-entreprise-cas-usage` (2 occurrences, ancres variées) pointe vers un article du cluster G qui n'est pour l'instant qu'un brief (`src/content/blog/.briefs/agent-ia-entreprise-cas-usage.md`), pas encore rédigé. Une cover a déjà été générée pour ce slug (`moodboard/.generations/2026-06-30-224906-...json`), signe qu'il est dans le pipeline de production. À publier avant le 2026-08-21 pour que le lien ne soit pas mort à la mise en ligne de cet article.
+- Maillage retour suggéré (non appliqué — hors périmètre de ce worker) : ajouter un lien vers `/blog/prix-agent-ia-automatisation-suisse` depuis `src/content/blog/hermes-agent-ia-pme.md` (section coûts) et `src/content/blog/avantages-limites-automatisation-pme.md` (section coûts cachés), ancre suggérée "le prix d'un agent IA sur mesure en CHF".
+- Image briefs : cover produite via template (texte = `title` frontmatter). Les images 2 (schéma multi-systèmes) et 3 (infographie répartition coûts) sont laissées en `<!-- TODO:image -->` dans le corps (type schema/infographic, hors scope template-only) — à produire via `/generate-images --brief` si souhaité avant publication.

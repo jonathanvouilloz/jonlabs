@@ -1,0 +1,41 @@
+# Production log — agent-ia-entreprise-cas-usage
+Date : 2026-07-01 00:50
+Worker : @article-producer
+
+## Étapes
+- [✓] /seo-write    : draft écrit (~1850 mots, cible 1600-2000) — src/content/blog/.briefs/agent-ia-entreprise-cas-usage.draft.md
+- [✓] /humanizer    : 7 patterns IA corrigés (7 occurrences d'em dash — 6 titres H2 + 2 commentaires TODO:image — converties en deux-points/virgules ; zéro vocabulaire IA, zéro citation IA, zéro guillemet courbe détectés)
+- [✓] /seo-enrich   : src/content/blog/agent-ia-entreprise-cas-usage.md créé (16.5 kB) — schema BlogPosting + FAQPage généré automatiquement par le template ([slug].astro) depuis le frontmatter `faqs`. Build Astro : 204 pages, 0 erreur, 0 warning.
+- [✓] /seo-review   : 17/18 critères PASS, 1 FAIL non-bloquant (sévérité High, pas Critical)
+- [✓] /generate-cover : public/images/blog/agent-ia-entreprise-cas-usage.webp (36.1 kB) — pipeline template (blog-cover-template), aucun appel API Gemini
+
+## Détail seo-review (17/18 PASS)
+| # | Critère | Statut |
+|---|---|---|
+| 1 | Title (49 car.) | PASS |
+| 2 | Meta description (140 car.) | PASS (note mineure : pas de verbe d'action explicite, formulation interrogative acceptée) |
+| 3 | H1 (90 car., distinct du title) | PASS |
+| 4 | Hiérarchie Hn (H1 frontmatter → H2 → H3 FAQ, aucun saut) | PASS |
+| 5 | Bold entity keywords (19 bolds, 0 doublon, 0 dans heading/lien) | PASS |
+| 6 | Liens internes (5 cibles distinctes, ancres descriptives, aucune ancre vide) | PASS |
+| 7 | TLDR (blockquote, 4 bullets, keyword principal présent) | PASS |
+| 8 | Open Graph (og:type=article via Layout, og:image configuré) | PASS |
+| 9 | Schema JSON-LD (BlogPosting + FAQPage, généré par template) | PASS |
+| 10 | Keyword placement (title/H1/meta/100 premiers mots/1 H2) | PASS |
+| 11 | Indexation (pas de noindex ; sitemap : entrée différée au 2026-08-17 via cron de cadence, comportement attendu) | PASS |
+| 12 | Patterns IA (0 em dash, 0 cliché, 0 liste bold-header) | PASS |
+| 13 | Orthographe française (accents vérifiés corps + frontmatter) | PASS |
+| 14 | Formulation naturelle keywords (aucun stuffing brut détecté) | PASS |
+| 15 | GEO réponse directe sous H2 (5/5 premiers H2) | PASS |
+| 16 | GEO densité factuelle (~13 données chiffrées / ~1850 mots, soit ~7/1000) | PASS |
+| 17 | GEO llm.txt présent | PASS |
+| 18 | GEO citation d'expert + sources inline | FAIL (non-bloquant, sévérité High) — voir Bloquants |
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-08-17, lundi, créneau de cadence confirmé)
+
+## Bloquants éventuels
+Aucun bloquant critique. Un seul FAIL non-bloquant (sévérité High, pas Critical) :
+- **Critère 18 (GEO — Citation d'expert + sources inline)** : aucune citation directe attribuée (`Selon X, « ... »`) ni lien source externe faisant autorité dans le corps. Cause : le brief indique explicitement « Aucune source externe fournie pour cet article » et déconseille de re-citer le McKinsey Global Institute déjà cité deux fois ailleurs dans le cluster sans valeur ajoutée nouvelle. Choix éditorial : ne rien fabriquer plutôt que d'inventer une citation ou mal attribuer une source (conforme à la règle de garde-fou du skill seo-review). Action de suivi possible : si une source externe sectorielle pertinente devient disponible, l'ajouter via `/seo-refresh` lors d'une actualisation future.
+
+Note non-bloquante additionnelle : l'image cover inline (`agent-ia-entreprise-cas-usage-1.webp`) et les deux images secondaires de type schema/illustration (TODO:image après les sections Fiduciaire et E-commerce) restent en commentaires placeholder — à produire via `/generate-images --brief src/content/blog/.briefs/agent-ia-entreprise-cas-usage.md` avant publication finale si le rendu visuel complet est souhaité. Seule la cover OG/og:image (`agent-ia-entreprise-cas-usage.webp`) a été générée par ce pipeline, conformément au scope de `/generate-cover`.
