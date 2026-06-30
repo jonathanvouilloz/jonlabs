@@ -469,7 +469,7 @@ Si tu veux découvrir comment intégrer l'IA de manière pragmatique dans ton ac
 
 [Lire : 52% des PME romandes utilisent l'IA pour traduire. Voici 5 usages qui changent vraiment la donne →](/blog/ia-pragmatique-pme-suisse)
 
-Et si tu as besoin d'aide pour automatiser tes processus ou connecter tes outils, c'est exactement ce que je fais :
+Et si tu as besoin d'aide pour automatiser tes processus ou connecter tes outils, je propose [un accompagnement IA sur mesure pour ton activité](/consultant-ia) :
 
 [Découvrir mes services →](/services)
 

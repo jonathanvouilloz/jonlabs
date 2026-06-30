@@ -158,7 +158,7 @@ Le coût caché que les articles promotionnels ne mentionnent pas :
 
 Les agents IA « gratuits » ont un coût réel. Il se décompose en trois postes : le temps de configuration (compter 4 à 20 heures selon la complexité), le coût des appels API LLM (OpenAI, Anthropic, Mistral, de CHF 10 à 50/mois selon le volume), et la maintenance quand les données changent de format ou que les APIs évoluent.
 
-Un dirigeant non-technique qui configure un **agent IA pour sa PME** sans accompagnement risque de perdre deux à trois jours pour un résultat partiel. Le temps perdu coûte souvent plus cher que le prestataire qui aurait fait la mise en place en quelques heures.
+Un dirigeant non-technique qui configure un **agent IA pour sa PME** sans accompagnement risque de perdre deux à trois jours pour un résultat partiel. Le temps perdu coûte souvent plus cher que [déléguer la mise en place à un consultant IA](/consultant-ia) qui l'aurait faite en quelques heures.
 
 <!-- TODO:image infographic — grille tarifaire n8n / Make / Zapier / Hermes Agent / OpenClaw en CHF/mois — brief: src/content/blog/.briefs/workflows-vs-agents-ia-pme.md#image-3 -->
 

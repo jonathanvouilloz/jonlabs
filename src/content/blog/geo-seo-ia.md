@@ -258,7 +258,7 @@ Tu as la vue d'ensemble. Le GEO en 2026 se joue sur 6 moteurs, avec des sources 
 
 La fenêtre est ouverte. Une étude Ahrefs montre que 80% des URLs citées par les IA n'apparaissent pas dans le top 100 Google. Ça veut dire que la précision de ta réponse compte plus que ton autorité de domaine. Pour un indépendant ou une PME romande, c'est un terrain où la spécialisation bat la taille.
 
-Cette fenêtre ne restera pas ouverte indéfiniment. Les grandes structures vont s'adapter. Mais aujourd'hui, un freelance qui couche par écrit sa réponse précise à une question précise a des chances réelles d'être cité — sur Claude, Perplexity, Gemini, Copilot, Grok, et même ChatGPT.
+Cette fenêtre ne restera pas ouverte indéfiniment. Les grandes structures vont s'adapter. Mais aujourd'hui, un freelance qui couche par écrit sa réponse précise à une question précise a des chances réelles d'être cité — sur Claude, Perplexity, Gemini, Copilot, Grok, et même ChatGPT. C'est exactement comme ça qu'un [consultant IA basé à Genève](/consultant-ia) se rend visible là où ses clients cherchent désormais.
 
 Tu veux savoir où tu en es concrètement ? On analyse ta présence sur les critères utilisés par les 6 moteurs IA et on te donne des recommandations par priorité.
 

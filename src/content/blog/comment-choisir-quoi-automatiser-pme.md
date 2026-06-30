@@ -232,7 +232,7 @@ Configure le workflow avec **Make** ou **n8n** selon ton niveau. Mesure le temps
 
 Puis passe au processus suivant sur ta liste.
 
-Si tu veux être accompagné pour choisir et configurer ton premier workflow, [réserve un appel découverte](https://cal.com/jonathan-vouilloz/appel-de-bienvenue) : on fait l'audit ensemble en 30 minutes.
+Si tu veux [te faire accompagner pour cadrer ton premier projet d'automatisation](/consultant-ia), [réserve un appel découverte](https://cal.com/jonathan-vouilloz/appel-de-bienvenue) : on fait l'audit ensemble en 30 minutes.
 
 ---
 

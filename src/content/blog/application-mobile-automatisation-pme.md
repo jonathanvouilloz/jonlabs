@@ -200,7 +200,7 @@ Une app mobile sans intégration, c'est un terminal isolé qui collecte des donn
 
 Connecter ton app à ton CRM, ton agenda, ta facturation, ce n'est pas une option à envisager après la livraison. C'est 30 à 40% de la valeur réelle de l'investissement, et ça se décide au démarrage du projet.
 
-Si tu développes une app en ce moment, ou si tu en as une qui sous-performe, je m'occupe des deux volets : l'app et les automatisations.
+Si tu développes une app en ce moment, ou si tu en as une qui sous-performe, [je t'accompagne comme consultant IA sur les deux volets](/consultant-ia) : l'app et les automatisations.
 
 [**Connecter ton app à tes outils métiers →**](/contact?utm_source=blog&utm_medium=article&utm_campaign=application-mobile-automatisation-pme)
 

@@ -308,7 +308,7 @@ Autant apprendre à la conduire.
 
 **Tu veux automatiser des workflows complets dans ton entreprise ?**
 
-Si tu veux connecter tes outils, créer des processus sur-mesure, intégrer l'IA de façon durable, c'est exactement ce que je fais chez Jon Labs.
+Si tu veux connecter tes outils, créer des processus sur-mesure, intégrer l'IA de façon durable, c'est exactement ce que je fais chez Jon Labs : [un accompagnement IA pragmatique](/consultant-ia), du premier cas d'usage au déploiement.
 
 Pas de l'IA pour le buzz. De l'automatisation pragmatique, adaptée à ton contexte suisse.
 

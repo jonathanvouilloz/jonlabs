@@ -190,6 +190,8 @@ Pour un profil non-technique : commence avec Make ou Zapier sur un processus sim
 
 Pour un profil avec prestataire : n8n self-hosted donne plus de puissance et d'indépendance dès le départ. La mise en place prend une à deux journées, mais l'infrastructure est à toi.
 
+Si tu préfères déléguer plutôt que tout configurer toi-même, je t'accompagne comme [consultant IA pour PME romandes](/consultant-ia) : du cadrage des processus jusqu'au déploiement et à la maintenance, c'est le pendant opérationnel de ce guide.
+
 Si tu veux valider quels processus ont le meilleur ROI dans ton cas spécifique, un appel de 30 minutes suffit.
 
 [**Réserver un appel découverte**](https://cal.com/jonathan-vouilloz/appel-de-bienvenue?utm_source=blog&utm_medium=article&utm_campaign=automatisation-pme-suisse-guide-complet)

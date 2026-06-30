@@ -145,7 +145,7 @@ Maintenance : 1 à 2 heures par mois. Hermes Agent est en développement actif. 
 
 Ce chiffre inclut le setup initial, l'hébergement et l'API LLM sur douze mois. À comparer avec le gain en temps sur tes tâches récurrentes.
 
-Recommandation directe : si tu n'as pas de développeur en interne et que tu veux utiliser Hermes Agent sérieusement, ne te lance pas seul. Le temps de configuration autonome peut dépasser le bénéfice attendu sur les six premiers mois. [Réserve un appel découverte](https://cal.com/jonathan-vouilloz/appel-de-bienvenue) pour valider si l'investissement a du sens pour ton cas spécifique.
+Recommandation directe : si tu n'as pas de développeur en interne et que tu veux utiliser Hermes Agent sérieusement, ne te lance pas seul. Mieux vaut [te faire accompagner par un consultant IA](/consultant-ia) qui connaît le terrain romand. Le temps de configuration autonome peut dépasser le bénéfice attendu sur les six premiers mois. [Réserve un appel découverte](https://cal.com/jonathan-vouilloz/appel-de-bienvenue) pour valider si l'investissement a du sens pour ton cas spécifique.
 
 ---
 

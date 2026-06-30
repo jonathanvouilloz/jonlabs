@@ -167,7 +167,7 @@ Tu n'as pas besoin d'investir pour commencer.
 | Make | 1'000 opérations/mois |
 | Zapier | 100 tâches/mois |
 
-C'est largement suffisant pour un premier test. Tu automatises ta tâche, tu vois si ça marche, tu mesures le gain. Ensuite seulement tu décides si tu veux aller plus loin.
+C'est largement suffisant pour un premier test. Tu automatises ta tâche, tu vois si ça marche, tu mesures le gain. Ensuite seulement tu décides si tu veux aller plus loin. Et si la configuration te bloque, [confier ça à un consultant IA basé à Genève](/consultant-ia) te fait gagner les semaines d'essais-erreurs.
 
 ---
 

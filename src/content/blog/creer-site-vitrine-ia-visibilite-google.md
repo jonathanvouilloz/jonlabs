@@ -169,7 +169,7 @@ C'est comme la cuisine. Tout le monde a accès aux mêmes ingrédients au superm
 
 L'outil ne fait pas le résultat. C'est l'expertise derrière.
 
-Un **freelance création site web** qui maîtrise ces outils + le SEO + le branding + la stratégie digitale, c'est un multiplicateur. Il ne remplace pas l'IA, il la démultiplie.
+Un **freelance création site web** qui maîtrise ces outils + le SEO + le branding + la stratégie digitale, c'est un multiplicateur. Il ne remplace pas l'IA, il la démultiplie. Et si ton enjeu dépasse le site et touche à l'intégration de l'IA dans ton activité, c'est le rôle d'un [consultant IA qui pense stratégie avant outil](/consultant-ia).
 
 ---
 

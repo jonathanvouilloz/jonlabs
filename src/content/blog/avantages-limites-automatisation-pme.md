@@ -142,7 +142,7 @@ Si ton modèle business ou tes processus changent significativement dans les six
 
 **3. Sans compétence interne ou prestataire de confiance**
 
-Une automatisation sans personne pour la maintenir est une bombe à retardement avec minuterie inconnue. Si tu n'as ni dev interne ni prestataire référent, commence par sécuriser cette ressource avant d'automatiser quoi que ce soit de critique. Une automatisation abandonnée est pire qu'une absence d'automatisation : elle donne une fausse impression de sécurité.
+Une automatisation sans personne pour la maintenir est une bombe à retardement avec minuterie inconnue. Si tu n'as ni dev interne ni prestataire référent, [t'appuyer sur un consultant IA externe](/consultant-ia) sécurise cette ressource avant d'automatiser quoi que ce soit de critique. Une automatisation abandonnée est pire qu'une absence d'automatisation : elle donne une fausse impression de sécurité.
 
 Ces trois situations ne sont pas permanentes. Elles disent "pas maintenant", pas "jamais".
 

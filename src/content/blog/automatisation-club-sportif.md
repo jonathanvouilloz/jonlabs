@@ -107,7 +107,7 @@ Ce n'était pas un projet pharaonique. Pas de logiciel à installer, pas de form
 
 Excel a rendu service pendant des années. Mais en 2025, les attentes ont changé. Les membres veulent de la simplicité. Les bénévoles veulent du temps pour ce qui compte vraiment. Et les obligations légales ne vont pas s'assouplir.
 
-Tous les clubs n'ont pas besoin de la même chose. Certains trouveront leur bonheur dans un logiciel du marché. D'autres ont juste besoin d'une automatisation bien pensée pour débloquer un point de friction précis.
+Tous les clubs n'ont pas besoin de la même chose. Certains trouveront leur bonheur dans un logiciel du marché. D'autres ont juste besoin d'une automatisation bien pensée pour débloquer un point de friction précis. Dans les deux cas, [se faire accompagner par un consultant IA](/consultant-ia) évite de perdre des soirées à tester des outils dans le vide.
 
 ---
 
