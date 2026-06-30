@@ -254,6 +254,27 @@ export const servicesListData = {
 
 // Données de services individuels
 export const serviceSchemas = {
+  "consultant-ia": {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${SITE_URL}/consultant-ia/#service`,
+    "name": "Consultant IA à Genève — agents IA et automatisation pour PME",
+    "url": `${SITE_URL}/consultant-ia`,
+    "description": "Conseil, conception et intégration d'agents IA et d'automatisations pour PME et indépendants en Suisse romande. Freelance basé à Genève, prix CHF transparents, conformité nLPD maîtrisée.",
+    "provider": { "@id": `${SITE_URL}/#organization` },
+    "areaServed": ["Genève", "Vaud", "Suisse Romande"],
+    "serviceType": "Conseil et intégration en intelligence artificielle",
+    "offers": {
+      "@type": "Offer",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "2500",
+        "priceCurrency": "CHF",
+        "minPrice": "2500"
+      },
+      "description": "À partir de CHF 2'500"
+    }
+  },
   "creation-site-web": {
     "@context": "https://schema.org",
     "@type": "Service",

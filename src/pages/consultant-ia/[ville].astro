@@ -1,0 +1,681 @@
+---
+import "../../styles/global.css";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from "../../lib/seo";
+import { SITE_URL, localBusinessData } from "../../data/schema";
+import { villesSuisseIA, getVoisinesIA, type VilleIAData } from "../../data/villes-suisse-ia";
+
+// ============================================
+// STATIC PATHS — programmatic SEO (silo IA)
+// ============================================
+export async function getStaticPaths() {
+  return villesSuisseIA.map(ville => ({
+    params: { ville: ville.slug },
+    props: { ville }
+  }));
+}
+
+interface Props {
+  ville: VilleIAData;
+}
+
+const { ville } = Astro.props;
+
+// ============================================
+// SEO META
+// ============================================
+const pageUrl = `${SITE_URL}/consultant-ia/${ville.slug}`;
+// Title : keyword-led, on raccourcit si > 60 chars
+const titleLong = `Consultant IA à ${ville.nom} — agents IA pour PME | Jon Labs`;
+const pageTitle = titleLong.length <= 60
+  ? titleLong
+  : `Consultant IA à ${ville.nom} — agents IA PME | Jon Labs`;
+// Description : meta locale unique par ville (évite les doublons entre villes)
+const pageDescription = ville.metaDescription;
+
+// ============================================
+// SCHEMA.ORG
+// ============================================
+const webPageSchema = getWebPageSchema({
+  url: pageUrl,
+  name: pageTitle,
+  description: pageDescription
+});
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: "Accueil", url: SITE_URL },
+  { name: "Consultant IA", url: `${SITE_URL}/consultant-ia` },
+  { name: ville.nom, url: pageUrl }
+]);
+
+const faqSchema = getFAQPageSchema(ville.faqs);
+
+const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
+
+// ============================================
+// MAILLAGE — villes voisines
+// ============================================
+const voisines = getVoisinesIA(ville);
+
+// Découpe la preuve locale ("a · b · c") pour la trust line
+const preuves = ville.preuveLocale.split('·').map((p) => p.trim()).filter(Boolean);
+
+// Icônes cyclées pour les cartes cas d'usage
+const casIcons = [
+  "ri-robot-2-line",
+  "ri-mail-settings-line",
+  "ri-search-eye-line",
+  "ri-file-text-line",
+  "ri-customer-service-2-line",
+  "ri-flow-chart"
+];
+
+// ============================================
+// SERVICES IA (maillage)
+// ============================================
+const servicesIA = [
+  {
+    icon: "ri-magic-line",
+    title: "Automatisation IA",
+    description: "Agents qui prennent en charge les tâches répétitives : tri d'e-mails, relances, préparation de documents, reporting.",
+    href: "/services/automatisation"
+  },
+  {
+    icon: "ri-plug-line",
+    title: "Intégration outils",
+    description: "Brancher l'IA sur ce que vous utilisez déjà (Bexio, Crésus, CRM, messagerie) plutôt que tout remplacer.",
+    href: "/services/integration-outils"
+  }
+];
+
+// ============================================
+// ARTICLES BLOG (maillage)
+// ============================================
+const blogArticles = [
+  {
+    title: "Agent IA en entreprise : 7 cas d'usage qui rapportent",
+    description: "Les automatisations IA qui dégagent vraiment du temps dans une PME, avec des exemples concrets par métier.",
+    href: "/blog/agent-ia-entreprise-cas-usage",
+    icon: "ri-robot-2-line"
+  },
+  {
+    title: "Prix d'un agent IA et d'une automatisation en Suisse",
+    description: "Les fourchettes réelles en CHF pour un projet IA selon la complexité, sans devis flou ni abonnement caché.",
+    href: "/blog/prix-agent-ia-automatisation-suisse",
+    icon: "ri-money-cny-circle-line"
+  }
+];
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  schemas={schemas}
+>
+  <Header />
+
+  <!-- ============================================== -->
+  <!-- HERO LOCAL -->
+  <!-- ============================================== -->
+  <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-20 px-4 relative overflow-hidden">
+    <!-- Gradient mesh background -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
+      <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-[var(--violet)] opacity-15 blur-[100px] rounded-full"></div>
+      <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-[var(--blue)] opacity-10 blur-[80px] rounded-full"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto relative z-10 text-center">
+      <!-- Badges -->
+      <div class="flex flex-wrap justify-center gap-3 mb-8">
+        <span class="inline-flex items-center gap-2 bg-white border-2 border-black px-3 py-1 text-xs font-mono shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+          <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+          Disponible
+        </span>
+        <span class="inline-flex items-center gap-2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-mono shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+          <i class="ri-map-pin-fill"></i>
+          {ville.nom} · {ville.canton}
+        </span>
+      </div>
+
+      <!-- H1 -->
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6 leading-[1.05]">
+        Consultant IA<br/>
+        à
+        <span class="relative inline-block">
+          <span class="relative z-10">{ville.nom}</span>
+          <span class="absolute bg-[var(--yellow)] w-full h-[35%] left-0 bottom-1 -z-1"></span>
+        </span>
+      </h1>
+
+      <!-- Sous-titre -->
+      <p class="text-lg md:text-2xl text-gray-700 mb-8 leading-relaxed max-w-3xl mx-auto">
+        {ville.angleHero}
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+        <a
+          href="/contact"
+          class="
+            bg-[var(--blue)]
+            border-2 border-black
+            px-6 py-4
+            text-lg font-bold
+            shadow-[4px_4px_0px_rgba(0,0,0,1)]
+            transition-all duration-200
+            hover:bg-[var(--yellow)]
+            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
+            hover:translate-x-[2px] hover:translate-y-[2px]
+            flex items-center justify-center gap-2
+          "
+        >
+          <i class="ri-mail-send-line"></i>
+          Discuter de votre projet IA
+        </a>
+        <a
+          href="/portfolio"
+          class="
+            bg-white
+            border-2 border-black
+            px-6 py-4
+            text-lg font-medium
+            transition-all duration-200
+            hover:bg-gray-100
+            flex items-center justify-center gap-2
+          "
+        >
+          Voir mes réalisations
+          <i class="ri-arrow-right-line"></i>
+        </a>
+      </div>
+
+      <!-- Trust line -->
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600">
+        {preuves.map((p) => (
+          <span class="flex items-center gap-2">
+            <i class="ri-checkbox-circle-line text-[var(--blue)]"></i>
+            {p}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- POURQUOI UN CONSULTANT IA À VILLE -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+          <span class="w-8 h-px bg-gray-400"></span>
+          contexte local
+          <span class="w-8 h-px bg-gray-400"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black mb-4">
+          Pourquoi un <strong>consultant IA à {ville.nom}</strong> ?
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          {ville.description}
+        </p>
+      </div>
+
+      <!-- Contexte économique -->
+      <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] max-w-3xl mx-auto relative mb-12">
+        <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+        <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+        <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+        <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+
+        <h3 class="font-bold text-lg mb-3 flex items-center gap-2">
+          <i class="ri-building-line text-[var(--blue)]"></i>
+          Tissu économique de {ville.nomComplet}
+        </h3>
+        <p class="text-gray-700 leading-relaxed">
+          {ville.contexteEconomique}
+        </p>
+      </div>
+
+      <!-- Secteurs dominants (grid) -->
+      <h3 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4 text-center">Secteurs dominants à {ville.nom}</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {ville.secteursDominants.map((secteur, idx) => (
+          <div class="bg-[var(--main-bg)] border-2 border-black p-5 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] flex items-start gap-4">
+            <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0 font-mono font-black text-sm">
+              {String(idx + 1).padStart(2, '0')}
+            </div>
+            <p class="text-sm text-gray-700 leading-relaxed pt-1">{secteur}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- CAS D'USAGE IA LOCAUX -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-28 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+          <span class="w-8 h-px bg-gray-400"></span>
+          cas d'usage
+          <span class="w-8 h-px bg-gray-400"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black mb-4">
+          Ce que l'<strong>IA change concrètement</strong> à {ville.nom}
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Pas de démo de labo. Des agents IA branchés sur des métiers réels du bassin de {ville.nom}, secteur par secteur.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {ville.casUsageIA.map((item, idx) => (
+          <div class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col">
+            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4 group-hover:bg-[var(--yellow)] transition-colors">
+              <i class={`${casIcons[idx % casIcons.length]} text-2xl`}></i>
+            </div>
+            <h3 class="text-lg font-bold mb-2">{item.secteur}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed flex-grow">{item.cas}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- PAINS -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+          <span class="w-8 h-px bg-gray-400"></span>
+          ce qui coince
+          <span class="w-8 h-px bg-gray-400"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black mb-4">
+          Les <strong>blocages</strong> que je vois à {ville.nom}
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Si vous vous reconnaissez dans l'un de ces points, il y a probablement du temps à récupérer.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {ville.pains.map((pain) => (
+          <div class="bg-[var(--main-bg)] border-2 border-black p-5 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] flex items-start gap-4">
+            <div class="w-10 h-10 bg-[var(--violet)] text-white border-2 border-black flex items-center justify-center flex-shrink-0">
+              <i class="ri-alert-line text-lg"></i>
+            </div>
+            <p class="text-sm text-gray-700 leading-relaxed pt-1">{pain}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- PUBLIC CIBLE -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-28 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+        <span class="w-8 h-px bg-gray-400"></span>
+        pour qui
+        <span class="w-8 h-px bg-gray-400"></span>
+      </span>
+      <h2 class="text-3xl md:text-5xl font-black mb-8">
+        À qui je m'adresse à {ville.nom}
+      </h2>
+      <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+        {ville.publicCible.map((p) => (
+          <span class="inline-flex items-center gap-2 bg-white border-2 border-black px-4 py-2 text-sm shadow-[2px_2px_0px_rgba(0,0,0,0.3)]">
+            <i class="ri-check-line text-[var(--blue)]"></i>
+            {p}
+          </span>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- FAQ VILLE-SPÉCIFIQUE -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+          <span class="w-8 h-px bg-gray-400"></span>
+          faq
+          <span class="w-8 h-px bg-gray-400"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black mb-4">Questions fréquentes ({ville.nom})</h2>
+        <p class="text-lg text-gray-600">
+          Ce que les entreprises de {ville.nom} me demandent avant de se lancer sur l'IA.
+        </p>
+      </div>
+
+      <div class="faq-list space-y-4">
+        {ville.faqs.map((faq, index) => (
+          <div class="faq-item border-2 border-black bg-[var(--main-bg)] shadow-[3px_3px_0px_rgba(0,0,0,0.3)]" data-faq-item>
+            <button
+              class="
+                faq-trigger
+                w-full
+                flex items-center justify-between gap-4
+                p-5
+                text-left
+                font-medium
+                cursor-pointer
+                transition-colors duration-200
+                hover:bg-[var(--blue)] hover:bg-opacity-10
+              "
+              aria-expanded="false"
+              data-faq-trigger
+            >
+              <span class="flex items-start gap-3">
+                <span class="font-mono text-sm text-gray-400 mt-0.5">{String(index + 1).padStart(2, '0')}</span>
+                <span class="text-base md:text-lg">{faq.question}</span>
+              </span>
+              <span class="
+                faq-icon
+                w-8 h-8
+                border-2 border-black
+                bg-white
+                flex items-center justify-center
+                transition-transform duration-300
+                flex-shrink-0
+              ">
+                <i class="ri-add-line text-lg"></i>
+              </span>
+            </button>
+            <div
+              class="faq-content overflow-hidden transition-all duration-300"
+              style="max-height: 0;"
+              data-faq-content
+            >
+              <div class="p-6 pt-2 pl-12">
+                <p class="text-gray-600 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-center mt-10 text-gray-500 text-sm">
+        Une autre question sur l'IA à {ville.nom} ? <a href="/contact" class="text-[var(--blue)] font-medium hover:underline">Écrivez-moi</a>, je réponds sous 24h.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- MAILLAGE — HUB + VOISINES + SERVICES + BLOG -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-28 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+          <span class="w-8 h-px bg-gray-400"></span>
+          aller plus loin
+          <span class="w-8 h-px bg-gray-400"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black mb-4">
+          Pour creuser le sujet
+        </h2>
+      </div>
+
+      <!-- Page pilier / HUB consultant IA -->
+      <div class="bg-[var(--text)] text-white border-3 border-black p-6 md:p-10 shadow-[8px_8px_0px_rgba(0,0,0,1)] relative overflow-hidden mb-12">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-[var(--blue)] opacity-20 blur-[80px] rounded-full pointer-events-none"></div>
+
+        <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div class="flex-grow">
+            <span class="inline-flex items-center gap-2 bg-[var(--blue)] text-[var(--text)] border-2 border-white px-3 py-1 text-xs font-mono mb-4">
+              <i class="ri-star-fill"></i>
+              Page pilier
+            </span>
+            <h3 class="text-2xl md:text-3xl font-black mb-3">
+              Tout sur le conseil IA pour PME
+            </h3>
+            <p class="text-gray-300 leading-relaxed max-w-2xl">
+              La page de référence sur le <strong>consultant IA en Suisse romande</strong> : méthode, types d'agents, conformité des données et tarifs. Le point de départ avant d'attaquer un projet.
+            </p>
+          </div>
+          <a
+            href="/consultant-ia"
+            class="
+              flex-shrink-0
+              bg-[var(--blue)]
+              text-[var(--text)]
+              border-2 border-[var(--blue)]
+              px-6 py-3
+              font-bold
+              shadow-[4px_4px_0px_white]
+              transition-all duration-200
+              hover:bg-[var(--yellow)]
+              hover:border-[var(--yellow)]
+              hover:shadow-[2px_2px_0px_white]
+              hover:translate-x-[2px] hover:translate-y-[2px]
+              flex items-center justify-center gap-2 whitespace-nowrap
+            "
+          >
+            Voir la page pilier
+            <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Villes voisines -->
+      {voisines.length > 0 && (
+        <div class="mb-12">
+          <h3 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4 text-center">Autres villes où j'interviens</h3>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {voisines.map((v) => (
+              <a
+                href={`/consultant-ia/${v.slug}`}
+                class="group bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] flex flex-col"
+              >
+                <div class="flex items-center justify-between mb-3">
+                  <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center">
+                    <i class="ri-map-pin-fill text-lg"></i>
+                  </div>
+                  <span class="text-xs font-mono text-gray-500">{v.populationLabel} hab.</span>
+                </div>
+                <h3 class="text-lg font-bold mb-1">Consultant IA à {v.nom}</h3>
+                <p class="text-sm text-gray-600 leading-relaxed flex-grow">
+                  {v.angleHero}
+                </p>
+                <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-[var(--blue)] font-medium flex items-center gap-1">
+                  Voir la page
+                  <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
+                </span>
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- Services IA -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        {servicesIA.map((service) => (
+          <a
+            href={service.href}
+            class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
+          >
+            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4 group-hover:bg-[var(--yellow)] transition-colors">
+              <i class={`${service.icon} text-2xl`}></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">{service.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed flex-grow">{service.description}</p>
+            <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-[var(--blue)] font-medium flex items-center gap-1">
+              Voir le service
+              <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
+            </span>
+          </a>
+        ))}
+      </div>
+
+      <!-- Articles blog -->
+      <h3 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4 text-center">À lire avant de vous lancer</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {blogArticles.map((article) => (
+          <a
+            href={article.href}
+            class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
+          >
+            <div class="w-12 h-12 bg-[var(--yellow)] border-2 border-black flex items-center justify-center mb-4">
+              <i class={`${article.icon} text-2xl`}></i>
+            </div>
+            <h3 class="text-lg font-bold mb-2 leading-tight">{article.title}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed flex-grow">{article.description}</p>
+            <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-[var(--blue)] font-medium flex items-center gap-1">
+              Lire l'article
+              <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- CTA FINAL -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-28 px-4 bg-[var(--text)] text-white relative overflow-hidden">
+    <!-- Grid background -->
+    <div class="absolute inset-0 opacity-[0.07]" aria-hidden="true">
+      <div style="background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px); background-size: 40px 40px; width: 100%; height: 100%;"></div>
+    </div>
+
+    <!-- Glow accents -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute top-0 left-1/4 w-[400px] h-[400px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
+      <div class="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-[var(--violet)] opacity-15 blur-[100px] rounded-full"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto relative z-10 text-center">
+      <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-400 mb-6">
+        <span class="w-8 h-px bg-gray-600"></span>
+        prêt ?
+        <span class="w-8 h-px bg-gray-600"></span>
+      </span>
+
+      <h2 class="text-4xl md:text-6xl font-black mb-6 leading-[1.05]">
+        Discutons de votre projet IA à
+        <span class="relative inline-block">
+          <span class="relative z-10">{ville.nom}</span>
+          <span class="absolute bg-[var(--blue)] w-full h-[35%] left-0 bottom-1 -z-1 opacity-50"></span>
+        </span>
+      </h2>
+
+      <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+        Premier échange gratuit, sans engagement. On regarde ensemble les 2-3 tâches qui vous mangent le plus de temps, et je vous dis franchement si l'IA y répond. Réponse sous 24h.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+        <a
+          href="/contact"
+          class="
+            bg-[var(--blue)]
+            text-[var(--text)]
+            border-2 border-[var(--blue)]
+            px-8 py-4
+            text-lg font-bold
+            shadow-[4px_4px_0px_white]
+            transition-all duration-200
+            hover:bg-[var(--yellow)]
+            hover:border-[var(--yellow)]
+            hover:shadow-[2px_2px_0px_white]
+            hover:translate-x-[2px] hover:translate-y-[2px]
+            flex items-center justify-center gap-2
+          "
+        >
+          <i class="ri-mail-send-line"></i>
+          Demander un devis IA
+        </a>
+        <a
+          href="mailto:hello@jonlabs.ch"
+          class="
+            bg-transparent
+            text-white
+            border-2 border-white
+            px-8 py-4
+            text-lg font-medium
+            transition-all duration-200
+            hover:bg-white
+            hover:text-[var(--text)]
+            flex items-center justify-center gap-2
+            font-mono
+          "
+        >
+          <i class="ri-mail-line"></i>
+          hello@jonlabs.ch
+        </a>
+      </div>
+
+      <p class="text-sm text-gray-400 flex items-center justify-center gap-2">
+        <i class="ri-time-line text-[var(--blue)]"></i>
+        Réponse sous 24h · Lun-Ven, 9h-18h (CET) · Facturation en CHF
+      </p>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* FAQ animations */
+  .faq-item[data-open="true"] .faq-icon {
+    transform: rotate(45deg);
+    background-color: var(--blue);
+  }
+
+  /* Scroll margin */
+  section[id] {
+    scroll-margin-top: 100px;
+  }
+</style>
+
+<script>
+  // FAQ accordion logic
+  const faqItems = document.querySelectorAll('[data-faq-item]');
+
+  faqItems.forEach(item => {
+    const trigger = item.querySelector('[data-faq-trigger]');
+    const content = item.querySelector('[data-faq-content]') as HTMLElement;
+
+    trigger?.addEventListener('click', () => {
+      const isOpen = item.getAttribute('data-open') === 'true';
+
+      // Close all others
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.setAttribute('data-open', 'false');
+          const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
+          const otherTrigger = otherItem.querySelector('[data-faq-trigger]');
+          if (otherContent) otherContent.style.maxHeight = '0';
+          otherTrigger?.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Toggle current
+      if (isOpen) {
+        item.setAttribute('data-open', 'false');
+        content.style.maxHeight = '0';
+        trigger.setAttribute('aria-expanded', 'false');
+      } else {
+        item.setAttribute('data-open', 'true');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>

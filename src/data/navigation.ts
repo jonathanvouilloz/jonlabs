@@ -73,6 +73,43 @@ export const mainNav: NavSection[] = [
     },
   },
   {
+    label: 'Consultant IA',
+    href: '/consultant-ia',
+    type: 'mega',
+    columns: [
+      {
+        title: 'Agents IA & automatisation',
+        items: [
+          { label: 'Agents IA sur-mesure', href: '/consultant-ia#agents-sur-mesure', icon: 'ri-robot-2-line' },
+          { label: 'Automatisation de tâches', href: '/services/automatisation', icon: 'ri-loop-left-line' },
+          { label: 'Intégration d\'outils', href: '/services/integration-outils', icon: 'ri-plug-line' },
+          { label: 'Outils sur mesure', href: '/services/outils-sur-mesure', icon: 'ri-tools-line' },
+        ],
+      },
+      {
+        title: 'Régions',
+        items: [
+          { label: 'Consultant IA Genève', href: '/consultant-ia/geneve', icon: 'ri-map-pin-2-line' },
+          { label: 'Consultant IA Lausanne', href: '/consultant-ia/lausanne', icon: 'ri-map-pin-2-line' },
+        ],
+      },
+      {
+        title: 'À lire',
+        items: [
+          { label: 'Agent IA en entreprise : cas d\'usage', href: '/blog/agent-ia-entreprise-cas-usage', icon: 'ri-lightbulb-line' },
+          { label: 'Prix d\'un agent IA en Suisse', href: '/blog/prix-agent-ia-automatisation-suisse', icon: 'ri-coins-line' },
+          { label: 'Automatisation PME : guide complet', href: '/blog/automatisation-pme-suisse-guide-complet', icon: 'ri-book-open-line' },
+        ],
+      },
+    ],
+    spotlight: {
+      icon: 'ri-brain-line',
+      title: 'Cadrer votre projet IA',
+      description: 'Conseil et intégration d\'agents IA pour PME romandes — basé à Genève, prix CHF',
+      href: '/consultant-ia',
+    },
+  },
+  {
     label: 'Tarifs',
     href: '/tarifs',
     type: 'flat',

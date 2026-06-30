@@ -1,0 +1,918 @@
+---
+import "../../styles/global.css";
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+
+import { getServiceItemSchema, getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from "../../lib/seo";
+import { SITE_URL, localBusinessData } from "../../data/schema";
+
+// ============================================
+// SEO META
+// ============================================
+const pageUrl = `${SITE_URL}/consultant-ia`;
+const pageTitle = "Consultant IA pour PME romandes — agents IA | Jon Labs";
+const pageDescription = "Consultant IA pour PME en Suisse romande : agents IA sur-mesure, automatisation et conseil. Prix CHF transparents, conformité nLPD. Freelance basé à Genève.";
+
+// ============================================
+// DIFFÉRENCIANTS SUISSES (4 cartes)
+// ============================================
+const differenciants = [
+  {
+    emoji: "🇨🇭",
+    title: "Vraiment basé à Genève",
+    description: "Atelier installé à Chêne-Bougeries, pas un prestataire transfrontalier qui facture depuis l'autre côté de la frontière. On se voit pour un café si le projet le mérite, et je connais le terrain romand."
+  },
+  {
+    emoji: "💰",
+    title: "Prix en CHF, affichés",
+    description: "Des fourchettes claires dès cette page : cadrage + agent simple CHF 2'500–4'000, agent métier intégré CHF 6'000–15'000. Pas de devis opaque ni de prix caché jusqu'au dernier rendez-vous."
+  },
+  {
+    emoji: "📊",
+    title: "Des preuves chiffrées",
+    description: "50 sites romands audités, une position #1 sur Google atteinte en 5 mois (cas Lécureux), 50+ sites livrés. Des résultats vérifiables, pas des promesses de plaquette."
+  },
+  {
+    emoji: "🧩",
+    title: "Un seul prestataire full-stack",
+    description: "IA, site web, SEO/GEO et application mobile sous le même toit. Vous arrêtez de jongler entre trois agences qui se renvoient la balle quand ça coince."
+  }
+];
+
+// ============================================
+// 6 SERVICES (cartes)
+// ============================================
+const services = [
+  {
+    icon: "ri-robot-2-line",
+    title: "Agents IA sur-mesure",
+    description: "Conception d'agents autonomes capables d'agir sur vos outils, avec mémoire et validation humaine. Pour les tâches pointues que les workflows génériques ne couvrent pas.",
+    price: "Dès CHF 2'500",
+    href: "#agents-sur-mesure"
+  },
+  {
+    icon: "ri-flow-chart",
+    title: "Automatisation de tâches",
+    description: "Relances, rapports, saisies répétitives qui se déclenchent toutes seules. On supprime les corvées du lundi matin avant même de parler d'IA avancée.",
+    price: "Sur devis",
+    href: "/services/automatisation"
+  },
+  {
+    icon: "ri-links-line",
+    title: "Intégration d'outils",
+    description: "On fait parler vos applications entre elles : Bexio, CRM, Google Workspace, votre facturation. L'info saisie une fois, partout, sans recopie.",
+    price: "Sur devis",
+    href: "/services/integration-outils"
+  },
+  {
+    icon: "ri-team-line",
+    title: "Formation IA pour votre équipe",
+    description: "Vos collaborateurs apprennent à utiliser l'IA au quotidien sans se mettre en danger côté données. Cas concrets de votre métier, pas une démo générique.",
+    price: "Sur devis",
+    href: "/contact"
+  },
+  {
+    icon: "ri-search-eye-line",
+    title: "Audit & conseil IA",
+    description: "Où l'IA vous fait gagner du temps, où elle ne sert à rien, et dans quel ordre attaquer. Un état des lieux honnête avant de dépenser le moindre franc.",
+    price: "Dès CHF 800",
+    href: "/contact"
+  },
+  {
+    icon: "ri-tools-line",
+    title: "Outils sur mesure",
+    description: "Tableaux de bord, portails clients, applications internes pilotées par IA. Pour automatiser ce qu'Excel ne sait plus faire seul.",
+    price: "Sur devis",
+    href: "/services/outils-sur-mesure"
+  }
+];
+
+// ============================================
+// AGENT SUR-MESURE — tâches enlevées
+// ============================================
+const agentTaches = [
+  {
+    icon: "ri-mail-open-line",
+    title: "Trier et router les demandes entrantes",
+    description: "L'agent lit chaque e-mail ou formulaire, comprend la demande, la classe et la transmet à la bonne personne avec un résumé. Vous ne triez plus, vous traitez."
+  },
+  {
+    icon: "ri-file-text-line",
+    title: "Pré-remplir vos documents métier",
+    description: "Devis, contrats, comptes-rendus : l'agent récupère les données dans vos outils et prépare un brouillon prêt à relire. Vous validez au lieu de saisir."
+  },
+  {
+    icon: "ri-customer-service-2-line",
+    title: "Répondre au premier niveau de support",
+    description: "Les questions récurrentes (horaires, suivi de commande, documents) sont traitées seules. Les cas complexes remontent à vous avec le contexte déjà rassemblé."
+  },
+  {
+    icon: "ri-radar-line",
+    title: "Surveiller et alerter en continu",
+    description: "Appels d'offres, mentions de votre marque, mouvements concurrents : l'agent veille pour vous et vous prévient seulement quand une action est nécessaire."
+  }
+];
+
+const agentProcess = [
+  {
+    step: "1",
+    title: "Audit du besoin",
+    description: "On identifie la tâche précise à confier à l'agent et on vérifie qu'elle est rentable à automatiser. Si elle ne l'est pas, je vous le dis."
+  },
+  {
+    step: "2",
+    title: "Prototype",
+    description: "Je construis une première version de l'agent sur un périmètre réduit. Vous le voyez fonctionner sur vos cas réels avant tout engagement lourd."
+  },
+  {
+    step: "3",
+    title: "Garde-fous",
+    description: "On cadre ce que l'agent peut faire seul et ce qui passe par une validation humaine. Vos données restent conformes nLPD, les actions sensibles sont sous contrôle."
+  },
+  {
+    step: "4",
+    title: "Prise en main",
+    description: "Documentation claire, formation de votre équipe et support pour les premières semaines. Pas de boîte noire : vous comprenez ce qui tourne."
+  }
+];
+
+// ============================================
+// CAS D'USAGE PME (5-6)
+// ============================================
+const useCases = [
+  {
+    icon: "ri-inbox-archive-line",
+    title: "Tri d'e-mails et de demandes",
+    description: "Chaque message entrant est lu, classé et routé vers la bonne personne avec un résumé. Fini la boîte de réception qui déborde.",
+    gain: "3 à 5 h/sem"
+  },
+  {
+    icon: "ri-file-copy-2-line",
+    title: "Pré-remplissage de documents",
+    description: "Devis, contrats et comptes-rendus préparés à partir de vos données existantes. Vous relisez au lieu de tout retaper.",
+    gain: "2 à 4 h/sem"
+  },
+  {
+    icon: "ri-mail-send-line",
+    title: "Relances automatiques",
+    description: "Factures impayées, devis sans réponse, rendez-vous à confirmer : les relances partent au bon moment, sans que vous y pensiez.",
+    gain: "2 à 3 h/sem"
+  },
+  {
+    icon: "ri-eye-2-line",
+    title: "Veille ciblée",
+    description: "Appels d'offres, actualité réglementaire, concurrents : un digest filtré arrive chez vous, sans le bruit. Vous lisez ce qui compte.",
+    gain: "2 à 4 h/sem"
+  },
+  {
+    icon: "ri-translate-2",
+    title: "Support multilingue",
+    description: "Vos clients écrivent en français, allemand ou anglais, l'agent comprend et répond dans la bonne langue au premier niveau.",
+    gain: "3 à 6 h/sem"
+  },
+  {
+    icon: "ri-bar-chart-box-line",
+    title: "Reporting automatisé",
+    description: "Les chiffres sont agrégés depuis vos outils et le tableau de bord arrive chaque lundi dans votre boîte mail. Sans Excel à la main.",
+    gain: "2 à 3 h/sem"
+  }
+];
+
+// ============================================
+// MAILLAGE — pages géo, services, articles
+// ============================================
+const geoPages = [
+  {
+    nom: "Consultant IA à Genève",
+    description: "La page locale Genève : contexte, secteurs et exemples d'agents IA pour les PME du canton.",
+    href: "/consultant-ia/geneve"
+  },
+  {
+    nom: "Consultant IA à Lausanne",
+    description: "Conseil et agents IA pour les entreprises de la région lausannoise et du canton de Vaud.",
+    href: "/consultant-ia/lausanne"
+  }
+];
+
+const blogArticles = [
+  {
+    title: "Automatisation PME en Suisse : le guide complet",
+    description: "Par où commencer, combien ça coûte et quelles tâches automatiser en premier quand on dirige une PME romande.",
+    href: "/blog/automatisation-pme-suisse-guide-complet",
+    icon: "ri-guide-line"
+  },
+  {
+    title: "Hermès : un agent IA conçu pour une PME",
+    description: "Le cas concret d'un agent métier déployé chez un client, de l'audit à la mise en production.",
+    href: "/blog/hermes-agent-ia-pme",
+    icon: "ri-robot-2-line"
+  },
+  {
+    title: "Workflows ou agents IA : que choisir ?",
+    description: "La différence entre automatiser un workflow et déployer un agent autonome, et comment ne pas se tromper.",
+    href: "/blog/workflows-vs-agents-ia-pme",
+    icon: "ri-git-branch-line"
+  }
+];
+
+// ============================================
+// FAQ (6 questions, vouvoiement)
+// ============================================
+const faqs = [
+  {
+    question: "C'est quoi, concrètement, un consultant IA ?",
+    answer: "Quelqu'un qui vous aide à utiliser l'intelligence artificielle pour des résultats concrets, pas pour la mode. Dans mon cas : j'identifie les tâches où l'IA vous fait gagner du temps, je conçois les agents IA et les automatisations correspondants, je les intègre à vos outils, et je forme votre équipe. Vous avez un seul interlocuteur du diagnostic à la mise en production, sans jargon."
+  },
+  {
+    question: "Combien coûte un projet IA pour une PME ?",
+    answer: "Tout dépend du périmètre, et je préfère afficher des fourchettes plutôt qu'un devis opaque. Un cadrage avec un agent IA simple se situe entre CHF 2'500 et 4'000. Un agent métier intégré à vos outils, avec garde-fous et conformité nLPD, va de CHF 6'000 à 15'000. Un audit seul démarre à CHF 800. Le premier échange est gratuit, et si le retour sur investissement n'est pas là, je vous le dis."
+  },
+  {
+    question: "Mes données sont-elles protégées ? Et la nLPD ?",
+    answer: "C'est une partie centrale du cadrage, pas une option. On définit où vivent vos données, quels modèles y ont accès et quelles actions passent par une validation humaine. Je travaille avec des outils hébergés en Europe quand c'est nécessaire et je conçois les agents pour rester conformes à la nLPD suisse. Vos informations clients ne partent pas dans la nature."
+  },
+  {
+    question: "Faut-il des compétences techniques de notre côté ?",
+    answer: "Non. Vous m'expliquez votre métier et les tâches qui vous pèsent, je m'occupe de la technique. À la livraison, votre équipe sait utiliser l'agent au quotidien et vous comprenez ce qui tourne sous le capot — sans avoir à devenir développeur."
+  },
+  {
+    question: "En combien de temps voit-on des résultats ?",
+    answer: "Un prototype d'agent IA sur un périmètre réduit est généralement prêt en 1 à 3 semaines. Une automatisation simple peut tourner en quelques jours. Vous voyez le système fonctionner sur vos cas réels très tôt, avant de l'étendre à toute votre activité."
+  },
+  {
+    question: "Quelle différence avec une agence IA ?",
+    answer: "Vous parlez directement à la personne qui conçoit et code, pas à un commercial puis à un sous-traitant. Je suis basé à Genève, pas transfrontalier, mes prix sont en CHF et affichés, et je couvre toute la chaîne : IA, site web, SEO et mobile. Une agence vous facture des couches d'intermédiaires ; ici, c'est un seul prestataire responsable du résultat."
+  }
+];
+
+// ============================================
+// SCHEMA.ORG
+// ============================================
+const serviceSchema = getServiceItemSchema("consultant-ia");
+
+const webPageSchema = getWebPageSchema({
+  url: pageUrl,
+  name: pageTitle,
+  description: pageDescription
+});
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: "Accueil", url: SITE_URL },
+  { name: "Consultant IA", url: pageUrl }
+]);
+
+const faqSchema = getFAQPageSchema(faqs);
+
+const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, localBusinessData].filter(Boolean);
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  schemas={schemas}
+>
+  <Header />
+
+  <!-- ============================================== -->
+  <!-- HERO -->
+  <!-- ============================================== -->
+  <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-20 px-4 relative overflow-hidden">
+    <!-- Gradient mesh background -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
+      <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-[var(--violet)] opacity-15 blur-[100px] rounded-full"></div>
+      <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-[var(--cyan)] opacity-10 blur-[80px] rounded-full"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto relative z-10 text-center">
+      <!-- Badges -->
+      <div class="flex flex-wrap justify-center gap-3 mb-8">
+        <span class="inline-flex items-center gap-2 bg-white border-2 border-black px-3 py-1 text-xs font-mono shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+          <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+          Disponible
+        </span>
+        <span class="inline-flex items-center gap-2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-mono shadow-[2px_2px_0px_rgba(0,0,0,1)]">
+          <i class="ri-map-pin-fill"></i>
+          Basé à Genève
+        </span>
+      </div>
+
+      <!-- H1 -->
+      <h1 class="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight mb-6 leading-[1.05]">
+        Consultant IA à
+        <span class="relative inline-block">
+          <span class="relative z-10">Genève</span>
+          <span class="absolute bg-[var(--yellow)] w-full h-[35%] left-0 bottom-1 -z-1"></span>
+        </span><br/>
+        pour PME romandes
+      </h1>
+
+      <!-- Sous-titre -->
+      <p class="text-lg md:text-2xl text-gray-700 mb-8 leading-relaxed max-w-3xl mx-auto">
+        Des <strong>agents IA</strong> et des <strong>automatisations</strong> qui enlèvent les tâches répétitives de votre quotidien.<br class="hidden md:block"/>
+        Prix en <strong>CHF</strong>, conformité <strong>nLPD</strong>, un seul interlocuteur du diagnostic à la mise en production.
+      </p>
+
+      <!-- CTAs -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
+        <a
+          href="/contact"
+          class="
+            bg-[var(--blue)]
+            border-2 border-black
+            px-6 py-4
+            text-lg font-bold
+            shadow-[4px_4px_0px_rgba(0,0,0,1)]
+            transition-all duration-200
+            hover:bg-[var(--yellow)]
+            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
+            hover:translate-x-[2px] hover:translate-y-[2px]
+            flex items-center justify-center gap-2
+          "
+        >
+          <i class="ri-compass-3-line"></i>
+          Cadrer mon projet IA
+        </a>
+        <a
+          href="#services"
+          class="
+            bg-white
+            border-2 border-black
+            px-6 py-4
+            text-lg font-medium
+            transition-all duration-200
+            hover:bg-gray-100
+            flex items-center justify-center gap-2
+          "
+        >
+          Voir les services
+          <i class="ri-arrow-down-line"></i>
+        </a>
+      </div>
+
+      <!-- Trust line -->
+      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600">
+        <span class="flex items-center gap-2">
+          <i class="ri-currency-line text-[var(--blue)]"></i>
+          Prix CHF transparents
+        </span>
+        <span class="flex items-center gap-2">
+          <i class="ri-stack-line text-[var(--blue)]"></i>
+          50+ projets livrés
+        </span>
+        <span class="flex items-center gap-2">
+          <i class="ri-shield-check-line text-[var(--blue)]"></i>
+          Conformité nLPD
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- DIFFÉRENCIANTS SUISSES -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+          <span class="w-8 h-px bg-gray-400"></span>
+          pourquoi moi
+          <span class="w-8 h-px bg-gray-400"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black mb-4">
+          Un <strong>consultant IA</strong> vraiment suisse
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Quatre choses que les freelances IA transfrontaliers ne vous offrent pas. Concrètes, vérifiables, sans plaquette.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {differenciants.map((item) => (
+          <div class="bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] flex flex-col">
+            <div class="w-12 h-12 bg-white border-2 border-black flex items-center justify-center mb-4 text-2xl">
+              {item.emoji}
+            </div>
+            <h3 class="text-lg font-bold mb-2">{item.title}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">{item.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- SERVICES -->
+  <!-- ============================================== -->
+  <section id="services" class="py-20 md:py-28 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+          <span class="w-8 h-px bg-gray-400"></span>
+          services
+          <span class="w-8 h-px bg-gray-400"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black mb-4">
+          Ce que je fais pour vous
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          De l'<strong>automatisation</strong> simple à l'<strong>agent IA</strong> métier — toute la chaîne, un seul prestataire.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {services.map((service) => (
+          <a
+            href={service.href}
+            class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
+          >
+            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4 group-hover:bg-[var(--yellow)] transition-colors">
+              <i class={`${service.icon} text-2xl`}></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">{service.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">{service.description}</p>
+            <div class="pt-4 border-t border-dashed border-gray-300 flex items-center justify-between">
+              <span class="text-sm font-mono text-[var(--blue)]">{service.price}</span>
+              <i class="ri-arrow-right-line text-lg group-hover:translate-x-1 transition-transform"></i>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- AGENTS IA SUR-MESURE -->
+  <!-- ============================================== -->
+  <section id="agents-sur-mesure" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+          <span class="w-8 h-px bg-gray-400"></span>
+          agents sur-mesure
+          <span class="w-8 h-px bg-gray-400"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black mb-4">
+          Un <strong>agent IA sur-mesure</strong>, c'est quoi ?
+        </h2>
+        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+          Pas un chatbot générique. Un assistant conçu pour votre métier, qui se souvient du contexte, agit sur vos outils, et passe la main quand un humain doit valider.
+        </p>
+      </div>
+
+      <!-- 3 caractéristiques -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <div class="bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)]">
+          <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4">
+            <i class="ri-brain-line text-xl"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Une mémoire</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Il garde le contexte d'un client, d'un dossier, d'une conversation. Vous ne répétez pas trois fois la même information.</p>
+        </div>
+        <div class="bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)]">
+          <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4">
+            <i class="ri-cursor-line text-xl"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Une capacité d'action</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Il ne se contente pas de répondre : il crée une fiche, envoie un e-mail, met à jour un statut dans vos outils.</p>
+        </div>
+        <div class="bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)]">
+          <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4">
+            <i class="ri-user-follow-line text-xl"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Une validation humaine</h3>
+          <p class="text-sm text-gray-600 leading-relaxed">Les actions sensibles passent par vous. L'agent prépare, vous décidez. Rien ne part dans la nature sans contrôle.</p>
+        </div>
+      </div>
+
+      <!-- Distinction avec automatisation -->
+      <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative mb-12">
+        <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--violet)] border-2 border-black"></div>
+        <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--violet)] border-2 border-black"></div>
+        <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--violet)] border-2 border-black"></div>
+        <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--violet)] border-2 border-black"></div>
+
+        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+          <i class="ri-git-merge-line text-[var(--blue)]"></i>
+          Agent sur-mesure ou automatisation ?
+        </h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <p class="text-sm font-bold text-gray-700 mb-2">L'automatisation de tâches</p>
+            <p class="text-gray-600 text-sm leading-relaxed">Couvre les workflows larges et prévisibles : "quand X arrive, fais Y". Idéale pour les relances, les rapports, les saisies récurrentes. <a href="/services/automatisation" class="text-[var(--blue)] hover:underline">Voir le service automatisation →</a></p>
+          </div>
+          <div>
+            <p class="text-sm font-bold text-gray-700 mb-2">L'agent IA sur-mesure</p>
+            <p class="text-gray-600 text-sm leading-relaxed">Conçoit un assistant autonome pour une tâche pointue qui demande du jugement, du contexte et plusieurs étapes. C'est de la conception, pas du branchement d'outils.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tâches enlevées -->
+      <h3 class="text-2xl font-black mb-6 text-center">Des tâches qu'un agent vous enlève</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        {agentTaches.map((tache) => (
+          <div class="bg-[var(--main-bg)] border-2 border-black p-5 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] flex items-start gap-4">
+            <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
+              <i class={`${tache.icon} text-lg`}></i>
+            </div>
+            <div>
+              <h4 class="font-bold mb-1">{tache.title}</h4>
+              <p class="text-sm text-gray-600 leading-relaxed">{tache.description}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Process -->
+      <h3 class="text-2xl font-black mb-6 text-center">Comment on construit votre agent</h3>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {agentProcess.map((etape) => (
+          <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)]">
+            <div class="w-10 h-10 bg-[var(--yellow)] border-2 border-black flex items-center justify-center mb-4 font-mono font-black">
+              {etape.step}
+            </div>
+            <h4 class="font-bold mb-2">{etape.title}</h4>
+            <p class="text-sm text-gray-600 leading-relaxed">{etape.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- CAS D'USAGE PME -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-28 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+          <span class="w-8 h-px bg-gray-400"></span>
+          cas d'usage
+          <span class="w-8 h-px bg-gray-400"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black mb-4">
+          Où l'IA peut vous enlever du travail
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Des tâches transversales, valables pour la plupart des <strong>PME de Suisse romande</strong>. Les heures gagnées sont des estimations réalistes, pas des promesses.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {useCases.map((uc) => (
+          <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] flex flex-col">
+            <div class="flex items-center justify-between mb-4">
+              <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center">
+                <i class={`${uc.icon} text-2xl`}></i>
+              </div>
+              <span class="text-xs font-mono bg-[var(--yellow)] border-2 border-black px-2 py-1">{uc.gain}</span>
+            </div>
+            <h3 class="text-lg font-bold mb-2">{uc.title}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed">{uc.description}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- PREUVES -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+          <span class="w-8 h-px bg-gray-400"></span>
+          preuves
+          <span class="w-8 h-px bg-gray-400"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black mb-4">
+          Des résultats, pas des promesses
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          La plupart des freelances IA vous demandent de leur faire confiance sur parole. Voici plutôt des chiffres.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+        <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] text-center">
+          <p class="text-4xl md:text-5xl font-black text-[var(--blue)] mb-2">50</p>
+          <p class="font-bold mb-1">sites romands audités</p>
+          <p class="text-sm text-gray-600">Trois semaines à éplucher les sites d'indépendants romands. Je sais ce qui cloche sur le terrain.</p>
+        </div>
+        <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] text-center">
+          <p class="text-4xl md:text-5xl font-black text-[var(--blue)] mb-2">#1</p>
+          <p class="font-bold mb-1">sur Google en 5 mois</p>
+          <p class="text-sm text-gray-600">Position #1 atteinte pour le cas Lécureux. Du SEO mesurable, pas une estimation de plaquette.</p>
+        </div>
+        <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] text-center">
+          <p class="text-4xl md:text-5xl font-black text-[var(--blue)] mb-2">50+</p>
+          <p class="font-bold mb-1">sites & projets livrés</p>
+          <p class="text-sm text-gray-600">IA, web, SEO et mobile sous le même toit. Un seul prestataire pour toute la chaîne.</p>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <a href="/portfolio" class="inline-flex items-center gap-2 bg-white border-2 border-black px-6 py-3 font-medium hover:bg-[var(--yellow)] transition-all shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]">
+          <i class="ri-stack-line"></i>
+          Voir les réalisations
+          <i class="ri-arrow-right-line"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- DISTRIBUTION / MAILLAGE -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-28 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12 md:mb-16">
+        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+          <span class="w-8 h-px bg-gray-400"></span>
+          aller plus loin
+          <span class="w-8 h-px bg-gray-400"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black mb-4">
+          Explorer le sujet
+        </h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+          Pages locales, services détaillés et articles pour creuser avant d'en parler.
+        </p>
+      </div>
+
+      <!-- Pages géo -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+        {geoPages.map((geo) => (
+          <a
+            href={geo.href}
+            class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
+          >
+            <div class="w-12 h-12 bg-[var(--cyan)] border-2 border-black flex items-center justify-center mb-4">
+              <i class="ri-map-pin-fill text-2xl"></i>
+            </div>
+            <h3 class="text-xl font-bold mb-2">{geo.nom}</h3>
+            <p class="text-sm text-gray-600 leading-relaxed flex-grow">{geo.description}</p>
+            <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-[var(--blue)] font-medium flex items-center gap-1">
+              Voir la page
+              <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
+            </span>
+          </a>
+        ))}
+      </div>
+
+      <!-- Liens services -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+        <a href="/services/automatisation" class="bg-white border-2 border-black p-4 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--yellow)] transition-colors flex items-center justify-between gap-3 font-medium">
+          <span class="flex items-center gap-3">
+            <i class="ri-flow-chart text-[var(--blue)]"></i>
+            Automatisation
+          </span>
+          <i class="ri-arrow-right-line"></i>
+        </a>
+        <a href="/services/integration-outils" class="bg-white border-2 border-black p-4 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--yellow)] transition-colors flex items-center justify-between gap-3 font-medium">
+          <span class="flex items-center gap-3">
+            <i class="ri-links-line text-[var(--blue)]"></i>
+            Intégration d'outils
+          </span>
+          <i class="ri-arrow-right-line"></i>
+        </a>
+        <a href="/services/outils-sur-mesure" class="bg-white border-2 border-black p-4 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--yellow)] transition-colors flex items-center justify-between gap-3 font-medium">
+          <span class="flex items-center gap-3">
+            <i class="ri-tools-line text-[var(--blue)]"></i>
+            Outils sur mesure
+          </span>
+          <i class="ri-arrow-right-line"></i>
+        </a>
+      </div>
+
+      <!-- Articles blog -->
+      <h3 class="text-2xl font-black mb-6 text-center">À lire sur l'IA en PME</h3>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {blogArticles.map((article) => (
+          <a
+            href={article.href}
+            class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
+          >
+            <div class="w-12 h-12 bg-[var(--yellow)] border-2 border-black flex items-center justify-center mb-4">
+              <i class={`${article.icon} text-2xl`}></i>
+            </div>
+            <h4 class="text-lg font-bold mb-2 leading-tight">{article.title}</h4>
+            <p class="text-sm text-gray-600 leading-relaxed flex-grow">{article.description}</p>
+            <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-[var(--blue)] font-medium flex items-center gap-1">
+              Lire l'article
+              <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- FAQ -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
+    <div class="max-w-3xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+          <span class="w-8 h-px bg-gray-400"></span>
+          faq
+          <span class="w-8 h-px bg-gray-400"></span>
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black mb-4">Questions fréquentes</h2>
+        <p class="text-lg text-gray-600">
+          Ce que les dirigeants de PME romandes me demandent avant de se lancer.
+        </p>
+      </div>
+
+      <div class="faq-list space-y-4">
+        {faqs.map((faq, index) => (
+          <div class="faq-item border-2 border-black bg-[var(--main-bg)] shadow-[3px_3px_0px_rgba(0,0,0,0.3)]" data-faq-item>
+            <button
+              class="
+                faq-trigger
+                w-full
+                flex items-center justify-between gap-4
+                p-5
+                text-left
+                font-medium
+                cursor-pointer
+                transition-colors duration-200
+                hover:bg-[var(--blue)] hover:bg-opacity-10
+              "
+              aria-expanded="false"
+              data-faq-trigger
+            >
+              <span class="flex items-start gap-3">
+                <span class="font-mono text-sm text-gray-400 mt-0.5">{String(index + 1).padStart(2, '0')}</span>
+                <span class="text-base md:text-lg">{faq.question}</span>
+              </span>
+              <span class="
+                faq-icon
+                w-8 h-8
+                border-2 border-black
+                bg-white
+                flex items-center justify-center
+                transition-transform duration-300
+                flex-shrink-0
+              ">
+                <i class="ri-add-line text-lg"></i>
+              </span>
+            </button>
+            <div
+              class="faq-content overflow-hidden transition-all duration-300"
+              style="max-height: 0;"
+              data-faq-content
+            >
+              <div class="p-6 pt-2 pl-12">
+                <p class="text-gray-600 leading-relaxed">
+                  {faq.answer}
+                </p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <p class="text-center mt-10 text-gray-500 text-sm">
+        Une autre question ? <a href="/contact" class="text-[var(--blue)] font-medium hover:underline">Écrivez-moi</a>, je réponds sous 24h.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- CTA FINAL -->
+  <!-- ============================================== -->
+  <section class="py-20 md:py-28 px-4 bg-[var(--text)] text-white relative overflow-hidden">
+    <!-- Grid background -->
+    <div class="absolute inset-0 opacity-[0.07]" aria-hidden="true">
+      <div style="background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px); background-size: 40px 40px; width: 100%; height: 100%;"></div>
+    </div>
+
+    <!-- Glow accents -->
+    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+      <div class="absolute top-0 left-1/4 w-[400px] h-[400px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
+      <div class="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-[var(--violet)] opacity-15 blur-[100px] rounded-full"></div>
+    </div>
+
+    <div class="max-w-4xl mx-auto relative z-10 text-center">
+      <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-400 mb-6">
+        <span class="w-8 h-px bg-gray-600"></span>
+        prêt ?
+        <span class="w-8 h-px bg-gray-600"></span>
+      </span>
+
+      <h2 class="text-4xl md:text-6xl font-black mb-6 leading-[1.05]">
+        Cadrer votre
+        <span class="relative inline-block">
+          <span class="relative z-10">projet IA</span>
+          <span class="absolute bg-[var(--blue)] w-full h-[35%] left-0 bottom-1 -z-1 opacity-50"></span>
+        </span>
+      </h2>
+
+      <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
+        Premier échange gratuit, sans engagement. On identifie la tâche à confier à l'IA, on chiffre en CHF, et si le retour sur investissement n'est pas là, je vous le dis. Réponse sous 24h.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
+        <a
+          href="/contact"
+          class="
+            bg-[var(--blue)]
+            text-[var(--text)]
+            border-2 border-[var(--blue)]
+            px-8 py-4
+            text-lg font-bold
+            shadow-[4px_4px_0px_white]
+            transition-all duration-200
+            hover:bg-[var(--yellow)]
+            hover:border-[var(--yellow)]
+            hover:shadow-[2px_2px_0px_white]
+            hover:translate-x-[2px] hover:translate-y-[2px]
+            flex items-center justify-center gap-2
+          "
+        >
+          <i class="ri-compass-3-line"></i>
+          Cadrer mon projet IA
+        </a>
+        <a
+          href="mailto:hello@jonlabs.ch"
+          class="
+            bg-transparent
+            text-white
+            border-2 border-white
+            px-8 py-4
+            text-lg font-medium
+            transition-all duration-200
+            hover:bg-white
+            hover:text-[var(--text)]
+            flex items-center justify-center gap-2
+            font-mono
+          "
+        >
+          <i class="ri-mail-line"></i>
+          hello@jonlabs.ch
+        </a>
+      </div>
+
+      <p class="text-sm text-gray-400 flex items-center justify-center gap-2">
+        <i class="ri-time-line text-[var(--blue)]"></i>
+        Réponse sous 24h · Basé à Chêne-Bougeries (Genève) · Facturation CHF
+      </p>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
+
+<style>
+  /* FAQ animations */
+  .faq-item[data-open="true"] .faq-icon {
+    transform: rotate(45deg);
+    background-color: var(--blue);
+  }
+
+  /* Scroll margin */
+  section[id] {
+    scroll-margin-top: 100px;
+  }
+</style>
+
+<script>
+  // FAQ accordion logic
+  const faqItems = document.querySelectorAll('[data-faq-item]');
+
+  faqItems.forEach(item => {
+    const trigger = item.querySelector('[data-faq-trigger]');
+    const content = item.querySelector('[data-faq-content]') as HTMLElement;
+
+    trigger?.addEventListener('click', () => {
+      const isOpen = item.getAttribute('data-open') === 'true';
+
+      // Close all others
+      faqItems.forEach(otherItem => {
+        if (otherItem !== item) {
+          otherItem.setAttribute('data-open', 'false');
+          const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
+          const otherTrigger = otherItem.querySelector('[data-faq-trigger]');
+          if (otherContent) otherContent.style.maxHeight = '0';
+          otherTrigger?.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      // Toggle current
+      if (isOpen) {
+        item.setAttribute('data-open', 'false');
+        content.style.maxHeight = '0';
+        trigger.setAttribute('aria-expanded', 'false');
+      } else {
+        item.setAttribute('data-open', 'true');
+        content.style.maxHeight = content.scrollHeight + 'px';
+        trigger.setAttribute('aria-expanded', 'true');
+      }
+    });
+  });
+</script>
