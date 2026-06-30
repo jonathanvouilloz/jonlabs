@@ -4,6 +4,26 @@
 > **Plan maître** : `docs/restructuration-clusters.md` (archi cible, verdict par page, liste KILL, feuille de route 5 phases).
 > **Diagnostic data** : `.seo-data/diagnostic-gsc-pages-cannibalisation.md`.
 
+## Etat session 2026-07-01 — Refonte titles/métas piliers + lancement chantier SEO IA
+
+**Fait :**
+- **Refonte titles + méta-descriptions des 8 pages piliers** (suffixe court `| Jonlabs`, CTA emoji en fin de méta, varié par page : 🔍 audit / 📩 devis / ☎️ appel). Validé via **DataForSEO** (consultant SEO 210/mo diff 0 ; agent IA 260/mo ; développement application mobile 390/mo). Gros pivots : `referencement-local` → « Consultant SEO & GEO à Genève » ; `automatisation` → « Automatisation & agents IA entreprise » ; `developpement-mvp` → « Développement sur mesure & MVP ». Build vert (201 pages), head rendu vérifié (title/meta/og). Changements **additifs** (ajout consultant SEO + agents IA sans retirer développeur web Genève).
+- **Analyse concurrent hgnn.io** (Gauthier Huguenin, freelance IA français ciblant Genève en transfrontalier, pousse Hermès/OpenClaw comme nous) **archivée** dans `docs/seo-context.md` (section concurrents + synthèse). Gap majeur identifié : il occupe déjà « consultant IA Genève » ; on a le blog IA mais **zéro page de conversion IA**.
+- **Topical map IA créée** (`docs/topical-map-consultant-ia.md`) : cluster 30 entrées (13 existants / 17 à créer), 2 piliers (hub conversion `/consultant-ia` à créer + hub info blog existant), scoring, fan-out, maillage, 6 mini-briefs, anti-cannibalisation.
+- **Plan de chantier maître créé** (`docs/planSEOIA.md`) : architecture cible, 4 phases, templates réutilisables (métier/géo/hub repris de hgnn), map de réutilisation du contenu existant, décisions §6 à trancher, mesure.
+
+**Prochain :** **Phase 1 du planSEOIA** — construire le **hub `/consultant-ia`** (pièce qui débloque tout), puis `/consultant-ia-geneve` (défensif vs hgnn), brancher le **maillage montant** depuis les 13 articles IA existants, puis 2 articles ⚡ (`/seo-brief agent-ia-entreprise-cas-usage` + `prix-agent-ia-automatisation-suisse`). **Trancher d'abord les décisions §6** du planSEOIA (URL hub `/consultant-ia`, statut `agent-ia-sur-mesure` page vs section, villes géo vague 1, ordre métiers).
+
+**Pièges :**
+- DataForSEO en mode `--topics-file` écrit dans un `.seo-data/.seo-data/` imbriqué (artefact, gitignored, supprimé cette session). Mode topic simple écrit au bon endroit `.seo-data/`.
+- Volumes CH très faibles (marché petit) : le cluster IA se joue sur **intent local + conversion + défensif**, PAS sur le volume. Ne pas sur-créer d'informationnel — prioriser les pages Core (hub/géo/métiers).
+- Différenciant à marteler partout vs hgnn : **vraiment basé en Suisse** (pas frontalier), **prix CHF transparents** (lui les cache), **preuves chiffrées**, **nLPD** (intraduisible pour un concurrent FR).
+- Action manuelle Jonathan : **Request Indexing** GSC sur referencement-local + automatisation (changement d'angle keyword) après déploiement.
+
+**Commit :** [à committer] feat(seo): titles/métas piliers + chantier IA (topical map + planSEOIA)
+
+---
+
 ## Etat session 2026-06-25 — Phase 3 / C1 Build : création des 4 spokes
 
 **Fait :**
@@ -210,10 +230,15 @@
 ---
 
 ## Carte du code
-> Mise a jour : 2026-06-25 (Phase 3 — C1 Build : 4 spokes)
+> Mise a jour : 2026-07-01 (titles/métas piliers + chantier SEO IA)
 
 | Fichier | Role |
 |---------|------|
+| `docs/planSEOIA.md` | **Plan de chantier maître du silo IA** : architecture cible (hub `/consultant-ia` + géo + métiers + landings Hermès/OpenClaw), 4 phases, templates réutilisables, décisions §6, réutilisation du contenu existant. Riposte à hgnn.io |
+| `docs/topical-map-consultant-ia.md` | **Topical map IA** : cluster 30 entrées (2 piliers conversion+info), scoring, fan-out, blueprint maillage, 6 mini-briefs articles, anti-cannibalisation |
+| `src/pages/services/automatisation.astro` | Pilier C1 Automate : title retitré « Automatisation & agents IA entreprise à Genève » (ciblage agent IA). Futur point d'ancrage du hub IA |
+| `src/pages/developpeur-web-freelance-geneve.astro` | Landing géo C3a : title/méta (`pageTitle`/`pageDescription` consts) — CTA téléphone ☎️ |
+| `src/pages/services/referencement-local.astro` | Pilier C3b : title pivoté vers « Consultant SEO & GEO à Genève » (keyword consultant SEO 210/mo diff 0) |
 | `src/data/portfolio-relations.ts` | **Source de vérité maillage portfolio** (`portfolioServiceLinks`) : slug fiche → pilier service qu'elle illustre. Lu par `[slug].astro` (bloc sortant) ; aligne les liens entrants des piliers |
 | `src/pages/portfolio/[slug].astro` | **Template fiche portfolio** : bloc « Service lié + Projets similaires » avant le CTA. `getStaticPaths` calcule `relatedEntries` (2, par `project.category` + fallback récents) |
 | `src/pages/services/creation-site-web.astro` | Pilier C3a : lien entrant vers Physio Pommier + Ugo Mighali (section `resultats`) + bloc « Création de site web par ville » |

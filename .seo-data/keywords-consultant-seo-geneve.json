@@ -1,0 +1,29 @@
+{
+  "topic": "consultant SEO Genève",
+  "location_code": 2756,
+  "location_name": "Switzerland",
+  "language_code": "fr",
+  "generated_at": "2026-06-30T21:29:28Z",
+  "primary": {
+    "keyword": "consultant SEO Genève",
+    "search_volume": 40,
+    "cpc": 0,
+    "competition": "LOW",
+    "competition_index": 0,
+    "difficulty": null,
+    "intent": "commercial",
+    "intent_probability": 0.9377
+  },
+  "secondaries": [
+    {
+      "keyword": "consultant seo genève",
+      "search_volume": 40,
+      "cpc": 0,
+      "competition": "LOW",
+      "competition_index": 0
+    }
+  ],
+  "long_tail": [],
+  "related": [],
+  "quick_wins": []
+}

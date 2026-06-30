@@ -98,6 +98,19 @@ cta_map:
   - Gap: Pas de blog ni contenu éditorial, aucun angle SEO/automatisation/IA
   - Activité: Nulle côté blog
 
+- **Gauthier Huguenin — hgnn.io** — https://hgnn.io (analysé le 2026-06-30) — ⚠️ **concurrent IA frontal sur Genève**
+  - Profil: Freelance **100% spécialiste IA/automatisation**, basé côté français (Grenoble/Annecy/Lyon), cible Genève en **transfrontalier** ("je passe la frontière, je me déplace à Genève"). Pousse **Hermes** et **OpenClaw** (mêmes noms produits que nous).
+  - Point fort: Positionnement IA pur et net, copy bénéfice-first sans jargon ("L'IA qui enlève du travail à vos équipes / Pas un outil de plus, du travail en moins"), architecture SEO IA très complète.
+  - **Ce qu'il a et qu'on n'a pas** (gaps prioritaires) :
+    - Page **`/consultant-ia-geneve`** (H1 "Consultant IA à Genève, au service de votre PME") + pages géo `consultant-ia-{grenoble|annecy|lyon}` → il occupe déjà "consultant IA Genève".
+    - Hub **`/consultant-ia`** (possède le keyword) + services productisés **Formation IA** et **Conseil stratégique IA**.
+    - **Pages Métiers verticales** : `/metiers/{immobilier|garages-automobiles|agences-digitales|loueurs-airbnb}` — template réutilisable (pains métier → 8 cas d'usage IA → parcours métier → outils métier nommés type Apimo/Hektor/PriceHubble → Méthode → Pour qui/Pas pour qui → FAQ 7Q → maillage).
+    - Pages produit dédiées **`/hermes`** et **`/openclaw`** (avec offre tangible : "livré en 48h", "cadrage 20 min") — chez nous Hermès/OpenClaw ne sont qu'en blog.
+    - Site **bilingue FR/EN**, sous-page outil `/services/automatisation/n8n`, page Partenaires, status public, présence Malt + Upwork.
+  - **Nos avantages sur lui** (à exploiter) : on est **vraiment en Suisse/Genève** (pas frontalier français — pas de friction transfrontalière), offre **full-stack** (site + SEO/GEO + mobile + automatisation = prestataire unique), **machine de contenu SEO mature** (clusters vs ses ~10 articles), **preuves chiffrées + prix transparents en CHF** (lui cache tous ses tarifs).
+  - **Réponse stratégique** : voir `docs/planSEOIA.md` (chantier hub Consultant IA + pages métiers + landings Hermès/OpenClaw).
+  - Activité: Élevée côté structure (site très travaillé), blog modéré (~10 articles FR).
+
 ### Références France francophone (benchmarks éditoriaux)
 
 - **Louis Descamps** — https://louisdescamps.fr/blog
@@ -130,3 +143,4 @@ cta_map:
 - Le blog est le principal avantage compétitif en Suisse romande : les acteurs locaux n'ont pas de stratégie de contenu
 - Paul Vengeons tente de capter le marché suisse depuis Paris → opportunité de le détrôner avec un ancrage terrain réel
 - Louis Descamps est la référence de cadence à atteindre (~1 article/mois) dans un premier temps
+- **hgnn.io (Gauthier Huguenin) est la menace IA frontale** : il occupe déjà "consultant IA Genève" en transfrontalier. Riposte = un cluster IA dédié avec notre ancrage suisse réel comme différenciant (voir `docs/planSEOIA.md`). Reprendre son template de pages Métiers et ses pages produit Hermès/OpenClaw, mais avec prix CHF transparents et preuves chiffrées (ce qu'il n'a pas).

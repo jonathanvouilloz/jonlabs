@@ -1,12 +1,13 @@
-# HANDOFF — 2026-06-25 (maj C1 Build)
+# HANDOFF — 2026-07-01
 
 ## Features actives
 | Feature | Fichier | Statut |
 |---------|---------|--------|
 | Refonte SEO / restructuration clusters | docs/features/refonte-seo-clusters.md | **EN COURS** |
+| Chantier SEO IA (consultant IA) | docs/planSEOIA.md + docs/topical-map-consultant-ia.md | **EN COURS** |
 | Cluster plateformes Webflow + WordPress | docs/chantier-cluster-plateformes.md | EN ATTENTE |
 | Cluster application mobile | docs/features/cluster-application-mobile.md | ✅ DONE |
 
 ## Reprendre ici
-**Refonte SEO** — Phase 3 : les **4 spokes C1 Build sont créés et publiés** (logiciel-sur-mesure-vs-saas, prix-logiciel-sur-mesure-pme, no-code-vs-developpement-sur-mesure, cahier-des-charges-application-metier), maillage réciproque posé, build vert (219 pages). Prochaine brique code (débloquée) : **étoffer `/services/developpement-mvp`** → section Ressources `clusterGroups` reliant les 5 spokes C1 Build (4 nouveaux + application-metier-pme-sur-mesure). Action manuelle Jonathan : **Request Indexing** GSC sur les 4 nouvelles URLs (+ reliquat piliers UNKNOWN + creation/refonte/landing geneve). Surveiller `/seo-gsc` J+30/60.
-Commit : 80f524e feat(seo): cluster C1 Build — 4 spokes logiciel sur mesure (silo developpement-mvp)
+**Chantier SEO IA — Phase 1** : titles/métas des 8 piliers refaits (validés DataForSEO, build vert) et chantier IA cadré suite analyse hgnn.io. Prochaine étape : construire le **hub `/consultant-ia`** puis `/consultant-ia-geneve` + maillage montant blog + 2 articles ⚡. **Trancher d'abord les décisions §6 de `docs/planSEOIA.md`** (URL hub, statut agent-ia-sur-mesure, villes géo, ordre métiers).
+Commit : (de la session) feat(seo): titles/métas piliers + chantier IA
