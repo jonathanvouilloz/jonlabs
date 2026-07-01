@@ -81,9 +81,17 @@ export const mainNav: NavSection[] = [
         title: 'Agents IA & automatisation',
         items: [
           { label: 'Agents IA sur-mesure', href: '/consultant-ia#agents-sur-mesure', icon: 'ri-robot-2-line' },
+          { label: 'Agent Hermès', href: '/hermes', icon: 'ri-message-3-line' },
           { label: 'Automatisation de tâches', href: '/services/automatisation', icon: 'ri-loop-left-line' },
           { label: 'Intégration d\'outils', href: '/services/integration-outils', icon: 'ri-plug-line' },
-          { label: 'Outils sur mesure', href: '/services/outils-sur-mesure', icon: 'ri-tools-line' },
+          { label: 'Formation IA équipe', href: '/services/formation-ia-equipe', icon: 'ri-presentation-line' },
+        ],
+      },
+      {
+        title: 'Métiers',
+        items: [
+          { label: 'IA pour fiduciaires', href: '/metiers/ia-fiduciaire', icon: 'ri-calculator-line' },
+          { label: 'IA pour agences immobilières', href: '/metiers/ia-agence-immobiliere', icon: 'ri-building-line' },
         ],
       },
       {
