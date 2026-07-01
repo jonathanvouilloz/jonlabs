@@ -30,7 +30,7 @@ Ce n'est pas un hasard. C'est une posture commerciale assumée par une bonne par
 
 Tu trouveras ici le prix d'un agent IA simple, le prix d'un agent métier intégré à plusieurs systèmes, les coûts récurrents que personne ne détaille, et une méthode pour savoir si l'investissement vaut le coup pour ta structure. Pour la vue d'ensemble du sujet, commence par le [guide complet sur l'automatisation dans ta PME suisse](/blog/automatisation-pme-suisse-guide-complet).
 
-<!-- TODO:image schema — Grille de prix transparente en CHF pour un agent IA d'entreprise, cadrage et agent métier intégré — brief: src/content/blog/.briefs/prix-agent-ia-automatisation-suisse.md#image-cover -->
+![Grille de prix d'un agent IA en CHF : cadrage plus agent simple entre CHF 2'500 et 4'000, agent métier intégré entre CHF 6'000 et 15'000, coûts récurrents de CHF 50 à 150 par mois](/images/blog/prix-agent-ia-automatisation-suisse-grille.webp)
 
 ---
 
@@ -76,7 +76,7 @@ Exemple concret : un agent IA pour une régie immobilière qui qualifie les lead
 
 Un prestataire qui annonce un prix unique "à partir de CHF 500" pour ce type de projet sous-dimensionne presque toujours le besoin réel. Connecter trois systèmes métier avec une logique de décision propre ne se câble pas en quelques heures, et un prix d'appel artificiellement bas finit généralement en avenants en cours de route.
 
-<!-- TODO:image schema — Schéma d'un agent IA central connecté à 3 systèmes métier (CRM, comptabilité, planning) par des flèches — brief: src/content/blog/.briefs/prix-agent-ia-automatisation-suisse.md#image-2 -->
+![Un agent IA métier au centre, connecté par des flèches à trois systèmes : CRM, comptabilité et planning/agenda](/images/blog/prix-agent-ia-automatisation-suisse-systemes.webp)
 
 Récapitulatif des deux paliers :
 
@@ -101,7 +101,7 @@ La maintenance enfin. Les prompts et la logique de l'agent demandent des ajustem
 
 Au total, un agent métier en production tourne réalistement entre CHF 50 et 150 par mois en coûts récurrents, hébergement et API LLM compris. Cette charge mensuelle doit figurer dans le calcul de rentabilité dès le départ, pas être découverte après coup.
 
-<!-- TODO:image infographic — Répartition d'un budget mensuel d'agent IA en prod entre hébergement, API LLM/tokens, et maintenance — brief: src/content/blog/.briefs/prix-agent-ia-automatisation-suisse.md#image-3 -->
+![Budget mensuel d'un agent IA en production : hébergement CHF 15 à 40, API LLM CHF 25 à 80, maintenance variable, pour un total réaliste de CHF 50 à 150 par mois](/images/blog/prix-agent-ia-automatisation-suisse-budget.webp)
 
 ---
 

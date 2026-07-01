@@ -51,7 +51,7 @@ Ce qui suit n'est pas une liste générique de "gain de temps" ou "moins d'erreu
 
 Un **agent IA pour une fiduciaire** absorbe le tri des pièces comptables reçues par email, une tâche répétitive qui mobilise un collaborateur formé sans jamais demander de vrai jugement comptable. Dans la plupart des cabinets romands, ce tri se fait encore à la main, pièce par pièce, dans une boîte mail commune.
 
-<!-- TODO:image schema, Schéma du flux email reçu → agent IA trie/relance → validation humaine, style épuré 3-4 étapes (brief: src/content/blog/.briefs/agent-ia-entreprise-cas-usage.md#image-2) -->
+![Flux d'un agent IA en fiduciaire : email reçu avec justificatif comptable, tri et pré-rédaction de la relance par l'agent, puis validation humaine en un clic](/images/blog/agent-ia-entreprise-cas-usage-flux.webp)
 
 Concrètement, l'agent lit les pièces jointes, identifie le type de document (facture fournisseur, justificatif de frais, relevé bancaire), les classe dans le bon dossier client, et prépare un brouillon de relance personnalisé pour les paiements en retard. Le comptable valide en quelques clics au lieu de tout faire depuis zéro.
 
@@ -85,7 +85,7 @@ Pour ce type de cabinet, l'hébergement des données est une question légitime 
 
 Un **agent IA pour le service client d'un e-commerce** répond aux questions de suivi de commande, gère les retours simples, et escalade les cas complexes vers un humain. C'est l'un des cas d'usage les plus matures aujourd'hui parce que les questions de premier niveau (où est ma commande, comment retourner un article) suivent toujours le même schéma.
 
-<!-- TODO:image illustration, Conversation de support e-commerce où l'agent IA répond automatiquement à une question de suivi, avec escalade visible vers un humain (brief: src/content/blog/.briefs/agent-ia-entreprise-cas-usage.md#image-3) -->
+![Support e-commerce : l'agent IA répond automatiquement à une question de suivi de commande et transfère les cas complexes (litige, réclamation) à un humain](/images/blog/agent-ia-entreprise-cas-usage-support.webp)
 
 Concrètement, l'agent accède au statut de la commande, répond directement sans script rigide, et déclenche une demande de retour si les conditions sont remplies. Les litiges, réclamations sensibles ou demandes hors cadre remontent systématiquement à un humain, jamais traités seuls par l'agent.
 
