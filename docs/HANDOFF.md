@@ -13,5 +13,5 @@
 
 **Prochaine étape — Phase 2** (`docs/planSEOIA.md` §4) : pages métiers `/metiers/ia-fiduciaire` ⚡ + `/metiers/ia-agence-immobiliere`, landing `/hermes`, service `formation-ia-equipe`, articles `ia-nlpd-conformite-suisse` ⚡ + `consultant-ia-c-est-quoi`.
 
-**À faire avant publication des 2 articles (17/21.08)** : générer les images inline `TODO:image` via `/generate-images` (optionnel). Request Indexing GSC sur hub + géo dès maintenant.
+**Articles 100% prêts** (texte + cover + 5 diagrammes inline SVG→WebP). Reste : Request Indexing GSC sur hub + géo dès maintenant.
 Dernier commit : feat(blog): 2 articles IA conversion

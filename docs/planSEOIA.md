@@ -91,7 +91,7 @@ LA MARQUE — Jon Labs (Genève)
 2. ✅ **`/consultant-ia/geneve`** + **`/consultant-ia/lausanne`** — pages géo via route dynamique `[ville].astro` + `src/data/villes-suisse-ia.ts` (contenu local réel, FAQ, schema LocalBusiness). Décision : sous-dossier `/consultant-ia/[ville]` (pas slug plat). Nyon écarté (trop petit). Genève garde l'exact-match "consultant IA Genève".
 3. ✅ **agent-ia-sur-mesure** = **section du hub** (`#agents-sur-mesure`), pas de page dédiée (anti-cannibalisation).
 4. ✅ **Maillage montant** : 1 lien contextuel (ancres variées) sur chacun des 13 articles IA → `/consultant-ia`, + réciproque hub-info ↔ hub-conversion. Boucle cluster fermée (lien retour vers l'article prix depuis hermes + avantages-limites).
-5. ✅ **Articles** : `agent-ia-entreprise-cas-usage` ⚡ (pubDate 2026-08-17) + `prix-agent-ia-automatisation-suisse` ⚡ (pubDate 2026-08-21). Covers template OK, review SEO 17/18. *Reste optionnel : images inline (`TODO:image`) à générer via `/generate-images` avant publication.*
+5. ✅ **Articles** : `agent-ia-entreprise-cas-usage` ⚡ (pubDate 2026-08-17) + `prix-agent-ia-automatisation-suisse` ⚡ (pubDate 2026-08-21). Covers template OK, review SEO 17/18, **5 diagrammes inline** produits (SVG brutaliste → WebP via sharp, sans API). Articles complets, prêts à publier.
 
 > Build vert (204 pages). Commits : `feat(seo): hub + géo`, `feat(seo): maillage`, `feat(blog): 2 articles`. La file éditoriale étant pleine jusqu'au 14.08, les 2 articles sont datés aux prochains créneaux libres (17 + 21.08) — avançables si on décale un article moins prioritaire.
 
