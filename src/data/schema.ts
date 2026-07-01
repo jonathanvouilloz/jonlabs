@@ -184,7 +184,7 @@ export const servicesListData = {
   "name": "Services Jon Labs",
   "description": "Services de développement web et de référencement local pour entrepreneurs et PME en Suisse romande",
   "url": `${SITE_URL}/services`,
-  "numberOfItems": 7,
+  "numberOfItems": 8,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -247,6 +247,15 @@ export const servicesListData = {
         "@type": "Service",
         "name": "Freelance WordPress",
         "url": `${SITE_URL}/services/developpeur-wordpress`
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 8,
+      "item": {
+        "@type": "Service",
+        "name": "Formation IA pour équipes",
+        "url": `${SITE_URL}/services/formation-ia-equipe`
       }
     }
   ]
@@ -460,6 +469,90 @@ export const serviceSchemas = {
         "description": "Posts hebdomadaires, réponses avis illimitées, reporting mensuel — sans engagement"
       }
     ]
+  },
+  "metiers/ia-fiduciaire": {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${SITE_URL}/metiers/ia-fiduciaire/#service`,
+    "name": "IA pour fiduciaires et experts-comptables en Suisse romande",
+    "url": `${SITE_URL}/metiers/ia-fiduciaire`,
+    "description": "Agents IA et automatisation pour fiduciaires romandes : tri et pré-imputation des pièces (Bexio, Crésus), relances des justificatifs, décomptes TVA, veille légale. Prix CHF, conformité nLPD, validation humaine.",
+    "provider": { "@id": `${SITE_URL}/#organization` },
+    "areaServed": ["Genève", "Vaud", "Suisse Romande"],
+    "serviceType": "Intelligence artificielle pour fiduciaires",
+    "offers": {
+      "@type": "Offer",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "2500",
+        "priceCurrency": "CHF",
+        "minPrice": "2500"
+      },
+      "description": "À partir de CHF 2'500"
+    }
+  },
+  "metiers/ia-agence-immobiliere": {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${SITE_URL}/metiers/ia-agence-immobiliere/#service`,
+    "name": "IA pour agences immobilières et régies en Suisse romande",
+    "url": `${SITE_URL}/metiers/ia-agence-immobiliere`,
+    "description": "Agents IA et automatisation pour agences immobilières et régies romandes : qualification des leads, tri des dossiers de candidature, rédaction d'annonces, relances et suivi des échéances. Prix CHF, un seul interlocuteur.",
+    "provider": { "@id": `${SITE_URL}/#organization` },
+    "areaServed": ["Genève", "Vaud", "Suisse Romande"],
+    "serviceType": "Intelligence artificielle pour l'immobilier",
+    "offers": {
+      "@type": "Offer",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "2500",
+        "priceCurrency": "CHF",
+        "minPrice": "2500"
+      },
+      "description": "À partir de CHF 2'500"
+    }
+  },
+  "formation-ia-equipe": {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${SITE_URL}/services/formation-ia-equipe/#service`,
+    "name": "Formation IA pour équipes en Suisse romande",
+    "url": `${SITE_URL}/services/formation-ia-equipe`,
+    "description": "Formation IA sur-mesure pour les équipes de PME romandes : cadrage des usages, prise en main des agents et outils IA, garde-fous et bonnes pratiques nLPD. En présentiel à Genève ou à distance, prix en CHF.",
+    "provider": { "@id": `${SITE_URL}/#organization` },
+    "areaServed": ["Genève", "Vaud", "Suisse Romande"],
+    "serviceType": "Formation en intelligence artificielle",
+    "offers": {
+      "@type": "Offer",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "1200",
+        "priceCurrency": "CHF",
+        "minPrice": "1200"
+      },
+      "description": "À partir de CHF 1'200 la session"
+    }
+  },
+  "hermes": {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${SITE_URL}/hermes/#service`,
+    "name": "Hermès — agent IA pour PME romandes",
+    "url": `${SITE_URL}/hermes`,
+    "description": "Hermès : agent IA prêt à déployer pour les PME romandes. Tri d'e-mails, relances, préparation de documents et réponses de premier niveau, intégré à vos outils. Cadrage rapide, prix CHF affichés, conformité nLPD.",
+    "provider": { "@id": `${SITE_URL}/#organization` },
+    "areaServed": ["Genève", "Vaud", "Suisse Romande"],
+    "serviceType": "Agent IA pour PME",
+    "offers": {
+      "@type": "Offer",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "2500",
+        "priceCurrency": "CHF",
+        "minPrice": "2500"
+      },
+      "description": "À partir de CHF 2'500"
+    }
   }
 };
 

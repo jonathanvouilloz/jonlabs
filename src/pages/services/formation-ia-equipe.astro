@@ -1,0 +1,1244 @@
+---
+import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+// Import background components
+import BackgroundGlitchGrid from '../../components/backgrounds/BackgroundGlitchGrid.astro';
+import BackgroundProgressFlow from '../../components/backgrounds/BackgroundProgressFlow.astro';
+import BackgroundCircuitBoard from '../../components/backgrounds/BackgroundCircuitBoard.astro';
+import BackgroundQuestionMarks from '../../components/backgrounds/BackgroundQuestionMarks.astro';
+import BackgroundMapContours from '../../components/backgrounds/BackgroundMapContours.astro';
+
+// Import images
+import heroImage from '../../assets/services/automatisation-hero.png';
+import balanceImage from '../../assets/services/balance-temps-argent.png';
+import puzzleImage from '../../assets/services/puzzle-connexion.png';
+
+// Schema.org
+import { SITE_URL } from '../../data/schema';
+import { getServiceItemSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
+
+// SEO Data
+const seoData = {
+    title: "Formation IA pour équipes en Suisse romande | Jon Labs",
+    description: "Formation IA sur-mesure pour les équipes de PME romandes : cadrage des usages, outils, garde-fous nLPD. Présentiel Genève ou distanciel, dès CHF 1'200."
+};
+
+// Schema.org data
+const breadcrumb = getBreadcrumbSchema([
+    { name: "Accueil", url: SITE_URL },
+    { name: "Services", url: `${SITE_URL}/services` },
+    { name: "Formation IA équipe", url: `${SITE_URL}/services/formation-ia-equipe` }
+]);
+const schemas: any[] = [getServiceItemSchema("formation-ia-equipe"), breadcrumb];
+
+// Pain points (4 items)
+const painPoints = [
+    {
+        icon: "ri-bank-card-line",
+        title: "\"On paie des outils IA que personne n'utilise\"",
+        description: "ChatGPT, Copilot, un abonnement par-ci, une licence par-là. Les factures tombent chaque mois, mais dans les faits, deux ou trois curieux testent et le reste de l'équipe n'y touche pas. Vous payez pour une adoption qui n'a jamais eu lieu."
+    },
+    {
+        icon: "ri-emotion-unhappy-line",
+        title: "\"Mon équipe se méfie de l'IA\"",
+        description: "Peur de mal faire, peur d'être remplacé, impression que c'est réservé aux geeks. Sans un cadre rassurant et des cas concrets, la curiosité reste bloquée par la méfiance. Et un outil qu'on n'ose pas utiliser ne sert à rien."
+    },
+    {
+        icon: "ri-shield-cross-line",
+        title: "\"Chacun bricole dans son coin\"",
+        description: "Des données clients copiées-collées dans ChatGPT, des prompts partagés sous le manteau, des usages improvisés sans aucun contrôle. Ça avance, mais n'importe comment — et parfois avec des informations sensibles qui n'auraient jamais dû sortir."
+    },
+    {
+        icon: "ri-question-line",
+        title: "\"On n'a ni cadre ni bonnes pratiques\"",
+        description: "Personne ne sait ce qu'on a le droit de mettre dans une IA, ce qui est fiable, ce qui ne l'est pas. Pas de règles, pas de repères, pas de playbook. Résultat : l'IA reste un sujet flou que tout le monde évite d'aborder sérieusement."
+    }
+];
+
+// Method steps / programme (4 items)
+const methodSteps = [
+    {
+        step: "1",
+        title: "Audit des usages réels",
+        description: "Avant de parler d'IA, on regarde votre quotidien. Quelles tâches vous prennent du temps, où sont les répétitions, ce que votre équipe fait déjà (ou aimerait faire). Je repère les cas où l'IA gagne vraiment du temps — pas les gadgets.",
+        duration: "1-2 heures en amont"
+    },
+    {
+        step: "2",
+        title: "Atelier pratique sur VOS cas",
+        description: "Pas de slides génériques ni de théorie fumeuse. On ouvre vos vrais outils, vos vrais dossiers, et on construit ensemble des usages qui tiennent la route. Chaque personne repart avec des prompts et des réflexes qui marchent sur son métier.",
+        duration: "½ journée à 2 jours"
+    },
+    {
+        step: "3",
+        title: "Garde-fous & nLPD",
+        description: "Ce qu'on met dans une IA, ce qu'on n'y met jamais. Données clients, dossiers RH, informations confidentielles : on pose des règles simples et compréhensibles, alignées sur la nLPD suisse. Votre équipe utilise l'IA sans exposer votre entreprise.",
+        duration: "Inclus dans l'atelier"
+    },
+    {
+        step: "4",
+        title: "Autonomie : playbook + suivi",
+        description: "Vous repartez avec un playbook interne : les usages validés, les prompts qui marchent, les règles à respecter. Et je reste disponible après la formation pour répondre aux questions et ajuster au fur et à mesure que les usages s'installent.",
+        duration: "Après la session"
+    }
+];
+
+// Differentiators
+const differentiators = [
+    {
+        icon: "ri-briefcase-4-line",
+        title: "Sur VOS cas, pas de théorie",
+        description: "On travaille sur vos outils et vos tâches réelles. Votre équipe repart avec des usages concrets, pas des concepts."
+    },
+    {
+        icon: "ri-shield-check-line",
+        title: "Angle nLPD maîtrisé",
+        description: "Données suisses, conformité nLPD, confidentialité : le cadre légal fait partie de la formation, pas d'un vague disclaimer."
+    },
+    {
+        icon: "ri-terminal-box-line",
+        title: "Un formateur qui construit",
+        description: "Je conçois aussi les agents IA que je déploie chez mes clients. Vous formez avec quelqu'un qui met les mains dans le cambouis, pas un consultant slides."
+    }
+];
+
+// Results (6 items)
+const results = [
+    {
+        icon: "ri-team-line",
+        title: "Une équipe qui utilise l'IA au quotidien",
+        description: "L'IA passe du gadget testé une fois à un réflexe de travail, intégré dans les tâches de chacun"
+    },
+    {
+        icon: "ri-timer-flash-line",
+        title: "Un gain de temps mesurable",
+        description: "Comptes rendus, réponses clients, rédaction : des heures récupérées chaque semaine sur des tâches répétitives"
+    },
+    {
+        icon: "ri-shield-check-line",
+        title: "Des usages conformes",
+        description: "Chacun sait ce qu'il peut mettre (ou pas) dans une IA. Fini les données sensibles copiées-collées n'importe où"
+    },
+    {
+        icon: "ri-book-open-line",
+        title: "Un playbook interne",
+        description: "Les usages validés, les prompts qui marchent et les règles maison, réunis dans un document que l'équipe garde"
+    },
+    {
+        icon: "ri-emotion-happy-line",
+        title: "La fin de la peur de l'outil",
+        description: "L'IA n'est plus un sujet anxiogène réservé à quelques-uns, mais un outil que toute l'équipe s'approprie"
+    },
+    {
+        icon: "ri-wallet-3-line",
+        title: "Des abonnements rentabilisés",
+        description: "Les licences IA que vous payez déjà sont enfin utilisées, au lieu de dormir dans un tableau de dépenses"
+    }
+];
+
+// Concrete example
+const concreteExample = {
+    title: "Une PME de 12 personnes qui payait dans le vide",
+    before: "Une PME romande payait ChatGPT, Copilot et deux autres abonnements IA. Dans les faits : deux ou trois curieux qui testaient de temps en temps, le reste de l'équipe qui n'y touchait pas. Des factures mensuelles pour zéro résultat concret.",
+    after: "Après la formation, chaque pôle a 2-3 usages ancrés dans son quotidien — comptes rendus de réunion, réponses clients, rédaction d'offres — avec des règles claires sur ce qu'on met (ou pas) dans une IA.",
+    result: "Plusieurs heures récupérées chaque semaine, des abonnements enfin rentabilisés, et une équipe qui n'a plus peur de l'outil."
+};
+
+// Formats & modalités (replaces "outils" section)
+const formats = [
+    {
+        name: "Présentiel à Genève",
+        description: "Je me déplace dans vos locaux. Rien ne remplace un atelier en salle, avec vos écrans, vos dossiers et toute l'équipe autour de la table.",
+        icon: "ri-map-pin-2-line"
+    },
+    {
+        name: "Distanciel (visio)",
+        description: "Pour les équipes réparties ou à distance : même contenu, même approche pratique, en visioconférence. Partout en Suisse romande.",
+        icon: "ri-vidicon-line"
+    },
+    {
+        name: "Atelier découverte (½ journée)",
+        description: "Un premier format court pour lever les blocages, montrer 3-4 usages concrets et donner envie. Idéal pour tester avant d'aller plus loin.",
+        icon: "ri-compass-3-line"
+    },
+    {
+        name: "Programme sur 1 à 2 jours",
+        description: "Pour ancrer durablement les usages : audit, atelier approfondi par pôle, garde-fous nLPD et playbook interne. Le format qui change vraiment la donne.",
+        icon: "ri-calendar-2-line"
+    }
+];
+
+// Pricing factors
+const pricingFactors = [
+    "La taille de votre équipe",
+    "La durée (½ journée à 2 jours)",
+    "Le format (présentiel ou distanciel)",
+    "Le niveau de personnalisation des cas"
+];
+
+// Pricing inclusions
+const pricingInclusions = [
+    "Audit préalable des usages",
+    "Atelier pratique sur vos cas",
+    "Garde-fous & cadre nLPD",
+    "Playbook interne remis à l'équipe",
+    "Suivi post-formation"
+];
+
+// FAQs (6 items)
+const faqs = [
+    {
+        question: "La formation se fait en présentiel ou à distance ?",
+        answer: "Les deux. Je me déplace en présentiel à Genève et dans toute la Suisse romande, ou j'anime la formation en distanciel par visioconférence pour les équipes réparties. Le contenu et l'approche pratique restent les mêmes — on choisit le format le plus adapté à votre organisation."
+    },
+    {
+        question: "Combien de temps dure une formation ?",
+        answer: "De la demi-journée découverte à un programme sur deux jours. Une demi-journée suffit pour lever les blocages et installer quelques usages. Pour ancrer durablement l'IA dans plusieurs pôles, avec audit et playbook, on part plutôt sur un à deux jours. On cale la durée ensemble selon vos objectifs."
+    },
+    {
+        question: "Combien ça coûte ?",
+        answer: "À partir de CHF 1'200 la session. Le prix final dépend de la taille de l'équipe, de la durée et du format (présentiel ou distanciel). Je vous envoie un devis clair après un premier échange gratuit — pas de surprise, pas de coût caché."
+    },
+    {
+        question: "Mon équipe n'y connaît rien, c'est un problème ?",
+        answer: "Pas du tout. Aucun niveau technique n'est requis. La formation part de zéro et s'appuie sur des cas concrets de votre métier. L'objectif, c'est justement de rendre l'IA accessible à tout le monde — y compris à ceux qui s'en méfient ou qui pensent que ce n'est pas pour eux."
+    },
+    {
+        question: "C'est une formation catalogue ou sur-mesure ?",
+        answer: "Entièrement sur-mesure. Je ne déroule pas des slides génériques : je construis la formation autour de vos outils, vos tâches et vos cas réels. C'est ce qui fait la différence entre une équipe qui a « vu une démo IA » et une équipe qui utilise vraiment l'IA au quotidien."
+    },
+    {
+        question: "Et après la formation, on est livrés à nous-mêmes ?",
+        answer: "Non. Vous repartez avec un playbook interne (usages validés, prompts qui marchent, règles nLPD) et je reste disponible pour répondre aux questions et ajuster à mesure que les usages s'installent. La formation est un point de départ, pas un one-shot qu'on oublie la semaine d'après."
+    }
+];
+schemas.push(getFAQPageSchema(faqs));
+
+// Local zones
+const zones = [
+    { name: "Genève", type: "primary", icon: "ri-map-pin-fill" },
+    { name: "Vaud", type: "secondary", icon: "ri-map-pin-line" },
+    { name: "Valais", type: "secondary", icon: "ri-map-pin-line" },
+    { name: "Neuchâtel", type: "secondary", icon: "ri-map-pin-line" },
+    { name: "Fribourg", type: "secondary", icon: "ri-map-pin-line" },
+    { name: "Toute Suisse romande", type: "tertiary", icon: "ri-global-line" }
+];
+
+// Session type options for form
+const sessionTypes = [
+    { value: "atelier-decouverte", label: "Atelier découverte (½ journée)" },
+    { value: "formation-equipe", label: "Formation équipe (1-2 jours)" },
+    { value: "garde-fous-nlpd", label: "Garde-fous & nLPD" },
+    { value: "autre", label: "Autre / Je ne sais pas" }
+];
+---
+
+<Layout
+    title={seoData.title}
+    description={seoData.description}
+    schemas={schemas}
+    robots="index, follow"
+>
+    <Header />
+
+    <!-- ============================================== -->
+    <!-- HERO SECTION -->
+    <!-- ============================================== -->
+    <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-20 px-4 relative overflow-hidden">
+        <!-- Gradient mesh background -->
+        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+            <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
+            <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-[var(--violet)] opacity-15 blur-[100px] rounded-full"></div>
+            <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-[var(--blue)] opacity-10 blur-[80px] rounded-full"></div>
+        </div>
+
+        <div class="max-w-4xl mx-auto relative z-10">
+            <!-- Text content centered -->
+            <div class="text-center">
+                <!-- H1 SEO discret -->
+                <h1 class="seo-h1 mb-6 mt-8 text-center">Formation IA pour équipes de PME à Genève et en Suisse romande</h1>
+
+                <!-- Main title -->
+                <p class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6" data-animate="fade-up">
+                    Formation IA pour<br/>
+                    <span class="relative inline-block">
+                        <span class="absolute bg-[var(--accent)] w-full h-[40%] left-0 bottom-1 -z-1"></span>
+                        <span class="relative z-10">vos équipes.</span>
+                    </span>
+                </p>
+
+                <!-- Description -->
+                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="0.1">
+                    Vos équipes ont accès à l'IA, mais ne savent pas quoi en faire concrètement. On transforme la curiosité en usages qui font gagner du temps — sur vos vrais outils, avec les bons garde-fous.<br class="hidden md:block"/>
+                    <strong class="text-[var(--text)]">Fini les abonnements IA payés que personne n'utilise.</strong>
+                </p>
+
+                <!-- CTAs -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 md:mb-16" data-animate="fade-up" data-delay="0.2">
+                    <a
+                        href="/contact"
+                        class="
+                            bg-[var(--blue)]
+                            border-2 border-black
+                            px-6 py-4
+                            text-lg font-medium
+                            shadow-[4px_4px_0px_rgba(0,0,0,1)]
+                            transition-all duration-200
+                            hover:bg-[var(--yellow)]
+                            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
+                            hover:translate-x-[2px] hover:translate-y-[2px]
+                            flex items-center justify-center gap-2
+                        "
+                    >
+                        <i class="ri-chat-3-line"></i>
+                        Discuter d'une formation
+                    </a>
+                    <a
+                        href="#programme"
+                        class="
+                            bg-white
+                            border-2 border-black
+                            px-6 py-4
+                            text-lg font-medium
+                            transition-all duration-200
+                            hover:bg-gray-100
+                            flex items-center justify-center gap-2
+                        "
+                    >
+                        Voir le programme
+                        <i class="ri-arrow-down-line"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hero illustration centered below -->
+            <div class="max-w-2xl mx-auto" data-animate="scale" data-delay="0.3">
+                <div class="bg-white border-3 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] p-4 relative">
+                    <img
+                        src={heroImage.src}
+                        alt="Illustration d'une formation IA pour une équipe de PME en Suisse romande"
+                        class="w-full h-auto"
+                    />
+                    <!-- Corner boxes -->
+                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--violet)] border-2 border-black"></div>
+                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--violet)] border-2 border-black"></div>
+                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                </div>
+            </div>
+
+            <!-- Location badge -->
+            <div class="flex items-center justify-center gap-2 text-sm text-gray-500 mt-12">
+                <i class="ri-map-pin-fill text-[var(--blue)]"></i>
+                <span>Présentiel à Genève | Distanciel en Suisse romande</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- CONTEXTE SUISSE SECTION -->
+    <!-- ============================================== -->
+    <section id="contexte" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
+        <div class="max-w-5xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
+                <!-- Text content -->
+                <div data-animate="fade-right">
+                    <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                        <span class="w-8 h-px bg-gray-400"></span>
+                        contexte
+                        <span class="w-8 h-px bg-gray-400"></span>
+                    </span>
+                    <h2 class="text-3xl md:text-4xl font-normal mb-6">
+                        L'IA ne manque pas à vos équipes. <span class="text-[var(--blue)]">Le mode d'emploi, si.</span>
+                    </h2>
+                    <div class="space-y-4 text-gray-600 leading-relaxed">
+                        <p>
+                            En Suisse romande, la plupart des PME ont déjà mis un pied dans l'IA : un abonnement ChatGPT, une licence Copilot, quelques outils testés ici ou là. L'accès n'est pas le problème.
+                        </p>
+                        <p>
+                            Le problème, c'est l'écart entre <strong class="text-[var(--text)]">avoir accès à l'IA</strong> et <strong class="text-[var(--text)]">savoir quoi en faire au quotidien</strong>. Sans cadre ni prise en main, l'outil reste un gadget que deux ou trois personnes testent, pendant que le reste de l'équipe attend.
+                        </p>
+                        <div class="bg-red-50 border-2 border-red-200 p-4 my-6">
+                            <p class="text-lg font-medium text-red-800">
+                                Un abonnement IA <span class="bg-red-200 px-1">payé mais pas utilisé</span>, c'est de l'argent qui part chaque mois — et un gain de temps <span class="bg-red-200 px-1 font-bold">jamais encaissé</span>.
+                            </p>
+                            <p class="text-sm text-red-600 mt-2">Le vrai coût n'est pas l'abonnement. C'est le temps qu'on continue de perdre à côté.</p>
+                        </div>
+                        <p>
+                            Une bonne formation ne parle pas d'IA en général. Elle part de <strong class="text-[var(--text)]">vos tâches réelles</strong> et transforme la curiosité en usages concrets, adoptés par toute l'équipe — avec les garde-fous qui protègent vos données.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Illustration -->
+                <div class="relative" data-animate="fade-left">
+                    <img
+                        src={balanceImage.src}
+                        alt="Illustration du temps gagné par une équipe formée à l'IA en Suisse romande"
+                        class="w-full h-auto max-w-md mx-auto"
+                    />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- PAIN POINTS SECTION -->
+    <!-- ============================================== -->
+    <section id="problemes" class="py-20 md:py-28 px-4 relative overflow-hidden">
+        <BackgroundGlitchGrid color="rgba(239, 68, 68, 0.5)" opacity={0.12} />
+        <div class="max-w-5xl mx-auto relative z-10">
+            <!-- Section header -->
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    problèmes
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                    <span class="relative inline-block">
+                        <span class="absolute bg-red-200 w-full h-[40%] left-0 bottom-1 -z-1"></span>
+                        Ça vous parle ?
+                    </span>
+                </h2>
+                <p class="text-lg text-gray-600">Vous n'êtes pas seul. La plupart des équipes de PME romandes bloquent au même endroit avec l'IA.</p>
+            </div>
+
+            <!-- Pain points grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12" data-animate-stagger>
+                {painPoints.map((point) => (
+                    <div class="pain-card bg-white border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
+                        <!-- Red X icon -->
+                        <div class="w-10 h-10 bg-red-100 border-2 border-red-300 flex items-center justify-center mb-4">
+                            <i class="ri-close-line text-red-500 text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold mb-2">{point.title}</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">{point.description}</p>
+                    </div>
+                ))}
+            </div>
+
+            <!-- Transition callout -->
+            <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-6 md:p-8 text-center" data-animate="fade-up">
+                <p class="text-lg md:text-xl font-medium">
+                    <i class="ri-lightbulb-line text-[var(--blue)] mr-2"></i>
+                    <strong>Le problème n'est pas l'IA.</strong> C'est qu'on l'a mise entre les mains de vos équipes sans mode d'emploi ni cadre. Et ça, ça se forme.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- PROGRAMME / METHODOLOGY SECTION -->
+    <!-- ============================================== -->
+    <section id="programme" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
+        <BackgroundProgressFlow />
+        <div class="max-w-5xl mx-auto relative z-10">
+            <!-- Section header -->
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    programme
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                    Comment se passe la formation ?
+                </h2>
+                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
+                    Quatre étapes, un objectif : une équipe autonome qui utilise l'IA sans risque.
+                </p>
+            </div>
+
+            <!-- Method steps grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" data-animate-stagger>
+                {methodSteps.map((step, index) => (
+                    <div class="bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
+                        <!-- Number badge -->
+                        <div class="flex items-center gap-3 mb-4">
+                            <span class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
+                                0{index + 1}
+                            </span>
+                        </div>
+                        <h3 class="text-xl font-bold mb-3">{step.title}</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed mb-4">{step.description}</p>
+                        <!-- Duration -->
+                        <div class="flex items-center gap-2 text-sm text-gray-500">
+                            <i class="ri-time-line"></i>
+                            <span>{step.duration}</span>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <!-- Differentiators box -->
+            <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,0.2)] relative" data-animate="fade-up">
+                <!-- Corner decoration -->
+                <div class="absolute -top-2 -left-2 w-4 h-4 bg-[var(--blue)] border-2 border-black"></div>
+                <div class="absolute -top-2 -right-2 w-4 h-4 bg-[var(--blue)] border-2 border-black"></div>
+                <div class="absolute -bottom-2 -left-2 w-4 h-4 bg-[var(--blue)] border-2 border-black"></div>
+                <div class="absolute -bottom-2 -right-2 w-4 h-4 bg-[var(--blue)] border-2 border-black"></div>
+
+                <h3 class="text-xl font-bold mb-6 text-center">Ce qui change avec Jon Labs</h3>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {differentiators.map((diff) => (
+                        <div class="text-center">
+                            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mx-auto mb-3">
+                                <i class={`${diff.icon} text-xl`}></i>
+                            </div>
+                            <h4 class="font-bold mb-1">{diff.title}</h4>
+                            <p class="text-sm text-gray-600">{diff.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- RESULTS SECTION -->
+    <!-- ============================================== -->
+    <section id="resultats" class="py-20 md:py-28 px-4 relative overflow-hidden">
+        <div class="max-w-5xl mx-auto relative z-10">
+            <!-- Section header -->
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    résultats
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                    Ce que votre équipe obtient concrètement
+                </h2>
+            </div>
+
+            <!-- Results grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12" data-animate-stagger>
+                {results.map((result) => (
+                    <div class="bg-white border-2 border-black p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
+                        <div class="flex items-start gap-4">
+                            <div class="w-8 h-8 bg-green-100 border-2 border-green-400 flex items-center justify-center flex-shrink-0">
+                                <i class="ri-check-line text-green-600"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold mb-1">{result.title}</h3>
+                                <p class="text-sm text-gray-600">{result.description}</p>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <!-- Concrete example -->
+            <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-6 md:p-8" data-animate="fade-up">
+                <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
+                    <i class="ri-flashlight-line text-[var(--blue)]"></i>
+                    Exemple concret : {concreteExample.title}
+                </h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+                    <!-- AVANT -->
+                    <div class="bg-white border-2 border-gray-300 p-5 relative">
+                        <div class="absolute -top-3 left-4 bg-gray-100 border border-gray-300 px-3 py-1">
+                            <span class="text-xs font-mono uppercase tracking-wider text-gray-500 flex items-center gap-1">
+                                <i class="ri-close-circle-line text-red-400"></i>
+                                Avant
+                            </span>
+                        </div>
+                        <p class="text-gray-600 mt-2">{concreteExample.before}</p>
+                    </div>
+                    <!-- MAINTENANT -->
+                    <div class="bg-white border-2 border-[var(--blue)] p-5 relative">
+                        <div class="absolute -top-3 left-4 bg-[var(--blue)] px-3 py-1">
+                            <span class="text-xs font-mono uppercase tracking-wider text-white flex items-center gap-1">
+                                <i class="ri-check-line"></i>
+                                Maintenant
+                            </span>
+                        </div>
+                        <p class="text-gray-800 font-medium mt-2">{concreteExample.after}</p>
+                    </div>
+                </div>
+                <p class="mt-6 text-center font-bold text-lg border-t-2 border-[var(--blue)] border-opacity-30 pt-4">{concreteExample.result}</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- FORMATS SECTION -->
+    <!-- ============================================== -->
+    <section id="formats" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
+        <BackgroundCircuitBoard animated={true} />
+        <div class="max-w-5xl mx-auto relative z-10">
+            <!-- Section header -->
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    formats
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                    Des formats adaptés à votre équipe
+                </h2>
+                <p class="text-lg text-gray-600">Présentiel ou distanciel, découverte ou programme complet — on cale selon vos objectifs.</p>
+            </div>
+
+            <!-- Formats grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" data-animate-stagger>
+                {formats.map((format) => (
+                    <div class="bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] transition-all duration-200 hover:-translate-y-1" data-animate-item>
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
+                                <i class={`${format.icon} text-xl`}></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold mb-2">{format.name}</h3>
+                                <p class="text-gray-600 text-sm leading-relaxed">{format.description}</p>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <!-- Note -->
+            <div class="bg-gray-50 border-l-4 border-[var(--blue)] p-4 text-sm text-gray-600" data-animate="fade-up">
+                <p>
+                    <i class="ri-information-line mr-1 text-[var(--blue)]"></i>
+                    <strong>Note :</strong> Chaque formation est construite sur-mesure. Le format n'est qu'un point de départ — on l'ajuste à votre équipe, vos outils et le temps que vous pouvez y consacrer. L'objectif reste le même : des usages qui s'ancrent vraiment, pas une démo qu'on oublie.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- LOCAL SECTION (GENÈVE) -->
+    <!-- ============================================== -->
+    <section id="local" class="py-20 md:py-28 px-4 relative overflow-hidden">
+        <BackgroundMapContours />
+        <div class="max-w-5xl mx-auto relative z-10">
+            <!-- Section header -->
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    local
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                    Un formateur IA basé<br/>
+                    <span class="text-[var(--blue)]">à Genève</span>
+                </h2>
+                <p class="text-lg text-gray-600">Sur place ou à distance, dans toute la Suisse romande</p>
+            </div>
+
+            <!-- Two columns: Why local + Zones -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                <!-- Why local -->
+                <div class="bg-white border-2 border-black p-6" data-animate="fade-right">
+                    <h3 class="text-xl font-bold mb-4">Pourquoi un formateur local ?</h3>
+                    <p class="text-gray-600 mb-4">
+                        Je suis basé à Genève et je connais le contexte des PME romandes : les outils utilisés ici, les exigences de la nLPD, la réalité de petites équipes qui n'ont pas de service informatique dédié.
+                    </p>
+                    <p class="text-gray-600">
+                        Pour une formation, ça change tout : je viens dans vos locaux, je parle votre langage, et je reste joignable après pour accompagner l'adoption sur la durée.
+                    </p>
+                </div>
+
+                <!-- Zones -->
+                <div data-animate="fade-left">
+                    <h3 class="text-xl font-bold mb-4">Zones couvertes</h3>
+                    <div class="space-y-2">
+                        {zones.map((zone) => (
+                            <div class={`
+                                flex items-center gap-3 p-3 border-2 border-black
+                                ${zone.type === 'primary' ? 'bg-[var(--blue)] border-[var(--blue)]' : 'bg-white'}
+                            `}>
+                                <i class={`${zone.icon} text-lg ${zone.type === 'primary' ? 'text-white' : 'text-gray-600'}`}></i>
+                                <span class={`${zone.type === 'primary' ? 'font-bold text-white' : ''}`}>
+                                    {zone.name}
+                                    {zone.type === 'primary' && <span class="text-sm font-normal text-white/70 ml-2">(présentiel)</span>}
+                                    {zone.type === 'tertiary' && <span class="text-sm font-normal text-gray-500 ml-2">(distanciel)</span>}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- PRICING SECTION -->
+    <!-- ============================================== -->
+    <section id="prix" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
+        <div class="max-w-4xl mx-auto">
+            <!-- Section header -->
+            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    investissement
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                    Combien ça coûte ?
+                </h2>
+                <p class="text-lg text-gray-600">Un prix de départ transparent, un devis clair selon votre équipe.</p>
+            </div>
+
+            <!-- Price highlight -->
+            <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,0.2)] text-center mb-12 relative" data-animate="fade-up">
+                <div class="absolute -top-2 -left-2 w-4 h-4 bg-[var(--blue)] border-2 border-black"></div>
+                <div class="absolute -top-2 -right-2 w-4 h-4 bg-[var(--blue)] border-2 border-black"></div>
+                <div class="absolute -bottom-2 -left-2 w-4 h-4 bg-[var(--blue)] border-2 border-black"></div>
+                <div class="absolute -bottom-2 -right-2 w-4 h-4 bg-[var(--blue)] border-2 border-black"></div>
+                <p class="text-sm font-mono uppercase tracking-wider text-gray-500 mb-2">À partir de</p>
+                <p class="text-4xl md:text-5xl font-black mb-2">
+                    CHF 1'200 <span class="text-xl font-normal text-gray-500">la session</span>
+                </p>
+                <p class="text-gray-600">Devis selon la taille de l'équipe, la durée et le format</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+                <!-- Pricing factors -->
+                <div class="bg-[var(--main-bg)] border-2 border-black p-6" data-animate="fade-right">
+                    <h3 class="font-bold mb-4 flex items-center gap-2">
+                        <i class="ri-calculator-line text-[var(--blue)]"></i>
+                        Ce qui influence le prix :
+                    </h3>
+                    <ul class="space-y-3">
+                        {pricingFactors.map((factor) => (
+                            <li class="flex items-center gap-2">
+                                <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
+                                <span>{factor}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                <!-- What's included -->
+                <div class="bg-[var(--main-bg)] border-2 border-black p-6" data-animate="fade-left">
+                    <h3 class="font-bold mb-4 flex items-center gap-2">
+                        <i class="ri-checkbox-circle-line text-[var(--blue)]"></i>
+                        Ce qui est toujours inclus :
+                    </h3>
+                    <ul class="space-y-3">
+                        {pricingInclusions.map((inc) => (
+                            <li class="flex items-center gap-2">
+                                <i class="ri-check-line text-green-600"></i>
+                                <span>{inc}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Formats -->
+            <div class="bg-gray-50 border-2 border-black p-6 mb-8 text-center" data-animate="fade-up">
+                <h3 class="font-bold mb-4">Durées indicatives :</h3>
+                <div class="flex flex-wrap justify-center gap-8">
+                    <div>
+                        <span class="text-2xl font-bold text-[var(--blue)]">½ journée</span>
+                        <p class="text-sm text-gray-600">Atelier découverte</p>
+                    </div>
+                    <div class="hidden md:block w-px h-16 bg-gray-300"></div>
+                    <div>
+                        <span class="text-2xl font-bold text-[var(--blue)]">1 à 2 jours</span>
+                        <p class="text-sm text-gray-600">Formation complète</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="text-center" data-animate="fade-up">
+                <a
+                    href="/contact"
+                    class="
+                        inline-flex items-center gap-2
+                        bg-[var(--blue)]
+                        border-2 border-black
+                        px-8 py-4
+                        text-lg font-bold
+                        shadow-[4px_4px_0px_rgba(0,0,0,1)]
+                        transition-all duration-200
+                        hover:bg-[var(--yellow)]
+                        hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
+                        hover:translate-x-[2px] hover:translate-y-[2px]
+                    "
+                >
+                    <i class="ri-calculator-line"></i>
+                    Demander un devis
+                </a>
+                <p class="mt-4 text-sm text-gray-500">
+                    Premier échange gratuit et sans engagement. On regarde ensemble ce dont votre équipe a besoin.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- FAQ SECTION -->
+    <!-- ============================================== -->
+    <section id="faq" class="py-20 md:py-28 px-4 relative overflow-hidden">
+        <BackgroundQuestionMarks animated={true} />
+        <div class="max-w-3xl mx-auto relative z-10">
+            <!-- Section header -->
+            <div class="text-center mb-12">
+                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
+                    <span class="w-8 h-px bg-gray-400"></span>
+                    faq
+                    <span class="w-8 h-px bg-gray-400"></span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-normal">Questions fréquentes</h2>
+            </div>
+
+            <!-- FAQ items -->
+            <div class="faq-list space-y-4">
+                {faqs.map((faq, index) => (
+                    <div class="faq-item border-2 border-black bg-[var(--main-bg)]" data-faq-item>
+                        <button
+                            class="
+                                faq-trigger
+                                w-full
+                                flex items-center justify-between gap-4
+                                p-5
+                                text-left
+                                font-medium
+                                cursor-pointer
+                                transition-colors duration-200
+                                hover:bg-[var(--blue)] hover:bg-opacity-10
+                            "
+                            aria-expanded="false"
+                            data-faq-trigger
+                        >
+                            <span class="flex items-start gap-3">
+                                <span class="font-mono text-sm text-gray-400 mt-0.5">{String(index + 1).padStart(2, '0')}</span>
+                                <span class="text-lg">{faq.question}</span>
+                            </span>
+                            <span class="
+                                faq-icon
+                                w-8 h-8
+                                border-2 border-black
+                                bg-white
+                                flex items-center justify-center
+                                transition-transform duration-300
+                                flex-shrink-0
+                            ">
+                                <i class="ri-add-line text-lg"></i>
+                            </span>
+                        </button>
+                        <div
+                            class="faq-content overflow-hidden transition-all duration-300"
+                            style="max-height: 0;"
+                            data-faq-content
+                        >
+                            <div class="p-6 pt-2 pl-12">
+                                <p class="text-gray-600 leading-relaxed">
+                                    {faq.answer}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <!-- Extra question note -->
+            <div class="text-center mt-8">
+                <p class="text-gray-500">
+                    Autre question ? <a href="/contact" class="text-[var(--blue)] font-medium hover:underline">Contactez-moi directement</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================== -->
+    <!-- CTA + FORM SECTION -->
+    <!-- ============================================== -->
+    <section id="contact" class="py-20 md:py-28 px-4 bg-[var(--main-bg)] border-t-2 border-black relative overflow-hidden">
+        <!-- Dot pattern background -->
+        <div class="absolute inset-0 dots-bg opacity-[0.4]"></div>
+
+        <div class="max-w-5xl mx-auto relative z-10">
+            <!-- Header with illustration -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-12">
+                <div class="text-center lg:text-left" data-animate="fade-right">
+                    <h2 class="text-3xl md:text-4xl font-normal mb-4 text-[var(--text)]">
+                        Votre équipe est prête à passer à l'IA
+                    </h2>
+                    <p class="text-lg text-gray-600 mb-6">
+                        Premier échange gratuit. On regarde ensemble où en est votre équipe — que vous ayez déjà des abonnements IA que personne n'utilise, ou que vous partiez de zéro.
+                    </p>
+                    <p class="text-gray-600">
+                        Si une formation fait sens, je vous propose un format et un devis clairs. Sinon, je vous le dis honnêtement.
+                    </p>
+                </div>
+                <div class="flex justify-center" data-animate="fade-left">
+                    <div class="bg-white border-2 border-black p-4 shadow-[4px_4px_0px_rgba(0,0,0,0.2)] max-w-sm">
+                        <img
+                            src={puzzleImage.src}
+                            alt="Illustration symbolisant l'accompagnement d'une équipe vers l'IA avec Jon Labs"
+                            class="w-full h-auto"
+                        />
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-container max-w-2xl mx-auto" data-animate="scale">
+                <form
+                    class="bg-white text-[var(--text)] border-3 border-black p-6 md:p-8 shadow-[8px_8px_0px_rgba(0,217,163,0.3)] relative"
+                    id="formation-form"
+                >
+                    <!-- Corner boxes -->
+                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+
+                    <h3 class="text-xl font-bold mb-6 text-center">Parlons de votre équipe</h3>
+
+                    <!-- Hidden fields for Web3Forms -->
+                    <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
+                    <input type="hidden" name="subject" value="Demande formation IA équipe - Jon Labs">
+                    <input type="hidden" name="from_name" value="Jon Labs - Formation IA équipe">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Nom -->
+                        <div class="form-field">
+                            <label for="name" class="flex items-center gap-2 text-sm font-medium mb-2">
+                                <span class="font-mono text-xs text-gray-400">01</span>
+                                Nom / Prénom <span class="text-red-500">*</span>
+                            </label>
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                required
+                                placeholder="Jean Dupont"
+                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
+                            />
+                        </div>
+
+                        <!-- Email -->
+                        <div class="form-field">
+                            <label for="email" class="flex items-center gap-2 text-sm font-medium mb-2">
+                                <span class="font-mono text-xs text-gray-400">02</span>
+                                Email <span class="text-red-500">*</span>
+                            </label>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                required
+                                placeholder="vous@exemple.ch"
+                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
+                            />
+                        </div>
+
+                        <!-- Entreprise -->
+                        <div class="form-field">
+                            <label for="company" class="flex items-center gap-2 text-sm font-medium mb-2">
+                                <span class="font-mono text-xs text-gray-400">03</span>
+                                Entreprise
+                            </label>
+                            <input
+                                type="text"
+                                id="company"
+                                name="company"
+                                placeholder="Votre entreprise"
+                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
+                            />
+                        </div>
+
+                        <!-- Taille équipe -->
+                        <div class="form-field">
+                            <label for="team-size" class="flex items-center gap-2 text-sm font-medium mb-2">
+                                <span class="font-mono text-xs text-gray-400">04</span>
+                                Taille de l'équipe
+                            </label>
+                            <input
+                                type="text"
+                                id="team-size"
+                                name="team_size"
+                                placeholder="Ex : 8 personnes"
+                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
+                            />
+                        </div>
+
+                        <!-- Type de session -->
+                        <div class="form-field md:col-span-2">
+                            <label for="session-type" class="flex items-center gap-2 text-sm font-medium mb-2">
+                                <span class="font-mono text-xs text-gray-400">05</span>
+                                Format envisagé <span class="text-red-500">*</span>
+                            </label>
+                            <select
+                                id="session-type"
+                                name="session_type"
+                                required
+                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all cursor-pointer"
+                            >
+                                <option value="" disabled selected>Choisir...</option>
+                                {sessionTypes.map((type) => (
+                                    <option value={type.value}>{type.label}</option>
+                                ))}
+                            </select>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="form-field md:col-span-2">
+                            <label for="message" class="flex items-center gap-2 text-sm font-medium mb-2">
+                                <span class="font-mono text-xs text-gray-400">06</span>
+                                Décrivez votre situation <span class="text-red-500">*</span>
+                            </label>
+                            <textarea
+                                id="message"
+                                name="message"
+                                rows="4"
+                                required
+                                placeholder="Où en est votre équipe avec l'IA ? Quels outils avez-vous déjà ? Qu'aimeriez-vous que vos équipes sachent faire ?"
+                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
+                            ></textarea>
+                        </div>
+
+                        <!-- Consent -->
+                        <div class="form-field md:col-span-2">
+                            <label class="flex items-start gap-3 cursor-pointer group">
+                                <input
+                                    type="checkbox"
+                                    name="consent"
+                                    required
+                                    class="mt-1 w-5 h-5 border-2 border-black appearance-none cursor-pointer checked:bg-[var(--blue)] checked:border-black relative transition-all"
+                                />
+                                <span class="text-sm text-gray-600 group-hover:text-black transition-colors">
+                                    Vos données sont utilisées uniquement pour répondre à votre demande. Pas de spam, promis. <span class="text-red-500">*</span>
+                                </span>
+                            </label>
+                        </div>
+
+                        <!-- Submit -->
+                        <div class="md:col-span-2 pt-4">
+                            <button
+                                type="submit"
+                                class="
+                                    submit-btn
+                                    w-full
+                                    bg-[var(--blue)]
+                                    border-2 border-black
+                                    px-8 py-4
+                                    text-lg font-bold
+                                    shadow-[4px_4px_0px_rgba(0,0,0,1)]
+                                    transition-all duration-200
+                                    hover:bg-[var(--yellow)]
+                                    hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
+                                    hover:translate-x-[2px] hover:translate-y-[2px]
+                                    focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2
+                                    flex items-center justify-center gap-3
+                                "
+                            >
+                                <span>Envoyer ma demande</span>
+                                <i class="ri-send-plane-line text-xl"></i>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <!-- Post-form content -->
+                <div class="bg-[var(--main-bg)]/90 backdrop-blur-sm p-6 mt-8">
+                    <!-- Trust indicators -->
+                    <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-600">
+                        <span class="flex items-center gap-2">
+                            <i class="ri-time-line text-[var(--blue)]"></i>
+                            Réponse sous 24h
+                        </span>
+                        <span class="flex items-center gap-2">
+                            <i class="ri-gift-line text-[var(--blue)]"></i>
+                            Premier échange gratuit
+                        </span>
+                        <span class="flex items-center gap-2">
+                            <i class="ri-file-list-3-line text-[var(--blue)]"></i>
+                            Devis clair
+                        </span>
+                    </div>
+
+                    <!-- Alternatives -->
+                    <div class="text-center mt-8 space-y-4">
+                        <p class="text-gray-500 text-sm">Vous préférez réserver un créneau directement ?</p>
+                        <a
+                            href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center gap-2 text-[var(--blue)] font-medium hover:underline"
+                        >
+                            <i class="ri-calendar-line"></i>
+                            Réserver un appel découverte
+                        </a>
+                    </div>
+
+                    <!-- Direct contact -->
+                    <div class="text-center mt-6">
+                        <p class="text-gray-500 text-sm mb-2">Besoin d'une réponse rapide ?</p>
+                        <a href="mailto:contact@jonlabs.ch" class="text-[var(--blue)] font-mono hover:underline">
+                            contact@jonlabs.ch
+                        </a>
+                    </div>
+
+                    <!-- Not ready yet -->
+                    <div class="text-center mt-8 p-4 bg-white border-2 border-dashed border-gray-300">
+                        <p class="text-gray-500 text-sm">
+                            <strong>Pas encore prêt ?</strong> Découvrez tout l'accompagnement <a href="/consultant-ia" class="text-[var(--blue)] hover:underline">Consultant IA à Genève</a>, ou comment <a href="/services/automatisation" class="text-[var(--blue)] hover:underline">automatiser vos tâches répétitives</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <Footer />
+</Layout>
+
+<style>
+    /* Dot pattern background */
+    .dots-bg {
+        background-image: radial-gradient(circle, #000 1px, transparent 1px);
+        background-size: 24px 24px;
+    }
+
+    /* FAQ animations */
+    .faq-item[data-open="true"] .faq-icon {
+        transform: rotate(45deg);
+        background-color: var(--blue);
+    }
+
+    /* H1 SEO style terminal */
+    .seo-h1 {
+        font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace;
+        font-size: 0.75rem;
+        font-weight: 400;
+        color: rgba(15, 15, 15, 0.5);
+        letter-spacing: 0.05em;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    @media (min-width: 1024px) {
+        .seo-h1 {
+            justify-content: center;
+        }
+    }
+
+    /* Custom checkbox checkmark */
+    input[type="checkbox"]:checked::after {
+        content: '';
+        position: absolute;
+        left: 5px;
+        top: 1px;
+        width: 6px;
+        height: 12px;
+        border: solid black;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+    }
+
+    /* Submit button loading state */
+    .submit-btn.loading {
+        pointer-events: none;
+        opacity: 0.7;
+    }
+
+    .submit-btn.loading i {
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        from { transform: rotate(0deg); }
+        to { transform: rotate(360deg); }
+    }
+
+    /* Scroll margin for anchor navigation */
+    section[id] {
+        scroll-margin-top: 100px;
+    }
+</style>
+
+<script>
+    // FAQ accordion logic
+    const faqItems = document.querySelectorAll('[data-faq-item]');
+
+    faqItems.forEach(item => {
+        const trigger = item.querySelector('[data-faq-trigger]');
+        const content = item.querySelector('[data-faq-content]') as HTMLElement;
+
+        trigger?.addEventListener('click', () => {
+            const isOpen = item.getAttribute('data-open') === 'true';
+
+            // Close all other items
+            faqItems.forEach(otherItem => {
+                if (otherItem !== item) {
+                    otherItem.setAttribute('data-open', 'false');
+                    const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
+                    const otherTrigger = otherItem.querySelector('[data-faq-trigger]');
+                    if (otherContent) otherContent.style.maxHeight = '0';
+                    otherTrigger?.setAttribute('aria-expanded', 'false');
+                }
+            });
+
+            // Toggle current item
+            if (isOpen) {
+                item.setAttribute('data-open', 'false');
+                if (content) content.style.maxHeight = '0';
+                trigger.setAttribute('aria-expanded', 'false');
+            } else {
+                item.setAttribute('data-open', 'true');
+                if (content) content.style.maxHeight = content.scrollHeight + 'px';
+                trigger.setAttribute('aria-expanded', 'true');
+            }
+        });
+    });
+
+    // Form submission with Web3Forms
+    const form = document.getElementById('formation-form') as HTMLFormElement;
+    const submitBtn = form?.querySelector('.submit-btn');
+
+    form?.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        if (!submitBtn) return;
+
+        // Add loading state
+        submitBtn.classList.add('loading');
+        const originalContent = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span>Envoi en cours...</span><i class="ri-loader-4-line text-xl"></i>';
+
+        try {
+            const formData = new FormData(form);
+            const response = await fetch('https://api.web3forms.com/submit', {
+                method: 'POST',
+                body: formData
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                // Success state
+                submitBtn.innerHTML = '<span>Message envoyé !</span><i class="ri-check-line text-xl"></i>';
+                submitBtn.classList.remove('loading');
+
+                // Reset form after delay
+                setTimeout(() => {
+                    form.reset();
+                    submitBtn.innerHTML = originalContent;
+                }, 3000);
+            } else {
+                throw new Error('Erreur lors de l\'envoi');
+            }
+        } catch (error) {
+            // Error state
+            submitBtn.innerHTML = '<span>Erreur, réessayez</span><i class="ri-error-warning-line text-xl"></i>';
+            submitBtn.classList.remove('loading');
+
+            setTimeout(() => {
+                submitBtn.innerHTML = originalContent;
+            }, 3000);
+        }
+    });
+</script>
