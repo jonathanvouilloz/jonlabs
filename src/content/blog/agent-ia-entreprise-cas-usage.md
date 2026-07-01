@@ -26,7 +26,7 @@ Une fiduciaire lausannoise trie ses justificatifs comptables à la main depuis d
 
 Tu as probablement déjà lu que "l'IA c'est important" sans qu'on te montre où elle s'applique chez toi. Cet article fait l'inverse : 8 cas d'usage concrets et sectoriels, avec des ordres de grandeur en heures et en CHF, plutôt que des promesses vagues. Pour la vue d'ensemble sur l'automatisation en général, le [guide complet sur l'automatisation dans ta PME suisse](/blog/automatisation-pme-suisse-guide-complet) pose les bases ; ici, on se concentre sur ce que les agents IA font de spécifique.
 
-![Interface d'agent IA exécutant des tâches automatisées sur un laptop dans un bureau de PME romande](/images/blog/agent-ia-entreprise-cas-usage-1.webp)
+![Illustration conceptuelle d'un agent IA en PME romande : à gauche des circuits trient des documents répétitifs, à droite une tête de statue antique garde le jugement humain](/images/blog/agent-ia-entreprise-cas-usage-1.webp)
 
 ---
 
@@ -117,7 +117,7 @@ Ce n'est pas un défaut caché, c'est une limite structurelle des technologies d
 
 La méthode tient en trois étapes : identifier la tâche à fort volume qui demande un peu de jugement contextuel, cadrer le projet avec un prestataire, puis prototyper sur un seul cas avant de généraliser. Se lancer directement sur cinq cas en parallèle est la meilleure façon de tout rater.
 
-![Dirigeant de PME romande en séance de cadrage d'un projet d'agent IA avec un prestataire](/images/blog/agent-ia-entreprise-cas-usage-4.webp)
+![Illustration conceptuelle du cadrage méthodique d'un projet d'agent IA : une figure observe une structure de blocs qui s'assemblent pas-à-pas, étape par étape](/images/blog/agent-ia-entreprise-cas-usage-4.webp)
 
 Commence par lister les tâches qui reviennent chaque semaine et qui demandent une décision simple mais répétée : tri, qualification, première réponse. Évite les processus encore flous ou en cours de redéfinition, ils ne sont pas prêts pour un agent. Pour cadrer correctement le premier cas et éviter les erreurs classiques de configuration, un [accompagnement pour cadrer ton agent IA](/consultant-ia) permet de partir sur de bonnes bases dès le prototype.
 
