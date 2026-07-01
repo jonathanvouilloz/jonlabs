@@ -15,6 +15,31 @@
 
 ---
 
+## Carte du code — silo IA (Phase 1 + 2)
+> Mise à jour : 2026-07-01
+
+| Fichier | Rôle |
+|---------|------|
+| `src/data/metiers-ia.ts` | Données des pages métiers (interface `MetierIAData` + 2 verticales fiduciaire/immobilier) |
+| `src/pages/metiers/[metier].astro` | Gabarit route dynamique des métiers (12 sections, méthode = constante partagée) |
+| `src/pages/hermes.astro` | Landing produit Hermès (transactionnelle, prix CHF affichés) |
+| `src/pages/services/formation-ia-equipe.astro` | Page service Formation IA (gabarit integration-outils) |
+| `src/pages/consultant-ia/index.astro` | Hub conversion — grille services + bloc métiers + liens hermes/formation |
+| `src/pages/consultant-ia/[ville].astro` | Pages géo (Genève/Lausanne) — reco descendante vers métiers |
+| `src/data/villes-suisse-ia.ts` | Données des pages géo |
+| `src/data/schema.ts` | `serviceSchemas` (métiers/hermes/formation) + `servicesListData` ItemList (8) |
+| `src/data/navigation.ts` | Méga-menu « Consultant IA » (colonnes Agents/Métiers/Régions/À lire) |
+| `src/content/blog/ia-nlpd-conformite-suisse.md` | Article nLPD (pubDate 24.08) |
+| `src/content/blog/consultant-ia-c-est-quoi.md` | Article consultant IA (pubDate 28.08) |
+
+### Décisions clés
+- **Métiers en data-driven** (1 route `[metier].astro` + N entrées) : scalable pour commerce/cabinet en Phase 3, garde-fou anti-template = contenu réel par verticale.
+- **Section Méthode** = constante partagée dans le template, jamais dupliquée en data.
+- **Articles sans image inline** (règle anti-404, leçon Phase 1) : seule la cover en frontmatter ; diagrammes SVG ajoutés post-hoc si besoin.
+- **`.briefs/` scanné par le loader blog** → warning `Duplicate id` bénin/déterministe (détail + fix dans HANDOFF).
+
+---
+
 ## État session 2026-07-01 (Phase 1)
 
 **Fait :** Phase 1 complète, orchestrée via sous-agents. Hub `/consultant-ia` (repositionné « PME romandes »), pages géo `/consultant-ia/{geneve,lausanne}` (route dynamique + `src/data/villes-suisse-ia.ts`, contenu local), section nav + schema. Maillage montant (13 articles → hub) + boucle cluster fermée. 2 articles ⚡ (`agent-ia-entreprise-cas-usage` 17.08, `prix-agent-ia-automatisation-suisse` 21.08) avec covers + **5 diagrammes inline** (SVG→WebP). Build vert, 9 commits poussés sur `main`.
