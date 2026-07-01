@@ -2,7 +2,16 @@
 
 > Créé le 2026-06-30. Plan de chantier maître du silo IA (conversion).
 > Source de vérité contenu : `docs/topical-map-consultant-ia.md`. Concurrent analysé : `docs/seo-context.md` (section hgnn.io).
-> Statut : **à valider / en cours**.
+> Statut : **Phase 1 ✅ faite (2026-07-01) — Phase 2 à lancer**.
+
+---
+
+## État session 2026-07-01
+
+**Fait :** Phase 1 complète, orchestrée via sous-agents. Hub `/consultant-ia` (repositionné « PME romandes »), pages géo `/consultant-ia/{geneve,lausanne}` (route dynamique + `src/data/villes-suisse-ia.ts`, contenu local), section nav + schema. Maillage montant (13 articles → hub) + boucle cluster fermée. 2 articles ⚡ (`agent-ia-entreprise-cas-usage` 17.08, `prix-agent-ia-automatisation-suisse` 21.08) avec covers + **5 diagrammes inline** (SVG→WebP). Build vert, 9 commits poussés sur `main`.
+**Prochain :** Lancer Phase 2 (§4) — pages métiers `/metiers/ia-fiduciaire` ⚡ + `/metiers/ia-agence-immobiliere`, landing `/hermes`. Avant : Request Indexing GSC sur hub + 2 pages géo.
+**Pièges :** Cannibalisation hub↔géo Genève résolue (hub = « PME romandes », géo = exact-match). Meta uniques par ville via champ `metaDescription`. Cadence blog pleine jusqu'au 14.08 → les 2 ⚡ datés 17/21.08 (avançables si on décale). Diagrammes inline régénérables via le générateur SVG (approche sharp, pas d'API — le skill `visual` sert aux visuels sociaux, pas aux schémas).
+**Commit :** [6a5ad49] docs(seo): diagrammes inline faits — 2 articles IA marqués prêts à publier
 
 ---
 
