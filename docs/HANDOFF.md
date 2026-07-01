@@ -3,15 +3,16 @@
 ## Features actives
 | Feature | Fichier | Statut |
 |---------|---------|--------|
-| Chantier SEO IA (consultant IA) | docs/planSEOIA.md + docs/topical-map-consultant-ia.md | **EN COURS** (Phase 1 ✅, Phase 2 à venir) |
+| Chantier SEO IA (consultant IA) | docs/planSEOIA.md + docs/topical-map-consultant-ia.md | **EN COURS** (Phase 1 ✅ + Phase 2 ✅, Phase 3 à venir) |
 | Refonte SEO / restructuration clusters | docs/features/refonte-seo-clusters.md | **EN COURS** |
 | Cluster plateformes Webflow + WordPress | docs/chantier-cluster-plateformes.md | EN ATTENTE |
 | Cluster application mobile | docs/features/cluster-application-mobile.md | ✅ DONE |
 
 ## Reprendre ici
-**Chantier SEO IA — Phase 1 ✅ FAITE** (hub `/consultant-ia` + géo `/consultant-ia/{geneve,lausanne}` + maillage montant 13 articles + 2 articles ⚡ datés 17 & 21.08 avec diagrammes inline). Build vert, poussé sur `main`. Décisions §6 toutes tranchées.
+**Chantier SEO IA — Phase 2 ✅ FAITE** (2 pages métiers data-driven `/metiers/{ia-fiduciaire,ia-agence-immobiliere}` + landing `/hermes` + service `/services/formation-ia-equipe` + maillage méga-menu/hub/géo + 2 articles `ia-nlpd-conformite-suisse` 24.08 et `consultant-ia-c-est-quoi` 28.08). Build vert **208 pages**. Commits par lot sur `main` (non poussés — voir plus bas).
 
-**Prochaine étape — Phase 2** (`docs/planSEOIA.md` §4) : pages métiers `/metiers/ia-fiduciaire` ⚡ + `/metiers/ia-agence-immobiliere`, landing `/hermes`, service `formation-ia-equipe`, articles `ia-nlpd-conformite-suisse` ⚡ + `consultant-ia-c-est-quoi`.
+**Prochaine étape — Phase 3** (`docs/planSEOIA.md` §4) : `/metiers/ia-commerce-retail` + `/metiers/ia-cabinet`, landing `/openclaw`, `services/audit-ia` + `/consultant-ia/nyon`, articles `rag-documents-pme` + `chatbot-vs-agent-ia-support`.
 
-**Articles 100% prêts** (texte + cover + 5 diagrammes inline SVG→WebP). Reste : Request Indexing GSC sur hub + géo dès maintenant.
-Dernier commit : [6a5ad49] docs(seo): diagrammes inline faits
+**Actions manuelles en attente :** (1) `git push` des commits Phase 2 (déclenche le rebuild/deploy). (2) Request Indexing GSC sur les 4 pages Phase 2 (+ hub/géo Phase 1 encore à faire). La cadence blog est pleine jusqu'au 28.08.
+
+**Known issue (pré-existant, non bloquant) :** le loader de la collection `blog` scanne aussi `src/content/blog/.briefs/` → warning `Duplicate id` au build pour chaque brief homonyme d'un article. Bénin et déterministe (`.briefs/…` charge avant la racine → l'article gagne). Fix propre si un jour ça gêne : migrer `blog` vers `loader: glob({ pattern: '*.md', base: './src/content/blog' })` dans `src/content/config.ts` (top-level only) — hors scope Phase 2 car touche l'API de rendu.

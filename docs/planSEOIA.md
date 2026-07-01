@@ -2,11 +2,20 @@
 
 > Créé le 2026-06-30. Plan de chantier maître du silo IA (conversion).
 > Source de vérité contenu : `docs/topical-map-consultant-ia.md`. Concurrent analysé : `docs/seo-context.md` (section hgnn.io).
-> Statut : **Phase 1 ✅ faite (2026-07-01) — Phase 2 à lancer**.
+> Statut : **Phase 1 ✅ + Phase 2 ✅ faites (2026-07-01) — Phase 3 à lancer**.
 
 ---
 
-## État session 2026-07-01
+## État session 2026-07-01 (Phase 2)
+
+**Fait :** Phase 2 complète. **Pages métiers** en route data-driven (`src/data/metiers-ia.ts` + `src/pages/metiers/[metier].astro`, gabarit 12 sections) → `/metiers/ia-fiduciaire` (Bexio/Crésus, angle nLPD) + `/metiers/ia-agence-immobiliere` (Garaio REM/ImmoTop, terrain hgnn). **Landing `/hermes`** transactionnelle (8 sections, prix CHF affichés). **Service `/services/formation-ia-equipe`** (dès CHF 1'200, `index,follow`). Schemas Service ajoutés (métiers + hermes + formation) + ItemList à 8. **Maillage** : méga-menu Consultant IA (colonne Métiers + Hermès + Formation), hub → métiers/hermes/formation, pages géo → métiers, boucle article↔métier fermée. **2 articles** : `ia-nlpd-conformite-suisse` ⚡ (pubDate 24.08, ~2460 mots, review 16/18) + `consultant-ia-c-est-quoi` (pubDate 28.08, ~1870 mots, review 17/18), covers template, 0 image inline (règle anti-404). Build vert **208 pages**. **Fix pré-flight** : 2 images cassées de `agent-ia-entreprise-cas-usage` régénérées via `/visual`.
+**Prochain :** Phase 3 (§4) — `/metiers/ia-commerce-retail` + `/metiers/ia-cabinet`, landing `/openclaw`, `services/audit-ia` + `/consultant-ia/nyon`, articles `rag-documents-pme` + `chatbot-vs-agent-ia-support`. Avant : Request Indexing GSC sur les 4 nouvelles pages Phase 2 (hub/géo déjà à faire depuis Phase 1).
+**Pièges :** Cadence blog remplie jusqu'au 28.08 (dernier = `consultant-ia-c-est-quoi`). Les articles restent date-gatés (`isPublished` dans `src/lib/blog.ts`) — ils apparaîtront au rebuild cron du 24 et 28.08. Anti-cannibalisation hub↔géo↔métiers OK (titles distincts). Pages métiers data-driven : garder du contenu réel par verticale (garde-fou `/programmatic-seo`) quand on ajoutera commerce/cabinet.
+**Commit :** commits par lot (pages / maillage / articles / fix-images / docs).
+
+---
+
+## État session 2026-07-01 (Phase 1)
 
 **Fait :** Phase 1 complète, orchestrée via sous-agents. Hub `/consultant-ia` (repositionné « PME romandes »), pages géo `/consultant-ia/{geneve,lausanne}` (route dynamique + `src/data/villes-suisse-ia.ts`, contenu local), section nav + schema. Maillage montant (13 articles → hub) + boucle cluster fermée. 2 articles ⚡ (`agent-ia-entreprise-cas-usage` 17.08, `prix-agent-ia-automatisation-suisse` 21.08) avec covers + **5 diagrammes inline** (SVG→WebP). Build vert, 9 commits poussés sur `main`.
 **Prochain :** Lancer Phase 2 (§4) — pages métiers `/metiers/ia-fiduciaire` ⚡ + `/metiers/ia-agence-immobiliere`, landing `/hermes`. Avant : Request Indexing GSC sur hub + 2 pages géo.
@@ -104,13 +113,15 @@ LA MARQUE — Jon Labs (Genève)
 
 > Build vert (204 pages). Commits : `feat(seo): hub + géo`, `feat(seo): maillage`, `feat(blog): 2 articles`. La file éditoriale étant pleine jusqu'au 14.08, les 2 articles sont datés aux prochains créneaux libres (17 + 21.08) — avançables si on décale un article moins prioritaire.
 
-### Phase 2 — Verticalisation + produit
+### Phase 2 — Verticalisation + produit — ✅ FAITE (2026-07-01)
 **But : profondeur thématique + offres tangibles.**
-6. **`/metiers/ia-fiduciaire`** ⚡ (vertical fort à Genève) + **`/metiers/ia-agence-immobiliere`** (terrain de hgnn).
-7. **`/hermes`** — landing produit (réutilise `blog/hermes-agent-ia-pme`) + offre + prix CHF.
-8. **`services/formation-ia-equipe`**.
-9. **`/consultant-ia-lausanne`** (géo P2).
-10. **Articles** : `ia-nlpd-conformite-suisse` ⚡ + `consultant-ia-c-est-quoi`.
+6. ✅ **`/metiers/ia-fiduciaire`** ⚡ + **`/metiers/ia-agence-immobiliere`** — route data-driven `[metier].astro` + `src/data/metiers-ia.ts` (gabarit 12 sections, contenu réel par verticale, outils suisses nommés, schema Service + FAQPage).
+7. ✅ **`/hermes`** — landing produit transactionnelle (offre + délai + prix CHF affichés, distincte de l'article blog).
+8. ✅ **`services/formation-ia-equipe`** — dès CHF 1'200, `index,follow`, ajoutée à l'ItemList (8 services).
+9. ✅ **`/consultant-ia/lausanne`** — déjà livrée en Phase 1 (géo P2), sans objet ici.
+10. ✅ **Articles** : `ia-nlpd-conformite-suisse` ⚡ (24.08, 16/18) + `consultant-ia-c-est-quoi` (28.08, 17/18).
+
+> Build vert (208 pages). Maillage : méga-menu + hub + géo → métiers/hermes/formation. Fix pré-flight : 2 images cassées de `agent-ia-entreprise-cas-usage` régénérées via `/visual`.
 
 ### Phase 3 — Élargissement
 11. **`/metiers/ia-commerce-retail`** + **`/metiers/ia-cabinet`**.
