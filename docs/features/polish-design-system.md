@@ -16,6 +16,8 @@
 
 **Prochain (Phase 3 rollout) :** `consultant-ia/index` (image+aside), `metiers/[metier]`, `developpement-web/[ville]` (images carré) ; puis `services/*` + composants CV → `IconChip` (retirer violet-sans-white, `bg-green-500`, cyan restants) + parité highlights. `scenarios.ts` emoji (constellation home) optionnel.
 
+**Commit :** [643f592] feat(design): Phase 3 pilote — aération, illustrations carré & cohérence (highlights + icônes)
+
 ---
 
 ## Etat session 2026-07-02 (suite 3) — Phase 2 : titres + highlights unifiés + fix H1 invisible ✅
