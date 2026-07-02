@@ -1,0 +1,23 @@
+# Production log — mettre-en-place-ia-entreprise-guide (PILLAR)
+Date : 2026-07-02
+Worker : orchestrateur principal (production directe, pas via @article-producer, du fait de l'output path spécial src/content/pages/)
+
+## Étapes
+- [OK] /seo-brief   : src/content/blog/.briefs/mettre-en-place-ia-entreprise-guide.md créé (seedé depuis docs/topical-map-mise-en-place-ia.md)
+- [OK] /seo-write   : draft écrit dans content/_drafts/blog/mettre-en-place-ia-entreprise-guide.draft.md (~2247 mots avant humanizer)
+- [OK] /humanizer   : tous les em-dashes éliminés (environ 15 occurrences remplacées par virgules/deux-points), rythme conservé
+- [OK] /seo-enrich  : src/content/pages/mettre-en-place-ia-entreprise-guide.md créé (page_type: pillar → collection `pages`, PAS `src/content/blog/`), frontmatter validé contre le schema Zod (title 51 car., description 113 car., h1 distinct 73 car.)
+- [OK] /seo-review  : 17/18 PASS. 1 FAIL justifié (critère 18, citation d'expert externe : brief pillar sans source externe fournie, garde-fou anti-hallucination respecté, les spokes portent leurs propres sources). Point mineur non-bloquant : densité de bold un peu au-dessus de 1/paragraphe sur les sections "Automatiser les processus transversaux" (bold des noms d'outils Bexio/Crésus/Sage 50 Suisse) — accepté car ce sont des entités nommées distinctes, pas du bourrage.
+- [OK] /generate-cover : public/images/blog/mettre-en-place-ia-entreprise-guide.webp (36 kB, pipeline template, aucun appel API)
+
+## Statut final
+SUCCESS — pillar prêt à publier (pubDate dans frontmatter : 2026-08-12), génère /guides/mettre-en-place-ia-entreprise-guide via src/pages/guides/[slug].astro
+
+## Maillage
+- Montant : /consultant-ia (2 occurrences : intro + CTA final)
+- Descendant : les 13 spokes du cluster, tous liés (implementer-agent-ia-etapes, automatiser-facturation-relances-ia, calculer-gain-temps-automatisation, projet-pilote-ia-30-jours, automatiser-support-client-ia, automatiser-emails-documents-ia, automatiser-prospection-crm-ia, integrer-agent-ia-outils-existants, adoption-ia-equipe-change-management, avant-apres-automatisation-pme-romande, cartographier-processus-avant-automatiser, garde-fous-ia-validations-audit, automatiser-rh-onboarding-ia)
+- Latéral : /blog/automatisation-pme-suisse-guide-complet
+- Maillage retour recommandé (non appliqué, hors scope) : ajouter un lien depuis /consultant-ia/index.astro vers ce pillar — aucun lien retour existant détecté au moment de la production.
+
+## Bloquants éventuels
+Aucun bloquant critique. Le pillar dépend des 13 spokes pour être un hub complet — tant que les spokes ne sont pas publiés (pubDate futur), les liens descendants pointent vers des pages programmées mais pas encore visibles (dangling temporaire attendu, cf. docs/seo-context.md règle de cadence).

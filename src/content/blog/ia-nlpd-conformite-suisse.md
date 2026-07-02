@@ -2,7 +2,7 @@
 title: "IA et nLPD : automatiser en conformité en Suisse"
 h1: "IA et nLPD : ce que la conformité suisse change vraiment quand tu automatises avec l'IA"
 description: "Où vont tes données quand tu utilises un agent IA ? Ce que la nLPD suisse impose vraiment aux PME, sans jargon juridique inutile."
-pubDate: 2026-08-24
+pubDate: 2026-08-07
 image:
   url: "/images/blog/ia-nlpd-conformite-suisse.webp"
   alt: "Schéma de conformité nLPD pour un agent IA en entreprise suisse : hébergement des données et sous-traitance"

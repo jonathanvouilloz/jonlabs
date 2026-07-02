@@ -2,7 +2,7 @@
 title: "Flutter vs React Native pour votre PME en 2026"
 h1: "Flutter vs React Native : lequel choisir pour votre projet PME ?"
 description: "Flutter ou React Native ? Comparatif coût, délai, rendu pour PME suisses. Recommandation Jon Labs."
-pubDate: 2026-07-10
+pubDate: 2026-07-08
 author: "Jon"
 image:
   url: "/images/blog/flutter-vs-react-native-pme.webp"

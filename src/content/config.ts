@@ -28,6 +28,34 @@ const blogCollection = defineCollection({
   }),
 });
 
+// Pages piliers (hubs « HOW » type pillar, distinctes des articles de blog)
+// Rendues via src/pages/guides/[slug].astro → URL /guides/{slug}. Schema WebPage.
+const pagesCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    // H1 on-page, distinct du title SEO. Fallback sur title si absent.
+    h1: z.string().optional(),
+    description: z.string().max(160),
+    pubDate: z.date(),
+    updatedDate: z.date().optional(),
+    image: z.object({
+      url: z.string(),
+      alt: z.string(),
+    }),
+    // Type de page — pour l'instant uniquement « pillar ». Accepte l'alias page_type via preprocessing si besoin.
+    pageType: z.enum(['pillar']).default('pillar'),
+    tags: z.array(z.string()).default([]),
+    featured: z.boolean().default(false),
+    draft: z.boolean().default(false),
+    readingTime: z.number().optional(),
+    faqs: z.array(z.object({
+      question: z.string(),
+      answer: z.string(),
+    })).optional(),
+  }),
+});
+
 // LinkedIn drafts (internal use, no frontmatter required)
 const linkedinCollection = defineCollection({
   type: 'content',
@@ -225,6 +253,7 @@ const devisCollection = defineCollection({
 
 export const collections = {
   blog: blogCollection,
+  pages: pagesCollection,
   linkedin: linkedinCollection,
   devis: devisCollection,
   portfolio: portfolioCollection,

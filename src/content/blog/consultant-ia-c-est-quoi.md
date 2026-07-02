@@ -2,7 +2,7 @@
 title: "Consultant IA : à quoi ça sert vraiment pour ta PME"
 h1: "Consultant IA, c'est quoi exactement ? Ce que fait vraiment ce métier pour une PME romande"
 description: "Tu ne sais pas ce que fait un consultant IA au quotidien ? Voici le métier expliqué sans jargon, et quand ça vaut le coup."
-pubDate: 2026-08-28
+pubDate: 2026-08-10
 image:
   url: "/images/blog/consultant-ia-c-est-quoi.webp"
   alt: "Étapes d'une mission de consultant IA pour une PME : audit, cadrage, déploiement, formation"

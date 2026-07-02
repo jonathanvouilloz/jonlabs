@@ -1,0 +1,18 @@
+# Production log — automatiser-prospection-crm-ia
+Date : 2026-07-02 09:15
+Worker : @article-producer
+
+## Étapes
+- [✓] /seo-write    : draft écrit (1559 mots) → content/_drafts/blog/automatiser-prospection-crm-ia.draft.md
+- [✓] /humanizer    : 0 pattern IA critique détecté à l'écriture (rédaction directe anti-IA) ; 1 passage réécrit pour ajouter du relief (voix perso, rythme varié) sur la section "Ce qu'on automatise vraiment dans le cycle commercial"
+- [✓] /seo-enrich   : src/content/blog/automatiser-prospection-crm-ia.md créé (frontmatter + 5 FAQ + build Astro validé, 208 pages, 0 erreur)
+- [✓] /seo-review   : 17/18 critères PASS, 0 bloquant critique, 1 FAIL non-bloquant documenté (citation/sources GEO — brief sans source externe)
+- [✓] /generate-cover : public/images/blog/automatiser-prospection-crm-ia.webp (37.9 kB, pipeline template, aucun appel API)
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-08-28, vendredi — respecte la cadence lundi/vendredi)
+
+## Bloquants éventuels
+Aucun bloquant critique. Deux points documentés, non-bloquants :
+1. **GEO citation+sources (item 18 seo-review)** : brief indique explicitement « Aucune source externe fournie. Pas de citation à fabriquer. » — 0 citation attribuée, 0 lien externe faisant autorité. Conforme à la règle anti-fabrication. À enrichir lors d'un futur `/seo-refresh` si une source fiable est identifiée.
+2. **Maillage latéral partiel** : le lien vers `/blog/integrer-agent-ia-outils-existants` demandé dans le brief et dans la consigne de production a été **omis** — ce slug n'existe qu'à l'état de brief (`src/content/blog/.briefs/integrer-agent-ia-outils-existants.md`), aucun article publié à cette URL. Insertion d'un lien mort refusée conformément à la règle « n'utilise que des liens internes existants ». Maillage réellement livré : pillar `/guides/mettre-en-place-ia-entreprise-guide` (montant, obligatoire), latéral `/metiers/ia-agence-immobiliere`, plus un lien supplémentaire vers `/blog/ia-nlpd-conformite-suisse` (non prévu au brief mais pertinent pour le moat nLPD/prospection à froid) et `/consultant-ia` (CTA inline body). CTA final de conclusion conforme au contrat obligatoire du skill seo-write : `/contact?utm_source=blog&utm_medium=article&utm_campaign=automatiser-prospection-crm-ia` (le brief suggérait `/consultant-ia` en CTA final, mais la Golden Rule 10 de seo-write impose strictement `/contact` — convention déjà appliquée sur tous les articles sœurs du cluster).

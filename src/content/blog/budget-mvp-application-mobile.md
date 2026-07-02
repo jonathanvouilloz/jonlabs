@@ -2,7 +2,7 @@
 title: "MVP application mobile : budget réaliste en Suisse"
 h1: "MVP application mobile : combien faut-il prévoir en Suisse ?"
 description: "Combien coûte un MVP d'app mobile en Suisse ? Fourchettes CHF réalistes (2k-5k), pièges à éviter, exercice de cadrage en 3 étapes."
-pubDate: 2026-07-17
+pubDate: 2026-07-13
 author: "Jon"
 image:
   url: "/images/blog/budget-mvp-application-mobile.webp"

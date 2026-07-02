@@ -3,14 +3,14 @@
 ## Features actives
 | Feature | Fichier | Statut |
 |---------|---------|--------|
-| Cluster « Mettre l'IA en place » | docs/plan-mise-en-place-ia.md (+ topical-map-mise-en-place-ia.md) | **EN COURS** (planifié, prêt à produire) |
+| Cluster « Mettre l'IA en place » | docs/plan-mise-en-place-ia.md (+ topical-map-mise-en-place-ia.md) | **✅ PRODUIT** (14/14, build vert — commit/push + Request Indexing restants) |
 | Chantier SEO IA (consultant IA) | docs/planSEOIA.md (+ topical-map-consultant-ia.md) | EN COURS (Phase 1-2 ✅, Phase 3 à venir) |
 | Refonte SEO / clusters | docs/features/refonte-seo-clusters.md | EN COURS |
 | Cluster application mobile | docs/features/cluster-application-mobile.md | ✅ DONE |
 
 ## Reprendre ici
-**Cluster « Mettre l'IA en place »** — démarrer le chantier : `/seo-brief mettre-en-place-ia-entreprise-guide` (pillar en premier, `page_type: pillar` → `src/content/pages/`), puis #1→#13 du Tableau de production. Cadence pleine jusqu'au 28.08 → caler dès septembre 2026 (`/calendar`). Skill lead-magnet en backlog (portée = FOND).
-Commit : (voir dernier commit docs de ce wrap)
+**Cluster « Mettre l'IA en place »** — 14/14 produits (article + cover), build vert. RESTE : commit + `git push` (rebuild/deploy, sortie au fil des pubDate 12.08→11.09), puis Request Indexing GSC des nouvelles URLs une fois publiées. Cluster fini → proposer `/epic-recap`. Détails : `docs/plan-mise-en-place-ia.md`.
+Commit : (commit de session à créer — pré-session 92ea148)
 
 ## Actions manuelles en attente (pré-existantes)
 - `git push` des commits Phase 2 SEO IA (déclenche rebuild/deploy).

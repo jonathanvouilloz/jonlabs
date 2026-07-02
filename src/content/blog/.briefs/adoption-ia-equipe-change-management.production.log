@@ -1,0 +1,34 @@
+# Production log — adoption-ia-equipe-change-management
+Date : 2026-07-02 09:17
+Worker : @article-producer
+
+## Étapes
+- [✓] /seo-write    : draft écrit (1878 mots) — content/_drafts/blog/adoption-ia-equipe-change-management.draft.md
+- [✓] /humanizer    : 12 em dashes corrigés (remplacés par virgules/deux-points), 0 vocabulaire IA détecté, 0 curly quotes
+- [✓] /seo-enrich   : src/content/blog/adoption-ia-equipe-change-management.md créé (~14.6 kB), build Astro OK (208 pages, 0 erreur)
+- [✓] /seo-review   : 16/18 critères PASS, 2 warnings non-bloquants, 0 BLOQUANT
+- [✓] /generate-cover : public/images/blog/adoption-ia-equipe-change-management.webp (36.9 kB, pipeline template)
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-09-02, gating automatique par isPublished() jusqu'à cette date, conforme au cron de publication du projet)
+
+## Bloquants éventuels
+Aucun bloquant critique. 2 warnings non-bloquants relevés par /seo-review :
+1. GEO — Densité factuelle (critère 16) : ~7 données chiffrées précises sur ~1750 mots (légèrement sous le seuil cible de 5/1000 mots). Le brief déclarait explicitement l'absence de données propriétaires pour ce sujet ("Aucune donnée chiffrée propriétaire... statistique 70% à formuler prudemment"). Les chiffres réutilisés (1-15 personnes, CHF 1'200, 10-20% temps référent, 30j/3-4 semaines) proviennent de pages sœurs déjà publiées (pillar, formation-ia-equipe) pour rester factuellement fondés plutôt que d'inventer une statistique "70%" sans source — conforme au garde-fou anti-hallucination du pipeline.
+2. GEO — Citation d'expert + sources inline (critère 18) : 0 citation directe attribuée (Quotation Addition). Le brief ne fournissait aucune source citable ("Aucune source externe fournie"). Conformément à la règle "mieux vaut zéro citation qu'une citation inventée", aucune citation n'a été fabriquée.
+
+## Décisions prises par défaut (autonomie, sans AskUserQuestion)
+- Meta description reformulée par rapport au brief pour retirer le chiffre "70%" non sourcé, en gardant le sens ("la majorité des projets IA échouent sur l'adoption").
+- Le lien /consultant-ia (maillage du brief) a été placé dans le corps de l'article (section "L'avantage PME") plutôt qu'en Conclusion, pour respecter la règle stricte du pipeline seo-write : un seul CTA en conclusion, exclusivement vers /contact.
+- Lien latéral additionnel ajouté vers /blog/ia-nlpd-conformite-suisse (article publié existant) dans la section "Mesurer" et en Sources, en cohérence avec la consigne moat suisse nLPD sur les données RH — non présent dans le brief mais jugé pertinent et non-excessif (5 liens internes uniques au total).
+- Aucun lien vers une fiche métier (/metiers/*) inséré : non pertinent pour ce sujet (adoption/équipe generique, pas un métier spécifique).
+- Module brief "C (persona/preuve terrain)" ne correspond pas au module C standard (YMYL santé/légal/finance) du référentiel seo-write — traité comme article standard sans disclaimer YMYL, ce sujet n'étant pas YMYL.
+
+## Maillage retour suggéré (à appliquer par un autre agent — hors scope de ce worker)
+| Page existante | Où insérer le lien | Ancre suggérée | Fichier à éditer |
+|---|---|---|---|
+| Pillar "Mettre l'IA en place" | Section adoption/équipe du guide | "faire adopter l'IA à ton équipe" | src/content/pages/mettre-en-place-ia-entreprise-guide.md |
+| /services/formation-ia-equipe | Section preuve/témoignages | "pourquoi ton équipe résiste à l'IA" | src/pages/services/formation-ia-equipe.astro |
+
+## TODO résiduel
+- Image inline "after-h2:Le champion interne" laissée en commentaire `<!-- TODO:image infographic ... -->` dans le corps (type infographic, hors scope generate-cover). À produire via /generate-images si souhaité avant publication.

@@ -2,7 +2,7 @@
 title: "Cahier des charges app métier : guide non-technique"
 h1: "Cahier des charges d'application métier : ce que ton dev attend vraiment de toi"
 description: "Pas un template à remplir : les vraies infos qui débloquent un devis et évitent les allers-retours. Le cahier des charges vu par le dev qui le reçoit."
-pubDate: 2026-08-10
+pubDate: 2026-07-29
 author: "Jon"
 image:
   url: "/images/blog/cahier-des-charges-application-metier.webp"

@@ -1,0 +1,26 @@
+# Production log — automatiser-facturation-relances-ia
+Date : 2026-07-02 08:49
+Worker : @article-producer
+
+## Étapes
+
+- [✓] /seo-write    : draft écrit (1775 mots bruts, 1752 mots de corps final) — content/_drafts/blog/automatiser-facturation-relances-ia.draft.md + copie legacy src/content/blog/.briefs/ (humanizer ne lit que le path legacy)
+- [✓] /humanizer    : 5 patterns IA corrigés (2× construction "ce n'est pas X, c'est Y" répétée variée, 1× tiret cadratin dans un commentaire TODO technique remplacé par virgules, 1× accent manquant "geres" → "gères", 1× répétition du verbe "détaille" variée en "approfondit"). Zéro em dash, zéro guillemet courbe, zéro vocabulaire IA détecté après passe.
+- [✓] /seo-enrich   : src/content/blog/automatiser-facturation-relances-ia.md créé (13.9 kB). Frontmatter validé (title 50 car., description 135 car., h1 distinct du title 95 car., alt cover 77 car., category "automatisation", 5 FAQ en JSON faqs[], readingTime 9). Build Astro OK (208 pages, 0 erreur). Correction appliquée en cours de review : suppression d'une ligne H1 markdown dupliquée en tête de corps (convention des articles récents du site = pas de "# ..." dans le corps, le h1 vient uniquement du frontmatter + layout).
+- [✓] /seo-review   : 17/18 critères PASS, 0 bloquant critique. 1 FAIL non-bloquant : critère GEO #18 (citation d'expert + sources inline) — le brief indique explicitement "Aucune source externe fournie", donc aucune citation ni lien d'autorité externe n'a été fabriqué (conforme à la règle anti-hallucination). Décision par défaut : accepté tel quel, à enrichir manuellement si une source terrain devient disponible.
+- [✓] /generate-cover : public/images/blog/automatiser-facturation-relances-ia.webp (36.5 kB, pipeline template, aucun appel API)
+
+## Statut final
+
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-08-17)
+
+## Points d'attention (non-bloquants, notés par défaut faute d'interaction utilisateur possible)
+
+1. Le lien interne `[calculer le gain de temps réel](/blog/calculer-gain-temps-automatisation)` (intro + section "Combien de temps ça fait gagner" + Sources) pointe vers un slug du même cluster qui n'existe aujourd'hui qu'à l'état de brief (`src/content/blog/.briefs/calculer-gain-temps-automatisation.md`), pas encore rédigé/publié. Le pubDate de cet article (2026-08-17) laisse le temps au cluster de produire ce satellite avant mise en ligne, mais à vérifier avant le 17.08.2026 pour éviter un lien mort en production.
+2. Un commentaire `<!-- TODO:image infographic ... -->` reste dans le corps (section "Automatiser les relances sans froisser le client", image 2 du brief : timeline J+5/J+15/J+30). Type non photo-réaliste (infographic) — image à produire manuellement (Figma/Illustrator) ou via `/generate-images --brief` avant publication finale. Ne pas publier sans traiter ce placeholder.
+3. Le maillage retour n'a nécessité aucune action : le pillar `src/content/pages/mettre-en-place-ia-entreprise-guide.md` linke déjà vers ce nouvel article (ligne "Facturation et relances"), donc le lien entrant existe par anticipation du cluster.
+4. Critère GEO #18 (citation d'expert + source inline) non satisfait faute de matière citable dans le brief — voir ci-dessus.
+
+## Bloquants éventuels
+
+Aucun bloquant critique (title/meta/H1/orthographe/structure de fin — tous PASS). Les 2 points d'attention ci-dessus (lien vers satellite non encore publié + TODO image infographic) sont à traiter avant la date de publication mais ne bloquent pas la production du fichier.

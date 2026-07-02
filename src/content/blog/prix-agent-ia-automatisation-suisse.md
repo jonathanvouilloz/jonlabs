@@ -2,7 +2,7 @@
 title: "Prix agent IA : pourquoi personne ne te donne de chiffres"
 h1: "Combien coûte un agent IA pour ton entreprise ? Les vrais prix en CHF, sans rien cacher"
 description: "La plupart des prestataires cachent leurs tarifs IA. Voici les vrais prix en CHF d'un agent IA pour ta PME, fourchette par fourchette."
-pubDate: 2026-08-21
+pubDate: 2026-08-05
 image:
   url: "/images/blog/prix-agent-ia-automatisation-suisse.webp"
   alt: "Grille de prix transparente en CHF pour un agent IA d'entreprise, cadrage et agent métier intégré"

@@ -2,7 +2,7 @@
 title: "Logiciel sur mesure ou SaaS : comment trancher en 2026"
 h1: "Logiciel sur mesure ou SaaS : le comparatif TCO pour PME romandes"
 description: "Tu paies plusieurs SaaS sans que ça communique ? Calcule ton TCO sur 3 ans et découvre à quel moment le sur-mesure devient moins cher. Exemples en CHF."
-pubDate: 2026-07-31
+pubDate: 2026-07-22
 author: "Jon"
 image:
   url: "/images/blog/logiciel-sur-mesure-vs-saas.webp"

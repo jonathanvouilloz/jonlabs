@@ -1,0 +1,47 @@
+# Production log — calculer-gain-temps-automatisation
+Date : 2026-07-02 08:49
+Worker : @article-producer
+
+## Étapes
+- [OK] /seo-write    : draft écrit (content/_drafts/blog/calculer-gain-temps-automatisation.draft.md, 1505 mots)
+       Note : path drafts migré vers content/_drafts/blog/ (nouvelle convention détectée sur le cluster,
+       cf. mettre-en-place-ia-entreprise-guide.draft.md du même jour). Brief resté en fallback legacy .briefs/.
+- [OK] /humanizer    : 9 patterns IA corrigés (8 em dash remplacés par virgule/deux-points, 2 doublons de bold
+       dans le bloc TLDR retirés — le TLDR ne doit porter aucun bold selon la règle du skill)
+- [OK] /seo-enrich   : src/content/blog/calculer-gain-temps-automatisation.md créé (11.1 kB)
+       Frontmatter : title 51 car., h1 86 car. (distinct du title), description 124 car., category automatisation,
+       pubDate 2026-08-19, 4 FAQ répliquées en frontmatter faqs[] (cohérent avec convention du projet).
+       Schema BlogPosting + FAQPage + Breadcrumb délégués au template [slug].astro (aucune duplication manuelle).
+       Build Astro : 208 pages, 0 erreur. Page absente de dist/ pour l'instant car pubDate futur
+       (2026-08-19 > date système 2026-07-02) — comportement attendu du système de cadence par cron rebuild,
+       pas un défaut.
+       Déviation mineure vs brief : lien maillage "ce qu'une PME romande récupère vraiment" →
+       /blog/avant-apres-automatisation-pme-romande NON inséré (cet article n'existe encore qu'à l'état de
+       brief, pas publié — pratique établie du projet de ne lier que vers des articles déjà en ligne).
+       Remplacé par un lien de substitution vers /blog/agent-ia-entreprise-cas-usage (déjà publié, cluster
+       identique) dans la même section (Exemple chiffré complet). À reconsidérer une fois
+       avant-apres-automatisation-pme-romande publié.
+       CTA de conclusion : golden rule 10 impose un CTA unique vers /contact?utm_campaign=[slug] — le lien
+       /consultant-ia suggéré par le brief en "Conclusion (CTA)" a été traduit en texte narratif + CTA /contact,
+       conforme au pattern déjà observé sur ia-nlpd-conformite-suisse.md.
+- [OK] /seo-review   : 17/18 critères PASS, 0 BLOQUANT
+       1 correction appliquée en direct : critère 14 (formulation naturelle) — "gain de temps automatisation"
+       reformulé en "gain de temps d'automatisation" (ligne Conclusion H2 "Pourquoi viser 70-85%").
+       1 FAIL documenté non-bloquant : critère 18 (GEO — citation d'expert + sources inline). Le brief ne
+       fournissait aucune source externe exploitable ("Aucune source externe fournie" dans les deux sections
+       Sources et Citations exploitables du brief). Signalé plutôt que fabriqué, conformément au garde-fou
+       anti-hallucination du pipeline.
+- [OK] /generate-cover : public/images/blog/calculer-gain-temps-automatisation.webp (37 kB, 1920×1080)
+       Pipeline template (moodboard/presets.yaml → blog-cover-template), aucun appel API.
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-08-19)
+
+## Bloquants éventuels
+Aucun bloquant. Un point à surveiller (non-bloquant) :
+- Critère GEO 18 (citation d'expert + sources inline) en FAIL faute de source externe fournie par le brief.
+  Le contenu reste sourcé (méthode et fourchettes = pratique terrain Jon Labs, explicité dans la section
+  "Sources et Références" de l'article). N'affecte pas la publication mais limite légèrement le potentiel
+  de citation par les moteurs IA génératifs vs un article avec sources externes liées.
+- Lien de maillage vers /blog/avant-apres-automatisation-pme-romande à ajouter manuellement une fois cet
+  article satellite publié (actuellement seulement à l'état de brief).

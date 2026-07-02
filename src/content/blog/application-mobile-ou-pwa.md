@@ -2,7 +2,7 @@
 title: "Application mobile ou PWA : comment choisir ?"
 h1: "Application mobile ou PWA : le guide de décision pour votre PME"
 description: "PWA ou app native ? Tableau de décision avec critères concrets, fourchettes CHF et règle des 3 questions pour trancher en 2 minutes."
-pubDate: 2026-07-13
+pubDate: 2026-07-10
 author: "Jon"
 image:
   url: "/images/blog/application-mobile-ou-pwa.webp"

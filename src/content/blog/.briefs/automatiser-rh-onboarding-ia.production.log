@@ -1,0 +1,49 @@
+# Production log — automatiser-rh-onboarding-ia
+Date : 2026-07-02 12:35
+Worker : @article-producer
+
+## Étapes
+- [✓] /seo-write    : draft déjà présent au lancement (1479 mots, cible 1200-1500) — content/_drafts/blog/automatiser-rh-onboarding-ia.draft.md — repris tel quel (idempotence, étape déjà faite avant l'invocation de ce worker)
+- [✓] /humanizer    : 0 pattern IA détecté (0 em dash, 0 double-hyphen, 0 guillemet courbe, 0 vocabulaire IA, apostrophes droites correctes) — draft déjà propre, aucune réécriture nécessaire
+- [✓] /seo-enrich   : src/content/blog/automatiser-rh-onboarding-ia.md créé (~10.8 kB) — H1 retiré du corps (convention cluster récente : H1 uniquement via frontmatter `h1:`, corps démarre en H2, cf. automatiser-facturation-relances-ia.md) — lien manquant vers /consultant-ia ajouté dans la section nLPD (maillage brief non respecté par le draft initial) — schema BlogPosting + FAQPage généré automatiquement par le template ([slug].astro) depuis le frontmatter `faqs`. Build Astro : 208 pages, 0 erreur, 0 warning.
+- [✓] /seo-review   : 16/18 critères PASS, 2 FAIL non-bloquants (sévérité High, pas Critical)
+- [✓] /generate-cover : public/images/blog/automatiser-rh-onboarding-ia.webp (33.9 kB) — pipeline template (blog-cover-template), aucun appel API Gemini
+
+## Détail seo-review (16/18 PASS)
+| # | Critère | Statut |
+|---|---|---|
+| 1 | Title (45 car.) | PASS |
+| 2 | Meta description (109 car.) | PASS |
+| 3 | H1 (58 car., distinct du title) | PASS |
+| 4 | Hiérarchie Hn (H1 frontmatter → H2 → H3 FAQ, aucun saut) | PASS |
+| 5 | Bold entity keywords (10 bolds) | PASS (note mineure : "nLPD" bold 2x, cohérent avec la pratique déjà en prod sur ce cluster ex. Bexio/Crésus/Sage 50 dupliqués dans automatiser-facturation-relances-ia.md ; bold dans le lien CTA = pattern bouton site-wide, pas un lien texte inline) |
+| 6 | Liens internes (4 cibles distinctes : pillar, consultant-ia, nlpd, contact — toutes vérifiées existantes, ancres descriptives, 0 ancre vide) | PASS |
+| 7 | TLDR (blockquote, 4 bullets, keyword principal présent) | PASS |
+| 8 | Open Graph (og:type=article via Layout, og:image configuré) | PASS |
+| 9 | Schema JSON-LD (BlogPosting + FAQPage, généré par template) | PASS |
+| 10 | Keyword placement (title/H1/meta/100 premiers mots/1 H2) | PASS |
+| 11 | Indexation (pas de noindex ; sitemap/listing : entrée différée au 2026-09-11 via isPublished()/cron de cadence, comportement attendu) | PASS |
+| 12 | Patterns IA (0 em dash, 0 cliché, 0 liste bold-header) | PASS |
+| 13 | Orthographe française (accents vérifiés corps + frontmatter) | PASS |
+| 14 | Formulation naturelle keywords (aucun stuffing brut détecté) | PASS |
+| 15 | GEO réponse directe sous H2 (5/5 premiers H2, H2 FAQ exempté par nature de conteneur) | PASS |
+| 16 | GEO densité factuelle (~6 données chiffrées / ~1497 mots, soit ~4/1000, légèrement sous le seuil de 5/1000) | FAIL (non-bloquant, sévérité High) |
+| 17 | GEO llm.txt présent | PASS |
+| 18 | GEO citation d'expert + sources inline | FAIL (non-bloquant, sévérité High) — voir Bloquants |
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-09-11, cadence lundi/vendredi à confirmer sur le calendrier du cluster)
+
+## Bloquants éventuels
+Aucun bloquant critique. Deux FAIL non-bloquants (sévérité High, pas Critical) :
+
+- **Critère 16 (GEO — Densité factuelle)** : ~4 données chiffrées précises pour 1000 mots (structure 1-15 personnes, art. 319 CO, J-7/J+1, période d'essai 1-3 mois, entrée en vigueur nLPD septembre 2023), légèrement sous le seuil cible de 5/1000. Cause : brief explicite "Aucune donnée chiffrée propriétaire pour cet article" — sujet processus/juridique peu propice aux statistiques. Non corrigé pour ne pas fabriquer de chiffre.
+- **Critère 18 (GEO — Citation d'expert + sources inline)** : aucune citation directe attribuée (`Selon X, « ... »`) ni lien externe faisant autorité dans le corps (seule la mention texte "Code des obligations suisse, art. 319 et suivants" en section Sources, non hyperliée). Cause : le brief indique explicitement "Aucune source externe fournie. Pas de citation à fabriquer." Choix éditorial cohérent avec le reste du cluster (même trade-off documenté sur agent-ia-entreprise-cas-usage.production.log) : ne rien fabriquer plutôt que d'inventer une citation ou mal attribuer une source, conforme au garde-fou du skill seo-review.
+
+Note non-bloquante additionnelle : un `<!-- TODO:image -->` résiduel subsiste après la section "Automatiser l'onboarding d'un nouveau collaborateur" (image secondaire de type schema sur la nLPD, brief Image 2, aspect 4:3) — à produire via `/generate-images --brief src/content/blog/.briefs/automatiser-rh-onboarding-ia.md` si le rendu visuel complet est souhaité avant publication. Seule la cover OG/og:image a été générée par ce pipeline, conformément au scope de `/generate-cover`.
+
+Maillage retour suggéré (non appliqué — hors scope de ce worker) :
+| Page existante | Où insérer le lien | Ancre suggérée | Fichier à éditer |
+|---|---|---|---|
+| Guide pilier mise en place IA | Section listant les spokes du cluster | "automatiser les RH et l'onboarding" | src/content/pages/mettre-en-place-ia-entreprise-guide.md |
+| IA et nLPD, conformité suisse | Section sur les données sensibles / cas d'usage | "automatiser les RH sans SIRH" | src/content/blog/ia-nlpd-conformite-suisse.md |

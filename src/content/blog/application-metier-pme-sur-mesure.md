@@ -2,7 +2,7 @@
 title: "App métier sur mesure pour PME : 5 cas concrets"
 h1: "Application métier sur mesure pour PME : 5 cas concrets en Suisse romande"
 description: "5 exemples d'applications métier sur mesure pour PME romandes : coûts, ROI, temps de retour. Pourquoi une app sur mesure bat souvent le SaaS générique."
-pubDate: 2026-08-14
+pubDate: 2026-07-31
 author: "Jon"
 image:
   url: "/images/blog/application-metier-pme-sur-mesure.webp"

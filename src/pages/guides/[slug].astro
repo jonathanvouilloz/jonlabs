@@ -1,0 +1,267 @@
+---
+import '../../styles/global.css';
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import AppHeader from '../../components/Header.astro';
+import AppFooter from '../../components/Footer.astro';
+import AuthorBio from '../../components/blog/AuthorBio.astro';
+import ReadingProgress from '../../components/blog/ReadingProgress.astro';
+import { formatDate, isPublished } from '../../lib/blog';
+import { author } from '../../sample';
+import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
+import { SITE_URL, personData, organizationData } from '../../data/schema';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('pages', ({ data }) => isPublished(data));
+  return pages.map((page) => ({
+    params: { slug: page.slug },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const { title, h1, description, image, tags, pubDate, readingTime } = page.data;
+const { Content } = await page.render();
+
+// Schemas — WebPage (pas BlogPosting) : le pillar est un hub, pas un article.
+const webPageSchema = getWebPageSchema({
+  url: Astro.url.href,
+  name: title,
+  description,
+});
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Accueil', url: SITE_URL },
+  { name: 'Guides', url: `${SITE_URL}/guides` },
+  { name: title, url: Astro.url.href },
+]);
+
+const schemas = [
+  personData,
+  organizationData,
+  webPageSchema,
+  breadcrumbSchema,
+];
+if (page.data.faqs && page.data.faqs.length > 0) {
+  schemas.push(getFAQPageSchema(page.data.faqs));
+}
+---
+
+<Layout
+  title={title}
+  description={description}
+  ogImage={image.url}
+  ogType="article"
+  schemas={schemas}
+>
+  <AppHeader />
+
+  <article class="mb-20">
+    <div class="max-w-6xl mx-auto px-4 pt-12 relative z-10">
+      <div class="grid grid-cols-1 xl:grid-cols-3 xl:gap-8">
+        <!-- Content (col 1-2) -->
+        <div class="col-span-1 xl:col-span-2 order-2 xl:order-1">
+          <!-- Top bar: back + share -->
+          <div class="flex items-center justify-between mb-8">
+            <a
+              href="/consultant-ia"
+              class="inline-flex items-center gap-2 text-sm font-medium text-gray-600 hover:text-[var(--violet)] transition-colors"
+            >
+              <i class="ri-arrow-left-line"></i>
+              Consultant IA
+            </a>
+            <div class="flex items-center gap-3 text-gray-500">
+              <a
+                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(Astro.url.href)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="hover:text-[var(--violet)] transition-colors"
+                aria-label="Partager sur LinkedIn"
+              >
+                <i class="ri-linkedin-fill"></i>
+              </a>
+              <button
+                class="hover:text-[var(--violet)] transition-colors cursor-pointer"
+                aria-label="Copier le lien"
+                onclick="navigator.clipboard.writeText(window.location.href); this.innerHTML='<i class=\'ri-check-line text-green-500\'></i>'; setTimeout(() => this.innerHTML='<i class=\'ri-link\'></i>', 2000)"
+              >
+                <i class="ri-link"></i>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <!-- Meta -->
+            <div class="flex flex-wrap items-center gap-3 mb-6">
+              <span class="inline-block bg-[var(--accent)] border-2 border-black px-3 py-1 text-sm font-bold">Guide</span>
+              <span class="text-sm text-gray-500">{formatDate(pubDate)}</span>
+              {readingTime && (
+                <span class="flex items-center gap-1 text-sm text-gray-500">
+                  <i class="ri-time-line"></i>
+                  {readingTime} min de lecture
+                </span>
+              )}
+            </div>
+
+            <!-- Title (H1 distinct du title SEO ; fallback sur title si absent) -->
+            <h1 class="text-3xl md:text-4xl font-black mb-6 leading-tight">
+              {h1 ?? title}
+            </h1>
+
+            <!-- Tags -->
+            {tags.length > 0 && (
+              <div class="flex flex-wrap gap-2 mb-8 pb-8 border-b border-gray-200">
+                {tags.map((tag) => (
+                  <span class="px-3 py-1 bg-gray-100 text-sm text-gray-600">#{tag}</span>
+                ))}
+              </div>
+            )}
+
+            <!-- Content -->
+            <div class="prose-wrapper">
+              <div class="prose prose-lg max-w-none">
+                <Content />
+              </div>
+            </div>
+
+            <!-- Bottom bar -->
+            <div class="mt-12 pt-8 border-t border-gray-200">
+              <div class="flex items-center justify-between">
+                <a
+                  href="/blog"
+                  class="inline-flex items-center gap-2 text-sm font-medium hover:text-[var(--violet)] transition-colors"
+                >
+                  <i class="ri-arrow-left-line"></i>
+                  Retour au blog
+                </a>
+                <div class="flex gap-4">
+                  <button
+                    class="text-gray-500 hover:text-gray-700 transition-colors"
+                    aria-label="Partager"
+                    onclick="navigator.share ? navigator.share({title: document.title, url: window.location.href}) : null"
+                  >
+                    <i class="ri-share-forward-line text-xl"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar (col 3) - sticky -->
+        <div class="xl:col-span-1 order-1 xl:order-2 hidden xl:block">
+          <div class="sticky top-24">
+            <ReadingProgress readingTime={readingTime} />
+          </div>
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <AuthorBio />
+  <AppFooter />
+</Layout>
+
+<style is:global>
+  /* Prose styling - identique aux articles de blog */
+  .prose {
+    font-size: 18px;
+    line-height: 1.7;
+    color: #2D2D2D;
+  }
+
+  .prose p { margin-bottom: 1.5rem; }
+
+  .prose h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    color: #141413;
+    margin-top: 1.8em;
+    margin-bottom: 0.7em;
+  }
+
+  .prose h3 {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #141413;
+    margin-top: 1.4em;
+    margin-bottom: 0.6em;
+  }
+
+  .prose ul {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    list-style-type: disc;
+  }
+
+  .prose ol {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    list-style-type: decimal;
+  }
+
+  .prose li { margin-bottom: 0.5rem; display: list-item; }
+
+  .prose ul ul { list-style-type: circle; margin-top: 0.5rem; margin-bottom: 0.5rem; }
+  .prose ol ol { list-style-type: lower-alpha; margin-top: 0.5rem; margin-bottom: 0.5rem; }
+
+  .prose a { color: var(--violet); text-decoration: underline; }
+  .prose a:hover { color: var(--blue); }
+
+  .prose blockquote {
+    border-left: 4px solid var(--accent);
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    font-style: italic;
+    color: #666;
+  }
+
+  .prose code {
+    background: #f5f5f5;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.25rem;
+    font-size: 0.9em;
+  }
+
+  .prose pre {
+    background: #1a1a1a;
+    color: #f5f5f5;
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+  }
+
+  .prose pre code { background: transparent; padding: 0; }
+
+  .prose img {
+    display: block;
+    max-width: 85%;
+    margin: 2rem auto;
+    border-radius: 6px;
+  }
+
+  .prose hr { border: none; border-top: 1px solid #e5e5e5; margin: 3rem 0; }
+
+  .prose table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 1.5rem 0;
+    background: white;
+    font-size: 0.95em;
+    display: table;
+    overflow-x: auto;
+  }
+
+  .prose thead { background: #eee; color: #333; }
+  .prose th { padding: 0.6em 0.8em; text-align: left; font-weight: 600; border: 1px solid #ddd; }
+  .prose td { padding: 0.6em 0.8em; border: 1px solid #ddd; }
+  .prose tbody tr:last-child { border-bottom: 1px solid #ccc; }
+  .prose tbody tr:hover { background: #f9f9f9; }
+
+  @media (max-width: 640px) {
+    .prose table { display: block; overflow-x: auto; white-space: nowrap; }
+  }
+</style>

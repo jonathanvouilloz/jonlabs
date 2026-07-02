@@ -1,0 +1,26 @@
+# Production log — automatiser-support-client-ia
+Date : 2026-07-02 09:06
+Worker : @article-producer
+
+## Étapes
+- [✓] /seo-write    : draft écrit (1745 mots corps, brief src/content/blog/.briefs/automatiser-support-client-ia.md lu en fallback legacy path)
+- [✓] /humanizer    : 2 patterns IA corrigés (2 em dash, 1 dans un bullet TLDR, 1 dans un heading H2)
+- [✓] /seo-enrich   : src/content/blog/automatiser-support-client-ia.md créé (13.4 kB) — build Astro OK (208 pages, 0 erreur)
+- [✓] /seo-review   : 14/18 critères PASS, 0 bloquant critique, 2 FAIL non-bloquants (GEO densité factuelle, GEO citation+sources — cause : brief sans données chiffrées ni source externe, non fabriquées par choix). 3 corrections mineures supplémentaires appliquées pendant la review (naturalisation de 2 bolds bruts + suppression bold parasite dans TLDR)
+- [✓] /generate-cover : public/images/blog/automatiser-support-client-ia.webp (34.4 kB, pipeline template, aucun appel API)
+
+## Statut final
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-08-24)
+
+Note : le build local n'affiche pas encore l'URL dans dist/ ni le sitemap car pubDate (2026-08-24) est postérieure à la date système (2026-07-02) — comportement normal du site (`isPublished()` filtre sur pubDate <= now), identique à l'article sœur automatiser-facturation-relances-ia (pubDate 2026-08-17). La page se génère automatiquement au prochain rebuild après la date de publication.
+
+## Décisions par défaut prises (pas d'AskUserQuestion, conformément aux règles d'autonomie)
+
+1. **Lien latéral /metiers/ia-commerce-retail omis.** L'orchestrateur demandait ce lien latéral, mais ce slug n'existe pas dans `src/data/metiers-ia.ts` (seuls `ia-fiduciaire` et `ia-agence-immobiliere` y sont définis). Un lien vers une page inexistante aurait été un lien mort. Décision : omettre ce lien plutôt que publier un 404, garder la mention thématique du secteur commerce/retail en prose sans hyperlien. À corriger dès que la fiche métier sera créée.
+2. **CTA de conclusion vers /contact (pas /consultant-ia).** Le brief indiquait `/consultant-ia` comme CTA cible en conclusion, mais la règle stricte de `/seo-write` (contrat de fin d'article) impose exactement 1 CTA vers `/contact?utm_source=blog&utm_medium=article&utm_campaign=...`. Le lien `/consultant-ia` a été conservé comme lien de corps (section "Quel outil pour une PME romande"), conformément à la convention déjà appliquée sur l'article sœur automatiser-facturation-relances-ia.
+3. **Aucune donnée chiffrée inventée** malgré le seuil GEO de densité factuelle non atteint (1 donnée/1745 mots vs 5/1000 recommandé). Le brief indique explicitement l'absence de données propriétaires pour ce sujet — la règle anti-fabrication prévaut sur le seuil GEO.
+4. **Aucune citation d'expert fabriquée** pour la même raison (brief : "Aucune source externe fournie. Pas de citation à fabriquer.").
+5. **Moat suisse appliqué** : nLPD (garde-fou données personnelles support client), CHF 60-120/h (coût horaire suisse, donnée déjà validée et réutilisée sur l'article sœur du même cluster), outils neutres n8n/Make explicitement autorisés par le brief (pas de name-and-shame concurrent).
+
+## Bloquants éventuels
+Aucun bloquant critique. 2 FAIL non-bloquants documentés dans le rapport de review (GEO densité factuelle, GEO citation+sources), tous deux root-causés à un brief sans données/sources externes fournies plutôt qu'à un défaut de rédaction. Rapport complet : src/content/blog/.briefs/automatiser-support-client-ia.review.md

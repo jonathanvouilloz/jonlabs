@@ -1,0 +1,29 @@
+# Production log — automatiser-emails-documents-ia
+Date : 2026-07-02 09:05
+Worker : @article-producer
+
+## Étapes
+
+- [✓] /seo-write    : draft écrit (1469 mots bruts, 1463 mots de corps final) — content/_drafts/blog/automatiser-emails-documents-ia.draft.md + copie legacy src/content/blog/.briefs/ (humanizer ne lit que le path legacy)
+- [✓] /humanizer    : 5 patterns IA corrigés (4× tiret cadratin remplacé par deux-points ou parenthèses selon contexte, 1× tournure cassée "une IA qui la sourceable" réparée en "une IA qui peut prouver d'où vient la sienne"). Zéro em dash, zéro guillemet courbe, zéro vocabulaire IA détecté après passe.
+- [✓] /seo-enrich   : src/content/blog/automatiser-emails-documents-ia.md créé (11.9 kB). Frontmatter validé (title 49 car., description 116 car., h1 distinct du title 85 car., alt cover 67 car., category "automatisation", 5 FAQ en JSON faqs[], readingTime 7). Build Astro OK (208 pages, 0 erreur). Correction appliquée en cours de review : stratégie de bold révisée (doublon "interroger ses documents avec le RAG" supprimé, bold retiré de l'intérieur d'un lien markdown, 3 nouveaux bolds ajoutés — "retrieval-augmented generation", "NotebookLM", "la confidentialité des données dans un RAG d'entreprise" — pour atteindre le minimum de 10 bolds distincts sans répétition).
+- [✓] /seo-review   : 16/18 critères PASS, 0 bloquant critique. 2 FAIL non-bloquants : critère GEO #16 (densité factuelle ≥5 chiffres/1000 mots) et critère GEO #18 (citation d'expert + sources inline) — le brief indique explicitement "Aucune donnée chiffrée propriétaire" et "Aucune source externe fournie. Pas de citation à fabriquer.", donc aucune donnée ni citation n'a été fabriquée (conforme à la règle anti-hallucination du pipeline). Décision par défaut : accepté tel quel, à enrichir manuellement si des données/sources terrain deviennent disponibles.
+- [✓] /generate-cover : public/images/blog/automatiser-emails-documents-ia.webp (35.2 kB, pipeline template, aucun appel API)
+
+## Statut final
+
+SUCCESS — article prêt à publier (pubDate dans frontmatter : 2026-08-26)
+
+## Points d'attention (non-bloquants, notés par défaut faute d'interaction utilisateur possible)
+
+1. L'article absorbe bien l'intent « RAG documents PME » comme demandé : RAG expliqué simplement, différencié de NotebookLM (usage individuel) via une base documentaire interne partagée (usage équipe), garde-fou anti-hallucination dédié (H2 propre), et confidentialité nLPD sur dossiers clients/RH (H2 propre).
+2. Maillage montant vers le pillar `/guides/mettre-en-place-ia-entreprise-guide` posé en intro (obligatoire, ancre descriptive). Maillage latéral fort vers `/blog/notebooklm-guide-complet-2026` posé dans le H2 RAG. Lien vers `/blog/ia-nlpd-conformite-suisse` posé dans le H2 confidentialité. Aucun lead magnet inséré, conforme à la consigne.
+3. Conformément à la Golden Rule 10 (CTA final unique) et au précédent établi sur les articles du même cluster, le CTA de conclusion pointe vers `/contact?utm_source=...` et non vers `/consultant-ia` comme suggéré dans la table de maillage du brief — ce choix suit le même arbitrage que celui déjà appliqué sur `automatiser-facturation-relances-ia.md` (un seul point de sortie /contact, pas de CTA secondaire vers une page service).
+4. Maillage retour vérifié : le pillar `src/content/pages/mettre-en-place-ia-entreprise-guide.md` (ligne 59, section "Emails et documents") linke déjà vers ce nouvel article avec une ancre descriptive. Aucune action supplémentaire nécessaire.
+5. Un commentaire `<!-- TODO:image schema ... -->` reste dans le corps (section "Interroger ses propres documents sans halluciner (RAG)", image 2 du brief : schéma en 3 étapes du fonctionnement du RAG). Type non photo-réaliste (schema) — image à produire manuellement (Figma/Illustrator) ou via `/generate-images --brief` avant publication finale. Ne pas publier sans traiter ce placeholder.
+6. La page n'apparaît pas encore dans le sitemap ni dans le build listé (`isPublished()` filtre sur pubDate <= aujourd'hui) : comportement attendu du site (cadence pubDate + cron rebuild), pas un bug. À vérifier une fois le 26.08.2026 atteint.
+7. Critères GEO #16 (densité factuelle) et #18 (citation + sources inline) non satisfaits faute de matière chiffrée/citable dans le brief — voir ci-dessus.
+
+## Bloquants éventuels
+
+Aucun bloquant critique (title/meta/H1/orthographe/structure de fin/bold/liens — tous PASS). Les 2 points d'attention techniques ci-dessus (TODO image schema + lien futur vers article non encore atteint en pubDate) sont à traiter avant la date de publication mais ne bloquent pas la production du fichier.

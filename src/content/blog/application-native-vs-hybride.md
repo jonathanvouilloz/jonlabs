@@ -2,7 +2,7 @@
 title: "App native vs hybride : différences concrètes pour PME"
 h1: "Application native vs hybride : les différences concrètes pour ton projet"
 description: "App native ou hybride ? Définitions claires, tableau de performance et guide de choix pour décideurs. Sans jargon, avec des exemples concrets."
-pubDate: 2026-07-24
+pubDate: 2026-07-17
 author: "Jon"
 image:
   url: "/images/blog/application-native-vs-hybride.webp"

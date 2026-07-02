@@ -2,7 +2,7 @@
 title: "Un agent IA dans ton entreprise : 10 cas concrets"
 h1: "Agent IA pour entreprise : 10 cas d'usage qui font vraiment gagner du temps en PME romande"
 description: "Tu te demandes à quoi sert un agent IA en entreprise ? 10 exemples concrets en PME romande, secteur par secteur, avec les heures récupérées."
-pubDate: 2026-08-17
+pubDate: 2026-08-03
 image:
   url: "/images/blog/agent-ia-entreprise-cas-usage.webp"
   alt: "Interface d'agent IA exécutant des tâches automatisées sur un laptop dans un bureau de PME romande"
