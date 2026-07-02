@@ -1,5 +1,6 @@
 ---
 // Interests section - "Au-delà du Lab"
+import IconChip from "../IconChip.astro";
 
 const interests = [
   {
@@ -42,9 +43,7 @@ const interests = [
   <div class="max-w-4xl mx-auto relative">
     <!-- Section header -->
     <div class="flex items-center gap-4 mb-4">
-      <div class="flex items-center justify-center w-12 h-12 bg-[var(--violet)] border-2 border-black">
-        <i class="ri-heart-line text-2xl text-white"></i>
-      </div>
+      <IconChip icon="ri-heart-line" />
       <div>
         <span class="text-xs font-mono text-gray-500 tracking-widest block">SECTION 07</span>
         <h2 class="text-3xl md:text-4xl font-normal">Au-delà du code</h2>
@@ -59,17 +58,17 @@ const interests = [
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
       {interests.map((interest, index) => (
         <div
-          class={`interest-card border-2 border-black p-5 transition-all duration-300 hover:shadow-[6px_6px_0px_rgba(0,0,0,0.15)] hover:-translate-y-1 group cursor-default ${interest.highlight ? 'bg-purple-50 border-[var(--violet)]' : interest.past ? 'bg-gray-50' : 'bg-white'}`}
+          class={`interest-card border-2 border-black p-5 transition-all duration-300 hover:shadow-[6px_6px_0px_rgba(0,0,0,0.15)] hover:-translate-y-1 group cursor-default ${interest.highlight ? 'bg-accent-soft border-black' : interest.past ? 'bg-gray-50' : 'bg-white'}`}
           style={`transform: rotate(${interest.rotate}); animation-delay: ${index * 0.1}s`}
         >
           <!-- Icon & Title -->
           <div class="flex items-center gap-3 mb-3">
-            <div class={`w-10 h-10 flex items-center justify-center border-2 border-black group-hover:scale-110 transition-transform duration-300 ${interest.highlight ? 'bg-[var(--violet)] text-white' : interest.past ? 'bg-gray-200' : 'bg-[var(--blue)]'}`}>
+            <div class={`w-10 h-10 flex items-center justify-center border-2 border-black group-hover:scale-110 transition-transform duration-300 ${interest.highlight ? 'bg-accent-strong text-white' : interest.past ? 'bg-gray-200' : 'bg-accent'}`}>
               <i class={`${interest.icon} text-xl`}></i>
             </div>
             <h3 class="text-xl font-bold">{interest.title}</h3>
             {interest.highlight && (
-              <span class="px-2 py-0.5 bg-[var(--violet)] text-white text-xs font-bold ml-auto">
+              <span class="px-2 py-0.5 bg-accent-strong text-white text-xs font-bold ml-auto">
                 ACTIF
               </span>
             )}

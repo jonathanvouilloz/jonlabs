@@ -1,5 +1,6 @@
 ---
 // Projects section - "Cas d'Étude Lab"
+import IconChip from "../IconChip.astro";
 
 const projects = [
   {
@@ -98,9 +99,7 @@ const projects = [
   <div class="max-w-6xl mx-auto">
     <!-- Section header -->
     <div class="flex items-center gap-4 mb-4">
-      <div class="flex items-center justify-center w-12 h-12 bg-[var(--blue)] border-2 border-black">
-        <i class="ri-flask-line text-2xl"></i>
-      </div>
+      <IconChip icon="ri-flask-line" />
       <div>
         <span class="text-xs font-mono text-gray-500 tracking-widest block">SECTION 04</span>
         <h2 class="text-3xl md:text-4xl font-normal">Projets Marquants</h2>
@@ -126,7 +125,7 @@ const projects = [
 
           <!-- Active badge -->
           {project.status === "active" && (
-            <div class="absolute -top-2 -right-2 bg-[var(--violet)] text-white px-3 py-1 text-xs font-bold border-2 border-black rotate-3">
+            <div class="absolute -top-2 -right-2 bg-accent-strong text-white px-3 py-1 text-xs font-bold border-2 border-black rotate-3">
               <span class="flex items-center gap-1">
                 <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
                 EN COURS
@@ -136,7 +135,7 @@ const projects = [
 
           <!-- Header -->
           <div class="mb-4 pt-2">
-            <h3 class="text-xl font-bold mb-1 group-hover:text-[var(--blue)] transition-colors">{project.title}</h3>
+            <h3 class="text-xl font-bold mb-1 group-hover:text-accent transition-colors">{project.title}</h3>
             <p class="text-sm text-gray-500">
               {project.client} • {project.year}
             </p>
@@ -151,11 +150,11 @@ const projects = [
           </p>
 
           <!-- Results -->
-          <div class="bg-emerald-50 border-l-4 border-[var(--blue)] p-3 mb-4">
+          <div class="bg-accent-soft border-l-4 border-black p-3 mb-4">
             <div class="flex flex-wrap gap-4">
               {project.results.map((result) => (
                 <div class="text-center">
-                  <span class="block text-xl font-black text-[var(--blue)]">{result.value}</span>
+                  <span class="block text-xl font-black text-accent">{result.value}</span>
                   <span class="text-xs text-gray-600">{result.label}</span>
                 </div>
               ))}
@@ -165,7 +164,7 @@ const projects = [
           <!-- Stack -->
           <div class="flex flex-wrap gap-2">
             {project.stack.map((tech) => (
-              <span class={`skill-badge px-2 py-1 border border-black text-xs font-medium ${project.stackType === 'marketing' ? 'bg-[var(--yellow)]' : project.stackType === 'past' ? 'bg-gray-200' : 'bg-[var(--blue)]'}`}>
+              <span class={`skill-badge px-2 py-1 border border-black text-xs font-medium ${project.stackType === 'marketing' ? 'bg-accent' : project.stackType === 'past' ? 'bg-gray-200' : 'bg-accent'}`}>
                 {tech}
               </span>
             ))}
@@ -177,9 +176,9 @@ const projects = [
               href={project.link}
               target="_blank"
               rel="noopener noreferrer"
-              class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-gray-700 hover:text-[var(--blue)] transition-colors group/link"
+              class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-gray-700 hover:text-accent transition-colors group/link"
             >
-              <span class="border-b-2 border-transparent group-hover/link:border-[var(--blue)]">Voir le projet</span>
+              <span class="border-b-2 border-transparent group-hover/link:border-accent">Voir le projet</span>
               <i class="ri-external-link-line transition-transform group-hover/link:translate-x-1"></i>
             </a>
           )}

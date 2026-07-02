@@ -3,6 +3,7 @@ import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import IconChip from '../../components/IconChip.astro';
 import FAQ from '../../components/FAQ.astro';
 
 // Import background components
@@ -292,7 +293,7 @@ const budgetOptions = [
         <!-- Gradient mesh background -->
         <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
             <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--blue)] opacity-15 blur-[120px] rounded-full"></div>
-            <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-[var(--violet)] opacity-10 blur-[100px] rounded-full"></div>
+            <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-accent-strong opacity-10 blur-[100px] rounded-full"></div>
         </div>
 
         <div class="max-w-4xl mx-auto relative z-10">
@@ -367,7 +368,7 @@ const budgetOptions = [
                     </div>
 
                     <!-- Decorative elements -->
-                    <div class="absolute -top-3 -right-3 md:-top-4 md:-right-4 bg-[var(--yellow)] border-2 border-black px-3 py-1.5 shadow-[3px_3px_0px_rgba(0,0,0,1)] rotate-6 z-10">
+                    <div class="absolute -top-3 -right-3 md:-top-4 md:-right-4 bg-accent border-2 border-black px-3 py-1.5 shadow-[3px_3px_0px_rgba(0,0,0,1)] rotate-6 z-10">
                         <span class="font-mono text-sm font-bold">Sur mesure</span>
                     </div>
                     <div class="absolute -bottom-3 -left-3 md:-bottom-4 md:-left-4 bg-white border-2 border-black px-3 py-1.5 shadow-[3px_3px_0px_rgba(0,0,0,1)] -rotate-3 z-10">
@@ -400,7 +401,7 @@ const budgetOptions = [
                 </span>
                 <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
                     <span class="relative inline-block">
-                        <span class="absolute bg-red-200 w-full h-[40%] left-0 bottom-1 -z-1"></span>
+                        <span class="absolute bg-panel w-full h-[40%] left-0 bottom-1 -z-1"></span>
                         Tu te reconnais ?
                     </span>
                 </h2>
@@ -413,9 +414,7 @@ const budgetOptions = [
                     <div class="pain-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
                         <!-- Icon + Quote -->
                         <div class="flex items-start gap-4 mb-4">
-                            <div class="w-10 h-10 bg-red-100 border-2 border-red-300 flex items-center justify-center flex-shrink-0">
-                                <i class={`${point.icon} text-red-500 text-xl`}></i>
-                            </div>
+                            <IconChip icon={point.icon} variant="muted" size="md" class="flex-shrink-0" />
                             <p class="text-lg font-medium italic text-gray-800">"{point.quote}"</p>
                         </div>
                         <p class="text-gray-600 text-sm leading-relaxed pl-14">{point.description}</p>
@@ -465,7 +464,7 @@ const budgetOptions = [
                             <!-- Card -->
                             <div class="w-full md:w-[calc(50%-1.5rem)] bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)]">
                                 <div class="flex items-center gap-3 mb-4">
-                                    <span class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
+                                    <span class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
                                         0{index + 1}
                                     </span>
                                     <h3 class="text-xl font-bold">{step.title}</h3>
@@ -499,9 +498,7 @@ const budgetOptions = [
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {differentiators.map((diff) => (
                         <div class="text-center">
-                            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black mx-auto mb-3 flex items-center justify-center">
-                                <i class={`${diff.icon} text-xl`}></i>
-                            </div>
+                            <IconChip icon={diff.icon} class="mx-auto mb-3" />
                             <h4 class="font-bold mb-1">{diff.title}</h4>
                             <p class="text-sm text-gray-600">{diff.description}</p>
                         </div>
@@ -540,9 +537,7 @@ const budgetOptions = [
                 {results.map((result) => (
                     <div class="result-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
                         <!-- Green check icon -->
-                        <div class="w-10 h-10 bg-green-100 border-2 border-green-400 flex items-center justify-center mb-4">
-                            <i class={`${result.icon} text-green-600 text-xl`}></i>
-                        </div>
+                        <IconChip icon={result.icon} size="md" class="mb-4" />
                         <h3 class="text-lg font-bold mb-2">{result.title}</h3>
                         <p class="text-gray-600 text-sm leading-relaxed flex items-start gap-2">
                             <i class="ri-arrow-right-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
@@ -555,9 +550,7 @@ const budgetOptions = [
             <!-- Case study - Dashboard club sportif -->
             <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-6 md:p-8" data-animate="fade-up">
                 <div class="flex flex-col md:flex-row gap-6 items-start">
-                    <div class="w-16 h-16 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                        <i class="ri-trophy-line text-2xl"></i>
-                    </div>
+                    <IconChip icon="ri-trophy-line" class="flex-shrink-0" />
                     <div>
                         <h3 class="text-xl font-bold mb-3">Exemple concret : Dashboard pour club sportif</h3>
                         <p class="text-gray-700 leading-relaxed mb-4">
@@ -714,9 +707,7 @@ const budgetOptions = [
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6" data-animate-stagger>
                 {localAdvantages.map((adv) => (
                     <div class="flex flex-col items-center text-center p-6 bg-[var(--main-bg)] border-2 border-black transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4">
-                            <i class={`${adv.icon} text-xl`}></i>
-                        </div>
+                        <IconChip icon={adv.icon} class="mb-4" />
                         <h3 class="font-bold mb-2">{adv.title}</h3>
                         <p class="text-sm text-gray-600">{adv.description}</p>
                     </div>

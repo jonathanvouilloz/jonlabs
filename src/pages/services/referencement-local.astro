@@ -3,6 +3,7 @@ import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import IconChip from '../../components/IconChip.astro';
 
 // Import background components
 import BackgroundGlitchGrid from '../../components/backgrounds/BackgroundGlitchGrid.astro';
@@ -540,19 +541,19 @@ const budgetOptions = [
                     <!-- Fake Google result -->
                     <div class="space-y-4">
                         <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-4">
-                            <div class="text-xs text-green-700 font-mono mb-1">www.leo-lecureux.ch</div>
+                            <div class="text-xs text-accent font-mono mb-1">www.leo-lecureux.ch</div>
                             <div class="text-lg font-bold text-blue-800 mb-1">Léo Lécureux — Avocat spécialisé divorce à Genève</div>
                             <div class="text-sm text-gray-600">Cabinet d'avocat spécialisé en droit du divorce et de la famille à Genève. Consultation personnalisée...</div>
                         </div>
                         <div class="p-4 opacity-40">
-                            <div class="text-xs text-green-700 font-mono mb-1">www.concurrent-2.ch</div>
+                            <div class="text-xs text-accent font-mono mb-1">www.concurrent-2.ch</div>
                             <div class="text-lg font-bold text-blue-800 mb-1">Autre cabinet — Avocat à Genève</div>
                             <div class="text-sm text-gray-600">Résultat concurrent en position 2...</div>
                         </div>
                     </div>
                 </div>
                 <!-- #1 badge -->
-                <div class="absolute -top-4 -left-4 bg-[var(--yellow)] border-2 border-black px-3 py-2 shadow-[3px_3px_0px_rgba(0,0,0,1)] -rotate-6">
+                <div class="absolute -top-4 -left-4 bg-accent border-2 border-black px-3 py-2 shadow-[3px_3px_0px_rgba(0,0,0,1)] -rotate-6">
                     <span class="font-mono text-sm font-bold">#1</span>
                     <span class="text-xs text-gray-700 block">Google</span>
                 </div>
@@ -585,7 +586,7 @@ const budgetOptions = [
                 </span>
                 <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
                     <span class="relative inline-block">
-                        <span class="absolute bg-red-200 w-full h-[40%] left-0 bottom-1 -z-1"></span>
+                        <span class="absolute bg-panel w-full h-[40%] left-0 bottom-1 -z-1"></span>
                         Vous vous reconnaissez ?
                     </span>
                 </h2>
@@ -597,9 +598,7 @@ const budgetOptions = [
                 {painPoints.map((point) => (
                     <div class="pain-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
                         <!-- Red X icon -->
-                        <div class="w-10 h-10 bg-red-100 border-2 border-red-300 flex items-center justify-center mb-4">
-                            <i class="ri-close-line text-red-500 text-xl"></i>
-                        </div>
+                        <IconChip icon="ri-close-line" variant="muted" size="md" class="mb-4" />
                         <h3 class="text-lg font-bold mb-2">{point.title}</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">{point.description}</p>
                     </div>
@@ -718,7 +717,7 @@ const budgetOptions = [
                     <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
                         <!-- Number badge -->
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
+                            <span class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
                                 0{index + 1}
                             </span>
                         </div>
@@ -745,9 +744,7 @@ const budgetOptions = [
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {differentiators.map((diff) => (
                         <div class="text-center">
-                            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black mx-auto mb-3 flex items-center justify-center">
-                                <i class={`${diff.icon} text-xl`}></i>
-                            </div>
+                            <IconChip icon={diff.icon} class="mx-auto mb-3" />
                             <h4 class="font-bold mb-1">{diff.title}</h4>
                             <p class="text-sm text-gray-600">{diff.description}</p>
                         </div>
@@ -782,7 +779,7 @@ const budgetOptions = [
                 {localLevers.map((lever, index) => (
                     <div class="bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
                         <div class="flex items-center gap-3 mb-3">
-                            <span class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center font-mono font-bold text-sm shrink-0">
+                            <span class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm shrink-0">
                                 0{index + 1}
                             </span>
                             <i class={`${lever.icon} text-xl text-[var(--violet)]`}></i>
@@ -806,7 +803,7 @@ const budgetOptions = [
             </div>
 
             <!-- Overlooked angles -->
-            <div class="bg-[var(--yellow)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate="fade-up">
+            <div class="bg-accent border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate="fade-up">
                 <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-black border-2 border-black"></div>
                 <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-black border-2 border-black"></div>
                 <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-black border-2 border-black"></div>
@@ -816,9 +813,7 @@ const budgetOptions = [
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {overlookedAngles.map((angle) => (
                         <div class="text-center">
-                            <div class="w-12 h-12 bg-white border-2 border-black mx-auto mb-3 flex items-center justify-center">
-                                <i class={`${angle.icon} text-xl`}></i>
-                            </div>
+                            <IconChip icon={angle.icon} variant="muted" class="mx-auto mb-3" />
                             <h4 class="font-bold mb-1">{angle.title}</h4>
                             <p class="text-sm text-gray-700">{angle.description}</p>
                         </div>
@@ -853,9 +848,7 @@ const budgetOptions = [
                 {results.map((result) => (
                     <div class="result-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
                         <!-- Green check icon -->
-                        <div class="w-10 h-10 bg-green-100 border-2 border-green-400 flex items-center justify-center mb-4">
-                            <i class="ri-check-line text-green-600 text-xl"></i>
-                        </div>
+                        <IconChip icon="ri-check-line" size="md" class="mb-4" />
                         <h3 class="text-lg font-bold mb-2">{result.title}</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">{result.description}</p>
                     </div>
@@ -933,7 +926,7 @@ const budgetOptions = [
                 {pricingPlans.map((plan) => (
                     <div class={`
                         pricing-card bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 relative
-                        ${plan.highlighted ? 'shadow-[8px_8px_0px_rgba(0,0,0,1)] ring-2 ring-[var(--blue)]' : 'shadow-[4px_4px_0px_rgba(0,0,0,0.3)]'}
+                        ${plan.highlighted ? 'shadow-[8px_8px_0px_rgba(0,0,0,1)] ring-2 ring-accent' : 'shadow-[4px_4px_0px_rgba(0,0,0,0.3)]'}
                     `} data-animate-item>
                         {plan.highlighted && (
                             <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-bold">
@@ -1015,9 +1008,7 @@ const budgetOptions = [
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10" data-animate-stagger>
                     {pricingDrivers.map((driver) => (
                         <div class="bg-[var(--main-bg)] border-2 border-black p-5" data-animate-item>
-                            <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black mb-3 flex items-center justify-center">
-                                <i class={`${driver.icon} text-lg`}></i>
-                            </div>
+                            <IconChip icon={driver.icon} size="md" class="mb-3" />
                             <h4 class="font-bold mb-1 text-sm">{driver.title}</h4>
                             <p class="text-xs text-gray-600 leading-relaxed">{driver.description}</p>
                         </div>
@@ -1057,7 +1048,7 @@ const budgetOptions = [
                     <ol class="space-y-4">
                         {preSigningQuestions.map((question, index) => (
                             <li class="flex items-start gap-4">
-                                <span class="w-8 h-8 bg-[var(--yellow)] border-2 border-black flex items-center justify-center font-mono font-bold text-sm shrink-0">
+                                <span class="w-8 h-8 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm shrink-0">
                                     {index + 1}
                                 </span>
                                 <p class="text-sm text-gray-700 leading-relaxed pt-1">{question}</p>
@@ -1171,9 +1162,7 @@ const budgetOptions = [
                     <div class="space-y-4">
                         {localAdvantages.map((adv) => (
                             <div class="flex items-start gap-4 p-4 bg-[var(--main-bg)] border-2 border-black">
-                                <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                                    <i class={`${adv.icon} text-lg`}></i>
-                                </div>
+                                <IconChip icon={adv.icon} size="md" class="flex-shrink-0" />
                                 <div>
                                     <h4 class="font-bold mb-1">{adv.title}</h4>
                                     <p class="text-sm text-gray-600">{adv.description}</p>

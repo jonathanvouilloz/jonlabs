@@ -2,7 +2,31 @@
 
 > Chantier de fond : uniformiser le style graphique du site (thème, titres, couleurs), casser l'effet « très AI » (mur de texte, peu d'images, peu d'aération), rationaliser l'architecture/navigation, et transformer les pages tags thin en vraies pages — pour un rendu **plus professionnel**.
 > **Source ADN visuel marque perso** : skill `visual` (`~/.claude/skills/visual/`) — mono-accent teal `#00D9A3`, fond warm, connecteurs fins, formes arrondies, illustration « collage éditorial ».
-> **Statut** : 🔄 EN COURS — Phases 1a + 1b + 2 faites ✅. **Phase 3 : pilote v2 fait ✅** (formes signature + illustrations carré + cohérence highlights/icônes), build vert (209 pages). Reste **Phase 3 rollout** (pages restantes + services/CV). Décisions nav (3) + tags (4) à confirmer avant leurs phases.
+> **Statut** : 🔄 EN COURS — Phases 1a + 1b + 2 faites ✅. **Phase 3 : pilote v2 + ROLLOUT complet faits ✅** (illustrations, IconChip, problème=muted/solution=teal sur landings + services/* + CV), build vert (209 pages). Reste **Phases 4 (nav) & 6 (tags)** — bloquées par les décisions nav (3) + tags (4) à trancher.
+
+## Etat session 2026-07-02 (suite 5) — Phase 3 : ROLLOUT complet (landings + services/* + CV) ✅
+
+**Fait :** rollout de la Phase 3 sur tout le périmètre restant. Build **vert (209 pages)**.
+
+- **2 illustrations générées** (skill `visual`, typologie `illustration`, teal carré 1:1 natif, `--logo none`) : `metiers-ia.webp` (34 kB, collage registres/dossiers/clé → flux admin) et `developpement-web.webp` (31 kB, fenêtres navigateur + mockup mobile + pin localisation). Masters PNG dans `_masters/`. Prompts figés dans le scratchpad de session.
+- **Landings (bloc illustration+aside, gabarit pilote `max-w-6xl` + grille `lg:grid-cols-[minmax(0,340px)_1fr]` + `Halo` + `Image` carré, en aside de la FAQ)** : `consultant-ia/index` (illu `consultant-ia.webp`), `metiers/[metier]` (×2 pages, `metiers-ia.webp`), `developpement-web/[ville]` (×5 pages, `developpement-web.webp`) + normalisation chips/highlights de ces 3 pages.
+- **Services/\* (13 pages)** : chips → `IconChip` ; **problème → `variant="muted"` (gris neutre)**, **solution/résultat → teal** (y compris icônes de comparaison avant/après + colonnes « Pas pour vous ») ; encadrés/surlignages rouges neutralisés (`bg-panel`/`text-ink`/`text-muted`) ; badges/blobs alias → tokens. Fan-out de 3 agents (spec mécanique `phase3-normalize-spec.md`).
+- **CV (9 composants + `cv.astro`)** : `bg-emerald-*`/`bg-purple-*`/badges alias → tokens teal ; 7 section-chips → `IconChip` ; `cv.astro` (pixels JS déjà teal) intact.
+- **Fix visuel** : les surlignages inline qui se retrouvaient `bg-panel` **dans** un encadré `bg-panel` (invisibles) repassés en `bg-accent-soft` (auto/integration/formation).
+- **Cohérence dots** : dots « Disponible » des pages pilotes `consultant-ia/[ville]` + `freelance-geneve` passés `bg-green-500` → `bg-accent` (alignés sur les nouvelles pages).
+
+**Exceptions conservées (voulu) :** astérisques `*` de formulaire (`text-red-500` = obligatoire, fonctionnel), trios de dots « chrome fenêtre » (`bg-red-400`/`yellow-400`/`green-400` = mockup navigateur), emojis meta SEO, bloc code `bg-[#1e1e2e]`, displays `font-mono font-black`.
+
+**Reste (hors périmètre, à noter) :**
+- Les **2 pages pilotes** `consultant-ia/[ville]` + `developpeur-web-freelance-geneve` gardent des chips **faits-main** `bg-[var(--blue)]` (rendent teal, mais pas via `IconChip`) → migration optionnelle pour cohérence de code.
+- Verts « disponible/succès » sur pages **hors scope** : `outils/*`, `hermes`, `tarifs`, composants `Contact*`, `AboutHome`, `ChatAnimation`.
+- Alias legacy `bg-[var(--yellow/violet)]` (corners, callouts `/30`, hovers de boutons) : **rendent teal** via `Layout.astro`, hygiène de tokens différée (comme prévu).
+
+**Prochain :** validation visuelle Jonathan, puis **Phase 4 (Nav & archi)** / **Phase 6 (tags)** — nécessitent d'abord de trancher les **décisions nav (3)** et **tags (4)** (voir §Décisions à trancher).
+
+**Commit :** [à committer] feat(design): Phase 3 rollout — illustrations + IconChip + neutre/teal (landings, services, CV)
+
+---
 
 ## Etat session 2026-07-02 (suite 4) — Phase 3 : pilote v2 (aération, images carré, cohérence) ✅
 
@@ -181,7 +205,7 @@
 4. **Pages tags** — *recommandé : vérifier GSC d'abord* (elles sont noindex), puis normaliser, puis enrichir uniquement les candidats sûrs.
 
 ## Carte du code
-> Mise à jour : 2026-07-02 (Phase 3 pilote v2)
+> Mise à jour : 2026-07-02 (Phase 3 rollout)
 
 | Fichier | Rôle |
 |---------|------|
@@ -189,8 +213,12 @@
 | `src/layouts/Layout.astro` | Alias legacy `:root` (`--blue/--yellow/--violet/--accent` → tokens), charge les fonts |
 | `src/pages/styleguide.astro` | **Styleguide LIVE (noindex)** — palette, échelle typo (titres `font-normal`), highlight, formes, chips |
 | `src/components/shapes/*.astro` | **Formes signature (Phase 3)** — DotGrid, Halo, Connector, HalfCircle (token-based, décor d'aération) |
-| `src/components/IconChip.astro` | **Chip d'icône canonique (Phase 3)** — carré teal, variantes accent/muted/dark. Une seule norme (remplace 8 variantes + emoji) |
-| `src/assets/illustrations/*.webp` | Illustrations `visual` carré (about/freelance-geneve/consultant-ia) ; masters PNG dans `_masters/` |
+| `src/components/IconChip.astro` | **Chip d'icône canonique (Phase 3)** — carré, `accent` (teal, positif/défaut) · `muted` (gris, problème/négatif) · `dark`. Remplace tous les chips faits-main |
+| `src/assets/illustrations/*.webp` | Illustrations `visual` carré (about/freelance-geneve/consultant-ia/**metiers-ia/developpement-web**) ; masters PNG dans `_masters/` |
+| `src/pages/consultant-ia/index.astro` | Landing pilier IA — illu `consultant-ia.webp` en aside FAQ + IconChip généralisé (rollout) |
+| `src/pages/metiers/[metier].astro` (+ `src/data/metiers-ia.ts`) | ×2 pages — illu `metiers-ia.webp`, IconChip, « Pas pour vous » en muted (rollout) |
+| `src/pages/developpement-web/[ville].astro` (+ `src/data/villes-frontalieres.ts`) | ×5 pages — illu `developpement-web.webp`, IconChip (rollout) |
+| `src/components/cv/*.astro` | CV — section-chips → IconChip, emerald/purple → tokens teal (rollout) |
 | `src/pages/services/*.astro` (×13) | Chaque page : hero H1 = eyebrow `.seo-h1` (règle CSS inline), H2 `font-normal` |
 | `src/components/services/HeroScenarios.astro` | Hero constellation home ; garde son propre `.seo-h1` blanc sur fond sombre (hors périmètre) |
 | `src/components/{Hero,ContactHero,blog/BlogHero,cv/CVHero,MarkdownPost}.astro` | Titres hero/contenu (tous `font-normal tracking-tight`) |

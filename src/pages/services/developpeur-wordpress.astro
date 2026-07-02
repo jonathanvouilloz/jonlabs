@@ -3,6 +3,7 @@ import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import IconChip from '../../components/IconChip.astro';
 
 // Import image hero (réutiliser temporairement refonte-1.webp)
 import wordpressHero from '../../assets/services/refonte-1.webp';
@@ -399,7 +400,7 @@ const budgetOptions = [
                 </span>
                 <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
                     <span class="relative inline-block">
-                        <span class="absolute bg-red-200 w-full h-[40%] left-0 bottom-1 -z-1"></span>
+                        <span class="absolute bg-panel w-full h-[40%] left-0 bottom-1 -z-1"></span>
                         Votre WordPress vous fait ça ?
                     </span>
                 </h2>
@@ -411,9 +412,7 @@ const budgetOptions = [
                 {painPoints.map((point) => (
                     <div class="pain-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
                         <!-- Red X icon -->
-                        <div class="w-10 h-10 bg-red-100 border-2 border-red-300 flex items-center justify-center mb-4">
-                            <i class="ri-close-line text-red-500 text-xl"></i>
-                        </div>
+                        <IconChip icon="ri-close-line" variant="muted" size="md" class="mb-4" />
                         <h3 class="text-lg font-bold mb-2">{point.title}</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">{point.description}</p>
                     </div>
@@ -456,9 +455,7 @@ const budgetOptions = [
                         <div class="grid grid-cols-1 md:grid-cols-5 gap-6">
                             <div class="md:col-span-2">
                                 <div class="flex items-center gap-3 mb-4">
-                                    <span class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center">
-                                        <i class={`${intent.icon} text-2xl`}></i>
-                                    </span>
+                                    <IconChip icon={intent.icon} />
                                     <span class="font-mono text-sm text-gray-400">0{index + 1}</span>
                                 </div>
                                 <h3 class="text-xl md:text-2xl font-bold mb-3">{intent.title}</h3>
@@ -514,7 +511,7 @@ const budgetOptions = [
                     <div class="bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
                         <!-- Number badge -->
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
+                            <span class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
                                 0{index + 1}
                             </span>
                         </div>
@@ -541,9 +538,7 @@ const budgetOptions = [
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {differentiators.map((diff) => (
                         <div class="text-center">
-                            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black mx-auto mb-3 flex items-center justify-center">
-                                <i class={`${diff.icon} text-xl`}></i>
-                            </div>
+                            <IconChip icon={diff.icon} class="mx-auto mb-3" />
                             <h4 class="font-bold mb-1">{diff.title}</h4>
                             <p class="text-sm text-gray-600">{diff.description}</p>
                         </div>
@@ -581,7 +576,7 @@ const budgetOptions = [
                 {pricingPlans.map((plan) => (
                     <div class={`
                         pricing-card bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 relative
-                        ${plan.highlighted ? 'shadow-[8px_8px_0px_rgba(0,0,0,1)] ring-2 ring-[var(--blue)]' : 'shadow-[4px_4px_0px_rgba(0,0,0,0.3)]'}
+                        ${plan.highlighted ? 'shadow-[8px_8px_0px_rgba(0,0,0,1)] ring-2 ring-accent' : 'shadow-[4px_4px_0px_rgba(0,0,0,0.3)]'}
                     `} data-animate-item>
                         {plan.highlighted && (
                             <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-bold">
@@ -758,36 +753,28 @@ const budgetOptions = [
                     <h3 class="text-xl font-bold mb-6">Travailler avec quelqu'un de la région, c'est :</h3>
                     <div class="space-y-4">
                         <div class="flex items-start gap-4 p-4 bg-white border-2 border-black">
-                            <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                                <i class="ri-user-voice-line text-lg"></i>
-                            </div>
+                            <IconChip icon="ri-user-voice-line" size="md" class="flex-shrink-0" />
                             <div>
                                 <h4 class="font-bold mb-1">Des échanges facilités</h4>
                                 <p class="text-sm text-gray-600">On peut se voir en personne pour l'audit ou la formation. Un café à Genève, un atelier dans vos locaux.</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4 p-4 bg-white border-2 border-black">
-                            <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                                <i class="ri-bar-chart-line text-lg"></i>
-                            </div>
+                            <IconChip icon="ri-bar-chart-line" size="md" class="flex-shrink-0" />
                             <div>
                                 <h4 class="font-bold mb-1">La même réalité business</h4>
                                 <p class="text-sm text-gray-600">Marché suisse, LPD, facturation en CHF, hébergement en Suisse si vous y tenez.</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4 p-4 bg-white border-2 border-black">
-                            <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                                <i class="ri-time-line text-lg"></i>
-                            </div>
+                            <IconChip icon="ri-time-line" size="md" class="flex-shrink-0" />
                             <div>
                                 <h4 class="font-bold mb-1">Réactivité</h4>
                                 <p class="text-sm text-gray-600">Un site WordPress en panne, c'est urgent. Même fuseau, réponse dans la journée.</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-4 p-4 bg-white border-2 border-black">
-                            <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                                <i class="ri-search-eye-line text-lg"></i>
-                            </div>
+                            <IconChip icon="ri-search-eye-line" size="md" class="flex-shrink-0" />
                             <div>
                                 <h4 class="font-bold mb-1">Le référencement local en plus</h4>
                                 <p class="text-sm text-gray-600">Je fais aussi du <a href="/services/referencement-local" class="text-[var(--blue)] hover:underline">référencement local</a> : votre WordPress refait peut aussi remonter sur Google.</p>

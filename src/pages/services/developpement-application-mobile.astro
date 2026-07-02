@@ -4,6 +4,7 @@ import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import FAQ from '../../components/FAQ.astro';
+import IconChip from '../../components/IconChip.astro';
 
 // Import SVG pour surlignement hero
 import svgArrowHero from '../../assets/arrow-3.svg';
@@ -320,7 +321,7 @@ const zones = [
 
             <!-- Location badge centered -->
             <div class="flex items-center justify-center gap-2 text-sm text-gray-500 mt-12">
-                <i class="ri-map-pin-fill text-[var(--blue)]"></i>
+                <i class="ri-map-pin-fill text-accent"></i>
                 <span>Basé à Genève | Service en Suisse romande</span>
             </div>
         </div>
@@ -342,7 +343,7 @@ const zones = [
                 </span>
                 <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
                     <span class="relative inline-block">
-                        <span class="absolute bg-red-200 w-full h-[40%] left-0 bottom-1 -z-1"></span>
+                        <span class="absolute bg-panel w-full h-[40%] left-0 bottom-1 -z-1"></span>
                         Tu te reconnais ?
                     </span>
                 </h2>
@@ -354,9 +355,7 @@ const zones = [
                 {painPoints.map((point) => (
                     <div class="pain-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
                         <!-- Red X icon -->
-                        <div class="w-10 h-10 bg-red-100 border-2 border-red-300 flex items-center justify-center mb-4">
-                            <i class="ri-close-line text-red-500 text-xl"></i>
-                        </div>
+                        <IconChip icon="ri-close-line" variant="muted" size="md" class="mb-4" />
                         <h3 class="text-lg font-bold mb-2">{point.title}</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">{point.description}</p>
                     </div>
@@ -438,7 +437,7 @@ const zones = [
                         <p class="text-gray-600 text-sm leading-relaxed mb-4">{step.description}</p>
                         <!-- Duration -->
                         <div class="flex items-center gap-2 text-sm pt-3 border-t border-dashed border-gray-300">
-                            <i class="ri-time-line text-[var(--blue)]"></i>
+                            <i class="ri-time-line text-accent"></i>
                             <span class="text-gray-500">{step.duration}</span>
                         </div>
                     </div>
@@ -457,9 +456,7 @@ const zones = [
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                     {differentiators.map((diff) => (
                         <div class="flex items-start gap-3">
-                            <div class="w-8 h-8 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                                <i class={`${diff.icon} text-sm`}></i>
-                            </div>
+                            <IconChip icon={diff.icon} size="md" class="flex-shrink-0" />
                             <p class="text-sm text-gray-700">{diff.text}</p>
                         </div>
                     ))}
@@ -492,9 +489,7 @@ const zones = [
                 {results.slice(0, 3).map((result) => (
                     <div class="result-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
                         <!-- Green check icon -->
-                        <div class="w-10 h-10 bg-green-100 border-2 border-green-400 flex items-center justify-center mb-4">
-                            <i class="ri-check-line text-green-600 text-xl"></i>
-                        </div>
+                        <IconChip icon="ri-check-line" size="md" class="mb-4" />
                         <h3 class="text-lg font-bold mb-2">{result.title}</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">{result.description}</p>
                     </div>
@@ -506,9 +501,7 @@ const zones = [
                 {results.slice(3).map((result) => (
                     <div class="result-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
                         <!-- Green check icon -->
-                        <div class="w-10 h-10 bg-green-100 border-2 border-green-400 flex items-center justify-center mb-4">
-                            <i class="ri-check-line text-green-600 text-xl"></i>
-                        </div>
+                        <IconChip icon="ri-check-line" size="md" class="mb-4" />
                         <h3 class="text-lg font-bold mb-2">{result.title}</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">{result.description}</p>
                     </div>
@@ -562,13 +555,13 @@ const zones = [
 
                 <div class="border-t-2 border-dashed border-gray-300 pt-6">
                     <h4 class="font-bold mb-4 flex items-center justify-center gap-2">
-                        <i class="ri-information-line text-[var(--blue)]"></i>
+                        <i class="ri-information-line text-accent"></i>
                         Ce qui influence le prix :
                     </h4>
                     <ul class="space-y-2 max-w-md mx-auto">
                         {priceFactors.map((factor) => (
                             <li class="flex items-center gap-2 text-sm text-gray-600">
-                                <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
+                                <i class="ri-arrow-right-s-line text-accent"></i>
                                 {factor}
                             </li>
                         ))}
@@ -630,16 +623,14 @@ const zones = [
                 {clusterGroups.map((group) => (
                     <div class="bg-[var(--main-bg)] border-2 border-black p-6 relative" data-animate-item>
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-9 h-9 bg-[var(--yellow)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                                <i class={`${group.icon} text-base`}></i>
-                            </div>
+                            <IconChip icon={group.icon} size="md" class="flex-shrink-0" />
                             <h3 class="text-lg font-bold">{group.label}</h3>
                         </div>
                         <ul class="space-y-2">
                             {group.articles.map((article) => (
                                 <li>
                                     <a href={article.href} class="flex items-start gap-2 text-sm text-gray-700 hover:text-[var(--text)] group">
-                                        <i class="ri-arrow-right-s-line text-[var(--blue)] mt-0.5 group-hover:translate-x-1 transition-transform"></i>
+                                        <i class="ri-arrow-right-s-line text-accent mt-0.5 group-hover:translate-x-1 transition-transform"></i>
                                         <span class="group-hover:underline">{article.title}</span>
                                     </a>
                                 </li>

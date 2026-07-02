@@ -3,6 +3,7 @@ import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import IconChip from '../../components/IconChip.astro';
 
 // Import background components
 import BackgroundGlitchGrid from '../../components/backgrounds/BackgroundGlitchGrid.astro';
@@ -294,7 +295,7 @@ const projectTypes = [
         <!-- Gradient mesh background -->
         <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
             <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
-            <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-[var(--violet)] opacity-15 blur-[100px] rounded-full"></div>
+            <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-accent-strong opacity-15 blur-[100px] rounded-full"></div>
             <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-[var(--blue)] opacity-10 blur-[80px] rounded-full"></div>
         </div>
 
@@ -308,7 +309,7 @@ const projectTypes = [
                 <p class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6" data-animate="fade-up">
                     Vos outils ne se parlent pas.<br/>
                     <span class="relative inline-block">
-                        <span class="absolute bg-[var(--accent)] w-full h-[40%] left-0 bottom-1 -z-1"></span>
+                        <span class="absolute bg-accent-soft w-full h-[40%] left-0 bottom-1 -z-1"></span>
                         <span class="relative z-10">Vos données non plus.</span>
                     </span>
                 </p>
@@ -404,11 +405,11 @@ const projectTypes = [
                         <p>
                             Pourtant, beaucoup de PME et d'indépendants romands perdent encore <strong class="text-[var(--text)]">5 à 15 heures par semaine</strong> sur des tâches répétitives : double saisie, réconciliation manuelle, emails de suivi envoyés un par un.
                         </p>
-                        <div class="bg-red-50 border-2 border-red-200 p-4 my-6">
-                            <p class="text-lg font-medium text-red-800">
-                                À <span class="bg-red-200 px-1">80 CHF de l'heure</span>, 10 heures perdues par semaine représentent plus de <span class="bg-red-200 px-1 font-bold">40'000 CHF par an</span>.
+                        <div class="bg-panel border-2 border-black p-4 my-6">
+                            <p class="text-lg font-medium text-ink">
+                                À <span class="bg-accent-soft px-1">80 CHF de l'heure</span>, 10 heures perdues par semaine représentent plus de <span class="bg-accent-soft px-1 font-bold">40'000 CHF par an</span>.
                             </p>
-                            <p class="text-sm text-red-600 mt-2">Partis en fumée sur des tâches qu'une machine pourrait faire en quelques secondes.</p>
+                            <p class="text-sm text-ink mt-2">Partis en fumée sur des tâches qu'une machine pourrait faire en quelques secondes.</p>
                         </div>
                         <p>
                             La compétitivité en Suisse romande ne se joue pas sur les prix — elle se joue sur <strong class="text-[var(--text)]">l'efficacité</strong>. Et l'efficacité, ça commence par des outils qui travaillent ensemble au lieu de vous faire travailler pour eux.
@@ -443,7 +444,7 @@ const projectTypes = [
                 </span>
                 <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
                     <span class="relative inline-block">
-                        <span class="absolute bg-red-200 w-full h-[40%] left-0 bottom-1 -z-1"></span>
+                        <span class="absolute bg-panel w-full h-[40%] left-0 bottom-1 -z-1"></span>
                         Ça vous parle ?
                     </span>
                 </h2>
@@ -455,9 +456,7 @@ const projectTypes = [
                 {painPoints.map((point) => (
                     <div class="pain-card bg-white border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
                         <!-- Red X icon -->
-                        <div class="w-10 h-10 bg-red-100 border-2 border-red-300 flex items-center justify-center mb-4">
-                            <i class="ri-close-line text-red-500 text-xl"></i>
-                        </div>
+                        <IconChip icon="ri-close-line" variant="muted" size="md" class="mb-4" />
                         <h3 class="text-lg font-bold mb-2">{point.title}</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">{point.description}</p>
                     </div>
@@ -501,7 +500,7 @@ const projectTypes = [
                     <div class="bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
                         <!-- Number badge -->
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
+                            <span class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
                                 0{index + 1}
                             </span>
                         </div>
@@ -528,9 +527,7 @@ const projectTypes = [
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {differentiators.map((diff) => (
                         <div class="text-center">
-                            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mx-auto mb-3">
-                                <i class={`${diff.icon} text-xl`}></i>
-                            </div>
+                            <IconChip icon={diff.icon} class="mx-auto mb-3" />
                             <h4 class="font-bold mb-1">{diff.title}</h4>
                             <p class="text-sm text-gray-600">{diff.description}</p>
                         </div>
@@ -562,9 +559,7 @@ const projectTypes = [
                 {results.map((result) => (
                     <div class="bg-white border-2 border-black p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
                         <div class="flex items-start gap-4">
-                            <div class="w-8 h-8 bg-green-100 border-2 border-green-400 flex items-center justify-center flex-shrink-0">
-                                <i class="ri-check-line text-green-600"></i>
-                            </div>
+                            <IconChip icon="ri-check-line" size="md" class="flex-shrink-0" />
                             <div>
                                 <h3 class="font-bold mb-1">{result.title}</h3>
                                 <p class="text-sm text-gray-600">{result.description}</p>
@@ -585,7 +580,7 @@ const projectTypes = [
                     <div class="bg-white border-2 border-gray-300 p-5 relative">
                         <div class="absolute -top-3 left-4 bg-gray-100 border border-gray-300 px-3 py-1">
                             <span class="text-xs font-mono uppercase tracking-wider text-gray-500 flex items-center gap-1">
-                                <i class="ri-close-circle-line text-red-400"></i>
+                                <i class="ri-close-circle-line text-muted"></i>
                                 Avant
                             </span>
                         </div>
@@ -631,9 +626,7 @@ const projectTypes = [
                 {tools.map((tool) => (
                     <div class="bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] transition-all duration-200 hover:-translate-y-1" data-animate-item>
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                                <i class={`${tool.icon} text-xl`}></i>
-                            </div>
+                            <IconChip icon={tool.icon} class="flex-shrink-0" />
                             <div>
                                 <h3 class="text-lg font-bold mb-2">{tool.name}</h3>
                                 <p class="text-gray-600 text-sm leading-relaxed">{tool.description}</p>
@@ -692,8 +685,8 @@ const projectTypes = [
                                 Sur Google Maps, les avis font la différence. Un restaurant avec 150 avis et 4.5 étoiles apparaît avant celui qui en a 12.
                             </p>
                         </div>
-                        <div class="bg-red-50 p-4 border-l-4 border-red-300">
-                            <p class="text-sm text-red-500 uppercase tracking-wider font-mono mb-2">Le problème</p>
+                        <div class="bg-panel p-4 border-l-4 border-black">
+                            <p class="text-sm text-muted uppercase tracking-wider font-mono mb-2">Le problème</p>
                             <p class="text-gray-700">
                                 Demander des avis, c'est gênant. Et quand on y pense, c'est souvent trop tard — le client est déjà parti.
                             </p>
@@ -712,7 +705,7 @@ const projectTypes = [
                             {googleReviewSteps.map((step, index) => (
                                 <div class="relative">
                                     <div class="bg-[var(--main-bg)] border-2 border-black p-4 h-full">
-                                        <div class="w-8 h-8 bg-[var(--blue)] border-2 border-black flex items-center justify-center font-bold text-white mb-3">
+                                        <div class="w-8 h-8 bg-accent border-2 border-black flex items-center justify-center font-bold text-white mb-3">
                                             {index + 1}
                                         </div>
                                         <p class="text-sm leading-snug">{step}</p>
@@ -729,9 +722,7 @@ const projectTypes = [
 
                     <!-- Result highlight -->
                     <div class="bg-[var(--blue)] bg-opacity-15 border-2 border-[var(--blue)] p-5 flex flex-col md:flex-row items-start md:items-center gap-4">
-                        <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                            <i class="ri-check-double-line text-2xl text-white"></i>
-                        </div>
+                        <IconChip icon="ri-check-double-line" class="flex-shrink-0" />
                         <div>
                             <p class="font-bold text-lg mb-1">Résultat</p>
                             <p class="text-gray-700">Plus d'avis Google (meilleur référencement local), une base clients qui se construit toute seule, et des clients qui reviennent.</p>
@@ -747,9 +738,7 @@ const projectTypes = [
                     {localAutomations.map((auto) => (
                         <div class="bg-white border-2 border-black p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
                             <div class="flex items-start gap-4">
-                                <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                                    <i class={`${auto.icon} text-lg`}></i>
-                                </div>
+                                <IconChip icon={auto.icon} size="md" class="flex-shrink-0" />
                                 <div>
                                     <h4 class="font-bold mb-1">{auto.title}</h4>
                                     <p class="text-sm text-gray-600">{auto.description}</p>
@@ -840,7 +829,7 @@ const projectTypes = [
                     <ul class="space-y-3">
                         {pricingInclusions.map((inc) => (
                             <li class="flex items-center gap-2">
-                                <i class="ri-check-line text-green-600"></i>
+                                <i class="ri-check-line text-accent"></i>
                                 <span>{inc}</span>
                             </li>
                         ))}

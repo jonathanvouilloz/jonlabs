@@ -3,6 +3,10 @@ import "../../styles/global.css";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import IconChip from "../../components/IconChip.astro";
+import { Image } from "astro:assets";
+import Halo from "../../components/shapes/Halo.astro";
+import illuDevWeb from "../../assets/illustrations/developpement-web.webp";
 
 import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from "../../lib/seo";
 import { SITE_URL, localBusinessData } from "../../data/schema";
@@ -166,16 +170,16 @@ const blogArticles = [
   <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-20 px-4 relative overflow-hidden">
     <!-- Gradient mesh background -->
     <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
-      <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-[var(--violet)] opacity-15 blur-[100px] rounded-full"></div>
-      <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-[var(--blue)] opacity-10 blur-[80px] rounded-full"></div>
+      <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-accent opacity-20 blur-[120px] rounded-full"></div>
+      <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-accent-strong opacity-15 blur-[100px] rounded-full"></div>
+      <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-accent opacity-10 blur-[80px] rounded-full"></div>
     </div>
 
     <div class="max-w-4xl mx-auto relative z-10 text-center">
       <!-- Badges -->
       <div class="flex flex-wrap justify-center gap-3 mb-8">
         <span class="inline-flex items-center gap-2 bg-white border-2 border-black px-3 py-1 text-xs font-mono shadow-[2px_2px_0px_rgba(0,0,0,1)]">
-          <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+          <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
           Disponible
         </span>
         <span class="inline-flex items-center gap-2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-mono shadow-[2px_2px_0px_rgba(0,0,0,1)]">
@@ -190,7 +194,7 @@ const blogArticles = [
         sur mesure à
         <span class="relative inline-block">
           <span class="relative z-10">{ville.nom}</span>
-          <span class="absolute bg-[var(--accent)] w-full h-[35%] left-0 bottom-1 -z-1"></span>
+          <span class="absolute bg-accent-soft w-full h-[35%] left-0 bottom-1 -z-1"></span>
         </span>
       </h1>
 
@@ -240,15 +244,15 @@ const blogArticles = [
       <!-- Trust line -->
       <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600">
         <span class="flex items-center gap-2">
-          <i class="ri-time-line text-[var(--blue)]"></i>
+          <i class="ri-time-line text-accent"></i>
           {ville.tempsTrajetGeneve}
         </span>
         <span class="flex items-center gap-2">
-          <i class="ri-stack-line text-[var(--blue)]"></i>
+          <i class="ri-stack-line text-accent"></i>
           50+ sites livrés
         </span>
         <span class="flex items-center gap-2">
-          <i class="ri-currency-line text-[var(--blue)]"></i>
+          <i class="ri-currency-line text-accent"></i>
           Facturation CHF / EUR
         </span>
       </div>
@@ -276,13 +280,13 @@ const blogArticles = [
 
       <!-- Contexte économique -->
       <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] max-w-3xl mx-auto relative mb-12">
-        <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-        <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-        <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-        <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+        <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-accent border-2 border-black"></div>
+        <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-accent border-2 border-black"></div>
+        <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-accent border-2 border-black"></div>
+        <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-accent border-2 border-black"></div>
 
         <h3 class="font-bold text-lg mb-3 flex items-center gap-2">
-          <i class="ri-building-line text-[var(--blue)]"></i>
+          <i class="ri-building-line text-accent"></i>
           Tissu économique de {ville.nomComplet}
         </h3>
         <p class="text-gray-700 leading-relaxed">
@@ -294,7 +298,7 @@ const blogArticles = [
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {ville.specificites.map((item, idx) => (
           <div class="bg-[var(--main-bg)] border-2 border-black p-5 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] flex items-start gap-4">
-            <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0 font-mono font-black text-sm">
+            <div class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center flex-shrink-0 font-mono font-black text-sm">
               {String(idx + 1).padStart(2, '0')}
             </div>
             <p class="text-sm text-gray-700 leading-relaxed pt-1">{item}</p>
@@ -329,7 +333,7 @@ const blogArticles = [
         <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
           {ville.publicCible.map((p) => (
             <span class="inline-flex items-center gap-2 bg-white border-2 border-black px-4 py-2 text-sm shadow-[2px_2px_0px_rgba(0,0,0,0.3)]">
-              <i class="ri-check-line text-[var(--blue)]"></i>
+              <i class="ri-check-line text-accent"></i>
               {p}
             </span>
           ))}
@@ -343,13 +347,11 @@ const blogArticles = [
             href={service.href}
             class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
           >
-            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4 group-hover:bg-[var(--yellow)] transition-colors">
-              <i class={`${service.icon} text-2xl`}></i>
-            </div>
+            <IconChip icon={service.icon} class="mb-4 group-hover:bg-accent-strong transition-colors" />
             <h3 class="text-xl font-bold mb-2">{service.title}</h3>
             <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">{service.description}</p>
             <div class="pt-4 border-t border-dashed border-gray-300 flex items-center justify-between">
-              <span class="text-sm font-mono text-[var(--blue)]">{service.price}</span>
+              <span class="text-sm font-mono text-accent">{service.price}</span>
               <i class="ri-arrow-right-line text-lg group-hover:translate-x-1 transition-transform"></i>
             </div>
           </a>
@@ -371,15 +373,13 @@ const blogArticles = [
       <!-- Exemples de projets -->
       <div class="bg-white border-3 border-black p-6 md:p-10 shadow-[6px_6px_0px_rgba(0,0,0,1)]">
         <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-          <span class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center">
-            <i class="ri-lightbulb-line text-xl"></i>
-          </span>
+          <IconChip icon="ri-lightbulb-line" size="md" />
           Exemples de projets typiques à {ville.nom}
         </h3>
         <ul class="space-y-3">
           {ville.exemplesProjets.map((projet) => (
             <li class="flex items-start gap-3 text-gray-700">
-              <i class="ri-arrow-right-s-line text-[var(--blue)] mt-1 flex-shrink-0 text-xl"></i>
+              <i class="ri-arrow-right-s-line text-accent mt-1 flex-shrink-0 text-xl"></i>
               <span>{projet}</span>
             </li>
           ))}
@@ -400,7 +400,7 @@ const blogArticles = [
           <span class="w-8 h-px bg-gray-400"></span>
         </span>
         <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Tarifs en <span class="text-[var(--blue)]">CHF</span> et en <span class="text-[var(--blue)]">EUR</span>
+          Tarifs en <span class="text-accent">CHF</span> et en <span class="text-accent">EUR</span>
         </h2>
         <p class="text-lg text-gray-600 max-w-2xl mx-auto">
           Trois fourchettes pour situer ton projet à {ville.nom}. Devis personnalisé après notre premier échange.
@@ -411,7 +411,7 @@ const blogArticles = [
         {pricingPlans.map((plan) => (
           <div class={`
             bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 relative
-            ${plan.highlighted ? 'shadow-[8px_8px_0px_rgba(0,0,0,1)] ring-2 ring-[var(--blue)]' : 'shadow-[4px_4px_0px_rgba(0,0,0,0.3)]'}
+            ${plan.highlighted ? 'shadow-[8px_8px_0px_rgba(0,0,0,1)] ring-2 ring-accent' : 'shadow-[4px_4px_0px_rgba(0,0,0,0.3)]'}
           `}>
             {plan.highlighted && (
               <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-bold whitespace-nowrap">
@@ -435,7 +435,7 @@ const blogArticles = [
             <ul class="space-y-3">
               {plan.features.map((feature) => (
                 <li class="flex items-start gap-2 text-sm">
-                  <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0 font-bold"></i>
+                  <i class="ri-check-line text-accent mt-0.5 flex-shrink-0 font-bold"></i>
                   <span>{feature}</span>
                 </li>
               ))}
@@ -445,7 +445,7 @@ const blogArticles = [
       </div>
 
       <p class="text-center text-sm text-gray-600 mb-6">
-        <i class="ri-information-line text-[var(--blue)] mr-1"></i>
+        <i class="ri-information-line text-accent mr-1"></i>
         Facturation possible en CHF (IBAN suisse) ou en EUR (virement SEPA). TVA française appliquée pour les sociétés assujetties.
       </p>
 
@@ -463,8 +463,25 @@ const blogArticles = [
   <!-- FAQ VILLE-SPÉCIFIQUE -->
   <!-- ============================================== -->
   <section class="py-20 md:py-28 px-4">
-    <div class="max-w-3xl mx-auto">
-      <div class="text-center mb-12">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-[minmax(0,340px)_1fr] gap-12 lg:gap-16 items-start">
+
+        <!-- Illustration contextuelle (Phase 3) -->
+        <div class="hidden lg:block lg:sticky lg:top-28">
+          <div class="relative">
+            <Halo class="absolute -inset-10 -z-10" />
+            <Image
+              src={illuDevWeb}
+              alt=""
+              class="w-full border-2 border-black shadow-[6px_6px_0px_rgba(0,0,0,0.9)]"
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+
+        <!-- Colonne FAQ -->
+        <div>
+      <div class="text-center lg:text-left mb-12">
         <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
           <span class="w-8 h-px bg-gray-400"></span>
           faq
@@ -525,9 +542,11 @@ const blogArticles = [
         ))}
       </div>
 
-      <p class="text-center mt-10 text-gray-500 text-sm">
-        Une autre question sur {ville.nom} ? <a href="/contact" class="text-[var(--blue)] font-medium hover:underline">Écris-moi</a>, je réponds sous 24h.
+      <p class="text-center lg:text-left mt-10 text-gray-500 text-sm">
+        Une autre question sur {ville.nom} ? <a href="/contact" class="text-accent font-medium hover:underline">Écris-moi</a>, je réponds sous 24h.
       </p>
+        </div><!-- /col FAQ -->
+      </div><!-- /grid -->
     </div>
   </section>
 
@@ -558,9 +577,7 @@ const blogArticles = [
             class="group bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] flex flex-col"
           >
             <div class="flex items-center justify-between mb-3">
-              <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center">
-                <i class="ri-map-pin-fill text-lg"></i>
-              </div>
+              <IconChip icon="ri-map-pin-fill" size="md" />
               <span class="text-xs font-mono text-gray-500">{v.distanceGeneve}</span>
             </div>
             <h3 class="text-lg font-bold mb-1">{v.nom}</h3>
@@ -568,7 +585,7 @@ const blogArticles = [
             <p class="text-sm text-gray-600 leading-relaxed flex-grow">
               Développement web pour {v.nom} — {v.publicCible[0]}, {v.publicCible[1]}.
             </p>
-            <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-[var(--blue)] font-medium flex items-center gap-1">
+            <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-accent font-medium flex items-center gap-1">
               Voir la page
               <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
             </span>
@@ -578,7 +595,7 @@ const blogArticles = [
 
       <!-- Page pilier Genève -->
       <div class="bg-[var(--text)] text-white border-3 border-black p-6 md:p-10 shadow-[8px_8px_0px_rgba(0,0,0,1)] relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-[var(--blue)] opacity-20 blur-[80px] rounded-full pointer-events-none"></div>
+        <div class="absolute top-0 right-0 w-64 h-64 bg-accent opacity-20 blur-[80px] rounded-full pointer-events-none"></div>
 
         <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div class="flex-grow">
@@ -621,21 +638,21 @@ const blogArticles = [
       <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
         <a href="/services" class="bg-white border-2 border-black p-4 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--yellow)] transition-colors flex items-center justify-between gap-3 font-medium">
           <span class="flex items-center gap-3">
-            <i class="ri-briefcase-line text-[var(--blue)]"></i>
+            <i class="ri-briefcase-line text-accent"></i>
             Tous les services
           </span>
           <i class="ri-arrow-right-line"></i>
         </a>
         <a href="/tarifs" class="bg-white border-2 border-black p-4 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--yellow)] transition-colors flex items-center justify-between gap-3 font-medium">
           <span class="flex items-center gap-3">
-            <i class="ri-price-tag-3-line text-[var(--blue)]"></i>
+            <i class="ri-price-tag-3-line text-accent"></i>
             Page tarifs
           </span>
           <i class="ri-arrow-right-line"></i>
         </a>
         <a href="/portfolio" class="bg-white border-2 border-black p-4 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--yellow)] transition-colors flex items-center justify-between gap-3 font-medium">
           <span class="flex items-center gap-3">
-            <i class="ri-stack-line text-[var(--blue)]"></i>
+            <i class="ri-stack-line text-accent"></i>
             Portfolio
           </span>
           <i class="ri-arrow-right-line"></i>
@@ -669,12 +686,10 @@ const blogArticles = [
             href={article.href}
             class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
           >
-            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4">
-              <i class={`${article.icon} text-2xl`}></i>
-            </div>
+            <IconChip icon={article.icon} class="mb-4" />
             <h3 class="text-lg font-bold mb-2 leading-tight">{article.title}</h3>
             <p class="text-sm text-gray-600 leading-relaxed flex-grow">{article.description}</p>
-            <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-[var(--blue)] font-medium flex items-center gap-1">
+            <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-accent font-medium flex items-center gap-1">
               Lire l'article
               <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
             </span>
@@ -695,8 +710,8 @@ const blogArticles = [
 
     <!-- Glow accents -->
     <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <div class="absolute top-0 left-1/4 w-[400px] h-[400px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
-      <div class="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-[var(--violet)] opacity-15 blur-[100px] rounded-full"></div>
+      <div class="absolute top-0 left-1/4 w-[400px] h-[400px] bg-accent opacity-20 blur-[120px] rounded-full"></div>
+      <div class="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-accent-strong opacity-15 blur-[100px] rounded-full"></div>
     </div>
 
     <div class="max-w-4xl mx-auto relative z-10 text-center">
@@ -760,7 +775,7 @@ const blogArticles = [
       </div>
 
       <p class="text-sm text-gray-400 flex items-center justify-center gap-2">
-        <i class="ri-time-line text-[var(--blue)]"></i>
+        <i class="ri-time-line text-accent"></i>
         Réponse sous 24h · Lun-Ven, 9h-18h (CET) · Facturation CHF ou EUR
       </p>
     </div>

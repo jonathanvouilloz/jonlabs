@@ -3,15 +3,15 @@
 ## Features actives
 | Feature | Fichier | Statut |
 |---------|---------|--------|
-| Polish global & design system | docs/features/polish-design-system.md | **EN COURS** (Phase 3 pilote v2 ✅ build vert/pushé — rollout à venir) |
+| Polish global & design system | docs/features/polish-design-system.md | **EN COURS** (Phase 3 rollout complet ✅ build vert — Phases 4 & 6 bloquées par décisions nav/tags) |
 | Cluster « Mettre l'IA en place » | docs/plan-mise-en-place-ia.md (+ topical-map-mise-en-place-ia.md) | ✅ PRODUIT (14/14 — commit/push + Request Indexing restants) |
 | Chantier SEO IA (consultant IA) | docs/planSEOIA.md (+ topical-map-consultant-ia.md) | EN COURS (Phase 1-2 ✅, Phase 3 à venir) |
 | Refonte SEO / clusters | docs/features/refonte-seo-clusters.md | EN COURS |
 | Cluster application mobile | docs/features/cluster-application-mobile.md | ✅ DONE |
 
 ## Reprendre ici
-**Polish global & design system** — Phase 3 **pilote v2 fait** : formes signature (`src/components/shapes/`), illustrations carré `visual` (about/freelance-geneve/consultant-ia), highlights unifiés en wash teal clair, `IconChip.astro` + kill emoji. Build vert (209 pages), pushé. **Prochain : Phase 3 rollout** — images carré + IconChip sur `consultant-ia/index`, `metiers/[metier]`, `developpement-web/[ville]`, puis `services/*` + composants CV. Décisions **nav (3)** + **tags (4)** toujours à trancher. Détails : `docs/features/polish-design-system.md`.
-Commit : 643f592 feat(design): Phase 3 pilote — aération, illustrations carré & cohérence
+**Polish global & design system** — Phase 3 **rollout complet fait** : 2 illustrations générées (`metiers-ia.webp` + `developpement-web.webp`), bloc illustration+aside sur `consultant-ia/index` + `metiers/[metier]` + `developpement-web/[ville]`, `IconChip` généralisé sur les 13 `services/*` + le CV, code couleur **problème=muted / solution=teal**. Build vert (209 pages). **Prochain : Phase 4 (nav & archi) et Phase 6 (tags)** — bloquées tant que les **décisions nav (3)** et **tags (4)** ne sont pas tranchées (voir feature file §Décisions à trancher). Détails : `docs/features/polish-design-system.md`.
+Commit : [à committer] feat(design): Phase 3 rollout — illustrations + IconChip + neutre/teal
 
 ## Actions manuelles en attente (pré-existantes)
 - **Cluster « Mettre l'IA en place »** : `git push` (rebuild/deploy, sortie au fil des pubDate 12.08→11.09) puis Request Indexing GSC des nouvelles URLs. Cluster fini → proposer `/epic-recap`. Détails : `docs/plan-mise-en-place-ia.md`.

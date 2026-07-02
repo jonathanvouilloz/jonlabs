@@ -3,6 +3,7 @@ import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import IconChip from '../../components/IconChip.astro';
 
 import arrowUnderline from '../../assets/arrow-3.svg';
 
@@ -367,9 +368,9 @@ const clusterGroups = [
                                 <h3 class="text-xl font-bold text-gray-800">Votre commerce</h3>
                                 <p class="text-sm text-gray-500">Votre catégorie · Genève</p>
                             </div>
-                            <div class="bg-green-50 border-2 border-green-400 px-2 py-1">
-                                <span class="text-xs font-bold text-green-700 flex items-center gap-1">
-                                    <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                            <div class="bg-accent-soft border-2 border-black px-2 py-1">
+                                <span class="text-xs font-bold text-accent flex items-center gap-1">
+                                    <span class="w-2 h-2 bg-accent rounded-full"></span>
                                     Ouvert
                                 </span>
                             </div>
@@ -458,7 +459,7 @@ const clusterGroups = [
                 </span>
                 <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
                     Votre fiche Google vous fait <span class="relative inline-block">
-                        <span class="absolute bg-red-200 w-full h-[40%] left-0 bottom-1 -z-1"></span>
+                        <span class="absolute bg-panel w-full h-[40%] left-0 bottom-1 -z-1"></span>
                         perdre des clients
                     </span><br/>
                     au lieu d'en attirer ?
@@ -469,9 +470,7 @@ const clusterGroups = [
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12" data-animate-stagger>
                 {painPoints.map((point) => (
                     <div class="pain-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <div class="w-10 h-10 bg-red-100 border-2 border-red-300 flex items-center justify-center mb-4">
-                            <i class={`${point.icon} text-red-500 text-xl`}></i>
-                        </div>
+                        <IconChip icon={point.icon} variant="muted" size="md" class="mb-4" />
                         <h3 class="text-lg font-bold mb-2">{point.title}</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">{point.description}</p>
                     </div>
@@ -531,13 +530,13 @@ const clusterGroups = [
                 <!-- Not for -->
                 <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)]" data-animate-item>
                     <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <i class="ri-close-circle-fill text-red-400 text-2xl"></i>
+                        <i class="ri-close-circle-fill text-muted text-2xl"></i>
                         Pas pour vous si...
                     </h3>
                     <ul class="space-y-3">
                         {forQui.filter(i => i.type === 'not').map((item) => (
                             <li class="flex items-start gap-3 text-gray-500">
-                                <i class={`${item.icon} text-red-400 text-lg mt-0.5 flex-shrink-0`}></i>
+                                <i class={`${item.icon} text-muted text-lg mt-0.5 flex-shrink-0`}></i>
                                 <span>{item.text}</span>
                             </li>
                         ))}
@@ -570,9 +569,7 @@ const clusterGroups = [
                 {piliers.map((pilier, index) => (
                     <div class="bg-[var(--main-bg)] border-2 border-black p-6 md:p-7 relative" data-animate-item>
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center">
-                                <i class={`${pilier.icon} text-2xl`}></i>
-                            </div>
+                            <IconChip icon={pilier.icon} />
                             <span class="font-mono text-sm text-gray-500">0{index + 1}</span>
                         </div>
                         <h3 class="text-xl font-bold mb-3">{pilier.title}</h3>
@@ -611,10 +608,10 @@ const clusterGroups = [
                 {methodSteps.map((step, index) => (
                     <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
+                            <span class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
                                 0{index + 1}
                             </span>
-                            <span class="bg-[var(--yellow)] px-3 py-1 text-sm font-mono font-bold border-2 border-black">
+                            <span class="bg-accent px-3 py-1 text-sm font-mono font-bold border-2 border-black">
                                 {step.week}
                             </span>
                         </div>
@@ -726,7 +723,7 @@ const clusterGroups = [
                     <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-black border-2 border-black"></div>
                     <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-black border-2 border-black"></div>
 
-                    <span class="absolute -top-3 right-4 bg-[var(--yellow)] border-2 border-black px-3 py-1 text-xs font-mono font-bold rotate-3">
+                    <span class="absolute -top-3 right-4 bg-accent border-2 border-black px-3 py-1 text-xs font-mono font-bold rotate-3">
                         Recommandé
                     </span>
 
@@ -798,9 +795,7 @@ const clusterGroups = [
                     <div class="space-y-4">
                         {localAdvantages.map((adv) => (
                             <div class="flex items-start gap-4 p-4 bg-[var(--main-bg)] border-2 border-black">
-                                <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                                    <i class={`${adv.icon} text-lg`}></i>
-                                </div>
+                                <IconChip icon={adv.icon} size="md" class="flex-shrink-0" />
                                 <div>
                                     <h4 class="font-bold mb-1">{adv.title}</h4>
                                     <p class="text-sm text-gray-600">{adv.description}</p>
@@ -858,9 +853,7 @@ const clusterGroups = [
                 {clusterGroups.map((group) => (
                     <div class="bg-white border-2 border-black p-6 relative" data-animate-item>
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-9 h-9 bg-[var(--yellow)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                                <i class={`${group.icon} text-base`}></i>
-                            </div>
+                            <IconChip icon={group.icon} size="md" class="flex-shrink-0" />
                             <h3 class="text-lg font-bold">{group.label}</h3>
                         </div>
                         <ul class="space-y-2">
@@ -893,16 +886,12 @@ const clusterGroups = [
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" data-animate-stagger>
                 <div class="bg-white border-2 border-black p-6 text-center shadow-[4px_4px_0px_rgba(0,0,0,0.15)]" data-animate-item>
-                    <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black mx-auto mb-4 flex items-center justify-center">
-                        <i class="ri-search-eye-line text-xl text-black"></i>
-                    </div>
+                    <IconChip icon="ri-search-eye-line" class="mx-auto mb-4" />
                     <h3 class="text-xl font-bold mb-2">Option 1 : Audit gratuit</h3>
                     <p class="text-gray-600 text-sm mb-4">Donnez l'URL de votre fiche.<br/>Je vous envoie un mini-rapport sous 24-48h.</p>
                 </div>
                 <div class="bg-white border-2 border-black p-6 text-center shadow-[4px_4px_0px_rgba(0,0,0,0.15)]" data-animate-item>
-                    <div class="w-12 h-12 bg-[var(--violet)] border-2 border-black mx-auto mb-4 flex items-center justify-center">
-                        <i class="ri-chat-3-line text-xl text-white"></i>
-                    </div>
+                    <IconChip icon="ri-chat-3-line" class="mx-auto mb-4" />
                     <h3 class="text-xl font-bold mb-2">Option 2 : Discutons</h3>
                     <p class="text-gray-600 text-sm mb-4">Idée claire ?<br/>Direct un appel de 15 min via Cal.com.</p>
                     <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener" class="text-sm text-[var(--violet)] underline font-mono">

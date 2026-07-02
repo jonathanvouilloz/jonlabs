@@ -3,6 +3,7 @@ import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import IconChip from '../../components/IconChip.astro';
 
 // Import SVG pour surlignement
 import arrowUnderline from '../../assets/arrow-3.svg';
@@ -327,7 +328,7 @@ const needOptions = [
         <!-- Gradient mesh background -->
         <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
             <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
-            <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-[var(--violet)] opacity-15 blur-[100px] rounded-full"></div>
+            <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-accent-strong opacity-15 blur-[100px] rounded-full"></div>
             <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-[var(--blue)] opacity-10 blur-[80px] rounded-full"></div>
         </div>
 
@@ -449,7 +450,7 @@ const needOptions = [
                 </span>
                 <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
                     Votre site vous fait <span class="relative inline-block">
-                        <span class="absolute bg-red-200 w-full h-[40%] left-0 bottom-1 -z-1"></span>
+                        <span class="absolute bg-panel w-full h-[40%] left-0 bottom-1 -z-1"></span>
                         perdre des clients
                     </span><br/>
                     au lieu d'en gagner ?
@@ -462,9 +463,7 @@ const needOptions = [
                 {painPoints.map((point) => (
                     <div class="pain-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
                         <!-- Red X icon -->
-                        <div class="w-10 h-10 bg-red-100 border-2 border-red-300 flex items-center justify-center mb-4">
-                            <i class="ri-close-line text-red-500 text-xl"></i>
-                        </div>
+                        <IconChip icon="ri-close-line" variant="muted" size="md" class="mb-4" />
                         <h3 class="text-lg font-bold mb-2">{point.title}</h3>
                         <p class="text-gray-600 text-sm leading-relaxed">{point.description}</p>
                     </div>
@@ -511,10 +510,10 @@ const needOptions = [
                     <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
                         <!-- Number badge intégré -->
                         <div class="flex items-center gap-3 mb-4">
-                            <span class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
+                            <span class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
                                 0{index + 1}
                             </span>
-                            <span class="bg-[var(--accent)] px-3 py-1 text-sm font-mono font-bold">
+                            <span class="bg-accent-soft px-3 py-1 text-sm font-mono font-bold">
                                 {step.week}
                             </span>
                         </div>
@@ -584,9 +583,9 @@ const needOptions = [
                     <thead>
                         <tr class="bg-white border-b-3 border-black">
                             <th class="p-4 text-left font-bold border-r-2 border-black">Métrique</th>
-                            <th class="p-4 text-center font-bold border-r-2 border-black bg-red-50">
+                            <th class="p-4 text-center font-bold border-r-2 border-black bg-panel">
                                 <span class="flex items-center justify-center gap-2">
-                                    <i class="ri-close-line text-red-500"></i>
+                                    <i class="ri-close-line text-muted"></i>
                                     Avant
                                 </span>
                             </th>
@@ -666,9 +665,7 @@ const needOptions = [
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {guarantees.map((g) => (
                         <div class="flex items-start gap-4">
-                            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                                <i class={`${g.icon} text-xl`}></i>
-                            </div>
+                            <IconChip icon={g.icon} class="flex-shrink-0" />
                             <div>
                                 <h4 class="font-bold mb-1">{g.title}</h4>
                                 <p class="text-sm text-gray-600">{g.description}</p>
@@ -721,8 +718,8 @@ const needOptions = [
                                 <li>• Semaine 3 : Tests & Lancement</li>
                             </ul>
                         </div>
-                        <div class="bg-[var(--accent)] bg-opacity-30 border-2 border-[var(--violet)] p-4">
-                            <span class="text-sm text-[var(--violet)]">Refonte express</span>
+                        <div class="bg-accent-soft border-2 border-black p-4">
+                            <span class="text-sm text-accent-strong">Refonte express</span>
                             <p class="text-2xl font-bold">10 jours</p>
                             <p class="text-sm text-gray-600">Pour sites &lt; 10 pages sans fonctionnalités complexes</p>
                         </div>
@@ -816,9 +813,7 @@ const needOptions = [
                     <div class="space-y-4">
                         {localAdvantages.map((adv) => (
                             <div class="flex items-start gap-4 p-4 bg-[var(--main-bg)] border-2 border-black">
-                                <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                                    <i class={`${adv.icon} text-lg`}></i>
-                                </div>
+                                <IconChip icon={adv.icon} size="md" class="flex-shrink-0" />
                                 <div>
                                     <h4 class="font-bold mb-1">{adv.title}</h4>
                                     <p class="text-sm text-gray-600">{adv.description}</p>
@@ -879,9 +874,7 @@ const needOptions = [
                 {clusterGroups.map((group) => (
                     <div class="bg-[var(--main-bg)] border-2 border-black p-6 relative" data-animate-item>
                         <div class="flex items-center gap-3 mb-4">
-                            <div class="w-9 h-9 bg-[var(--yellow)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                                <i class={`${group.icon} text-base`}></i>
-                            </div>
+                            <IconChip icon={group.icon} size="md" class="flex-shrink-0" />
                             <h3 class="text-lg font-bold">{group.label}</h3>
                         </div>
                         <ul class="space-y-2">
@@ -917,16 +910,12 @@ const needOptions = [
             <!-- Options -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" data-animate-stagger>
                 <div class="bg-white border-2 border-black p-6 text-center shadow-[4px_4px_0px_rgba(0,0,0,0.15)]" data-animate-item>
-                    <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black mx-auto mb-4 flex items-center justify-center">
-                        <i class="ri-search-eye-line text-xl text-black"></i>
-                    </div>
+                    <IconChip icon="ri-search-eye-line" class="mx-auto mb-4" />
                     <h3 class="text-xl font-bold mb-2">Option 1 : Audit gratuit</h3>
                     <p class="text-gray-600 text-sm mb-4">15 min, pas de bullshit, pas de vente forcée.<br/>Je regarde votre site et vous dis ce qui cloche.</p>
                 </div>
                 <div class="bg-white border-2 border-black p-6 text-center shadow-[4px_4px_0px_rgba(0,0,0,0.15)]" data-animate-item>
-                    <div class="w-12 h-12 bg-[var(--violet)] border-2 border-black mx-auto mb-4 flex items-center justify-center">
-                        <i class="ri-chat-3-line text-xl text-white"></i>
-                    </div>
+                    <IconChip icon="ri-chat-3-line" class="mx-auto mb-4" />
                     <h3 class="text-xl font-bold mb-2">Option 2 : Discutons</h3>
                     <p class="text-gray-600 text-sm mb-4">Vous avez une idée claire ?<br/>On skip l'audit et on parle budget/timeline direct.</p>
                 </div>
