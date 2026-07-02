@@ -164,18 +164,26 @@
 3. **Nav** — *recommandé : refonte complète* (renommage 2 pôles + remontée Refonte/Validation + hub /guides + footer enrichi + cartes home re-routées ; résout P1→P8).
 4. **Pages tags** — *recommandé : vérifier GSC d'abord* (elles sont noindex), puis normaliser, puis enrichir uniquement les candidats sûrs.
 
-## Carte du code (à remplir en Phase 1)
-> Fichiers pivots identifiés à l'audit :
+## Carte du code
+> Mise à jour : 2026-07-02 (fin Phase 2)
+
 | Fichier | Rôle |
 |---------|------|
-| `src/layouts/Layout.astro` | Définit toute la palette CSS (`:root`), charge les fonts |
-| `src/styles/global.css` | `@import tailwindcss` + animations + @font-face (PAS de `@theme`) |
-| `src/data/navigation.ts` | Toute l'IA du menu (MegaMenu, MobileNavDrawer, Footer) |
-| `src/data/schema.ts` | Catalogue canonique des 13 services (à réconcilier avec le menu) |
-| `src/sample.ts` | Liens des cartes services home (pointent vers `/services` générique) |
-| `src/components/Footer.astro` | Footer crawlable (silos IA manquants) |
-| `src/pages/guides/[slug].astro` | Breadcrumb vers `/guides` (hub inexistant → 404) |
-| `src/pages/services.astro` | Page « Solutions » à transformer en sommaire |
-| `src/pages/blog/tag/[tag].astro` | Générateur pages tags (thin, noindex) |
-| `src/content/portfolio/leo-lecureux-seo.md` | Source canonique preuve Lecureux |
-| `docs/styleguide.md` | Styleguide markdown (désynchronisé du code) |
+| `src/styles/global.css` | **Source de vérité tokens** : bloc `@theme` (neutres warm + accent teal), `--font-sans` |
+| `src/layouts/Layout.astro` | Alias legacy `:root` (`--blue/--yellow/--violet/--accent` → tokens), charge les fonts |
+| `src/pages/styleguide.astro` | **Styleguide LIVE (noindex)** — palette, échelle typo (titres `font-normal`), highlight, formes |
+| `src/pages/services/*.astro` (×13) | Chaque page : hero H1 = eyebrow `.seo-h1` (règle CSS inline), H2 `font-normal` |
+| `src/components/services/HeroScenarios.astro` | Hero constellation home ; garde son propre `.seo-h1` blanc sur fond sombre (hors périmètre) |
+| `src/components/{Hero,ContactHero,blog/BlogHero,cv/CVHero,MarkdownPost}.astro` | Titres hero/contenu (tous `font-normal tracking-tight`) |
+| `src/components/CallToAction.astro` | CTA bas d'article (rendu via MarkdownPost) — H2 FR corrigé |
+| `src/data/navigation.ts` | IA du menu (MegaMenu, MobileNavDrawer, Footer) — **à traiter Phase 4** |
+| `src/components/Footer.astro` | Footer crawlable (silos IA manquants) — **Phase 4** |
+| `src/pages/blog/tag/[tag].astro` | Générateur pages tags (thin, noindex) — **Phase 6** |
+| `src/content/portfolio/leo-lecureux-seo.md` | Source canonique preuve Lecureux — **Phase 5** |
+
+### Décisions clés
+- **Poids des titres = `font-normal` (400)**, jamais font-bold. Choix Jonathan (validation visuelle Phase 2) : le gras faisait « pas propre ». Hiérarchie = taille + eyebrows mono uppercase. H3/titres de carte gardent leur poids (petits).
+- **Échelle typo canonique** : H1 `text-4xl md:text-6xl font-normal tracking-tight` (content tier `md:5xl`), H2 `text-3xl md:text-4xl font-normal tracking-tight`, H3 `text-xl md:text-2xl font-semibold`.
+- **Fix H1 invisible `/services/*`** via la règle CSS `.seo-h1` (eyebrow teal), pas via le markup — mot-clé conservé dans le `<h1>`, zéro régression SEO.
+- Highlight unique = wash teal (`bg-accent-soft` ou `var(--accent)`). Éviter les fonds solides `var(--yellow)` (contraste).
+- Ne PAS toucher la structure brutaliste (bordures/ombres/corner boxes) ni les chiffres/badges `font-mono font-black` (display volontaire).
