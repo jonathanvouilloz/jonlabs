@@ -8,6 +8,8 @@ import Footer from '../components/Footer.astro'
 import imgJonathan from '../assets/jonathan-vouilloz.webp'
 import svgArrow from '../assets/arrow-3.svg'
 import svgPinkStar from '../assets/pink-star.svg'
+import illuAbout from '../assets/illustrations/about.webp'
+import Halo from '../components/shapes/Halo.astro'
 
 // Schema.org
 import { personData, SITE_URL } from '../data/schema';
@@ -157,7 +159,7 @@ const timeline = [
           <!-- Card 2 -->
           <div class="border-2 border-black p-6 bg-white shadow-[4px_4px_0px_rgba(0,0,0,0.15)]">
             <div class="flex items-center gap-3 mb-3">
-              <div class="w-10 h-10 flex items-center justify-center bg-[var(--yellow)] border-2 border-black">
+              <div class="w-10 h-10 flex items-center justify-center bg-[var(--blue)] border-2 border-black">
                 <i class="ri-heart-pulse-line text-xl"></i>
               </div>
               <h3 class="text-lg font-bold">Voir que ça sert à quelqu'un.</h3>
@@ -218,7 +220,9 @@ const timeline = [
 
     <!-- Ce que je fais concrètement -->
     <section class="py-16 md:py-20 px-4">
-      <div class="max-w-3xl mx-auto">
+      <div class="max-w-6xl mx-auto">
+        <div class="grid lg:grid-cols-[1fr_minmax(0,360px)] gap-12 lg:gap-16 items-start">
+        <div>
         <h2 class="text-2xl md:text-3xl font-normal tracking-tight mb-8" data-animate>
           Ce que je fais concrètement
         </h2>
@@ -253,6 +257,21 @@ const timeline = [
             </a>
           </p>
         </div>
+        </div><!-- /texte -->
+
+        <!-- Illustration contextuelle (Phase 3) -->
+        <div class="hidden lg:block lg:sticky lg:top-28" data-animate data-delay="0.2">
+          <div class="relative">
+            <Halo class="absolute -inset-10 -z-10" />
+            <Image
+              src={illuAbout}
+              alt=""
+              class="w-full border-2 border-black shadow-[6px_6px_0px_rgba(0,0,0,0.9)]"
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+        </div><!-- /grid -->
       </div>
     </section>
 

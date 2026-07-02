@@ -3,6 +3,9 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import { Image } from "astro:assets";
+import Halo from "../components/shapes/Halo.astro";
+import illuFreelance from "../assets/illustrations/freelance-geneve.webp";
 
 import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from "../lib/seo";
 import { SITE_URL, localBusinessData } from "../data/schema";
@@ -348,7 +351,7 @@ const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
         freelance à
         <span class="relative inline-block">
           <span class="relative z-10">Genève</span>
-          <span class="absolute bg-[var(--yellow)] w-full h-[35%] left-0 bottom-1 -z-1"></span>
+          <span class="absolute bg-[var(--accent)] w-full h-[35%] left-0 bottom-1 -z-1"></span>
         </span>
       </h1>
 
@@ -835,7 +838,7 @@ const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
             href={article.href}
             class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
           >
-            <div class="w-12 h-12 bg-[var(--yellow)] border-2 border-black flex items-center justify-center mb-4">
+            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4">
               <i class={`${article.icon} text-2xl`}></i>
             </div>
             <h3 class="text-lg font-bold mb-2 leading-tight">{article.title}</h3>
@@ -854,8 +857,25 @@ const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
   <!-- FAQ LOCALE -->
   <!-- ============================================== -->
   <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-3xl mx-auto">
-      <div class="text-center mb-12">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid lg:grid-cols-[minmax(0,340px)_1fr] gap-12 lg:gap-16 items-start">
+
+        <!-- Illustration contextuelle (Phase 3) -->
+        <div class="hidden lg:block lg:sticky lg:top-28">
+          <div class="relative">
+            <Halo class="absolute -inset-10 -z-10" />
+            <Image
+              src={illuFreelance}
+              alt=""
+              class="w-full border-2 border-black shadow-[6px_6px_0px_rgba(0,0,0,0.9)]"
+              aria-hidden="true"
+            />
+          </div>
+        </div>
+
+        <!-- Colonne FAQ -->
+        <div>
+      <div class="text-center lg:text-left mb-10">
         <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
           <span class="w-8 h-px bg-gray-400"></span>
           faq
@@ -916,9 +936,11 @@ const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
         ))}
       </div>
 
-      <p class="text-center mt-10 text-gray-500 text-sm">
+      <p class="mt-10 text-gray-500 text-sm text-center lg:text-left">
         Une autre question ? <a href="/contact" class="text-[var(--blue)] font-medium hover:underline">Écris-moi</a>, je réponds sous 24h. Tu peux aussi en savoir plus <a href="/about" class="text-[var(--blue)] font-medium hover:underline">sur moi</a>.
       </p>
+        </div><!-- /col FAQ -->
+      </div><!-- /grid -->
     </div>
   </section>
 

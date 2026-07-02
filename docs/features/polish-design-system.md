@@ -2,7 +2,21 @@
 
 > Chantier de fond : uniformiser le style graphique du site (thème, titres, couleurs), casser l'effet « très AI » (mur de texte, peu d'images, peu d'aération), rationaliser l'architecture/navigation, et transformer les pages tags thin en vraies pages — pour un rendu **plus professionnel**.
 > **Source ADN visuel marque perso** : skill `visual` (`~/.claude/skills/visual/`) — mono-accent teal `#00D9A3`, fond warm, connecteurs fins, formes arrondies, illustration « collage éditorial ».
-> **Statut** : 🔄 EN COURS — Phases 1a + 1b + **2 (titres + highlights)** faites ✅, build vert (209 pages). Décisions 1+2 tranchées ; nav (3) + tags (4) à confirmer avant leurs phases. Prochain : **Phase 3 (aération & images)**.
+> **Statut** : 🔄 EN COURS — Phases 1a + 1b + 2 faites ✅. **Phase 3 : pilote v2 fait ✅** (formes signature + illustrations carré + cohérence highlights/icônes), build vert (209 pages). Reste **Phase 3 rollout** (pages restantes + services/CV). Décisions nav (3) + tags (4) à confirmer avant leurs phases.
+
+## Etat session 2026-07-02 (suite 4) — Phase 3 : pilote v2 (aération, images carré, cohérence) ✅
+
+**Fait :** pilote Phase 3 sur `about`, `developpeur-web-freelance-geneve`, `consultant-ia/[ville]` + corrections de cohérence site-wide. Build **vert (209 pages)**. Committé/pushé.
+
+- **Formes signature réutilisables** : `src/components/shapes/{DotGrid,Halo,Connector,HalfCircle}.astro` extraites du `/styleguide` (token `--color-accent`, `aria-hidden` + `pointer-events-none`).
+- **Illustrations « tech-contexte »** (skill `visual`, typologie `illustration`, sans texte/logo, teal + nuances, **carré 1:1 natif** → zéro bande blanche) : `about` (buste→architecture), `freelance-geneve` (blocs web modulaires), `consultant-ia` (buste→réseau neuronal, partagée par toutes les villes). Webp ~800px (27–68 kB) dans `src/assets/illustrations/` ; masters PNG dans `_masters/`. Rendu `medium` (pas de re-render `high`, choix Jonathan). Intégrées en aside des FAQ (freelance, consultant/[ville]) + grille prose (about), avec `Halo` derrière.
+- **⚠️ Service image = no-op** (`astro/assets/services/noop` dans `astro.config.mjs`) : `<Image>` ne redimensionne/convertit PAS → **toujours fournir des webp pré-optimisés** (jamais de gros PNG source importé).
+- **Highlights unifiés → wash teal clair** : cause = alias `--yellow`/`--violet` → `--color-accent-strong` (#00A87D foncé). Corrigé les swipes H1 (`bg-[var(--yellow)]`→`bg-[var(--accent)]`, 5 pages dont « Genève ») + highlights inline (`bg-accent-soft` : tarifs, AboutHome, portfolio). Swipes sur sections sombres = teal @50% **conservés** (wash clair invisible sur sombre).
+- **Icônes unifiées → `src/components/IconChip.astro`** (carré, `bg-accent` + icône noire ; variantes `accent`/`muted`/`dark`, tailles `md`/`lg`). Emoji-chips tués (différenciants 🇨🇭💰📊🧩 → `ri-*`). Chips jaunes/violets-sans-`text-white`/cyan normalisés en teal sur pages IA/pilote. Styleguide resync (exemple `rounded-full` → `IconChip`). ⚠️ `ri-money-franc-circle-line` **n'existe pas** dans la version Remix chargée → utiliser `ri-price-tag-3-line`.
+
+**Prochain (Phase 3 rollout) :** `consultant-ia/index` (image+aside), `metiers/[metier]`, `developpement-web/[ville]` (images carré) ; puis `services/*` + composants CV → `IconChip` (retirer violet-sans-white, `bg-green-500`, cyan restants) + parité highlights. `scenarios.ts` emoji (constellation home) optionnel.
+
+---
 
 ## Etat session 2026-07-02 (suite 3) — Phase 2 : titres + highlights unifiés + fix H1 invisible ✅
 
@@ -165,13 +179,16 @@
 4. **Pages tags** — *recommandé : vérifier GSC d'abord* (elles sont noindex), puis normaliser, puis enrichir uniquement les candidats sûrs.
 
 ## Carte du code
-> Mise à jour : 2026-07-02 (fin Phase 2)
+> Mise à jour : 2026-07-02 (Phase 3 pilote v2)
 
 | Fichier | Rôle |
 |---------|------|
 | `src/styles/global.css` | **Source de vérité tokens** : bloc `@theme` (neutres warm + accent teal), `--font-sans` |
 | `src/layouts/Layout.astro` | Alias legacy `:root` (`--blue/--yellow/--violet/--accent` → tokens), charge les fonts |
-| `src/pages/styleguide.astro` | **Styleguide LIVE (noindex)** — palette, échelle typo (titres `font-normal`), highlight, formes |
+| `src/pages/styleguide.astro` | **Styleguide LIVE (noindex)** — palette, échelle typo (titres `font-normal`), highlight, formes, chips |
+| `src/components/shapes/*.astro` | **Formes signature (Phase 3)** — DotGrid, Halo, Connector, HalfCircle (token-based, décor d'aération) |
+| `src/components/IconChip.astro` | **Chip d'icône canonique (Phase 3)** — carré teal, variantes accent/muted/dark. Une seule norme (remplace 8 variantes + emoji) |
+| `src/assets/illustrations/*.webp` | Illustrations `visual` carré (about/freelance-geneve/consultant-ia) ; masters PNG dans `_masters/` |
 | `src/pages/services/*.astro` (×13) | Chaque page : hero H1 = eyebrow `.seo-h1` (règle CSS inline), H2 `font-normal` |
 | `src/components/services/HeroScenarios.astro` | Hero constellation home ; garde son propre `.seo-h1` blanc sur fond sombre (hors périmètre) |
 | `src/components/{Hero,ContactHero,blog/BlogHero,cv/CVHero,MarkdownPost}.astro` | Titres hero/contenu (tous `font-normal tracking-tight`) |

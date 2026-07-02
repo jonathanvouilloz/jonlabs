@@ -1,0 +1,36 @@
+---
+/**
+ * IconChip — chip d'icône canonique (Phase 3, cohérence)
+ * Une seule norme site-wide : carré brutaliste, bordure noire 2px.
+ * Remplace les 8 variantes historiques (bleu/jaune/violet/cyan/blanc + emoji).
+ *
+ * variant : accent (teal, DÉFAUT) · muted (panel, pour "passé/négatif") · dark (fond sombre → icône blanche)
+ * size    : lg (w-12, i text-2xl, DÉFAUT) · md (w-10, i text-xl)
+ */
+interface Props {
+  icon: string; // classe Remix Icon, ex. "ri-robot-2-line"
+  variant?: 'accent' | 'muted' | 'dark';
+  size?: 'md' | 'lg';
+  class?: string;
+}
+const { icon, variant = 'accent', size = 'lg', class: className = '' } = Astro.props;
+
+const VARIANT: Record<string, string> = {
+  accent: 'bg-accent text-ink',
+  muted: 'bg-panel text-ink',
+  dark: 'bg-dark text-white',
+};
+const dims = size === 'lg' ? 'w-12 h-12' : 'w-10 h-10';
+const isize = size === 'lg' ? 'text-2xl' : 'text-xl';
+---
+<span
+  class:list={[
+    dims,
+    VARIANT[variant],
+    'inline-flex items-center justify-center border-2 border-black shrink-0',
+    className,
+  ]}
+  aria-hidden="true"
+>
+  <i class:list={[icon, isize]}></i>
+</span>

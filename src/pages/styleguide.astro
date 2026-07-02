@@ -3,6 +3,7 @@ import '../styles/global.css'
 import Layout from "../layouts/Layout.astro"
 import Header from '../components/Header.astro'
 import Footer from '../components/Footer.astro'
+import IconChip from '../components/IconChip.astro'
 
 const pageTitle = "Styleguide | Jon Labs";
 const pageDescription = "Système de design Jon Labs — palette, typographie, composants. Page interne.";
@@ -165,11 +166,34 @@ const removed = [
         <div class="grid md:grid-cols-3 gap-6">
           {[1,2,3].map((i) => (
             <article class="bg-surface border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,1)] space-y-3">
-              <span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-accent-soft text-accent-strong text-lg"><i class="ri-flashlight-line"></i></span>
+              <IconChip icon="ri-flashlight-line" />
               <h3 class="text-xl font-semibold">Titre carte {i}</h3>
               <p class="text-sm text-muted leading-relaxed">Surface warm, bordure nette, ombre stamp. La structure brutaliste reste ; c'est la couleur qui s'unifie.</p>
             </article>
           ))}
+        </div>
+
+        <!-- Chips d'icônes — norme unique (IconChip.astro) -->
+        <div class="border-2 border-black bg-surface p-6 shadow-[4px_4px_0px_rgba(0,0,0,1)] space-y-4">
+          <p class="text-sm text-muted">Chip d'icône canonique — <code>&lt;IconChip icon="ri-…" /&gt;</code>. Carré, bordure noire 2px. Une seule norme (fini les emoji / chips jaunes / violets).</p>
+          <div class="flex flex-wrap items-center gap-6">
+            <div class="flex flex-col items-center gap-2">
+              <IconChip icon="ri-robot-2-line" />
+              <span class="text-xs text-muted font-mono">accent (défaut)</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <IconChip icon="ri-timer-line" variant="muted" />
+              <span class="text-xs text-muted font-mono">muted</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <IconChip icon="ri-flashlight-line" variant="dark" />
+              <span class="text-xs text-muted font-mono">dark</span>
+            </div>
+            <div class="flex flex-col items-center gap-2">
+              <IconChip icon="ri-map-pin-2-line" size="md" />
+              <span class="text-xs text-muted font-mono">size md</span>
+            </div>
+          </div>
         </div>
       </section>
 

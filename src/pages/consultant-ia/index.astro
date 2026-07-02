@@ -3,6 +3,7 @@ import "../../styles/global.css";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import IconChip from "../../components/IconChip.astro";
 
 import { getServiceItemSchema, getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from "../../lib/seo";
 import { SITE_URL, localBusinessData } from "../../data/schema";
@@ -19,22 +20,22 @@ const pageDescription = "Consultant IA pour PME en Suisse romande : agents IA su
 // ============================================
 const differenciants = [
   {
-    emoji: "🇨🇭",
+    icon: "ri-map-pin-2-line",
     title: "Vraiment basé à Genève",
     description: "Atelier installé à Chêne-Bougeries, pas un prestataire transfrontalier qui facture depuis l'autre côté de la frontière. On se voit pour un café si le projet le mérite, et je connais le terrain romand."
   },
   {
-    emoji: "💰",
+    icon: "ri-price-tag-3-line",
     title: "Prix en CHF, affichés",
     description: "Des fourchettes claires dès cette page : cadrage + agent simple CHF 2'500–4'000, agent métier intégré CHF 6'000–15'000. Pas de devis opaque ni de prix caché jusqu'au dernier rendez-vous."
   },
   {
-    emoji: "📊",
+    icon: "ri-bar-chart-box-line",
     title: "Des preuves chiffrées",
     description: "50 sites romands audités, une position #1 sur Google atteinte en 5 mois (cas Lécureux), 50+ sites livrés. Des résultats vérifiables, pas des promesses de plaquette."
   },
   {
-    emoji: "🧩",
+    icon: "ri-stack-line",
     title: "Un seul prestataire full-stack",
     description: "IA, site web, SEO/GEO et application mobile sous le même toit. Vous arrêtez de jongler entre trois agences qui se renvoient la balle quand ça coince."
   }
@@ -315,7 +316,7 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
         Consultant IA à
         <span class="relative inline-block">
           <span class="relative z-10">Genève</span>
-          <span class="absolute bg-[var(--yellow)] w-full h-[35%] left-0 bottom-1 -z-1"></span>
+          <span class="absolute bg-[var(--accent)] w-full h-[35%] left-0 bottom-1 -z-1"></span>
         </span><br/>
         pour PME romandes
       </h1>
@@ -403,9 +404,7 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {differenciants.map((item) => (
           <div class="bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] flex flex-col">
-            <div class="w-12 h-12 bg-white border-2 border-black flex items-center justify-center mb-4 text-2xl">
-              {item.emoji}
-            </div>
+            <IconChip icon={item.icon} class="mb-4" />
             <h3 class="text-lg font-bold mb-2">{item.title}</h3>
             <p class="text-sm text-gray-600 leading-relaxed">{item.description}</p>
           </div>
@@ -662,7 +661,7 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
             href={geo.href}
             class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
           >
-            <div class="w-12 h-12 bg-[var(--cyan)] border-2 border-black flex items-center justify-center mb-4">
+            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4">
               <i class="ri-map-pin-fill text-2xl"></i>
             </div>
             <h3 class="text-xl font-bold mb-2">{geo.nom}</h3>
@@ -682,7 +681,7 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
           href="/metiers/ia-fiduciaire"
           class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
         >
-          <div class="w-12 h-12 bg-[var(--violet)] text-white border-2 border-black flex items-center justify-center mb-4">
+          <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4">
             <i class="ri-calculator-line text-2xl"></i>
           </div>
           <h4 class="text-xl font-bold mb-2">IA pour fiduciaires</h4>
@@ -696,7 +695,7 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
           href="/metiers/ia-agence-immobiliere"
           class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
         >
-          <div class="w-12 h-12 bg-[var(--violet)] text-white border-2 border-black flex items-center justify-center mb-4">
+          <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4">
             <i class="ri-building-line text-2xl"></i>
           </div>
           <h4 class="text-xl font-bold mb-2">IA pour agences immobilières</h4>
@@ -755,7 +754,7 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
             href={article.href}
             class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
           >
-            <div class="w-12 h-12 bg-[var(--yellow)] border-2 border-black flex items-center justify-center mb-4">
+            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4">
               <i class={`${article.icon} text-2xl`}></i>
             </div>
             <h4 class="text-lg font-bold mb-2 leading-tight">{article.title}</h4>
