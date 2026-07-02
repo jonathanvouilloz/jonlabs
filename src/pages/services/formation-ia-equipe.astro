@@ -262,7 +262,7 @@ const sessionTypes = [
                 <h1 class="seo-h1 mb-6 mt-8 text-center">Formation IA pour équipes de PME à Genève et en Suisse romande</h1>
 
                 <!-- Main title -->
-                <p class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6" data-animate="fade-up">
+                <p class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6" data-animate="fade-up">
                     Formation IA pour<br/>
                     <span class="relative inline-block">
                         <span class="absolute bg-[var(--accent)] w-full h-[40%] left-0 bottom-1 -z-1"></span>
@@ -351,7 +351,7 @@ const sessionTypes = [
                         contexte
                         <span class="w-8 h-px bg-gray-400"></span>
                     </span>
-                    <h2 class="text-3xl md:text-4xl font-normal mb-6">
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-6">
                         L'IA ne manque pas à vos équipes. <span class="text-[var(--blue)]">Le mode d'emploi, si.</span>
                     </h2>
                     <div class="space-y-4 text-gray-600 leading-relaxed">
@@ -398,7 +398,7 @@ const sessionTypes = [
                     problèmes
                     <span class="w-8 h-px bg-gray-400"></span>
                 </span>
-                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                     <span class="relative inline-block">
                         <span class="absolute bg-red-200 w-full h-[40%] left-0 bottom-1 -z-1"></span>
                         Ça vous parle ?
@@ -444,7 +444,7 @@ const sessionTypes = [
                     programme
                     <span class="w-8 h-px bg-gray-400"></span>
                 </span>
-                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                     Comment se passe la formation ?
                 </h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -509,7 +509,7 @@ const sessionTypes = [
                     résultats
                     <span class="w-8 h-px bg-gray-400"></span>
                 </span>
-                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                     Ce que votre équipe obtient concrètement
                 </h2>
             </div>
@@ -577,7 +577,7 @@ const sessionTypes = [
                     formats
                     <span class="w-8 h-px bg-gray-400"></span>
                 </span>
-                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                     Des formats adaptés à votre équipe
                 </h2>
                 <p class="text-lg text-gray-600">Présentiel ou distanciel, découverte ou programme complet — on cale selon vos objectifs.</p>
@@ -623,7 +623,7 @@ const sessionTypes = [
                     local
                     <span class="w-8 h-px bg-gray-400"></span>
                 </span>
-                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                     Un formateur IA basé<br/>
                     <span class="text-[var(--blue)]">à Genève</span>
                 </h2>
@@ -678,7 +678,7 @@ const sessionTypes = [
                     investissement
                     <span class="w-8 h-px bg-gray-400"></span>
                 </span>
-                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                     Combien ça coûte ?
                 </h2>
                 <p class="text-lg text-gray-600">Un prix de départ transparent, un devis clair selon votre équipe.</p>
@@ -787,7 +787,7 @@ const sessionTypes = [
                     faq
                     <span class="w-8 h-px bg-gray-400"></span>
                 </span>
-                <h2 class="text-3xl md:text-4xl font-normal">Questions fréquentes</h2>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Questions fréquentes</h2>
             </div>
 
             <!-- FAQ items -->
@@ -860,7 +860,7 @@ const sessionTypes = [
             <!-- Header with illustration -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-12">
                 <div class="text-center lg:text-left" data-animate="fade-right">
-                    <h2 class="text-3xl md:text-4xl font-normal mb-4 text-[var(--text)]">
+                    <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-[var(--text)]">
                         Votre équipe est prête à passer à l'IA
                     </h2>
                     <p class="text-lg text-gray-600 mb-6">
@@ -1111,10 +1111,11 @@ const sessionTypes = [
     /* H1 SEO style terminal */
     .seo-h1 {
         font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace;
-        font-size: 0.75rem;
-        font-weight: 400;
-        color: rgba(15, 15, 15, 0.5);
-        letter-spacing: 0.05em;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--color-accent-strong);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
         display: flex;
         align-items: center;
         justify-content: center;

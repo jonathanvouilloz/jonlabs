@@ -2,7 +2,28 @@
 
 > Chantier de fond : uniformiser le style graphique du site (thème, titres, couleurs), casser l'effet « très AI » (mur de texte, peu d'images, peu d'aération), rationaliser l'architecture/navigation, et transformer les pages tags thin en vraies pages — pour un rendu **plus professionnel**.
 > **Source ADN visuel marque perso** : skill `visual` (`~/.claude/skills/visual/`) — mono-accent teal `#00D9A3`, fond warm, connecteurs fins, formes arrondies, illustration « collage éditorial ».
-> **Statut** : 🔄 EN COURS — Phases 1a + 1b (fondation + purge) faites ✅, build vert. Décisions 1+2 tranchées ; nav (3) + tags (4) à confirmer avant leurs phases.
+> **Statut** : 🔄 EN COURS — Phases 1a + 1b + **2 (titres + highlights)** faites ✅, build vert (209 pages). Décisions 1+2 tranchées ; nav (3) + tags (4) à confirmer avant leurs phases. Prochain : **Phase 3 (aération & images)**.
+
+## Etat session 2026-07-02 (suite 3) — Phase 2 : titres + highlights unifiés + fix H1 invisible ✅
+
+**Fait :** échelle de titres unique appliquée partout + H1 invisible des `/services/*` corrigé. Build **vert (209 pages)**. Exécuté en autonomie (fan-out agents, spec mécanique dans scratchpad `phase2-spec*.md`).
+
+- **Fix H1 invisible `/services/*` (13 pages)** : la règle CSS `.seo-h1` (mono `0.75rem`, `rgba(15,15,15,.5)` = illisible) → **eyebrow lisible** : `font-size:0.8rem`, `font-weight:600`, `color:var(--color-accent-strong)`, `letter-spacing:0.18em` + `text-transform:uppercase`. Le mot-clé reste dans le `<h1>` → **aucune régression SEO**, hero et markup intacts. (Le composant `HeroScenarios.astro` garde son propre `.seo-h1` blanc sur fond sombre — hors périmètre, non touché.)
+- **Échelle H1 unifiée → `text-4xl md:text-6xl font-bold tracking-tight`** : familles `font-black lg:7xl` (hermes, consultant-ia index+[ville], developpement-web/[ville], metiers/[metier], developpeur-web-freelance-geneve) et `font-normal` (about, tarifs, Hero home, ContactHero) alignées. Content tier gardé un cran plus petit (`md:5xl`, poids unifié) : BlogHero, MarkdownPost (titre article), CVHero.
+- **Échelle H2 de section unifiée → `text-3xl md:text-4xl font-bold tracking-tight`** : `font-normal` (13 services, ~66 H2) + `font-black md:5xl` (6 landings, ~40 H2) + CTA sombres `font-black md:6xl` → `font-bold`. H1 de contenu (blog/[slug], guides/[slug], blog/tag) `font-black` → `font-bold tracking-tight`.
+- **Chiffres/badges/prix `font-mono font-black` + stats `text-4xl font-black` : PRÉSERVÉS** (display volontaire, on-brand — pas des titres).
+- **Bonus défaut corrigé** : `CallToAction.astro` (rendu en bas de CHAQUE article via `MarkdownPost`) contenait un `<h1>` **en anglais** (« Let's start designing your project ») → double-H1 + langue KO. Passé en `<h2 font-bold>` FR on-brand + sous-titre FR.
+- **Highlights** : la majorité rendaient déjà en teal via alias Phase 1a (`var(--accent)`=wash, `var(--yellow)`=teal foncé). Corrigés les solides à faible contraste : tarifs `<span>Tarifs</span>` et tag `#{tag}` `bg-[var(--yellow)]`/`bg-[var(--accent)]` → `bg-accent-soft ... rounded-sm`.
+
+**Piège résolu :** le H1 réel des `/services/*` n'est plus invisible (eyebrow teal visible) sans casser le SEO ni la structure brutaliste.
+
+**Reste (Phase 2, optionnel/mineur) :** validation VISUELLE par Jonathan (npm run dev → `/`, un `/services/*`, une landing, `/styleguide`) — surtout vérifier que le hero home en `font-bold md:6xl` et l'eyebrow services rendent bien. Neutres gris hardcodés d'articles/PDF (`#0f172a`, `#1a1a1a`…) toujours à migrer vers `--color-ink`/`--color-muted` (non urgent). Alias legacy de `Layout.astro` encore en place (retrait quand `var(--blue/--yellow/--violet)` migrés).
+
+**Prochain :** **Phase 3 — aération & images** (formes signature teal du styleguide + illustrations sur les landings « mur de texte »). Confirmer décisions nav (3) + tags (4) avant Phases 4 & 6.
+
+**Commit Phase 2 :** [à committer] feat(design): échelle titres unifiée + fix H1 invisible /services (Phase 2)
+
+---
 
 ## Etat session 2026-07-02 (suite 2) — Phase 1b : purge des couleurs rogue ✅
 

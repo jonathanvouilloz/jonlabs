@@ -336,7 +336,7 @@ const projectTypes = [
                 <h1 class="seo-h1 mb-6 mt-8 text-center">Automatisation de tâches administratives à Genève et en Suisse romande</h1>
 
                 <!-- Main title -->
-                <p class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6" data-animate="fade-up">
+                <p class="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight mb-6" data-animate="fade-up">
                     Vos journées ne devraient pas<br/>
                     <span class="relative inline-block">
                         <span class="absolute bg-[var(--accent)] w-full h-[40%] left-0 bottom-1 -z-1"></span>
@@ -425,7 +425,7 @@ const projectTypes = [
                     problèmes
                     <span class="w-8 h-px bg-gray-400"></span>
                 </span>
-                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                     <span class="relative inline-block">
                         <span class="absolute bg-red-200 w-full h-[40%] left-0 bottom-1 -z-1"></span>
                         Combien d'heures par semaine vous perdez là-dessus ?
@@ -474,7 +474,7 @@ const projectTypes = [
                     méthode
                     <span class="w-8 h-px bg-gray-400"></span>
                 </span>
-                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                     Comment on vous rend vos heures ?
                 </h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -565,7 +565,7 @@ const projectTypes = [
                     résultats
                     <span class="w-8 h-px bg-gray-400"></span>
                 </span>
-                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                     Ce que vous récupérez concrètement
                 </h2>
             </div>
@@ -622,7 +622,7 @@ const projectTypes = [
                     cas d'usage
                     <span class="w-8 h-px bg-gray-400"></span>
                 </span>
-                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                     Ce qu'on automatise le plus souvent
                 </h2>
                 <p class="text-lg text-gray-600">Des exemples concrets d'automatisation de tâches, adaptés au marché suisse romand.</p>
@@ -712,7 +712,7 @@ const projectTypes = [
                     outils
                     <span class="w-8 h-px bg-gray-400"></span>
                 </span>
-                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                     Les outils d'automatisation que j'utilise
                 </h2>
                 <p class="text-lg text-gray-600">La technique est mon problème, pas le vôtre.</p>
@@ -761,7 +761,7 @@ const projectTypes = [
                     local
                     <span class="w-8 h-px bg-gray-400"></span>
                 </span>
-                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                     Automatisation pour PME et indépendants<br/>
                     <span class="text-[var(--blue)]">en Suisse romande</span>
                 </h2>
@@ -847,7 +847,7 @@ const projectTypes = [
                     investissement
                     <span class="w-8 h-px bg-gray-400"></span>
                 </span>
-                <h2 class="text-3xl md:text-4xl font-normal mb-4">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4">
                     Investissement
                 </h2>
                 <p class="text-lg text-gray-600">Chaque besoin est différent. Le devis aussi.</p>
@@ -951,7 +951,7 @@ const projectTypes = [
                     faq
                     <span class="w-8 h-px bg-gray-400"></span>
                 </span>
-                <h2 class="text-3xl md:text-4xl font-normal">Questions fréquentes sur l'automatisation de tâches</h2>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight">Questions fréquentes sur l'automatisation de tâches</h2>
             </div>
 
             <!-- FAQ items -->
@@ -1023,7 +1023,7 @@ const projectTypes = [
         <div class="max-w-5xl mx-auto relative z-10">
             <!-- Header -->
             <div class="text-center mb-12" data-animate="fade-up">
-                <h2 class="text-3xl md:text-4xl font-normal mb-4 text-[var(--text)]">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4 text-[var(--text)]">
                     Récupérez vos heures perdues
                 </h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -1246,10 +1246,11 @@ const projectTypes = [
     /* H1 SEO style terminal */
     .seo-h1 {
         font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace;
-        font-size: 0.75rem;
-        font-weight: 400;
-        color: rgba(15, 15, 15, 0.5);
-        letter-spacing: 0.05em;
+        font-size: 0.8rem;
+        font-weight: 600;
+        color: var(--color-accent-strong);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
         display: flex;
         align-items: center;
         justify-content: center;
