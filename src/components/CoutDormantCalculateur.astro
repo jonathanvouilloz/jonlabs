@@ -7,7 +7,7 @@
 <div id="calc-wrapper" class="my-10 border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,0.3)] bg-white">
 
   <!-- Header -->
-  <div class="bg-[#FFDC58] border-b-2 border-black px-6 py-4">
+  <div class="bg-accent border-b-2 border-black px-6 py-4">
     <p class="font-black text-lg">Calculateur de coût d'inaction</p>
     <p class="text-sm mt-0.5">3 chiffres — résultat immédiat — pas d'email requis</p>
   </div>
@@ -20,7 +20,7 @@
         Valeur d'un client (CHF)
       </label>
       <p class="text-xs text-gray-500">Ce qu'un client te rapporte en moyenne (devis, prestation, produit)</p>
-      <div class="flex border-2 border-black focus-within:border-[var(--violet,#7C3AED)]">
+      <div class="flex border-2 border-black focus-within:border-[var(--color-accent)]">
         <span class="bg-gray-100 border-r-2 border-black px-3 flex items-center text-sm font-mono font-bold">CHF</span>
         <input
           type="number"
@@ -38,7 +38,7 @@
         Clients/mois via le site
       </label>
       <p class="text-xs text-gray-500">Combien de clients contactent via ton site par mois (0 si aucun)</p>
-      <div class="flex border-2 border-black focus-within:border-[var(--violet,#7C3AED)]">
+      <div class="flex border-2 border-black focus-within:border-[var(--color-accent)]">
         <span class="bg-gray-100 border-r-2 border-black px-3 flex items-center text-sm font-mono font-bold">#</span>
         <input
           type="number"
@@ -56,7 +56,7 @@
         Sans mise à jour depuis
       </label>
       <p class="text-xs text-gray-500">Nombre de mois depuis le dernier contenu publié ou refonte</p>
-      <div class="flex border-2 border-black focus-within:border-[var(--violet,#7C3AED)]">
+      <div class="flex border-2 border-black focus-within:border-[var(--color-accent)]">
         <input
           type="number"
           id="anciennete"
@@ -76,19 +76,19 @@
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
 
-      <div class="border-2 border-black p-4 bg-[#FEFFF0]">
+      <div class="border-2 border-black p-4 bg-panel">
         <p class="text-xs uppercase tracking-wide text-gray-500 mb-1">Frais fixes annuels</p>
         <p class="font-black text-xl font-mono" id="r-frais">CHF 250</p>
         <p class="text-xs text-gray-400 mt-1">hébergement + domaine (estimation)</p>
       </div>
 
-      <div class="border-2 border-black p-4 bg-[#FEFFF0]">
+      <div class="border-2 border-black p-4 bg-panel">
         <p class="text-xs uppercase tracking-wide text-gray-500 mb-1">Clients manqués / an</p>
         <p class="font-black text-xl font-mono" id="r-clients">—</p>
         <p class="text-xs text-gray-400 mt-1">leads qualifiés non captés</p>
       </div>
 
-      <div class="border-2 border-black p-4 bg-[#FEFFF0]">
+      <div class="border-2 border-black p-4 bg-panel">
         <p class="text-xs uppercase tracking-wide text-gray-500 mb-1">Manque à gagner / an</p>
         <p class="font-black text-xl font-mono" id="r-manque">—</p>
         <p class="text-xs text-gray-400 mt-1">clients manqués × valeur client</p>
@@ -99,12 +99,12 @@
     <!-- Total highlight -->
     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 
-      <div class="border-2 border-black p-5 bg-[#FFDC58]">
+      <div class="border-2 border-black p-5 bg-accent">
         <p class="text-xs uppercase tracking-wide font-bold mb-1">Coût d'inaction — 1 an</p>
         <p class="font-black text-3xl font-mono" id="r-total1">—</p>
       </div>
 
-      <div class="border-2 border-black p-5 bg-[#FEFFF0]">
+      <div class="border-2 border-black p-5 bg-panel">
         <p class="text-xs uppercase tracking-wide font-bold mb-1 text-gray-500">Coût d'inaction — 3 ans</p>
         <p class="font-black text-3xl font-mono text-gray-700" id="r-total3">—</p>
       </div>
@@ -119,11 +119,11 @@
   </div>
 
   <!-- CTA -->
-  <div id="calc-cta" class="hidden border-t-2 border-black px-6 py-4 bg-[#BAE6FF] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+  <div id="calc-cta" class="hidden border-t-2 border-black px-6 py-4 bg-accent-soft flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
     <p class="font-bold text-sm">Maintenant que tu connais le chiffre — que faire ?</p>
     <a
       href="/services/refonte-site-web"
-      class="inline-flex items-center gap-2 bg-black text-white px-5 py-2.5 text-sm font-bold border-2 border-black hover:bg-[#FFDC58] hover:text-black transition-colors shrink-0"
+      class="inline-flex items-center gap-2 bg-black text-white px-5 py-2.5 text-sm font-bold border-2 border-black hover:bg-accent hover:text-black transition-colors shrink-0"
     >
       Obtenir un audit gratuit →
     </a>

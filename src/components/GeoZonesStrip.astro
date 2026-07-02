@@ -32,7 +32,7 @@ import { villesFrontalieres } from '../data/villes-frontalieres';
 <style>
   .geo-strip {
     padding: 3rem 1rem;
-    background: var(--main-bg, #FEFFF0);
+    background: var(--color-bg);
     border-top: 2px solid black;
   }
   .geo-strip-inner {
@@ -46,7 +46,7 @@ import { villesFrontalieres } from '../data/villes-frontalieres';
     margin-bottom: 0.5rem;
   }
   .geo-strip-highlight {
-    background: var(--yellow, #FFDC58);
+    background: var(--color-accent-soft);
     padding: 0 0.4rem;
   }
   .geo-strip-sub {
@@ -76,7 +76,7 @@ import { villesFrontalieres } from '../data/villes-frontalieres';
     transition: all 0.2s ease;
   }
   .geo-chip:hover {
-    background: var(--blue, #BAE6FF);
+    background: var(--color-accent);
     transform: translate(-2px, -2px);
     box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.25);
   }
@@ -84,17 +84,17 @@ import { villesFrontalieres } from '../data/villes-frontalieres';
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    background: var(--yellow, #FFDC58);
+    background: var(--color-accent);
     border: 2px solid black;
     padding: 0.75rem 1.5rem;
     font-weight: 700;
-    color: #0f172a;
+    color: var(--color-ink);
     text-decoration: none;
     box-shadow: 4px 4px 0px rgba(0, 0, 0, 0.3);
     transition: all 0.2s ease;
   }
   .geo-strip-cta:hover {
-    background: var(--blue, #BAE6FF);
+    background: var(--color-accent-strong);
     transform: translate(-2px, -2px);
     box-shadow: 6px 6px 0px rgba(0, 0, 0, 0.3);
   }

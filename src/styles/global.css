@@ -1,5 +1,29 @@
 @import "tailwindcss";
 
+/* ============================================================
+   DESIGN TOKENS — source de vérité (Tailwind v4 @theme)
+   Palette : teal mono-accent + neutres warm (jonlabs)
+   Voir /styleguide (page live) et docs/features/polish-design-system.md
+   ============================================================ */
+@theme {
+    /* Neutres warm */
+    --color-bg: #F5F4F0;          /* fond warm off-white (remplace le #FAFAFA clinique) */
+    --color-surface: #FBFBF9;     /* cartes / surfaces surélevées */
+    --color-panel: #ECEDEA;       /* sections alternées / panneaux */
+    --color-ink: #14161A;         /* texte principal (charbon warm) */
+    --color-muted: #6F7471;       /* texte secondaire */
+    --color-hairline: #D8DCD8;    /* filets doux (bordures brand) */
+    --color-dark: #0E1116;        /* fond des sections sombres */
+
+    /* Accent unique — teal */
+    --color-accent: #00D9A3;              /* accent principal (signal) */
+    --color-accent-strong: #00A87D;       /* teal foncé — hover / emphase */
+    --color-accent-soft: rgba(0, 217, 163, 0.16); /* wash de surlignage */
+
+    /* Typo */
+    --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+}
+
 /* Animation fade-up au scroll */
 .animate-on-scroll {
     opacity: 0;

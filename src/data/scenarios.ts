@@ -26,7 +26,7 @@ export const scenarios: Scenario[] = [
     subtitle: 'Design 2015, pas responsive',
     pillar: 'web',
     scrollTo: 'web-outils',
-    color: 'rgba(0, 150, 255, 0.15)',
+    color: 'rgba(0, 217, 163,0.15)',
     messages: [
       { speaker: 'client', text: 'Mon site date de 2015, il est moche, pas responsive... mais refaire un site ça coûte une blinde non ?' },
       { speaker: 'jon', text: 'T\'as raison de te poser la question. Dépend de ce que tu veux. Site sur-mesure avec 50 pages et 200 animations ? Oui. Site propre qui convertit ? Non.' },
@@ -49,7 +49,7 @@ export const scenarios: Scenario[] = [
     subtitle: 'Tout passe par le bouche-à-oreille',
     pillar: 'web',
     scrollTo: 'web-outils',
-    color: 'rgba(0, 150, 255, 0.15)',
+    color: 'rgba(0, 217, 163,0.15)',
     messages: [
       { speaker: 'client', text: 'Je n\'ai pas de site, tout passe par le bouche-à-oreille... mais est-ce que j\'en ai vraiment besoin ?' },
       { speaker: 'jon', text: 'Ça dépend. Tu veux rester dépendant de ton réseau ou que des gens te trouvent sans te connaître ?' },
@@ -120,7 +120,7 @@ export const scenarios: Scenario[] = [
     subtitle: 'Pas sûr que les gens vont payer',
     pillar: 'validation',
     scrollTo: 'web-outils',
-    color: 'rgba(163, 0, 217, 0.15)',
+    color: 'rgba(0, 168, 125,0.15)',
     messages: [
       { speaker: 'client', text: 'J\'ai une idée de produit/service mais je sais pas si les gens vont payer pour ça.' },
       { speaker: 'jon', text: 'Bonne question à se poser AVANT de développer. Pas après 6 mois de travail.' },
@@ -141,7 +141,7 @@ export const scenarios: Scenario[] = [
     subtitle: '3 semaines pour montrer quelque chose',
     pillar: 'validation',
     scrollTo: 'web-outils',
-    color: 'rgba(163, 0, 217, 0.15)',
+    color: 'rgba(0, 168, 125,0.15)',
     messages: [
       { speaker: 'client', text: 'J\'ai 3 semaines pour montrer quelque chose à des investisseurs / partenaires / premiers clients.' },
       { speaker: 'jon', text: 'Faisable. Mais faut être clair sur ce qu\'on livre : un prototype fonctionnel qui prouve le concept, pas un produit fini.' },

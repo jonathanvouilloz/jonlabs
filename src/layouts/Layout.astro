@@ -65,7 +65,7 @@ const {
 		<link rel="icon" type="image/x-icon" href="/favicon/favicon.ico" />
 		<link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
 		<link rel="manifest" href="/favicon/site.webmanifest" />
-		<meta name="theme-color" content="#FAFAFA" />
+		<meta name="theme-color" content="#F5F4F0" />
 
 		<meta name="generator" content={Astro.generator} />
 		<link rel="alternate" type="application/rss+xml" title="Blog Jon Labs" href="/rss.xml" />
@@ -95,15 +95,21 @@ const {
 <style>
 
 :root{
-	/* Palette "Lab Scientifique" */
-	--main-bg: #FAFAFA;              /* Blanc cassé */
-	--blue: #00D9A3;                 /* Vert labo - accent principal */
-	--yellow: #00A87D;               /* Vert foncé - hover buttons */
-	--accent: rgba(163, 0, 217, 0.35);  /* Magenta/Violet transparent - soulignements texte */
-	--violet: #A300D9;                  /* Magenta/Violet vif - détails */
-	--orange: #FF7A00;               /* Orange vif - catégorie Sites web */
-	--cyan: #00B3D9;                 /* Cyan labo - catégorie Visibilité IA */
-	--text: #0F172A;                 /* Noir charbon */
+	/* ------------------------------------------------------------
+	   ALIAS LEGACY → tokens canoniques (@theme dans global.css)
+	   Transition : les anciens noms mensongers pointent vers les
+	   nouveaux tokens. Le magenta est retiré (→ teal foncé), les
+	   couleurs mortes (orange/cyan) → accent. À supprimer en Phase 2
+	   une fois les usages migrés vers bg-accent/text-ink/etc.
+	   ------------------------------------------------------------ */
+	--main-bg: var(--color-bg);
+	--text: var(--color-ink);
+	--blue: var(--color-accent);            /* accent teal (inchangé) */
+	--yellow: var(--color-accent-strong);   /* ex "vert foncé" = hover teal */
+	--violet: var(--color-accent-strong);   /* ex magenta → teal foncé (dégradés gardent de la profondeur) */
+	--accent: var(--color-accent-soft);     /* ex soulignement magenta → wash teal */
+	--orange: var(--color-accent);          /* déprécié */
+	--cyan: var(--color-accent);            /* déprécié */
 }
 
 html,
@@ -111,9 +117,9 @@ body {
 	margin: 0;
 	width: 100%;
 	min-height: 100%;
-	background-color: var(--main-bg);
-	color: var(--text);
-	font-family: "Plus Jakarta Sans", sans-serif;
+	background-color: var(--color-bg);
+	color: var(--color-ink);
+	font-family: var(--font-sans);
 	scroll-behavior: smooth;
 }
 

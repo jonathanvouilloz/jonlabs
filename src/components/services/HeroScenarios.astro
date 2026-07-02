@@ -54,16 +54,16 @@ const positions = [
       <svg class="connection-lines" id="connection-lines">
         <defs>
           <linearGradient id="line-grad-web" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#0096FF" stop-opacity="0.9"/>
-            <stop offset="100%" stop-color="#0096FF" stop-opacity="0.3"/>
-          </linearGradient>
-          <linearGradient id="line-grad-auto" x1="0%" y1="0%" x2="100%" y2="100%">
             <stop offset="0%" stop-color="#00D9A3" stop-opacity="0.9"/>
             <stop offset="100%" stop-color="#00D9A3" stop-opacity="0.3"/>
           </linearGradient>
+          <linearGradient id="line-grad-auto" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00B88A" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#00B88A" stop-opacity="0.3"/>
+          </linearGradient>
           <linearGradient id="line-grad-validation" x1="0%" y1="0%" x2="100%" y2="100%">
-            <stop offset="0%" stop-color="#A300D9" stop-opacity="0.9"/>
-            <stop offset="100%" stop-color="#A300D9" stop-opacity="0.3"/>
+            <stop offset="0%" stop-color="#00A87D" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#00A87D" stop-opacity="0.3"/>
           </linearGradient>
           <filter id="glow-line">
             <feGaussianBlur stdDeviation="1.5" result="blur"/>
@@ -170,12 +170,12 @@ const positions = [
     position: absolute;
     inset: 0;
     background:
-      radial-gradient(circle at 25% 25%, rgba(0, 150, 255, 0.06) 0%, transparent 40%),
-      radial-gradient(circle at 75% 25%, rgba(0, 150, 255, 0.04) 0%, transparent 35%),
+      radial-gradient(circle at 25% 25%, rgba(0, 217, 163,0.06) 0%, transparent 40%),
+      radial-gradient(circle at 75% 25%, rgba(0, 217, 163,0.04) 0%, transparent 35%),
       radial-gradient(circle at 15% 50%, rgba(0, 217, 163, 0.06) 0%, transparent 40%),
       radial-gradient(circle at 85% 50%, rgba(0, 217, 163, 0.04) 0%, transparent 35%),
-      radial-gradient(circle at 30% 80%, rgba(163, 0, 217, 0.06) 0%, transparent 40%),
-      radial-gradient(circle at 70% 85%, rgba(163, 0, 217, 0.04) 0%, transparent 35%);
+      radial-gradient(circle at 30% 80%, rgba(0, 168, 125,0.06) 0%, transparent 40%),
+      radial-gradient(circle at 70% 85%, rgba(0, 168, 125,0.04) 0%, transparent 35%);
   }
 
   /* Contenu */
