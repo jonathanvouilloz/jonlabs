@@ -1,6 +1,6 @@
 # Topical Map : Consultant IA / Agents IA / Automatisation IA
 
-> Généré le 2026-06-30. Cluster de **30 entrées** : 13 existants (blog), 17 à créer (pages + articles).
+> Généré le 2026-06-30 (maj 2026-07-02 : 2 articles migrés vers le cluster « Mettre l'IA en place »). Cluster de **28 entrées actives** : 13 existants (blog), 15 à créer (pages + articles). +2 migrés hors cluster.
 > Marché : Genève + Suisse romande (Lausanne, Nyon, Fribourg, Neuchâtel, Sion, Riviera). Audience : dirigeants TPE/PME romandes.
 > Source de vérité : ce fichier. Roadmap d'exécution : `docs/planSEOIA.md`.
 > Contexte concurrentiel : riposte à **hgnn.io** (Gauthier Huguenin) qui occupe déjà "consultant IA Genève" en transfrontalier. Différenciant = **ancrage suisse réel + prix CHF transparents + preuves chiffrées**.
@@ -67,8 +67,8 @@ Keyword : automatisation PME suisse | Intent : Informationnel | Statut : **Exist
 - `prix-agent-ia-automatisation-suisse` — Combien coûte un agent IA / une automatisation ? Prix CHF **À créer (P1)** ⚡ — différenciant transparence vs hgnn
 - `consultant-ia-c-est-quoi` — Consultant IA : c'est quoi, quand en engager un **À créer (P2)** — feed du hub
 - `ia-nlpd-conformite-suisse` — IA & nLPD : automatiser en conformité en Suisse **À créer (P2)** ⚡ — Outer trust, intraduisible pour un concurrent français
-- `rag-documents-pme` — RAG pour PME : interroger ses documents sans halluciner **À créer (P3)** — étend NotebookLM
-- `chatbot-vs-agent-ia-support` — Chatbot générique vs agent IA : support client qui marche **À créer (P3)**
+- ~~`rag-documents-pme`~~ — **migré** vers le cluster « Mettre l'IA en place » (absorbé par `automatiser-emails-documents-ia`, cf. `docs/topical-map-mise-en-place-ia.md`)
+- ~~`chatbot-vs-agent-ia-support`~~ — **migré** vers le cluster « Mettre l'IA en place » (absorbé par `automatiser-support-client-ia`, cf. `docs/topical-map-mise-en-place-ia.md`)
 
 ---
 
@@ -107,7 +107,7 @@ graph TD
 
 - **Reformulation** (consultant IA / expert IA / spécialiste automatisation IA Genève) : `/consultant-ia`, `consultant-ia-geneve`, `consultant-ia-c-est-quoi`
 - **Décomposition** (que fait un consultant IA / cas d'usage / par métier / par ville) : Clusters B, C, `agent-ia-entreprise-cas-usage`
-- **Comparaison** (workflow vs agent, chatbot vs agent, Hermès vs OpenClaw, agence vs freelance) : `workflows-vs-agents-ia-pme`, `chatbot-vs-agent-ia-support`, landings produit
+- **Comparaison** (workflow vs agent, Hermès vs OpenClaw, agence vs freelance) : `workflows-vs-agents-ia-pme`, landings produit *(chatbot vs agent → migré au cluster « Mettre l'IA en place »)*
 - **Implication** (coût, conformité nLPD, ROI, par où commencer) : `prix-agent-ia-automatisation-suisse`, `ia-nlpd-conformite-suisse`, `comment-choisir-quoi-automatiser-pme`
 - **Trous détectés** : aucun axe vide. Le pari faible est le volume (marché CH petit) — compensé par intent local fort + conversion.
 
@@ -132,8 +132,8 @@ graph TD
 | 13 | Landing OpenClaw | page | Core | À créer | 3 | 1 | 1 | 5 | | `openclaw` |
 | 14 | IA pour commerces & retail | page | Core | À créer | 2 | 2 | 1 | 5 | | `metiers/ia-commerce-retail` |
 | 15 | Audit & feuille de route IA (service) | page | Core | À créer | 2 | 2 | 0 | 4 | | `services/audit-ia` |
-| 16 | RAG pour PME (documents) | article | Outer | À créer | 2 | 1 | 1 | 4+C | | `rag-documents-pme` |
-| 17 | Chatbot vs agent IA support | article | Core | À créer | 2 | 1 | 1 | 4 | | `chatbot-vs-agent-ia-support` |
+| ~~16~~ | RAG pour PME (documents) → **migré** cluster « Mettre l'IA en place » | article | — | Migré | — | — | — | — | | `automatiser-emails-documents-ia` |
+| ~~17~~ | Chatbot vs agent IA support → **migré** cluster « Mettre l'IA en place » | article | — | Migré | — | — | — | — | | `automatiser-support-client-ia` |
 | 18 | IA pour cabinets (avocats/médecins) | page | Core | À créer | 2 | 2 | 0 | 4 | | `metiers/ia-cabinet` |
 | 19 | Consultant IA Nyon (géo) | page | Core | À créer | 2 | 1 | 0 | 3 | | `consultant-ia-nyon` |
 | — | Géo vague 2 (Fribourg/Neuchâtel/Sion/Riviera) | page | Core | Backlog | 1-2 | 1 | 0 | <3 | | `consultant-ia-{ville}` |
@@ -207,23 +207,12 @@ graph TD
 - Lien obligatoire → `/consultant-ia` · Reco → `prix-agent-ia-automatisation-suisse`
 - Produire avec : `/seo-brief consultant-ia-c-est-quoi`
 
-### 5. RAG pour PME : interroger ses documents sans halluciner
-- Slug : `rag-documents-pme`
-- Type : article · Section : Outer
-- Keyword principal : RAG entreprise / IA interroger documents
-- Sous-requêtes : RAG c'est quoi, IA sur ses propres documents, base de connaissance IA PME, vs NotebookLM
-- Intent : Informationnel · Score 4/9 + Complétude · Word count : 1 400-1 800
-- Lien obligatoire → `blog/notebooklm-guide-complet-2026` · Reco → `/consultant-ia`
-- Produire avec : `/seo-brief rag-documents-pme`
+### 5-6. ~~RAG pour PME~~ / ~~Chatbot vs agent IA support~~ → **MIGRÉS**
+Ces deux articles ont été **déplacés** vers le cluster « Mettre l'IA en place » (`docs/topical-map-mise-en-place-ia.md`), où ils sont absorbés et élargis :
+- `rag-documents-pme` → `automatiser-emails-documents-ia` (tri emails + RAG docs internes + nLPD)
+- `chatbot-vs-agent-ia-support` → `automatiser-support-client-ia` (support/SAV + comparatif chatbot vs agent)
 
-### 6. Chatbot générique vs agent IA : le support client qui marche
-- Slug : `chatbot-vs-agent-ia-support`
-- Type : article · Section : Core
-- Keyword principal : chatbot vs agent IA / chatbot support client IA
-- Sous-requêtes : différence chatbot et agent IA, agent IA support client, chatbot connecté aux outils
-- Intent : Commercial · Score 4/9 · Word count : 1 200-1 600
-- Lien obligatoire → `blog/workflows-vs-agents-ia-pme` · Reco → `services/agent-ia-sur-mesure`
-- Produire avec : `/seo-brief chatbot-vs-agent-ia-support`
+Voir les mini-briefs à jour dans le nouveau cluster.
 
 ---
 

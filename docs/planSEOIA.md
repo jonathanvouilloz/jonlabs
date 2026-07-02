@@ -9,7 +9,7 @@
 ## État session 2026-07-01 (Phase 2)
 
 **Fait :** Phase 2 complète. **Pages métiers** en route data-driven (`src/data/metiers-ia.ts` + `src/pages/metiers/[metier].astro`, gabarit 12 sections) → `/metiers/ia-fiduciaire` (Bexio/Crésus, angle nLPD) + `/metiers/ia-agence-immobiliere` (Garaio REM/ImmoTop, terrain hgnn). **Landing `/hermes`** transactionnelle (8 sections, prix CHF affichés). **Service `/services/formation-ia-equipe`** (dès CHF 1'200, `index,follow`). Schemas Service ajoutés (métiers + hermes + formation) + ItemList à 8. **Maillage** : méga-menu Consultant IA (colonne Métiers + Hermès + Formation), hub → métiers/hermes/formation, pages géo → métiers, boucle article↔métier fermée. **2 articles** : `ia-nlpd-conformite-suisse` ⚡ (pubDate 24.08, ~2460 mots, review 16/18) + `consultant-ia-c-est-quoi` (pubDate 28.08, ~1870 mots, review 17/18), covers template, 0 image inline (règle anti-404). Build vert **208 pages**. **Fix pré-flight** : 2 images cassées de `agent-ia-entreprise-cas-usage` régénérées via `/visual`.
-**Prochain :** Phase 3 (§4) — `/metiers/ia-commerce-retail` + `/metiers/ia-cabinet`, landing `/openclaw`, `services/audit-ia` + `/consultant-ia/nyon`, articles `rag-documents-pme` + `chatbot-vs-agent-ia-support`. Avant : Request Indexing GSC sur les 4 nouvelles pages Phase 2 (hub/géo déjà à faire depuis Phase 1).
+**Prochain :** Phase 3 (§4) — `/metiers/ia-commerce-retail` + `/metiers/ia-cabinet`, landing `/openclaw`, `services/audit-ia` + `/consultant-ia/nyon`. (Articles `rag-documents-pme` + `chatbot-vs-agent-ia-support` → migrés au cluster « Mettre l'IA en place ».) Avant : Request Indexing GSC sur les 4 nouvelles pages Phase 2 (hub/géo déjà à faire depuis Phase 1).
 **Pièges :** Cadence blog remplie jusqu'au 28.08 (dernier = `consultant-ia-c-est-quoi`). Les articles restent date-gatés (`isPublished` dans `src/lib/blog.ts`) — ils apparaîtront au rebuild cron du 24 et 28.08. Anti-cannibalisation hub↔géo↔métiers OK (titles distincts). Pages métiers data-driven : garder du contenu réel par verticale (garde-fou `/programmatic-seo`) quand on ajoutera commerce/cabinet.
 **Commit :** commits par lot (pages / maillage / articles / fix-images / docs).
 
@@ -152,7 +152,7 @@ LA MARQUE — Jon Labs (Genève)
 11. **`/metiers/ia-commerce-retail`** + **`/metiers/ia-cabinet`**.
 12. **`/openclaw`** — landing produit.
 13. **`services/audit-ia`** + **`/consultant-ia-nyon`**.
-14. **Articles** : `rag-documents-pme` + `chatbot-vs-agent-ia-support`.
+14. ~~**Articles** : `rag-documents-pme` + `chatbot-vs-agent-ia-support`~~ → **migrés** vers le cluster « Mettre l'IA en place » (`docs/topical-map-mise-en-place-ia.md` / `docs/plan-mise-en-place-ia.md`).
 
 ### Phase 4 — Backlog / scale
 15. Géo vague 2 (Fribourg, Neuchâtel, Sion, Riviera) — seulement si Phase 1-3 rankent (data-driven via `/seo-gsc`).
