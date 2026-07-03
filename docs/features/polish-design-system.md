@@ -2,7 +2,28 @@
 
 > Chantier de fond : uniformiser le style graphique du site (thème, titres, couleurs), casser l'effet « très AI » (mur de texte, peu d'images, peu d'aération), rationaliser l'architecture/navigation, et transformer les pages tags thin en vraies pages — pour un rendu **plus professionnel**.
 > **Source ADN visuel marque perso** : skill `visual` (`~/.claude/skills/visual/`) — mono-accent teal `#00D9A3`, fond warm, connecteurs fins, formes arrondies, illustration « collage éditorial ».
-> **Statut** : 🔄 EN COURS — Phases 1a + 1b + 2 faites ✅. **Phase 3 : pilote v2 + ROLLOUT complet faits ✅** (illustrations, IconChip, problème=muted/solution=teal sur landings + services/* + CV), build vert (209 pages). Reste **Phases 4 (nav) & 6 (tags)** — bloquées par les décisions nav (3) + tags (4) à trancher.
+> **Statut** : 🔄 EN COURS — Phases 1a + 1b + 2 + 3 faites ✅. **Phase 4 (Nav & archi) faite ✅** (2 pôles, hub /guides, footer enrichi, home re-routée), build vert (211 pages), committé + poussé. Reste **Phase 5 (Lecureux)** et **Phase 6 (tags)** — Phase 6 bloquée par vérif GSC.
+
+## Etat session 2026-07-03 — Phase 4 : Nav & archi (refonte complète, décisions nav tranchées) ✅
+
+**Fait :** refonte de l'architecture de navigation. Build **vert (211 pages)**, committé + poussé (`09af5f7`).
+
+- **`navigation.ts` — 2 pôles** : `Solutions` → **« Création Web »** (URL `/services` conservée ; colonnes Sites web / Apps & sur-mesure / SEO local ; **Refonte de site** + **Validation d'idée** enfin surfacées → P3). `Consultant IA` → **« IA & Automatisation »** (colonnes Conseil & agents / Automatiser / Par métier / **Guides IA** ; les 3 services `automatisation/integration-outils/formation-ia-equipe` rapatriés dans leur vrai foyer → P1). Ordre header : Création Web · IA & Automatisation · Réalisations · Tarifs · Ressources · À propos (P2, P4). Zones géo **sorties du méga-menu** → nouveaux exports `footerZonesWeb` / `footerRegionsIA`.
+- **Hub `/guides` créé** (`src/pages/guides/index.astro`) : répare le **breadcrumb 404** de `guides/[slug].astro` (P5). **Auto-alimenté** : grille de piliers masquée tant qu'aucun n'est publié + section « À lire aussi » tirée **dynamiquement** des articles `blog` `category==='automatisation'` filtrés `isPublished` (self-healing, zéro 404).
+- **`Footer.astro` enrichi** : colonnes **Création Web**, **IA & Automatisation** (+ métiers + Guides IA), **Zones & régions** (géo web + régions IA fusionnées), grille passée `lg:grid-cols-6` → `7`. Toujours dérivé de `mainNav` + les 2 exports géo.
+- **Home re-routée** (`sample.ts`) : les 3 cartes services pointaient toutes vers `/services` → `/services/creation-site-web`, `/consultant-ia`, `/services/developpement-mvp` (P7).
+
+**Piège majeur résolu :** le pilier `mettre-en-place-ia-entreprise-guide` (collection `pages`) et plusieurs articles IA sont **future-dated** (release programmée 03→12.08, cron rebuild) → `isPublished` les filtre → **non buildés**. Le hub aurait affiché grille vide + liens 404. Corrigé : hub 100% self-healing sur `isPublished` ; « À lire » sélectionne les 3 articles automatisation publiés les + récents (aujourd'hui : openclaw-pme-suisse, hermes-agent-ia-pme, avantages-limites-automatisation-pme).
+
+**Décision laissée volontairement :** 1 forward-ref dans le méga-menu — item flagship « Mettre en place l'IA en entreprise » → `/guides/{slug}`, **404 jusqu'au 12.08** (sa `pubDate`). Gardé car guide phare + convention de contenu programmé du projet. Le lien « Tous les guides » → `/guides` (featured) est lui toujours live.
+
+**Non touché (volontaire) :** title SEO de `/services` (« Services de développement web à Genève ») laissé riche en mots-clés — pas de régression SEO pour une cohérence cosmétique ; la cohérence nom est obtenue via menu + footer = « Création Web ».
+
+**Prochain :** **Phase 5 (Lecureux)** — Jonathan doit figer 1 couple métrique/durée canonique (aujourd'hui 4 métriques + 2 durées incohérentes) avant que j'harmonise les reprises. **Phase 6 (tags)** — bloquée : Jonathan vérifie d'abord l'indexation `/blog/tag/*` dans GSC, puis normaliser les tags fragmentés, puis enrichir 2-3 candidats sûrs (`google-my-business`, `geo`, `application mobile`).
+
+**Commit :** [09af5f7] feat(nav): refonte architecture — 2 pôles, hub /guides, footer enrichi (Phase 4)
+
+---
 
 ## Etat session 2026-07-02 (suite 5) — Phase 3 : ROLLOUT complet (landings + services/* + CV) ✅
 
@@ -205,7 +226,7 @@
 4. **Pages tags** — *recommandé : vérifier GSC d'abord* (elles sont noindex), puis normaliser, puis enrichir uniquement les candidats sûrs.
 
 ## Carte du code
-> Mise à jour : 2026-07-02 (Phase 3 rollout)
+> Mise à jour : 2026-07-03 (Phase 4 nav)
 
 | Fichier | Rôle |
 |---------|------|
@@ -223,12 +244,18 @@
 | `src/components/services/HeroScenarios.astro` | Hero constellation home ; garde son propre `.seo-h1` blanc sur fond sombre (hors périmètre) |
 | `src/components/{Hero,ContactHero,blog/BlogHero,cv/CVHero,MarkdownPost}.astro` | Titres hero/contenu (tous `font-normal tracking-tight`) |
 | `src/components/CallToAction.astro` | CTA bas d'article (rendu via MarkdownPost) — H2 FR corrigé |
-| `src/data/navigation.ts` | IA du menu (MegaMenu, MobileNavDrawer, Footer) — **à traiter Phase 4** |
-| `src/components/Footer.astro` | Footer crawlable (silos IA manquants) — **Phase 4** |
+| `src/data/navigation.ts` | **IA du menu (Phase 4 ✅)** — 2 pôles « Création Web » (/services) + « IA & Automatisation » (/consultant-ia) ; exports `footerZonesWeb`/`footerRegionsIA` (géo sortie du méga-menu) |
+| `src/components/Footer.astro` | **Fat footer crawlable (Phase 4 ✅)** — colonnes Création Web + IA & Automatisation + Zones & régions, `lg:grid-cols-7`, dérivé de `mainNav` + exports géo |
+| `src/pages/guides/index.astro` | **Hub /guides (Phase 4 ✅, NOUVEAU)** — répare breadcrumb 404 ; grille piliers conditionnelle + « À lire » auto-alimentée (`blog` `category==='automatisation'` + `isPublished`) |
+| `src/pages/guides/[slug].astro` | Rendu des piliers (collection `pages`) ; breadcrumb remonte à `/guides` (désormais existant) |
+| `src/sample.ts` | `services[]` — 3 cartes home re-routées vers destinations distinctes (Phase 4 ✅, P7) |
 | `src/pages/blog/tag/[tag].astro` | Générateur pages tags (thin, noindex) — **Phase 6** |
 | `src/content/portfolio/leo-lecureux-seo.md` | Source canonique preuve Lecureux — **Phase 5** |
 
 ### Décisions clés
+- **Nav = 2 pôles produit** : « Création Web » (/services) + « IA & Automatisation » (/consultant-ia). Menu label ≠ title SEO de page (voulu : le title `/services` reste keyword-rich, pas de régression SEO).
+- **Contenu future-dated** : le hub /guides et toute liste dérivée d'articles DOIVENT filtrer `isPublished` — sinon grille vide + liens 404 (release programmée via `pubDate` + cron rebuild). Pattern self-healing à réutiliser partout.
+- **Forward-ref menu assumé** : l'item flagship « Mettre en place l'IA en entreprise » → `/guides/{slug}` 404 jusqu'à sa pubDate (12.08), gardé par convention de contenu programmé. « Tous les guides » → `/guides` reste le point d'entrée toujours live.
 - **Poids des titres = `font-normal` (400)**, jamais font-bold. Choix Jonathan (validation visuelle Phase 2) : le gras faisait « pas propre ». Hiérarchie = taille + eyebrows mono uppercase. H3/titres de carte gardent leur poids (petits).
 - **Échelle typo canonique** : H1 `text-4xl md:text-6xl font-normal tracking-tight` (content tier `md:5xl`), H2 `text-3xl md:text-4xl font-normal tracking-tight`, H3 `text-xl md:text-2xl font-semibold`.
 - **Fix H1 invisible `/services/*`** via la règle CSS `.seo-h1` (eyebrow teal), pas via le markup — mot-clé conservé dans le `<h1>`, zéro régression SEO.
