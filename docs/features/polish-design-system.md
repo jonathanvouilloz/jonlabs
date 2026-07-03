@@ -2,7 +2,26 @@
 
 > Chantier de fond : uniformiser le style graphique du site (thème, titres, couleurs), casser l'effet « très AI » (mur de texte, peu d'images, peu d'aération), rationaliser l'architecture/navigation, et transformer les pages tags thin en vraies pages — pour un rendu **plus professionnel**.
 > **Source ADN visuel marque perso** : skill `visual` (`~/.claude/skills/visual/`) — mono-accent teal `#00D9A3`, fond warm, connecteurs fins, formes arrondies, illustration « collage éditorial ».
-> **Statut** : 🔄 EN COURS — Phases 1a + 1b + 2 + 3 faites ✅. **Phase 4 (Nav & archi) faite ✅** (2 pôles, hub /guides, footer enrichi, home re-routée), build vert (211 pages), committé + poussé. Reste **Phase 5 (Lecureux)** et **Phase 6 (tags)** — Phase 6 bloquée par vérif GSC.
+> **Statut** : 🔄 EN COURS — Phases 1a + 1b + 2 + 3 + 4 faites ✅. **Phase 5 (Lecureux) faite ✅** (source unique + harmonisation + fix erreur factuelle divorce, build vert 211 pages). Reste : 1 sous-tâche Phase 5 **bloquée** (chiffres GSC de l'article blog) + **Phase 6 (tags)** bloquée par vérif GSC.
+
+## Etat session 2026-07-03 (suite) — Phase 5 : Rationalisation Lecureux ✅
+
+**Fait :** harmonisation complète de la preuve Léo Lécureux. Build **vert (211 pages)**. Décisions Jonathan : accroche = « Top 1 Google en 5 mois » ; résultat business = « 10+ leads qualifiés » (dont 1 client) ; approche = source unique + fix ciblé, devis non touchés.
+
+- **Source unique créée** : `src/data/proof-lecureux.ts` (accroche court/long, `name`/`company`/`metier`, `duration`, `businessResult`, `platform`/`year`, `stats[]` 6 tuiles, `portfolioUrl`). Tout ce qui est `.astro`/`.ts` en dérive → plus de dérive future possible.
+- **Erreur factuelle corrigée** (`services/referencement-local.astro`) : Léo était décrit comme **« avocat spécialisé divorce »** (mockup Google `q=avocat+divorce+genève`, titre, description, header étude de cas) → **juriste restauration** partout. `caseStudyStats` branché sur le module (tuile « 1 client » → « 10+ leads »).
+- **Reprises alignées** : `developpeur-web-freelance-geneve` (carte dérivée du module + résultat), `about.astro` (« des clients en moins de 4 mois » → « 10+ leads en 5 mois, aujourd'hui #1 » + lien portfolio, interpolé), `CVProjects.astro` (3-4 mois → 5 mois, Webflow → Framer, 2024 → 2025, « Cabinet Juridique » → juriste restauration, nom → « Lécureux »), portfolio md (tuile « Client signé 1 » → « Leads qualifiés 10+ / dont 1 client signé »). `schema.ts` l.433 déjà cohérent (#1/5 mois) → laissé tel quel.
+- **Règle IA respectée** (`consultant-ia/index.astro`) : la preuve **SEO** Lécureux violait la règle « Lecureux = SEO/dev seulement ». Retirée des 2 endroits (bullet « preuves chiffrées » + tuile stat). Remplacée (choix Jonathan) par une **preuve IA Barber Concept** : tuile « 24/7 · avis Google en autonomie » (réponse auto fidèle au tone of voice + rapport mensuel) ; bullet → « système de réponse aux avis Google en autonomie (cas barbershop) ».
+
+**Résiduels vérifiés OK (non touchés, voulu) :** « avocat divorce Genève/Lausanne » dans FAQ/blog = exemples génériques de requêtes locales (pas la fiche Lécureux) ; « avocat » dans le portfolio md = contexte réel (formation en cours) ; Webflow dans `ugo-mighali-coutelier.md` = autre client réel.
+
+**⚠️ Sous-tâche BLOQUÉE (attente Jonathan) :** `src/content/blog/visibilite-site-internet-2026.md` (l.173-200) affiche des chiffres divergents (340 clics, position moyenne 12,4, 20 400 impressions pour « 1 article ») vs le portfolio (485 clics / #1). Jonathan doit redonner les **vrais chiffres GSC**. Quand il les donne : éditer `proof-lecureux.ts` (si le clic canonique 485 change) **et** l'article. Rien d'autre ne dépend de ça.
+
+**Prochain :** **Phase 6 (tags)** — toujours bloquée : Jonathan vérifie d'abord l'indexation `/blog/tag/*` dans GSC, puis normaliser les tags fragmentés, puis enrichir 2-3 candidats sûrs (`google-my-business`, `geo`, `application mobile`).
+
+**Commit :** [à committer] feat(content): Phase 5 — source unique preuve Lécureux + harmonisation + fix divorce→restauration
+
+---
 
 ## Etat session 2026-07-03 — Phase 4 : Nav & archi (refonte complète, décisions nav tranchées) ✅
 
@@ -226,10 +245,11 @@
 4. **Pages tags** — *recommandé : vérifier GSC d'abord* (elles sont noindex), puis normaliser, puis enrichir uniquement les candidats sûrs.
 
 ## Carte du code
-> Mise à jour : 2026-07-03 (Phase 4 nav)
+> Mise à jour : 2026-07-03 (Phase 5 Lecureux)
 
 | Fichier | Rôle |
 |---------|------|
+| `src/data/proof-lecureux.ts` | **Source unique preuve Lécureux (Phase 5 ✅, NOUVEAU)** — accroche « Top 1 Google en 5 mois », métier (juriste restauration), résultat « 10+ leads », `stats[]`, `portfolioUrl`. Consommé par referencement-local / dev-freelance / about / CVProjects. ⚠️ Clics/CTR à reconfirmer (GSC). |
 | `src/styles/global.css` | **Source de vérité tokens** : bloc `@theme` (neutres warm + accent teal), `--font-sans` |
 | `src/layouts/Layout.astro` | Alias legacy `:root` (`--blue/--yellow/--violet/--accent` → tokens), charge les fonts |
 | `src/pages/styleguide.astro` | **Styleguide LIVE (noindex)** — palette, échelle typo (titres `font-normal`), highlight, formes, chips |

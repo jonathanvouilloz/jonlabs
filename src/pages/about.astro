@@ -13,6 +13,7 @@ import Halo from '../components/shapes/Halo.astro'
 
 // Schema.org
 import { personData, SITE_URL } from '../data/schema';
+import { proofLecureux } from '../data/proof-lecureux';
 import { getAboutPageSchema } from '../lib/seo';
 
 const pageTitle = "À propos — Jonathan Vouilloz, développeur web freelance à Genève";
@@ -235,7 +236,7 @@ const timeline = [
           <p>
             Ça peut vouloir dire créer un site qui les rend vraiment visibles.
             <br><br>
-            J'ai travaillé le référencement local d'un juriste spécialisé en restauration à Genève : <span class="bg-accent-soft px-1">il a obtenu des clients grâce à ça en moins de 4 mois</span>.
+            J'ai travaillé le référencement local d'un {proofLecureux.metier} : <span class="bg-accent-soft px-1">{proofLecureux.businessResult} en {proofLecureux.duration}, aujourd'hui #1 sur Google</span> (<a href={proofLecureux.portfolioUrl} class="underline underline-offset-2 hover:text-black">voir l'étude de cas</a>).
             <br><br>
             Ça peut vouloir dire repenser des processus internes qui ralentissent tout le monde. Ou construire un outil sur-mesure qui n'existe pas encore et dont quelqu'un a vraiment besoin.
           </p>

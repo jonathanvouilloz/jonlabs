@@ -1,6 +1,7 @@
 ---
 // Projects section - "Cas d'Étude Lab"
 import IconChip from "../IconChip.astro";
+import { proofLecureux } from "../../data/proof-lecureux";
 
 const projects = [
   {
@@ -49,16 +50,16 @@ const projects = [
   },
   {
     id: "004",
-    title: "Site & Stratégie SEO Cabinet Juridique",
-    client: "Lecureux Conseil",
-    year: "2024",
+    title: "Site & Stratégie SEO — Juriste restauration",
+    client: proofLecureux.company,
+    year: proofLecureux.year,
     type: "Site web, Branding & SEO",
-    description: "Création du site web, identité visuelle et optimisation SEO complète pour générer des leads qualifiés via le référencement naturel.",
+    description: "Création du site web, identité visuelle et optimisation SEO complète pour générer des leads qualifiés via le référencement naturel. De zéro au Top 1 Google.",
     results: [
       { value: "10+", label: "leads qualifiés" },
-      { value: "3-4", label: "mois mission" }
+      { value: "5", label: "mois mission" }
     ],
-    stack: ["Webflow", "SEO", "Branding", "Analytics"],
+    stack: [proofLecureux.platform, "SEO", "Branding", "Analytics"],
     stackType: "marketing",
     link: "https://lecureux-conseil.ch/"
   },

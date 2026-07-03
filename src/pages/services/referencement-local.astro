@@ -15,6 +15,7 @@ import BackgroundMapContours from '../../components/backgrounds/BackgroundMapCon
 // Schema.org
 import { serviceSchemas, SITE_URL } from '../../data/schema';
 import { getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
+import { proofLecureux } from '../../data/proof-lecureux';
 
 // SEO Data
 const seoData = {
@@ -54,15 +55,8 @@ const painPoints = [
     }
 ];
 
-// Case study stats
-const caseStudyStats = [
-    { value: "#1", label: "Position Google", icon: "ri-trophy-line" },
-    { value: "20.4k", label: "Impressions", icon: "ri-eye-line" },
-    { value: "485", label: "Clics organiques", icon: "ri-cursor-line" },
-    { value: "2.4%", label: "CTR moyen", icon: "ri-percent-line" },
-    { value: "100/100", label: "Score SEO", icon: "ri-speed-line" },
-    { value: "1", label: "Client signé via le site", icon: "ri-user-add-line" }
-];
+// Case study stats — dérivé de la source unique proof-lecureux
+const caseStudyStats = proofLecureux.stats;
 
 // Methodology steps (4 phases)
 const methodSteps = [
@@ -534,7 +528,7 @@ const budgetOptions = [
                             <div class="w-3 h-3 rounded-full bg-green-400 border border-black"></div>
                         </div>
                         <div class="flex-1 bg-white border border-black px-3 py-1 text-xs text-gray-400 font-mono text-center">
-                            google.ch/search?q=avocat+divorce+genève
+                            google.ch/search?q=juriste+restauration+genève
                         </div>
                     </div>
 
@@ -542,12 +536,12 @@ const budgetOptions = [
                     <div class="space-y-4">
                         <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-4">
                             <div class="text-xs text-accent font-mono mb-1">www.leo-lecureux.ch</div>
-                            <div class="text-lg font-bold text-blue-800 mb-1">Léo Lécureux — Avocat spécialisé divorce à Genève</div>
-                            <div class="text-sm text-gray-600">Cabinet d'avocat spécialisé en droit du divorce et de la famille à Genève. Consultation personnalisée...</div>
+                            <div class="text-lg font-bold text-blue-800 mb-1">Léo Lécureux — Juriste spécialisé restauration à Genève</div>
+                            <div class="text-sm text-gray-600">Conseil juridique spécialisé en droit de la restauration à Genève (LRDBHD, patentes, autorisations). Consultation personnalisée...</div>
                         </div>
                         <div class="p-4 opacity-40">
                             <div class="text-xs text-accent font-mono mb-1">www.concurrent-2.ch</div>
-                            <div class="text-lg font-bold text-blue-800 mb-1">Autre cabinet — Avocat à Genève</div>
+                            <div class="text-lg font-bold text-blue-800 mb-1">Autre cabinet — Juriste à Genève</div>
                             <div class="text-sm text-gray-600">Résultat concurrent en position 2...</div>
                         </div>
                     </div>
@@ -631,7 +625,7 @@ const budgetOptions = [
                     De <span class="line-through text-gray-400">invisible</span> à <span class="text-[var(--blue)]">#1 sur Google</span> en 5 mois
                 </h2>
                 <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Léo Lécureux, avocat spécialisé divorce à Genève. Niche juridique ultra-concurrentielle (800+ cabinets). Zéro présence en ligne au départ.
+                    Léo Lécureux, juriste spécialisé en droit de la restauration à Genève. Niche juridique ultra-concurrentielle (800+ cabinets). Zéro présence en ligne au départ.
                 </p>
             </div>
 

@@ -9,6 +9,7 @@ import illuFreelance from "../assets/illustrations/freelance-geneve.webp";
 
 import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from "../lib/seo";
 import { SITE_URL, localBusinessData } from "../data/schema";
+import { proofLecureux } from "../data/proof-lecureux";
 
 // ============================================
 // SEO META
@@ -192,10 +193,10 @@ const frontierCities = [
 // ============================================
 const projects = [
   {
-    title: "Lecureux Conseil",
+    title: proofLecureux.company,
     sector: "Juriste — Genève",
-    description: "Site Framer + SEO local : de zéro à Top 1 Google sur 'juriste restauration Genève' en 5 mois.",
-    href: "/portfolio/leo-lecureux-seo",
+    description: `Site ${proofLecureux.platform} + SEO local : ${proofLecureux.accrocheLong}. ${proofLecureux.businessResult}.`,
+    href: proofLecureux.portfolioUrl,
     tag: "SEO local"
   },
   {
