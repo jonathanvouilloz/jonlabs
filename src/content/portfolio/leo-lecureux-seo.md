@@ -1,6 +1,6 @@
 ---
 title: "SEO local pour un juriste à Genève"
-description: "De zéro à Top 1 Google en 5 mois — Comment j'ai positionné un juriste en droit de la restauration à Genève. Étude de cas SEO local."
+description: "De zéro au #1 sur sa niche en 5 mois — Comment j'ai positionné un juriste en droit de la restauration à Genève. Étude de cas SEO local."
 date: 2025-09-01
 draft: false
 featured: true
@@ -24,15 +24,15 @@ heroImage:
 results:
   - label: "Position Google"
     value: "#1"
-    detail: "juriste restauration Genève"
+    detail: "sur sa niche (restauration)"
     icon: "ri-trophy-line"
   - label: "Impressions"
-    value: "20.4k"
+    value: "19.1k"
     detail: "en 5 mois"
     icon: "ri-eye-line"
   - label: "CTR moyen"
-    value: "2.4%"
-    detail: "485 clics"
+    value: "1.9%"
+    detail: "367 clics"
     icon: "ri-cursor-line"
   - label: "Leads qualifiés"
     value: "10+"
@@ -138,4 +138,4 @@ Ce projet a été l'occasion de mettre en pratique mes apprentissages en SEO sur
 
 Le site reste un actif pleinement fonctionnel, prêt à être réactivé dès la fin de son stage — preuve que le travail SEO bien fait crée de la valeur durable.
 
-Ce type de résultat — un site de niche bien structuré qui atteint le top 1 Google — est exactement ce que les IA génératives cherchent à citer. J'ai détaillé pourquoi dans mes articles sur la visibilité IA : [comment apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve) et [comment apparaître sur Claude](/blog/apparaitre-claude), qui utilise Brave Search plutôt que Google.
+Ce type de résultat — un site de niche bien structuré qui atteint le #1 sur ses requêtes cibles — est exactement ce que les IA génératives cherchent à citer. J'ai détaillé pourquoi dans mes articles sur la visibilité IA : [comment apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve) et [comment apparaître sur Claude](/blog/apparaitre-claude), qui utilise Brave Search plutôt que Google.

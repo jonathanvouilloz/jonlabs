@@ -430,7 +430,7 @@ export const serviceSchemas = {
     "@id": `${SITE_URL}/services/referencement-local/#service`,
     "name": "Référencement local à Genève — Freelance SEO PME romandes",
     "url": `${SITE_URL}/services/referencement-local`,
-    "description": "Référencement local pour PME à Genève et Suisse romande. Freelance SEO transparent, outils Google gratuits, sans contrat 12 mois. Position #1 prouvée en 5 mois sur le cas Lécureux. Audit gratuit.",
+    "description": "Référencement local pour PME à Genève et Suisse romande. Freelance SEO transparent, outils Google gratuits, sans contrat 12 mois. #1 sur sa niche prouvé en 5 mois sur le cas Lécureux. Audit gratuit.",
     "provider": { "@id": `${SITE_URL}/#organization` },
     "areaServed": ["Genève", "Vaud", "Suisse Romande"],
     "serviceType": "Référencement local"

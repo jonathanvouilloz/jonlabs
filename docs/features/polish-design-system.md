@@ -6,7 +6,13 @@
 
 ## Etat session 2026-07-03 (suite) — Phase 5 : Rationalisation Lecureux ✅
 
-**Fait :** harmonisation complète de la preuve Léo Lécureux. Build **vert (211 pages)**. Décisions Jonathan : accroche = « Top 1 Google en 5 mois » ; résultat business = « 10+ leads qualifiés » (dont 1 client) ; approche = source unique + fix ciblé, devis non touchés.
+**Fait :** harmonisation complète de la preuve Léo Lécureux, **recalée sur la vraie data GSC** (accès `sc-domain:lecureux-conseil.ch` ouvert par Jonathan en cours de session). Build **vert (211 pages)**. Approche = source unique + fix ciblé, devis non touchés.
+
+**⚠️ Découverte majeure — les chiffres affichés étaient inexacts.** La vérif GSC (fenêtre 5 mois sept. 2025→janv. 2026) donne **19 105 impressions · 367 clics · CTR 1,92 % · position moyenne 15,3** (all-time 16 mois : 829 clics / 52 923 impressions). Donc :
+- « **Top 1 Google** » / « position #1 » **n'est PAS défendable** (pos. moy. réelle 15,3). Le vrai #1 est sur la **longue traîne restauration** (patente restaurant, créer restaurant, ouvrir son restaurant… pos. 1-3 mais 1-3 impressions chacune) → formulation retenue : « **#1 sur sa niche (droit de la restauration)** ».
+- « 485 clics » (portfolio) et « 340 clics » (blog) étaient tous deux faux → réel **367**. « 20.4k impressions » → réel **19.1k**. CTR 2.4 % → **1,9 %**.
+- Les requêtes « avocat restauration geneve » que Jonathan voit en #1 en live = **personnalisation/géoloc** (0 impression dans GSC). Métier « juriste restauration » **conservé** (choix Jonathan, cohérent avec la longue traîne où il domine).
+- **Couple canonique honnête gravé** (décision Jonathan) : « **#1 sur sa niche · 19 000 impressions & 367 clics en 5 mois** » + « 10+ leads qualifiés » (offline, non vérifiable via GSC). Toutes les mentions « Top 1 / position #1 » du site recadrées en « #1 sur sa niche ».
 
 - **Source unique créée** : `src/data/proof-lecureux.ts` (accroche court/long, `name`/`company`/`metier`, `duration`, `businessResult`, `platform`/`year`, `stats[]` 6 tuiles, `portfolioUrl`). Tout ce qui est `.astro`/`.ts` en dérive → plus de dérive future possible.
 - **Erreur factuelle corrigée** (`services/referencement-local.astro`) : Léo était décrit comme **« avocat spécialisé divorce »** (mockup Google `q=avocat+divorce+genève`, titre, description, header étude de cas) → **juriste restauration** partout. `caseStudyStats` branché sur le module (tuile « 1 client » → « 10+ leads »).
@@ -15,7 +21,7 @@
 
 **Résiduels vérifiés OK (non touchés, voulu) :** « avocat divorce Genève/Lausanne » dans FAQ/blog = exemples génériques de requêtes locales (pas la fiche Lécureux) ; « avocat » dans le portfolio md = contexte réel (formation en cours) ; Webflow dans `ugo-mighali-coutelier.md` = autre client réel.
 
-**⚠️ Sous-tâche BLOQUÉE (attente Jonathan) :** `src/content/blog/visibilite-site-internet-2026.md` (l.173-200) affiche des chiffres divergents (340 clics, position moyenne 12,4, 20 400 impressions pour « 1 article ») vs le portfolio (485 clics / #1). Jonathan doit redonner les **vrais chiffres GSC**. Quand il les donne : éditer `proof-lecureux.ts` (si le clic canonique 485 change) **et** l'article. Rien d'autre ne dépend de ça.
+**⚠️ Reste à traiter — article blog (décision éditoriale Jonathan) :** `src/content/blog/visibilite-site-internet-2026.md` (l.173-200) titre « **1 article = 20 400 impressions en 5 mois** ». Or la data GSC montre que c'est **site-level** (19 105 imp sur plusieurs pages, aucune page unique à 20k — la plus grosse = /avocat-abordable-geneve ~11k sur 16 mois) : le récit « un seul article a fait 20 400 impressions » est **inflaté**. Correction = reframe éditorial (garder le récit « 1 article » avec chiffres réels ? ou recadrer en « stratégie de contenu » site-level ?) → **choix de voix qui appartient à Jonathan, non touché pour l'instant.** Numbers réels à utiliser : 19 105 imp / 367 clics / pos. moy. 15,3 sur 5 mois.
 
 **Prochain :** **Phase 6 (tags)** — toujours bloquée : Jonathan vérifie d'abord l'indexation `/blog/tag/*` dans GSC, puis normaliser les tags fragmentés, puis enrichir 2-3 candidats sûrs (`google-my-business`, `geo`, `application mobile`).
 
@@ -249,7 +255,7 @@
 
 | Fichier | Rôle |
 |---------|------|
-| `src/data/proof-lecureux.ts` | **Source unique preuve Lécureux (Phase 5 ✅, NOUVEAU)** — accroche « Top 1 Google en 5 mois », métier (juriste restauration), résultat « 10+ leads », `stats[]`, `portfolioUrl`. Consommé par referencement-local / dev-freelance / about / CVProjects. ⚠️ Clics/CTR à reconfirmer (GSC). |
+| `src/data/proof-lecureux.ts` | **Source unique preuve Lécureux (Phase 5 ✅, NOUVEAU)** — chiffres **GSC réels** (19.1k imp · 367 clics · 1,9 % · 5 mois), accroche « #1 sur sa niche, 19 000 impressions en 5 mois », `rankClaim`, métier (juriste restauration), « 10+ leads », `stats[]`, `portfolioUrl`. Consommé par referencement-local / dev-freelance / about / CVProjects. **Ne jamais réécrire « Top 1 Google » (pos. moy. réelle 15,3).** |
 | `src/styles/global.css` | **Source de vérité tokens** : bloc `@theme` (neutres warm + accent teal), `--font-sans` |
 | `src/layouts/Layout.astro` | Alias legacy `:root` (`--blue/--yellow/--violet/--accent` → tokens), charge les fonts |
 | `src/pages/styleguide.astro` | **Styleguide LIVE (noindex)** — palette, échelle typo (titres `font-normal`), highlight, formes, chips |
