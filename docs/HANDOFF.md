@@ -11,7 +11,7 @@
 
 ## Reprendre ici
 **Polish global & design system** — Phase 5 (Lecureux) faite : source unique `src/data/proof-lecureux.ts` + harmonisation, **recalée sur la vraie data GSC** (accès ouvert en session). Découverte : « Top 1 Google » était inexact (pos. moy. réelle 15,3) → couple honnête gravé « **#1 sur sa niche · 19 000 imp & 367 clics en 5 mois** ». Aussi : fix erreur factuelle (« avocat divorce » → juriste restauration) + retrait preuve SEO de la page IA `consultant-ia` (→ preuve Barber Concept). Build vert (211 pages). **Reste 1 item : reframe éditorial de l'article blog `visibilite-site-internet-2026` (le « 1 article = 20 400 imp » est inflaté — décision de voix Jonathan).** Ensuite **Phase 6 (tags)** — bloquée vérif GSC `/blog/tag/*`. Détails : `docs/features/polish-design-system.md`.
-Commit : [bb7212a] feat(content): Phase 5 preuve Lécureux (v1) — correction GSC v2 à committer
+Commit : [e4d47e6] fix(content): recale la preuve Lécureux sur la vraie data GSC
 
 ## Actions manuelles en attente (GSC — côté Jonathan)
 - **Request Indexing GSC** — nouvelles URLs des clusters au fil des pubDate (« Mettre l'IA en place » 12.08→11.09, SEO IA Phase 2, hub/géo Phase 1) + le nouveau hub `/guides`.
