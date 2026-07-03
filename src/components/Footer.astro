@@ -2,7 +2,7 @@
 import logo from '../assets/logo.svg'
 import svgPinkStar from '../assets/pink-star.svg'
 import { author } from '../sample'
-import { mainNav, ctaContact } from '../data/navigation'
+import { mainNav, ctaContact, footerZonesWeb, footerRegionsIA } from '../data/navigation'
 
 const socials = [
     { icon: 'ri-linkedin-fill', link: author.linkedin, label: 'LinkedIn' },
@@ -12,16 +12,28 @@ const socials = [
 ]
 
 // Source de vérité unique : mainNav (data/navigation.ts)
-// Fat footer : on expose les liens profonds (services, zones, piliers) en plain HTML,
-// crawlables sitewide — vs le méga-menu JS sous-pondéré au crawl.
-const solutions = mainNav.find((s) => s.label === 'Solutions')
+// Fat footer : on expose les liens profonds (services, IA, zones géo, piliers) en plain
+// HTML, crawlables sitewide — vs le méga-menu JS sous-pondéré au crawl.
+const creationWeb = mainNav.find((s) => s.label === 'Création Web')
+const iaAuto = mainNav.find((s) => s.label === 'IA & Automatisation')
 const ressources = mainNav.find((s) => s.label === 'Ressources')
 const col = (section, title) => section?.columns?.find((c) => c.title === title)?.items ?? []
 
-const servicesLinks = [...col(solutions, 'Web & apps'), ...col(solutions, 'SEO local')]
-const zonesLinks = col(solutions, 'Zones')
+// Pôle Création Web : sites + apps + SEO local (les 13 services web)
+const servicesLinks = [
+    ...col(creationWeb, 'Sites web'),
+    ...col(creationWeb, 'Apps & sur-mesure'),
+    ...col(creationWeb, 'SEO local'),
+]
+// Pôle IA & Automatisation : conseil + automatisation + métiers + hub guides
+const iaLinks = [
+    ...col(iaAuto, 'Conseil & agents'),
+    ...col(iaAuto, 'Automatiser'),
+    ...col(iaAuto, 'Par métier'),
+    { label: 'Guides IA', href: '/guides' },
+]
 const ressourcesLinks = [
-    { label: 'Freelance web à Genève', href: solutions?.spotlight?.href ?? '/developpeur-web-freelance-geneve' },
+    { label: 'Freelance web à Genève', href: creationWeb?.spotlight?.href ?? '/developpeur-web-freelance-geneve' },
     ...col(ressources, 'À la une'),
     { label: 'Tous les articles', href: '/blog' },
 ]
@@ -67,7 +79,7 @@ const secondaryLinks = [
         </div>
 
         <!-- Main footer content -->
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 md:gap-10 mb-12">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 md:gap-10 mb-12">
 
             <!-- Brand column -->
             <div class="col-span-2">
@@ -132,9 +144,11 @@ const secondaryLinks = [
                 </ul>
             </div>
 
-            <!-- Services -->
+            <!-- Création Web -->
             <div>
-                <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-gray-500">Services</h3>
+                <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-gray-500">
+                    <a href="/services" class="hover:text-[var(--blue)] transition-colors">Création Web</a>
+                </h3>
                 <ul class="space-y-2">
                     {servicesLinks.map(link => (
                         <li>
@@ -149,11 +163,40 @@ const secondaryLinks = [
                 </ul>
             </div>
 
-            <!-- Zones -->
+            <!-- IA & Automatisation -->
             <div>
-                <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-gray-500">Zones</h3>
+                <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-gray-500">
+                    <a href="/consultant-ia" class="hover:text-[var(--blue)] transition-colors">IA &amp; Automatisation</a>
+                </h3>
                 <ul class="space-y-2">
-                    {zonesLinks.map(link => (
+                    {iaLinks.map(link => (
+                        <li>
+                            <a
+                                href={link.href}
+                                class="text-gray-700 text-sm font-medium transition-colors duration-200 hover:text-[var(--blue)]"
+                            >
+                                {link.label}
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+
+            <!-- Zones & régions -->
+            <div>
+                <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-gray-500">Zones &amp; régions</h3>
+                <ul class="space-y-2">
+                    {footerZonesWeb.map(link => (
+                        <li>
+                            <a
+                                href={link.href}
+                                class="text-gray-700 text-sm font-medium transition-colors duration-200 hover:text-[var(--blue)]"
+                            >
+                                {link.label}
+                            </a>
+                        </li>
+                    ))}
+                    {footerRegionsIA.map(link => (
                         <li>
                             <a
                                 href={link.href}

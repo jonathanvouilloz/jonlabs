@@ -32,18 +32,25 @@ export interface NavSection {
 
 export const mainNav: NavSection[] = [
   {
-    label: 'Solutions',
+    label: 'Création Web',
     href: '/services',
     type: 'mega',
     columns: [
       {
-        title: 'Web & apps',
+        title: 'Sites web',
         items: [
           { label: 'Création de site', href: '/services/creation-site-web', icon: 'ri-layout-line' },
+          { label: 'Refonte de site', href: '/services/refonte-site-web', icon: 'ri-magic-line' },
           { label: 'Développeur Webflow', href: '/services/developpeur-webflow', icon: 'ri-pencil-ruler-2-line' },
           { label: 'Freelance WordPress', href: '/services/developpeur-wordpress', icon: 'ri-wordpress-line' },
+        ],
+      },
+      {
+        title: 'Apps & sur-mesure',
+        items: [
           { label: 'Application mobile', href: '/services/developpement-application-mobile', icon: 'ri-smartphone-line' },
           { label: 'Développement MVP', href: '/services/developpement-mvp', icon: 'ri-rocket-line' },
+          { label: 'Validation d\'idée', href: '/services/validation-idee', icon: 'ri-lightbulb-flash-line' },
           { label: 'Outils sur mesure', href: '/services/outils-sur-mesure', icon: 'ri-tools-line' },
         ],
       },
@@ -52,16 +59,6 @@ export const mainNav: NavSection[] = [
         items: [
           { label: 'Référencement local', href: '/services/referencement-local', icon: 'ri-map-pin-line' },
           { label: 'Gestion fiche Google', href: '/services/gestion-fiche-google', icon: 'ri-store-2-line' },
-        ],
-      },
-      {
-        title: 'Zones',
-        items: [
-          { label: 'Annemasse', href: '/developpement-web/annemasse', icon: 'ri-map-pin-2-line' },
-          { label: 'Gaillard', href: '/developpement-web/gaillard', icon: 'ri-map-pin-2-line' },
-          { label: 'Ville-la-Grand', href: '/developpement-web/ville-la-grand', icon: 'ri-map-pin-2-line' },
-          { label: 'Saint-Julien', href: '/developpement-web/saint-julien-en-genevois', icon: 'ri-map-pin-2-line' },
-          { label: 'La Roche-sur-Foron', href: '/developpement-web/la-roche-sur-foron', icon: 'ri-map-pin-2-line' },
         ],
       },
     ],
@@ -73,40 +70,39 @@ export const mainNav: NavSection[] = [
     },
   },
   {
-    label: 'Consultant IA',
+    label: 'IA & Automatisation',
     href: '/consultant-ia',
     type: 'mega',
     columns: [
       {
-        title: 'Agents IA & automatisation',
+        title: 'Conseil & agents',
         items: [
+          { label: 'Cadrage projet IA', href: '/consultant-ia', icon: 'ri-brain-line' },
           { label: 'Agents IA sur-mesure', href: '/consultant-ia#agents-sur-mesure', icon: 'ri-robot-2-line' },
           { label: 'Agent Hermès', href: '/hermes', icon: 'ri-message-3-line' },
+        ],
+      },
+      {
+        title: 'Automatiser',
+        items: [
           { label: 'Automatisation de tâches', href: '/services/automatisation', icon: 'ri-loop-left-line' },
           { label: 'Intégration d\'outils', href: '/services/integration-outils', icon: 'ri-plug-line' },
           { label: 'Formation IA équipe', href: '/services/formation-ia-equipe', icon: 'ri-presentation-line' },
         ],
       },
       {
-        title: 'Métiers',
+        title: 'Par métier',
         items: [
           { label: 'IA pour fiduciaires', href: '/metiers/ia-fiduciaire', icon: 'ri-calculator-line' },
           { label: 'IA pour agences immobilières', href: '/metiers/ia-agence-immobiliere', icon: 'ri-building-line' },
         ],
       },
       {
-        title: 'Régions',
+        title: 'Guides IA',
         items: [
-          { label: 'Consultant IA Genève', href: '/consultant-ia/geneve', icon: 'ri-map-pin-2-line' },
-          { label: 'Consultant IA Lausanne', href: '/consultant-ia/lausanne', icon: 'ri-map-pin-2-line' },
-        ],
-      },
-      {
-        title: 'À lire',
-        items: [
-          { label: 'Agent IA en entreprise : cas d\'usage', href: '/blog/agent-ia-entreprise-cas-usage', icon: 'ri-lightbulb-line' },
-          { label: 'Prix d\'un agent IA en Suisse', href: '/blog/prix-agent-ia-automatisation-suisse', icon: 'ri-coins-line' },
-          { label: 'Automatisation PME : guide complet', href: '/blog/automatisation-pme-suisse-guide-complet', icon: 'ri-book-open-line' },
+          { label: 'Tous les guides', href: '/guides', icon: 'ri-book-open-line', badge: 'featured' },
+          { label: 'Mettre en place l\'IA en entreprise', href: '/guides/mettre-en-place-ia-entreprise-guide', icon: 'ri-compass-3-line' },
+          { label: 'Automatisation PME : guide complet', href: '/blog/automatisation-pme-suisse-guide-complet', icon: 'ri-loop-left-line' },
         ],
       },
     ],
@@ -118,13 +114,13 @@ export const mainNav: NavSection[] = [
     },
   },
   {
-    label: 'Tarifs',
-    href: '/tarifs',
+    label: 'Réalisations',
+    href: '/portfolio',
     type: 'flat',
   },
   {
-    label: 'Réalisations',
-    href: '/portfolio',
+    label: 'Tarifs',
+    href: '/tarifs',
     type: 'flat',
   },
   {
@@ -178,3 +174,18 @@ export const ctaContact: NavItem = {
   label: 'Contact',
   href: '/contact',
 };
+
+// Silos géographiques — sortis du méga-menu (Phase 4), exposés uniquement dans le
+// fat footer pour rester crawlables sitewide sans alourdir la nav principale.
+export const footerZonesWeb: NavItem[] = [
+  { label: 'Développeur web Annemasse', href: '/developpement-web/annemasse' },
+  { label: 'Développeur web Gaillard', href: '/developpement-web/gaillard' },
+  { label: 'Développeur web Ville-la-Grand', href: '/developpement-web/ville-la-grand' },
+  { label: 'Développeur web Saint-Julien', href: '/developpement-web/saint-julien-en-genevois' },
+  { label: 'Développeur web La Roche-sur-Foron', href: '/developpement-web/la-roche-sur-foron' },
+];
+
+export const footerRegionsIA: NavItem[] = [
+  { label: 'Consultant IA Genève', href: '/consultant-ia/geneve' },
+  { label: 'Consultant IA Lausanne', href: '/consultant-ia/lausanne' },
+];
