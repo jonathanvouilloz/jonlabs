@@ -1,0 +1,473 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const pageTitle = "Styleguide Lab | Jon Labs";
+const pageDescription = "Exploration typo & hero — blueprint. Page interne de tests.";
+
+// ── Font pairings testés ──────────────────────────────────────────────
+const pairings = [
+  {
+    n: "01",
+    name: "Inter × Instrument Serif",
+    role: "Le décalage sans/serif. Base Inter très propre, mot d'accroche en serif italique — chaleur + éditorial sans casser la lisibilité.",
+    heading: "f-inter",
+    accent: "ser-instrument",
+    body: "f-inter",
+    weight: 700,
+    fonts: "Inter 700 · Instrument Serif italic · Inter body",
+  },
+  {
+    n: "02",
+    name: "Helvetica Neue (swiss)",
+    role: "Suisse, neutre, intemporel. Rendu fidèle uniquement sur Apple — ailleurs fallback Arial. Le pari « pas de fioriture, juste la grille ».",
+    heading: "f-helv",
+    accent: "ser-instrument",
+    body: "f-helv",
+    weight: 700,
+    fonts: "Helvetica Neue 700 · accent Instrument italic · Helvetica body",
+  },
+  {
+    n: "03",
+    name: "Fraunces (titres) × Inter Tight",
+    role: "L'alternative Gelica : titres 100 % Fraunces (accent compris) en mode soft/opsz haut = serif chaleureux et un peu bijou. Corps en Inter Tight, resserré et moderne.",
+    heading: "ser-fraunces",
+    accent: "ser-fraunces",
+    accentStyle: "font-weight:600;color:var(--bp-accent-ink);",
+    body: "f-tight",
+    weight: 600,
+    fonts: "Fraunces soft 600 · roman · accent = couleur · Inter Tight body",
+  },
+  {
+    n: "04",
+    name: "Inter Tight × Instrument Serif",
+    role: "Variante compacte : titres Inter Tight (plus serré qu'Inter), même accent serif italique. Bon compromis densité/personnalité.",
+    heading: "f-tight",
+    accent: "ser-instrument",
+    body: "f-tight",
+    weight: 700,
+    fonts: "Inter Tight 700 · Instrument Serif italic · Inter Tight body",
+  },
+];
+
+// ── Options de copywriting H1 (vendeur, pas mot-clé) ──────────────────
+const h1Options = [
+  { pre: "De l'idée au produit,", accent: "sans le blabla.", note: "Reprend ta tagline, ajoute une promesse anti-agence." },
+  { pre: "Votre site devrait", accent: "travailler pour vous.", note: "Bénéfice direct. Sous-entend automatisation + conversion." },
+  { pre: "Automatisez l'ennuyeux.", accent: "Gardez l'essentiel.", note: "Rythme en deux temps, cœur de l'offre automatisation." },
+  { pre: "Un dev qui parle", accent: "business, pas jargon.", note: "Positionnement : proximité, pas prestataire technique lointain." },
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} robots="noindex, nofollow">
+  <!-- Google Fonts pour le lab -->
+  <link
+    rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..800&family=Inter+Tight:wght@400..700&family=Instrument+Serif:ital@0;1&display=swap"
+  />
+
+  <style is:global>
+    /* ── Fonts self-hosted : Fraunces variable (alternative Gelica) ── */
+    @font-face {
+      font-family: "Fraunces";
+      src: url("/fonts/fraunces/Fraunces-VF.ttf") format("truetype-variations");
+      font-weight: 100 900;
+      font-style: normal;
+      font-display: swap;
+    }
+    @font-face {
+      font-family: "Fraunces";
+      src: url("/fonts/fraunces/Fraunces-Italic-VF.ttf") format("truetype-variations");
+      font-weight: 100 900;
+      font-style: italic;
+      font-display: swap;
+    }
+
+    /* ── Familles ── */
+    .f-inter   { font-family: "Inter", ui-sans-serif, system-ui, sans-serif; }
+    .f-tight   { font-family: "Inter Tight", "Inter", ui-sans-serif, sans-serif; }
+    .f-helv    { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
+    .ser-instrument { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; }
+    .ser-fraunces {
+      font-family: "Fraunces", Georgia, serif;
+      font-style: normal;
+      font-variation-settings: "opsz" 144, "SOFT" 55, "WONK" 0;
+    }
+    .ser-fraunces-it {
+      font-family: "Fraunces", Georgia, serif;
+      font-style: italic;
+      font-variation-settings: "opsz" 144, "SOFT" 55, "WONK" 1;
+    }
+
+    /* ── BLUEPRINT : tokens & framing ─────────────────────────────── */
+    .bp-root {
+      --bp-bg: #F4F3EE;
+      --bp-ink: #14161A;
+      --bp-muted: #6F7471;
+      --bp-line: rgba(20, 22, 26, 0.09);   /* filet doux */
+      --bp-line-2: rgba(20, 22, 26, 0.16);  /* filet marqué / crosshair */
+      --bp-accent: #00D9A3;
+      --bp-accent-ink: #00A87D;  /* teal foncé — lisible en texte d'accent */
+
+      background: var(--bp-bg);
+      color: var(--bp-ink);
+      max-width: 1120px;
+      margin: 0 auto;
+      border-left: 1px solid var(--bp-line);
+      border-right: 1px solid var(--bp-line);
+      overflow: hidden;
+    }
+    @media (min-width: 1121px) {
+      .bp-root { border-left: 1px solid var(--bp-line); border-right: 1px solid var(--bp-line); }
+    }
+
+    /* Section = container cadré automatiquement */
+    .bp-sec {
+      position: relative;
+      padding: 72px 48px;
+      border-top: 1px solid var(--bp-line);
+    }
+    .bp-sec:first-child { border-top: 0; }
+    @media (max-width: 640px) { .bp-sec { padding: 48px 20px; } }
+
+    /* Crosshairs aux intersections top-left / top-right */
+    .bp-sec::before,
+    .bp-sec::after {
+      content: "";
+      position: absolute;
+      top: -5px;
+      width: 9px;
+      height: 9px;
+      background:
+        linear-gradient(var(--bp-line-2), var(--bp-line-2)) center / 1px 9px no-repeat,
+        linear-gradient(var(--bp-line-2), var(--bp-line-2)) center / 9px 1px no-repeat;
+      z-index: 2;
+    }
+    .bp-sec::before { left: -5px; }
+    .bp-sec::after  { right: -5px; }
+
+    /* Crosshair standalone (à poser où on veut) */
+    .bp-x {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background:
+        linear-gradient(var(--bp-line-2), var(--bp-line-2)) center / 1px 10px no-repeat,
+        linear-gradient(var(--bp-line-2), var(--bp-line-2)) center / 10px 1px no-repeat;
+    }
+    .bp-x--accent {
+      background:
+        linear-gradient(var(--bp-accent), var(--bp-accent)) center / 1px 10px no-repeat,
+        linear-gradient(var(--bp-accent), var(--bp-accent)) center / 10px 1px no-repeat;
+    }
+
+    /* Eyebrow / label mono */
+    .bp-eyebrow {
+      font-family: ui-monospace, "SFMono-Regular", Menlo, monospace;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--bp-muted);
+    }
+
+    /* Frame réutilisable (bordure fine + crosshairs 4 coins) */
+    .bp-frame {
+      position: relative;
+      border: 1px solid var(--bp-line);
+      background: transparent;
+    }
+    .bp-frame > .bp-x {
+      position: absolute;
+      z-index: 2;
+    }
+    .bp-frame > .bp-x.tl { top: -5px; left: -5px; }
+    .bp-frame > .bp-x.tr { top: -5px; right: -5px; }
+    .bp-frame > .bp-x.bl { bottom: -5px; left: -5px; }
+    .bp-frame > .bp-x.br { bottom: -5px; right: -5px; }
+
+    /* Guides verticaux légers (overlay hero) */
+    .bp-guides {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(var(--bp-line), var(--bp-line)),
+        linear-gradient(var(--bp-line), var(--bp-line));
+      background-size: 1px 100%, 1px 100%;
+      background-position: 25% 0, 75% 0;
+      background-repeat: no-repeat;
+    }
+
+    /* Dotted arc décor (type pengon) */
+    .bp-dots {
+      background-image: radial-gradient(var(--bp-line-2) 1px, transparent 1px);
+      background-size: 12px 12px;
+    }
+
+    /* CTA blueprint (pas d'ombre offset, juste net) */
+    .bp-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      background: var(--bp-ink);
+      color: #fff;
+      transition: transform 0.15s ease, background 0.15s ease;
+    }
+    .bp-btn:hover { transform: translateY(-1px); }
+    .bp-btn--ghost {
+      background: transparent;
+      color: var(--bp-ink);
+      border: 1px solid var(--bp-line-2);
+    }
+    .bp-btn--accent { background: var(--bp-accent); color: #062b22; }
+
+    /* Toggle pairing */
+    .bp-toggle {
+      font-family: ui-monospace, Menlo, monospace;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      padding: 7px 14px;
+      border: 1px solid var(--bp-line-2);
+      border-radius: 999px;
+      color: var(--bp-muted);
+      background: transparent;
+      transition: all 0.15s ease;
+    }
+    .bp-toggle[aria-pressed="true"] {
+      background: var(--bp-ink);
+      color: #fff;
+      border-color: var(--bp-ink);
+    }
+
+    /* ── Hero : mapping du data-pair vers les fontes ── */
+    .hero-h1 { line-height: 1.02; letter-spacing: -0.02em; }
+    .hero-accent { }
+
+    [data-pair="inter"] .hero-h1     { font-family: "Inter", sans-serif; font-weight: 800; }
+    [data-pair="inter"] .hero-accent { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; letter-spacing: 0; }
+
+    [data-pair="tight"] .hero-h1      { font-family: "Inter Tight", "Inter", sans-serif; font-weight: 700; letter-spacing: -0.025em; }
+    [data-pair="tight"] .hero-accent  { font-family: "Instrument Serif", serif; font-style: italic; font-weight: 400; letter-spacing: 0; }
+
+    [data-pair="fraunces"] .hero-h1     { font-family: "Fraunces", Georgia, serif; font-weight: 500; font-variation-settings: "opsz" 144, "SOFT" 45, "WONK" 0; letter-spacing: -0.015em; }
+    [data-pair="fraunces"] .hero-accent { font-family: "Fraunces", Georgia, serif; font-style: normal; font-weight: 500; font-variation-settings: "opsz" 144, "SOFT" 45, "WONK" 0; letter-spacing: -0.015em; color: var(--bp-accent-ink); }
+  </style>
+
+  <main class="bp-root f-inter">
+
+    <!-- ══ HEADER ══ -->
+    <section class="bp-sec">
+      <p class="bp-eyebrow">Jon Labs · design lab · interne</p>
+      <h1 class="f-tight mt-4" style="font-weight:700; font-size:clamp(2.4rem,6vw,4rem); line-height:1.02; letter-spacing:-0.02em;">
+        Blueprint & typographie
+      </h1>
+      <p class="mt-4 max-w-xl" style="color:var(--bp-muted); font-size:1.05rem; line-height:1.6;">
+        Bac à sable pour sortir du look brutalist. Filets fins qui cadrent les sections,
+        pairings de fontes à comparer, et hero repensé — le <em>title</em> porte le SEO,
+        le <strong style="font-weight:600;color:var(--bp-ink)">H1 vend</strong>.
+      </p>
+      <p class="bp-eyebrow mt-6">→ /styleguide reste la source de vérité actuelle (non touchée)</p>
+    </section>
+
+    <!-- ══ 1 · SYSTÈME BLUEPRINT ══ -->
+    <section class="bp-sec">
+      <p class="bp-eyebrow">01 — Système</p>
+      <h2 class="f-tight mt-3" style="font-weight:700;font-size:clamp(1.6rem,3.5vw,2.2rem);letter-spacing:-0.02em;">Le cadre blueprint</h2>
+      <p class="mt-3 max-w-xl" style="color:var(--bp-muted);line-height:1.6;">Un filet à 9% d'opacité borde chaque container. Aux intersections, un petit crosshair. C'est tout — la structure vient du vide et de l'alignement, pas des ombres.</p>
+
+      <div class="grid mt-8" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;border-top:1px solid var(--bp-line);border-left:1px solid var(--bp-line);">
+        <div style="padding:24px;border-right:1px solid var(--bp-line);border-bottom:1px solid var(--bp-line);">
+          <div style="width:100%;height:40px;background:var(--bp-line);"></div>
+          <p class="bp-eyebrow mt-3">Filet doux · .09</p>
+          <p style="font-size:13px;color:var(--bp-muted);margin-top:4px;">Bordure de section</p>
+        </div>
+        <div style="padding:24px;border-right:1px solid var(--bp-line);border-bottom:1px solid var(--bp-line);">
+          <div style="width:100%;height:40px;background:var(--bp-line-2);"></div>
+          <p class="bp-eyebrow mt-3">Filet marqué · .16</p>
+          <p style="font-size:13px;color:var(--bp-muted);margin-top:4px;">Crosshair / séparateur fort</p>
+        </div>
+        <div style="padding:24px;border-right:1px solid var(--bp-line);border-bottom:1px solid var(--bp-line);display:flex;flex-direction:column;">
+          <div style="height:40px;display:flex;gap:16px;align-items:center;">
+            <span class="bp-x"></span><span class="bp-x"></span><span class="bp-x bp-x--accent"></span>
+          </div>
+          <p class="bp-eyebrow mt-3">Crosshair</p>
+          <p style="font-size:13px;color:var(--bp-muted);margin-top:4px;">Ink · ink · accent teal</p>
+        </div>
+        <div style="padding:24px;border-right:1px solid var(--bp-line);border-bottom:1px solid var(--bp-line);">
+          <div style="width:100%;height:40px;background:var(--bp-accent);"></div>
+          <p class="bp-eyebrow mt-3">Accent teal</p>
+          <p style="font-size:13px;color:var(--bp-muted);margin-top:4px;">Ponctuel : points, marques</p>
+        </div>
+      </div>
+
+      <!-- Frame démo -->
+      <div class="bp-frame mt-8" style="padding:32px;">
+        <span class="bp-x tl"></span><span class="bp-x tr"></span><span class="bp-x bl"></span><span class="bp-x br"></span>
+        <p class="bp-eyebrow">.bp-frame</p>
+        <p class="f-tight" style="font-size:1.25rem;font-weight:600;margin-top:8px;">Un container cadré, crosshairs aux 4 coins.</p>
+        <p style="color:var(--bp-muted);margin-top:6px;line-height:1.6;">Réutilisable pour cartes, encarts, tableaux de prix. Le contraste vient de la finesse, pas du poids.</p>
+      </div>
+    </section>
+
+    <!-- ══ 2 · FONT PAIRINGS ══ -->
+    <section class="bp-sec">
+      <p class="bp-eyebrow">02 — Typographie</p>
+      <h2 class="f-tight mt-3" style="font-weight:700;font-size:clamp(1.6rem,3.5vw,2.2rem);letter-spacing:-0.02em;">Font pairings</h2>
+      <p class="mt-3 max-w-xl" style="color:var(--bp-muted);line-height:1.6;">Quatre pistes, même phrase-test, pour juger le décalage à volume égal.</p>
+
+      <div class="mt-8" style="border-top:1px solid var(--bp-line);">
+        {pairings.map((p) => (
+          <div style="border-bottom:1px solid var(--bp-line);padding:40px 0;">
+            <div style="display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;">
+              <span class="bp-eyebrow" style="color:var(--bp-ink);">{p.n}</span>
+              <span class="f-tight" style="font-weight:600;font-size:1.05rem;">{p.name}</span>
+              <span class="bp-eyebrow" style="margin-left:auto;">{p.fonts}</span>
+            </div>
+
+            <p class="mt-6" style="font-size:clamp(2rem,5.5vw,3.4rem);line-height:1.05;letter-spacing:-0.02em;">
+              <span class={p.heading} style={`font-weight:${p.weight};`}>Votre idée mérite mieux qu'un </span>
+              <span class={p.accent} style={p.accentStyle}>devis à rallonge.</span>
+            </p>
+
+            <div class="grid mt-6" style="grid-template-columns:1fr 1fr;gap:32px;">
+              <p class={p.body} style="color:var(--bp-muted);line-height:1.65;max-width:38ch;">
+                {p.role}
+              </p>
+              <p class={p.body} style="color:var(--bp-muted);line-height:1.65;max-width:44ch;font-size:0.95rem;">
+                Développeur web & automatisation à Genève. J'accompagne entrepreneurs et petites équipes
+                de l'idée au produit fini — sites qui convertissent, outils sur-mesure, IA mise en place proprement.
+              </p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ══ 3 · HERO VARIATIONS ══ -->
+    <section class="bp-sec">
+      <p class="bp-eyebrow">03 — Hero</p>
+      <h2 class="f-tight mt-3" style="font-weight:700;font-size:clamp(1.6rem,3.5vw,2.2rem);letter-spacing:-0.02em;">Trois layouts, un H1 qui vend</h2>
+      <p class="mt-3 max-w-xl" style="color:var(--bp-muted);line-height:1.6;">
+        L'eyebrow porte le mot-clé (SEO), le H1 porte l'accroche. Bascule le pairing pour sentir chaque piste :
+      </p>
+
+      <!-- Toggle -->
+      <div class="mt-6" style="display:flex;gap:10px;flex-wrap:wrap;">
+        <button class="bp-toggle" data-set-pair="inter" aria-pressed="true">01 · Inter × Instrument</button>
+        <button class="bp-toggle" data-set-pair="fraunces" aria-pressed="false">03 · Fraunces × Inter Tight</button>
+        <button class="bp-toggle" data-set-pair="tight" aria-pressed="false">04 · Inter Tight × Instrument</button>
+      </div>
+
+      <div data-pair="inter">
+
+        <!-- Hero A — centré (type pengon) -->
+        <div class="bp-frame mt-8" style="overflow:hidden;">
+          <span class="bp-x tl"></span><span class="bp-x tr"></span><span class="bp-x bl"></span><span class="bp-x br"></span>
+          <div style="position:relative;padding:72px 24px;text-align:center;">
+            <div class="bp-guides"></div>
+            <div style="position:relative;">
+              <p class="bp-eyebrow">Développeur web & automatisation · Genève</p>
+              <p class="hero-h1 mt-5" style="font-size:clamp(2.4rem,6.5vw,4.6rem);">
+                Votre idée mérite mieux <br />qu'un <span class="hero-accent">devis à rallonge.</span>
+              </p>
+              <p class="f-inter mt-6" style="color:var(--bp-muted);font-size:1.15rem;line-height:1.6;max-width:34ch;margin-inline:auto;">
+                De l'idée au produit fini, sans jargon ni surprise. Sites, outils sur-mesure, automatisation.
+              </p>
+              <div class="mt-8" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+                <a class="bp-btn" href="#">Parlons de votre projet →</a>
+                <a class="bp-btn bp-btn--ghost" href="#">Voir le portfolio</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="bp-eyebrow mt-3">Layout A — centré, guides verticaux, CTA duo. Le plus « landing SaaS ».</p>
+
+        <!-- Hero B — left-aligned + visuel (type shakib) -->
+        <div class="bp-frame mt-10" style="overflow:hidden;">
+          <span class="bp-x tl"></span><span class="bp-x tr"></span><span class="bp-x bl"></span><span class="bp-x br"></span>
+          <div class="grid" style="grid-template-columns:1.15fr 0.85fr;">
+            <div style="padding:56px 40px;border-right:1px solid var(--bp-line);">
+              <p class="bp-eyebrow" style="display:flex;gap:12px;align-items:center;flex-wrap:wrap;">
+                <span>Sites web</span><span class="bp-x"></span><span>Automatisation</span><span class="bp-x"></span><span>IA</span>
+              </p>
+              <p class="hero-h1 mt-5" style="font-size:clamp(2rem,4.8vw,3.5rem);">
+                Un dev qui parle <span class="hero-accent">business,</span> pas jargon.
+              </p>
+              <p class="f-inter mt-5" style="color:var(--bp-muted);font-size:1.08rem;line-height:1.6;max-width:42ch;">
+                Basé à Genève, je transforme vos process manuels en produits qui tournent tout seuls.
+              </p>
+              <div class="mt-7"><a class="bp-btn" href="#">Réserver un appel</a></div>
+            </div>
+            <div class="bp-dots" style="min-height:280px;position:relative;">
+              <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;">
+                <div style="width:120px;height:120px;border:1px solid var(--bp-line-2);border-radius:999px;position:relative;">
+                  <span class="bp-x bp-x--accent" style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <p class="bp-eyebrow mt-3">Layout B — texte à gauche, zone visuelle blueprint à droite. Place pour une vraie image produit.</p>
+
+        <!-- Hero C — split éditorial -->
+        <div class="bp-frame mt-10">
+          <span class="bp-x tl"></span><span class="bp-x tr"></span><span class="bp-x bl"></span><span class="bp-x br"></span>
+          <div class="grid" style="grid-template-columns:1fr 1fr;">
+            <div style="padding:56px 40px;border-right:1px solid var(--bp-line);">
+              <p class="bp-eyebrow">Freelance · Genève</p>
+              <p class="hero-h1 mt-5" style="font-size:clamp(2rem,4.5vw,3.3rem);">
+                Automatisez l'ennuyeux. <span class="hero-accent">Gardez l'essentiel.</span>
+              </p>
+            </div>
+            <div style="padding:56px 40px;display:flex;flex-direction:column;justify-content:center;gap:24px;">
+              <p class="f-inter" style="color:var(--bp-muted);font-size:1.08rem;line-height:1.65;">
+                Chaque tâche répétitive que vous déléguez à un script, c'est du temps rendu à votre métier.
+              </p>
+              <div style="display:flex;gap:32px;">
+                <div><p class="f-tight" style="font-size:1.8rem;font-weight:700;">+40h</p><p class="bp-eyebrow mt-1">économisées / mois</p></div>
+                <div><p class="f-tight" style="font-size:1.8rem;font-weight:700;">1</p><p class="bp-eyebrow mt-1">interlocuteur</p></div>
+              </div>
+              <div><a class="bp-btn bp-btn--accent" href="#">Diagnostic gratuit →</a></div>
+            </div>
+          </div>
+        </div>
+        <p class="bp-eyebrow mt-3">Layout C — split éditorial : accroche à gauche, preuve chiffrée à droite.</p>
+
+      </div>
+    </section>
+
+    <!-- ══ 4 · COPYWRITING H1 ══ -->
+    <section class="bp-sec">
+      <p class="bp-eyebrow">04 — Copywriting</p>
+      <h2 class="f-tight mt-3" style="font-weight:700;font-size:clamp(1.6rem,3.5vw,2.2rem);letter-spacing:-0.02em;">Accroches H1 (vendeur)</h2>
+      <p class="mt-3 max-w-xl" style="color:var(--bp-muted);line-height:1.6;">Rendues dans le pairing 01. Le mot-clé SEO vit dans le <code>&lt;title&gt;</code> et l'eyebrow, pas dans le H1.</p>
+
+      <div class="mt-8" style="border-top:1px solid var(--bp-line);">
+        {h1Options.map((h) => (
+          <div style="border-bottom:1px solid var(--bp-line);padding:28px 0;display:grid;grid-template-columns:1fr 280px;gap:24px;align-items:baseline;">
+            <p style="font-size:clamp(1.5rem,3.5vw,2.4rem);line-height:1.1;letter-spacing:-0.02em;">
+              <span class="f-inter" style="font-weight:800;">{h.pre} </span>
+              <span class="ser-instrument">{h.accent}</span>
+            </p>
+            <p class="bp-eyebrow" style="text-transform:none;letter-spacing:0;line-height:1.5;">{h.note}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    const wrap = document.querySelector<HTMLElement>("[data-pair]");
+    const btns = document.querySelectorAll<HTMLButtonElement>("[data-set-pair]");
+    btns.forEach((b) => {
+      b.addEventListener("click", () => {
+        if (wrap) wrap.dataset.pair = b.dataset.setPair || "inter";
+        btns.forEach((x) => x.setAttribute("aria-pressed", String(x === b)));
+      });
+    });
+  </script>
+</Layout>

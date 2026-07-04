@@ -1,0 +1,366 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BlueprintKit from "../components/lab/BlueprintKit.astro";
+
+const pageTitle = "Composants Lab — Blueprint | Jon Labs";
+const pageDescription = "Bibliothèque de composants blueprint (pairing 04). Page interne de tests.";
+
+const blogPosts = [
+  {
+    label: "Visibilité IA",
+    title: "Être cité par ChatGPT : le nouveau réflexe SEO",
+    description: "Comment structurer votre contenu pour que les IA vous recommandent à vos futurs clients.",
+    date: "28 juin 2026",
+    readingTime: "5 min",
+    tags: ["GEO", "IA", "SEO"],
+  },
+  {
+    label: "Automatisation & IA",
+    title: "5 tâches à automatiser avant d'embaucher",
+    description: "Le temps passé sur des process manuels coûte plus cher qu'un script bien pensé.",
+    date: "5 juil. 2026",
+    readingTime: "6 min",
+    tags: ["Automatisation", "Outils"],
+  },
+  {
+    label: "Sites web",
+    title: "Refonte : quand votre site vous fait perdre des clients",
+    description: "Les signes qu'il est temps de repenser votre présence en ligne, et par où commencer.",
+    date: "12 juil. 2026",
+    readingTime: "8 min",
+    tags: ["Refonte", "UX"],
+  },
+];
+
+const tiers = [
+  {
+    name: "Présence",
+    price: "1'490",
+    unit: "CHF",
+    subtitle: "Exister en ligne, bien",
+    recommended: false,
+    features: [
+      "Site vitrine jusqu'à 5 pages",
+      "Design responsive sur-mesure",
+      "Optimisation référencement technique",
+      "Google Business Profile configuré",
+      "Formulaire de contact",
+    ],
+    cta: "Choisir ce pack",
+  },
+  {
+    name: "Visibilité",
+    price: "2'490",
+    unit: "CHF",
+    subtitle: "Être trouvé sur Google",
+    recommended: true,
+    features: [
+      "Tout le pack Présence +",
+      "Site jusqu'à 30 pages",
+      "Blog + 5 articles optimisés SEO",
+      "Recherche de mots-clés locale",
+      "3 mois de suivi & ajustements",
+    ],
+    cta: "Choisir ce pack",
+  },
+  {
+    name: "Autorité",
+    price: "Sur devis",
+    unit: "",
+    subtitle: "Dominer votre marché local",
+    recommended: false,
+    features: [
+      "Tout le pack Visibilité +",
+      "Site complexe ou e-commerce",
+      "Contenu mensuel (articles, landing)",
+      "Automatisations sur-mesure",
+      "Support prioritaire",
+    ],
+    cta: "Demander un devis",
+  },
+];
+
+const faqs = [
+  {
+    q: "Vous travaillez en remote ou sur site ?",
+    a: "Principalement en remote, mais je me déplace en Suisse romande pour des réunions si nécessaire. La distance n'est jamais un frein à un bon projet.",
+  },
+  {
+    q: "Quels sont vos tarifs ?",
+    a: "Chaque projet est unique, donc je propose des devis sur-mesure. Les packs ci-dessus donnent une base ; on affine ensemble selon vos besoins réels.",
+  },
+  {
+    q: "Vous prenez des petits projets ?",
+    a: "Absolument. Un petit projet bien ciblé peut avoir un gros impact — une automatisation, une landing page, un correctif. On en discute sans engagement.",
+  },
+  {
+    q: "Quels sont les délais typiques ?",
+    a: "2-3 semaines pour un site vitrine, 1-2 mois pour une web app, plusieurs mois pour une application complète. Vous avez un calendrier clair dès le devis.",
+  },
+];
+
+const projectTypes = ["Développement web", "Automatisation", "Application sur-mesure", "Autre"];
+---
+
+<Layout title={pageTitle} description={pageDescription} robots="noindex, nofollow">
+  <BlueprintKit />
+
+  <style is:global>
+    /* section header helper */
+    .cc-head { max-width: 640px; }
+    .cc-head h2 { font-size: clamp(1.7rem, 3.6vw, 2.3rem); margin-top: 12px; }
+    .cc-head p { color: var(--muted); margin-top: 12px; line-height: 1.6; }
+
+    /* ── Cartes blog ── */
+    .cc-blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .cc-card {
+      display: flex; flex-direction: column; background: var(--surface);
+      border: 1px solid var(--line); transition: transform .18s ease-out;
+    }
+    .cc-card:hover { transform: translateY(-2px); }
+    .cc-card-cover { position: relative; height: 148px; border-bottom: 1px solid var(--line); }
+    .cc-badge {
+      position: absolute; top: 12px; left: 12px; display: inline-flex; align-items: center; gap: 6px;
+      padding: 5px 10px; background: var(--surface); border: 1px solid var(--line-2); border-radius: 999px;
+    }
+    .cc-badge b { font-size: 11px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; }
+    .cc-badge i { width: 6px; height: 6px; border-radius: 999px; background: var(--accent-bright); }
+    .cc-card-body { padding: 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+    .cc-card h3 { font-size: 1.18rem; line-height: 1.18; }
+    .cc-card-desc { color: var(--muted); font-size: 14px; line-height: 1.55; }
+    .cc-meta { display: flex; gap: 10px; align-items: center; font-size: 13px; color: var(--muted); }
+    .cc-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-top: auto; padding-top: 4px; }
+    .cc-tags span { font-size: 12px; color: var(--muted); }
+
+    /* ── Tarifs ── */
+    .cc-price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; }
+    .cc-tier {
+      position: relative; border: 1px solid var(--line); background: var(--surface);
+      padding: 32px 28px; display: flex; flex-direction: column; gap: 20px;
+    }
+    .cc-tier--reco { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+    .cc-reco {
+      position: absolute; top: -11px; left: 28px; background: var(--accent); color: #fff;
+      font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
+      padding: 4px 10px; border-radius: 999px;
+    }
+    .cc-price { display: flex; align-items: baseline; gap: 6px; }
+    .cc-price b { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+    .cc-price span { font-size: 14px; color: var(--muted); }
+    .cc-features { display: flex; flex-direction: column; gap: 11px; }
+    .cc-features li { display: flex; gap: 10px; font-size: 14px; line-height: 1.4; }
+    .cc-features li::before {
+      content: ""; width: 5px; height: 5px; border-radius: 999px;
+      background: var(--accent-bright); margin-top: 7px; flex: none;
+    }
+    .cc-tier .co-btn { justify-content: center; margin-top: 4px; }
+
+    /* ── FAQ (accordéon natif) ── */
+    .cc-faq { border-top: 1px solid var(--line); }
+    .cc-faq details { border-bottom: 1px solid var(--line); }
+    .cc-faq summary {
+      list-style: none; cursor: pointer; padding: 20px 0;
+      display: flex; justify-content: space-between; align-items: center; gap: 20px;
+      font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
+    }
+    .cc-faq summary::-webkit-details-marker { display: none; }
+    .cc-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
+    .cc-faq details[open] summary i { transform: rotate(180deg); }
+    .cc-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 62ch; }
+
+    /* ── Formulaire ── */
+    .cc-form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 660px; }
+    .cc-field { display: flex; flex-direction: column; gap: 7px; }
+    .cc-field.full { grid-column: 1 / -1; }
+    .cc-label { font-size: 13px; font-weight: 600; color: var(--ink); display: flex; gap: 8px; align-items: baseline; }
+    .cc-label em { font-style: normal; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .cc-input, .cc-select, .cc-textarea {
+      width: 100%; font-family: "Inter Tight", sans-serif; font-size: 15px; color: var(--ink);
+      background: var(--surface); border: 1px solid var(--line-2); border-radius: 8px; padding: 11px 14px;
+      transition: border-color .18s ease-out, box-shadow .18s ease-out;
+    }
+    .cc-input::placeholder, .cc-textarea::placeholder { color: var(--muted); opacity: .7; }
+    .cc-input:focus, .cc-select:focus, .cc-textarea:focus {
+      outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0, 168, 125, .15);
+    }
+    .cc-textarea { resize: vertical; min-height: 120px; }
+    .cc-consent { grid-column: 1 / -1; display: flex; gap: 10px; align-items: flex-start; font-size: 13px; color: var(--muted); }
+    .cc-consent input { margin-top: 2px; accent-color: var(--accent); }
+
+    /* ── Atomes ── */
+    .cc-atoms { display: flex; flex-direction: column; gap: 28px; }
+    .cc-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+    .cc-chip { font-size: 13px; padding: 5px 12px; border: 1px solid var(--line-2); border-radius: 999px; color: var(--muted); }
+    .cc-chip--accent { border-color: var(--accent); color: var(--accent); }
+
+    /* responsive composants */
+    @media (max-width: 980px) { .cc-blog-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 720px) {
+      .cc-blog-grid, .cc-price-grid, .cc-form { grid-template-columns: 1fr !important; }
+    }
+  </style>
+
+  <div class="co-root">
+
+    <!-- ══ HEADER ══ -->
+    <section class="co-sec co-pad" style="padding:52px 40px 40px;">
+      <p class="co-eyebrow">Design system · composants · interne</p>
+      <h1 style="font-size:clamp(2.2rem,5.5vw,3.4rem);margin-top:14px;">
+        Bibliothèque <span class="co-ser">blueprint.</span>
+      </h1>
+      <p class="co-mut" style="margin-top:14px;max-width:56ch;line-height:1.6;">
+        Les composants réutilisables déclinés dans le système validé (Inter Tight × Instrument Serif).
+        Preuve que le style tient sur tous les types de pages avant migration.
+      </p>
+    </section>
+
+    <!-- ══ 01 · CARTES BLOG ══ -->
+    <section class="co-sec co-pad" style="padding:64px 40px;">
+      <div class="cc-head">
+        <p class="co-eyebrow">01 — Contenu</p>
+        <h2>Cartes d'article</h2>
+        <p>Catégorie, titre, extrait, méta (date · temps de lecture) et tags. Hover discret.</p>
+      </div>
+
+      <div class="cc-blog-grid" style="margin-top:40px;">
+        {blogPosts.map((post) => (
+          <article class="cc-card">
+            <div class="cc-card-cover co-dots">
+              <span class="cc-badge"><i></i><b>{post.label}</b></span>
+            </div>
+            <div class="cc-card-body">
+              <h3>{post.title}</h3>
+              <p class="cc-card-desc">{post.description}</p>
+              <div class="cc-meta">
+                <span>{post.date}</span>
+                <span>·</span>
+                <span>{post.readingTime}</span>
+              </div>
+              <div class="cc-tags">
+                {post.tags.map((t) => <span>#{t}</span>)}
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- ══ 02 · TARIFS ══ -->
+    <section class="co-sec co-pad" style="padding:64px 40px;">
+      <div class="cc-head">
+        <p class="co-eyebrow">02 — Offre</p>
+        <h2>Tarifs</h2>
+        <p>Trois paliers, le recommandé mis en avant par l'accent teal.</p>
+      </div>
+
+      <div class="cc-price-grid" style="margin-top:44px;">
+        {tiers.map((tier) => (
+          <div class={`cc-tier${tier.recommended ? " cc-tier--reco" : ""}`}>
+            {tier.recommended && <span class="cc-reco">Recommandé</span>}
+            <div>
+              <p class="co-eyebrow" style="color:var(--ink);">{tier.name}</p>
+              <p class="co-mut" style="margin-top:6px;font-size:14px;">{tier.subtitle}</p>
+            </div>
+            <div class="cc-price">
+              <b>{tier.price}</b>
+              {tier.unit && <span>{tier.unit}</span>}
+            </div>
+            <ul class="cc-features">
+              {tier.features.map((f) => <li>{f}</li>)}
+            </ul>
+            <a href="/contact" class={`co-btn${tier.recommended ? "" : " co-btn--ghost"}`}>{tier.cta}</a>
+          </div>
+        ))}
+      </div>
+      <p class="co-eyebrow" style="margin-top:24px;text-transform:none;letter-spacing:0;">
+        Prix en CHF, HT (exonéré TVA) · 50 % à la commande, 50 % à la livraison · sans contrat 12 mois.
+      </p>
+    </section>
+
+    <!-- ══ 03 · FAQ ══ -->
+    <section class="co-sec co-pad" style="padding:64px 40px;">
+      <div class="cc-head">
+        <p class="co-eyebrow">03 — FAQ</p>
+        <h2>Questions fréquentes</h2>
+        <p>Accordéon natif <code>&lt;details&gt;</code> — zéro JavaScript.</p>
+      </div>
+
+      <div class="cc-faq" style="margin-top:36px;">
+        {faqs.map((item, i) => (
+          <details open={i === 0}>
+            <summary>
+              {item.q}
+              <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+            </summary>
+            <p class="cc-faq-answer">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- ══ 04 · FORMULAIRE ══ -->
+    <section class="co-sec co-pad" style="padding:64px 40px;">
+      <div class="cc-head">
+        <p class="co-eyebrow">04 — Contact</p>
+        <h2>Formulaire</h2>
+        <p>Champs blueprint avec focus teal. Maquette visuelle — le vrai câblage (Web3Forms) se fait à la migration.</p>
+      </div>
+
+      <form class="cc-form" style="margin-top:36px;" onsubmit="return false;">
+        <div class="cc-field">
+          <label class="cc-label" for="cc-name"><em>01</em> Nom</label>
+          <input class="cc-input" id="cc-name" type="text" placeholder="Votre nom" />
+        </div>
+        <div class="cc-field">
+          <label class="cc-label" for="cc-email"><em>02</em> Email</label>
+          <input class="cc-input" id="cc-email" type="email" placeholder="vous@exemple.ch" />
+        </div>
+        <div class="cc-field full">
+          <label class="cc-label" for="cc-type"><em>03</em> Type de projet</label>
+          <select class="cc-select" id="cc-type">
+            {projectTypes.map((t) => <option>{t}</option>)}
+          </select>
+        </div>
+        <div class="cc-field full">
+          <label class="cc-label" for="cc-msg"><em>04</em> Message</label>
+          <textarea class="cc-textarea" id="cc-msg" placeholder="Parlez-moi de votre projet…"></textarea>
+        </div>
+        <label class="cc-consent">
+          <input type="checkbox" />
+          J'accepte d'être recontacté au sujet de ma demande.
+        </label>
+        <div class="full">
+          <button type="submit" class="co-btn">Envoyer →</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- ══ 05 · ATOMES ══ -->
+    <section class="co-sec co-pad" style="padding:64px 40px;">
+      <div class="cc-head">
+        <p class="co-eyebrow">05 — Atomes</p>
+        <h2>Boutons &amp; champs</h2>
+        <p>Le vocabulaire de base réutilisable partout.</p>
+      </div>
+
+      <div class="cc-atoms" style="margin-top:36px;">
+        <div class="cc-row">
+          <a href="#" class="co-btn">Primaire →</a>
+          <a href="#" class="co-btn co-btn--ghost">Secondaire</a>
+          <a href="#" class="co-btn" style="background:var(--accent-bright);color:#062b22;">Accent</a>
+          <a href="#" class="co-btn co-btn--sm">Petit</a>
+        </div>
+        <div class="cc-row" style="max-width:420px;">
+          <input class="cc-input" type="text" placeholder="Champ texte…" />
+        </div>
+        <div class="cc-row">
+          <span class="cc-chip">#tag</span>
+          <span class="cc-chip">#automatisation</span>
+          <span class="cc-chip cc-chip--accent">accent</span>
+          <span class="co-eyebrow" style="border:1px solid var(--line-2);padding:5px 10px;border-radius:999px;">Eyebrow</span>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</Layout>

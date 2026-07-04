@@ -1,0 +1,160 @@
+---
+// Système visuel blueprint partagé — pairing 04 (Inter Tight × Instrument Serif).
+// Fournit le <link> Google Fonts + le <style is:global> : reset scopé, tokens .co-root,
+// typographie, primitives (.co-eyebrow, .co-x, .co-btn, .co-sec, .co-guides, .co-dots),
+// marquee, burger/drawer mobile, grilles + media queries.
+// Consommé par /styleguide-compo et /styleguide-components. Base du futur design system.
+---
+
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400..700&family=Instrument+Serif:ital@0;1&display=swap"
+/>
+
+<style is:global>
+  /* ── Reset scopé (les pages lab n'importent pas global.css/Tailwind) ── */
+  html, body { background: #F4F3EE; }
+  .co-root *, .co-root *::before, .co-root *::after { box-sizing: border-box; }
+  .co-root h1, .co-root h2, .co-root h3, .co-root h4, .co-root p, .co-root figure { margin: 0; }
+  .co-root ul { margin: 0; padding: 0; list-style: none; }
+
+  /* ── Pairing 04 : Inter Tight (titres/UI) × Instrument Serif (accent) × Inter Tight (corps) ── */
+  .co-root {
+    --ink: #14161A;
+    --muted: #6F7471;
+    --bg: #F4F3EE;
+    --surface: #FBFBF9;
+    --line: rgba(20, 22, 26, 0.09);
+    --line-2: rgba(20, 22, 26, 0.16);
+    --accent: #00A87D;         /* teal foncé lisible */
+    --accent-bright: #00D9A3;
+
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+    max-width: 1180px;
+    margin: 0 auto;
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+    overflow: hidden;
+  }
+
+  .co-root h1, .co-root h2, .co-root h3 { font-weight: 700; letter-spacing: -0.025em; line-height: 1.05; }
+  .co-ser { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: 0; }
+  .co-eyebrow {
+    font-family: "Inter Tight", ui-sans-serif, sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+  }
+  .co-mut { color: var(--muted); }
+
+  /* crosshair */
+  .co-x {
+    position: absolute; width: 9px; height: 9px; z-index: 3;
+    background:
+      linear-gradient(var(--line-2), var(--line-2)) center / 1px 9px no-repeat,
+      linear-gradient(var(--line-2), var(--line-2)) center / 9px 1px no-repeat;
+  }
+  .co-x.tl { top: -5px; left: -5px; } .co-x.tr { top: -5px; right: -5px; }
+  .co-x.bl { bottom: -5px; left: -5px; } .co-x.br { bottom: -5px; right: -5px; }
+
+  /* nav */
+  .co-nav {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 40px; border-bottom: 1px solid var(--line);
+  }
+  .co-nav a { color: var(--ink); text-decoration: none; }
+  .co-nav a.co-btn { color: #fff; }
+  .co-navlinks { display: flex; gap: 28px; font-size: 15px; }
+  .co-navlinks a { color: var(--muted); transition: color .18s ease-out; }
+  .co-navlinks a:hover { color: var(--ink); }
+
+  /* buttons */
+  .co-btn {
+    display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px;
+    padding: 12px 20px; border-radius: 999px; background: var(--ink); color: #fff;
+    text-decoration: none; transition: transform .18s ease-out;
+  }
+  .co-btn:hover { transform: translateY(-1px); }
+  .co-btn--sm { padding: 9px 16px; font-size: 14px; }
+  .co-btn--ghost { background: transparent; color: var(--ink); border: 1px solid var(--line-2); }
+
+  /* section shell */
+  .co-sec { position: relative; border-top: 1px solid var(--line); }
+  .co-sec::before, .co-sec::after {
+    content: ""; position: absolute; top: -5px; width: 9px; height: 9px; z-index: 2;
+    background:
+      linear-gradient(var(--line-2), var(--line-2)) center / 1px 9px no-repeat,
+      linear-gradient(var(--line-2), var(--line-2)) center / 9px 1px no-repeat;
+  }
+  .co-sec::before { left: -5px; } .co-sec::after { right: -5px; }
+
+  .co-guides {
+    position: absolute; inset: 0; pointer-events: none;
+    background-image: linear-gradient(var(--line), var(--line)), linear-gradient(var(--line), var(--line));
+    background-size: 1px 100%, 1px 100%; background-position: 25% 0, 75% 0; background-repeat: no-repeat;
+  }
+  .co-dots { background-image: radial-gradient(var(--line-2) 1px, transparent 1px); background-size: 12px 12px; }
+
+  /* trust strip — marquee défilé linéaire */
+  .co-trust { display: flex; align-items: center; gap: 32px; }
+  .co-trust .co-eyebrow { white-space: nowrap; flex: none; }
+  .co-marquee {
+    flex: 1; overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+  }
+  .co-marquee-track { display: flex; gap: 56px; width: max-content; animation: co-marquee 30s linear infinite; }
+  .co-marquee:hover .co-marquee-track { animation-play-state: paused; }
+  .co-marquee-track span {
+    font-size: 18px; font-weight: 600; letter-spacing: -0.02em; opacity: .55; white-space: nowrap;
+  }
+  @keyframes co-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .co-marquee-track { animation: none; } }
+
+  /* burger + drawer mobile */
+  .co-burger {
+    display: none; align-items: center; justify-content: center;
+    width: 42px; height: 42px; border: 1px solid var(--line-2); border-radius: 10px;
+    background: transparent; color: var(--ink); font-size: 22px; cursor: pointer;
+    transition: background .18s ease-out;
+  }
+  .co-burger:hover { background: rgba(20,22,26,.05); }
+  .co-drawer {
+    position: fixed; inset: 0; z-index: 60;
+    background: var(--bg); display: flex; flex-direction: column; padding: 20px 24px 32px;
+    transform: translateY(-100%); opacity: 0; pointer-events: none;
+    transition: transform .4s cubic-bezier(.16,1,.3,1), opacity .3s ease-out;
+  }
+  .co-drawer.is-open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+  .co-drawer-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .co-drawer-top a { color: var(--ink); text-decoration: none; }
+  .co-drawer-links { display: flex; flex-direction: column; gap: 4px; margin-top: 24px; }
+  .co-drawer-links a {
+    font-family: "Inter Tight", sans-serif; font-size: 1.6rem; font-weight: 600; letter-spacing: -0.02em;
+    color: var(--ink); text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--line);
+  }
+  @media (prefers-reduced-motion: reduce) { .co-drawer { transition: opacity .2s ease; } }
+
+  /* grilles (défaut desktop, repliées en mobile) */
+  .co-proof-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center; }
+  .co-footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+
+  @media (max-width: 720px) {
+    .co-navlinks { display: none; }
+    .co-nav { padding: 16px 20px; }
+    /* nav mobile : burger visible, CTA du haut masqué (repris dans le drawer) */
+    .co-burger { display: inline-flex; }
+    .co-nav > .co-btn--sm { display: none; }
+    /* banner trust en colonne (label au-dessus du marquee) */
+    .co-trust { flex-direction: column; align-items: flex-start; gap: 14px; }
+    /* gouttières latérales resserrées (override des paddings inline) */
+    .co-pad { padding-left: 20px !important; padding-right: 20px !important; }
+    .co-hero { padding-top: 56px !important; padding-bottom: 56px !important; }
+    .co-cta-inner { padding-top: 56px !important; padding-bottom: 56px !important; }
+    /* grilles → colonnes empilées */
+    .co-proof-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+    .co-footer-grid { grid-template-columns: 1fr 1fr !important; gap: 24px 20px !important; }
+    /* hero H1 un cran plus petit */
+    .co-hero h1 { font-size: clamp(2rem, 9vw, 2.6rem) !important; }
+  }
+</style>

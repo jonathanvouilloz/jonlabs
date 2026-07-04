@@ -1,0 +1,233 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BlueprintKit from "../components/lab/BlueprintKit.astro";
+
+const pageTitle = "Compo Lab — Pairing 04 | Jon Labs";
+const pageDescription = "Composition réaliste blueprint · Inter Tight × Instrument Serif. Page interne de tests.";
+
+const services = [
+  {
+    icon: "ri-layout-4-line",
+    title: "Sites & refonte",
+    lead: "Des sites rapides qui transforment le visiteur en client — pas juste une jolie vitrine.",
+    items: ["Vitrine & e-commerce", "Refonte complète", "SEO technique"],
+  },
+  {
+    icon: "ri-flow-chart",
+    title: "Automatisation & outils",
+    lead: "Vos tâches répétitives tournent toutes seules. Le temps revient à votre métier.",
+    items: ["Scripts sur-mesure", "Intégrations d'outils", "Dashboards internes"],
+  },
+  {
+    icon: "ri-robot-2-line",
+    title: "IA mise en place",
+    lead: "L'IA utile, branchée sur vos vrais process — sans la hype, avec des résultats.",
+    items: ["Cadrage des cas d'usage", "Intégration", "Formation de l'équipe"],
+  },
+];
+---
+
+<Layout title={pageTitle} description={pageDescription} robots="noindex, nofollow">
+  <BlueprintKit />
+
+  <div class="co-root">
+
+    <!-- ══ NAV ══ -->
+    <nav class="co-nav">
+      <a href="#" style="font-size:22px;font-weight:700;letter-spacing:-0.03em;">jonlabs<span style="color:var(--accent);">.</span></a>
+      <div class="co-navlinks">
+        <a href="#">Services</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Blog</a>
+        <a href="#">À propos</a>
+      </div>
+      <a href="#" class="co-btn co-btn--sm">Parlons-en →</a>
+      <button
+        id="co-menu-open"
+        class="co-burger"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="co-menu"
+      >
+        <i class="ri-menu-2-line" aria-hidden="true"></i>
+      </button>
+    </nav>
+
+    <!-- ══ DRAWER MOBILE ══ -->
+    <div id="co-menu" class="co-drawer" role="dialog" aria-modal="true" aria-label="Menu de navigation">
+      <div class="co-drawer-top">
+        <a href="#" style="font-size:22px;font-weight:700;letter-spacing:-0.03em;">jonlabs<span style="color:var(--accent);">.</span></a>
+        <button id="co-menu-close" class="co-burger" aria-label="Fermer le menu">
+          <i class="ri-close-line" aria-hidden="true"></i>
+        </button>
+      </div>
+      <nav class="co-drawer-links">
+        <a href="#">Services</a>
+        <a href="#">Portfolio</a>
+        <a href="#">Blog</a>
+        <a href="#">À propos</a>
+      </nav>
+      <a href="#" class="co-btn" style="margin-top:auto;justify-content:center;">Parlons-en →</a>
+    </div>
+
+    <!-- ══ HERO ══ -->
+    <section class="co-sec" style="position:relative;overflow:hidden;">
+      <div class="co-guides"></div>
+      <div class="co-hero co-pad" style="position:relative;padding:88px 24px;text-align:center;">
+        <p class="co-eyebrow">Développeur web &amp; automatisation · Genève</p>
+        <h1 style="font-size:clamp(2.5rem,7vw,4.8rem);margin-top:22px;">
+          Votre idée mérite mieux<br />qu'un <span class="co-ser">devis à rallonge.</span>
+        </h1>
+        <p class="co-mut" style="font-size:1.2rem;line-height:1.6;max-width:38ch;margin:26px auto 0;">
+          De l'idée au produit fini, sans jargon ni surprise. Sites qui convertissent,
+          outils sur-mesure, automatisation et IA mise en place proprement.
+        </p>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:36px;">
+          <a href="#" class="co-btn">Parlons de votre projet →</a>
+          <a href="#" class="co-btn co-btn--ghost">Voir le portfolio</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TRUST STRIP (marquee) ══ -->
+    <section class="co-sec co-pad co-trust" style="padding:24px 40px;">
+      <p class="co-eyebrow">Ils me font confiance</p>
+      <div class="co-marquee">
+        <div class="co-marquee-track">
+          {["Lécureux", "Barber Concept", "Studio Vela", "Atelier N.", "Groupe Rive"].map((n) => (
+            <span>{n}</span>
+          ))}
+          {["Lécureux", "Barber Concept", "Studio Vela", "Atelier N.", "Groupe Rive"].map((n) => (
+            <span aria-hidden="true">{n}</span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SERVICES ══ -->
+    <section class="co-sec co-pad" style="padding:72px 40px;">
+      <div style="max-width:640px;">
+        <p class="co-eyebrow">Ce que je fais</p>
+        <h2 style="font-size:clamp(1.8rem,4vw,2.6rem);margin-top:14px;">
+          Trois façons de <span class="co-ser">passer à l'action.</span>
+        </h2>
+        <p class="co-mut" style="margin-top:14px;font-size:1.05rem;line-height:1.6;">
+          Un seul interlocuteur, de la première idée à la mise en ligne — et après.
+        </p>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:44px;border-top:1px solid var(--line);border-left:1px solid var(--line);">
+        {services.map((s) => (
+          <div style="padding:32px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);">
+            <div style="width:44px;height:44px;border:1px solid var(--line-2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--accent);">
+              <i class={s.icon}></i>
+            </div>
+            <h3 style="font-size:1.35rem;margin-top:20px;">{s.title}</h3>
+            <p class="co-mut" style="margin-top:10px;line-height:1.6;">{s.lead}</p>
+            <ul style="margin-top:18px;display:flex;flex-direction:column;gap:8px;">
+              {s.items.map((it) => (
+                <li style="display:flex;align-items:center;gap:10px;font-size:15px;">
+                  <span style="width:5px;height:5px;border-radius:999px;background:var(--accent-bright);flex:none;"></span>
+                  {it}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ══ PREUVE ══ -->
+    <section class="co-sec co-pad" style="padding:72px 40px;">
+      <div class="co-proof-grid">
+        <div>
+          <p class="co-eyebrow">Cas client · SEO</p>
+          <p style="font-size:clamp(1.5rem,3.2vw,2.1rem);line-height:1.35;margin-top:18px;font-weight:400;">
+            « Jonathan a repensé notre présence en ligne de A à Z. On est passé
+            de <span style="color:var(--accent);">invisibles</span> à
+            <span style="color:var(--accent);">premiers de notre niche.</span> »
+          </p>
+          <p class="co-mut" style="margin-top:18px;font-size:15px;">— Léo Lécureux, juriste en restauration</p>
+        </div>
+        <div class="co-dots" style="position:relative;border:1px solid var(--line);padding:32px;">
+          <span class="co-x tl"></span><span class="co-x tr"></span><span class="co-x bl"></span><span class="co-x br"></span>
+          <div style="position:relative;display:flex;flex-direction:column;gap:24px;">
+            <div>
+              <p style="font-size:2.6rem;font-weight:700;letter-spacing:-0.03em;">#1</p>
+              <p class="co-eyebrow" style="margin-top:4px;">sur sa niche</p>
+            </div>
+            <div style="height:1px;background:var(--line);"></div>
+            <div>
+              <p style="font-size:2.6rem;font-weight:700;letter-spacing:-0.03em;">+40h</p>
+              <p class="co-eyebrow" style="margin-top:4px;">économisées / mois</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CTA FINAL ══ -->
+    <section class="co-sec">
+      <div class="co-cta-inner co-pad" style="margin:0;background:#0E1116;color:#fff;padding:72px 40px;text-align:center;position:relative;overflow:hidden;">
+        <div class="co-dots" style="position:absolute;inset:0;opacity:.15;"></div>
+        <div style="position:relative;">
+          <h2 style="font-size:clamp(2rem,5vw,3.2rem);">
+            Un projet <span class="co-ser" style="color:var(--accent-bright);">en tête ?</span>
+          </h2>
+          <p style="color:rgba(255,255,255,.6);margin-top:14px;font-size:1.1rem;max-width:34ch;margin-inline:auto;">
+            Un échange de 20 minutes suffit pour savoir si on peut travailler ensemble.
+          </p>
+          <div style="margin-top:40px;">
+            <a href="#" class="co-btn" style="background:var(--accent-bright);color:#062b22;">
+              Réserver un appel →
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FOOTER ══ -->
+    <footer class="co-sec co-pad" style="padding:56px 40px;">
+      <div class="co-footer-grid">
+        <div>
+          <p style="font-size:22px;font-weight:700;letter-spacing:-0.03em;">jonlabs<span style="color:var(--accent);">.</span></p>
+          <p class="co-mut" style="margin-top:12px;max-width:32ch;line-height:1.6;">
+            Développeur web &amp; automatisation à Genève. De l'idée au produit fini.
+          </p>
+        </div>
+        <div>
+          <p class="co-eyebrow">Plan</p>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:14px;font-size:15px;">
+            <a href="#" class="co-mut" style="text-decoration:none;">Services</a>
+            <a href="#" class="co-mut" style="text-decoration:none;">Portfolio</a>
+            <a href="#" class="co-mut" style="text-decoration:none;">Blog</a>
+          </div>
+        </div>
+        <div>
+          <p class="co-eyebrow">Contact</p>
+          <div style="display:flex;flex-direction:column;gap:8px;margin-top:14px;font-size:15px;">
+            <a href="#" class="co-mut" style="text-decoration:none;">hello@jonlabs.ch</a>
+            <a href="#" class="co-mut" style="text-decoration:none;">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <p class="co-eyebrow" style="margin-top:40px;">© 2026 Jon Labs · Genève</p>
+    </footer>
+
+  </div>
+
+  <script>
+    const openBtn = document.getElementById("co-menu-open");
+    const closeBtn = document.getElementById("co-menu-close");
+    const drawer = document.getElementById("co-menu");
+    const setOpen = (open: boolean) => {
+      drawer?.classList.toggle("is-open", open);
+      openBtn?.setAttribute("aria-expanded", String(open));
+      document.body.style.overflow = open ? "hidden" : "";
+    };
+    openBtn?.addEventListener("click", () => setOpen(true));
+    closeBtn?.addEventListener("click", () => setOpen(false));
+    drawer?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setOpen(false)));
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") setOpen(false); });
+  </script>
+</Layout>
