@@ -12,7 +12,7 @@
 
 ## Reprendre ici
 **Refonte blueprint** — exploration validée sur pages lab (pairing 04 Inter Tight × Instrument Serif, système blueprint, kit partagé `BlueprintKit.astro`, bibliothèque `/styleguide-components`). Prochain : Jonathan vérifie le mobile sur device réel, puis on **cadre la migration** vers le vrai site (homepage d'abord). Détails : `docs/features/refonte-blueprint.md`.
-Commit : [à committer] feat(design): exploration blueprint — pairing 04, BlueprintKit, pages lab
+Commit : [e92b8f2] feat(design): exploration blueprint — pairing 04, BlueprintKit, pages lab (branche design/blueprint-lab)
 
 ## Actions manuelles en attente (GSC — côté Jonathan)
 - **Vérif mobile** des pages `/styleguide-compo` + `/styleguide-components` (breakpoint non testable via l'outil navigateur = capture 1568px fixe).
