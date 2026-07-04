@@ -107,18 +107,18 @@ const positions = [
       ))}
     </section>
 
-    <!-- ══ 03 · CTA FINAL (bloc sombre) ══ -->
-    <section class="svc-cta">
+    <!-- ══ 03 · CTA FINAL (primitive .co-cta) ══ -->
+    <section class="co-cta">
       <span class="co-x tl"></span><span class="co-x tr"></span>
-      <div class="svc-cta-inner co-pad">
-        <p class="svc-cta-eyebrow">Prêt à démarrer ?</p>
-        <h2 class="svc-cta-title">Ton projet mérite mieux qu'un <span class="co-ser">devis à rallonge.</span></h2>
-        <p class="svc-cta-lead">Un premier appel gratuit pour cadrer, un devis clair, une réponse sous 24 h.</p>
-        <div class="svc-cta-btns">
-          <a href="/contact" class="co-btn svc-cta-btn">Parlons de votre projet →</a>
-          <a href="mailto:contact@jonlabs.ch" class="co-btn co-btn--ghost svc-cta-btn svc-cta-btn--ghost">contact@jonlabs.ch</a>
+      <div class="co-cta-inner">
+        <p class="co-cta-eyebrow">Prêt à démarrer ?</p>
+        <h2 class="co-cta-title">Ton projet mérite mieux qu'un <span class="co-ser">devis à rallonge.</span></h2>
+        <p class="co-cta-lead">Un premier appel gratuit pour cadrer, un devis clair, une réponse sous 24&nbsp;h.</p>
+        <div class="co-cta-btns">
+          <a href="/contact" class="co-btn co-cta-btn">Parlons de votre projet <i class="ri-arrow-right-line"></i></a>
+          <a href="mailto:contact@jonlabs.ch" class="co-btn co-btn--ghost co-cta-btn co-cta-btn--ghost">contact@jonlabs.ch</a>
         </div>
-        <div class="svc-cta-trust">
+        <div class="co-cta-trust">
           <span><i class="ri-time-line"></i> Réponse sous 24 h</span>
           <span><i class="ri-phone-line"></i> Premier appel gratuit</span>
           <span><i class="ri-file-list-3-line"></i> Devis clair et détaillé</span>
@@ -219,22 +219,7 @@ const positions = [
     .svc-card-cta:hover i { transform: translateX(3px); }
     .svc-section-cta { margin-top: 6px; }
 
-    /* CTA final sombre */
-    .svc-cta { position: relative; background: var(--ink); color: #fff; margin-top: 8px; border-top: 1px solid var(--line-2); }
-    .svc-cta > .co-x { --line-2: rgba(255,255,255,0.28); }
-    .svc-cta-inner { padding: 72px 40px; text-align: center; }
-    .svc-cta-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-bright); }
-    .svc-cta-title { font-size: clamp(1.8rem, 4vw, 2.8rem); margin-top: 14px; line-height: 1.08; }
-    .svc-cta-title .co-ser { color: var(--accent-bright); }
-    .svc-cta-lead { color: rgba(255,255,255,0.7); margin: 16px auto 0; max-width: 46ch; line-height: 1.6; }
-    .svc-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 30px; }
-    /* Primaire : fond clair sur section sombre (jamais ink-sur-ink) */
-    .svc-cta-btn { background: #fff; color: var(--ink); }
-    .svc-cta-btn:hover { background: var(--accent-bright); }
-    .svc-cta-btn--ghost { color: #fff; border: 1px solid rgba(255,255,255,0.3); background: transparent; }
-    .svc-cta-btn--ghost:hover { background: rgba(255,255,255,0.08); }
-    .svc-cta-trust { display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; margin-top: 34px; font-size: 13px; color: rgba(255,255,255,0.6); }
-    .svc-cta-trust i { color: var(--accent-bright); margin-right: 4px; }
+    /* CTA final = primitive .co-cta (BlueprintKit) */
 
     /* ══ MODALE ══ */
     .svc-modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; }
@@ -282,7 +267,6 @@ const positions = [
     }
     @media (max-width: 720px) {
       .svc-grid { grid-template-columns: 1fr; }
-      .svc-cta-inner { padding: 52px 20px; }
     }
     @media (prefers-reduced-motion: reduce) {
       .svc-node, .svc-node-arrow, .svc-card, .svc-card-cta i, #svc-lines line { transition: none; }

@@ -3,7 +3,7 @@
 ## Features actives
 | Feature | Fichier | Statut |
 |---------|---------|--------|
-| Refonte blueprint (design/typo) | docs/features/refonte-blueprint.md | **EN COURS** (Lots 0-3 faits : nav + blog + services ; reste Lot 4 portfolio/CV, Lot 5 décoratifs, Lot motion+mocks+hub) |
+| Refonte blueprint (design/typo) | docs/features/refonte-blueprint.md | **EN COURS** (Lots 0-4 faits : nav + blog + services + portfolio ; CV repoussé hors lab ; reste Lot 5 décoratifs, Lot motion+mocks+hub, puis migration vers vrai site) |
 | Polish global & design system | docs/features/polish-design-system.md | EN ATTENTE (Phase 6 tags bloquée GSC + reframe blog Lécureux) |
 | Chantier SEO IA (consultant IA) | docs/planSEOIA.md | EN COURS (Phase 1-2 ✅, Phase 3 à venir) |
 | Refonte SEO / clusters | docs/features/refonte-seo-clusters.md | EN COURS |
@@ -11,8 +11,8 @@
 | Cluster application mobile | docs/features/cluster-application-mobile.md | ✅ DONE |
 
 ## Reprendre ici
-**Refonte blueprint** — pages lab nav/blog/services faites (Lots 0-3), build OK 217 pages. Prochain : **Lot 4 — `styleguide-portfolio.astro`** (cartes portfolio, image cadrée filets, méta/stats, brancher `proof-lecureux.ts`) + **trancher le CV** (blueprinter maintenant ou repousser). Détails + pièges design : `docs/features/refonte-blueprint.md`. Valider le mobile <720/<900px sur device (non capturable en screenshot).
-Commit : (à venir cette session) feat(design): complétion design system blueprint — nav, blog, services (branche design/blueprint-lab)
+**Refonte blueprint** — pages lab nav/blog/services/**portfolio** faites (Lots 0-4), build OK **218 pages**. CV **repoussé hors lab** (décision Jonathan). Prochain : **Lot 5 — décoratifs** (SVG/assets `src/assets/` en langage blueprint) puis **Lot motion + réconciliation mocks + hub**, ensuite **cadrer la migration** du système blueprint vers le vrai site (homepage d'abord). Détails + pièges design : `docs/features/refonte-blueprint.md`. Valider le mobile <720/<900px sur device (non capturable en screenshot).
+Commit : (Lot 4 à committer) — branche design/blueprint-lab
 
 ## Actions manuelles en attente (GSC — côté Jonathan)
 - **Vérif mobile** des pages `/styleguide-compo` + `/styleguide-components` (breakpoint non testable via l'outil navigateur = capture 1568px fixe).

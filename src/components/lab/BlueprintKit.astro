@@ -90,6 +90,47 @@
   .co-btn--sm { padding: 9px 16px; font-size: 14px; }
   .co-btn--ghost { background: transparent; color: var(--ink); border: 1px solid var(--line-2); }
 
+  /* ── CTA sombre (primitive design system) ──
+     Layout flex+gap : le centrage vient de align-items:center, l'espacement de gap.
+     Aucun ne dépend des margins → contourne le reset .co-root h/p { margin:0 }
+     (spécificité 0,1,1 qui battrait des règles 1-classe). À garder APRÈS .co-btn
+     pour que .co-cta-btn gagne sur .co-btn (source order). */
+  .co-cta { position: relative; overflow: hidden; background: #0b0d10; color: #fff; border-top: 1px solid var(--line-2); }
+  .co-cta > .co-x { --line-2: rgba(255,255,255,0.28); }
+  /* glow teal flouté */
+  .co-cta::before {
+    content: ""; position: absolute; inset: -25%; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(38% 46% at 20% 15%, rgba(0,217,163,0.30), transparent 66%),
+      radial-gradient(40% 52% at 84% 92%, rgba(0,168,125,0.22), transparent 70%);
+    filter: blur(70px);
+  }
+  /* grain (feTurbulence data URI, id auto-scopé par instance) */
+  .co-cta::after {
+    content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    opacity: 0.10; mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='cocta-n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23cocta-n)'/%3E%3C/svg%3E");
+  }
+  .co-cta-inner {
+    position: relative; z-index: 1;
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    gap: 20px; padding: 104px 40px;
+  }
+  .co-cta-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-bright); }
+  .co-cta-title { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.08; max-width: 18ch; }
+  .co-cta-title .co-ser { color: var(--accent-bright); }
+  .co-cta-lead { color: rgba(255,255,255,0.7); max-width: 46ch; line-height: 1.6; }
+  .co-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 12px; }
+  .co-cta-btn { background: #fff; color: var(--ink); }
+  .co-cta-btn:hover { background: var(--accent-bright); }
+  .co-cta-btn i { transition: transform .18s ease-out; }
+  .co-cta-btn:hover i { transform: translateX(3px); }
+  .co-cta-btn--ghost { color: #fff; border: 1px solid rgba(255,255,255,0.3); background: transparent; }
+  .co-cta-btn--ghost:hover { background: rgba(255,255,255,0.08); }
+  .co-cta-trust { display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; margin-top: 12px; font-size: 13px; color: rgba(255,255,255,0.6); }
+  .co-cta-trust i { color: var(--accent-bright); margin-right: 4px; }
+  @media (max-width: 720px) { .co-cta-inner { padding: 72px 20px; } }
+
   /* section shell */
   .co-sec { position: relative; border-top: 1px solid var(--line); }
   .co-sec::before, .co-sec::after {

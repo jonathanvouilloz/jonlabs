@@ -3,6 +3,38 @@
 > Sortir du look brutaliste (bordures noires 2px + ombres offset, Plus Jakarta Sans) jugé « banal » vers un style **blueprint** : filets très fins qui cadrent les sections, aération, nouveau font pairing éditorial. Exploration en pages lab AVANT toute migration du vrai site.
 > **Réfs visuelles** : pengon.dev, sakib.design. **Statut** : 🔄 EN COURS — exploration lab validée, migration à cadrer.
 
+## Etat session 2026-07-04 (nuit) — Primitive CTA `.co-cta` + fond black/teal noisy ✅
+
+**Fait :**
+- **Primitive `.co-cta` extraite dans `BlueprintKit`** (design system) : section sombre `#0b0d10` + **double glow teal flouté** (`::before` radial-gradients + `filter:blur(70px)`, modèle `ServicesCTA.astro`) + **grain** (`::after` `feTurbulence` en data URI, modèle `CVInterests.astro`, id `cocta-n`). Layout `.co-cta-inner` en **flex column + gap** (centrage `align-items:center`, espacement `gap`). Sous-classes `.co-cta-eyebrow/-title/-lead/-btns/-btn/-btn--ghost/-trust`. Boutons clairs sur sombre.
+- **Bug de spécificité corrigé** : le reset `.co-root h1..h4, p, figure { margin:0 }` (spéc. 0,1,1) **écrasait** les règles `.po-cta-lead { margin:auto }` / `margin-top` (0,1,0) → lead décalé à gauche + aération du cas vedette neutralisée. Fix = flex+gap (ne dépend d'aucune margin). Le lead est maintenant **centré**, le CTA aéré (padding 72→104px).
+- **Portfolio + Services** basculés sur la primitive (markup `.co-cta`, CSS `.po-cta*`/`.svc-cta*` supprimés). Les 2 CTA jumeaux convergent = une seule source. Rangée trust services conservée via `.co-cta-trust`.
+- **Cas vedette** : `.po-feature-body` passé en flex+gap → l'aération eyebrow/titre/sous-titre/fiche technique s'applique vraiment.
+- Vérifié en dev (glow+grain visibles, lead recentré, aération OK sur les 2 pages, **0 erreur console**), build OK **218 pages**. Warning CSS `bg-[var(--yellow/violet)]` **pré-existant** (autre fichier, sans rapport).
+
+**Prochain :** Lot 5 — décoratifs, puis Lot motion + réconciliation mocks + hub, puis migration vers le vrai site.
+
+**Piège gravé :** sur les pages lab, le reset `.co-root h/p { margin:0 }` (0,1,1) bat toute règle 1-classe `.xxx { margin }` → pour espacer/centrer un titre/paragraphe, **utiliser flex+gap** (ou préfixer `.co-root`), jamais un `margin` seul.
+
+**Commit :** (à venir) feat(design): primitive CTA .co-cta (glow teal + grain) + fix alignement/aération
+
+---
+
+## Etat session 2026-07-04 (nuit) — Lot 4 Portfolio ✅ (CV repoussé)
+
+**Fait :**
+- **Lot 4 (portfolio)** : `styleguide-portfolio.astro` créé. **Cas vedette Lécureux** branché sur la vraie preuve `src/data/proof-lecureux.ts` (accroche canonique + **6 tuiles stats data GSC** #1/19k/367/1.9%/10+/100-100, note « Data GSC · fenêtre 5 mois »), image cadrée filets + méta client/métier/plateforme/fenêtre/année. **Grille filtrable** des 5 autres réalisations (vraie data `getCollection('portfolio')`, Lécureux exclu car sorti en vedette) — cartes blueprint coins nets, crosshairs au survol, flèche coin, **badge catégorie unique** (pastille filet + point teal, **pas de couleur par catégorie**), client masqué si absent (évite doublon « Projet perso · Projet perso »). Chips filtres pill (Tous/SEO/Projet perso/Site vitrine). **CTA sombre** (bouton blanc sur ink, jamais ink-sur-ink).
+- Vérifié en dev (screenshots intro→cas vedette→stats→grille→CTA, filtre SEO testé OK, **0 erreur console**), build OK **218 pages**.
+- **Décision CV** : **repoussé hors lab** (choix Jonathan) — les 9 composants `cv/*` + export PDF resteront tels quels, pas de blueprint pour l'instant.
+
+**Prochain :** Lot 5 — décoratifs (revoir SVG/assets `src/assets/` en langage blueprint si besoin) **puis** Lot motion + réconciliation mocks + hub. Ensuite : **cadrer la migration** du système blueprint vers le vrai site (homepage d'abord). Toujours en pages lab `noindex`, `/styleguide` brutaliste non touché.
+
+**Pièges :** (inchangés — voir bloc ci-dessous) + le cas vedette portfolio tire ses chiffres **uniquement** de `proof-lecureux.ts` (source unique GSC), ne jamais réécrire les valeurs en dur dans la page.
+
+**Commit :** (à venir) feat(design): Lot 4 portfolio blueprint — cas vedette Lécureux + grille filtrable
+
+---
+
 ## Etat session 2026-07-04 (soir) — Complétion design system : Lots 0-3 ✅
 
 **Fait :**
@@ -22,7 +54,7 @@
 - **Capture navigateur = 1568px fixe** même après resize → mobile <720/<900px non vérifiable en screenshot, valider sur device.
 - Reset lab `.co-root :where(a)` : specificité neutralisée exprès ; `.co-btn`/`.blog-prose a` (underline volontaire) l'emportent.
 
-**Commit :** (à venir) feat(design): complétion design system blueprint — nav, blog, services (Lots 0-3)
+**Commit :** [1ebff16] feat(design): complétion design system blueprint — nav, blog, services (Lots 0-3)
 
 ---
 
@@ -56,10 +88,12 @@
 
 | Fichier | Rôle |
 |---------|------|
-| `src/components/lab/BlueprintKit.astro` | **Kit blueprint partagé** — `<link>` fonts + `<style is:global>` : reset scopé (dont `.co-root :where(a)` anti-underline + anti-flash `[data-animate]`), tokens `.co-root`, typo pairing 04, primitives (`.co-eyebrow/.co-x/.co-btn/.co-sec/.co-guides/.co-dots`), marquee, burger/drawer, grilles + media queries. **Base du design system.** |
+| `src/components/lab/BlueprintKit.astro` | **Kit blueprint partagé** — `<link>` fonts + `<style is:global>` : reset scopé (dont `.co-root :where(a)` anti-underline + anti-flash `[data-animate]`), tokens `.co-root`, typo pairing 04, primitives (`.co-eyebrow/.co-x/.co-btn/.co-sec/.co-guides/.co-dots` + **`.co-cta*`** : CTA sombre glow teal + grain, flex+gap), marquee, burger/drawer, grilles + media queries. **Base du design system.** ⚠️ le reset `.co-root h/p{margin:0}` bat les règles 1-classe → espacer via flex+gap |
 | `src/pages/styleguide-nav.astro` | **[Lot 1]** Nav blueprint (noindex) — barre + méga-menu cadré filets + drawer accordéons + fat footer. Data `navigation.ts`. Styles `.nav-*`, JS méga (hover/click/Escape) + drawer |
 | `src/pages/styleguide-blog.astro` | **[Lot 2]** Blog blueprint (noindex) — article à la une, cartes (vraie data `getCollection`), filtres/recherche/toggle grille-liste, pagination, composants article (progress, vidéo, prose liens soulignés, bio, related). Badge catégorie unique harmonisé. Styles `.blog-*` |
 | `src/pages/styleguide-services.astro` | **[Lot 3]** Services blueprint (noindex) — constellation (hub + nodes + lignes SVG au load/resize) + modale chat (rejoue `scenarios.ts`), cartes services (`serviceSections`), CTA sombre. **0 emoji** (icônes Remix). Styles `.svc-*` |
+| `src/pages/styleguide-portfolio.astro` | **[Lot 4]** Portfolio blueprint (noindex) — cas vedette Lécureux (image cadrée filets + méta + **6 tuiles stats depuis `proof-lecureux.ts`**), grille filtrable (`getCollection('portfolio')`, Lécureux exclu) en cartes coins nets/crosshairs, badge catégorie unique, chips filtres, CTA sombre. Styles `.po-*` + JS filtres |
+| `src/data/proof-lecureux.ts` | Source unique preuve GSC Lécureux (accroche canonique + 6 stats). Consommé par le cas vedette portfolio — ne jamais réécrire les chiffres en dur |
 | `src/pages/styleguide-compo.astro` | Maquette homepage blueprint (référence) — nav, hero, trust marquee, services, cas client, CTA sombre, footer. ⚠️ contient encore le **mock preuve** « invisibles → #1 »/« +40h » à remplacer |
 | `src/pages/styleguide-components.astro` | Bibliothèque atomes/primitives (noindex) — cartes, tarifs, FAQ, formulaire, atomes. Styles `.cc-*` |
 | `src/pages/styleguide-lab.astro` | Comparateur pairings (échantillons multi-fonts = le sujet, conservés). Chrome UI aligné Inter Tight, `.bp-btn` blindé |
