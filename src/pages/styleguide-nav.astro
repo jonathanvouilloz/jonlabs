@@ -1,0 +1,486 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BlueprintKit from "../components/lab/BlueprintKit.astro";
+import { mainNav, ctaContact, footerZonesWeb, footerRegionsIA } from "../data/navigation";
+
+const pageTitle = "Nav Lab — Blueprint | Jon Labs";
+const pageDescription = "Navigation blueprint (méga-menu, drawer mobile, fat footer) — pairing 04. Page interne de tests.";
+
+const slugify = (s: string) =>
+  s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "")
+    .replace(/&/g, "et").replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+
+const megaSections = mainNav.filter((s) => s.type === "mega");
+const badgeLabel = (b?: string) => (b === "featured" ? "À la une" : b === "new" ? "Nouveau" : "");
+---
+
+<Layout title={pageTitle} description={pageDescription} robots="noindex, nofollow">
+  <BlueprintKit />
+
+  <div class="co-root">
+
+    <!-- ══ BARRE NAV + MÉGA-MENU (fonctionnel) ══ -->
+    <div class="nav-wrap">
+      <nav class="co-nav nav-bar" aria-label="Navigation principale">
+        <a href="#top" class="nav-logo">jonlabs<span style="color:var(--accent);">.</span></a>
+
+        <ul class="nav-links">
+          {mainNav.map((section) => {
+            const slug = slugify(section.label);
+            return section.type === "mega" ? (
+              <li class="nav-item" data-nav-item={slug}>
+                <button
+                  class="nav-trigger"
+                  data-nav-trigger={slug}
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                  aria-controls={`nav-panel-${slug}`}
+                >
+                  {section.label}
+                  <i class="ri-arrow-down-s-line nav-chev" aria-hidden="true"></i>
+                </button>
+              </li>
+            ) : (
+              <li class="nav-item">
+                <a href={section.href} class="nav-flat">{section.label}</a>
+              </li>
+            );
+          })}
+        </ul>
+
+        <a href={ctaContact.href} class="co-btn co-btn--sm nav-cta">{ctaContact.label} →</a>
+
+        <button id="nav-menu-open" class="co-burger" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav-drawer">
+          <i class="ri-menu-2-line" aria-hidden="true"></i>
+        </button>
+      </nav>
+
+      <!-- Panneaux méga (position absolue sous la barre, dans la colonne → tokens conservés) -->
+      {megaSections.map((section) => {
+        const slug = slugify(section.label);
+        return (
+          <div class="nav-panel" id={`nav-panel-${slug}`} data-nav-panel={slug} role="region" aria-label={section.label}>
+            <span class="co-x tl"></span><span class="co-x tr"></span>
+            <span class="co-x bl"></span><span class="co-x br"></span>
+
+            <div class="nav-panel-grid" style={`--cols:${section.columns?.length ?? 1}`}>
+              {section.columns?.map((col) => (
+                <div class="nav-col">
+                  <h3 class="co-eyebrow nav-col-title">{col.title}</h3>
+                  <ul>
+                    {col.items.map((item) => (
+                      <li>
+                        <a
+                          href={item.href}
+                          class="nav-link"
+                          target={item.external ? "_blank" : undefined}
+                          rel={item.external ? "noopener noreferrer" : undefined}
+                        >
+                          {item.icon && <i class={`${item.icon} nav-link-icon`} aria-hidden="true"></i>}
+                          <span>{item.label}</span>
+                          {item.badge && <span class={`nav-badge nav-badge--${item.badge}`}>{badgeLabel(item.badge)}</span>}
+                          {item.external && <i class="ri-external-link-line nav-link-ext" aria-hidden="true"></i>}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+
+            {section.spotlight && (
+              <a href={section.spotlight.href} class="nav-spot">
+                <i class={`${section.spotlight.icon} nav-spot-icon`} aria-hidden="true"></i>
+                <span class="nav-spot-body">
+                  <strong>{section.spotlight.title}</strong>
+                  <span class="co-mut">{section.spotlight.description}</span>
+                </span>
+                <i class="ri-arrow-right-line nav-spot-arrow" aria-hidden="true"></i>
+              </a>
+            )}
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- ══ DRAWER MOBILE (accordéons) ══ -->
+    <div id="nav-drawer" class="co-drawer" role="dialog" aria-modal="true" aria-label="Menu de navigation">
+      <div class="co-drawer-top">
+        <a href="#top" class="nav-logo">jonlabs<span style="color:var(--accent);">.</span></a>
+        <button id="nav-menu-close" class="co-burger" aria-label="Fermer le menu">
+          <i class="ri-close-line" aria-hidden="true"></i>
+        </button>
+      </div>
+
+      <nav class="nav-drawer-nav" aria-label="Navigation mobile">
+        {mainNav.map((section) => {
+          const slug = slugify(section.label);
+          return section.type === "mega" ? (
+            <div class="nav-drawer-block">
+              <button
+                class="nav-drawer-item nav-drawer-acc"
+                data-drawer-acc={slug}
+                aria-expanded="false"
+                aria-controls={`nav-acc-${slug}`}
+              >
+                {section.label}
+                <i class="ri-arrow-down-s-line nav-acc-chev" aria-hidden="true"></i>
+              </button>
+              <div class="nav-acc-panel" id={`nav-acc-${slug}`} aria-hidden="true">
+                {section.columns?.map((col) => (
+                  <div class="nav-acc-col">
+                    <h4 class="co-eyebrow">{col.title}</h4>
+                    <ul>
+                      {col.items.map((item) => (
+                        <li>
+                          <a href={item.href} class="nav-acc-link">
+                            {item.icon && <i class={`${item.icon}`} aria-hidden="true"></i>}
+                            <span>{item.label}</span>
+                            {item.badge && <span class={`nav-badge nav-badge--${item.badge}`}>{badgeLabel(item.badge)}</span>}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ) : (
+            <a href={section.href} class="nav-drawer-item">{section.label}</a>
+          );
+        })}
+      </nav>
+
+      <a href={ctaContact.href} class="co-btn nav-drawer-cta">{ctaContact.label} →</a>
+    </div>
+
+    <!-- ══ INTRO ══ -->
+    <section class="co-sec co-pad" id="top" style="padding:52px 40px 40px;">
+      <p class="co-eyebrow">Design system · navigation · interne</p>
+      <h1 style="font-size:clamp(2.2rem,5.5vw,3.4rem);margin-top:14px;">
+        Navigation <span class="co-ser">blueprint.</span>
+      </h1>
+      <p class="co-mut" style="margin-top:14px;max-width:60ch;line-height:1.6;">
+        Barre principale, méga-menus cadrés filets, drawer mobile en accordéons et fat footer —
+        alimentés par les vraies données de <code>navigation.ts</code>. Survole « Création Web »,
+        « IA &amp; Automatisation » ou « Ressources » ci-dessus ; réduis la fenêtre sous 720px pour le drawer.
+      </p>
+    </section>
+
+    <!-- ══ ÉTATS DES LIENS ══ -->
+    <section class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">01 — Atomes</p>
+      <h2 style="margin-top:8px;">États &amp; badges</h2>
+      <div class="nav-states">
+        <div class="nav-state-row">
+          <span class="co-mut nav-state-tag">Lien plat</span>
+          <a href="#" class="nav-flat">Réalisations</a>
+          <a href="#" class="nav-flat is-active" aria-current="page">Tarifs (actif)</a>
+        </div>
+        <div class="nav-state-row">
+          <span class="co-mut nav-state-tag">Badges</span>
+          <span class="nav-badge nav-badge--featured">À la une</span>
+          <span class="nav-badge nav-badge--new">Nouveau</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FAT FOOTER ══ -->
+    <footer class="co-sec nav-footer">
+      <span class="co-x tl"></span><span class="co-x tr"></span>
+      <div class="nav-footer-grid co-pad">
+        <div class="nav-footer-brand">
+          <a href="#top" class="nav-logo" style="font-size:24px;">jonlabs<span style="color:var(--accent);">.</span></a>
+          <p class="co-mut" style="margin-top:12px;max-width:34ch;line-height:1.5;">
+            Développeur web &amp; automatisation à Genève. De l'idée au produit fini, sans jargon.
+          </p>
+          <a href={ctaContact.href} class="co-btn co-btn--sm" style="margin-top:18px;">{ctaContact.label} →</a>
+        </div>
+
+        <div class="nav-footer-col">
+          <h3 class="co-eyebrow">Développement web</h3>
+          <ul>
+            {footerZonesWeb.map((z) => (
+              <li><a href={z.href} class="nav-footer-link">{z.label}</a></li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="nav-footer-col">
+          <h3 class="co-eyebrow">Consultant IA</h3>
+          <ul>
+            {footerRegionsIA.map((r) => (
+              <li><a href={r.href} class="nav-footer-link">{r.label}</a></li>
+            ))}
+          </ul>
+          <h3 class="co-eyebrow" style="margin-top:22px;">Réseaux</h3>
+          <ul>
+            <li><a href="#" class="nav-footer-link">LinkedIn</a></li>
+            <li><a href="#" class="nav-footer-link">GitHub</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="nav-footer-legal co-pad">
+        <span class="co-mut">© 2026 Jon Labs · Genève</span>
+        <a href="/mentions-legales" class="nav-footer-link">Mentions légales</a>
+      </div>
+    </footer>
+
+  </div>
+
+  <style is:global>
+    /* ══ NAV LAB — styles spécifiques (.nav-*) par-dessus les tokens du kit ══ */
+    .nav-wrap { position: relative; z-index: 40; }
+    .nav-logo { font-size: 22px; font-weight: 700; letter-spacing: -0.03em; }
+
+    .nav-bar { position: relative; }
+    .nav-links {
+      display: flex; align-items: center; gap: 4px;
+      margin: 0 auto 0 32px;   /* colle les liens à gauche après le logo */
+    }
+    .nav-item { position: static; }
+
+    .nav-flat, .nav-trigger {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-family: inherit; font-size: 15px; font-weight: 500; color: var(--muted);
+      background: none; border: 0; cursor: pointer; padding: 8px 12px; border-radius: 8px;
+      transition: color .18s ease-out, background .18s ease-out;
+    }
+    .nav-flat:hover, .nav-trigger:hover,
+    .nav-item[data-nav-item].is-open .nav-trigger { color: var(--ink); }
+    .nav-flat { position: relative; }
+    .nav-flat.is-active { color: var(--ink); font-weight: 600; }
+    /* Barre teal DROITE (pseudo, sans rayon) — jamais de bordure partielle sur un coin arrondi. */
+    .nav-flat.is-active::after {
+      content: ""; position: absolute; left: 12px; right: 12px; bottom: 3px; height: 2px;
+      background: var(--accent);
+    }
+    .nav-chev { font-size: 16px; transition: transform .2s ease-out; }
+    .nav-trigger[aria-expanded="true"] .nav-chev { transform: rotate(180deg); }
+
+    /* Panneau méga */
+    .nav-panel {
+      position: absolute; top: calc(100% + 8px); left: 40px; right: 40px; z-index: 45;
+      background: var(--surface); border: 1px solid var(--line-2);
+      padding: 28px; opacity: 0; transform: translateY(-6px); pointer-events: none;
+      display: none; transition: opacity .18s ease-out, transform .18s ease-out;
+    }
+    .nav-panel.is-open { display: block; opacity: 1; transform: translateY(0); pointer-events: auto; }
+
+    .nav-panel-grid {
+      display: grid; grid-template-columns: repeat(var(--cols, 3), 1fr); gap: 0;
+    }
+    .nav-col { padding: 0 24px; border-left: 1px solid var(--line); }
+    .nav-col:first-child { padding-left: 0; border-left: 0; }
+    .nav-col:last-child { padding-right: 0; }
+    .nav-col-title { padding-bottom: 10px; margin-bottom: 8px; border-bottom: 1px solid var(--line); }
+    .nav-col ul { display: flex; flex-direction: column; gap: 2px; }
+
+    .nav-link {
+      display: flex; align-items: center; gap: 10px;
+      padding: 9px 10px; border-radius: 8px; font-size: 14.5px; color: var(--ink);
+      transition: background .16s ease-out;
+    }
+    .nav-link:hover { background: rgba(20, 22, 26, 0.04); }
+    .nav-link-icon { font-size: 17px; color: var(--muted); width: 20px; text-align: center; flex: none; }
+    .nav-link:hover .nav-link-icon { color: var(--accent); }
+    .nav-link-ext { font-size: 13px; color: var(--muted); margin-left: 2px; }
+
+    .nav-badge {
+      font-size: 10.5px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase;
+      padding: 2px 7px; border-radius: 999px; line-height: 1.5; flex: none;
+    }
+    .nav-badge--featured { background: var(--accent); color: #fff; }
+    .nav-badge--new { background: rgba(0, 168, 125, 0.12); color: var(--accent); border: 1px solid rgba(0, 168, 125, 0.35); }
+
+    /* Spotlight */
+    .nav-spot {
+      position: relative; display: flex; align-items: center; gap: 14px; margin-top: 22px;
+      padding: 16px 18px; background: rgba(0, 168, 125, 0.06);
+      border: 1px solid rgba(0, 168, 125, 0.3);
+    }
+    .nav-spot-icon { font-size: 22px; color: var(--accent); flex: none; }
+    .nav-spot-body { display: flex; flex-direction: column; gap: 2px; }
+    .nav-spot-body strong { font-weight: 600; font-size: 15px; }
+    .nav-spot-body .co-mut { font-size: 13px; line-height: 1.4; }
+    .nav-spot-arrow { margin-left: auto; font-size: 20px; color: var(--accent); transition: transform .18s ease-out; }
+    .nav-spot:hover .nav-spot-arrow { transform: translateX(4px); }
+
+    /* États démo */
+    .nav-states { display: flex; flex-direction: column; gap: 18px; margin-top: 28px; }
+    .nav-state-row { display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .nav-state-tag { font-size: 12px; width: 92px; flex: none; }
+
+    /* ══ DRAWER MOBILE ══ */
+    .nav-drawer-nav { display: flex; flex-direction: column; margin-top: 20px; overflow-y: auto; flex: 1; }
+    .nav-drawer-block { border-bottom: 1px solid var(--line); }
+    .nav-drawer-item {
+      display: flex; align-items: center; justify-content: space-between; width: 100%;
+      font-family: inherit; font-size: 1.4rem; font-weight: 600; color: var(--ink);
+      background: none; border: 0; border-bottom: 1px solid var(--line);
+      padding: 15px 0; cursor: pointer; text-align: left;
+    }
+    .nav-drawer-block > .nav-drawer-acc { border-bottom: 0; }
+    .nav-acc-chev { font-size: 22px; color: var(--muted); transition: transform .25s ease-out; }
+    .nav-drawer-acc[aria-expanded="true"] .nav-acc-chev { transform: rotate(180deg); }
+
+    .nav-acc-panel { max-height: 0; overflow: hidden; transition: max-height .3s ease-out; }
+    .nav-acc-panel.is-open { max-height: 1400px; }
+    .nav-acc-col { padding: 6px 0 14px 14px; border-left: 1px dashed var(--line-2); margin: 6px 0 6px 4px; }
+    .nav-acc-col h4 { margin-bottom: 8px; }
+    .nav-acc-col ul { display: flex; flex-direction: column; gap: 2px; }
+    .nav-acc-link {
+      display: flex; align-items: center; gap: 10px; padding: 8px 6px; border-radius: 6px;
+      font-size: 15px; color: var(--ink);
+    }
+    .nav-acc-link i { font-size: 17px; color: var(--muted); width: 20px; text-align: center; flex: none; }
+    .nav-drawer-cta { margin-top: 20px; justify-content: center; }
+
+    /* ══ FAT FOOTER ══ */
+    .nav-footer { position: relative; margin-top: 8px; }
+    .nav-footer-grid {
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 40px; padding: 56px 40px;
+    }
+    .nav-footer-col h3 { margin-bottom: 14px; }
+    .nav-footer-col ul { display: flex; flex-direction: column; gap: 9px; }
+    .nav-footer-link { font-size: 14px; color: var(--muted); transition: color .16s ease-out; }
+    .nav-footer-link:hover { color: var(--accent); }
+    .nav-footer-legal {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 40px; border-top: 1px solid var(--line); font-size: 13px;
+    }
+
+    /* ══ Responsive ══ */
+    @media (max-width: 900px) {
+      .nav-panel { left: 20px; right: 20px; }
+      .nav-footer-grid { grid-template-columns: 1fr 1fr; }
+      .nav-footer-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 720px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-links { margin-left: 0; }
+      .nav-footer-grid { grid-template-columns: 1fr; gap: 32px; padding: 44px 20px; }
+      .nav-footer-legal { flex-direction: column; gap: 8px; align-items: flex-start; padding: 18px 20px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .nav-panel, .nav-chev, .nav-acc-chev, .nav-acc-panel, .nav-spot-arrow { transition: none; }
+    }
+  </style>
+
+  <script>
+    // ══ MÉGA-MENU DESKTOP : hover (délai d'intention) + click + Escape + click-outside ══
+    const OPEN_DELAY = 80;
+    const CLOSE_DELAY = 180;
+    let openSlug: string | null = null;
+    let closeTimer: number | undefined;
+    let openTimer: number | undefined;
+
+    const items = Array.from(document.querySelectorAll<HTMLElement>("[data-nav-item]"));
+    const panelMap = new Map<string, HTMLElement>();
+    document.querySelectorAll<HTMLElement>("[data-nav-panel]").forEach((p) => {
+      panelMap.set(p.dataset.navPanel!, p);
+    });
+
+    function openPanel(slug: string) {
+      if (openSlug === slug) return;
+      if (openSlug) closePanel(openSlug);
+      const panel = panelMap.get(slug);
+      const trigger = document.querySelector<HTMLElement>(`[data-nav-trigger="${slug}"]`);
+      const item = document.querySelector<HTMLElement>(`[data-nav-item="${slug}"]`);
+      panel?.classList.add("is-open");
+      trigger?.setAttribute("aria-expanded", "true");
+      item?.classList.add("is-open");
+      openSlug = slug;
+    }
+    function closePanel(slug: string) {
+      const panel = panelMap.get(slug);
+      const trigger = document.querySelector<HTMLElement>(`[data-nav-trigger="${slug}"]`);
+      const item = document.querySelector<HTMLElement>(`[data-nav-item="${slug}"]`);
+      panel?.classList.remove("is-open");
+      trigger?.setAttribute("aria-expanded", "false");
+      item?.classList.remove("is-open");
+      if (openSlug === slug) openSlug = null;
+    }
+    function closeAll() { if (openSlug) closePanel(openSlug); }
+    function scheduleClose() {
+      window.clearTimeout(closeTimer);
+      closeTimer = window.setTimeout(closeAll, CLOSE_DELAY);
+    }
+    function cancelClose() { window.clearTimeout(closeTimer); }
+
+    items.forEach((item) => {
+      const slug = item.dataset.navItem!;
+      const trigger = item.querySelector<HTMLElement>("[data-nav-trigger]");
+      if (!trigger) return; // flat item, no panel
+      item.addEventListener("mouseenter", () => {
+        cancelClose();
+        window.clearTimeout(openTimer);
+        openTimer = window.setTimeout(() => openPanel(slug), OPEN_DELAY);
+      });
+      item.addEventListener("mouseleave", () => {
+        window.clearTimeout(openTimer);
+        scheduleClose();
+      });
+      trigger.addEventListener("click", (e) => {
+        e.preventDefault();
+        if (openSlug === slug) closePanel(slug);
+        else openPanel(slug);
+      });
+    });
+
+    // Garder le panneau ouvert quand la souris y est
+    panelMap.forEach((panel) => {
+      panel.addEventListener("mouseenter", cancelClose);
+      panel.addEventListener("mouseleave", scheduleClose);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && openSlug) {
+        const slug = openSlug;
+        closePanel(slug);
+        document.querySelector<HTMLElement>(`[data-nav-trigger="${slug}"]`)?.focus();
+      }
+    });
+    document.addEventListener("click", (e) => {
+      const target = e.target as HTMLElement;
+      if (openSlug && !target.closest(".nav-wrap")) closeAll();
+    });
+
+    // ══ DRAWER MOBILE : open/close + scroll-lock + accordéons + reset au close ══
+    const drawer = document.getElementById("nav-drawer");
+    const openBtn = document.getElementById("nav-menu-open");
+    const closeBtn = document.getElementById("nav-menu-close");
+
+    function resetAccordions() {
+      drawer?.querySelectorAll<HTMLElement>("[data-drawer-acc]").forEach((btn) => {
+        btn.setAttribute("aria-expanded", "false");
+        const panel = document.getElementById(btn.getAttribute("aria-controls")!);
+        panel?.classList.remove("is-open");
+        panel?.setAttribute("aria-hidden", "true");
+      });
+    }
+    function setDrawer(open: boolean) {
+      drawer?.classList.toggle("is-open", open);
+      openBtn?.setAttribute("aria-expanded", String(open));
+      document.body.style.overflow = open ? "hidden" : "";
+      if (!open) resetAccordions();
+    }
+    openBtn?.addEventListener("click", () => setDrawer(true));
+    closeBtn?.addEventListener("click", () => setDrawer(false));
+    drawer?.querySelectorAll("a").forEach((a) => a.addEventListener("click", () => setDrawer(false)));
+
+    drawer?.querySelectorAll<HTMLElement>("[data-drawer-acc]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const panel = document.getElementById(btn.getAttribute("aria-controls")!);
+        const isOpen = btn.getAttribute("aria-expanded") === "true";
+        btn.setAttribute("aria-expanded", String(!isOpen));
+        panel?.classList.toggle("is-open", !isOpen);
+        panel?.setAttribute("aria-hidden", String(isOpen));
+      });
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && drawer?.classList.contains("is-open")) setDrawer(false);
+    });
+  </script>
+</Layout>

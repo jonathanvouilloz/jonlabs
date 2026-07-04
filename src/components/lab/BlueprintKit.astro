@@ -17,6 +17,18 @@
   .co-root *, .co-root *::before, .co-root *::after { box-sizing: border-box; }
   .co-root h1, .co-root h2, .co-root h3, .co-root h4, .co-root p, .co-root figure { margin: 0; }
   .co-root ul { margin: 0; padding: 0; list-style: none; }
+  /* Pas de global.css → reset l'underline navigateur par défaut sur les liens.
+     :where() neutralise la spécificité pour que .co-btn (color:#fff) l'emporte sur ce reset.
+     L'underline est ré-autorisé intentionnellement sur le corps d'article (.co-prose a). */
+  .co-root :where(a) { text-decoration: none; color: inherit; }
+
+  /* ── Anti-flash motion (data-animate est chargé via Layout mais sa règle opacity:0 vit dans global.css, non chargé ici) ── */
+  .co-root [data-animate],
+  .co-root [data-animate-stagger] [data-animate-item] { opacity: 0; }
+  @media (prefers-reduced-motion: reduce) {
+    .co-root [data-animate],
+    .co-root [data-animate-stagger] [data-animate-item] { opacity: 1 !important; }
+  }
 
   /* ── Pairing 04 : Inter Tight (titres/UI) × Instrument Serif (accent) × Inter Tight (corps) ── */
   .co-root {

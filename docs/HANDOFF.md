@@ -3,7 +3,7 @@
 ## Features actives
 | Feature | Fichier | Statut |
 |---------|---------|--------|
-| Refonte blueprint (design/typo) | docs/features/refonte-blueprint.md | **EN COURS** (exploration lab OK — pairing 04 + BlueprintKit + pages compo/composants ; migration à cadrer) |
+| Refonte blueprint (design/typo) | docs/features/refonte-blueprint.md | **EN COURS** (Lots 0-3 faits : nav + blog + services ; reste Lot 4 portfolio/CV, Lot 5 décoratifs, Lot motion+mocks+hub) |
 | Polish global & design system | docs/features/polish-design-system.md | EN ATTENTE (Phase 6 tags bloquée GSC + reframe blog Lécureux) |
 | Chantier SEO IA (consultant IA) | docs/planSEOIA.md | EN COURS (Phase 1-2 ✅, Phase 3 à venir) |
 | Refonte SEO / clusters | docs/features/refonte-seo-clusters.md | EN COURS |
@@ -11,8 +11,8 @@
 | Cluster application mobile | docs/features/cluster-application-mobile.md | ✅ DONE |
 
 ## Reprendre ici
-**Refonte blueprint** — exploration validée sur pages lab (pairing 04 Inter Tight × Instrument Serif, système blueprint, kit partagé `BlueprintKit.astro`, bibliothèque `/styleguide-components`). Prochain : Jonathan vérifie le mobile sur device réel, puis on **cadre la migration** vers le vrai site (homepage d'abord). Détails : `docs/features/refonte-blueprint.md`.
-Commit : [e92b8f2] feat(design): exploration blueprint — pairing 04, BlueprintKit, pages lab (branche design/blueprint-lab)
+**Refonte blueprint** — pages lab nav/blog/services faites (Lots 0-3), build OK 217 pages. Prochain : **Lot 4 — `styleguide-portfolio.astro`** (cartes portfolio, image cadrée filets, méta/stats, brancher `proof-lecureux.ts`) + **trancher le CV** (blueprinter maintenant ou repousser). Détails + pièges design : `docs/features/refonte-blueprint.md`. Valider le mobile <720/<900px sur device (non capturable en screenshot).
+Commit : (à venir cette session) feat(design): complétion design system blueprint — nav, blog, services (branche design/blueprint-lab)
 
 ## Actions manuelles en attente (GSC — côté Jonathan)
 - **Vérif mobile** des pages `/styleguide-compo` + `/styleguide-components` (breakpoint non testable via l'outil navigateur = capture 1568px fixe).

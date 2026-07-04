@@ -3,6 +3,29 @@
 > Sortir du look brutaliste (bordures noires 2px + ombres offset, Plus Jakarta Sans) jugé « banal » vers un style **blueprint** : filets très fins qui cadrent les sections, aération, nouveau font pairing éditorial. Exploration en pages lab AVANT toute migration du vrai site.
 > **Réfs visuelles** : pengon.dev, sakib.design. **Statut** : 🔄 EN COURS — exploration lab validée, migration à cadrer.
 
+## Etat session 2026-07-04 (soir) — Complétion design system : Lots 0-3 ✅
+
+**Fait :**
+- **Lot 0 (fixes)** : reset underline scopé `.co-root :where(a){text-decoration:none;color:inherit}` dans `BlueprintKit` (cause racine : lab ne charge pas `global.css` → `<a>` souligné par défaut ; `:where()` neutralise la spécificité pour que `.co-btn` garde `color:#fff`). Anti-flash motion `[data-animate]{opacity:0}` posé dans le kit. `styleguide-lab` : eyebrows/toggle Menlo → Inter Tight, `.bp-btn` blindé `text-decoration:none`.
+- **Lot 1 (nav)** : `styleguide-nav.astro` — barre nav, **méga-menu** cadré filets (colonnes filets verticaux, crosshairs, spotlight teal, badges), interaction hover-intention + click + Escape + click-outside, **drawer mobile à accordéons** (scroll-lock, reset au close), **fat footer** zones géo. Data réelle `navigation.ts`.
+- **Lot 2 (blog)** : `styleguide-blog.astro` — cartes article (vraie data `getCollection`), filtres + recherche + toggle grille/liste, pagination, composants article (progress, façade vidéo, corps avec liens **soulignés teal**, bio auteur, articles liés). Badges catégorie **1 seul style harmonisé** (pastille filet + point teal, pas de couleur par catégorie).
+- **Lot 3 (services)** : `styleguide-services.astro` — **constellation blueprint** (option A : hub + 6 nodes figés + lignes SVG hub-bord→node-bord calculées au load/resize, sans canvas/néon) + **modale chat** qui rejoue les vrais `scenarios.ts` messages en typing + cartes services + CTA sombre. **0 emoji** (icônes Remix mono).
+- Toutes vérifiées en dev (screenshots + 0 erreur console), build OK **217 pages**.
+
+**Prochain :** Lot 4 — Portfolio + CV. Créer `styleguide-portfolio.astro` (cartes PortfolioCard/Editorial, image cadrée filets, méta client/année, stats, brancher la vraie preuve `src/data/proof-lecureux.ts`). **Décision en attente** : blueprinter le CV maintenant (9 composants `cv/*` + export PDF, gros effort/ROI différé) ou le repousser hors lab.
+
+**Pièges :**
+- **Bordure/trait partiel sur coin arrondi = interdit** (effet U « IA slop »). Souligné actif = barre droite via `::after`. Mémoire `feedback_pas_bordure_partielle_arrondi`.
+- **0 emoji** (mémoire `feedback_zero_emoji`) : icônes Remix mono même si la data a un champ emoji.
+- **Badges/catégories : pas de couleur par catégorie** — 1 seul style, accent teal unique (le multi-teinte a été jugé « AI slop »).
+- **Bouton sur fond sombre** : jamais `.co-btn` (bg `--ink`) sur section `--ink` → invisible. Passer en fond blanc/accent (fix appliqué au CTA services).
+- **Capture navigateur = 1568px fixe** même après resize → mobile <720/<900px non vérifiable en screenshot, valider sur device.
+- Reset lab `.co-root :where(a)` : specificité neutralisée exprès ; `.co-btn`/`.blog-prose a` (underline volontaire) l'emportent.
+
+**Commit :** (à venir) feat(design): complétion design system blueprint — nav, blog, services (Lots 0-3)
+
+---
+
 ## Etat session 2026-07-04 — Exploration blueprint + bibliothèque de composants ✅
 
 **Fait :**
@@ -29,19 +52,22 @@
 **Commit :** [e92b8f2] feat(design): exploration blueprint — pairing 04, BlueprintKit partagé, pages lab (branche `design/blueprint-lab`)
 
 ## Carte du code
-> Mise à jour : 2026-07-04
+> Mise à jour : 2026-07-04 (soir)
 
 | Fichier | Rôle |
 |---------|------|
-| `src/components/lab/BlueprintKit.astro` | **Kit blueprint partagé** — `<link>` fonts (Inter Tight + Instrument Serif) + `<style is:global>` : reset scopé, tokens `.co-root`, typo pairing 04, primitives (`.co-eyebrow/.co-x/.co-btn/.co-sec/.co-guides/.co-dots`), marquee, burger/drawer, grilles + media queries. **Base du futur design system.** |
-| `src/pages/styleguide-compo.astro` | Maquette homepage blueprint (pairing 04) — importe `<BlueprintKit />` + `<script>` du drawer mobile. Nav, hero, trust marquee, services, cas client, CTA sombre, footer |
-| `src/pages/styleguide-components.astro` | Bibliothèque de composants blueprint (noindex) — cartes blog, tarifs, FAQ (`<details>` natif), formulaire (maquette), atomes. `<style is:global>` page-local `.cc-*` par-dessus les tokens du kit |
-| `src/pages/styleguide-lab.astro` | Comparateur d'exploration — 4 font pairings + 3 layouts hero + toggle JS. **À aligner sur les 2 fonts (Menlo restant)** |
-| `public/fonts/fraunces/Fraunces-VF.ttf` (+ Italic) | Fraunces variable self-hosté (alt Gelica) — testé pairing 03, écarté |
+| `src/components/lab/BlueprintKit.astro` | **Kit blueprint partagé** — `<link>` fonts + `<style is:global>` : reset scopé (dont `.co-root :where(a)` anti-underline + anti-flash `[data-animate]`), tokens `.co-root`, typo pairing 04, primitives (`.co-eyebrow/.co-x/.co-btn/.co-sec/.co-guides/.co-dots`), marquee, burger/drawer, grilles + media queries. **Base du design system.** |
+| `src/pages/styleguide-nav.astro` | **[Lot 1]** Nav blueprint (noindex) — barre + méga-menu cadré filets + drawer accordéons + fat footer. Data `navigation.ts`. Styles `.nav-*`, JS méga (hover/click/Escape) + drawer |
+| `src/pages/styleguide-blog.astro` | **[Lot 2]** Blog blueprint (noindex) — article à la une, cartes (vraie data `getCollection`), filtres/recherche/toggle grille-liste, pagination, composants article (progress, vidéo, prose liens soulignés, bio, related). Badge catégorie unique harmonisé. Styles `.blog-*` |
+| `src/pages/styleguide-services.astro` | **[Lot 3]** Services blueprint (noindex) — constellation (hub + nodes + lignes SVG au load/resize) + modale chat (rejoue `scenarios.ts`), cartes services (`serviceSections`), CTA sombre. **0 emoji** (icônes Remix). Styles `.svc-*` |
+| `src/pages/styleguide-compo.astro` | Maquette homepage blueprint (référence) — nav, hero, trust marquee, services, cas client, CTA sombre, footer. ⚠️ contient encore le **mock preuve** « invisibles → #1 »/« +40h » à remplacer |
+| `src/pages/styleguide-components.astro` | Bibliothèque atomes/primitives (noindex) — cartes, tarifs, FAQ, formulaire, atomes. Styles `.cc-*` |
+| `src/pages/styleguide-lab.astro` | Comparateur pairings (échantillons multi-fonts = le sujet, conservés). Chrome UI aligné Inter Tight, `.bp-btn` blindé |
+| `src/data/{navigation,scenarios}.ts` · `src/lib/blog.ts` · `src/sample.ts` | Sources de vérité consommées par les pages lab (nav, scénarios+sections, helpers/catégories blog, author) |
 
 ### Décisions clés
-- **Pairing final = Inter Tight × Instrument Serif uniquement.** L'Instrument Serif italique est réservé aux **gros titres display** ; en inline/quote, l'accent se fait par **couleur teal** (pas d'italique) — sinon mismatch d'épaisseur sans/serif à taille moyenne.
-- **Blueprint = filets fins qui cadrent** (`--line`/`--line-2` + crosshairs), colonne capée. On abandonne bordures noires 2px + ombres offset brutalistes.
-- **CSS centralisé dans `BlueprintKit`** (pas encore `global.css`) — consolidation reportée à la migration.
-- **Accessibilité/UX** : drawer mobile JS (aria-expanded, scroll-lock, Escape, fermeture sur clic lien) ; FAQ en `<details>` natif (zéro JS) ; transitions `ease-out` ; `prefers-reduced-motion` géré (marquee + drawer).
-- Pages lab en **`robots="noindex, nofollow"`** ; `/styleguide` brutaliste **non touché** (comparaison avant/après).
+- **Pairing = Inter Tight × Instrument Serif uniquement** ; Instrument Serif italique réservé aux gros titres display, accent inline = **teal** (pas d'italique).
+- **Blueprint = filets fins + crosshairs**, colonne capée, **coins nets** (pas d'ombre offset brutaliste). **Une seule couleur d'accent (teal)** — pas de couleur par catégorie/pilier.
+- **Règles design gravées en mémoire** : `feedback_zero_emoji` (0 emoji → icônes Remix mono) · `feedback_pas_bordure_partielle_arrondi` (jamais de trait partiel sur coin arrondi → barre droite `::after`). Bouton sur fond sombre = fond clair, jamais ink-sur-ink.
+- **CSS à 2 niveaux** : primitives réutilisées dans `BlueprintKit`, spécifiques par page en `.nav-*`/`.blog-*`/`.svc-*` (promotion quand 2+ pages). Motion = système `data-animate` existant (déjà chargé via Layout).
+- Pages lab en **`robots="noindex, nofollow"`** ; `/styleguide` brutaliste non touché.

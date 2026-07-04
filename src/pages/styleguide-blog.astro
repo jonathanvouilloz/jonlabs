@@ -1,0 +1,452 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BlueprintKit from "../components/lab/BlueprintKit.astro";
+import { getCollection } from "astro:content";
+import { getCategoryName, formatDateShort, getRelatedPosts, type CategoryKey } from "../lib/blog";
+import { author } from "../sample";
+
+const pageTitle = "Blog Lab — Blueprint | Jon Labs";
+const pageDescription = "Composants blog blueprint (cartes, filtres, pagination, composants article) — pairing 04. Page interne de tests.";
+
+const allPosts = (await getCollection("blog"))
+  .filter((p) => !p.data.draft)
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
+
+const posts = allPosts.slice(0, 9);
+const related = getRelatedPosts(posts[0], allPosts, 3);
+
+// Catégories listées pour les filtres. Un seul style de badge (harmonisé blueprint) —
+// la catégorie se lit dans le TEXTE, jamais par une couleur dédiée (une seule teinte d'accent).
+const catOrder: CategoryKey[] = ["geo", "web", "automatisation", "seo-local", "mobile"];
+const authorInitials = author.name.split(" ").map((w) => w[0]).slice(0, 2).join("");
+---
+
+<Layout title={pageTitle} description={pageDescription} robots="noindex, nofollow">
+  <BlueprintKit />
+
+  <div class="co-root">
+
+    <!-- ══ INTRO ══ -->
+    <section class="co-sec co-pad" style="padding:52px 40px 40px;">
+      <p class="co-eyebrow">Design system · blog · interne</p>
+      <h1 style="font-size:clamp(2.2rem,5.5vw,3.4rem);margin-top:14px;">
+        Blog <span class="co-ser">blueprint.</span>
+      </h1>
+      <p class="co-mut" style="margin-top:14px;max-width:60ch;line-height:1.6;">
+        Cartes d'article, filtres, pagination et composants d'article — sur les vrais articles
+        de la collection. Coins nets, filets fins, une seule teinte d'accent, catégories en pastilles sobres.
+      </p>
+    </section>
+
+    <!-- ══ 01 · HERO BLOG + ARTICLE À LA UNE ══ -->
+    <section class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">01 — En-tête</p>
+      <h2 style="margin-top:8px;">Hero &amp; article à la une</h2>
+
+      {posts[0] && (
+        <a href={`/blog/${posts[0].slug}`} class="blog-feature" data-animate="fade-up">
+          <div class="blog-feature-cover">
+            <img src={posts[0].data.image.url} alt={posts[0].data.image.alt} loading="lazy" />
+            <span class="co-x tl"></span><span class="co-x tr"></span>
+            <span class="co-x bl"></span><span class="co-x br"></span>
+          </div>
+          <div class="blog-feature-body">
+            <span class="blog-badge">{getCategoryName(posts[0].data.category)}</span>
+            <h3 class="blog-feature-title">{posts[0].data.title}</h3>
+            <p class="co-mut blog-feature-desc">{posts[0].data.description}</p>
+            <div class="blog-meta">
+              <time datetime={posts[0].data.pubDate.toISOString()}>{formatDateShort(posts[0].data.pubDate)}</time>
+              {posts[0].data.readingTime && <span>· {posts[0].data.readingTime} min de lecture</span>}
+            </div>
+            <span class="blog-feature-cta">Lire l'article <i class="ri-arrow-right-line"></i></span>
+          </div>
+        </a>
+      )}
+    </section>
+
+    <!-- ══ 02 · GRILLE + FILTRES ══ -->
+    <section class="co-sec co-pad" style="padding:56px 40px;">
+      <div class="blog-listhead">
+        <div>
+          <p class="co-eyebrow">02 — Liste</p>
+          <h2 style="margin-top:8px;">Grille, filtres &amp; vues</h2>
+        </div>
+        <div class="blog-viewtoggle" role="group" aria-label="Mode d'affichage">
+          <button class="blog-view-btn is-active" data-view-btn="grid" aria-pressed="true" aria-label="Vue grille"><i class="ri-grid-fill"></i></button>
+          <button class="blog-view-btn" data-view-btn="list" aria-pressed="false" aria-label="Vue liste"><i class="ri-list-check"></i></button>
+        </div>
+      </div>
+
+      <div class="blog-filters">
+        <div class="blog-search">
+          <i class="ri-search-line"></i>
+          <input type="search" id="blog-search" placeholder="Rechercher un article…" aria-label="Rechercher" />
+        </div>
+        <div class="blog-chips" role="group" aria-label="Filtrer par catégorie">
+          <button class="blog-chip is-active" data-cat="all" aria-pressed="true">Tous</button>
+          {catOrder.map((c) => (
+            <button class="blog-chip" data-cat={c} aria-pressed="false">{getCategoryName(c)}</button>
+          ))}
+        </div>
+      </div>
+
+      <div class="blog-grid" id="blog-grid" data-view="grid" data-animate-stagger>
+        {posts.map((post) => (
+            <article
+              class="blog-card"
+              data-animate-item
+              data-category={post.data.category}
+              data-title={post.data.title.toLowerCase()}
+              data-tags={post.data.tags.join(" ").toLowerCase()}
+            >
+              <a href={`/blog/${post.slug}`} class="blog-card-link" aria-label={`Lire : ${post.data.title}`}></a>
+              <div class="blog-card-cover">
+                <img src={post.data.image.url} alt={post.data.image.alt} loading="lazy" />
+                <span class="blog-badge blog-badge--onimg">{getCategoryName(post.data.category)}</span>
+              </div>
+              <div class="blog-card-body">
+                <h3 class="blog-card-title">{post.data.title}</h3>
+                <div class="blog-meta">
+                  <time datetime={post.data.pubDate.toISOString()}>{formatDateShort(post.data.pubDate)}</time>
+                  {post.data.readingTime && <span>· {post.data.readingTime} min</span>}
+                </div>
+                <p class="blog-desc">{post.data.description}</p>
+                {post.data.tags.length > 0 && (
+                  <div class="blog-tags">
+                    {post.data.tags.slice(0, 3).map((tg) => (
+                      <a href={`/blog/tag/${tg}`} class="blog-tag">#{tg}</a>
+                    ))}
+                  </div>
+                )}
+              </div>
+              <span class="blog-card-accent"></span>
+            </article>
+        ))}
+      </div>
+
+      <p class="blog-noresult co-mut" id="blog-noresult" hidden>Aucun article ne correspond.</p>
+
+      <!-- Pagination (maquette) -->
+      <nav class="blog-pagination" aria-label="Pagination">
+        <button class="blog-page blog-page--nav" disabled aria-label="Précédent"><i class="ri-arrow-left-s-line"></i></button>
+        <button class="blog-page is-active" aria-current="page">1</button>
+        <button class="blog-page">2</button>
+        <button class="blog-page">3</button>
+        <span class="blog-page-gap">…</span>
+        <button class="blog-page">7</button>
+        <button class="blog-page blog-page--nav" aria-label="Suivant"><i class="ri-arrow-right-s-line"></i></button>
+      </nav>
+    </section>
+
+    <!-- ══ 03 · COMPOSANTS D'ARTICLE ══ -->
+    <section class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">03 — Page article</p>
+      <h2 style="margin-top:8px;">Composants d'article</h2>
+
+      <!-- Reading progress -->
+      <div class="blog-sub">
+        <h4 class="co-eyebrow">Barre de progression</h4>
+        <div class="blog-progress" role="img" aria-label="Progression de lecture : 55 %">
+          <span class="blog-progress-fill" style="width:55%;"></span>
+        </div>
+      </div>
+
+      <!-- Video embed façade -->
+      <div class="blog-sub">
+        <h4 class="co-eyebrow">Vidéo intégrée (16/9)</h4>
+        <div class="blog-video co-dots">
+          <span class="co-x tl"></span><span class="co-x tr"></span>
+          <span class="co-x bl"></span><span class="co-x br"></span>
+          <button class="blog-video-play" aria-label="Lire la vidéo"><i class="ri-play-fill"></i></button>
+        </div>
+      </div>
+
+      <!-- Corps d'article (typo + liens inline soulignés) -->
+      <div class="blog-sub">
+        <h4 class="co-eyebrow">Corps d'article</h4>
+        <div class="blog-prose">
+          <p>Le référencement local n'est pas qu'une affaire de mots-clés. C'est un <a href="#">travail de fond</a> qui commence par une fiche Google bien tenue et une structure de site lisible par les moteurs comme par les IA.</p>
+          <h2>Pourquoi la structure compte</h2>
+          <p>Un contenu bien hiérarchisé se cite tout seul. Les modèles de langage extraient plus facilement une réponse d'un paragraphe clair que d'un mur de texte.</p>
+          <blockquote>« Un bon article répond à une question avant même qu'on la pose. »</blockquote>
+          <h3>Trois réflexes utiles</h3>
+          <ul>
+            <li>Un titre = une intention de recherche.</li>
+            <li>Des sous-titres qui résument, pas qui teasent.</li>
+            <li>Des <a href="#">liens internes</a> vers les pages qui approfondissent.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Author bio -->
+      <div class="blog-sub">
+        <h4 class="co-eyebrow">Bio auteur</h4>
+        <div class="blog-author">
+          <div class="blog-author-avatar" aria-hidden="true">{authorInitials}</div>
+          <div class="blog-author-body">
+            <strong>{author.name}</strong>
+            <span class="co-mut">Développeur web &amp; automatisation · {author.location}</span>
+            <p class="co-mut blog-author-bio">
+              J'aide les PME romandes à transformer leur présence en ligne en vrais résultats —
+              sites qui convertissent, outils sur-mesure, IA branchée sur les process.
+            </p>
+            <div class="blog-author-socials">
+              <a href={author.linkedin} target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="ri-linkedin-box-fill"></i></a>
+              <a href={author.github} target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="ri-github-fill"></i></a>
+              <a href={author.youtube} target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="ri-youtube-fill"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Related posts -->
+      <div class="blog-sub">
+        <h4 class="co-eyebrow">Articles liés</h4>
+        <div class="blog-related">
+          {related.map((post) => (
+              <a href={`/blog/${post.slug}`} class="blog-related-card">
+                <span class="blog-badge">{getCategoryName(post.data.category)}</span>
+                <strong>{post.data.title}</strong>
+                <span class="blog-meta"><time>{formatDateShort(post.data.pubDate)}</time>{post.data.readingTime && <span>· {post.data.readingTime} min</span>}</span>
+              </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <style is:global>
+    /* ══ BLOG LAB — styles .blog-* par-dessus les tokens du kit ══ */
+
+    /* Badge catégorie — UN SEUL style, harmonisé avec le système (pastille filet + point teal).
+       La catégorie se lit dans le texte, jamais par une couleur dédiée. */
+    .blog-badge {
+      display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+      font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 4px 11px; border-radius: 999px; line-height: 1.5;
+      color: var(--muted); background: var(--surface); border: 1px solid var(--line-2);
+    }
+    .blog-badge::before {
+      content: ""; flex: none; width: 5px; height: 5px; border-radius: 999px; background: var(--accent);
+    }
+
+    /* Article à la une */
+    .blog-feature {
+      display: grid; grid-template-columns: 1.1fr 1fr; gap: 0; margin-top: 32px;
+      border: 1px solid var(--line-2); background: var(--surface); overflow: hidden;
+      transition: box-shadow .2s ease-out;
+    }
+    .blog-feature:hover { box-shadow: 0 0 0 1px var(--line-2); }
+    .blog-feature-cover { position: relative; overflow: hidden; border-right: 1px solid var(--line-2); min-height: 300px; }
+    .blog-feature-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease-out; }
+    .blog-feature:hover .blog-feature-cover img { transform: scale(1.04); }
+    .blog-feature-body { padding: 36px; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; justify-content: center; }
+    .blog-feature-title { font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1.1; }
+    .blog-feature-desc { line-height: 1.6; font-size: 1.02rem; }
+    .blog-feature-cta {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 6px;
+      font-weight: 600; color: var(--accent);
+    }
+    .blog-feature-cta i { transition: transform .18s ease-out; }
+    .blog-feature:hover .blog-feature-cta i { transform: translateX(4px); }
+
+    /* Meta */
+    .blog-meta { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--muted); }
+
+    /* Liste : en-tête + toggle */
+    .blog-listhead { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+    .blog-viewtoggle { display: flex; gap: 4px; border: 1px solid var(--line-2); padding: 3px; }
+    .blog-view-btn {
+      display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 30px;
+      background: none; border: 0; cursor: pointer; color: var(--muted); font-size: 17px;
+      transition: background .16s ease-out, color .16s ease-out;
+    }
+    .blog-view-btn.is-active { background: var(--ink); color: #fff; }
+
+    /* Filtres */
+    .blog-filters { display: flex; flex-direction: column; gap: 16px; margin: 28px 0 32px; }
+    .blog-search { position: relative; max-width: 340px; }
+    .blog-search i { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 17px; }
+    .blog-search input {
+      width: 100%; font-family: inherit; font-size: 15px; color: var(--ink);
+      background: var(--surface); border: 1px solid var(--line-2); padding: 11px 14px 11px 40px;
+      transition: border-color .18s ease-out, box-shadow .18s ease-out;
+    }
+    .blog-search input::placeholder { color: var(--muted); }
+    .blog-search input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,168,125,.15); }
+    .blog-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .blog-chip {
+      font-family: inherit; font-size: 13.5px; font-weight: 500; cursor: pointer;
+      padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line-2);
+      background: transparent; color: var(--muted); transition: all .16s ease-out;
+    }
+    .blog-chip:hover { color: var(--ink); border-color: var(--ink); }
+    .blog-chip.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+    /* Grille */
+    .blog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+    /* Carte article */
+    .blog-card {
+      position: relative; display: flex; flex-direction: column;
+      background: var(--surface); border: 1px solid var(--line-2); overflow: hidden;
+      transition: transform .18s ease-out, box-shadow .18s ease-out;
+    }
+    .blog-card:hover { box-shadow: 0 6px 22px rgba(20,22,26,.07); }
+    .blog-card-link { position: absolute; inset: 0; z-index: 1; }
+    .blog-card-cover { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 1px solid var(--line-2); background: var(--bg); }
+    .blog-card-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease-out; }
+    .blog-card:hover .blog-card-cover img { transform: scale(1.05); }
+    .blog-badge--onimg { position: absolute; top: 12px; left: 12px; z-index: 2; backdrop-filter: saturate(1.2); }
+    .blog-card-body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
+    .blog-card-title { font-size: 1.12rem; line-height: 1.2; }
+    .blog-desc { font-size: 14px; line-height: 1.55; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+    .blog-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto; padding-top: 4px; }
+    .blog-tag { position: relative; z-index: 2; font-size: 12px; color: var(--muted); padding: 3px 8px; background: rgba(20,22,26,.04); transition: background .16s ease-out, color .16s ease-out; }
+    .blog-tag:hover { background: rgba(0,168,125,.12); color: var(--accent); }
+    /* accent bas au hover — barre DROITE (carte à coins nets) */
+    .blog-card-accent { position: absolute; left: 0; bottom: 0; height: 2px; width: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform .3s ease-out; z-index: 2; }
+    .blog-card:hover .blog-card-accent { transform: scaleX(1); }
+
+    /* Mode liste */
+    .blog-grid[data-view="list"] { grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--line); }
+    .blog-grid[data-view="list"] .blog-card { flex-direction: row; border: 0; border-bottom: 1px solid var(--line); background: transparent; }
+    .blog-grid[data-view="list"] .blog-card:hover { box-shadow: none; background: var(--surface); }
+    .blog-grid[data-view="list"] .blog-card-cover { flex: none; width: 220px; aspect-ratio: 16 / 10; border-bottom: 0; border-right: 1px solid var(--line-2); }
+    .blog-grid[data-view="list"] .blog-card-body { justify-content: center; }
+    .blog-grid[data-view="list"] .blog-desc { -webkit-line-clamp: 3; }
+    .blog-grid[data-view="list"] .blog-card-accent { top: 0; bottom: auto; left: 0; height: 100%; width: 2px; transform: scaleY(0); transform-origin: top; }
+    .blog-grid[data-view="list"] .blog-card:hover .blog-card-accent { transform: scaleY(1); }
+
+    .blog-noresult { margin-top: 24px; }
+
+    /* Pagination */
+    .blog-pagination { display: flex; align-items: center; gap: 6px; margin-top: 36px; justify-content: center; }
+    .blog-page {
+      display: inline-flex; align-items: center; justify-content: center; min-width: 38px; height: 38px;
+      padding: 0 10px; font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer;
+      background: var(--surface); border: 1px solid var(--line-2); color: var(--ink);
+      transition: all .16s ease-out;
+    }
+    .blog-page:hover:not(:disabled):not(.is-active) { border-color: var(--ink); }
+    .blog-page.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+    .blog-page:disabled { opacity: .4; cursor: not-allowed; }
+    .blog-page--nav { font-size: 18px; }
+    .blog-page-gap { color: var(--muted); padding: 0 4px; }
+
+    /* Sous-sections composants */
+    .blog-sub { margin-top: 40px; }
+    .blog-sub > .co-eyebrow { display: block; margin-bottom: 14px; }
+
+    /* Reading progress */
+    .blog-progress { height: 4px; background: rgba(20,22,26,.08); overflow: hidden; }
+    .blog-progress-fill { display: block; height: 100%; background: var(--accent); }
+
+    /* Video embed façade */
+    .blog-video {
+      position: relative; aspect-ratio: 16 / 9; max-width: 640px;
+      border: 1px solid var(--line-2); display: flex; align-items: center; justify-content: center;
+    }
+    .blog-video-play {
+      width: 62px; height: 62px; border-radius: 999px; border: 1px solid var(--line-2);
+      background: var(--surface); color: var(--accent); font-size: 28px; cursor: pointer;
+      display: inline-flex; align-items: center; justify-content: center;
+      transition: transform .18s ease-out, background .18s ease-out;
+    }
+    .blog-video-play:hover { transform: scale(1.06); background: #fff; }
+
+    /* Corps d'article — liens inline SOULIGNÉS (ré-autorisé ici) */
+    .blog-prose { max-width: 68ch; }
+    .blog-prose h2 { font-size: 1.5rem; margin: 26px 0 10px; }
+    .blog-prose h3 { font-size: 1.2rem; margin: 22px 0 8px; }
+    .blog-prose p { line-height: 1.7; margin-bottom: 14px; }
+    .blog-prose a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; }
+    .blog-prose a:hover { text-decoration-thickness: 2px; }
+    .blog-prose blockquote { margin: 18px 0; padding: 4px 0 4px 18px; border-left: 2px solid var(--accent); font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: 1.25rem; color: var(--ink); }
+    .blog-prose ul { margin: 8px 0 16px; padding-left: 4px; display: flex; flex-direction: column; gap: 8px; }
+    .blog-prose li { position: relative; padding-left: 22px; line-height: 1.6; }
+    .blog-prose li::before { content: ""; position: absolute; left: 4px; top: 10px; width: 6px; height: 6px; background: var(--accent); }
+
+    /* Author bio */
+    .blog-author { display: flex; gap: 18px; align-items: flex-start; padding: 24px; border: 1px solid var(--line-2); background: var(--surface); max-width: 620px; }
+    .blog-author-avatar { flex: none; width: 56px; height: 56px; border-radius: 999px; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 20px; letter-spacing: -0.02em; }
+    .blog-author-body { display: flex; flex-direction: column; gap: 3px; }
+    .blog-author-body strong { font-size: 17px; }
+    .blog-author-bio { font-size: 14px; line-height: 1.55; margin-top: 8px; max-width: 46ch; }
+    .blog-author-socials { display: flex; gap: 12px; margin-top: 12px; font-size: 21px; }
+    .blog-author-socials a { color: var(--muted); transition: color .16s ease-out; }
+    .blog-author-socials a:hover { color: var(--accent); }
+
+    /* Related */
+    .blog-related { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+    .blog-related-card { display: flex; flex-direction: column; gap: 8px; align-items: flex-start; padding: 18px; border: 1px solid var(--line-2); background: var(--surface); transition: box-shadow .18s ease-out; }
+    .blog-related-card:hover { box-shadow: 0 6px 22px rgba(20,22,26,.07); }
+    .blog-related-card strong { font-size: 15px; line-height: 1.25; }
+
+    /* Responsive */
+    @media (max-width: 980px) {
+      .blog-grid, .blog-related { grid-template-columns: repeat(2, 1fr); }
+      .blog-feature { grid-template-columns: 1fr; }
+      .blog-feature-cover { border-right: 0; border-bottom: 1px solid var(--line-2); min-height: 220px; }
+    }
+    @media (max-width: 720px) {
+      .blog-grid, .blog-related { grid-template-columns: 1fr; }
+      .blog-grid[data-view="list"] .blog-card { flex-direction: column; }
+      .blog-grid[data-view="list"] .blog-card-cover { width: 100%; border-right: 0; border-bottom: 1px solid var(--line-2); }
+      .blog-author { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .blog-card, .blog-card-cover img, .blog-card-accent, .blog-feature-cover img,
+      .blog-feature-cta i, .blog-video-play { transition: none; }
+    }
+  </style>
+
+  <script>
+    // ══ Filtres catégorie + recherche + toggle vue ══
+    const grid = document.getElementById("blog-grid");
+    const cards = Array.from(document.querySelectorAll<HTMLElement>(".blog-card"));
+    const chips = Array.from(document.querySelectorAll<HTMLElement>("[data-cat]"));
+    const search = document.getElementById("blog-search") as HTMLInputElement | null;
+    const noResult = document.getElementById("blog-noresult");
+    let activeCat = "all";
+
+    function applyFilters() {
+      const q = (search?.value ?? "").trim().toLowerCase();
+      let visible = 0;
+      cards.forEach((card) => {
+        const matchCat = activeCat === "all" || card.dataset.category === activeCat;
+        const hay = `${card.dataset.title ?? ""} ${card.dataset.tags ?? ""}`;
+        const matchSearch = !q || hay.includes(q);
+        const show = matchCat && matchSearch;
+        card.style.display = show ? "" : "none";
+        if (show) visible++;
+      });
+      if (noResult) noResult.hidden = visible !== 0;
+    }
+
+    chips.forEach((chip) => {
+      chip.addEventListener("click", () => {
+        chips.forEach((c) => { c.classList.remove("is-active"); c.setAttribute("aria-pressed", "false"); });
+        chip.classList.add("is-active");
+        chip.setAttribute("aria-pressed", "true");
+        activeCat = chip.dataset.cat ?? "all";
+        applyFilters();
+      });
+    });
+    search?.addEventListener("input", applyFilters);
+
+    // Toggle grille / liste
+    document.querySelectorAll<HTMLElement>("[data-view-btn]").forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const mode = btn.dataset.viewBtn!;
+        grid?.setAttribute("data-view", mode);
+        document.querySelectorAll<HTMLElement>("[data-view-btn]").forEach((b) => {
+          const on = b === btn;
+          b.classList.toggle("is-active", on);
+          b.setAttribute("aria-pressed", String(on));
+        });
+      });
+    });
+  </script>
+</Layout>
