@@ -1,8 +1,11 @@
 ---
-import logo from '../assets/logo.svg'
-import svgPinkStar from '../assets/pink-star.svg'
+// Footer blueprint (design system .co-chrome) — fat footer crawlable.
+// Design porté du Lot 1 (styleguide-nav) FUSIONNÉ avec tout le contenu SEO du
+// footer historique : CTA, coordonnées réelles, 5 colonnes de liens profonds,
+// socials, mentions. Self-scopé `.co-chrome` → rendu blueprint sur toutes les pages.
 import { author } from '../sample'
 import { mainNav, ctaContact, footerZonesWeb, footerRegionsIA } from '../data/navigation'
+import type { NavSection } from '../data/navigation'
 
 const socials = [
     { icon: 'ri-linkedin-fill', link: author.linkedin, label: 'LinkedIn' },
@@ -11,21 +14,19 @@ const socials = [
     { icon: 'ri-mail-fill', link: author.email, label: 'Email' },
 ]
 
-// Source de vérité unique : mainNav (data/navigation.ts)
-// Fat footer : on expose les liens profonds (services, IA, zones géo, piliers) en plain
-// HTML, crawlables sitewide — vs le méga-menu JS sous-pondéré au crawl.
+// Source de vérité unique : mainNav (data/navigation.ts). Liens profonds exposés
+// en plain HTML, crawlables sitewide (vs méga-menu JS sous-pondéré au crawl).
 const creationWeb = mainNav.find((s) => s.label === 'Création Web')
 const iaAuto = mainNav.find((s) => s.label === 'IA & Automatisation')
 const ressources = mainNav.find((s) => s.label === 'Ressources')
-const col = (section, title) => section?.columns?.find((c) => c.title === title)?.items ?? []
+const col = (section: NavSection | undefined, title: string) =>
+    section?.columns?.find((c) => c.title === title)?.items ?? []
 
-// Pôle Création Web : sites + apps + SEO local (les 13 services web)
 const servicesLinks = [
     ...col(creationWeb, 'Sites web'),
     ...col(creationWeb, 'Apps & sur-mesure'),
     ...col(creationWeb, 'SEO local'),
 ]
-// Pôle IA & Automatisation : conseil + automatisation + métiers + hub guides
 const iaLinks = [
     ...col(iaAuto, 'Conseil & agents'),
     ...col(iaAuto, 'Automatiser'),
@@ -37,6 +38,7 @@ const ressourcesLinks = [
     ...col(ressources, 'À la une'),
     { label: 'Tous les articles', href: '/blog' },
 ]
+const zonesLinks = [...footerZonesWeb, ...footerRegionsIA]
 const secondaryLinks = [
     { label: 'Tarifs', href: '/tarifs' },
     { label: 'Réalisations', href: '/portfolio' },
@@ -44,206 +46,188 @@ const secondaryLinks = [
     { label: ctaContact.label, href: ctaContact.href },
     { label: 'CV', href: '/cv' },
 ]
+const year = new Date().getFullYear()
 ---
 
-<footer class="border-t-3 border-black bg-white relative overflow-hidden">
-    <!-- Decorative elements -->
-    <img src={svgPinkStar.src} alt="" width="60" class="absolute top-8 right-8 opacity-40" aria-hidden="true" />
+<footer class="co-chrome co-foot">
+    <!-- ══ CTA ══ -->
+    <div class="co-foot-cta co-pad">
+        <p class="co-eyebrow">Disponible pour de nouveaux projets</p>
+        <h2 class="co-foot-cta-title">
+            Travaillons <span class="co-ser">ensemble ?</span>
+        </h2>
+        <p class="co-mut co-foot-cta-lead">
+            À <strong>Genève</strong> et en télétravail. Un échange de 20 minutes suffit pour savoir
+            si on peut avancer ensemble.
+        </p>
+        <a href={ctaContact.href} class="co-btn co-foot-cta-btn">
+            Discuter de mon projet <i class="ri-arrow-right-line"></i>
+        </a>
+    </div>
 
-    <div class="max-w-6xl mx-auto px-4 py-12 md:py-16">
-        <!-- CTA Section -->
-        <div class="text-center mb-12 pb-12 border-b-2 border-dashed border-black">
-            <h3 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                Travaillons ensemble ?
-            </h3>
-            <p class="text-gray-600 mb-6">
-                Disponible pour de nouveaux projets à <strong>Genève</strong> et en télétravail.
+    <!-- ══ COLONNES ══ -->
+    <div class="co-foot-grid co-pad">
+        <!-- Marque -->
+        <div class="co-foot-brand">
+            <a href="/" class="nav-logo" aria-label="Accueil Jon Labs">jonlabs<span style="color:var(--accent);">.</span></a>
+            <p class="co-mut co-foot-baseline">
+                Développement web, automatisation, applications sur-mesure. J'accompagne
+                entrepreneurs et petites équipes à Genève et en Suisse romande.
             </p>
-            <a
-                href="/contact"
-                class="
-                    inline-flex items-center gap-2
-                    bg-[var(--blue)] border-2 border-black
-                    px-6 py-3
-                    font-bold
-                    shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                    transition-all duration-200
-                    hover:bg-[var(--yellow)]
-                    hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                    hover:translate-x-[2px] hover:translate-y-[2px]
-                "
-            >
-                Discuter de mon projet
-                <i class="ri-arrow-right-line"></i>
-            </a>
-        </div>
-
-        <!-- Main footer content -->
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-7 gap-8 md:gap-10 mb-12">
-
-            <!-- Brand column -->
-            <div class="col-span-2">
-                <a href="/" class="inline-flex items-center mb-4 group">
-                    <img
-                        src={logo.src}
-                        alt="Jon Labs"
-                        class="h-8 w-auto transition-transform duration-300"
-                    />
-                </a>
-                <p class="text-gray-600 leading-relaxed max-w-sm mb-6">
-                    Développement web, automatisation, applications sur-mesure.
-                    J'accompagne entrepreneurs et petites équipes dans leurs projets digitaux.
-                </p>
-
-                <!-- Social links -->
-                <div class="flex gap-3">
-                    {socials.map(item => (
-                        <a
-                            href={item.link}
-                            target={item.link.startsWith('mailto') ? '_self' : '_blank'}
-                            rel="noopener noreferrer"
-                            aria-label={item.label}
-                            class="
-                                w-10 h-10
-                                flex items-center justify-center
-                                bg-white border-2 border-black
-                                shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                                transition-all duration-200
-                                hover:bg-[var(--blue)]
-                                hover:shadow-[1px_1px_0px_rgba(0,0,0,1)]
-                                hover:translate-x-[1px] hover:translate-y-[1px]
-                            "
-                        >
-                            <i class={`${item.icon} text-lg`}></i>
-                        </a>
-                    ))}
-                </div>
-            </div>
-
-            <!-- Coordonnées -->
-            <div>
-                <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-gray-500">Coordonnées</h3>
-                <ul class="space-y-3 text-sm text-gray-700">
-                    <li class="font-medium">Jonathan Vouilloz</li>
-                    <li class="flex items-start gap-2">
-                        <i class="ri-map-pin-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
-                        <span>120 chemin de la montagne,<br/>1224 Chêne-Bougeries</span>
-                    </li>
-                    <li>
-                        <a href="tel:+41789447707" class="flex items-center gap-2 hover:text-[var(--blue)] transition-colors duration-200">
-                            <i class="ri-phone-line text-[var(--blue)]"></i>
-                            078 944 77 07
-                        </a>
-                    </li>
-                    <li>
-                        <a href="mailto:contact@jonlabs.ch" class="flex items-center gap-2 hover:text-[var(--blue)] transition-colors duration-200">
-                            <i class="ri-mail-line text-[var(--blue)]"></i>
-                            contact@jonlabs.ch
-                        </a>
-                    </li>
-                </ul>
-            </div>
-
-            <!-- Création Web -->
-            <div>
-                <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-gray-500">
-                    <a href="/services" class="hover:text-[var(--blue)] transition-colors">Création Web</a>
-                </h3>
-                <ul class="space-y-2">
-                    {servicesLinks.map(link => (
-                        <li>
-                            <a
-                                href={link.href}
-                                class="text-gray-700 text-sm font-medium transition-colors duration-200 hover:text-[var(--blue)]"
-                            >
-                                {link.label}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-
-            <!-- IA & Automatisation -->
-            <div>
-                <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-gray-500">
-                    <a href="/consultant-ia" class="hover:text-[var(--blue)] transition-colors">IA &amp; Automatisation</a>
-                </h3>
-                <ul class="space-y-2">
-                    {iaLinks.map(link => (
-                        <li>
-                            <a
-                                href={link.href}
-                                class="text-gray-700 text-sm font-medium transition-colors duration-200 hover:text-[var(--blue)]"
-                            >
-                                {link.label}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-
-            <!-- Zones & régions -->
-            <div>
-                <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-gray-500">Zones &amp; régions</h3>
-                <ul class="space-y-2">
-                    {footerZonesWeb.map(link => (
-                        <li>
-                            <a
-                                href={link.href}
-                                class="text-gray-700 text-sm font-medium transition-colors duration-200 hover:text-[var(--blue)]"
-                            >
-                                {link.label}
-                            </a>
-                        </li>
-                    ))}
-                    {footerRegionsIA.map(link => (
-                        <li>
-                            <a
-                                href={link.href}
-                                class="text-gray-700 text-sm font-medium transition-colors duration-200 hover:text-[var(--blue)]"
-                            >
-                                {link.label}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-
-            <!-- Ressources -->
-            <div>
-                <h3 class="font-bold text-sm uppercase tracking-wider mb-4 text-gray-500">Ressources</h3>
-                <ul class="space-y-2">
-                    {ressourcesLinks.map(link => (
-                        <li>
-                            <a
-                                href={link.href}
-                                class="text-gray-700 text-sm font-medium transition-colors duration-200 hover:text-[var(--blue)]"
-                            >
-                                {link.label}
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-
-        </div>
-
-        <!-- Bottom bar -->
-        <div class="pt-8 border-t-2 border-dashed border-black">
-            <nav class="flex flex-wrap gap-x-6 gap-y-2 mb-6 text-sm" aria-label="Navigation secondaire">
-                {secondaryLinks.map(link => (
-                    <a href={link.href} class="text-gray-700 font-medium hover:text-[var(--blue)] transition-colors duration-200">{link.label}</a>
+            <div class="co-foot-socials">
+                {socials.map((item) => (
+                    <a
+                        href={item.link}
+                        target={item.link.startsWith('mailto') ? '_self' : '_blank'}
+                        rel="noopener noreferrer"
+                        aria-label={item.label}
+                        class="co-foot-social"
+                    >
+                        <i class={item.icon} aria-hidden="true"></i>
+                    </a>
                 ))}
-            </nav>
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-sm text-gray-500">
-                    © {new Date().getFullYear()} {author.nickname} - <strong>Développement Web Genève</strong>
-                </p>
-                <div class="flex gap-6 text-sm">
-                    <a href="/mentions-legales" class="text-gray-500 hover:text-[var(--blue)] transition-colors">Mentions légales</a>
-                    <a href="/mentions-legales#confidentialite" class="text-gray-500 hover:text-[var(--blue)] transition-colors">Confidentialité</a>
-                </div>
+            </div>
+        </div>
+
+        <!-- Coordonnées -->
+        <div class="co-foot-col">
+            <h3 class="co-eyebrow">Coordonnées</h3>
+            <ul class="co-foot-coord">
+                <li class="co-foot-coord-name">Jonathan Vouilloz</li>
+                <li>
+                    <i class="ri-map-pin-line" aria-hidden="true"></i>
+                    <span>120 chemin de la montagne,<br/>1224 Chêne-Bougeries</span>
+                </li>
+                <li>
+                    <a href="tel:+41789447707" class="co-foot-link">
+                        <i class="ri-phone-line" aria-hidden="true"></i> 078 944 77 07
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:contact@jonlabs.ch" class="co-foot-link">
+                        <i class="ri-mail-line" aria-hidden="true"></i> contact@jonlabs.ch
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Création Web -->
+        <div class="co-foot-col">
+            <h3 class="co-eyebrow"><a href="/services" class="co-foot-link">Création Web</a></h3>
+            <ul>
+                {servicesLinks.map((link) => (
+                    <li><a href={link.href} class="co-foot-link">{link.label}</a></li>
+                ))}
+            </ul>
+        </div>
+
+        <!-- IA & Automatisation -->
+        <div class="co-foot-col">
+            <h3 class="co-eyebrow"><a href="/consultant-ia" class="co-foot-link">IA &amp; Automatisation</a></h3>
+            <ul>
+                {iaLinks.map((link) => (
+                    <li><a href={link.href} class="co-foot-link">{link.label}</a></li>
+                ))}
+            </ul>
+        </div>
+
+        <!-- Zones & régions -->
+        <div class="co-foot-col">
+            <h3 class="co-eyebrow">Zones &amp; régions</h3>
+            <ul>
+                {zonesLinks.map((link) => (
+                    <li><a href={link.href} class="co-foot-link">{link.label}</a></li>
+                ))}
+            </ul>
+        </div>
+
+        <!-- Ressources -->
+        <div class="co-foot-col">
+            <h3 class="co-eyebrow">Ressources</h3>
+            <ul>
+                {ressourcesLinks.map((link) => (
+                    <li><a href={link.href} class="co-foot-link">{link.label}</a></li>
+                ))}
+            </ul>
+        </div>
+    </div>
+
+    <!-- ══ BAS DE PAGE ══ -->
+    <div class="co-foot-legal co-pad">
+        <nav class="co-foot-secondary" aria-label="Navigation secondaire">
+            {secondaryLinks.map((link) => (
+                <a href={link.href} class="co-foot-link">{link.label}</a>
+            ))}
+        </nav>
+        <div class="co-foot-copy">
+            <p class="co-mut">© {year} {author.nickname} · <strong>Développement Web Genève</strong></p>
+            <div class="co-foot-legal-links">
+                <a href="/mentions-legales" class="co-foot-link">Mentions légales</a>
+                <a href="/mentions-legales#confidentialite" class="co-foot-link">Confidentialité</a>
             </div>
         </div>
     </div>
 </footer>
+
+<style>
+    .co-foot {
+        max-width: 1180px; margin: 0 auto; background: var(--bg);
+        border-left: 1px solid var(--line); border-right: 1px solid var(--line);
+        border-top: 1px solid var(--line);
+    }
+    .nav-logo { font-size: 24px; font-weight: 700; letter-spacing: -0.03em; color: var(--ink); }
+
+    /* CTA */
+    .co-foot-cta {
+        display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px;
+        padding: 64px 40px; border-bottom: 1px solid var(--line);
+    }
+    .co-foot-cta-title { font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.08; }
+    .co-foot-cta-title .co-ser { color: var(--accent); }
+    .co-foot-cta-lead { max-width: 44ch; line-height: 1.6; }
+    .co-foot-cta-btn { margin-top: 8px; }
+    .co-foot-cta-btn i { transition: transform .18s ease-out; }
+    .co-foot-cta-btn:hover i { transform: translateX(3px); }
+
+    /* Colonnes */
+    .co-foot-grid {
+        display: grid; grid-template-columns: 1.7fr 1.1fr 1fr 1fr 1fr 1fr; gap: 40px;
+        padding: 56px 40px; border-bottom: 1px solid var(--line);
+    }
+    .co-foot-brand .co-foot-baseline { margin-top: 14px; max-width: 34ch; line-height: 1.55; font-size: 14px; }
+    .co-foot-socials { display: flex; gap: 10px; margin-top: 18px; }
+    .co-foot-social {
+        width: 38px; height: 38px; display: inline-flex; align-items: center; justify-content: center;
+        border: 1px solid var(--line-2); border-radius: 10px; color: var(--muted); font-size: 17px;
+        transition: color .16s ease-out, border-color .16s ease-out;
+    }
+    .co-foot-social:hover { color: var(--accent); border-color: var(--accent); }
+
+    .co-foot-col h3 { margin-bottom: 14px; }
+    .co-foot-col ul { display: flex; flex-direction: column; gap: 9px; }
+    .co-foot-link { font-size: 14px; color: var(--muted); transition: color .16s ease-out; }
+    .co-foot-link:hover { color: var(--accent); }
+
+    .co-foot-coord { display: flex; flex-direction: column; gap: 10px; font-size: 14px; color: var(--muted); }
+    .co-foot-coord li { display: flex; align-items: flex-start; gap: 8px; line-height: 1.5; }
+    .co-foot-coord-name { font-weight: 600; color: var(--ink); }
+    .co-foot-coord i { color: var(--accent); margin-top: 2px; flex: none; }
+    .co-foot-coord .co-foot-link { display: inline-flex; align-items: center; gap: 8px; }
+
+    /* Bas de page */
+    .co-foot-legal { padding: 22px 40px; display: flex; flex-direction: column; gap: 16px; }
+    .co-foot-secondary { display: flex; flex-wrap: wrap; gap: 8px 22px; }
+    .co-foot-copy { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; font-size: 13px; }
+    .co-foot-legal-links { display: flex; gap: 20px; }
+
+    @media (max-width: 900px) {
+        .co-foot-grid { grid-template-columns: 1fr 1fr 1fr; gap: 32px 24px; }
+        .co-foot-brand { grid-column: 1 / -1; }
+    }
+    @media (max-width: 720px) {
+        .co-foot-cta { padding: 48px 20px; }
+        .co-foot-grid { grid-template-columns: 1fr 1fr; gap: 28px 20px; padding: 44px 20px; }
+        .co-foot-legal { padding: 22px 20px; }
+        .co-foot-copy { flex-direction: column; align-items: flex-start; gap: 8px; }
+    }
+</style>
