@@ -11,13 +11,10 @@
 // la formulation « #1 sur sa niche ». Ne PAS écrire « Top 1 Google » (pos. moy. réelle 15,3).
 // All-time (16 mois) si besoin : 829 clics · 52 923 impressions.
 
-export interface ProofStat {
-  value: string;
-  label: string;
-  icon: string;
-}
+import type { ClientProof } from "./proof.types";
+export type { ProofStat } from "./proof.types"; // ré-export : compat des imports existants
 
-export const proofLecureux = {
+export const proofLecureux: ClientProof = {
   name: "Léo Lécureux",
   company: "Lécureux Conseil",
   metier: "juriste spécialisé en droit de la restauration à Genève",
@@ -41,5 +38,15 @@ export const proofLecureux = {
     { value: "1.9%", label: "CTR moyen", icon: "ri-percent-line" },
     { value: "10+", label: "Leads qualifiés", icon: "ri-user-add-line" },
     { value: "100/100", label: "Score SEO", icon: "ri-speed-line" },
-  ] as ProofStat[],
-} as const;
+  ],
+  // Témoignage réel (fourni par le client 2026-07-05) — intégré tel quel, jamais reformulé.
+  testimonial: {
+    quote: `J'ai fait appel à Jonathan pour améliorer la visibilité de mon site en tant que juriste. J'ai particulièrement apprécié sa flexibilité, sa réactivité et sa capacité à prendre des initiatives concrètes dès le départ.
+
+Très rapidement après la mise en place des optimisations, j'ai reçu un premier contact qualifié via une page travaillée autour de ma spécialité : le droit de la restauration à Genève. Depuis, le positionnement continue de progresser sur cette niche spécifique.
+
+Jonathan apporte des conseils pertinents, une vraie maîtrise du SEO et une exécution rapide. Je recommande vivement son accompagnement.`,
+    author: "Léo Lécureux",
+    role: "Lécureux Conseil · juriste restauration Genève",
+  },
+};

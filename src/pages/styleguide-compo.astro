@@ -1,9 +1,16 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import BlueprintKit from "../components/lab/BlueprintKit.astro";
+import { proofLecureux } from "../data/proof-lecureux";
 
 const pageTitle = "Compo Lab — Pairing 04 | Jon Labs";
 const pageDescription = "Composition réaliste blueprint · Inter Tight × Instrument Serif. Page interne de tests.";
+
+// Preuve : témoignage réel + 3 tuiles GSC (source unique proof-lecureux.ts)
+// `testimonial` peut être null (client sans témoignage) → le bloc se masque.
+const testimonial = proofLecureux.testimonial;
+const proofQuote = testimonial ? testimonial.quote.split("\n\n") : [];
+const proofTiles = proofLecureux.stats.slice(0, 3); // #1 · 19k · 367
 
 const services = [
   {
@@ -74,15 +81,15 @@ const services = [
     <section class="co-sec" style="position:relative;overflow:hidden;">
       <div class="co-guides"></div>
       <div class="co-hero co-pad" style="position:relative;padding:88px 24px;text-align:center;">
-        <p class="co-eyebrow">Développeur web &amp; automatisation · Genève</p>
-        <h1 style="font-size:clamp(2.5rem,7vw,4.8rem);margin-top:22px;">
+        <p class="co-eyebrow" data-animate>Développeur web &amp; automatisation · Genève</p>
+        <h1 style="font-size:clamp(2.5rem,7vw,4.8rem);margin-top:22px;" data-animate data-delay="0.1">
           Votre idée mérite mieux<br />qu'un <span class="co-ser">devis à rallonge.</span>
         </h1>
-        <p class="co-mut" style="font-size:1.2rem;line-height:1.6;max-width:38ch;margin:26px auto 0;">
+        <p class="co-mut" style="font-size:1.2rem;line-height:1.6;max-width:38ch;margin:26px auto 0;" data-animate data-delay="0.2">
           De l'idée au produit fini, sans jargon ni surprise. Sites qui convertissent,
           outils sur-mesure, automatisation et IA mise en place proprement.
         </p>
-        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:36px;">
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:36px;" data-animate data-delay="0.3">
           <a href="#" class="co-btn">Parlons de votre projet →</a>
           <a href="#" class="co-btn co-btn--ghost">Voir le portfolio</a>
         </div>
@@ -90,7 +97,7 @@ const services = [
     </section>
 
     <!-- ══ TRUST STRIP (marquee) ══ -->
-    <section class="co-sec co-pad co-trust" style="padding:24px 40px;">
+    <section class="co-sec co-pad co-trust" style="padding:24px 40px;" data-animate>
       <p class="co-eyebrow">Ils me font confiance</p>
       <div class="co-marquee">
         <div class="co-marquee-track">
@@ -106,7 +113,7 @@ const services = [
 
     <!-- ══ SERVICES ══ -->
     <section class="co-sec co-pad" style="padding:72px 40px;">
-      <div style="max-width:640px;">
+      <div style="max-width:640px;" data-animate>
         <p class="co-eyebrow">Ce que je fais</p>
         <h2 style="font-size:clamp(1.8rem,4vw,2.6rem);margin-top:14px;">
           Trois façons de <span class="co-ser">passer à l'action.</span>
@@ -116,9 +123,9 @@ const services = [
         </p>
       </div>
 
-      <div class="co-grid-cells" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:44px;">
+      <div class="co-grid-cells" style="grid-template-columns:repeat(auto-fit,minmax(240px,1fr));margin-top:44px;" data-animate-stagger>
         {services.map((s) => (
-          <div style="padding:32px;">
+          <div style="padding:32px;" data-animate-item>
             <div style="width:44px;height:44px;border:1px solid var(--line-2);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--accent);">
               <i class={s.icon}></i>
             </div>
@@ -135,38 +142,47 @@ const services = [
     </section>
 
     <!-- ══ PREUVE ══ -->
+    {testimonial && (
     <section class="co-sec co-pad" style="padding:72px 40px;">
       <div class="co-proof-grid">
-        <div>
+        <div data-animate>
           <p class="co-eyebrow">Cas client · SEO</p>
-          <p style="font-size:clamp(1.5rem,3.2vw,2.1rem);line-height:1.35;margin-top:18px;font-weight:400;">
-            « Jonathan a repensé notre présence en ligne de A à Z. On est passé
-            de <span style="color:var(--accent);">invisibles</span> à
-            <span style="color:var(--accent);">premiers de notre niche.</span> »
+          <blockquote style="margin-top:18px;display:flex;flex-direction:column;gap:16px;">
+            {proofQuote.map((para) => (
+              <p style="font-size:clamp(1.15rem,2.2vw,1.4rem);line-height:1.55;font-weight:400;">{para}</p>
+            ))}
+          </blockquote>
+          <p class="co-mut" style="margin-top:20px;font-size:15px;">
+            — {testimonial.author} · {testimonial.role}
           </p>
-          <p class="co-mut" style="margin-top:18px;font-size:15px;">— Léo Lécureux, juriste en restauration</p>
         </div>
-        <div class="co-dots" style="position:relative;border:1px solid var(--line);padding:32px;">
-          <span class="co-x tl"></span><span class="co-x tr"></span><span class="co-x bl"></span><span class="co-x br"></span>
-          <div style="position:relative;display:flex;flex-direction:column;gap:24px;">
-            <div>
-              <p style="font-size:2.6rem;font-weight:700;letter-spacing:-0.03em;">#1</p>
-              <p class="co-eyebrow" style="margin-top:4px;">sur sa niche</p>
-            </div>
-            <div style="height:1px;background:var(--line);"></div>
-            <div>
-              <p style="font-size:2.6rem;font-weight:700;letter-spacing:-0.03em;">+40h</p>
-              <p class="co-eyebrow" style="margin-top:4px;">économisées / mois</p>
+        <div data-animate="fade-left" data-delay="0.1">
+          <div class="co-dots" style="position:relative;border:1px solid var(--line);padding:32px;">
+            <span class="co-x tl"></span><span class="co-x tr"></span><span class="co-x bl"></span><span class="co-x br"></span>
+            <div style="position:relative;display:flex;flex-direction:column;gap:24px;">
+              {proofTiles.map((s, i) => (
+                <>
+                  {i > 0 && <div style="height:1px;background:var(--line);"></div>}
+                  <div>
+                    <p style="font-size:2.6rem;font-weight:700;letter-spacing:-0.03em;">{s.value}</p>
+                    <p class="co-eyebrow" style="margin-top:4px;">{s.label}</p>
+                  </div>
+                </>
+              ))}
             </div>
           </div>
+          <p class="co-mut" style="margin-top:12px;font-size:13px;">
+            Data Google Search Console · fenêtre {proofLecureux.duration} (sept.&nbsp;2025 → janv.&nbsp;2026).
+          </p>
         </div>
       </div>
     </section>
+    )}
 
     <!-- ══ CTA FINAL ══ -->
     <section class="co-cta">
       <span class="co-x tl"></span><span class="co-x tr"></span>
-      <div class="co-cta-inner co-pad">
+      <div class="co-cta-inner co-pad" data-animate="scale">
         <p class="co-cta-eyebrow">Un projet en tête ?</p>
         <h2 class="co-cta-title">
           Un projet <span class="co-ser">en tête ?</span>
@@ -182,7 +198,7 @@ const services = [
 
     <!-- ══ FOOTER ══ -->
     <footer class="co-sec co-pad" style="padding:56px 40px;">
-      <div class="co-footer-grid">
+      <div class="co-footer-grid" data-animate>
         <div>
           <p style="font-size:22px;font-weight:700;letter-spacing:-0.03em;">jonlabs<span style="color:var(--accent);">.</span></p>
           <p class="co-mut" style="margin-top:12px;max-width:32ch;line-height:1.6;">
