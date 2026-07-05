@@ -3,6 +3,24 @@
 > Sortir du look brutaliste (bordures noires 2px + ombres offset, Plus Jakarta Sans) jugé « banal » vers un style **blueprint** : filets très fins qui cadrent les sections, aération, nouveau font pairing éditorial. Exploration en pages lab AVANT toute migration du vrai site.
 > **Réfs visuelles** : pengon.dev, sakib.design. **Statut** : 🔄 EN COURS — exploration lab validée, migration à cadrer.
 
+## Etat session 2026-07-05 — Fix pièges margin + Lot 5 décoratifs ✅ + règle motion ease-out
+
+**Fait :**
+- **Fix des 5 vrais bugs du piège margin** (`fdcc4de`) : reset `.co-root h/p{margin:0}` (0,1,1) écrasait 5 règles 1-classe → sélecteurs repréfixés `.co-root` (0,2,0). Rétablit notamment `.po-card-result{margin-top:auto}` (push-to-bottom carte portfolio). Audit : les 4 autres règles gravées (emoji, couleur/catégorie, bordure partielle arrondi, ink-sur-ink) déjà propres.
+- **Lot 5 décoratifs complet** (`694dbfa`) : **13 primitives** ajoutées/consolidées dans `BlueprintKit` — `.co-badge`(+`--solid`), `.co-frame`(+`--reveal`, 4 crosshairs **sans markup** via 2 pseudos × 4 backgrounds), `.co-grid-cells`, `.co-spec`, `.co-list`(+`--check`), extraction `.co-glow`/`.co-grain` (rendu `.co-cta` inchangé), `.co-crop` (repères L), `.co-dim` (cotes), `.co-anno`, `.co-index`, `.co-hatch`, `.co-guide-dashed`+token `--dash`, `.co-sec--boxed`.
+- **6 pages refactorées** : badge dot-pill **4× → 1** `.co-badge` (dérive `--accent-bright`→`--accent` corrigée) · puces 4 styles → `.co-list` · specs → `.co-spec` · grille millimétrée → `.co-grid-cells` · ~30 `<span co-x>` → `.co-frame` · CTA sombre compo hand-rolled → `.co-cta` (bug **ink-sur-ink** supprimé). **Vitrine `06 · Décoratifs`** ajoutée à `/styleguide-components` (catalogue vivant).
+- **FAQ smooth** : animation native `::details-content` (ease-out, zéro-JS, `interpolate-size:allow-keywords` sur `.co-root`), dégrade en instantané si non supporté.
+- **Règle motion gravée** : toute transition/anim en **ease-out**, jamais ease-in/ease-in-out (kit + Décisions clés + mémoire `feedback_animations_ease_out`). Les 7 `ease-in-out` du repo sont tous des boucles ambiantes du vrai site — laissés OK.
+- Vérifié en dev à chaque étape (9 builds verts), **218 pages**, warning `bg-[var(--yellow/violet)]` pré-existant inchangé.
+
+**Prochain :** **Lot motion + réconciliation mocks + hub** — animer la scénographie des pages lab (système `data-animate`) **et** remplacer le bloc preuve mock de `styleguide-compo` (fausse citation Lécureux + `+40h`, l.140-167) par la vraie data / une décision de voix. Puis **cadrer la migration** vers le vrai site (homepage d'abord).
+
+**Pièges :** bloc preuve mock compo **délibérément laissé** (hors scope Lot 5) ; `.co-frame` hérite `--line-2` → **jamais sur fond ink** (les CTA sombres gardent leurs `<span class="co-x">` blancs) ; `.po-stats` laissé en page-specific (risque de double bordure avec `.co-grid-cells`). Pièges antérieurs inchangés (voir blocs ci-dessous).
+
+**Commit :** [694dbfa] feat(design): Lot 5 décoratifs — 13 primitives blueprint + vitrine, FAQ smooth, règle motion ease-out
+
+---
+
 ## Etat session 2026-07-04 (nuit) — Primitive CTA `.co-cta` + fond black/teal noisy ✅
 
 **Fait :**
@@ -84,18 +102,18 @@
 **Commit :** [e92b8f2] feat(design): exploration blueprint — pairing 04, BlueprintKit partagé, pages lab (branche `design/blueprint-lab`)
 
 ## Carte du code
-> Mise à jour : 2026-07-04 (soir)
+> Mise à jour : 2026-07-05
 
 | Fichier | Rôle |
 |---------|------|
-| `src/components/lab/BlueprintKit.astro` | **Kit blueprint partagé** — `<link>` fonts + `<style is:global>` : reset scopé (dont `.co-root :where(a)` anti-underline + anti-flash `[data-animate]`), tokens `.co-root`, typo pairing 04, primitives (`.co-eyebrow/.co-x/.co-btn/.co-sec/.co-guides/.co-dots` + **`.co-cta*`** : CTA sombre glow teal + grain, flex+gap), marquee, burger/drawer, grilles + media queries. **Base du design system.** ⚠️ le reset `.co-root h/p{margin:0}` bat les règles 1-classe → espacer via flex+gap |
-| `src/pages/styleguide-nav.astro` | **[Lot 1]** Nav blueprint (noindex) — barre + méga-menu cadré filets + drawer accordéons + fat footer. Data `navigation.ts`. Styles `.nav-*`, JS méga (hover/click/Escape) + drawer |
-| `src/pages/styleguide-blog.astro` | **[Lot 2]** Blog blueprint (noindex) — article à la une, cartes (vraie data `getCollection`), filtres/recherche/toggle grille-liste, pagination, composants article (progress, vidéo, prose liens soulignés, bio, related). Badge catégorie unique harmonisé. Styles `.blog-*` |
-| `src/pages/styleguide-services.astro` | **[Lot 3]** Services blueprint (noindex) — constellation (hub + nodes + lignes SVG au load/resize) + modale chat (rejoue `scenarios.ts`), cartes services (`serviceSections`), CTA sombre. **0 emoji** (icônes Remix). Styles `.svc-*` |
-| `src/pages/styleguide-portfolio.astro` | **[Lot 4]** Portfolio blueprint (noindex) — cas vedette Lécureux (image cadrée filets + méta + **6 tuiles stats depuis `proof-lecureux.ts`**), grille filtrable (`getCollection('portfolio')`, Lécureux exclu) en cartes coins nets/crosshairs, badge catégorie unique, chips filtres, CTA sombre. Styles `.po-*` + JS filtres |
+| `src/components/lab/BlueprintKit.astro` | **Kit blueprint partagé** — `<link>` fonts + `<style is:global>` : reset scopé (`.co-root :where(a)` anti-underline + anti-flash `[data-animate]` + `interpolate-size:allow-keywords`), tokens `.co-root` (dont `--dash`), typo pairing 04, primitives de base (`.co-eyebrow/.co-x/.co-btn/.co-sec/.co-guides/.co-dots/.co-cta*`) **+ [Lot 5] 13 primitives décoratives** : `.co-badge(+--solid)`, `.co-frame(+--reveal)`, `.co-grid-cells`, `.co-spec`, `.co-list(+--check)`, `.co-glow`/`.co-grain` (extraits du CTA), `.co-crop`, `.co-dim`, `.co-anno`, `.co-index`, `.co-hatch`, `.co-guide-dashed`, `.co-sec--boxed`. Marquee, burger/drawer, grilles, media queries. **Base du design system.** ⚠️ reset `.co-root h/p{margin:0}` (0,1,1) bat les règles 1-classe → espacer via flex+gap **ou préfixe `.co-root`** · ⚠️ règle gravée : **motion en ease-out uniquement** · ⚠️ `.co-frame` hérite `--line-2` → jamais sur fond ink |
+| `src/pages/styleguide-nav.astro` | **[Lot 1]** Nav blueprint (noindex) — barre + méga-menu (`.co-frame`) + drawer accordéons (`.co-guide-dashed`) + fat footer. Badges `.co-badge(+--solid)`. Data `navigation.ts`. Styles `.nav-*`, JS méga + drawer |
+| `src/pages/styleguide-blog.astro` | **[Lot 2]** Blog blueprint (noindex) — article à la une (`.co-frame`), cartes (`getCollection`), filtres/recherche/toggle, pagination, composants article (progress, vidéo `.co-frame`, prose, bio, related). Badges `.co-badge`(+`--onimg`). Styles `.blog-*` |
+| `src/pages/styleguide-services.astro` | **[Lot 3]** Services blueprint (noindex) — constellation (hub/nodes/modale en `.co-frame`, lignes SVG au load/resize) + modale chat (`scenarios.ts`), cartes services (features `.co-list--check`), CTA sombre. **0 emoji**. Styles `.svc-*` |
+| `src/pages/styleguide-portfolio.astro` | **[Lot 4]** Portfolio blueprint (noindex) — cas vedette Lécureux (`.co-frame` + fiche `.co-spec` + **6 tuiles depuis `proof-lecureux.ts`**), grille filtrable (`.co-frame--reveal`, badge `.co-badge`, placeholder `.co-hatch`). `.po-stats` gardé page-specific. Styles `.po-*` + JS filtres |
 | `src/data/proof-lecureux.ts` | Source unique preuve GSC Lécureux (accroche canonique + 6 stats). Consommé par le cas vedette portfolio — ne jamais réécrire les chiffres en dur |
-| `src/pages/styleguide-compo.astro` | Maquette homepage blueprint (référence) — nav, hero, trust marquee, services, cas client, CTA sombre, footer. ⚠️ contient encore le **mock preuve** « invisibles → #1 »/« +40h » à remplacer |
-| `src/pages/styleguide-components.astro` | Bibliothèque atomes/primitives (noindex) — cartes, tarifs, FAQ, formulaire, atomes. Styles `.cc-*` |
+| `src/pages/styleguide-compo.astro` | Maquette homepage blueprint (référence) — nav, hero, trust marquee, services (`.co-grid-cells`, `.co-list`), cas client, CTA sombre (`.co-cta`), footer. ⚠️ contient encore le **mock preuve** « invisibles → #1 »/« +40h » (l.140-167) à remplacer au Lot motion+mocks |
+| `src/pages/styleguide-components.astro` | Bibliothèque atomes/primitives (noindex) — cartes, tarifs (`.co-list`), FAQ **smooth** (`::details-content` ease-out), formulaire (`.co-index`), atomes + **vitrine `06 · Décoratifs`** (catalogue vivant des primitives). Styles `.cc-*` |
 | `src/pages/styleguide-lab.astro` | Comparateur pairings (échantillons multi-fonts = le sujet, conservés). Chrome UI aligné Inter Tight, `.bp-btn` blindé |
 | `src/data/{navigation,scenarios}.ts` · `src/lib/blog.ts` · `src/sample.ts` | Sources de vérité consommées par les pages lab (nav, scénarios+sections, helpers/catégories blog, author) |
 
@@ -104,4 +122,5 @@
 - **Blueprint = filets fins + crosshairs**, colonne capée, **coins nets** (pas d'ombre offset brutaliste). **Une seule couleur d'accent (teal)** — pas de couleur par catégorie/pilier.
 - **Règles design gravées en mémoire** : `feedback_zero_emoji` (0 emoji → icônes Remix mono) · `feedback_pas_bordure_partielle_arrondi` (jamais de trait partiel sur coin arrondi → barre droite `::after`) · `feedback_animations_ease_out` (toute transition/anim en **ease-out**, jamais ease-in/ease-in-out ; boucles ambiantes exclues). Bouton sur fond sombre = fond clair, jamais ink-sur-ink.
 - **CSS à 2 niveaux** : primitives réutilisées dans `BlueprintKit`, spécifiques par page en `.nav-*`/`.blog-*`/`.svc-*` (promotion quand 2+ pages). Motion = système `data-animate` existant (déjà chargé via Layout).
+- **[Lot 5] Décoratifs consolidés** : une déco dupliquée 2+ fois = promue en primitive `.co-*` (badge, puce, crosshair 4-coins, grille millimétrée, spec-sheet, glow/grain). `.co-frame` = 4 crosshairs sans markup (2 pseudos × 4 backgrounds) mais **hérite `--line-2`** → sur fond ink garder `<span class="co-x">`. Nouveau vocabulaire technique dispo : `.co-crop`/`.co-dim`/`.co-anno`/`.co-index`/`.co-hatch`. SVG brutalistes `src/assets/` **non traités** (uniquement dans le vrai site → travail de migration).
 - Pages lab en **`robots="noindex, nofollow"`** ; `/styleguide` brutaliste non touché.
