@@ -1,92 +1,58 @@
 ---
-import svgPinkStar from '../assets/pink-star.svg'
-import svgArrow from '../assets/arrow-3.svg'
-import ChatAnimation from './ChatAnimation.astro'
-import NotesAnimation from './NotesAnimation.astro'
-
-// Choisir l'animation : 'chat' ou 'notes'
-const animationType = 'notes'
+// ContactHero.astro — hero blueprint (eyebrow + h1 + lead + dispo).
+// Cascade data-animate. Namespace .ct-*.
 ---
 
-<section class="contact-hero pt-16 pb-24 md:pt-20 md:pb-32 relative overflow-hidden">
-    <!-- Background decoration -->
-    <div class="absolute inset-0 contact-grid-bg opacity-[0.03]"></div>
+<section class="co-sec co-pad ct-hero" style="padding:64px 40px 48px;">
+  <p class="co-eyebrow" data-animate>Contact · Genève &amp; Suisse romande</p>
 
-    <!-- Floating decorations -->
-    <img
-        src={svgPinkStar.src}
-        alt=""
-        width="50"
-        class="absolute top-16 right-8 md:right-20 opacity-60 animate-pulse hidden lg:block"
-        style="animation-duration: 3s;"
-        aria-hidden="true"
-    />
-    <img
-        src={svgArrow.src}
-        alt=""
-        width="80"
-        class="absolute bottom-12 left-8 md:left-16 opacity-20 hidden md:block"
-        aria-hidden="true"
-    />
+  <h1 class="ct-hero-title" data-animate data-delay="0.1">
+    Contactez un développeur web freelance à <span class="co-ser">Genève.</span>
+  </h1>
 
-    <div class="max-w-6xl mx-auto px-4 relative z-10">
+  <p class="co-mut ct-hero-lead" data-animate data-delay="0.2">
+    Développement web, automatisation, applications sur-mesure.
+    Décrivez votre projet en quelques lignes&nbsp;: je reviens vers vous
+    avec une première piste et un devis clair, sous 24&nbsp;h.
+  </p>
 
-        <!-- Two column layout -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-
-            <!-- Left: Text content -->
-            <div class="relative">
-                <div class="relative z-10">
-                    <!-- Main title -->
-                    <h1 class="text-4xl md:text-6xl font-normal tracking-tight leading-[1.05] mb-6">
-                        Contactez un développeur<br class="hidden sm:block" />
-                        web freelance<br class="hidden sm:block" />
-                        <span class="relative inline-block">
-                            <span class="relative z-10">à Genève</span>
-                            <img
-                                src={svgArrow.src}
-                                alt=""
-                                class="absolute -bottom-0 left-0 w-full h-8 pointer-events-none"
-                                aria-hidden="true"
-                            />
-                        </span>
-                    </h1>
-
-                    <!-- Subtitle -->
-                    <p class="text-lg md:text-xl text-gray-600 max-w-xl leading-relaxed">
-                        Développement web, automatisation, applications sur-mesure.<br class="hidden md:block" />
-                        Je suis disponible pour vous accompagner.
-                    </p>
-
-                    <!-- Availability badge -->
-                    <div class="mt-6 inline-flex items-center gap-2 bg-white border-2 border-black px-4 py-2 shadow-[3px_3px_0px_rgba(0,0,0,1)]">
-                        <span class="relative flex h-2.5 w-2.5">
-                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
-                        </span>
-                        <span class="text-sm font-medium">Disponible pour nouveaux projets</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Right: Animation -->
-            <div class="hidden lg:flex justify-center lg:justify-end">
-                {animationType === 'chat' ? (
-                    <ChatAnimation />
-                ) : (
-                    <NotesAnimation />
-                )}
-            </div>
-
-        </div>
-    </div>
+  <div class="ct-avail" data-animate data-delay="0.3">
+    <span class="ct-avail-dot" aria-hidden="true"></span>
+    Disponible pour de nouveaux projets
+  </div>
 </section>
 
 <style>
-    .contact-grid-bg {
-        background-image:
-            linear-gradient(to right, rgba(0,0,0,0.1) 1px, transparent 1px),
-            linear-gradient(to bottom, rgba(0,0,0,0.1) 1px, transparent 1px);
-        background-size: 40px 40px;
-    }
+  .ct-hero-title {
+    font-size: clamp(2.2rem, 5.5vw, 3.5rem);
+    max-width: 18ch;
+    margin-top: 14px;
+  }
+  .ct-hero-lead {
+    margin-top: 16px;
+    max-width: 56ch;
+    line-height: 1.65;
+    font-size: 1.05rem;
+  }
+  .ct-avail {
+    display: inline-flex; align-items: center; gap: 9px;
+    margin-top: 26px; padding: 8px 15px;
+    border: 1px solid var(--line-2); background: var(--surface);
+    font-size: 13.5px; font-weight: 500; color: var(--ink);
+  }
+  .ct-avail-dot {
+    position: relative; width: 8px; height: 8px; flex: none;
+    border-radius: 999px; background: var(--accent);
+  }
+  .ct-avail-dot::after {
+    content: ""; position: absolute; inset: 0; border-radius: 999px;
+    background: var(--accent); animation: ctPing 2.4s ease-out infinite;
+  }
+  @keyframes ctPing {
+    0% { transform: scale(1); opacity: .6; }
+    70%, 100% { transform: scale(2.6); opacity: 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .ct-avail-dot::after { animation: none; }
+  }
 </style>

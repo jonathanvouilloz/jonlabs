@@ -1,31 +1,67 @@
 ---
-// ContactFAQ.astro - FAQ de la page contact utilisant le composant FAQ réutilisable
-import FAQ from './FAQ.astro';
-import type { FAQItem } from './FAQ.astro';
-
-const faqs: FAQItem[] = [
+// ContactFAQ.astro — FAQ blueprint en <details> natif (zéro-JS).
+// Ouverture smooth ease-out via ::details-content. Namespace .ct-*.
+// Le contenu miroir sert aussi au FAQPage schema (défini dans contact.astro).
+const faqs = [
     {
-        question: "Vous travaillez en remote ou sur site ?",
-        answer: "Principalement en remote, mais je peux me déplacer en Suisse romande pour des réunions si nécessaire. La plupart de mes clients préfèrent le remote pour sa flexibilité."
+        q: "Vous travaillez en remote ou sur site ?",
+        a: "Principalement en remote, mais je peux me déplacer en Suisse romande pour des réunions si nécessaire. La plupart de mes clients préfèrent le remote pour sa flexibilité."
     },
     {
-        question: "Quels sont vos tarifs ?",
-        answer: "Chaque projet est unique, donc je propose des devis sur-mesure. Contactez-moi avec les détails de votre projet et je vous ferai une proposition adaptée à vos besoins et votre budget."
+        q: "Quels sont vos tarifs ?",
+        a: "Chaque projet est unique, donc je propose des devis sur-mesure. Contactez-moi avec les détails de votre projet et je vous ferai une proposition adaptée à vos besoins et votre budget."
     },
     {
-        question: "Vous prenez des petits projets ?",
-        answer: "Absolument ! Les petits projets peuvent avoir un gros impact. Que ce soit une landing page, une automatisation simple ou un prototype, je suis ouvert à discuter."
+        q: "Vous prenez des petits projets ?",
+        a: "Absolument ! Les petits projets peuvent avoir un gros impact. Que ce soit une landing page, une automatisation simple ou un prototype, je suis ouvert à discuter."
     },
     {
-        question: "Quels sont les délais typiques ?",
-        answer: "Ça dépend de la complexité : 2-3 semaines pour un site vitrine, 1-2 mois pour une web app, et plusieurs mois pour une application complète. Je vous donnerai une estimation précise après avoir discuté de votre projet."
+        q: "Quels sont les délais typiques ?",
+        a: "Ça dépend de la complexité : 2-3 semaines pour un site vitrine, 1-2 mois pour une web app, et plusieurs mois pour une application complète. Je vous donnerai une estimation précise après avoir discuté de votre projet."
     }
 ];
 ---
 
-<FAQ
-    faqs={faqs}
-    title="Questions fréquentes"
-    sectionId="faq"
-    class="bg-white border-y-2 border-black"
-/>
+<section class="co-sec co-pad ct-faq-sec" id="faq" style="padding:64px 40px;">
+    <div class="ct-faq-head">
+        <p class="co-eyebrow" data-animate>FAQ</p>
+        <h2 class="ct-faq-title" data-animate data-delay="0.1">Questions fréquentes</h2>
+    </div>
+
+    <div class="ct-faq" data-animate-stagger>
+        {faqs.map((item, i) => (
+            <details open={i === 0} data-animate-item>
+                <summary>
+                    {item.q}
+                    <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+                </summary>
+                <p class="ct-faq-answer">{item.a}</p>
+            </details>
+        ))}
+    </div>
+</section>
+
+<style>
+    .ct-faq-head { display: flex; flex-direction: column; gap: 12px; max-width: 640px; }
+    .ct-faq-title { font-size: clamp(1.7rem, 3.6vw, 2.3rem); }
+
+    .ct-faq { border-top: 1px solid var(--line); margin-top: 36px; }
+    .ct-faq details { border-bottom: 1px solid var(--line); }
+    .ct-faq summary {
+        list-style: none; cursor: pointer; padding: 20px 0;
+        display: flex; justify-content: space-between; align-items: center; gap: 20px;
+        font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
+    }
+    .ct-faq summary::-webkit-details-marker { display: none; }
+    .ct-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
+    .ct-faq details[open] summary i { transform: rotate(180deg); }
+    .ct-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 62ch; }
+
+    /* Ouverture smooth (ease-out) via ::details-content — progressive enhancement,
+       dégrade proprement en instantané là où c'est non supporté ; reste zéro-JS. */
+    .ct-faq details::details-content {
+        block-size: 0; overflow: hidden;
+        transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
+    }
+    .ct-faq details[open]::details-content { block-size: auto; }
+</style>

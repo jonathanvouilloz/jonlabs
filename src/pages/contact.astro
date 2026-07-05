@@ -8,7 +8,6 @@ import ContactForm from "../components/ContactForm.astro";
 import ContactInfo from "../components/ContactInfo.astro";
 import ContactFAQ from "../components/ContactFAQ.astro";
 import ContactCTA from "../components/ContactCTA.astro";
-import Modal from "../components/Modal.astro";
 
 // Schema.org
 import { SITE_URL } from '../data/schema';
@@ -41,47 +40,79 @@ const schemas = [contactPageSchema, getFAQPageSchema(contactFaqs)];
 >
   <Header />
 
-  <main>
-    <!-- Hero Section -->
+  <main class="co-root">
+
+    <!-- ══ HERO ══ -->
     <ContactHero />
 
-    <!-- Main Content: Form + Info -->
-    <section class="pb-16 md:pb-24 px-4">
-      <div class="max-w-6xl mx-auto">
-        <div class="grid grid-cols-1 lg:grid-cols-[1fr_380px] gap-8 lg:gap-12">
-          <!-- Formulaire -->
-          <ContactForm />
+    <!-- ══ FORMULAIRE + COORDONNÉES ══ -->
+    <section class="co-sec co-pad ct-main" style="padding:56px 40px;">
+      <div class="ct-main-grid">
+        <!-- Formulaire (câblage Web3Forms — hard-preserve) -->
+        <ContactForm />
 
-          <!-- Infos directes -->
-          <ContactInfo />
-        </div>
+        <!-- Coordonnées directes -->
+        <ContactInfo />
       </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- ══ FAQ ══ -->
     <ContactFAQ />
 
-    <!-- CTA Alternatif -->
+    <!-- ══ CTA ALTERNATIF ══ -->
     <ContactCTA />
+
+    <!-- ══ MODALE DE SUCCÈS (blueprint, réimplémentée inline — Modal.astro non touché) ══ -->
+    <div id="contact-success" class="ct-modal hidden" role="dialog" aria-modal="true" aria-label="Message envoyé">
+      <div class="ct-modal-backdrop" data-close-modal></div>
+      <div class="ct-modal-win co-frame">
+        <div class="ct-modal-icon" aria-hidden="true"><i class="ri-check-line"></i></div>
+        <h3 class="ct-modal-title">Message envoyé.</h3>
+        <p class="ct-modal-msg">Merci de m'avoir contacté. Je vous réponds sous 24&nbsp;h.</p>
+        <button type="button" class="co-btn" data-close-modal>Parfait</button>
+      </div>
+    </div>
+
   </main>
 
   <Footer />
-
-  <!-- Success Modal -->
-  <Modal
-    id="contact-success"
-    title="Message envoyé !"
-    message="Merci de m'avoir contacté. Je vous répondrai sous 24-48h."
-    buttonText="Parfait"
-    icon="ri-check-line"
-    iconColor="var(--blue)"
-    cornerColor="var(--blue)"
-    spinning={false}
-  />
 </Layout>
 
+<style is:global>
+  /* ══ CONTACT — layout page + modale de succès (namespace .ct-*) ══ */
+
+  /* Grille formulaire | coordonnées */
+  .ct-main-grid {
+    display: grid; grid-template-columns: 1fr 380px; gap: 48px; align-items: start;
+  }
+  @media (max-width: 980px) {
+    .ct-main-grid { grid-template-columns: 1fr; gap: 32px; }
+  }
+
+  /* Modale de succès — blueprint (fixed échappe l'overflow de .co-root) */
+  .ct-modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; }
+  .ct-modal.hidden { display: none; }
+  .ct-modal-backdrop { position: absolute; inset: 0; background: rgba(20,22,26,0.5); backdrop-filter: blur(2px); }
+  .ct-modal-win {
+    position: relative; z-index: 1; width: min(92vw, 420px);
+    background: var(--surface); border: 1px solid var(--line-2);
+    padding: 36px 32px; display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
+    box-shadow: 0 24px 60px rgba(20,22,26,.25); animation: ctModalIn .24s ease-out;
+  }
+  @keyframes ctModalIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+  .ct-modal-icon {
+    width: 46px; height: 46px; display: grid; place-items: center;
+    border: 1px solid var(--accent); color: var(--accent); font-size: 24px;
+  }
+  .ct-modal-title { font-size: 1.5rem; }
+  .ct-modal-msg { color: var(--muted); line-height: 1.6; }
+  .ct-modal-win .co-btn { margin-top: 4px; }
+  @media (prefers-reduced-motion: reduce) { .ct-modal-win { animation: none; } }
+</style>
+
 <script>
-  // Modal close handlers
+  // Fermeture de la modale de succès (backdrop + bouton). Le JS d'ouverture vit
+  // dans ContactForm.astro (getElementById('contact-success').classList.remove('hidden')).
   document.querySelectorAll('[data-close-modal]').forEach(el => {
     el.addEventListener('click', () => {
       document.getElementById('contact-success')?.classList.add('hidden');

@@ -1,5 +1,6 @@
 ---
-// ContactInfo.astro - Cartes de contact direct
+// ContactInfo.astro — coordonnées directes, blocs cadrés blueprint.
+// Icônes Remix monochromes (muted → teal au hover). Namespace .ct-*.
 import { author } from '../sample'
 
 const contactMethods = [
@@ -8,10 +9,11 @@ const contactMethods = [
         label: 'Email',
         value: 'contact@jonlabs.ch',
         link: 'mailto:contact@jonlabs.ch',
-        description: 'Pour les demandes détaillées'
+        description: 'Pour les demandes détaillées',
+        external: false
     },
     {
-        icon: 'ri-linkedin-box-fill',
+        icon: 'ri-linkedin-line',
         label: 'LinkedIn',
         value: 'Jonathan Vouilloz',
         link: author.linkedin,
@@ -19,7 +21,7 @@ const contactMethods = [
         external: true
     },
     {
-        icon: 'ri-github-fill',
+        icon: 'ri-github-line',
         label: 'GitHub',
         value: 'Voir mes projets',
         link: author.github,
@@ -29,77 +31,92 @@ const contactMethods = [
 ]
 ---
 
-<div class="contact-info space-y-4">
-    <!-- Section title -->
-    <div class="mb-6">
-        <h3 class="text-lg font-bold mb-1">Contact direct</h3>
-        <p class="text-sm text-gray-500">Besoin d'une réponse rapide ?</p>
+<aside class="ct-info" data-animate>
+    <div class="ct-info-head">
+        <p class="co-eyebrow">Contact direct</p>
+        <p class="co-mut ct-info-sub">Besoin d'une réponse rapide ?</p>
     </div>
 
-    <!-- Contact cards -->
-    {contactMethods.map((method) => (
-        <a
-            href={method.link}
-            target={method.external ? '_blank' : undefined}
-            rel={method.external ? 'noopener noreferrer' : undefined}
-            class="
-                contact-card
-                group
-                flex items-center gap-4
-                bg-white border-2 border-black
-                p-4
-                shadow-[3px_3px_0px_rgba(0,0,0,0.8)]
-                transition-all duration-200
-                hover:shadow-[5px_5px_0px_rgba(0,0,0,0.6)]
-                hover:translate-x-[-2px] hover:translate-y-[-2px]
-                hover:bg-gray-50
-            "
-        >
-            <!-- Icon -->
-            <div class="
-                w-12 h-12
-                bg-[var(--blue)]
-                border-2 border-black
-                flex items-center justify-center
-                transition-colors duration-200
-                group-hover:bg-[var(--yellow)]
-            ">
-                <i class={`${method.icon} text-xl`}></i>
-            </div>
-
-            <!-- Content -->
-            <div class="flex-1 min-w-0">
-                <div class="flex items-center gap-2">
-                    <span class="font-bold">{method.label}</span>
-                    {method.external && (
-                        <i class="ri-external-link-line text-sm text-gray-400"></i>
-                    )}
-                </div>
-                <p class="text-sm text-gray-600 truncate">{method.value}</p>
-            </div>
-
-            <!-- Arrow -->
-            <i class="ri-arrow-right-line text-lg opacity-0 group-hover:opacity-100 transition-opacity"></i>
-        </a>
-    ))}
-
-    <!-- Availability status -->
-    <div class="mt-6 p-4 bg-emerald-50 border-2 border-emerald-200 border-dashed">
-        <div class="flex items-center gap-3">
-            <span class="relative flex h-3 w-3">
-                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-            </span>
-            <div>
-                <p class="font-medium text-emerald-800">Disponible</p>
-                <p class="text-xs text-emerald-600">Réponse sous 24-48h</p>
-            </div>
-        </div>
+    <div class="ct-info-list">
+        {contactMethods.map((method) => (
+            <a
+                href={method.link}
+                target={method.external ? '_blank' : undefined}
+                rel={method.external ? 'noopener noreferrer' : undefined}
+                class="ct-info-card"
+            >
+                <span class="ct-info-icon" aria-hidden="true"><i class={method.icon}></i></span>
+                <span class="ct-info-body">
+                    <span class="ct-info-line">
+                        <strong>{method.label}</strong>
+                        {method.external && <i class="ri-external-link-line ct-info-ext" aria-hidden="true"></i>}
+                    </span>
+                    <span class="ct-info-value">{method.value}</span>
+                </span>
+                <i class="ri-arrow-right-line ct-info-arrow" aria-hidden="true"></i>
+            </a>
+        ))}
     </div>
 
-    <!-- Location info -->
-    <div class="flex items-center gap-2 text-sm text-gray-500 pt-2">
-        <i class="ri-map-pin-line"></i>
+    <!-- Disponibilité -->
+    <div class="ct-info-avail">
+        <span class="ct-info-avail-dot" aria-hidden="true"></span>
+        <span class="ct-info-avail-body">
+            <strong>Disponible</strong>
+            <span class="co-mut">Réponse sous 24-48&nbsp;h</span>
+        </span>
+    </div>
+
+    <!-- Localisation -->
+    <p class="ct-info-loc">
+        <i class="ri-map-pin-line" aria-hidden="true"></i>
         <span>{author.location}</span>
-    </div>
-</div>
+    </p>
+</aside>
+
+<style>
+    .ct-info { display: flex; flex-direction: column; gap: 16px; }
+    .ct-info-head { display: flex; flex-direction: column; gap: 4px; }
+    .ct-info-sub { font-size: 0.9rem; }
+
+    .ct-info-list { display: flex; flex-direction: column; gap: 10px; }
+    .ct-info-card {
+        display: flex; align-items: center; gap: 14px;
+        padding: 14px 16px;
+        background: var(--surface); border: 1px solid var(--line-2);
+        transition: border-color .18s ease-out, transform .18s ease-out;
+    }
+    .ct-info-card:hover { border-color: var(--accent); transform: translateY(-2px); }
+    .ct-info-icon {
+        width: 42px; height: 42px; flex: none; display: grid; place-items: center;
+        border: 1px solid var(--line-2); color: var(--muted); font-size: 20px;
+        transition: color .18s ease-out, border-color .18s ease-out;
+    }
+    .ct-info-card:hover .ct-info-icon { color: var(--accent); border-color: var(--accent); }
+    .ct-info-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+    .ct-info-line { display: flex; align-items: center; gap: 6px; }
+    .ct-info-line strong { font-size: 14.5px; font-weight: 600; }
+    .ct-info-ext { font-size: 13px; color: var(--muted); }
+    .ct-info-value { font-size: 13px; color: var(--muted); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .ct-info-arrow {
+        margin-left: auto; font-size: 17px; color: var(--muted); flex: none;
+        opacity: 0; transition: opacity .18s ease-out, color .18s ease-out, transform .18s ease-out;
+    }
+    .ct-info-card:hover .ct-info-arrow { opacity: 1; color: var(--accent); transform: translateX(2px); }
+
+    /* disponibilité */
+    .ct-info-avail {
+        display: flex; align-items: center; gap: 12px; margin-top: 6px;
+        padding: 14px 16px; border: 1px dashed var(--line-2); background: var(--surface);
+    }
+    .ct-info-avail-dot { width: 9px; height: 9px; flex: none; border-radius: 999px; background: var(--accent); }
+    .ct-info-avail-body { display: flex; flex-direction: column; gap: 1px; }
+    .ct-info-avail-body strong { font-size: 14px; font-weight: 600; }
+    .ct-info-avail-body .co-mut { font-size: 12px; }
+
+    .ct-info-loc {
+        display: flex; align-items: center; gap: 7px; margin-top: 4px;
+        font-size: 13px; color: var(--muted);
+    }
+    .ct-info-loc i { font-size: 15px; }
+</style>

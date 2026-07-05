@@ -6,8 +6,6 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import FAQ from "../components/FAQ.astro";
-import CTASection from "../components/CTASection.astro";
 
 import { SITE_URL } from '../data/schema';
 import { getWebPageSchema, getBreadcrumbSchema } from '../lib/seo';
@@ -261,261 +259,277 @@ const faqs = [
 >
   <Header />
 
-  <main>
-    <!-- Hero -->
-    <section class="pt-32 pb-16 md:pt-40 md:pb-24 px-4 bg-[var(--main-bg)]">
-      <div class="max-w-4xl mx-auto text-center">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          tarifs
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
+  <main class="co-root">
 
-        <h1 class="text-4xl md:text-6xl font-normal tracking-tight mb-6">
-          <span class="bg-accent-soft px-2 rounded-sm">Tarifs</span> freelance — site web & référencement à Genève
-        </h1>
+    <!-- ══ INTRO ══ -->
+    <section class="co-sec co-pad" style="padding:64px 40px 40px;">
+      <p class="co-eyebrow" data-animate>Tarifs · Genève &amp; Suisse romande</p>
+      <h1 style="font-size:clamp(2.2rem,5.5vw,3.5rem);margin-top:14px;" data-animate data-delay="0.1">
+        Tarifs freelance — site web &amp; <span class="co-ser">référencement à Genève.</span>
+      </h1>
+      <p class="co-mut" style="margin-top:16px;max-width:60ch;line-height:1.65;font-size:1.05rem;" data-animate data-delay="0.2">
+        Des packages clairs combinant création de site web et référencement local.
+        Tarif fixe, pas de contrat 12 mois, pas de marge cachée d'agence. Vous savez ce que vous payez.
+      </p>
+      <div style="margin-top:26px;" data-animate data-delay="0.3">
+        <a href="#packages" class="co-btn co-btn--ghost">Voir les packages <i class="ri-arrow-down-line"></i></a>
+      </div>
+    </section>
 
-        <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-          Des packages clairs combinant création de site web et référencement local.
-          Tarif fixe, pas de contrat 12 mois, pas de marge cachée d'agence. Vous savez ce que vous payez.
-        </p>
+    <!-- ══ 01 · PACKAGES ══ -->
+    <section id="packages" class="co-sec co-pad" style="padding:56px 40px;scroll-margin-top:80px;">
+      <p class="co-eyebrow">01 — Offre</p>
+      <h2 style="margin-top:8px;">Choisissez votre package</h2>
+      <p class="co-mut" style="margin-top:8px;max-width:52ch;">Site web + référencement local. Tout inclus, prix fixe.</p>
 
-        <a
-          href="#packages"
-          class="
-            inline-flex items-center gap-2
-            text-sm font-bold uppercase tracking-wide
-            border-b-2 border-black pb-1
-            transition-all duration-200
-            hover:border-[var(--blue)] hover:gap-3
-          "
-        >
-          Voir les packages
-          <i class="ri-arrow-down-line"></i>
+      <div class="tr-grid" data-animate-stagger>
+        {packages.map((plan) => (
+          <div class={`tr-tier co-frame${plan.highlighted ? " tr-tier--reco" : ""}`} data-animate-item>
+            {plan.highlighted && <span class="co-badge co-badge--solid tr-reco">Recommandé</span>}
+            <div class="tr-tier-head">
+              <p class="co-eyebrow tr-tier-name">{plan.name}</p>
+              <p class="co-mut tr-tier-sub">{plan.subtitle}</p>
+            </div>
+            <div class="tr-price">
+              <b>{plan.price}</b>
+              {plan.price !== "Sur devis" && <span>CHF</span>}
+            </div>
+            <ul class="tr-features co-list co-list--check">
+              {plan.features.map((feature) => (
+                <li><i class="ri-check-line" aria-hidden="true"></i><span>{feature}</span></li>
+              ))}
+            </ul>
+            <dl class="co-spec tr-spec">
+              <div class="co-spec-row"><dt>Idéal pour</dt><dd>{plan.ideal}</dd></div>
+              <div class="co-spec-row"><dt>Délai</dt><dd>{plan.delay}</dd></div>
+            </dl>
+            <a href="/contact" class={`co-btn tr-tier-cta${plan.highlighted ? "" : " co-btn--ghost"}`}>
+              {plan.price === "Sur devis" ? "Demander un devis" : "Choisir ce pack"}
+              <i class="ri-arrow-right-line"></i>
+            </a>
+          </div>
+        ))}
+      </div>
+
+      <!-- Bon à savoir -->
+      <div class="tr-notes co-frame" data-animate>
+        <span class="co-x tl"></span><span class="co-x tr"></span>
+        <span class="co-x bl"></span><span class="co-x br"></span>
+        <p class="co-eyebrow tr-notes-title">Bon à savoir</p>
+        <div class="tr-notes-grid">
+          <ul class="co-list">
+            <li>Paiement : 50% à la commande, 50% à la livraison</li>
+            <li>Hébergement et domaine non inclus (~30 CHF/an)</li>
+            <li>Pas de contrat 12 mois — engagement projet par projet</li>
+          </ul>
+          <ul class="co-list">
+            <li>Chaque projet commence par un appel découverte gratuit</li>
+            <li>Tous les prix sont en CHF, HT (exonéré TVA)</li>
+            <li>Service détaillé : <a href="/services/referencement-local" class="tr-inline">page référencement local</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ 02 · INCLUSIONS ══ -->
+    <section class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">02 — Comparatif</p>
+      <h2 style="margin-top:8px;">Ce qui est inclus</h2>
+      <p class="co-mut" style="margin-top:8px;max-width:52ch;">Comparaison détaillée des 3 packages.</p>
+
+      <div class="tr-table-wrap" data-animate>
+        <table class="tr-table">
+          <thead>
+            <tr>
+              <th>Fonctionnalité</th>
+              <th>Présence</th>
+              <th class="tr-col-reco">Visibilité</th>
+              <th>Autorité</th>
+            </tr>
+          </thead>
+          <tbody>
+            {inclusions.map((row) => (
+              <tr>
+                <td class="tr-cell-feat">{row.feature}</td>
+                {[row.presence, row.visibilite, row.autorite].map((val, colIdx) => (
+                  <td class={colIdx === 1 ? "tr-col-reco" : ""}>
+                    {typeof val === 'boolean'
+                      ? (val
+                        ? <i class="ri-check-line tr-yes" aria-hidden="true"></i>
+                        : <i class="ri-close-line tr-no" aria-hidden="true"></i>)
+                      : <span>{val}</span>
+                    }
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ══ 03 · FAQ (accordéon natif, zéro JS) ══ -->
+    <section class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">03 — FAQ</p>
+      <h2 style="margin-top:8px;">Questions fréquentes</h2>
+      <p class="co-mut" style="margin-top:8px;max-width:52ch;">Les réponses aux questions que vous vous posez sûrement.</p>
+
+      <div class="tr-faq" style="margin-top:32px;">
+        {faqs.map((item, i) => (
+          <details open={i === 0}>
+            <summary>
+              {item.question}
+              <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+            </summary>
+            <p class="tr-faq-answer">{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- ══ 04 · RESSOURCES ══ -->
+    <section class="co-sec co-pad" style="padding:56px 40px 64px;">
+      <p class="co-eyebrow">04 — Ressources</p>
+      <h2 style="margin-top:8px;">Aller <span class="co-ser">plus loin.</span></h2>
+      <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">
+        Quelques articles pour creuser le sujet avant de te décider.
+      </p>
+
+      <div class="tr-res-grid" data-animate-stagger>
+        <a href="/blog/prix-site-web-suisse-2026" class="tr-res-card co-frame co-frame--reveal" data-animate-item>
+          <span class="co-eyebrow tr-res-eyebrow">Article blog</span>
+          <h3 class="tr-res-title">Combien coûte vraiment un site web en Suisse en 2026 ?</h3>
+          <p class="tr-res-teaser">Un guide transparent des fourchettes en CHF, par type de projet et par profil de prestataire.</p>
+          <span class="tr-res-cta">Lire l'article <i class="ri-arrow-right-line"></i></span>
+        </a>
+
+        <a href="/blog/specialiste-developpement-web-suisse" class="tr-res-card co-frame co-frame--reveal" data-animate-item>
+          <span class="co-eyebrow tr-res-eyebrow">Article blog</span>
+          <h3 class="tr-res-title">Spécialiste développement web Suisse : comment bien choisir</h3>
+          <p class="tr-res-teaser">Freelance vs agence, 5 critères concrets pour choisir le bon prestataire en Suisse romande.</p>
+          <span class="tr-res-cta">Lire l'article <i class="ri-arrow-right-line"></i></span>
+        </a>
+
+        <a href="/blog/freelance-ou-agence-web" class="tr-res-card co-frame co-frame--reveal" data-animate-item>
+          <span class="co-eyebrow tr-res-eyebrow">Article blog</span>
+          <h3 class="tr-res-title">Freelance ou agence web ? Le comparatif honnête</h3>
+          <p class="tr-res-teaser">Tableau décisionnel et critères clairs pour trancher selon ton budget et ton projet.</p>
+          <span class="tr-res-cta">Lire l'article <i class="ri-arrow-right-line"></i></span>
         </a>
       </div>
     </section>
 
-    <!-- Packages -->
-    <section id="packages" class="py-16 md:py-24 px-4 bg-white" style="scroll-margin-top: 80px;">
-      <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-normal mb-4">
-            Choisissez votre package
-          </h2>
-          <p class="text-lg text-gray-600">Site web + référencement local. Tout inclus, prix fixe.</p>
+    <!-- ══ 05 · CTA FINAL (primitive .co-cta) ══ -->
+    <section class="co-cta">
+      <span class="co-x tl"></span><span class="co-x tr"></span>
+      <div class="co-cta-inner">
+        <p class="co-cta-eyebrow">Devis gratuit</p>
+        <h2 class="co-cta-title">Prêt à lancer votre <span class="co-ser">projet ?</span></h2>
+        <p class="co-cta-lead">Discutons de votre besoin. Premier appel découverte gratuit et sans engagement.</p>
+        <div class="co-cta-btns">
+          <a href="/contact" class="co-btn co-cta-btn">Prendre rendez-vous <i class="ri-calendar-line"></i></a>
         </div>
-
-        <!-- Pricing cards -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12">
-          {packages.map((plan) => (
-            <div class={`
-              bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 relative
-              ${plan.highlighted ? 'shadow-[8px_8px_0px_rgba(0,0,0,1)] ring-2 ring-[var(--blue)]' : 'shadow-[4px_4px_0px_rgba(0,0,0,0.3)]'}
-            `}>
-              {plan.highlighted && (
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-bold">
-                  RECOMMANDÉ
-                </div>
-              )}
-
-              <h3 class="text-xl font-bold mb-1">{plan.name}</h3>
-              <p class="text-sm text-gray-500 mb-4">{plan.subtitle}</p>
-
-              <div class="mb-6">
-                <p class="text-3xl font-bold text-[var(--text)]">
-                  {plan.price}
-                  {plan.price !== "Sur devis" && <span class="text-lg"> CHF</span>}
-                </p>
-              </div>
-
-              <ul class="space-y-3 mb-6">
-                {plan.features.map((feature) => (
-                  <li class="flex items-start gap-2 text-sm">
-                    <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
-                    <span>{feature}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <div class="pt-4 border-t border-dashed border-gray-300 mb-6">
-                <p class="text-xs text-gray-500">
-                  <strong>Idéal pour :</strong> {plan.ideal}
-                </p>
-                <p class="text-xs text-gray-500 mt-1">
-                  <strong>Délai :</strong> {plan.delay}
-                </p>
-              </div>
-
-              <a
-                href="/contact"
-                class={`
-                  w-full inline-flex items-center justify-center gap-2
-                  border-2 border-black px-6 py-3 font-bold text-sm
-                  transition-all duration-200
-                  ${plan.highlighted
-                    ? 'bg-[var(--blue)] shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:bg-[var(--yellow)] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]'
-                    : 'bg-white shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--blue)] hover:shadow-[1px_1px_0px_rgba(0,0,0,0.3)] hover:translate-x-[2px] hover:translate-y-[2px]'
-                  }
-                `}
-              >
-                {plan.price === "Sur devis" ? "Demander un devis" : "Choisir ce pack"}
-                <i class="ri-arrow-right-line"></i>
-              </a>
-            </div>
-          ))}
-        </div>
-
-        <!-- Notes -->
-        <div class="bg-[var(--main-bg)] border-2 border-black p-6 md:p-8">
-          <h3 class="font-bold mb-4 flex items-center gap-2">
-            <i class="ri-information-line text-[var(--blue)]"></i>
-            Bon à savoir
-          </h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">
-            <ul class="space-y-2">
-              <li class="flex items-center gap-2">
-                <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                Paiement : 50% à la commande, 50% à la livraison
-              </li>
-              <li class="flex items-center gap-2">
-                <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                Hébergement et domaine non inclus (~30 CHF/an)
-              </li>
-              <li class="flex items-center gap-2">
-                <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                Pas de contrat 12 mois — engagement projet par projet
-              </li>
-            </ul>
-            <ul class="space-y-2">
-              <li class="flex items-center gap-2">
-                <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                Chaque projet commence par un appel découverte gratuit
-              </li>
-              <li class="flex items-center gap-2">
-                <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                Tous les prix sont en CHF, HT (exonéré TVA)
-              </li>
-              <li class="flex items-start gap-2">
-                <i class="ri-arrow-right-s-line text-[var(--blue)] mt-0.5"></i>
-                <span>Service détaillé : <a href="/services/referencement-local" class="underline hover:text-black">page référencement local</a></span>
-              </li>
-            </ul>
-          </div>
+        <div class="co-cta-trust">
+          <span><i class="ri-time-line"></i> Réponse sous 48 h</span>
+          <span><i class="ri-file-list-3-line"></i> Devis gratuit</span>
         </div>
       </div>
     </section>
 
-    <!-- Inclusions grid -->
-    <section class="py-16 md:py-24 px-4 bg-[var(--main-bg)]">
-      <div class="max-w-4xl mx-auto">
-        <div class="text-center mb-12">
-          <h2 class="text-3xl md:text-4xl font-normal mb-4">
-            Ce qui est inclus
-          </h2>
-          <p class="text-lg text-gray-600">Comparaison détaillée des 3 packages.</p>
-        </div>
-
-        <div class="overflow-x-auto">
-          <table class="w-full border-3 border-black bg-white text-sm">
-            <thead>
-              <tr class="border-b-3 border-black bg-[var(--main-bg)]">
-                <th class="text-left p-4 font-bold">Fonctionnalité</th>
-                <th class="text-center p-4 font-bold">Présence</th>
-                <th class="text-center p-4 font-bold border-x-2 border-black bg-[var(--blue)] bg-opacity-20">Visibilité</th>
-                <th class="text-center p-4 font-bold">Autorité</th>
-              </tr>
-            </thead>
-            <tbody>
-              {inclusions.map((row, i) => (
-                <tr class={`border-b border-gray-200 ${i % 2 === 0 ? '' : 'bg-gray-50'}`}>
-                  <td class="p-4 font-medium">{row.feature}</td>
-                  {[row.presence, row.visibilite, row.autorite].map((val, colIdx) => (
-                    <td class={`text-center p-4 ${colIdx === 1 ? 'border-x-2 border-black bg-[var(--blue)] bg-opacity-5' : ''}`}>
-                      {typeof val === 'boolean'
-                        ? (val
-                          ? <i class="ri-check-line text-green-600 text-lg"></i>
-                          : <i class="ri-close-line text-gray-300 text-lg"></i>)
-                        : <span>{val}</span>
-                      }
-                    </td>
-                  ))}
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-    <!-- FAQ -->
-    <FAQ
-      faqs={faqs}
-      title="Questions fréquentes"
-      subtitle="Les réponses aux questions que vous vous posez sûrement."
-    />
-
-    <!-- Aller plus loin (resources blog) -->
-    <section class="py-16 md:py-20 px-4 bg-white border-t-2 border-black">
-      <div class="max-w-5xl mx-auto">
-        <div class="text-center mb-12">
-          <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-            <span class="w-8 h-px bg-gray-400"></span>
-            ressources
-            <span class="w-8 h-px bg-gray-400"></span>
-          </span>
-          <h2 class="text-3xl md:text-4xl font-normal mb-4">
-            Aller <span class="bg-accent-soft px-2 rounded-sm">plus loin</span>
-          </h2>
-          <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-            Quelques articles pour creuser le sujet avant de te décider.
-          </p>
-        </div>
-
-        <div class="grid md:grid-cols-3 gap-6">
-          <a href="/blog/prix-site-web-suisse-2026" class="group bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] transition-all">
-            <div class="text-xs uppercase tracking-wider text-gray-500 mb-2 font-mono">Article blog</div>
-            <h3 class="text-xl font-bold mb-3 group-hover:underline">Combien coûte vraiment un site web en Suisse en 2026 ?</h3>
-            <p class="text-gray-700 text-sm mb-4">Un guide transparent des fourchettes en CHF, par type de projet et par profil de prestataire.</p>
-            <span class="inline-flex items-center gap-2 text-sm font-medium">
-              Lire l'article
-              <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
-            </span>
-          </a>
-
-          <a href="/blog/specialiste-developpement-web-suisse" class="group bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] transition-all">
-            <div class="text-xs uppercase tracking-wider text-gray-500 mb-2 font-mono">Article blog</div>
-            <h3 class="text-xl font-bold mb-3 group-hover:underline">Spécialiste développement web Suisse : comment bien choisir</h3>
-            <p class="text-gray-700 text-sm mb-4">Freelance vs agence, 5 critères concrets pour choisir le bon prestataire en Suisse romande.</p>
-            <span class="inline-flex items-center gap-2 text-sm font-medium">
-              Lire l'article
-              <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
-            </span>
-          </a>
-
-          <a href="/blog/freelance-ou-agence-web" class="group bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] transition-all">
-            <div class="text-xs uppercase tracking-wider text-gray-500 mb-2 font-mono">Article blog</div>
-            <h3 class="text-xl font-bold mb-3 group-hover:underline">Freelance ou agence web ? Le comparatif honnête</h3>
-            <p class="text-gray-700 text-sm mb-4">Tableau décisionnel et critères clairs pour trancher selon ton budget et ton projet.</p>
-            <span class="inline-flex items-center gap-2 text-sm font-medium">
-              Lire l'article
-              <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
-            </span>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <CTASection
-      title="Prêt à lancer votre projet ?"
-      description="Discutons de votre besoin. Premier appel découverte gratuit et sans engagement."
-      buttonText="Prendre rendez-vous"
-      buttonLink="/contact"
-      buttonIcon="ri-calendar-line"
-      subtext="Réponse sous 48h · Devis gratuit"
-    />
   </main>
 
   <Footer />
 </Layout>
+
+<style is:global>
+  /* ══ TARIFS — styles .tr-* (namespace scopé, corps .co-root) ══ */
+
+  /* ── Packages ── */
+  .tr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; margin-top: 40px; }
+  .tr-tier {
+    position: relative; display: flex; flex-direction: column; gap: 20px;
+    padding: 32px 28px; background: var(--surface); border: 1px solid var(--line-2);
+  }
+  .tr-tier--reco { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .tr-reco { position: absolute; top: -12px; left: 28px; z-index: 4; }
+  .tr-tier-name { color: var(--ink); }
+  .co-root .tr-tier-sub { margin-top: 6px; font-size: 14px; }
+  .tr-price { display: flex; align-items: baseline; gap: 6px; }
+  .tr-price b { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+  .tr-price span { font-size: 14px; color: var(--muted); }
+  .tr-features { gap: 11px; }
+  .tr-features li { font-size: 14px; line-height: 1.45; }
+  .tr-spec { margin-top: auto; }
+  .tr-tier-cta { justify-content: center; }
+  .tr-tier-cta i { transition: transform .18s ease-out; }
+  .tr-tier-cta:hover i { transform: translateX(3px); }
+
+  /* ── Bon à savoir ── */
+  .tr-notes { position: relative; margin-top: 40px; padding: 32px; background: var(--surface); border: 1px solid var(--line-2); }
+  .co-root .tr-notes-title { color: var(--ink); }
+  .tr-notes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 40px; margin-top: 18px; }
+  .tr-notes-grid .co-list li { font-size: 14px; }
+  .tr-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  .tr-inline:hover { color: var(--ink); }
+
+  /* ── Table comparatif ── */
+  .tr-table-wrap { margin-top: 32px; overflow-x: auto; border: 1px solid var(--line-2); }
+  .tr-table { width: 100%; border-collapse: collapse; font-size: 14px; background: var(--surface); }
+  .tr-table th, .tr-table td { padding: 14px 16px; text-align: center; border-bottom: 1px solid var(--line); }
+  .tr-table thead th { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line-2); white-space: nowrap; }
+  .tr-table th:first-child, .tr-table .tr-cell-feat { text-align: left; }
+  .tr-cell-feat { font-weight: 500; color: var(--ink); }
+  .tr-table tbody tr:last-child td { border-bottom: 0; }
+  .tr-col-reco { background: rgba(0, 168, 125, 0.05); }
+  .tr-table thead .tr-col-reco { color: var(--accent); }
+  .tr-yes { color: var(--accent); font-size: 18px; }
+  .tr-no { color: var(--line-2); font-size: 18px; }
+
+  /* ── FAQ (accordéon natif <details> — smooth via ::details-content, zéro JS) ── */
+  .tr-faq { border-top: 1px solid var(--line); }
+  .tr-faq details { border-bottom: 1px solid var(--line); }
+  .tr-faq summary {
+    list-style: none; cursor: pointer; padding: 20px 0;
+    display: flex; justify-content: space-between; align-items: center; gap: 20px;
+    font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
+  }
+  .tr-faq summary::-webkit-details-marker { display: none; }
+  .tr-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
+  .tr-faq details[open] summary i { transform: rotate(180deg); }
+  .co-root .tr-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 62ch; }
+  /* Ouverture smooth (ease-out) via ::details-content — progressive enhancement,
+     dégrade proprement en instantané là où c'est non supporté ; reste zéro-JS. */
+  .tr-faq details::details-content {
+    block-size: 0; overflow: hidden;
+    transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
+  }
+  .tr-faq details[open]::details-content { block-size: auto; }
+
+  /* ── Ressources ── */
+  .tr-res-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+  .tr-res-card {
+    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 22px;
+    background: var(--surface); border: 1px solid var(--line-2);
+    transition: box-shadow .18s ease-out, transform .18s ease-out;
+  }
+  .tr-res-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20, 22, 26, .07); }
+  .tr-res-eyebrow { color: var(--muted); }
+  .tr-res-title { font-size: 1.05rem; line-height: 1.3; }
+  .tr-res-teaser { font-size: 13.5px; line-height: 1.5; color: var(--muted); flex: 1; }
+  .tr-res-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--accent); margin-top: auto; }
+  .tr-res-cta i { transition: transform .18s ease-out; }
+  .tr-res-card:hover .tr-res-cta i { transform: translateX(3px); }
+
+  /* ── Responsive ── */
+  @media (max-width: 900px) {
+    .tr-grid { grid-template-columns: 1fr; }
+    .tr-res-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 720px) {
+    .tr-notes-grid { grid-template-columns: 1fr; }
+    .tr-notes { padding: 24px 20px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .tr-res-card, .tr-res-cta i, .tr-faq summary i, .tr-tier-cta i { transition: none; }
+  }
+</style>

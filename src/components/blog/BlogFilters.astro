@@ -7,60 +7,76 @@ const categoryList = [
 ];
 ---
 
-<div class="mb-6">
-  <div class="flex flex-col md:flex-row gap-4 justify-between items-start md:items-center">
+<div class="bl-filters">
+  <div class="bl-search">
+    <i class="ri-search-line" aria-hidden="true"></i>
+    <input
+      type="search"
+      id="blog-search"
+      placeholder="Rechercher un article…"
+      aria-label="Rechercher un article"
+    />
+  </div>
 
-      <!-- Category tabs (buttons for dynamic filtering) -->
-      <div class="flex flex-wrap gap-2" id="category-filters">
-        {categoryList.map((cat) => (
-          <button
-            type="button"
-            data-category={cat.slug}
-            class:list={[
-              'filter-btn px-4 py-2 text-sm font-medium border-2 border-black transition-all duration-200',
-              cat.slug === 'all'
-                ? 'bg-[var(--blue)] shadow-[2px_2px_0px_rgba(0,0,0,1)] active'
-                : 'bg-white hover:bg-gray-100',
-            ]}
-          >
-            {cat.name}
-          </button>
-        ))}
-      </div>
-
-      <!-- Search input -->
-      <div class="relative w-full md:w-64">
-        <input
-          type="text"
-          placeholder="Rechercher..."
-          class="w-full px-4 py-2 pr-10 border-2 border-black bg-white text-sm focus:outline-none focus:ring-2 focus:ring-[var(--blue)]"
-          id="blog-search"
-        />
-        <i class="ri-search-line absolute right-3 top-1/2 -translate-y-1/2 text-gray-400"></i>
-      </div>
+  <div class="bl-chips" id="category-filters" role="group" aria-label="Filtrer par catégorie">
+    {categoryList.map((cat) => (
+      <button
+        type="button"
+        data-category={cat.slug}
+        class:list={['bl-chip filter-btn', cat.slug === 'all' && 'is-active']}
+        aria-pressed={cat.slug === 'all' ? 'true' : 'false'}
+      >
+        {cat.name}
+      </button>
+    ))}
   </div>
 </div>
 
+<style is:global>
+  /* ══ Filtres blog blueprint (rendu dans .co-root/index) ══ */
+  .bl-filters { display: flex; flex-direction: column; gap: 16px; margin: 28px 0 32px; }
+  .bl-search { position: relative; max-width: 340px; }
+  .bl-search i { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 17px; }
+  .bl-search input {
+    width: 100%; font-family: inherit; font-size: 15px; color: var(--ink);
+    background: var(--surface); border: 1px solid var(--line-2); padding: 11px 14px 11px 40px;
+    transition: border-color .18s ease-out, box-shadow .18s ease-out;
+  }
+  .bl-search input::placeholder { color: var(--muted); }
+  .bl-search input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0, 168, 125, .15); }
+
+  .bl-chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .bl-chip {
+    font-family: inherit; font-size: 13.5px; font-weight: 500; cursor: pointer;
+    padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line-2);
+    background: transparent; color: var(--muted); transition: all .16s ease-out;
+  }
+  .bl-chip:hover { color: var(--ink); border-color: var(--ink); }
+  .bl-chip.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
+</style>
+
 <script>
   function initBlogFilters() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const searchInput = document.getElementById('blog-search') as HTMLInputElement;
+    const filterButtons = Array.from(document.querySelectorAll<HTMLElement>('.filter-btn'));
+    const searchInput = document.getElementById('blog-search') as HTMLInputElement | null;
     const postsList = document.getElementById('posts-list');
     const noResults = document.getElementById('no-results');
-    const resetBtn = document.getElementById('reset-filters');
     const pagination = document.getElementById('pagination');
     const pageNumbers = document.getElementById('page-numbers');
-    const prevBtn = document.getElementById('prev-page') as HTMLButtonElement;
-    const nextBtn = document.getElementById('next-page') as HTMLButtonElement;
+    const prevBtn = document.getElementById('prev-page') as HTMLButtonElement | null;
+    const nextBtn = document.getElementById('next-page') as HTMLButtonElement | null;
+    const viewButtons = Array.from(document.querySelectorAll<HTMLElement>('[data-view-btn]'));
 
-    // Only target items inside #posts-list (not the featured grid)
-    const listItems = Array.from(postsList?.querySelectorAll('[data-category]') || []);
+    if (!postsList) return;
+
+    // Seuls les articles dans #posts-list (l'article à la une reste hors filtrage)
+    const listItems = Array.from(postsList.querySelectorAll<HTMLElement>('[data-category]'));
 
     const ITEMS_PER_PAGE = 9;
     let currentCategory = 'all';
     let currentSearch = '';
     let currentPage = 1;
-    let filteredItems: Element[] = [];
+    let filteredItems: HTMLElement[] = [];
 
     function getFilteredItems() {
       return listItems.filter((item) => {
@@ -69,9 +85,8 @@ const categoryList = [
         const tags = item.getAttribute('data-tags')?.toLowerCase() || '';
 
         const matchesCategory = currentCategory === 'all' || itemCategory === currentCategory;
-        const matchesSearch = !currentSearch ||
-          title.includes(currentSearch) ||
-          tags.includes(currentSearch);
+        const matchesSearch =
+          !currentSearch || title.includes(currentSearch) || tags.includes(currentSearch);
 
         return matchesCategory && matchesSearch;
       });
@@ -80,25 +95,16 @@ const categoryList = [
     function renderPagination() {
       const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
 
-      // Hide pagination if only 1 page or no results
-      if (pagination) {
-        pagination.style.display = totalPages <= 1 ? 'none' : 'flex';
-      }
-
-      // Update prev/next buttons
+      if (pagination) pagination.style.display = totalPages <= 1 ? 'none' : 'flex';
       if (prevBtn) prevBtn.disabled = currentPage === 1;
       if (nextBtn) nextBtn.disabled = currentPage === totalPages || totalPages === 0;
 
-      // Generate page numbers
       if (pageNumbers) {
         pageNumbers.innerHTML = '';
         for (let i = 1; i <= totalPages; i++) {
           const btn = document.createElement('button');
-          btn.className = `w-10 h-10 flex items-center justify-center border-2 border-black font-medium text-sm transition-all duration-200 ${
-            i === currentPage
-              ? 'bg-[var(--blue)] shadow-[2px_2px_0px_rgba(0,0,0,1)]'
-              : 'bg-white hover:bg-gray-100'
-          }`;
+          btn.className = 'bl-page' + (i === currentPage ? ' is-active' : '');
+          if (i === currentPage) btn.setAttribute('aria-current', 'page');
           btn.textContent = String(i);
           btn.addEventListener('click', () => goToPage(i));
           pageNumbers.appendChild(btn);
@@ -110,26 +116,10 @@ const categoryList = [
       const start = (currentPage - 1) * ITEMS_PER_PAGE;
       const end = start + ITEMS_PER_PAGE;
 
-      // Hide all items first
-      listItems.forEach((item) => {
-        (item as HTMLElement).style.display = 'none';
-      });
+      listItems.forEach((item) => { item.style.display = 'none'; });
+      filteredItems.slice(start, end).forEach((item) => { item.style.display = ''; });
 
-      // Show only items for current page
-      filteredItems.slice(start, end).forEach((item) => {
-        (item as HTMLElement).style.display = '';
-      });
-
-      // Show/hide empty state
-      if (noResults && postsList) {
-        if (filteredItems.length === 0) {
-          postsList.classList.add('hidden');
-          noResults.classList.remove('hidden');
-        } else {
-          postsList.classList.remove('hidden');
-          noResults.classList.add('hidden');
-        }
-      }
+      if (noResults) (noResults as HTMLElement).hidden = filteredItems.length !== 0;
 
       renderPagination();
     }
@@ -137,86 +127,55 @@ const categoryList = [
     function goToPage(page: number) {
       currentPage = page;
       displayPage();
-      // Scroll to top of list
-      postsList?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      postsList!.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
     function filterPosts() {
       filteredItems = getFilteredItems();
-      currentPage = 1; // Reset to page 1 when filtering
+      currentPage = 1;
       displayPage();
     }
 
-    function resetFilters() {
-      currentCategory = 'all';
-      currentSearch = '';
-      currentPage = 1;
-
-      // Reset search input
-      if (searchInput) searchInput.value = '';
-
-      // Reset category buttons
-      filterButtons.forEach((b) => {
-        b.classList.remove('active', 'bg-[var(--blue)]', 'shadow-[2px_2px_0px_rgba(0,0,0,1)]');
-        b.classList.add('bg-white');
-        if (b.getAttribute('data-category') === 'all') {
-          b.classList.add('active', 'bg-[var(--blue)]', 'shadow-[2px_2px_0px_rgba(0,0,0,1)]');
-          b.classList.remove('bg-white');
-        }
-      });
-
-      filterPosts();
-    }
-
-    // Category filter click
+    // Filtre catégorie
     filterButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        // Update active state
-        filterButtons.forEach((b) => {
-          b.classList.remove('active', 'bg-[var(--blue)]', 'shadow-[2px_2px_0px_rgba(0,0,0,1)]');
-          b.classList.add('bg-white');
-        });
-        btn.classList.add('active', 'bg-[var(--blue)]', 'shadow-[2px_2px_0px_rgba(0,0,0,1)]');
-        btn.classList.remove('bg-white');
-
+        filterButtons.forEach((b) => { b.classList.remove('is-active'); b.setAttribute('aria-pressed', 'false'); });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-pressed', 'true');
         currentCategory = btn.getAttribute('data-category') || 'all';
         filterPosts();
       });
     });
 
-    // Search input
-    if (searchInput) {
-      searchInput.addEventListener('input', (e) => {
-        currentSearch = (e.target as HTMLInputElement).value.toLowerCase().trim();
-        filterPosts();
-      });
-    }
+    // Recherche
+    searchInput?.addEventListener('input', (e) => {
+      currentSearch = (e.target as HTMLInputElement).value.toLowerCase().trim();
+      filterPosts();
+    });
 
-    // Reset button
-    if (resetBtn) {
-      resetBtn.addEventListener('click', resetFilters);
-    }
-
-    // Pagination buttons
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => {
-        if (currentPage > 1) goToPage(currentPage - 1);
+    // Toggle grille / liste
+    viewButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const mode = btn.getAttribute('data-view-btn') || 'grid';
+        postsList!.setAttribute('data-view', mode);
+        viewButtons.forEach((b) => {
+          const on = b === btn;
+          b.classList.toggle('is-active', on);
+          b.setAttribute('aria-pressed', String(on));
+        });
       });
-    }
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
-        const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
-        if (currentPage < totalPages) goToPage(currentPage + 1);
-      });
-    }
+    });
 
-    // Initial render
+    // Pagination prev/next
+    prevBtn?.addEventListener('click', () => { if (currentPage > 1) goToPage(currentPage - 1); });
+    nextBtn?.addEventListener('click', () => {
+      const totalPages = Math.ceil(filteredItems.length / ITEMS_PER_PAGE);
+      if (currentPage < totalPages) goToPage(currentPage + 1);
+    });
+
     filterPosts();
   }
 
-  // Run on page load
   initBlogFilters();
-
-  // Re-run on Astro page transitions (if using View Transitions)
   document.addEventListener('astro:page-load', initBlogFilters);
 </script>

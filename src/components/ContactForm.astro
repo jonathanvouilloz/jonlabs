@@ -1,41 +1,36 @@
 ---
-// ContactForm.astro - Formulaire brutaliste avec Web3Forms (AJAX)
+// ContactForm.astro — RESTYLE blueprint uniquement.
+// Câblage Web3Forms HARD-PRESERVE : action fetch, access_key + hidden inputs,
+// name= des champs, honeypot (botcheck), validation required, tout le <script>
+// (soumission AJAX, états loading, succès via #contact-success, reset) — INTACTS.
+// Restylé en primitives blueprint : filets fins, focus teal, coins nets, .co-btn.
 ---
 
-<div class="contact-form-container relative">
-    <!-- Form card -->
-    <form
-        class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative"
-        id="contact-form"
-    >
-        <!-- Corner boxes -->
-        <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-        <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-        <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-        <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-
-        <!-- Hidden fields for Web3Forms -->
+<div class="ct-form-wrap">
+    <form class="ct-form co-frame" id="contact-form">
+        <!-- Hidden fields for Web3Forms (HARD-PRESERVE) -->
         <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
         <input type="hidden" name="subject" value="Nouveau message - Jon Labs">
         <input type="hidden" name="from_name" value="Jon Labs Contact">
 
-        <!-- Honeypot spam protection -->
-        <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+        <!-- Honeypot spam protection (HARD-PRESERVE) -->
+        <input type="checkbox" name="botcheck" class="ct-honeypot" style="display: none;">
 
         <!-- Form header -->
-        <div class="mb-8">
-            <h2 class="text-3xl md:text-4xl font-normal mb-2">Lancer une expérience</h2>
-            <p class="text-gray-600">Remplissez le formulaire et je vous recontacte rapidement.</p>
+        <div class="ct-form-head">
+            <p class="co-eyebrow">Formulaire</p>
+            <h2 class="ct-form-title">Lancer une expérience</h2>
+            <p class="co-mut ct-form-sub">Remplissez le formulaire et je vous recontacte rapidement.</p>
         </div>
 
         <!-- Form fields -->
-        <div class="space-y-6">
+        <div class="ct-fields">
 
             <!-- Field 01: Nom -->
-            <div class="form-field">
-                <label for="name" class="flex items-center gap-2 text-sm font-medium mb-2">
-                    <span class="font-mono text-xs text-gray-400">01</span>
-                    Votre nom <span class="text-red-500">*</span>
+            <div class="ct-field">
+                <label for="name" class="ct-label">
+                    <span class="co-index">01</span>
+                    Votre nom <span class="ct-req">*</span>
                 </label>
                 <input
                     type="text"
@@ -43,23 +38,15 @@
                     name="name"
                     required
                     placeholder="Jonathan Vouilloz"
-                    class="
-                        w-full px-4 py-3
-                        border-2 border-black
-                        bg-white
-                        text-lg
-                        placeholder:text-gray-400
-                        focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2
-                        transition-all
-                    "
+                    class="ct-input"
                 />
             </div>
 
             <!-- Field 02: Email -->
-            <div class="form-field">
-                <label for="email" class="flex items-center gap-2 text-sm font-medium mb-2">
-                    <span class="font-mono text-xs text-gray-400">02</span>
-                    Votre email <span class="text-red-500">*</span>
+            <div class="ct-field">
+                <label for="email" class="ct-label">
+                    <span class="co-index">02</span>
+                    Votre email <span class="ct-req">*</span>
                 </label>
                 <input
                     type="email"
@@ -67,54 +54,33 @@
                     name="email"
                     required
                     placeholder="vous@exemple.ch"
-                    class="
-                        w-full px-4 py-3
-                        border-2 border-black
-                        bg-white
-                        text-lg
-                        placeholder:text-gray-400
-                        focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2
-                        transition-all
-                    "
+                    class="ct-input"
                 />
             </div>
 
             <!-- Field 03: Type de projet -->
-            <div class="form-field">
-                <label for="project-type" class="flex items-center gap-2 text-sm font-medium mb-2">
-                    <span class="font-mono text-xs text-gray-400">03</span>
+            <div class="ct-field">
+                <label for="project-type" class="ct-label">
+                    <span class="co-index">03</span>
                     Type de projet
                 </label>
-                <div class="relative">
-                    <select
-                        id="project-type"
-                        name="project_type"
-                        class="
-                            w-full px-4 py-3
-                            border-2 border-black
-                            bg-white
-                            text-lg
-                            appearance-none
-                            cursor-pointer
-                            focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2
-                            transition-all
-                        "
-                    >
+                <div class="ct-select-wrap">
+                    <select id="project-type" name="project_type" class="ct-select">
                         <option value="">Sélectionnez une option</option>
                         <option value="web-dev">Développement Web</option>
                         <option value="automation">Automatisation & Processus</option>
                         <option value="custom-app">Application Sur-Mesure</option>
                         <option value="other">Autre / Je ne sais pas encore</option>
                     </select>
-                    <i class="ri-arrow-down-s-line absolute right-4 top-1/2 -translate-y-1/2 text-xl pointer-events-none"></i>
+                    <i class="ri-arrow-down-s-line ct-select-caret" aria-hidden="true"></i>
                 </div>
             </div>
 
             <!-- Field 04: Message -->
-            <div class="form-field">
-                <label for="message" class="flex items-center gap-2 text-sm font-medium mb-2">
-                    <span class="font-mono text-xs text-gray-400">04</span>
-                    Votre message <span class="text-red-500">*</span>
+            <div class="ct-field">
+                <label for="message" class="ct-label">
+                    <span class="co-index">04</span>
+                    Votre message <span class="ct-req">*</span>
                 </label>
                 <textarea
                     id="message"
@@ -122,66 +88,23 @@
                     required
                     rows="5"
                     placeholder="Décrivez votre projet, vos besoins, vos idées..."
-                    class="
-                        w-full px-4 py-3
-                        border-2 border-black
-                        bg-white
-                        text-lg
-                        placeholder:text-gray-400
-                        resize-none
-                        focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2
-                        transition-all
-                    "
+                    class="ct-textarea"
                 ></textarea>
             </div>
 
-            <!-- Field 05: Checkbox -->
-            <div class="form-field">
-                <label class="flex items-start gap-3 cursor-pointer group">
-                    <input
-                        type="checkbox"
-                        name="consent"
-                        required
-                        class="
-                            mt-1
-                            w-5 h-5
-                            border-2 border-black
-                            appearance-none
-                            cursor-pointer
-                            checked:bg-[var(--blue)]
-                            checked:border-black
-                            relative
-                            transition-all
-                        "
-                    />
-                    <span class="text-sm text-gray-600 group-hover:text-black transition-colors">
-                        J'accepte d'être contacté par email concernant ma demande. <span class="text-red-500">*</span>
-                    </span>
+            <!-- Field 05: Consentement -->
+            <div class="ct-field">
+                <label class="ct-consent">
+                    <input type="checkbox" name="consent" required class="ct-checkbox" />
+                    <span>J'accepte d'être contacté par email concernant ma demande. <span class="ct-req">*</span></span>
                 </label>
             </div>
 
-            <!-- Submit button -->
-            <div class="pt-4">
-                <button
-                    type="submit"
-                    class="
-                        submit-btn
-                        w-full md:w-auto
-                        bg-[var(--blue)]
-                        border-2 border-black
-                        px-8 py-4
-                        text-lg font-bold
-                        shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                        transition-all duration-200
-                        hover:bg-[var(--yellow)]
-                        hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                        hover:translate-x-[2px] hover:translate-y-[2px]
-                        focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2
-                        flex items-center justify-center gap-3
-                    "
-                >
+            <!-- Submit button (.submit-btn requis par le JS ; span + i requis par le JS) -->
+            <div class="ct-submit">
+                <button type="submit" class="co-btn submit-btn">
                     <span>Envoyer le message</span>
-                    <i class="ri-send-plane-line text-xl"></i>
+                    <i class="ri-send-plane-line"></i>
                 </button>
             </div>
         </div>
@@ -189,37 +112,79 @@
 </div>
 
 <style>
-    /* Custom checkbox checkmark */
-    input[type="checkbox"]:checked::after {
-        content: '';
-        position: absolute;
-        left: 5px;
-        top: 1px;
-        width: 6px;
-        height: 12px;
-        border: solid black;
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
+    .ct-form-wrap { position: relative; }
+    .ct-form {
+        position: relative;
+        background: var(--surface);
+        border: 1px solid var(--line-2);
+        padding: 32px;
+        display: flex; flex-direction: column; gap: 26px;
     }
 
-    /* Submit button loading state */
-    .submit-btn.loading {
-        pointer-events: none;
-        opacity: 0.7;
+    .ct-form-head { display: flex; flex-direction: column; gap: 8px; }
+    .ct-form-title { font-size: clamp(1.6rem, 3.4vw, 2rem); }
+    .ct-form-sub { font-size: 0.95rem; line-height: 1.55; }
+
+    .ct-fields { display: flex; flex-direction: column; gap: 20px; }
+    .ct-field { display: flex; flex-direction: column; gap: 8px; }
+
+    .ct-label {
+        display: flex; align-items: baseline; gap: 8px;
+        font-size: 13px; font-weight: 600; color: var(--ink);
+    }
+    .ct-label .co-index { font-size: 11px; }
+    .ct-req { color: var(--accent); }
+
+    .ct-input, .ct-select, .ct-textarea {
+        width: 100%; font-family: "Inter Tight", ui-sans-serif, sans-serif;
+        font-size: 15px; color: var(--ink);
+        background: var(--bg); border: 1px solid var(--line-2);
+        padding: 12px 14px;
+        transition: border-color .18s ease-out, box-shadow .18s ease-out;
+    }
+    .ct-input::placeholder, .ct-textarea::placeholder { color: var(--muted); opacity: .7; }
+    .ct-input:focus, .ct-select:focus, .ct-textarea:focus {
+        outline: none; border-color: var(--accent);
+        box-shadow: 0 0 0 3px rgba(0, 168, 125, .15);
+    }
+    .ct-textarea { resize: vertical; min-height: 128px; line-height: 1.5; }
+
+    /* select custom caret */
+    .ct-select-wrap { position: relative; }
+    .ct-select { appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 40px; }
+    .ct-select-caret {
+        position: absolute; right: 14px; top: 50%; transform: translateY(-50%);
+        font-size: 18px; color: var(--muted); pointer-events: none;
     }
 
-    .submit-btn.loading i {
-        animation: spin 1s linear infinite;
+    /* consentement */
+    .ct-consent {
+        display: flex; align-items: flex-start; gap: 10px;
+        font-size: 13px; line-height: 1.5; color: var(--muted); cursor: pointer;
     }
+    .ct-consent:hover { color: var(--ink); }
+    .ct-checkbox { margin-top: 2px; width: 16px; height: 16px; flex: none; accent-color: var(--accent); cursor: pointer; }
 
-    @keyframes spin {
+    .ct-submit { margin-top: 4px; }
+
+    /* Submit button loading state (piloté par le JS : classe .loading + swap de l'<i>) */
+    .submit-btn.loading { pointer-events: none; opacity: 0.7; }
+    .submit-btn.loading i { animation: ctSpin 1s linear infinite; }
+    @keyframes ctSpin {
         from { transform: rotate(0deg); }
         to { transform: rotate(360deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .submit-btn.loading i { animation: none; }
+    }
+
+    @media (max-width: 560px) {
+        .ct-form { padding: 24px 20px; }
     }
 </style>
 
 <script>
-    // AJAX Form submission
+    // AJAX Form submission — HARD-PRESERVE (câblage Web3Forms inchangé)
     const form = document.getElementById('contact-form') as HTMLFormElement;
     const submitBtn = form?.querySelector('.submit-btn') as HTMLButtonElement;
     const btnText = submitBtn?.querySelector('span');
@@ -233,7 +198,7 @@
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
             if (btnText) btnText.textContent = 'Envoi en cours...';
-            if (btnIcon) btnIcon.className = 'ri-loader-4-line text-xl animate-spin';
+            if (btnIcon) btnIcon.className = 'ri-loader-4-line';
         }
 
         try {
@@ -263,7 +228,7 @@
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
                 if (btnText) btnText.textContent = 'Envoyer le message';
-                if (btnIcon) btnIcon.className = 'ri-send-plane-line text-xl';
+                if (btnIcon) btnIcon.className = 'ri-send-plane-line';
             }
         }
     });
