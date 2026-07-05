@@ -3,6 +3,22 @@
 > Sortir du look brutaliste (bordures noires 2px + ombres offset, Plus Jakarta Sans) jugé « banal » vers un style **blueprint** : filets très fins qui cadrent les sections, aération, nouveau font pairing éditorial. Exploration en pages lab AVANT toute migration du vrai site.
 > **Réfs visuelles** : pengon.dev, sakib.design. **Statut** : 🔄 EN COURS — exploration lab validée, migration à cadrer.
 
+## Etat session 2026-07-05 (aprem) — Lot motion compo + preuve Lécureux réelle + template proof-<client>
+
+**Fait :**
+- **Lot motion (compo)** : scénographie `data-animate*` sur `styleguide-compo` — hero en cascade (eyebrow→h1→lead→boutons, mirroir `Hero.astro`), trust wrapper (**marquee ambiant préservé**), 3 cartes services en **stagger** (`data-animate-stagger`/`-item`), reveals preuve (fade-up + boîte fade-left)/CTA (`scale`)/footer. **Attributs seuls, zéro JS/CSS** (moteur Motion One déjà chargé via Layout, anti-flash déjà dans BlueprintKit).
+- **Réconciliation mock preuve** : le bloc « invisibles → #1 » + « +40h » (violation honnêteté GSC) remplacé par le **vrai témoignage Lécureux** (3 paragraphes, intégré tel quel) + attribution honnête + **3 vraies tuiles GSC** (#1 / 19k / 367) + note GSC. Plus aucun chiffre inventé.
+- **Template preuve** : nouveau `src/data/proof.types.ts` (interfaces partagées `ClientProof`/`ProofStat`/`ClientTestimonial` + convention documentée « 1 client = 1 `proof-<slug>.ts` » + squelette copiable, fichier autonome). `proof-lecureux.ts` conforme via `: ClientProof` (champ manquant = erreur `astro check`) ; **nouveau champ `testimonial` nullable** → compo gère le null (garde `{testimonial && …}`).
+- **Vérifié** : motion confirmé au load (hero `opacity:1`+`data-animated` à `scrollY=0`) et au scroll (cartes/CTA/preuve), 0 erreur console, `astro check` 0 erreur sur fichiers touchés, build vert **218 pages**.
+
+**Prochain :** Reste du lot — **réconciliation "hub"** (dernier item) puis **cadrer la migration** du système blueprint vers le vrai site (homepage d'abord). Décider aussi si on **unifie le pattern `proof-<client>.ts`** vers les autres repos sites (barberMedia = composant `SocialProof`, physiopommier = pages avis) — data à fournir par Jonathan, repo par repo, hors branche jonlabs.
+
+**Pièges :** `proof.types.ts` = autonome (aucune dépendance) → se copie tel quel dans un futur projet. `testimonial` **nullable** : tout consommateur DOIT garder (`{testimonial && …}`) sinon `astro check` casse. Le pattern data-file preuve n'existe QUE dans jonlabs. **Screenshots navigateur peuvent montrer les `data-animate` « fantômes » = artefact de timing de capture, PAS un bug** (vérifier l'état DOM via JS : `getComputedStyle().opacity` + `data-animated`). Pièges antérieurs inchangés.
+
+**Commit :** [e4e482d] feat(design): Lot motion compo + preuve Lécureux réelle + template proof-<client>.ts
+
+---
+
 ## Etat session 2026-07-05 — Fix pièges margin + Lot 5 décoratifs ✅ + règle motion ease-out
 
 **Fait :**
@@ -102,7 +118,7 @@
 **Commit :** [e92b8f2] feat(design): exploration blueprint — pairing 04, BlueprintKit partagé, pages lab (branche `design/blueprint-lab`)
 
 ## Carte du code
-> Mise à jour : 2026-07-05
+> Mise à jour : 2026-07-05 (aprem)
 
 | Fichier | Rôle |
 |---------|------|
@@ -111,8 +127,9 @@
 | `src/pages/styleguide-blog.astro` | **[Lot 2]** Blog blueprint (noindex) — article à la une (`.co-frame`), cartes (`getCollection`), filtres/recherche/toggle, pagination, composants article (progress, vidéo `.co-frame`, prose, bio, related). Badges `.co-badge`(+`--onimg`). Styles `.blog-*` |
 | `src/pages/styleguide-services.astro` | **[Lot 3]** Services blueprint (noindex) — constellation (hub/nodes/modale en `.co-frame`, lignes SVG au load/resize) + modale chat (`scenarios.ts`), cartes services (features `.co-list--check`), CTA sombre. **0 emoji**. Styles `.svc-*` |
 | `src/pages/styleguide-portfolio.astro` | **[Lot 4]** Portfolio blueprint (noindex) — cas vedette Lécureux (`.co-frame` + fiche `.co-spec` + **6 tuiles depuis `proof-lecureux.ts`**), grille filtrable (`.co-frame--reveal`, badge `.co-badge`, placeholder `.co-hatch`). `.po-stats` gardé page-specific. Styles `.po-*` + JS filtres |
-| `src/data/proof-lecureux.ts` | Source unique preuve GSC Lécureux (accroche canonique + 6 stats). Consommé par le cas vedette portfolio — ne jamais réécrire les chiffres en dur |
-| `src/pages/styleguide-compo.astro` | Maquette homepage blueprint (référence) — nav, hero, trust marquee, services (`.co-grid-cells`, `.co-list`), cas client, CTA sombre (`.co-cta`), footer. ⚠️ contient encore le **mock preuve** « invisibles → #1 »/« +40h » (l.140-167) à remplacer au Lot motion+mocks |
+| `src/data/proof.types.ts` | **[Template preuve]** Interfaces partagées `ClientProof`/`ProofStat`/`ClientTestimonial` + convention documentée (1 client = 1 `proof-<slug>.ts`, chiffres réels, `testimonial` nullable, anti-dérive) + squelette copiable. **Fichier autonome** (aucune dépendance) → se copie tel quel dans un futur projet de site |
+| `src/data/proof-lecureux.ts` | Source unique preuve GSC Lécureux — conforme `: ClientProof` (accroche canonique + 6 stats + **champ `testimonial` = vrai témoignage**). Consommé par portfolio/compo/about/services — ne jamais réécrire chiffres ni citation en dur |
+| `src/pages/styleguide-compo.astro` | Maquette homepage blueprint (référence) — nav, hero, trust marquee, services, cas client, CTA sombre (`.co-cta`), footer. **[Lot motion]** scénographie `data-animate*` (hero cascade, services stagger, reveals preuve/CTA). **Preuve = vrai témoignage Lécureux** (dérivé `proof-lecureux.ts`, garde `{testimonial && …}`) + 3 tuiles GSC. Mock supprimé |
 | `src/pages/styleguide-components.astro` | Bibliothèque atomes/primitives (noindex) — cartes, tarifs (`.co-list`), FAQ **smooth** (`::details-content` ease-out), formulaire (`.co-index`), atomes + **vitrine `06 · Décoratifs`** (catalogue vivant des primitives). Styles `.cc-*` |
 | `src/pages/styleguide-lab.astro` | Comparateur pairings (échantillons multi-fonts = le sujet, conservés). Chrome UI aligné Inter Tight, `.bp-btn` blindé |
 | `src/data/{navigation,scenarios}.ts` · `src/lib/blog.ts` · `src/sample.ts` | Sources de vérité consommées par les pages lab (nav, scénarios+sections, helpers/catégories blog, author) |
@@ -124,3 +141,5 @@
 - **CSS à 2 niveaux** : primitives réutilisées dans `BlueprintKit`, spécifiques par page en `.nav-*`/`.blog-*`/`.svc-*` (promotion quand 2+ pages). Motion = système `data-animate` existant (déjà chargé via Layout).
 - **[Lot 5] Décoratifs consolidés** : une déco dupliquée 2+ fois = promue en primitive `.co-*` (badge, puce, crosshair 4-coins, grille millimétrée, spec-sheet, glow/grain). `.co-frame` = 4 crosshairs sans markup (2 pseudos × 4 backgrounds) mais **hérite `--line-2`** → sur fond ink garder `<span class="co-x">`. Nouveau vocabulaire technique dispo : `.co-crop`/`.co-dim`/`.co-anno`/`.co-index`/`.co-hatch`. SVG brutalistes `src/assets/` **non traités** (uniquement dans le vrai site → travail de migration).
 - Pages lab en **`robots="noindex, nofollow"`** ; `/styleguide` brutaliste non touché.
+- **[Motion] Attributs seuls, jamais de nouveau moteur** : le système `data-animate` (Motion One) est chargé une fois via `Layout.astro` ; l'anti-flash `opacity:0` scopé `.co-root` est dans `BlueprintKit`. Animer une page lab = poser des `data-animate`/`data-animate-stagger`+`-item`/`data-delay`/`data-animate="scale|fade-left"`. Piège : un `data-animate-item` **doit** vivre dans un conteneur `data-animate-stagger` (l'anti-flash du kit ne masque que ce cas).
+- **[Template preuve] 1 client = 1 `proof-<slug>.ts` conforme `ClientProof`** (`proof.types.ts`). Chiffres réels only (jamais « Top 1 » si non défendable), `testimonial` intégré tel quel ou `null`. Pattern jonlabs-only ; unification vers autres repos (barberMedia/physiopommier) = décision ouverte, data client à fournir.
