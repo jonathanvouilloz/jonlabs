@@ -1,7 +1,28 @@
 # Feature — Refonte blueprint (design & typographie)
 
 > Sortir du look brutaliste (bordures noires 2px + ombres offset, Plus Jakarta Sans) jugé « banal » vers un style **blueprint** : filets très fins qui cadrent les sections, aération, nouveau font pairing éditorial. Exploration en pages lab AVANT toute migration du vrai site.
-> **Réfs visuelles** : pengon.dev, sakib.design. **Statut** : 🔄 EN COURS — exploration lab validée, migration à cadrer.
+> **Réfs visuelles** : pengon.dev, sakib.design. **Statut** : 🔄 EN COURS — migration lancée : **homepage + chrome migrés en blueprint**, reste les autres pages.
+
+## Etat session 2026-07-05 (soir) — Migration homepage blueprint (chrome global + corps) ✅
+
+**Fait :** (direction validée par Jonathan : chrome global · hero avec photo · parité complète + preuve)
+- **Lot A — Fondation** (`fa0889d`) : CSS blueprint promu du lab vers `src/styles/blueprint.css` (global via Layout). Tokens + font généralisés `.co-root, .co-chrome` (le chrome marche hors `.co-root`). 2 pièges de coexistence neutralisés : règle `html,body{background}` retirée · `--accent` NON promu en `:root` (garde le wash legacy brutaliste intact). Fonts Inter Tight + Instrument Serif ajoutées à `Layout.astro`. `BlueprintKit.astro` vidé → no-op (gardé pour les imports lab). **Lab + brutaliste vérifiés intacts.**
+- **Lot B — Chrome global** (`16c8d31`) : `Header.astro` + `Footer.astro` réécrits blueprint (portés du Lot 1 `styleguide-nav`), self-scopés `.co-chrome` → rendus sur les **35 pages**. Header sticky (sur `.co-chrome`, pas `.nav-wrap`), méga-menu + drawer + spotlight fonctionnels. Footer = fat footer Lot 1 **fusionné** avec tout le contenu SEO historique (coordonnées, 5 colonnes de liens profonds, socials, mentions). Props `variant`/`scrollTransition` conservées (no-op) → aucun des 35 call sites ne casse.
+- **Lot C — Corps homepage** (`bfb7fa3`) : `index.astro` en `<main class="co-root">`, 8 sections réécrites blueprint (Hero 2-col **photo + socials**, ClientsBanner marquee vrais clients, ServicesHome grille millimétrée, AboutHome citation cadrée + badges, PortfolioHighlight **getCollection inchangé**, TechStack **bande marquee sombre** = rupture de rythme, GeoZonesStrip chips villes) + **nouvelle section `ProofLecureux.astro`** (témoignage réel + tuiles GSC #1/19k/367). Schema.org + maillage SEO préservés.
+- **Vérifié** : build vert **218 pages** ×3, **0 erreur console** (load + interaction), motion confirmé via **état DOM** (opacity 1 + `data-animated`, jamais screenshot), audit DOM data réelle (tuiles #1/19k/367, 5 chips slugs OK, 3 cartes portfolio, 3 services, 4 badges). `/` intégralement blueprint (chrome + corps).
+
+**Prochain :** **Migrer `services.astro` en priorité** (couture n°1 : header blueprint solide sur son hero sombre transparent). Puis les autres pages une par une (about, portfolio, contact, tarifs, blog…). Pattern établi : wrapper `<main class="co-root">`, sections en `.co-*` + `<style>` scopé `.xx-*`, garder la data/schema. **Décision ouverte** : garder ou non un CTA sombre `.co-cta` dédié sur la home (le footer porte déjà « Travaillons ensemble ? »).
+
+**Pièges :**
+- **Screenshots navigateur = artefact de timing** : les `data-animate` apparaissent « fantômes » (opacity 0 mid-reveal) juste après nav/scroll. TOUJOURS vérifier via JS (`getComputedStyle().opacity` + `data-animated`), jamais conclure d'un screenshot vide.
+- **`html,body` scroll** : `window.scrollTo`/`scrollIntoView` via l'outil JS restaient à scrollY 0 (bloqué par l'outil) ; scroller via l'action `computer scroll` physique.
+- **Règle chrome** : jamais de `.co-*` sans ancêtre `.co-root` OU `.co-chrome` (sinon `--accent` hérite le wash legacy → accent quasi-transparent). Sticky = sur `.co-chrome` (bloc conteneur haut), pas sur un enfant court.
+- **`global.css` gardé sur la home** : nécessaire pour que Preflight reset les marges UA des `<blockquote>` (About/Proof), non couvertes par le reset blueprint scopé.
+- **Couture assumée** : 34 pages ont le chrome blueprint sur corps brutaliste jusqu'à leur migration. Mobile <720/<900px **non capturable** via l'outil → Jonathan valide sur device.
+
+**Commit :** [bfb7fa3] feat(design): Lot C homepage blueprint (sections + preuve Lécureux)
+
+---
 
 ## Etat session 2026-07-05 (aprem) — Lot motion compo + preuve Lécureux réelle + template proof-<client>
 
@@ -118,12 +139,25 @@
 **Commit :** [e92b8f2] feat(design): exploration blueprint — pairing 04, BlueprintKit partagé, pages lab (branche `design/blueprint-lab`)
 
 ## Carte du code
-> Mise à jour : 2026-07-05 (aprem)
+> Mise à jour : 2026-07-05 (soir) — migration homepage. **Le blueprint vit maintenant dans le VRAI site** (plus seulement le lab).
 
+### Vrai site (migré blueprint)
 | Fichier | Rôle |
 |---------|------|
-| `src/components/lab/BlueprintKit.astro` | **Kit blueprint partagé** — `<link>` fonts + `<style is:global>` : reset scopé (`.co-root :where(a)` anti-underline + anti-flash `[data-animate]` + `interpolate-size:allow-keywords`), tokens `.co-root` (dont `--dash`), typo pairing 04, primitives de base (`.co-eyebrow/.co-x/.co-btn/.co-sec/.co-guides/.co-dots/.co-cta*`) **+ [Lot 5] 13 primitives décoratives** : `.co-badge(+--solid)`, `.co-frame(+--reveal)`, `.co-grid-cells`, `.co-spec`, `.co-list(+--check)`, `.co-glow`/`.co-grain` (extraits du CTA), `.co-crop`, `.co-dim`, `.co-anno`, `.co-index`, `.co-hatch`, `.co-guide-dashed`, `.co-sec--boxed`. Marquee, burger/drawer, grilles, media queries. **Base du design system.** ⚠️ reset `.co-root h/p{margin:0}` (0,1,1) bat les règles 1-classe → espacer via flex+gap **ou préfixe `.co-root`** · ⚠️ règle gravée : **motion en ease-out uniquement** · ⚠️ `.co-frame` hérite `--line-2` → jamais sur fond ink |
-| `src/pages/styleguide-nav.astro` | **[Lot 1]** Nav blueprint (noindex) — barre + méga-menu (`.co-frame`) + drawer accordéons (`.co-guide-dashed`) + fat footer. Badges `.co-badge(+--solid)`. Data `navigation.ts`. Styles `.nav-*`, JS méga + drawer |
+| `src/styles/blueprint.css` | **Design system global** (importé par `Layout.astro`). Tokens + font `.co-root, .co-chrome` (généralisés → chrome utilisable hors `.co-root`), layout colonne 1180 sur `.co-root` seul, + toutes les primitives `.co-*` (promues du kit lab). ⚠️ jamais de `.co-*` sans ancêtre `.co-root`/`.co-chrome` (sinon `--accent` = wash legacy) · `--accent` PAS en `:root` · pas de `html,body{background}` |
+| `src/layouts/Layout.astro` | Importe `blueprint.css` (global) + `<link>` fonts Inter Tight/Instrument Serif (à côté de Plus Jakarta, gardé pour les pages brutalistes). Charge le moteur `data-animate` (inchangé) |
+| `src/components/Header.astro` | **Chrome blueprint** (35 pages) — nav + méga-menu + drawer, wrapper `.co-chrome`, **sticky sur `.co-chrome`**. Data `navigation.ts`. Props `variant`/`scrollTransition` no-op. Styles `.nav-*` + JS |
+| `src/components/Footer.astro` | **Chrome blueprint** (35 pages) — fat footer (Lot 1) FUSIONNÉ avec contenu SEO historique (coordonnées, 5 colonnes liens, socials, mentions). Wrapper `.co-chrome`. Styles `.co-foot-*` |
+| `src/pages/index.astro` | Homepage — `<main class="co-root">`, 8 sections + preuve, schema.org inchangé. `global.css` gardé (Preflight reset les `<blockquote>`) |
+| `src/components/Hero.astro` | Hero blueprint 2-col — texte (`.co-ser` accent) + 2 CTA (`sample.ts`) + socials · **photo Jonathan cadrée `.co-frame`**. Cascade `data-animate`. Styles `.hp-hero-*` |
+| `src/components/{ServicesHome,AboutHome,PortfolioHighlight,TechStack,GeoZonesStrip,ClientsBanner}.astro` | Sections home blueprint (homepage-only) — grille millimétrée services · citation+badges About · `getCollection` portfolio inchangé · **TechStack = marquee sombre** · chips villes géo (maillage SEO préservé) · marquee vrais clients. Styles `.hp-*` |
+| `src/components/ProofLecureux.astro` | **Nouveau** — section preuve home : témoignage réel + 3 tuiles GSC (`proof-lecureux.ts`), garde `{testimonial && …}`. Styles `.hp-proof-*` |
+
+### Lab (référence, noindex — inchangé)
+| Fichier | Rôle |
+|---------|------|
+| `src/components/lab/BlueprintKit.astro` | ⚠️ **DÉPRÉCIÉ / no-op** — CSS+fonts promus vers `blueprint.css` + `Layout`. Gardé vide pour ne pas casser les imports des 6 pages lab. À supprimer une fois les imports retirés |
+| `src/pages/styleguide-nav.astro` | **[Lot 1]** Nav blueprint lab (noindex) — **source du chrome migré** (Header/Footer en dérivent). Barre + méga-menu + drawer + fat footer. Data `navigation.ts` |
 | `src/pages/styleguide-blog.astro` | **[Lot 2]** Blog blueprint (noindex) — article à la une (`.co-frame`), cartes (`getCollection`), filtres/recherche/toggle, pagination, composants article (progress, vidéo `.co-frame`, prose, bio, related). Badges `.co-badge`(+`--onimg`). Styles `.blog-*` |
 | `src/pages/styleguide-services.astro` | **[Lot 3]** Services blueprint (noindex) — constellation (hub/nodes/modale en `.co-frame`, lignes SVG au load/resize) + modale chat (`scenarios.ts`), cartes services (features `.co-list--check`), CTA sombre. **0 emoji**. Styles `.svc-*` |
 | `src/pages/styleguide-portfolio.astro` | **[Lot 4]** Portfolio blueprint (noindex) — cas vedette Lécureux (`.co-frame` + fiche `.co-spec` + **6 tuiles depuis `proof-lecureux.ts`**), grille filtrable (`.co-frame--reveal`, badge `.co-badge`, placeholder `.co-hatch`). `.po-stats` gardé page-specific. Styles `.po-*` + JS filtres |
@@ -135,6 +169,7 @@
 | `src/data/{navigation,scenarios}.ts` · `src/lib/blog.ts` · `src/sample.ts` | Sources de vérité consommées par les pages lab (nav, scénarios+sections, helpers/catégories blog, author) |
 
 ### Décisions clés
+- **[Migration] Ordre : chrome global d'abord, puis corps page par page.** Le blueprint est promu en `blueprint.css` global ; le chrome (`Header`/`Footer` en `.co-chrome`) est basculé sur les 35 pages d'un coup, les corps migrent un par un. Coexistence brutaliste ↔ blueprint garantie par des namespaces de tokens disjoints + scoping strict `.co-root`/`.co-chrome`. Couture assumée : chrome blueprint sur corps brutaliste jusqu'à migration. `services.astro` = prochaine (perd son header transparent).
 - **Pairing = Inter Tight × Instrument Serif uniquement** ; Instrument Serif italique réservé aux gros titres display, accent inline = **teal** (pas d'italique).
 - **Blueprint = filets fins + crosshairs**, colonne capée, **coins nets** (pas d'ombre offset brutaliste). **Une seule couleur d'accent (teal)** — pas de couleur par catégorie/pilier.
 - **Règles design gravées en mémoire** : `feedback_zero_emoji` (0 emoji → icônes Remix mono) · `feedback_pas_bordure_partielle_arrondi` (jamais de trait partiel sur coin arrondi → barre droite `::after`) · `feedback_animations_ease_out` (toute transition/anim en **ease-out**, jamais ease-in/ease-in-out ; boucles ambiantes exclues). Bouton sur fond sombre = fond clair, jamais ink-sur-ink.
