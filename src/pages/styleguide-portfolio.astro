@@ -71,10 +71,7 @@ const featuredMeta = [
       <p class="co-eyebrow">01 — Cas vedette</p>
       <h2 style="margin-top:8px;">Étude de cas</h2>
 
-      <article class="po-feature">
-        <span class="co-x tl"></span><span class="co-x tr"></span>
-        <span class="co-x bl"></span><span class="co-x br"></span>
-
+      <article class="po-feature co-frame">
         <!-- Image cadrée filets -->
         <a href={proofLecureux.portfolioUrl} class="po-feature-media" aria-label={`Voir l'étude de cas : ${proofLecureux.company}`}>
           <img src="/images/portfolio/leo-lecureux/hero.webp" alt={`Site ${proofLecureux.company} — ${proofLecureux.metierShort}`} loading="lazy" />
@@ -89,9 +86,9 @@ const featuredMeta = [
           </h3>
           <p class="po-feature-lead">{proofLecureux.accrocheLong}.</p>
 
-          <dl class="po-meta">
+          <dl class="co-spec po-meta">
             {featuredMeta.map((m) => (
-              <div class="po-meta-row">
+              <div class="co-spec-row">
                 <dt>{m.k}</dt>
                 <dd>{m.v}</dd>
               </div>
@@ -142,24 +139,21 @@ const featuredMeta = [
           return (
             <a
               href={`/portfolio/${p.slug}`}
-              class="po-card"
+              class="po-card co-frame co-frame--reveal"
               data-category={catKey}
               aria-label={`Voir le projet : ${p.data.title}`}
             >
-              <span class="co-x tl"></span><span class="co-x tr"></span>
-              <span class="co-x bl"></span><span class="co-x br"></span>
-
               <div class="po-card-media">
                 {p.data.heroImage?.url ? (
                   <img src={p.data.heroImage.url} alt={p.data.heroImage.alt} loading="lazy" />
                 ) : (
-                  <div class="po-card-ph"><i class="ri-image-line" aria-hidden="true"></i></div>
+                  <div class="po-card-ph co-hatch"><i class="ri-image-line" aria-hidden="true"></i></div>
                 )}
               </div>
 
               <div class="po-card-body">
                 <div class="po-card-meta">
-                  <span class="po-badge"><i class="po-dot" aria-hidden="true"></i>{categoryLabels[catKey] || catKey}</span>
+                  <span class="co-badge">{categoryLabels[catKey] || catKey}</span>
                   {p.data.client && <span class="co-mut">{p.data.client.name}</span>}
                 </div>
                 <h3 class="po-card-title">{p.data.title}</h3>
@@ -224,14 +218,8 @@ const featuredMeta = [
     .po-feature-title { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.08; }
     .po-feature-lead { line-height: 1.6; color: var(--muted); max-width: 44ch; }
 
-    /* Fiche technique : label fixe + valeur, filets entre les lignes → tout aligné */
-    .po-meta { align-self: stretch; margin-top: 6px; border-top: 1px solid var(--line); }
-    .po-meta-row {
-      display: grid; grid-template-columns: 108px 1fr; align-items: baseline; gap: 16px;
-      padding: 9px 0; border-bottom: 1px solid var(--line);
-    }
-    .po-meta-row dt { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-    .po-meta-row dd { font-size: 14px; font-weight: 500; }
+    /* Fiche technique = primitive .co-spec (kit) ; ici juste le placement dans le corps. */
+    .po-meta { align-self: stretch; margin-top: 6px; }
 
     .po-feature-cta { margin-top: 10px; }
     .po-feature-cta i { transition: transform .18s ease-out; }
@@ -255,14 +243,8 @@ const featuredMeta = [
     .po-stat-label { font-size: 12px; line-height: 1.25; }
     .po-stats-note { grid-column: 1 / -1; padding: 12px 32px; font-size: 12px; border-top: 1px solid var(--line); }
 
-    /* ── Badge catégorie unique (pastille filet + point teal) — pas de couleur par catégorie ── */
-    .po-badge {
-      display: inline-flex; align-items: center; gap: 7px;
-      padding: 4px 11px; font-size: 12px; font-weight: 600;
-      border: 1px solid var(--line-2); color: var(--ink);
-    }
+    /* Badge catégorie carte = primitive .co-badge (kit). Le tag plein sur image reste local. */
     .po-dot { width: 6px; height: 6px; border-radius: 999px; background: var(--accent); flex: none; }
-    .po-feature-tag .po-dot { background: var(--accent); }
 
     /* ── Filtres ── */
     .po-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 24px; }
@@ -283,8 +265,6 @@ const featuredMeta = [
       transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
     .po-card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(20,22,26,.08); }
-    .po-card > .co-x { opacity: 0; transition: opacity .18s ease-out; }
-    .po-card:hover > .co-x { opacity: 1; }
     .po-card-media { aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1px solid var(--line); background: var(--bg); }
     .po-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease-out; }
     .po-card:hover .po-card-media img { transform: scale(1.04); }

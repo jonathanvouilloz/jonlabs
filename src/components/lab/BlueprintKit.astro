@@ -40,6 +40,7 @@
     --line-2: rgba(20, 22, 26, 0.16);
     --accent: #00A87D;         /* teal foncé lisible */
     --accent-bright: #00D9A3;
+    --dash: var(--line-2);     /* filet pointillé (guides) */
 
     background: var(--bg);
     color: var(--ink);
@@ -49,7 +50,13 @@
     border-left: 1px solid var(--line);
     border-right: 1px solid var(--line);
     overflow: hidden;
+    /* autorise l'animation des tailles auto (ex. ::details-content de la FAQ) */
+    interpolate-size: allow-keywords;
   }
+
+  /* ── RÈGLE MOTION GRAVÉE : toute animation/transition en ease-out, JAMAIS ease-in
+     (ni ease-in-out) — l'entrée doit décélérer, pas accélérer. cubic-bezier custom OK
+     tant qu'elle est ease-out (ex. drawer .16,1,.3,1). Boucles ambiantes exclues. ── */
 
   .co-root h1, .co-root h2, .co-root h3 { font-weight: 700; letter-spacing: -0.025em; line-height: 1.05; }
   .co-ser { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: 0; }
@@ -97,16 +104,16 @@
      pour que .co-cta-btn gagne sur .co-btn (source order). */
   .co-cta { position: relative; overflow: hidden; background: #0b0d10; color: #fff; border-top: 1px solid var(--line-2); }
   .co-cta > .co-x { --line-2: rgba(255,255,255,0.28); }
-  /* glow teal flouté */
-  .co-cta::before {
+  /* glow teal flouté — overlay réutilisable (A13). .co-cta l'expose via ::before. */
+  .co-glow, .co-cta::before {
     content: ""; position: absolute; inset: -25%; z-index: 0; pointer-events: none;
     background:
       radial-gradient(38% 46% at 20% 15%, rgba(0,217,163,0.30), transparent 66%),
       radial-gradient(40% 52% at 84% 92%, rgba(0,168,125,0.22), transparent 70%);
     filter: blur(70px);
   }
-  /* grain (feTurbulence data URI, id auto-scopé par instance) */
-  .co-cta::after {
+  /* grain (feTurbulence data URI) — overlay réutilisable (A13). .co-cta l'expose via ::after. */
+  .co-grain, .co-cta::after {
     content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
     opacity: 0.10; mix-blend-mode: overlay;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='cocta-n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23cocta-n)'/%3E%3C/svg%3E");
@@ -130,6 +137,111 @@
   .co-cta-trust { display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; margin-top: 12px; font-size: 13px; color: rgba(255,255,255,0.6); }
   .co-cta-trust i { color: var(--accent-bright); margin-right: 4px; }
   @media (max-width: 720px) { .co-cta-inner { padding: 72px 20px; } }
+
+  /* ══ Primitives décoratives (Lot 5) ══
+     Règles gravées : accent = --accent (jamais --accent-bright sur fond clair),
+     espacement via gap/.co-root (jamais margin seul sur h/p), 0 emoji (Remix mono),
+     pas de bordure partielle sur coin arrondi, sharp corners. */
+
+  /* A1 · Pastille catégorie unique — filet + point teal. Point toujours --accent. */
+  .co-badge {
+    display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+    font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    line-height: 1.5; padding: 4px 11px; border-radius: 999px;
+    color: var(--muted); background: var(--surface); border: 1px solid var(--line-2);
+  }
+  .co-badge::before { content: ""; flex: none; width: 5px; height: 5px; border-radius: 999px; background: var(--accent); }
+  .co-badge--solid { background: var(--accent); border-color: var(--accent); color: #fff; }
+  .co-badge--solid::before { background: #fff; }
+
+  /* A2 · Cadre 4 crosshairs sans markup. Parent = position:relative.
+     ::before = TL + BR ; ::after = TR + BL (4 backgrounds/pseudo, positions 4-valeurs).
+     Hérite --line-2 → jamais sur fond ink (le CTA garde ses <span class="co-x">). */
+  .co-frame::before, .co-frame::after {
+    content: ""; position: absolute; inset: -4.5px; z-index: 3; pointer-events: none; background-repeat: no-repeat;
+  }
+  .co-frame::before {
+    background-image:
+      linear-gradient(var(--line-2), var(--line-2)), linear-gradient(var(--line-2), var(--line-2)),
+      linear-gradient(var(--line-2), var(--line-2)), linear-gradient(var(--line-2), var(--line-2));
+    background-size: 9px 1px, 1px 9px, 9px 1px, 1px 9px;
+    background-position: left 0 top 4px, left 4px top 0, right 0 bottom 4px, right 4px bottom 0;
+  }
+  .co-frame::after {
+    background-image:
+      linear-gradient(var(--line-2), var(--line-2)), linear-gradient(var(--line-2), var(--line-2)),
+      linear-gradient(var(--line-2), var(--line-2)), linear-gradient(var(--line-2), var(--line-2));
+    background-size: 9px 1px, 1px 9px, 9px 1px, 1px 9px;
+    background-position: right 0 top 4px, right 4px top 0, left 0 bottom 4px, left 4px bottom 0;
+  }
+  .co-frame--reveal::before, .co-frame--reveal::after { opacity: 0; transition: opacity .18s ease-out; }
+  .co-frame--reveal:hover::before, .co-frame--reveal:hover::after { opacity: 1; }
+
+  /* A3 · Fermeture bas de bande (4 coins = .co-frame sur un wrapper interne). */
+  .co-sec--boxed { border-bottom: 1px solid var(--line); }
+
+  /* A4 · Grille papier-millimétré — filets top/left conteneur + right/bottom par cellule. */
+  .co-grid-cells { display: grid; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+  .co-grid-cells > * { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .co-grid-cells--seamless > *:nth-child(3n) { border-right: 0; }
+
+  /* A5 · Fiche technique (promotion .po-meta). dd reset l'indent UA (hors reset co-root). */
+  .co-spec { border-top: 1px solid var(--line); }
+  .co-spec-row {
+    display: grid; grid-template-columns: 108px 1fr; align-items: baseline; gap: 16px;
+    padding: 9px 0; border-bottom: 1px solid var(--line);
+  }
+  .co-spec-row dt { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .co-spec-row dd { margin: 0; font-size: 14px; font-weight: 500; }
+
+  /* A6 · Liste à puce ronde teal unifiée + variante coche Remix. */
+  .co-list { display: flex; flex-direction: column; gap: 8px; padding: 0; list-style: none; }
+  .co-list li { position: relative; padding-left: 20px; line-height: 1.6; }
+  .co-list li::before {
+    content: ""; position: absolute; left: 2px; top: 0.8em; transform: translateY(-50%);
+    width: 6px; height: 6px; border-radius: 999px; background: var(--accent);
+  }
+  .co-list--check li { padding-left: 0; display: flex; gap: 9px; }
+  .co-list--check li::before { content: none; }
+  .co-list--check li i { color: var(--accent); font-size: 15px; flex: none; margin-top: 1px; }
+
+  /* A7 · Numéro de section tabulaire — Inter Tight (pas de mono). */
+  .co-index { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; font-style: normal; color: var(--muted); }
+
+  /* A8 · Filet pointillé. */
+  .co-guide-dashed { border-left: 1px dashed var(--dash); }
+
+  /* A9 · Repères de coupe en L (coins). Moteur multi-bg façon .co-frame, barres flush au coin. */
+  .co-crop::before, .co-crop::after {
+    content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none; background-repeat: no-repeat;
+  }
+  .co-crop::before {
+    background-image:
+      linear-gradient(var(--line-2), var(--line-2)), linear-gradient(var(--line-2), var(--line-2)),
+      linear-gradient(var(--line-2), var(--line-2)), linear-gradient(var(--line-2), var(--line-2));
+    background-size: 14px 1px, 1px 14px, 14px 1px, 1px 14px;
+    background-position: left 0 top 0, left 0 top 0, right 0 bottom 0, right 0 bottom 0;
+  }
+  .co-crop::after {
+    background-image:
+      linear-gradient(var(--line-2), var(--line-2)), linear-gradient(var(--line-2), var(--line-2)),
+      linear-gradient(var(--line-2), var(--line-2)), linear-gradient(var(--line-2), var(--line-2));
+    background-size: 14px 1px, 1px 14px, 14px 1px, 1px 14px;
+    background-position: right 0 top 0, right 0 top 0, left 0 bottom 0, left 0 bottom 0;
+  }
+
+  /* A10 · Cote / dimension : |‹—— 1180 ——›|. Embouts via ::before/::after, trait via .co-dim-line. */
+  .co-dim { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .co-dim::before, .co-dim::after { content: ""; flex: none; width: 1px; height: 8px; background: var(--line-2); }
+  .co-dim-line { flex: 1; height: 1px; background: var(--line-2); }
+
+  /* A11 · Annotation à ligne de rappel. */
+  .co-anno { display: inline-flex; align-items: center; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+  .co-anno-dot { width: 5px; height: 5px; border-radius: 999px; background: var(--accent); flex: none; }
+  .co-anno-line { width: 28px; height: 1px; background: var(--line-2); flex: none; margin: 0 8px; }
+
+  /* A12 · Hachures diagonales (zones média vides). */
+  .co-hatch { background-image: repeating-linear-gradient(45deg, var(--line) 0, var(--line) 1px, transparent 1px, transparent 7px); }
 
   /* section shell */
   .co-sec { position: relative; border-top: 1px solid var(--line); }

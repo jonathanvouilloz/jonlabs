@@ -45,13 +45,11 @@ const authorInitials = author.name.split(" ").map((w) => w[0]).slice(0, 2).join(
 
       {posts[0] && (
         <a href={`/blog/${posts[0].slug}`} class="blog-feature" data-animate="fade-up">
-          <div class="blog-feature-cover">
+          <div class="blog-feature-cover co-frame">
             <img src={posts[0].data.image.url} alt={posts[0].data.image.alt} loading="lazy" />
-            <span class="co-x tl"></span><span class="co-x tr"></span>
-            <span class="co-x bl"></span><span class="co-x br"></span>
           </div>
           <div class="blog-feature-body">
-            <span class="blog-badge">{getCategoryName(posts[0].data.category)}</span>
+            <span class="co-badge">{getCategoryName(posts[0].data.category)}</span>
             <h3 class="blog-feature-title">{posts[0].data.title}</h3>
             <p class="co-mut blog-feature-desc">{posts[0].data.description}</p>
             <div class="blog-meta">
@@ -102,7 +100,7 @@ const authorInitials = author.name.split(" ").map((w) => w[0]).slice(0, 2).join(
               <a href={`/blog/${post.slug}`} class="blog-card-link" aria-label={`Lire : ${post.data.title}`}></a>
               <div class="blog-card-cover">
                 <img src={post.data.image.url} alt={post.data.image.alt} loading="lazy" />
-                <span class="blog-badge blog-badge--onimg">{getCategoryName(post.data.category)}</span>
+                <span class="co-badge co-badge--onimg">{getCategoryName(post.data.category)}</span>
               </div>
               <div class="blog-card-body">
                 <h3 class="blog-card-title">{post.data.title}</h3>
@@ -154,9 +152,7 @@ const authorInitials = author.name.split(" ").map((w) => w[0]).slice(0, 2).join(
       <!-- Video embed façade -->
       <div class="blog-sub">
         <h4 class="co-eyebrow">Vidéo intégrée (16/9)</h4>
-        <div class="blog-video co-dots">
-          <span class="co-x tl"></span><span class="co-x tr"></span>
-          <span class="co-x bl"></span><span class="co-x br"></span>
+        <div class="blog-video co-dots co-frame">
           <button class="blog-video-play" aria-label="Lire la vidéo"><i class="ri-play-fill"></i></button>
         </div>
       </div>
@@ -205,7 +201,7 @@ const authorInitials = author.name.split(" ").map((w) => w[0]).slice(0, 2).join(
         <div class="blog-related">
           {related.map((post) => (
               <a href={`/blog/${post.slug}`} class="blog-related-card">
-                <span class="blog-badge">{getCategoryName(post.data.category)}</span>
+                <span class="co-badge">{getCategoryName(post.data.category)}</span>
                 <strong>{post.data.title}</strong>
                 <span class="blog-meta"><time>{formatDateShort(post.data.pubDate)}</time>{post.data.readingTime && <span>· {post.data.readingTime} min</span>}</span>
               </a>
@@ -219,17 +215,7 @@ const authorInitials = author.name.split(" ").map((w) => w[0]).slice(0, 2).join(
   <style is:global>
     /* ══ BLOG LAB — styles .blog-* par-dessus les tokens du kit ══ */
 
-    /* Badge catégorie — UN SEUL style, harmonisé avec le système (pastille filet + point teal).
-       La catégorie se lit dans le texte, jamais par une couleur dédiée. */
-    .blog-badge {
-      display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
-      font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-      padding: 4px 11px; border-radius: 999px; line-height: 1.5;
-      color: var(--muted); background: var(--surface); border: 1px solid var(--line-2);
-    }
-    .blog-badge::before {
-      content: ""; flex: none; width: 5px; height: 5px; border-radius: 999px; background: var(--accent);
-    }
+    /* Badge catégorie = primitive .co-badge (kit). Variante sur image ci-dessous. */
 
     /* Article à la une */
     .blog-feature {
@@ -298,7 +284,7 @@ const authorInitials = author.name.split(" ").map((w) => w[0]).slice(0, 2).join(
     .blog-card-cover { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 1px solid var(--line-2); background: var(--bg); }
     .blog-card-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease-out; }
     .blog-card:hover .blog-card-cover img { transform: scale(1.05); }
-    .blog-badge--onimg { position: absolute; top: 12px; left: 12px; z-index: 2; backdrop-filter: saturate(1.2); }
+    .co-badge--onimg { position: absolute; top: 12px; left: 12px; z-index: 2; backdrop-filter: saturate(1.2); }
     .blog-card-body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
     .blog-card-title { font-size: 1.12rem; line-height: 1.2; }
     .blog-desc { font-size: 14px; line-height: 1.55; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
@@ -366,7 +352,7 @@ const authorInitials = author.name.split(" ").map((w) => w[0]).slice(0, 2).join(
     .blog-prose blockquote { margin: 18px 0; padding: 4px 0 4px 18px; border-left: 2px solid var(--accent); font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: 1.25rem; color: var(--ink); }
     .blog-prose ul { margin: 8px 0 16px; padding-left: 4px; display: flex; flex-direction: column; gap: 8px; }
     .blog-prose li { position: relative; padding-left: 22px; line-height: 1.6; }
-    .blog-prose li::before { content: ""; position: absolute; left: 4px; top: 10px; width: 6px; height: 6px; background: var(--accent); }
+    .blog-prose li::before { content: ""; position: absolute; left: 4px; top: 10px; width: 6px; height: 6px; border-radius: 999px; background: var(--accent); }
 
     /* Author bio */
     .blog-author { display: flex; gap: 18px; align-items: flex-start; padding: 24px; border: 1px solid var(--line-2); background: var(--surface); max-width: 620px; }

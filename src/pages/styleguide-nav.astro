@@ -12,6 +12,7 @@ const slugify = (s: string) =>
 
 const megaSections = mainNav.filter((s) => s.type === "mega");
 const badgeLabel = (b?: string) => (b === "featured" ? "À la une" : b === "new" ? "Nouveau" : "");
+const badgeClass = (b?: string) => (b === "featured" ? "co-badge co-badge--solid" : "co-badge");
 ---
 
 <Layout title={pageTitle} description={pageDescription} robots="noindex, nofollow">
@@ -59,10 +60,7 @@ const badgeLabel = (b?: string) => (b === "featured" ? "À la une" : b === "new"
       {megaSections.map((section) => {
         const slug = slugify(section.label);
         return (
-          <div class="nav-panel" id={`nav-panel-${slug}`} data-nav-panel={slug} role="region" aria-label={section.label}>
-            <span class="co-x tl"></span><span class="co-x tr"></span>
-            <span class="co-x bl"></span><span class="co-x br"></span>
-
+          <div class="nav-panel co-frame" id={`nav-panel-${slug}`} data-nav-panel={slug} role="region" aria-label={section.label}>
             <div class="nav-panel-grid" style={`--cols:${section.columns?.length ?? 1}`}>
               {section.columns?.map((col) => (
                 <div class="nav-col">
@@ -78,7 +76,7 @@ const badgeLabel = (b?: string) => (b === "featured" ? "À la une" : b === "new"
                         >
                           {item.icon && <i class={`${item.icon} nav-link-icon`} aria-hidden="true"></i>}
                           <span>{item.label}</span>
-                          {item.badge && <span class={`nav-badge nav-badge--${item.badge}`}>{badgeLabel(item.badge)}</span>}
+                          {item.badge && <span class={badgeClass(item.badge)}>{badgeLabel(item.badge)}</span>}
                           {item.external && <i class="ri-external-link-line nav-link-ext" aria-hidden="true"></i>}
                         </a>
                       </li>
@@ -128,7 +126,7 @@ const badgeLabel = (b?: string) => (b === "featured" ? "À la une" : b === "new"
               </button>
               <div class="nav-acc-panel" id={`nav-acc-${slug}`} aria-hidden="true">
                 {section.columns?.map((col) => (
-                  <div class="nav-acc-col">
+                  <div class="nav-acc-col co-guide-dashed">
                     <h4 class="co-eyebrow">{col.title}</h4>
                     <ul>
                       {col.items.map((item) => (
@@ -136,7 +134,7 @@ const badgeLabel = (b?: string) => (b === "featured" ? "À la une" : b === "new"
                           <a href={item.href} class="nav-acc-link">
                             {item.icon && <i class={`${item.icon}`} aria-hidden="true"></i>}
                             <span>{item.label}</span>
-                            {item.badge && <span class={`nav-badge nav-badge--${item.badge}`}>{badgeLabel(item.badge)}</span>}
+                            {item.badge && <span class={badgeClass(item.badge)}>{badgeLabel(item.badge)}</span>}
                           </a>
                         </li>
                       ))}
@@ -179,15 +177,14 @@ const badgeLabel = (b?: string) => (b === "featured" ? "À la une" : b === "new"
         </div>
         <div class="nav-state-row">
           <span class="co-mut nav-state-tag">Badges</span>
-          <span class="nav-badge nav-badge--featured">À la une</span>
-          <span class="nav-badge nav-badge--new">Nouveau</span>
+          <span class="co-badge co-badge--solid">À la une</span>
+          <span class="co-badge">Nouveau</span>
         </div>
       </div>
     </section>
 
     <!-- ══ FAT FOOTER ══ -->
     <footer class="co-sec nav-footer">
-      <span class="co-x tl"></span><span class="co-x tr"></span>
       <div class="nav-footer-grid co-pad">
         <div class="nav-footer-brand">
           <a href="#top" class="nav-logo" style="font-size:24px;">jonlabs<span style="color:var(--accent);">.</span></a>
@@ -286,13 +283,6 @@ const badgeLabel = (b?: string) => (b === "featured" ? "À la une" : b === "new"
     .nav-link:hover .nav-link-icon { color: var(--accent); }
     .nav-link-ext { font-size: 13px; color: var(--muted); margin-left: 2px; }
 
-    .nav-badge {
-      font-size: 10.5px; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase;
-      padding: 2px 7px; border-radius: 999px; line-height: 1.5; flex: none;
-    }
-    .nav-badge--featured { background: var(--accent); color: #fff; }
-    .nav-badge--new { background: rgba(0, 168, 125, 0.12); color: var(--accent); border: 1px solid rgba(0, 168, 125, 0.35); }
-
     /* Spotlight */
     .nav-spot {
       position: relative; display: flex; align-items: center; gap: 14px; margin-top: 22px;
@@ -326,7 +316,7 @@ const badgeLabel = (b?: string) => (b === "featured" ? "À la une" : b === "new"
 
     .nav-acc-panel { max-height: 0; overflow: hidden; transition: max-height .3s ease-out; }
     .nav-acc-panel.is-open { max-height: 1400px; }
-    .nav-acc-col { padding: 6px 0 14px 14px; border-left: 1px dashed var(--line-2); margin: 6px 0 6px 4px; }
+    .nav-acc-col { padding: 6px 0 14px 14px; margin: 6px 0 6px 4px; }
     .nav-acc-col h4 { margin-bottom: 8px; }
     .nav-acc-col ul { display: flex; flex-direction: column; gap: 2px; }
     .nav-acc-link {

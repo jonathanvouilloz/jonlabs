@@ -56,16 +56,12 @@ const positions = [
 
         <svg id="svc-lines" aria-hidden="true"></svg>
 
-        <div class="svc-hub" id="svc-hub" aria-hidden="true">
-          <span class="co-x tl"></span><span class="co-x tr"></span>
-          <span class="co-x bl"></span><span class="co-x br"></span>
+        <div class="svc-hub co-frame" id="svc-hub" aria-hidden="true">
           <span class="svc-hub-logo">jonlabs<span style="color:var(--accent);">.</span></span>
         </div>
 
         {scenarios.map((s, i) => (
-          <button class="svc-node" data-scenario-id={s.id} data-i={i} style={positions[i]} data-pillar={s.pillar}>
-            <span class="co-x tl"></span><span class="co-x tr"></span>
-            <span class="co-x bl"></span><span class="co-x br"></span>
+          <button class="svc-node co-frame co-frame--reveal" data-scenario-id={s.id} data-i={i} style={positions[i]} data-pillar={s.pillar}>
             <i class={`${nodeIcons[s.id] ?? "ri-focus-3-line"} svc-node-icon`} aria-hidden="true"></i>
             <span class="svc-node-text">
               <strong>{s.title}</strong>
@@ -93,7 +89,7 @@ const positions = [
               <article class="svc-card">
                 <h4 class="svc-card-title">{sub.title}</h4>
                 <p class="svc-card-desc">{sub.description}</p>
-                <ul class="svc-card-features">
+                <ul class="svc-card-features co-list co-list--check">
                   {sub.features.map((f) => (
                     <li><i class="ri-check-line" aria-hidden="true"></i><span>{f}</span></li>
                   ))}
@@ -129,9 +125,7 @@ const positions = [
     <!-- ══ MODALE CONVERSATION ══ -->
     <div id="svc-modal" class="svc-modal hidden" role="dialog" aria-modal="true" aria-label="Conversation avec Jonathan">
       <div class="svc-modal-backdrop" data-svc-close></div>
-      <div class="svc-modal-win">
-        <span class="co-x tl"></span><span class="co-x tr"></span>
-        <span class="co-x bl"></span><span class="co-x br"></span>
+      <div class="svc-modal-win co-frame">
         <div class="svc-modal-head">
           <div class="svc-modal-id">
             <span class="svc-modal-avatar" aria-hidden="true">JV</span>
@@ -192,9 +186,7 @@ const positions = [
     .svc-node-text .co-mut { font-size: 12.5px; line-height: 1.3; }
     .svc-node-arrow { margin-left: auto; font-size: 17px; color: var(--muted); flex: none; transition: color .18s ease-out, transform .18s ease-out; }
     .svc-node:hover .svc-node-arrow { color: var(--accent); transform: translate(2px, -2px); }
-    /* crosshairs cachés, révélés au hover (comme le node prod) */
-    .svc-node > .co-x { opacity: 0; transition: opacity .18s ease-out; }
-    .svc-node:hover > .co-x { opacity: 1; }
+    /* crosshairs révélés au hover = .co-frame--reveal (kit) */
 
     /* Sections services */
     .svc-section { margin-top: 44px; }
@@ -211,9 +203,9 @@ const positions = [
     .svc-card:hover { box-shadow: 0 8px 24px rgba(20,22,26,.07); }
     .svc-card-title { font-size: 1.12rem; }
     .svc-card-desc { font-size: 14px; line-height: 1.55; color: var(--muted); }
-    .svc-card-features { display: flex; flex-direction: column; gap: 7px; margin-top: 4px; }
-    .svc-card-features li { display: flex; gap: 9px; font-size: 13.5px; line-height: 1.4; }
-    .svc-card-features i { color: var(--accent); font-size: 15px; flex: none; margin-top: 1px; }
+    /* structure/coche = .co-list--check (kit) ; ici juste taille + espacement local */
+    .svc-card-features { margin-top: 4px; gap: 7px; }
+    .svc-card-features li { font-size: 13.5px; line-height: 1.4; }
     .svc-card-cta { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 6px; font-size: 14px; font-weight: 600; color: var(--accent); }
     .svc-card-cta i { transition: transform .18s ease-out; }
     .svc-card-cta:hover i { transform: translateX(3px); }

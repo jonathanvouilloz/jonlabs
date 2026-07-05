@@ -119,12 +119,8 @@ const projectTypes = ["Développement web", "Automatisation", "Application sur-m
     }
     .cc-card:hover { transform: translateY(-2px); }
     .cc-card-cover { position: relative; height: 148px; border-bottom: 1px solid var(--line); }
-    .cc-badge {
-      position: absolute; top: 12px; left: 12px; display: inline-flex; align-items: center; gap: 6px;
-      padding: 5px 10px; background: var(--surface); border: 1px solid var(--line-2); border-radius: 999px;
-    }
-    .cc-badge b { font-size: 11px; font-weight: 600; letter-spacing: .07em; text-transform: uppercase; }
-    .cc-badge i { width: 6px; height: 6px; border-radius: 999px; background: var(--accent-bright); }
+    /* Badge = primitive .co-badge (kit) ; .cc-badge ne porte plus que le placement sur cover. */
+    .cc-badge { position: absolute; top: 12px; left: 12px; z-index: 2; }
     .cc-card-body { padding: 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
     .cc-card h3 { font-size: 1.18rem; line-height: 1.18; }
     .cc-card-desc { color: var(--muted); font-size: 14px; line-height: 1.55; }
@@ -147,12 +143,9 @@ const projectTypes = ["Développement web", "Automatisation", "Application sur-m
     .cc-price { display: flex; align-items: baseline; gap: 6px; }
     .cc-price b { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
     .cc-price span { font-size: 14px; color: var(--muted); }
-    .cc-features { display: flex; flex-direction: column; gap: 11px; }
-    .cc-features li { display: flex; gap: 10px; font-size: 14px; line-height: 1.4; }
-    .cc-features li::before {
-      content: ""; width: 5px; height: 5px; border-radius: 999px;
-      background: var(--accent-bright); margin-top: 7px; flex: none;
-    }
+    /* Liste = primitive .co-list (kit) ; ici juste l'espacement + taille local. */
+    .cc-features { gap: 11px; }
+    .cc-features li { font-size: 14px; }
     .cc-tier .co-btn { justify-content: center; margin-top: 4px; }
 
     /* ── FAQ (accordéon natif) ── */
@@ -167,13 +160,20 @@ const projectTypes = ["Développement web", "Automatisation", "Application sur-m
     .cc-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
     .cc-faq details[open] summary i { transform: rotate(180deg); }
     .cc-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 62ch; }
+    /* Ouverture smooth (ease-out) via ::details-content — progressive enhancement,
+       dégrade proprement en instantané là où c'est non supporté ; reste zéro-JS. */
+    .cc-faq details::details-content {
+      block-size: 0; overflow: hidden;
+      transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
+    }
+    .cc-faq details[open]::details-content { block-size: auto; }
 
     /* ── Formulaire ── */
     .cc-form { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; max-width: 660px; }
     .cc-field { display: flex; flex-direction: column; gap: 7px; }
     .cc-field.full { grid-column: 1 / -1; }
     .cc-label { font-size: 13px; font-weight: 600; color: var(--ink); display: flex; gap: 8px; align-items: baseline; }
-    .cc-label em { font-style: normal; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .cc-label em { font-size: 11px; }  /* .co-index (kit) porte tabular-nums + couleur */
     .cc-input, .cc-select, .cc-textarea {
       width: 100%; font-family: "Inter Tight", sans-serif; font-size: 15px; color: var(--ink);
       background: var(--surface); border: 1px solid var(--line-2); border-radius: 8px; padding: 11px 14px;
@@ -192,6 +192,12 @@ const projectTypes = ["Développement web", "Automatisation", "Application sur-m
     .cc-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
     .cc-chip { font-size: 13px; padding: 5px 12px; border: 1px solid var(--line-2); border-radius: 999px; color: var(--muted); }
     .cc-chip--accent { border-color: var(--accent); color: var(--accent); }
+
+    /* ── Vitrine décoratifs ── */
+    .cc-deco-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+    .cc-deco-tile { position: relative; display: flex; flex-direction: column; gap: 14px; padding: 20px; border: 1px solid var(--line); background: var(--surface); }
+    .cc-deco-sample { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; min-height: 44px; }
+    .cc-deco-tile figcaption code { font-size: 12px; color: var(--muted); }
 
     /* responsive composants */
     @media (max-width: 980px) { .cc-blog-grid { grid-template-columns: repeat(2, 1fr); } }
@@ -225,8 +231,8 @@ const projectTypes = ["Développement web", "Automatisation", "Application sur-m
       <div class="cc-blog-grid" style="margin-top:40px;">
         {blogPosts.map((post) => (
           <article class="cc-card">
-            <div class="cc-card-cover co-dots">
-              <span class="cc-badge"><i></i><b>{post.label}</b></span>
+            <div class="cc-card-cover co-dots co-frame">
+              <span class="co-badge cc-badge">{post.label}</span>
             </div>
             <div class="cc-card-body">
               <h3>{post.title}</h3>
@@ -265,7 +271,7 @@ const projectTypes = ["Développement web", "Automatisation", "Application sur-m
               <b>{tier.price}</b>
               {tier.unit && <span>{tier.unit}</span>}
             </div>
-            <ul class="cc-features">
+            <ul class="cc-features co-list">
               {tier.features.map((f) => <li>{f}</li>)}
             </ul>
             <a href="/contact" class={`co-btn${tier.recommended ? "" : " co-btn--ghost"}`}>{tier.cta}</a>
@@ -308,21 +314,21 @@ const projectTypes = ["Développement web", "Automatisation", "Application sur-m
 
       <form class="cc-form" style="margin-top:36px;" onsubmit="return false;">
         <div class="cc-field">
-          <label class="cc-label" for="cc-name"><em>01</em> Nom</label>
+          <label class="cc-label" for="cc-name"><em class="co-index">01</em> Nom</label>
           <input class="cc-input" id="cc-name" type="text" placeholder="Votre nom" />
         </div>
         <div class="cc-field">
-          <label class="cc-label" for="cc-email"><em>02</em> Email</label>
+          <label class="cc-label" for="cc-email"><em class="co-index">02</em> Email</label>
           <input class="cc-input" id="cc-email" type="email" placeholder="vous@exemple.ch" />
         </div>
         <div class="cc-field full">
-          <label class="cc-label" for="cc-type"><em>03</em> Type de projet</label>
+          <label class="cc-label" for="cc-type"><em class="co-index">03</em> Type de projet</label>
           <select class="cc-select" id="cc-type">
             {projectTypes.map((t) => <option>{t}</option>)}
           </select>
         </div>
         <div class="cc-field full">
-          <label class="cc-label" for="cc-msg"><em>04</em> Message</label>
+          <label class="cc-label" for="cc-msg"><em class="co-index">04</em> Message</label>
           <textarea class="cc-textarea" id="cc-msg" placeholder="Parlez-moi de votre projet…"></textarea>
         </div>
         <label class="cc-consent">
@@ -359,6 +365,85 @@ const projectTypes = ["Développement web", "Automatisation", "Application sur-m
           <span class="cc-chip cc-chip--accent">accent</span>
           <span class="co-eyebrow" style="border:1px solid var(--line-2);padding:5px 10px;border-radius:999px;">Eyebrow</span>
         </div>
+      </div>
+    </section>
+
+    <!-- ══ 06 · DÉCORATIFS ══ -->
+    <section class="co-sec co-pad" style="padding:64px 40px;">
+      <div class="cc-head">
+        <p class="co-eyebrow"><span class="co-index">06</span> — Décoratifs</p>
+        <h2>Vocabulaire blueprint</h2>
+        <p>Chaque primitive décorative du système, un échantillon vivant et sa classe.</p>
+      </div>
+
+      <div class="cc-deco-grid" style="margin-top:40px;">
+        <figure class="cc-deco-tile">
+          <div class="cc-deco-sample"><span class="co-badge">Catégorie</span><span class="co-badge co-badge--solid">À la une</span></div>
+          <figcaption><code>.co-badge / --solid</code></figcaption>
+        </figure>
+
+        <figure class="cc-deco-tile">
+          <div class="cc-deco-sample co-frame" style="height:64px;"></div>
+          <figcaption><code>.co-frame</code></figcaption>
+        </figure>
+
+        <figure class="cc-deco-tile">
+          <div class="cc-deco-sample co-crop" style="height:64px;"></div>
+          <figcaption><code>.co-crop</code></figcaption>
+        </figure>
+
+        <figure class="cc-deco-tile">
+          <ul class="co-list cc-deco-sample"><li>Point teal</li><li>Aligné</li></ul>
+          <figcaption><code>.co-list</code></figcaption>
+        </figure>
+
+        <figure class="cc-deco-tile">
+          <ul class="co-list co-list--check cc-deco-sample"><li><i class="ri-check-line" aria-hidden="true"></i>Coche</li></ul>
+          <figcaption><code>.co-list--check</code></figcaption>
+        </figure>
+
+        <figure class="cc-deco-tile">
+          <dl class="co-spec cc-deco-sample" style="display:block;width:100%;">
+            <div class="co-spec-row"><dt>Client</dt><dd>Lécureux</dd></div>
+            <div class="co-spec-row"><dt>Année</dt><dd>2025</dd></div>
+          </dl>
+          <figcaption><code>.co-spec</code></figcaption>
+        </figure>
+
+        <figure class="cc-deco-tile">
+          <div class="co-grid-cells cc-deco-sample" style="grid-template-columns:1fr 1fr;width:100%;">
+            <div style="padding:14px;">A</div><div style="padding:14px;">B</div>
+            <div style="padding:14px;">C</div><div style="padding:14px;">D</div>
+          </div>
+          <figcaption><code>.co-grid-cells</code></figcaption>
+        </figure>
+
+        <figure class="cc-deco-tile">
+          <div class="cc-deco-sample"><span class="co-anno"><span class="co-anno-dot"></span><span class="co-anno-line"></span>annotation</span></div>
+          <figcaption><code>.co-anno</code></figcaption>
+        </figure>
+
+        <figure class="cc-deco-tile">
+          <div class="cc-deco-sample" style="width:100%;"><div class="co-dim" style="width:100%;"><span class="co-dim-line"></span><span>1180 px</span><span class="co-dim-line"></span></div></div>
+          <figcaption><code>.co-dim</code></figcaption>
+        </figure>
+
+        <figure class="cc-deco-tile">
+          <div class="cc-deco-sample co-hatch" style="height:64px;"></div>
+          <figcaption><code>.co-hatch</code></figcaption>
+        </figure>
+
+        <figure class="cc-deco-tile">
+          <div class="cc-deco-sample co-dots" style="height:64px;"></div>
+          <figcaption><code>.co-dots</code></figcaption>
+        </figure>
+
+        <figure class="cc-deco-tile">
+          <div class="cc-deco-sample" style="position:relative;height:64px;overflow:hidden;background:#0b0d10;">
+            <span class="co-glow"></span><span class="co-grain"></span>
+          </div>
+          <figcaption><code>.co-glow + .co-grain</code></figcaption>
+        </figure>
       </div>
     </section>
 
