@@ -1,0 +1,73 @@
+---
+// Section preuve — témoignage réel Léo Lécureux + 3 tuiles GSC (source unique
+// proof-lecureux.ts). `testimonial` peut être null → la section se masque.
+import { proofLecureux } from '../data/proof-lecureux';
+
+const testimonial = proofLecureux.testimonial;
+const proofQuote = testimonial ? testimonial.quote.split('\n\n') : [];
+const proofTiles = proofLecureux.stats.slice(0, 3); // #1 · 19k · 367
+---
+
+{testimonial && (
+<section class="co-sec co-pad hp-proof">
+  <div class="co-proof-grid">
+    <div data-animate>
+      <p class="co-eyebrow">Cas client · SEO local</p>
+      <blockquote class="hp-proof-quote">
+        {proofQuote.map((para) => (
+          <p>{para}</p>
+        ))}
+      </blockquote>
+      <p class="co-mut hp-proof-author">— {testimonial.author} · {testimonial.role}</p>
+      <a href={proofLecureux.portfolioUrl} class="hp-proof-link">
+        Voir l'étude de cas complète <i class="ri-arrow-right-line"></i>
+      </a>
+    </div>
+
+    <div data-animate="fade-left" data-delay="0.1">
+      <div class="hp-proof-stats co-dots">
+        <span class="co-x tl"></span><span class="co-x tr"></span>
+        <span class="co-x bl"></span><span class="co-x br"></span>
+        <div class="hp-proof-stats-inner">
+          {proofTiles.map((s, i) => (
+            <>
+              {i > 0 && <div class="hp-proof-divider"></div>}
+              <div class="hp-proof-tile">
+                <p class="hp-proof-value">{s.value}</p>
+                <p class="co-eyebrow hp-proof-label">{s.label}</p>
+              </div>
+            </>
+          ))}
+        </div>
+      </div>
+      <p class="co-mut hp-proof-note">
+        Data Google Search Console · fenêtre {proofLecureux.duration} (sept.&nbsp;2025 → janv.&nbsp;2026).
+      </p>
+    </div>
+  </div>
+</section>
+)}
+
+<style>
+  .hp-proof { padding: 72px 40px; }
+  .hp-proof-quote { display: flex; flex-direction: column; gap: 16px; margin-top: 18px; }
+  .hp-proof-quote p { font-size: clamp(1.1rem, 2.1vw, 1.35rem); line-height: 1.55; font-weight: 400; }
+  .hp-proof-author { margin-top: 20px; font-size: 15px; }
+  .hp-proof-link {
+    display: inline-flex; align-items: center; gap: 7px; margin-top: 22px;
+    font-size: 14px; font-weight: 600; color: var(--accent);
+  }
+  .hp-proof-link i { transition: transform .18s ease-out; }
+  .hp-proof-link:hover i { transform: translateX(3px); }
+
+  .hp-proof-stats { position: relative; border: 1px solid var(--line); padding: 32px; background: var(--surface); }
+  .hp-proof-stats-inner { position: relative; display: flex; flex-direction: column; gap: 22px; }
+  .hp-proof-divider { height: 1px; background: var(--line); }
+  .hp-proof-value { font-size: 2.6rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+  .hp-proof-label { margin-top: 6px; }
+  .hp-proof-note { margin-top: 12px; font-size: 13px; }
+
+  @media (max-width: 720px) {
+    .hp-proof { padding: 56px 20px; }
+  }
+</style>

@@ -7,6 +7,7 @@ import Hero from '../components/Hero.astro'
 import ClientsBanner from '../components/ClientsBanner.astro'
 import ServicesHome from '../components/ServicesHome.astro'
 import PortfolioHighlight from '../components/PortfolioHighlight.astro'
+import ProofLecureux from '../components/ProofLecureux.astro'
 import AboutHome from '../components/AboutHome.astro'
 import TechStack from '../components/TechStack.astro'
 import GeoZonesStrip from '../components/GeoZonesStrip.astro'
@@ -44,12 +45,13 @@ const schemas = [
   schemas={schemas}
 >
   <Header />
-  <main>
+  <main class="co-root">
     <Hero />
     <ClientsBanner />
     <ServicesHome />
     <AboutHome />
     <PortfolioHighlight />
+    <ProofLecureux />
     <TechStack />
     <GeoZonesStrip />
   </main>

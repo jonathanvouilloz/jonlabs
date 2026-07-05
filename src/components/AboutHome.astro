@@ -1,160 +1,116 @@
 ---
-import svgRedStar from '../assets/red-star.svg'
-import svgPinkStar from '../assets/pink-star.svg'
-import profilePhoto from '../assets/jonathan-vouilloz.webp'
+import { Image } from 'astro:assets';
+import profilePhoto from '../assets/jonathan-vouilloz.webp';
+
+const badges = [
+  { icon: 'ri-lightbulb-line', label: 'Conseil stratégique' },
+  { icon: 'ri-code-s-slash-line', label: 'Développement Astro/React' },
+  { icon: 'ri-loop-left-line', label: 'Automatisation Make' },
+  { icon: 'ri-search-line', label: 'Référencement SEO' },
+];
 ---
 
-<section class="py-20 md:py-32 relative overflow-hidden" id="about">
-    <!-- Decorative elements -->
-    <img src={svgPinkStar.src} alt="" width="30" class="absolute top-20 right-12 opacity-30 hidden md:block" aria-hidden="true" />
-
-    <div class="max-w-6xl mx-auto px-4 relative z-10">
-
-        <div class="grid grid-cols-1 md:grid-cols-[45%_55%] gap-12 md:gap-28 items-center">
-
-            <!-- Left: Visual element -->
-            <div class="relative order-2 md:order-1 group/card" data-animate data-delay="0.1">
-                <!-- Main card -->
-                <div class="
-                    quote-card
-                    bg-white border-2 border-black
-                    p-6 md:p-8
-                    shadow-[6px_6px_0px_rgba(0,0,0,0.9)]
-                    relative
-                    transition-all duration-300
-                    group-hover/card:shadow-[8px_8px_0px_rgba(0,0,0,0.9)]
-                    group-hover/card:translate-x-[-2px]
-                    group-hover/card:translate-y-[-2px]
-                ">
-                    <!-- Decorations -->
-                    <img src={svgRedStar.src} alt="" width="45" class="absolute -top-5 -right-5 z-10 transition-transform duration-300 group-hover/card:rotate-12" aria-hidden="true" />
-
-                    <!-- Quote -->
-                    <blockquote class="relative">
-                        <i class="ri-double-quotes-l text-4xl text-[var(--blue)] absolute -top-2 -left-1 opacity-40"></i>
-                        <p class="text-lg md:text-xl font-medium leading-relaxed pl-6 pt-2 text-gray-800">
-                            Ce qui me donne envie de continuer, c'est le sourire et la satisfaction des personnes que j'accompagne.
-                        </p>
-                    </blockquote>
-
-                    <!-- Signature -->
-                    <div class="mt-6 pt-4 border-t border-dashed border-gray-300 flex items-center gap-4">
-                        <img
-                            src={profilePhoto.src}
-                            alt="Jonathan Vouilloz"
-                            width="44"
-                            height="44"
-                            class="w-11 h-11 object-cover border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)]"
-                        />
-                        <div>
-                            <p class="font-bold text-sm">Jonathan Vouilloz</p>
-                            <p class="text-xs text-gray-500">Genève, Suisse</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Background decoration -->
-                <div class="
-                    absolute -bottom-3 -right-3 w-full h-full
-                    bg-[var(--blue)] border-2 border-black -z-10
-                    transition-all duration-300
-                    group-hover/card:-bottom-4 group-hover/card:-right-4
-                "></div>
-            </div>
-
-            <!-- Right: Text content -->
-            <div class="order-1 md:order-2 relative" data-animate>
-                <!-- Oversized number watermark -->
-                <span class="
-                    absolute -top-8 -left-2 md:-top-12 md:-left-6
-                    text-[8rem] md:text-[12rem]
-                    font-black
-                    leading-none
-                    text-black/[0.04]
-                    select-none
-                    pointer-events-none
-                    z-0
-                " aria-hidden="true">02</span>
-
-                <div class="relative z-10">
-                    <!-- Small annotation -->
-                    <span class="
-                        inline-flex items-center gap-2
-                        text-xs font-mono uppercase tracking-[0.2em]
-                        text-gray-500
-                        mb-3
-                    ">
-                        <span class="w-8 h-px bg-gray-400"></span>
-                        à propos
-                    </span>
-
-                    <h2 class="text-3xl md:text-4xl font-normal tracking-tight leading-[0.95] mb-4">
-                        Pourquoi Jon Labs ?
-                    </h2>
-                    <h3 class="text-xl md:text-2xl font-medium text-gray-700 mb-8">
-                        Partenaire digital, pas juste exécutant.
-                    </h3>
-                </div>
-
-                <div class="space-y-4 text-lg text-gray-700 leading-relaxed">
-                    <p>
-                        Je suis <strong class="text-black">Jonathan Vouilloz</strong>, informaticien de gestion et entrepreneur digital basé à <strong class="text-black">Genève</strong>.
-                    </p>
-                    <p>
-                        Mon approche ? <span class="bg-accent-soft px-1 rounded-sm font-bold">L'Action ></span> <span class="bg-white px-1 font-bold">La Perfection.</span>
-                    </p>
-                    <p>
-                        Contrairement aux agences classiques, je ne suis pas là pour vous vendre des heures, mais pour apporter une vision globale.
-                        Ma polyvalence technique (<strong>Fullstack</strong>, <strong>No-Code</strong>) me permet de choisir la meilleure solution pour <em>votre</em> budget et vos objectifs.
-                    </p>
-                </div>
-
-                <!-- Badges / Compétences -->
-                <div class="flex flex-wrap gap-3 mt-6" data-animate-stagger>
-                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] text-sm font-medium" data-animate-item>
-                        <i class="ri-lightbulb-line text-[var(--violet)]"></i>
-                        Conseil Stratégique
-                    </span>
-                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] text-sm font-medium" data-animate-item>
-                        <i class="ri-code-s-slash-line text-[var(--blue)]"></i>
-                        Développement Astro/React
-                    </span>
-                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] text-sm font-medium" data-animate-item>
-                        <i class="ri-loop-left-line text-[var(--yellow)]"></i>
-                        Automatisation Make
-                    </span>
-                    <span class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-black shadow-[2px_2px_0px_rgba(0,0,0,1)] text-sm font-medium" data-animate-item>
-                        <i class="ri-search-line text-emerald-500"></i>
-                        Référencement SEO
-                    </span>
-                </div>
-
-                <!-- CTA -->
-                <a
-                    href="/contact"
-                    class="
-                        inline-flex items-center gap-2 mt-8
-                        bg-[var(--blue)] border-2 border-black
-                        px-6 py-3
-                        font-bold
-                        shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                        transition-all duration-200
-                        hover:bg-[var(--yellow)]
-                        hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                        hover:translate-x-[2px] hover:translate-y-[2px]
-                    "
-                >
-                    Travaillons ensemble ?
-                    <i class="ri-arrow-right-line"></i>
-                </a>
-
-                <p class="text-sm text-gray-500 mt-4">
-                    Tu te demandes <a href="/blog/specialiste-developpement-web-suisse" class="underline hover:text-[var(--violet)] transition-colors font-medium">comment choisir un spécialiste en développement web en Suisse</a> ? J'ai écrit un guide complet.
-                </p>
-            </div>
-
-        </div>
-
+<section class="co-sec co-pad hp-about" id="about">
+  <div class="hp-about-grid">
+    <!-- Citation cadrée -->
+    <div class="hp-about-quote-wrap" data-animate="fade-left" data-delay="0.1">
+      <figure class="hp-about-quote co-frame">
+        <span class="co-x tl"></span><span class="co-x tr"></span>
+        <span class="co-x bl"></span><span class="co-x br"></span>
+        <i class="ri-double-quotes-l hp-about-quote-mark" aria-hidden="true"></i>
+        <blockquote class="hp-about-quote-text">
+          Ce qui me donne envie de continuer, c'est le sourire et la satisfaction des
+          personnes que j'accompagne.
+        </blockquote>
+        <figcaption class="hp-about-sign">
+          <Image
+            src={profilePhoto}
+            alt="Jonathan Vouilloz"
+            width={44}
+            height={44}
+            quality={80}
+            class="hp-about-avatar"
+          />
+          <span>
+            <strong>Jonathan Vouilloz</strong>
+            <span class="co-mut">Genève, Suisse</span>
+          </span>
+        </figcaption>
+      </figure>
     </div>
+
+    <!-- Texte -->
+    <div class="hp-about-body" data-animate>
+      <p class="co-eyebrow">À propos</p>
+      <h2 class="hp-about-title">Pourquoi <span class="co-ser">Jon Labs ?</span></h2>
+      <p class="hp-about-sub">Partenaire digital, pas juste exécutant.</p>
+
+      <div class="hp-about-text">
+        <p>
+          Je suis <strong>Jonathan Vouilloz</strong>, informaticien de gestion et entrepreneur
+          digital basé à <strong>Genève</strong>.
+        </p>
+        <p>
+          Mon approche ? <strong>L'action &gt; la perfection.</strong>
+        </p>
+        <p class="co-mut">
+          Contrairement aux agences classiques, je ne suis pas là pour vous vendre des heures,
+          mais pour apporter une vision globale. Ma polyvalence technique (<strong>Fullstack</strong>,
+          <strong>No-Code</strong>) me permet de choisir la meilleure solution pour <em>votre</em>
+          budget et vos objectifs.
+        </p>
+      </div>
+
+      <div class="hp-about-badges" data-animate-stagger>
+        {badges.map((b) => (
+          <span class="co-badge hp-about-badge" data-animate-item>
+            <i class={b.icon} aria-hidden="true"></i> {b.label}
+          </span>
+        ))}
+      </div>
+
+      <a href="/contact" class="co-btn hp-about-cta">
+        Travaillons ensemble ? <i class="ri-arrow-right-line"></i>
+      </a>
+
+      <p class="co-mut hp-about-seo">
+        Tu te demandes
+        <a href="/blog/specialiste-developpement-web-suisse">comment choisir un spécialiste en développement web en Suisse</a>
+        ? J'ai écrit un guide complet.
+      </p>
+    </div>
+  </div>
 </section>
 
+<style>
+  .hp-about { padding: 72px 40px; }
+  .hp-about-grid { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px; align-items: center; }
+
+  .hp-about-quote { position: relative; background: var(--surface); padding: 34px 32px; }
+  .hp-about-quote-mark { font-size: 34px; color: var(--accent); opacity: 0.5; }
+  .hp-about-quote-text { font-size: clamp(1.1rem, 2vw, 1.35rem); line-height: 1.5; font-weight: 500; margin-top: 6px; }
+  .hp-about-sign { display: flex; align-items: center; gap: 12px; margin-top: 24px; padding-top: 18px; border-top: 1px solid var(--line); }
+  .hp-about-avatar { width: 42px; height: 42px; border-radius: 999px; object-fit: cover; flex: none; }
+  .hp-about-sign span { display: flex; flex-direction: column; }
+  .hp-about-sign strong { font-size: 14px; font-weight: 600; }
+  .hp-about-sign .co-mut { font-size: 12px; }
+
+  .hp-about-body { display: flex; flex-direction: column; align-items: flex-start; }
+  .hp-about-title { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-top: 12px; }
+  .hp-about-sub { font-size: 1.15rem; color: var(--muted); margin-top: 8px; }
+  .hp-about-text { display: flex; flex-direction: column; gap: 12px; margin-top: 22px; font-size: 1.05rem; line-height: 1.65; }
+  .hp-about-badges { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+  .hp-about-badge i { font-size: 13px; color: var(--accent); margin-right: 2px; }
+  .hp-about-cta { margin-top: 28px; }
+  .hp-about-cta i { transition: transform .18s ease-out; }
+  .hp-about-cta:hover i { transform: translateX(3px); }
+  .hp-about-seo { margin-top: 16px; font-size: 14px; }
+  .hp-about-seo a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
+  @media (max-width: 900px) {
+    .hp-about-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+  @media (max-width: 720px) {
+    .hp-about { padding: 56px 20px; }
+  }
+</style>

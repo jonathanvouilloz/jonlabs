@@ -1,26 +1,21 @@
 ---
-// Placeholder clients/partners
-const clients = [
-    { name: 'Le Matin Dimanche' },
-    { name: 'Barber Concept' },
-    { name: 'CPV' },
-    { name: 'Lécureux Conseil' },
-]
+// Bandeau de confiance blueprint — marquee des vrais clients.
+const clients = ['Le Matin Dimanche', 'Barber Concept', 'CPV', 'Lécureux Conseil'];
+// Répété pour remplir la largeur et boucler proprement (translateX -50%).
+const set = [...clients, ...clients, ...clients];
 ---
 
-<section class="py-8 border-y border-gray-200">
-    <div class="max-w-5xl mx-auto px-4">
-        <div class="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-12">
-            <span class="text-sm text-gray-400 font-medium uppercase tracking-wider shrink-0">
-                Ils m'ont fait confiance
-            </span>
-            <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 md:gap-x-12">
-                {clients.map((client) => (
-                    <span class="text-gray-400 font-medium text-sm md:text-base tracking-wide hover:text-gray-600 transition-colors duration-200">
-                        {client.name}
-                    </span>
-                ))}
-            </div>
-        </div>
+<section class="co-sec co-pad co-trust hp-trust" data-animate>
+  <p class="co-eyebrow">Ils m'ont fait confiance</p>
+  <div class="co-marquee">
+    <div class="co-marquee-track">
+      {set.map((name) => <span>{name}</span>)}
+      {set.map((name) => <span aria-hidden="true">{name}</span>)}
     </div>
+  </div>
 </section>
+
+<style>
+  .hp-trust { padding: 22px 40px; }
+  @media (max-width: 720px) { .hp-trust { padding: 20px 20px; } }
+</style>

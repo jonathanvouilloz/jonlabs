@@ -1,89 +1,52 @@
 ---
-import { techStack } from '../sample'
-
-// Extended tech list with icons for marquee effect
+// Bande technos blueprint — marquee sombre (rupture de rythme dans la page claire).
 const technologies = [
-    { name: 'Astro', icon: 'ri-rocket-line' },
-    { name: 'React', icon: 'ri-reactjs-line' },
-    { name: 'Node.js', icon: 'ri-nodejs-line' },
-    { name: 'Tailwind', icon: 'ri-css3-line' },
-    { name: 'Figma', icon: 'ri-pencil-ruler-2-line' },
-    { name: 'Make', icon: 'ri-settings-3-line' },
-    { name: 'Zapier', icon: 'ri-flashlight-line' },
-    { name: 'Supabase', icon: 'ri-database-2-line' },
-    { name: 'PostgreSQL', icon: 'ri-database-line' },
-]
+  { name: 'Astro', icon: 'ri-rocket-line' },
+  { name: 'React', icon: 'ri-reactjs-line' },
+  { name: 'Node.js', icon: 'ri-nodejs-line' },
+  { name: 'Tailwind', icon: 'ri-css3-line' },
+  { name: 'Figma', icon: 'ri-pencil-ruler-2-line' },
+  { name: 'Make', icon: 'ri-settings-3-line' },
+  { name: 'Zapier', icon: 'ri-flashlight-line' },
+  { name: 'Supabase', icon: 'ri-database-2-line' },
+  { name: 'PostgreSQL', icon: 'ri-database-line' },
+];
+const set = [...technologies, ...technologies];
 ---
 
-<section class="py-8 md:py-12 bg-black text-white border-y-3 border-black overflow-hidden" data-animate>
-    <div class="relative">
-        <!-- Marquee container -->
-        <div class="flex items-center" id="tech-marquee">
-            <!-- Original set -->
-            <div class="flex items-center gap-8 md:gap-12 animate-marquee whitespace-nowrap">
-                {technologies.map((tech) => (
-                    <div class="flex items-center gap-3 px-4">
-                        <i class={`${tech.icon} text-2xl text-[var(--blue)]`}></i>
-                        <span class="text-lg md:text-xl font-bold tracking-wide">{tech.name}</span>
-                    </div>
-                ))}
-                <!-- Separator -->
-                <div class="flex items-center gap-3 px-4">
-                    <span class="w-2 h-2 bg-[var(--violet)] rounded-full"></span>
-                </div>
-            </div>
-
-            <!-- Duplicate for seamless loop -->
-            <div class="flex items-center gap-8 md:gap-12 animate-marquee whitespace-nowrap" aria-hidden="true">
-                {technologies.map((tech) => (
-                    <div class="flex items-center gap-3 px-4">
-                        <i class={`${tech.icon} text-2xl text-[var(--blue)]`}></i>
-                        <span class="text-lg md:text-xl font-bold tracking-wide">{tech.name}</span>
-                    </div>
-                ))}
-                <!-- Separator -->
-                <div class="flex items-center gap-3 px-4">
-                    <span class="w-2 h-2 bg-[var(--violet)] rounded-full"></span>
-                </div>
-            </div>
-
-            <!-- Third duplicate for extra smoothness -->
-            <div class="flex items-center gap-8 md:gap-12 animate-marquee whitespace-nowrap" aria-hidden="true">
-                {technologies.map((tech) => (
-                    <div class="flex items-center gap-3 px-4">
-                        <i class={`${tech.icon} text-2xl text-[var(--blue)]`}></i>
-                        <span class="text-lg md:text-xl font-bold tracking-wide">{tech.name}</span>
-                    </div>
-                ))}
-                <!-- Separator -->
-                <div class="flex items-center gap-3 px-4">
-                    <span class="w-2 h-2 bg-[var(--violet)] rounded-full"></span>
-                </div>
-            </div>
-        </div>
-
-        <!-- Gradient overlays for fade effect -->
-        <div class="absolute left-0 top-0 h-full w-16 bg-gradient-to-r from-black to-transparent pointer-events-none z-10"></div>
-        <div class="absolute right-0 top-0 h-full w-16 bg-gradient-to-l from-black to-transparent pointer-events-none z-10"></div>
+<section class="co-sec hp-tech" aria-label="Stack technique">
+  <div class="hp-tech-marquee">
+    <div class="hp-tech-track">
+      {set.map((t) => (
+        <span class="hp-tech-item"><i class={t.icon} aria-hidden="true"></i>{t.name}</span>
+      ))}
+      {set.map((t) => (
+        <span class="hp-tech-item" aria-hidden="true"><i class={t.icon}></i>{t.name}</span>
+      ))}
     </div>
+  </div>
 </section>
 
 <style>
-    @keyframes marquee {
-        0% {
-            transform: translateX(0);
-        }
-        100% {
-            transform: translateX(-100%);
-        }
-    }
-
-    .animate-marquee {
-        animation: marquee 30s linear infinite;
-    }
-
-    /* Pause on hover */
-    #tech-marquee:hover .animate-marquee {
-        animation-play-state: paused;
-    }
+  .hp-tech { position: relative; background: #0b0d10; border-top: 1px solid var(--line-2); overflow: hidden; }
+  /* crosshairs blancs (fond sombre) — cf. règle : .co-frame interdit sur ink */
+  .hp-tech.co-sec::before, .hp-tech.co-sec::after {
+    background:
+      linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)) center / 1px 9px no-repeat,
+      linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0.3)) center / 9px 1px no-repeat;
+  }
+  .hp-tech-marquee {
+    padding: 22px 0; overflow: hidden;
+    -webkit-mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+            mask-image: linear-gradient(90deg, transparent, #000 7%, #000 93%, transparent);
+  }
+  .hp-tech-track { display: flex; gap: 48px; width: max-content; animation: hp-tech-scroll 32s linear infinite; }
+  .hp-tech-marquee:hover .hp-tech-track { animation-play-state: paused; }
+  .hp-tech-item {
+    display: inline-flex; align-items: center; gap: 10px; white-space: nowrap;
+    font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; color: rgba(255,255,255,0.82);
+  }
+  .hp-tech-item i { font-size: 1.3rem; color: var(--accent-bright); }
+  @keyframes hp-tech-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @media (prefers-reduced-motion: reduce) { .hp-tech-track { animation: none; } }
 </style>

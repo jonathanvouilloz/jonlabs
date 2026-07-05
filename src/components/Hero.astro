@@ -1,159 +1,111 @@
 ---
 import { Image } from 'astro:assets';
+import imgJonathan from '../assets/jonathan-vouilloz.webp';
+import { author, cta } from '../sample';
 
-import svgPinkStar from '../assets/pink-star.svg'
-import svgArrowHero from '../assets/arrow-3.svg'
-import imgJonathan from '../assets/jonathan-vouilloz.webp'
-
-import { author, cta } from '../sample'
+const socials = [
+  { icon: 'ri-linkedin-fill', link: author.linkedin, label: 'LinkedIn', ext: true },
+  { icon: 'ri-github-fill', link: author.github, label: 'GitHub', ext: true },
+  { icon: 'ri-mail-fill', link: author.email, label: 'Email', ext: false },
+];
 ---
 
-<section class="pb-20 relative overflow-hidden">
-    <!-- Decorative background elements -->
-    <div class="absolute top-20 right-0 w-96 h-96 bg-[var(--blue)] opacity-5 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 left-0 w-64 h-64 bg-[var(--violet)] opacity-5 rounded-full blur-3xl"></div>
-
-    <div class="max-w-5xl mx-auto p-4 pt-16 md:pt-24">
-      <div class="grid grid-cols-1 md:grid-cols-[60%_40%] items-center gap-8">
-
-        <!-- Left: Text Content -->
-        <div class="flex flex-col gap-6 pr-0 md:pr-10">
-
-          <!-- Main heading (SEO optimized) -->
-          <h1 class="text-4xl md:text-6xl font-normal tracking-tight" data-animate>
-            <span>Développeur web &</span>
-            <span class="block">
-              <span class="relative inline-block">
-                <span class="relative z-10">partenaire digital</span>
-                <img
-                  src={svgArrowHero.src}
-                  alt=""
-                  class="absolute -bottom-0 left-0 w-full h-8 pointer-events-none"
-                  aria-hidden="true"
-                />
-              </span>
-              à Genève
-            </span>
-          </h1>
-
-          <!-- Hook / Accroche -->
-          <p class="text-xl md:text-2xl font-medium text-black max-w-lg" data-animate data-delay="0.1">
-            L'idée que tu repoussais depuis des mois ? Elle peut exister demain.
-          </p>
-
-          <!-- Lead paragraph -->
-          <p class="text-md md:text-md text-gray-700 max-w-lg leading-relaxed" data-animate data-delay="0.2">
-            De l'idée au produit fini, j'accompagne <strong>entrepreneurs</strong> et <strong>PME en Suisse Romande</strong> dans leurs projets digitaux : sites performants, applications sur-mesure et workflows automatisés.
-          </p>
-
-          <!-- CTAs -->
-          <div class="flex flex-col sm:flex-row gap-6 mt-4" data-animate data-delay="0.3">
+<section class="co-sec co-pad hp-hero">
+  <div class="co-guides"></div>
+  <div class="hp-hero-grid">
+    <!-- Texte -->
+    <div class="hp-hero-body">
+      <p class="co-eyebrow" data-animate>Développeur web &amp; automatisation · Genève</p>
+      <h1 class="hp-hero-title" data-animate data-delay="0.1">
+        Développeur web &amp; <span class="co-ser">partenaire digital</span> à Genève
+      </h1>
+      <p class="hp-hero-hook" data-animate data-delay="0.2">
+        L'idée que tu repoussais depuis des mois ? Elle peut exister demain.
+      </p>
+      <p class="co-mut hp-hero-lead" data-animate data-delay="0.25">
+        De l'idée au produit fini, j'accompagne <strong>entrepreneurs</strong> et
+        <strong>PME en Suisse romande</strong> dans leurs projets digitaux : sites performants,
+        applications sur-mesure et workflows automatisés.
+      </p>
+      <div class="hp-hero-ctas" data-animate data-delay="0.3">
+        <a href={cta.primary.link} class="co-btn">
+          {cta.primary.text} <i class="ri-arrow-right-line"></i>
+        </a>
+        <a href={cta.secondary.link} class="co-btn co-btn--ghost">
+          {cta.secondary.text}
+        </a>
+      </div>
+      <div class="hp-hero-socials" data-animate data-delay="0.4">
+        <span class="co-eyebrow">Me retrouver</span>
+        <div class="hp-hero-social-row">
+          {socials.map((s) => (
             <a
-              href={cta.primary.link}
-              class="
-                inline-flex items-center justify-center gap-2
-                bg-[var(--blue)] border-2 border-black
-                px-6 py-3
-                font-bold text-base
-                shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                transition-all duration-200
-                hover:bg-[var(--yellow)]
-                hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                hover:translate-x-[2px] hover:translate-y-[2px]
-                focus:ring-2 focus:ring-black focus:ring-offset-2 focus:outline-none
-              "
+              href={s.link}
+              class="hp-hero-social"
+              aria-label={s.label}
+              target={s.ext ? '_blank' : undefined}
+              rel={s.ext ? 'noopener noreferrer' : undefined}
             >
-              {cta.primary.text}
-              <i class="ri-arrow-right-line"></i>
+              <i class={s.icon} aria-hidden="true"></i>
             </a>
-            <a
-              href={cta.secondary.link}
-              class="
-                inline-flex items-center justify-center gap-2
-                px-2 py-3
-                font-medium text-base
-                transition-all duration-200
-                relative
-                before:absolute before:left-2 before:bottom-2
-                before:h-[2px] before:w-0 before:bg-[var(--accent)]
-                before:transition-all before:duration-300
-                hover:before:w-[calc(100%-16px)]
-                hover:text-[var(--violet)]
-              "
-            >
-              {cta.secondary.text}
-              <i class="ri-arrow-right-line"></i>
-            </a>
-          </div>
-
-          <!-- Social links -->
-          <div class="flex items-center gap-4 mt-6 pt-6 border-t-2 border-black border-dashed" data-animate data-delay="0.4">
-            <span class="text-sm text-gray-500 font-medium">Me retrouver</span>
-            <div class="flex gap-3">
-              <a
-                href={author.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="
-                  w-10 h-10 flex items-center justify-center
-                  border-2 border-black bg-white
-                  transition-all duration-200
-                  hover:bg-[var(--blue)] hover:translate-y-[-2px]
-                  focus:ring-2 focus:ring-black focus:outline-none
-                "
-                aria-label="LinkedIn"
-              >
-                <i class="ri-linkedin-fill text-lg"></i>
-              </a>
-              <a
-                href={author.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="
-                  w-10 h-10 flex items-center justify-center
-                  border-2 border-black bg-white
-                  transition-all duration-200
-                  hover:bg-[var(--blue)] hover:translate-y-[-2px]
-                  focus:ring-2 focus:ring-black focus:outline-none
-                "
-                aria-label="GitHub"
-              >
-                <i class="ri-github-fill text-lg"></i>
-              </a>
-              <a
-                href={author.email}
-                class="
-                  w-10 h-10 flex items-center justify-center
-                  border-2 border-black bg-white
-                  transition-all duration-200
-                  hover:bg-[var(--blue)] hover:translate-y-[-2px]
-                  focus:ring-2 focus:ring-black focus:outline-none
-                "
-                aria-label="Email"
-              >
-                <i class="ri-mail-fill text-lg"></i>
-              </a>
-            </div>
-          </div>
+          ))}
         </div>
-
-        <!-- Right: Image -->
-        <div class="relative mt-8 md:mt-0" data-animate data-delay="0.2">
-          <Image
-            src={imgJonathan}
-            alt="Jonathan Vouilloz - Développeur web et partenaire digital à Genève"
-            width={320}
-            height={400}
-            quality={85}
-            loading="eager"
-            class="w-full max-w-[280px] mx-auto md:max-w-none object-cover"
-          />
-        </div>
-
       </div>
     </div>
 
-    <!-- Bottom decoration -->
-    <img src={svgPinkStar.src} alt="" width="50" class="absolute -bottom-4 left-8" aria-hidden="true" />
+    <!-- Portrait cadré -->
+    <div class="hp-hero-media" data-animate="fade-left" data-delay="0.2">
+      <div class="hp-hero-frame co-frame">
+        <span class="co-x tl"></span><span class="co-x tr"></span>
+        <span class="co-x bl"></span><span class="co-x br"></span>
+        <Image
+          src={imgJonathan}
+          alt="Jonathan Vouilloz — développeur web et partenaire digital à Genève"
+          width={360}
+          height={450}
+          quality={85}
+          loading="eager"
+          class="hp-hero-photo"
+        />
+      </div>
+    </div>
+  </div>
 </section>
 
+<style>
+  .hp-hero { position: relative; overflow: hidden; }
+  .hp-hero-grid {
+    position: relative;
+    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center;
+    padding: 72px 40px 64px;
+  }
+  .hp-hero-body { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
+  .hp-hero-title { font-size: clamp(2.3rem, 5.2vw, 3.6rem); }
+  .hp-hero-hook { font-size: clamp(1.15rem, 2.2vw, 1.4rem); font-weight: 500; line-height: 1.4; max-width: 30ch; }
+  .hp-hero-lead { font-size: 1.05rem; line-height: 1.65; max-width: 46ch; }
+  .hp-hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
+  .hp-hero-ctas .co-btn i { transition: transform .18s ease-out; }
+  .hp-hero-ctas .co-btn:hover i { transform: translateX(3px); }
+
+  .hp-hero-socials { display: flex; align-items: center; gap: 16px; margin-top: 10px; padding-top: 22px; border-top: 1px solid var(--line); width: 100%; }
+  .hp-hero-social-row { display: flex; gap: 10px; }
+  .hp-hero-social {
+    width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;
+    border: 1px solid var(--line-2); border-radius: 10px; color: var(--muted); font-size: 18px;
+    transition: color .16s ease-out, border-color .16s ease-out, transform .16s ease-out;
+  }
+  .hp-hero-social:hover { color: var(--accent); border-color: var(--accent); transform: translateY(-2px); }
+
+  .hp-hero-media { display: flex; justify-content: center; }
+  .hp-hero-frame { position: relative; width: 100%; max-width: 340px; }
+  .hp-hero-photo { display: block; width: 100%; height: auto; object-fit: cover; }
+
+  @media (max-width: 900px) {
+    .hp-hero-grid { grid-template-columns: 1fr; gap: 40px; padding: 56px 40px; }
+    .hp-hero-media { order: -1; }
+    .hp-hero-frame { max-width: 280px; }
+  }
+  @media (max-width: 720px) {
+    .hp-hero-grid { padding: 48px 20px; }
+  }
+</style>

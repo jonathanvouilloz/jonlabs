@@ -1,195 +1,76 @@
 ---
-import svgPinkStar from '../assets/pink-star.svg'
-import svgArrow from '../assets/arrow.svg'
-import { services } from '../sample'
+import { services } from '../sample';
 ---
 
-<section class="services-section py-20 md:py-32 relative overflow-hidden" id="services">
-    <!-- Subtle dot pattern background -->
-    <div class="absolute inset-0 services-dots-bg opacity-[0.4]"></div>
-
-    <!-- Section decorations -->
-    <img src={svgPinkStar.src} alt="" width="40" class="absolute top-12 right-8 md:right-16 opacity-50 animate-pulse" style="animation-duration: 3s;" aria-hidden="true" />
-    <img src={svgArrow.src} alt="" width="60" class="absolute bottom-20 left-8 opacity-20 rotate-45 hidden md:block" aria-hidden="true" />
-
-    <div class="max-w-6xl mx-auto px-4 relative z-10">
-
-        <!-- Section header - Editorial style -->
-        <div class="relative mb-16 md:mb-20 animate-on-scroll">
-            <!-- Oversized number watermark -->
-            <span class="
-                absolute -top-8 -left-2 md:-top-12 md:-left-6
-                text-[8rem] md:text-[12rem]
-                font-black
-                leading-none
-                text-black/[0.04]
-                select-none
-                pointer-events-none
-                z-0
-            " aria-hidden="true">01</span>
-
-            <div class="relative z-10 flex flex-col md:flex-row md:items-end md:justify-between gap-6">
-                <div>
-                    <!-- Small annotation -->
-                    <span class="
-                        inline-flex items-center gap-2
-                        text-xs font-mono uppercase tracking-[0.2em]
-                        text-gray-500
-                        mb-3
-                    ">
-                        <span class="w-8 h-px bg-gray-400"></span>
-                        services
-                    </span>
-
-                    <!-- Big expressive title -->
-                    <h2 class="text-3xl md:text-4xl font-normal tracking-tight leading-[0.95]">
-                        Mes expertises :<br class="hidden md:block" />
-                        Plus que du code, des solutions.
-                    </h2>
-                </div>
-
-                <a
-                    href="/services"
-                    class="
-                        inline-flex items-center gap-2
-                        text-sm font-bold uppercase tracking-wide
-                        border-b-2 border-black
-                        pb-1
-                        transition-all duration-200
-                        hover:border-[var(--blue)] hover:gap-3
-                    "
-                >
-                    Tout voir
-                    <i class="ri-arrow-right-line"></i>
-                </a>
-            </div>
-        </div>
-
-        <!-- Services grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
-            {services.map((service, index) => (
-                <article
-                    class="
-                        group
-                        service-card
-                        flex flex-col
-                        bg-white border-2 border-black
-                        p-6 pt-8
-                        shadow-[4px_4px_0px_rgba(0,0,0,0.25)]
-                        transition-all duration-300
-                        hover:shadow-[8px_8px_0px_rgba(0,0,0,0.2)]
-                        hover:translate-y-[-4px]
-                        relative
-                        animate-on-scroll stagger-item
-                    "
-                >
-                    <!-- Card number -->
-                    <span class="
-                        absolute top-3 right-4
-                        text-xs font-mono
-                        text-gray-300
-                        tracking-wider
-                    ">
-                        0{index + 1}
-                    </span>
-
-                    <!-- Icon with dashed container -->
-                    <div class="relative mb-6">
-                        <div class="
-                            w-14 h-14
-                            flex items-center justify-center
-                            bg-[var(--blue)] border-2 border-black
-                            shadow-[3px_3px_0px_rgba(0,0,0,1)]
-                            group-hover:bg-[var(--yellow)]
-                            group-hover:shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                            transition-all duration-200
-                            relative z-10
-                        ">
-                            <i class={`${service.icon} text-2xl`}></i>
-                        </div>
-                        <!-- Dashed outline decoration -->
-                        <div class="
-                            absolute -top-2 -left-2
-                            w-14 h-14
-                            border border-dashed border-gray-300
-                            opacity-0 group-hover:opacity-100
-                            transition-opacity duration-300
-                        "></div>
-                    </div>
-
-                    <!-- Clickable card overlay -->
-                    <a href={service.link} class="absolute inset-0 z-10" aria-label={`En savoir plus sur ${service.title}`}></a>
-
-                    <!-- Content -->
-                    <h3 class="text-xl font-bold mb-3 group-hover:text-[var(--yellow)] transition-colors duration-200">
-                        {service.title}
-                    </h3>
-                    <p class="text-gray-600 leading-relaxed mb-6 flex-grow">
-                        {service.description}
-                    </p>
-
-                    <!-- Link visual (not clickable, card handles it) -->
-                    <span class="mt-auto py-2 flex items-center gap-2">
-                        <span class="
-                            text-sm font-bold
-                            relative
-                            before:absolute before:left-0 before:bottom-0
-                            before:h-[2px] before:w-0 before:bg-[var(--blue)]
-                            before:transition-all before:duration-300
-                            group-hover:before:w-full
-                        ">
-                            En savoir plus
-                        </span>
-                        <i class="ri-arrow-right-line text-sm transition-transform duration-200 group-hover:translate-x-1"></i>
-                    </span>
-
-                    <!-- Bottom accent line on hover -->
-                    <div class="
-                        absolute bottom-0 left-0 right-0
-                        h-1 bg-[var(--blue)]
-                        transform scale-x-0 origin-left
-                        group-hover:scale-x-100
-                        transition-transform duration-300
-                    "></div>
-                </article>
-            ))}
-        </div>
-
+<section class="co-sec co-pad hp-services" id="services">
+  <div class="hp-services-head" data-animate>
+    <div>
+      <p class="co-eyebrow">Ce que je fais</p>
+      <h2 class="hp-services-title">
+        Mes expertises : plus que du code, des <span class="co-ser">solutions.</span>
+      </h2>
+      <p class="co-mut hp-services-lead">
+        Un seul interlocuteur, de la première idée à la mise en ligne — et après.
+      </p>
     </div>
+    <a href="/services" class="hp-services-all">
+      Tout voir <i class="ri-arrow-right-line"></i>
+    </a>
+  </div>
+
+  <div class="co-grid-cells hp-services-grid" data-animate-stagger>
+    {services.map((service, i) => (
+      <div class="hp-service" data-animate-item>
+        <a href={service.link} class="hp-service-link" aria-label={`En savoir plus : ${service.title}`}></a>
+        <span class="co-index hp-service-idx">0{i + 1}</span>
+        <div class="hp-service-icon">
+          <i class={service.icon} aria-hidden="true"></i>
+        </div>
+        <h3 class="hp-service-title">{service.title}</h3>
+        <p class="co-mut hp-service-desc">{service.description}</p>
+        <span class="hp-service-more">
+          En savoir plus <i class="ri-arrow-right-line"></i>
+        </span>
+      </div>
+    ))}
+  </div>
 </section>
 
 <style>
-    .services-dots-bg {
-        background-image: radial-gradient(circle, #000 1px, transparent 1px);
-        background-size: 24px 24px;
-    }
+  .hp-services { padding: 72px 40px; }
+  .hp-services-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; flex-wrap: wrap; max-width: 100%; }
+  .hp-services-title { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-top: 12px; max-width: 22ch; }
+  .hp-services-lead { margin-top: 12px; font-size: 1.05rem; line-height: 1.6; max-width: 46ch; }
+  .hp-services-all {
+    display: inline-flex; align-items: center; gap: 6px; flex: none;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink);
+    padding-bottom: 3px; border-bottom: 2px solid var(--ink); transition: gap .18s ease-out, border-color .18s ease-out;
+  }
+  .hp-services-all:hover { gap: 10px; border-color: var(--accent); }
 
-    .service-card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 3px;
-        background: linear-gradient(90deg, var(--blue) 0%, transparent 100%);
-        opacity: 0;
-        transition: opacity 0.3s ease;
-    }
+  .hp-services-grid { grid-template-columns: repeat(3, 1fr); margin-top: 44px; }
+  .hp-service { position: relative; padding: 32px; transition: background .18s ease-out; }
+  .hp-service:hover { background: var(--surface); }
+  .hp-service-link { position: absolute; inset: 0; z-index: 1; }
+  .hp-service-idx { position: absolute; top: 18px; right: 20px; font-size: 12px; }
+  .hp-service-icon {
+    width: 46px; height: 46px; display: flex; align-items: center; justify-content: center;
+    border: 1px solid var(--line-2); border-radius: 10px; font-size: 21px; color: var(--accent);
+  }
+  .hp-service-title { font-size: 1.3rem; margin-top: 20px; }
+  .hp-service-desc { margin-top: 10px; line-height: 1.6; }
+  .hp-service-more {
+    display: inline-flex; align-items: center; gap: 7px; margin-top: 20px;
+    font-size: 14px; font-weight: 600; color: var(--ink);
+  }
+  .hp-service-more i { transition: transform .18s ease-out; }
+  .hp-service:hover .hp-service-more i { transform: translateX(3px); }
 
-    .service-card:hover::before {
-        opacity: 0;
-    }
+  @media (max-width: 900px) {
+    .hp-services-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 720px) {
+    .hp-services { padding: 56px 20px; }
+    .hp-service { padding: 28px 24px; }
+  }
 </style>
-
-<script>
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('#services .animate-on-scroll').forEach(el => observer.observe(el));
-</script>
