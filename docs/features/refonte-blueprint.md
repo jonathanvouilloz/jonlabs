@@ -3,6 +3,30 @@
 > Sortir du look brutaliste (bordures noires 2px + ombres offset, Plus Jakarta Sans) jugé « banal » vers un style **blueprint** : filets très fins qui cadrent les sections, aération, nouveau font pairing éditorial. Exploration en pages lab AVANT toute migration du vrai site.
 > **Réfs visuelles** : pengon.dev, sakib.design. **Statut** : 🔄 EN COURS — migration lancée : **homepage + chrome migrés en blueprint**, reste les autres pages.
 
+## Etat session 2026-07-05 (nuit 2) — Phase blog complète (4 pages + 5 composants + 2 primitives) ✅
+
+**Fait :** (coordinateur direct — pages non file-disjointes car couche de composants partagée → parallélisation écartée au profit d'un poste unique séquentiel)
+- **2 primitives promues dans `blueprint.css`** : `.co-prose` (**A14** — corps rédactionnel : h2/h3/p/ul-puces-teal/ol-compteur/blockquote Instrument Serif/code/pre/img/hr/table sobres, **liens inline soulignés teal** en (0,1,1) qui battent le reset `.co-root :where(a)`) + `.ar-*` (**A15** — shell article/guide : colonne lecture + sidebar sticky 300px, barres retour/partage, méta, titre, tags, TOC mobile). Remplacent le `.prose` global brutaliste **dupliqué** dans les 2 templates d'article.
+- **5 composants blog migrés** : `CategoryBadge`→`.co-badge` (**drop `getCategoryColor`** — 1 seule teinte), `VideoEmbed`→cadre filet `.co-frame` (iframe fonctionnel gardé), `AuthorBio`→carte blueprint (photo réelle + CTA + socials, teal), `RelatedPosts`→grille blueprint (wrappe PostCard), `ReadingProgress`→sidebar blueprint (barre verticale teal + TOC accordéon ; **JS `.prose`→`.co-prose`**, `--blue`/`--violet`→`--accent`, classes injectées dé-Tailwindisées pour les couleurs).
+- **4 pages migrées** : `blog/[slug]` (`.co-root`, meta/CategoryBadge/tags-chips, `.co-prose`, sidebar ReadingProgress + TOC mobile, RelatedPosts+AuthorBio dans le `.co-root`), `guides/[slug]` (même shell, badge `Guide` `.co-badge--solid`, AuthorBio), `blog/tag/[tag]` (`.co-root`, back+titre serif+count, grille PostCard), `guides/index` (hero serif, grille piliers `.co-frame`, à lire aussi, **CTA `.co-cta`**, **drop IconChip**).
+- **Hack retiré** : `PostCard.astro` ne redéclare **plus** les tokens localement (les 2 pages consommatrices `/blog` + `/blog/tag/*` sont désormais `.co-root` → tokens hérités). Vérifié live : `--accent` = `#00A87D` hérité.
+- **Hard-preserve tenus** : Schema.org (BlogPosting/WebPage/Breadcrumb/FAQ), `getCollection` blog+pages, tous liens SEO (deep-links, tags, geo), câblage share/clipboard, `isPublished` gating (pubDate).
+- **Vérifié** : build vert **218 pages**, `astro check` **0 nouvelle erreur** (37 pré-existantes inchangées, dont 2 `isPublished(pages)` héritées). Browser (poste unique, :4324) : `blog/[slug]` audit DOM complet (co-prose 87 enfants, 9 H2→9 TOC, badge teal, related 3, bio, **scroll-spy OK** : scrollY 1000→10% + TOC actif), `guides/index` (piliers 0 attendu, à lire 3, CTA sombre #0b0d10, 0 IconChip), `blog/tag/seo` (13 cartes, tokens hérités). **0 erreur console** sur les 3 pages live. `guides/[slug]` = **404 live attendu** (guide pillar pubDate 2026-08-12 future) → validé par build-vert + parité de template avec `blog/[slug]`.
+- **`blueprint.css` touché UNIQUEMENT par le coordinateur** (ajout `.co-prose`/`.ar-*`). `Layout`/`Header`/`Footer`/`global.css` intacts. `global.css` **gardé** sur les pages article (comme la home) : Preflight + utilitaires Tailwind du TOC injecté + vars legacy.
+
+**Prochain :** **Phase services** (13 sous-pages `/services/*`, réf `styleguide-services`, très patternable — vraiment file-disjointes → sous-agents parallèles possibles) OU **Phase géo/programmatique** (`developpement-web/[ville]`, `consultant-ia/{index,[ville]}`, `metiers/[metier]`, `developpeur-web-freelance-geneve` — partagent Halo/IconChip). Plan des phases : `C:\Users\jojo-\.claude\plans\ok-continue-sur-les-cheeky-pinwheel.md` (section « Phases suivantes »).
+
+**Pièges :**
+- **`.co-prose`/`.ar-*` = coordinateur-owned** (dans `blueprint.css`). Toute page article/guide future réutilise ces classes — ne pas re-dupliquer un `.prose` local.
+- **`ReadingProgress` JS cible `.co-prose`** : toute page qui monte ce composant DOIT wrapper son corps dans un élément `.co-prose` (sinon TOC/progress vides — `if(!articleContent)return`).
+- **`guides/[slug]` non visible en prod** tant que le 1er pilier n'a pas une pubDate passée (12.08.2026). Le tester = avancer une pubDate en dev, ou se fier à la parité `blog/[slug]`.
+- Restent des **fallbacks locaux à consolider** (non urgent, cf. bloc précédent) : `.co-link`, `.co-highlight`, `.co-field/-input`, `.co-table`/`.co-tier`, `.co-callout`.
+- Pièges antérieurs inchangés (artefact motion screenshot, scoping `.co-*`, scroll physique, mobile <720/<900 non capturable).
+
+**Commit :** (à venir) feat(design): Phase blog blueprint — blog/[slug], tag, guides (index+[slug]) + 5 composants + primitives .co-prose/.ar-*
+
+---
+
 ## Etat session 2026-07-05 (nuit) — services.astro + Vague 1 (7 pages principales, sous-agents parallèles) ✅
 
 **Fait :**
@@ -159,12 +183,16 @@
 **Commit :** [e92b8f2] feat(design): exploration blueprint — pairing 04, BlueprintKit partagé, pages lab (branche `design/blueprint-lab`)
 
 ## Carte du code
-> Mise à jour : 2026-07-05 (nuit) — services + Vague 1 (7 pages). **10 corps de page migrés** (home, services, + 7 vague), chrome global + design system en place.
+> Mise à jour : 2026-07-05 (nuit 2) — Phase blog complète. **14 corps de page migrés** (home, services, 7 vague, + blog/[slug], blog/tag, guides/index, guides/[slug]), chrome global + design system en place. Couche composants blog entièrement blueprint.
 
 ### Pages migrées blueprint (corps en `.co-root`)
 | Page | Composants réécrits | Note |
 |------|---------------------|------|
 | `src/pages/index.astro` | Hero, ServicesHome, AboutHome, PortfolioHighlight, ProofLecureux, TechStack, GeoZonesStrip, ClientsBanner | homepage |
+| `src/pages/blog/[slug].astro` | CategoryBadge, VideoEmbed, ReadingProgress, RelatedPosts, AuthorBio | article : shell `.ar-*` + corps `.co-prose` + sidebar TOC/progress + TOC mobile. Schema BlogPosting/FAQ |
+| `src/pages/blog/tag/[tag].astro` | PostCard | back+titre serif+count, grille PostCard (tokens hérités `.co-root`) |
+| `src/pages/guides/index.astro` | (inline) | hub piliers `.co-frame` (masqué si aucun publié), à lire aussi, CTA `.co-cta`. IconChip retiré |
+| `src/pages/guides/[slug].astro` | ReadingProgress, AuthorBio | même shell `.ar-*`/`.co-prose` que blog article, badge `Guide`. Schema WebPage. **Non visible tant que pubDate future** |
 | `src/pages/services.astro` | (inline) + `services/*` orphelins non importés | constellation `scenarios.ts` + modale + zone locale + ressources |
 | `src/pages/about.astro` | (inline) | narratif intégral, timeline filets, preuve dyn `proof-lecureux.ts`, Halo retiré |
 | `src/pages/portfolio.astro` | `portfolio/PortfolioCardEditorial.astro` | cas vedette Lécureux `.co-spec` + tuiles GSC, grille filtrable |
@@ -185,6 +213,18 @@
 | `src/components/Hero.astro` | Hero blueprint 2-col — texte (`.co-ser` accent) + 2 CTA (`sample.ts`) + socials · **photo Jonathan cadrée `.co-frame`**. Cascade `data-animate`. Styles `.hp-hero-*` |
 | `src/components/{ServicesHome,AboutHome,PortfolioHighlight,TechStack,GeoZonesStrip,ClientsBanner}.astro` | Sections home blueprint (homepage-only) — grille millimétrée services · citation+badges About · `getCollection` portfolio inchangé · **TechStack = marquee sombre** · chips villes géo (maillage SEO préservé) · marquee vrais clients. Styles `.hp-*` |
 | `src/components/ProofLecureux.astro` | **Nouveau** — section preuve home : témoignage réel + 3 tuiles GSC (`proof-lecureux.ts`), garde `{testimonial && …}`. Styles `.hp-proof-*` |
+| `src/styles/blueprint.css` (A14 `.co-prose`) | **Coordinateur-owned** — corps rédactionnel (blog/guides). Liens inline soulignés teal (bat le reset `:where(a)`), blockquote Instrument Serif, listes puce/compteur teal, tableaux/code sobres. Remplace le `.prose` global |
+| `src/styles/blueprint.css` (A15 `.ar-*`) | **Coordinateur-owned** — shell article/guide partagé : colonne lecture + sidebar sticky 300px, barres retour/partage, méta, titre, tags, TOC mobile. `<1280px` : sidebar masquée |
+
+### Composants blog (migrés blueprint — dans `.co-root`)
+| Fichier | Rôle |
+|---------|------|
+| `src/components/blog/PostCard.astro` | Carte article `.bl-card` (blog index + tag). **Tokens locaux retirés** (hérités de `.co-root`). Badge `.co-badge` sur image, mode liste via `#posts-list[data-view=list]` |
+| `src/components/blog/CategoryBadge.astro` | `.co-badge` (point teal). **`getCategoryColor` abandonné** (1 seule teinte). Prop `size` sm/md |
+| `src/components/blog/VideoEmbed.astro` | Iframe YouTube nocookie 16:9 dans cadre filet `.co-frame` (crosshairs) |
+| `src/components/blog/AuthorBio.astro` | Carte bio blueprint `.bl-author` : photo réelle `.co-frame` + CTA `.co-btn` /about + socials teal. Dans le `.co-root` de fin de page |
+| `src/components/blog/RelatedPosts.astro` | Grille blueprint `.bl-related-*` wrappant PostCard + lien « Tous les articles » |
+| `src/components/blog/ReadingProgress.astro` | Sidebar blueprint `.bl-rp-*` : barre verticale teal + TOC accordéon (JS cible **`.co-prose`**). Classes injectées `toc-h2/h3-link` stylées teal (desktop + `#mobile-toc-list`). Barre haute mobile fixed |
 
 ### Lab (référence, noindex — inchangé)
 | Fichier | Rôle |

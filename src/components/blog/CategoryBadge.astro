@@ -1,6 +1,10 @@
 ---
-import { getCategoryName, getCategoryColor, type CategoryKey } from '../../lib/blog';
+import { getCategoryName, type CategoryKey } from '../../lib/blog';
 
+// Badge catégorie blueprint = primitive .co-badge (pastille filet + point teal).
+// UNE seule teinte d'accent : la catégorie se lit dans le texte, jamais par une
+// couleur dédiée (getCategoryColor volontairement abandonné — règle « pas de
+// couleur par catégorie »). Doit vivre sous un ancêtre .co-root/.co-chrome.
 interface Props {
   category: CategoryKey;
   size?: 'sm' | 'md';
@@ -8,20 +12,10 @@ interface Props {
 
 const { category, size = 'sm' } = Astro.props;
 const name = getCategoryName(category);
-const color = getCategoryColor(category);
-
-const sizeClasses = {
-  sm: 'px-2 py-1 text-xs',
-  md: 'px-3 py-1.5 text-sm',
-};
 ---
 
-<span
-  class:list={[
-    'font-medium border border-black inline-block',
-    sizeClasses[size],
-  ]}
-  style={`background-color: ${color};`}
->
-  {name}
-</span>
+<span class:list={['co-badge', size === 'md' && 'co-badge--md']}>{name}</span>
+
+<style>
+  .co-badge--md { font-size: 13.5px; padding: 6px 13px; }
+</style>

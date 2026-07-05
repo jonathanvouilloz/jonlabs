@@ -4,7 +4,6 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import AppHeader from '../../components/Header.astro';
 import AppFooter from '../../components/Footer.astro';
-import IconChip from '../../components/IconChip.astro';
 import { isPublished } from '../../lib/blog';
 import { getCollectionPageSchema, getBreadcrumbSchema } from '../../lib/seo';
 import { SITE_URL, personData, organizationData } from '../../data/schema';
@@ -42,14 +41,14 @@ const schemas = [personData, organizationData, collectionSchema, breadcrumbSchem
 <Layout title={pageTitle} description={pageDescription} schemas={schemas}>
   <AppHeader />
 
-  <main class="mb-20">
-    <!-- Hero -->
-    <section class="max-w-6xl mx-auto px-4 pt-16 pb-10">
-      <p class="seo-h1-eyebrow text-sm font-semibold uppercase tracking-[0.18em] text-accent-strong mb-4">Guides</p>
-      <h1 class="text-4xl md:text-6xl font-normal tracking-tight mb-6 max-w-3xl">
-        Mettre l'IA et l'automatisation en place, étape par étape
+  <main class="co-root">
+    <!-- ══ HERO ══ -->
+    <section class="co-sec co-pad gd-hero">
+      <p class="co-eyebrow">Guides</p>
+      <h1 class="gd-h1">
+        Mettre l'IA et l'automatisation en place, <span class="co-ser">étape par étape</span>
       </h1>
-      <p class="text-lg text-muted max-w-2xl">
+      <p class="co-mut gd-lead">
         Des méthodes concrètes, pensées pour les PME de Suisse romande : par où commencer,
         combien ça coûte en francs, quels outils, et comment embarquer ton équipe.
       </p>
@@ -57,36 +56,21 @@ const schemas = [personData, organizationData, collectionSchema, breadcrumbSchem
 
     <!-- Grille des piliers (masquée tant qu'aucun guide n'est publié) -->
     {pillars.length > 0 && (
-    <section class="max-w-6xl mx-auto px-4">
-      <div class="grid gap-6 md:grid-cols-2">
+    <section class="co-sec co-pad gd-sec">
+      <p class="co-eyebrow">Les piliers</p>
+      <div class="gd-grid">
         {pillars.map((guide) => (
-          <a
-            href={`/guides/${guide.slug}`}
-            class="group block bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]"
-          >
-            <div class="flex items-start gap-4">
-              <IconChip icon="ri-compass-3-line" size="lg" />
-              <div>
-                <h2 class="text-xl md:text-2xl font-semibold tracking-tight mb-2 group-hover:text-accent-strong transition-colors">
-                  {guide.data.h1 ?? guide.data.title}
-                </h2>
-                <p class="text-muted mb-4">{guide.data.description}</p>
-                <div class="flex flex-wrap items-center gap-3 text-sm text-muted">
-                  <span class="inline-flex items-center gap-1">
-                    <i class="ri-book-open-line"></i>
-                    Guide
-                  </span>
-                  {guide.data.readingTime && (
-                    <span class="inline-flex items-center gap-1">
-                      <i class="ri-time-line"></i>
-                      {guide.data.readingTime} min
-                    </span>
-                  )}
-                  <span class="inline-flex items-center gap-1 font-medium text-ink group-hover:gap-2 transition-all">
-                    Lire le guide
-                    <i class="ri-arrow-right-line"></i>
-                  </span>
-                </div>
+          <a href={`/guides/${guide.slug}`} class="gd-card co-frame co-frame--reveal">
+            <div class="gd-card-icon"><i class="ri-compass-3-line"></i></div>
+            <div class="gd-card-body">
+              <h2 class="gd-card-title">{guide.data.h1 ?? guide.data.title}</h2>
+              <p class="co-mut gd-card-desc">{guide.data.description}</p>
+              <div class="gd-card-meta">
+                <span><i class="ri-book-open-line"></i> Guide</span>
+                {guide.data.readingTime && (
+                  <span><i class="ri-time-line"></i> {guide.data.readingTime} min</span>
+                )}
+                <span class="gd-card-cta">Lire le guide <i class="ri-arrow-right-line"></i></span>
               </div>
             </div>
           </a>
@@ -97,17 +81,16 @@ const schemas = [personData, organizationData, collectionSchema, breadcrumbSchem
 
     <!-- Articles IA à lire -->
     {aLire.length > 0 && (
-    <section class="max-w-6xl mx-auto px-4 mt-16">
-      <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-6">À lire aussi</h2>
-      <ul class="grid gap-3 md:grid-cols-3">
+    <section class="co-sec co-pad gd-sec">
+      <p class="co-eyebrow">À lire aussi</p>
+      <h2 class="gd-sec-title">Articles IA &amp; automatisation</h2>
+      <ul class="gd-alire">
         {aLire.map((item) => (
           <li>
-            <a
-              href={item.href}
-              class="group flex items-center gap-3 bg-panel border-2 border-black px-4 py-3 transition-all duration-200 hover:bg-accent-soft"
-            >
-              <i class={`${item.icon} text-xl text-accent-strong`}></i>
-              <span class="font-medium group-hover:text-accent-strong transition-colors">{item.label}</span>
+            <a href={item.href} class="gd-alire-link">
+              <i class={item.icon}></i>
+              <span>{item.label}</span>
+              <i class="ri-arrow-right-line gd-alire-arrow"></i>
             </a>
           </li>
         ))}
@@ -115,26 +98,71 @@ const schemas = [personData, organizationData, collectionSchema, breadcrumbSchem
     </section>
     )}
 
-    <!-- CTA -->
-    <section class="max-w-6xl mx-auto px-4 mt-16">
-      <div class="bg-dark text-white border-2 border-black p-8 md:p-12 text-center">
-        <h2 class="text-2xl md:text-4xl font-normal tracking-tight mb-4">
-          Un projet IA concret à cadrer ?
-        </h2>
-        <p class="text-white/70 max-w-xl mx-auto mb-8">
-          Plutôt que de lire dix guides, on peut cadrer ton premier cas d'usage ensemble —
-          prix CHF transparents, basé à Genève.
+    <!-- ══ CTA FINAL (primitive .co-cta) ══ -->
+    <section class="co-cta">
+      <span class="co-x tl"></span><span class="co-x tr"></span>
+      <div class="co-cta-inner">
+        <p class="co-cta-eyebrow">Un cas d'usage à cadrer ?</p>
+        <h2 class="co-cta-title">Plutôt que de lire dix guides, cadrons ton <span class="co-ser">premier cas.</span></h2>
+        <p class="co-cta-lead">
+          On identifie ensemble ton premier cas d'usage IA concret — prix CHF transparents, basé à Genève.
         </p>
-        <a
-          href="/consultant-ia"
-          class="inline-flex items-center gap-2 bg-accent text-ink border-2 border-black px-6 py-3 font-bold shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]"
-        >
-          Voir l'accompagnement IA
-          <i class="ri-arrow-right-line"></i>
-        </a>
+        <div class="co-cta-btns">
+          <a href="/consultant-ia" class="co-btn co-cta-btn"><i class="ri-robot-2-line" aria-hidden="true"></i> Voir l'accompagnement IA</a>
+          <a href="/contact" class="co-btn co-cta-btn co-cta-btn--ghost"><i class="ri-calendar-check-line" aria-hidden="true"></i> Cadrer un projet</a>
+        </div>
       </div>
     </section>
   </main>
 
   <AppFooter />
 </Layout>
+
+<style is:global>
+  /* ══ Page guides (hub) blueprint — .gd-* (dans .co-root) ══ */
+  .gd-hero { padding: 64px 40px 48px; }
+  .co-root .gd-h1 { font-size: clamp(2.2rem, 5.5vw, 3.6rem); line-height: 1.06; letter-spacing: -0.03em; margin-top: 14px; max-width: 20ch; }
+  .co-root .gd-lead { margin-top: 18px; font-size: 1.1rem; line-height: 1.6; max-width: 60ch; }
+
+  .gd-sec { padding: 48px 40px; }
+  .gd-sec-title { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.1; margin-top: 8px; }
+
+  /* Grille piliers */
+  .gd-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 28px; }
+  .gd-card {
+    position: relative; display: flex; gap: 20px; align-items: flex-start;
+    padding: 28px; border: 1px solid var(--line-2); background: var(--surface);
+    transition: box-shadow .18s ease-out;
+  }
+  .gd-card:hover { box-shadow: 0 8px 26px rgba(20,22,26,.08); }
+  .gd-card-icon { flex: none; width: 46px; height: 46px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--line-2); font-size: 22px; color: var(--accent); }
+  .gd-card-body { min-width: 0; }
+  .gd-card-title { font-size: 1.3rem; line-height: 1.2; margin-bottom: 8px; }
+  .co-root .gd-card-desc { font-size: 0.95rem; line-height: 1.55; margin-bottom: 16px; }
+  .gd-card-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; font-size: 0.85rem; color: var(--muted); }
+  .gd-card-meta > span { display: inline-flex; align-items: center; gap: 5px; }
+  .gd-card-cta { color: var(--accent); font-weight: 600; }
+  .gd-card-cta i { transition: transform .18s ease-out; }
+  .gd-card:hover .gd-card-cta i { transform: translateX(4px); }
+
+  /* À lire aussi */
+  .gd-alire { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 24px; }
+  .gd-alire-link {
+    display: flex; align-items: center; gap: 12px; padding: 16px 18px;
+    border: 1px solid var(--line-2); background: var(--surface); color: var(--ink);
+    font-weight: 500; transition: box-shadow .18s ease-out, border-color .18s ease-out;
+  }
+  .gd-alire-link:hover { border-color: var(--ink); box-shadow: 0 6px 22px rgba(20,22,26,.07); }
+  .gd-alire-link > i:first-child { color: var(--accent); font-size: 1.2rem; flex: none; }
+  .gd-alire-link span { flex: 1; line-height: 1.35; }
+  .gd-alire-arrow { color: var(--muted); flex: none; transition: transform .18s ease-out; }
+  .gd-alire-link:hover .gd-alire-arrow { transform: translateX(3px); color: var(--accent); }
+
+  @media (max-width: 900px) {
+    .gd-grid { grid-template-columns: 1fr; }
+    .gd-alire { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gd-card-cta i, .gd-alire-link, .gd-alire-arrow { transition: none; }
+  }
+</style>

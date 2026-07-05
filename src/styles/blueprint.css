@@ -253,6 +253,89 @@
 /* A12 · Hachures diagonales (zones média vides). */
 .co-hatch { background-image: repeating-linear-gradient(45deg, var(--line) 0, var(--line) 1px, transparent 1px, transparent 7px); }
 
+/* A14 · Corps d'article (prose) — corps rédactionnel des pages blog/guides.
+   Remplace le .prose global brutaliste. Liens inline SOULIGNÉS teal (ré-autorisés
+   ici : .co-prose a en (0,1,1) bat le reset .co-root :where(a)). Coins nets, filets
+   fins, blockquote en Instrument Serif, tableaux/​code sobres. À utiliser sur le
+   conteneur du <Content /> dans .co-root. */
+.co-prose { max-width: 72ch; font-size: 1.075rem; line-height: 1.75; color: var(--ink); }
+.co-prose > :first-child { margin-top: 0; }
+.co-prose p { margin: 0 0 1.35em; }
+.co-prose h2 { font-size: clamp(1.4rem, 2.4vw, 1.7rem); line-height: 1.2; letter-spacing: -0.02em; margin: 1.9em 0 0.6em; }
+.co-prose h3 { font-size: clamp(1.15rem, 1.8vw, 1.3rem); line-height: 1.25; letter-spacing: -0.01em; margin: 1.5em 0 0.5em; }
+.co-prose h4 { font-size: 1.05rem; font-weight: 600; margin: 1.3em 0 0.4em; }
+.co-prose a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; transition: text-decoration-thickness .16s ease-out; }
+.co-prose a:hover { text-decoration-thickness: 2px; }
+.co-prose strong { font-weight: 650; }
+.co-prose ul, .co-prose ol { margin: 0 0 1.35em; padding-left: 0; display: flex; flex-direction: column; gap: 0.5em; }
+.co-prose ul { list-style: none; }
+.co-prose ul > li { position: relative; padding-left: 22px; line-height: 1.65; }
+.co-prose ul > li::before { content: ""; position: absolute; left: 4px; top: 0.62em; width: 6px; height: 6px; border-radius: 999px; background: var(--accent); }
+.co-prose ol { list-style: none; counter-reset: co-ol; }
+.co-prose ol > li { position: relative; padding-left: 30px; line-height: 1.65; counter-increment: co-ol; }
+.co-prose ol > li::before { content: counter(co-ol); position: absolute; left: 0; top: 0; font-variant-numeric: tabular-nums; font-weight: 600; font-size: 0.85em; color: var(--accent); }
+.co-prose li ul, .co-prose li ol { margin: 0.5em 0 0; }
+.co-prose li ul > li::before { background: transparent; border: 1px solid var(--accent); }
+.co-prose blockquote { margin: 1.6em 0; padding: 4px 0 4px 20px; border-left: 2px solid var(--accent); font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: 1.35rem; line-height: 1.4; color: var(--ink); }
+.co-prose blockquote p { margin-bottom: 0.4em; }
+.co-prose code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.88em; background: rgba(20,22,26,.05); border: 1px solid var(--line); padding: 0.12em 0.4em; }
+.co-prose pre { background: #0b0d10; color: #f4f3ee; padding: 18px 20px; margin: 1.6em 0; overflow-x: auto; border: 1px solid var(--line-2); }
+.co-prose pre code { background: transparent; border: 0; padding: 0; font-size: 0.9em; color: inherit; }
+.co-prose img { display: block; max-width: 100%; height: auto; margin: 2em auto; border: 1px solid var(--line-2); }
+.co-prose hr { border: 0; border-top: 1px solid var(--line); margin: 2.6em 0; }
+.co-prose table { width: 100%; border-collapse: collapse; margin: 1.6em 0; font-size: 0.94rem; border: 1px solid var(--line-2); }
+.co-prose thead { background: rgba(20,22,26,.04); }
+.co-prose th { padding: 10px 14px; text-align: left; font-weight: 600; border: 1px solid var(--line); }
+.co-prose td { padding: 10px 14px; border: 1px solid var(--line); }
+.co-prose tbody tr:hover { background: rgba(20,22,26,.02); }
+@media (max-width: 640px) {
+  .co-prose { font-size: 1.02rem; }
+  .co-prose table { display: block; overflow-x: auto; white-space: nowrap; }
+}
+
+/* A15 · Shell de page article/guide — .ar-* (partagé blog/[slug] + guides/[slug]).
+   Colonne de lecture + sidebar sticky (TOC/progress), barres retour/partage,
+   méta, titre, tags, TOC mobile. Le corps rédactionnel utilise .co-prose. */
+.ar-wrap { padding-top: 44px; padding-bottom: 24px; }
+.ar-grid { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 48px; align-items: start; }
+.ar-main { min-width: 0; }
+.ar-topbar { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 28px; }
+.ar-back { display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 500; color: var(--muted); transition: color .16s ease-out; }
+.ar-back:hover { color: var(--accent); }
+.ar-share { display: flex; align-items: center; gap: 14px; font-size: 1.1rem; color: var(--muted); }
+.ar-share a, .ar-share button { color: var(--muted); background: none; border: 0; cursor: pointer; padding: 0; transition: color .16s ease-out; }
+.ar-share a:hover, .ar-share button:hover { color: var(--accent); }
+.ar-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-bottom: 20px; }
+.ar-date, .ar-rt { font-size: 0.85rem; color: var(--muted); display: inline-flex; align-items: center; gap: 5px; }
+.co-root .ar-title { font-size: clamp(1.9rem, 4.2vw, 2.9rem); line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 28px; }
+.ar-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
+.ar-tag { font-size: 0.8rem; color: var(--muted); padding: 4px 11px; border: 1px solid var(--line-2); border-radius: 999px; transition: color .16s ease-out, border-color .16s ease-out; }
+.ar-tag:hover { color: var(--accent); border-color: var(--accent); }
+.ar-foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--line); }
+.ar-foot-share { background: none; border: 0; cursor: pointer; color: var(--muted); font-size: 1.3rem; padding: 0; transition: color .16s ease-out; }
+.ar-foot-share:hover { color: var(--accent); }
+.ar-side { position: relative; }
+.ar-side-sticky { position: sticky; top: 96px; }
+.ar-mtoc { margin-bottom: 24px; }
+.ar-mtoc-btn {
+  width: 100%; display: flex; align-items: center; justify-content: space-between;
+  background: var(--surface); border: 1px solid var(--line-2); padding: 13px 16px;
+  font-family: inherit; font-size: 0.95rem; font-weight: 600; color: var(--ink); cursor: pointer;
+}
+.ar-mtoc-label { display: inline-flex; align-items: center; gap: 8px; }
+.ar-mtoc-caret { transition: transform .2s ease-out; font-size: 1.2rem; color: var(--muted); }
+.ar-mtoc-content { background: var(--surface); border: 1px solid var(--line-2); border-top: 0; padding: 14px 16px; }
+.ar-mtoc-content.hidden { display: none; }
+@media (min-width: 1280px) { .ar-mtoc { display: none; } }
+@media (max-width: 1279px) {
+  .ar-grid { grid-template-columns: 1fr; gap: 0; }
+  .ar-side { display: none; }
+}
+@media (max-width: 720px) { .ar-wrap { padding-top: 28px; } }
+@media (prefers-reduced-motion: reduce) {
+  .ar-back, .ar-share a, .ar-share button, .ar-tag, .ar-foot-share, .ar-mtoc-caret { transition: none; }
+}
+
 /* section shell */
 .co-sec { position: relative; border-top: 1px solid var(--line); }
 .co-sec::before, .co-sec::after {

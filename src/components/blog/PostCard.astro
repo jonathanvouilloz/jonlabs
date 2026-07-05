@@ -46,17 +46,9 @@ const { title, description, image, category, tags, pubDate, readingTime } = post
 
 <style is:global>
   /* ══ PostCard blueprint — .bl-card (partagé blog index + tag page) ══
-     Tokens blueprint redéclarés localement sur .bl-card : la carte reste
-     lisible même hors ancêtre .co-root (page /blog/tag/[tag]). Sur /blog,
-     .co-root fournit déjà les mêmes valeurs — aucun conflit. */
+     Les deux pages consommatrices (/blog et /blog/tag/[tag]) sont wrappées
+     .co-root → tokens blueprint hérités, aucune redéclaration locale nécessaire. */
   .bl-card {
-    --ink: #14161A;
-    --muted: #6F7471;
-    --bg: #F4F3EE;
-    --surface: #FBFBF9;
-    --line: rgba(20, 22, 26, 0.09);
-    --line-2: rgba(20, 22, 26, 0.16);
-    --accent: #00A87D;
     position: relative; display: flex; flex-direction: column;
     background: var(--surface); border: 1px solid var(--line-2); overflow: hidden;
     transition: box-shadow .18s ease-out;

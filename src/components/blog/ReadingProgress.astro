@@ -1,4 +1,7 @@
 ---
+// ReadingProgress — barre de progression de lecture + sommaire (TOC) à accordéons.
+// Blueprint : filets fins, accent teal. Doit vivre sous un ancêtre .co-root.
+// Le JS cible le corps d'article via .co-prose (ex-.prose).
 interface Props {
   readingTime?: number;
 }
@@ -7,89 +10,79 @@ const { readingTime } = Astro.props;
 ---
 
 <!-- Sidebar - visible only on large screens -->
-<aside
-  id="reading-progress-sidebar"
-  aria-label="Progression de lecture"
->
-  <div class="p-4 relative">
-    <!-- Progress indicator -->
-    <div class="flex items-center gap-3 mb-4 pb-4 border-b border-gray-200">
-      <!-- Vertical progress bar -->
-      <div class="relative w-1.5 h-16 bg-gray-200 border border-black">
-        <div
-          id="progress-bar"
-          class="absolute bottom-0 left-0 w-full bg-[var(--blue)] transition-all duration-150"
-          style="height: 0%;"
-        ></div>
-      </div>
-      <div class="flex-1">
-        <p id="progress-percent" class="text-2xl font-bold">0%</p>
-        {readingTime && (
-          <p id="time-remaining" class="text-xs text-gray-500">
-            ~{readingTime} min restantes
-          </p>
-        )}
-      </div>
+<aside id="reading-progress-sidebar" class="bl-rp" aria-label="Progression de lecture">
+  <!-- Progress indicator -->
+  <div class="bl-rp-head">
+    <div class="bl-rp-track" aria-hidden="true">
+      <div id="progress-bar" class="bl-rp-fill" style="height: 0%;"></div>
     </div>
-
-    <!-- Table of contents with accordions -->
-    <nav id="toc-nav" aria-label="Table des matières">
-      <p class="text-xs text-gray-400 uppercase tracking-wide mb-3 font-medium">Sommaire</p>
-      <ul id="toc-list" class="space-y-1 text-sm max-h-[calc(100vh-22rem)] overflow-y-auto">
-        <!-- Populated by JavaScript -->
-      </ul>
-    </nav>
+    <div class="bl-rp-num">
+      <p id="progress-percent" class="bl-rp-percent">0%</p>
+      {readingTime && (
+        <p id="time-remaining" class="bl-rp-remaining">~{readingTime} min restantes</p>
+      )}
+    </div>
   </div>
+
+  <!-- Table of contents with accordions -->
+  <nav id="toc-nav" aria-label="Table des matières">
+    <p class="co-eyebrow bl-rp-toclabel">Sommaire</p>
+    <ul id="toc-list" class="bl-rp-toc">
+      <!-- Populated by JavaScript -->
+    </ul>
+  </nav>
 </aside>
 
 <!-- Progress bar at top (mobile & tablet) -->
 <div
   id="top-progress-bar"
-  class="fixed top-0 left-0 w-full h-1 bg-gray-200 z-50 xl:hidden"
+  class="bl-rp-topbar"
   role="progressbar"
   aria-valuemin="0"
   aria-valuemax="100"
   aria-valuenow="0"
 >
-  <div
-    id="top-progress-fill"
-    class="h-full bg-[var(--blue)] transition-all duration-150"
-    style="width: 0%;"
-  ></div>
+  <div id="top-progress-fill" class="bl-rp-topfill" style="width: 0%;"></div>
 </div>
 
-<style>
-  /* Accordion styles */
-  .accordion-content {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-  }
+<style is:global>
+  /* ══ ReadingProgress blueprint — .bl-rp (dans .co-root) ══ */
+  .bl-rp { padding: 4px 0 8px; }
+  .bl-rp-head { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+  .bl-rp-track { position: relative; flex: none; width: 3px; height: 60px; background: rgba(20,22,26,.08); overflow: hidden; }
+  .bl-rp-fill { position: absolute; bottom: 0; left: 0; width: 100%; background: var(--accent); transition: height .15s ease-out; }
+  .bl-rp-num { flex: 1; }
+  .co-root .bl-rp-percent { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1; }
+  .co-root .bl-rp-remaining { font-size: 12px; color: var(--muted); margin-top: 4px; }
+  .bl-rp-toclabel { display: block; margin-bottom: 12px; }
 
-  .accordion-content.open {
-    max-height: 500px;
-  }
+  /* TOC — le JS injecte des <li>/<a>/<button> avec classes sémantiques (toc-*)
+     + quelques utilitaires Tailwind de layout (flex/gap via global.css).
+     Couleurs de marque en teal, valables pour le TOC desktop ET mobile. */
+  .bl-rp-toc { max-height: calc(100vh - 22rem); overflow-y: auto; }
+  .toc-section { margin-bottom: 2px; }
+  .toc-h2-link, .toc-h3-link { text-decoration: none; }
+  .toc-h2-link { display: block; flex: 1; padding: 6px 0; font-size: 0.9rem; font-weight: 500; color: var(--ink); transition: color .16s ease-out; }
+  .toc-h3-link { display: block; padding: 4px 0; font-size: 0.82rem; color: var(--muted); transition: color .16s ease-out; }
+  .toc-h2-link:hover, .toc-h3-link:hover { color: var(--accent); }
+  .toc-h2-link.active { color: var(--accent); border-left: 2px solid var(--accent); margin-left: -12px; padding-left: 10px; }
+  .toc-h3-link.active { color: var(--accent); font-weight: 500; }
 
-  .accordion-icon {
-    transition: transform 0.2s ease;
-  }
+  /* Accordéons */
+  .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+  .accordion-content.open { max-height: 500px; }
+  .accordion-icon { transition: transform 0.2s ease-out; color: var(--muted); }
+  .accordion-trigger { background: none; border: 0; cursor: pointer; padding: 4px; line-height: 1; }
+  .accordion-trigger[aria-expanded="true"] .accordion-icon { transform: rotate(180deg); }
 
-  .accordion-trigger[aria-expanded="true"] .accordion-icon {
-    transform: rotate(180deg);
-  }
+  /* Barre de progression haute (mobile & tablette) */
+  .bl-rp-topbar { position: fixed; top: 0; left: 0; width: 100%; height: 2px; background: rgba(20,22,26,.08); z-index: 50; }
+  @media (min-width: 1280px) { .bl-rp-topbar { display: none; } }
+  .bl-rp-topfill { height: 100%; background: var(--accent); transition: width .15s ease-out; }
 
-  /* Active section highlight */
-  .toc-h2-link.active {
-    color: var(--violet);
-    border-left: 2px solid var(--violet);
-    margin-left: -2px;
-    padding-left: 8px;
-    background: rgba(0, 168, 125,0.05);
-  }
-
-  .toc-h3-link.active {
-    color: var(--violet);
-    font-weight: 500;
+  @media (prefers-reduced-motion: reduce) {
+    .bl-rp-fill, .bl-rp-topfill, .accordion-content, .accordion-icon,
+    #toc-list a { transition: none; }
   }
 </style>
 
@@ -105,7 +98,7 @@ const { readingTime } = Astro.props;
     const mobileTocToggle = document.getElementById('mobile-toc-toggle');
     const mobileTocContent = document.getElementById('mobile-toc-content');
     const mobileTocIcon = document.getElementById('mobile-toc-icon');
-    const articleContent = document.querySelector('.prose');
+    const articleContent = document.querySelector('.co-prose');
 
     if (!articleContent) return;
 
@@ -159,7 +152,7 @@ const { readingTime } = Astro.props;
         const h2Link = document.createElement('a');
         h2Link.href = `#${group.h2.id}`;
         h2Link.textContent = group.h2.textContent;
-        h2Link.className = 'toc-h2-link flex-1 py-1.5 font-medium hover:text-[var(--violet)] transition-colors block';
+        h2Link.className = 'toc-h2-link';
         h2Link.dataset.heading = group.h2.id;
 
         h2Link.addEventListener('click', (e) => {
@@ -170,12 +163,13 @@ const { readingTime } = Astro.props;
         h2Wrapper.appendChild(h2Link);
 
         // Accordion toggle button (only if has H3s)
+        let accordionContent = null;
         if (hasH3s) {
           const toggleBtn = document.createElement('button');
-          toggleBtn.className = 'accordion-trigger p-1 hover:bg-gray-100 rounded transition-colors';
+          toggleBtn.className = 'accordion-trigger';
           toggleBtn.setAttribute('aria-expanded', 'false');
           toggleBtn.setAttribute('aria-controls', `accordion-${isMobile ? 'mobile-' : ''}${groupIndex}`);
-          toggleBtn.innerHTML = '<i class="ri-arrow-down-s-line accordion-icon text-gray-400"></i>';
+          toggleBtn.innerHTML = '<i class="ri-arrow-down-s-line accordion-icon"></i>';
 
           toggleBtn.addEventListener('click', () => {
             const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
@@ -191,7 +185,7 @@ const { readingTime } = Astro.props;
             // Toggle current
             if (!isExpanded) {
               toggleBtn.setAttribute('aria-expanded', 'true');
-              accordionContent.classList.add('open');
+              accordionContent?.classList.add('open');
             }
           });
 
@@ -202,16 +196,16 @@ const { readingTime } = Astro.props;
 
         // Accordion content (H3s)
         if (hasH3s) {
-          const accordionContent = document.createElement('ul');
+          accordionContent = document.createElement('ul');
           accordionContent.id = `accordion-${isMobile ? 'mobile-' : ''}${groupIndex}`;
-          accordionContent.className = 'accordion-content pl-3 space-y-1 mt-1';
+          accordionContent.className = 'accordion-content';
 
           group.h3s.forEach(h3 => {
             const h3Li = document.createElement('li');
             const h3Link = document.createElement('a');
             h3Link.href = `#${h3.id}`;
             h3Link.textContent = h3.textContent;
-            h3Link.className = 'toc-h3-link text-xs text-gray-500 hover:text-[var(--violet)] transition-colors block py-1';
+            h3Link.className = 'toc-h3-link';
             h3Link.dataset.heading = h3.id;
 
             h3Link.addEventListener('click', (e) => {
@@ -370,13 +364,9 @@ const { readingTime } = Astro.props;
       updateActiveLinkStyling(mobileTocList, currentH2, currentH3);
     };
 
-    // Track if user has scrolled
-    let hasScrolled = false;
-
     // Throttled scroll handler
     let ticking = false;
     window.addEventListener('scroll', () => {
-      hasScrolled = true;
       if (!ticking) {
         window.requestAnimationFrame(() => {
           updateProgress();

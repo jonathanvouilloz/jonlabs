@@ -2,107 +2,98 @@
 import { Image } from 'astro:assets';
 import { author } from '../../sample';
 import imgJonathan from '../../assets/jonathan-vouilloz.webp';
+
+// Bio auteur blueprint — carte filet fin, photo réelle, CTA /about, socials.
+// Doit vivre sous un ancêtre .co-root (tokens blueprint). Placée en bas des
+// pages article/guide (dans le <main class="co-root">).
 ---
 
-<section class="author-bio-section px-4 py-12">
-  <div class="max-w-3xl mx-auto">
-    <div class="bg-white border-2 border-black shadow-[6px_6px_0px_rgba(0,0,0,0.3)] p-6 md:p-8 relative">
-      <!-- Corner boxes (brutalist decoration) -->
-      <div class="size-2 bg-black absolute -top-1 -left-1"></div>
-      <div class="size-2 bg-black absolute -top-1 -right-1"></div>
-      <div class="size-2 bg-black absolute -bottom-1 -left-1"></div>
-      <div class="size-2 bg-black absolute -bottom-1 -right-1"></div>
+<section class="bl-author-sec co-sec co-pad">
+  <div class="bl-author">
+    <a
+      href="/about"
+      class="bl-author-photo co-frame"
+      aria-label={`En savoir plus sur ${author.name}`}
+    >
+      <Image
+        src={imgJonathan}
+        alt={`Photo de ${author.name}, développeur web freelance à Genève`}
+        width={128}
+        height={128}
+        loading="lazy"
+      />
+    </a>
 
-      <div class="flex flex-col md:flex-row gap-6 items-start">
-        <!-- Avatar : photo réelle -->
-        <a
-          href="/about"
-          class="block w-24 h-24 md:w-28 md:h-28 border-2 border-black flex-shrink-0 overflow-hidden hover:shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-shadow"
-          aria-label={`En savoir plus sur ${author.name}`}
-        >
-          <Image
-            src={imgJonathan}
-            alt={`Photo de ${author.name}, développeur web freelance à Genève`}
-            width={112}
-            height={112}
-            class="w-full h-full object-cover"
-            loading="lazy"
-          />
-        </a>
+    <div class="bl-author-body">
+      <p class="co-eyebrow">Écrit par</p>
+      <h3 class="bl-author-name">
+        <a href="/about">{author.name}</a>
+      </h3>
 
-        <!-- Bio content -->
-        <div class="flex-1">
-          <p class="text-xs text-gray-500 uppercase tracking-wide mb-1">Écrit par</p>
-          <h3 class="text-xl md:text-2xl font-bold mb-3">
-            <a href="/about" class="hover:underline decoration-2 underline-offset-4">
-              {author.name}
-            </a>
-          </h3>
+      <p class="co-mut bl-author-bio">
+        Développeur web freelance basé à <strong>{author.location}</strong>, 8+ ans à bosser
+        avec des PME romandes. Je couvre trois fronts au quotidien : <strong>sites web
+        sur-mesure</strong> (Astro, React), <strong>automatisation</strong> (Make, Zapier, n8n)
+        et <strong>SEO local</strong>. J'écris ici ce que je vois sur le terrain en mission,
+        pas ce qui sonne bien dans un slide.
+      </p>
 
-          <p class="text-gray-700 mb-4 leading-relaxed">
-            Développeur web freelance basé à <strong>{author.location}</strong>, 8+ ans à bosser avec des PME romandes. Je couvre trois fronts au quotidien : <strong>sites web sur-mesure</strong> (Astro, React), <strong>automatisation</strong> (Make, Zapier, n8n) et <strong>SEO local</strong>. J'écris ici ce que je vois sur le terrain en mission, pas ce qui sonne bien dans un slide.
-          </p>
+      <a href="/about" class="co-btn co-btn--sm bl-author-cta">
+        En savoir plus sur Jonathan
+        <i class="ri-arrow-right-line"></i>
+      </a>
 
-          <!-- CTA principal : page À propos -->
-          <a
-            href="/about"
-            class="inline-flex items-center gap-2 bg-[var(--blue)] border-2 border-black px-4 py-2 text-sm font-bold hover:bg-[var(--yellow)] hover:shadow-[3px_3px_0px_rgba(0,0,0,0.3)] transition-all mb-4"
-          >
-            En savoir plus sur Jonathan
-            <i class="ri-arrow-right-line"></i>
+      <div class="bl-author-socials">
+        {author.linkedin && author.linkedin !== '#' && (
+          <a href={author.linkedin} target="_blank" rel="noopener noreferrer me" aria-label="Profil LinkedIn de Jonathan Vouilloz">
+            <i class="ri-linkedin-box-fill"></i>
           </a>
-
-          <!-- Social links -->
-          <div class="flex flex-wrap gap-4 pt-4 border-t border-gray-200">
-            {author.linkedin && author.linkedin !== '#' && (
-              <a
-                href={author.linkedin}
-                target="_blank"
-                rel="noopener noreferrer me"
-                class="flex items-center gap-2 text-sm font-medium hover:text-[var(--violet)] transition-colors"
-                aria-label="Profil LinkedIn de Jonathan Vouilloz"
-              >
-                <i class="ri-linkedin-box-fill text-xl"></i>
-                <span>LinkedIn</span>
-              </a>
-            )}
-            {author.github && author.github !== '#' && (
-              <a
-                href={author.github}
-                target="_blank"
-                rel="noopener noreferrer me"
-                class="flex items-center gap-2 text-sm font-medium hover:text-[var(--violet)] transition-colors"
-                aria-label="Profil GitHub de Jonathan Vouilloz"
-              >
-                <i class="ri-github-fill text-xl"></i>
-                <span>GitHub</span>
-              </a>
-            )}
-            {author.youtube && author.youtube !== '#' && (
-              <a
-                href={author.youtube}
-                target="_blank"
-                rel="noopener noreferrer me"
-                class="flex items-center gap-2 text-sm font-medium hover:text-[var(--violet)] transition-colors"
-                aria-label="Chaîne YouTube de Jonathan Vouilloz"
-              >
-                <i class="ri-youtube-fill text-xl"></i>
-                <span>YouTube</span>
-              </a>
-            )}
-            {author.email && (
-              <a
-                href={author.email}
-                class="flex items-center gap-2 text-sm font-medium hover:text-[var(--violet)] transition-colors"
-                aria-label="Contacter Jonathan par email"
-              >
-                <i class="ri-mail-line text-xl"></i>
-                <span>Contact</span>
-              </a>
-            )}
-          </div>
-        </div>
+        )}
+        {author.github && author.github !== '#' && (
+          <a href={author.github} target="_blank" rel="noopener noreferrer me" aria-label="Profil GitHub de Jonathan Vouilloz">
+            <i class="ri-github-fill"></i>
+          </a>
+        )}
+        {author.youtube && author.youtube !== '#' && (
+          <a href={author.youtube} target="_blank" rel="noopener noreferrer me" aria-label="Chaîne YouTube de Jonathan Vouilloz">
+            <i class="ri-youtube-fill"></i>
+          </a>
+        )}
+        {author.email && (
+          <a href={author.email} aria-label="Contacter Jonathan par email">
+            <i class="ri-mail-line"></i>
+          </a>
+        )}
       </div>
     </div>
   </div>
 </section>
+
+<style is:global>
+  .bl-author-sec { padding-top: 40px; padding-bottom: 40px; }
+  .bl-author {
+    display: flex; gap: 26px; align-items: flex-start;
+    max-width: 720px; padding: 28px; border: 1px solid var(--line-2); background: var(--surface);
+  }
+  .bl-author-photo { position: relative; flex: none; width: 96px; height: 96px; overflow: hidden; border: 1px solid var(--line-2); }
+  .bl-author-photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease-out; }
+  .bl-author-photo:hover img { transform: scale(1.05); }
+  .bl-author-body { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; }
+  .bl-author-name { font-size: 1.3rem; line-height: 1.2; margin: 2px 0 6px; }
+  .bl-author-name a { color: var(--ink); text-decoration: none; }
+  .bl-author-name a:hover { text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+  .co-root .bl-author-bio { font-size: 0.95rem; line-height: 1.6; max-width: 60ch; margin-bottom: 8px; }
+  .bl-author-cta { margin: 8px 0 4px; }
+  .bl-author-cta i { transition: transform .18s ease-out; }
+  .bl-author-cta:hover i { transform: translateX(3px); }
+  .bl-author-socials { display: flex; gap: 16px; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); font-size: 21px; width: 100%; }
+  .bl-author-socials a { color: var(--muted); transition: color .16s ease-out; }
+  .bl-author-socials a:hover { color: var(--accent); }
+
+  @media (max-width: 720px) {
+    .bl-author { flex-direction: column; gap: 18px; padding: 22px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .bl-author-photo img, .bl-author-cta i { transition: none; }
+  }
+</style>

@@ -1,6 +1,7 @@
 ---
 // VideoEmbed — embed YouTube responsive (16:9), lazy, sans cookie.
 // Usage : piloté par le champ frontmatter `youtubeId` de l'article (voir [slug].astro).
+// Blueprint : cadre filet fin + 4 crosshairs (.co-frame). Doit vivre sous .co-root.
 interface Props {
   youtubeId: string;
   title?: string;
@@ -10,20 +11,30 @@ const { youtubeId, title = 'Vidéo YouTube' } = Astro.props;
 const src = `https://www.youtube-nocookie.com/embed/${youtubeId}`;
 ---
 
-<figure class="my-8">
-  <div
-    class="relative w-full overflow-hidden border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,0.3)]"
-    style="aspect-ratio: 16 / 9;"
-  >
-    <iframe
-      class="absolute inset-0 w-full h-full"
-      src={src}
-      title={title}
-      loading="lazy"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allowfullscreen
-    ></iframe>
-  </div>
+<figure class="bl-video co-frame">
+  <iframe
+    src={src}
+    title={title}
+    loading="lazy"
+    frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    referrerpolicy="strict-origin-when-cross-origin"
+    allowfullscreen
+  ></iframe>
 </figure>
+
+<style>
+  .bl-video {
+    position: relative;
+    margin: 2em 0;
+    aspect-ratio: 16 / 9;
+    border: 1px solid var(--line-2);
+    background: var(--bg);
+  }
+  .bl-video iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>

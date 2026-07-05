@@ -34,32 +34,48 @@ const { tag, posts } = Astro.props;
 >
   <AppHeader />
 
-  <main class="max-w-6xl mx-auto px-4 py-12">
-    <!-- Back + title -->
-    <div class="mb-10">
-      <a
-        href="/blog"
-        class="inline-flex items-center gap-2 text-sm font-medium mb-6 hover:text-[var(--violet)] transition-colors"
-      >
+  <main class="co-root">
+    <section class="tg-wrap co-pad">
+      <!-- Back + title -->
+      <a href="/blog" class="tg-back">
         <i class="ri-arrow-left-line"></i>
         Retour au blog
       </a>
 
-      <h1 class="text-3xl md:text-4xl font-normal tracking-tight">
-        Articles sur <span class="bg-accent-soft px-2 rounded-sm">#{tag}</span>
+      <p class="co-eyebrow tg-eyebrow">Tag</p>
+      <h1 class="tg-title">
+        Articles sur <span class="co-ser">#{tag}</span>
       </h1>
-      <p class="text-gray-500 mt-2">
+      <p class="co-mut tg-count">
         {posts.length} article{posts.length > 1 ? 's' : ''}
       </p>
-    </div>
 
-    <!-- Posts grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {posts.map((post) => (
-        <PostCard post={post} />
-      ))}
-    </div>
+      <!-- Posts grid -->
+      <div class="tg-grid">
+        {posts.map((post) => (
+          <PostCard post={post} />
+        ))}
+      </div>
+    </section>
   </main>
 
   <AppFooter />
 </Layout>
+
+<style is:global>
+  /* ══ Page tag blueprint — .tg-* (dans .co-root) ══ */
+  .tg-wrap { padding-top: 44px; padding-bottom: 64px; }
+  .tg-back { display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 500; color: var(--muted); transition: color .16s ease-out; margin-bottom: 28px; }
+  .tg-back:hover { color: var(--accent); }
+  .tg-eyebrow { display: block; margin-bottom: 12px; }
+  .co-root .tg-title { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.08; letter-spacing: -0.03em; }
+  .co-root .tg-count { margin-top: 10px; font-size: 0.95rem; }
+  .tg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px; }
+
+  @media (max-width: 980px) { .tg-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 720px) {
+    .tg-wrap { padding-top: 28px; }
+    .tg-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .tg-back { transition: none; } }
+</style>
