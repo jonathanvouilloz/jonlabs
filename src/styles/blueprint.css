@@ -1,0 +1,334 @@
+/* ══════════════════════════════════════════════════════════════════════════
+   BLUEPRINT — design system (pairing 04 : Inter Tight × Instrument Serif)
+   Promu depuis src/components/lab/BlueprintKit.astro (Lots 0-5) vers une vraie
+   feuille globale importée une fois par Layout.astro.
+
+   Portée des tokens généralisée à `.co-root, .co-chrome` :
+     - `.co-root`  = corps de page blueprint (colonne cadrée 1180px)
+     - `.co-chrome`= nav/footer blueprint, utilisables sur n'importe quelle page
+   Règle gravée : JAMAIS de `.co-*` sans ancêtre `.co-root` OU `.co-chrome`
+   (sinon héritage du `--accent` wash legacy de Layout → accent quasi-transparent).
+
+   Coexistence brutaliste ↔ blueprint : namespaces de tokens disjoints
+   (brutaliste = --color-* + Plus Jakarta ; blueprint = --ink/--line/--accent…).
+   La font blueprint s'applique par scope, pas sur `body` → les pages brutalistes
+   gardent Plus Jakarta. On NE promeut PAS `--accent` en :root (garde le wash
+   legacy intact) et on ne repeint PAS `html,body` (Layout garde --color-bg).
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Reset scopé (box-sizing, margins, listes, underline) ── */
+.co-root *, .co-root *::before, .co-root *::after,
+.co-chrome *, .co-chrome *::before, .co-chrome *::after { box-sizing: border-box; }
+.co-root h1, .co-root h2, .co-root h3, .co-root h4, .co-root p, .co-root figure,
+.co-chrome h1, .co-chrome h2, .co-chrome h3, .co-chrome h4, .co-chrome p, .co-chrome figure { margin: 0; }
+.co-root ul, .co-chrome ul { margin: 0; padding: 0; list-style: none; }
+/* Reset l'underline navigateur par défaut. :where() neutralise la spécificité
+   pour que .co-btn (color:#fff) l'emporte. Underline ré-autorisé sur .co-prose a. */
+.co-root :where(a), .co-chrome :where(a) { text-decoration: none; color: inherit; }
+
+/* ── Anti-flash motion (le moteur data-animate est chargé via Layout) ── */
+.co-root [data-animate],
+.co-root [data-animate-stagger] [data-animate-item] { opacity: 0; }
+@media (prefers-reduced-motion: reduce) {
+  .co-root [data-animate],
+  .co-root [data-animate-stagger] [data-animate-item] { opacity: 1 !important; }
+}
+
+/* ── Tokens + typographie de base : PARTAGÉS root + chrome ── */
+.co-root, .co-chrome {
+  --ink: #14161A;
+  --muted: #6F7471;
+  --bg: #F4F3EE;
+  --surface: #FBFBF9;
+  --line: rgba(20, 22, 26, 0.09);
+  --line-2: rgba(20, 22, 26, 0.16);
+  --accent: #00A87D;         /* teal foncé lisible — scopé, ne fuit pas en :root */
+  --accent-bright: #00D9A3;
+  --dash: var(--line-2);     /* filet pointillé (guides) */
+
+  color: var(--ink);
+  font-family: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ── Layout de la colonne de corps (root uniquement — le chrome gère sa propre
+   largeur/bordures dans son composant pour ne pas clipper méga-menu/drawer) ── */
+.co-root {
+  background: var(--bg);
+  max-width: 1180px;
+  margin: 0 auto;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  overflow: hidden;
+  /* autorise l'animation des tailles auto (ex. ::details-content de la FAQ) */
+  interpolate-size: allow-keywords;
+}
+
+/* ── RÈGLE MOTION GRAVÉE : toute animation/transition en ease-out, JAMAIS ease-in
+   (ni ease-in-out) — l'entrée doit décélérer, pas accélérer. cubic-bezier custom OK
+   tant qu'elle est ease-out (ex. drawer .16,1,.3,1). Boucles ambiantes exclues. ── */
+
+.co-root h1, .co-root h2, .co-root h3,
+.co-chrome h1, .co-chrome h2, .co-chrome h3 { font-weight: 700; letter-spacing: -0.025em; line-height: 1.05; }
+.co-ser { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: 0; }
+.co-eyebrow {
+  font-family: "Inter Tight", ui-sans-serif, sans-serif;
+  font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+}
+.co-mut { color: var(--muted); }
+
+/* crosshair */
+.co-x {
+  position: absolute; width: 9px; height: 9px; z-index: 3;
+  background:
+    linear-gradient(var(--line-2), var(--line-2)) center / 1px 9px no-repeat,
+    linear-gradient(var(--line-2), var(--line-2)) center / 9px 1px no-repeat;
+}
+.co-x.tl { top: -5px; left: -5px; } .co-x.tr { top: -5px; right: -5px; }
+.co-x.bl { bottom: -5px; left: -5px; } .co-x.br { bottom: -5px; right: -5px; }
+
+/* nav */
+.co-nav {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 18px 40px; border-bottom: 1px solid var(--line);
+}
+.co-nav a { color: var(--ink); text-decoration: none; }
+.co-nav a.co-btn { color: #fff; }
+.co-navlinks { display: flex; gap: 28px; font-size: 15px; }
+.co-navlinks a { color: var(--muted); transition: color .18s ease-out; }
+.co-navlinks a:hover { color: var(--ink); }
+
+/* buttons */
+.co-btn {
+  display: inline-flex; align-items: center; gap: 8px; font-weight: 600; font-size: 15px;
+  padding: 12px 20px; border-radius: 999px; background: var(--ink); color: #fff;
+  text-decoration: none; transition: transform .18s ease-out;
+}
+.co-btn:hover { transform: translateY(-1px); }
+.co-btn--sm { padding: 9px 16px; font-size: 14px; }
+.co-btn--ghost { background: transparent; color: var(--ink); border: 1px solid var(--line-2); }
+
+/* ── CTA sombre (primitive design system) ──
+   Layout flex+gap : le centrage vient de align-items:center, l'espacement de gap.
+   Aucun ne dépend des margins → contourne le reset .co-root h/p { margin:0 }
+   (spécificité 0,1,1 qui battrait des règles 1-classe). À garder APRÈS .co-btn
+   pour que .co-cta-btn gagne sur .co-btn (source order). */
+.co-cta { position: relative; overflow: hidden; background: #0b0d10; color: #fff; border-top: 1px solid var(--line-2); }
+.co-cta > .co-x { --line-2: rgba(255,255,255,0.28); }
+/* glow teal flouté — overlay réutilisable (A13). .co-cta l'expose via ::before. */
+.co-glow, .co-cta::before {
+  content: ""; position: absolute; inset: -25%; z-index: 0; pointer-events: none;
+  background:
+    radial-gradient(38% 46% at 20% 15%, rgba(0,217,163,0.30), transparent 66%),
+    radial-gradient(40% 52% at 84% 92%, rgba(0,168,125,0.22), transparent 70%);
+  filter: blur(70px);
+}
+/* grain (feTurbulence data URI) — overlay réutilisable (A13). .co-cta l'expose via ::after. */
+.co-grain, .co-cta::after {
+  content: ""; position: absolute; inset: 0; z-index: 0; pointer-events: none;
+  opacity: 0.10; mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='cocta-n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23cocta-n)'/%3E%3C/svg%3E");
+}
+.co-cta-inner {
+  position: relative; z-index: 1;
+  display: flex; flex-direction: column; align-items: center; text-align: center;
+  gap: 20px; padding: 104px 40px;
+}
+.co-cta-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-bright); }
+.co-cta-title { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.08; max-width: 18ch; }
+.co-cta-title .co-ser { color: var(--accent-bright); }
+.co-cta-lead { color: rgba(255,255,255,0.7); max-width: 46ch; line-height: 1.6; }
+.co-cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 12px; }
+.co-cta-btn { background: #fff; color: var(--ink); }
+.co-cta-btn:hover { background: var(--accent-bright); }
+.co-cta-btn i { transition: transform .18s ease-out; }
+.co-cta-btn:hover i { transform: translateX(3px); }
+.co-cta-btn--ghost { color: #fff; border: 1px solid rgba(255,255,255,0.3); background: transparent; }
+.co-cta-btn--ghost:hover { background: rgba(255,255,255,0.08); }
+.co-cta-trust { display: flex; gap: 26px; justify-content: center; flex-wrap: wrap; margin-top: 12px; font-size: 13px; color: rgba(255,255,255,0.6); }
+.co-cta-trust i { color: var(--accent-bright); margin-right: 4px; }
+@media (max-width: 720px) { .co-cta-inner { padding: 72px 20px; } }
+
+/* ══ Primitives décoratives (Lot 5) ══
+   Règles gravées : accent = --accent (jamais --accent-bright sur fond clair),
+   espacement via gap/.co-root (jamais margin seul sur h/p), 0 emoji (Remix mono),
+   pas de bordure partielle sur coin arrondi, sharp corners. */
+
+/* A1 · Pastille catégorie unique — filet + point teal. Point toujours --accent. */
+.co-badge {
+  display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+  font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+  line-height: 1.5; padding: 4px 11px; border-radius: 999px;
+  color: var(--muted); background: var(--surface); border: 1px solid var(--line-2);
+}
+.co-badge::before { content: ""; flex: none; width: 5px; height: 5px; border-radius: 999px; background: var(--accent); }
+.co-badge--solid { background: var(--accent); border-color: var(--accent); color: #fff; }
+.co-badge--solid::before { background: #fff; }
+
+/* A2 · Cadre 4 crosshairs sans markup. Parent = position:relative.
+   ::before = TL + BR ; ::after = TR + BL (4 backgrounds/pseudo, positions 4-valeurs).
+   Hérite --line-2 → jamais sur fond ink (le CTA garde ses <span class="co-x">). */
+.co-frame::before, .co-frame::after {
+  content: ""; position: absolute; inset: -4.5px; z-index: 3; pointer-events: none; background-repeat: no-repeat;
+}
+.co-frame::before {
+  background-image:
+    linear-gradient(var(--line-2), var(--line-2)), linear-gradient(var(--line-2), var(--line-2)),
+    linear-gradient(var(--line-2), var(--line-2)), linear-gradient(var(--line-2), var(--line-2));
+  background-size: 9px 1px, 1px 9px, 9px 1px, 1px 9px;
+  background-position: left 0 top 4px, left 4px top 0, right 0 bottom 4px, right 4px bottom 0;
+}
+.co-frame::after {
+  background-image:
+    linear-gradient(var(--line-2), var(--line-2)), linear-gradient(var(--line-2), var(--line-2)),
+    linear-gradient(var(--line-2), var(--line-2)), linear-gradient(var(--line-2), var(--line-2));
+  background-size: 9px 1px, 1px 9px, 9px 1px, 1px 9px;
+  background-position: right 0 top 4px, right 4px top 0, left 0 bottom 4px, left 4px bottom 0;
+}
+.co-frame--reveal::before, .co-frame--reveal::after { opacity: 0; transition: opacity .18s ease-out; }
+.co-frame--reveal:hover::before, .co-frame--reveal:hover::after { opacity: 1; }
+
+/* A3 · Fermeture bas de bande (4 coins = .co-frame sur un wrapper interne). */
+.co-sec--boxed { border-bottom: 1px solid var(--line); }
+
+/* A4 · Grille papier-millimétré — filets top/left conteneur + right/bottom par cellule. */
+.co-grid-cells { display: grid; border-top: 1px solid var(--line); border-left: 1px solid var(--line); }
+.co-grid-cells > * { border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.co-grid-cells--seamless > *:nth-child(3n) { border-right: 0; }
+
+/* A5 · Fiche technique (promotion .po-meta). dd reset l'indent UA (hors reset co-root). */
+.co-spec { border-top: 1px solid var(--line); }
+.co-spec-row {
+  display: grid; grid-template-columns: 108px 1fr; align-items: baseline; gap: 16px;
+  padding: 9px 0; border-bottom: 1px solid var(--line);
+}
+.co-spec-row dt { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+.co-spec-row dd { margin: 0; font-size: 14px; font-weight: 500; }
+
+/* A6 · Liste à puce ronde teal unifiée + variante coche Remix. */
+.co-list { display: flex; flex-direction: column; gap: 8px; padding: 0; list-style: none; }
+.co-list li { position: relative; padding-left: 20px; line-height: 1.6; }
+.co-list li::before {
+  content: ""; position: absolute; left: 2px; top: 0.8em; transform: translateY(-50%);
+  width: 6px; height: 6px; border-radius: 999px; background: var(--accent);
+}
+.co-list--check li { padding-left: 0; display: flex; gap: 9px; }
+.co-list--check li::before { content: none; }
+.co-list--check li i { color: var(--accent); font-size: 15px; flex: none; margin-top: 1px; }
+
+/* A7 · Numéro de section tabulaire — Inter Tight (pas de mono). */
+.co-index { font-variant-numeric: tabular-nums; font-feature-settings: "tnum"; font-style: normal; color: var(--muted); }
+
+/* A8 · Filet pointillé. */
+.co-guide-dashed { border-left: 1px dashed var(--dash); }
+
+/* A9 · Repères de coupe en L (coins). Moteur multi-bg façon .co-frame, barres flush au coin. */
+.co-crop::before, .co-crop::after {
+  content: ""; position: absolute; inset: 0; z-index: 3; pointer-events: none; background-repeat: no-repeat;
+}
+.co-crop::before {
+  background-image:
+    linear-gradient(var(--line-2), var(--line-2)), linear-gradient(var(--line-2), var(--line-2)),
+    linear-gradient(var(--line-2), var(--line-2)), linear-gradient(var(--line-2), var(--line-2));
+  background-size: 14px 1px, 1px 14px, 14px 1px, 1px 14px;
+  background-position: left 0 top 0, left 0 top 0, right 0 bottom 0, right 0 bottom 0;
+}
+.co-crop::after {
+  background-image:
+    linear-gradient(var(--line-2), var(--line-2)), linear-gradient(var(--line-2), var(--line-2)),
+    linear-gradient(var(--line-2), var(--line-2)), linear-gradient(var(--line-2), var(--line-2));
+  background-size: 14px 1px, 1px 14px, 14px 1px, 1px 14px;
+  background-position: right 0 top 0, right 0 top 0, left 0 bottom 0, left 0 bottom 0;
+}
+
+/* A10 · Cote / dimension : |‹—— 1180 ——›|. Embouts via ::before/::after, trait via .co-dim-line. */
+.co-dim { display: flex; align-items: center; gap: 8px; font-size: 11px; color: var(--muted); font-variant-numeric: tabular-nums; }
+.co-dim::before, .co-dim::after { content: ""; flex: none; width: 1px; height: 8px; background: var(--line-2); }
+.co-dim-line { flex: 1; height: 1px; background: var(--line-2); }
+
+/* A11 · Annotation à ligne de rappel. */
+.co-anno { display: inline-flex; align-items: center; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.co-anno-dot { width: 5px; height: 5px; border-radius: 999px; background: var(--accent); flex: none; }
+.co-anno-line { width: 28px; height: 1px; background: var(--line-2); flex: none; margin: 0 8px; }
+
+/* A12 · Hachures diagonales (zones média vides). */
+.co-hatch { background-image: repeating-linear-gradient(45deg, var(--line) 0, var(--line) 1px, transparent 1px, transparent 7px); }
+
+/* section shell */
+.co-sec { position: relative; border-top: 1px solid var(--line); }
+.co-sec::before, .co-sec::after {
+  content: ""; position: absolute; top: -5px; width: 9px; height: 9px; z-index: 2;
+  background:
+    linear-gradient(var(--line-2), var(--line-2)) center / 1px 9px no-repeat,
+    linear-gradient(var(--line-2), var(--line-2)) center / 9px 1px no-repeat;
+}
+.co-sec::before { left: -5px; } .co-sec::after { right: -5px; }
+
+.co-guides {
+  position: absolute; inset: 0; pointer-events: none;
+  background-image: linear-gradient(var(--line), var(--line)), linear-gradient(var(--line), var(--line));
+  background-size: 1px 100%, 1px 100%; background-position: 25% 0, 75% 0; background-repeat: no-repeat;
+}
+.co-dots { background-image: radial-gradient(var(--line-2) 1px, transparent 1px); background-size: 12px 12px; }
+
+/* trust strip — marquee défilé linéaire */
+.co-trust { display: flex; align-items: center; gap: 32px; }
+.co-trust .co-eyebrow { white-space: nowrap; flex: none; }
+.co-marquee {
+  flex: 1; overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.co-marquee-track { display: flex; gap: 56px; width: max-content; animation: co-marquee 30s linear infinite; }
+.co-marquee:hover .co-marquee-track { animation-play-state: paused; }
+.co-marquee-track span {
+  font-size: 18px; font-weight: 600; letter-spacing: -0.02em; opacity: .55; white-space: nowrap;
+}
+@keyframes co-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@media (prefers-reduced-motion: reduce) { .co-marquee-track { animation: none; } }
+
+/* burger + drawer mobile */
+.co-burger {
+  display: none; align-items: center; justify-content: center;
+  width: 42px; height: 42px; border: 1px solid var(--line-2); border-radius: 10px;
+  background: transparent; color: var(--ink); font-size: 22px; cursor: pointer;
+  transition: background .18s ease-out;
+}
+.co-burger:hover { background: rgba(20,22,26,.05); }
+.co-drawer {
+  position: fixed; inset: 0; z-index: 60;
+  background: var(--bg); display: flex; flex-direction: column; padding: 20px 24px 32px;
+  transform: translateY(-100%); opacity: 0; pointer-events: none;
+  transition: transform .4s cubic-bezier(.16,1,.3,1), opacity .3s ease-out;
+}
+.co-drawer.is-open { transform: translateY(0); opacity: 1; pointer-events: auto; }
+.co-drawer-top { display: flex; align-items: center; justify-content: space-between; padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+.co-drawer-top a { color: var(--ink); text-decoration: none; }
+.co-drawer-links { display: flex; flex-direction: column; gap: 4px; margin-top: 24px; }
+.co-drawer-links a {
+  font-family: "Inter Tight", sans-serif; font-size: 1.6rem; font-weight: 600; letter-spacing: -0.02em;
+  color: var(--ink); text-decoration: none; padding: 12px 0; border-bottom: 1px solid var(--line);
+}
+@media (prefers-reduced-motion: reduce) { .co-drawer { transition: opacity .2s ease; } }
+
+/* grilles (défaut desktop, repliées en mobile) */
+.co-proof-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: center; }
+.co-footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 40px; }
+
+@media (max-width: 720px) {
+  .co-navlinks { display: none; }
+  .co-nav { padding: 16px 20px; }
+  /* nav mobile : burger visible, CTA du haut masqué (repris dans le drawer) */
+  .co-burger { display: inline-flex; }
+  .co-nav > .co-btn--sm { display: none; }
+  /* banner trust en colonne (label au-dessus du marquee) */
+  .co-trust { flex-direction: column; align-items: flex-start; gap: 14px; }
+  /* gouttières latérales resserrées (override des paddings inline) */
+  .co-pad { padding-left: 20px !important; padding-right: 20px !important; }
+  .co-hero { padding-top: 56px !important; padding-bottom: 56px !important; }
+  .co-cta-inner { padding-top: 56px !important; padding-bottom: 56px !important; }
+  /* grilles → colonnes empilées */
+  .co-proof-grid { grid-template-columns: 1fr !important; gap: 28px !important; }
+  .co-footer-grid { grid-template-columns: 1fr 1fr !important; gap: 24px 20px !important; }
+  /* hero H1 un cran plus petit */
+  .co-hero h1 { font-size: clamp(2rem, 9vw, 2.6rem) !important; }
+}

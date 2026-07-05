@@ -1,6 +1,9 @@
 ---
 import SEO from '../components/SEO.astro';
 import type { SchemaType, JSONLDSchema } from '../lib/seo';
+// Design system blueprint (tokens .co-root/.co-chrome + primitives .co-*).
+// Global : le chrome blueprint (Header/Footer) l'utilise sur toutes les pages.
+import '../styles/blueprint.css';
 
 interface Props {
 	title?: string;
@@ -50,12 +53,17 @@ const {
 		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" />
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" media="print" onload="this.media='all'" />
 
+		<!-- Fonts blueprint (pairing 04) - Inter Tight × Instrument Serif, chargement non-bloquant -->
+		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400..700&family=Instrument+Serif:ital@0;1&display=swap" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400..700&family=Instrument+Serif:ital@0;1&display=swap" media="print" onload="this.media='all'" />
+
 		<!-- Remix Icon - chargement différé -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" media="print" onload="this.media='all'" />
 
 		<!-- Fallback pour navigateurs sans JS -->
 		<noscript>
 			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" />
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400..700&family=Instrument+Serif:ital@0;1&display=swap" />
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" />
 		</noscript>
 
