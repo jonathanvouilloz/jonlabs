@@ -3,6 +3,26 @@
 > Sortir du look brutaliste (bordures noires 2px + ombres offset, Plus Jakarta Sans) jugé « banal » vers un style **blueprint** : filets très fins qui cadrent les sections, aération, nouveau font pairing éditorial. Exploration en pages lab AVANT toute migration du vrai site.
 > **Réfs visuelles** : pengon.dev, sakib.design. **Statut** : 🔄 EN COURS — migration lancée : **homepage + chrome migrés en blueprint**, reste les autres pages.
 
+## Etat session 2026-07-05 (nuit) — services.astro + Vague 1 (7 pages principales, sous-agents parallèles) ✅
+
+**Fait :**
+- **`services.astro` migré** (couture n°1 résolue) : `<main class="co-root">`, hero SEO, constellation scenarios (lignes SVG calculées au load/resize), sections offre (**7 deep-links `/services/*` préservés**), zone locale (**5 geo-links**), ressources, CTA `.co-cta`, **modale conversation** (rejoue `scenarios.ts`). Header blueprint solide (fin du hero sombre transparent). Vérifié browser : filtres/modale/console OK.
+- **Vague 1 — 7 pages principales migrées via 7 sous-agents `general-purpose` en PARALLÈLE** (1 par page + composants exclusifs, fichiers disjoints → zéro conflit) : `about`, `portfolio`, `contact`, `tarifs`, `blog/index`, `hermes`, `mentions-legales`. Coordinateur = vérif centralisée séquentielle (poste unique dev+browser).
+- **Hard-preserve tenus** : câblage **Web3Forms** de ContactForm intact (access_key, tous les `name=`, honeypot) · **prix tarifs exacts** (1'490/2'490/sur devis) · `getCollection` blog/portfolio · preuve `proof-lecureux.ts` (zéro chiffre en dur) · Schema.org + liens SEO. **Halo supprimé** (about), FAQ→`<details>` blueprint, CTASection→`.co-cta`, IconChip→Remix mono.
+- **Vérifié** : build vert **218 pages** ×3, `astro check` 0 erreur sur les 17 fichiers touchés (37 erreurs restantes = pré-existantes, hors périmètre), **0 erreur console** sur chaque page, interactions testées (filtres portfolio 9→6, recherche/filtre/pagination blog 9→2 / 1-7-9 / 5 pages, FAQ toggle, modale succès contact, prix tarifs). Motion via état DOM (révèle au scroll ; blank-au-load = artefact automation systémique, cf. home).
+- **`blueprint.css`/`Layout`/`global.css`/`Header`/`Footer` JAMAIS touchés** (réservés coordinateur).
+
+**Prochain :** Attaquer la **Phase blog complète** (`blog/[slug]`, `blog/tag/[tag]`, `guides/index`, `guides/[slug]` — réutilisent les composants blog déjà migrés) OU la **Phase services** (13 sous-pages `/services/*`, réf `styleguide-services`, très patternable). Même protocole : sous-agents parallèles file-disjoints + vérif centralisée. Plan complet des phases : `C:\Users\jojo-\.claude\plans\ok-continue-sur-les-cheeky-pinwheel.md`.
+
+**Pièges :**
+- **Primitives candidates en fallback local** (à consolider dans `blueprint.css` en passe dédiée, pas urgent) : `.co-link` (lien inline souligné accent — demandé par portfolio/mentions), `.co-highlight` (surlignage chiffre — about), `.co-field/-input/...` (champs form — contact, dupliqué avec lab), `.co-table`/`.co-tier` (tarifs), `.co-callout` (hermes), `.co-badge--onimg` (blog).
+- **`PostCard.astro` redéclare les tokens blueprint localement** sur `.bl-card` pour rendre correctement sur `blog/tag/[tag]` (page pas encore wrappée `.co-root`) — à retirer quand la page tag sera migrée. Signature props `{ post }` inchangée (tag non cassé).
+- Pièges antérieurs inchangés (artefact motion automation, scoping `.co-*`, scroll physique).
+
+**Commit :** [6a09a34] feat(design): Vague 1 blueprint — 7 pages principales · [aa3c17d] feat(design): services.astro blueprint
+
+---
+
 ## Etat session 2026-07-05 (soir) — Migration homepage blueprint (chrome global + corps) ✅
 
 **Fait :** (direction validée par Jonathan : chrome global · hero avec photo · parité complète + preuve)
@@ -139,9 +159,22 @@
 **Commit :** [e92b8f2] feat(design): exploration blueprint — pairing 04, BlueprintKit partagé, pages lab (branche `design/blueprint-lab`)
 
 ## Carte du code
-> Mise à jour : 2026-07-05 (soir) — migration homepage. **Le blueprint vit maintenant dans le VRAI site** (plus seulement le lab).
+> Mise à jour : 2026-07-05 (nuit) — services + Vague 1 (7 pages). **10 corps de page migrés** (home, services, + 7 vague), chrome global + design system en place.
 
-### Vrai site (migré blueprint)
+### Pages migrées blueprint (corps en `.co-root`)
+| Page | Composants réécrits | Note |
+|------|---------------------|------|
+| `src/pages/index.astro` | Hero, ServicesHome, AboutHome, PortfolioHighlight, ProofLecureux, TechStack, GeoZonesStrip, ClientsBanner | homepage |
+| `src/pages/services.astro` | (inline) + `services/*` orphelins non importés | constellation `scenarios.ts` + modale + zone locale + ressources |
+| `src/pages/about.astro` | (inline) | narratif intégral, timeline filets, preuve dyn `proof-lecureux.ts`, Halo retiré |
+| `src/pages/portfolio.astro` | `portfolio/PortfolioCardEditorial.astro` | cas vedette Lécureux `.co-spec` + tuiles GSC, grille filtrable |
+| `src/pages/contact.astro` | `Contact{Hero,Form,Info,FAQ,CTA}.astro` | **Web3Forms intact**, FAQ `<details>`, modale succès inline (Modal.astro non touché) |
+| `src/pages/tarifs.astro` | (inline ; FAQ/CTASection remplacés par primitives) | prix exacts, tableau comparatif `.tr-table`, 8 FAQ |
+| `src/pages/blog/index.astro` | `blog/{BlogHero,BlogFilters,PostCard}.astro` | recherche/filtre/pagination/toggle ; PostCard tokens locaux (page tag) |
+| `src/pages/hermes.astro` | (inline) | ex-hero sombre supprimé, grille millimétrée, CTA `.co-cta` |
+| `src/pages/mentions-legales.astro` | (inline) | prose légale cadrée, coordonnées `.co-spec` |
+
+### Chrome & design system (global — réservé coordinateur, NE PAS toucher en migration de page)
 | Fichier | Rôle |
 |---------|------|
 | `src/styles/blueprint.css` | **Design system global** (importé par `Layout.astro`). Tokens + font `.co-root, .co-chrome` (généralisés → chrome utilisable hors `.co-root`), layout colonne 1180 sur `.co-root` seul, + toutes les primitives `.co-*` (promues du kit lab). ⚠️ jamais de `.co-*` sans ancêtre `.co-root`/`.co-chrome` (sinon `--accent` = wash legacy) · `--accent` PAS en `:root` · pas de `html,body{background}` |
