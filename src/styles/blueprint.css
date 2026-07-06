@@ -153,7 +153,10 @@
    espacement via gap/.co-root (jamais margin seul sur h/p), 0 emoji (Remix mono),
    pas de bordure partielle sur coin arrondi, sharp corners. */
 
-/* A1 · Pastille catégorie unique — filet + point teal. Point toujours --accent. */
+/* A1 · Pastille catégorie unique — filet + point teal. Point toujours --accent.
+   ⚠️ JAMAIS en eyebrow au-dessus d'un titre (hero/section) = « IA slop » (Jonathan 06.07.2026).
+   Au-dessus d'un titre : eyebrow TEXTE (.co-eyebrow) ou rien. .co-badge = usage
+   fonctionnel inline uniquement (pricing reco, tag catégorie carte, étape, « Guide », légende). */
 .co-badge {
   display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
   font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;

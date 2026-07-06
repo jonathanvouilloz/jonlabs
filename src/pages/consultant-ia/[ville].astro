@@ -137,10 +137,6 @@ const blogArticles = [
 
     <!-- ══ HERO LOCAL ══ -->
     <section class="co-sec co-pad co-hero civ-hero" style="padding:64px 40px 56px;">
-      <div class="civ-hero-badges" data-animate>
-        <span class="co-badge">Disponible</span>
-        <span class="co-badge co-badge--solid"><i class="ri-map-pin-fill"></i> {ville.nom} · {ville.canton}</span>
-      </div>
 
       <h1 class="civ-hero-title" data-animate data-delay="0.1">
         Consultant IA à <span class="co-ser">{ville.nom}</span>
@@ -399,7 +395,6 @@ const blogArticles = [
   /* ══ CONSULTANT IA · [ville] — styles .civ-* (namespace scopé, corps .co-root) ══ */
 
   /* ── Hero ── */
-  .civ-hero-badges { display: flex; flex-wrap: wrap; gap: 10px; }
   .civ-hero-title { font-size: clamp(2.2rem, 5.4vw, 3.4rem); margin-top: 22px; max-width: 18ch; }
   .co-root .civ-hero-lead { margin-top: 18px; max-width: 56ch; font-size: 1.1rem; line-height: 1.65; color: var(--muted); }
   .civ-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
