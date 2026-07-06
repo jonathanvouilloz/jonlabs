@@ -1,10 +1,22 @@
 ---
+// Développeur web freelance à Genève — landing SEO phare (blueprint).
+// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
+// crosshairs, colonne capée, coins nets, accent teal unique, Inter Tight × Instrument
+// Serif. Namespace scopé .dfg-*. Gabarit-or de référence : services/referencement-local.astro.
+//
+// HARD-PRESERVE : tout le Schema.org (getWebPageSchema / getBreadcrumbSchema /
+// getFAQPageSchema, tableau `schemas`, injection via <Layout schemas>) + data + ordre.
+// Data proof-lecureux (source unique GSC — AUCUN chiffre en dur, tout via proofLecureux),
+// SITE_URL, localBusinessData, lib/seo. pageTitle/pageDescription exacts. Tous les
+// deep-links SEO internes (/services/*, /portfolio/*, /blog/*, /developpement-web/*,
+// /tarifs, /contact, /about). Import global.css gardé. Copie éditoriale préservée.
+// Halo supprimé (blueprint = illustration cadrée .co-frame, pas de halo brutaliste).
+
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { Image } from "astro:assets";
-import Halo from "../components/shapes/Halo.astro";
 import illuFreelance from "../assets/illustrations/freelance-geneve.webp";
 
 import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from "../lib/seo";
@@ -215,6 +227,9 @@ const projects = [
   }
 ];
 
+// Preuve chiffrée — dérivée de la source unique proof-lecureux (aucun chiffre en dur)
+const caseStudyStats = proofLecureux.stats;
+
 // ============================================
 // TARIFS
 // ============================================
@@ -322,140 +337,59 @@ const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
 >
   <Header />
 
-  <!-- ============================================== -->
-  <!-- HERO LOCAL -->
-  <!-- ============================================== -->
-  <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-20 px-4 relative overflow-hidden">
-    <!-- Gradient mesh background -->
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
-      <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-[var(--violet)] opacity-15 blur-[100px] rounded-full"></div>
-      <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-[var(--blue)] opacity-10 blur-[80px] rounded-full"></div>
-    </div>
+  <main class="co-root">
 
-    <div class="max-w-4xl mx-auto relative z-10 text-center">
-      <!-- Badges -->
-      <div class="flex flex-wrap justify-center gap-3 mb-8">
-        <span class="inline-flex items-center gap-2 bg-white border-2 border-black px-3 py-1 text-xs font-mono shadow-[2px_2px_0px_rgba(0,0,0,1)]">
-          <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-          Disponible
-        </span>
-        <span class="inline-flex items-center gap-2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-mono shadow-[2px_2px_0px_rgba(0,0,0,1)]">
-          <i class="ri-map-pin-fill"></i>
-          Genève · Suisse romande
-        </span>
+    <!-- ══ HERO LOCAL ══ -->
+    <section class="co-sec co-pad co-hero dfg-hero" style="padding:72px 40px 56px;">
+      <div class="dfg-hero-inner">
+        <div class="dfg-hero-badges" data-animate>
+          <span class="co-badge">Disponible</span>
+          <span class="co-badge"><i class="ri-map-pin-line"></i> Genève · Suisse romande</span>
+        </div>
+
+        <h1 class="dfg-hero-title" data-animate data-delay="0.1">
+          Développeur web freelance à <span class="co-ser">Genève</span>
+        </h1>
+
+        <p class="dfg-hero-lead" data-animate data-delay="0.2">
+          Sites sur-mesure, MVP et refonte pour <strong>PME et indépendants romands</strong>.
+          Devis transparent, code propre, performance Google.
+        </p>
+
+        <div class="dfg-hero-btns" data-animate data-delay="0.3">
+          <a href="/contact" class="co-btn"><i class="ri-mail-send-line"></i> Demander un devis</a>
+          <a href="/portfolio" class="co-btn co-btn--ghost">Voir mes réalisations <i class="ri-arrow-right-line"></i></a>
+        </div>
+
+        <div class="dfg-hero-trust" data-animate data-delay="0.4">
+          <span><i class="ri-time-line"></i> 8 ans d'expérience</span>
+          <span><i class="ri-stack-line"></i> 50+ sites livrés</span>
+          <span><i class="ri-map-pin-line"></i> Clients romands</span>
+        </div>
       </div>
+    </section>
 
-      <!-- H1 -->
-      <h1 class="text-4xl md:text-6xl font-normal tracking-tight mb-6 leading-[1.05]">
-        Développeur web<br/>
-        freelance à
-        <span class="relative inline-block">
-          <span class="relative z-10">Genève</span>
-          <span class="absolute bg-[var(--accent)] w-full h-[35%] left-0 bottom-1 -z-1"></span>
-        </span>
-      </h1>
-
-      <!-- Sous-titre -->
-      <p class="text-lg md:text-2xl text-gray-700 mb-8 leading-relaxed max-w-3xl mx-auto">
-        Sites sur-mesure, MVP et refonte pour <strong>PME et indépendants romands</strong>.<br class="hidden md:block"/>
-        Devis transparent, code propre, performance Google.
+    <!-- ══ 01 · COMPARAISON — FREELANCE VS AGENCE ══ -->
+    <section id="comparaison" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">01 — Comparaison</p>
+      <h2 style="margin-top:8px;">Pourquoi un freelance plutôt qu'une <span class="co-ser">agence ?</span></h2>
+      <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+        Les deux options sont valides selon le contexte. Voilà ce qui change concrètement quand tu choisis un <strong>freelance web à Genève</strong>.
       </p>
 
-      <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-        <a
-          href="/contact"
-          class="
-            bg-[var(--blue)]
-            border-2 border-black
-            px-6 py-4
-            text-lg font-bold
-            shadow-[4px_4px_0px_rgba(0,0,0,1)]
-            transition-all duration-200
-            hover:bg-[var(--yellow)]
-            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-            hover:translate-x-[2px] hover:translate-y-[2px]
-            flex items-center justify-center gap-2
-          "
-        >
-          <i class="ri-mail-send-line"></i>
-          Demander un devis
-        </a>
-        <a
-          href="/portfolio"
-          class="
-            bg-white
-            border-2 border-black
-            px-6 py-4
-            text-lg font-medium
-            transition-all duration-200
-            hover:bg-gray-100
-            flex items-center justify-center gap-2
-          "
-        >
-          Voir mes réalisations
-          <i class="ri-arrow-right-line"></i>
-        </a>
-      </div>
-
-      <!-- Trust line -->
-      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600">
-        <span class="flex items-center gap-2">
-          <i class="ri-time-line text-[var(--blue)]"></i>
-          8 ans d'expérience
-        </span>
-        <span class="flex items-center gap-2">
-          <i class="ri-stack-line text-[var(--blue)]"></i>
-          50+ sites livrés
-        </span>
-        <span class="flex items-center gap-2">
-          <i class="ri-map-pin-line text-[var(--blue)]"></i>
-          Clients romands
-        </span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================== -->
-  <!-- FREELANCE VS AGENCE -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          comparaison
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Pourquoi un freelance plutôt qu'une agence ?
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Les deux options sont valides selon le contexte. Voilà ce qui change concrètement quand tu choisis un <strong>freelance web à Genève</strong>.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="dfg-vs-grid">
         <!-- Freelance -->
-        <div>
-          <div class="bg-[var(--blue)] border-3 border-black px-4 py-2 inline-block mb-6 shadow-[3px_3px_0px_rgba(0,0,0,1)]">
-            <h3 class="font-bold text-lg flex items-center gap-2">
-              <i class="ri-user-star-fill"></i>
-              Freelance
-            </h3>
+        <div class="dfg-vs-col">
+          <div class="dfg-vs-head">
+            <span class="co-badge co-badge--solid"><i class="ri-user-star-line"></i> Freelance</span>
           </div>
-          <div class="space-y-4">
+          <div class="dfg-vs-list" data-animate-stagger>
             {freelanceVsAgency.filter(c => c.type === "freelance").map((card) => (
-              <div class="bg-[var(--main-bg)] border-2 border-black p-5 transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] shadow-[4px_4px_0px_rgba(0,0,0,0.3)]">
-                <div class="flex items-start gap-4">
-                  <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                    <i class={`${card.icon} text-lg`}></i>
-                  </div>
-                  <div>
-                    <h4 class="font-bold mb-1">{card.title}</h4>
-                    <p class="text-sm text-gray-600">{card.description}</p>
-                  </div>
+              <div class="dfg-vs-card co-frame co-frame--reveal" data-animate-item>
+                <i class={`${card.icon} dfg-vs-icon`} aria-hidden="true"></i>
+                <div>
+                  <h3 class="dfg-card-title">{card.title}</h3>
+                  <p class="dfg-card-text">{card.description}</p>
                 </div>
               </div>
             ))}
@@ -463,24 +397,17 @@ const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
         </div>
 
         <!-- Agence -->
-        <div>
-          <div class="bg-white border-3 border-black px-4 py-2 inline-block mb-6 shadow-[3px_3px_0px_rgba(0,0,0,1)]">
-            <h3 class="font-bold text-lg flex items-center gap-2">
-              <i class="ri-building-line"></i>
-              Agence
-            </h3>
+        <div class="dfg-vs-col">
+          <div class="dfg-vs-head">
+            <span class="co-badge"><i class="ri-building-line"></i> Agence</span>
           </div>
-          <div class="space-y-4">
+          <div class="dfg-vs-list" data-animate-stagger>
             {freelanceVsAgency.filter(c => c.type === "agency").map((card) => (
-              <div class="bg-[var(--main-bg)] border-2 border-black p-5 transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] shadow-[4px_4px_0px_rgba(0,0,0,0.3)]">
-                <div class="flex items-start gap-4">
-                  <div class="w-10 h-10 bg-gray-200 border-2 border-black flex items-center justify-center flex-shrink-0">
-                    <i class={`${card.icon} text-lg`}></i>
-                  </div>
-                  <div>
-                    <h4 class="font-bold mb-1">{card.title}</h4>
-                    <p class="text-sm text-gray-600">{card.description}</p>
-                  </div>
+              <div class="dfg-vs-card co-frame co-frame--reveal" data-animate-item>
+                <i class={`${card.icon} dfg-vs-icon dfg-vs-icon--mut`} aria-hidden="true"></i>
+                <div>
+                  <h3 class="dfg-card-title">{card.title}</h3>
+                  <p class="dfg-card-text">{card.description}</p>
                 </div>
               </div>
             ))}
@@ -488,387 +415,269 @@ const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
         </div>
       </div>
 
-      <!-- CTA vers article comparatif -->
-      <div class="mt-12 text-center">
-        <a href="/blog/freelance-ou-agence-web" class="inline-flex items-center gap-2 bg-white border-2 border-black px-5 py-3 font-medium hover:bg-[var(--yellow)] transition-all shadow-[3px_3px_0px_rgba(0,0,0,1)]">
-          <i class="ri-article-line"></i>
-          Voir le comparatif détaillé
-          <i class="ri-arrow-right-line"></i>
+      <div class="dfg-center" data-animate>
+        <a href="/blog/freelance-ou-agence-web" class="co-btn co-btn--ghost">
+          <i class="ri-article-line"></i> Voir le comparatif détaillé <i class="ri-arrow-right-line"></i>
         </a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- SERVICES -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          services
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Mes services
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Du site vitrine au MVP en passant par les outils internes — un <strong>spécialiste développement web Suisse</strong> qui couvre toute la chaîne.
-        </p>
-      </div>
+    <!-- ══ 02 · SERVICES ══ -->
+    <section id="services" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">02 — Services</p>
+      <h2 style="margin-top:8px;">Mes services</h2>
+      <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+        Du site vitrine au MVP en passant par les outils internes — un <strong>spécialiste développement web Suisse</strong> qui couvre toute la chaîne.
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="dfg-cards" data-animate-stagger>
         {services.map((service) => (
-          <a
-            href={service.href}
-            class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
-          >
-            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4 group-hover:bg-[var(--yellow)] transition-colors">
-              <i class={`${service.icon} text-2xl`}></i>
-            </div>
-            <h3 class="text-xl font-bold mb-2">{service.title}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">{service.description}</p>
-            <div class="pt-4 border-t border-dashed border-gray-300 flex items-center justify-between">
-              <span class="text-sm font-mono text-[var(--blue)]">{service.price}</span>
-              <i class="ri-arrow-right-line text-lg group-hover:translate-x-1 transition-transform"></i>
+          <a href={service.href} class="dfg-card co-frame co-frame--reveal" data-animate-item>
+            <i class={`${service.icon} dfg-card-icon`} aria-hidden="true"></i>
+            <h3 class="dfg-card-title">{service.title}</h3>
+            <p class="dfg-card-text">{service.description}</p>
+            <div class="dfg-card-foot">
+              <span class="dfg-card-price">{service.price}</span>
+              <i class="ri-arrow-right-line dfg-card-arrow"></i>
             </div>
           </a>
         ))}
 
-        <!-- Card "Tous les services" -->
-        <a
-          href="/services"
-          class="group bg-[var(--blue)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] flex flex-col items-center justify-center text-center"
-        >
-          <div class="w-12 h-12 bg-white border-2 border-black flex items-center justify-center mb-4">
-            <i class="ri-arrow-right-up-line text-2xl"></i>
+        <a href="/services" class="dfg-card dfg-card--accent co-frame co-frame--reveal" data-animate-item>
+          <i class="ri-arrow-right-up-line dfg-card-icon"></i>
+          <h3 class="dfg-card-title">Voir tous les services</h3>
+          <p class="dfg-card-text">Automatisation, validation d'idée, intégrations…</p>
+          <div class="dfg-card-foot">
+            <span class="dfg-card-price">Explorer</span>
+            <i class="ri-arrow-right-line dfg-card-arrow"></i>
           </div>
-          <h3 class="text-xl font-bold mb-2">Voir tous les services</h3>
-          <p class="text-sm">Automatisation, validation d'idée, intégrations…</p>
         </a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- MÉTHODOLOGIE -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          méthode
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Comment on travaille ensemble
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Quatre étapes claires, des validations à chaque jalon, aucune zone de flou.
-        </p>
-      </div>
+    <!-- ══ 03 · MÉTHODE ══ -->
+    <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">03 — Méthode</p>
+      <h2 style="margin-top:8px;">Comment on travaille <span class="co-ser">ensemble</span></h2>
+      <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+        Quatre étapes claires, des validations à chaque jalon, aucune zone de flou.
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="dfg-steps" data-animate-stagger>
         {methodSteps.map((step) => (
-          <div class="bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] relative">
-            <span class="absolute -top-4 -right-4 w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center font-mono font-black text-sm shadow-[3px_3px_0px_rgba(0,0,0,1)]">
-              {step.step}
-            </span>
-            <h3 class="text-xl font-bold mb-3">{step.title}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed mb-4">{step.description}</p>
-            <div class="pt-3 border-t border-dashed border-gray-300 flex items-center gap-2 text-xs">
-              <i class="ri-time-line text-[var(--blue)]"></i>
-              <span class="text-gray-500 font-mono">{step.duration}</span>
-            </div>
+          <div class="dfg-step co-frame co-frame--reveal" data-animate-item>
+            <span class="dfg-step-num co-index">{step.step}</span>
+            <h3 class="dfg-step-title">{step.title}</h3>
+            <p class="dfg-card-text">{step.description}</p>
+            <p class="dfg-step-dur"><i class="ri-time-line"></i> {step.duration}</p>
           </div>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- STACK TECHNIQUE -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          stack
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Stack technique
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Outils modernes, performants et durables. Pas de WordPress par défaut — sauf si ton projet le justifie vraiment.
-        </p>
-      </div>
+    <!-- ══ 04 · STACK TECHNIQUE ══ -->
+    <section id="stack" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">04 — Stack</p>
+      <h2 style="margin-top:8px;">Stack technique</h2>
+      <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+        Outils modernes, performants et durables. Pas de WordPress par défaut — sauf si ton projet le justifie vraiment.
+      </p>
 
-      <!-- Tags grid -->
-      <div class="flex flex-wrap justify-center gap-3 mb-12">
+      <div class="dfg-tags" data-animate-stagger>
         {techStack.map((tech) => (
-          <span class="bg-white border-2 border-black px-4 py-2 font-mono text-sm shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--yellow)] transition-colors">
-            {tech}
-          </span>
+          <span class="dfg-tag" data-animate-item>{tech}</span>
         ))}
       </div>
 
-      <!-- Pourquoi pas WordPress -->
-      <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] max-w-3xl mx-auto relative">
-        <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-        <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-        <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-        <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-
-        <h3 class="font-bold text-lg mb-3 flex items-center gap-2">
-          <i class="ri-question-line text-[var(--blue)]"></i>
-          Pourquoi pas WordPress par défaut ?
-        </h3>
-        <p class="text-gray-700 leading-relaxed">
-          WordPress reste pertinent pour certains cas (gros blog éditorial, équipe déjà formée) — je le propose d'ailleurs en <a href="/services/developpeur-wordpress" class="underline font-medium hover:text-[var(--violet)]">création, refonte ou migration WordPress</a> quand c'est justifié. Mais sur la plupart des projets de PME romandes en 2026, une stack moderne (<strong>Astro, Next.js, Svelte</strong>) donne un site plus rapide, plus sûr et moins cher à maintenir sur 3 ans. Pour les CMS visuels, je travaille aussi comme <a href="/services/developpeur-webflow" class="underline font-medium hover:text-[var(--violet)]">développeur Webflow</a>.
+      <div class="dfg-note co-frame" data-animate>
+        <span class="co-x tl"></span><span class="co-x tr"></span>
+        <span class="co-x bl"></span><span class="co-x br"></span>
+        <h3 class="dfg-note-title"><i class="ri-question-line"></i> Pourquoi pas WordPress par défaut ?</h3>
+        <p class="dfg-note-text">
+          WordPress reste pertinent pour certains cas (gros blog éditorial, équipe déjà formée) — je le propose d'ailleurs en <a href="/services/developpeur-wordpress" class="dfg-inline">création, refonte ou migration WordPress</a> quand c'est justifié. Mais sur la plupart des projets de PME romandes en 2026, une stack moderne (<strong>Astro, Next.js, Svelte</strong>) donne un site plus rapide, plus sûr et moins cher à maintenir sur 3 ans. Pour les CMS visuels, je travaille aussi comme <a href="/services/developpeur-webflow" class="dfg-inline">développeur Webflow</a>.
         </p>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- ZONES D'INTERVENTION -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          zones
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Où j'interviens
-        </h2>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          Basé à Genève, je travaille avec des clients de toute la <strong>Suisse romande</strong> (Vaud, Valais, Neuchâtel, Fribourg) et de la <strong>zone frontalière française</strong>.
-        </p>
-      </div>
+    <!-- ══ 05 · ZONES D'INTERVENTION ══ -->
+    <section id="zones" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">05 — Zones</p>
+      <h2 style="margin-top:8px;">Où <span class="co-ser">j'interviens</span></h2>
+      <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+        Basé à Genève, je travaille avec des clients de toute la <strong>Suisse romande</strong> (Vaud, Valais, Neuchâtel, Fribourg) et de la <strong>zone frontalière française</strong>.
+      </p>
 
-      <!-- Suisse romande -->
-      <div class="mb-10">
-        <h3 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4 text-center">Suisse romande</h3>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-3 max-w-3xl mx-auto">
+      <div class="dfg-zone-block">
+        <p class="co-eyebrow dfg-zone-label">Suisse romande</p>
+        <div class="dfg-cities" data-animate-stagger>
           {cities.map((city) => (
-            <div class={`
-              flex items-center gap-2 px-4 py-3 border-2 border-black
-              ${city.primary ? 'bg-[var(--blue)] shadow-[3px_3px_0px_rgba(0,0,0,1)] font-bold' : 'bg-[var(--main-bg)] shadow-[2px_2px_0px_rgba(0,0,0,0.3)]'}
-            `}>
-              <i class={`${city.primary ? 'ri-map-pin-fill' : 'ri-map-pin-line'} text-sm`}></i>
-              <span class="text-sm">
+            <div class={`dfg-city ${city.primary ? 'dfg-city--primary' : ''}`} data-animate-item>
+              <i class={`${city.primary ? 'ri-map-pin-fill' : 'ri-map-pin-line'}`}></i>
+              <span>
                 {city.name}
-                {city.primary && <span class="block text-xs font-normal opacity-70">(base)</span>}
+                {city.primary && <span class="co-mut dfg-city-base"> (base)</span>}
               </span>
             </div>
           ))}
         </div>
       </div>
 
-      <!-- Frontalier France -->
-      <div>
-        <h3 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4 text-center">Zone frontalière France</h3>
-        <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+      <div class="dfg-zone-block">
+        <p class="co-eyebrow dfg-zone-label">Zone frontalière France</p>
+        <div class="dfg-frontier" data-animate-stagger>
           {frontierCities.map((city) => (
-            <a
-              href={`/developpement-web/${city.slug}`}
-              class="inline-flex items-center gap-2 bg-white border-2 border-black px-4 py-2 text-sm shadow-[2px_2px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--yellow)] hover:translate-x-[-1px] hover:translate-y-[-1px] hover:shadow-[3px_3px_0px_rgba(0,0,0,0.3)] transition-all"
-            >
-              <i class="ri-map-pin-line text-gray-500"></i>
+            <a href={`/developpement-web/${city.slug}`} class="dfg-frontier-link" data-animate-item>
+              <i class="ri-map-pin-line"></i>
               {city.name}
-              <i class="ri-arrow-right-line text-xs opacity-50"></i>
+              <i class="ri-arrow-right-line dfg-frontier-arrow"></i>
             </a>
           ))}
         </div>
-        <p class="mt-4 text-center text-xs text-gray-500">
+        <p class="co-mut dfg-zone-note">
           Page dédiée par ville frontalière → tarifs en EUR + spécificités locales
         </p>
       </div>
 
-      <!-- Note -->
-      <p class="mt-10 text-center text-sm text-gray-500 max-w-2xl mx-auto">
-        <i class="ri-information-line text-[var(--blue)] mr-1"></i>
+      <p class="co-mut dfg-zone-foot">
+        <i class="ri-information-line"></i>
         Échanges en visio ou en personne selon ta préférence. Facturation en CHF (Suisse) ou EUR (France).
       </p>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- RÉALISATIONS -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          portfolio
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Réalisations récentes
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Quelques projets livrés pour des clients romands ces 18 derniers mois.
-        </p>
+    <!-- ══ 06 · RÉALISATIONS (preuve Lécureux — stats dynamiques proof-lecureux) ══ -->
+    <section id="realisations" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">06 — Réalisations</p>
+      <h2 style="margin-top:8px;">Réalisations <span class="co-ser">récentes</span></h2>
+      <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+        Quelques projets livrés pour des clients romands ces 18 derniers mois.
+      </p>
+
+      <!-- Cas vedette : preuve chiffrée dérivée de proof-lecureux (aucun chiffre en dur) -->
+      <div class="dfg-proof co-frame" data-animate>
+        <span class="co-x tl"></span><span class="co-x tr"></span>
+        <span class="co-x bl"></span><span class="co-x br"></span>
+        <div class="dfg-proof-head">
+          <div>
+            <p class="co-eyebrow">Cas vedette</p>
+            <h3 class="dfg-proof-title">{proofLecureux.company}</h3>
+            <p class="dfg-card-text">{proofLecureux.metier} — {proofLecureux.accrocheShort}.</p>
+          </div>
+          <a href={proofLecureux.portfolioUrl} class="dfg-inline dfg-proof-link">
+            Voir l'étude de cas <i class="ri-arrow-right-line"></i>
+          </a>
+        </div>
+
+        <div class="dfg-stats" data-animate-stagger>
+          {caseStudyStats.map((stat) => (
+            <div class="dfg-stat" data-animate-item>
+              <i class={`${stat.icon} dfg-stat-icon`} aria-hidden="true"></i>
+              <div class="dfg-stat-value">{stat.value}</div>
+              <div class="dfg-stat-label">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+
+        {proofLecureux.testimonial && (
+          <blockquote class="dfg-quote">
+            <p class="co-ser">« {proofLecureux.testimonial.quote.split("\n")[0]} »</p>
+            <cite>{proofLecureux.testimonial.author} — {proofLecureux.testimonial.role}</cite>
+          </blockquote>
+        )}
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+      <div class="dfg-projects" data-animate-stagger>
         {projects.map((project) => (
-          <a
-            href={project.href}
-            class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] flex flex-col"
-          >
-            <div class="flex items-center justify-between mb-4">
-              <span class="bg-[var(--yellow)] border-2 border-black px-2 py-1 text-xs font-mono">
-                {project.tag}
-              </span>
-              <i class="ri-external-link-line text-gray-400 group-hover:text-[var(--blue)] transition-colors"></i>
+          <a href={project.href} class="dfg-project co-frame co-frame--reveal" data-animate-item>
+            <div class="dfg-project-top">
+              <span class="co-badge">{project.tag}</span>
+              <i class="ri-external-link-line dfg-project-ext"></i>
             </div>
-            <h3 class="text-xl font-bold mb-1">{project.title}</h3>
-            <p class="text-xs text-gray-500 mb-3 font-mono">{project.sector}</p>
-            <p class="text-sm text-gray-600 leading-relaxed flex-grow">{project.description}</p>
-            <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-[var(--blue)] font-medium flex items-center gap-1">
-              Voir le projet
-              <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
+            <h3 class="dfg-card-title">{project.title}</h3>
+            <p class="dfg-project-sector">{project.sector}</p>
+            <p class="dfg-card-text">{project.description}</p>
+            <span class="dfg-project-link">
+              Voir le projet <i class="ri-arrow-right-line"></i>
             </span>
           </a>
         ))}
       </div>
 
-      <div class="text-center">
-        <a href="/portfolio" class="inline-flex items-center gap-2 bg-[var(--blue)] border-2 border-black px-6 py-3 font-bold hover:bg-[var(--yellow)] transition-all shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]">
-          Voir tout le portfolio
-          <i class="ri-arrow-right-line"></i>
+      <div class="dfg-center" data-animate>
+        <a href="/portfolio" class="co-btn">
+          Voir tout le portfolio <i class="ri-arrow-right-line"></i>
         </a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- TARIFS -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          tarifs
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Combien ça coûte ?
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Trois fourchettes en CHF pour situer ton projet. Devis personnalisé après notre premier échange.
-        </p>
-      </div>
+    <!-- ══ 07 · TARIFS ══ -->
+    <section id="tarifs" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">07 — Tarifs</p>
+      <h2 style="margin-top:8px;">Combien ça <span class="co-ser">coûte ?</span></h2>
+      <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+        Trois fourchettes en CHF pour situer ton projet. Devis personnalisé après notre premier échange.
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-10">
+      <div class="dfg-tiers" data-animate-stagger>
         {pricingPlans.map((plan) => (
-          <div class={`
-            bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 relative
-            ${plan.highlighted ? 'shadow-[8px_8px_0px_rgba(0,0,0,1)] ring-2 ring-[var(--blue)]' : 'shadow-[4px_4px_0px_rgba(0,0,0,0.3)]'}
-          `}>
-            {plan.highlighted && (
-              <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-bold whitespace-nowrap">
-                LE PLUS DEMANDÉ
-              </div>
-            )}
-
-            <h3 class="text-xl font-bold mb-2">{plan.name}</h3>
-            <p class="text-sm text-gray-600 mb-4">{plan.description}</p>
-
-            <div class="mb-6 pb-6 border-b-2 border-dashed border-gray-300">
-              <span class="text-sm text-gray-500">{plan.priceLabel}</span>
-              <p class="text-4xl font-black">
-                {plan.price}<span class="text-lg text-gray-500"> CHF</span>
-              </p>
+          <div class={`dfg-tier ${plan.highlighted ? 'dfg-tier--reco' : ''}`} data-animate-item>
+            {plan.highlighted && <span class="co-badge co-badge--solid dfg-tier-reco">Le plus demandé</span>}
+            <h3 class="dfg-tier-name">{plan.name}</h3>
+            <p class="dfg-card-text">{plan.description}</p>
+            <div class="dfg-tier-price">
+              <span class="dfg-tier-pricelabel">{plan.priceLabel}</span>
+              <b>{plan.price}<span class="dfg-tier-cur"> CHF</span></b>
             </div>
-
-            <ul class="space-y-3">
+            <ul class="co-list co-list--check dfg-tier-features">
               {plan.features.map((feature) => (
-                <li class="flex items-start gap-2 text-sm">
-                  <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0 font-bold"></i>
-                  <span>{feature}</span>
-                </li>
+                <li><i class="ri-check-line"></i><span>{feature}</span></li>
               ))}
             </ul>
           </div>
         ))}
       </div>
 
-      <div class="text-center">
-        <a href="/tarifs" class="inline-flex items-center gap-2 bg-white border-2 border-black px-6 py-3 font-medium hover:bg-[var(--yellow)] transition-all shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]">
-          <i class="ri-price-tag-3-line"></i>
-          Voir tous les tarifs
-          <i class="ri-arrow-right-line"></i>
+      <div class="dfg-center" data-animate>
+        <a href="/tarifs" class="co-btn co-btn--ghost">
+          <i class="ri-price-tag-3-line"></i> Voir tous les tarifs <i class="ri-arrow-right-line"></i>
         </a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- À LIRE AVANT DE TE DÉCIDER -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          ressources
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          À lire avant de te décider
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Trois articles pour cadrer ton projet de <strong>création site web Genève</strong> avant même d'envoyer un mail.
-        </p>
-      </div>
+    <!-- ══ 08 · RESSOURCES — À LIRE AVANT DE TE DÉCIDER ══ -->
+    <section id="ressources" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">08 — Ressources</p>
+      <h2 style="margin-top:8px;">À lire avant de te <span class="co-ser">décider</span></h2>
+      <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+        Trois articles pour cadrer ton projet de <strong>création site web Genève</strong> avant même d'envoyer un mail.
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div class="dfg-cards dfg-cards--3" data-animate-stagger>
         {blogArticles.map((article) => (
-          <a
-            href={article.href}
-            class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
-          >
-            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4">
-              <i class={`${article.icon} text-2xl`}></i>
+          <a href={article.href} class="dfg-card co-frame co-frame--reveal" data-animate-item>
+            <i class={`${article.icon} dfg-card-icon`} aria-hidden="true"></i>
+            <h3 class="dfg-card-title">{article.title}</h3>
+            <p class="dfg-card-text">{article.description}</p>
+            <div class="dfg-card-foot">
+              <span class="dfg-card-price">Lire l'article</span>
+              <i class="ri-arrow-right-line dfg-card-arrow"></i>
             </div>
-            <h3 class="text-lg font-bold mb-2 leading-tight">{article.title}</h3>
-            <p class="text-sm text-gray-600 leading-relaxed flex-grow">{article.description}</p>
-            <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-[var(--blue)] font-medium flex items-center gap-1">
-              Lire l'article
-              <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
-            </span>
           </a>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- FAQ LOCALE -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-6xl mx-auto">
-      <div class="grid lg:grid-cols-[minmax(0,340px)_1fr] gap-12 lg:gap-16 items-start">
-
-        <!-- Illustration contextuelle (Phase 3) -->
-        <div class="hidden lg:block lg:sticky lg:top-28">
-          <div class="relative">
-            <Halo class="absolute -inset-10 -z-10" />
+    <!-- ══ 09 · FAQ LOCALE (accordéon natif <details>, zéro JS) ══ -->
+    <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+      <div class="dfg-faq-grid">
+        <!-- Illustration contextuelle (cadrée blueprint, Halo supprimé) -->
+        <div class="dfg-illu-col">
+          <div class="dfg-illu co-frame">
+            <span class="co-x tl"></span><span class="co-x tr"></span>
+            <span class="co-x bl"></span><span class="co-x br"></span>
             <Image
               src={illuFreelance}
               alt=""
-              class="w-full border-2 border-black shadow-[6px_6px_0px_rgba(0,0,0,0.9)]"
+              class="dfg-illu-img"
               aria-hidden="true"
             />
           </div>
@@ -876,205 +685,261 @@ const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
 
         <!-- Colonne FAQ -->
         <div>
-      <div class="text-center lg:text-left mb-10">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          faq
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">Questions fréquentes</h2>
-        <p class="text-lg text-gray-600">
-          Tout ce que les clients romands me demandent avant de signer.
-        </p>
-      </div>
+          <p class="co-eyebrow">09 — FAQ</p>
+          <h2 style="margin-top:8px;">Questions fréquentes</h2>
+          <p class="co-mut" style="margin-top:10px;max-width:58ch;line-height:1.6;">
+            Tout ce que les clients romands me demandent avant de signer.
+          </p>
 
-      <div class="faq-list space-y-4">
-        {faqs.map((faq, index) => (
-          <div class="faq-item border-2 border-black bg-[var(--main-bg)] shadow-[3px_3px_0px_rgba(0,0,0,0.3)]" data-faq-item>
-            <button
-              class="
-                faq-trigger
-                w-full
-                flex items-center justify-between gap-4
-                p-5
-                text-left
-                font-medium
-                cursor-pointer
-                transition-colors duration-200
-                hover:bg-[var(--blue)] hover:bg-opacity-10
-              "
-              aria-expanded="false"
-              data-faq-trigger
-            >
-              <span class="flex items-start gap-3">
-                <span class="font-mono text-sm text-gray-400 mt-0.5">{String(index + 1).padStart(2, '0')}</span>
-                <span class="text-base md:text-lg">{faq.question}</span>
-              </span>
-              <span class="
-                faq-icon
-                w-8 h-8
-                border-2 border-black
-                bg-white
-                flex items-center justify-center
-                transition-transform duration-300
-                flex-shrink-0
-              ">
-                <i class="ri-add-line text-lg"></i>
-              </span>
-            </button>
-            <div
-              class="faq-content overflow-hidden transition-all duration-300"
-              style="max-height: 0;"
-              data-faq-content
-            >
-              <div class="p-6 pt-2 pl-12">
-                <p class="text-gray-600 leading-relaxed">
-                  {faq.answer}
-                </p>
-              </div>
-            </div>
+          <div class="dfg-faq" style="margin-top:28px;">
+            {faqs.map((faq, index) => (
+              <details open={index === 0}>
+                <summary>
+                  <span class="dfg-faq-q">
+                    <span class="co-index dfg-faq-num">{String(index + 1).padStart(2, '0')}</span>
+                    {faq.question}
+                  </span>
+                  <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+                </summary>
+                <p class="dfg-faq-answer">{faq.answer}</p>
+              </details>
+            ))}
           </div>
-        ))}
+
+          <p class="co-mut dfg-faq-foot">
+            Une autre question ? <a href="/contact" class="dfg-inline">Écris-moi</a>, je réponds sous 24h. Tu peux aussi en savoir plus <a href="/about" class="dfg-inline">sur moi</a>.
+          </p>
+        </div>
       </div>
+    </section>
 
-      <p class="mt-10 text-gray-500 text-sm text-center lg:text-left">
-        Une autre question ? <a href="/contact" class="text-[var(--blue)] font-medium hover:underline">Écris-moi</a>, je réponds sous 24h. Tu peux aussi en savoir plus <a href="/about" class="text-[var(--blue)] font-medium hover:underline">sur moi</a>.
-      </p>
-        </div><!-- /col FAQ -->
-      </div><!-- /grid -->
-    </div>
-  </section>
-
-  <!-- ============================================== -->
-  <!-- CTA FINAL (HERO SOMBRE) -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-[var(--text)] text-white relative overflow-hidden">
-    <!-- Grid background -->
-    <div class="absolute inset-0 opacity-[0.07]" aria-hidden="true">
-      <div style="background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px); background-size: 40px 40px; width: 100%; height: 100%;"></div>
-    </div>
-
-    <!-- Glow accents -->
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <div class="absolute top-0 left-1/4 w-[400px] h-[400px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
-      <div class="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-[var(--violet)] opacity-15 blur-[100px] rounded-full"></div>
-    </div>
-
-    <div class="max-w-4xl mx-auto relative z-10 text-center">
-      <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-400 mb-6">
-        <span class="w-8 h-px bg-gray-600"></span>
-        prêt ?
-        <span class="w-8 h-px bg-gray-600"></span>
-      </span>
-
-      <h2 class="text-4xl md:text-6xl font-normal tracking-tight mb-6 leading-[1.05]">
-        Discutons de
-        <span class="relative inline-block">
-          <span class="relative z-10">ton projet</span>
-          <span class="absolute bg-[var(--blue)] w-full h-[35%] left-0 bottom-1 -z-1 opacity-50"></span>
-        </span>
-      </h2>
-
-      <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-        Premier échange gratuit, sans engagement. Je te dis franchement si je suis le bon profil pour toi — et sinon, je t'oriente vers quelqu'un de mieux placé.
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-        <a
-          href="/contact"
-          class="
-            bg-[var(--blue)]
-            text-[var(--text)]
-            border-2 border-[var(--blue)]
-            px-8 py-4
-            text-lg font-bold
-            shadow-[4px_4px_0px_white]
-            transition-all duration-200
-            hover:bg-[var(--yellow)]
-            hover:border-[var(--yellow)]
-            hover:shadow-[2px_2px_0px_white]
-            hover:translate-x-[2px] hover:translate-y-[2px]
-            flex items-center justify-center gap-2
-          "
-        >
-          <i class="ri-mail-send-line"></i>
-          Demander un devis
-        </a>
-        <a
-          href="mailto:hello@jonlabs.ch"
-          class="
-            bg-transparent
-            text-white
-            border-2 border-white
-            px-8 py-4
-            text-lg font-medium
-            transition-all duration-200
-            hover:bg-white
-            hover:text-[var(--text)]
-            flex items-center justify-center gap-2
-            font-mono
-          "
-        >
-          <i class="ri-mail-line"></i>
-          hello@jonlabs.ch
-        </a>
+    <!-- ══ CTA FINAL (primitive .co-cta — fond sombre, bouton clair) ══ -->
+    <section class="co-cta">
+      <span class="co-x tl"></span><span class="co-x tr"></span>
+      <span class="co-x bl"></span><span class="co-x br"></span>
+      <div class="co-cta-inner">
+        <p class="co-cta-eyebrow">Prêt ?</p>
+        <h2 class="co-cta-title">Discutons de <span class="co-ser">ton projet</span></h2>
+        <p class="co-cta-lead">
+          Premier échange gratuit, sans engagement. Je te dis franchement si je suis le bon profil pour toi — et sinon, je t'oriente vers quelqu'un de mieux placé.
+        </p>
+        <div class="co-cta-btns">
+          <a href="/contact" class="co-cta-btn"><i class="ri-mail-send-line"></i> Demander un devis</a>
+          <a href="mailto:hello@jonlabs.ch" class="co-cta-btn co-cta-btn--ghost"><i class="ri-mail-line"></i> hello@jonlabs.ch</a>
+        </div>
+        <div class="co-cta-trust">
+          <span><i class="ri-time-line"></i> Réponse sous 24h · Lun-Ven, 9h-18h (CET)</span>
+        </div>
       </div>
+    </section>
 
-      <p class="text-sm text-gray-400 flex items-center justify-center gap-2">
-        <i class="ri-time-line text-[var(--blue)]"></i>
-        Réponse sous 24h · Lun-Ven, 9h-18h (CET)
-      </p>
-    </div>
-  </section>
+  </main>
 
   <Footer />
 </Layout>
 
-<style>
-  /* FAQ animations */
-  .faq-item[data-open="true"] .faq-icon {
-    transform: rotate(45deg);
-    background-color: var(--blue);
-  }
+<style is:global>
+  /* ══ DÉVELOPPEUR WEB FREELANCE GENÈVE — styles .dfg-* (namespace scopé, corps .co-root) ══ */
 
-  /* Scroll margin */
-  section[id] {
-    scroll-margin-top: 100px;
+  /* ── Hero ── */
+  .dfg-hero-inner { max-width: 760px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .dfg-hero-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .co-root .dfg-hero-title { margin-top: 22px; font-size: clamp(2.2rem, 5.4vw, 3.4rem); }
+  .co-root .dfg-hero-lead { margin-top: 18px; max-width: 54ch; font-size: 1.075rem; line-height: 1.65; color: var(--muted); }
+  .dfg-hero-lead strong { color: var(--ink); font-weight: 600; }
+  .dfg-hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
+  .dfg-hero-btns .co-btn i { transition: transform .18s ease-out; }
+  .dfg-hero-btns .co-btn:hover i { transform: translateX(2px); }
+  .dfg-hero-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; margin-top: 26px; font-size: 13.5px; color: var(--muted); }
+  .dfg-hero-trust span { display: inline-flex; align-items: center; gap: 6px; }
+  .dfg-hero-trust i { color: var(--accent); }
+
+  /* ── Centrage CTA sous sections ── */
+  .dfg-center { display: flex; justify-content: center; margin-top: 32px; }
+  .dfg-center .co-btn i { transition: transform .18s ease-out; }
+  .dfg-center .co-btn:hover i:last-child { transform: translateX(3px); }
+
+  /* ── Inline links teal ── */
+  .dfg-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
+  .dfg-inline:hover { color: var(--ink); }
+
+  /* ── Cartes génériques (titre/texte partagés) ── */
+  .dfg-card-title { font-size: 1.1rem; }
+  .co-root .dfg-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
+
+  /* ── Comparaison freelance vs agence ── */
+  .dfg-vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 36px; }
+  .dfg-vs-head { margin-bottom: 18px; }
+  .dfg-vs-list { display: flex; flex-direction: column; gap: 14px; }
+  .dfg-vs-card {
+    position: relative; display: flex; align-items: flex-start; gap: 14px; padding: 20px;
+    background: var(--surface); border: 1px solid var(--line-2);
+    transition: box-shadow .18s ease-out, transform .18s ease-out;
+  }
+  .dfg-vs-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+  .dfg-vs-icon { font-size: 22px; color: var(--accent); line-height: 1; flex: none; margin-top: 2px; }
+  .dfg-vs-icon--mut { color: var(--muted); }
+  .co-root .dfg-vs-card .dfg-card-text { margin-top: 4px; }
+
+  /* ── Grilles de cartes (services / blog) ── */
+  .dfg-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+  .dfg-card {
+    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+    background: var(--surface); border: 1px solid var(--line-2);
+    transition: box-shadow .18s ease-out, transform .18s ease-out;
+  }
+  .dfg-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+  .dfg-card--accent { background: rgba(0,168,125,0.05); border-color: var(--accent); }
+  .dfg-card-icon { font-size: 26px; color: var(--accent); line-height: 1; }
+  .dfg-card-foot { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; }
+  .dfg-card-price { font-size: 13.5px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .dfg-card-arrow { color: var(--muted); font-size: 18px; transition: transform .18s ease-out, color .18s ease-out; }
+  .dfg-card:hover .dfg-card-arrow { transform: translateX(3px); color: var(--accent); }
+
+  /* ── Méthode (étapes) ── */
+  .dfg-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 32px; }
+  .dfg-step {
+    position: relative; display: flex; flex-direction: column; gap: 8px; padding: 24px;
+    background: var(--surface); border: 1px solid var(--line-2);
+    transition: box-shadow .18s ease-out, transform .18s ease-out;
+  }
+  .dfg-step:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+  .dfg-step-num { font-size: 22px; font-weight: 700; }
+  .dfg-step-title { font-size: 1.15rem; }
+  .co-root .dfg-step-dur { margin-top: auto; padding-top: 12px; font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+  .dfg-step-dur i { color: var(--accent); }
+
+  /* ── Stack (tags + note) ── */
+  .dfg-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 32px; }
+  .dfg-tag {
+    font-size: 13.5px; font-weight: 500; padding: 8px 14px;
+    background: var(--surface); border: 1px solid var(--line-2); color: var(--ink);
+    transition: border-color .18s ease-out, color .18s ease-out;
+  }
+  .dfg-tag:hover { border-color: var(--accent); color: var(--accent); }
+
+  .dfg-note { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); max-width: 760px; }
+  .dfg-note-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
+  .dfg-note-title i { color: var(--accent); }
+  .co-root .dfg-note-text { margin-top: 10px; font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+  .dfg-note-text strong { color: var(--ink); font-weight: 600; }
+
+  /* ── Zones ── */
+  .dfg-zone-block { margin-top: 32px; }
+  .dfg-zone-label { display: block; margin-bottom: 16px; }
+  .dfg-cities { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+  .dfg-city { display: flex; align-items: center; gap: 8px; padding: 13px 16px; background: var(--surface); border: 1px solid var(--line-2); font-size: 14px; }
+  .dfg-city i { color: var(--muted); font-size: 16px; flex: none; }
+  .dfg-city--primary { border-color: var(--accent); background: rgba(0,168,125,0.05); font-weight: 600; }
+  .dfg-city--primary i { color: var(--accent); }
+  .dfg-city-base { font-weight: 400; font-size: 12px; }
+  .dfg-frontier { display: flex; flex-wrap: wrap; gap: 10px; }
+  .dfg-frontier-link {
+    display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; font-size: 14px;
+    background: var(--surface); border: 1px solid var(--line-2);
+    transition: border-color .18s ease-out, transform .18s ease-out;
+  }
+  .dfg-frontier-link:hover { border-color: var(--accent); transform: translateY(-2px); }
+  .dfg-frontier-link > i:first-child { color: var(--muted); }
+  .dfg-frontier-arrow { font-size: 12px; color: var(--muted); }
+  .dfg-frontier-link:hover .dfg-frontier-arrow { color: var(--accent); }
+  .co-root .dfg-zone-note { margin-top: 14px; font-size: 12.5px; }
+  .co-root .dfg-zone-foot { margin-top: 32px; font-size: 13.5px; display: inline-flex; align-items: center; gap: 8px; }
+  .dfg-zone-foot i { color: var(--accent); }
+
+  /* ── Preuve (cas vedette Lécureux) + stats ── */
+  .dfg-proof { position: relative; margin-top: 32px; padding: 32px; background: var(--surface); border: 1px solid var(--line-2); }
+  .dfg-proof-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+  .dfg-proof-title { font-size: 1.4rem; margin-top: 6px; }
+  .co-root .dfg-proof-head .dfg-card-text { margin-top: 8px; max-width: 52ch; }
+  .dfg-proof-link { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
+  .dfg-proof-link i { transition: transform .18s ease-out; }
+  .dfg-proof-link:hover i { transform: translateX(3px); }
+  .dfg-stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 28px; }
+  .dfg-stat { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; padding: 20px 12px; background: var(--bg); border: 1px solid var(--line-2); transition: transform .18s ease-out; }
+  .dfg-stat:hover { transform: translateY(-2px); }
+  .dfg-stat-icon { font-size: 18px; color: var(--accent); }
+  .dfg-stat-value { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+  .dfg-stat-label { font-size: 11.5px; color: var(--muted); }
+  .dfg-quote { margin-top: 28px; padding: 4px 0 4px 20px; border-left: 2px solid var(--accent); }
+  .co-root .dfg-quote p { font-size: 1.25rem; line-height: 1.4; color: var(--ink); }
+  .dfg-quote cite { display: block; margin-top: 10px; font-size: 13px; font-style: normal; color: var(--muted); }
+
+  /* ── Projets ── */
+  .dfg-projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+  .dfg-project {
+    position: relative; display: flex; flex-direction: column; gap: 8px; padding: 24px;
+    background: var(--surface); border: 1px solid var(--line-2);
+    transition: box-shadow .18s ease-out, transform .18s ease-out;
+  }
+  .dfg-project:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+  .dfg-project-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
+  .dfg-project-ext { color: var(--muted); font-size: 16px; transition: color .18s ease-out; }
+  .dfg-project:hover .dfg-project-ext { color: var(--accent); }
+  .co-root .dfg-project-sector { font-size: 12px; color: var(--muted); }
+  .dfg-project-link { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); font-size: 13.5px; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 6px; }
+  .dfg-project-link i { transition: transform .18s ease-out; }
+  .dfg-project:hover .dfg-project-link i { transform: translateX(3px); }
+
+  /* ── Tarifs ── */
+  .dfg-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; margin-top: 36px; }
+  .dfg-tier { position: relative; display: flex; flex-direction: column; gap: 14px; padding: 30px 26px; background: var(--surface); border: 1px solid var(--line-2); }
+  .dfg-tier--reco { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .dfg-tier-reco { position: absolute; top: -12px; left: 26px; z-index: 4; }
+  .dfg-tier-name { font-size: 1.15rem; }
+  .dfg-tier-price { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+  .dfg-tier-pricelabel { font-size: 13px; color: var(--muted); width: 100%; }
+  .dfg-tier-price b { font-size: 2.3rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+  .dfg-tier-cur { font-size: 15px; color: var(--muted); font-weight: 500; }
+  .dfg-tier-features { gap: 10px; margin-top: 4px; }
+  .dfg-tier-features li { font-size: 14px; line-height: 1.45; }
+
+  /* ── FAQ (illustration + accordéon natif <details>, zéro JS) ── */
+  .dfg-faq-grid { display: grid; grid-template-columns: minmax(0, 320px) 1fr; gap: 48px; align-items: start; }
+  .dfg-illu-col { position: sticky; top: 96px; }
+  .dfg-illu { position: relative; border: 1px solid var(--line-2); background: var(--surface); }
+  .dfg-illu-img { display: block; width: 100%; height: auto; }
+  .dfg-faq { border-top: 1px solid var(--line); }
+  .dfg-faq details { border-bottom: 1px solid var(--line); }
+  .dfg-faq summary {
+    list-style: none; cursor: pointer; padding: 20px 0;
+    display: flex; justify-content: space-between; align-items: center; gap: 20px;
+    font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
+  }
+  .dfg-faq summary::-webkit-details-marker { display: none; }
+  .dfg-faq-q { display: flex; align-items: baseline; gap: 12px; }
+  .dfg-faq-num { font-size: 13px; flex: none; }
+  .dfg-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
+  .dfg-faq details[open] summary i { transform: rotate(180deg); }
+  .co-root .dfg-faq-answer { padding: 0 0 22px 30px; color: var(--muted); line-height: 1.6; max-width: 66ch; }
+  .dfg-faq details::details-content {
+    block-size: 0; overflow: hidden;
+    transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
+  }
+  .dfg-faq details[open]::details-content { block-size: auto; }
+  .co-root .dfg-faq-foot { margin-top: 28px; font-size: 14px; }
+
+  /* ── Anchor scroll offset ── */
+  .co-root section[id] { scroll-margin-top: 100px; }
+
+  /* ── Responsive ── */
+  @media (max-width: 960px) {
+    .dfg-vs-grid { grid-template-columns: 1fr; gap: 28px; }
+    .dfg-cards, .dfg-cards--3, .dfg-projects { grid-template-columns: repeat(2, 1fr); }
+    .dfg-steps { grid-template-columns: repeat(2, 1fr); }
+    .dfg-tiers { grid-template-columns: 1fr; }
+    .dfg-stats { grid-template-columns: repeat(3, 1fr); }
+    .dfg-cities { grid-template-columns: repeat(3, 1fr); }
+    .dfg-faq-grid { grid-template-columns: 1fr; gap: 32px; }
+    .dfg-illu-col { display: none; }
+  }
+  @media (max-width: 720px) {
+    .dfg-cards, .dfg-cards--3, .dfg-projects, .dfg-steps { grid-template-columns: 1fr; }
+    .dfg-stats { grid-template-columns: repeat(2, 1fr); }
+    .dfg-cities { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .dfg-card, .dfg-vs-card, .dfg-step, .dfg-stat, .dfg-project, .dfg-frontier-link,
+    .dfg-card-arrow, .dfg-faq summary i, .dfg-hero-btns .co-btn i, .dfg-proof-link i { transition: none; }
   }
 </style>
-
-<script>
-  // FAQ accordion logic
-  const faqItems = document.querySelectorAll('[data-faq-item]');
-
-  faqItems.forEach(item => {
-    const trigger = item.querySelector('[data-faq-trigger]');
-    const content = item.querySelector('[data-faq-content]') as HTMLElement;
-
-    trigger?.addEventListener('click', () => {
-      const isOpen = item.getAttribute('data-open') === 'true';
-
-      // Close all others
-      faqItems.forEach(otherItem => {
-        if (otherItem !== item) {
-          otherItem.setAttribute('data-open', 'false');
-          const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
-          const otherTrigger = otherItem.querySelector('[data-faq-trigger]');
-          if (otherContent) otherContent.style.maxHeight = '0';
-          otherTrigger?.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      // Toggle current
-      if (isOpen) {
-        item.setAttribute('data-open', 'false');
-        content.style.maxHeight = '0';
-        trigger.setAttribute('aria-expanded', 'false');
-      } else {
-        item.setAttribute('data-open', 'true');
-        content.style.maxHeight = content.scrollHeight + 'px';
-        trigger.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-</script>

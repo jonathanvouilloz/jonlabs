@@ -1,11 +1,23 @@
 ---
+// Consultant IA pour PME romandes — landing pilier (blueprint).
+// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
+// crosshairs, accent teal unique, Inter Tight × Instrument Serif. Namespace scopé .cii-*.
+// Halo (blob décoratif) retiré ; illustration encadrée .co-frame. IconChip retiré →
+// icônes Remix mono inline (muted → teal au hover sur les cartes interactives).
+// Gabarit-or de référence : services/referencement-local.astro.
+//
+// HARD-PRESERVE : tout le Schema.org (getServiceItemSchema / getWebPageSchema /
+// getBreadcrumbSchema / getFAQPageSchema, tableau `schemas` + localBusinessData,
+// injection via schemas={} du Layout) — même data, même ordre ; data imports
+// (SITE_URL, localBusinessData, lib/seo) ; pageTitle + pageDescription exacts ;
+// chaque lien SEO interne (/services/*, /consultant-ia/*, /metiers/*, /portfolio,
+// /hermes, /blog/*, /contact, mailto) ; toute la copie éditoriale FR.
+
 import "../../styles/global.css";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import IconChip from "../../components/IconChip.astro";
 import { Image } from "astro:assets";
-import Halo from "../../components/shapes/Halo.astro";
 import illuConsultant from "../../assets/illustrations/consultant-ia.webp";
 
 import { getServiceItemSchema, getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from "../../lib/seo";
@@ -290,689 +302,505 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
 >
   <Header />
 
-  <!-- ============================================== -->
-  <!-- HERO -->
-  <!-- ============================================== -->
-  <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-20 px-4 relative overflow-hidden">
-    <!-- Gradient mesh background -->
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-accent opacity-20 blur-[120px] rounded-full"></div>
-      <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-accent-strong opacity-15 blur-[100px] rounded-full"></div>
-      <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-accent opacity-10 blur-[80px] rounded-full"></div>
-    </div>
+  <main class="co-root">
 
-    <div class="max-w-4xl mx-auto relative z-10 text-center">
-      <!-- Badges -->
-      <div class="flex flex-wrap justify-center gap-3 mb-8">
-        <span class="inline-flex items-center gap-2 bg-white border-2 border-black px-3 py-1 text-xs font-mono shadow-[2px_2px_0px_rgba(0,0,0,1)]">
-          <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-          Disponible
-        </span>
-        <span class="inline-flex items-center gap-2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-mono shadow-[2px_2px_0px_rgba(0,0,0,1)]">
-          <i class="ri-map-pin-fill"></i>
-          Basé à Genève
-        </span>
+    <!-- ══ HERO ══ -->
+    <section class="co-sec co-pad co-hero cii-hero" style="padding:64px 40px 56px;">
+      <div class="cii-hero-inner">
+        <div class="cii-hero-badges" data-animate>
+          <span class="co-badge">Disponible</span>
+          <span class="co-badge"><i class="ri-map-pin-fill"></i> Basé à Genève</span>
+        </div>
+
+        <h1 class="cii-hero-title" data-animate data-delay="0.1">
+          Consultant IA à Genève, pour les PME <span class="co-ser">romandes.</span>
+        </h1>
+
+        <p class="cii-hero-lead" data-animate data-delay="0.2">
+          Des <strong>agents IA</strong> et des <strong>automatisations</strong> qui enlèvent les tâches
+          répétitives de votre quotidien. Prix en <strong>CHF</strong>, conformité <strong>nLPD</strong>,
+          un seul interlocuteur du diagnostic à la mise en production.
+        </p>
+
+        <div class="cii-hero-btns" data-animate data-delay="0.3">
+          <a href="/contact" class="co-btn"><i class="ri-compass-3-line"></i> Cadrer mon projet IA</a>
+          <a href="#services" class="co-btn co-btn--ghost">Voir les services <i class="ri-arrow-down-line"></i></a>
+        </div>
+
+        <div class="cii-hero-trust" data-animate data-delay="0.4">
+          <span><i class="ri-currency-line"></i> Prix CHF transparents</span>
+          <span><i class="ri-stack-line"></i> 50+ projets livrés</span>
+          <span><i class="ri-shield-check-line"></i> Conformité nLPD</span>
+        </div>
       </div>
+    </section>
 
-      <!-- H1 -->
-      <h1 class="text-4xl md:text-6xl font-normal tracking-tight mb-6 leading-[1.05]">
-        Consultant IA à
-        <span class="relative inline-block">
-          <span class="relative z-10">Genève</span>
-          <span class="absolute bg-accent-soft w-full h-[35%] left-0 bottom-1 -z-1"></span>
-        </span><br/>
-        pour PME romandes
-      </h1>
-
-      <!-- Sous-titre -->
-      <p class="text-lg md:text-2xl text-gray-700 mb-8 leading-relaxed max-w-3xl mx-auto">
-        Des <strong>agents IA</strong> et des <strong>automatisations</strong> qui enlèvent les tâches répétitives de votre quotidien.<br class="hidden md:block"/>
-        Prix en <strong>CHF</strong>, conformité <strong>nLPD</strong>, un seul interlocuteur du diagnostic à la mise en production.
+    <!-- ══ 01 · DIFFÉRENCIANTS SUISSES ══ -->
+    <section id="differenciants" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">01 — Pourquoi moi</p>
+      <h2 style="margin-top:8px;">Un <span class="co-ser">consultant IA</span> vraiment suisse</h2>
+      <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+        Quatre choses que les freelances IA transfrontaliers ne vous offrent pas. Concrètes, vérifiables, sans plaquette.
       </p>
 
-      <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-        <a
-          href="/contact"
-          class="
-            bg-[var(--blue)]
-            border-2 border-black
-            px-6 py-4
-            text-lg font-bold
-            shadow-[4px_4px_0px_rgba(0,0,0,1)]
-            transition-all duration-200
-            hover:bg-[var(--yellow)]
-            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-            hover:translate-x-[2px] hover:translate-y-[2px]
-            flex items-center justify-center gap-2
-          "
-        >
-          <i class="ri-compass-3-line"></i>
-          Cadrer mon projet IA
-        </a>
-        <a
-          href="#services"
-          class="
-            bg-white
-            border-2 border-black
-            px-6 py-4
-            text-lg font-medium
-            transition-all duration-200
-            hover:bg-gray-100
-            flex items-center justify-center gap-2
-          "
-        >
-          Voir les services
-          <i class="ri-arrow-down-line"></i>
-        </a>
-      </div>
-
-      <!-- Trust line -->
-      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600">
-        <span class="flex items-center gap-2">
-          <i class="ri-currency-line text-accent"></i>
-          Prix CHF transparents
-        </span>
-        <span class="flex items-center gap-2">
-          <i class="ri-stack-line text-accent"></i>
-          50+ projets livrés
-        </span>
-        <span class="flex items-center gap-2">
-          <i class="ri-shield-check-line text-accent"></i>
-          Conformité nLPD
-        </span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================== -->
-  <!-- DIFFÉRENCIANTS SUISSES -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          pourquoi moi
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Un <strong>consultant IA</strong> vraiment suisse
-        </h2>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          Quatre choses que les freelances IA transfrontaliers ne vous offrent pas. Concrètes, vérifiables, sans plaquette.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="cii-grid cii-grid--4" data-animate-stagger>
         {differenciants.map((item) => (
-          <div class="bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] flex flex-col">
-            <IconChip icon={item.icon} class="mb-4" />
-            <h3 class="text-lg font-bold mb-2">{item.title}</h3>
-            <p class="text-sm text-gray-600 leading-relaxed">{item.description}</p>
+          <div class="cii-card co-frame co-frame--reveal" data-animate-item>
+            <i class={`${item.icon} cii-card-icon`} aria-hidden="true"></i>
+            <h3 class="cii-card-title">{item.title}</h3>
+            <p class="cii-card-text">{item.description}</p>
           </div>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- SERVICES -->
-  <!-- ============================================== -->
-  <section id="services" class="py-20 md:py-28 px-4">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          services
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Ce que je fais pour vous
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          De l'<strong>automatisation</strong> simple à l'<strong>agent IA</strong> métier — toute la chaîne, un seul prestataire.
-        </p>
-      </div>
+    <!-- ══ 02 · SERVICES ══ -->
+    <section id="services" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">02 — Services</p>
+      <h2 style="margin-top:8px;">Ce que je fais pour vous</h2>
+      <p class="co-mut" style="margin-top:10px;max-width:58ch;line-height:1.6;">
+        De l'<strong>automatisation</strong> simple à l'<strong>agent IA</strong> métier — toute la chaîne, un seul prestataire.
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="cii-grid cii-grid--3" data-animate-stagger>
         {services.map((service) => (
-          <a
-            href={service.href}
-            class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
-          >
-            <IconChip icon={service.icon} class="mb-4 group-hover:bg-accent-strong transition-colors" />
-            <h3 class="text-xl font-bold mb-2">{service.title}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">{service.description}</p>
-            <div class="pt-4 border-t border-dashed border-gray-300 flex items-center justify-between">
-              <span class="text-sm font-mono text-accent">{service.price}</span>
-              <i class="ri-arrow-right-line text-lg group-hover:translate-x-1 transition-transform"></i>
+          <a href={service.href} class="cii-svc co-frame co-frame--reveal" data-animate-item>
+            <i class={`${service.icon} cii-svc-icon`} aria-hidden="true"></i>
+            <h3 class="cii-card-title">{service.title}</h3>
+            <p class="cii-card-text">{service.description}</p>
+            <div class="cii-svc-foot">
+              <span class="cii-svc-price">{service.price}</span>
+              <i class="ri-arrow-right-line cii-svc-arrow" aria-hidden="true"></i>
             </div>
           </a>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- AGENTS IA SUR-MESURE -->
-  <!-- ============================================== -->
-  <section id="agents-sur-mesure" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          agents sur-mesure
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Un <strong>agent IA sur-mesure</strong>, c'est quoi ?
-        </h2>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          Pas un chatbot générique. Un assistant conçu pour votre métier, qui se souvient du contexte, agit sur vos outils, et passe la main quand un humain doit valider.
-        </p>
-      </div>
+    <!-- ══ 03 · AGENTS IA SUR-MESURE ══ -->
+    <section id="agents-sur-mesure" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">03 — Agents sur-mesure</p>
+      <h2 style="margin-top:8px;">Un <span class="co-ser">agent IA sur-mesure</span>, c'est quoi ?</h2>
+      <p class="co-mut" style="margin-top:10px;max-width:64ch;line-height:1.6;">
+        Pas un chatbot générique. Un assistant conçu pour votre métier, qui se souvient du contexte,
+        agit sur vos outils, et passe la main quand un humain doit valider.
+      </p>
 
       <!-- 3 caractéristiques -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-        <div class="bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)]">
-          <IconChip icon="ri-brain-line" size="md" class="mb-4" />
-          <h3 class="font-bold text-lg mb-2">Une mémoire</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">Il garde le contexte d'un client, d'un dossier, d'une conversation. Vous ne répétez pas trois fois la même information.</p>
+      <div class="cii-grid cii-grid--3" data-animate-stagger>
+        <div class="cii-card co-frame co-frame--reveal" data-animate-item>
+          <i class="ri-brain-line cii-card-icon" aria-hidden="true"></i>
+          <h3 class="cii-card-title">Une mémoire</h3>
+          <p class="cii-card-text">Il garde le contexte d'un client, d'un dossier, d'une conversation. Vous ne répétez pas trois fois la même information.</p>
         </div>
-        <div class="bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)]">
-          <IconChip icon="ri-cursor-line" size="md" class="mb-4" />
-          <h3 class="font-bold text-lg mb-2">Une capacité d'action</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">Il ne se contente pas de répondre : il crée une fiche, envoie un e-mail, met à jour un statut dans vos outils.</p>
+        <div class="cii-card co-frame co-frame--reveal" data-animate-item>
+          <i class="ri-cursor-line cii-card-icon" aria-hidden="true"></i>
+          <h3 class="cii-card-title">Une capacité d'action</h3>
+          <p class="cii-card-text">Il ne se contente pas de répondre : il crée une fiche, envoie un e-mail, met à jour un statut dans vos outils.</p>
         </div>
-        <div class="bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)]">
-          <IconChip icon="ri-user-follow-line" size="md" class="mb-4" />
-          <h3 class="font-bold text-lg mb-2">Une validation humaine</h3>
-          <p class="text-sm text-gray-600 leading-relaxed">Les actions sensibles passent par vous. L'agent prépare, vous décidez. Rien ne part dans la nature sans contrôle.</p>
+        <div class="cii-card co-frame co-frame--reveal" data-animate-item>
+          <i class="ri-user-follow-line cii-card-icon" aria-hidden="true"></i>
+          <h3 class="cii-card-title">Une validation humaine</h3>
+          <p class="cii-card-text">Les actions sensibles passent par vous. L'agent prépare, vous décidez. Rien ne part dans la nature sans contrôle.</p>
         </div>
       </div>
 
       <!-- Distinction avec automatisation -->
-      <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative mb-12">
-        <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-accent border-2 border-black"></div>
-        <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-accent border-2 border-black"></div>
-        <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-accent border-2 border-black"></div>
-        <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-accent border-2 border-black"></div>
-
-        <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-          <i class="ri-git-merge-line text-accent"></i>
-          Agent sur-mesure ou automatisation ?
-        </h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="cii-split co-frame" data-animate>
+        <span class="co-x tl"></span><span class="co-x tr"></span>
+        <span class="co-x bl"></span><span class="co-x br"></span>
+        <h3 class="cii-split-title"><i class="ri-git-merge-line"></i> Agent sur-mesure ou automatisation ?</h3>
+        <div class="cii-split-grid">
           <div>
-            <p class="text-sm font-bold text-gray-700 mb-2">L'automatisation de tâches</p>
-            <p class="text-gray-600 text-sm leading-relaxed">Couvre les workflows larges et prévisibles : "quand X arrive, fais Y". Idéale pour les relances, les rapports, les saisies récurrentes. <a href="/services/automatisation" class="text-accent hover:underline">Voir le service automatisation →</a></p>
+            <p class="cii-split-lead">L'automatisation de tâches</p>
+            <p class="cii-card-text">Couvre les workflows larges et prévisibles : « quand X arrive, fais Y ». Idéale pour les relances, les rapports, les saisies récurrentes. <a href="/services/automatisation" class="cii-inline">Voir le service automatisation <i class="ri-arrow-right-line"></i></a></p>
           </div>
           <div>
-            <p class="text-sm font-bold text-gray-700 mb-2">L'agent IA sur-mesure</p>
-            <p class="text-gray-600 text-sm leading-relaxed">Conçoit un assistant autonome pour une tâche pointue qui demande du jugement, du contexte et plusieurs étapes. C'est de la conception, pas du branchement d'outils.</p>
+            <p class="cii-split-lead">L'agent IA sur-mesure</p>
+            <p class="cii-card-text">Conçoit un assistant autonome pour une tâche pointue qui demande du jugement, du contexte et plusieurs étapes. C'est de la conception, pas du branchement d'outils.</p>
           </div>
         </div>
       </div>
 
       <!-- Tâches enlevées -->
-      <h3 class="text-2xl font-bold mb-6 text-center">Des tâches qu'un agent vous enlève</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      <h3 class="cii-sub-title">Des tâches qu'un agent vous enlève</h3>
+      <div class="cii-grid cii-grid--2" data-animate-stagger>
         {agentTaches.map((tache) => (
-          <div class="bg-[var(--main-bg)] border-2 border-black p-5 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] flex items-start gap-4">
-            <IconChip icon={tache.icon} size="md" class="flex-shrink-0" />
+          <div class="cii-tache co-frame co-frame--reveal" data-animate-item>
+            <i class={`${tache.icon} cii-tache-icon`} aria-hidden="true"></i>
             <div>
-              <h4 class="font-bold mb-1">{tache.title}</h4>
-              <p class="text-sm text-gray-600 leading-relaxed">{tache.description}</p>
+              <h4 class="cii-tache-title">{tache.title}</h4>
+              <p class="cii-card-text">{tache.description}</p>
             </div>
           </div>
         ))}
       </div>
 
       <!-- Process -->
-      <h3 class="text-2xl font-bold mb-6 text-center">Comment on construit votre agent</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <h3 class="cii-sub-title">Comment on construit votre agent</h3>
+      <div class="cii-grid cii-grid--4" data-animate-stagger>
         {agentProcess.map((etape) => (
-          <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)]">
-            <div class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center mb-4 font-mono font-black">
-              {etape.step}
-            </div>
-            <h4 class="font-bold mb-2">{etape.title}</h4>
-            <p class="text-sm text-gray-600 leading-relaxed">{etape.description}</p>
+          <div class="cii-proc" data-animate-item>
+            <span class="cii-proc-num co-index">0{etape.step}</span>
+            <h4 class="cii-proc-title">{etape.title}</h4>
+            <p class="cii-card-text">{etape.description}</p>
           </div>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- CAS D'USAGE PME -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          cas d'usage
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Où l'IA peut vous enlever du travail
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Des tâches transversales, valables pour la plupart des <strong>PME de Suisse romande</strong>. Les heures gagnées sont des estimations réalistes, pas des promesses.
-        </p>
-      </div>
+    <!-- ══ 04 · CAS D'USAGE PME ══ -->
+    <section id="cas-usage" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">04 — Cas d'usage</p>
+      <h2 style="margin-top:8px;">Où l'IA peut vous <span class="co-ser">enlever du travail</span></h2>
+      <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+        Des tâches transversales, valables pour la plupart des <strong>PME de Suisse romande</strong>.
+        Les heures gagnées sont des estimations réalistes, pas des promesses.
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="cii-grid cii-grid--3" data-animate-stagger>
         {useCases.map((uc) => (
-          <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:-translate-y-1 hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] flex flex-col">
-            <div class="flex items-center justify-between mb-4">
-              <IconChip icon={uc.icon} />
-              <span class="text-xs font-mono bg-accent border-2 border-black px-2 py-1">{uc.gain}</span>
+          <div class="cii-uc co-frame co-frame--reveal" data-animate-item>
+            <div class="cii-uc-head">
+              <i class={`${uc.icon} cii-card-icon`} aria-hidden="true"></i>
+              <span class="co-badge cii-uc-gain">{uc.gain}</span>
             </div>
-            <h3 class="text-lg font-bold mb-2">{uc.title}</h3>
-            <p class="text-sm text-gray-600 leading-relaxed">{uc.description}</p>
+            <h3 class="cii-card-title">{uc.title}</h3>
+            <p class="cii-card-text">{uc.description}</p>
           </div>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- PREUVES -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          preuves
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Des résultats, pas des promesses
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          La plupart des freelances IA vous demandent de leur faire confiance sur parole. Voici plutôt des chiffres.
-        </p>
-      </div>
+    <!-- ══ 05 · PREUVES ══ -->
+    <section id="preuves" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">05 — Preuves</p>
+      <h2 style="margin-top:8px;">Des résultats, <span class="co-ser">pas des promesses</span></h2>
+      <p class="co-mut" style="margin-top:10px;max-width:58ch;line-height:1.6;">
+        La plupart des freelances IA vous demandent de leur faire confiance sur parole. Voici plutôt des chiffres.
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
-        <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] text-center">
-          <p class="text-4xl md:text-5xl font-black text-accent mb-2">50</p>
-          <p class="font-bold mb-1">sites romands audités</p>
-          <p class="text-sm text-gray-600">Trois semaines à éplucher les sites d'indépendants romands. Je sais ce qui cloche sur le terrain.</p>
+      <div class="cii-stats" data-animate-stagger>
+        <div class="cii-stat co-frame" data-animate-item>
+          <div class="cii-stat-value">50</div>
+          <div class="cii-stat-label">sites romands audités</div>
+          <p class="cii-card-text">Trois semaines à éplucher les sites d'indépendants romands. Je sais ce qui cloche sur le terrain.</p>
         </div>
-        <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] text-center">
-          <p class="text-4xl md:text-5xl font-black text-accent mb-2">24/7</p>
-          <p class="font-bold mb-1">avis Google en autonomie</p>
-          <p class="text-sm text-gray-600">Système de réponse automatique aux avis d'un barbershop, fidèle à son tone of voice, avec rapport mensuel pour les dirigeants. Tourne sans intervention.</p>
+        <div class="cii-stat co-frame" data-animate-item>
+          <div class="cii-stat-value">24/7</div>
+          <div class="cii-stat-label">avis Google en autonomie</div>
+          <p class="cii-card-text">Système de réponse automatique aux avis d'un barbershop, fidèle à son tone of voice, avec rapport mensuel pour les dirigeants. Tourne sans intervention.</p>
         </div>
-        <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] text-center">
-          <p class="text-4xl md:text-5xl font-black text-accent mb-2">50+</p>
-          <p class="font-bold mb-1">sites & projets livrés</p>
-          <p class="text-sm text-gray-600">IA, web, SEO et mobile sous le même toit. Un seul prestataire pour toute la chaîne.</p>
+        <div class="cii-stat co-frame" data-animate-item>
+          <div class="cii-stat-value">50+</div>
+          <div class="cii-stat-label">sites &amp; projets livrés</div>
+          <p class="cii-card-text">IA, web, SEO et mobile sous le même toit. Un seul prestataire pour toute la chaîne.</p>
         </div>
       </div>
 
-      <div class="text-center">
-        <a href="/portfolio" class="inline-flex items-center gap-2 bg-white border-2 border-black px-6 py-3 font-medium hover:bg-[var(--yellow)] transition-all shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]">
-          <i class="ri-stack-line"></i>
-          Voir les réalisations
-          <i class="ri-arrow-right-line"></i>
-        </a>
+      <div class="cii-proof-cta" data-animate>
+        <a href="/portfolio" class="co-btn co-btn--ghost"><i class="ri-stack-line"></i> Voir les réalisations <i class="ri-arrow-right-line"></i></a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- DISTRIBUTION / MAILLAGE -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          aller plus loin
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Explorer le sujet
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Pages locales, services détaillés et articles pour creuser avant d'en parler.
-        </p>
-      </div>
+    <!-- ══ 06 · MAILLAGE / ALLER PLUS LOIN ══ -->
+    <section id="aller-plus-loin" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">06 — Aller plus loin</p>
+      <h2 style="margin-top:8px;">Explorer le sujet</h2>
+      <p class="co-mut" style="margin-top:10px;max-width:58ch;line-height:1.6;">
+        Pages locales, services détaillés et articles pour creuser avant d'en parler.
+      </p>
 
       <!-- Pages géo -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+      <div class="cii-grid cii-grid--2" data-animate-stagger>
         {geoPages.map((geo) => (
-          <a
-            href={geo.href}
-            class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
-          >
-            <IconChip icon="ri-map-pin-fill" class="mb-4" />
-            <h3 class="text-xl font-bold mb-2">{geo.nom}</h3>
-            <p class="text-sm text-gray-600 leading-relaxed flex-grow">{geo.description}</p>
-            <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-accent font-medium flex items-center gap-1">
-              Voir la page
-              <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
-            </span>
+          <a href={geo.href} class="cii-link co-frame co-frame--reveal" data-animate-item>
+            <i class="ri-map-pin-fill cii-svc-icon" aria-hidden="true"></i>
+            <h3 class="cii-card-title">{geo.nom}</h3>
+            <p class="cii-card-text">{geo.description}</p>
+            <span class="cii-link-more">Voir la page <i class="ri-arrow-right-line"></i></span>
           </a>
         ))}
       </div>
 
       <!-- Pages métiers -->
-      <h3 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4 text-center">L'IA pour votre secteur</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <a
-          href="/metiers/ia-fiduciaire"
-          class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
-        >
-          <IconChip icon="ri-calculator-line" class="mb-4" />
-          <h4 class="text-xl font-bold mb-2">IA pour fiduciaires</h4>
-          <p class="text-sm text-gray-600 leading-relaxed flex-grow">Tri et pré-imputation des pièces (Bexio, Crésus), relances, TVA, veille légale — la validation reste humaine.</p>
-          <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-accent font-medium flex items-center gap-1">
-            Voir la page métier
-            <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
-          </span>
+      <h3 class="cii-mini-title">L'IA pour votre secteur</h3>
+      <div class="cii-grid cii-grid--2" data-animate-stagger>
+        <a href="/metiers/ia-fiduciaire" class="cii-link co-frame co-frame--reveal" data-animate-item>
+          <i class="ri-calculator-line cii-svc-icon" aria-hidden="true"></i>
+          <h4 class="cii-card-title">IA pour fiduciaires</h4>
+          <p class="cii-card-text">Tri et pré-imputation des pièces (Bexio, Crésus), relances, TVA, veille légale — la validation reste humaine.</p>
+          <span class="cii-link-more">Voir la page métier <i class="ri-arrow-right-line"></i></span>
         </a>
-        <a
-          href="/metiers/ia-agence-immobiliere"
-          class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
-        >
-          <IconChip icon="ri-building-line" class="mb-4" />
-          <h4 class="text-xl font-bold mb-2">IA pour agences immobilières</h4>
-          <p class="text-sm text-gray-600 leading-relaxed flex-grow">Qualification des leads, tri des dossiers locataires, rédaction d'annonces, relances et suivi des échéances.</p>
-          <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-accent font-medium flex items-center gap-1">
-            Voir la page métier
-            <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
-          </span>
+        <a href="/metiers/ia-agence-immobiliere" class="cii-link co-frame co-frame--reveal" data-animate-item>
+          <i class="ri-building-line cii-svc-icon" aria-hidden="true"></i>
+          <h4 class="cii-card-title">IA pour agences immobilières</h4>
+          <p class="cii-card-text">Qualification des leads, tri des dossiers locataires, rédaction d'annonces, relances et suivi des échéances.</p>
+          <span class="cii-link-more">Voir la page métier <i class="ri-arrow-right-line"></i></span>
         </a>
       </div>
 
       <!-- Liens services & produit -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
-        <a href="/hermes" class="bg-white border-2 border-black p-4 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--yellow)] transition-colors flex items-center justify-between gap-3 font-medium">
-          <span class="flex items-center gap-3">
-            <i class="ri-message-3-line text-accent"></i>
-            Agent Hermès
-          </span>
+      <div class="cii-pills" data-animate-stagger>
+        <a href="/hermes" class="cii-pill" data-animate-item>
+          <span><i class="ri-message-3-line"></i> Agent Hermès</span>
           <i class="ri-arrow-right-line"></i>
         </a>
-        <a href="/services/automatisation" class="bg-white border-2 border-black p-4 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--yellow)] transition-colors flex items-center justify-between gap-3 font-medium">
-          <span class="flex items-center gap-3">
-            <i class="ri-flow-chart text-accent"></i>
-            Automatisation
-          </span>
+        <a href="/services/automatisation" class="cii-pill" data-animate-item>
+          <span><i class="ri-flow-chart"></i> Automatisation</span>
           <i class="ri-arrow-right-line"></i>
         </a>
-        <a href="/services/integration-outils" class="bg-white border-2 border-black p-4 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--yellow)] transition-colors flex items-center justify-between gap-3 font-medium">
-          <span class="flex items-center gap-3">
-            <i class="ri-links-line text-accent"></i>
-            Intégration d'outils
-          </span>
+        <a href="/services/integration-outils" class="cii-pill" data-animate-item>
+          <span><i class="ri-links-line"></i> Intégration d'outils</span>
           <i class="ri-arrow-right-line"></i>
         </a>
-        <a href="/services/formation-ia-equipe" class="bg-white border-2 border-black p-4 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--yellow)] transition-colors flex items-center justify-between gap-3 font-medium">
-          <span class="flex items-center gap-3">
-            <i class="ri-presentation-line text-accent"></i>
-            Formation IA équipe
-          </span>
+        <a href="/services/formation-ia-equipe" class="cii-pill" data-animate-item>
+          <span><i class="ri-presentation-line"></i> Formation IA équipe</span>
           <i class="ri-arrow-right-line"></i>
         </a>
-        <a href="/services/outils-sur-mesure" class="bg-white border-2 border-black p-4 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--yellow)] transition-colors flex items-center justify-between gap-3 font-medium">
-          <span class="flex items-center gap-3">
-            <i class="ri-tools-line text-accent"></i>
-            Outils sur mesure
-          </span>
+        <a href="/services/outils-sur-mesure" class="cii-pill" data-animate-item>
+          <span><i class="ri-tools-line"></i> Outils sur mesure</span>
           <i class="ri-arrow-right-line"></i>
         </a>
       </div>
 
       <!-- Articles blog -->
-      <h3 class="text-2xl font-bold mb-6 text-center">À lire sur l'IA en PME</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <h3 class="cii-mini-title">À lire sur l'IA en PME</h3>
+      <div class="cii-grid cii-grid--3" data-animate-stagger>
         {blogArticles.map((article) => (
-          <a
-            href={article.href}
-            class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
-          >
-            <IconChip icon={article.icon} class="mb-4" />
-            <h4 class="text-lg font-bold mb-2 leading-tight">{article.title}</h4>
-            <p class="text-sm text-gray-600 leading-relaxed flex-grow">{article.description}</p>
-            <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-accent font-medium flex items-center gap-1">
-              Lire l'article
-              <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
-            </span>
+          <a href={article.href} class="cii-link co-frame co-frame--reveal" data-animate-item>
+            <i class={`${article.icon} cii-svc-icon`} aria-hidden="true"></i>
+            <h4 class="cii-card-title">{article.title}</h4>
+            <p class="cii-card-text">{article.description}</p>
+            <span class="cii-link-more">Lire l'article <i class="ri-arrow-right-line"></i></span>
           </a>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- FAQ -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-6xl mx-auto">
-      <div class="grid lg:grid-cols-[minmax(0,340px)_1fr] gap-12 lg:gap-16 items-start">
-
-        <!-- Illustration contextuelle (Phase 3) -->
-        <div class="hidden lg:block lg:sticky lg:top-28">
-          <div class="relative">
-            <Halo class="absolute -inset-10 -z-10" />
+    <!-- ══ 07 · FAQ (accordéon natif <details>, zéro JS) + illustration cadrée ══ -->
+    <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+      <div class="cii-faq-grid">
+        <!-- Illustration cadrée (remplace le Halo brutaliste) -->
+        <aside class="cii-faq-illu" data-animate="fade-left" data-delay="0.1">
+          <figure class="cii-faq-frame co-frame">
+            <span class="co-x tl"></span><span class="co-x tr"></span>
+            <span class="co-x bl"></span><span class="co-x br"></span>
             <Image
               src={illuConsultant}
               alt=""
-              class="w-full border-2 border-black shadow-[6px_6px_0px_rgba(0,0,0,0.9)]"
+              class="cii-faq-img"
               aria-hidden="true"
             />
+          </figure>
+        </aside>
+
+        <div class="cii-faq-col">
+          <p class="co-eyebrow">07 — FAQ</p>
+          <h2 style="margin-top:8px;">Questions fréquentes</h2>
+          <p class="co-mut" style="margin-top:10px;line-height:1.6;">
+            Ce que les dirigeants de PME romandes me demandent avant de se lancer.
+          </p>
+
+          <div class="cii-faq" style="margin-top:28px;">
+            {faqs.map((faq, index) => (
+              <details open={index === 0}>
+                <summary>
+                  {faq.question}
+                  <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+                </summary>
+                <p class="cii-faq-answer">{faq.answer}</p>
+              </details>
+            ))}
           </div>
+
+          <p class="co-mut" style="margin-top:24px;">
+            Une autre question ? <a href="/contact" class="cii-inline">Écrivez-moi</a>, je réponds sous 24h.
+          </p>
         </div>
+      </div>
+    </section>
 
-        <!-- Colonne FAQ -->
-        <div>
-      <div class="text-center lg:text-left mb-12">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          faq
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">Questions fréquentes</h2>
-        <p class="text-lg text-gray-600">
-          Ce que les dirigeants de PME romandes me demandent avant de se lancer.
+    <!-- ══ 08 · CTA FINAL (primitive .co-cta) ══ -->
+    <section class="co-cta">
+      <span class="co-x tl"></span><span class="co-x tr"></span>
+      <span class="co-x bl"></span><span class="co-x br"></span>
+      <div class="co-cta-inner">
+        <p class="co-cta-eyebrow">Prêt ?</p>
+        <h2 class="co-cta-title">Cadrer votre <span class="co-ser">projet IA.</span></h2>
+        <p class="co-cta-lead">
+          Premier échange gratuit, sans engagement. On identifie la tâche à confier à l'IA, on chiffre en CHF,
+          et si le retour sur investissement n'est pas là, je vous le dis. Réponse sous 24h.
         </p>
+        <div class="co-cta-btns">
+          <a href="/contact" class="co-btn co-cta-btn"><i class="ri-compass-3-line"></i> Cadrer mon projet IA</a>
+          <a href="mailto:hello@jonlabs.ch" class="co-btn co-btn--ghost co-cta-btn co-cta-btn--ghost"><i class="ri-mail-line"></i> hello@jonlabs.ch</a>
+        </div>
+        <div class="co-cta-trust">
+          <span><i class="ri-time-line"></i> Réponse sous 24h</span>
+          <span><i class="ri-map-pin-line"></i> Basé à Chêne-Bougeries (Genève)</span>
+          <span><i class="ri-currency-line"></i> Facturation CHF</span>
+        </div>
       </div>
+    </section>
 
-      <div class="faq-list space-y-4">
-        {faqs.map((faq, index) => (
-          <div class="faq-item border-2 border-black bg-[var(--main-bg)] shadow-[3px_3px_0px_rgba(0,0,0,0.3)]" data-faq-item>
-            <button
-              class="
-                faq-trigger
-                w-full
-                flex items-center justify-between gap-4
-                p-5
-                text-left
-                font-medium
-                cursor-pointer
-                transition-colors duration-200
-                hover:bg-[var(--blue)] hover:bg-opacity-10
-              "
-              aria-expanded="false"
-              data-faq-trigger
-            >
-              <span class="flex items-start gap-3">
-                <span class="font-mono text-sm text-gray-400 mt-0.5">{String(index + 1).padStart(2, '0')}</span>
-                <span class="text-base md:text-lg">{faq.question}</span>
-              </span>
-              <span class="
-                faq-icon
-                w-8 h-8
-                border-2 border-black
-                bg-white
-                flex items-center justify-center
-                transition-transform duration-300
-                flex-shrink-0
-              ">
-                <i class="ri-add-line text-lg"></i>
-              </span>
-            </button>
-            <div
-              class="faq-content overflow-hidden transition-all duration-300"
-              style="max-height: 0;"
-              data-faq-content
-            >
-              <div class="p-6 pt-2 pl-12">
-                <p class="text-gray-600 leading-relaxed">
-                  {faq.answer}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <p class="text-center lg:text-left mt-10 text-gray-500 text-sm">
-        Une autre question ? <a href="/contact" class="text-accent font-medium hover:underline">Écrivez-moi</a>, je réponds sous 24h.
-      </p>
-        </div><!-- /col FAQ -->
-      </div><!-- /grid -->
-    </div>
-  </section>
-
-  <!-- ============================================== -->
-  <!-- CTA FINAL -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-[var(--text)] text-white relative overflow-hidden">
-    <!-- Grid background -->
-    <div class="absolute inset-0 opacity-[0.07]" aria-hidden="true">
-      <div style="background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px); background-size: 40px 40px; width: 100%; height: 100%;"></div>
-    </div>
-
-    <!-- Glow accents -->
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <div class="absolute top-0 left-1/4 w-[400px] h-[400px] bg-accent opacity-20 blur-[120px] rounded-full"></div>
-      <div class="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-accent-strong opacity-15 blur-[100px] rounded-full"></div>
-    </div>
-
-    <div class="max-w-4xl mx-auto relative z-10 text-center">
-      <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-400 mb-6">
-        <span class="w-8 h-px bg-gray-600"></span>
-        prêt ?
-        <span class="w-8 h-px bg-gray-600"></span>
-      </span>
-
-      <h2 class="text-4xl md:text-6xl font-normal tracking-tight mb-6 leading-[1.05]">
-        Cadrer votre
-        <span class="relative inline-block">
-          <span class="relative z-10">projet IA</span>
-          <span class="absolute bg-[var(--blue)] w-full h-[35%] left-0 bottom-1 -z-1 opacity-50"></span>
-        </span>
-      </h2>
-
-      <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-        Premier échange gratuit, sans engagement. On identifie la tâche à confier à l'IA, on chiffre en CHF, et si le retour sur investissement n'est pas là, je vous le dis. Réponse sous 24h.
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-        <a
-          href="/contact"
-          class="
-            bg-[var(--blue)]
-            text-[var(--text)]
-            border-2 border-[var(--blue)]
-            px-8 py-4
-            text-lg font-bold
-            shadow-[4px_4px_0px_white]
-            transition-all duration-200
-            hover:bg-[var(--yellow)]
-            hover:border-[var(--yellow)]
-            hover:shadow-[2px_2px_0px_white]
-            hover:translate-x-[2px] hover:translate-y-[2px]
-            flex items-center justify-center gap-2
-          "
-        >
-          <i class="ri-compass-3-line"></i>
-          Cadrer mon projet IA
-        </a>
-        <a
-          href="mailto:hello@jonlabs.ch"
-          class="
-            bg-transparent
-            text-white
-            border-2 border-white
-            px-8 py-4
-            text-lg font-medium
-            transition-all duration-200
-            hover:bg-white
-            hover:text-[var(--text)]
-            flex items-center justify-center gap-2
-            font-mono
-          "
-        >
-          <i class="ri-mail-line"></i>
-          hello@jonlabs.ch
-        </a>
-      </div>
-
-      <p class="text-sm text-gray-400 flex items-center justify-center gap-2">
-        <i class="ri-time-line text-accent"></i>
-        Réponse sous 24h · Basé à Chêne-Bougeries (Genève) · Facturation CHF
-      </p>
-    </div>
-  </section>
+  </main>
 
   <Footer />
 </Layout>
 
-<style>
-  /* FAQ animations */
-  .faq-item[data-open="true"] .faq-icon {
-    transform: rotate(45deg);
-    background-color: var(--blue);
-  }
+<style is:global>
+  /* ══ CONSULTANT IA — styles .cii-* (namespace scopé, corps .co-root) ══ */
 
-  /* Scroll margin */
-  section[id] {
-    scroll-margin-top: 100px;
+  /* ── Hero ── */
+  .cii-hero-inner { display: flex; flex-direction: column; align-items: flex-start; max-width: 760px; }
+  .cii-hero-badges { display: flex; flex-wrap: wrap; gap: 10px; }
+  .cii-hero-badges i { color: var(--accent); }
+  .cii-hero-title { font-size: clamp(2.1rem, 4.8vw, 3.2rem); margin-top: 22px; }
+  .co-root .cii-hero-lead { margin-top: 18px; max-width: 60ch; font-size: 1.075rem; line-height: 1.65; color: var(--muted); }
+  .cii-hero-lead strong { color: var(--ink); font-weight: 600; }
+  .cii-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .cii-hero-btns .co-btn i { transition: transform .18s ease-out; }
+  .cii-hero-btns .co-btn:hover i:last-child { transform: translateY(2px); }
+  .cii-hero-trust { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 26px; font-size: 13.5px; color: var(--muted); }
+  .cii-hero-trust span { display: inline-flex; align-items: center; gap: 6px; }
+  .cii-hero-trust i { color: var(--accent); }
+
+  /* ── Grilles génériques ── */
+  .cii-grid { display: grid; gap: 16px; margin-top: 32px; }
+  .cii-grid--2 { grid-template-columns: repeat(2, 1fr); }
+  .cii-grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .cii-grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+  /* ── Cartes de contenu ── */
+  .cii-card {
+    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+    background: var(--surface); border: 1px solid var(--line-2);
+    transition: box-shadow .18s ease-out, transform .18s ease-out;
+  }
+  .cii-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+  .cii-card-icon { font-size: 24px; color: var(--accent); line-height: 1; }
+  .cii-card-title { font-size: 1.1rem; }
+  .cii-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
+
+  /* ── Sous-titres de bloc ── */
+  .cii-sub-title { font-size: 1.4rem; margin-top: 44px; }
+  .cii-mini-title { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: 44px; }
+
+  /* ── Services (cartes-liens avec prix) ── */
+  .cii-svc {
+    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+    background: var(--surface); border: 1px solid var(--line-2);
+    transition: box-shadow .18s ease-out, transform .18s ease-out;
+  }
+  .cii-svc:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+  .cii-svc-icon { font-size: 24px; color: var(--muted); line-height: 1; transition: color .18s ease-out; }
+  .cii-svc:hover .cii-svc-icon, .cii-link:hover .cii-svc-icon { color: var(--accent); }
+  .cii-svc-foot { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; }
+  .cii-svc-price { font-size: 13px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .cii-svc-arrow { font-size: 18px; color: var(--muted); transition: transform .18s ease-out; }
+  .cii-svc:hover .cii-svc-arrow { transform: translateX(3px); color: var(--accent); }
+
+  /* ── Encart split (agent vs automatisation) ── */
+  .cii-split { position: relative; margin-top: 32px; padding: 32px; background: var(--surface); border: 1px solid var(--line-2); }
+  .cii-split-title { font-size: 1.2rem; display: inline-flex; align-items: center; gap: 8px; }
+  .cii-split-title i { color: var(--accent); }
+  .cii-split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 22px; }
+  .cii-split-lead { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+
+  /* ── Tâches (icône à gauche) ── */
+  .cii-tache { position: relative; display: flex; align-items: flex-start; gap: 16px; padding: 22px; background: var(--surface); border: 1px solid var(--line-2); transition: box-shadow .18s ease-out, transform .18s ease-out; }
+  .cii-tache:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+  .cii-tache-icon { font-size: 24px; color: var(--accent); flex: none; margin-top: 2px; }
+  .cii-tache-title { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
+
+  /* ── Process (étapes numérotées) ── */
+  .cii-proc { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 24px; background: var(--surface); border: 1px solid var(--line-2); }
+  .cii-proc-num { font-size: 20px; font-weight: 700; }
+  .cii-proc-title { font-size: 1.05rem; font-weight: 600; }
+
+  /* ── Cas d'usage (avec gain) ── */
+  .cii-uc {
+    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+    background: var(--surface); border: 1px solid var(--line-2);
+    transition: box-shadow .18s ease-out, transform .18s ease-out;
+  }
+  .cii-uc:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+  .cii-uc-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+  .cii-uc-gain { flex: none; }
+
+  /* ── Stats (preuves) ── */
+  .cii-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+  .cii-stat { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 30px 26px; background: var(--surface); border: 1px solid var(--line-2); text-align: center; align-items: center; }
+  .cii-stat-value { font-size: 3rem; font-weight: 700; letter-spacing: -0.04em; line-height: 1; color: var(--accent); }
+  .cii-stat-label { font-size: 15px; font-weight: 600; color: var(--ink); }
+  .cii-proof-cta { margin-top: 28px; display: flex; justify-content: center; }
+  .cii-proof-cta .co-btn i:last-child { transition: transform .18s ease-out; }
+  .cii-proof-cta .co-btn:hover i:last-child { transform: translateX(3px); }
+
+  /* ── Cartes-liens (géo / métiers / blog) ── */
+  .cii-link {
+    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+    background: var(--surface); border: 1px solid var(--line-2);
+    transition: box-shadow .18s ease-out, transform .18s ease-out;
+  }
+  .cii-link:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+  .cii-link-more { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13.5px; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 6px; }
+  .cii-link-more i { transition: transform .18s ease-out; }
+  .cii-link:hover .cii-link-more i { transform: translateX(3px); }
+
+  /* ── Pills (liens services rapides) ── */
+  .cii-pills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
+  .cii-pill { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 15px 18px; background: var(--surface); border: 1px solid var(--line-2); font-size: 14px; font-weight: 600; color: var(--ink); transition: border-color .18s ease-out, background .18s ease-out; }
+  .cii-pill span { display: inline-flex; align-items: center; gap: 10px; }
+  .cii-pill span i { color: var(--muted); transition: color .18s ease-out; }
+  .cii-pill > i { color: var(--muted); transition: transform .18s ease-out; }
+  .cii-pill:hover { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+  .cii-pill:hover span i, .cii-pill:hover > i { color: var(--accent); }
+  .cii-pill:hover > i { transform: translateX(3px); }
+
+  /* ── Lien inline teal ── */
+  .cii-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; display: inline-flex; align-items: center; gap: 5px; }
+  .cii-inline:hover { color: var(--ink); }
+
+  /* ── FAQ + illustration ── */
+  .cii-faq-grid { display: grid; grid-template-columns: minmax(0, 320px) 1fr; gap: 48px; align-items: start; }
+  .cii-faq-illu { position: sticky; top: 112px; }
+  .cii-faq-frame { position: relative; }
+  .cii-faq-img { display: block; width: 100%; height: auto; }
+
+  .cii-faq { border-top: 1px solid var(--line); }
+  .cii-faq details { border-bottom: 1px solid var(--line); }
+  .cii-faq summary {
+    list-style: none; cursor: pointer; padding: 20px 0;
+    display: flex; justify-content: space-between; align-items: center; gap: 20px;
+    font-size: 1.075rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
+  }
+  .cii-faq summary::-webkit-details-marker { display: none; }
+  .cii-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
+  .cii-faq details[open] summary i { transform: rotate(180deg); }
+  .co-root .cii-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 70ch; }
+  .cii-faq details::details-content {
+    block-size: 0; overflow: hidden;
+    transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
+  }
+  .cii-faq details[open]::details-content { block-size: auto; }
+
+  /* ── Anchor scroll offset ── */
+  .co-root section[id] { scroll-margin-top: 100px; }
+
+  /* ── Responsive ── */
+  @media (max-width: 960px) {
+    .cii-grid--4 { grid-template-columns: repeat(2, 1fr); }
+    .cii-faq-grid { grid-template-columns: 1fr; gap: 32px; }
+    .cii-faq-illu { display: none; }
+    .cii-pills { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .cii-grid--2, .cii-grid--3, .cii-grid--4, .cii-stats, .cii-split-grid, .cii-pills { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cii-card, .cii-svc, .cii-tache, .cii-uc, .cii-link, .cii-pill,
+    .cii-svc-icon, .cii-svc-arrow, .cii-faq summary i, .cii-hero-btns .co-btn i, .cii-link-more i { transition: none; }
   }
 </style>
-
-<script>
-  // FAQ accordion logic
-  const faqItems = document.querySelectorAll('[data-faq-item]');
-
-  faqItems.forEach(item => {
-    const trigger = item.querySelector('[data-faq-trigger]');
-    const content = item.querySelector('[data-faq-content]') as HTMLElement;
-
-    trigger?.addEventListener('click', () => {
-      const isOpen = item.getAttribute('data-open') === 'true';
-
-      // Close all others
-      faqItems.forEach(otherItem => {
-        if (otherItem !== item) {
-          otherItem.setAttribute('data-open', 'false');
-          const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
-          const otherTrigger = otherItem.querySelector('[data-faq-trigger]');
-          if (otherContent) otherContent.style.maxHeight = '0';
-          otherTrigger?.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      // Toggle current
-      if (isOpen) {
-        item.setAttribute('data-open', 'false');
-        content.style.maxHeight = '0';
-        trigger.setAttribute('aria-expanded', 'false');
-      } else {
-        item.setAttribute('data-open', 'true');
-        content.style.maxHeight = content.scrollHeight + 'px';
-        trigger.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-</script>

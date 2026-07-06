@@ -1,10 +1,23 @@
 ---
+// Consultant IA à {ville} — page programmatique (silo IA local), design system blueprint.
+// Migrée du brutaliste vers les primitives .co-* : sections cadrées (.co-sec/.co-pad),
+// filets fins, crosshairs, colonne capée, coins nets, accent teal unique,
+// Inter Tight × Instrument Serif. Namespace scopé .civ-*. Halo (blob décoratif) retiré.
+// Gabarit-or de référence : services/referencement-local.astro.
+//
+// HARD-PRESERVE : getStaticPaths() + villesSuisseIA/getVoisinesIA/type VilleIAData intacts,
+// tous les bindings dynamiques de la ville (nom, canton, région, contexte, secteurs, pains,
+// cas d'usage, public cible, FAQ générées, preuveLocale) — rien en dur ; Schema.org
+// (getWebPageSchema/getBreadcrumbSchema/getFAQPageSchema + tableau schemas + ordre) inchangé ;
+// seoData dynamique par ville (pageTitle/pageDescription) ; liens villes voisines (getVoisinesIA,
+// mêmes hrefs) ; tous les deep-links SEO (/consultant-ia, /consultant-ia/*, /metiers/*,
+// /services/*, /blog/*, /portfolio, /contact, mailto). Import global.css gardé. Copie préservée.
+
 import "../../styles/global.css";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
 import { Image } from "astro:assets";
-import Halo from "../../components/shapes/Halo.astro";
 import illuConsultant from "../../assets/illustrations/consultant-ia.webp";
 
 import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from "../../lib/seo";
@@ -120,405 +133,184 @@ const blogArticles = [
 >
   <Header />
 
-  <!-- ============================================== -->
-  <!-- HERO LOCAL -->
-  <!-- ============================================== -->
-  <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-20 px-4 relative overflow-hidden">
-    <!-- Gradient mesh background -->
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
-      <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-[var(--violet)] opacity-15 blur-[100px] rounded-full"></div>
-      <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-[var(--blue)] opacity-10 blur-[80px] rounded-full"></div>
-    </div>
+  <main class="co-root">
 
-    <div class="max-w-4xl mx-auto relative z-10 text-center">
-      <!-- Badges -->
-      <div class="flex flex-wrap justify-center gap-3 mb-8">
-        <span class="inline-flex items-center gap-2 bg-white border-2 border-black px-3 py-1 text-xs font-mono shadow-[2px_2px_0px_rgba(0,0,0,1)]">
-          <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-          Disponible
-        </span>
-        <span class="inline-flex items-center gap-2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-mono shadow-[2px_2px_0px_rgba(0,0,0,1)]">
-          <i class="ri-map-pin-fill"></i>
-          {ville.nom} · {ville.canton}
-        </span>
+    <!-- ══ HERO LOCAL ══ -->
+    <section class="co-sec co-pad co-hero civ-hero" style="padding:64px 40px 56px;">
+      <div class="civ-hero-badges" data-animate>
+        <span class="co-badge">Disponible</span>
+        <span class="co-badge co-badge--solid"><i class="ri-map-pin-fill"></i> {ville.nom} · {ville.canton}</span>
       </div>
 
-      <!-- H1 -->
-      <h1 class="text-4xl md:text-6xl font-normal tracking-tight mb-6 leading-[1.05]">
-        Consultant IA<br/>
-        à
-        <span class="relative inline-block">
-          <span class="relative z-10">{ville.nom}</span>
-          <span class="absolute bg-[var(--accent)] w-full h-[35%] left-0 bottom-1 -z-1"></span>
-        </span>
+      <h1 class="civ-hero-title" data-animate data-delay="0.1">
+        Consultant IA à <span class="co-ser">{ville.nom}</span>
       </h1>
 
-      <!-- Sous-titre -->
-      <p class="text-lg md:text-2xl text-gray-700 mb-8 leading-relaxed max-w-3xl mx-auto">
+      <p class="civ-hero-lead" data-animate data-delay="0.2">
         {ville.angleHero}
       </p>
 
-      <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-        <a
-          href="/contact"
-          class="
-            bg-[var(--blue)]
-            border-2 border-black
-            px-6 py-4
-            text-lg font-bold
-            shadow-[4px_4px_0px_rgba(0,0,0,1)]
-            transition-all duration-200
-            hover:bg-[var(--yellow)]
-            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-            hover:translate-x-[2px] hover:translate-y-[2px]
-            flex items-center justify-center gap-2
-          "
-        >
-          <i class="ri-mail-send-line"></i>
-          Discuter de votre projet IA
-        </a>
-        <a
-          href="/portfolio"
-          class="
-            bg-white
-            border-2 border-black
-            px-6 py-4
-            text-lg font-medium
-            transition-all duration-200
-            hover:bg-gray-100
-            flex items-center justify-center gap-2
-          "
-        >
-          Voir mes réalisations
-          <i class="ri-arrow-right-line"></i>
-        </a>
+      <div class="civ-hero-btns" data-animate data-delay="0.3">
+        <a href="/contact" class="co-btn"><i class="ri-mail-send-line"></i> Discuter de votre projet IA</a>
+        <a href="/portfolio" class="co-btn co-btn--ghost">Voir mes réalisations <i class="ri-arrow-right-line"></i></a>
       </div>
 
-      <!-- Trust line -->
-      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600">
+      <div class="civ-hero-trust" data-animate data-delay="0.4">
         {preuves.map((p) => (
-          <span class="flex items-center gap-2">
-            <i class="ri-checkbox-circle-line text-[var(--blue)]"></i>
-            {p}
-          </span>
+          <span><i class="ri-checkbox-circle-line"></i> {p}</span>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- POURQUOI UN CONSULTANT IA À VILLE -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          contexte local
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Pourquoi un <strong>consultant IA à {ville.nom}</strong> ?
-        </h2>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          {ville.description}
-        </p>
-      </div>
+    <!-- ══ 01 · CONTEXTE LOCAL ══ -->
+    <section id="contexte" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">01 — Contexte local</p>
+      <h2 style="margin-top:8px;">Pourquoi un consultant IA à <span class="co-ser">{ville.nom}</span> ?</h2>
+      <p class="co-mut" style="margin-top:10px;max-width:64ch;line-height:1.6;">
+        {ville.description}
+      </p>
 
       <!-- Contexte économique -->
-      <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] max-w-3xl mx-auto relative mb-12">
-        <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-        <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-        <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-        <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-
-        <h3 class="font-bold text-lg mb-3 flex items-center gap-2">
-          <i class="ri-building-line text-[var(--blue)]"></i>
-          Tissu économique de {ville.nomComplet}
-        </h3>
-        <p class="text-gray-700 leading-relaxed">
-          {ville.contexteEconomique}
-        </p>
+      <div class="civ-context co-frame" data-animate>
+        <span class="co-x tl"></span><span class="co-x tr"></span>
+        <span class="co-x bl"></span><span class="co-x br"></span>
+        <h3 class="civ-context-title"><i class="ri-building-line"></i> Tissu économique de {ville.nomComplet}</h3>
+        <p class="civ-context-text">{ville.contexteEconomique}</p>
       </div>
 
-      <!-- Secteurs dominants (grid) -->
-      <h3 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4 text-center">Secteurs dominants à {ville.nom}</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Secteurs dominants -->
+      <h3 class="civ-sub-label">Secteurs dominants à {ville.nom}</h3>
+      <div class="civ-grid civ-grid--2" data-animate-stagger>
         {ville.secteursDominants.map((secteur, idx) => (
-          <div class="bg-[var(--main-bg)] border-2 border-black p-5 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] flex items-start gap-4">
-            <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0 font-mono font-black text-sm">
-              {String(idx + 1).padStart(2, '0')}
-            </div>
-            <p class="text-sm text-gray-700 leading-relaxed pt-1">{secteur}</p>
+          <div class="civ-sector" data-animate-item>
+            <span class="civ-sector-num co-index">{String(idx + 1).padStart(2, '0')}</span>
+            <p class="civ-card-text">{secteur}</p>
           </div>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- CAS D'USAGE IA LOCAUX -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          cas d'usage
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Ce que l'<strong>IA change concrètement</strong> à {ville.nom}
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Pas de démo de labo. Des agents IA branchés sur des métiers réels du bassin de {ville.nom}, secteur par secteur.
-        </p>
-      </div>
+    <!-- ══ 02 · CAS D'USAGE ══ -->
+    <section id="cas-usage" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">02 — Cas d'usage</p>
+      <h2 style="margin-top:8px;">Ce que l'IA change concrètement à <span class="co-ser">{ville.nom}</span></h2>
+      <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+        Pas de démo de labo. Des agents IA branchés sur des métiers réels du bassin de {ville.nom}, secteur par secteur.
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="civ-grid civ-grid--3" data-animate-stagger>
         {ville.casUsageIA.map((item, idx) => (
-          <div class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col">
-            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4 group-hover:bg-[var(--yellow)] transition-colors">
-              <i class={`${casIcons[idx % casIcons.length]} text-2xl`}></i>
-            </div>
-            <h3 class="text-lg font-bold mb-2">{item.secteur}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed flex-grow">{item.cas}</p>
+          <div class="civ-card co-frame co-frame--reveal" data-animate-item>
+            <i class={`${casIcons[idx % casIcons.length]} civ-card-icon`} aria-hidden="true"></i>
+            <h3 class="civ-card-title">{item.secteur}</h3>
+            <p class="civ-card-text">{item.cas}</p>
           </div>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- PAINS -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          ce qui coince
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Les <strong>blocages</strong> que je vois à {ville.nom}
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Si vous vous reconnaissez dans l'un de ces points, il y a probablement du temps à récupérer.
-        </p>
-      </div>
+    <!-- ══ 03 · BLOCAGES ══ -->
+    <section id="blocages" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">03 — Blocages</p>
+      <h2 style="margin-top:8px;">Les <span class="co-ser">blocages</span> que je vois à {ville.nom}</h2>
+      <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+        Si vous vous reconnaissez dans l'un de ces points, il y a probablement du temps à récupérer.
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="civ-grid civ-grid--2" data-animate-stagger>
         {ville.pains.map((pain) => (
-          <div class="bg-[var(--main-bg)] border-2 border-black p-5 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] flex items-start gap-4">
-            <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
-              <i class="ri-alert-line text-lg"></i>
-            </div>
-            <p class="text-sm text-gray-700 leading-relaxed pt-1">{pain}</p>
+          <div class="civ-pain co-frame co-frame--reveal" data-animate-item>
+            <i class="ri-alert-line civ-pain-icon" aria-hidden="true"></i>
+            <p class="civ-card-text">{pain}</p>
           </div>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- PUBLIC CIBLE -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4">
-    <div class="max-w-4xl mx-auto text-center">
-      <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-        <span class="w-8 h-px bg-gray-400"></span>
-        pour qui
-        <span class="w-8 h-px bg-gray-400"></span>
-      </span>
-      <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-8">
-        À qui je m'adresse à {ville.nom}
-      </h2>
-      <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+    <!-- ══ 04 · POUR QUI ══ -->
+    <section id="pour-qui" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">04 — Pour qui</p>
+      <h2 style="margin-top:8px;">À qui je m'adresse à {ville.nom}</h2>
+
+      <div class="civ-chips" data-animate>
         {ville.publicCible.map((p) => (
-          <span class="inline-flex items-center gap-2 bg-white border-2 border-black px-4 py-2 text-sm shadow-[2px_2px_0px_rgba(0,0,0,0.3)]">
-            <i class="ri-check-line text-[var(--blue)]"></i>
-            {p}
-          </span>
+          <span class="civ-chip"><i class="ri-check-line"></i> {p}</span>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- FAQ VILLE-SPÉCIFIQUE -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-6xl mx-auto">
-      <div class="grid lg:grid-cols-[minmax(0,340px)_1fr] gap-12 lg:gap-16 items-start">
+    <!-- ══ 05 · FAQ (accordéon natif <details>, zéro JS) ══ -->
+    <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">05 — FAQ</p>
+      <h2 style="margin-top:8px;">Questions fréquentes ({ville.nom})</h2>
+      <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+        Ce que les entreprises de {ville.nom} me demandent avant de se lancer sur l'IA.
+      </p>
 
-        <!-- Illustration contextuelle (Phase 3) -->
-        <div class="hidden lg:block lg:sticky lg:top-28">
-          <div class="relative">
-            <Halo class="absolute -inset-10 -z-10" />
-            <Image
-              src={illuConsultant}
-              alt=""
-              class="w-full border-2 border-black shadow-[6px_6px_0px_rgba(0,0,0,0.9)]"
-              aria-hidden="true"
-            />
+      <div class="civ-faq-grid">
+        <!-- Illustration contextuelle (cadrée .co-frame) -->
+        <div class="civ-faq-media" data-animate="fade-left">
+          <div class="civ-illu co-frame">
+            <span class="co-x tl"></span><span class="co-x tr"></span>
+            <span class="co-x bl"></span><span class="co-x br"></span>
+            <Image src={illuConsultant} alt="" class="civ-illu-img" aria-hidden="true" />
           </div>
         </div>
 
         <!-- Colonne FAQ -->
-        <div>
-      <div class="text-center lg:text-left mb-10">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          faq
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">Questions fréquentes ({ville.nom})</h2>
-        <p class="text-lg text-gray-600">
-          Ce que les entreprises de {ville.nom} me demandent avant de se lancer sur l'IA.
-        </p>
-      </div>
+        <div class="civ-faq">
+          {ville.faqs.map((faq, index) => (
+            <details open={index === 0}>
+              <summary>
+                {faq.question}
+                <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+              </summary>
+              <p class="civ-faq-answer">{faq.answer}</p>
+            </details>
+          ))}
 
-      <div class="faq-list space-y-4">
-        {ville.faqs.map((faq, index) => (
-          <div class="faq-item border-2 border-black bg-[var(--main-bg)] shadow-[3px_3px_0px_rgba(0,0,0,0.3)]" data-faq-item>
-            <button
-              class="
-                faq-trigger
-                w-full
-                flex items-center justify-between gap-4
-                p-5
-                text-left
-                font-medium
-                cursor-pointer
-                transition-colors duration-200
-                hover:bg-[var(--blue)] hover:bg-opacity-10
-              "
-              aria-expanded="false"
-              data-faq-trigger
-            >
-              <span class="flex items-start gap-3">
-                <span class="font-mono text-sm text-gray-400 mt-0.5">{String(index + 1).padStart(2, '0')}</span>
-                <span class="text-base md:text-lg">{faq.question}</span>
-              </span>
-              <span class="
-                faq-icon
-                w-8 h-8
-                border-2 border-black
-                bg-white
-                flex items-center justify-center
-                transition-transform duration-300
-                flex-shrink-0
-              ">
-                <i class="ri-add-line text-lg"></i>
-              </span>
-            </button>
-            <div
-              class="faq-content overflow-hidden transition-all duration-300"
-              style="max-height: 0;"
-              data-faq-content
-            >
-              <div class="p-6 pt-2 pl-12">
-                <p class="text-gray-600 leading-relaxed">
-                  {faq.answer}
-                </p>
-              </div>
-            </div>
-          </div>
-        ))}
+          <p class="co-mut" style="margin-top:24px;">
+            Une autre question sur l'IA à {ville.nom} ?
+            <a href="/contact" class="civ-inline">Écrivez-moi</a>, je réponds sous 24h.
+          </p>
+        </div>
       </div>
+    </section>
 
-      <p class="mt-10 text-gray-500 text-sm text-center lg:text-left">
-        Une autre question sur l'IA à {ville.nom} ? <a href="/contact" class="text-[var(--blue)] font-medium hover:underline">Écrivez-moi</a>, je réponds sous 24h.
-      </p>
-        </div><!-- /col FAQ -->
-      </div><!-- /grid -->
-    </div>
-  </section>
-
-  <!-- ============================================== -->
-  <!-- MAILLAGE — HUB + VOISINES + SERVICES + BLOG -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          aller plus loin
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Pour creuser le sujet
-        </h2>
-      </div>
+    <!-- ══ 06 · ALLER PLUS LOIN (maillage) ══ -->
+    <section id="aller-plus-loin" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">06 — Aller plus loin</p>
+      <h2 style="margin-top:8px;">Pour creuser le sujet</h2>
 
       <!-- Page pilier / HUB consultant IA -->
-      <div class="bg-[var(--text)] text-white border-3 border-black p-6 md:p-10 shadow-[8px_8px_0px_rgba(0,0,0,1)] relative overflow-hidden mb-12">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-[var(--blue)] opacity-20 blur-[80px] rounded-full pointer-events-none"></div>
-
-        <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div class="flex-grow">
-            <span class="inline-flex items-center gap-2 bg-[var(--blue)] text-[var(--text)] border-2 border-white px-3 py-1 text-xs font-mono mb-4">
-              <i class="ri-star-fill"></i>
-              Page pilier
-            </span>
-            <h3 class="text-2xl md:text-3xl font-normal tracking-tight mb-3">
-              Tout sur le conseil IA pour PME
-            </h3>
-            <p class="text-gray-300 leading-relaxed max-w-2xl">
-              La page de référence sur le <strong>consultant IA en Suisse romande</strong> : méthode, types d'agents, conformité des données et tarifs. Le point de départ avant d'attaquer un projet.
-            </p>
-          </div>
-          <a
-            href="/consultant-ia"
-            class="
-              flex-shrink-0
-              bg-[var(--blue)]
-              text-[var(--text)]
-              border-2 border-[var(--blue)]
-              px-6 py-3
-              font-bold
-              shadow-[4px_4px_0px_white]
-              transition-all duration-200
-              hover:bg-[var(--yellow)]
-              hover:border-[var(--yellow)]
-              hover:shadow-[2px_2px_0px_white]
-              hover:translate-x-[2px] hover:translate-y-[2px]
-              flex items-center justify-center gap-2 whitespace-nowrap
-            "
-          >
-            Voir la page pilier
-            <i class="ri-arrow-right-line"></i>
-          </a>
+      <div class="civ-pilier co-frame" data-animate>
+        <span class="co-x tl"></span><span class="co-x tr"></span>
+        <span class="co-x bl"></span><span class="co-x br"></span>
+        <div class="civ-pilier-copy">
+          <span class="co-badge co-badge--solid">Page pilier</span>
+          <h3 class="civ-pilier-title">Tout sur le conseil IA pour PME</h3>
+          <p class="civ-card-text">
+            La page de référence sur le <strong>consultant IA en Suisse romande</strong> : méthode, types
+            d'agents, conformité des données et tarifs. Le point de départ avant d'attaquer un projet.
+          </p>
         </div>
+        <a href="/consultant-ia" class="co-btn civ-pilier-btn">Voir la page pilier <i class="ri-arrow-right-line"></i></a>
       </div>
 
       <!-- Villes voisines -->
       {voisines.length > 0 && (
-        <div class="mb-12">
-          <h3 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4 text-center">Autres villes où j'interviens</h3>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="civ-block">
+          <h3 class="civ-sub-label">Autres villes où j'interviens</h3>
+          <div class="civ-grid civ-grid--2" data-animate-stagger>
             {voisines.map((v) => (
-              <a
-                href={`/consultant-ia/${v.slug}`}
-                class="group bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] flex flex-col"
-              >
-                <div class="flex items-center justify-between mb-3">
-                  <div class="w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center">
-                    <i class="ri-map-pin-fill text-lg"></i>
-                  </div>
-                  <span class="text-xs font-mono text-gray-500">{v.populationLabel} hab.</span>
+              <a href={`/consultant-ia/${v.slug}`} class="civ-link-card co-frame co-frame--reveal" data-animate-item>
+                <div class="civ-link-head">
+                  <i class="ri-map-pin-fill civ-card-icon" aria-hidden="true"></i>
+                  <span class="civ-link-meta">{v.populationLabel} hab.</span>
                 </div>
-                <h3 class="text-lg font-bold mb-1">Consultant IA à {v.nom}</h3>
-                <p class="text-sm text-gray-600 leading-relaxed flex-grow">
-                  {v.angleHero}
-                </p>
-                <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-[var(--blue)] font-medium flex items-center gap-1">
-                  Voir la page
-                  <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
-                </span>
+                <h3 class="civ-card-title">Consultant IA à {v.nom}</h3>
+                <p class="civ-card-text">{v.angleHero}</p>
+                <span class="civ-link-cta">Voir la page <i class="ri-arrow-right-line"></i></span>
               </a>
             ))}
           </div>
@@ -526,211 +318,225 @@ const blogArticles = [
       )}
 
       <!-- Pages métiers -->
-      <h3 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4 text-center">L'IA pour votre secteur</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-        <a
-          href="/metiers/ia-fiduciaire"
-          class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
-        >
-          <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4">
-            <i class="ri-calculator-line text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-2">IA pour fiduciaires</h3>
-          <p class="text-gray-600 text-sm leading-relaxed flex-grow">Tri et pré-imputation des pièces, relances, TVA, veille légale — pensé pour les fiduciaires romandes.</p>
-          <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-[var(--blue)] font-medium flex items-center gap-1">
-            Voir la page métier
-            <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
-          </span>
-        </a>
-        <a
-          href="/metiers/ia-agence-immobiliere"
-          class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
-        >
-          <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4">
-            <i class="ri-building-line text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-2">IA pour agences immobilières</h3>
-          <p class="text-gray-600 text-sm leading-relaxed flex-grow">Qualification des leads, tri des dossiers, annonces et suivi des échéances pour les régies romandes.</p>
-          <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-[var(--blue)] font-medium flex items-center gap-1">
-            Voir la page métier
-            <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
-          </span>
-        </a>
+      <div class="civ-block">
+        <h3 class="civ-sub-label">L'IA pour votre secteur</h3>
+        <div class="civ-grid civ-grid--2" data-animate-stagger>
+          <a href="/metiers/ia-fiduciaire" class="civ-link-card co-frame co-frame--reveal" data-animate-item>
+            <i class="ri-calculator-line civ-card-icon" aria-hidden="true"></i>
+            <h3 class="civ-card-title">IA pour fiduciaires</h3>
+            <p class="civ-card-text">Tri et pré-imputation des pièces, relances, TVA, veille légale — pensé pour les fiduciaires romandes.</p>
+            <span class="civ-link-cta">Voir la page métier <i class="ri-arrow-right-line"></i></span>
+          </a>
+          <a href="/metiers/ia-agence-immobiliere" class="civ-link-card co-frame co-frame--reveal" data-animate-item>
+            <i class="ri-building-line civ-card-icon" aria-hidden="true"></i>
+            <h3 class="civ-card-title">IA pour agences immobilières</h3>
+            <p class="civ-card-text">Qualification des leads, tri des dossiers, annonces et suivi des échéances pour les régies romandes.</p>
+            <span class="civ-link-cta">Voir la page métier <i class="ri-arrow-right-line"></i></span>
+          </a>
+        </div>
       </div>
 
       <!-- Services IA -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
-        {servicesIA.map((service) => (
-          <a
-            href={service.href}
-            class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
-          >
-            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4 group-hover:bg-[var(--yellow)] transition-colors">
-              <i class={`${service.icon} text-2xl`}></i>
-            </div>
-            <h3 class="text-xl font-bold mb-2">{service.title}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed flex-grow">{service.description}</p>
-            <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-[var(--blue)] font-medium flex items-center gap-1">
-              Voir le service
-              <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
-            </span>
-          </a>
-        ))}
+      <div class="civ-block">
+        <h3 class="civ-sub-label">Les services associés</h3>
+        <div class="civ-grid civ-grid--2" data-animate-stagger>
+          {servicesIA.map((service) => (
+            <a href={service.href} class="civ-link-card co-frame co-frame--reveal" data-animate-item>
+              <i class={`${service.icon} civ-card-icon`} aria-hidden="true"></i>
+              <h3 class="civ-card-title">{service.title}</h3>
+              <p class="civ-card-text">{service.description}</p>
+              <span class="civ-link-cta">Voir le service <i class="ri-arrow-right-line"></i></span>
+            </a>
+          ))}
+        </div>
       </div>
 
       <!-- Articles blog -->
-      <h3 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4 text-center">À lire avant de vous lancer</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {blogArticles.map((article) => (
-          <a
-            href={article.href}
-            class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
-          >
-            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4">
-              <i class={`${article.icon} text-2xl`}></i>
-            </div>
-            <h3 class="text-lg font-bold mb-2 leading-tight">{article.title}</h3>
-            <p class="text-sm text-gray-600 leading-relaxed flex-grow">{article.description}</p>
-            <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-[var(--blue)] font-medium flex items-center gap-1">
-              Lire l'article
-              <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
-            </span>
-          </a>
-        ))}
+      <div class="civ-block">
+        <h3 class="civ-sub-label">À lire avant de vous lancer</h3>
+        <div class="civ-grid civ-grid--2" data-animate-stagger>
+          {blogArticles.map((article) => (
+            <a href={article.href} class="civ-link-card co-frame co-frame--reveal" data-animate-item>
+              <i class={`${article.icon} civ-card-icon`} aria-hidden="true"></i>
+              <h3 class="civ-card-title">{article.title}</h3>
+              <p class="civ-card-text">{article.description}</p>
+              <span class="civ-link-cta">Lire l'article <i class="ri-arrow-right-line"></i></span>
+            </a>
+          ))}
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- CTA FINAL -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-[var(--text)] text-white relative overflow-hidden">
-    <!-- Grid background -->
-    <div class="absolute inset-0 opacity-[0.07]" aria-hidden="true">
-      <div style="background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px); background-size: 40px 40px; width: 100%; height: 100%;"></div>
-    </div>
-
-    <!-- Glow accents -->
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <div class="absolute top-0 left-1/4 w-[400px] h-[400px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
-      <div class="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-[var(--violet)] opacity-15 blur-[100px] rounded-full"></div>
-    </div>
-
-    <div class="max-w-4xl mx-auto relative z-10 text-center">
-      <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-400 mb-6">
-        <span class="w-8 h-px bg-gray-600"></span>
-        prêt ?
-        <span class="w-8 h-px bg-gray-600"></span>
-      </span>
-
-      <h2 class="text-4xl md:text-6xl font-normal tracking-tight mb-6 leading-[1.05]">
-        Discutons de votre projet IA à
-        <span class="relative inline-block">
-          <span class="relative z-10">{ville.nom}</span>
-          <span class="absolute bg-[var(--blue)] w-full h-[35%] left-0 bottom-1 -z-1 opacity-50"></span>
-        </span>
-      </h2>
-
-      <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-        Premier échange gratuit, sans engagement. On regarde ensemble les 2-3 tâches qui vous mangent le plus de temps, et je vous dis franchement si l'IA y répond. Réponse sous 24h.
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-        <a
-          href="/contact"
-          class="
-            bg-[var(--blue)]
-            text-[var(--text)]
-            border-2 border-[var(--blue)]
-            px-8 py-4
-            text-lg font-bold
-            shadow-[4px_4px_0px_white]
-            transition-all duration-200
-            hover:bg-[var(--yellow)]
-            hover:border-[var(--yellow)]
-            hover:shadow-[2px_2px_0px_white]
-            hover:translate-x-[2px] hover:translate-y-[2px]
-            flex items-center justify-center gap-2
-          "
-        >
-          <i class="ri-mail-send-line"></i>
-          Demander un devis IA
-        </a>
-        <a
-          href="mailto:hello@jonlabs.ch"
-          class="
-            bg-transparent
-            text-white
-            border-2 border-white
-            px-8 py-4
-            text-lg font-medium
-            transition-all duration-200
-            hover:bg-white
-            hover:text-[var(--text)]
-            flex items-center justify-center gap-2
-            font-mono
-          "
-        >
-          <i class="ri-mail-line"></i>
-          hello@jonlabs.ch
-        </a>
+    <!-- ══ CTA FINAL (section sombre — primitive .co-cta) ══ -->
+    <section class="co-cta">
+      <span class="co-x tl"></span><span class="co-x tr"></span>
+      <span class="co-x bl"></span><span class="co-x br"></span>
+      <div class="co-cta-inner">
+        <p class="co-cta-eyebrow">Prêt ?</p>
+        <h2 class="co-cta-title">Discutons de votre projet IA à <span class="co-ser">{ville.nom}</span></h2>
+        <p class="co-cta-lead">
+          Premier échange gratuit, sans engagement. On regarde ensemble les 2-3 tâches qui vous mangent
+          le plus de temps, et je vous dis franchement si l'IA y répond. Réponse sous 24h.
+        </p>
+        <div class="co-cta-btns">
+          <a href="/contact" class="co-btn co-cta-btn"><i class="ri-mail-send-line"></i> Demander un devis IA</a>
+          <a href="mailto:hello@jonlabs.ch" class="co-btn co-cta-btn--ghost"><i class="ri-mail-line"></i> hello@jonlabs.ch</a>
+        </div>
+        <div class="co-cta-trust">
+          <span><i class="ri-time-line"></i> Réponse sous 24h</span>
+          <span><i class="ri-calendar-line"></i> Lun-Ven, 9h-18h (CET)</span>
+          <span><i class="ri-money-cny-circle-line"></i> Facturation en CHF</span>
+        </div>
       </div>
+    </section>
 
-      <p class="text-sm text-gray-400 flex items-center justify-center gap-2">
-        <i class="ri-time-line text-[var(--blue)]"></i>
-        Réponse sous 24h · Lun-Ven, 9h-18h (CET) · Facturation en CHF
-      </p>
-    </div>
-  </section>
+  </main>
 
   <Footer />
 </Layout>
 
-<style>
-  /* FAQ animations */
-  .faq-item[data-open="true"] .faq-icon {
-    transform: rotate(45deg);
-    background-color: var(--blue);
+<style is:global>
+  /* ══ CONSULTANT IA · [ville] — styles .civ-* (namespace scopé, corps .co-root) ══ */
+
+  /* ── Hero ── */
+  .civ-hero-badges { display: flex; flex-wrap: wrap; gap: 10px; }
+  .civ-hero-title { font-size: clamp(2.2rem, 5.4vw, 3.4rem); margin-top: 22px; max-width: 18ch; }
+  .co-root .civ-hero-lead { margin-top: 18px; max-width: 56ch; font-size: 1.1rem; line-height: 1.65; color: var(--muted); }
+  .civ-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+  .civ-hero-btns .co-btn i { transition: transform .18s ease-out; }
+  .civ-hero-btns .co-btn:hover i { transform: translateX(2px); }
+  .civ-hero-trust { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 26px; font-size: 13.5px; color: var(--muted); }
+  .civ-hero-trust span { display: inline-flex; align-items: center; gap: 6px; }
+  .civ-hero-trust i { color: var(--accent); }
+
+  /* ── Sous-titre de bloc ── */
+  .civ-sub-label {
+    margin-top: 40px; margin-bottom: 4px; font-size: 12px; font-weight: 600;
+    letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
   }
 
-  /* Scroll margin */
-  section[id] {
-    scroll-margin-top: 100px;
+  /* ── Grilles ── */
+  .civ-grid { display: grid; gap: 16px; margin-top: 20px; }
+  .civ-grid--2 { grid-template-columns: repeat(2, 1fr); }
+  .civ-grid--3 { grid-template-columns: repeat(3, 1fr); }
+
+  /* ── Cartes génériques ── */
+  .civ-card {
+    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+    background: var(--surface); border: 1px solid var(--line-2);
+    transition: box-shadow .18s ease-out, transform .18s ease-out;
+  }
+  .civ-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+  .civ-card-icon { font-size: 24px; color: var(--accent); line-height: 1; }
+  .civ-card-title { font-size: 1.1rem; }
+  .civ-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
+  .civ-card-text strong { color: var(--ink); font-weight: 600; }
+
+  /* ── Secteurs dominants (carte numérotée) ── */
+  .civ-sector {
+    display: grid; grid-template-columns: 40px 1fr; align-items: center; gap: 16px;
+    padding: 18px 20px; background: var(--surface); border: 1px solid var(--line-2);
+  }
+  .civ-sector-num {
+    display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px;
+    border: 1px solid var(--accent); color: var(--accent); font-size: 14px; font-weight: 700;
+  }
+
+  /* ── Contexte économique (encart) ── */
+  .civ-context { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+  .civ-context-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
+  .civ-context-title i { color: var(--accent); }
+  .co-root .civ-context-text { margin-top: 14px; font-size: 14.5px; line-height: 1.65; color: var(--muted); max-width: 74ch; }
+
+  /* ── Blocages (pains) ── */
+  .civ-pain {
+    position: relative; display: flex; align-items: flex-start; gap: 14px; padding: 22px 24px;
+    background: var(--surface); border: 1px solid var(--line-2);
+    transition: box-shadow .18s ease-out, transform .18s ease-out;
+  }
+  .civ-pain:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+  .civ-pain-icon { font-size: 22px; color: var(--accent); flex: none; margin-top: 1px; }
+
+  /* ── Chips public cible ── */
+  .civ-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+  .civ-chip {
+    display: inline-flex; align-items: center; gap: 7px; padding: 10px 16px; font-size: 14px;
+    background: var(--surface); border: 1px solid var(--line-2); color: var(--ink);
+  }
+  .civ-chip i { color: var(--accent); }
+
+  /* ── FAQ (2 col : illustration + accordéon) ── */
+  .civ-faq-grid { display: grid; grid-template-columns: minmax(0, 320px) 1fr; gap: 48px; margin-top: 32px; align-items: start; }
+  .civ-faq-media { position: sticky; top: 100px; }
+  .civ-illu { position: relative; background: var(--surface); border: 1px solid var(--line-2); }
+  .civ-illu-img { display: block; width: 100%; height: auto; }
+
+  /* ── FAQ (accordéon natif <details> — smooth via ::details-content, zéro JS) ── */
+  .civ-faq { border-top: 1px solid var(--line); }
+  .civ-faq details { border-bottom: 1px solid var(--line); }
+  .civ-faq summary {
+    list-style: none; cursor: pointer; padding: 20px 0;
+    display: flex; justify-content: space-between; align-items: center; gap: 20px;
+    font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
+  }
+  .civ-faq summary::-webkit-details-marker { display: none; }
+  .civ-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
+  .civ-faq details[open] summary i { transform: rotate(180deg); }
+  .co-root .civ-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 68ch; }
+  .civ-faq details::details-content {
+    block-size: 0; overflow: hidden;
+    transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
+  }
+  .civ-faq details[open]::details-content { block-size: auto; }
+
+  .civ-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
+  .civ-inline:hover { color: var(--ink); }
+
+  /* ── Maillage ── */
+  .civ-block { margin-top: 12px; }
+  .civ-pilier {
+    position: relative; display: flex; align-items: center; justify-content: space-between;
+    gap: 28px; margin-top: 28px; padding: 32px 36px;
+    background: var(--surface); border: 1px solid var(--accent); box-shadow: 0 0 0 1px var(--accent);
+  }
+  .civ-pilier-copy { display: flex; flex-direction: column; gap: 12px; max-width: 62ch; }
+  .civ-pilier-title { font-size: 1.4rem; }
+  .civ-pilier-btn { flex: none; white-space: nowrap; }
+  .civ-pilier-btn i { transition: transform .18s ease-out; }
+  .civ-pilier-btn:hover i { transform: translateX(3px); }
+
+  .civ-link-card {
+    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+    background: var(--surface); border: 1px solid var(--line-2);
+    transition: box-shadow .18s ease-out, transform .18s ease-out;
+  }
+  .civ-link-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+  .civ-link-head { display: flex; align-items: center; justify-content: space-between; }
+  .civ-link-meta { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .civ-link-cta {
+    margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line);
+    font-size: 13.5px; font-weight: 600; color: var(--accent);
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .civ-link-cta i { transition: transform .18s ease-out; }
+  .civ-link-card:hover .civ-link-cta i { transform: translateX(3px); }
+
+  /* ── Anchor scroll offset ── */
+  .co-root section[id] { scroll-margin-top: 100px; }
+
+  /* ── Responsive ── */
+  @media (max-width: 960px) {
+    .civ-grid--3 { grid-template-columns: repeat(2, 1fr); }
+    .civ-faq-grid { grid-template-columns: 1fr; gap: 32px; }
+    .civ-faq-media { position: static; max-width: 420px; }
+  }
+  @media (max-width: 720px) {
+    .civ-grid--2, .civ-grid--3 { grid-template-columns: 1fr; }
+    .civ-pilier { flex-direction: column; align-items: flex-start; gap: 20px; padding: 26px 22px; }
+    .civ-pilier-btn { width: 100%; justify-content: center; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .civ-card, .civ-pain, .civ-link-card, .civ-faq summary i,
+    .civ-hero-btns .co-btn i, .civ-pilier-btn i, .civ-link-cta i { transition: none; }
   }
 </style>
-
-<script>
-  // FAQ accordion logic
-  const faqItems = document.querySelectorAll('[data-faq-item]');
-
-  faqItems.forEach(item => {
-    const trigger = item.querySelector('[data-faq-trigger]');
-    const content = item.querySelector('[data-faq-content]') as HTMLElement;
-
-    trigger?.addEventListener('click', () => {
-      const isOpen = item.getAttribute('data-open') === 'true';
-
-      // Close all others
-      faqItems.forEach(otherItem => {
-        if (otherItem !== item) {
-          otherItem.setAttribute('data-open', 'false');
-          const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
-          const otherTrigger = otherItem.querySelector('[data-faq-trigger]');
-          if (otherContent) otherContent.style.maxHeight = '0';
-          otherTrigger?.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      // Toggle current
-      if (isOpen) {
-        item.setAttribute('data-open', 'false');
-        content.style.maxHeight = '0';
-        trigger.setAttribute('aria-expanded', 'false');
-      } else {
-        item.setAttribute('data-open', 'true');
-        content.style.maxHeight = content.scrollHeight + 'px';
-        trigger.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-</script>

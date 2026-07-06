@@ -1,11 +1,26 @@
 ---
+// Développement web [ville] — page programmatique (blueprint).
+// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
+// crosshairs, accent teal unique, Inter Tight × Instrument Serif. Namespace scopé .dwv-*.
+// Gabarit-or de référence : services/referencement-local.astro.
+//
+// HARD-PRESERVE :
+//  - getStaticPaths() sur villesFrontalieres + type VilleData (data/villes-frontalieres),
+//    props { ville }, tous les bindings dynamiques ville (nom, nomComplet, région,
+//    distance, temps trajet, description, contexte, spécificités, publicCible,
+//    exemplesProjets, FAQ) — rien en dur.
+//  - Schema.org : getWebPageSchema / getBreadcrumbSchema / getFAQPageSchema, tableau
+//    schemas + ordre identiques, injection ld+json via Layout.
+//  - seoData dynamique par ville (pageTitle / pageDescription, logique de longueur).
+//  - Maillage villes voisines (getVoisines) → mêmes hrefs /developpement-web/{slug}.
+//  - Deep-links SEO internes (/services/*, /portfolio, /tarifs, /blog/*,
+//    /developpeur-web-freelance-geneve, /contact, mailto).
+//  - Prix exacts (CHF/EUR) et copie éditoriale.
 import "../../styles/global.css";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import IconChip from "../../components/IconChip.astro";
 import { Image } from "astro:assets";
-import Halo from "../../components/shapes/Halo.astro";
 import illuDevWeb from "../../assets/illustrations/developpement-web.webp";
 
 import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from "../../lib/seo";
@@ -164,671 +179,473 @@ const blogArticles = [
 >
   <Header />
 
-  <!-- ============================================== -->
-  <!-- HERO LOCAL -->
-  <!-- ============================================== -->
-  <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-20 px-4 relative overflow-hidden">
-    <!-- Gradient mesh background -->
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-accent opacity-20 blur-[120px] rounded-full"></div>
-      <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-accent-strong opacity-15 blur-[100px] rounded-full"></div>
-      <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-accent opacity-10 blur-[80px] rounded-full"></div>
-    </div>
+  <main class="co-root">
 
-    <div class="max-w-4xl mx-auto relative z-10 text-center">
-      <!-- Badges -->
-      <div class="flex flex-wrap justify-center gap-3 mb-8">
-        <span class="inline-flex items-center gap-2 bg-white border-2 border-black px-3 py-1 text-xs font-mono shadow-[2px_2px_0px_rgba(0,0,0,1)]">
-          <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-          Disponible
-        </span>
-        <span class="inline-flex items-center gap-2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-mono shadow-[2px_2px_0px_rgba(0,0,0,1)]">
-          <i class="ri-map-pin-fill"></i>
-          {ville.nom} · {ville.distanceGeneve} de Genève
-        </span>
+    <!-- ══ HERO LOCAL ══ -->
+    <section class="co-sec co-pad dwv-hero" style="padding:64px 40px 56px;">
+      <div class="dwv-hero-inner">
+        <div class="dwv-hero-badges" data-animate>
+          <span class="co-badge">Disponible</span>
+          <span class="co-badge"><i class="ri-map-pin-line"></i> {ville.nom} · {ville.distanceGeneve} de Genève</span>
+        </div>
+
+        <h1 class="dwv-hero-title" data-animate data-delay="0.1">
+          Développeur web sur mesure à <span class="co-ser">{ville.nom}</span>
+        </h1>
+
+        <p class="dwv-hero-lead" data-animate data-delay="0.2">
+          {ville.angleHero} Devis transparent en <strong>CHF ou EUR</strong>, freelance basé à <strong>Genève</strong>.
+        </p>
+
+        <div class="dwv-hero-btns" data-animate data-delay="0.3">
+          <a href="/contact" class="co-btn"><i class="ri-mail-send-line"></i> Demander un devis</a>
+          <a href="/portfolio" class="co-btn co-btn--ghost">Voir mes réalisations <i class="ri-arrow-right-line"></i></a>
+        </div>
+
+        <div class="dwv-hero-trust" data-animate data-delay="0.4">
+          <span><i class="ri-time-line"></i> {ville.tempsTrajetGeneve}</span>
+          <span><i class="ri-stack-line"></i> 50+ sites livrés</span>
+          <span><i class="ri-currency-line"></i> Facturation CHF / EUR</span>
+        </div>
       </div>
+    </section>
 
-      <!-- H1 -->
-      <h1 class="text-4xl md:text-6xl font-normal tracking-tight mb-6 leading-[1.05]">
-        Développeur web<br/>
-        sur mesure à
-        <span class="relative inline-block">
-          <span class="relative z-10">{ville.nom}</span>
-          <span class="absolute bg-accent-soft w-full h-[35%] left-0 bottom-1 -z-1"></span>
-        </span>
-      </h1>
-
-      <!-- Sous-titre -->
-      <p class="text-lg md:text-2xl text-gray-700 mb-8 leading-relaxed max-w-3xl mx-auto">
-        {ville.angleHero}<br class="hidden md:block"/>
-        Devis transparent en <strong>CHF ou EUR</strong>, freelance basé à <strong>Genève</strong>.
+    <!-- ══ 01 · CONTEXTE LOCAL ══ -->
+    <section id="contexte" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow" data-animate>01 — Contexte local</p>
+      <h2 style="margin-top:8px;" data-animate>
+        Pourquoi un <span class="co-ser">développeur web</span> pour {ville.nom} ?
+      </h2>
+      <p class="co-mut" data-animate style="margin-top:10px;max-width:64ch;line-height:1.6;">
+        {ville.description}
       </p>
 
-      <!-- CTAs -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-        <a
-          href="/contact"
-          class="
-            bg-[var(--blue)]
-            border-2 border-black
-            px-6 py-4
-            text-lg font-bold
-            shadow-[4px_4px_0px_rgba(0,0,0,1)]
-            transition-all duration-200
-            hover:bg-[var(--yellow)]
-            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-            hover:translate-x-[2px] hover:translate-y-[2px]
-            flex items-center justify-center gap-2
-          "
-        >
-          <i class="ri-mail-send-line"></i>
-          Demander un devis
-        </a>
-        <a
-          href="/portfolio"
-          class="
-            bg-white
-            border-2 border-black
-            px-6 py-4
-            text-lg font-medium
-            transition-all duration-200
-            hover:bg-gray-100
-            flex items-center justify-center gap-2
-          "
-        >
-          Voir mes réalisations
-          <i class="ri-arrow-right-line"></i>
-        </a>
+      <!-- Contexte économique (encart cadré) -->
+      <div class="dwv-context co-frame" data-animate>
+        <span class="co-x tl"></span><span class="co-x tr"></span>
+        <span class="co-x bl"></span><span class="co-x br"></span>
+        <h3 class="dwv-context-title"><i class="ri-building-line"></i> Tissu économique de {ville.nomComplet}</h3>
+        <p>{ville.contexteEconomique}</p>
       </div>
 
-      <!-- Trust line -->
-      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600">
-        <span class="flex items-center gap-2">
-          <i class="ri-time-line text-accent"></i>
-          {ville.tempsTrajetGeneve}
-        </span>
-        <span class="flex items-center gap-2">
-          <i class="ri-stack-line text-accent"></i>
-          50+ sites livrés
-        </span>
-        <span class="flex items-center gap-2">
-          <i class="ri-currency-line text-accent"></i>
-          Facturation CHF / EUR
-        </span>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================== -->
-  <!-- POURQUOI UN DEV À VILLE -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          contexte local
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Pourquoi un <strong>développeur web pour {ville.nom}</strong> ?
-        </h2>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          {ville.description}
-        </p>
-      </div>
-
-      <!-- Contexte économique -->
-      <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] max-w-3xl mx-auto relative mb-12">
-        <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-accent border-2 border-black"></div>
-        <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-accent border-2 border-black"></div>
-        <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-accent border-2 border-black"></div>
-        <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-accent border-2 border-black"></div>
-
-        <h3 class="font-bold text-lg mb-3 flex items-center gap-2">
-          <i class="ri-building-line text-accent"></i>
-          Tissu économique de {ville.nomComplet}
-        </h3>
-        <p class="text-gray-700 leading-relaxed">
-          {ville.contexteEconomique}
-        </p>
-      </div>
-
-      <!-- Spécificités locales (grid) -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Spécificités locales (cartes numérotées) -->
+      <div class="dwv-grid dwv-grid--2" data-animate-stagger>
         {ville.specificites.map((item, idx) => (
-          <div class="bg-[var(--main-bg)] border-2 border-black p-5 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] flex items-start gap-4">
-            <div class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center flex-shrink-0 font-mono font-black text-sm">
-              {String(idx + 1).padStart(2, '0')}
-            </div>
-            <p class="text-sm text-gray-700 leading-relaxed pt-1">{item}</p>
+          <div class="dwv-spec co-frame co-frame--reveal" data-animate-item>
+            <span class="dwv-spec-num co-index">{String(idx + 1).padStart(2, '0')}</span>
+            <p class="dwv-spec-text">{item}</p>
           </div>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- SERVICES ADAPTÉS -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          services
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Services adaptés au tissu de {ville.nom}
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Du <strong>créateur de site web {ville.nom}</strong> au développement d'outils internes — toute la chaîne, un seul interlocuteur.
-        </p>
-      </div>
+    <!-- ══ 02 · SERVICES ══ -->
+    <section id="services" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow" data-animate>02 — Services</p>
+      <h2 style="margin-top:8px;" data-animate>Services adaptés au tissu de {ville.nom}</h2>
+      <p class="co-mut" data-animate style="margin-top:10px;max-width:62ch;line-height:1.6;">
+        Du <strong>créateur de site web {ville.nom}</strong> au développement d'outils internes — toute la chaîne, un seul interlocuteur.
+      </p>
 
       <!-- Public cible -->
-      <div class="mb-12">
-        <h3 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4 text-center">À qui je m'adresse à {ville.nom}</h3>
-        <div class="flex flex-wrap justify-center gap-3 max-w-3xl mx-auto">
+      <div class="dwv-audience" data-animate>
+        <p class="co-eyebrow dwv-audience-label">À qui je m'adresse à {ville.nom}</p>
+        <div class="dwv-chips">
           {ville.publicCible.map((p) => (
-            <span class="inline-flex items-center gap-2 bg-white border-2 border-black px-4 py-2 text-sm shadow-[2px_2px_0px_rgba(0,0,0,0.3)]">
-              <i class="ri-check-line text-accent"></i>
-              {p}
-            </span>
+            <span class="co-badge">{p}</span>
           ))}
         </div>
       </div>
 
       <!-- Services grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+      <div class="dwv-grid dwv-grid--3" data-animate-stagger>
         {services.map((service) => (
-          <a
-            href={service.href}
-            class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
-          >
-            <IconChip icon={service.icon} class="mb-4 group-hover:bg-accent-strong transition-colors" />
-            <h3 class="text-xl font-bold mb-2">{service.title}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow">{service.description}</p>
-            <div class="pt-4 border-t border-dashed border-gray-300 flex items-center justify-between">
-              <span class="text-sm font-mono text-accent">{service.price}</span>
-              <i class="ri-arrow-right-line text-lg group-hover:translate-x-1 transition-transform"></i>
+          <a href={service.href} class="dwv-service co-frame co-frame--reveal" data-animate-item>
+            <i class={`${service.icon} dwv-service-icon`} aria-hidden="true"></i>
+            <h3 class="dwv-service-title">{service.title}</h3>
+            <p class="dwv-service-text">{service.description}</p>
+            <div class="dwv-service-foot">
+              <span class="dwv-service-price">{service.price}</span>
+              <i class="ri-arrow-right-line" aria-hidden="true"></i>
             </div>
           </a>
         ))}
 
         <!-- Card "Tous les services" -->
-        <a
-          href="/services"
-          class="group bg-[var(--blue)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] flex flex-col items-center justify-center text-center"
-        >
-          <div class="w-12 h-12 bg-white border-2 border-black flex items-center justify-center mb-4">
-            <i class="ri-arrow-right-up-line text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-bold mb-2">Voir tous les services</h3>
-          <p class="text-sm">Automatisation, validation d'idée, intégrations…</p>
+        <a href="/services" class="dwv-service dwv-service--all co-frame co-frame--reveal" data-animate-item>
+          <i class="ri-arrow-right-up-line dwv-service-icon" aria-hidden="true"></i>
+          <h3 class="dwv-service-title">Voir tous les services</h3>
+          <p class="dwv-service-text">Automatisation, validation d'idée, intégrations…</p>
         </a>
       </div>
 
-      <!-- Exemples de projets -->
-      <div class="bg-white border-3 border-black p-6 md:p-10 shadow-[6px_6px_0px_rgba(0,0,0,1)]">
-        <h3 class="text-2xl font-bold mb-6 flex items-center gap-3">
-          <IconChip icon="ri-lightbulb-line" size="md" />
-          Exemples de projets typiques à {ville.nom}
-        </h3>
-        <ul class="space-y-3">
+      <!-- Exemples de projets (encart cadré) -->
+      <div class="dwv-examples co-frame" data-animate>
+        <span class="co-x tl"></span><span class="co-x tr"></span>
+        <span class="co-x bl"></span><span class="co-x br"></span>
+        <h3 class="dwv-examples-title"><i class="ri-lightbulb-line"></i> Exemples de projets typiques à {ville.nom}</h3>
+        <ul class="co-list">
           {ville.exemplesProjets.map((projet) => (
-            <li class="flex items-start gap-3 text-gray-700">
-              <i class="ri-arrow-right-s-line text-accent mt-1 flex-shrink-0 text-xl"></i>
-              <span>{projet}</span>
-            </li>
+            <li>{projet}</li>
           ))}
         </ul>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- TARIFS CHF / EUR -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          tarifs
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Tarifs en <span class="text-accent">CHF</span> et en <span class="text-accent">EUR</span>
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Trois fourchettes pour situer ton projet à {ville.nom}. Devis personnalisé après notre premier échange.
-        </p>
-      </div>
+    <!-- ══ 03 · TARIFS CHF / EUR ══ -->
+    <section id="tarifs" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow" data-animate>03 — Tarifs</p>
+      <h2 style="margin-top:8px;" data-animate>
+        Tarifs en <span class="co-ser">CHF</span> et en <span class="co-ser">EUR</span>
+      </h2>
+      <p class="co-mut" data-animate style="margin-top:10px;max-width:60ch;line-height:1.6;">
+        Trois fourchettes pour situer ton projet à {ville.nom}. Devis personnalisé après notre premier échange.
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-10">
+      <div class="dwv-tiers" data-animate-stagger>
         {pricingPlans.map((plan) => (
-          <div class={`
-            bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 relative
-            ${plan.highlighted ? 'shadow-[8px_8px_0px_rgba(0,0,0,1)] ring-2 ring-accent' : 'shadow-[4px_4px_0px_rgba(0,0,0,0.3)]'}
-          `}>
-            {plan.highlighted && (
-              <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-bold whitespace-nowrap">
-                LE PLUS DEMANDÉ
-              </div>
-            )}
-
-            <h3 class="text-xl font-bold mb-2">{plan.name}</h3>
-            <p class="text-sm text-gray-600 mb-4">{plan.description}</p>
-
-            <div class="mb-6 pb-6 border-b-2 border-dashed border-gray-300">
-              <span class="text-sm text-gray-500">À partir de</span>
-              <p class="text-3xl md:text-4xl font-black leading-tight">
-                {plan.priceChf}<span class="text-base text-gray-500"> CHF</span>
-              </p>
-              <p class="text-lg text-gray-600 mt-1 font-mono">
-                ≈ {plan.priceEur} EUR
-              </p>
+          <div class={`dwv-tier ${plan.highlighted ? 'dwv-tier--reco' : ''}`} data-animate-item>
+            {plan.highlighted && <span class="co-badge co-badge--solid dwv-tier-reco">Le plus demandé</span>}
+            <h3 class="dwv-tier-name">{plan.name}</h3>
+            <p class="dwv-tier-desc">{plan.description}</p>
+            <div class="dwv-tier-price">
+              <span class="dwv-tier-pricelabel">À partir de</span>
+              <b>{plan.priceChf}<span class="dwv-tier-cur"> CHF</span></b>
+              <span class="dwv-tier-eur">≈ {plan.priceEur} EUR</span>
             </div>
-
-            <ul class="space-y-3">
+            <ul class="co-list co-list--check dwv-tier-features">
               {plan.features.map((feature) => (
-                <li class="flex items-start gap-2 text-sm">
-                  <i class="ri-check-line text-accent mt-0.5 flex-shrink-0 font-bold"></i>
-                  <span>{feature}</span>
-                </li>
+                <li><i class="ri-check-line"></i><span>{feature}</span></li>
               ))}
             </ul>
           </div>
         ))}
       </div>
 
-      <p class="text-center text-sm text-gray-600 mb-6">
-        <i class="ri-information-line text-accent mr-1"></i>
+      <p class="dwv-tier-note co-mut" data-animate>
+        <i class="ri-information-line"></i>
         Facturation possible en CHF (IBAN suisse) ou en EUR (virement SEPA). TVA française appliquée pour les sociétés assujetties.
       </p>
 
-      <div class="text-center">
-        <a href="/tarifs" class="inline-flex items-center gap-2 bg-white border-2 border-black px-6 py-3 font-medium hover:bg-[var(--yellow)] transition-all shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]">
-          <i class="ri-price-tag-3-line"></i>
-          Voir tous les tarifs
-          <i class="ri-arrow-right-line"></i>
-        </a>
+      <div class="dwv-tier-cta" data-animate>
+        <a href="/tarifs" class="co-btn co-btn--ghost"><i class="ri-price-tag-3-line"></i> Voir tous les tarifs <i class="ri-arrow-right-line"></i></a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- FAQ VILLE-SPÉCIFIQUE -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4">
-    <div class="max-w-6xl mx-auto">
-      <div class="grid lg:grid-cols-[minmax(0,340px)_1fr] gap-12 lg:gap-16 items-start">
-
-        <!-- Illustration contextuelle (Phase 3) -->
-        <div class="hidden lg:block lg:sticky lg:top-28">
-          <div class="relative">
-            <Halo class="absolute -inset-10 -z-10" />
-            <Image
-              src={illuDevWeb}
-              alt=""
-              class="w-full border-2 border-black shadow-[6px_6px_0px_rgba(0,0,0,0.9)]"
-              aria-hidden="true"
-            />
+    <!-- ══ 04 · FAQ VILLE-SPÉCIFIQUE ══ -->
+    <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+      <div class="dwv-faq-grid">
+        <!-- Illustration contextuelle (encadrée .co-frame) -->
+        <div class="dwv-faq-media">
+          <div class="dwv-illu co-frame" data-animate="scale">
+            <span class="co-x tl"></span><span class="co-x tr"></span>
+            <span class="co-x bl"></span><span class="co-x br"></span>
+            <Image src={illuDevWeb} alt="" class="dwv-illu-img" aria-hidden="true" />
           </div>
         </div>
 
         <!-- Colonne FAQ -->
         <div>
-      <div class="text-center lg:text-left mb-12">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          faq
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">Questions fréquentes ({ville.nom})</h2>
-        <p class="text-lg text-gray-600">
-          Ce que les clients de {ville.nom} et du Genevois français me demandent en premier.
-        </p>
-      </div>
+          <p class="co-eyebrow" data-animate>04 — FAQ</p>
+          <h2 style="margin-top:8px;" data-animate>Questions fréquentes ({ville.nom})</h2>
+          <p class="co-mut" data-animate style="margin-top:10px;line-height:1.6;">
+            Ce que les clients de {ville.nom} et du Genevois français me demandent en premier.
+          </p>
 
-      <div class="faq-list space-y-4">
-        {ville.faqs.map((faq, index) => (
-          <div class="faq-item border-2 border-black bg-[var(--main-bg)] shadow-[3px_3px_0px_rgba(0,0,0,0.3)]" data-faq-item>
-            <button
-              class="
-                faq-trigger
-                w-full
-                flex items-center justify-between gap-4
-                p-5
-                text-left
-                font-medium
-                cursor-pointer
-                transition-colors duration-200
-                hover:bg-[var(--blue)] hover:bg-opacity-10
-              "
-              aria-expanded="false"
-              data-faq-trigger
-            >
-              <span class="flex items-start gap-3">
-                <span class="font-mono text-sm text-gray-400 mt-0.5">{String(index + 1).padStart(2, '0')}</span>
-                <span class="text-base md:text-lg">{faq.question}</span>
-              </span>
-              <span class="
-                faq-icon
-                w-8 h-8
-                border-2 border-black
-                bg-white
-                flex items-center justify-center
-                transition-transform duration-300
-                flex-shrink-0
-              ">
-                <i class="ri-add-line text-lg"></i>
-              </span>
-            </button>
-            <div
-              class="faq-content overflow-hidden transition-all duration-300"
-              style="max-height: 0;"
-              data-faq-content
-            >
-              <div class="p-6 pt-2 pl-12">
-                <p class="text-gray-600 leading-relaxed">
-                  {faq.answer}
-                </p>
-              </div>
-            </div>
+          <div class="dwv-faq">
+            {ville.faqs.map((faq, index) => (
+              <details open={index === 0}>
+                <summary>
+                  {faq.question}
+                  <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+                </summary>
+                <p class="dwv-faq-answer">{faq.answer}</p>
+              </details>
+            ))}
           </div>
-        ))}
-      </div>
 
-      <p class="text-center lg:text-left mt-10 text-gray-500 text-sm">
-        Une autre question sur {ville.nom} ? <a href="/contact" class="text-accent font-medium hover:underline">Écris-moi</a>, je réponds sous 24h.
+          <p class="dwv-faq-more">
+            Une autre question sur {ville.nom} ? <a href="/contact" class="dwv-inline">Écris-moi</a>, je réponds sous 24h.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ 05 · AUTRES VILLES + PAGE PILIER ══ -->
+    <section id="zones" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow" data-animate>05 — Zones</p>
+      <h2 style="margin-top:8px;" data-animate>Autres zones d'intervention</h2>
+      <p class="co-mut" data-animate style="margin-top:10px;max-width:64ch;line-height:1.6;">
+        Je couvre l'ensemble du Genevois français et la <strong>Suisse romande</strong>. Voici les autres communes voisines de {ville.nom} où j'interviens régulièrement.
       </p>
-        </div><!-- /col FAQ -->
-      </div><!-- /grid -->
-    </div>
-  </section>
-
-  <!-- ============================================== -->
-  <!-- AUTRES VILLES + PAGE PILIER -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          zones
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Autres zones d'intervention
-        </h2>
-        <p class="text-lg text-gray-600 max-w-3xl mx-auto">
-          Je couvre l'ensemble du Genevois français et la <strong>Suisse romande</strong>. Voici les autres communes voisines de {ville.nom} où j'interviens régulièrement.
-        </p>
-      </div>
 
       <!-- Villes voisines -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+      <div class="dwv-grid dwv-grid--3" data-animate-stagger>
         {voisines.map((v) => (
-          <a
-            href={`/developpement-web/${v.slug}`}
-            class="group bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] flex flex-col"
-          >
-            <div class="flex items-center justify-between mb-3">
-              <IconChip icon="ri-map-pin-fill" size="md" />
-              <span class="text-xs font-mono text-gray-500">{v.distanceGeneve}</span>
+          <a href={`/developpement-web/${v.slug}`} class="dwv-voisine co-frame co-frame--reveal" data-animate-item>
+            <div class="dwv-voisine-head">
+              <i class="ri-map-pin-line dwv-voisine-icon" aria-hidden="true"></i>
+              <span class="dwv-voisine-dist co-index">{v.distanceGeneve}</span>
             </div>
-            <h3 class="text-lg font-bold mb-1">{v.nom}</h3>
-            <p class="text-xs text-gray-500 font-mono mb-3">{v.populationLabel} hab.</p>
-            <p class="text-sm text-gray-600 leading-relaxed flex-grow">
+            <h3 class="dwv-voisine-name">{v.nom}</h3>
+            <p class="dwv-voisine-pop">{v.populationLabel} hab.</p>
+            <p class="dwv-voisine-text">
               Développement web pour {v.nom} — {v.publicCible[0]}, {v.publicCible[1]}.
             </p>
-            <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-accent font-medium flex items-center gap-1">
-              Voir la page
-              <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
-            </span>
+            <span class="dwv-voisine-link">Voir la page <i class="ri-arrow-right-line" aria-hidden="true"></i></span>
           </a>
         ))}
       </div>
 
-      <!-- Page pilier Genève -->
-      <div class="bg-[var(--text)] text-white border-3 border-black p-6 md:p-10 shadow-[8px_8px_0px_rgba(0,0,0,1)] relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-accent opacity-20 blur-[80px] rounded-full pointer-events-none"></div>
-
-        <div class="relative z-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div class="flex-grow">
-            <span class="inline-flex items-center gap-2 bg-[var(--blue)] text-[var(--text)] border-2 border-white px-3 py-1 text-xs font-mono mb-4">
-              <i class="ri-star-fill"></i>
-              Page pilier
-            </span>
-            <h3 class="text-2xl md:text-3xl font-normal tracking-tight mb-3">
-              Voir la page principale Genève
-            </h3>
-            <p class="text-gray-300 leading-relaxed max-w-2xl">
+      <!-- Page pilier Genève (bloc sombre) -->
+      <div class="dwv-pilier" data-animate>
+        <span class="co-x tl"></span><span class="co-x tr"></span>
+        <span class="co-x bl"></span><span class="co-x br"></span>
+        <span class="co-glow"></span>
+        <div class="dwv-pilier-inner">
+          <div class="dwv-pilier-copy">
+            <span class="dwv-pilier-badge"><i class="ri-star-line"></i> Page pilier</span>
+            <h3 class="dwv-pilier-title">Voir la page principale Genève</h3>
+            <p class="dwv-pilier-lead">
               La page de référence pour le <strong>développement web Suisse</strong>, avec stack technique détaillée, comparaison freelance/agence, méthodologie et FAQ étendue.
             </p>
           </div>
-          <a
-            href="/developpeur-web-freelance-geneve"
-            class="
-              flex-shrink-0
-              bg-[var(--blue)]
-              text-[var(--text)]
-              border-2 border-[var(--blue)]
-              px-6 py-3
-              font-bold
-              shadow-[4px_4px_0px_white]
-              transition-all duration-200
-              hover:bg-[var(--yellow)]
-              hover:border-[var(--yellow)]
-              hover:shadow-[2px_2px_0px_white]
-              hover:translate-x-[2px] hover:translate-y-[2px]
-              flex items-center justify-center gap-2 whitespace-nowrap
-            "
-          >
-            Page Genève
-            <i class="ri-arrow-right-line"></i>
+          <a href="/developpeur-web-freelance-geneve" class="dwv-pilier-btn">
+            Page Genève <i class="ri-arrow-right-line" aria-hidden="true"></i>
           </a>
         </div>
       </div>
 
       <!-- Liens secondaires -->
-      <div class="mt-10 grid grid-cols-1 md:grid-cols-3 gap-4">
-        <a href="/services" class="bg-white border-2 border-black p-4 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--yellow)] transition-colors flex items-center justify-between gap-3 font-medium">
-          <span class="flex items-center gap-3">
-            <i class="ri-briefcase-line text-accent"></i>
-            Tous les services
-          </span>
-          <i class="ri-arrow-right-line"></i>
+      <div class="dwv-links" data-animate>
+        <a href="/services" class="dwv-link co-frame co-frame--reveal">
+          <span class="dwv-link-label"><i class="ri-briefcase-line"></i> Tous les services</span>
+          <i class="ri-arrow-right-line" aria-hidden="true"></i>
         </a>
-        <a href="/tarifs" class="bg-white border-2 border-black p-4 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--yellow)] transition-colors flex items-center justify-between gap-3 font-medium">
-          <span class="flex items-center gap-3">
-            <i class="ri-price-tag-3-line text-accent"></i>
-            Page tarifs
-          </span>
-          <i class="ri-arrow-right-line"></i>
+        <a href="/tarifs" class="dwv-link co-frame co-frame--reveal">
+          <span class="dwv-link-label"><i class="ri-price-tag-3-line"></i> Page tarifs</span>
+          <i class="ri-arrow-right-line" aria-hidden="true"></i>
         </a>
-        <a href="/portfolio" class="bg-white border-2 border-black p-4 shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--yellow)] transition-colors flex items-center justify-between gap-3 font-medium">
-          <span class="flex items-center gap-3">
-            <i class="ri-stack-line text-accent"></i>
-            Portfolio
-          </span>
-          <i class="ri-arrow-right-line"></i>
+        <a href="/portfolio" class="dwv-link co-frame co-frame--reveal">
+          <span class="dwv-link-label"><i class="ri-stack-line"></i> Portfolio</span>
+          <i class="ri-arrow-right-line" aria-hidden="true"></i>
         </a>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- À LIRE -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          ressources
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          À lire avant de te décider
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Deux articles pour cadrer ton projet de <strong>création site web {ville.nom}</strong> avant même d'envoyer un mail.
-        </p>
-      </div>
+    <!-- ══ 06 · À LIRE ══ -->
+    <section id="ressources" class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow" data-animate>06 — Ressources</p>
+      <h2 style="margin-top:8px;" data-animate>À lire avant de te décider</h2>
+      <p class="co-mut" data-animate style="margin-top:10px;max-width:60ch;line-height:1.6;">
+        Deux articles pour cadrer ton projet de <strong>création site web {ville.nom}</strong> avant même d'envoyer un mail.
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="dwv-grid dwv-grid--2" data-animate-stagger>
         {blogArticles.map((article) => (
-          <a
-            href={article.href}
-            class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
-          >
-            <IconChip icon={article.icon} class="mb-4" />
-            <h3 class="text-lg font-bold mb-2 leading-tight">{article.title}</h3>
-            <p class="text-sm text-gray-600 leading-relaxed flex-grow">{article.description}</p>
-            <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-accent font-medium flex items-center gap-1">
-              Lire l'article
-              <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
-            </span>
+          <a href={article.href} class="dwv-article co-frame co-frame--reveal" data-animate-item>
+            <i class={`${article.icon} dwv-article-icon`} aria-hidden="true"></i>
+            <h3 class="dwv-article-title">{article.title}</h3>
+            <p class="dwv-article-text">{article.description}</p>
+            <span class="dwv-article-link">Lire l'article <i class="ri-arrow-right-line" aria-hidden="true"></i></span>
           </a>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- CTA FINAL -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-[var(--text)] text-white relative overflow-hidden">
-    <!-- Grid background -->
-    <div class="absolute inset-0 opacity-[0.07]" aria-hidden="true">
-      <div style="background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px); background-size: 40px 40px; width: 100%; height: 100%;"></div>
-    </div>
-
-    <!-- Glow accents -->
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <div class="absolute top-0 left-1/4 w-[400px] h-[400px] bg-accent opacity-20 blur-[120px] rounded-full"></div>
-      <div class="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-accent-strong opacity-15 blur-[100px] rounded-full"></div>
-    </div>
-
-    <div class="max-w-4xl mx-auto relative z-10 text-center">
-      <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-400 mb-6">
-        <span class="w-8 h-px bg-gray-600"></span>
-        prêt ?
-        <span class="w-8 h-px bg-gray-600"></span>
-      </span>
-
-      <h2 class="text-4xl md:text-6xl font-normal tracking-tight mb-6 leading-[1.05]">
-        Discutons de ton projet à
-        <span class="relative inline-block">
-          <span class="relative z-10">{ville.nom}</span>
-          <span class="absolute bg-[var(--blue)] w-full h-[35%] left-0 bottom-1 -z-1 opacity-50"></span>
-        </span>
-      </h2>
-
-      <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-        Premier échange gratuit, sans engagement. Je viens si nécessaire à {ville.nom} ({ville.tempsTrajetGeneve} depuis Genève) ou on cale une visio. Réponse sous 24h.
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-        <a
-          href="/contact"
-          class="
-            bg-[var(--blue)]
-            text-[var(--text)]
-            border-2 border-[var(--blue)]
-            px-8 py-4
-            text-lg font-bold
-            shadow-[4px_4px_0px_white]
-            transition-all duration-200
-            hover:bg-[var(--yellow)]
-            hover:border-[var(--yellow)]
-            hover:shadow-[2px_2px_0px_white]
-            hover:translate-x-[2px] hover:translate-y-[2px]
-            flex items-center justify-center gap-2
-          "
-        >
-          <i class="ri-mail-send-line"></i>
-          Demander un devis
-        </a>
-        <a
-          href="mailto:hello@jonlabs.ch"
-          class="
-            bg-transparent
-            text-white
-            border-2 border-white
-            px-8 py-4
-            text-lg font-medium
-            transition-all duration-200
-            hover:bg-white
-            hover:text-[var(--text)]
-            flex items-center justify-center gap-2
-            font-mono
-          "
-        >
-          <i class="ri-mail-line"></i>
-          hello@jonlabs.ch
-        </a>
+    <!-- ══ CTA FINAL (primitive .co-cta sombre) ══ -->
+    <section class="co-cta">
+      <span class="co-x tl"></span><span class="co-x tr"></span>
+      <span class="co-x bl"></span><span class="co-x br"></span>
+      <div class="co-cta-inner">
+        <p class="co-cta-eyebrow" data-animate>Prêt ?</p>
+        <h2 class="co-cta-title" data-animate data-delay="0.1">
+          Discutons de ton projet à <span class="co-ser">{ville.nom}</span>
+        </h2>
+        <p class="co-cta-lead" data-animate data-delay="0.2">
+          Premier échange gratuit, sans engagement. Je viens si nécessaire à {ville.nom} ({ville.tempsTrajetGeneve} depuis Genève) ou on cale une visio. Réponse sous 24h.
+        </p>
+        <div class="co-cta-btns" data-animate data-delay="0.3">
+          <a href="/contact" class="co-cta-btn"><i class="ri-mail-send-line"></i> Demander un devis</a>
+          <a href="mailto:hello@jonlabs.ch" class="co-cta-btn co-cta-btn--ghost"><i class="ri-mail-line"></i> hello@jonlabs.ch</a>
+        </div>
+        <div class="co-cta-trust" data-animate data-delay="0.4">
+          <span><i class="ri-time-line"></i> Réponse sous 24h</span>
+          <span><i class="ri-calendar-line"></i> Lun-Ven, 9h-18h (CET)</span>
+          <span><i class="ri-currency-line"></i> Facturation CHF ou EUR</span>
+        </div>
       </div>
+    </section>
 
-      <p class="text-sm text-gray-400 flex items-center justify-center gap-2">
-        <i class="ri-time-line text-accent"></i>
-        Réponse sous 24h · Lun-Ven, 9h-18h (CET) · Facturation CHF ou EUR
-      </p>
-    </div>
-  </section>
+  </main>
 
   <Footer />
 </Layout>
 
-<style>
-  /* FAQ animations */
-  .faq-item[data-open="true"] .faq-icon {
-    transform: rotate(45deg);
-    background-color: var(--blue);
-  }
+<style is:global>
+  /* ══ DÉVELOPPEMENT WEB [VILLE] — styles .dwv-* (namespace scopé, corps .co-root) ══ */
 
-  /* Scroll margin */
-  section[id] {
-    scroll-margin-top: 100px;
+  /* ── Hero ── */
+  .dwv-hero-inner { max-width: 760px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .dwv-hero-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-bottom: 24px; }
+  .dwv-hero-badges .co-badge i { font-size: 13px; color: var(--accent); }
+  .dwv-hero-title { font-size: clamp(2.1rem, 5vw, 3.3rem); }
+  .co-root .dwv-hero-lead { margin-top: 20px; max-width: 54ch; font-size: 1.075rem; line-height: 1.65; color: var(--muted); }
+  .dwv-hero-lead strong { color: var(--ink); font-weight: 600; }
+  .dwv-hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
+  .dwv-hero-btns .co-btn i { transition: transform .18s ease-out; }
+  .dwv-hero-btns .co-btn:hover i { transform: translateX(2px); }
+  .dwv-hero-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 26px; margin-top: 28px; font-size: 13.5px; color: var(--muted); }
+  .dwv-hero-trust span { display: inline-flex; align-items: center; gap: 6px; }
+  .dwv-hero-trust i { color: var(--accent); }
+
+  /* ── Grilles génériques ── */
+  .dwv-grid { display: grid; gap: 16px; margin-top: 32px; }
+  .dwv-grid--2 { grid-template-columns: repeat(2, 1fr); }
+  .dwv-grid--3 { grid-template-columns: repeat(3, 1fr); }
+
+  /* ── Encarts cadrés (contexte économique / exemples) ── */
+  .dwv-context, .dwv-examples { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+  .dwv-context-title, .dwv-examples-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+  .dwv-context-title i, .dwv-examples-title i { color: var(--accent); }
+  .co-root .dwv-context p { font-size: 14.5px; line-height: 1.65; color: var(--muted); }
+  .dwv-examples .co-list li { font-size: 14.5px; }
+
+  /* ── Spécificités (cartes numérotées) ── */
+  .dwv-spec { position: relative; display: flex; align-items: flex-start; gap: 16px; padding: 22px; background: var(--surface); border: 1px solid var(--line-2); transition: box-shadow .18s ease-out, transform .18s ease-out; }
+  .dwv-spec:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+  .dwv-spec-num { font-size: 15px; font-weight: 700; flex: none; }
+  .co-root .dwv-spec-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
+
+  /* ── Public cible ── */
+  .dwv-audience { margin-top: 36px; text-align: center; }
+  .dwv-audience-label { display: block; }
+  .dwv-chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 16px; }
+
+  /* ── Cartes lien (services / articles / voisines) ── */
+  .dwv-service, .dwv-article, .dwv-voisine {
+    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+    background: var(--surface); border: 1px solid var(--line-2);
+    transition: box-shadow .18s ease-out, transform .18s ease-out;
+  }
+  .dwv-service:hover, .dwv-article:hover, .dwv-voisine:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+  .dwv-service-icon, .dwv-article-icon { font-size: 24px; color: var(--muted); line-height: 1; transition: color .18s ease-out; }
+  .dwv-service:hover .dwv-service-icon, .dwv-article:hover .dwv-article-icon { color: var(--accent); }
+  .dwv-service-title, .dwv-article-title, .dwv-voisine-name { font-size: 1.1rem; }
+  .co-root .dwv-service-text, .co-root .dwv-article-text, .co-root .dwv-voisine-text { font-size: 14px; line-height: 1.55; color: var(--muted); flex-grow: 1; }
+
+  .dwv-service-foot { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); }
+  .dwv-service-price { font-size: 13px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .dwv-service-foot > i { color: var(--muted); transition: transform .18s ease-out; }
+  .dwv-service:hover .dwv-service-foot > i { transform: translateX(3px); }
+
+  .dwv-service--all { align-items: center; justify-content: center; text-align: center; }
+  .dwv-service--all .dwv-service-icon { color: var(--accent); font-size: 28px; }
+
+  /* ── Liens de carte (voir la page / lire l'article) ── */
+  .dwv-voisine-link, .dwv-article-link {
+    margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line);
+    font-size: 13px; font-weight: 600; color: var(--accent);
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .dwv-voisine-link i, .dwv-article-link i { transition: transform .18s ease-out; }
+  .dwv-voisine:hover .dwv-voisine-link i, .dwv-article:hover .dwv-article-link i { transform: translateX(3px); }
+
+  /* ── Voisines (en-tête distance) ── */
+  .dwv-voisine-head { display: flex; align-items: center; justify-content: space-between; }
+  .dwv-voisine-icon { font-size: 22px; color: var(--muted); transition: color .18s ease-out; }
+  .dwv-voisine:hover .dwv-voisine-icon { color: var(--accent); }
+  .dwv-voisine-dist { font-size: 12px; }
+  .co-root .dwv-voisine-pop { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+
+  /* ── Tarifs ── */
+  .dwv-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; margin-top: 36px; }
+  .dwv-tier { position: relative; display: flex; flex-direction: column; gap: 16px; padding: 30px 26px; background: var(--surface); border: 1px solid var(--line-2); }
+  .dwv-tier--reco { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .dwv-tier-reco { position: absolute; top: -12px; left: 26px; z-index: 4; }
+  .dwv-tier-name { font-size: 1.15rem; }
+  .co-root .dwv-tier-desc { font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+  .dwv-tier-price { display: flex; flex-direction: column; gap: 2px; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+  .dwv-tier-pricelabel { font-size: 13px; color: var(--muted); }
+  .dwv-tier-price b { font-size: 2.3rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
+  .dwv-tier-cur { font-size: 15px; color: var(--muted); font-weight: 500; }
+  .dwv-tier-eur { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .dwv-tier-features { gap: 10px; }
+  .dwv-tier-features li { font-size: 14px; line-height: 1.45; }
+  .co-root .dwv-tier-note { margin-top: 24px; text-align: center; font-size: 13.5px; display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; }
+  .dwv-tier-note i { color: var(--accent); }
+  .dwv-tier-cta { margin-top: 20px; text-align: center; }
+  .dwv-tier-cta .co-btn i { transition: transform .18s ease-out; }
+  .dwv-tier-cta .co-btn:hover i:last-child { transform: translateX(3px); }
+
+  /* ── FAQ + illustration ── */
+  .dwv-faq-grid { display: grid; grid-template-columns: minmax(0, 320px) 1fr; gap: 48px; align-items: start; }
+  .dwv-faq-media { position: sticky; top: 96px; }
+  .dwv-illu { position: relative; background: var(--surface); border: 1px solid var(--line-2); padding: 10px; }
+  .dwv-illu-img { display: block; width: 100%; height: auto; }
+  .dwv-faq { border-top: 1px solid var(--line); margin-top: 28px; }
+  .dwv-faq details { border-bottom: 1px solid var(--line); }
+  .dwv-faq summary {
+    list-style: none; cursor: pointer; padding: 20px 0;
+    display: flex; justify-content: space-between; align-items: center; gap: 20px;
+    font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
+  }
+  .dwv-faq summary::-webkit-details-marker { display: none; }
+  .dwv-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
+  .dwv-faq details[open] summary i { transform: rotate(180deg); }
+  .co-root .dwv-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 68ch; }
+  .dwv-faq details::details-content {
+    block-size: 0; overflow: hidden;
+    transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
+  }
+  .dwv-faq details[open]::details-content { block-size: auto; }
+  .co-root .dwv-faq-more { margin-top: 24px; font-size: 14px; color: var(--muted); }
+
+  /* ── Lien inline teal ── */
+  .dwv-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
+  .dwv-inline:hover { color: var(--ink); }
+
+  /* ── Page pilier (bloc sombre) ── */
+  .dwv-pilier { position: relative; overflow: hidden; margin-top: 32px; padding: 40px; background: #0b0d10; color: #fff; border: 1px solid var(--line-2); }
+  .dwv-pilier > .co-x { --line-2: rgba(255,255,255,0.28); }
+  .dwv-pilier-inner { position: relative; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
+  .dwv-pilier-copy { flex: 1 1 320px; }
+  .dwv-pilier-badge { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-bright); }
+  .dwv-pilier-title { font-size: clamp(1.5rem, 3vw, 2rem); margin-top: 14px; }
+  .co-root .dwv-pilier-lead { margin-top: 12px; max-width: 52ch; line-height: 1.6; color: rgba(255,255,255,0.7); }
+  .dwv-pilier-lead strong { color: #fff; font-weight: 600; }
+  .dwv-pilier-btn { flex: none; display: inline-flex; align-items: center; gap: 8px; background: #fff; color: var(--ink); font-weight: 600; font-size: 15px; padding: 12px 20px; border-radius: 999px; transition: background .18s ease-out; }
+  .dwv-pilier-btn:hover { background: var(--accent-bright); }
+  .dwv-pilier-btn i { transition: transform .18s ease-out; }
+  .dwv-pilier-btn:hover i { transform: translateX(3px); }
+
+  /* ── Liens secondaires ── */
+  .dwv-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 32px; }
+  .dwv-link { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 18px; background: var(--surface); border: 1px solid var(--line-2); font-weight: 600; font-size: 14.5px; transition: transform .18s ease-out, box-shadow .18s ease-out; }
+  .dwv-link:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+  .dwv-link-label { display: inline-flex; align-items: center; gap: 10px; }
+  .dwv-link-label i { color: var(--accent); }
+  .dwv-link > i { color: var(--muted); transition: transform .18s ease-out; }
+  .dwv-link:hover > i { transform: translateX(3px); }
+
+  /* ── Offset ancre ── */
+  .co-root section[id] { scroll-margin-top: 100px; }
+
+  /* ── Responsive ── */
+  @media (max-width: 960px) {
+    .dwv-grid--3 { grid-template-columns: repeat(2, 1fr); }
+    .dwv-tiers { grid-template-columns: 1fr; }
+    .dwv-faq-grid { grid-template-columns: 1fr; gap: 32px; }
+    .dwv-faq-media { display: none; }
+    .dwv-links { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 720px) {
+    .dwv-grid--2, .dwv-grid--3 { grid-template-columns: 1fr; }
+    .dwv-pilier-inner { flex-direction: column; align-items: flex-start; }
+    .dwv-pilier { padding: 30px 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .dwv-service, .dwv-article, .dwv-voisine, .dwv-spec, .dwv-link,
+    .dwv-faq summary i, .dwv-hero-btns .co-btn i, .dwv-pilier-btn, .dwv-pilier-btn i { transition: none; }
   }
 </style>
-
-<script>
-  // FAQ accordion logic
-  const faqItems = document.querySelectorAll('[data-faq-item]');
-
-  faqItems.forEach(item => {
-    const trigger = item.querySelector('[data-faq-trigger]');
-    const content = item.querySelector('[data-faq-content]') as HTMLElement;
-
-    trigger?.addEventListener('click', () => {
-      const isOpen = item.getAttribute('data-open') === 'true';
-
-      // Close all others
-      faqItems.forEach(otherItem => {
-        if (otherItem !== item) {
-          otherItem.setAttribute('data-open', 'false');
-          const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
-          const otherTrigger = otherItem.querySelector('[data-faq-trigger]');
-          if (otherContent) otherContent.style.maxHeight = '0';
-          otherTrigger?.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      // Toggle current
-      if (isOpen) {
-        item.setAttribute('data-open', 'false');
-        content.style.maxHeight = '0';
-        trigger.setAttribute('aria-expanded', 'false');
-      } else {
-        item.setAttribute('data-open', 'true');
-        content.style.maxHeight = content.scrollHeight + 'px';
-        trigger.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-</script>

@@ -1,11 +1,30 @@
 ---
+// Métiers IA (silo de conversion) — page programmatique /metiers/[metier] (blueprint).
+// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
+// crosshairs, colonne capée, coins nets, accent teal unique, Inter Tight ×
+// Instrument Serif. Namespace scopé .met-*. Gabarit-or : services/referencement-local.astro.
+//
+// HARD-PRESERVE :
+//   - getStaticPaths() intact + data metiersIA / type MetierIAData (data/metiers-ia),
+//     SITE_URL, localBusinessData (data/schema), lib/seo.
+//   - TOUT le Schema.org : getWebPageSchema / getBreadcrumbSchema / getFAQPageSchema /
+//     getServiceItemSchema, tableau `schemas` (data + ordre identiques), injection ld+json.
+//   - seoData dynamique par métier (pageTitle/pageDescription/pageUrl).
+//   - Tous les bindings dynamiques métier (h1, accroche, fluxRemontent, pains, casUsage,
+//     parcours/parcoursLabel, outils, pourQui/pasPourQui, faqs, preuves, articlesConnexes,
+//     heroBadge, preuveLocale) — rien en dur.
+//   - Constantes template communes : methode, servicesIA, casIcons, preuvesHero.
+//   - Deep-links SEO internes (/consultant-ia, /services/*, /portfolio, /contact, articles).
+//   - Illustration illuMetiers gardée (encadrée .co-frame). Import global.css gardé.
+//
+// Supprimés : Halo (import + balises), IconChip (import + usages → icônes inline Remix
+// mono muted→teal hover). Composants IconChip.astro / Halo.astro NON touchés.
+
 import "../../styles/global.css";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
-import IconChip from "../../components/IconChip.astro";
 import { Image } from "astro:assets";
-import Halo from "../../components/shapes/Halo.astro";
 import illuMetiers from "../../assets/illustrations/metiers-ia.webp";
 
 import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema, getServiceItemSchema } from "../../lib/seo";
@@ -123,569 +142,436 @@ const servicesIA = [
 ];
 ---
 
-<Layout
-  title={pageTitle}
-  description={pageDescription}
-  schemas={schemas}
->
+<Layout title={pageTitle} description={pageDescription} schemas={schemas}>
   <Header />
 
-  <!-- ============================================== -->
-  <!-- HERO SECTORIEL -->
-  <!-- ============================================== -->
-  <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-20 px-4 relative overflow-hidden">
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-accent opacity-20 blur-[120px] rounded-full"></div>
-      <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-accent-strong opacity-15 blur-[100px] rounded-full"></div>
-      <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-accent opacity-10 blur-[80px] rounded-full"></div>
-    </div>
+  <main class="co-root">
 
-    <div class="max-w-4xl mx-auto relative z-10 text-center">
-      <div class="flex flex-wrap justify-center gap-3 mb-8">
-        <span class="inline-flex items-center gap-2 bg-white border-2 border-black px-3 py-1 text-xs font-mono shadow-[2px_2px_0px_rgba(0,0,0,1)]">
-          <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-          Disponible
-        </span>
-        <span class="inline-flex items-center gap-2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-mono shadow-[2px_2px_0px_rgba(0,0,0,1)]">
-          <i class="ri-briefcase-4-line"></i>
-          {metier.heroBadge}
-        </span>
+    <!-- ══ HERO SECTORIEL ══ -->
+    <section class="co-sec co-pad co-hero met-hero" style="padding:72px 40px 56px;">
+      <div class="met-hero-badges" data-animate>
+        <span class="co-badge">Disponible</span>
+        <span class="co-badge co-badge--solid">{metier.heroBadge}</span>
       </div>
 
-      <h1 class="text-4xl md:text-6xl font-normal tracking-tight mb-6 leading-[1.08]">
-        {metier.h1}
-      </h1>
+      <h1 class="met-hero-title" data-animate data-delay="0.1">{metier.h1}</h1>
 
-      <p class="text-lg md:text-2xl text-gray-700 mb-8 leading-relaxed max-w-3xl mx-auto">
-        {metier.accroche}
+      <p class="met-hero-lead" data-animate data-delay="0.2">{metier.accroche}</p>
+
+      <div class="met-hero-btns" data-animate data-delay="0.3">
+        <a href="/contact" class="co-btn"><i class="ri-calendar-check-line"></i> Cadrer mon projet IA</a>
+        <a href="/contact" class="co-btn co-btn--ghost">Décrire mon besoin <i class="ri-arrow-right-line"></i></a>
+      </div>
+
+      <div class="met-hero-trust" data-animate data-delay="0.4">
+        {preuvesHero.map((p) => (
+          <span><i class="ri-checkbox-circle-line"></i> {p}</span>
+        ))}
+      </div>
+    </section>
+
+    <!-- ══ 01 · LE PRINCIPE (ce qui devrait remonter tout seul) ══ -->
+    <section class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">01 — Le principe</p>
+      <h2 style="margin-top:8px;">Ce qui devrait <span class="co-ser">remonter tout seul</span></h2>
+      <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+        L'idée n'est pas de tout automatiser, mais de faire en sorte que l'essentiel arrive à vous prêt à décider — au lieu d'aller le chercher.
       </p>
 
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-10">
-        <a
-          href="/contact"
-          class="bg-[var(--blue)] border-2 border-black px-6 py-4 text-lg font-bold shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:bg-[var(--yellow)] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] flex items-center justify-center gap-2"
-        >
-          <i class="ri-calendar-check-line"></i>
-          Cadrer mon projet IA
-        </a>
-        <a
-          href="/contact"
-          class="bg-white border-2 border-black px-6 py-4 text-lg font-medium transition-all duration-200 hover:bg-gray-100 flex items-center justify-center gap-2"
-        >
-          Décrire mon besoin
-          <i class="ri-arrow-right-line"></i>
-        </a>
-      </div>
-
-      <div class="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-gray-600">
-        {preuvesHero.map((p) => (
-          <span class="flex items-center gap-2">
-            <i class="ri-checkbox-circle-line text-accent"></i>
-            {p}
-          </span>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ============================================== -->
-  <!-- CE QUI DEVRAIT REMONTER TOUT SEUL -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          le principe
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Ce qui devrait <strong>remonter tout seul</strong>
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          L'idée n'est pas de tout automatiser, mais de faire en sorte que l'essentiel arrive à vous prêt à décider — au lieu d'aller le chercher.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="met-grid met-grid--2" data-animate-stagger>
         {metier.fluxRemontent.map((flux, idx) => (
-          <div class="bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] flex items-start gap-4">
-            <div class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center flex-shrink-0 font-mono font-black text-sm">
-              {String(idx + 1).padStart(2, '0')}
-            </div>
-            <p class="text-base text-gray-700 leading-relaxed pt-1">{flux}</p>
+          <div class="met-flux co-frame co-frame--reveal" data-animate-item>
+            <span class="met-flux-num co-index">{String(idx + 1).padStart(2, '0')}</span>
+            <p class="met-card-text">{flux}</p>
           </div>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- PAINS OPÉRATIONNELS -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          ce qui coince
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Les <strong>blocages</strong> du métier
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Si vous vous reconnaissez dans l'un de ces points, il y a probablement du temps à récupérer.
-        </p>
-      </div>
+    <!-- ══ 02 · CE QUI COINCE (pains opérationnels) ══ -->
+    <section class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">02 — Ce qui coince</p>
+      <h2 style="margin-top:8px;">Les <span class="co-ser">blocages</span> du métier</h2>
+      <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+        Si vous vous reconnaissez dans l'un de ces points, il y a probablement du temps à récupérer.
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="met-grid met-grid--2" data-animate-stagger>
         {metier.pains.map((pain) => (
-          <div class="bg-white border-2 border-black p-5 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] flex items-start gap-4">
-            <IconChip icon="ri-alert-line" variant="muted" size="md" class="flex-shrink-0" />
-            <p class="text-sm text-gray-700 leading-relaxed pt-1">{pain}</p>
+          <div class="met-card met-card--row co-frame co-frame--reveal" data-animate-item>
+            <i class="ri-alert-line met-card-icon" aria-hidden="true"></i>
+            <p class="met-card-text">{pain}</p>
           </div>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- 8 CAS D'USAGE IA (le cœur) -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          cas d'usage
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          8 façons dont l'<strong>IA change le quotidien</strong>
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Pas de démo de labo. Des agents branchés sur des tâches réelles du métier, avec la validation humaine là où elle compte.
-        </p>
-      </div>
+    <!-- ══ 03 · CAS D'USAGE (le cœur) ══ -->
+    <section class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">03 — Cas d'usage</p>
+      <h2 style="margin-top:8px;">8 façons dont l'<span class="co-ser">IA change le quotidien</span></h2>
+      <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+        Pas de démo de labo. Des agents branchés sur des tâches réelles du métier, avec la validation humaine là où elle compte.
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="met-grid met-grid--3" data-animate-stagger>
         {metier.casUsage.map((item, idx) => (
-          <div class="group bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] flex flex-col">
-            <IconChip icon={casIcons[idx % casIcons.length]} class="mb-4 group-hover:bg-accent-strong transition-colors" />
-            <h3 class="text-lg font-bold mb-2">{item.titre}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed flex-grow">{item.description}</p>
+          <div class="met-card co-frame co-frame--reveal" data-animate-item>
+            <i class={`${casIcons[idx % casIcons.length]} met-card-icon`} aria-hidden="true"></i>
+            <h3 class="met-card-title">{item.titre}</h3>
+            <p class="met-card-text">{item.description}</p>
           </div>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- PARCOURS MÉTIER -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          parcours
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          {metier.parcoursLabel}
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          À chaque étape, l'IA enlève du travail répétitif — pas la décision, qui reste la vôtre.
-        </p>
-      </div>
+    <!-- ══ 04 · PARCOURS MÉTIER ══ -->
+    <section class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">04 — Parcours</p>
+      <h2 style="margin-top:8px;">{metier.parcoursLabel}</h2>
+      <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+        À chaque étape, l'IA enlève du travail répétitif — pas la décision, qui reste la vôtre.
+      </p>
 
-      <div class="space-y-4">
+      <div class="met-steps" data-animate-stagger>
         {metier.parcours.map((etape, idx) => (
-          <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] flex items-start gap-5">
-            <div class="w-12 h-12 bg-accent border-2 border-black flex items-center justify-center flex-shrink-0 font-mono font-black">
-              {String(idx + 1).padStart(2, '0')}
-            </div>
-            <div>
-              <h3 class="text-lg font-bold mb-1">{etape.etape}</h3>
-              <p class="text-gray-600 text-sm leading-relaxed">{etape.description}</p>
+          <div class="met-step" data-animate-item>
+            <span class="met-step-num co-index">{String(idx + 1).padStart(2, '0')}</span>
+            <div class="met-step-body">
+              <h3 class="met-step-title">{etape.etape}</h3>
+              <p class="met-step-text">{etape.description}</p>
             </div>
           </div>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- OUTILS MÉTIER COMPATIBLES -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          outils
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          On se <strong>branche sur vos outils</strong>
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          L'idée n'est pas de tout remplacer, mais de brancher l'IA sur les logiciels que vous utilisez déjà.
-        </p>
-      </div>
+    <!-- ══ 05 · OUTILS MÉTIER COMPATIBLES ══ -->
+    <section class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">05 — Outils</p>
+      <h2 style="margin-top:8px;">On se <span class="co-ser">branche sur vos outils</span></h2>
+      <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+        L'idée n'est pas de tout remplacer, mais de brancher l'IA sur les logiciels que vous utilisez déjà.
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="met-grid met-grid--2" data-animate-stagger>
         {metier.outils.map((outil) => (
-          <div class="bg-[var(--main-bg)] border-2 border-black p-5 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] flex items-start gap-4">
-            <IconChip icon="ri-plug-line" size="md" class="flex-shrink-0" />
+          <div class="met-card met-card--row co-frame co-frame--reveal" data-animate-item>
+            <i class="ri-plug-line met-card-icon" aria-hidden="true"></i>
             <div>
-              <h3 class="font-bold mb-1">{outil.nom}</h3>
-              <p class="text-sm text-gray-600 leading-relaxed">{outil.usage}</p>
+              <h3 class="met-card-title">{outil.nom}</h3>
+              <p class="met-card-text">{outil.usage}</p>
             </div>
           </div>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- MÉTHODE -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4">
-    <div class="max-w-6xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          méthode
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Comment on <strong>travaille ensemble</strong>
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Une méthode qui part de vos process réels et garde l'humain aux commandes.
-        </p>
-      </div>
+    <!-- ══ 06 · MÉTHODE ══ -->
+    <section class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">06 — Méthode</p>
+      <h2 style="margin-top:8px;">Comment on <span class="co-ser">travaille ensemble</span></h2>
+      <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+        Une méthode qui part de vos process réels et garde l'humain aux commandes.
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="met-grid met-grid--4" data-animate-stagger>
         {methode.map((m) => (
-          <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] flex flex-col">
-            <div class="font-mono font-black text-3xl text-accent mb-3">{m.step}</div>
-            <h3 class="text-lg font-bold mb-2">{m.title}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed flex-grow">{m.description}</p>
+          <div class="met-card co-frame co-frame--reveal" data-animate-item>
+            <span class="met-method-step co-index">{m.step}</span>
+            <h3 class="met-card-title">{m.title}</h3>
+            <p class="met-card-text">{m.description}</p>
           </div>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- POUR QUI / PAS POUR QUI -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          honnêteté
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Pour qui — et <strong>pas pour qui</strong>
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Autant le dire tout de suite : l'IA n'est pas la réponse à tout. Voici où elle aide, et où elle n'a rien à faire.
-        </p>
-      </div>
+    <!-- ══ 07 · POUR QUI / PAS POUR QUI ══ -->
+    <section class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">07 — Honnêteté</p>
+      <h2 style="margin-top:8px;">Pour qui — et <span class="co-ser">pas pour qui</span></h2>
+      <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+        Autant le dire tout de suite : l'IA n'est pas la réponse à tout. Voici où elle aide, et où elle n'a rien à faire.
+      </p>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)]">
-          <h3 class="font-bold text-lg mb-4 flex items-center gap-2">
-            <IconChip icon="ri-check-line" size="md" />
-            Pour vous si…
-          </h3>
-          <ul class="space-y-3">
+      <div class="met-split">
+        <div class="met-split-col co-frame" data-animate>
+          <span class="co-x tl"></span><span class="co-x tr"></span>
+          <span class="co-x bl"></span><span class="co-x br"></span>
+          <h3 class="met-split-title"><i class="ri-check-line"></i> Pour vous si…</h3>
+          <ul class="co-list co-list--check">
             {metier.pourQui.map((item) => (
-              <li class="flex items-start gap-3 text-sm text-gray-700 leading-relaxed">
-                <i class="ri-checkbox-circle-fill text-accent mt-0.5 flex-shrink-0"></i>
-                {item}
-              </li>
+              <li><i class="ri-check-line"></i><span>{item}</span></li>
             ))}
           </ul>
         </div>
 
-        <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)]">
-          <h3 class="font-bold text-lg mb-4 flex items-center gap-2">
-            <IconChip icon="ri-close-line" variant="muted" size="md" />
-            Pas pour vous si…
-          </h3>
-          <ul class="space-y-3">
+        <div class="met-split-col co-frame" data-animate data-delay="0.1">
+          <span class="co-x tl"></span><span class="co-x tr"></span>
+          <span class="co-x bl"></span><span class="co-x br"></span>
+          <h3 class="met-split-title met-split-title--mut"><i class="ri-close-line"></i> Pas pour vous si…</h3>
+          <ul class="met-nolist">
             {metier.pasPourQui.map((item) => (
-              <li class="flex items-start gap-3 text-sm text-gray-700 leading-relaxed">
-                <i class="ri-close-circle-fill text-muted mt-0.5 flex-shrink-0"></i>
-                {item}
-              </li>
+              <li><i class="ri-close-line" aria-hidden="true"></i><span>{item}</span></li>
             ))}
           </ul>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- FAQ MÉTIER -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4">
-    <div class="max-w-6xl mx-auto">
-      <div class="grid lg:grid-cols-[minmax(0,340px)_1fr] gap-12 lg:gap-16 items-start">
+    <!-- ══ 08 · FAQ MÉTIER (accordéon natif <details>, zéro JS) ══ -->
+    <section class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">08 — FAQ</p>
 
-        <!-- Illustration contextuelle (Phase 3) -->
-        <div class="hidden lg:block lg:sticky lg:top-28">
-          <div class="relative">
-            <Halo class="absolute -inset-10 -z-10" />
-            <Image
-              src={illuMetiers}
-              alt=""
-              class="w-full border-2 border-black shadow-[6px_6px_0px_rgba(0,0,0,0.9)]"
-              aria-hidden="true"
-            />
+      <div class="met-faq-grid">
+        <!-- Illustration contextuelle (encadrée .co-frame) -->
+        <div class="met-faq-illu" aria-hidden="true">
+          <div class="met-illu co-frame">
+            <span class="co-x tl"></span><span class="co-x tr"></span>
+            <span class="co-x bl"></span><span class="co-x br"></span>
+            <Image src={illuMetiers} alt="" class="met-illu-img" aria-hidden="true" />
           </div>
         </div>
 
         <!-- Colonne FAQ -->
-        <div>
-      <div class="text-center lg:text-left mb-12">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          faq
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">Questions fréquentes</h2>
-        <p class="text-lg text-gray-600">
-          Ce que les professionnels du métier me demandent avant de se lancer.
-        </p>
-      </div>
+        <div class="met-faq-col">
+          <h2 style="margin-top:8px;">Questions fréquentes</h2>
+          <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">
+            Ce que les professionnels du métier me demandent avant de se lancer.
+          </p>
 
-      <div class="faq-list space-y-4">
-        {metier.faqs.map((faq, index) => (
-          <div class="faq-item border-2 border-black bg-white shadow-[3px_3px_0px_rgba(0,0,0,0.3)]" data-faq-item>
-            <button
-              class="faq-trigger w-full flex items-center justify-between gap-4 p-5 text-left font-medium cursor-pointer transition-colors duration-200 hover:bg-[var(--blue)] hover:bg-opacity-10"
-              aria-expanded="false"
-              data-faq-trigger
-            >
-              <span class="flex items-start gap-3">
-                <span class="font-mono text-sm text-gray-400 mt-0.5">{String(index + 1).padStart(2, '0')}</span>
-                <span class="text-base md:text-lg">{faq.question}</span>
-              </span>
-              <span class="faq-icon w-8 h-8 border-2 border-black bg-[var(--main-bg)] flex items-center justify-center transition-transform duration-300 flex-shrink-0">
-                <i class="ri-add-line text-lg"></i>
-              </span>
-            </button>
-            <div class="faq-content overflow-hidden transition-all duration-300" style="max-height: 0;" data-faq-content>
-              <div class="p-6 pt-2 pl-12">
-                <p class="text-gray-600 leading-relaxed">{faq.answer}</p>
-              </div>
-            </div>
+          <div class="met-faq" style="margin-top:28px;">
+            {metier.faqs.map((faq, index) => (
+              <details open={index === 0}>
+                <summary>
+                  {faq.question}
+                  <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+                </summary>
+                <p class="met-faq-answer">{faq.answer}</p>
+              </details>
+            ))}
           </div>
-        ))}
-      </div>
 
-      <p class="text-center lg:text-left mt-10 text-gray-500 text-sm">
-        Une autre question ? <a href="/contact" class="text-accent font-medium hover:underline">Écrivez-moi</a>, je réponds sous 24h.
+          <p class="co-mut" style="margin-top:24px;">
+            Une autre question ? <a href="/contact" class="met-inline">Écrivez-moi</a>, je réponds sous 24h.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ 09 · PREUVES ══ -->
+    <section class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">09 — Preuves</p>
+      <h2 style="margin-top:8px;">Pourquoi <span class="co-ser">me faire confiance</span></h2>
+      <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+        Pas de storytelling : des faits vérifiables et un ancrage suisse réel.
       </p>
-        </div><!-- /col FAQ -->
-      </div><!-- /grid -->
-    </div>
-  </section>
 
-  <!-- ============================================== -->
-  <!-- PREUVES -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          preuves
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Pourquoi <strong>me faire confiance</strong>
-        </h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-          Pas de storytelling : des faits vérifiables et un ancrage suisse réel.
-        </p>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+      <div class="met-grid met-grid--2" data-animate-stagger>
         {metier.preuves.map((preuve) => (
-          <div class="bg-[var(--main-bg)] border-2 border-black p-5 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] flex items-start gap-4">
-            <IconChip icon="ri-verified-badge-line" size="md" class="flex-shrink-0" />
-            <p class="text-sm text-gray-700 leading-relaxed pt-1">{preuve}</p>
+          <div class="met-card met-card--row co-frame co-frame--reveal" data-animate-item>
+            <i class="ri-verified-badge-line met-card-icon" aria-hidden="true"></i>
+            <p class="met-card-text">{preuve}</p>
           </div>
         ))}
       </div>
 
-      <div class="text-center">
-        <a href="/portfolio" class="inline-flex items-center gap-2 text-accent font-medium hover:underline">
-          Voir mes réalisations
-          <i class="ri-arrow-right-line"></i>
-        </a>
-      </div>
-    </div>
-  </section>
+      <p class="met-note-inline" data-animate>
+        <a href="/portfolio" class="met-inline">Voir mes réalisations <i class="ri-arrow-right-line"></i></a>
+      </p>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- MAILLAGE — HUB + SERVICES + ARTICLES -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4">
-    <div class="max-w-5xl mx-auto">
-      <div class="text-center mb-12 md:mb-16">
-        <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-          <span class="w-8 h-px bg-gray-400"></span>
-          aller plus loin
-          <span class="w-8 h-px bg-gray-400"></span>
-        </span>
-        <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-          Pour creuser le sujet
-        </h2>
-      </div>
+    <!-- ══ 10 · MAILLAGE (hub + services + articles) ══ -->
+    <section class="co-sec co-pad" style="padding:56px 40px;">
+      <p class="co-eyebrow">10 — Aller plus loin</p>
+      <h2 style="margin-top:8px;">Pour <span class="co-ser">creuser le sujet</span></h2>
 
       <!-- Services IA -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+      <div class="met-grid met-grid--2" data-animate-stagger>
         {servicesIA.map((service) => (
-          <a
-            href={service.href}
-            class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
-          >
-            <IconChip icon={service.icon} class="mb-4 group-hover:bg-accent-strong transition-colors" />
-            <h3 class="text-xl font-bold mb-2">{service.title}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed flex-grow">{service.description}</p>
-            <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-accent font-medium flex items-center gap-1">
-              Découvrir
-              <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
-            </span>
+          <a href={service.href} class="met-linkcard co-frame co-frame--reveal" data-animate-item>
+            <i class={`${service.icon} met-card-icon`} aria-hidden="true"></i>
+            <h3 class="met-card-title">{service.title}</h3>
+            <p class="met-card-text">{service.description}</p>
+            <span class="met-linkcard-cta">Découvrir <i class="ri-arrow-right-line"></i></span>
           </a>
         ))}
       </div>
 
       <!-- Articles blog -->
-      <h3 class="font-bold text-sm uppercase tracking-wider text-gray-500 mb-4 text-center">À lire avant de vous lancer</h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <h3 class="met-sub-title">À lire avant de vous lancer</h3>
+      <div class="met-grid met-grid--3" data-animate-stagger>
         {metier.articlesConnexes.map((article) => (
-          <a
-            href={article.href}
-            class="group bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)] hover:bg-[var(--main-bg)] flex flex-col"
-          >
-            <IconChip icon={article.icon} class="mb-4" />
-            <h3 class="text-base font-bold mb-2 leading-tight">{article.title}</h3>
-            <p class="text-sm text-gray-600 leading-relaxed flex-grow">{article.description}</p>
-            <span class="mt-4 pt-4 border-t border-dashed border-gray-300 text-sm text-accent font-medium flex items-center gap-1">
-              Lire l'article
-              <i class="ri-arrow-right-line group-hover:translate-x-1 transition-transform"></i>
-            </span>
+          <a href={article.href} class="met-linkcard co-frame co-frame--reveal" data-animate-item>
+            <i class={`${article.icon} met-card-icon`} aria-hidden="true"></i>
+            <h3 class="met-card-title met-card-title--sm">{article.title}</h3>
+            <p class="met-card-text">{article.description}</p>
+            <span class="met-linkcard-cta">Lire l'article <i class="ri-arrow-right-line"></i></span>
           </a>
         ))}
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ============================================== -->
-  <!-- CTA FINAL -->
-  <!-- ============================================== -->
-  <section class="py-20 md:py-28 px-4 bg-[var(--text)] text-white relative overflow-hidden">
-    <div class="absolute inset-0 opacity-[0.07]" aria-hidden="true">
-      <div style="background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px); background-size: 40px 40px; width: 100%; height: 100%;"></div>
-    </div>
-    <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-      <div class="absolute top-0 left-1/4 w-[400px] h-[400px] bg-accent opacity-20 blur-[120px] rounded-full"></div>
-      <div class="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-accent-strong opacity-15 blur-[100px] rounded-full"></div>
-    </div>
-
-    <div class="max-w-4xl mx-auto relative z-10 text-center">
-      <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-400 mb-6">
-        <span class="w-8 h-px bg-gray-600"></span>
-        prêt ?
-        <span class="w-8 h-px bg-gray-600"></span>
-      </span>
-
-      <h2 class="text-4xl md:text-6xl font-normal tracking-tight mb-6 leading-[1.05]">
-        On regarde ensemble ce que l'IA peut vous enlever
-      </h2>
-
-      <p class="text-lg md:text-xl text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
-        Premier échange gratuit, sans engagement. On identifie les 2-3 tâches qui vous mangent le plus de temps, et je vous dis franchement si l'IA y répond. Réponse sous 24h.
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-8">
-        <a
-          href="/contact"
-          class="bg-[var(--blue)] text-[var(--text)] border-2 border-[var(--blue)] px-8 py-4 text-lg font-bold shadow-[4px_4px_0px_white] transition-all duration-200 hover:bg-[var(--yellow)] hover:border-[var(--yellow)] hover:shadow-[2px_2px_0px_white] hover:translate-x-[2px] hover:translate-y-[2px] flex items-center justify-center gap-2"
-        >
-          <i class="ri-calendar-check-line"></i>
-          Cadrer mon projet IA
-        </a>
-        <a
-          href="mailto:hello@jonlabs.ch"
-          class="bg-transparent text-white border-2 border-white px-8 py-4 text-lg font-medium transition-all duration-200 hover:bg-white hover:text-[var(--text)] flex items-center justify-center gap-2 font-mono"
-        >
-          <i class="ri-mail-line"></i>
-          hello@jonlabs.ch
-        </a>
+    <!-- ══ CTA FINAL (primitive .co-cta) ══ -->
+    <section class="co-cta">
+      <span class="co-x tl"></span><span class="co-x tr"></span>
+      <span class="co-x bl"></span><span class="co-x br"></span>
+      <div class="co-cta-inner">
+        <p class="co-cta-eyebrow">Prêt ?</p>
+        <h2 class="co-cta-title">On regarde ensemble ce que l'IA peut vous <span class="co-ser">enlever.</span></h2>
+        <p class="co-cta-lead">
+          Premier échange gratuit, sans engagement. On identifie les 2-3 tâches qui vous mangent le plus de temps,
+          et je vous dis franchement si l'IA y répond. Réponse sous 24h.
+        </p>
+        <div class="co-cta-btns">
+          <a href="/contact" class="co-btn co-cta-btn"><i class="ri-calendar-check-line"></i> Cadrer mon projet IA</a>
+          <a href="mailto:hello@jonlabs.ch" class="co-btn co-btn--ghost co-cta-btn co-cta-btn--ghost"><i class="ri-mail-line"></i> hello@jonlabs.ch</a>
+        </div>
+        <div class="co-cta-trust">
+          <span><i class="ri-time-line"></i> Réponse sous 24h</span>
+          <span><i class="ri-calendar-line"></i> Lun-Ven, 9h-18h (CET)</span>
+          <span><i class="ri-money-swiss-franc-circle-line"></i> Facturation en CHF</span>
+        </div>
       </div>
+    </section>
 
-      <p class="text-sm text-gray-400 flex items-center justify-center gap-2">
-        <i class="ri-time-line text-accent"></i>
-        Réponse sous 24h · Lun-Ven, 9h-18h (CET) · Facturation en CHF
-      </p>
-    </div>
-  </section>
+  </main>
 
   <Footer />
 </Layout>
 
-<style>
-  .faq-item[data-open="true"] .faq-icon {
-    transform: rotate(45deg);
-    background-color: var(--blue);
-  }
+<style is:global>
+  /* ══ MÉTIERS IA — styles .met-* (namespace scopé, corps .co-root) ══ */
 
-  section[id] {
-    scroll-margin-top: 100px;
+  /* ── Hero (centré) ── */
+  .met-hero { text-align: center; }
+  .met-hero-badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .met-hero-title {
+    margin-top: 24px; margin-left: auto; margin-right: auto; max-width: 20ch;
+    font-size: clamp(2.1rem, 5vw, 3.2rem); line-height: 1.06;
+  }
+  .co-root .met-hero-lead {
+    margin-top: 20px; margin-left: auto; margin-right: auto; max-width: 60ch;
+    font-size: 1.1rem; line-height: 1.65; color: var(--muted);
+  }
+  .met-hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
+  .met-hero-btns .co-btn i { transition: transform .18s ease-out; }
+  .met-hero-btns .co-btn:hover i { transform: translateX(2px); }
+  .met-hero-trust {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 26px;
+    margin-top: 26px; font-size: 13.5px; color: var(--muted);
+  }
+  .met-hero-trust span { display: inline-flex; align-items: center; gap: 6px; }
+  .met-hero-trust i { color: var(--accent); }
+
+  /* ── Grilles génériques ── */
+  .met-grid { display: grid; gap: 16px; margin-top: 32px; }
+  .met-grid--2 { grid-template-columns: repeat(2, 1fr); }
+  .met-grid--3 { grid-template-columns: repeat(3, 1fr); }
+  .met-grid--4 { grid-template-columns: repeat(4, 1fr); }
+
+  /* ── Cartes ── */
+  .met-card {
+    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+    background: var(--surface); border: 1px solid var(--line-2);
+    transition: box-shadow .18s ease-out, transform .18s ease-out;
+  }
+  .met-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+  .met-card--row { flex-direction: row; align-items: flex-start; gap: 14px; }
+  .met-card-icon { font-size: 24px; color: var(--muted); line-height: 1; flex: none; transition: color .18s ease-out; }
+  .met-card:hover .met-card-icon { color: var(--accent); }
+  .met-card-title { font-size: 1.1rem; }
+  .met-card-title--sm { font-size: 1rem; line-height: 1.3; }
+  .met-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
+
+  /* ── Flux (cartes numérotées "remonte tout seul") ── */
+  .met-flux {
+    position: relative; display: flex; align-items: flex-start; gap: 16px; padding: 22px 24px;
+    background: var(--surface); border: 1px solid var(--line-2);
+    transition: box-shadow .18s ease-out, transform .18s ease-out;
+  }
+  .met-flux:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+  .met-flux-num { font-size: 18px; font-weight: 700; flex: none; line-height: 1.4; }
+
+  /* ── Méthode (numéro display) ── */
+  .met-method-step { font-size: 30px; font-weight: 700; color: var(--accent); line-height: 1; }
+
+  /* ── Parcours (étapes empilées) ── */
+  .met-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+  .met-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+  .met-step-num { font-size: 20px; font-weight: 600; }
+  .met-step-title { font-size: 1.15rem; }
+  .co-root .met-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 72ch; }
+
+  /* ── Pour qui / pas pour qui ── */
+  .met-split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+  .met-split-col { position: relative; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+  .met-split-title { display: inline-flex; align-items: center; gap: 8px; font-size: 1.15rem; margin-bottom: 20px; }
+  .met-split-title i { color: var(--accent); }
+  .met-split-title--mut i { color: var(--muted); }
+  .met-nolist { display: flex; flex-direction: column; gap: 8px; padding: 0; list-style: none; }
+  .met-nolist li { display: flex; gap: 9px; line-height: 1.6; font-size: 14.5px; }
+  .met-nolist li i { color: var(--muted); font-size: 15px; flex: none; margin-top: 3px; }
+  .co-root .met-split-col .co-list li,
+  .co-root .met-nolist li { font-size: 14.5px; }
+
+  /* ── FAQ (illustration sticky + accordéon natif) ── */
+  .met-faq-grid { display: grid; grid-template-columns: minmax(0, 320px) 1fr; gap: 48px; align-items: start; margin-top: 8px; }
+  .met-faq-illu { position: sticky; top: 112px; }
+  .met-illu { position: relative; background: var(--surface); border: 1px solid var(--line-2); }
+  .met-illu-img { display: block; width: 100%; height: auto; }
+
+  .met-faq { border-top: 1px solid var(--line); }
+  .met-faq details { border-bottom: 1px solid var(--line); }
+  .met-faq summary {
+    list-style: none; cursor: pointer; padding: 20px 0;
+    display: flex; justify-content: space-between; align-items: center; gap: 20px;
+    font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
+  }
+  .met-faq summary::-webkit-details-marker { display: none; }
+  .met-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
+  .met-faq details[open] summary i { transform: rotate(180deg); }
+  .co-root .met-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 72ch; }
+  .met-faq details::details-content {
+    block-size: 0; overflow: hidden;
+    transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
+  }
+  .met-faq details[open]::details-content { block-size: auto; }
+
+  /* ── Liens inline ── */
+  .met-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; display: inline-flex; align-items: center; gap: 6px; }
+  .met-inline:hover { color: var(--ink); }
+  .met-inline i { transition: transform .18s ease-out; }
+  .met-inline:hover i { transform: translateX(3px); }
+  .co-root .met-note-inline { margin-top: 24px; font-size: 14px; }
+
+  /* ── Cartes-liens (maillage) ── */
+  .met-linkcard {
+    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+    background: var(--surface); border: 1px solid var(--line-2);
+    transition: box-shadow .18s ease-out, transform .18s ease-out;
+  }
+  .met-linkcard:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+  .met-linkcard-cta { margin-top: auto; padding-top: 14px; font-size: 13.5px; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 6px; }
+  .met-linkcard-cta i { transition: transform .18s ease-out; }
+  .met-linkcard:hover .met-linkcard-cta i { transform: translateX(3px); }
+  .met-sub-title { margin-top: 44px; font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+
+  /* ── Anchor scroll offset ── */
+  .co-root section[id] { scroll-margin-top: 100px; }
+
+  /* ── Responsive ── */
+  @media (max-width: 960px) {
+    .met-faq-grid { grid-template-columns: 1fr; gap: 28px; }
+    .met-faq-illu { position: static; max-width: 420px; }
+    .met-grid--4 { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .met-grid--2, .met-grid--3, .met-grid--4, .met-split { grid-template-columns: 1fr; }
+    .met-step { grid-template-columns: 44px 1fr; gap: 14px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .met-card, .met-flux, .met-linkcard, .met-card-icon, .met-faq summary i,
+    .met-hero-btns .co-btn i, .met-inline i, .met-linkcard-cta i { transition: none; }
   }
 </style>
-
-<script>
-  const faqItems = document.querySelectorAll('[data-faq-item]');
-
-  faqItems.forEach(item => {
-    const trigger = item.querySelector('[data-faq-trigger]');
-    const content = item.querySelector('[data-faq-content]') as HTMLElement;
-
-    trigger?.addEventListener('click', () => {
-      const isOpen = item.getAttribute('data-open') === 'true';
-
-      faqItems.forEach(otherItem => {
-        if (otherItem !== item) {
-          otherItem.setAttribute('data-open', 'false');
-          const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
-          const otherTrigger = otherItem.querySelector('[data-faq-trigger]');
-          if (otherContent) otherContent.style.maxHeight = '0';
-          otherTrigger?.setAttribute('aria-expanded', 'false');
-        }
-      });
-
-      if (isOpen) {
-        item.setAttribute('data-open', 'false');
-        content.style.maxHeight = '0';
-        trigger.setAttribute('aria-expanded', 'false');
-      } else {
-        item.setAttribute('data-open', 'true');
-        content.style.maxHeight = content.scrollHeight + 'px';
-        trigger.setAttribute('aria-expanded', 'true');
-      }
-    });
-  });
-</script>
