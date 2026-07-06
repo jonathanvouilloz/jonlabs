@@ -3,7 +3,7 @@
 > Sortir du look brutaliste (bordures noires 2px + ombres offset, Plus Jakarta Sans) jugé « banal » vers un style **blueprint** : filets très fins qui cadrent les sections, aération, nouveau font pairing éditorial. Exploration en pages lab AVANT toute migration du vrai site.
 > **Réfs visuelles** : pengon.dev, sakib.design. **Statut** : 🔄 EN COURS — migration lancée : **homepage + chrome migrés en blueprint**, reste les autres pages.
 
-## Etat session 2026-07-06 — Phases services + géo + divers + fix pilules-eyebrow ✅ (migration site complète)
+## Etat session 2026-07-06 — Phases services + géo + divers + fix pilules-eyebrow ✅ (50/51 pages · CV restant)
 
 **Fait :** (3 vagues de sous-agents parallèles file-disjoints + vérif centralisée coordinateur, protocole `blueprint.css`/`Layout`/chrome/`global.css` réservés)
 - **Phase services (`7ed8ada`)** : 13 sous-pages `/services/*` migrées blueprint (déjà produites en working tree la session d'avant — vérifiées + commitées). 0 résidu brutaliste, build vert.
@@ -12,7 +12,7 @@
 - **Fix pilules-eyebrow (`db619ce`)** : 9 héros nettoyés — pilule `.co-badge` en kicker au-dessus du H1 retirée (« Outil gratuit »/reddit sur 3 outils, « Disponible »+lieu/tag sur 4 géo+hermes+metiers). **Règle gravée** : mémoire `feedback_pas_pilule_eyebrow_titre` + note `blueprint.css` près de `.co-badge` + Décisions clés.
 - **Vérifié** : build vert **221 pages** à chaque phase, guardrails auto (co-root présent, 0 brutaliste, 0 Halo/IconChip hors commentaires, Web3Forms intacts, noindex conservés), 0 console.log.
 
-**Prochain :** Migration du site **terminée** (tout le réel est blueprint). Reste optionnel : (1) **cleanup coordinateur** — `Halo`, `CTASection`, `FAQ` désormais **orphelins** (0 import) → suppressibles ; (2) **validation mobile <720/<900px sur device** (non capturable par l'outil) ; (3) décisions ouvertes : sticky-score de `checklist-15` neutralisé par `.co-root{overflow:hidden}` (refixer ?) + couleurs sévérité vert/ambre/rouge sur ce diagnostic (unifier teal ?). Sinon → **`/epic-recap`** (epic de fait terminé).
+**Prochain :** Migration quasi complète — **44/51 pages en `.co-root`**. Reste **1 vraie page indexée non migrée : `cv.astro`** (+ `cv-pdf.astro` export) — repoussée par décision Jonathan (9 composants `cv/*` + export PDF, gros effort/ROI différé). Les 5 autres non-migrées sont hors scope volontaire : `styleguide{,-lab}` (référence brutaliste noindex), `devis-client/[slug]` + 2 `outils/*-pdf` (standalone sans chrome). Reste aussi : (1) **cleanup coordinateur** — `Halo`, `CTASection`, `FAQ` désormais **orphelins** (0 import) → suppressibles ; (2) **validation mobile <720/<900px sur device** (non capturable par l'outil) ; (3) décisions ouvertes : sticky-score de `checklist-15` neutralisé par `.co-root{overflow:hidden}` (refixer ?) + couleurs sévérité vert/ambre/rouge sur ce diagnostic (unifier teal ?). Sinon → **`/epic-recap`** (epic de fait terminé).
 
 **Pièges :**
 - **`.co-root { overflow:hidden }` tue `position:sticky`** dans le corps de page → tout comportement sticky d'une page migrée est neutralisé (incident score `checklist-15`). Prévoir une exception scopée si sticky requis.
@@ -204,7 +204,7 @@
 **Commit :** [e92b8f2] feat(design): exploration blueprint — pairing 04, BlueprintKit partagé, pages lab (branche `design/blueprint-lab`)
 
 ## Carte du code
-> Mise à jour : 2026-07-06 — **Migration site complète.** ~31 corps de page migrés blueprint (home+chrome, Vague 1 (7), Phase blog (4), services hub + 13 sous-services, 5 géo, 7 divers). Design system + chrome global en place. Reste hors scope : CV (repoussé), styleguide brutaliste (noindex), 2 `outils/*-pdf` + `devis-client/[slug]` (standalone sans chrome).
+> Mise à jour : 2026-07-06 — **44/51 pages en `.co-root`.** ~31 corps de page migrés blueprint (home+chrome, Vague 1 (7), Phase blog (4), services hub + 13 sous-services, 5 géo, 7 divers). Design system + chrome global en place. **Restant à migrer : `cv.astro` (indexée) + `cv-pdf` — repoussé Jonathan.** Hors scope volontaire : `styleguide{,-lab}` (réf brutaliste noindex), `devis-client/[slug]` + 2 `outils/*-pdf` (standalone sans chrome).
 
 ### Pages migrées cette session (2026-07-06)
 | Page | Namespace | Note |
