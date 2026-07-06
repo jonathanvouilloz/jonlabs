@@ -2,164 +2,96 @@
 import { author } from '../../sample'
 ---
 
-<section class="cv-hero py-16 md:py-24 px-4 relative" style="background: var(--main-bg); overflow: clip;">
-  <!-- Decorative background elements - contained within section -->
-  <div class="absolute top-20 right-0 w-64 md:w-96 h-64 md:h-96 bg-accent opacity-5 rounded-full blur-3xl pointer-events-none" style="max-width: 50vw;"></div>
-  <div class="absolute bottom-0 left-0 w-48 md:w-64 h-48 md:h-64 bg-accent-strong opacity-5 rounded-full blur-3xl pointer-events-none"></div>
+<section class="cv-hero co-sec co-pad">
+  <div class="cv-hero-inner">
+    <p class="co-eyebrow cv-hero-animate">Curriculum Vitæ</p>
 
-  <!-- Grid pattern overlay -->
-  <div class="absolute inset-0 opacity-[0.02]" style="background-image: radial-gradient(circle, #000 1px, transparent 1px); background-size: 24px 24px;"></div>
+    <h1 class="cv-hero-title cv-hero-animate">Jonathan Vouilloz</h1>
 
-  <div class="max-w-4xl mx-auto relative">
-    <!-- Dossier Label -->
-    <div class="cv-hero-animate mb-6">
-      <div class="inline-flex items-center gap-3 bg-white border-2 border-black px-4 py-2 shadow-[3px_3px_0px_rgba(0,0,0,1)]">
-        <span class="font-mono text-xs tracking-widest text-gray-500">DOSSIER</span>
-        <span class="font-mono text-sm font-bold">N°001</span>
-        <div class="w-2 h-2 bg-accent rounded-full animate-pulse"></div>
-      </div>
+    <p class="cv-hero-role cv-hero-animate">
+      Informaticien de gestion <span class="co-ser">&amp; créateur digital</span>
+    </p>
+
+    <p class="cv-hero-diploma cv-hero-animate">
+      <i class="ri-graduation-cap-line" aria-hidden="true"></i>
+      Bachelor HES en Informatique de Gestion
+    </p>
+
+    <div class="cv-hero-meta cv-hero-animate">
+      <span class="cv-hero-status">
+        <span class="cv-hero-dot" aria-hidden="true"></span>
+        Disponible pour opportunités
+      </span>
+      <span class="cv-hero-loc">
+        <i class="ri-map-pin-2-line" aria-hidden="true"></i>
+        Genève, Suisse
+      </span>
     </div>
 
-    <!-- Main Hero Card -->
-    <div class="cv-hero-animate bg-white border-3 border-black p-8 md:p-12 shadow-[8px_8px_0px_rgba(0,0,0,0.2)] relative">
-      <!-- Corner markers -->
-      <div class="absolute -top-1.5 -left-1.5 w-3 h-3 border-2 border-black bg-white"></div>
-      <div class="absolute -top-1.5 -right-1.5 w-3 h-3 border-2 border-black bg-white"></div>
-      <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 border-2 border-black bg-white"></div>
-      <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-2 border-black bg-white"></div>
+    <div class="cv-hero-actions cv-hero-animate">
+      <a href="/cv-pdf" target="_blank" class="co-btn cv-hero-cta">
+        <i class="ri-download-2-line" aria-hidden="true"></i>
+        Télécharger le CV (PDF)
+      </a>
 
-      <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-8">
-        <div class="flex-1">
-          <!-- Name -->
-          <h1 class="cv-hero-animate text-4xl md:text-5xl font-normal mb-3 tracking-tight">
-            Jonathan Vouilloz
-          </h1>
-
-          <!-- Title with highlight -->
-          <p class="cv-hero-animate text-xl md:text-2xl font-medium text-gray-700 mb-2">
-            <span class="relative inline-block">
-              <span class="relative z-10">Informaticien de gestion</span>
-              <span class="absolute bottom-0 left-0 w-full h-[40%] bg-accent-soft -z-0"></span>
-            </span>
-            <span class="text-gray-400 mx-2">&</span>
-            <span class="relative inline-block">
-              <span class="relative z-10">Créateur digital</span>
-              <span class="absolute bottom-0 left-0 w-full h-[40%] bg-accent-soft -z-0"></span>
-            </span>
-          </p>
-
-          <!-- Diploma -->
-          <p class="cv-hero-animate text-lg text-gray-600 flex items-center gap-2">
-            <i class="ri-graduation-cap-line text-accent"></i>
-            Bachelor HES en Informatique de Gestion
-          </p>
-        </div>
-
-        <!-- Badges -->
-        <div class="cv-hero-animate flex flex-col gap-3">
-          <!-- Disponible badge -->
-          <div class="inline-flex items-center gap-2 bg-accent border-2 border-black px-4 py-2.5 shadow-[3px_3px_0px_rgba(0,0,0,1)]">
-            <span class="relative flex h-2.5 w-2.5">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>
-            </span>
-            <span class="text-sm font-bold">Disponible pour opportunités</span>
-          </div>
-
-          <!-- Location badge -->
-          <div class="inline-flex items-center gap-2 bg-white border-2 border-black px-4 py-2.5">
-            <i class="ri-map-pin-2-fill text-accent"></i>
-            <span class="text-sm font-medium">Genève, Suisse</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- CTA & Social Links -->
-      <div class="cv-hero-animate flex flex-col md:flex-row items-start md:items-center gap-6 mt-10 pt-8 border-t-2 border-black border-dashed">
-        <!-- Download CTA -->
-        <a
-          href="/cv-pdf"
-          target="_blank"
-          class="
-            inline-flex items-center gap-3
-            bg-[var(--blue)] border-2 border-black
-            px-6 py-3.5
-            font-bold text-base
-            shadow-[4px_4px_0px_rgba(0,0,0,1)]
-            transition-all duration-200
-            hover:bg-[var(--yellow)]
-            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-            hover:translate-x-[2px] hover:translate-y-[2px]
-            focus:ring-2 focus:ring-black focus:ring-offset-2 focus:outline-none
-            group
-          "
-        >
-          <i class="ri-download-2-line text-xl group-hover:animate-bounce"></i>
-          Télécharger le CV (PDF)
+      <div class="cv-hero-socials">
+        <span class="cv-hero-socials-label co-mut">Me contacter</span>
+        <a href={`mailto:${author.email}`} class="cv-soc" aria-label="Email">
+          <i class="ri-mail-line" aria-hidden="true"></i>
         </a>
-
-        <!-- Social Links -->
-        <div class="flex items-center gap-4 md:ml-auto">
-          <span class="text-sm text-gray-500 font-medium hidden md:block">Me contacter</span>
-          <div class="flex gap-2">
-            <a
-              href={`mailto:${author.email}`}
-              class="
-                w-11 h-11 flex items-center justify-center
-                border-2 border-black bg-white
-                transition-all duration-200
-                hover:bg-accent hover:translate-y-[-2px] hover:shadow-[0_4px_0px_rgba(0,0,0,1)]
-                focus:ring-2 focus:ring-black focus:outline-none
-              "
-              aria-label="Email"
-            >
-              <i class="ri-mail-fill text-lg"></i>
-            </a>
-            <a
-              href={author.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="
-                w-11 h-11 flex items-center justify-center
-                border-2 border-black bg-white
-                transition-all duration-200
-                hover:bg-accent hover:translate-y-[-2px] hover:shadow-[0_4px_0px_rgba(0,0,0,1)]
-                focus:ring-2 focus:ring-black focus:outline-none
-              "
-              aria-label="LinkedIn"
-            >
-              <i class="ri-linkedin-fill text-lg"></i>
-            </a>
-            <a
-              href={author.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="
-                w-11 h-11 flex items-center justify-center
-                border-2 border-black bg-white
-                transition-all duration-200
-                hover:bg-accent hover:translate-y-[-2px] hover:shadow-[0_4px_0px_rgba(0,0,0,1)]
-                focus:ring-2 focus:ring-black focus:outline-none
-              "
-              aria-label="GitHub"
-            >
-              <i class="ri-github-fill text-lg"></i>
-            </a>
-          </div>
-        </div>
+        <a href={author.linkedin} target="_blank" rel="noopener noreferrer" class="cv-soc" aria-label="LinkedIn">
+          <i class="ri-linkedin-fill" aria-hidden="true"></i>
+        </a>
+        <a href={author.github} target="_blank" rel="noopener noreferrer" class="cv-soc" aria-label="GitHub">
+          <i class="ri-github-fill" aria-hidden="true"></i>
+        </a>
       </div>
-    </div>
-
-    <!-- Decorative scan line - hidden on smaller screens to prevent overflow -->
-    <div class="cv-hero-animate absolute right-4 top-1/2 -translate-y-1/2 hidden xl:block">
-      <div class="w-1 h-32 bg-gradient-to-b from-transparent via-accent to-transparent opacity-50 animate-pulse"></div>
     </div>
   </div>
 </section>
 
 <style>
-  @keyframes scan {
-    0%, 100% { opacity: 0.3; }
-    50% { opacity: 0.8; }
+  .cv-hero { padding: 78px 40px 60px; }
+  .cv-hero-inner {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 18px;
+    max-width: 860px; margin: 0 auto;
   }
+  .cv-hero-title { font-size: clamp(2.4rem, 6vw, 3.6rem); letter-spacing: -0.03em; }
+  .cv-hero-role { font-size: clamp(1.15rem, 2.6vw, 1.5rem); font-weight: 500; color: var(--ink); }
+  .cv-hero-role .co-ser { color: var(--accent); font-size: 1.08em; }
+  .cv-hero-diploma { display: inline-flex; align-items: center; gap: 8px; font-size: 1rem; color: var(--muted); }
+  .cv-hero-diploma i { color: var(--accent); font-size: 1.15em; }
+
+  .cv-hero-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 2px; }
+  .cv-hero-status {
+    display: inline-flex; align-items: center; gap: 9px;
+    font-size: 14px; font-weight: 600; color: var(--ink);
+    padding: 6px 14px; border: 1px solid var(--line-2); border-radius: 999px;
+  }
+  .cv-hero-dot { position: relative; width: 7px; height: 7px; border-radius: 999px; background: var(--accent); flex: none; }
+  .cv-hero-dot::after {
+    content: ""; position: absolute; inset: -4px; border-radius: 999px;
+    border: 1px solid var(--accent); animation: cvPulse 2.2s ease-out infinite;
+  }
+  @keyframes cvPulse { 0% { transform: scale(.5); opacity: .6; } 100% { transform: scale(1.5); opacity: 0; } }
+  .cv-hero-loc { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--muted); }
+  .cv-hero-loc i { color: var(--accent); }
+
+  .cv-hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 22px; margin-top: 10px; }
+  .cv-hero-socials { display: flex; align-items: center; gap: 10px; }
+  .cv-hero-socials-label { font-size: 14px; margin-right: 4px; }
+  .cv-soc {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 42px; height: 42px; border: 1px solid var(--line-2); border-radius: 10px;
+    color: var(--muted); font-size: 1.15rem;
+    transition: color .18s ease-out, border-color .18s ease-out;
+  }
+  .cv-soc:hover { color: var(--accent); border-color: var(--accent); }
+  .cv-hero-cta i { font-size: 1.1em; }
+
+  @media (max-width: 720px) {
+    .cv-hero { padding: 56px 20px 46px; }
+    .cv-hero-actions { gap: 16px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .cv-hero-dot::after { animation: none; } }
 </style>

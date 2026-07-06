@@ -1,7 +1,5 @@
 ---
-// Formation section - "Certifications"
-import IconChip from "../IconChip.astro";
-
+// Formation section — Section 02
 const formations = [
   {
     title: "Bachelor HES en Informatique de Gestion",
@@ -25,71 +23,47 @@ const continuousLearning = [
 ];
 ---
 
-<section class="cv-section cv-formation py-16 px-4" style="background: var(--main-bg)">
-  <div class="max-w-4xl mx-auto">
-    <!-- Section header -->
-    <div class="flex items-center gap-4 mb-10">
-      <IconChip icon="ri-graduation-cap-line" />
-      <div>
-        <span class="text-xs font-mono text-gray-500 tracking-widest block">SECTION 02</span>
-        <h2 class="text-3xl md:text-4xl font-normal">Formation</h2>
-      </div>
-    </div>
+<section class="cv-section cv-formation co-sec co-pad cv-sec">
+  <div class="cv-wrap">
+    <header class="cv-head">
+      <p class="co-eyebrow">Section 02</p>
+      <h2 class="cv-h2">Formation</h2>
+    </header>
 
-    <!-- Main diplomas -->
-    <div class="space-y-6 mb-10">
-      {formations.map((formation, index) => (
-        <div class="relative bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.2)] group hover:shadow-[6px_6px_0px_rgba(0,0,0,0.2)] transition-all duration-200">
-          <!-- Stamp effect -->
-          <div class="absolute -top-3 -right-3 bg-accent border-2 border-black px-3 py-1 rotate-3 shadow-[2px_2px_0px_rgba(0,0,0,1)] z-10">
-            <span class="font-mono text-xs font-bold">VALIDÉ</span>
-          </div>
-
-          <!-- Corner markers -->
-          <div class="absolute top-2 left-2 w-2 h-2 border-l-2 border-t-2 border-black opacity-30"></div>
-          <div class="absolute top-2 right-2 w-2 h-2 border-r-2 border-t-2 border-black opacity-30"></div>
-          <div class="absolute bottom-2 left-2 w-2 h-2 border-l-2 border-b-2 border-black opacity-30"></div>
-          <div class="absolute bottom-2 right-2 w-2 h-2 border-r-2 border-b-2 border-black opacity-30"></div>
-
-          <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-3">
-            <div>
-              <h3 class="text-xl md:text-2xl font-bold mb-2">{formation.title}</h3>
-              <p class="text-gray-600 flex items-center gap-2">
-                <i class="ri-building-line text-accent"></i>
-                {formation.school}
-              </p>
-            </div>
-            <div class="bg-[var(--main-bg)] border-2 border-black px-4 py-2 text-center min-w-[120px]">
-              <span class="font-mono text-sm font-bold">{formation.years}</span>
-            </div>
-          </div>
+    <!-- Diplômes — fiche technique -->
+    <dl class="co-spec cv-formation-spec">
+      {formations.map((formation) => (
+        <div class="co-spec-row">
+          <dt>{formation.years}</dt>
+          <dd>
+            <span class="cv-dd-title">{formation.title}</span>
+            <span class="cv-dd-school">
+              <i class="ri-building-line" aria-hidden="true"></i>
+              {formation.school}
+            </span>
+          </dd>
         </div>
       ))}
-    </div>
+    </dl>
 
-    <!-- Continuous learning -->
-    <div class="bg-white border-2 border-black p-6">
-      <h4 class="text-lg font-bold mb-5 flex items-center gap-2">
-        <i class="ri-book-open-line text-accent"></i>
+    <!-- Formations continues -->
+    <div class="cv-cl">
+      <h3 class="cv-cl-title">
         Formations continues
-        <span class="text-xs font-normal text-gray-500 ml-2">(autodidacte & certifications)</span>
-      </h4>
+        <span class="cv-cl-note">autodidacte &amp; certifications</span>
+      </h3>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div class="cv-cl-grid">
         {continuousLearning.map((item) => (
-          <div class={`flex items-center gap-3 p-3 border ${item.active ? 'border-black bg-accent-soft' : 'border-gray-200'} transition-all duration-200 hover:border-accent hover:bg-accent-soft group`}>
-            <div class={`w-8 h-8 flex items-center justify-center ${item.active ? 'bg-accent-strong text-white' : 'bg-gray-100'} group-hover:bg-accent group-hover:text-black transition-colors`}>
-              <i class={`${item.icon} text-lg`}></i>
-            </div>
-            <div class="flex-1">
-              <span class="text-sm font-medium block">{item.label}</span>
-              {item.sublabel && <span class="text-xs text-gray-600 block">{item.sublabel}</span>}
-              <span class="text-xs text-gray-500">{item.period}</span>
+          <div class={`cv-cl-item ${item.active ? 'is-active' : ''}`}>
+            <span class="cv-cl-ic"><i class={item.icon} aria-hidden="true"></i></span>
+            <div class="cv-cl-body">
+              <span class="cv-cl-label">{item.label}</span>
+              {item.sublabel && <span class="cv-cl-sub">{item.sublabel}</span>}
+              <span class="cv-cl-period">{item.period}</span>
             </div>
             {item.active && (
-              <span class="px-2 py-0.5 bg-accent-strong text-white text-xs font-bold">
-                EN COURS
-              </span>
+              <span class="cv-cl-badge"><span class="cv-cl-dot" aria-hidden="true"></span> En cours</span>
             )}
           </div>
         ))}
@@ -97,3 +71,54 @@ const continuousLearning = [
     </div>
   </div>
 </section>
+
+<style>
+  .cv-sec { padding: 64px 40px; }
+  .cv-wrap { max-width: 860px; margin: 0 auto; }
+  .cv-head { display: flex; flex-direction: column; gap: 8px; padding-bottom: 36px; }
+  .cv-h2 { font-size: clamp(1.7rem, 3.6vw, 2.3rem); }
+
+  /* Fiche diplômes */
+  .cv-formation-spec { margin-bottom: 44px; }
+  .cv-formation-spec .co-spec-row { grid-template-columns: 132px 1fr; padding: 16px 0; align-items: start; }
+  .cv-dd-title { display: block; font-size: 1.05rem; font-weight: 600; color: var(--ink); line-height: 1.3; }
+  .cv-dd-school { display: inline-flex; align-items: center; gap: 7px; margin-top: 5px; font-size: 13px; font-weight: 400; color: var(--muted); }
+  .cv-dd-school i { color: var(--accent); }
+
+  /* Formations continues */
+  .cv-cl { display: flex; flex-direction: column; gap: 20px; }
+  .cv-cl-title { display: flex; align-items: baseline; flex-wrap: wrap; gap: 10px; font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; }
+  .cv-cl-note { font-size: 12px; font-weight: 500; color: var(--muted); text-transform: none; letter-spacing: 0; }
+  .cv-cl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .cv-cl-item {
+    display: flex; align-items: center; gap: 13px;
+    padding: 14px 16px; background: var(--surface); border: 1px solid var(--line);
+    transition: border-color .18s ease-out;
+  }
+  .cv-cl-item.is-active { border-color: var(--line-2); }
+  .cv-cl-item:hover { border-color: var(--accent); }
+  .cv-cl-ic {
+    flex: none; width: 38px; height: 38px; display: grid; place-items: center;
+    border: 1px solid var(--line-2); color: var(--muted); font-size: 18px;
+    transition: color .18s ease-out, border-color .18s ease-out;
+  }
+  .cv-cl-item:hover .cv-cl-ic { color: var(--accent); border-color: var(--accent); }
+  .cv-cl-body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+  .cv-cl-label { font-size: 14px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+  .cv-cl-sub { font-size: 12px; color: var(--muted); }
+  .cv-cl-period { font-size: 12px; color: var(--muted); }
+  .cv-cl-badge {
+    flex: none; margin-left: auto; align-self: flex-start;
+    display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+    color: var(--accent); padding: 4px 9px; border: 1px solid var(--line-2); border-radius: 999px;
+  }
+  .cv-cl-dot { width: 5px; height: 5px; border-radius: 999px; background: var(--accent); }
+
+  @media (max-width: 720px) {
+    .cv-sec { padding: 48px 20px; }
+    .cv-head { padding-bottom: 28px; }
+    .cv-formation-spec .co-spec-row { grid-template-columns: 96px 1fr; gap: 12px; }
+    .cv-cl-grid { grid-template-columns: 1fr; }
+  }
+</style>

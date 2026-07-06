@@ -1,6 +1,5 @@
 ---
-// Projects section - "Cas d'Étude Lab"
-import IconChip from "../IconChip.astro";
+// Projects section — Section 04
 import { proofLecureux } from "../../data/proof-lecureux";
 
 const projects = [
@@ -96,95 +95,123 @@ const projects = [
 ];
 ---
 
-<section class="cv-section cv-projects py-16 px-4" style="background: var(--main-bg)">
-  <div class="max-w-6xl mx-auto">
-    <!-- Section header -->
-    <div class="flex items-center gap-4 mb-4">
-      <IconChip icon="ri-flask-line" />
-      <div>
-        <span class="text-xs font-mono text-gray-500 tracking-widest block">SECTION 04</span>
-        <h2 class="text-3xl md:text-4xl font-normal">Projets Marquants</h2>
-      </div>
-    </div>
+<section class="cv-section cv-projects co-sec co-pad cv-sec">
+  <div class="cv-wrap-wide">
+    <header class="cv-head">
+      <p class="co-eyebrow">Section 04</p>
+      <h2 class="cv-h2">Projets marquants</h2>
+      <p class="cv-lead">
+        Sélection de projets illustrant mon approche : comprendre les besoins,
+        créer des solutions concrètes, générer des résultats mesurables.
+      </p>
+    </header>
 
-    <p class="text-lg text-gray-600 mb-10 max-w-3xl">
-      Sélection de projets illustrant mon approche : comprendre les besoins,
-      créer des solutions concrètes, générer des résultats mesurables.
-    </p>
-
-    <!-- Projects grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {projects.map((project, index) => (
-        <div
-          class={`project-card bg-white border-2 border-black p-6 transition-all duration-300 hover:shadow-[8px_8px_0px_rgba(0,0,0,0.15)] hover:-translate-y-1 relative group ${index === 0 ? 'md:col-span-2 lg:col-span-1' : ''}`}
-          style={`animation-delay: ${index * 0.1}s`}
-        >
-          <!-- Project number -->
-          <div class="absolute -top-3 -left-3 bg-black text-white w-10 h-10 flex items-center justify-center font-mono text-sm font-bold">
-            {project.id}
+    <div class="cv-proj-grid">
+      {projects.map((project) => (
+        <article class="cv-proj co-frame co-frame--reveal">
+          <div class="cv-proj-topbar">
+            <span class="co-index cv-proj-num">{project.id}</span>
+            {project.status === "active" && (
+              <span class="cv-proj-live"><span class="cv-proj-live-dot" aria-hidden="true"></span> En cours</span>
+            )}
           </div>
 
-          <!-- Active badge -->
-          {project.status === "active" && (
-            <div class="absolute -top-2 -right-2 bg-accent-strong text-white px-3 py-1 text-xs font-bold border-2 border-black rotate-3">
-              <span class="flex items-center gap-1">
-                <span class="w-1.5 h-1.5 bg-white rounded-full animate-pulse"></span>
-                EN COURS
-              </span>
-            </div>
-          )}
-
-          <!-- Header -->
-          <div class="mb-4 pt-2">
-            <h3 class="text-xl font-bold mb-1 group-hover:text-accent transition-colors">{project.title}</h3>
-            <p class="text-sm text-gray-500">
-              {project.client} • {project.year}
-            </p>
-            <span class="inline-block mt-2 text-xs font-medium text-gray-600 bg-gray-100 px-2 py-1">
-              {project.type}
-            </span>
+          <div class="cv-proj-head">
+            <h3 class="cv-proj-title">{project.title}</h3>
+            <p class="cv-proj-client">{project.client} · {project.year}</p>
+            <span class="cv-proj-cat">{project.type}</span>
           </div>
 
-          <!-- Description -->
-          <p class="text-gray-700 text-sm mb-4 leading-relaxed">
-            {project.description}
-          </p>
+          <p class="cv-proj-desc">{project.description}</p>
 
-          <!-- Results -->
-          <div class="bg-accent-soft border-l-4 border-black p-3 mb-4">
-            <div class="flex flex-wrap gap-4">
-              {project.results.map((result) => (
-                <div class="text-center">
-                  <span class="block text-xl font-black text-accent">{result.value}</span>
-                  <span class="text-xs text-gray-600">{result.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <!-- Stack -->
-          <div class="flex flex-wrap gap-2">
-            {project.stack.map((tech) => (
-              <span class={`skill-badge px-2 py-1 border border-black text-xs font-medium ${project.stackType === 'marketing' ? 'bg-accent' : project.stackType === 'past' ? 'bg-gray-200' : 'bg-accent'}`}>
-                {tech}
-              </span>
+          <div class="cv-proj-results">
+            {project.results.map((result) => (
+              <div class="cv-proj-res">
+                <span class="cv-proj-res-val">{result.value}</span>
+                <span class="cv-proj-res-lab">{result.label}</span>
+              </div>
             ))}
           </div>
 
-          <!-- Link -->
+          <div class="cv-proj-stack">
+            {project.stack.map((tech) => (<span class="skill-badge cv-tag">{tech}</span>))}
+          </div>
+
           {project.link && (
-            <a
-              href={project.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="mt-4 inline-flex items-center gap-2 text-sm font-bold text-gray-700 hover:text-accent transition-colors group/link"
-            >
-              <span class="border-b-2 border-transparent group-hover/link:border-accent">Voir le projet</span>
-              <i class="ri-external-link-line transition-transform group-hover/link:translate-x-1"></i>
+            <a href={project.link} target="_blank" rel="noopener noreferrer" class="cv-textlink cv-proj-link">
+              <span>Voir le projet</span>
+              <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
             </a>
           )}
-        </div>
+        </article>
       ))}
     </div>
   </div>
 </section>
+
+<style>
+  .cv-sec { padding: 64px 40px; }
+  .cv-wrap-wide { max-width: 1060px; margin: 0 auto; }
+  .cv-head { display: flex; flex-direction: column; gap: 10px; padding-bottom: 40px; }
+  .cv-h2 { font-size: clamp(1.7rem, 3.6vw, 2.3rem); }
+  .cv-lead { font-size: 1.0625rem; line-height: 1.7; color: var(--muted); max-width: 60ch; }
+
+  .cv-proj-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .cv-proj {
+    position: relative; background: var(--surface); border: 1px solid var(--line);
+    padding: 22px 22px 20px; display: flex; flex-direction: column; gap: 16px;
+    transition: border-color .18s ease-out;
+  }
+  .cv-proj:hover { border-color: var(--line-2); }
+
+  .cv-proj-topbar { display: flex; align-items: center; justify-content: space-between; }
+  .cv-proj-num { font-size: 13px; font-weight: 600; letter-spacing: 0.08em; color: var(--muted); }
+  .cv-proj-live {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent);
+    padding: 4px 9px; border: 1px solid var(--line-2); border-radius: 999px;
+  }
+  .cv-proj-live-dot { width: 5px; height: 5px; border-radius: 999px; background: var(--accent); }
+
+  .cv-proj-head { display: flex; flex-direction: column; gap: 6px; }
+  .cv-proj-title { font-size: 1.1rem; line-height: 1.25; letter-spacing: -0.02em; }
+  .cv-proj-client { font-size: 12.5px; color: var(--muted); }
+  .cv-proj-cat {
+    align-self: flex-start; margin-top: 2px;
+    font-size: 11px; font-weight: 500; color: var(--muted);
+    padding: 4px 10px; border: 1px solid var(--line); border-radius: 999px;
+  }
+
+  .cv-proj-desc { font-size: 13.5px; line-height: 1.6; color: var(--muted); }
+
+  .cv-proj-results { display: flex; flex-wrap: wrap; gap: 22px; padding: 14px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .cv-proj-res { display: flex; flex-direction: column; gap: 2px; }
+  .cv-proj-res-val { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; color: var(--accent); line-height: 1; }
+  .cv-proj-res-lab { font-size: 11.5px; color: var(--muted); }
+
+  .cv-proj-stack { display: flex; flex-wrap: wrap; gap: 7px; }
+  .cv-tag {
+    display: inline-flex; align-items: center;
+    font-size: 11.5px; font-weight: 500; color: var(--ink);
+    background: var(--bg); border: 1px solid var(--line-2); padding: 3px 9px; border-radius: 999px;
+  }
+
+  .cv-textlink {
+    display: inline-flex; align-items: center; gap: 7px; align-self: flex-start; margin-top: auto;
+    font-size: 13px; font-weight: 600; color: var(--ink);
+    padding-bottom: 3px; border-bottom: 1px solid var(--line-2);
+    transition: color .18s ease-out, border-color .18s ease-out;
+  }
+  .cv-textlink i { transition: transform .18s ease-out; }
+  .cv-textlink:hover { color: var(--accent); border-color: var(--accent); }
+  .cv-textlink:hover i { transform: translate(2px, -2px); }
+
+  @media (max-width: 980px) {
+    .cv-proj-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .cv-sec { padding: 48px 20px; }
+    .cv-head { padding-bottom: 28px; }
+    .cv-proj-grid { grid-template-columns: 1fr; }
+  }
+</style>

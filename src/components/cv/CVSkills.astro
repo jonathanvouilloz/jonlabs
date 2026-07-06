@@ -1,62 +1,52 @@
 ---
-// Skills section - "Analyse des Compétences" - Section interactive
-import IconChip from "../IconChip.astro";
-
+// Skills section — Section 05
 const skillCategories = [
   {
     id: "dev",
     title: "Développement Web",
     icon: "ri-code-s-slash-line",
-    color: "blue",
     skills: ["Astro", "React", "Node.js", "TypeScript", "JavaScript", "HTML/CSS", "Webflow", "Framer"]
   },
   {
     id: "design",
     title: "Design & UI/UX",
     icon: "ri-palette-line",
-    color: "blue",
     skills: ["Figma", "Tailwind CSS", "UI/UX Design", "Responsive", "Identité graphique"]
   },
   {
     id: "backend",
     title: "Backend & BDD",
     icon: "ri-database-2-line",
-    color: "blue",
     skills: ["Supabase", "PostgreSQL", "APIs RESTful", "Auth", "Architecture données"]
   },
   {
     id: "automation",
     title: "Automatisation",
     icon: "ri-settings-3-line",
-    color: "blue",
     skills: ["Make", "Airtable", "Scripts custom", "Intégrations API", "n8n"]
   },
   {
     id: "marketing",
     title: "Marketing Digital",
     icon: "ri-megaphone-line",
-    color: "yellow",
     skills: ["SEO/SEM", "Copywriting", "Email Marketing", "Analytics", "Content Strategy"]
   },
   {
     id: "ai",
     title: "Intelligence Artificielle",
     icon: "ri-brain-line",
-    color: "violet",
     skills: ["Prompt Engineering", "Claude", "MCP", "Claude Code", "Workflows IA", "Cursor"]
   },
   {
     id: "blockchain",
     title: "Blockchain & Web3",
     icon: "ri-coin-line",
-    color: "gray",
     skills: ["Analyse fondamentale", "Économie crypto", "Histoire blockchain", "Concepts DeFi", "Veille marché"]
   },
   {
     id: "tools",
     title: "Outils & Workflow",
     icon: "ri-tools-line",
-    color: "gray",
     skills: ["Git/GitHub", "VS Code", "Vercel/Netlify", "Markdown", "Documentation"]
   }
 ];
@@ -69,113 +59,102 @@ const softSkills = [
   { title: "Polyvalence", description: "Tech + business + design", icon: "ri-apps-2-line" },
   { title: "Autonomie", description: "Freelance depuis 2020", icon: "ri-user-star-line" }
 ];
-
-const getColorClass = (color: string) => {
-  switch(color) {
-    case 'blue': return 'bg-accent';
-    case 'yellow': return 'bg-accent';
-    case 'violet': return 'bg-accent-strong text-white';
-    case 'gray': return 'bg-gray-200';
-    default: return 'bg-accent';
-  }
-};
-
-const getIconBgClass = (color: string) => {
-  switch(color) {
-    case 'blue': return 'bg-accent';
-    case 'yellow': return 'bg-accent';
-    case 'violet': return 'bg-accent-strong text-white';
-    case 'gray': return 'bg-gray-300';
-    default: return 'bg-accent';
-  }
-};
 ---
 
-<section class="cv-section cv-skills-section py-16 px-4 bg-white border-y-2 border-black">
-  <div class="max-w-6xl mx-auto">
-    <!-- Section header -->
-    <div class="flex items-center gap-4 mb-10">
-      <IconChip icon="ri-stack-line" />
-      <div>
-        <span class="text-xs font-mono text-gray-500 tracking-widest block">SECTION 05</span>
-        <h2 class="text-3xl md:text-4xl font-normal">Stack & Compétences</h2>
-      </div>
-    </div>
+<section class="cv-section cv-skills-section co-sec co-pad cv-sec">
+  <div class="cv-wrap-wide">
+    <header class="cv-head">
+      <p class="co-eyebrow">Section 05</p>
+      <h2 class="cv-h2">Stack &amp; compétences</h2>
+    </header>
 
-    <!-- Skills grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
-      {skillCategories.map((category, catIndex) => (
-        <div
-          class="skill-category border-2 border-black p-5 bg-white transition-all duration-300 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.15)] group"
-          data-category={category.id}
-        >
-          <!-- Header -->
-          <div class="flex items-center gap-3 mb-4">
-            <div class={`w-10 h-10 flex items-center justify-center border-2 border-black transition-transform duration-300 group-hover:scale-110 ${getIconBgClass(category.color)}`}>
-              <i class={`${category.icon} text-xl`}></i>
-            </div>
-            <h3 class="text-sm font-bold leading-tight">{category.title}</h3>
+    <!-- Catégories techniques -->
+    <div class="cv-sk-grid">
+      {skillCategories.map((category) => (
+        <div class="cv-sk-cat" data-category={category.id}>
+          <div class="cv-sk-cat-head">
+            <span class="cv-sk-ic"><i class={category.icon} aria-hidden="true"></i></span>
+            <h3 class="cv-sk-cat-title">{category.title}</h3>
           </div>
-
-          <!-- Skills -->
-          <div class="flex flex-wrap gap-2">
-            {category.skills.map((skill, skillIndex) => (
-              <span
-                class={`skill-badge px-2 py-1 border border-black text-xs font-medium transition-all duration-200 hover:scale-105 cursor-default ${getColorClass(category.color)}`}
-                style={`animation-delay: ${catIndex * 0.1 + skillIndex * 0.05}s`}
-              >
-                {skill}
-              </span>
-            ))}
+          <div class="cv-sk-tags">
+            {category.skills.map((skill) => (<span class="skill-badge cv-tag">{skill}</span>))}
           </div>
         </div>
       ))}
     </div>
 
-    <!-- Soft Skills -->
-    <div class="bg-[var(--main-bg)] border-2 border-black p-6">
-      <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-        <i class="ri-user-heart-line text-accent"></i>
-        Compétences transversales
-      </h3>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {softSkills.map((skill, index) => (
-          <div
-            class="flex items-start gap-3 p-3 bg-white border border-black transition-all duration-200 hover:border-accent hover:shadow-[2px_2px_0px_rgba(0,0,0,0.1)] group"
-            style={`animation-delay: ${index * 0.1}s`}
-          >
-            <div class="w-8 h-8 flex items-center justify-center bg-accent text-ink group-hover:bg-accent-strong group-hover:text-white transition-colors">
-              <i class={`${skill.icon}`}></i>
-            </div>
-            <div>
-              <span class="font-bold text-sm block">{skill.title}</span>
-              <span class="text-xs text-gray-600">{skill.description}</span>
+    <!-- Compétences transversales -->
+    <div class="cv-soft">
+      <h3 class="cv-soft-title">Compétences transversales</h3>
+      <div class="cv-soft-grid">
+        {softSkills.map((skill) => (
+          <div class="cv-soft-item">
+            <span class="cv-soft-ic"><i class={skill.icon} aria-hidden="true"></i></span>
+            <div class="cv-soft-body">
+              <span class="cv-soft-name">{skill.title}</span>
+              <span class="cv-soft-desc">{skill.description}</span>
             </div>
           </div>
         ))}
       </div>
     </div>
-
-    <!-- Legend -->
-    <div class="flex flex-wrap items-center gap-4 mt-6 pt-4 border-t border-dashed border-gray-300 text-xs text-gray-500">
-      <span class="font-medium">Légende :</span>
-      <span class="flex items-center gap-1">
-        <span class="w-3 h-3 bg-accent border border-black"></span>
-        Tech actuelle
-      </span>
-      <span class="flex items-center gap-1">
-        <span class="w-3 h-3 bg-accent border border-black"></span>
-        Marketing
-      </span>
-      <span class="flex items-center gap-1">
-        <span class="w-3 h-3 bg-accent-strong border border-black"></span>
-        IA
-      </span>
-      <span class="flex items-center gap-1">
-        <span class="w-3 h-3 bg-gray-200 border border-black"></span>
-        Expérience passée
-      </span>
-    </div>
   </div>
 </section>
+
+<style>
+  .cv-sec { padding: 64px 40px; }
+  .cv-wrap-wide { max-width: 1060px; margin: 0 auto; }
+  .cv-head { display: flex; flex-direction: column; gap: 8px; padding-bottom: 40px; }
+  .cv-h2 { font-size: clamp(1.7rem, 3.6vw, 2.3rem); }
+
+  .cv-sk-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-bottom: 44px; }
+  .cv-sk-cat {
+    background: var(--surface); border: 1px solid var(--line); padding: 18px;
+    display: flex; flex-direction: column; gap: 14px; transition: border-color .18s ease-out;
+  }
+  .cv-sk-cat:hover { border-color: var(--line-2); }
+  .cv-sk-cat-head { display: flex; align-items: center; gap: 11px; }
+  .cv-sk-ic {
+    flex: none; width: 36px; height: 36px; display: grid; place-items: center;
+    border: 1px solid var(--line-2); color: var(--muted); font-size: 18px;
+    transition: color .18s ease-out, border-color .18s ease-out;
+  }
+  .cv-sk-cat:hover .cv-sk-ic { color: var(--accent); border-color: var(--accent); }
+  .cv-sk-cat-title { font-size: 13.5px; font-weight: 700; line-height: 1.25; letter-spacing: -0.01em; }
+  .cv-sk-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .cv-tag {
+    display: inline-flex; align-items: center;
+    font-size: 11.5px; font-weight: 500; color: var(--ink);
+    background: var(--bg); border: 1px solid var(--line-2); padding: 3px 8px; border-radius: 999px;
+  }
+
+  .cv-soft { display: flex; flex-direction: column; gap: 20px; padding-top: 40px; border-top: 1px solid var(--line); }
+  .cv-soft-title { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; }
+  .cv-soft-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .cv-soft-item {
+    display: flex; align-items: flex-start; gap: 12px;
+    background: var(--surface); border: 1px solid var(--line); padding: 15px 16px;
+    transition: border-color .18s ease-out;
+  }
+  .cv-soft-item:hover { border-color: var(--accent); }
+  .cv-soft-ic {
+    flex: none; width: 34px; height: 34px; display: grid; place-items: center;
+    border: 1px solid var(--line-2); color: var(--muted); font-size: 16px;
+    transition: color .18s ease-out, border-color .18s ease-out;
+  }
+  .cv-soft-item:hover .cv-soft-ic { color: var(--accent); border-color: var(--accent); }
+  .cv-soft-body { display: flex; flex-direction: column; gap: 2px; }
+  .cv-soft-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+  .cv-soft-desc { font-size: 12.5px; color: var(--muted); line-height: 1.45; }
+
+  @media (max-width: 980px) {
+    .cv-sk-grid { grid-template-columns: repeat(2, 1fr); }
+    .cv-soft-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .cv-sec { padding: 48px 20px; }
+    .cv-head { padding-bottom: 28px; }
+    .cv-sk-grid { grid-template-columns: 1fr; }
+    .cv-soft-grid { grid-template-columns: 1fr; }
+  }
+</style>

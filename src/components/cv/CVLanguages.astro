@@ -1,7 +1,5 @@
 ---
-// Languages section - "Communication"
-import IconChip from "../IconChip.astro";
-
+// Languages section — Section 06
 const languages = [
   {
     name: "Français",
@@ -20,32 +18,27 @@ const languages = [
 ];
 ---
 
-<section class="cv-section cv-languages py-12 px-4" style="background: var(--main-bg)">
-  <div class="max-w-4xl mx-auto">
-    <!-- Section header -->
-    <div class="flex items-center gap-4 mb-8">
-      <IconChip icon="ri-translate-2" size="md" />
-      <div>
-        <span class="text-xs font-mono text-gray-500 tracking-widest block">SECTION 06</span>
-        <h2 class="text-3xl md:text-4xl font-normal">Langues</h2>
-      </div>
-    </div>
+<section class="cv-section cv-languages co-sec co-pad cv-sec">
+  <div class="cv-wrap">
+    <header class="cv-head">
+      <p class="co-eyebrow">Section 06</p>
+      <h2 class="cv-h2">Langues</h2>
+    </header>
 
-    <!-- Languages grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="cv-lang-grid">
       {languages.map((lang) => (
-        <div class="bg-white border-2 border-black p-5 transition-all duration-200 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.15)]">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="w-8 h-6 border border-black overflow-hidden flex-shrink-0">
+        <div class="cv-lang co-frame">
+          <div class="cv-lang-head">
+            <span class="cv-lang-flag">
               {lang.flagCode === "ch" && (
-                <svg viewBox="0 0 32 24" class="w-full h-full" aria-hidden="true">
+                <svg viewBox="0 0 32 24" class="cv-lang-svg" aria-hidden="true">
                   <rect width="32" height="24" fill="#FF0000"/>
                   <rect x="13" y="6" width="6" height="12" fill="#FFFFFF"/>
                   <rect x="10" y="9" width="12" height="6" fill="#FFFFFF"/>
                 </svg>
               )}
               {lang.flagCode === "gb" && (
-                <svg viewBox="0 0 60 30" class="w-full h-full" aria-hidden="true">
+                <svg viewBox="0 0 60 30" class="cv-lang-svg" aria-hidden="true">
                   <rect width="60" height="30" fill="#012169"/>
                   <path d="M0,0 L60,30 M60,0 L0,30" stroke="#FFFFFF" stroke-width="6"/>
                   <path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="4" clip-path="url(#clip)"/>
@@ -53,23 +46,18 @@ const languages = [
                   <path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/>
                 </svg>
               )}
+            </span>
+            <div class="cv-lang-ident">
+              <h3 class="cv-lang-name">{lang.name}</h3>
+              <p class="cv-lang-level">{lang.level}</p>
             </div>
-            <div>
-              <h3 class="text-lg font-bold">{lang.name}</h3>
-              <p class="text-sm text-gray-600">{lang.level}</p>
-            </div>
+            <span class="cv-lang-pct">{lang.percentage}%</span>
           </div>
 
-          {lang.sublevel && (
-            <p class="text-xs text-gray-500 mb-3">{lang.sublevel}</p>
-          )}
+          {lang.sublevel && <p class="cv-lang-sub">{lang.sublevel}</p>}
 
-          <!-- Progress bar -->
-          <div class="h-2 bg-gray-200 border border-black overflow-hidden">
-            <div
-              class="h-full bg-accent transition-all duration-1000 ease-out language-bar"
-              style={`width: ${lang.percentage}%`}
-            ></div>
+          <div class="cv-lang-track">
+            <div class="cv-lang-fill language-bar" style={`width: ${lang.percentage}%`}></div>
           </div>
         </div>
       ))}
@@ -78,13 +66,34 @@ const languages = [
 </section>
 
 <style>
-  .language-bar {
-    transform-origin: left;
-    animation: fillBar 1s ease-out forwards;
-  }
+  .cv-sec { padding: 56px 40px; }
+  .cv-wrap { max-width: 860px; margin: 0 auto; }
+  .cv-head { display: flex; flex-direction: column; gap: 8px; padding-bottom: 32px; }
+  .cv-h2 { font-size: clamp(1.7rem, 3.6vw, 2.3rem); }
 
-  @keyframes fillBar {
-    from { transform: scaleX(0); }
-    to { transform: scaleX(1); }
+  .cv-lang-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .cv-lang {
+    position: relative; background: var(--surface); border: 1px solid var(--line);
+    padding: 20px 22px; display: flex; flex-direction: column; gap: 12px;
   }
+  .cv-lang-head { display: flex; align-items: center; gap: 12px; }
+  .cv-lang-flag { flex: none; width: 30px; height: 22px; border: 1px solid var(--line-2); overflow: hidden; display: block; }
+  .cv-lang-svg { width: 100%; height: 100%; display: block; }
+  .cv-lang-ident { display: flex; flex-direction: column; gap: 1px; }
+  .cv-lang-name { font-size: 1.05rem; letter-spacing: -0.01em; }
+  .cv-lang-level { font-size: 13px; color: var(--muted); }
+  .cv-lang-pct { margin-left: auto; font-size: 13px; font-weight: 600; font-variant-numeric: tabular-nums; color: var(--accent); }
+  .cv-lang-sub { font-size: 12.5px; color: var(--muted); line-height: 1.5; }
+
+  .cv-lang-track { height: 4px; background: var(--line); border-radius: 999px; overflow: hidden; }
+  .cv-lang-fill { height: 100%; background: var(--accent); border-radius: 999px; transform-origin: left; animation: cvFillBar 1s ease-out forwards; }
+
+  @keyframes cvFillBar { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+
+  @media (max-width: 720px) {
+    .cv-sec { padding: 44px 20px; }
+    .cv-head { padding-bottom: 24px; }
+    .cv-lang-grid { grid-template-columns: 1fr; }
+  }
+  @media (prefers-reduced-motion: reduce) { .cv-lang-fill { animation: none; } }
 </style>

@@ -1,100 +1,106 @@
 ---
-// Interests section - "Au-delà du Lab"
-import IconChip from "../IconChip.astro";
-
+// Interests section — Section 07
 const interests = [
   {
     icon: "ri-ping-pong-line",
     title: "Badminton",
     description: "Pratique régulière + support technique et automatisation pour clubs sportifs.",
-    skills: "Gestion d'événements, travail d'équipe, process organisationnels",
-    rotate: "-1deg"
+    skills: "Gestion d'événements, travail d'équipe, process organisationnels"
   },
   {
     icon: "ri-camera-line",
     title: "Photographie",
     description: "Capturer des moments et raconter des histoires visuelles.",
-    skills: "Composition, storytelling visuel, design graphique",
-    rotate: "1deg"
+    skills: "Composition, storytelling visuel, design graphique"
   },
   {
     icon: "ri-dice-line",
     title: "Jeux de Société",
     description: "Animation de communauté, newsletter, emploi actuel en ludothèque.",
     skills: "Animation, curation de contenu, gestion de communauté",
-    highlight: true,
-    rotate: "-0.5deg"
+    highlight: true
   },
   {
     icon: "ri-coin-line",
     title: "Cryptomonnaies",
     description: "Exploration approfondie de l'écosystème (2021-2024), newsletter passée.",
     skills: "Analyse macro/micro, veille technologique, innovation financière",
-    past: true,
-    rotate: "0.5deg"
+    past: true
   }
 ];
 ---
 
-<section class="cv-section cv-interests py-16 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-  <!-- Subtle paper texture -->
-  <div class="absolute inset-0 opacity-[0.02]" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\"0 0 200 200\" xmlns=\"http://www.w3.org/2000/svg\"%3E%3Cfilter id=\"noise\"%3E%3CfeTurbulence type=\"fractalNoise\" baseFrequency=\"0.65\" numOctaves=\"3\" stitchTiles=\"stitch\"/%3E%3C/filter%3E%3Crect width=\"100%\" height=\"100%\" filter=\"url(%23noise)\"/%3E%3C/svg%3E');"></div>
+<section class="cv-section cv-interests co-sec co-pad cv-sec">
+  <div class="cv-wrap">
+    <header class="cv-head">
+      <p class="co-eyebrow">Section 07</p>
+      <h2 class="cv-h2">Au-delà du code</h2>
+      <p class="cv-lead">
+        Mes passions enrichissent ma vision créative et ma capacité à penser
+        différemment les projets.
+      </p>
+    </header>
 
-  <div class="max-w-4xl mx-auto relative">
-    <!-- Section header -->
-    <div class="flex items-center gap-4 mb-4">
-      <IconChip icon="ri-heart-line" />
-      <div>
-        <span class="text-xs font-mono text-gray-500 tracking-widest block">SECTION 07</span>
-        <h2 class="text-3xl md:text-4xl font-normal">Au-delà du code</h2>
-      </div>
-    </div>
-
-    <p class="text-lg text-gray-600 mb-10">
-      Mes passions enrichissent ma vision créative et ma capacité à penser différemment les projets.
-    </p>
-
-    <!-- Interests grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {interests.map((interest, index) => (
-        <div
-          class={`interest-card border-2 border-black p-5 transition-all duration-300 hover:shadow-[6px_6px_0px_rgba(0,0,0,0.15)] hover:-translate-y-1 group cursor-default ${interest.highlight ? 'bg-accent-soft border-black' : interest.past ? 'bg-gray-50' : 'bg-white'}`}
-          style={`transform: rotate(${interest.rotate}); animation-delay: ${index * 0.1}s`}
-        >
-          <!-- Icon & Title -->
-          <div class="flex items-center gap-3 mb-3">
-            <div class={`w-10 h-10 flex items-center justify-center border-2 border-black group-hover:scale-110 transition-transform duration-300 ${interest.highlight ? 'bg-accent-strong text-white' : interest.past ? 'bg-gray-200' : 'bg-accent'}`}>
-              <i class={`${interest.icon} text-xl`}></i>
-            </div>
-            <h3 class="text-xl font-bold">{interest.title}</h3>
+    <div class="cv-int-grid">
+      {interests.map((interest) => (
+        <article class="cv-int co-frame co-frame--reveal">
+          <div class="cv-int-head">
+            <span class="cv-int-ic"><i class={interest.icon} aria-hidden="true"></i></span>
+            <h3 class="cv-int-title">{interest.title}</h3>
             {interest.highlight && (
-              <span class="px-2 py-0.5 bg-accent-strong text-white text-xs font-bold ml-auto">
-                ACTIF
-              </span>
+              <span class="cv-int-tag"><span class="cv-int-dot" aria-hidden="true"></span> Actif</span>
             )}
-            {interest.past && (
-              <span class="px-2 py-0.5 bg-gray-300 text-xs font-bold ml-auto">
-                2021-24
-              </span>
-            )}
+            {interest.past && <span class="cv-int-tag is-past">2021-24</span>}
           </div>
 
-          <!-- Description -->
-          <p class="text-gray-700 mb-3">{interest.description}</p>
+          <p class="cv-int-desc">{interest.description}</p>
 
-          <!-- Skills gained -->
-          <div class="text-sm text-gray-500 border-t border-dashed border-gray-300 pt-3">
-            <span class="font-medium text-gray-700">Compétences liées : </span>
-            {interest.skills}
-          </div>
-        </div>
+          <p class="cv-int-skills">
+            <span class="cv-int-skills-label">Compétences liées :</span> {interest.skills}
+          </p>
+        </article>
       ))}
     </div>
   </div>
 </section>
 
 <style>
-  .interest-card:hover {
-    transform: rotate(0deg) !important;
+  .cv-sec { padding: 64px 40px; }
+  .cv-wrap { max-width: 860px; margin: 0 auto; }
+  .cv-head { display: flex; flex-direction: column; gap: 10px; padding-bottom: 40px; }
+  .cv-h2 { font-size: clamp(1.7rem, 3.6vw, 2.3rem); }
+  .cv-lead { font-size: 1.0625rem; line-height: 1.7; color: var(--muted); max-width: 56ch; }
+
+  .cv-int-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .cv-int {
+    position: relative; background: var(--surface); border: 1px solid var(--line);
+    padding: 22px 24px; display: flex; flex-direction: column; gap: 12px;
+    transition: border-color .18s ease-out;
+  }
+  .cv-int:hover { border-color: var(--line-2); }
+  .cv-int-head { display: flex; align-items: center; gap: 12px; }
+  .cv-int-ic {
+    flex: none; width: 40px; height: 40px; display: grid; place-items: center;
+    border: 1px solid var(--line-2); color: var(--muted); font-size: 19px;
+    transition: color .18s ease-out, border-color .18s ease-out;
+  }
+  .cv-int:hover .cv-int-ic { color: var(--accent); border-color: var(--accent); }
+  .cv-int-title { font-size: 1.15rem; letter-spacing: -0.02em; }
+  .cv-int-tag {
+    margin-left: auto; display: inline-flex; align-items: center; gap: 6px; white-space: nowrap;
+    font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent);
+    padding: 4px 9px; border: 1px solid var(--line-2); border-radius: 999px;
+  }
+  .cv-int-tag.is-past { color: var(--muted); }
+  .cv-int-dot { width: 5px; height: 5px; border-radius: 999px; background: var(--accent); }
+
+  .cv-int-desc { font-size: 14px; line-height: 1.6; color: var(--muted); }
+  .cv-int-skills { font-size: 12.5px; line-height: 1.55; color: var(--muted); padding-top: 12px; border-top: 1px solid var(--line); }
+  .cv-int-skills-label { font-weight: 600; color: var(--ink); }
+
+  @media (max-width: 720px) {
+    .cv-sec { padding: 48px 20px; }
+    .cv-head { padding-bottom: 28px; }
+    .cv-int-grid { grid-template-columns: 1fr; }
   }
 </style>

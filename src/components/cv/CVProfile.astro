@@ -1,70 +1,86 @@
 ---
-// Profile section - "Analyse du Sujet"
-import IconChip from "../IconChip.astro";
+// Profile section — Section 01
 ---
 
-<section class="cv-section cv-profile py-16 px-4 bg-white border-y-2 border-black">
-  <div class="max-w-4xl mx-auto">
-    <!-- Section header -->
-    <div class="flex items-center gap-4 mb-8">
-      <IconChip icon="ri-user-search-line" />
-      <div>
-        <span class="text-xs font-mono text-gray-500 tracking-widest block">SECTION 01</span>
-        <h2 class="text-3xl md:text-4xl font-normal">Profil</h2>
-      </div>
-    </div>
+<section class="cv-section cv-profile co-sec co-pad cv-sec">
+  <div class="cv-wrap">
+    <header class="cv-head">
+      <p class="co-eyebrow">Section 01</p>
+      <h2 class="cv-h2">Profil</h2>
+    </header>
 
-    <!-- Content -->
-    <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-8 items-start">
-      <div class="text-lg leading-relaxed space-y-4">
+    <div class="cv-profile-grid">
+      <div class="cv-prose">
         <p>
-          Informaticien de gestion avec
-          <span class="relative inline-block">
-            <span class="relative z-10 font-semibold">8+ ans d'expérience</span>
-            <span class="absolute bottom-0 left-0 w-full h-[40%] bg-accent-soft -z-0"></span>
-          </span>
-          combinant développement web, automatisation et stratégie digitale. Parcours polyvalent alliant compétences techniques, vision business et capacité de transmission. Passionné par l'accompagnement de projets de A à Z, de la conception à la mise en production.
+          Informaticien de gestion avec <span class="cv-mark">8+ ans d'expérience</span>
+          combinant développement web, automatisation et stratégie digitale. Parcours
+          polyvalent alliant compétences techniques, vision business et capacité de
+          transmission. Passionné par l'accompagnement de projets de A à Z, de la
+          conception à la mise en production.
         </p>
         <p>
-          Approche pragmatique : créer des
-          <span class="relative inline-block">
-            <span class="relative z-10 font-semibold">solutions concrètes</span>
-            <span class="absolute bottom-0 left-0 w-full h-[40%] bg-accent-soft -z-0"></span>
-          </span>
-          qui génèrent des
-          <span class="relative inline-block">
-            <span class="relative z-10 font-semibold">résultats mesurables</span>
-            <span class="absolute bottom-0 left-0 w-full h-[40%] bg-accent-soft -z-0"></span>
-          </span>.
-          Formé aux nouvelles technologies (IA, blockchain, no-code) avec une veille active sur les tendances tech.
+          Approche pragmatique : créer des <span class="cv-mark">solutions concrètes</span>
+          qui génèrent des <span class="cv-mark">résultats mesurables</span>. Formé aux
+          nouvelles technologies (IA, blockchain, no-code) avec une veille active sur les
+          tendances tech.
         </p>
       </div>
 
-      <!-- Experience counter -->
-      <div class="bg-[var(--main-bg)] border-2 border-black p-6 text-center min-w-[160px]">
-        <div class="text-5xl font-black text-accent mb-1">8+</div>
-        <div class="text-sm font-medium text-gray-600">années d'expérience</div>
-        <div class="mt-3 pt-3 border-t border-gray-300">
-          <div class="text-2xl font-bold">19k</div>
-          <div class="text-xs text-gray-500">utilisateurs touchés</div>
-        </div>
-      </div>
+      <aside class="cv-stat co-frame">
+        <div class="cv-stat-big">8+</div>
+        <div class="cv-stat-label">années d'expérience</div>
+        <div class="cv-stat-line"></div>
+        <div class="cv-stat-mid">19k</div>
+        <div class="cv-stat-sub">utilisateurs touchés</div>
+      </aside>
     </div>
 
-    <!-- Key traits -->
-    <div class="flex flex-wrap gap-3 mt-8 pt-6 border-t-2 border-dashed border-gray-300">
-      <span class="px-4 py-2 bg-accent border border-black text-sm font-medium">
-        <i class="ri-code-s-slash-line mr-1"></i> Full-Stack
-      </span>
-      <span class="px-4 py-2 bg-accent border border-black text-sm font-medium">
-        <i class="ri-megaphone-line mr-1"></i> Marketing Digital
-      </span>
-      <span class="px-4 py-2 bg-accent-strong text-white border border-black text-sm font-medium">
-        <i class="ri-brain-line mr-1"></i> IA & Automatisation
-      </span>
-      <span class="px-4 py-2 bg-white border border-black text-sm font-medium">
-        <i class="ri-presentation-line mr-1"></i> Formation & Pédagogie
-      </span>
+    <div class="cv-traits">
+      <span class="cv-trait"><i class="ri-code-s-slash-line" aria-hidden="true"></i> Full-Stack</span>
+      <span class="cv-trait"><i class="ri-megaphone-line" aria-hidden="true"></i> Marketing Digital</span>
+      <span class="cv-trait"><i class="ri-brain-line" aria-hidden="true"></i> IA &amp; Automatisation</span>
+      <span class="cv-trait"><i class="ri-presentation-line" aria-hidden="true"></i> Formation &amp; Pédagogie</span>
     </div>
   </div>
 </section>
+
+<style>
+  .cv-sec { padding: 64px 40px; }
+  .cv-wrap { max-width: 860px; margin: 0 auto; }
+  .cv-head { display: flex; flex-direction: column; gap: 8px; padding-bottom: 36px; }
+  .cv-h2 { font-size: clamp(1.7rem, 3.6vw, 2.3rem); }
+
+  .cv-profile-grid { display: grid; grid-template-columns: 1fr minmax(0, 200px); gap: 44px; align-items: start; }
+  .cv-prose { display: flex; flex-direction: column; gap: 20px; font-size: 1.0625rem; line-height: 1.75; color: var(--muted); }
+  .cv-prose strong { color: var(--ink); }
+  .cv-mark {
+    background: rgba(0, 168, 125, 0.12); color: var(--ink); font-weight: 600; padding: 1px 5px;
+    box-decoration-break: clone; -webkit-box-decoration-break: clone;
+  }
+
+  .cv-stat {
+    position: relative; background: var(--surface); border: 1px solid var(--line-2);
+    padding: 26px 22px; text-align: center;
+    display: flex; flex-direction: column; align-items: center; gap: 4px;
+  }
+  .cv-stat-big { font-size: 3rem; font-weight: 700; letter-spacing: -0.03em; color: var(--accent); line-height: 1; }
+  .cv-stat-label { font-size: 13px; color: var(--muted); }
+  .cv-stat-line { width: 100%; height: 1px; background: var(--line); margin: 12px 0 6px; }
+  .cv-stat-mid { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); line-height: 1; }
+  .cv-stat-sub { font-size: 12px; color: var(--muted); }
+
+  .cv-traits { display: flex; flex-wrap: wrap; gap: 10px; padding-top: 32px; margin-top: 36px; border-top: 1px solid var(--line); }
+  .cv-trait {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-size: 13px; font-weight: 600; color: var(--ink);
+    padding: 6px 13px; border: 1px solid var(--line-2); border-radius: 999px;
+  }
+  .cv-trait i { color: var(--accent); font-size: 1.05em; }
+
+  @media (max-width: 720px) {
+    .cv-sec { padding: 48px 20px; }
+    .cv-head { padding-bottom: 28px; }
+    .cv-profile-grid { grid-template-columns: 1fr; gap: 28px; }
+    .cv-stat { max-width: 220px; }
+  }
+</style>
