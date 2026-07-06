@@ -1,17 +1,19 @@
 ---
+// Validation d'idée / test de concept — sous-page service (blueprint).
+// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
+// accent teal unique, Inter Tight × Instrument Serif. Namespace .vi-*.
+//
+// PARTICULARITÉ : cette page N'A PAS de formulaire Web3Forms. Elle CTA vers
+// cal.com (appel découverte) et /contact (devis). CTA final = primitive .co-cta.
+//
+// HARD-PRESERVE : Schema.org (serviceSchemas/breadcrumb/FAQ + ordre), robots noindex,
+// prix exacts (750 – 1'500 CHF · 150 – 200 CHF · 2 semaines · dès 750 CHF), liens
+// internes (/blog/valide-idee-business-suisse, /contact, cal.com), copywriting réel.
+
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import IconChip from '../../components/IconChip.astro';
-import FAQ from '../../components/FAQ.astro';
-
-// Import SVG pour surlignement hero
-import svgArrowHero from '../../assets/arrow-3.svg';
-
-// Import background components (utilisés avec parcimonie)
-import BackgroundQuestionMarks from '../../components/backgrounds/BackgroundQuestionMarks.astro';
-import BackgroundProgressFlow from '../../components/backgrounds/BackgroundProgressFlow.astro';
 
 // Schema.org
 import { serviceSchemas, SITE_URL } from '../../data/schema';
@@ -34,18 +36,22 @@ const schemas: any[] = [serviceSchemas["validation-idee"], breadcrumb];
 // Pain points data
 const painPoints = [
     {
+        icon: "ri-time-line",
         title: "\"J'ai investi 3 mois sur un projet... que personne ne voulait.\"",
         description: "L'histoire classique : on construit dans son coin, on peaufine, on lance — et le marché s'en fiche. Le problème n'est pas l'exécution. C'est l'absence de validation."
     },
     {
+        icon: "ri-emotion-normal-line",
         title: "\"Je ne sais pas si mon idée plaît vraiment ou si mes proches sont juste polis.\"",
         description: "Les retours de l'entourage sont biaisés par nature. Seuls des inconnus qui n'ont aucune raison de vous faire plaisir peuvent donner une réponse honnête."
     },
     {
+        icon: "ri-hourglass-line",
         title: "\"On n'a pas le temps en interne de monter un test propre.\"",
         description: "Configurer une landing page, paramétrer une campagne pub, analyser les résultats... Ça demande des compétences spécifiques et du temps que vous n'avez pas."
     },
     {
+        icon: "ri-scales-3-line",
         title: "\"Créer une Sàrl pour tester ? Trop risqué.\"",
         description: "20'000 CHF de capital, des frais de notaire, des mois de paperasse — pour découvrir ensuite que le marché n'existe pas. Il y a une autre façon de faire."
     }
@@ -100,43 +106,36 @@ const processSteps = [
 
 // Differentiators
 const differentiators = [
-    {
-        icon: "ri-edit-line",
-        text: "Pas juste une \"jolie page\" : du copywriting pensé pour convertir"
-    },
-    {
-        icon: "ri-stack-line",
-        text: "Méthode itérative : on teste par étapes, pas tout d'un coup"
-    },
-    {
-        icon: "ri-key-line",
-        text: "Vous repartez avec la landing page — elle vous appartient"
-    },
-    {
-        icon: "ri-timer-line",
-        text: "Réponse en 2 semaines, pas 2 mois"
-    }
+    { icon: "ri-edit-line", title: "Copywriting qui convertit", description: "Pas juste une \"jolie page\" : du wording pensé pour convertir." },
+    { icon: "ri-stack-line", title: "Méthode itérative", description: "On teste par étapes, pas tout d'un coup." },
+    { icon: "ri-key-line", title: "La page vous appartient", description: "Vous repartez avec la landing page — elle est à vous." },
+    { icon: "ri-timer-line", title: "Réponse en 2 semaines", description: "Une réponse du marché en 2 semaines, pas 2 mois." }
 ];
 
 // Results
 const results = [
     {
+        icon: "ri-window-line",
         title: "Une landing page professionnelle",
         description: "Wording précis, design soigné, hébergée et fonctionnelle. Elle vous appartient après le test."
     },
     {
+        icon: "ri-megaphone-line",
         title: "Une campagne Meta Ads configurée",
         description: "Ciblage affiné, budget optimisé, audiences testées. Vous gardez le contrôle sur les dépenses."
     },
     {
+        icon: "ri-bar-chart-box-line",
         title: "Un rapport avec métriques concrètes",
         description: "Visiteurs, clics, taux de conversion — des chiffres, pas des opinions."
     },
     {
+        icon: "ri-phone-line",
         title: "Un appel de debrief",
         description: "On analyse ensemble ce que les données signifient. Faut-il pivoter ? Continuer ? Affiner le message ?"
     },
     {
+        icon: "ri-checkbox-circle-line",
         title: "Une réponse claire en 2 semaines",
         description: "Ça mord, ou pas. Vous savez si vous devez continuer à investir."
     }
@@ -166,7 +165,7 @@ const faqs = [
     {
         question: "Je n'ai pas encore de structure juridique, c'est un problème ?",
         answer: "Non. En Suisse, vous pouvez facturer jusqu'à 100'000 CHF par an en Raison Individuelle sans même créer de Sàrl. Le test de concept sert justement à valider AVANT d'investir dans une structure.",
-        linkText: "En savoir plus sur la validation sans créer de Sàrl →",
+        linkText: "En savoir plus sur la validation sans créer de Sàrl",
         linkUrl: "/blog/valide-idee-business-suisse"
     },
     {
@@ -193,7 +192,7 @@ const zones = [
     { name: "Genève", type: "primary", icon: "ri-map-pin-fill" },
     { name: "Lausanne", type: "secondary", icon: "ri-map-pin-line" },
     { name: "Vaud", type: "secondary", icon: "ri-map-pin-line" },
-    { name: "Toute Suisse romande", type: "tertiary", icon: "ri-global-line" }
+    { name: "Toute la Suisse romande", type: "tertiary", icon: "ri-global-line" }
 ];
 ---
 
@@ -205,609 +204,457 @@ const zones = [
 >
     <Header />
 
-    <!-- ============================================== -->
-    <!-- HERO SECTION -->
-    <!-- ============================================== -->
-    <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-24 px-4 relative overflow-hidden">
-        <!-- Gradient mesh background -->
-        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-            <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--yellow)] opacity-15 blur-[120px] rounded-full"></div>
-            <div class="absolute bottom-0 -right-20 w-[400px] h-[400px] bg-[var(--blue)] opacity-10 blur-[100px] rounded-full"></div>
-        </div>
+    <main class="co-root">
 
-        <div class="max-w-4xl mx-auto relative z-10">
-            <!-- Centered text content -->
-            <div class="text-center">
-                <!-- H1 SEO discret -->
-                <h1 class="seo-h1 mb-8 mt-8">Test de concept et validation d'idée à Genève</h1>
-
-                <!-- Main title -->
-                <p class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6" data-animate="fade-up">
-                    Votre idée vaut-elle le coup ?<br/>
-                    Réponse en
-                    <span class="relative inline-block">
-                        <span class="relative z-10">2 semaines.</span>
-                        <img
-                            src={svgArrowHero.src}
-                            alt=""
-                            class="absolute -bottom-1 left-0 w-full h-5 md:h-6 pointer-events-none"
-                            aria-hidden="true"
-                        />
-                    </span>
-                </p>
-
-                <!-- Description -->
-                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="0.1">
-                    Avant d'investir des mois de développement, vérifiez que des gens sont prêts à payer.<br class="hidden md:block"/>
-                    <strong class="text-[var(--text)]">Une landing page stratégique, une campagne ciblée, des chiffres concrets.</strong>
-                </p>
-
-                <!-- CTAs centered -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16 md:mb-20" data-animate="fade-up" data-delay="0.2">
-                    <a
-                        href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="
-                            bg-[var(--yellow)]
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                            transition-all duration-200
-                            hover:bg-[var(--blue)]
-                            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                            hover:translate-x-[2px] hover:translate-y-[2px]
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        <i class="ri-rocket-line"></i>
-                        Tester mon idée
-                    </a>
-                    <a
-                        href="#methode"
-                        class="
-                            bg-white
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            transition-all duration-200
-                            hover:bg-gray-100
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        Voir comment ça fonctionne
-                        <i class="ri-arrow-down-line"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Visual element: Idea validation concept -->
-            <div class="w-full max-w-2xl mx-auto relative" data-animate="scale" data-delay="0.3">
-                <div class="bg-white border-3 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] p-8 md:p-12 relative">
-                    <!-- Corner boxes -->
-                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--yellow)] border-2 border-black"></div>
-                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--yellow)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--yellow)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--yellow)] border-2 border-black"></div>
-
-                    <!-- Concept illustration -->
-                    <div class="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8">
-                        <!-- Idea -->
-                        <div class="text-center">
-                            <IconChip icon="ri-lightbulb-line" class="mx-auto mb-3" />
-                            <span class="font-bold text-sm">Votre idée</span>
-                        </div>
-
-                        <!-- Arrow -->
-                        <div class="hidden md:flex items-center">
-                            <div class="w-16 h-0.5 bg-black"></div>
-                            <i class="ri-arrow-right-line text-xl"></i>
-                        </div>
-                        <div class="md:hidden">
-                            <i class="ri-arrow-down-line text-xl"></i>
-                        </div>
-
-                        <!-- Test -->
-                        <div class="text-center">
-                            <IconChip icon="ri-flask-line" class="mx-auto mb-3" />
-                            <span class="font-bold text-sm">Test marché</span>
-                        </div>
-
-                        <!-- Arrow -->
-                        <div class="hidden md:flex items-center">
-                            <div class="w-16 h-0.5 bg-black"></div>
-                            <i class="ri-arrow-right-line text-xl"></i>
-                        </div>
-                        <div class="md:hidden">
-                            <i class="ri-arrow-down-line text-xl"></i>
-                        </div>
-
-                        <!-- Result -->
-                        <div class="text-center">
-                            <IconChip icon="ri-check-double-line" class="mx-auto mb-3" />
-                            <span class="font-bold text-sm">Réponse claire</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Badge délai -->
-                <div class="absolute -top-4 -right-4 bg-accent border-2 border-black px-4 py-2 shadow-[3px_3px_0px_rgba(0,0,0,1)] rotate-3">
-                    <span class="font-bold text-sm">2 semaines</span>
-                </div>
-
-                <!-- Badge prix -->
-                <div class="absolute -bottom-4 -left-4 bg-white border-2 border-black px-3 py-2 shadow-[3px_3px_0px_rgba(0,0,0,1)] -rotate-3">
-                    <span class="font-mono text-sm">dès 750 CHF</span>
-                </div>
-            </div>
-
-            <!-- Location badge centered -->
-            <div class="flex items-center justify-center gap-2 text-sm text-gray-500 mt-12">
-                <i class="ri-map-pin-fill text-[var(--yellow)]"></i>
-                <span>Basé à Genève | Service en Suisse romande</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- PAIN POINTS SECTION -->
-    <section id="problemes" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-        <div class="max-w-5xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    problèmes
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    <span class="relative inline-block">
-                        <span class="absolute bg-panel w-full h-[40%] left-0 bottom-1 -z-1"></span>
-                        Vous vous reconnaissez ?
-                    </span>
-                </h2>
-                <p class="text-lg text-gray-600">Ces situations sont plus courantes qu'on ne le croit.</p>
-            </div>
-
-            <!-- Pain points grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12" data-animate-stagger>
-                {painPoints.map((point) => (
-                    <div class="pain-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Red X icon -->
-                        <IconChip icon="ri-close-line" variant="muted" size="md" class="mb-4" />
-                        <h3 class="text-lg font-bold mb-2">{point.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">{point.description}</p>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Good news callout -->
-            <div class="bg-[var(--yellow)] bg-opacity-20 border-2 border-[var(--yellow)] p-6 md:p-8 text-center" data-animate="fade-up">
-                <p class="text-lg md:text-xl font-medium">
-                    <i class="ri-lightbulb-line text-[var(--text)] mr-2"></i>
-                    <strong>La bonne nouvelle :</strong> vous pouvez avoir une réponse du marché avant d'investir sérieusement.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- METHOD SECTION -->
-    <section id="methode" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    méthode
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Comment ça se passe ?
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Une approche itérative qui minimise le risque et maximise l'apprentissage.
-                </p>
-            </div>
-
-            <!-- 3 Phases -->
-            <div class="mb-16">
-                <h3 class="text-xl font-bold text-center mb-8">La méthode en 3 phases</h3>
-                <p class="text-center text-gray-600 mb-8 max-w-2xl mx-auto">
-                    La plupart des prestataires vous livrent une landing page et vous souhaitent bonne chance. Ici, je procède par étapes — chaque phase nous apprend quelque chose avant de passer à la suivante.
-                </p>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-animate-stagger>
-                    {methodPhases.map((phase) => (
-                        <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
-                            <!-- Phase badge -->
-                            <div class="absolute -top-3 left-4 bg-accent border-2 border-black px-3 py-1 text-xs font-bold">
-                                PHASE {phase.phase}
-                            </div>
-                            <h4 class="text-lg font-bold mb-3 mt-4">{phase.title}</h4>
-                            <p class="text-gray-600 text-sm leading-relaxed">{phase.description}</p>
-                        </div>
-                    ))}
-                </div>
-
-                <!-- Why this method -->
-                <div class="mt-8 bg-[var(--main-bg)] border-2 border-black p-6 text-center" data-animate="fade-up">
-                    <p class="text-gray-700">
-                        <strong>Pourquoi cette méthode ?</strong> À chaque phase, on affine le ciblage et le message. Si ça ne mord pas en phase 1, inutile de construire une landing complète. Vous économisez du temps et de l'argent. Et si ça fonctionne, vous avez des données solides pour continuer en confiance.
+        <!-- ══ HERO ══ -->
+        <section class="co-sec co-pad co-hero vi-hero" style="padding:64px 40px 56px;">
+            <div class="vi-hero-grid">
+                <div class="vi-hero-copy">
+                    <p class="co-eyebrow" data-animate>Validation d'idée · Test de concept · Genève</p>
+                    <h1 class="vi-hero-title" data-animate data-delay="0.1">
+                        Votre idée vaut-elle le coup ? Réponse en <span class="co-ser">2 semaines.</span>
+                    </h1>
+                    <p class="vi-hero-lead" data-animate data-delay="0.2">
+                        Avant d'investir des mois de développement, vérifiez que des gens sont prêts à payer.
+                        <strong>Une landing page stratégique, une campagne ciblée, des chiffres concrets.</strong>
                     </p>
-                </div>
-            </div>
-
-            <!-- Process steps -->
-            <div class="mb-12">
-                <h3 class="text-xl font-bold text-center mb-8">Le processus concret</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-animate-stagger>
-                    {processSteps.map((step, index) => (
-                        <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
-                            <!-- Number badge -->
-                            <div class="flex items-center gap-3 mb-4">
-                                <span class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
-                                    0{index + 1}
-                                </span>
-                            </div>
-                            <h4 class="text-xl font-bold mb-3">{step.title}</h4>
-                            <p class="text-gray-600 text-sm leading-relaxed mb-4">{step.description}</p>
-                            <!-- Duration -->
-                            <div class="flex items-center gap-2 text-sm pt-3 border-t border-dashed border-gray-300">
-                                <i class="ri-time-line text-[var(--yellow)]"></i>
-                                <span class="text-gray-500">{step.duration}</span>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            <!-- Differentiators box -->
-            <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate="fade-up">
-                <!-- Corner boxes -->
-                <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--yellow)] border-2 border-black"></div>
-                <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--yellow)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--yellow)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--yellow)] border-2 border-black"></div>
-
-                <h3 class="text-xl font-bold text-center mb-6">Ce qui change avec Jon Labs</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {differentiators.map((diff) => (
-                        <div class="flex items-start gap-3">
-                            <IconChip icon={diff.icon} size="md" class="flex-shrink-0" />
-                            <p class="text-sm text-gray-700">{diff.text}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- RESULTS SECTION -->
-    <section id="resultats" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundProgressFlow />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    résultats
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Ce que vous obtenez
-                </h2>
-            </div>
-
-            <!-- Results grid: 3 cards on top -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6" data-animate-stagger>
-                {results.slice(0, 3).map((result) => (
-                    <div class="result-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Green check icon -->
-                        <IconChip icon="ri-check-line" size="md" class="mb-4" />
-                        <h3 class="text-lg font-bold mb-2">{result.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">{result.description}</p>
+                    <div class="vi-hero-btns" data-animate data-delay="0.3">
+                        <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="co-btn"><i class="ri-rocket-line"></i> Tester mon idée</a>
+                        <a href="#methode" class="co-btn co-btn--ghost">Voir comment ça fonctionne <i class="ri-arrow-down-line"></i></a>
                     </div>
-                ))}
-            </div>
-
-            <!-- Results grid: 2 cards centered below -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto" data-animate-stagger>
-                {results.slice(3).map((result) => (
-                    <div class="result-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Green check icon -->
-                        <IconChip icon="ri-check-line" size="md" class="mb-4" />
-                        <h3 class="text-lg font-bold mb-2">{result.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">{result.description}</p>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
-
-    <!-- STORY SECTION -->
-    <section id="histoire" class="py-20 md:py-28 px-4">
-        <div class="max-w-3xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    pourquoi ce service
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Pourquoi je propose ce service
-                </h2>
-            </div>
-
-            <!-- Story card -->
-            <div class="bg-white border-3 border-black p-8 md:p-10 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate="fade-up">
-                <i class="ri-double-quotes-l text-6xl text-gray-100 absolute -top-4 -left-2 md:-left-4"></i>
-
-                <div class="space-y-4 text-gray-700 leading-relaxed relative z-10">
-                    <p class="font-bold text-lg text-[var(--text)]">J'ai fait l'erreur que vous voulez éviter.</p>
-
-                    <p>Avec un associé, on a passé un mois entier à développer une plateforme de vente de contenu digital. Le concept : permettre à n'importe qui de vendre du contenu instantanément. Tu uploades ton fichier, tu choisis ton prix, tu partages le lien. Le destinataire paie, il accède au contenu.</p>
-
-                    <p>L'UX était nickel. Le produit était "parfait".</p>
-
-                    <p><strong>Sauf qu'on n'avait jamais vérifié que quelqu'un voulait payer pour ça.</strong></p>
-
-                    <p>Quand on a enfin montré le produit au monde, le marché s'en fichait. Les gens qu'on ciblait avaient déjà leurs solutions. Le problème qu'on résolvait n'était pas assez douloureux pour qu'ils changent leurs habitudes.</p>
-
-                    <p>Un mois de travail. Des nuits blanches. Un produit qui n'existe plus aujourd'hui.</p>
-
-                    <div class="bg-[var(--yellow)] bg-opacity-30 border-l-4 border-[var(--yellow)] p-4 mt-6">
-                        <p class="font-bold text-[var(--text)]">
-                            Si on avait fait une landing page en 2 jours et dépensé 200 CHF de pub, on aurait su en une semaine que l'idée ne tenait pas.
-                        </p>
-                    </div>
-
-                    <p class="mt-6">C'est pour ça que je propose ce service. Pour vous éviter cette erreur.</p>
-                </div>
-
-                <div class="mt-8 pt-6 border-t border-dashed border-gray-300">
-                    <a href="/blog/valide-idee-business-suisse" class="inline-flex items-center gap-2 text-[var(--blue)] font-medium hover:underline">
-                        <i class="ri-article-line"></i>
-                        Lire l'histoire complète et la méthode du smoke test
-                        <i class="ri-arrow-right-line"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PRICING SECTION -->
-    <section id="prix" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-        <div class="max-w-4xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    investissement
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Investissement
-                </h2>
-                <p class="text-lg text-gray-600">Un test qui coûte moins cher qu'un mois de développement raté.</p>
-            </div>
-
-            <!-- Pricing card -->
-            <div class="bg-[var(--main-bg)] border-3 border-black p-8 md:p-10 shadow-[8px_8px_0px_rgba(0,0,0,1)] relative mb-8" data-animate="scale">
-                <!-- Corner boxes -->
-                <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--yellow)] border-2 border-black"></div>
-                <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--yellow)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--yellow)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--yellow)] border-2 border-black"></div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                    <div>
-                        <span class="text-sm text-gray-500 block mb-2">Prestation complète</span>
-                        <span class="text-3xl font-bold text-[var(--text)]">{pricing.prestation}</span>
-                    </div>
-                    <div>
-                        <span class="text-sm text-gray-500 block mb-2">Budget pub recommandé</span>
-                        <span class="text-3xl font-bold text-[var(--text)]">{pricing.budget_pub}</span>
-                        <span class="text-xs text-gray-500 block mt-1">(payé directement à Meta)</span>
-                    </div>
-                    <div>
-                        <span class="text-sm text-gray-500 block mb-2">Délai</span>
-                        <span class="text-3xl font-bold text-[var(--text)]">{pricing.delai}</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Price factors -->
-            <div class="bg-white border-2 border-black p-6 mb-8" data-animate="fade-up">
-                <h3 class="font-bold mb-4 flex items-center gap-2">
-                    <i class="ri-information-line text-[var(--yellow)]"></i>
-                    Ce qui influence le prix :
-                </h3>
-                <ul class="space-y-2 text-sm text-gray-600">
-                    <li class="flex items-center gap-2">
-                        <i class="ri-arrow-right-s-line text-[var(--yellow)]"></i>
-                        La complexité de l'offre à présenter
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <i class="ri-arrow-right-s-line text-[var(--yellow)]"></i>
-                        Le nombre de variantes à tester
-                    </li>
-                    <li class="flex items-center gap-2">
-                        <i class="ri-arrow-right-s-line text-[var(--yellow)]"></i>
-                        Le niveau de design requis
-                    </li>
-                </ul>
-                <p class="mt-4 text-sm text-gray-500">
-                    <strong>Paiement échelonné possible</strong> — on en discute selon votre situation.
-                </p>
-            </div>
-
-            <!-- CTA -->
-            <div class="text-center" data-animate="fade-up">
-                <p class="text-gray-600 mb-6">
-                    Premier échange gratuit et sans engagement. On parle de votre idée, je vous dis honnêtement si ce service fait sens pour vous.
-                </p>
-                <a
-                    href="/contact"
-                    class="
-                        inline-flex items-center gap-2
-                        bg-[var(--yellow)]
-                        border-2 border-black
-                        px-8 py-4
-                        text-lg font-bold
-                        shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                        transition-all duration-200
-                        hover:bg-[var(--blue)]
-                        hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                        hover:translate-x-[2px] hover:translate-y-[2px]
-                    "
-                >
-                    <i class="ri-file-list-3-line"></i>
-                    Demander un devis personnalisé
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ SECTION -->
-    <FAQ
-        faqs={faqs}
-        title="Questions fréquentes"
-        sectionId="faq"
-    >
-        <BackgroundQuestionMarks slot="background" />
-    </FAQ>
-
-    <!-- Extra question note -->
-    <div class="text-center py-8 px-4 -mt-16 relative z-10">
-        <p class="text-gray-500">
-            Autre question ? <a href="/contact" class="text-[var(--blue)] font-medium hover:underline">Contactez-moi directement</a>, je réponds sous 24h.
-        </p>
-    </div>
-
-    <!-- LOCAL SECTION -->
-    <section id="local" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-        <div class="max-w-4xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    local
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Basé à <span class="text-[var(--yellow)]">Genève</span>, disponible partout en Suisse romande
-                </h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-animate="fade-up">
-                <!-- Description -->
-                <div class="space-y-4 text-gray-700">
-                    <p>
-                        Le test de concept se fait entièrement à distance — l'échange initial, le suivi, le debrief, tout peut se faire en visio. C'est souvent plus efficace.
-                    </p>
-                    <p>
-                        Mais si vous préférez un échange en personne pour le kickoff ou le debrief, je suis disponible sur Genève et ses environs.
-                    </p>
-                    <p>
-                        Je connais le marché suisse romand, ses spécificités — TWINT pour les paiements, la nLPD pour la protection des données, les comportements d'achat locaux. Et je peux cibler précisément votre zone géographique si votre offre est locale.
+                    <p class="vi-hero-loc co-mut" data-animate data-delay="0.4">
+                        <i class="ri-map-pin-fill"></i> Basé à Genève · Service en Suisse romande
                     </p>
                 </div>
 
-                <!-- Zones -->
-                <div class="space-y-3">
-                    {zones.map((zone) => (
-                        <div class={`
-                            flex items-center gap-4 p-4 border-2 border-black
-                            ${zone.type === 'primary' ? 'bg-[var(--yellow)] bg-opacity-20 border-[var(--yellow)]' : 'bg-white'}
-                        `}>
-                            <i class={`${zone.icon} text-xl ${zone.type === 'primary' ? 'text-[var(--text)]' : 'text-gray-600'}`}></i>
-                            <span class={`font-medium ${zone.type === 'primary' ? 'text-lg font-bold' : ''}`}>
-                                {zone.name}
-                                {zone.type === 'primary' && <span class="text-sm font-normal text-gray-600 ml-2">(basé sur place)</span>}
-                            </span>
+                <div class="vi-hero-media" data-animate="scale" data-delay="0.3">
+                    <div class="vi-flow co-frame">
+                        <span class="co-x tl"></span><span class="co-x tr"></span>
+                        <span class="co-x bl"></span><span class="co-x br"></span>
+                        <div class="vi-flow-node">
+                            <i class="ri-lightbulb-line" aria-hidden="true"></i>
+                            <span>Votre idée</span>
                         </div>
-                    ))}
+                        <i class="ri-arrow-right-line vi-flow-arrow" aria-hidden="true"></i>
+                        <div class="vi-flow-node">
+                            <i class="ri-flask-line" aria-hidden="true"></i>
+                            <span>Test marché</span>
+                        </div>
+                        <i class="ri-arrow-right-line vi-flow-arrow" aria-hidden="true"></i>
+                        <div class="vi-flow-node">
+                            <i class="ri-check-double-line" aria-hidden="true"></i>
+                            <span>Réponse claire</span>
+                        </div>
+                    </div>
+                    <div class="vi-badge vi-badge--delai"><b>2 sem.</b><span>Réponse</span></div>
+                    <div class="vi-badge vi-badge--prix">dès 750 CHF</div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA FINAL -->
-    <section id="cta-final" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <!-- Dot pattern background -->
-        <div class="absolute inset-0 dots-bg opacity-[0.3]"></div>
-
-        <div class="max-w-3xl mx-auto relative z-10 text-center">
-            <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-6" data-animate="fade-up">
-                Prêt à savoir si votre idée vaut le coup ?
-            </h2>
-            <p class="text-lg text-gray-600 mb-8" data-animate="fade-up" data-delay="0.1">
-                Premier échange gratuit, 30 minutes. On parle de votre idée, je vous dis honnêtement si ce test fait sens — et si je suis la bonne personne pour vous aider.
+        <!-- ══ 01 · PROBLÈMES ══ -->
+        <section id="problemes" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">01 — Problèmes</p>
+            <h2 style="margin-top:8px;">Vous vous <span class="co-ser">reconnaissez ?</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">
+                Ces situations sont plus courantes qu'on ne le croit.
             </p>
 
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12" data-animate="fade-up" data-delay="0.2">
-                <a
-                    href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="
-                        bg-[var(--yellow)]
-                        border-2 border-black
-                        px-8 py-4
-                        text-lg font-bold
-                        shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                        transition-all duration-200
-                        hover:bg-[var(--blue)]
-                        hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                        hover:translate-x-[2px] hover:translate-y-[2px]
-                        flex items-center justify-center gap-2
-                    "
-                >
-                    <i class="ri-calendar-line"></i>
-                    Réserver un appel découverte
-                </a>
+            <div class="vi-grid vi-grid--2" data-animate-stagger>
+                {painPoints.map((point) => (
+                    <div class="vi-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${point.icon} vi-card-icon`} aria-hidden="true"></i>
+                        <h3 class="vi-card-title">{point.title}</h3>
+                        <p class="vi-card-text">{point.description}</p>
+                    </div>
+                ))}
             </div>
 
-            <!-- Alternative -->
-            <div class="bg-white border-2 border-dashed border-gray-300 p-6 inline-block" data-animate="fade-up" data-delay="0.3">
-                <p class="text-gray-500 text-sm mb-2">
-                    <strong>Pas encore prêt ?</strong> Commencez par comprendre la méthode du smoke test et comment valider une idée en Suisse sans créer de Sàrl.
-                </p>
-                <a href="/blog/valide-idee-business-suisse" class="inline-flex items-center gap-2 text-[var(--blue)] font-medium hover:underline">
-                    <i class="ri-article-line"></i>
-                    Lire l'article
-                    <i class="ri-arrow-right-line"></i>
-                </a>
+            <div class="vi-note vi-note--accent" data-animate>
+                <i class="ri-lightbulb-line"></i>
+                <p><strong>La bonne nouvelle :</strong> vous pouvez avoir une réponse du marché avant d'investir sérieusement.</p>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- ══ 02 · MÉTHODE ══ -->
+        <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">02 — Méthode</p>
+            <h2 style="margin-top:8px;">Comment ça se passe ?</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+                Une approche itérative qui minimise le risque et maximise l'apprentissage.
+            </p>
+
+            <!-- 3 phases -->
+            <h3 class="vi-sub" style="margin-top:36px;">La méthode en 3 phases</h3>
+            <p class="co-mut" style="margin-top:8px;max-width:64ch;line-height:1.6;">
+                La plupart des prestataires vous livrent une landing page et vous souhaitent bonne chance.
+                Ici, je procède par étapes — chaque phase nous apprend quelque chose avant de passer à la suivante.
+            </p>
+
+            <div class="vi-grid vi-grid--3" data-animate-stagger>
+                {methodPhases.map((phase) => (
+                    <div class="vi-card vi-card--phase co-frame co-frame--reveal" data-animate-item>
+                        <span class="co-badge co-badge--solid">Phase {phase.phase}</span>
+                        <h4 class="vi-card-title">{phase.title}</h4>
+                        <p class="vi-card-text">{phase.description}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div class="vi-note" data-animate>
+                <i class="ri-information-line"></i>
+                <p><strong>Pourquoi cette méthode ?</strong> À chaque phase, on affine le ciblage et le message. Si ça ne mord pas en phase 1, inutile de construire une landing complète. Vous économisez du temps et de l'argent. Et si ça fonctionne, vous avez des données solides pour continuer en confiance.</p>
+            </div>
+
+            <!-- Processus concret -->
+            <h3 class="vi-sub" style="margin-top:44px;">Le processus concret</h3>
+            <div class="vi-steps" data-animate-stagger>
+                {processSteps.map((step, index) => (
+                    <div class="vi-step" data-animate-item>
+                        <span class="vi-step-num co-index">0{index + 1}</span>
+                        <div class="vi-step-body">
+                            <h4 class="vi-step-title">{step.title}</h4>
+                            <p class="vi-step-text">{step.description}</p>
+                            <p class="vi-step-dur"><i class="ri-time-line"></i> {step.duration}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <!-- Différenciateurs -->
+            <div class="vi-diff co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="vi-diff-title">Ce qui change avec Jon Labs</h3>
+                <div class="vi-diff-grid">
+                    {differentiators.map((diff) => (
+                        <div class="vi-diff-item">
+                            <i class={`${diff.icon} vi-diff-icon`} aria-hidden="true"></i>
+                            <h4 class="vi-diff-name">{diff.title}</h4>
+                            <p class="vi-diff-desc">{diff.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ 03 · RÉSULTATS ══ -->
+        <section id="resultats" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">03 — Résultats</p>
+            <h2 style="margin-top:8px;">Ce que vous <span class="co-ser">obtenez.</span></h2>
+
+            <div class="vi-grid vi-grid--3" data-animate-stagger>
+                {results.map((result) => (
+                    <div class="vi-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${result.icon} vi-card-icon`} aria-hidden="true"></i>
+                        <h3 class="vi-card-title">{result.title}</h3>
+                        <p class="vi-card-text">{result.description}</p>
+                    </div>
+                ))}
+            </div>
+        </section>
+
+        <!-- ══ 04 · HISTOIRE (pourquoi ce service) ══ -->
+        <section id="histoire" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">04 — Pourquoi ce service</p>
+            <h2 style="margin-top:8px;">Pourquoi je propose ce service</h2>
+
+            <div class="vi-story co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <div class="vi-story-body">
+                    <p class="vi-story-lead">J'ai fait l'erreur que vous voulez éviter.</p>
+                    <p>Avec un associé, on a passé un mois entier à développer une plateforme de vente de contenu digital. Le concept : permettre à n'importe qui de vendre du contenu instantanément. Tu uploades ton fichier, tu choisis ton prix, tu partages le lien. Le destinataire paie, il accède au contenu.</p>
+                    <p>L'UX était nickel. Le produit était "parfait".</p>
+                    <p><strong>Sauf qu'on n'avait jamais vérifié que quelqu'un voulait payer pour ça.</strong></p>
+                    <p>Quand on a enfin montré le produit au monde, le marché s'en fichait. Les gens qu'on ciblait avaient déjà leurs solutions. Le problème qu'on résolvait n'était pas assez douloureux pour qu'ils changent leurs habitudes.</p>
+                    <p>Un mois de travail. Des nuits blanches. Un produit qui n'existe plus aujourd'hui.</p>
+                    <blockquote class="vi-story-quote">
+                        Si on avait fait une landing page en 2 jours et dépensé 200 CHF de pub, on aurait su en une semaine que l'idée ne tenait pas.
+                    </blockquote>
+                    <p>C'est pour ça que je propose ce service. Pour vous éviter cette erreur.</p>
+                </div>
+                <p class="vi-note-inline vi-story-link">
+                    <a href="/blog/valide-idee-business-suisse" class="vi-inline">
+                        <i class="ri-article-line"></i> Lire l'histoire complète et la méthode du smoke test <i class="ri-arrow-right-line"></i>
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <!-- ══ 05 · PRIX ══ -->
+        <section id="prix" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">05 — Investissement</p>
+            <h2 style="margin-top:8px;">Un test qui coûte moins cher qu'un mois de <span class="co-ser">développement raté.</span></h2>
+
+            <div class="vi-price co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <div class="vi-price-grid">
+                    <div class="vi-price-item">
+                        <span class="vi-price-label">Prestation complète</span>
+                        <b class="vi-price-value">{pricing.prestation}</b>
+                    </div>
+                    <div class="vi-price-item">
+                        <span class="vi-price-label">Budget pub recommandé</span>
+                        <b class="vi-price-value">{pricing.budget_pub}</b>
+                        <span class="vi-price-sub">(payé directement à Meta)</span>
+                    </div>
+                    <div class="vi-price-item">
+                        <span class="vi-price-label">Délai</span>
+                        <b class="vi-price-value">{pricing.delai}</b>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vi-pricenote co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="vi-pricenote-title"><i class="ri-information-line"></i> Ce qui influence le prix</h3>
+                <ul class="co-list vi-pricenote-list">
+                    <li>La complexité de l'offre à présenter</li>
+                    <li>Le nombre de variantes à tester</li>
+                    <li>Le niveau de design requis</li>
+                </ul>
+                <p class="vi-note-inline"><i class="ri-bank-card-line"></i> <strong>Paiement échelonné possible</strong> — on en discute selon votre situation.</p>
+            </div>
+
+            <div class="vi-price-cta" data-animate>
+                <p class="co-mut" style="max-width:60ch;line-height:1.6;">
+                    Premier échange gratuit et sans engagement. On parle de votre idée, je vous dis honnêtement si ce service fait sens pour vous.
+                </p>
+                <a href="/contact" class="co-btn"><i class="ri-file-list-3-line"></i> Demander un devis personnalisé</a>
+            </div>
+        </section>
+
+        <!-- ══ 06 · FAQ (accordéon natif <details>, zéro JS) ══ -->
+        <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">06 — FAQ</p>
+            <h2 style="margin-top:8px;">Questions fréquentes</h2>
+
+            <div class="vi-faq" style="margin-top:32px;">
+                {faqs.map((faq, index) => (
+                    <details open={index === 0}>
+                        <summary>
+                            {faq.question}
+                            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+                        </summary>
+                        <p class="vi-faq-answer">
+                            {faq.answer}
+                            {faq.linkUrl && (
+                                <><br /><a href={faq.linkUrl} class="vi-inline">{faq.linkText} <i class="ri-arrow-right-line"></i></a></>
+                            )}
+                        </p>
+                    </details>
+                ))}
+            </div>
+
+            <p class="co-mut" style="margin-top:24px;text-align:center;">
+                Autre question ? <a href="/contact" class="vi-inline">Contactez-moi directement</a>, je réponds sous 24h.
+            </p>
+        </section>
+
+        <!-- ══ 07 · LOCAL ══ -->
+        <section id="local" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">07 — Local</p>
+            <h2 style="margin-top:8px;">Basé à <span class="co-ser">Genève</span>, disponible partout en Suisse romande</h2>
+
+            <div class="vi-local-grid">
+                <div class="vi-local-copy" data-animate="fade-left">
+                    <p>Le test de concept se fait entièrement à distance — l'échange initial, le suivi, le debrief, tout peut se faire en visio. C'est souvent plus efficace.</p>
+                    <p>Mais si vous préférez un échange en personne pour le kickoff ou le debrief, je suis disponible sur Genève et ses environs.</p>
+                    <p>Je connais le marché suisse romand, ses spécificités — TWINT pour les paiements, la nLPD pour la protection des données, les comportements d'achat locaux. Et je peux cibler précisément votre zone géographique si votre offre est locale.</p>
+                </div>
+
+                <div data-animate="fade-left" data-delay="0.1">
+                    <h3 class="vi-local-h3">Zones couvertes</h3>
+                    <div class="vi-zones">
+                        {zones.map((zone) => (
+                            <div class={`vi-zone ${zone.type === 'primary' ? 'vi-zone--primary' : ''}`}>
+                                <i class={zone.icon}></i>
+                                <span>
+                                    <strong>{zone.name}</strong>
+                                    {zone.type === 'primary' && <span class="co-mut"> (basé sur place)</span>}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ 08 · CTA FINAL (primitive .co-cta) ══ -->
+        <section class="co-cta">
+            <span class="co-x tl"></span><span class="co-x tr"></span>
+            <div class="co-cta-inner">
+                <p class="co-cta-eyebrow">Appel découverte gratuit</p>
+                <h2 class="co-cta-title">Prêt à savoir si votre idée vaut le <span class="co-ser">coup ?</span></h2>
+                <p class="co-cta-lead">Premier échange gratuit, 30 minutes. On parle de votre idée, je vous dis honnêtement si ce test fait sens — et si je suis la bonne personne pour vous aider.</p>
+                <div class="co-cta-btns">
+                    <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="co-btn co-cta-btn">Réserver un appel découverte <i class="ri-calendar-line"></i></a>
+                    <a href="/blog/valide-idee-business-suisse" class="co-btn co-cta-btn--ghost"><i class="ri-article-line"></i> Comprendre la méthode d'abord</a>
+                </div>
+                <div class="co-cta-trust">
+                    <span><i class="ri-time-line"></i> Réponse sous 24h</span>
+                    <span><i class="ri-gift-line"></i> Premier échange gratuit</span>
+                    <span><i class="ri-flask-line"></i> Sans créer de Sàrl</span>
+                </div>
+            </div>
+        </section>
+
+    </main>
 
     <Footer />
 </Layout>
 
-<style>
-    /* Dot pattern background */
-    .dots-bg {
-        background-image: radial-gradient(circle, #000 1px, transparent 1px);
-        background-size: 24px 24px;
+<style is:global>
+    /* ══ VALIDATION D'IDÉE — styles .vi-* (namespace scopé, corps .co-root) ══ */
+
+    /* ── Hero ── */
+    .vi-hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
+    .vi-hero-title { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+    .co-root .vi-hero-lead { margin-top: 18px; max-width: 52ch; font-size: 1.075rem; line-height: 1.65; color: var(--muted); }
+    .vi-hero-lead strong { color: var(--ink); font-weight: 600; }
+    .vi-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .vi-hero-btns .co-btn i { transition: transform .18s ease-out; }
+    .vi-hero-btns .co-btn:hover i { transform: translateY(2px); }
+    .co-root .vi-hero-loc { margin-top: 22px; font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px; }
+    .vi-hero-loc i { color: var(--accent); }
+
+    /* concept flow */
+    .vi-hero-media { position: relative; }
+    .vi-flow { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 40px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .vi-flow-node { display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center; flex: 1; }
+    .vi-flow-node i { font-size: 30px; color: var(--accent); line-height: 1; }
+    .vi-flow-node span { font-size: 13px; font-weight: 600; color: var(--ink); }
+    .vi-flow-arrow { color: var(--line-2); font-size: 20px; flex: none; }
+    .vi-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: 8px 12px; font-size: 12px; font-weight: 600; }
+    .vi-badge--delai { top: -16px; right: -14px; display: flex; flex-direction: column; line-height: 1.1; background: var(--accent); border-color: var(--accent); color: #fff; }
+    .vi-badge--delai b { font-size: 15px; }
+    .vi-badge--delai span { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; opacity: .85; }
+    .vi-badge--prix { bottom: -16px; left: -14px; font-variant-numeric: tabular-nums; }
+
+    /* ── Cartes génériques ── */
+    .vi-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .vi-grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .vi-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .vi-card {
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        background: var(--surface); border: 1px solid var(--line-2);
+        transition: box-shadow .18s ease-out, transform .18s ease-out;
+    }
+    .vi-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+    .vi-card-icon { font-size: 24px; color: var(--accent); line-height: 1; }
+    .vi-card-title { font-size: 1.1rem; line-height: 1.35; }
+    .vi-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
+    .vi-card--phase { padding-top: 30px; }
+    .vi-card--phase .co-badge { align-self: flex-start; }
+
+    /* ── Sous-titres de section ── */
+    .vi-sub { font-size: 1.2rem; }
+
+    /* ── Notes / callouts ── */
+    .vi-note { display: flex; align-items: flex-start; gap: 12px; margin-top: 24px; padding: 18px 22px; border: 1px solid var(--line-2); background: var(--surface); }
+    .vi-note i { color: var(--accent); font-size: 20px; flex: none; margin-top: 1px; }
+    .co-root .vi-note p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+    .vi-note--accent { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .vi-note-inline { font-size: 14px; line-height: 1.6; color: var(--muted); }
+    .vi-note-inline i { color: var(--accent); }
+    .vi-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; display: inline-flex; align-items: center; gap: 6px; }
+    .vi-inline:hover { color: var(--ink); }
+    .vi-note strong, .vi-note-inline strong { color: var(--ink); font-weight: 600; }
+
+    /* ── Étapes processus ── */
+    .vi-steps { display: flex; flex-direction: column; margin-top: 24px; border-top: 1px solid var(--line); }
+    .vi-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .vi-step-num { font-size: 20px; font-weight: 600; }
+    .vi-step-title { font-size: 1.15rem; }
+    .co-root .vi-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
+    .co-root .vi-step-dur { margin-top: 10px; font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+    .vi-step-dur i { color: var(--accent); }
+
+    /* ── Encart différenciateurs ── */
+    .vi-diff { position: relative; margin-top: 36px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .vi-diff-title { text-align: center; font-size: 1.25rem; }
+    .vi-diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 28px; }
+    .vi-diff-item { text-align: center; }
+    .vi-diff-icon { font-size: 26px; color: var(--accent); }
+    .vi-diff-name { margin-top: 10px; font-size: 15px; font-weight: 600; }
+    .co-root .vi-diff-desc { margin-top: 4px; font-size: 13px; line-height: 1.45; color: var(--muted); }
+
+    /* ── Histoire ── */
+    .vi-story { position: relative; margin-top: 28px; padding: 40px; background: var(--surface); border: 1px solid var(--line-2); }
+    .vi-story-body { display: flex; flex-direction: column; gap: 16px; }
+    .co-root .vi-story-body p { font-size: 15px; line-height: 1.65; color: var(--muted); max-width: 74ch; }
+    .vi-story-lead { font-size: 1.15rem !important; font-weight: 600; color: var(--ink) !important; }
+    .vi-story-body strong { color: var(--ink); font-weight: 600; }
+    .vi-story-quote { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: 1.4rem; line-height: 1.4; color: var(--ink); border-left: 2px solid var(--accent); padding-left: 22px; max-width: 60ch; }
+    .vi-story-link { margin-top: 28px !important; padding-top: 22px; border-top: 1px solid var(--line); }
+
+    /* ── Prix ── */
+    .vi-price { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .vi-price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; text-align: center; }
+    .vi-price-item { display: flex; flex-direction: column; gap: 8px; }
+    .vi-price-label { font-size: 13px; color: var(--muted); }
+    .vi-price-value { font-size: 1.9rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; }
+    .vi-price-sub { font-size: 12px; color: var(--muted); }
+
+    .vi-pricenote { position: relative; margin-top: 20px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .vi-pricenote-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
+    .vi-pricenote-title i { color: var(--accent); }
+    .vi-pricenote-list { margin-top: 16px; gap: 8px; }
+    .vi-pricenote-list li { font-size: 14px; }
+    .co-root .vi-pricenote .vi-note-inline { margin-top: 18px; display: flex; align-items: center; gap: 8px; font-size: 14px; }
+
+    .vi-price-cta { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; margin-top: 28px; }
+
+    /* ── FAQ (accordéon natif <details>, zéro JS) ── */
+    .vi-faq { border-top: 1px solid var(--line); }
+    .vi-faq details { border-bottom: 1px solid var(--line); }
+    .vi-faq summary {
+        list-style: none; cursor: pointer; padding: 20px 0;
+        display: flex; justify-content: space-between; align-items: center; gap: 20px;
+        font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
+    }
+    .vi-faq summary::-webkit-details-marker { display: none; }
+    .vi-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
+    .vi-faq details[open] summary i { transform: rotate(180deg); }
+    .co-root .vi-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 72ch; }
+    .vi-faq details::details-content {
+        block-size: 0; overflow: hidden;
+        transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
+    }
+    .vi-faq details[open]::details-content { block-size: auto; }
+
+    /* ── Local ── */
+    .vi-local-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; margin-top: 32px; }
+    .vi-local-copy { display: flex; flex-direction: column; gap: 14px; }
+    .co-root .vi-local-copy p { font-size: 15px; line-height: 1.65; color: var(--muted); }
+    .vi-local-h3 { font-size: 1.15rem; margin-bottom: 18px; }
+    .vi-zones { display: flex; flex-direction: column; gap: 10px; }
+    .vi-zone { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line-2); font-size: 14px; }
+    .vi-zone i { color: var(--muted); font-size: 18px; flex: none; }
+    .vi-zone--primary { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .vi-zone--primary i { color: var(--accent); }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+        .vi-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+        .vi-hero-media { max-width: 520px; }
+        .vi-local-grid { grid-template-columns: 1fr; gap: 32px; }
+        .vi-diff-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 720px) {
+        .vi-grid--2, .vi-grid--3, .vi-price-grid { grid-template-columns: 1fr; }
+        .vi-diff-grid { grid-template-columns: 1fr 1fr; }
+        .vi-step { grid-template-columns: 44px 1fr; gap: 14px; }
+        .vi-flow { flex-direction: column; }
+        .vi-flow-arrow { transform: rotate(90deg); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .vi-card, .vi-faq summary i, .vi-hero-btns .co-btn i { transition: none; }
     }
 
-    /* H1 SEO style terminal */
-    .seo-h1 {
-        font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace;
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: var(--color-accent-strong);
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    /* Scroll margin for anchor navigation */
-    section[id] {
-        scroll-margin-top: 100px;
-    }
+    /* Scroll margin pour la navigation ancrée */
+    .co-root section[id] { scroll-margin-top: 100px; }
 </style>

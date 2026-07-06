@@ -1,16 +1,19 @@
 ---
+// Référencement local (SEO/GEO) — sous-page service (blueprint).
+// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
+// accent teal unique, Inter Tight × Instrument Serif. Namespace scopé .rl-*.
+// Gabarit-or de référence : services/creation-site-web.astro.
+//
+// HARD-PRESERVE : Schema.org (serviceSchemas/breadcrumb/FAQ) + ordre, data imports
+// (proofLecureux), câblage Web3Forms (#seo-form, access_key + hidden inputs, tous les
+// name=, honeypot botcheck, JS submit), prix exacts (1'490 / 2'490 / Sur devis),
+// tous les liens SEO internes (/portfolio/leo-lecureux-seo, /blog/geo-seo-ia, /tarifs,
+// /services, /blog).
+
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import IconChip from '../../components/IconChip.astro';
-
-// Import background components
-import BackgroundGlitchGrid from '../../components/backgrounds/BackgroundGlitchGrid.astro';
-import BackgroundProgressFlow from '../../components/backgrounds/BackgroundProgressFlow.astro';
-import BackgroundCircuitBoard from '../../components/backgrounds/BackgroundCircuitBoard.astro';
-import BackgroundQuestionMarks from '../../components/backgrounds/BackgroundQuestionMarks.astro';
-import BackgroundMapContours from '../../components/backgrounds/BackgroundMapContours.astro';
 
 // Schema.org
 import { serviceSchemas, SITE_URL } from '../../data/schema';
@@ -20,7 +23,7 @@ import { proofLecureux } from '../../data/proof-lecureux';
 // SEO Data
 const seoData = {
     title: "Consultant SEO & GEO à Genève — freelance | Jonlabs",
-    description: "Consultant SEO freelance à Genève : référencement local et visibilité IA (GEO) pour PME romandes. #1 sur sa niche prouvé en 5 mois. 🔍 Audit SEO gratuit"
+    description: "Consultant SEO freelance à Genève : référencement local et visibilité IA (GEO) pour PME romandes. #1 sur sa niche prouvé en 5 mois. Audit SEO gratuit."
 };
 
 // Schema.org data
@@ -440,1119 +443,792 @@ const budgetOptions = [
 ];
 ---
 
-<Layout
-    title={seoData.title}
-    description={seoData.description}
-    schemas={schemas}
->
+<Layout title={seoData.title} description={seoData.description} schemas={schemas}>
     <Header />
 
-    <!-- ============================================== -->
-    <!-- HERO SECTION -->
-    <!-- ============================================== -->
-    <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-20 px-4 relative overflow-hidden">
-        <!-- Gradient mesh background -->
-        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-            <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
-            <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-[var(--violet)] opacity-15 blur-[100px] rounded-full"></div>
-            <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-[var(--blue)] opacity-10 blur-[80px] rounded-full"></div>
-        </div>
+    <main class="co-root">
 
-        <div class="max-w-4xl mx-auto relative z-10">
-            <!-- Centered text content -->
-            <div class="text-center">
-                <!-- H1 SEO discret -->
-                <h1 class="seo-h1 mb-8 mt-8">Référencement à Genève pour PME : passez d'invisible à visible sur Google</h1>
-
-                <!-- Main title -->
-                <p class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6" data-animate="fade-up">
-                    Vos clients vous cherchent sur Google.<br/>
-                    <span class="relative inline-block">
-                        <span class="relative z-10">Est-ce qu'ils vous trouvent ?</span>
-                    </span>
-                </p>
-
-                <!-- Description -->
-                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="0.1">
-                    <strong class="text-[var(--text)]">46% des recherches Google sont locales.</strong><br class="hidden md:block"/>
-                    Si vous n'êtes pas visible, vos concurrents récupèrent vos clients.<br class="hidden md:block"/>
-                    Freelance référencement à Genève, cas prouvé : <strong class="text-[var(--blue)]">#1 sur sa niche en 5 mois</strong> dans un marché concurrentiel.
-                </p>
-
-                <!-- CTAs centered -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16 md:mb-20" data-animate="fade-up" data-delay="0.2">
-                    <a
-                        href="#contact"
-                        class="
-                            bg-[var(--blue)]
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                            transition-all duration-200
-                            hover:bg-[var(--yellow)]
-                            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                            hover:translate-x-[2px] hover:translate-y-[2px]
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        <i class="ri-search-eye-line"></i>
-                        Obtenir mon audit gratuit
-                    </a>
-                    <a
-                        href="#etude-de-cas"
-                        class="
-                            bg-white
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            transition-all duration-200
-                            hover:bg-gray-100
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        Voir un cas concret
-                        <i class="ri-arrow-down-line"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Google result mockup -->
-            <div class="w-full max-w-2xl mx-auto relative" data-animate="scale" data-delay="0.3">
-                <div class="bg-white border-3 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] relative p-6 md:p-8">
-                    <!-- Browser bar -->
-                    <div class="flex items-center gap-2 p-3 border-2 border-black bg-gray-50 mb-6 -mt-2">
-                        <div class="flex gap-1.5">
-                            <div class="w-3 h-3 rounded-full bg-red-400 border border-black"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-400 border border-black"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-400 border border-black"></div>
-                        </div>
-                        <div class="flex-1 bg-white border border-black px-3 py-1 text-xs text-gray-400 font-mono text-center">
-                            google.ch/search?q=juriste+restauration+genève
-                        </div>
+        <!-- ══ HERO ══ -->
+        <section class="co-sec co-pad co-hero rl-hero" style="padding:64px 40px 56px;">
+            <div class="rl-hero-grid">
+                <div class="rl-hero-copy">
+                    <p class="co-eyebrow" data-animate>Référencement local · SEO &amp; GEO · Genève</p>
+                    <h1 class="rl-hero-title" data-animate data-delay="0.1">
+                        Vos clients vous cherchent sur Google. Est-ce qu'ils vous <span class="co-ser">trouvent ?</span>
+                    </h1>
+                    <p class="rl-hero-lead" data-animate data-delay="0.2">
+                        <strong>46 % des recherches Google sont locales.</strong> Si vous n'êtes pas visible,
+                        vos concurrents récupèrent vos clients. Freelance référencement à Genève, cas prouvé :
+                        <strong>#1 sur sa niche en 5 mois</strong> dans un marché concurrentiel.
+                    </p>
+                    <div class="rl-hero-btns" data-animate data-delay="0.3">
+                        <a href="#contact" class="co-btn"><i class="ri-search-eye-line"></i> Obtenir mon audit gratuit</a>
+                        <a href="#etude-de-cas" class="co-btn co-btn--ghost">Voir un cas concret <i class="ri-arrow-down-line"></i></a>
                     </div>
-
-                    <!-- Fake Google result -->
-                    <div class="space-y-4">
-                        <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-4">
-                            <div class="text-xs text-accent font-mono mb-1">www.leo-lecureux.ch</div>
-                            <div class="text-lg font-bold text-blue-800 mb-1">Léo Lécureux — Juriste spécialisé restauration à Genève</div>
-                            <div class="text-sm text-gray-600">Conseil juridique spécialisé en droit de la restauration à Genève (LRDBHD, patentes, autorisations). Consultation personnalisée...</div>
-                        </div>
-                        <div class="p-4 opacity-40">
-                            <div class="text-xs text-accent font-mono mb-1">www.concurrent-2.ch</div>
-                            <div class="text-lg font-bold text-blue-800 mb-1">Autre cabinet — Juriste à Genève</div>
-                            <div class="text-sm text-gray-600">Résultat concurrent en position 2...</div>
-                        </div>
-                    </div>
+                    <p class="rl-hero-loc co-mut" data-animate data-delay="0.4">
+                        <i class="ri-map-pin-fill"></i> Basé à Genève · Référencement Suisse romande
+                    </p>
                 </div>
-                <!-- #1 badge -->
-                <div class="absolute -top-4 -left-4 bg-accent border-2 border-black px-3 py-2 shadow-[3px_3px_0px_rgba(0,0,0,1)] -rotate-6">
-                    <span class="font-mono text-sm font-bold">#1</span>
-                    <span class="text-xs text-gray-700 block">Google</span>
-                </div>
-                <!-- Duration badge -->
-                <div class="absolute -bottom-4 -right-4 bg-[var(--blue)] border-2 border-black px-4 py-2 shadow-[3px_3px_0px_rgba(0,0,0,1)] rotate-3">
-                    <span class="font-bold text-sm">5 mois</span>
-                </div>
-            </div>
 
-            <!-- Location badge centered -->
-            <div class="flex items-center justify-center gap-2 text-sm text-gray-500 mt-12">
-                <i class="ri-map-pin-fill text-[var(--blue)]"></i>
-                <span>Basé à Genève · Référencement Suisse romande</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- PAIN POINTS SECTION -->
-    <!-- ============================================== -->
-    <section id="problemes" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundGlitchGrid />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    problèmes
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    <span class="relative inline-block">
-                        <span class="absolute bg-panel w-full h-[40%] left-0 bottom-1 -z-1"></span>
-                        Vous vous reconnaissez ?
-                    </span>
-                </h2>
-                <p class="text-lg text-gray-600">Les problèmes que rencontrent la majorité des PME suisses avec leur visibilité en ligne.</p>
-            </div>
-
-            <!-- Pain points grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12" data-animate-stagger>
-                {painPoints.map((point) => (
-                    <div class="pain-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Red X icon -->
-                        <IconChip icon="ri-close-line" variant="muted" size="md" class="mb-4" />
-                        <h3 class="text-lg font-bold mb-2">{point.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">{point.description}</p>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Good news callout -->
-            <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-6 md:p-8 text-center" data-animate="fade-up">
-                <p class="text-lg md:text-xl font-medium">
-                    <i class="ri-lightbulb-line text-[var(--blue)] mr-2"></i>
-                    <strong>La bonne nouvelle ?</strong> Pas besoin d'un gros budget ni d'être expert en référencement. Il faut juste la bonne méthode et quelqu'un qui sait ce qu'il fait.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- ÉTUDE DE CAS LÉCUREUX -->
-    <!-- ============================================== -->
-    <section id="etude-de-cas" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    cas réel
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    De <span class="line-through text-gray-400">invisible</span> à <span class="text-[var(--blue)]">#1 sur sa niche</span> en 5 mois
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Léo Lécureux, juriste spécialisé en droit de la restauration à Genève. Niche juridique ultra-concurrentielle (800+ cabinets). Zéro présence en ligne au départ.
-                </p>
-            </div>
-
-            <!-- Stats grid -->
-            <div class="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6 mb-12" data-animate-stagger>
-                {caseStudyStats.map((stat) => (
-                    <div class="bg-white border-3 border-black p-6 text-center shadow-[4px_4px_0px_rgba(0,0,0,0.15)] hover:-translate-y-1 transition-all duration-200" data-animate-item>
-                        <i class={`${stat.icon} text-2xl text-[var(--blue)] mb-2 block`}></i>
-                        <div class="text-2xl md:text-3xl font-bold mb-1">{stat.value}</div>
-                        <div class="text-sm text-gray-500">{stat.label}</div>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Context callout -->
-            <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative mb-8" data-animate="fade-up">
-                <!-- Corner boxes -->
-                <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--yellow)] border-2 border-black"></div>
-                <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--yellow)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--yellow)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--yellow)] border-2 border-black"></div>
-
-                <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-                    <i class="ri-information-line text-[var(--blue)]"></i>
-                    Le contexte
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600">
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2">
-                            <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            Niche juridique ultra-concurrentielle à Genève
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            800+ cabinets d'avocats dans le canton
-                        </li>
-                    </ul>
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2">
-                            <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            Zéro présence en ligne au départ
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            Outils Google gratuits uniquement (pas de budget logiciels SEO)
-                        </li>
-                    </ul>
-                </div>
-                <div class="mt-6 pt-4 border-t border-dashed border-gray-300">
-                    <a href="/portfolio/leo-lecureux-seo" class="inline-flex items-center gap-2 text-[var(--blue)] font-medium hover:underline">
-                        Voir l'étude de cas complète
-                        <i class="ri-arrow-right-line"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- METHODOLOGY SECTION -->
-    <!-- ============================================== -->
-    <section id="methode" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundProgressFlow />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    méthode
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Comment je vous fais remonter sur Google
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Une méthodologie éprouvée, calquée sur le cas réel qui a donné le #1 sur sa niche. <strong class="text-[var(--blue)]">4 phases claires</strong>, des résultats mesurables.
-                </p>
-            </div>
-
-            <!-- Method steps grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" data-animate-stagger>
-                {methodSteps.map((step, index) => (
-                    <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
-                        <!-- Number badge -->
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
-                                0{index + 1}
-                            </span>
+                <div class="rl-hero-media" data-animate="scale" data-delay="0.3">
+                    <div class="rl-serp co-frame">
+                        <span class="co-x tl"></span><span class="co-x tr"></span>
+                        <span class="co-x bl"></span><span class="co-x br"></span>
+                        <div class="rl-serp-bar">
+                            <span class="rl-serp-dot"></span>
+                            <span class="rl-serp-dot"></span>
+                            <span class="rl-serp-dot"></span>
+                            <span class="rl-serp-url">google.ch/search?q=juriste restauration genève</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">{step.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">{step.description}</p>
-                        <!-- Duration -->
-                        <div class="flex items-center gap-2 text-sm pt-3 border-t border-dashed border-gray-300">
-                            <i class="ri-time-line text-[var(--blue)]"></i>
-                            <span class="text-gray-500">{step.duration}</span>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Differentiators box -->
-            <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate="fade-up">
-                <!-- Corner boxes -->
-                <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-
-                <h3 class="text-xl font-bold text-center mb-6">Ce qui change avec Jon Labs</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {differentiators.map((diff) => (
-                        <div class="text-center">
-                            <IconChip icon={diff.icon} class="mx-auto mb-3" />
-                            <h4 class="font-bold mb-1">{diff.title}</h4>
-                            <p class="text-sm text-gray-600">{diff.description}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- LOCAL LEVERS SECTION (7 leviers) -->
-    <!-- ============================================== -->
-    <section id="leviers" class="py-20 md:py-28 px-4">
-        <div class="max-w-5xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    leviers
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Les 7 leviers du référencement local
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Le SEO local n'est pas du SEO miniature, c'est une discipline à part. Voici les <strong class="text-[var(--blue)]">7 actions concrètes</strong> qui font la différence pour une PME romande.
-                </p>
-            </div>
-
-            <!-- Levers grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12" data-animate-stagger>
-                {localLevers.map((lever, index) => (
-                    <div class="bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <div class="flex items-center gap-3 mb-3">
-                            <span class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm shrink-0">
-                                0{index + 1}
-                            </span>
-                            <i class={`${lever.icon} text-xl text-[var(--violet)]`}></i>
-                        </div>
-                        <h3 class="text-lg font-bold mb-2">{lever.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">{lever.description}</p>
-                    </div>
-                ))}
-            </div>
-
-            <!-- LocalBusiness schema example (E-E-A-T proof) -->
-            <div class="bg-white border-2 border-black p-6 md:p-8 mb-12" data-animate="fade-up">
-                <h3 class="text-lg font-bold mb-2 flex items-center gap-2">
-                    <i class="ri-code-s-slash-line text-[var(--blue)]"></i>
-                    Exemple de schema LocalBusiness (JSON-LD)
-                </h3>
-                <p class="text-sm text-gray-600 mb-4">
-                    Le bloc que j'implémente sur votre site pour déclarer formellement votre entreprise à Google. Invisible pour vos visiteurs, décisif pour le pack Maps.
-                </p>
-                <pre class="bg-[#1e1e2e] text-gray-100 text-xs md:text-sm p-4 overflow-x-auto border-2 border-black"><code>{localBusinessSchemaExample}</code></pre>
-            </div>
-
-            <!-- Overlooked angles -->
-            <div class="bg-accent border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate="fade-up">
-                <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-black border-2 border-black"></div>
-                <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-black border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-black border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-black border-2 border-black"></div>
-
-                <h3 class="text-xl font-bold text-center mb-6">Ce que vos concurrents oublient à Genève</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {overlookedAngles.map((angle) => (
-                        <div class="text-center">
-                            <IconChip icon={angle.icon} variant="muted" class="mx-auto mb-3" />
-                            <h4 class="font-bold mb-1">{angle.title}</h4>
-                            <p class="text-sm text-gray-700">{angle.description}</p>
-                        </div>
-                    ))}
-                </div>
-                <p class="text-center text-sm text-gray-700 mt-6">
-                    Pour la visibilité côté IA, je détaille la méthode dans <a href="/blog/geo-seo-ia" class="font-bold underline hover:text-[var(--blue)]">GEO et SEO IA en 2026</a>.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- RESULTS SECTION -->
-    <!-- ============================================== -->
-    <section id="resultats" class="py-20 md:py-28 px-4">
-        <div class="max-w-5xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    résultats
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Ce que vous obtenez
-                </h2>
-            </div>
-
-            <!-- Results grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12" data-animate-stagger>
-                {results.map((result) => (
-                    <div class="result-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Green check icon -->
-                        <IconChip icon="ri-check-line" size="md" class="mb-4" />
-                        <h3 class="text-lg font-bold mb-2">{result.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">{result.description}</p>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- SEO APPROACHES SECTION -->
-    <!-- ============================================== -->
-    <section id="formules" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundCircuitBoard animated={true} />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    formules
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    3 approches selon votre situation
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Pas de solution unique. <strong>On choisit ensemble l'approche adaptée</strong> à votre budget, vos objectifs et votre situation actuelle.
-                </p>
-            </div>
-
-            <!-- Approach cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12" data-animate-stagger="scale">
-                {seoApproaches.map((approach) => (
-                    <div class="tech-card bg-white border-2 border-black p-6 text-center transition-all duration-200 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <i class={`${approach.icon} text-3xl text-[var(--violet)] mb-4 block`}></i>
-                        <h3 class="text-xl font-bold mb-2">{approach.name}</h3>
-                        <p class="text-sm text-gray-600 mb-3">{approach.description}</p>
-                        <p class="text-xs text-[var(--blue)] font-medium">
-                            <i class="ri-user-star-line mr-1"></i>
-                            {approach.idealFor}
-                        </p>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Reassurance note -->
-            <div class="bg-white border-2 border-black p-6 text-center" data-animate="fade-up">
-                <p class="text-gray-600">
-                    <i class="ri-information-line text-[var(--blue)] mr-2"></i>
-                    <strong>Pas sûr de l'approche ?</strong> Le premier échange est gratuit. Je vous recommande honnêtement ce qui a le plus de sens pour votre situation.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- PRICING SECTION -->
-    <!-- ============================================== -->
-    <section id="prix" class="py-20 md:py-28 px-4">
-        <div class="max-w-5xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    investissement
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Des tarifs clairs
-                </h2>
-                <p class="text-lg text-gray-600">Adaptés à vos ambitions. Pas de contrat 12 mois, pas de mauvaise surprise.</p>
-            </div>
-
-            <!-- Pricing cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12" data-animate-stagger>
-                {pricingPlans.map((plan) => (
-                    <div class={`
-                        pricing-card bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 relative
-                        ${plan.highlighted ? 'shadow-[8px_8px_0px_rgba(0,0,0,1)] ring-2 ring-accent' : 'shadow-[4px_4px_0px_rgba(0,0,0,0.3)]'}
-                    `} data-animate-item>
-                        {plan.highlighted && (
-                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-bold">
-                                RECOMMANDÉ
+                        <div class="rl-serp-body">
+                            <div class="rl-serp-result rl-serp-result--top">
+                                <span class="rl-serp-link">www.leo-lecureux.ch</span>
+                                <span class="rl-serp-title">Léo Lécureux — Juriste spécialisé restauration à Genève</span>
+                                <span class="rl-serp-desc">Conseil juridique spécialisé en droit de la restauration à Genève (LRDBHD, patentes, autorisations). Consultation personnalisée...</span>
                             </div>
-                        )}
-
-                        <h3 class="text-xl font-bold mb-4">{plan.name}</h3>
-
-                        <div class="mb-6">
-                            {plan.priceLabel && (
-                                <span class="text-sm text-gray-500">{plan.priceLabel}</span>
-                            )}
-                            <p class="text-3xl font-bold text-[var(--text)]">
-                                {plan.price}
-                                {plan.priceLabel && <span class="text-lg"> CHF</span>}
-                            </p>
+                            <div class="rl-serp-result rl-serp-result--dim">
+                                <span class="rl-serp-link">www.concurrent-2.ch</span>
+                                <span class="rl-serp-title">Autre cabinet — Juriste à Genève</span>
+                                <span class="rl-serp-desc">Résultat concurrent en position 2...</span>
+                            </div>
                         </div>
+                    </div>
+                    <div class="rl-badge rl-badge--score">
+                        <b>#1</b><span>Google</span>
+                    </div>
+                    <div class="rl-badge rl-badge--speed">5 mois</div>
+                </div>
+            </div>
+        </section>
 
-                        <ul class="space-y-3 mb-6">
+        <!-- ══ 01 · PROBLÈMES ══ -->
+        <section id="problemes" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">01 — Problèmes</p>
+            <h2 style="margin-top:8px;">Vous vous <span class="co-ser">reconnaissez ?</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:58ch;line-height:1.6;">
+                Les problèmes que rencontrent la majorité des PME suisses avec leur visibilité en ligne.
+            </p>
+
+            <div class="rl-grid rl-grid--2" data-animate-stagger>
+                {painPoints.map((point) => (
+                    <div class="rl-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${point.icon} rl-card-icon`} aria-hidden="true"></i>
+                        <h3 class="rl-card-title">{point.title}</h3>
+                        <p class="rl-card-text">{point.description}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div class="rl-note rl-note--accent" data-animate>
+                <i class="ri-lightbulb-line"></i>
+                <p><strong>La bonne nouvelle ?</strong> Pas besoin d'un gros budget ni d'être expert en référencement. Il faut juste la bonne méthode et quelqu'un qui sait ce qu'il fait.</p>
+            </div>
+        </section>
+
+        <!-- ══ 02 · CAS RÉEL (étude de cas Lécureux) ══ -->
+        <section id="etude-de-cas" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">02 — Cas réel</p>
+            <h2 style="margin-top:8px;">De <span class="rl-strike">invisible</span> à <span class="co-ser">#1 sur sa niche</span> en 5 mois</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+                Léo Lécureux, juriste spécialisé en droit de la restauration à Genève. Niche juridique
+                ultra-concurrentielle (800+ cabinets). Zéro présence en ligne au départ.
+            </p>
+
+            <div class="rl-stats" data-animate-stagger>
+                {caseStudyStats.map((stat) => (
+                    <div class="rl-stat co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${stat.icon} rl-stat-icon`} aria-hidden="true"></i>
+                        <div class="rl-stat-value">{stat.value}</div>
+                        <div class="rl-stat-label">{stat.label}</div>
+                    </div>
+                ))}
+            </div>
+
+            <div class="rl-context co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="rl-context-title"><i class="ri-information-line"></i> Le contexte</h3>
+                <div class="rl-context-grid">
+                    <ul class="co-list">
+                        <li>Niche juridique ultra-concurrentielle à Genève</li>
+                        <li>800+ cabinets d'avocats dans le canton</li>
+                    </ul>
+                    <ul class="co-list">
+                        <li>Zéro présence en ligne au départ</li>
+                        <li>Outils Google gratuits uniquement (pas de budget logiciels SEO)</li>
+                    </ul>
+                </div>
+                <p class="rl-context-cta">
+                    <a href="/portfolio/leo-lecureux-seo" class="rl-inline">
+                        Voir l'étude de cas complète <i class="ri-arrow-right-line"></i>
+                    </a>
+                </p>
+            </div>
+        </section>
+
+        <!-- ══ 03 · MÉTHODE ══ -->
+        <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">03 — Méthode</p>
+            <h2 style="margin-top:8px;">Comment je vous fais remonter sur Google</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+                Une méthodologie éprouvée, calquée sur le cas réel qui a donné le #1 sur sa niche.
+                <strong>4 phases claires</strong>, des résultats mesurables.
+            </p>
+
+            <div class="rl-steps" data-animate-stagger>
+                {methodSteps.map((step, index) => (
+                    <div class="rl-step" data-animate-item>
+                        <span class="rl-step-num co-index">0{index + 1}</span>
+                        <div class="rl-step-body">
+                            <h3 class="rl-step-title">{step.title}</h3>
+                            <p class="rl-step-text">{step.description}</p>
+                            <p class="rl-step-dur"><i class="ri-time-line"></i> {step.duration}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div class="rl-diff co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="rl-diff-title">Ce qui change avec Jon Labs</h3>
+                <div class="rl-diff-grid">
+                    {differentiators.map((diff) => (
+                        <div class="rl-diff-item">
+                            <i class={`${diff.icon} rl-diff-icon`} aria-hidden="true"></i>
+                            <h4 class="rl-diff-name">{diff.title}</h4>
+                            <p class="rl-diff-desc">{diff.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ 04 · LEVIERS ══ -->
+        <section id="leviers" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">04 — Leviers</p>
+            <h2 style="margin-top:8px;">Les 7 leviers du <span class="co-ser">référencement local</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+                Le SEO local n'est pas du SEO miniature, c'est une discipline à part. Voici les
+                <strong>7 actions concrètes</strong> qui font la différence pour une PME romande.
+            </p>
+
+            <div class="rl-grid rl-grid--2" data-animate-stagger>
+                {localLevers.map((lever, index) => (
+                    <div class="rl-lever co-frame co-frame--reveal" data-animate-item>
+                        <div class="rl-lever-head">
+                            <span class="rl-lever-num co-index">0{index + 1}</span>
+                            <i class={`${lever.icon} rl-lever-icon`} aria-hidden="true"></i>
+                        </div>
+                        <h3 class="rl-card-title">{lever.title}</h3>
+                        <p class="rl-card-text">{lever.description}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div class="rl-codeblock co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="rl-codeblock-title"><i class="ri-code-s-slash-line"></i> Exemple de schema LocalBusiness (JSON-LD)</h3>
+                <p class="rl-codeblock-desc">
+                    Le bloc que j'implémente sur votre site pour déclarer formellement votre entreprise à Google.
+                    Invisible pour vos visiteurs, décisif pour le pack Maps.
+                </p>
+                <pre class="rl-code"><code>{localBusinessSchemaExample}</code></pre>
+            </div>
+
+            <div class="rl-angles co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="rl-diff-title">Ce que vos concurrents oublient à Genève</h3>
+                <div class="rl-angles-grid">
+                    {overlookedAngles.map((angle) => (
+                        <div class="rl-diff-item">
+                            <i class={`${angle.icon} rl-diff-icon`} aria-hidden="true"></i>
+                            <h4 class="rl-diff-name">{angle.title}</h4>
+                            <p class="rl-diff-desc">{angle.description}</p>
+                        </div>
+                    ))}
+                </div>
+                <p class="rl-note-inline" style="text-align:center;">
+                    Pour la visibilité côté IA, je détaille la méthode dans
+                    <a href="/blog/geo-seo-ia" class="rl-inline">GEO et SEO IA en 2026</a>.
+                </p>
+            </div>
+        </section>
+
+        <!-- ══ 05 · RÉSULTATS ══ -->
+        <section id="resultats" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">05 — Résultats</p>
+            <h2 style="margin-top:8px;">Ce que vous <span class="co-ser">obtenez.</span></h2>
+
+            <div class="rl-grid rl-grid--3" data-animate-stagger>
+                {results.map((result) => (
+                    <div class="rl-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${result.icon} rl-card-icon`} aria-hidden="true"></i>
+                        <h3 class="rl-card-title">{result.title}</h3>
+                        <p class="rl-card-text">{result.description}</p>
+                    </div>
+                ))}
+            </div>
+        </section>
+
+        <!-- ══ 06 · FORMULES ══ -->
+        <section id="formules" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">06 — Formules</p>
+            <h2 style="margin-top:8px;">3 approches selon votre situation</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+                Pas de solution unique. <strong>On choisit ensemble l'approche adaptée</strong> à votre
+                budget, vos objectifs et votre situation actuelle.
+            </p>
+
+            <div class="rl-grid rl-grid--3" data-animate-stagger="scale">
+                {seoApproaches.map((approach) => (
+                    <div class="rl-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${approach.icon} rl-card-icon`} aria-hidden="true"></i>
+                        <h3 class="rl-card-title">{approach.name}</h3>
+                        <p class="rl-card-text">{approach.description}</p>
+                        <p class="rl-card-tag"><i class="ri-user-star-line"></i> {approach.idealFor}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div class="rl-note" data-animate>
+                <i class="ri-information-line"></i>
+                <p><strong>Pas sûr de l'approche ?</strong> Le premier échange est gratuit. Je vous recommande honnêtement ce qui a le plus de sens pour votre situation.</p>
+            </div>
+        </section>
+
+        <!-- ══ 07 · INVESTISSEMENT ══ -->
+        <section id="prix" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">07 — Investissement</p>
+            <h2 style="margin-top:8px;">Des tarifs <span class="co-ser">clairs.</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:56ch;">Adaptés à vos ambitions. Pas de contrat 12 mois, pas de mauvaise surprise.</p>
+
+            <div class="rl-tiers" data-animate-stagger>
+                {pricingPlans.map((plan) => (
+                    <div class={`rl-tier ${plan.highlighted ? 'rl-tier--reco' : ''}`} data-animate-item>
+                        {plan.highlighted && <span class="co-badge co-badge--solid rl-tier-reco">Recommandé</span>}
+                        <h3 class="rl-tier-name">{plan.name}</h3>
+                        <div class="rl-tier-price">
+                            {plan.priceLabel && <span class="rl-tier-pricelabel">{plan.priceLabel}</span>}
+                            <b>{plan.price}{plan.priceLabel && <span class="rl-tier-cur"> CHF</span>}</b>
+                        </div>
+                        <ul class="co-list co-list--check rl-tier-features">
                             {plan.features.map((feature) => (
-                                <li class="flex items-start gap-2 text-sm">
-                                    <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
-                                    <span>{feature}</span>
-                                </li>
+                                <li><i class="ri-check-line"></i><span>{feature}</span></li>
                             ))}
                         </ul>
-
-                        <div class="pt-4 border-t border-dashed border-gray-300">
-                            <p class="text-xs text-gray-500">
-                                <strong>Idéal pour :</strong> {plan.ideal}
-                            </p>
-                        </div>
+                        <p class="rl-tier-ideal"><strong>Idéal pour :</strong> {plan.ideal}</p>
                     </div>
                 ))}
             </div>
 
-            <!-- Pricing notes -->
-            <div class="bg-white border-2 border-black p-6 md:p-8" data-animate="fade-up">
-                <h3 class="font-bold mb-4 flex items-center gap-2">
-                    <i class="ri-information-line text-[var(--blue)]"></i>
-                    Bon à savoir :
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600 mb-6">
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2">
-                            <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            Pas de contrat longue durée obligatoire
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            Outils gratuits (pas de frais cachés)
-                        </li>
+            <div class="rl-pricenote co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="rl-pricenote-title"><i class="ri-information-line"></i> Bon à savoir</h3>
+                <div class="rl-pricenote-grid">
+                    <ul class="co-list">
+                        <li>Pas de contrat longue durée obligatoire</li>
+                        <li>Outils gratuits (pas de frais cachés)</li>
                     </ul>
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2">
-                            <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            Facilités de paiement possibles
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            Combo référencement + site web = meilleur rapport qualité-prix
-                        </li>
+                    <ul class="co-list">
+                        <li>Facilités de paiement possibles</li>
+                        <li>Combo référencement + site web = meilleur rapport qualité-prix</li>
                     </ul>
                 </div>
-                <p class="text-sm text-gray-500 bg-gray-50 p-3 border-l-4 border-[var(--blue)]">
-                    <strong>Voir le comparatif complet ?</strong> Consultez la <a href="/tarifs" class="text-[var(--blue)] hover:underline">page tarifs</a> pour tous les détails.
+                <p class="rl-note-inline">
+                    <strong>Voir le comparatif complet ?</strong> Consultez la
+                    <a href="/tarifs" class="rl-inline">page tarifs</a> pour tous les détails.
                 </p>
             </div>
 
-            <!-- Pricing transparency (marché) -->
-            <div class="mt-16" data-animate="fade-up">
-                <h3 class="text-2xl md:text-3xl font-normal text-center mb-3">La transparence avant de signer</h3>
-                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-10">
-                    Le marché du SEO local en Suisse est opaque : des prestations qui portent le même nom vont de 200 à 3'000 CHF par mois. Voici comment lire les prix — chez moi comme ailleurs.
+            <!-- Transparence marché -->
+            <div class="rl-transp" data-animate>
+                <h3 class="rl-sub-title">La transparence avant de signer</h3>
+                <p class="co-mut" style="margin-top:8px;max-width:64ch;line-height:1.6;">
+                    Le marché du SEO local en Suisse est opaque : des prestations qui portent le même nom
+                    vont de 200 à 3'000 CHF par mois. Voici comment lire les prix — chez moi comme ailleurs.
                 </p>
 
-                <!-- Ce qui justifie le prix -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-10" data-animate-stagger>
+                <div class="rl-drivers" data-animate-stagger>
                     {pricingDrivers.map((driver) => (
-                        <div class="bg-[var(--main-bg)] border-2 border-black p-5" data-animate-item>
-                            <IconChip icon={driver.icon} size="md" class="mb-3" />
-                            <h4 class="font-bold mb-1 text-sm">{driver.title}</h4>
-                            <p class="text-xs text-gray-600 leading-relaxed">{driver.description}</p>
+                        <div class="rl-driver co-frame co-frame--reveal" data-animate-item>
+                            <i class={`${driver.icon} rl-card-icon`} aria-hidden="true"></i>
+                            <h4 class="rl-driver-name">{driver.title}</h4>
+                            <p class="rl-card-text">{driver.description}</p>
                         </div>
                     ))}
                 </div>
 
-                <!-- DIY vs pro + agence vs freelance -->
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-10">
-                    <div class="bg-white border-2 border-black p-6">
-                        <h4 class="font-bold mb-2 flex items-center gap-2">
-                            <i class="ri-scales-3-line text-[var(--blue)]"></i>
-                            DIY ou pro : le vrai calcul
-                        </h4>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            En DIY, comptez 4 à 6 h par mois et 3 à 6 mois de courbe d'apprentissage — soit 400 à 600 CHF de temps non facturé (à 100 CHF/h). Le calcul ROI est simple : avec un panier moyen de 800 CHF et 30 % de conversion, <strong>4 à 5 prospects par mois</strong> rentabilisent un accompagnement, atteignable en 4 à 6 mois sur un secteur local actif.
+                <div class="rl-compare">
+                    <div class="rl-compare-item co-frame">
+                        <h4 class="rl-compare-name"><i class="ri-scales-3-line"></i> DIY ou pro : le vrai calcul</h4>
+                        <p class="rl-card-text">
+                            En DIY, comptez 4 à 6 h par mois et 3 à 6 mois de courbe d'apprentissage — soit
+                            400 à 600 CHF de temps non facturé (à 100 CHF/h). Le calcul ROI est simple : avec
+                            un panier moyen de 800 CHF et 30 % de conversion, <strong>4 à 5 prospects par mois</strong>
+                            rentabilisent un accompagnement, atteignable en 4 à 6 mois sur un secteur local actif.
                         </p>
                     </div>
-                    <div class="bg-white border-2 border-black p-6">
-                        <h4 class="font-bold mb-2 flex items-center gap-2">
-                            <i class="ri-building-line text-[var(--blue)]"></i>
-                            Agence vs freelance
-                        </h4>
-                        <p class="text-sm text-gray-600 leading-relaxed">
-                            Pour le même périmètre, une agence à Genève facture <strong>1'200 à 3'000 CHF/mois</strong> (locaux, account managers, marges), là où un freelance romand fait <strong>400 à 900 CHF/mois</strong> — 80 % du tarif part dans la production réelle. L'agence offre du process ; le freelance, du contact direct et un meilleur rapport qualité-prix sur les budgets PME.
+                    <div class="rl-compare-item co-frame">
+                        <h4 class="rl-compare-name"><i class="ri-building-line"></i> Agence vs freelance</h4>
+                        <p class="rl-card-text">
+                            Pour le même périmètre, une agence à Genève facture <strong>1'200 à 3'000 CHF/mois</strong>
+                            (locaux, account managers, marges), là où un freelance romand fait
+                            <strong>400 à 900 CHF/mois</strong> — 80 % du tarif part dans la production réelle.
+                            L'agence offre du process ; le freelance, du contact direct et un meilleur rapport
+                            qualité-prix sur les budgets PME.
                         </p>
                     </div>
                 </div>
 
-                <!-- 5 questions avant de signer -->
-                <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative">
-                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-
-                    <h4 class="text-xl font-bold text-center mb-6">5 questions à poser à tout prestataire avant de signer</h4>
-                    <ol class="space-y-4">
+                <div class="rl-questions co-frame">
+                    <span class="co-x tl"></span><span class="co-x tr"></span>
+                    <span class="co-x bl"></span><span class="co-x br"></span>
+                    <h4 class="rl-diff-title">5 questions à poser à tout prestataire avant de signer</h4>
+                    <ol class="rl-questions-list">
                         {preSigningQuestions.map((question, index) => (
-                            <li class="flex items-start gap-4">
-                                <span class="w-8 h-8 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm shrink-0">
-                                    {index + 1}
-                                </span>
-                                <p class="text-sm text-gray-700 leading-relaxed pt-1">{question}</p>
+                            <li>
+                                <span class="rl-questions-num co-index">{index + 1}</span>
+                                <p>{question}</p>
                             </li>
                         ))}
                     </ol>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================== -->
-    <!-- FAQ SECTION -->
-    <!-- ============================================== -->
-    <section id="faq" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundQuestionMarks animated={true} />
-        <div class="max-w-3xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    faq
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">Questions fréquentes</h2>
-            </div>
+        <!-- ══ 08 · FAQ (accordéon natif <details>, zéro JS) ══ -->
+        <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">08 — FAQ</p>
+            <h2 style="margin-top:8px;">Questions fréquentes</h2>
 
-            <!-- FAQ items -->
-            <div class="faq-list space-y-6">
+            <div class="rl-faq" style="margin-top:32px;">
                 {faqs.map((faq, index) => (
-                    <div class="faq-item border-2 border-black bg-[var(--main-bg)]" data-faq-item>
-                        <button
-                            class="
-                                faq-trigger
-                                w-full
-                                flex items-center justify-between gap-4
-                                p-5
-                                text-left
-                                font-medium
-                                cursor-pointer
-                                transition-colors duration-200
-                                hover:bg-[var(--blue)] hover:bg-opacity-10
-                            "
-                            aria-expanded="false"
-                            data-faq-trigger
-                        >
-                            <span class="flex items-start gap-3">
-                                <span class="font-mono text-sm text-gray-400 mt-0.5">{String(index + 1).padStart(2, '0')}</span>
-                                <span class="text-lg">{faq.question}</span>
-                            </span>
-                            <span class="
-                                faq-icon
-                                w-8 h-8
-                                border-2 border-black
-                                bg-white
-                                flex items-center justify-center
-                                transition-transform duration-300
-                                flex-shrink-0
-                            ">
-                                <i class="ri-add-line text-lg"></i>
-                            </span>
-                        </button>
-                        <div
-                            class="faq-content overflow-hidden transition-all duration-300"
-                            style="max-height: 0;"
-                            data-faq-content
-                        >
-                            <div class="p-6 pt-2 pl-12">
-                                <p class="text-gray-600 leading-relaxed">
-                                    {faq.answer}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <details open={index === 0}>
+                        <summary>
+                            {faq.question}
+                            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+                        </summary>
+                        <p class="rl-faq-answer">{faq.answer}</p>
+                    </details>
                 ))}
             </div>
 
-            <!-- Extra question note -->
-            <div class="text-center mt-8">
-                <p class="text-gray-500">
-                    Une autre question ? <a href="#contact" class="text-[var(--blue)] font-medium hover:underline">Contactez-moi directement</a>, je réponds sous 24h.
-                </p>
-            </div>
-        </div>
-    </section>
+            <p class="co-mut" style="margin-top:24px;text-align:center;">
+                Une autre question ? <a href="#contact" class="rl-inline">Contactez-moi directement</a>, je réponds sous 24h.
+            </p>
+        </section>
 
-    <!-- ============================================== -->
-    <!-- LOCAL SEO SECTION -->
-    <!-- ============================================== -->
-    <section id="local" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <BackgroundMapContours />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    local
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Un freelance référencement à <span class="text-[var(--blue)]">Genève</span>,<br/>
-                    ça change quoi ?
-                </h2>
-            </div>
+        <!-- ══ 09 · LOCAL (SEO géo) ══ -->
+        <section id="local" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">09 — Local</p>
+            <h2 style="margin-top:8px;">Un freelance référencement à <span class="co-ser">Genève</span>, ça change quoi ?</h2>
 
-            <!-- Two columns -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                <!-- Why local -->
+            <div class="rl-local-grid">
                 <div data-animate="fade-left">
-                    <h3 class="text-xl font-bold mb-6">Travailler avec quelqu'un dans la région, c'est aussi :</h3>
-                    <div class="space-y-4">
+                    <h3 class="rl-local-h3">Travailler avec quelqu'un dans la région, c'est aussi :</h3>
+                    <div class="rl-local-adv">
                         {localAdvantages.map((adv) => (
-                            <div class="flex items-start gap-4 p-4 bg-[var(--main-bg)] border-2 border-black">
-                                <IconChip icon={adv.icon} size="md" class="flex-shrink-0" />
+                            <div class="rl-local-item co-frame">
+                                <i class={`${adv.icon} rl-local-icon`} aria-hidden="true"></i>
                                 <div>
-                                    <h4 class="font-bold mb-1">{adv.title}</h4>
-                                    <p class="text-sm text-gray-600">{adv.description}</p>
+                                    <h4 class="rl-local-name">{adv.title}</h4>
+                                    <p class="rl-local-desc">{adv.description}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                <!-- Zones -->
-                <div data-animate="fade-right">
-                    <h3 class="text-xl font-bold mb-6">Zones couvertes</h3>
-                    <div class="space-y-3">
+                <div data-animate="fade-left" data-delay="0.1">
+                    <h3 class="rl-local-h3">Zones couvertes</h3>
+                    <div class="rl-zones">
                         {zones.map((zone) => (
-                            <div class={`
-                                flex items-center gap-4 p-4 border-2 border-black
-                                ${zone.type === 'primary' ? 'bg-[var(--blue)] bg-opacity-20 border-[var(--blue)]' : 'bg-white'}
-                            `}>
-                                <i class={`${zone.icon} text-xl ${zone.type === 'primary' ? 'text-[var(--blue)]' : 'text-gray-600'}`}></i>
-                                <span class={`font-medium ${zone.type === 'primary' ? 'text-lg font-bold' : ''}`}>
-                                    {zone.name}
-                                    {zone.type === 'primary' && <span class="text-sm font-normal text-gray-600 ml-2">(basé sur place)</span>}
+                            <div class={`rl-zone ${zone.type === 'primary' ? 'rl-zone--primary' : ''}`}>
+                                <i class={zone.icon}></i>
+                                <span>
+                                    <strong>{zone.name}</strong>
+                                    {zone.type === 'primary' && <span class="co-mut"> (basé sur place)</span>}
                                 </span>
                             </div>
                         ))}
                     </div>
-                    <p class="mt-6 text-sm text-gray-500">
-                        <i class="ri-information-line mr-1"></i>
-                        Les échanges se font en personne ou en visio selon vos préférences.
+                    <p class="co-mut" style="margin-top:16px;font-size:13.5px;">
+                        <i class="ri-information-line"></i> Les échanges se font en personne ou en visio selon vos préférences.
                     </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================== -->
-    <!-- CTA + FORM SECTION -->
-    <!-- ============================================== -->
-    <section id="contact" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <!-- Dot pattern background -->
-        <div class="absolute inset-0 dots-bg opacity-[0.4]"></div>
+        <!-- ══ 10 · CONTACT (formulaire Web3Forms — HARD-PRESERVE câblage) ══ -->
+        <section id="contact" class="co-sec co-pad" style="padding:64px 40px;">
+            <p class="co-eyebrow">10 — Contact</p>
+            <h2 style="margin-top:8px;">Prêt à devenir visible sur <span class="co-ser">Google ?</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+                Premier échange gratuit : je regarde votre situation, je vous donne mon avis honnête,
+                vous décidez ensuite. Pas de jargon, pas de pression.
+            </p>
 
-        <div class="max-w-4xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4 text-[var(--text)]">
-                    Prêt à devenir visible sur Google ?
-                </h2>
-                <p class="text-lg text-gray-600">
-                    Premier échange gratuit : je regarde votre situation, je vous donne mon avis honnête, vous décidez ensuite. Pas de jargon, pas de pression.
-                </p>
-            </div>
+            <form class="rl-form co-frame" id="seo-form" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
 
-            <!-- Contact Form -->
-            <div class="contact-form-container" data-animate="scale">
-                <form
-                    class="bg-[var(--main-bg)] text-[var(--text)] border-3 border-black p-6 md:p-8 shadow-[8px_8px_0px_rgba(0,217,163,0.3)] relative"
-                    id="seo-form"
-                >
-                    <!-- Corner boxes -->
-                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                <!-- Hidden fields for Web3Forms (HARD-PRESERVE) -->
+                <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
+                <input type="hidden" name="subject" value="Demande référencement local - Jon Labs">
+                <input type="hidden" name="from_name" value="Jon Labs - Référencement local">
+                <input type="checkbox" name="botcheck" class="rl-honeypot" style="display: none;">
 
-                    <h3 class="text-xl font-bold mb-6 text-center">Demandez votre audit de référencement gratuit</h3>
+                <h3 class="rl-form-title">Demandez votre audit de référencement gratuit</h3>
 
-                    <!-- Hidden fields for Web3Forms -->
-                    <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
-                    <input type="hidden" name="subject" value="Demande référencement local - Jon Labs">
-                    <input type="hidden" name="from_name" value="Jon Labs - Référencement local">
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                <div class="rl-form-grid">
+                    <div class="rl-field">
+                        <label for="name" class="rl-label"><span class="co-index">01</span> Nom / Prénom <span class="rl-req">*</span></label>
+                        <input type="text" id="name" name="name" required placeholder="Jean Dupont" class="rl-input" />
+                    </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Nom -->
-                        <div class="form-field">
-                            <label for="name" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">01</span>
-                                Nom / Prénom <span class="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                required
-                                placeholder="Jean Dupont"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
+                    <div class="rl-field">
+                        <label for="email" class="rl-label"><span class="co-index">02</span> Email <span class="rl-req">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="vous@exemple.ch" class="rl-input" />
+                    </div>
 
-                        <!-- Email -->
-                        <div class="form-field">
-                            <label for="email" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">02</span>
-                                Email <span class="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                required
-                                placeholder="vous@exemple.ch"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
+                    <div class="rl-field">
+                        <label for="phone" class="rl-label"><span class="co-index">03</span> Téléphone (optionnel)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+41 79 123 45 67" class="rl-input" />
+                    </div>
 
-                        <!-- Téléphone -->
-                        <div class="form-field">
-                            <label for="phone" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">03</span>
-                                Téléphone (optionnel)
-                            </label>
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                placeholder="+41 79 123 45 67"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
-
-                        <!-- Besoin référencement -->
-                        <div class="form-field">
-                            <label for="project-type" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">04</span>
-                                Besoin en référencement <span class="text-red-500">*</span>
-                            </label>
-                            <select
-                                id="project-type"
-                                name="project_type"
-                                required
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all cursor-pointer"
-                            >
+                    <div class="rl-field">
+                        <label for="project-type" class="rl-label"><span class="co-index">04</span> Besoin en référencement <span class="rl-req">*</span></label>
+                        <div class="rl-select-wrap">
+                            <select id="project-type" name="project_type" required class="rl-select">
                                 <option value="" disabled selected>Choisir...</option>
-                                {projectTypes.map((type) => (
-                                    <option value={type.value}>{type.label}</option>
-                                ))}
+                                {projectTypes.map((type) => (<option value={type.value}>{type.label}</option>))}
                             </select>
+                            <i class="ri-arrow-down-s-line rl-select-caret" aria-hidden="true"></i>
                         </div>
+                    </div>
 
-                        <!-- Site web actuel -->
-                        <div class="form-field md:col-span-2">
-                            <label for="website" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">05</span>
-                                URL de votre site actuel (optionnel)
-                            </label>
-                            <input
-                                type="url"
-                                id="website"
-                                name="website"
-                                placeholder="https://votre-site.ch"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
+                    <div class="rl-field rl-field--full">
+                        <label for="website" class="rl-label"><span class="co-index">05</span> URL de votre site actuel (optionnel)</label>
+                        <input type="url" id="website" name="website" placeholder="https://votre-site.ch" class="rl-input" />
+                    </div>
 
-                        <!-- Message -->
-                        <div class="form-field md:col-span-2">
-                            <label for="message" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">06</span>
-                                Votre message <span class="text-red-500">*</span>
-                            </label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="4"
-                                required
-                                placeholder="Décrivez brièvement votre activité, votre zone géographique et vos objectifs de visibilité..."
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            ></textarea>
-                        </div>
+                    <div class="rl-field rl-field--full">
+                        <label for="message" class="rl-label"><span class="co-index">06</span> Votre message <span class="rl-req">*</span></label>
+                        <textarea id="message" name="message" rows="4" required placeholder="Décrivez brièvement votre activité, votre zone géographique et vos objectifs de visibilité..." class="rl-textarea"></textarea>
+                    </div>
 
-                        <!-- Budget -->
-                        <div class="form-field">
-                            <label for="budget" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">07</span>
-                                Budget approximatif
-                            </label>
-                            <select
-                                id="budget"
-                                name="budget"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all cursor-pointer"
-                            >
+                    <div class="rl-field">
+                        <label for="budget" class="rl-label"><span class="co-index">07</span> Budget approximatif</label>
+                        <div class="rl-select-wrap">
+                            <select id="budget" name="budget" class="rl-select">
                                 <option value="" disabled selected>Choisir...</option>
-                                {budgetOptions.map((option) => (
-                                    <option value={option.value}>{option.label}</option>
-                                ))}
+                                {budgetOptions.map((option) => (<option value={option.value}>{option.label}</option>))}
                             </select>
-                        </div>
-
-                        <!-- Comment m'avez-vous trouvé -->
-                        <div class="form-field">
-                            <label for="source" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">08</span>
-                                Comment m'avez-vous trouvé ? (optionnel)
-                            </label>
-                            <input
-                                type="text"
-                                id="source"
-                                name="source"
-                                placeholder="Google, recommandation, LinkedIn..."
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
-
-                        <!-- Consent -->
-                        <div class="form-field md:col-span-2">
-                            <label class="flex items-start gap-3 cursor-pointer group">
-                                <input
-                                    type="checkbox"
-                                    name="consent"
-                                    required
-                                    class="mt-1 w-5 h-5 border-2 border-black appearance-none cursor-pointer checked:bg-[var(--blue)] checked:border-black relative transition-all"
-                                />
-                                <span class="text-sm text-gray-600 group-hover:text-black transition-colors">
-                                    Vos données sont utilisées uniquement pour répondre à votre demande. Pas de spam, promis. <span class="text-red-500">*</span>
-                                </span>
-                            </label>
-                        </div>
-
-                        <!-- Submit -->
-                        <div class="md:col-span-2 pt-4">
-                            <button
-                                type="submit"
-                                class="
-                                    submit-btn
-                                    w-full
-                                    bg-[var(--blue)]
-                                    border-2 border-black
-                                    px-8 py-4
-                                    text-lg font-bold
-                                    shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                                    transition-all duration-200
-                                    hover:bg-[var(--yellow)]
-                                    hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                                    hover:translate-x-[2px] hover:translate-y-[2px]
-                                    focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2
-                                    flex items-center justify-center gap-3
-                                "
-                            >
-                                <span>Demander mon audit gratuit</span>
-                                <i class="ri-send-plane-line text-xl"></i>
-                            </button>
+                            <i class="ri-arrow-down-s-line rl-select-caret" aria-hidden="true"></i>
                         </div>
                     </div>
-                </form>
 
-                <!-- Post-form content wrapper -->
-                <div class="bg-[var(--main-bg)]/90 backdrop-blur-sm p-6 mt-8">
-                    <!-- Trust indicators -->
-                    <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-600">
-                        <span class="flex items-center gap-2">
-                            <i class="ri-time-line text-[var(--blue)]"></i>
-                            Réponse sous 24h
-                        </span>
-                        <span class="flex items-center gap-2">
-                            <i class="ri-gift-line text-[var(--blue)]"></i>
-                            Audit gratuit
-                        </span>
-                        <span class="flex items-center gap-2">
-                            <i class="ri-file-list-3-line text-[var(--blue)]"></i>
-                            Devis clair
-                        </span>
+                    <div class="rl-field">
+                        <label for="source" class="rl-label"><span class="co-index">08</span> Comment m'avez-vous trouvé ? (optionnel)</label>
+                        <input type="text" id="source" name="source" placeholder="Google, recommandation, LinkedIn..." class="rl-input" />
                     </div>
 
-                    <!-- Alternatives -->
-                    <div class="text-center mt-8 space-y-4">
-                        <p class="text-gray-500 text-sm">Vous préférez réserver un créneau directement ?</p>
-                        <a
-                            href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 text-[var(--blue)] font-medium hover:underline"
-                        >
-                            <i class="ri-calendar-line"></i>
-                            Prendre rendez-vous sur Cal.com
-                        </a>
+                    <div class="rl-field rl-field--full">
+                        <label class="rl-consent">
+                            <input type="checkbox" name="consent" required class="rl-checkbox" />
+                            <span>Vos données sont utilisées uniquement pour répondre à votre demande. Pas de spam, promis. <span class="rl-req">*</span></span>
+                        </label>
                     </div>
 
-                    <!-- Direct contact -->
-                    <div class="text-center mt-6">
-                        <p class="text-gray-500 text-sm mb-2">Besoin d'une réponse rapide ?</p>
-                        <a href="mailto:contact@jonlabs.ch" class="text-[var(--blue)] font-mono hover:underline">
-                            contact@jonlabs.ch
-                        </a>
-                    </div>
-
-                    <!-- Not ready yet -->
-                    <div class="text-center mt-8 p-4 bg-white border-2 border-dashed border-gray-300">
-                        <p class="text-gray-500 text-sm">
-                            <strong>Pas encore prêt ?</strong> C'est normal. Vous pouvez aussi consulter mes <a href="/services" class="text-[var(--blue)] hover:underline">autres services</a> ou lire quelques articles sur le <a href="/blog" class="text-[var(--blue)] hover:underline">blog</a> pour mieux me connaître.
-                        </p>
+                    <div class="rl-field rl-field--full">
+                        <button type="submit" class="co-btn submit-btn rl-submit">
+                            <span>Demander mon audit gratuit</span>
+                            <i class="ri-send-plane-line"></i>
+                        </button>
                     </div>
                 </div>
+            </form>
+
+            <div class="rl-form-after" data-animate>
+                <div class="rl-trust">
+                    <span><i class="ri-time-line"></i> Réponse sous 24h</span>
+                    <span><i class="ri-gift-line"></i> Audit gratuit</span>
+                    <span><i class="ri-file-list-3-line"></i> Devis clair</span>
+                </div>
+                <div class="rl-alt">
+                    <p class="co-mut">Vous préférez réserver un créneau directement ?</p>
+                    <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="rl-inline"><i class="ri-calendar-line"></i> Prendre rendez-vous sur Cal.com</a>
+                </div>
+                <div class="rl-alt">
+                    <p class="co-mut">Besoin d'une réponse rapide ?</p>
+                    <a href="mailto:contact@jonlabs.ch" class="rl-inline">contact@jonlabs.ch</a>
+                </div>
+                <p class="rl-note-inline" style="text-align:center;">
+                    <strong>Pas encore prêt ?</strong> C'est normal. Vous pouvez aussi consulter mes
+                    <a href="/services" class="rl-inline">autres services</a> ou lire quelques articles sur le
+                    <a href="/blog" class="rl-inline">blog</a> pour mieux me connaître.
+                </p>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
 
     <Footer />
 </Layout>
 
-<style>
-    /* Dot pattern background */
-    .dots-bg {
-        background-image: radial-gradient(circle, #000 1px, transparent 1px);
-        background-size: 24px 24px;
-    }
+<style is:global>
+    /* ══ RÉFÉRENCEMENT LOCAL — styles .rl-* (namespace scopé, corps .co-root) ══ */
 
-    /* FAQ animations */
-    .faq-item[data-open="true"] .faq-icon {
-        transform: rotate(45deg);
-        background-color: var(--blue);
-    }
+    /* ── Hero ── */
+    .rl-hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
+    .rl-hero-title { font-size: clamp(2.1rem, 4.8vw, 3.2rem); }
+    .co-root .rl-hero-lead { margin-top: 18px; max-width: 52ch; font-size: 1.075rem; line-height: 1.65; color: var(--muted); }
+    .rl-hero-lead strong { color: var(--ink); font-weight: 600; }
+    .rl-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .rl-hero-btns .co-btn i { transition: transform .18s ease-out; }
+    .rl-hero-btns .co-btn:hover i { transform: translateY(2px); }
+    .co-root .rl-hero-loc { margin-top: 22px; font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px; }
+    .rl-hero-loc i { color: var(--accent); }
 
-    /* H1 SEO style terminal */
-    .seo-h1 {
-        font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace;
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: var(--color-accent-strong);
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    /* SERP mockup */
+    .rl-hero-media { position: relative; }
+    .rl-serp { position: relative; background: var(--surface); border: 1px solid var(--line-2); }
+    .rl-serp-bar { display: flex; align-items: center; gap: 8px; padding: 11px 14px; border-bottom: 1px solid var(--line); background: var(--bg); }
+    .rl-serp-dot { width: 9px; height: 9px; border-radius: 999px; background: var(--line-2); flex: none; }
+    .rl-serp-url { flex: 1; text-align: center; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .rl-serp-body { display: flex; flex-direction: column; gap: 14px; padding: 20px; }
+    .rl-serp-result { display: flex; flex-direction: column; gap: 4px; padding: 14px; border: 1px solid var(--line); }
+    .rl-serp-result--top { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .rl-serp-result--dim { opacity: 0.45; }
+    .rl-serp-link { font-size: 11.5px; color: var(--accent); font-variant-numeric: tabular-nums; }
+    .rl-serp-title { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.25; }
+    .co-root .rl-serp-desc { font-size: 12.5px; line-height: 1.45; color: var(--muted); }
+    .rl-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: 8px 12px; font-size: 12px; font-weight: 600; }
+    .rl-badge--score { top: -16px; left: -14px; display: flex; flex-direction: column; line-height: 1.1; }
+    .rl-badge--score b { color: var(--accent); font-size: 15px; }
+    .rl-badge--score span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .rl-badge--speed { bottom: -16px; right: -14px; background: var(--accent); border-color: var(--accent); color: #fff; }
 
-    /* Custom checkbox checkmark */
-    input[type="checkbox"]:checked::after {
-        content: '';
-        position: absolute;
-        left: 5px;
-        top: 1px;
-        width: 6px;
-        height: 12px;
-        border: solid black;
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
-    }
+    /* ── Barré (invisible → #1) ── */
+    .rl-strike { text-decoration: line-through; color: var(--muted); }
 
-    /* Submit button loading state */
-    .submit-btn.loading {
-        pointer-events: none;
-        opacity: 0.7;
+    /* ── Cartes génériques (problèmes / résultats / formules / drivers) ── */
+    .rl-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .rl-grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .rl-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .rl-card {
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        background: var(--surface); border: 1px solid var(--line-2);
+        transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
+    .rl-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+    .rl-card-icon { font-size: 24px; color: var(--accent); line-height: 1; }
+    .rl-card-title { font-size: 1.1rem; }
+    .rl-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
+    .rl-card-tag { margin-top: auto; padding-top: 4px; font-size: 12.5px; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 5px; }
 
-    .submit-btn.loading i {
-        animation: spin 1s linear infinite;
+    /* ── Notes / callouts ── */
+    .rl-note { display: flex; align-items: flex-start; gap: 12px; margin-top: 20px; padding: 18px 22px; border: 1px solid var(--line-2); background: var(--surface); }
+    .rl-note i { color: var(--accent); font-size: 20px; flex: none; margin-top: 1px; }
+    .co-root .rl-note p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+    .rl-note--accent { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .rl-note-inline { margin-top: 14px !important; font-size: 14px; line-height: 1.6; color: var(--muted); }
+    .rl-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
+    .rl-inline:hover { color: var(--ink); }
+    .rl-note strong, .rl-note-inline strong { color: var(--ink); font-weight: 600; }
+
+    /* ── Stats (étude de cas) ── */
+    .rl-stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-top: 32px; }
+    .rl-stat { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; padding: 22px 14px; background: var(--surface); border: 1px solid var(--line-2); transition: transform .18s ease-out; }
+    .rl-stat:hover { transform: translateY(-2px); }
+    .rl-stat-icon { font-size: 20px; color: var(--accent); }
+    .rl-stat-value { font-size: 1.65rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+    .rl-stat-label { font-size: 12px; color: var(--muted); }
+
+    /* ── Contexte (encart) ── */
+    .rl-context { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rl-context-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
+    .rl-context-title i { color: var(--accent); }
+    .rl-context-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 40px; margin-top: 18px; }
+    .rl-context-grid li { font-size: 14px; }
+    .co-root .rl-context-cta { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); }
+    .rl-context-cta .rl-inline { display: inline-flex; align-items: center; gap: 6px; }
+    .rl-context-cta i { transition: transform .18s ease-out; }
+    .rl-context-cta .rl-inline:hover i { transform: translateX(3px); }
+
+    /* ── Étapes méthode ── */
+    .rl-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+    .rl-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .rl-step-num { font-size: 20px; font-weight: 600; }
+    .rl-step-title { font-size: 1.15rem; }
+    .co-root .rl-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
+    .co-root .rl-step-dur { margin-top: 10px; font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+    .rl-step-dur i { color: var(--accent); }
+
+    /* ── Encart différenciateurs / angles ── */
+    .rl-diff, .rl-angles { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rl-diff-title { text-align: center; font-size: 1.25rem; }
+    .rl-diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 28px; }
+    .rl-angles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 28px; }
+    .rl-diff-item { text-align: center; }
+    .rl-diff-icon { font-size: 26px; color: var(--accent); }
+    .rl-diff-name { margin-top: 10px; font-size: 15px; font-weight: 600; }
+    .co-root .rl-diff-desc { margin-top: 4px; font-size: 13px; line-height: 1.45; color: var(--muted); }
+
+    /* ── Leviers (cartes numérotées) ── */
+    .rl-lever { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px; background: var(--surface); border: 1px solid var(--line-2); transition: box-shadow .18s ease-out, transform .18s ease-out; }
+    .rl-lever:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+    .rl-lever-head { display: flex; align-items: center; gap: 12px; }
+    .rl-lever-num { font-size: 18px; font-weight: 700; }
+    .rl-lever-icon { font-size: 20px; color: var(--accent); }
+
+    /* ── Bloc code (schema example) ── */
+    .rl-codeblock { position: relative; margin-top: 32px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rl-codeblock-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
+    .rl-codeblock-title i { color: var(--accent); }
+    .co-root .rl-codeblock-desc { margin-top: 8px; font-size: 14px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
+    .rl-code { margin-top: 18px; padding: 18px 20px; background: #0b0d10; color: #f4f3ee; border: 1px solid var(--line-2); overflow-x: auto; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12.5px; line-height: 1.6; }
+    .rl-code code { font-family: inherit; color: inherit; }
+
+    /* ── Transparence marché ── */
+    .rl-transp { margin-top: 44px; }
+    .rl-sub-title { font-size: 1.5rem; }
+    .rl-drivers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 28px; }
+    .rl-driver { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 20px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rl-driver-name { font-size: 14.5px; font-weight: 600; }
+    .rl-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+    .rl-compare-item { position: relative; padding: 24px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rl-compare-name { font-size: 1rem; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 10px; }
+    .rl-compare-name i { color: var(--accent); }
+    .rl-compare-item .rl-card-text strong { color: var(--ink); font-weight: 600; }
+
+    .rl-questions { position: relative; margin-top: 24px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rl-questions-list { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; list-style: none; padding: 0; }
+    .rl-questions-list li { display: grid; grid-template-columns: 32px 1fr; gap: 14px; align-items: start; }
+    .rl-questions-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border: 1px solid var(--accent); color: var(--accent); font-size: 13px; font-weight: 700; }
+    .co-root .rl-questions-list p { font-size: 14px; line-height: 1.55; color: var(--muted); }
+
+    /* ── Tarifs ── */
+    .rl-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; margin-top: 36px; }
+    .rl-tier { position: relative; display: flex; flex-direction: column; gap: 18px; padding: 30px 26px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rl-tier--reco { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+    .rl-tier-reco { position: absolute; top: -12px; left: 26px; z-index: 4; }
+    .rl-tier-name { font-size: 1.15rem; }
+    .rl-tier-price { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+    .rl-tier-pricelabel { font-size: 13px; color: var(--muted); width: 100%; }
+    .rl-tier-price b { font-size: 2.3rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+    .rl-tier-cur { font-size: 15px; color: var(--muted); font-weight: 500; }
+    .rl-tier-features { gap: 10px; }
+    .rl-tier-features li { font-size: 14px; line-height: 1.45; }
+    .co-root .rl-tier-ideal { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; line-height: 1.5; color: var(--muted); }
+    .rl-tier-ideal strong { color: var(--ink); }
+
+    .rl-pricenote { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rl-pricenote-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
+    .rl-pricenote-title i { color: var(--accent); }
+    .rl-pricenote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 40px; margin-top: 18px; }
+    .rl-pricenote-grid li { font-size: 14px; }
+
+    /* ── FAQ (accordéon natif <details> — smooth via ::details-content, zéro JS) ── */
+    .rl-faq { border-top: 1px solid var(--line); }
+    .rl-faq details { border-bottom: 1px solid var(--line); }
+    .rl-faq summary {
+        list-style: none; cursor: pointer; padding: 20px 0;
+        display: flex; justify-content: space-between; align-items: center; gap: 20px;
+        font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
     }
-
-    @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
+    .rl-faq summary::-webkit-details-marker { display: none; }
+    .rl-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
+    .rl-faq details[open] summary i { transform: rotate(180deg); }
+    .co-root .rl-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 68ch; }
+    .rl-faq details::details-content {
+        block-size: 0; overflow: hidden;
+        transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
     }
+    .rl-faq details[open]::details-content { block-size: auto; }
 
-    /* Scroll margin for anchor navigation */
-    section[id] {
-        scroll-margin-top: 100px;
+    /* ── Local ── */
+    .rl-local-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; margin-top: 32px; }
+    .rl-local-h3 { font-size: 1.15rem; margin-bottom: 18px; }
+    .rl-local-adv { display: flex; flex-direction: column; gap: 12px; }
+    .rl-local-item { position: relative; display: flex; align-items: flex-start; gap: 14px; padding: 18px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rl-local-icon { font-size: 22px; color: var(--accent); flex: none; margin-top: 2px; }
+    .rl-local-name { font-size: 15px; font-weight: 600; }
+    .co-root .rl-local-desc { margin-top: 3px; font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+    .rl-zones { display: flex; flex-direction: column; gap: 10px; }
+    .rl-zone { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line-2); font-size: 14px; }
+    .rl-zone i { color: var(--muted); font-size: 18px; }
+    .rl-zone strong { font-weight: 600; }
+    .rl-zone--primary { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .rl-zone--primary i { color: var(--accent); }
+
+    /* ── Formulaire (Web3Forms restylé, câblage préservé) ── */
+    .rl-form { position: relative; margin-top: 32px; padding: 34px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rl-form-title { font-size: 1.25rem; text-align: center; margin-bottom: 6px; }
+    .rl-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .rl-field { display: flex; flex-direction: column; gap: 8px; }
+    .rl-field--full { grid-column: 1 / -1; }
+    .rl-label { display: flex; align-items: baseline; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink); }
+    .rl-label .co-index { font-size: 11px; }
+    .rl-req { color: var(--accent); }
+    .rl-input, .rl-select, .rl-textarea {
+        width: 100%; font-family: "Inter Tight", ui-sans-serif, sans-serif; font-size: 15px; color: var(--ink);
+        background: var(--bg); border: 1px solid var(--line-2); padding: 12px 14px;
+        transition: border-color .18s ease-out, box-shadow .18s ease-out;
+    }
+    .rl-input::placeholder, .rl-textarea::placeholder { color: var(--muted); opacity: .7; }
+    .rl-input:focus, .rl-select:focus, .rl-textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,168,125,.15); }
+    .rl-textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
+    .rl-select-wrap { position: relative; }
+    .rl-select { appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 40px; }
+    .rl-select-caret { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 18px; color: var(--muted); pointer-events: none; }
+    .rl-consent { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.5; color: var(--muted); cursor: pointer; }
+    .rl-consent:hover { color: var(--ink); }
+    .rl-checkbox { margin-top: 2px; width: 16px; height: 16px; flex: none; accent-color: var(--accent); cursor: pointer; }
+    .rl-submit { width: 100%; justify-content: center; padding: 14px 20px; font-size: 16px; }
+    .submit-btn.loading { pointer-events: none; opacity: 0.7; }
+    .submit-btn.loading i { animation: rlSpin 1s linear infinite; }
+    @keyframes rlSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    /* ── Après-formulaire ── */
+    .rl-form-after { margin-top: 28px; display: flex; flex-direction: column; gap: 18px; align-items: center; text-align: center; }
+    .rl-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; font-size: 13.5px; color: var(--muted); }
+    .rl-trust i { color: var(--accent); margin-right: 4px; }
+    .rl-alt { display: flex; flex-direction: column; gap: 4px; }
+    .rl-alt .rl-inline { display: inline-flex; align-items: center; gap: 6px; justify-content: center; }
+
+    /* ── Anchor scroll offset ── */
+    .co-root section[id] { scroll-margin-top: 100px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+        .rl-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+        .rl-hero-media { max-width: 520px; }
+        .rl-local-grid { grid-template-columns: 1fr; gap: 32px; }
+        .rl-diff-grid { grid-template-columns: repeat(2, 1fr); }
+        .rl-drivers { grid-template-columns: repeat(2, 1fr); }
+        .rl-stats { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 720px) {
+        .rl-grid--2, .rl-grid--3, .rl-tiers, .rl-form-grid, .rl-pricenote-grid, .rl-context-grid, .rl-compare { grid-template-columns: 1fr; }
+        .rl-angles-grid { grid-template-columns: 1fr; }
+        .rl-diff-grid { grid-template-columns: 1fr 1fr; }
+        .rl-drivers { grid-template-columns: 1fr 1fr; }
+        .rl-stats { grid-template-columns: repeat(2, 1fr); }
+        .rl-step { grid-template-columns: 44px 1fr; gap: 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .rl-card, .rl-lever, .rl-stat, .rl-res-link, .rl-faq summary i, .rl-hero-btns .co-btn i, .rl-context-cta i { transition: none; }
+        .submit-btn.loading i { animation: none; }
     }
 </style>
 
 <script>
-    // FAQ accordion logic
-    const faqItems = document.querySelectorAll('[data-faq-item]');
-
-    faqItems.forEach(item => {
-        const trigger = item.querySelector('[data-faq-trigger]');
-        const content = item.querySelector('[data-faq-content]') as HTMLElement;
-
-        trigger?.addEventListener('click', () => {
-            const isOpen = item.getAttribute('data-open') === 'true';
-
-            // Close all other items
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.setAttribute('data-open', 'false');
-                    const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
-                    const otherTrigger = otherItem.querySelector('[data-faq-trigger]');
-                    if (otherContent) otherContent.style.maxHeight = '0';
-                    otherTrigger?.setAttribute('aria-expanded', 'false');
-                }
-            });
-
-            // Toggle current item
-            if (isOpen) {
-                item.setAttribute('data-open', 'false');
-                content.style.maxHeight = '0';
-                trigger.setAttribute('aria-expanded', 'false');
-            } else {
-                item.setAttribute('data-open', 'true');
-                content.style.maxHeight = content.scrollHeight + 'px';
-                trigger.setAttribute('aria-expanded', 'true');
-            }
-        });
-    });
-
-    // Form submission
+    // Form submission — HARD-PRESERVE (câblage Web3Forms inchangé, id #seo-form)
     const form = document.getElementById('seo-form') as HTMLFormElement;
     const submitBtn = form?.querySelector('.submit-btn') as HTMLButtonElement;
     const btnText = submitBtn?.querySelector('span');
@@ -1561,12 +1237,11 @@ const budgetOptions = [
     form?.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Loading state
         if (submitBtn) {
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
             if (btnText) btnText.textContent = 'Envoi en cours...';
-            if (btnIcon) btnIcon.className = 'ri-loader-4-line text-xl animate-spin';
+            if (btnIcon) btnIcon.className = 'ri-loader-4-line';
         }
 
         try {
@@ -1587,12 +1262,11 @@ const budgetOptions = [
         } catch (error) {
             alert('Erreur de connexion. Veuillez réessayer.');
         } finally {
-            // Reset button
             if (submitBtn) {
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
                 if (btnText) btnText.textContent = 'Demander mon audit gratuit';
-                if (btnIcon) btnIcon.className = 'ri-send-plane-line text-xl';
+                if (btnIcon) btnIcon.className = 'ri-send-plane-line';
             }
         }
     });

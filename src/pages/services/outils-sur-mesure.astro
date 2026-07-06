@@ -1,24 +1,25 @@
 ---
+// Outils & applications sur mesure — sous-page service (blueprint).
+// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
+// accent teal unique, Inter Tight × Instrument Serif. Namespace scopé .ou-* (corps .co-root).
+// Gabarit-or de référence : src/pages/services/creation-site-web.astro (.cr-*).
+//
+// HARD-PRESERVE : Schema.org (serviceSchemas/breadcrumb/FAQ), câblage Web3Forms
+// (#outils-form, access_key + hidden inputs, tous les name=, honeypot, JS submit),
+// prix exacts (1'000 / 2'500 / Sur devis), tous les liens SEO internes
+// (/services/automatisation, /blog/automatisation-club-sportif, /blog/valide-idee-business-suisse).
+
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import IconChip from '../../components/IconChip.astro';
-import FAQ from '../../components/FAQ.astro';
 
-// Import background components
-import BackgroundGlitchGrid from '../../components/backgrounds/BackgroundGlitchGrid.astro';
-import BackgroundProgressFlow from '../../components/backgrounds/BackgroundProgressFlow.astro';
-import BackgroundQuestionMarks from '../../components/backgrounds/BackgroundQuestionMarks.astro';
-import BackgroundMapContours from '../../components/backgrounds/BackgroundMapContours.astro';
-
-// Import hero image
+// Image hero (dashboard réel)
 import dashboardScreen from '../../assets/services/dashboard-custom-screen.webp';
 
 // Schema.org
 import { serviceSchemas, SITE_URL } from '../../data/schema';
-import { getFAQPageSchema } from '../../lib/seo';
-import { getBreadcrumbSchema } from '../../lib/seo';
+import { getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
 
 // SEO Data
 const seoData = {
@@ -94,84 +95,28 @@ const methodSteps = [
 
 // Differentiators (encart)
 const differentiators = [
-    {
-        icon: "ri-timer-flash-line",
-        title: "Pas de tunnel de 6 mois",
-        description: "prototype fonctionnel en 1-2 semaines"
-    },
-    {
-        icon: "ri-lock-unlock-line",
-        title: "Tu restes propriétaire",
-        description: "ton code, tes données, hébergées où tu veux"
-    },
-    {
-        icon: "ri-file-text-line",
-        title: "Pas de dépendance",
-        description: "documentation complète, évolutif même sans moi"
-    },
-    {
-        icon: "ri-shield-check-line",
-        title: "Pensé pour durer",
-        description: "stack moderne et maintenable"
-    }
+    { icon: "ri-timer-flash-line", title: "Pas de tunnel de 6 mois", description: "prototype fonctionnel en 1-2 semaines" },
+    { icon: "ri-lock-unlock-line", title: "Tu restes propriétaire", description: "ton code, tes données, hébergées où tu veux" },
+    { icon: "ri-file-text-line", title: "Pas de dépendance", description: "documentation complète, évolutif même sans moi" },
+    { icon: "ri-shield-check-line", title: "Pensé pour durer", description: "stack moderne et maintenable" }
 ];
 
 // Results (6 items)
 const results = [
-    {
-        icon: "ri-global-line",
-        title: "Une application web accessible partout",
-        benefit: "Plus de fichier Excel coincé sur un seul ordi"
-    },
-    {
-        icon: "ri-user-smile-line",
-        title: "Interface pensée pour toi (et ton équipe)",
-        benefit: "Pas besoin de formation de 3 jours, c'est intuitif"
-    },
-    {
-        icon: "ri-database-2-line",
-        title: "Données centralisées et sécurisées",
-        benefit: "Fini les versions contradictoires et les fichiers perdus"
-    },
-    {
-        icon: "ri-robot-line",
-        title: "Automatisations intégrées si pertinent",
-        benefit: "Les tâches répétitives se font sans toi"
-    },
-    {
-        icon: "ri-expand-diagonal-line",
-        title: "Évolutif selon tes besoins",
-        benefit: "L'outil grandit avec ton activité"
-    },
-    {
-        icon: "ri-book-open-line",
-        title: "Documentation + formation incluses",
-        benefit: "Tu es autonome dès le jour 1"
-    }
+    { icon: "ri-global-line", title: "Une application web accessible partout", benefit: "Plus de fichier Excel coincé sur un seul ordi" },
+    { icon: "ri-user-smile-line", title: "Interface pensée pour toi (et ton équipe)", benefit: "Pas besoin de formation de 3 jours, c'est intuitif" },
+    { icon: "ri-database-2-line", title: "Données centralisées et sécurisées", benefit: "Fini les versions contradictoires et les fichiers perdus" },
+    { icon: "ri-robot-line", title: "Automatisations intégrées si pertinent", benefit: "Les tâches répétitives se font sans toi" },
+    { icon: "ri-expand-diagonal-line", title: "Évolutif selon tes besoins", benefit: "L'outil grandit avec ton activité" },
+    { icon: "ri-book-open-line", title: "Documentation + formation incluses", benefit: "Tu es autonome dès le jour 1" }
 ];
 
 // Tech stack
 const techStack = [
-    {
-        name: "React / Next.js",
-        description: "Interfaces modernes, rapides, agréables à utiliser",
-        icon: "ri-reactjs-line"
-    },
-    {
-        name: "Supabase",
-        description: "Base de données robuste, auth intégrée, temps réel si besoin",
-        icon: "ri-database-2-line"
-    },
-    {
-        name: "Tailwind CSS",
-        description: "Design sur mesure, pas de template générique",
-        icon: "ri-palette-line"
-    },
-    {
-        name: "Vercel",
-        description: "Hébergement fiable, déploiement automatique",
-        icon: "ri-cloud-line"
-    }
+    { name: "React / Next.js", description: "Interfaces modernes, rapides, agréables à utiliser", icon: "ri-reactjs-line" },
+    { name: "Supabase", description: "Base de données robuste, auth intégrée, temps réel si besoin", icon: "ri-database-2-line" },
+    { name: "Tailwind CSS", description: "Design sur mesure, pas de template générique", icon: "ri-palette-line" },
+    { name: "Vercel", description: "Hébergement fiable, déploiement automatique", icon: "ri-cloud-line" }
 ];
 
 // Pricing tiers
@@ -240,26 +185,10 @@ schemas.push(getFAQPageSchema(faqs));
 
 // Local advantages
 const localAdvantages = [
-    {
-        icon: "ri-time-line",
-        title: "Même fuseau horaire",
-        description: "Réactivité garantie, réponse dans la journée"
-    },
-    {
-        icon: "ri-shield-user-line",
-        title: "Contexte suisse",
-        description: "Compréhension de la nLPD, spécificités légales, multilinguisme"
-    },
-    {
-        icon: "ri-server-line",
-        title: "Hébergement local possible",
-        description: "Tes données en Suisse si tes contraintes l'exigent"
-    },
-    {
-        icon: "ri-team-line",
-        title: "Réseau local",
-        description: "Si ton projet nécessite d'autres compétences, je connais des gens de confiance"
-    }
+    { icon: "ri-time-line", title: "Même fuseau horaire", description: "Réactivité garantie, réponse dans la journée" },
+    { icon: "ri-shield-user-line", title: "Contexte suisse", description: "Compréhension de la nLPD, spécificités légales, multilinguisme" },
+    { icon: "ri-server-line", title: "Hébergement local possible", description: "Tes données en Suisse si tes contraintes l'exigent" },
+    { icon: "ri-team-line", title: "Réseau local", description: "Si ton projet nécessite d'autres compétences, je connais des gens de confiance" }
 ];
 
 // Project type options for form
@@ -279,763 +208,548 @@ const budgetOptions = [
 ];
 ---
 
-<Layout
-    title={seoData.title}
-    description={seoData.description}
-    schemas={schemas}
->
+<Layout title={seoData.title} description={seoData.description} schemas={schemas}>
     <Header />
 
-    <!-- ============================================== -->
-    <!-- HERO SECTION - Layout centré -->
-    <!-- ============================================== -->
-    <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-20 px-4 relative overflow-hidden">
-        <!-- Gradient mesh background -->
-        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-            <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--blue)] opacity-15 blur-[120px] rounded-full"></div>
-            <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-accent-strong opacity-10 blur-[100px] rounded-full"></div>
-        </div>
+    <main class="co-root">
 
-        <div class="max-w-4xl mx-auto relative z-10">
-            <!-- Text content - Centré -->
-            <div class="text-center">
-                <!-- H1 SEO discret -->
-                <h1 class="seo-h1 mb-6 mt-8 justify-center">
-                    Développement d'applications et outils métier sur mesure à Genève
-                </h1>
-
-                <!-- Main title -->
-                <p class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6" data-animate="fade-up">
-                    Ton métier est unique.<br/>
-                    Ton outil devrait l'être <span class="border-b-4 border-[var(--blue)]">aussi</span>.
-                </p>
-
-                <!-- Description -->
-                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="0.1">
-                    Excel atteint ses limites, les logiciels du marché ne collent pas à ton process, et bricoler entre 5 apps différentes te fait perdre du temps.
-                    <strong class="text-[var(--text)]">Je crée des dashboards et outils métier pensés pour ta façon de travailler</strong> — pas l'inverse.
-                </p>
-
-                <!-- CTAs - Sur une ligne -->
-                <div class="flex flex-wrap gap-4 justify-center mb-12" data-animate="fade-up" data-delay="0.2">
-                    <a
-                        href="#contact"
-                        class="
-                            bg-[var(--blue)]
-                            border-2 border-black
-                            px-6 py-3
-                            text-base font-medium
-                            shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                            transition-all duration-200
-                            hover:bg-[var(--yellow)]
-                            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                            hover:translate-x-[2px] hover:translate-y-[2px]
-                            inline-flex items-center gap-2
-                        "
-                    >
-                        <i class="ri-chat-3-line"></i>
-                        Discuter de mon projet
-                    </a>
-                    <a
-                        href="#resultats"
-                        class="
-                            bg-white
-                            border-2 border-black
-                            px-6 py-3
-                            text-base font-medium
-                            transition-all duration-200
-                            hover:bg-gray-100
-                            inline-flex items-center gap-2
-                        "
-                    >
-                        Voir des exemples
-                        <i class="ri-arrow-down-line"></i>
-                    </a>
+        <!-- ══ HERO ══ -->
+        <section class="co-sec co-pad co-hero ou-hero" style="padding:64px 40px 56px;">
+            <div class="ou-hero-grid">
+                <div class="ou-hero-copy">
+                    <p class="co-eyebrow" data-animate>Outils &amp; applications sur mesure · Genève &amp; Suisse romande</p>
+                    <h1 class="ou-hero-title" data-animate data-delay="0.1">
+                        Ton métier est unique. Ton outil devrait l'être <span class="co-ser">aussi.</span>
+                    </h1>
+                    <p class="ou-hero-lead" data-animate data-delay="0.2">
+                        Excel atteint ses limites, les logiciels du marché ne collent pas à ton process, et bricoler
+                        entre 5 apps différentes te fait perdre du temps.
+                        <strong>Je crée des dashboards et outils métier pensés pour ta façon de travailler</strong> —
+                        pas l'inverse.
+                    </p>
+                    <div class="ou-hero-btns" data-animate data-delay="0.3">
+                        <a href="#contact" class="co-btn"><i class="ri-chat-3-line"></i> Discuter de mon projet</a>
+                        <a href="#resultats" class="co-btn co-btn--ghost">Voir des exemples <i class="ri-arrow-down-line"></i></a>
+                    </div>
+                    <p class="ou-hero-loc co-mut" data-animate data-delay="0.4">
+                        <i class="ri-map-pin-fill"></i> Basé à Genève · Service en Suisse romande
+                    </p>
                 </div>
-            </div>
 
-            <!-- Screenshot Dashboard réel -->
-            <div class="relative max-w-3xl mx-auto" data-animate="scale" data-delay="0.3">
-                <div class="relative">
-                    <!-- Image du dashboard -->
-                    <div class="border-3 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] overflow-hidden bg-white">
-                        <img
-                            src={dashboardScreen.src}
-                            alt="Exemple de dashboard sur mesure - gestion de club sportif avec membres, cotisations et inscriptions"
-                            class="w-full h-auto"
-                            loading="eager"
-                        />
-                    </div>
-
-                    <!-- Decorative elements -->
-                    <div class="absolute -top-3 -right-3 md:-top-4 md:-right-4 bg-accent border-2 border-black px-3 py-1.5 shadow-[3px_3px_0px_rgba(0,0,0,1)] rotate-6 z-10">
-                        <span class="font-mono text-sm font-bold">Sur mesure</span>
-                    </div>
-                    <div class="absolute -bottom-3 -left-3 md:-bottom-4 md:-left-4 bg-white border-2 border-black px-3 py-1.5 shadow-[3px_3px_0px_rgba(0,0,0,1)] -rotate-3 z-10">
-                        <span class="text-xs text-gray-500">Prototype en</span>
-                        <span class="font-bold text-sm block">1-2 sem.</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Location badge centered -->
-            <div class="flex items-center justify-center gap-2 text-sm text-gray-500 mt-10">
-                <i class="ri-map-pin-fill text-[var(--blue)]"></i>
-                <span>Basé à Genève | Service en Suisse romande</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- PAIN POINTS SECTION - Chaos / Glitch -->
-    <!-- ============================================== -->
-    <section id="problemes" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundGlitchGrid color="rgba(239, 68, 68, 0.5)" opacity={0.12} />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    problèmes
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    <span class="relative inline-block">
-                        <span class="absolute bg-panel w-full h-[40%] left-0 bottom-1 -z-1"></span>
-                        Tu te reconnais ?
-                    </span>
-                </h2>
-                <p class="text-lg text-gray-600">Ces situations reviennent souvent chez les PME et indépendants que j'accompagne.</p>
-            </div>
-
-            <!-- Pain points grid - Format conversationnel avec guillemets -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12" data-animate-stagger>
-                {painPoints.map((point) => (
-                    <div class="pain-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Icon + Quote -->
-                        <div class="flex items-start gap-4 mb-4">
-                            <IconChip icon={point.icon} variant="muted" size="md" class="flex-shrink-0" />
-                            <p class="text-lg font-medium italic text-gray-800">"{point.quote}"</p>
+                <div class="ou-hero-media" data-animate="scale" data-delay="0.3">
+                    <div class="ou-browser co-frame">
+                        <span class="co-x tl"></span><span class="co-x tr"></span>
+                        <span class="co-x bl"></span><span class="co-x br"></span>
+                        <div class="ou-browser-bar">
+                            <span class="ou-browser-dot"></span>
+                            <span class="ou-browser-dot"></span>
+                            <span class="ou-browser-dot"></span>
+                            <span class="ou-browser-url">dashboard.app</span>
                         </div>
-                        <p class="text-gray-600 text-sm leading-relaxed pl-14">{point.description}</p>
+                        <img src={dashboardScreen.src} alt="Exemple de dashboard sur mesure — gestion de club sportif avec membres, cotisations et inscriptions" loading="eager" class="ou-browser-img" />
                     </div>
-                ))}
-            </div>
-
-            <!-- Transition callout -->
-            <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-6 md:p-8 text-center" data-animate="fade-up">
-                <p class="text-lg md:text-xl font-medium">
-                    <i class="ri-lightbulb-line text-[var(--blue)] mr-2"></i>
-                    <strong>Le problème n'est pas que tu es difficile.</strong> C'est que ton métier a des spécificités que les logiciels généralistes ignorent. La solution ? Un outil conçu autour de <strong>TON</strong> fonctionnement.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- METHODOLOGY SECTION - Progress Flow -->
-    <!-- ============================================== -->
-    <section id="methode" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <BackgroundProgressFlow colorStart="var(--blue)" colorEnd="var(--violet)" opacity={0.15} />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    méthode
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Comment ça se passe ?
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    On part de ton besoin réel, pas d'un cahier des charges fictif. Tu vois un <strong class="text-[var(--blue)]">prototype fonctionnel en 1-2 semaines</strong>, pas dans 6 mois.
-                </p>
-            </div>
-
-            <!-- Method steps - Timeline alternée avec animation -->
-            <div class="relative" id="method-timeline">
-                <!-- Ligne verticale centrale (desktop) -->
-                <div class="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-[var(--blue)] opacity-30 -translate-x-1/2"></div>
-
-                <div class="space-y-8 md:space-y-12">
-                    {methodSteps.map((step, index) => (
-                        <div class={`method-card flex flex-col md:flex-row gap-6 items-center opacity-0 translate-y-4 ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`} style={`transition-delay: ${index * 150}ms`}>
-                            <!-- Card -->
-                            <div class="w-full md:w-[calc(50%-1.5rem)] bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)]">
-                                <div class="flex items-center gap-3 mb-4">
-                                    <span class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
-                                        0{index + 1}
-                                    </span>
-                                    <h3 class="text-xl font-bold">{step.title}</h3>
-                                </div>
-                                <p class="text-gray-600 text-sm leading-relaxed mb-4">{step.description}</p>
-                                <div class="flex items-center gap-2 text-sm pt-3 border-t border-dashed border-gray-300">
-                                    <i class="ri-time-line text-[var(--blue)]"></i>
-                                    <span class="text-gray-500">{step.duration}</span>
-                                </div>
-                            </div>
-
-                            <!-- Point sur la ligne (desktop) -->
-                            <div class="hidden md:flex w-4 h-4 bg-[var(--blue)] border-2 border-black rounded-full z-10 flex-shrink-0"></div>
-
-                            <!-- Espace vide pour layout alterné -->
-                            <div class="hidden md:block w-[calc(50%-1.5rem)]"></div>
-                        </div>
-                    ))}
+                    <div class="ou-badge ou-badge--tag">Sur mesure</div>
+                    <div class="ou-badge ou-badge--speed">1-2 sem.</div>
                 </div>
             </div>
+        </section>
 
-            <!-- Differentiators box -->
-            <div class="mt-16 bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate="fade-up">
-                <!-- Corner boxes -->
-                <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-
-                <h3 class="text-xl font-bold text-center mb-6">Ce qui change avec Jon Labs</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    {differentiators.map((diff) => (
-                        <div class="text-center">
-                            <IconChip icon={diff.icon} class="mx-auto mb-3" />
-                            <h4 class="font-bold mb-1">{diff.title}</h4>
-                            <p class="text-sm text-gray-600">{diff.description}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            <!-- Link to automatisation -->
-            <div class="text-center mt-8">
-                <p class="text-gray-500 text-sm">
-                    Si ton besoin c'est surtout de connecter des outils existants, <a href="/services/automatisation" class="text-[var(--blue)] font-medium hover:underline">découvre mes services d'automatisation</a>.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- RESULTS SECTION -->
-    <!-- ============================================== -->
-    <section id="resultats" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    résultats
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Ce que tu obtiens
-                </h2>
-            </div>
-
-            <!-- Results grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12" data-animate-stagger>
-                {results.map((result) => (
-                    <div class="result-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Green check icon -->
-                        <IconChip icon={result.icon} size="md" class="mb-4" />
-                        <h3 class="text-lg font-bold mb-2">{result.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed flex items-start gap-2">
-                            <i class="ri-arrow-right-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
-                            {result.benefit}
-                        </p>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Case study - Dashboard club sportif -->
-            <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-6 md:p-8" data-animate="fade-up">
-                <div class="flex flex-col md:flex-row gap-6 items-start">
-                    <IconChip icon="ri-trophy-line" class="flex-shrink-0" />
-                    <div>
-                        <h3 class="text-xl font-bold mb-3">Exemple concret : Dashboard pour club sportif</h3>
-                        <p class="text-gray-700 leading-relaxed mb-4">
-                            Un club gérait ses membres, cotisations et présences sur 3 fichiers Excel qui ne se parlaient pas. J'ai créé un dashboard centralisé : vue d'ensemble des membres, suivi des paiements en temps réel, historique des présences. <strong>Le comité a récupéré plusieurs heures par mois</strong> — et surtout, n'importe qui peut reprendre la gestion sans formation.
-                        </p>
-                        <a href="/blog/automatisation-club-sportif" class="inline-flex items-center gap-2 text-[var(--blue)] font-medium hover:underline">
-                            <i class="ri-article-line"></i>
-                            Lire l'article complet
-                            <i class="ri-arrow-right-line"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- TECHNOLOGY SECTION -->
-    <!-- ============================================== -->
-    <section id="technologie" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    sous le capot
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Technologie moderne
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Je choisis la technologie en fonction de <strong>TON</strong> projet, pas de mes préférences. Mais voici ce avec quoi je travaille le plus souvent :
-                </p>
-            </div>
-
-            <!-- Tech cards -->
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12" data-animate-stagger="scale">
-                {techStack.map((tech) => (
-                    <div class="tech-card bg-white border-2 border-black p-4 md:p-6 text-center transition-all duration-200 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)] hover:-translate-y-1" data-animate-item>
-                        <i class={`${tech.icon} text-3xl text-[var(--blue)] mb-3 block`}></i>
-                        <h3 class="text-sm md:text-base font-bold mb-2">{tech.name}</h3>
-                        <p class="text-xs text-gray-600 hidden md:block">{tech.description}</p>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Reassurance note -->
-            <div class="bg-white border-2 border-black p-6 text-center" data-animate="fade-up">
-                <p class="text-gray-600">
-                    <i class="ri-information-line text-[var(--blue)] mr-2"></i>
-                    <strong>Pas besoin de comprendre ces termes.</strong> Ce qui compte pour toi : c'est moderne, c'est maintenable, et tes données restent les tiennes.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- PRICING SECTION - Fond neutre -->
-    <!-- ============================================== -->
-    <section id="prix" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-        <div class="max-w-5xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    investissement
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Investissement
-                </h2>
-                <p class="text-lg text-gray-600">Chaque projet est différent. Voici des ordres de grandeur pour te donner une idée.</p>
-            </div>
-
-            <!-- Pricing tiers -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12" data-animate-stagger>
-                {pricingTiers.map((tier) => (
-                    <div class={`
-                        pricing-card bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 relative
-                        ${tier.highlighted ? 'shadow-[8px_8px_0px_rgba(0,0,0,1)] ring-2 ring-[var(--blue)]' : 'shadow-[4px_4px_0px_rgba(0,0,0,0.3)]'}
-                    `} data-animate-item>
-                        {tier.highlighted && (
-                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-bold">
-                                COURANT
-                            </div>
-                        )}
-
-                        <h3 class="text-xl font-bold mb-4">{tier.name}</h3>
-
-                        <div class="mb-4">
-                            {tier.priceLabel && (
-                                <span class="text-sm text-gray-500">{tier.priceLabel}</span>
-                            )}
-                            <p class="text-3xl font-bold text-[var(--text)]">
-                                {tier.price}
-                                {tier.priceLabel && <span class="text-lg"> CHF</span>}
-                            </p>
-                        </div>
-
-                        <p class="text-sm text-gray-600">{tier.description}</p>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Pricing factors -->
-            <div class="bg-white border-2 border-black p-6 md:p-8" data-animate="fade-up">
-                <h3 class="font-bold mb-4 flex items-center gap-2">
-                    <i class="ri-information-line text-[var(--blue)]"></i>
-                    Ce qui influence le budget :
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600 mb-6">
-                    {pricingFactors.map((factor) => (
-                        <div class="flex items-center gap-2">
-                            <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            {factor}
-                        </div>
-                    ))}
-                </div>
-                <p class="text-sm text-gray-500 bg-gray-50 p-3 border-l-4 border-[var(--blue)]">
-                    <strong>Premier échange gratuit</strong> pour cadrer le besoin et te donner une estimation précise.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- FAQ SECTION -->
-    <!-- ============================================== -->
-    <FAQ faqs={faqs} sectionId="faq">
-        <BackgroundQuestionMarks slot="background" animated={true} />
-    </FAQ>
-
-    <!-- ============================================== -->
-    <!-- LOCAL SEO SECTION -->
-    <!-- ============================================== -->
-    <section id="local" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundMapContours opacity={0.1} />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    local
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Basé à <span class="text-[var(--blue)]">Genève</span>,<br/>
-                    disponible en Suisse romande
-                </h2>
-            </div>
-
-            <!-- Advantages grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6" data-animate-stagger>
-                {localAdvantages.map((adv) => (
-                    <div class="flex flex-col items-center text-center p-6 bg-[var(--main-bg)] border-2 border-black transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <IconChip icon={adv.icon} class="mb-4" />
-                        <h3 class="font-bold mb-2">{adv.title}</h3>
-                        <p class="text-sm text-gray-600">{adv.description}</p>
-                    </div>
-                ))}
-            </div>
-
-            <p class="text-center mt-8 text-sm text-gray-500">
-                <i class="ri-information-line mr-1"></i>
-                Je travaille principalement à distance, mais je peux me déplacer pour les phases de diagnostic et de formation.
+        <!-- ══ 01 · PROBLÈMES ══ -->
+        <section id="problemes" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">01 — Problèmes</p>
+            <h2 style="margin-top:8px;">Tu te <span class="co-ser">reconnais ?</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:58ch;line-height:1.6;">
+                Ces situations reviennent souvent chez les PME et indépendants que j'accompagne.
             </p>
-        </div>
-    </section>
 
-    <!-- ============================================== -->
-    <!-- CTA + FORM SECTION -->
-    <!-- ============================================== -->
-    <section id="contact" class="py-20 md:py-28 px-4 bg-[var(--main-bg)] relative overflow-hidden">
-        <!-- Dot pattern background -->
-        <div class="absolute inset-0 dots-bg opacity-[0.4]"></div>
-
-        <div class="max-w-4xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4 text-[var(--text)]">
-                    Tu as un process qui mériterait son propre outil ?
-                </h2>
-                <p class="text-lg text-gray-600">
-                    Premier échange gratuit et sans engagement. On regarde ensemble si un outil sur mesure est la bonne réponse — ou si une solution plus simple existe.
-                </p>
+            <div class="ou-grid ou-grid--2" data-animate-stagger>
+                {painPoints.map((point) => (
+                    <div class="ou-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${point.icon} ou-card-icon`} aria-hidden="true"></i>
+                        <p class="ou-card-quote">« {point.quote} »</p>
+                        <p class="ou-card-text">{point.description}</p>
+                    </div>
+                ))}
             </div>
 
-            <!-- Contact Form -->
-            <div class="contact-form-container" data-animate="scale">
-                <form
-                    class="bg-white text-[var(--text)] border-3 border-black p-6 md:p-8 shadow-[8px_8px_0px_rgba(0,217,163,0.3)] relative"
-                    id="outils-form"
-                >
-                    <!-- Corner boxes -->
-                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+            <div class="ou-note ou-note--accent" data-animate>
+                <i class="ri-lightbulb-line"></i>
+                <p><strong>Le problème n'est pas que tu es difficile.</strong> C'est que ton métier a des spécificités que les logiciels généralistes ignorent. La solution ? Un outil conçu autour de <strong>ton</strong> fonctionnement.</p>
+            </div>
+        </section>
 
-                    <h3 class="text-xl font-bold mb-6 text-center">Parlons de ton projet</h3>
+        <!-- ══ 02 · MÉTHODE ══ -->
+        <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">02 — Méthode</p>
+            <h2 style="margin-top:8px;">Comment ça se passe ?</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+                On part de ton besoin réel, pas d'un cahier des charges fictif. Tu vois un
+                <strong>prototype fonctionnel en 1-2 semaines</strong>, pas dans 6 mois.
+            </p>
 
-                    <!-- Hidden fields for Web3Forms -->
-                    <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
-                    <input type="hidden" name="subject" value="Demande outil sur mesure - Jon Labs">
-                    <input type="hidden" name="from_name" value="Jon Labs - Outils sur mesure">
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Nom -->
-                        <div class="form-field">
-                            <label for="name" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">01</span>
-                                Nom / Prénom <span class="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                required
-                                placeholder="Jean Dupont"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
-
-                        <!-- Email -->
-                        <div class="form-field">
-                            <label for="email" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">02</span>
-                                Email <span class="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                required
-                                placeholder="vous@exemple.ch"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
-
-                        <!-- Téléphone -->
-                        <div class="form-field">
-                            <label for="phone" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">03</span>
-                                Téléphone (optionnel)
-                            </label>
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                placeholder="+41 79 123 45 67"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
-
-                        <!-- Type de projet -->
-                        <div class="form-field">
-                            <label for="project-type" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">04</span>
-                                Type de projet <span class="text-red-500">*</span>
-                            </label>
-                            <select
-                                id="project-type"
-                                name="project_type"
-                                required
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all cursor-pointer"
-                            >
-                                <option value="" disabled selected>Choisir...</option>
-                                {projectTypes.map((type) => (
-                                    <option value={type.value}>{type.label}</option>
-                                ))}
-                            </select>
-                        </div>
-
-                        <!-- Description du besoin -->
-                        <div class="form-field md:col-span-2">
-                            <label for="message" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">05</span>
-                                Décris ton besoin <span class="text-red-500">*</span>
-                            </label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="4"
-                                required
-                                placeholder="Quel problème veux-tu résoudre ? Quels outils utilises-tu actuellement ? Qu'est-ce qui ne fonctionne pas ?"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            ></textarea>
-                        </div>
-
-                        <!-- Budget -->
-                        <div class="form-field">
-                            <label for="budget" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">06</span>
-                                Budget approximatif
-                            </label>
-                            <select
-                                id="budget"
-                                name="budget"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all cursor-pointer"
-                            >
-                                <option value="" disabled selected>Choisir...</option>
-                                {budgetOptions.map((option) => (
-                                    <option value={option.value}>{option.label}</option>
-                                ))}
-                            </select>
-                        </div>
-
-                        <!-- Source -->
-                        <div class="form-field">
-                            <label for="source" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">07</span>
-                                Comment m'as-tu trouvé ? (optionnel)
-                            </label>
-                            <input
-                                type="text"
-                                id="source"
-                                name="source"
-                                placeholder="Google, recommandation, LinkedIn..."
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
-
-                        <!-- Consent -->
-                        <div class="form-field md:col-span-2">
-                            <label class="flex items-start gap-3 cursor-pointer group">
-                                <input
-                                    type="checkbox"
-                                    name="consent"
-                                    required
-                                    class="mt-1 w-5 h-5 border-2 border-black appearance-none cursor-pointer checked:bg-[var(--blue)] checked:border-black relative transition-all"
-                                />
-                                <span class="text-sm text-gray-600 group-hover:text-black transition-colors">
-                                    Tes données sont utilisées uniquement pour répondre à ta demande. Pas de spam, promis. <span class="text-red-500">*</span>
-                                </span>
-                            </label>
-                        </div>
-
-                        <!-- Submit -->
-                        <div class="md:col-span-2 pt-4">
-                            <button
-                                type="submit"
-                                class="
-                                    submit-btn
-                                    w-full
-                                    bg-[var(--blue)]
-                                    border-2 border-black
-                                    px-8 py-4
-                                    text-lg font-bold
-                                    shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                                    transition-all duration-200
-                                    hover:bg-[var(--yellow)]
-                                    hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                                    hover:translate-x-[2px] hover:translate-y-[2px]
-                                    focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2
-                                    flex items-center justify-center gap-3
-                                "
-                            >
-                                <span>Envoyer ma demande</span>
-                                <i class="ri-send-plane-line text-xl"></i>
-                            </button>
+            <div class="ou-steps" data-animate-stagger>
+                {methodSteps.map((step, index) => (
+                    <div class="ou-step" data-animate-item>
+                        <span class="ou-step-num co-index">0{index + 1}</span>
+                        <div class="ou-step-body">
+                            <h3 class="ou-step-title">{step.title}</h3>
+                            <p class="ou-step-text">{step.description}</p>
+                            <p class="ou-step-dur"><i class="ri-time-line"></i> {step.duration}</p>
                         </div>
                     </div>
-                </form>
+                ))}
+            </div>
 
-                <!-- Post-form content wrapper -->
-                <div class="bg-[var(--main-bg)]/90 backdrop-blur-sm p-6 mt-8">
-                    <!-- Trust indicators -->
-                    <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-600">
-                        <span class="flex items-center gap-2">
-                            <i class="ri-time-line text-[var(--blue)]"></i>
-                            Réponse sous 24h
-                        </span>
-                        <span class="flex items-center gap-2">
-                            <i class="ri-gift-line text-[var(--blue)]"></i>
-                            Premier échange gratuit
-                        </span>
-                        <span class="flex items-center gap-2">
-                            <i class="ri-file-list-3-line text-[var(--blue)]"></i>
-                            Devis clair et détaillé
-                        </span>
-                    </div>
-
-                    <!-- Alternatives -->
-                    <div class="text-center mt-8 space-y-4">
-                        <p class="text-gray-500 text-sm">Tu préfères réserver un créneau directement ?</p>
-                        <a
-                            href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 text-[var(--blue)] font-medium hover:underline"
-                        >
-                            <i class="ri-calendar-line"></i>
-                            Prendre rendez-vous sur Cal.com
-                        </a>
-                    </div>
-
-                    <!-- Direct contact -->
-                    <div class="text-center mt-6">
-                        <p class="text-gray-500 text-sm mb-2">Besoin d'une réponse rapide ?</p>
-                        <a href="mailto:contact@jonlabs.ch" class="text-[var(--blue)] font-mono hover:underline">
-                            contact@jonlabs.ch
-                        </a>
-                    </div>
-
-                    <!-- Not ready yet -->
-                    <div class="text-center mt-8 p-4 bg-white border-2 border-dashed border-gray-300">
-                        <p class="text-gray-500 text-sm">
-                            <strong>Pas encore prêt ?</strong> Découvre <a href="/blog/automatisation-club-sportif" class="text-[var(--blue)] hover:underline">comment j'ai aidé des clubs sportifs à sortir de l'enfer Excel</a>.
-                        </p>
-                    </div>
+            <div class="ou-diff co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="ou-diff-title">Ce qui change avec Jon Labs</h3>
+                <div class="ou-diff-grid">
+                    {differentiators.map((diff) => (
+                        <div class="ou-diff-item">
+                            <i class={`${diff.icon} ou-diff-icon`} aria-hidden="true"></i>
+                            <h4 class="ou-diff-name">{diff.title}</h4>
+                            <p class="ou-diff-desc">{diff.description}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
-        </div>
-    </section>
+
+            <div class="ou-note" data-animate>
+                <p>
+                    Si ton besoin c'est surtout de connecter des outils existants,
+                    <a href="/services/automatisation" class="ou-inline">découvre mes services d'automatisation</a>.
+                </p>
+            </div>
+        </section>
+
+        <!-- ══ 03 · RÉSULTATS ══ -->
+        <section id="resultats" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">03 — Résultats</p>
+            <h2 style="margin-top:8px;">Ce que tu <span class="co-ser">obtiens.</span></h2>
+
+            <div class="ou-grid ou-grid--3" data-animate-stagger>
+                {results.map((result) => (
+                    <div class="ou-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${result.icon} ou-card-icon`} aria-hidden="true"></i>
+                        <h3 class="ou-card-title">{result.title}</h3>
+                        <p class="ou-card-benefit"><i class="ri-arrow-right-line" aria-hidden="true"></i><span>{result.benefit}</span></p>
+                    </div>
+                ))}
+            </div>
+
+            <div class="ou-case co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <div class="ou-case-head">
+                    <i class="ri-trophy-line ou-case-icon" aria-hidden="true"></i>
+                    <h3 class="ou-case-title">Exemple concret : dashboard pour club sportif</h3>
+                </div>
+                <p class="ou-case-text">
+                    Un club gérait ses membres, cotisations et présences sur 3 fichiers Excel qui ne se parlaient pas.
+                    J'ai créé un dashboard centralisé : vue d'ensemble des membres, suivi des paiements en temps réel,
+                    historique des présences. <strong>Le comité a récupéré plusieurs heures par mois</strong> — et
+                    surtout, n'importe qui peut reprendre la gestion sans formation.
+                </p>
+                <a href="/blog/automatisation-club-sportif" class="ou-inline ou-case-link">
+                    <i class="ri-article-line"></i> Lire l'article complet <i class="ri-arrow-right-line"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- ══ 04 · TECHNOLOGIE ══ -->
+        <section id="technologie" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">04 — Sous le capot</p>
+            <h2 style="margin-top:8px;">Technologie moderne</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+                Je choisis la technologie en fonction de <strong>ton</strong> projet, pas de mes préférences.
+                Mais voici ce avec quoi je travaille le plus souvent.
+            </p>
+
+            <div class="ou-grid ou-grid--4" data-animate-stagger="scale">
+                {techStack.map((tech) => (
+                    <div class="ou-card ou-card--tech co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${tech.icon} ou-card-icon`} aria-hidden="true"></i>
+                        <h3 class="ou-card-title">{tech.name}</h3>
+                        <p class="ou-card-text">{tech.description}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div class="ou-note" data-animate>
+                <i class="ri-information-line"></i>
+                <p><strong>Pas besoin de comprendre ces termes.</strong> Ce qui compte pour toi : c'est moderne, c'est maintenable, et tes données restent les tiennes.</p>
+            </div>
+        </section>
+
+        <!-- ══ 05 · PRIX ══ -->
+        <section id="prix" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">05 — Investissement</p>
+            <h2 style="margin-top:8px;">Des ordres de <span class="co-ser">grandeur.</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:56ch;">Chaque projet est différent. Voici des repères pour te donner une idée.</p>
+
+            <div class="ou-tiers" data-animate-stagger>
+                {pricingTiers.map((tier) => (
+                    <div class={`ou-tier ${tier.highlighted ? 'ou-tier--reco' : ''}`} data-animate-item>
+                        {tier.highlighted && <span class="co-badge co-badge--solid ou-tier-reco">Courant</span>}
+                        <h3 class="ou-tier-name">{tier.name}</h3>
+                        <div class="ou-tier-price">
+                            {tier.priceLabel && <span class="ou-tier-pricelabel">{tier.priceLabel}</span>}
+                            <b>{tier.price}{tier.priceLabel && <span class="ou-tier-cur"> CHF</span>}</b>
+                        </div>
+                        <p class="ou-tier-desc">{tier.description}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div class="ou-pricenote co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="ou-pricenote-title"><i class="ri-information-line"></i> Ce qui influence le budget</h3>
+                <ul class="co-list ou-pricenote-grid">
+                    {pricingFactors.map((factor) => (<li>{factor}</li>))}
+                </ul>
+                <p class="ou-note-inline"><strong>Premier échange gratuit</strong> pour cadrer le besoin et te donner une estimation précise.</p>
+            </div>
+        </section>
+
+        <!-- ══ 06 · FAQ (accordéon natif <details>, zéro JS) ══ -->
+        <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">06 — FAQ</p>
+            <h2 style="margin-top:8px;">Questions fréquentes</h2>
+
+            <div class="ou-faq" style="margin-top:32px;">
+                {faqs.map((faq, index) => (
+                    <details open={index === 0}>
+                        <summary>
+                            {faq.question}
+                            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+                        </summary>
+                        <p class="ou-faq-answer">
+                            {faq.answer}
+                            {faq.linkUrl && <> <a href={faq.linkUrl} class="ou-inline">{faq.linkText}</a></>}
+                        </p>
+                    </details>
+                ))}
+            </div>
+
+            <p class="co-mut" style="margin-top:24px;text-align:center;">
+                Une autre question ? <a href="#contact" class="ou-inline">Contacte-moi directement</a>, je réponds sous 24h.
+            </p>
+        </section>
+
+        <!-- ══ 07 · LOCAL ══ -->
+        <section id="local" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">07 — Local</p>
+            <h2 style="margin-top:8px;">Basé à <span class="co-ser">Genève</span>, disponible en Suisse romande.</h2>
+
+            <div class="ou-grid ou-grid--2 ou-local-adv" data-animate-stagger>
+                {localAdvantages.map((adv) => (
+                    <div class="ou-local-item co-frame" data-animate-item>
+                        <i class={`${adv.icon} ou-local-icon`} aria-hidden="true"></i>
+                        <div>
+                            <h3 class="ou-local-name">{adv.title}</h3>
+                            <p class="ou-local-desc">{adv.description}</p>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <p class="co-mut" style="margin-top:20px;font-size:13.5px;">
+                <i class="ri-information-line"></i> Je travaille principalement à distance, mais je peux me déplacer pour les phases de diagnostic et de formation.
+            </p>
+        </section>
+
+        <!-- ══ 08 · CONTACT (formulaire Web3Forms — HARD-PRESERVE câblage) ══ -->
+        <section id="contact" class="co-sec co-pad" style="padding:64px 40px;">
+            <p class="co-eyebrow">08 — Contact</p>
+            <h2 style="margin-top:8px;">Un process qui mériterait son propre <span class="co-ser">outil ?</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+                Premier échange gratuit et sans engagement. On regarde ensemble si un outil sur mesure est la bonne
+                réponse — ou si une solution plus simple existe.
+            </p>
+
+            <form class="ou-form co-frame" id="outils-form" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+
+                <!-- Hidden fields for Web3Forms (HARD-PRESERVE) -->
+                <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
+                <input type="hidden" name="subject" value="Demande outil sur mesure - Jon Labs">
+                <input type="hidden" name="from_name" value="Jon Labs - Outils sur mesure">
+                <input type="checkbox" name="botcheck" class="ou-honeypot" style="display: none;">
+
+                <h3 class="ou-form-title">Parlons de ton projet</h3>
+
+                <div class="ou-form-grid">
+                    <div class="ou-field">
+                        <label for="name" class="ou-label"><span class="co-index">01</span> Nom / Prénom <span class="ou-req">*</span></label>
+                        <input type="text" id="name" name="name" required placeholder="Jean Dupont" class="ou-input" />
+                    </div>
+
+                    <div class="ou-field">
+                        <label for="email" class="ou-label"><span class="co-index">02</span> Email <span class="ou-req">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="vous@exemple.ch" class="ou-input" />
+                    </div>
+
+                    <div class="ou-field">
+                        <label for="phone" class="ou-label"><span class="co-index">03</span> Téléphone (optionnel)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+41 79 123 45 67" class="ou-input" />
+                    </div>
+
+                    <div class="ou-field">
+                        <label for="project-type" class="ou-label"><span class="co-index">04</span> Type de projet <span class="ou-req">*</span></label>
+                        <div class="ou-select-wrap">
+                            <select id="project-type" name="project_type" required class="ou-select">
+                                <option value="" disabled selected>Choisir...</option>
+                                {projectTypes.map((type) => (<option value={type.value}>{type.label}</option>))}
+                            </select>
+                            <i class="ri-arrow-down-s-line ou-select-caret" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+                    <div class="ou-field ou-field--full">
+                        <label for="message" class="ou-label"><span class="co-index">05</span> Décris ton besoin <span class="ou-req">*</span></label>
+                        <textarea id="message" name="message" rows="4" required placeholder="Quel problème veux-tu résoudre ? Quels outils utilises-tu actuellement ? Qu'est-ce qui ne fonctionne pas ?" class="ou-textarea"></textarea>
+                    </div>
+
+                    <div class="ou-field">
+                        <label for="budget" class="ou-label"><span class="co-index">06</span> Budget approximatif</label>
+                        <div class="ou-select-wrap">
+                            <select id="budget" name="budget" class="ou-select">
+                                <option value="" disabled selected>Choisir...</option>
+                                {budgetOptions.map((option) => (<option value={option.value}>{option.label}</option>))}
+                            </select>
+                            <i class="ri-arrow-down-s-line ou-select-caret" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+                    <div class="ou-field">
+                        <label for="source" class="ou-label"><span class="co-index">07</span> Comment m'as-tu trouvé ? (optionnel)</label>
+                        <input type="text" id="source" name="source" placeholder="Google, recommandation, LinkedIn..." class="ou-input" />
+                    </div>
+
+                    <div class="ou-field ou-field--full">
+                        <label class="ou-consent">
+                            <input type="checkbox" name="consent" required class="ou-checkbox" />
+                            <span>Tes données sont utilisées uniquement pour répondre à ta demande. Pas de spam, promis. <span class="ou-req">*</span></span>
+                        </label>
+                    </div>
+
+                    <div class="ou-field ou-field--full">
+                        <button type="submit" class="co-btn submit-btn ou-submit">
+                            <span>Envoyer ma demande</span>
+                            <i class="ri-send-plane-line"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="ou-form-after" data-animate>
+                <div class="ou-trust">
+                    <span><i class="ri-time-line"></i> Réponse sous 24h</span>
+                    <span><i class="ri-gift-line"></i> Premier échange gratuit</span>
+                    <span><i class="ri-file-list-3-line"></i> Devis clair et détaillé</span>
+                </div>
+                <div class="ou-alt">
+                    <p class="co-mut">Tu préfères réserver un créneau directement ?</p>
+                    <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="ou-inline"><i class="ri-calendar-line"></i> Prendre rendez-vous sur Cal.com</a>
+                </div>
+                <div class="ou-alt">
+                    <p class="co-mut">Besoin d'une réponse rapide ?</p>
+                    <a href="mailto:contact@jonlabs.ch" class="ou-inline">contact@jonlabs.ch</a>
+                </div>
+                <p class="ou-note-inline" style="text-align:center;">
+                    <strong>Pas encore prêt ?</strong> Découvre
+                    <a href="/blog/automatisation-club-sportif" class="ou-inline">comment j'ai aidé des clubs sportifs à sortir de l'enfer Excel</a>.
+                </p>
+            </div>
+        </section>
+
+    </main>
 
     <Footer />
 </Layout>
 
-<style>
-    /* Dot pattern background */
-    .dots-bg {
-        background-image: radial-gradient(circle, #000 1px, transparent 1px);
-        background-size: 24px 24px;
-    }
+<style is:global>
+    /* ══ OUTILS SUR MESURE — styles .ou-* (namespace scopé, corps .co-root) ══ */
 
-    /* H1 SEO style terminal */
-    .seo-h1 {
-        font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace;
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: var(--color-accent-strong);
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        display: flex;
-        align-items: center;
-    }
+    /* ── Hero ── */
+    .ou-hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
+    .ou-hero-title { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+    .co-root .ou-hero-lead { margin-top: 18px; max-width: 52ch; font-size: 1.075rem; line-height: 1.65; color: var(--muted); }
+    .ou-hero-lead strong { color: var(--ink); font-weight: 600; }
+    .ou-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .ou-hero-btns .co-btn i { transition: transform .18s ease-out; }
+    .ou-hero-btns .co-btn:hover i { transform: translateY(2px); }
+    .co-root .ou-hero-loc { margin-top: 22px; font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px; }
+    .ou-hero-loc i { color: var(--accent); }
 
-    /* Custom checkbox checkmark */
-    input[type="checkbox"]:checked::after {
-        content: '';
-        position: absolute;
-        left: 5px;
-        top: 1px;
-        width: 6px;
-        height: 12px;
-        border: solid black;
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
-    }
+    /* app/dashboard mockup */
+    .ou-hero-media { position: relative; }
+    .ou-browser { position: relative; background: var(--surface); border: 1px solid var(--line-2); }
+    .ou-browser-bar { display: flex; align-items: center; gap: 8px; padding: 11px 14px; border-bottom: 1px solid var(--line); background: var(--bg); }
+    .ou-browser-dot { width: 9px; height: 9px; border-radius: 999px; background: var(--line-2); flex: none; }
+    .ou-browser-url { flex: 1; text-align: center; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .ou-browser-img { display: block; width: 100%; height: auto; }
+    .ou-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: 8px 12px; font-size: 12px; font-weight: 600; }
+    .ou-badge--tag { top: -16px; left: -14px; color: var(--accent); }
+    .ou-badge--speed { bottom: -16px; right: -14px; background: var(--accent); border-color: var(--accent); color: #fff; }
 
-    /* Submit button loading state */
-    .submit-btn.loading {
-        pointer-events: none;
-        opacity: 0.7;
+    /* ── Cartes génériques (problèmes / résultats / tech) ── */
+    .ou-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .ou-grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .ou-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .ou-grid--4 { grid-template-columns: repeat(4, 1fr); }
+    .ou-card {
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        background: var(--surface); border: 1px solid var(--line-2);
+        transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
+    .ou-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+    .ou-card--tech { text-align: center; align-items: center; padding: 22px 18px; }
+    .ou-card-icon { font-size: 24px; color: var(--accent); line-height: 1; }
+    .ou-card-title { font-size: 1.1rem; }
+    .ou-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
+    .ou-card-quote { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: 1.15rem; line-height: 1.4; color: var(--ink); }
+    .co-root .ou-card-benefit { margin-top: auto; padding-top: 4px; font-size: 14px; line-height: 1.5; color: var(--muted); display: flex; align-items: flex-start; gap: 8px; }
+    .ou-card-benefit i { color: var(--accent); margin-top: 2px; flex: none; }
 
-    .submit-btn.loading i {
-        animation: spin 1s linear infinite;
+    /* ── Notes / callouts ── */
+    .ou-note { display: flex; align-items: flex-start; gap: 12px; margin-top: 20px; padding: 18px 22px; border: 1px solid var(--line-2); background: var(--surface); }
+    .ou-note i { color: var(--accent); font-size: 20px; flex: none; margin-top: 1px; }
+    .co-root .ou-note p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+    .ou-note--accent { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .ou-note-inline { margin-top: 14px !important; font-size: 14px; line-height: 1.6; color: var(--muted); }
+    .ou-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
+    .ou-inline:hover { color: var(--ink); }
+    .ou-note strong, .ou-note-inline strong { color: var(--ink); font-weight: 600; }
+
+    /* ── Étapes méthode ── */
+    .ou-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+    .ou-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .ou-step-num { font-size: 20px; font-weight: 600; }
+    .ou-step-title { font-size: 1.15rem; }
+    .co-root .ou-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
+    .co-root .ou-step-dur { margin-top: 10px; font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+    .ou-step-dur i { color: var(--accent); }
+
+    /* ── Encart différenciateurs ── */
+    .ou-diff { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .ou-diff-title { text-align: center; font-size: 1.25rem; }
+    .ou-diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 28px; }
+    .ou-diff-item { text-align: center; }
+    .ou-diff-icon { font-size: 26px; color: var(--accent); }
+    .ou-diff-name { margin-top: 10px; font-size: 15px; font-weight: 600; }
+    .co-root .ou-diff-desc { margin-top: 4px; font-size: 13px; line-height: 1.45; color: var(--muted); }
+
+    /* ── Étude de cas ── */
+    .ou-case { position: relative; margin-top: 28px; padding: 32px 36px; background: var(--surface); border: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 14px; }
+    .ou-case-head { display: flex; align-items: center; gap: 12px; }
+    .ou-case-icon { font-size: 26px; color: var(--accent); flex: none; }
+    .ou-case-title { font-size: 1.2rem; }
+    .co-root .ou-case-text { font-size: 14.5px; line-height: 1.6; color: var(--muted); max-width: 72ch; }
+    .ou-case-text strong { color: var(--ink); font-weight: 600; }
+    .ou-case-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; }
+
+    /* ── Tarifs ── */
+    .ou-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; margin-top: 36px; }
+    .ou-tier { position: relative; display: flex; flex-direction: column; gap: 16px; padding: 30px 26px; background: var(--surface); border: 1px solid var(--line-2); }
+    .ou-tier--reco { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+    .ou-tier-reco { position: absolute; top: -12px; left: 26px; z-index: 4; }
+    .ou-tier-name { font-size: 1.15rem; }
+    .ou-tier-price { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+    .ou-tier-pricelabel { font-size: 13px; color: var(--muted); width: 100%; }
+    .ou-tier-price b { font-size: 2.3rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+    .ou-tier-cur { font-size: 15px; color: var(--muted); font-weight: 500; }
+    .co-root .ou-tier-desc { font-size: 14px; line-height: 1.55; color: var(--muted); }
+
+    .ou-pricenote { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .ou-pricenote-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
+    .ou-pricenote-title i { color: var(--accent); }
+    .ou-pricenote-grid { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 40px; }
+    .ou-pricenote-grid li { font-size: 14px; }
+
+    /* ── FAQ (accordéon natif <details> — smooth via ::details-content, zéro JS) ── */
+    .ou-faq { border-top: 1px solid var(--line); }
+    .ou-faq details { border-bottom: 1px solid var(--line); }
+    .ou-faq summary {
+        list-style: none; cursor: pointer; padding: 20px 0;
+        display: flex; justify-content: space-between; align-items: center; gap: 20px;
+        font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
     }
-
-    @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
+    .ou-faq summary::-webkit-details-marker { display: none; }
+    .ou-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
+    .ou-faq details[open] summary i { transform: rotate(180deg); }
+    .co-root .ou-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 68ch; }
+    .ou-faq details::details-content {
+        block-size: 0; overflow: hidden;
+        transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
     }
+    .ou-faq details[open]::details-content { block-size: auto; }
 
-    /* Scroll margin for anchor navigation */
-    section[id] {
-        scroll-margin-top: 100px;
+    /* ── Local ── */
+    .ou-local-adv { align-items: stretch; }
+    .ou-local-item { position: relative; display: flex; align-items: flex-start; gap: 14px; padding: 18px; background: var(--surface); border: 1px solid var(--line-2); }
+    .ou-local-icon { font-size: 22px; color: var(--accent); flex: none; margin-top: 2px; }
+    .ou-local-name { font-size: 15px; font-weight: 600; }
+    .co-root .ou-local-desc { margin-top: 3px; font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+
+    /* ── Formulaire (Web3Forms restylé, câblage préservé) ── */
+    .ou-form { position: relative; margin-top: 32px; padding: 34px; background: var(--surface); border: 1px solid var(--line-2); }
+    .ou-form-title { font-size: 1.25rem; text-align: center; margin-bottom: 6px; }
+    .ou-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .ou-field { display: flex; flex-direction: column; gap: 8px; }
+    .ou-field--full { grid-column: 1 / -1; }
+    .ou-label { display: flex; align-items: baseline; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink); }
+    .ou-label .co-index { font-size: 11px; }
+    .ou-req { color: var(--accent); }
+    .ou-input, .ou-select, .ou-textarea {
+        width: 100%; font-family: "Inter Tight", ui-sans-serif, sans-serif; font-size: 15px; color: var(--ink);
+        background: var(--bg); border: 1px solid var(--line-2); padding: 12px 14px;
+        transition: border-color .18s ease-out, box-shadow .18s ease-out;
     }
+    .ou-input::placeholder, .ou-textarea::placeholder { color: var(--muted); opacity: .7; }
+    .ou-input:focus, .ou-select:focus, .ou-textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,168,125,.15); }
+    .ou-textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
+    .ou-select-wrap { position: relative; }
+    .ou-select { appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 40px; }
+    .ou-select-caret { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 18px; color: var(--muted); pointer-events: none; }
+    .ou-consent { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.5; color: var(--muted); cursor: pointer; }
+    .ou-consent:hover { color: var(--ink); }
+    .ou-checkbox { margin-top: 2px; width: 16px; height: 16px; flex: none; accent-color: var(--accent); cursor: pointer; }
+    .ou-submit { width: 100%; justify-content: center; padding: 14px 20px; font-size: 16px; }
+    .submit-btn.loading { pointer-events: none; opacity: 0.7; }
+    .submit-btn.loading i { animation: ouSpin 1s linear infinite; }
+    @keyframes ouSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-    /* Method cards animation */
-    .method-card {
-        transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    /* ── Après-formulaire ── */
+    .ou-form-after { margin-top: 28px; display: flex; flex-direction: column; gap: 18px; align-items: center; text-align: center; }
+    .ou-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; font-size: 13.5px; color: var(--muted); }
+    .ou-trust i { color: var(--accent); margin-right: 4px; }
+    .ou-alt { display: flex; flex-direction: column; gap: 4px; }
+    .ou-alt .ou-inline { display: inline-flex; align-items: center; gap: 6px; justify-content: center; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+        .ou-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+        .ou-hero-media { max-width: 520px; }
+        .ou-diff-grid { grid-template-columns: repeat(2, 1fr); }
+        .ou-grid--4 { grid-template-columns: repeat(2, 1fr); }
     }
-
-    .method-card.visible {
-        opacity: 1;
-        transform: translateY(0);
+    @media (max-width: 720px) {
+        .ou-grid--2, .ou-grid--3, .ou-grid--4, .ou-tiers, .ou-form-grid, .ou-pricenote-grid { grid-template-columns: 1fr; }
+        .ou-diff-grid { grid-template-columns: 1fr 1fr; }
+        .ou-step { grid-template-columns: 44px 1fr; gap: 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .ou-card, .ou-inline, .ou-faq summary i, .ou-hero-btns .co-btn i { transition: none; }
+        .submit-btn.loading i { animation: none; }
     }
 </style>
 
 <script>
-    // Form submission
+    // Form submission — HARD-PRESERVE (câblage Web3Forms inchangé)
     const form = document.getElementById('outils-form') as HTMLFormElement;
     const submitBtn = form?.querySelector('.submit-btn') as HTMLButtonElement;
     const btnText = submitBtn?.querySelector('span');
@@ -1044,12 +758,11 @@ const budgetOptions = [
     form?.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Loading state
         if (submitBtn) {
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
             if (btnText) btnText.textContent = 'Envoi en cours...';
-            if (btnIcon) btnIcon.className = 'ri-loader-4-line text-xl animate-spin';
+            if (btnIcon) btnIcon.className = 'ri-loader-4-line';
         }
 
         try {
@@ -1070,26 +783,12 @@ const budgetOptions = [
         } catch (error) {
             alert('Erreur de connexion. Réessaie.');
         } finally {
-            // Reset button
             if (submitBtn) {
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
                 if (btnText) btnText.textContent = 'Envoyer ma demande';
-                if (btnIcon) btnIcon.className = 'ri-send-plane-line text-xl';
+                if (btnIcon) btnIcon.className = 'ri-send-plane-line';
             }
         }
     });
-
-    // Method cards scroll animation
-    const methodCards = document.querySelectorAll('.method-card');
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('visible');
-                observer.unobserve(entry.target);
-            }
-        });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-
-    methodCards.forEach(card => observer.observe(card));
 </script>

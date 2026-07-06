@@ -1,19 +1,21 @@
 ---
+// Développeur Webflow freelance — sous-page service (blueprint).
+// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
+// accent teal unique, Inter Tight × Instrument Serif. Calquée sur le gabarit-or
+// /services/creation-site-web.astro (namespace .wf-*).
+//
+// HARD-PRESERVE : Schema.org (serviceSchemas/breadcrumb/FAQ), câblage Web3Forms
+// (#webflow-form, access_key + hidden inputs, tous les name=, honeypot, JS submit),
+// prix exacts (1'490 / 2'490 / Sur devis), tous les liens SEO internes
+// (/services/*, /portfolio/*, /tarifs, /blog/prix-site-web-suisse-2026).
+
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import IconChip from '../../components/IconChip.astro';
 
-// Import image hero (réutiliser temporairement refonte-1.webp)
+// Image hero (mockup navigateur)
 import webflowHero from '../../assets/services/refonte-1.webp';
-
-// Import background components
-import BackgroundGlitchGrid from '../../components/backgrounds/BackgroundGlitchGrid.astro';
-import BackgroundProgressFlow from '../../components/backgrounds/BackgroundProgressFlow.astro';
-import BackgroundCircuitBoard from '../../components/backgrounds/BackgroundCircuitBoard.astro';
-import BackgroundQuestionMarks from '../../components/backgrounds/BackgroundQuestionMarks.astro';
-import BackgroundMapContours from '../../components/backgrounds/BackgroundMapContours.astro';
 
 // Schema.org
 import { serviceSchemas, SITE_URL } from '../../data/schema';
@@ -243,6 +245,14 @@ const faqs = [
 ];
 schemas.push(getFAQPageSchema(faqs));
 
+// Local advantages (4 items)
+const localAdvantages = [
+    { icon: "ri-bank-card-line", title: "Des tarifs en CHF, une facture suisse", description: "Pas de TVA européenne ni de taux de change. Une facturation propre pour votre comptabilité." },
+    { icon: "ri-bar-chart-line", title: "La même réalité business", description: "Je connais le marché romand, les attentes des clients locaux, les spécificités légales (LPD, mentions)." },
+    { icon: "ri-user-voice-line", title: "Des échanges en personne possibles", description: "Un café à Genève pour cadrer le projet, un atelier pour la formation à l'éditeur Webflow." },
+    { icon: "ri-time-line", title: "Réactivité", description: "Même fuseau horaire, même rythme. Une question urgente ? Réponse dans la journée." }
+];
+
 // Local zones
 const zones = [
     { name: "Genève", type: "primary", icon: "ri-map-pin-fill" },
@@ -271,953 +281,611 @@ const budgetOptions = [
 ];
 ---
 
-<Layout
-    title={seoData.title}
-    description={seoData.description}
-    schemas={schemas}
->
+<Layout title={seoData.title} description={seoData.description} schemas={schemas}>
     <Header />
 
-    <!-- ============================================== -->
-    <!-- HERO SECTION -->
-    <!-- ============================================== -->
-    <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-20 px-4 relative overflow-hidden">
-        <!-- Gradient mesh background -->
-        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-            <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
-            <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-[var(--violet)] opacity-15 blur-[100px] rounded-full"></div>
-            <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-[var(--blue)] opacity-10 blur-[80px] rounded-full"></div>
-        </div>
+    <main class="co-root">
 
-        <div class="max-w-4xl mx-auto relative z-10">
-            <!-- Centered text content -->
-            <div class="text-center">
-                <!-- H1 SEO discret -->
-                <h1 class="seo-h1 mb-8 mt-8">Développeur Webflow freelance à Genève</h1>
-
-                <!-- Main title -->
-                <p class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6" data-animate="fade-up">
-                    Un site Webflow qui tourne,<br/>
-                    <span class="relative inline-block">
-                        <span class="relative z-10">et que vous gérez vous-même</span>
-                    </span>
-                </p>
-
-                <!-- Description -->
-                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="0.1">
-                    Création, refonte ou boutique en ligne :<br class="hidden md:block"/>
-                    <strong class="text-[var(--text)]">un développeur Webflow basé à Genève</strong>, qui construit proprement<br class="hidden md:block"/>
-                    et vous dit honnêtement si Webflow est le bon choix pour votre projet.
-                </p>
-
-                <!-- CTAs centered -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16 md:mb-20" data-animate="fade-up" data-delay="0.2">
-                    <a
-                        href="#contact"
-                        class="
-                            bg-[var(--blue)]
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                            transition-all duration-200
-                            hover:bg-[var(--yellow)]
-                            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                            hover:translate-x-[2px] hover:translate-y-[2px]
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        <i class="ri-chat-3-line"></i>
-                        Discuter de mon projet
-                    </a>
-                    <a
-                        href="#ecommerce"
-                        class="
-                            bg-white
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            transition-all duration-200
-                            hover:bg-gray-100
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        E-commerce sur Webflow ?
-                        <i class="ri-arrow-down-line"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Browser mockup centered -->
-            <div class="w-full mx-auto relative" data-animate="scale" data-delay="0.3">
-                <div class="bg-white border-3 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] relative">
-                    <!-- Browser bar -->
-                    <div class="flex items-center gap-2 p-3 border-b-2 border-black bg-gray-50">
-                        <div class="flex gap-1.5">
-                            <div class="w-3 h-3 rounded-full bg-red-400 border border-black"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-400 border border-black"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-400 border border-black"></div>
-                        </div>
-                        <div class="flex-1 bg-white border border-black px-3 py-1 text-xs text-gray-400 font-mono text-center">
-                            votresite.webflow.io
-                        </div>
+        <!-- ══ HERO ══ -->
+        <section class="co-sec co-pad co-hero wf-hero" style="padding:64px 40px 56px;">
+            <div class="wf-hero-grid">
+                <div class="wf-hero-copy">
+                    <p class="co-eyebrow" data-animate>Développeur Webflow · Genève &amp; Suisse romande</p>
+                    <h1 class="wf-hero-title" data-animate data-delay="0.1">
+                        Développeur <span class="co-ser">Webflow</span> freelance à Genève
+                    </h1>
+                    <p class="wf-hero-lead" data-animate data-delay="0.2">
+                        Un site Webflow qui tourne, et que vous gérez vous-même. Création, refonte ou boutique
+                        en ligne : <strong>un développeur basé à Genève</strong> qui construit proprement — et
+                        vous dit honnêtement si Webflow est le bon choix pour votre projet.
+                    </p>
+                    <div class="wf-hero-btns" data-animate data-delay="0.3">
+                        <a href="#contact" class="co-btn"><i class="ri-chat-3-line"></i> Discuter de mon projet</a>
+                        <a href="#ecommerce" class="co-btn co-btn--ghost">E-commerce sur Webflow ? <i class="ri-arrow-down-line"></i></a>
                     </div>
-                    <!-- Screenshot -->
-                    <img
-                        src={webflowHero.src}
-                        alt="Exemple de site Webflow sur-mesure créé par un développeur freelance"
-                        class="w-full h-auto"
-                    />
+                    <p class="wf-hero-loc co-mut" data-animate data-delay="0.4">
+                        <i class="ri-map-pin-fill"></i> Basé à Genève · Service en Suisse romande
+                    </p>
                 </div>
-                <!-- Score badge -->
-                <div class="absolute -top-4 -left-4 bg-white border-2 border-black px-3 py-2 shadow-[3px_3px_0px_rgba(0,0,0,1)] -rotate-6">
-                    <span class="font-mono text-sm font-bold text-[var(--blue)]">90+</span>
-                    <span class="text-xs text-gray-500 block">Google</span>
-                </div>
-                <!-- Speed badge -->
-                <div class="absolute -bottom-4 -right-4 bg-[var(--blue)] border-2 border-black px-4 py-2 shadow-[3px_3px_0px_rgba(0,0,0,1)] rotate-3">
-                    <span class="font-bold text-sm">2-4 sem.</span>
+
+                <div class="wf-hero-media" data-animate="scale" data-delay="0.3">
+                    <div class="wf-browser co-frame">
+                        <span class="co-x tl"></span><span class="co-x tr"></span>
+                        <span class="co-x bl"></span><span class="co-x br"></span>
+                        <div class="wf-browser-bar">
+                            <span class="wf-browser-dot"></span>
+                            <span class="wf-browser-dot"></span>
+                            <span class="wf-browser-dot"></span>
+                            <span class="wf-browser-url">votresite.webflow.io</span>
+                        </div>
+                        <img src={webflowHero.src} alt="Exemple de site Webflow sur-mesure créé par un développeur freelance" loading="eager" class="wf-browser-img" />
+                    </div>
+                    <div class="wf-badge wf-badge--score">
+                        <b>90+</b><span>Google</span>
+                    </div>
+                    <div class="wf-badge wf-badge--speed">2-4 sem.</div>
                 </div>
             </div>
+        </section>
 
-            <!-- Location badge centered -->
-            <div class="flex items-center justify-center gap-2 text-sm text-gray-500 mt-12">
-                <i class="ri-map-pin-fill text-[var(--blue)]"></i>
-                <span>Basé à Genève | Service en Suisse romande</span>
-            </div>
-        </div>
-    </section>
+        <!-- ══ 01 · PROBLÈMES ══ -->
+        <section id="problemes" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">01 — Problèmes</p>
+            <h2 style="margin-top:8px;">Vous vous <span class="co-ser">reconnaissez ?</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:58ch;line-height:1.6;">
+                Ce sont les situations typiques des clients qui cherchent un freelance Webflow.
+            </p>
 
-    <!-- PAIN POINTS SECTION -->
-    <section id="problemes" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundGlitchGrid />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    problèmes
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    <span class="relative inline-block">
-                        <span class="absolute bg-panel w-full h-[40%] left-0 bottom-1 -z-1"></span>
-                        Vous vous reconnaissez ?
-                    </span>
-                </h2>
-                <p class="text-lg text-gray-600">Ce sont les situations typiques des clients qui cherchent un freelance Webflow.</p>
-            </div>
-
-            <!-- Pain points grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12" data-animate-stagger>
+            <div class="wf-grid wf-grid--2" data-animate-stagger>
                 {painPoints.map((point) => (
-                    <div class="pain-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Red X icon -->
-                        <IconChip icon="ri-close-line" variant="muted" size="md" class="mb-4" />
-                        <h3 class="text-lg font-bold mb-2">{point.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">{point.description}</p>
+                    <div class="wf-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${point.icon} wf-card-icon`} aria-hidden="true"></i>
+                        <h3 class="wf-card-title">{point.title}</h3>
+                        <p class="wf-card-text">{point.description}</p>
                     </div>
                 ))}
             </div>
 
-            <!-- Good news callout -->
-            <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-6 md:p-8 text-center" data-animate="fade-up">
-                <p class="text-lg md:text-xl font-medium">
-                    <i class="ri-lightbulb-line text-[var(--blue)] mr-2"></i>
-                    <strong>La bonne nouvelle ?</strong> Webflow bien construit, c'est un site rapide, élégant, et que vous éditez vous-même — sans dépendre de personne.
-                </p>
+            <div class="wf-note wf-note--accent" data-animate>
+                <i class="ri-lightbulb-line"></i>
+                <p><strong>La bonne nouvelle ?</strong> Webflow bien construit, c'est un site rapide, élégant, et que vous éditez vous-même — sans dépendre de personne.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- OFFERS SECTION -->
-    <section id="offres" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <BackgroundCircuitBoard animated={true} />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    prestations
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Ce que je fais sur Webflow
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Trois types de missions, un même standard : <strong>un projet Webflow propre</strong>, documenté, que n'importe quel professionnel pourrait reprendre.
-                </p>
-            </div>
+        <!-- ══ 02 · PRESTATIONS ══ -->
+        <section id="offres" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">02 — Prestations</p>
+            <h2 style="margin-top:8px;">Ce que je fais sur Webflow</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+                Trois types de missions, un même standard : <strong>un projet Webflow propre</strong>, documenté,
+                que n'importe quel professionnel pourrait reprendre.
+            </p>
 
-            <!-- Offer cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12" data-animate-stagger="scale">
+            <div class="wf-grid wf-grid--3" data-animate-stagger="scale">
                 {offers.map((offer) => (
-                    <div class="tech-card bg-white border-2 border-black p-6 transition-all duration-200 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <i class={`${offer.icon} text-3xl text-[var(--violet)] mb-4 block`}></i>
-                        <h3 class="text-xl font-bold mb-2">{offer.title}</h3>
-                        <p class="text-sm text-gray-600 mb-3">{offer.description}</p>
-                        <p class="text-xs text-[var(--blue)] font-medium">
-                            <i class="ri-user-star-line mr-1"></i>
-                            {offer.idealFor}
-                        </p>
+                    <div class="wf-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${offer.icon} wf-card-icon`} aria-hidden="true"></i>
+                        <h3 class="wf-card-title">{offer.title}</h3>
+                        <p class="wf-card-text">{offer.description}</p>
+                        <p class="wf-card-tag"><i class="ri-user-star-line"></i> {offer.idealFor}</p>
                     </div>
                 ))}
             </div>
 
-            <!-- Reassurance note -->
-            <div class="bg-white border-2 border-black p-6 text-center" data-animate="fade-up">
-                <p class="text-gray-600">
-                    <i class="ri-information-line text-[var(--blue)] mr-2"></i>
-                    <strong>Et le référencement ?</strong> Intégré dans chaque mission — structure, balises, vitesse, <a href="/services/referencement-local" class="text-[var(--blue)] font-medium hover:underline">référencement local</a> compris. Un site Webflow invisible sur Google ne sert à rien.
+            <div class="wf-note" data-animate>
+                <i class="ri-information-line"></i>
+                <p>
+                    <strong>Et le référencement ?</strong> Intégré dans chaque mission — structure, balises, vitesse,
+                    <a href="/services/referencement-local" class="wf-inline">référencement local</a> compris.
+                    Un site Webflow invisible sur Google ne sert à rien.
                 </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- E-COMMERCE SECTION -->
-    <section id="ecommerce" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-        <div class="max-w-5xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    vente en ligne
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    E-commerce Webflow : ce qui marche, ce qui coince
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    On me demande souvent de créer une <strong>boutique en ligne sur Webflow</strong>. Réponse honnête : ça dépend de votre catalogue. Voici la grille de décision que j'utilise.
-                </p>
-            </div>
+        <!-- ══ 03 · VENTE EN LIGNE (e-commerce Webflow) ══ -->
+        <section id="ecommerce" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">03 — Vente en ligne</p>
+            <h2 style="margin-top:8px;">E-commerce Webflow : ce qui marche, ce qui <span class="co-ser">coince.</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:64ch;line-height:1.6;">
+                On me demande souvent de créer une <strong>boutique en ligne sur Webflow</strong>. Réponse honnête :
+                ça dépend de votre catalogue. Voici la grille de décision que j'utilise.
+            </p>
 
-            <!-- Two columns -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12">
-                <!-- Works -->
-                <div class="bg-[var(--main-bg)] border-2 border-black p-6 md:p-8" data-animate="fade-left">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
-                        <IconChip icon="ri-check-line" size="md" />
-                        Webflow Ecommerce suffit
-                    </h3>
-                    <ul class="space-y-3">
+            <div class="wf-ecom">
+                <div class="wf-ecom-card co-frame" data-animate="fade-left">
+                    <div class="wf-ecom-head wf-ecom-head--ok">
+                        <i class="ri-check-line" aria-hidden="true"></i>
+                        <h3 class="wf-ecom-title">Webflow Ecommerce suffit</h3>
+                    </div>
+                    <ul class="co-list co-list--check wf-ecom-list">
                         {ecomWorks.map((item) => (
-                            <li class="flex items-start gap-2 text-sm text-gray-700">
-                                <i class="ri-check-line text-accent mt-0.5 flex-shrink-0"></i>
-                                <span>{item}</span>
-                            </li>
+                            <li><i class="ri-check-line"></i><span>{item}</span></li>
                         ))}
                     </ul>
                 </div>
 
-                <!-- Limits -->
-                <div class="bg-[var(--main-bg)] border-2 border-black p-6 md:p-8" data-animate="fade-right">
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-3">
-                        <IconChip icon="ri-close-line" variant="muted" size="md" />
-                        Webflow montre ses limites
-                    </h3>
-                    <ul class="space-y-3">
+                <div class="wf-ecom-card co-frame" data-animate="fade-left" data-delay="0.1">
+                    <div class="wf-ecom-head wf-ecom-head--limit">
+                        <i class="ri-close-line" aria-hidden="true"></i>
+                        <h3 class="wf-ecom-title">Webflow montre ses limites</h3>
+                    </div>
+                    <ul class="wf-cross wf-ecom-list">
                         {ecomLimits.map((item) => (
-                            <li class="flex items-start gap-2 text-sm text-gray-700">
-                                <i class="ri-close-line text-muted mt-0.5 flex-shrink-0"></i>
-                                <span>{item}</span>
-                            </li>
+                            <li><i class="ri-close-line" aria-hidden="true"></i><span>{item}</span></li>
                         ))}
                     </ul>
                 </div>
             </div>
 
-            <!-- Alternative callout -->
-            <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-6 md:p-8" data-animate="fade-up">
-                <p class="text-base md:text-lg">
-                    <i class="ri-lightbulb-line text-[var(--blue)] mr-2"></i>
-                    <strong>Si votre projet dépasse Webflow Ecommerce</strong>, je ne force pas l'outil : je vous propose une boutique <a href="/services/creation-site-web" class="underline font-bold hover:text-[var(--violet)]">sur-mesure</a> ou une intégration adaptée (Stripe, Snipcart, solution headless). Vous obtenez la réponse dès le premier échange — gratuit — pas après trois semaines de build.
+            <div class="wf-note wf-note--accent" data-animate>
+                <i class="ri-lightbulb-line"></i>
+                <p>
+                    <strong>Si votre projet dépasse Webflow Ecommerce</strong>, je ne force pas l'outil : je vous propose
+                    une boutique <a href="/services/creation-site-web" class="wf-inline">sur-mesure</a> ou une intégration
+                    adaptée (Stripe, Snipcart, solution headless). Vous obtenez la réponse dès le premier échange —
+                    gratuit — pas après trois semaines de build.
                 </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- METHODOLOGY SECTION -->
-    <section id="methode" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <BackgroundProgressFlow />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    méthode
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Comment ça se passe ?
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Un processus clair, des validations à chaque étape, un site Webflow en ligne en <strong class="text-[var(--blue)]">2-4 semaines</strong>.
-                </p>
-            </div>
+        <!-- ══ 04 · MÉTHODE ══ -->
+        <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">04 — Méthode</p>
+            <h2 style="margin-top:8px;">Comment ça se passe ?</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+                Un processus clair, des validations à chaque étape, un site Webflow en ligne en <strong>2-4 semaines</strong>.
+            </p>
 
-            <!-- Method steps grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" data-animate-stagger>
-                {methodSteps.slice(0, 3).map((step, index) => (
-                    <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
-                        <!-- Number badge -->
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
-                                0{index + 1}
-                            </span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">{step.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">{step.description}</p>
-                        <!-- Duration -->
-                        <div class="flex items-center gap-2 text-sm pt-3 border-t border-dashed border-gray-300">
-                            <i class="ri-time-line text-[var(--blue)]"></i>
-                            <span class="text-gray-500">{step.duration}</span>
+            <div class="wf-steps" data-animate-stagger>
+                {methodSteps.map((step, index) => (
+                    <div class="wf-step" data-animate-item>
+                        <span class="wf-step-num co-index">0{index + 1}</span>
+                        <div class="wf-step-body">
+                            <h3 class="wf-step-title">{step.title}</h3>
+                            <p class="wf-step-text">{step.description}</p>
+                            <p class="wf-step-dur"><i class="ri-time-line"></i> {step.duration}</p>
                         </div>
                     </div>
                 ))}
             </div>
 
-            <!-- Steps 4 and 5 -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-12" data-animate-stagger>
-                {methodSteps.slice(3).map((step, index) => (
-                    <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
-                        <!-- Number badge -->
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
-                                0{index + 4}
-                            </span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">{step.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">{step.description}</p>
-                        <!-- Duration -->
-                        <div class="flex items-center gap-2 text-sm pt-3 border-t border-dashed border-gray-300">
-                            <i class="ri-time-line text-[var(--blue)]"></i>
-                            <span class="text-gray-500">{step.duration}</span>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Differentiators box : freelance vs agence -->
-            <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate="fade-up">
-                <!-- Corner boxes -->
-                <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-
-                <h3 class="text-xl font-bold text-center mb-6">Pourquoi un freelance Webflow plutôt qu'une agence ?</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="wf-diff co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="wf-diff-title">Pourquoi un freelance Webflow plutôt qu'une agence ?</h3>
+                <div class="wf-diff-grid">
                     {differentiators.map((diff) => (
-                        <div class="text-center">
-                            <IconChip icon={diff.icon} class="mx-auto mb-3" />
-                            <h4 class="font-bold mb-1">{diff.title}</h4>
-                            <p class="text-sm text-gray-600">{diff.description}</p>
+                        <div class="wf-diff-item">
+                            <i class={`${diff.icon} wf-diff-icon`} aria-hidden="true"></i>
+                            <h4 class="wf-diff-name">{diff.title}</h4>
+                            <p class="wf-diff-desc">{diff.description}</p>
                         </div>
                     ))}
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- PRICING SECTION -->
-    <section id="prix" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-        <div class="max-w-5xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    investissement
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Combien coûte un site Webflow ?
-                </h2>
-                <p class="text-lg text-gray-600">Des fourchettes claires en CHF. La plupart des freelances Webflow cachent leurs prix — pas ici.</p>
-            </div>
+        <!-- ══ 05 · INVESTISSEMENT ══ -->
+        <section id="prix" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">05 — Investissement</p>
+            <h2 style="margin-top:8px;">Combien coûte un site <span class="co-ser">Webflow ?</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:58ch;line-height:1.6;">
+                Des fourchettes claires en CHF. La plupart des freelances Webflow cachent leurs prix — pas ici.
+            </p>
 
-            <!-- Pricing cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12" data-animate-stagger>
+            <div class="wf-tiers" data-animate-stagger>
                 {pricingPlans.map((plan) => (
-                    <div class={`
-                        pricing-card bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 relative
-                        ${plan.highlighted ? 'shadow-[8px_8px_0px_rgba(0,0,0,1)] ring-2 ring-accent' : 'shadow-[4px_4px_0px_rgba(0,0,0,0.3)]'}
-                    `} data-animate-item>
-                        {plan.highlighted && (
-                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-bold">
-                                POPULAIRE
-                            </div>
-                        )}
-
-                        <h3 class="text-xl font-bold mb-4">{plan.name}</h3>
-
-                        <div class="mb-6">
-                            {plan.priceLabel && (
-                                <span class="text-sm text-gray-500">{plan.priceLabel}</span>
-                            )}
-                            <p class="text-3xl font-bold text-[var(--text)]">
-                                {plan.price}
-                                {plan.priceLabel && <span class="text-lg"> CHF</span>}
-                            </p>
+                    <div class={`wf-tier ${plan.highlighted ? 'wf-tier--reco' : ''}`} data-animate-item>
+                        {plan.highlighted && <span class="co-badge co-badge--solid wf-tier-reco">Populaire</span>}
+                        <h3 class="wf-tier-name">{plan.name}</h3>
+                        <div class="wf-tier-price">
+                            {plan.priceLabel && <span class="wf-tier-pricelabel">{plan.priceLabel}</span>}
+                            <b>{plan.price}{plan.priceLabel && <span class="wf-tier-cur"> CHF</span>}</b>
                         </div>
-
-                        <ul class="space-y-3 mb-6">
+                        <ul class="co-list co-list--check wf-tier-features">
                             {plan.features.map((feature) => (
-                                <li class="flex items-start gap-2 text-sm">
-                                    <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
-                                    <span>{feature}</span>
-                                </li>
+                                <li><i class="ri-check-line"></i><span>{feature}</span></li>
                             ))}
                         </ul>
-
-                        <div class="pt-4 border-t border-dashed border-gray-300">
-                            <p class="text-xs text-gray-500">
-                                <strong>Idéal pour :</strong> {plan.ideal}
-                            </p>
-                        </div>
+                        <p class="wf-tier-ideal"><strong>Idéal pour :</strong> {plan.ideal}</p>
                     </div>
                 ))}
             </div>
 
-            <!-- Pricing notes -->
-            <div class="bg-white border-2 border-black p-6 md:p-8" data-animate="fade-up">
-                <h3 class="font-bold mb-4 flex items-center gap-2">
-                    <i class="ri-information-line text-[var(--blue)]"></i>
-                    Bon à savoir :
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600 mb-6">
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2">
-                            <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            L'abonnement Webflow (CHF 15-40/mois) remplace hébergement et maintenance
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            Le prix dépend du nombre de pages et des intégrations
-                        </li>
+            <div class="wf-pricenote co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="wf-pricenote-title"><i class="ri-information-line"></i> Bon à savoir</h3>
+                <div class="wf-pricenote-grid">
+                    <ul class="co-list">
+                        <li>L'abonnement Webflow (CHF 15-40/mois) remplace hébergement et maintenance</li>
+                        <li>Le prix dépend du nombre de pages et des intégrations</li>
                     </ul>
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2">
-                            <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            Refonte d'un site Webflow existant : audit d'abord, devis ferme ensuite
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                            Paiement en 2-3 fois possible selon le montant
-                        </li>
+                    <ul class="co-list">
+                        <li>Refonte d'un site Webflow existant : audit d'abord, devis ferme ensuite</li>
+                        <li>Paiement en 2-3 fois possible selon le montant</li>
                     </ul>
                 </div>
-                <p class="mt-4 text-sm text-gray-500 bg-gray-50 p-3 border-l-4 border-[var(--blue)]">
-                    <strong>Pas sûr de la formule ?</strong> On en discute ensemble. Premier échange gratuit et sans engagement. Voir aussi <a href="/tarifs" class="underline font-medium hover:text-[var(--violet)]">mes tarifs détaillés</a>.
+                <p class="wf-note-inline">
+                    <strong>Pas sûr de la formule ?</strong> On en discute ensemble. Premier échange gratuit et sans
+                    engagement. Voir aussi <a href="/tarifs" class="wf-inline">mes tarifs détaillés</a>.
                 </p>
-
-                <!-- Lien contextuel : article prix -->
-                <p class="mt-4 p-4 bg-[var(--yellow)]/30 border-l-4 border-black text-sm">
+                <p class="wf-note-inline">
                     <strong>À lire avant de vous décider :</strong>
-                    <a href="/blog/prix-site-web-suisse-2026" class="underline font-bold hover:text-[var(--violet)]">Combien coûte vraiment un site web en Suisse en 2026 ?</a>
+                    <a href="/blog/prix-site-web-suisse-2026" class="wf-inline">Combien coûte vraiment un site web en Suisse en 2026 ?</a>
                     — un guide transparent des fourchettes en CHF, par profil de prestataire.
                 </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FAQ SECTION -->
-    <section id="faq" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <BackgroundQuestionMarks animated={true} />
-        <div class="max-w-3xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    faq
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">Questions fréquentes</h2>
-            </div>
+        <!-- ══ 06 · FAQ (accordéon natif <details>, zéro JS) ══ -->
+        <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">06 — FAQ</p>
+            <h2 style="margin-top:8px;">Questions fréquentes</h2>
 
-            <!-- FAQ items -->
-            <div class="faq-list space-y-6">
+            <div class="wf-faq" style="margin-top:32px;">
                 {faqs.map((faq, index) => (
-                    <div class="faq-item border-2 border-black bg-[var(--main-bg)]" data-faq-item>
-                        <button
-                            class="
-                                faq-trigger
-                                w-full
-                                flex items-center justify-between gap-4
-                                p-5
-                                text-left
-                                font-medium
-                                cursor-pointer
-                                transition-colors duration-200
-                                hover:bg-[var(--blue)] hover:bg-opacity-10
-                            "
-                            aria-expanded="false"
-                            data-faq-trigger
-                        >
-                            <span class="flex items-start gap-3">
-                                <span class="font-mono text-sm text-gray-400 mt-0.5">{String(index + 1).padStart(2, '0')}</span>
-                                <span class="text-lg">{faq.question}</span>
-                            </span>
-                            <span class="
-                                faq-icon
-                                w-8 h-8
-                                border-2 border-black
-                                bg-white
-                                flex items-center justify-center
-                                transition-transform duration-300
-                                flex-shrink-0
-                            ">
-                                <i class="ri-add-line text-lg"></i>
-                            </span>
-                        </button>
-                        <div
-                            class="faq-content overflow-hidden transition-all duration-300"
-                            style="max-height: 0;"
-                            data-faq-content
-                        >
-                            <div class="p-6 pt-2 pl-12">
-                                <p class="text-gray-600 leading-relaxed">
-                                    {faq.answer}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <details open={index === 0}>
+                        <summary>
+                            {faq.question}
+                            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+                        </summary>
+                        <p class="wf-faq-answer">{faq.answer}</p>
+                    </details>
                 ))}
             </div>
 
-            <!-- Extra question note -->
-            <div class="text-center mt-8">
-                <p class="text-gray-500">
-                    Une autre question ? <a href="#contact" class="text-[var(--blue)] font-medium hover:underline">Contactez-moi directement</a>, je réponds sous 24h.
-                </p>
-            </div>
-        </div>
-    </section>
+            <p class="co-mut" style="margin-top:24px;text-align:center;">
+                Une autre question ? <a href="#contact" class="wf-inline">Contactez-moi directement</a>, je réponds sous 24h.
+            </p>
+        </section>
 
-    <!-- LOCAL SEO SECTION -->
-    <section id="local" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundMapContours />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    local
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Un freelance Webflow en <span class="text-[var(--blue)]">Suisse romande</span>,<br/>
-                    ça change quoi ?
-                </h2>
-            </div>
+        <!-- ══ 07 · LOCAL (SEO géo) ══ -->
+        <section id="local" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">07 — Local</p>
+            <h2 style="margin-top:8px;">Un freelance Webflow en <span class="co-ser">Suisse romande</span>, ça change quoi ?</h2>
 
-            <!-- Two columns -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                <!-- Why local -->
+            <div class="wf-local-grid">
                 <div data-animate="fade-left">
-                    <h3 class="text-xl font-bold mb-6">La plupart des freelances Webflow francophones sont en France. Travailler avec quelqu'un d'ici, c'est :</h3>
-                    <div class="space-y-4">
-                        <div class="flex items-start gap-4 p-4 bg-[var(--main-bg)] border-2 border-black">
-                            <IconChip icon="ri-bank-card-line" size="md" class="flex-shrink-0" />
-                            <div>
-                                <h4 class="font-bold mb-1">Des tarifs en CHF, une facture suisse</h4>
-                                <p class="text-sm text-gray-600">Pas de TVA européenne ni de taux de change. Une facturation propre pour votre comptabilité.</p>
+                    <h3 class="wf-local-h3">La plupart des freelances Webflow francophones sont en France. Travailler avec quelqu'un d'ici, c'est :</h3>
+                    <div class="wf-local-adv">
+                        {localAdvantages.map((adv) => (
+                            <div class="wf-local-item co-frame">
+                                <i class={`${adv.icon} wf-local-icon`} aria-hidden="true"></i>
+                                <div>
+                                    <h4 class="wf-local-name">{adv.title}</h4>
+                                    <p class="wf-local-desc">{adv.description}</p>
+                                </div>
                             </div>
-                        </div>
-                        <div class="flex items-start gap-4 p-4 bg-[var(--main-bg)] border-2 border-black">
-                            <IconChip icon="ri-bar-chart-line" size="md" class="flex-shrink-0" />
-                            <div>
-                                <h4 class="font-bold mb-1">La même réalité business</h4>
-                                <p class="text-sm text-gray-600">Je connais le marché romand, les attentes des clients locaux, les spécificités légales (LPD, mentions).</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4 p-4 bg-[var(--main-bg)] border-2 border-black">
-                            <IconChip icon="ri-user-voice-line" size="md" class="flex-shrink-0" />
-                            <div>
-                                <h4 class="font-bold mb-1">Des échanges en personne possibles</h4>
-                                <p class="text-sm text-gray-600">Un café à Genève pour cadrer le projet, un atelier pour la formation à l'éditeur Webflow.</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start gap-4 p-4 bg-[var(--main-bg)] border-2 border-black">
-                            <IconChip icon="ri-time-line" size="md" class="flex-shrink-0" />
-                            <div>
-                                <h4 class="font-bold mb-1">Réactivité</h4>
-                                <p class="text-sm text-gray-600">Même fuseau horaire, même rythme. Une question urgente ? Réponse dans la journée.</p>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
 
-                <!-- Zones -->
-                <div data-animate="fade-right">
-                    <h3 class="text-xl font-bold mb-6">Zones couvertes</h3>
-                    <div class="space-y-3">
+                <div data-animate="fade-left" data-delay="0.1">
+                    <h3 class="wf-local-h3">Zones couvertes</h3>
+                    <div class="wf-zones">
                         {zones.map((zone) => (
-                            <div class={`
-                                flex items-center gap-4 p-4 border-2 border-black
-                                ${zone.type === 'primary' ? 'bg-[var(--blue)] bg-opacity-20 border-[var(--blue)]' : 'bg-white'}
-                            `}>
-                                <i class={`${zone.icon} text-xl ${zone.type === 'primary' ? 'text-[var(--blue)]' : 'text-gray-600'}`}></i>
-                                <span class={`font-medium ${zone.type === 'primary' ? 'text-lg font-bold' : ''}`}>
-                                    {zone.name}
-                                    {zone.type === 'primary' && <span class="text-sm font-normal text-gray-600 ml-2">(basé sur place)</span>}
+                            <div class={`wf-zone ${zone.type === 'primary' ? 'wf-zone--primary' : ''}`}>
+                                <i class={zone.icon}></i>
+                                <span>
+                                    <strong>{zone.name}</strong>
+                                    {zone.type === 'primary' && <span class="co-mut"> (basé sur place)</span>}
                                 </span>
                             </div>
                         ))}
                     </div>
-                    <p class="mt-6 text-sm text-gray-500">
-                        <i class="ri-information-line mr-1"></i>
-                        Les échanges se font en personne ou en visio selon vos préférences.
+                    <p class="co-mut" style="margin-top:16px;font-size:13.5px;">
+                        <i class="ri-information-line"></i> Les échanges se font en personne ou en visio selon vos préférences.
                     </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA + FORM SECTION -->
-    <section id="contact" class="py-20 md:py-28 px-4 bg-[var(--main-bg)] relative overflow-hidden">
-        <!-- Dot pattern background -->
-        <div class="absolute inset-0 dots-bg opacity-[0.4]"></div>
+        <!-- ══ 08 · CONTACT (formulaire Web3Forms — HARD-PRESERVE câblage) ══ -->
+        <section id="contact" class="co-sec co-pad" style="padding:64px 40px;">
+            <p class="co-eyebrow">08 — Contact</p>
+            <h2 style="margin-top:8px;">Prêt à lancer votre projet <span class="co-ser">Webflow ?</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+                Premier échange gratuit et sans engagement. Je vous donne mon avis honnête — y compris si Webflow
+                n'est pas le bon outil pour vous.
+            </p>
 
-        <div class="max-w-4xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4 text-[var(--text)]">
-                    Prêt à lancer votre projet Webflow ?
-                </h2>
-                <p class="text-lg text-gray-600">
-                    Premier échange gratuit et sans engagement. Je vous donne mon avis honnête — y compris si Webflow n'est pas le bon outil pour vous.
-                </p>
-            </div>
+            <form class="wf-form co-frame" id="webflow-form" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
 
-            <!-- Contact Form -->
-            <div class="contact-form-container" data-animate="scale">
-                <form
-                    class="bg-white text-[var(--text)] border-3 border-black p-6 md:p-8 shadow-[8px_8px_0px_rgba(0,217,163,0.3)] relative"
-                    id="webflow-form"
-                >
-                    <!-- Corner boxes -->
-                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                <!-- Hidden fields for Web3Forms (HARD-PRESERVE) -->
+                <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
+                <input type="hidden" name="subject" value="Demande développeur Webflow - Jon Labs">
+                <input type="hidden" name="from_name" value="Jon Labs - Développeur Webflow">
+                <input type="checkbox" name="botcheck" class="wf-honeypot" style="display: none;">
 
-                    <h3 class="text-xl font-bold mb-6 text-center">Parlons de votre projet Webflow</h3>
+                <h3 class="wf-form-title">Parlons de votre projet Webflow</h3>
 
-                    <!-- Hidden fields for Web3Forms -->
-                    <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
-                    <input type="hidden" name="subject" value="Demande développeur Webflow - Jon Labs">
-                    <input type="hidden" name="from_name" value="Jon Labs - Développeur Webflow">
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                <div class="wf-form-grid">
+                    <div class="wf-field">
+                        <label for="name" class="wf-label"><span class="co-index">01</span> Nom / Prénom <span class="wf-req">*</span></label>
+                        <input type="text" id="name" name="name" required placeholder="Jean Dupont" class="wf-input" />
+                    </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Nom -->
-                        <div class="form-field">
-                            <label for="name" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">01</span>
-                                Nom / Prénom <span class="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                required
-                                placeholder="Jean Dupont"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
+                    <div class="wf-field">
+                        <label for="email" class="wf-label"><span class="co-index">02</span> Email <span class="wf-req">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="vous@exemple.ch" class="wf-input" />
+                    </div>
 
-                        <!-- Email -->
-                        <div class="form-field">
-                            <label for="email" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">02</span>
-                                Email <span class="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                required
-                                placeholder="vous@exemple.ch"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
+                    <div class="wf-field">
+                        <label for="phone" class="wf-label"><span class="co-index">03</span> Téléphone (optionnel)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+41 79 123 45 67" class="wf-input" />
+                    </div>
 
-                        <!-- Téléphone -->
-                        <div class="form-field">
-                            <label for="phone" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">03</span>
-                                Téléphone (optionnel)
-                            </label>
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                placeholder="+41 79 123 45 67"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
-
-                        <!-- Type de projet -->
-                        <div class="form-field">
-                            <label for="project-type" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">04</span>
-                                Type de projet <span class="text-red-500">*</span>
-                            </label>
-                            <select
-                                id="project-type"
-                                name="project_type"
-                                required
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all cursor-pointer"
-                            >
+                    <div class="wf-field">
+                        <label for="project-type" class="wf-label"><span class="co-index">04</span> Type de projet <span class="wf-req">*</span></label>
+                        <div class="wf-select-wrap">
+                            <select id="project-type" name="project_type" required class="wf-select">
                                 <option value="" disabled selected>Choisir...</option>
-                                {projectTypes.map((type) => (
-                                    <option value={type.value}>{type.label}</option>
-                                ))}
+                                {projectTypes.map((type) => (<option value={type.value}>{type.label}</option>))}
                             </select>
+                            <i class="ri-arrow-down-s-line wf-select-caret" aria-hidden="true"></i>
                         </div>
+                    </div>
 
-                        <!-- Message -->
-                        <div class="form-field md:col-span-2">
-                            <label for="message" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">05</span>
-                                Votre message <span class="text-red-500">*</span>
-                            </label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="4"
-                                required
-                                placeholder="Décrivez brièvement votre activité et votre projet Webflow..."
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            ></textarea>
-                        </div>
+                    <div class="wf-field wf-field--full">
+                        <label for="message" class="wf-label"><span class="co-index">05</span> Votre message <span class="wf-req">*</span></label>
+                        <textarea id="message" name="message" rows="4" required placeholder="Décrivez brièvement votre activité et votre projet Webflow..." class="wf-textarea"></textarea>
+                    </div>
 
-                        <!-- Budget -->
-                        <div class="form-field">
-                            <label for="budget" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">06</span>
-                                Budget approximatif
-                            </label>
-                            <select
-                                id="budget"
-                                name="budget"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all cursor-pointer"
-                            >
+                    <div class="wf-field">
+                        <label for="budget" class="wf-label"><span class="co-index">06</span> Budget approximatif</label>
+                        <div class="wf-select-wrap">
+                            <select id="budget" name="budget" class="wf-select">
                                 <option value="" disabled selected>Choisir...</option>
-                                {budgetOptions.map((option) => (
-                                    <option value={option.value}>{option.label}</option>
-                                ))}
+                                {budgetOptions.map((option) => (<option value={option.value}>{option.label}</option>))}
                             </select>
-                        </div>
-
-                        <!-- Comment m'avez-vous trouvé -->
-                        <div class="form-field">
-                            <label for="source" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">07</span>
-                                Comment m'avez-vous trouvé ? (optionnel)
-                            </label>
-                            <input
-                                type="text"
-                                id="source"
-                                name="source"
-                                placeholder="Google, recommandation, LinkedIn..."
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
-
-                        <!-- Consent -->
-                        <div class="form-field md:col-span-2">
-                            <label class="flex items-start gap-3 cursor-pointer group">
-                                <input
-                                    type="checkbox"
-                                    name="consent"
-                                    required
-                                    class="mt-1 w-5 h-5 border-2 border-black appearance-none cursor-pointer checked:bg-[var(--blue)] checked:border-black relative transition-all"
-                                />
-                                <span class="text-sm text-gray-600 group-hover:text-black transition-colors">
-                                    Vos données sont utilisées uniquement pour répondre à votre demande. Pas de spam, promis. <span class="text-red-500">*</span>
-                                </span>
-                            </label>
-                        </div>
-
-                        <!-- Submit -->
-                        <div class="md:col-span-2 pt-4">
-                            <button
-                                type="submit"
-                                class="
-                                    submit-btn
-                                    w-full
-                                    bg-[var(--blue)]
-                                    border-2 border-black
-                                    px-8 py-4
-                                    text-lg font-bold
-                                    shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                                    transition-all duration-200
-                                    hover:bg-[var(--yellow)]
-                                    hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                                    hover:translate-x-[2px] hover:translate-y-[2px]
-                                    focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2
-                                    flex items-center justify-center gap-3
-                                "
-                            >
-                                <span>Envoyer ma demande</span>
-                                <i class="ri-send-plane-line text-xl"></i>
-                            </button>
+                            <i class="ri-arrow-down-s-line wf-select-caret" aria-hidden="true"></i>
                         </div>
                     </div>
-                </form>
 
-                <!-- Post-form content wrapper -->
-                <div class="bg-[var(--main-bg)]/90 backdrop-blur-sm p-6 mt-8">
-                    <!-- Trust indicators -->
-                    <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-600">
-                        <span class="flex items-center gap-2">
-                            <i class="ri-time-line text-[var(--blue)]"></i>
-                            Réponse sous 24h
-                        </span>
-                        <span class="flex items-center gap-2">
-                            <i class="ri-gift-line text-[var(--blue)]"></i>
-                            Premier échange gratuit
-                        </span>
-                        <span class="flex items-center gap-2">
-                            <i class="ri-file-list-3-line text-[var(--blue)]"></i>
-                            Devis clair
-                        </span>
+                    <div class="wf-field">
+                        <label for="source" class="wf-label"><span class="co-index">07</span> Comment m'avez-vous trouvé ? (optionnel)</label>
+                        <input type="text" id="source" name="source" placeholder="Google, recommandation, LinkedIn..." class="wf-input" />
                     </div>
 
-                    <!-- Alternatives -->
-                    <div class="text-center mt-8 space-y-4">
-                        <p class="text-gray-500 text-sm">Vous préférez réserver un créneau directement ?</p>
-                        <a
-                            href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 text-[var(--blue)] font-medium hover:underline"
-                        >
-                            <i class="ri-calendar-line"></i>
-                            Prendre rendez-vous sur Cal.com
-                        </a>
+                    <div class="wf-field wf-field--full">
+                        <label class="wf-consent">
+                            <input type="checkbox" name="consent" required class="wf-checkbox" />
+                            <span>Vos données sont utilisées uniquement pour répondre à votre demande. Pas de spam, promis. <span class="wf-req">*</span></span>
+                        </label>
                     </div>
 
-                    <!-- Direct contact -->
-                    <div class="text-center mt-6">
-                        <p class="text-gray-500 text-sm mb-2">Besoin d'une réponse rapide ?</p>
-                        <a href="mailto:contact@jonlabs.ch" class="text-[var(--blue)] font-mono hover:underline">
-                            contact@jonlabs.ch
-                        </a>
-                    </div>
-
-                    <!-- Bridge to custom dev -->
-                    <div class="text-center mt-8 p-4 bg-white border-2 border-dashed border-gray-300">
-                        <p class="text-gray-500 text-sm">
-                            <strong>Webflow n'est pas adapté à votre projet ?</strong> Je développe aussi des sites <a href="/services/creation-site-web" class="text-[var(--blue)] hover:underline">sur-mesure</a> et je reprends des sites <a href="/services/developpeur-wordpress" class="text-[var(--blue)] hover:underline">WordPress</a>. Pour un exemple concret, voyez mon étude de cas <a href="/portfolio/barber-concept" class="text-[var(--blue)] hover:underline">Barber Concept (multi-salon sous Webflow)</a> ou l'ensemble de mes <a href="/portfolio" class="text-[var(--blue)] hover:underline">réalisations</a>.
-                        </p>
+                    <div class="wf-field wf-field--full">
+                        <button type="submit" class="co-btn submit-btn wf-submit">
+                            <span>Envoyer ma demande</span>
+                            <i class="ri-send-plane-line"></i>
+                        </button>
                     </div>
                 </div>
+            </form>
+
+            <div class="wf-form-after" data-animate>
+                <div class="wf-trust">
+                    <span><i class="ri-time-line"></i> Réponse sous 24h</span>
+                    <span><i class="ri-gift-line"></i> Premier échange gratuit</span>
+                    <span><i class="ri-file-list-3-line"></i> Devis clair</span>
+                </div>
+                <div class="wf-alt">
+                    <p class="co-mut">Vous préférez réserver un créneau directement ?</p>
+                    <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="wf-inline"><i class="ri-calendar-line"></i> Prendre rendez-vous sur Cal.com</a>
+                </div>
+                <div class="wf-alt">
+                    <p class="co-mut">Besoin d'une réponse rapide ?</p>
+                    <a href="mailto:contact@jonlabs.ch" class="wf-inline">contact@jonlabs.ch</a>
+                </div>
+                <p class="wf-note-inline" style="text-align:center;">
+                    <strong>Webflow n'est pas adapté à votre projet ?</strong> Je développe aussi des sites
+                    <a href="/services/creation-site-web" class="wf-inline">sur-mesure</a> et je reprends des sites
+                    <a href="/services/developpeur-wordpress" class="wf-inline">WordPress</a>. Pour un exemple concret,
+                    voyez mon étude de cas <a href="/portfolio/barber-concept" class="wf-inline">Barber Concept</a>
+                    ou l'ensemble de mes <a href="/portfolio" class="wf-inline">réalisations</a>.
+                </p>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
 
     <Footer />
 </Layout>
 
-<style>
-    /* Dot pattern background */
-    .dots-bg {
-        background-image: radial-gradient(circle, #000 1px, transparent 1px);
-        background-size: 24px 24px;
-    }
+<style is:global>
+    /* ══ DÉVELOPPEUR WEBFLOW — styles .wf-* (namespace scopé, corps .co-root) ══ */
 
-    /* FAQ animations */
-    .faq-item[data-open="true"] .faq-icon {
-        transform: rotate(45deg);
-        background-color: var(--blue);
-    }
+    /* ── Hero ── */
+    .wf-hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
+    .wf-hero-title { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+    .co-root .wf-hero-lead { margin-top: 18px; max-width: 52ch; font-size: 1.075rem; line-height: 1.65; color: var(--muted); }
+    .wf-hero-lead strong { color: var(--ink); font-weight: 600; }
+    .wf-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .wf-hero-btns .co-btn i { transition: transform .18s ease-out; }
+    .wf-hero-btns .co-btn:hover i { transform: translateY(2px); }
+    .co-root .wf-hero-loc { margin-top: 22px; font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px; }
+    .wf-hero-loc i { color: var(--accent); }
 
-    /* H1 SEO style terminal */
-    .seo-h1 {
-        font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace;
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: var(--color-accent-strong);
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    /* browser mockup */
+    .wf-hero-media { position: relative; }
+    .wf-browser { position: relative; background: var(--surface); border: 1px solid var(--line-2); }
+    .wf-browser-bar { display: flex; align-items: center; gap: 8px; padding: 11px 14px; border-bottom: 1px solid var(--line); background: var(--bg); }
+    .wf-browser-dot { width: 9px; height: 9px; border-radius: 999px; background: var(--line-2); flex: none; }
+    .wf-browser-url { flex: 1; text-align: center; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .wf-browser-img { display: block; width: 100%; height: auto; }
+    .wf-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: 8px 12px; font-size: 12px; font-weight: 600; }
+    .wf-badge--score { top: -16px; left: -14px; display: flex; flex-direction: column; line-height: 1.1; }
+    .wf-badge--score b { color: var(--accent); font-size: 15px; }
+    .wf-badge--score span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .wf-badge--speed { bottom: -16px; right: -14px; background: var(--accent); border-color: var(--accent); color: #fff; }
 
-    /* Custom checkbox checkmark */
-    input[type="checkbox"]:checked::after {
-        content: '';
-        position: absolute;
-        left: 5px;
-        top: 1px;
-        width: 6px;
-        height: 12px;
-        border: solid black;
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
+    /* ── Cartes génériques (problèmes / prestations) ── */
+    .wf-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .wf-grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .wf-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .wf-card {
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        background: var(--surface); border: 1px solid var(--line-2);
+        transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
+    .wf-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+    .wf-card-icon { font-size: 24px; color: var(--accent); line-height: 1; }
+    .wf-card-title { font-size: 1.1rem; }
+    .wf-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
+    .wf-card-tag { margin-top: auto; padding-top: 4px; font-size: 12.5px; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 5px; }
 
-    /* Submit button loading state */
-    .submit-btn.loading {
-        pointer-events: none;
-        opacity: 0.7;
+    /* ── Notes / callouts ── */
+    .wf-note { display: flex; align-items: flex-start; gap: 12px; margin-top: 20px; padding: 18px 22px; border: 1px solid var(--line-2); background: var(--surface); }
+    .wf-note i { color: var(--accent); font-size: 20px; flex: none; margin-top: 1px; }
+    .co-root .wf-note p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+    .wf-note--accent { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .wf-note-inline { margin-top: 14px !important; font-size: 14px; line-height: 1.6; color: var(--muted); }
+    .wf-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
+    .wf-inline:hover { color: var(--ink); }
+    .wf-note strong, .wf-note-inline strong { color: var(--ink); font-weight: 600; }
+
+    /* ── E-commerce : deux colonnes marche / coince ── */
+    .wf-ecom { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 32px; align-items: start; }
+    .wf-ecom-card { position: relative; padding: 28px; background: var(--surface); border: 1px solid var(--line-2); }
+    .wf-ecom-head { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+    .wf-ecom-head i { font-size: 22px; flex: none; }
+    .wf-ecom-head--ok i { color: var(--accent); }
+    .wf-ecom-head--limit i { color: var(--muted); }
+    .wf-ecom-title { font-size: 1.15rem; }
+    .wf-ecom-list li { font-size: 14px; line-height: 1.5; }
+    .wf-cross { display: flex; flex-direction: column; gap: 10px; padding: 0; list-style: none; }
+    .wf-cross li { display: flex; gap: 9px; color: var(--muted); }
+    .wf-cross li i { color: var(--muted); font-size: 15px; flex: none; margin-top: 1px; }
+
+    /* ── Étapes méthode ── */
+    .wf-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+    .wf-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .wf-step-num { font-size: 20px; font-weight: 600; }
+    .wf-step-title { font-size: 1.15rem; }
+    .co-root .wf-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
+    .co-root .wf-step-dur { margin-top: 10px; font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+    .wf-step-dur i { color: var(--accent); }
+
+    /* ── Encart différenciateurs ── */
+    .wf-diff { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .wf-diff-title { text-align: center; font-size: 1.25rem; }
+    .wf-diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 28px; }
+    .wf-diff-item { text-align: center; }
+    .wf-diff-icon { font-size: 26px; color: var(--accent); }
+    .wf-diff-name { margin-top: 10px; font-size: 15px; font-weight: 600; }
+    .co-root .wf-diff-desc { margin-top: 4px; font-size: 13px; line-height: 1.45; color: var(--muted); }
+
+    /* ── Tarifs ── */
+    .wf-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; margin-top: 36px; }
+    .wf-tier { position: relative; display: flex; flex-direction: column; gap: 18px; padding: 30px 26px; background: var(--surface); border: 1px solid var(--line-2); }
+    .wf-tier--reco { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+    .wf-tier-reco { position: absolute; top: -12px; left: 26px; z-index: 4; }
+    .wf-tier-name { font-size: 1.15rem; }
+    .wf-tier-price { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+    .wf-tier-pricelabel { font-size: 13px; color: var(--muted); width: 100%; }
+    .wf-tier-price b { font-size: 2.3rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+    .wf-tier-cur { font-size: 15px; color: var(--muted); font-weight: 500; }
+    .wf-tier-features { gap: 10px; }
+    .wf-tier-features li { font-size: 14px; line-height: 1.45; }
+    .co-root .wf-tier-ideal { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; line-height: 1.5; color: var(--muted); }
+    .wf-tier-ideal strong { color: var(--ink); }
+
+    .wf-pricenote { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .wf-pricenote-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
+    .wf-pricenote-title i { color: var(--accent); }
+    .wf-pricenote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 40px; margin-top: 18px; }
+    .wf-pricenote-grid li { font-size: 14px; }
+
+    /* ── FAQ (accordéon natif <details> — smooth via ::details-content, zéro JS) ── */
+    .wf-faq { border-top: 1px solid var(--line); }
+    .wf-faq details { border-bottom: 1px solid var(--line); }
+    .wf-faq summary {
+        list-style: none; cursor: pointer; padding: 20px 0;
+        display: flex; justify-content: space-between; align-items: center; gap: 20px;
+        font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
     }
-
-    .submit-btn.loading i {
-        animation: spin 1s linear infinite;
+    .wf-faq summary::-webkit-details-marker { display: none; }
+    .wf-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
+    .wf-faq details[open] summary i { transform: rotate(180deg); }
+    .co-root .wf-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 68ch; }
+    .wf-faq details::details-content {
+        block-size: 0; overflow: hidden;
+        transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
     }
+    .wf-faq details[open]::details-content { block-size: auto; }
 
-    @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
+    /* ── Local ── */
+    .wf-local-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; margin-top: 32px; }
+    .wf-local-h3 { font-size: 1.15rem; margin-bottom: 18px; line-height: 1.3; }
+    .wf-local-adv { display: flex; flex-direction: column; gap: 12px; }
+    .wf-local-item { position: relative; display: flex; align-items: flex-start; gap: 14px; padding: 18px; background: var(--surface); border: 1px solid var(--line-2); }
+    .wf-local-icon { font-size: 22px; color: var(--accent); flex: none; margin-top: 2px; }
+    .wf-local-name { font-size: 15px; font-weight: 600; }
+    .co-root .wf-local-desc { margin-top: 3px; font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+    .wf-zones { display: flex; flex-direction: column; gap: 10px; }
+    .wf-zone { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line-2); font-size: 14px; }
+    .wf-zone i { color: var(--muted); font-size: 18px; }
+    .wf-zone--primary { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .wf-zone--primary i { color: var(--accent); }
+
+    /* ── Formulaire (Web3Forms restylé, câblage préservé) ── */
+    .wf-form { position: relative; margin-top: 32px; padding: 34px; background: var(--surface); border: 1px solid var(--line-2); }
+    .wf-form-title { font-size: 1.25rem; text-align: center; margin-bottom: 6px; }
+    .wf-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .wf-field { display: flex; flex-direction: column; gap: 8px; }
+    .wf-field--full { grid-column: 1 / -1; }
+    .wf-label { display: flex; align-items: baseline; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink); }
+    .wf-label .co-index { font-size: 11px; }
+    .wf-req { color: var(--accent); }
+    .wf-input, .wf-select, .wf-textarea {
+        width: 100%; font-family: "Inter Tight", ui-sans-serif, sans-serif; font-size: 15px; color: var(--ink);
+        background: var(--bg); border: 1px solid var(--line-2); padding: 12px 14px;
+        transition: border-color .18s ease-out, box-shadow .18s ease-out;
     }
+    .wf-input::placeholder, .wf-textarea::placeholder { color: var(--muted); opacity: .7; }
+    .wf-input:focus, .wf-select:focus, .wf-textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,168,125,.15); }
+    .wf-textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
+    .wf-select-wrap { position: relative; }
+    .wf-select { appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 40px; }
+    .wf-select-caret { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 18px; color: var(--muted); pointer-events: none; }
+    .wf-consent { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.5; color: var(--muted); cursor: pointer; }
+    .wf-consent:hover { color: var(--ink); }
+    .wf-checkbox { margin-top: 2px; width: 16px; height: 16px; flex: none; accent-color: var(--accent); cursor: pointer; }
+    .wf-submit { width: 100%; justify-content: center; padding: 14px 20px; font-size: 16px; }
+    .submit-btn.loading { pointer-events: none; opacity: 0.7; }
+    .submit-btn.loading i { animation: wfSpin 1s linear infinite; }
+    @keyframes wfSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-    /* Scroll margin for anchor navigation */
-    section[id] {
-        scroll-margin-top: 100px;
+    /* ── Après-formulaire ── */
+    .wf-form-after { margin-top: 28px; display: flex; flex-direction: column; gap: 18px; align-items: center; text-align: center; }
+    .wf-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; font-size: 13.5px; color: var(--muted); }
+    .wf-trust i { color: var(--accent); margin-right: 4px; }
+    .wf-alt { display: flex; flex-direction: column; gap: 4px; }
+    .wf-alt .wf-inline { display: inline-flex; align-items: center; gap: 6px; justify-content: center; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+        .wf-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+        .wf-hero-media { max-width: 520px; }
+        .wf-local-grid { grid-template-columns: 1fr; gap: 32px; }
+        .wf-diff-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 720px) {
+        .wf-grid--2, .wf-grid--3, .wf-tiers, .wf-form-grid, .wf-pricenote-grid, .wf-ecom { grid-template-columns: 1fr; }
+        .wf-diff-grid { grid-template-columns: 1fr 1fr; }
+        .wf-step { grid-template-columns: 44px 1fr; gap: 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .wf-card, .wf-res-link, .wf-faq summary i, .wf-hero-btns .co-btn i { transition: none; }
+        .submit-btn.loading i { animation: none; }
     }
 </style>
 
 <script>
-    // FAQ accordion logic
-    const faqItems = document.querySelectorAll('[data-faq-item]');
-
-    faqItems.forEach(item => {
-        const trigger = item.querySelector('[data-faq-trigger]');
-        const content = item.querySelector('[data-faq-content]') as HTMLElement;
-
-        trigger?.addEventListener('click', () => {
-            const isOpen = item.getAttribute('data-open') === 'true';
-
-            // Close all other items
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.setAttribute('data-open', 'false');
-                    const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
-                    const otherTrigger = otherItem.querySelector('[data-faq-trigger]');
-                    if (otherContent) otherContent.style.maxHeight = '0';
-                    otherTrigger?.setAttribute('aria-expanded', 'false');
-                }
-            });
-
-            // Toggle current item
-            if (isOpen) {
-                item.setAttribute('data-open', 'false');
-                content.style.maxHeight = '0';
-                trigger.setAttribute('aria-expanded', 'false');
-            } else {
-                item.setAttribute('data-open', 'true');
-                content.style.maxHeight = content.scrollHeight + 'px';
-                trigger.setAttribute('aria-expanded', 'true');
-            }
-        });
-    });
-
-    // Form submission
+    // Form submission — HARD-PRESERVE (câblage Web3Forms inchangé)
     const form = document.getElementById('webflow-form') as HTMLFormElement;
     const submitBtn = form?.querySelector('.submit-btn') as HTMLButtonElement;
     const btnText = submitBtn?.querySelector('span');
@@ -1226,12 +894,11 @@ const budgetOptions = [
     form?.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Loading state
         if (submitBtn) {
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
             if (btnText) btnText.textContent = 'Envoi en cours...';
-            if (btnIcon) btnIcon.className = 'ri-loader-4-line text-xl animate-spin';
+            if (btnIcon) btnIcon.className = 'ri-loader-4-line';
         }
 
         try {
@@ -1244,7 +911,6 @@ const budgetOptions = [
             const result = await response.json();
 
             if (result.success) {
-                // Show success message
                 alert('Merci ! Votre demande a bien été envoyée. Je vous réponds sous 24h.');
                 form.reset();
             } else {
@@ -1253,12 +919,11 @@ const budgetOptions = [
         } catch (error) {
             alert('Erreur de connexion. Veuillez réessayer.');
         } finally {
-            // Reset button
             if (submitBtn) {
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
                 if (btnText) btnText.textContent = 'Envoyer ma demande';
-                if (btnIcon) btnIcon.className = 'ri-send-plane-line text-xl';
+                if (btnIcon) btnIcon.className = 'ri-send-plane-line';
             }
         }
     });

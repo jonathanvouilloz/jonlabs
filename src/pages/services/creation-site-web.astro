@@ -1,22 +1,21 @@
 ---
+// Création de site web — sous-page service (blueprint).
+// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
+// accent teal unique, Inter Tight × Instrument Serif. GABARIT-OR des 13 sous-pages
+// /services/* (référence de migration pour les 12 autres).
+//
+// HARD-PRESERVE : Schema.org (serviceSchemas/breadcrumb/FAQ), câblage Web3Forms
+// (#creation-form, access_key + hidden inputs, tous les name=, honeypot, JS submit),
+// prix exacts (950 / 1'650 / Sur devis), maillage géo (villesFrontalieres +
+// developpeur-web-freelance-geneve), tous les liens SEO internes (cluster/ressources).
+
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import IconChip from '../../components/IconChip.astro';
 
-// Import SVG pour surlignement
-import arrowUnderline from '../../assets/arrow-3.svg';
-
-// Import image hero (réutiliser temporairement refonte1.webp)
+// Image hero (mockup navigateur)
 import creationHero from '../../assets/services/refonte-1.webp';
-
-// Import background components
-import BackgroundGlitchGrid from '../../components/backgrounds/BackgroundGlitchGrid.astro';
-import BackgroundProgressFlow from '../../components/backgrounds/BackgroundProgressFlow.astro';
-import BackgroundCircuitBoard from '../../components/backgrounds/BackgroundCircuitBoard.astro';
-import BackgroundQuestionMarks from '../../components/backgrounds/BackgroundQuestionMarks.astro';
-import BackgroundMapContours from '../../components/backgrounds/BackgroundMapContours.astro';
 
 // Schema.org
 import { serviceSchemas, SITE_URL } from '../../data/schema';
@@ -28,7 +27,7 @@ import { villesFrontalieres } from '../../data/villes-frontalieres';
 // SEO Data
 const seoData = {
     title: "Création de site web à Genève — freelance | Jonlabs",
-    description: "Site web sur mesure en 3-4 semaines : design, performance et SEO intégré. Développeur freelance à Genève pour PME et indépendants. 📩 Devis gratuit"
+    description: "Site web sur mesure en 3-4 semaines : design, performance et SEO intégré. Développeur freelance à Genève pour PME et indépendants. Devis gratuit."
 };
 
 // Schema.org data
@@ -122,26 +121,10 @@ const methodSteps = [
 
 // Differentiators (encart)
 const differentiators = [
-    {
-        icon: "ri-eye-line",
-        title: "Pas de surprise",
-        description: "vous validez chaque étape avant qu'on avance"
-    },
-    {
-        icon: "ri-key-line",
-        title: "Pas de dépendance",
-        description: "votre site vous appartient, vous pouvez le faire évoluer"
-    },
-    {
-        icon: "ri-chat-smile-2-line",
-        title: "Pas de jargon",
-        description: "je vous explique tout en français, pas en \"dev\""
-    },
-    {
-        icon: "ri-flashlight-line",
-        title: "Option express",
-        description: "besoin urgent ? On peut accélérer le calendrier"
-    }
+    { icon: "ri-eye-line", title: "Pas de surprise", description: "vous validez chaque étape avant qu'on avance" },
+    { icon: "ri-key-line", title: "Pas de dépendance", description: "votre site vous appartient, vous pouvez le faire évoluer" },
+    { icon: "ri-chat-smile-2-line", title: "Pas de jargon", description: "je vous explique tout en français, pas en \"dev\"" },
+    { icon: "ri-flashlight-line", title: "Option express", description: "besoin urgent ? On peut accélérer le calendrier" }
 ];
 
 // Results (6 items)
@@ -180,24 +163,9 @@ const results = [
 
 // Tech stack
 const techStack = [
-    {
-        name: "Framer",
-        description: "Idéal pour les sites vitrines élégants. Modifications faciles, animations fluides.",
-        icon: "ri-layout-line",
-        idealFor: "Indépendants, consultants, portfolios créatifs"
-    },
-    {
-        name: "Webflow",
-        description: "Pour les projets plus ambitieux. CMS intégré, interactions avancées.",
-        icon: "ri-grid-line",
-        idealFor: "PME, agences, sites avec beaucoup de contenu"
-    },
-    {
-        name: "Site sur-mesure",
-        description: "Performance maximale et contrôle total. Pour les besoins spécifiques.",
-        icon: "ri-code-s-slash-line",
-        idealFor: "E-commerce, applications web, besoins techniques spécifiques"
-    }
+    { name: "Framer", description: "Idéal pour les sites vitrines élégants. Modifications faciles, animations fluides.", icon: "ri-layout-line", idealFor: "Indépendants, consultants, portfolios créatifs" },
+    { name: "Webflow", description: "Pour les projets plus ambitieux. CMS intégré, interactions avancées.", icon: "ri-grid-line", idealFor: "PME, agences, sites avec beaucoup de contenu" },
+    { name: "Site sur-mesure", description: "Performance maximale et contrôle total. Pour les besoins spécifiques.", icon: "ri-code-s-slash-line", idealFor: "E-commerce, applications web, besoins techniques spécifiques" }
 ];
 
 // Pricing plans
@@ -248,73 +216,23 @@ const pricingPlans = [
 
 // FAQs (8 questions)
 const faqs = [
-    {
-        question: "Combien de temps pour avoir mon site ?",
-        answer: "Entre 3 et 4 semaines pour un site vitrine standard. Si vous avez une urgence (événement, lancement), j'ai une option express. On en parle lors du premier échange."
-    },
-    {
-        question: "Qu'est-ce que je dois fournir ?",
-        answer: "Vos textes (même bruts, on les retravaille ensemble), vos photos, votre logo si vous en avez un. Pas de panique si vous n'avez pas tout : je peux vous guider ou vous recommander des professionnels."
-    },
-    {
-        question: "Je n'y connais rien en technique, c'est un problème ?",
-        answer: "Pas du tout. C'est même la majorité de mes clients. Je m'occupe de toute la partie technique, vous vous concentrez sur votre métier. Et je vous explique tout en termes simples."
-    },
-    {
-        question: "Et si j'ai besoin de modifications après ?",
-        answer: "Les petites modifications (textes, photos), vous pouvez les faire vous-même — je vous montre comment. Pour des évolutions plus importantes, on en discute et je vous fais un devis."
-    },
-    {
-        question: "Pourquoi pas WordPress comme tout le monde ?",
-        answer: "WordPress se justifie pour certains usages — blog très actif, plugins métier — et je le propose aussi quand c'est le bon choix. Mais pour un site vitrine, ma stack vous donne un site plus rapide, plus sécurisé, et sans mises à jour constantes ni maintenance pénible."
-    },
-    {
-        question: "C'est quoi la différence avec Wix ou Squarespace ?",
-        answer: "Ces outils sont pratiques pour démarrer seul, mais vous êtes limité par leurs templates et leur système. Avec moi, vous avez un site vraiment sur-mesure, optimisé pour Google, et vous n'êtes pas enfermé dans une plateforme."
-    },
-    {
-        question: "Et si le résultat ne me plaît pas ?",
-        answer: "On valide ensemble à chaque étape (maquette, puis développement). Vous ne découvrez pas le site à la fin — vous participez à sa création. Si quelque chose ne va pas, on ajuste avant de continuer."
-    },
-    {
-        question: "Est-ce que je serai visible sur Google tout de suite ?",
-        answer: "Le référencement prend du temps (quelques semaines à quelques mois selon la concurrence). Mais votre site sera techniquement optimisé dès le jour 1. C'est la fondation. Ensuite, si vous voulez aller plus loin, on peut travailler sur une stratégie SEO plus poussée."
-    }
+    { question: "Combien de temps pour avoir mon site ?", answer: "Entre 3 et 4 semaines pour un site vitrine standard. Si vous avez une urgence (événement, lancement), j'ai une option express. On en parle lors du premier échange." },
+    { question: "Qu'est-ce que je dois fournir ?", answer: "Vos textes (même bruts, on les retravaille ensemble), vos photos, votre logo si vous en avez un. Pas de panique si vous n'avez pas tout : je peux vous guider ou vous recommander des professionnels." },
+    { question: "Je n'y connais rien en technique, c'est un problème ?", answer: "Pas du tout. C'est même la majorité de mes clients. Je m'occupe de toute la partie technique, vous vous concentrez sur votre métier. Et je vous explique tout en termes simples." },
+    { question: "Et si j'ai besoin de modifications après ?", answer: "Les petites modifications (textes, photos), vous pouvez les faire vous-même — je vous montre comment. Pour des évolutions plus importantes, on en discute et je vous fais un devis." },
+    { question: "Pourquoi pas WordPress comme tout le monde ?", answer: "WordPress se justifie pour certains usages — blog très actif, plugins métier — et je le propose aussi quand c'est le bon choix. Mais pour un site vitrine, ma stack vous donne un site plus rapide, plus sécurisé, et sans mises à jour constantes ni maintenance pénible." },
+    { question: "C'est quoi la différence avec Wix ou Squarespace ?", answer: "Ces outils sont pratiques pour démarrer seul, mais vous êtes limité par leurs templates et leur système. Avec moi, vous avez un site vraiment sur-mesure, optimisé pour Google, et vous n'êtes pas enfermé dans une plateforme." },
+    { question: "Et si le résultat ne me plaît pas ?", answer: "On valide ensemble à chaque étape (maquette, puis développement). Vous ne découvrez pas le site à la fin — vous participez à sa création. Si quelque chose ne va pas, on ajuste avant de continuer." },
+    { question: "Est-ce que je serai visible sur Google tout de suite ?", answer: "Le référencement prend du temps (quelques semaines à quelques mois selon la concurrence). Mais votre site sera techniquement optimisé dès le jour 1. C'est la fondation. Ensuite, si vous voulez aller plus loin, on peut travailler sur une stratégie SEO plus poussée." }
 ];
 schemas.push(getFAQPageSchema(faqs));
 
 // Local advantages
 const localAdvantages = [
-    {
-        icon: "ri-user-voice-line",
-        title: "Des échanges facilités",
-        description: "On peut se voir en personne si besoin. Un café pour discuter du projet, un atelier pour affiner les détails."
-    },
-    {
-        icon: "ri-bar-chart-line",
-        title: "La même réalité business",
-        description: "Je connais le marché suisse, les attentes des clients locaux, les spécificités légales (LPD, facturation)."
-    },
-    {
-        icon: "ri-time-line",
-        title: "Réactivité",
-        description: "Même fuseau horaire, même rythme. Une question urgente ? Vous avez une réponse dans la journée."
-    },
-    {
-        icon: "ri-group-line",
-        title: "Un réseau local",
-        description: "Besoin d'un photographe professionnel ? D'un rédacteur ? Je peux vous recommander des personnes de confiance dans la région."
-    }
-];
-
-// Local zones
-const zones = [
-    { name: "Genève", type: "primary", icon: "ri-map-pin-fill" },
-    { name: "Vaud", type: "secondary", icon: "ri-map-pin-line" },
-    { name: "Valais", type: "secondary", icon: "ri-map-pin-line" },
-    { name: "Neuchâtel", type: "secondary", icon: "ri-map-pin-line" },
-    { name: "Fribourg", type: "secondary", icon: "ri-map-pin-line" },
-    { name: "Toute Suisse romande", type: "tertiary", icon: "ri-global-line" }
+    { icon: "ri-user-voice-line", title: "Des échanges facilités", description: "On peut se voir en personne si besoin. Un café pour discuter du projet, un atelier pour affiner les détails." },
+    { icon: "ri-bar-chart-line", title: "La même réalité business", description: "Je connais le marché suisse, les attentes des clients locaux, les spécificités légales (LPD, facturation)." },
+    { icon: "ri-time-line", title: "Réactivité", description: "Même fuseau horaire, même rythme. Une question urgente ? Vous avez une réponse dans la journée." },
+    { icon: "ri-group-line", title: "Un réseau local", description: "Besoin d'un photographe professionnel ? D'un rédacteur ? Je peux vous recommander des personnes de confiance dans la région." }
 ];
 
 // Project type options for form
@@ -335,656 +253,344 @@ const budgetOptions = [
 ];
 ---
 
-<Layout
-    title={seoData.title}
-    description={seoData.description}
-    schemas={schemas}
->
+<Layout title={seoData.title} description={seoData.description} schemas={schemas}>
     <Header />
 
-    <!-- ============================================== -->
-    <!-- HERO SECTION -->
-    <!-- ============================================== -->
-    <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-20 px-4 relative overflow-hidden">
-        <!-- Gradient mesh background -->
-        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-            <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
-            <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-accent-strong opacity-15 blur-[100px] rounded-full"></div>
-            <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-[var(--blue)] opacity-10 blur-[80px] rounded-full"></div>
-        </div>
+    <main class="co-root">
 
-        <div class="max-w-4xl mx-auto relative z-10">
-            <!-- Centered text content -->
-            <div class="text-center">
-                <!-- H1 SEO discret -->
-                <h1 class="seo-h1 mb-8 mt-8">Création de site web à Genève</h1>
-
-                <!-- Main title -->
-                <p class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6" data-animate="fade-up">
-                    Un site qui travaille pour vous,<br/>
-                    <span class="relative inline-block">
-                        <span class="relative z-10">même quand vous dormez</span>
-                    </span>
-                </p>
-
-                <!-- Description -->
-                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="0.1">
-                    Vous n'avez pas de site ou juste une page Facebook ?<br class="hidden md:block"/>
-                    <strong class="text-[var(--text)]">Lancez votre présence en ligne en 3-4 semaines.</strong><br class="hidden md:block"/>
-                    Un site simple, efficace, qui vous ramène des clients sans vous prendre la tête.
-                </p>
-
-                <!-- CTAs centered -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16 md:mb-20" data-animate="fade-up" data-delay="0.2">
-                    <a
-                        href="#contact"
-                        class="
-                            bg-[var(--blue)]
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                            transition-all duration-200
-                            hover:bg-[var(--yellow)]
-                            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                            hover:translate-x-[2px] hover:translate-y-[2px]
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        <i class="ri-chat-3-line"></i>
-                        Discuter de mon projet
-                    </a>
-                    <a
-                        href="#methode"
-                        class="
-                            bg-white
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            transition-all duration-200
-                            hover:bg-gray-100
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        Voir comment ça marche
-                        <i class="ri-arrow-down-line"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Browser mockup centered -->
-            <div class="w-full mx-auto relative" data-animate="scale" data-delay="0.3">
-                <div class="bg-white border-3 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] relative">
-                    <!-- Browser bar -->
-                    <div class="flex items-center gap-2 p-3 border-b-2 border-black bg-gray-50">
-                        <div class="flex gap-1.5">
-                            <div class="w-3 h-3 rounded-full bg-red-400 border border-black"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-400 border border-black"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-400 border border-black"></div>
-                        </div>
-                        <div class="flex-1 bg-white border border-black px-3 py-1 text-xs text-gray-400 font-mono text-center">
-                            votresite.ch
-                        </div>
+        <!-- ══ HERO ══ -->
+        <section class="co-sec co-pad co-hero cr-hero" style="padding:64px 40px 56px;">
+            <div class="cr-hero-grid">
+                <div class="cr-hero-copy">
+                    <p class="co-eyebrow" data-animate>Création de site web · Genève &amp; Suisse romande</p>
+                    <h1 class="cr-hero-title" data-animate data-delay="0.1">
+                        Création de site web à <span class="co-ser">Genève.</span>
+                    </h1>
+                    <p class="cr-hero-lead" data-animate data-delay="0.2">
+                        Un site qui travaille pour vous, même quand vous dormez. Vous n'avez pas de site
+                        ou juste une page Facebook ? <strong>Lancez votre présence en ligne en 3-4 semaines</strong> —
+                        un site simple, efficace, qui vous ramène des clients sans vous prendre la tête.
+                    </p>
+                    <div class="cr-hero-btns" data-animate data-delay="0.3">
+                        <a href="#contact" class="co-btn"><i class="ri-chat-3-line"></i> Discuter de mon projet</a>
+                        <a href="#methode" class="co-btn co-btn--ghost">Voir comment ça marche <i class="ri-arrow-down-line"></i></a>
                     </div>
-                    <!-- Screenshot -->
-                    <img
-                        src={creationHero.src}
-                        alt="Exemple de création de site web professionnel"
-                        class="w-full h-auto"
-                    />
+                    <p class="cr-hero-loc co-mut" data-animate data-delay="0.4">
+                        <i class="ri-map-pin-fill"></i> Basé à Genève · Service en Suisse romande
+                    </p>
                 </div>
-                <!-- Score badge -->
-                <div class="absolute -top-4 -left-4 bg-white border-2 border-black px-3 py-2 shadow-[3px_3px_0px_rgba(0,0,0,1)] -rotate-6">
-                    <span class="font-mono text-sm font-bold text-[var(--blue)]">90+</span>
-                    <span class="text-xs text-gray-500 block">Google</span>
-                </div>
-                <!-- Speed badge -->
-                <div class="absolute -bottom-4 -right-4 bg-[var(--blue)] border-2 border-black px-4 py-2 shadow-[3px_3px_0px_rgba(0,0,0,1)] rotate-3">
-                    <span class="font-bold text-sm">3-4 sem.</span>
-                </div>
-            </div>
 
-            <!-- Location badge centered -->
-            <div class="flex items-center justify-center gap-2 text-sm text-gray-500 mt-12">
-                <i class="ri-map-pin-fill text-accent"></i>
-                <span>Basé à Genève | Service en Suisse romande</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- PAIN POINTS SECTION -->
-    <section id="problemes" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundGlitchGrid />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    problèmes
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    <span class="relative inline-block">
-                        <span class="absolute bg-panel w-full h-[40%] left-0 bottom-1 -z-1"></span>
-                        Vous vous reconnaissez ?
-                    </span>
-                </h2>
-                <p class="text-lg text-gray-600">Ce sont les situations que rencontrent la plupart de mes clients avant de travailler ensemble.</p>
-            </div>
-
-            <!-- Pain points grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12" data-animate-stagger>
-                {painPoints.map((point) => (
-                    <div class="pain-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Red X icon -->
-                        <IconChip icon="ri-close-line" variant="muted" size="md" class="mb-4" />
-                        <h3 class="text-lg font-bold mb-2">{point.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">{point.description}</p>
+                <div class="cr-hero-media" data-animate="scale" data-delay="0.3">
+                    <div class="cr-browser co-frame">
+                        <span class="co-x tl"></span><span class="co-x tr"></span>
+                        <span class="co-x bl"></span><span class="co-x br"></span>
+                        <div class="cr-browser-bar">
+                            <span class="cr-browser-dot"></span>
+                            <span class="cr-browser-dot"></span>
+                            <span class="cr-browser-dot"></span>
+                            <span class="cr-browser-url">votresite.ch</span>
+                        </div>
+                        <img src={creationHero.src} alt="Exemple de création de site web professionnel" loading="eager" class="cr-browser-img" />
                     </div>
-                ))}
+                    <div class="cr-badge cr-badge--score">
+                        <b>90+</b><span>Google</span>
+                    </div>
+                    <div class="cr-badge cr-badge--speed">3-4 sem.</div>
+                </div>
             </div>
+        </section>
 
-            <!-- Good news callout -->
-            <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-6 md:p-8 text-center" data-animate="fade-up">
-                <p class="text-lg md:text-xl font-medium">
-                    <i class="ri-lightbulb-line text-accent mr-2"></i>
-                    <strong>La bonne nouvelle ?</strong> Avoir un site professionnel ne demande ni des mois de travail, ni un budget démesuré.
-                </p>
-            </div>
-
-            <!-- Lien contextuel : audit + signes site dort -->
-            <p class="mt-8 p-4 bg-[var(--yellow)]/30 border-l-4 border-black text-sm md:text-base max-w-3xl mx-auto">
-                <strong>Pour aller plus loin :</strong> j'ai analysé
-                <a href="/blog/audit-50-sites-indeps-romands" class="underline font-bold hover:text-[var(--violet)]">50 sites d'indépendants romands</a>
-                pour identifier ce qui marche (et ce qui ne marche pas), et cette
-                <a href="/blog/15-signes-site-web-dort" class="underline font-bold hover:text-[var(--violet)]">checklist en 4 minutes</a>
-                te dit si ton site actuel travaille pour toi ou s'il dort.
+        <!-- ══ 01 · PROBLÈMES ══ -->
+        <section id="problemes" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">01 — Problèmes</p>
+            <h2 style="margin-top:8px;">Vous vous <span class="co-ser">reconnaissez ?</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">
+                Ce sont les situations que rencontrent la plupart de mes clients avant de travailler ensemble.
             </p>
-        </div>
-    </section>
 
-    <!-- METHODOLOGY SECTION -->
-    <section id="methode" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <BackgroundProgressFlow />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    méthode
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Comment ça se passe ?
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Pas de tunnel de développement interminable. Un processus clair, des validations régulières, un site en ligne en <strong class="text-[var(--blue)]">3-4 semaines</strong>.
+            <div class="cr-grid cr-grid--2" data-animate-stagger>
+                {painPoints.map((point) => (
+                    <div class="cr-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${point.icon} cr-card-icon`} aria-hidden="true"></i>
+                        <h3 class="cr-card-title">{point.title}</h3>
+                        <p class="cr-card-text">{point.description}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div class="cr-note cr-note--accent" data-animate>
+                <i class="ri-lightbulb-line"></i>
+                <p><strong>La bonne nouvelle ?</strong> Avoir un site professionnel ne demande ni des mois de travail, ni un budget démesuré.</p>
+            </div>
+
+            <div class="cr-note" data-animate>
+                <p>
+                    <strong>Pour aller plus loin :</strong> j'ai analysé
+                    <a href="/blog/audit-50-sites-indeps-romands" class="cr-inline">50 sites d'indépendants romands</a>
+                    pour identifier ce qui marche (et ce qui ne marche pas), et cette
+                    <a href="/blog/15-signes-site-web-dort" class="cr-inline">checklist en 4 minutes</a>
+                    te dit si ton site actuel travaille pour toi ou s'il dort.
                 </p>
             </div>
+        </section>
 
-            <!-- Method steps grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" data-animate-stagger>
-                {methodSteps.slice(0, 3).map((step, index) => (
-                    <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
-                        <!-- Number badge -->
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
-                                0{index + 1}
-                            </span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">{step.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">{step.description}</p>
-                        <!-- Duration -->
-                        <div class="flex items-center gap-2 text-sm pt-3 border-t border-dashed border-gray-300">
-                            <i class="ri-time-line text-accent"></i>
-                            <span class="text-gray-500">{step.duration}</span>
-                        </div>
-                    </div>
-                ))}
-            </div>
+        <!-- ══ 02 · MÉTHODE ══ -->
+        <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">02 — Méthode</p>
+            <h2 style="margin-top:8px;">Comment ça se passe ?</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+                Pas de tunnel de développement interminable. Un processus clair, des validations régulières,
+                un site en ligne en <strong>3-4 semaines</strong>.
+            </p>
 
-            <!-- Steps 4 and 5 -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto mb-12" data-animate-stagger>
-                {methodSteps.slice(3).map((step, index) => (
-                    <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
-                        <!-- Number badge -->
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
-                                0{index + 4}
-                            </span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">{step.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">{step.description}</p>
-                        <!-- Duration -->
-                        <div class="flex items-center gap-2 text-sm pt-3 border-t border-dashed border-gray-300">
-                            <i class="ri-time-line text-accent"></i>
-                            <span class="text-gray-500">{step.duration}</span>
+            <div class="cr-steps" data-animate-stagger>
+                {methodSteps.map((step, index) => (
+                    <div class="cr-step" data-animate-item>
+                        <span class="cr-step-num co-index">0{index + 1}</span>
+                        <div class="cr-step-body">
+                            <h3 class="cr-step-title">{step.title}</h3>
+                            <p class="cr-step-text">{step.description}</p>
+                            <p class="cr-step-dur"><i class="ri-time-line"></i> {step.duration}</p>
                         </div>
                     </div>
                 ))}
             </div>
 
-            <!-- Differentiators box -->
-            <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate="fade-up">
-                <!-- Corner boxes -->
-                <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-
-                <h3 class="text-xl font-bold text-center mb-6">Ce qui change avec Jon Labs</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="cr-diff co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="cr-diff-title">Ce qui change avec Jon Labs</h3>
+                <div class="cr-diff-grid">
                     {differentiators.map((diff) => (
-                        <div class="text-center">
-                            <IconChip icon={diff.icon} class="mx-auto mb-3" />
-                            <h4 class="font-bold mb-1">{diff.title}</h4>
-                            <p class="text-sm text-gray-600">{diff.description}</p>
+                        <div class="cr-diff-item">
+                            <i class={`${diff.icon} cr-diff-icon`} aria-hidden="true"></i>
+                            <h4 class="cr-diff-name">{diff.title}</h4>
+                            <p class="cr-diff-desc">{diff.description}</p>
                         </div>
                     ))}
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- RESULTS SECTION -->
-    <section id="resultats" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-        <div class="max-w-5xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    résultats
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Ce que vous obtenez
-                </h2>
-            </div>
+        <!-- ══ 03 · RÉSULTATS ══ -->
+        <section id="resultats" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">03 — Résultats</p>
+            <h2 style="margin-top:8px;">Ce que vous <span class="co-ser">obtenez.</span></h2>
 
-            <!-- Results grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12" data-animate-stagger>
+            <div class="cr-grid cr-grid--3" data-animate-stagger>
                 {results.map((result) => (
-                    <div class="result-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Green check icon -->
-                        <IconChip icon="ri-check-line" size="md" class="mb-4" />
-                        <h3 class="text-lg font-bold mb-2">{result.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">{result.description}</p>
+                    <div class="cr-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${result.icon} cr-card-icon`} aria-hidden="true"></i>
+                        <h3 class="cr-card-title">{result.title}</h3>
+                        <p class="cr-card-text">{result.description}</p>
                     </div>
                 ))}
             </div>
 
-            <!-- Testimonial placeholder -->
-            <div class="bg-accent-soft bg-opacity-20 border-2 border-[var(--violet)] p-8 text-center" data-animate="fade-up">
-                <i class="ri-double-quotes-l text-4xl text-[var(--violet)] opacity-50 mb-4 block"></i>
-                <p class="text-lg md:text-xl italic text-gray-700 mb-4">
-                    « Jonathan a été super flexible, rapide et a compris exactement ce que je voulais. Il a été très rapide en plus car j'avais un besoin urgent. »
-                </p>
-                <span class="text-gray-500">— Solène Derbal, cheffe d'orchestre</span>
-            </div>
+            <figure class="cr-quote co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <blockquote>« Jonathan a été super flexible, rapide et a compris exactement ce que je voulais. Il a été très rapide en plus car j'avais un besoin urgent. »</blockquote>
+                <figcaption>— Solène Derbal, cheffe d'orchestre</figcaption>
+            </figure>
 
-            <!-- Lien contextuel : visibilité -->
-            <p class="mt-8 p-4 bg-[var(--yellow)]/30 border-l-4 border-black text-sm md:text-base max-w-3xl mx-auto">
-                <strong>Et après ?</strong> Avoir un beau site ne suffit pas — encore faut-il le rendre visible. J'ai écrit un guide complet sur
-                <a href="/blog/visibilite-site-internet-2026" class="underline font-bold hover:text-[var(--violet)]">comment rendre ton site visible sur internet en 2026</a>
-                (Google + IA), avec les leviers concrets à activer dès le lancement.
-            </p>
-
-            <!-- Lien contextuel : réalisations -->
-            <p class="mt-4 p-4 border-2 border-dashed border-gray-300 text-sm md:text-base max-w-3xl mx-auto text-gray-600">
-                <strong class="text-black">Des exemples ?</strong> Voyez mes études de cas
-                <a href="/portfolio/physio-pommier" class="text-[var(--blue)] hover:underline font-medium">Physio Pommier</a>
-                (site vitrine santé) et
-                <a href="/portfolio/ugo-mighali-coutelier" class="text-[var(--blue)] hover:underline font-medium">Ugo Mighali Coutelier</a>
-                (vitrine d'artisan), ou l'ensemble de mes <a href="/portfolio" class="text-[var(--blue)] hover:underline font-medium">réalisations</a>.
-            </p>
-        </div>
-    </section>
-
-    <!-- TECHNOLOGY SECTION -->
-    <section id="technologie" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <BackgroundCircuitBoard animated={true} />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    sous le capot
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Technologie moderne
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Pas de solution unique pour tous. <strong>Je choisis l'outil adapté à votre projet</strong> — simplicité, flexibilité ou performance.
+            <div class="cr-note cr-note--accent" data-animate>
+                <p>
+                    <strong>Et après ?</strong> Avoir un beau site ne suffit pas — encore faut-il le rendre visible.
+                    J'ai écrit un guide complet sur
+                    <a href="/blog/visibilite-site-internet-2026" class="cr-inline">comment rendre ton site visible sur internet en 2026</a>
+                    (Google + IA), avec les leviers concrets à activer dès le lancement.
                 </p>
             </div>
 
-            <!-- Tech cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12" data-animate-stagger="scale">
+            <div class="cr-note" data-animate>
+                <p>
+                    <strong>Des exemples ?</strong> Voyez mes études de cas
+                    <a href="/portfolio/physio-pommier" class="cr-inline">Physio Pommier</a> (site vitrine santé) et
+                    <a href="/portfolio/ugo-mighali-coutelier" class="cr-inline">Ugo Mighali Coutelier</a> (vitrine d'artisan),
+                    ou l'ensemble de mes <a href="/portfolio" class="cr-inline">réalisations</a>.
+                </p>
+            </div>
+        </section>
+
+        <!-- ══ 04 · TECHNOLOGIE ══ -->
+        <section id="technologie" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">04 — Sous le capot</p>
+            <h2 style="margin-top:8px;">Technologie moderne</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+                Pas de solution unique pour tous. <strong>Je choisis l'outil adapté à votre projet</strong> —
+                simplicité, flexibilité ou performance.
+            </p>
+
+            <div class="cr-grid cr-grid--3" data-animate-stagger="scale">
                 {techStack.map((tech) => (
-                    <div class="tech-card bg-white border-2 border-black p-6 text-center transition-all duration-200 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <i class={`${tech.icon} text-3xl text-[var(--violet)] mb-4 block`}></i>
-                        <h3 class="text-xl font-bold mb-2">{tech.name}</h3>
-                        <p class="text-sm text-gray-600 mb-3">{tech.description}</p>
-                        <p class="text-xs text-[var(--blue)] font-medium">
-                            <i class="ri-user-star-line mr-1"></i>
-                            {tech.idealFor}
-                        </p>
+                    <div class="cr-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${tech.icon} cr-card-icon`} aria-hidden="true"></i>
+                        <h3 class="cr-card-title">{tech.name}</h3>
+                        <p class="cr-card-text">{tech.description}</p>
+                        <p class="cr-card-tag"><i class="ri-user-star-line"></i> {tech.idealFor}</p>
                     </div>
                 ))}
             </div>
 
-            <!-- Reassurance note -->
-            <div class="bg-white border-2 border-black p-6 text-center" data-animate="fade-up">
-                <p class="text-gray-600">
-                    <i class="ri-information-line text-accent mr-2"></i>
-                    <strong>Dans tous les cas :</strong> un site rapide, sécurisé, et que vous pouvez faire évoluer. On choisit ensemble l'option qui vous convient.
-                </p>
+            <div class="cr-note" data-animate>
+                <i class="ri-information-line"></i>
+                <p><strong>Dans tous les cas :</strong> un site rapide, sécurisé, et que vous pouvez faire évoluer. On choisit ensemble l'option qui vous convient.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- PRICING SECTION -->
-    <section id="prix" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-        <div class="max-w-5xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    investissement
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Des tarifs clairs
-                </h2>
-                <p class="text-lg text-gray-600">Adaptés à la taille de votre projet. Pas de mauvaise surprise.</p>
-            </div>
+        <!-- ══ 05 · PRIX ══ -->
+        <section id="prix" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">05 — Investissement</p>
+            <h2 style="margin-top:8px;">Des tarifs <span class="co-ser">clairs.</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:52ch;">Adaptés à la taille de votre projet. Pas de mauvaise surprise.</p>
 
-            <!-- Pricing cards -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-12" data-animate-stagger>
+            <div class="cr-tiers" data-animate-stagger>
                 {pricingPlans.map((plan) => (
-                    <div class={`
-                        pricing-card bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 relative
-                        ${plan.highlighted ? 'shadow-[8px_8px_0px_rgba(0,0,0,1)] ring-2 ring-accent' : 'shadow-[4px_4px_0px_rgba(0,0,0,0.3)]'}
-                    `} data-animate-item>
-                        {plan.highlighted && (
-                            <div class="absolute -top-3 left-1/2 -translate-x-1/2 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-bold">
-                                POPULAIRE
-                            </div>
-                        )}
-
-                        <h3 class="text-xl font-bold mb-4">{plan.name}</h3>
-
-                        <div class="mb-6">
-                            {plan.priceLabel && (
-                                <span class="text-sm text-gray-500">{plan.priceLabel}</span>
-                            )}
-                            <p class="text-3xl font-bold text-[var(--text)]">
-                                {plan.price}
-                                {plan.priceLabel && <span class="text-lg"> CHF</span>}
-                            </p>
+                    <div class={`cr-tier ${plan.highlighted ? 'cr-tier--reco' : ''}`} data-animate-item>
+                        {plan.highlighted && <span class="co-badge co-badge--solid cr-tier-reco">Populaire</span>}
+                        <h3 class="cr-tier-name">{plan.name}</h3>
+                        <div class="cr-tier-price">
+                            {plan.priceLabel && <span class="cr-tier-pricelabel">{plan.priceLabel}</span>}
+                            <b>{plan.price}{plan.priceLabel && <span class="cr-tier-cur"> CHF</span>}</b>
                         </div>
-
-                        <ul class="space-y-3 mb-6">
+                        <ul class="co-list co-list--check cr-tier-features">
                             {plan.features.map((feature) => (
-                                <li class="flex items-start gap-2 text-sm">
-                                    <i class="ri-check-line text-accent mt-0.5 flex-shrink-0"></i>
-                                    <span>{feature}</span>
-                                </li>
+                                <li><i class="ri-check-line"></i><span>{feature}</span></li>
                             ))}
                         </ul>
-
-                        <div class="pt-4 border-t border-dashed border-gray-300">
-                            <p class="text-xs text-gray-500">
-                                <strong>Idéal pour :</strong> {plan.ideal}
-                            </p>
-                        </div>
+                        <p class="cr-tier-ideal"><strong>Idéal pour :</strong> {plan.ideal}</p>
                     </div>
                 ))}
             </div>
 
-            <!-- Pricing notes -->
-            <div class="bg-white border-2 border-black p-6 md:p-8" data-animate="fade-up">
-                <h3 class="font-bold mb-4 flex items-center gap-2">
-                    <i class="ri-information-line text-accent"></i>
-                    Ce qui influence le prix :
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm text-gray-600 mb-6">
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2">
-                            <i class="ri-arrow-right-s-line text-accent"></i>
-                            Nombre de pages
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i class="ri-arrow-right-s-line text-accent"></i>
-                            Complexité du design
-                        </li>
+            <div class="cr-pricenote co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="cr-pricenote-title"><i class="ri-information-line"></i> Ce qui influence le prix</h3>
+                <div class="cr-pricenote-grid">
+                    <ul class="co-list">
+                        <li>Nombre de pages</li>
+                        <li>Complexité du design</li>
                     </ul>
-                    <ul class="space-y-2">
-                        <li class="flex items-center gap-2">
-                            <i class="ri-arrow-right-s-line text-accent"></i>
-                            Fonctionnalités spécifiques (réservation, multilingue...)
-                        </li>
-                        <li class="flex items-center gap-2">
-                            <i class="ri-arrow-right-s-line text-accent"></i>
-                            Délai souhaité (option express disponible)
-                        </li>
+                    <ul class="co-list">
+                        <li>Fonctionnalités spécifiques (réservation, multilingue...)</li>
+                        <li>Délai souhaité (option express disponible)</li>
                     </ul>
                 </div>
-                <div class="flex flex-wrap gap-6 text-sm">
-                    <span class="flex items-center gap-2">
-                        <i class="ri-bank-card-line text-accent"></i>
-                        <strong>Facilités de paiement :</strong> Paiement en 2-3 fois possible selon le montant.
-                    </span>
-                </div>
-                <p class="mt-4 text-sm text-gray-500 bg-gray-50 p-3 border-l-4 border-[var(--blue)]">
-                    <strong>Pas sûr de la formule ?</strong> On en discute ensemble. Premier échange gratuit et sans engagement.
-                </p>
-
-                <!-- Lien contextuel : article prix -->
-                <p class="mt-4 p-4 bg-[var(--yellow)]/30 border-l-4 border-black text-sm">
+                <p class="cr-pricenote-pay"><i class="ri-bank-card-line"></i> <strong>Facilités de paiement :</strong> paiement en 2-3 fois possible selon le montant.</p>
+                <p class="cr-note-inline"><strong>Pas sûr de la formule ?</strong> On en discute ensemble. Premier échange gratuit et sans engagement.</p>
+                <p class="cr-note-inline">
                     <strong>À lire avant de te décider :</strong>
-                    <a href="/blog/prix-site-web-suisse-2026" class="underline font-bold hover:text-[var(--violet)]">Combien coûte vraiment un site web en Suisse en 2026 ?</a>
+                    <a href="/blog/prix-site-web-suisse-2026" class="cr-inline">Combien coûte vraiment un site web en Suisse en 2026 ?</a>
                     — un guide transparent des fourchettes en CHF, par profil de prestataire.
                 </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FAQ SECTION -->
-    <section id="faq" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <BackgroundQuestionMarks animated={true} />
-        <div class="max-w-3xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    faq
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">Questions fréquentes</h2>
-            </div>
+        <!-- ══ 06 · FAQ (accordéon natif <details>, zéro JS) ══ -->
+        <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">06 — FAQ</p>
+            <h2 style="margin-top:8px;">Questions fréquentes</h2>
 
-            <!-- FAQ items -->
-            <div class="faq-list space-y-6">
+            <div class="cr-faq" style="margin-top:32px;">
                 {faqs.map((faq, index) => (
-                    <div class="faq-item border-2 border-black bg-[var(--main-bg)]" data-faq-item>
-                        <button
-                            class="
-                                faq-trigger
-                                w-full
-                                flex items-center justify-between gap-4
-                                p-5
-                                text-left
-                                font-medium
-                                cursor-pointer
-                                transition-colors duration-200
-                                hover:bg-[var(--blue)] hover:bg-opacity-10
-                            "
-                            aria-expanded="false"
-                            data-faq-trigger
-                        >
-                            <span class="flex items-start gap-3">
-                                <span class="font-mono text-sm text-gray-400 mt-0.5">{String(index + 1).padStart(2, '0')}</span>
-                                <span class="text-lg">{faq.question}</span>
-                            </span>
-                            <span class="
-                                faq-icon
-                                w-8 h-8
-                                border-2 border-black
-                                bg-white
-                                flex items-center justify-center
-                                transition-transform duration-300
-                                flex-shrink-0
-                            ">
-                                <i class="ri-add-line text-lg"></i>
-                            </span>
-                        </button>
-                        <div
-                            class="faq-content overflow-hidden transition-all duration-300"
-                            style="max-height: 0;"
-                            data-faq-content
-                        >
-                            <div class="p-6 pt-2 pl-12">
-                                <p class="text-gray-600 leading-relaxed">
-                                    {faq.answer}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <details open={index === 0}>
+                        <summary>
+                            {faq.question}
+                            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+                        </summary>
+                        <p class="cr-faq-answer">{faq.answer}</p>
+                    </details>
                 ))}
             </div>
 
-            <!-- Extra question note -->
-            <div class="text-center mt-8">
-                <p class="text-gray-500">
-                    Une autre question ? <a href="#contact" class="text-[var(--blue)] font-medium hover:underline">Contactez-moi directement</a>, je réponds sous 24h.
-                </p>
-            </div>
-        </div>
-    </section>
+            <p class="co-mut" style="margin-top:24px;text-align:center;">
+                Une autre question ? <a href="#contact" class="cr-inline">Contactez-moi directement</a>, je réponds sous 24h.
+            </p>
+        </section>
 
-    <!-- LOCAL SEO SECTION -->
-    <section id="local" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundMapContours />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    local
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Un prestataire à <span class="text-[var(--blue)]">Genève</span>,<br/>
-                    ça change quoi ?
-                </h2>
-            </div>
+        <!-- ══ 07 · LOCAL (SEO géo) ══ -->
+        <section id="local" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">07 — Local</p>
+            <h2 style="margin-top:8px;">Un prestataire à <span class="co-ser">Genève</span>, ça change quoi ?</h2>
 
-            <!-- Two columns -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                <!-- Why local -->
+            <div class="cr-local-grid">
                 <div data-animate="fade-left">
-                    <h3 class="text-xl font-bold mb-6">Travailler avec quelqu'un dans la région, c'est aussi :</h3>
-                    <div class="space-y-4">
+                    <h3 class="cr-local-h3">Travailler avec quelqu'un dans la région, c'est aussi :</h3>
+                    <div class="cr-local-adv">
                         {localAdvantages.map((adv) => (
-                            <div class="flex items-start gap-4 p-4 bg-[var(--main-bg)] border-2 border-black">
-                                <IconChip icon={adv.icon} size="md" class="flex-shrink-0" />
+                            <div class="cr-local-item co-frame">
+                                <i class={`${adv.icon} cr-local-icon`} aria-hidden="true"></i>
                                 <div>
-                                    <h4 class="font-bold mb-1">{adv.title}</h4>
-                                    <p class="text-sm text-gray-600">{adv.description}</p>
+                                    <h4 class="cr-local-name">{adv.title}</h4>
+                                    <p class="cr-local-desc">{adv.description}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                <!-- Zones -->
-                <div data-animate="fade-right">
-                    <h3 class="text-xl font-bold mb-6">Zones couvertes</h3>
-                    <div class="space-y-3">
-                        {zones.map((zone) => (
-                            <div class={`
-                                flex items-center gap-4 p-4 border-2 border-black
-                                ${zone.type === 'primary' ? 'bg-[var(--blue)] bg-opacity-20 border-[var(--blue)]' : 'bg-white'}
-                            `}>
-                                <i class={`${zone.icon} text-xl ${zone.type === 'primary' ? 'text-accent' : 'text-gray-600'}`}></i>
-                                <span class={`font-medium ${zone.type === 'primary' ? 'text-lg font-bold' : ''}`}>
-                                    {zone.name}
-                                    {zone.type === 'primary' && <span class="text-sm font-normal text-gray-600 ml-2">(basé sur place)</span>}
-                                </span>
-                            </div>
+                <div data-animate="fade-left" data-delay="0.1">
+                    <h3 class="cr-local-h3">Zones couvertes</h3>
+                    <div class="cr-zones">
+                        <div class="cr-zone cr-zone--primary">
+                            <i class="ri-map-pin-fill"></i>
+                            <span><strong>Genève</strong> <span class="co-mut">(basé sur place)</span></span>
+                        </div>
+                        {["Vaud", "Valais", "Neuchâtel", "Fribourg"].map((z) => (
+                            <div class="cr-zone"><i class="ri-map-pin-line"></i><span>{z}</span></div>
                         ))}
+                        <div class="cr-zone"><i class="ri-global-line"></i><span>Toute la Suisse romande</span></div>
                     </div>
-                    <p class="mt-6 text-sm text-gray-500">
-                        <i class="ri-information-line mr-1"></i>
-                        Les échanges se font en personne ou en visio selon vos préférences.
+                    <p class="co-mut" style="margin-top:16px;font-size:13.5px;">
+                        <i class="ri-information-line"></i> Les échanges se font en personne ou en visio selon vos préférences.
                     </p>
                 </div>
             </div>
 
             <!-- Maillage géo : pages dédiées par ville -->
-            <div class="mt-12 md:mt-16" data-animate="fade-up">
-                <h3 class="text-xl font-bold mb-2 text-center">Création de site web par ville</h3>
-                <p class="text-sm text-gray-600 mb-6 text-center">
-                    Pages dédiées pour Genève et la zone frontalière française :
-                </p>
-                <div class="flex flex-wrap justify-center gap-3">
-                    <a
-                        href="/developpeur-web-freelance-geneve"
-                        class="inline-flex items-center gap-2 px-4 py-2 bg-[var(--blue)] border-2 border-black font-bold text-sm shadow-[3px_3px_0px_rgba(0,0,0,0.3)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_rgba(0,0,0,0.3)] transition-all"
-                    >
-                        <i class="ri-map-pin-fill"></i>
-                        Développeur web à Genève
+            <div class="cr-geo" data-animate>
+                <p class="co-eyebrow" style="text-align:center;">Création de site web par ville</p>
+                <p class="co-mut" style="text-align:center;margin-top:8px;">Pages dédiées pour Genève et la zone frontalière française :</p>
+                <div class="cr-geo-links">
+                    <a href="/developpeur-web-freelance-geneve" class="cr-geo-link cr-geo-link--primary">
+                        <i class="ri-map-pin-fill"></i> Développeur web à Genève
                     </a>
                     {villesFrontalieres.map((ville) => (
-                        <a
-                            href={`/developpement-web/${ville.slug}`}
-                            class="inline-flex items-center gap-2 px-4 py-2 bg-white border-2 border-black font-semibold text-sm shadow-[3px_3px_0px_rgba(0,0,0,0.25)] hover:bg-[var(--blue)] hover:translate-x-[-2px] hover:translate-y-[-2px] hover:shadow-[5px_5px_0px_rgba(0,0,0,0.25)] transition-all"
-                        >
-                            <i class="ri-map-pin-line"></i>
-                            {ville.nom}
+                        <a href={`/developpement-web/${ville.slug}`} class="cr-geo-link">
+                            <i class="ri-map-pin-line"></i> {ville.nom}
                         </a>
                     ))}
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================== -->
-    <!-- CLUSTER / RESSOURCES SECTION -->
-    <!-- ============================================== -->
-    <section id="ressources" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    ressources
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Tout comprendre avant de lancer ton site
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Avant de demander un devis, fais-toi ton propre avis. J'ai écrit des guides détaillés sur la création de site web en Suisse romande — commence par <a href="/blog/prix-site-web-suisse-2026" class="text-[var(--blue)] font-medium hover:underline">combien coûte vraiment un site web</a>. Vous avez déjà un site qui ne performe plus ? Pensez plutôt à une <a href="/services/refonte-site-web" class="text-[var(--blue)] font-medium hover:underline">refonte de site web</a>.
-                </p>
-            </div>
+        <!-- ══ 08 · RESSOURCES ══ -->
+        <section id="ressources" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">08 — Ressources</p>
+            <h2 style="margin-top:8px;">Tout comprendre avant de lancer ton site</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+                Avant de demander un devis, fais-toi ton propre avis. J'ai écrit des guides détaillés sur la
+                création de site web en Suisse romande — commence par
+                <a href="/blog/prix-site-web-suisse-2026" class="cr-inline">combien coûte vraiment un site web</a>.
+                Vous avez déjà un site qui ne performe plus ? Pensez plutôt à une
+                <a href="/services/refonte-site-web" class="cr-inline">refonte de site web</a>.
+            </p>
 
-            <!-- Cluster groups grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6" data-animate-stagger>
+            <div class="cr-grid cr-grid--2" data-animate-stagger>
                 {clusterGroups.map((group) => (
-                    <div class="bg-[var(--main-bg)] border-2 border-black p-6 relative" data-animate-item>
-                        <div class="flex items-center gap-3 mb-4">
-                            <IconChip icon={group.icon} size="md" class="flex-shrink-0" />
-                            <h3 class="text-lg font-bold">{group.label}</h3>
+                    <div class="cr-res co-frame" data-animate-item>
+                        <div class="cr-res-head">
+                            <i class={`${group.icon} cr-res-icon`} aria-hidden="true"></i>
+                            <h3 class="cr-res-label">{group.label}</h3>
                         </div>
-                        <ul class="space-y-2">
+                        <ul class="cr-res-list">
                             {group.articles.map((article) => (
                                 <li>
-                                    <a href={article.href} class="flex items-start gap-2 text-sm text-gray-700 hover:text-[var(--text)] group">
-                                        <i class="ri-arrow-right-s-line text-accent mt-0.5 group-hover:translate-x-1 transition-transform"></i>
-                                        <span class="group-hover:underline">{article.title}</span>
+                                    <a href={article.href} class="cr-res-link">
+                                        <i class="ri-arrow-right-s-line"></i>
+                                        <span>{article.title}</span>
                                     </a>
                                 </li>
                             ))}
@@ -992,353 +598,329 @@ const budgetOptions = [
                     </div>
                 ))}
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA + FORM SECTION -->
-    <section id="contact" class="py-20 md:py-28 px-4 bg-[var(--main-bg)] relative overflow-hidden">
-        <!-- Dot pattern background -->
-        <div class="absolute inset-0 dots-bg opacity-[0.4]"></div>
+        <!-- ══ 09 · CONTACT (formulaire Web3Forms — HARD-PRESERVE câblage) ══ -->
+        <section id="contact" class="co-sec co-pad" style="padding:64px 40px;">
+            <p class="co-eyebrow">09 — Contact</p>
+            <h2 style="margin-top:8px;">Prêt à lancer votre <span class="co-ser">site ?</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+                Premier échange gratuit et sans engagement. Je discute de votre projet avec vous, je vous donne
+                mon avis honnête, vous décidez ensuite.
+            </p>
 
-        <div class="max-w-4xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4 text-[var(--text)]">
-                    Prêt à lancer votre site ?
-                </h2>
-                <p class="text-lg text-gray-600">
-                    Premier échange gratuit et sans engagement. Je discute de votre projet avec vous, je vous donne mon avis honnête, vous décidez ensuite.
-                </p>
-            </div>
+            <form class="cr-form co-frame" id="creation-form" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
 
-            <!-- Contact Form -->
-            <div class="contact-form-container" data-animate="scale">
-                <form
-                    class="bg-white text-[var(--text)] border-3 border-black p-6 md:p-8 shadow-[8px_8px_0px_rgba(0,217,163,0.3)] relative"
-                    id="creation-form"
-                >
-                    <!-- Corner boxes -->
-                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                <!-- Hidden fields for Web3Forms (HARD-PRESERVE) -->
+                <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
+                <input type="hidden" name="subject" value="Demande création site web - Jon Labs">
+                <input type="hidden" name="from_name" value="Jon Labs - Création site">
+                <input type="checkbox" name="botcheck" class="cr-honeypot" style="display: none;">
 
-                    <h3 class="text-xl font-bold mb-6 text-center">Parlons de votre projet</h3>
+                <h3 class="cr-form-title">Parlons de votre projet</h3>
 
-                    <!-- Hidden fields for Web3Forms -->
-                    <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
-                    <input type="hidden" name="subject" value="Demande création site web - Jon Labs">
-                    <input type="hidden" name="from_name" value="Jon Labs - Création site">
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                <div class="cr-form-grid">
+                    <div class="cr-field">
+                        <label for="name" class="cr-label"><span class="co-index">01</span> Nom / Prénom <span class="cr-req">*</span></label>
+                        <input type="text" id="name" name="name" required placeholder="Jean Dupont" class="cr-input" />
+                    </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Nom -->
-                        <div class="form-field">
-                            <label for="name" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">01</span>
-                                Nom / Prénom <span class="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                required
-                                placeholder="Jean Dupont"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all"
-                            />
-                        </div>
+                    <div class="cr-field">
+                        <label for="email" class="cr-label"><span class="co-index">02</span> Email <span class="cr-req">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="vous@exemple.ch" class="cr-input" />
+                    </div>
 
-                        <!-- Email -->
-                        <div class="form-field">
-                            <label for="email" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">02</span>
-                                Email <span class="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                required
-                                placeholder="vous@exemple.ch"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all"
-                            />
-                        </div>
+                    <div class="cr-field">
+                        <label for="phone" class="cr-label"><span class="co-index">03</span> Téléphone (optionnel)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+41 79 123 45 67" class="cr-input" />
+                    </div>
 
-                        <!-- Téléphone -->
-                        <div class="form-field">
-                            <label for="phone" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">03</span>
-                                Téléphone (optionnel)
-                            </label>
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                placeholder="+41 79 123 45 67"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all"
-                            />
-                        </div>
-
-                        <!-- Type de projet -->
-                        <div class="form-field">
-                            <label for="project-type" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">04</span>
-                                Type de projet <span class="text-red-500">*</span>
-                            </label>
-                            <select
-                                id="project-type"
-                                name="project_type"
-                                required
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all cursor-pointer"
-                            >
+                    <div class="cr-field">
+                        <label for="project-type" class="cr-label"><span class="co-index">04</span> Type de projet <span class="cr-req">*</span></label>
+                        <div class="cr-select-wrap">
+                            <select id="project-type" name="project_type" required class="cr-select">
                                 <option value="" disabled selected>Choisir...</option>
-                                {projectTypes.map((type) => (
-                                    <option value={type.value}>{type.label}</option>
-                                ))}
+                                {projectTypes.map((type) => (<option value={type.value}>{type.label}</option>))}
                             </select>
+                            <i class="ri-arrow-down-s-line cr-select-caret" aria-hidden="true"></i>
                         </div>
+                    </div>
 
-                        <!-- Message -->
-                        <div class="form-field md:col-span-2">
-                            <label for="message" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">05</span>
-                                Votre message <span class="text-red-500">*</span>
-                            </label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="4"
-                                required
-                                placeholder="Décrivez brièvement votre activité et ce que vous recherchez..."
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all"
-                            ></textarea>
-                        </div>
+                    <div class="cr-field cr-field--full">
+                        <label for="message" class="cr-label"><span class="co-index">05</span> Votre message <span class="cr-req">*</span></label>
+                        <textarea id="message" name="message" rows="4" required placeholder="Décrivez brièvement votre activité et ce que vous recherchez..." class="cr-textarea"></textarea>
+                    </div>
 
-                        <!-- Budget -->
-                        <div class="form-field">
-                            <label for="budget" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">06</span>
-                                Budget approximatif
-                            </label>
-                            <select
-                                id="budget"
-                                name="budget"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all cursor-pointer"
-                            >
+                    <div class="cr-field">
+                        <label for="budget" class="cr-label"><span class="co-index">06</span> Budget approximatif</label>
+                        <div class="cr-select-wrap">
+                            <select id="budget" name="budget" class="cr-select">
                                 <option value="" disabled selected>Choisir...</option>
-                                {budgetOptions.map((option) => (
-                                    <option value={option.value}>{option.label}</option>
-                                ))}
+                                {budgetOptions.map((option) => (<option value={option.value}>{option.label}</option>))}
                             </select>
-                        </div>
-
-                        <!-- Comment m'avez-vous trouvé -->
-                        <div class="form-field">
-                            <label for="source" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">07</span>
-                                Comment m'avez-vous trouvé ? (optionnel)
-                            </label>
-                            <input
-                                type="text"
-                                id="source"
-                                name="source"
-                                placeholder="Google, recommandation, LinkedIn..."
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all"
-                            />
-                        </div>
-
-                        <!-- Consent -->
-                        <div class="form-field md:col-span-2">
-                            <label class="flex items-start gap-3 cursor-pointer group">
-                                <input
-                                    type="checkbox"
-                                    name="consent"
-                                    required
-                                    class="mt-1 w-5 h-5 border-2 border-black appearance-none cursor-pointer checked:bg-[var(--blue)] checked:border-black relative transition-all"
-                                />
-                                <span class="text-sm text-gray-600 group-hover:text-black transition-colors">
-                                    Vos données sont utilisées uniquement pour répondre à votre demande. Pas de spam, promis. <span class="text-red-500">*</span>
-                                </span>
-                            </label>
-                        </div>
-
-                        <!-- Submit -->
-                        <div class="md:col-span-2 pt-4">
-                            <button
-                                type="submit"
-                                class="
-                                    submit-btn
-                                    w-full
-                                    bg-[var(--blue)]
-                                    border-2 border-black
-                                    px-8 py-4
-                                    text-lg font-bold
-                                    shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                                    transition-all duration-200
-                                    hover:bg-[var(--yellow)]
-                                    hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                                    hover:translate-x-[2px] hover:translate-y-[2px]
-                                    focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2
-                                    flex items-center justify-center gap-3
-                                "
-                            >
-                                <span>Envoyer ma demande</span>
-                                <i class="ri-send-plane-line text-xl"></i>
-                            </button>
+                            <i class="ri-arrow-down-s-line cr-select-caret" aria-hidden="true"></i>
                         </div>
                     </div>
-                </form>
 
-                <!-- Post-form content wrapper -->
-                <div class="bg-[var(--main-bg)]/90 backdrop-blur-sm p-6 mt-8">
-                    <!-- Trust indicators -->
-                    <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-600">
-                        <span class="flex items-center gap-2">
-                            <i class="ri-time-line text-accent"></i>
-                            Réponse sous 24h
-                        </span>
-                        <span class="flex items-center gap-2">
-                            <i class="ri-gift-line text-accent"></i>
-                            Premier échange gratuit
-                        </span>
-                        <span class="flex items-center gap-2">
-                            <i class="ri-file-list-3-line text-accent"></i>
-                            Devis clair
-                        </span>
+                    <div class="cr-field">
+                        <label for="source" class="cr-label"><span class="co-index">07</span> Comment m'avez-vous trouvé ? (optionnel)</label>
+                        <input type="text" id="source" name="source" placeholder="Google, recommandation, LinkedIn..." class="cr-input" />
                     </div>
 
-                    <!-- Alternatives -->
-                    <div class="text-center mt-8 space-y-4">
-                        <p class="text-gray-500 text-sm">Vous préférez réserver un créneau directement ?</p>
-                        <a
-                            href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 text-[var(--blue)] font-medium hover:underline"
-                        >
-                            <i class="ri-calendar-line"></i>
-                            Prendre rendez-vous sur Cal.com
-                        </a>
+                    <div class="cr-field cr-field--full">
+                        <label class="cr-consent">
+                            <input type="checkbox" name="consent" required class="cr-checkbox" />
+                            <span>Vos données sont utilisées uniquement pour répondre à votre demande. Pas de spam, promis. <span class="cr-req">*</span></span>
+                        </label>
                     </div>
 
-                    <!-- Direct contact -->
-                    <div class="text-center mt-6">
-                        <p class="text-gray-500 text-sm mb-2">Besoin d'une réponse rapide ?</p>
-                        <a href="mailto:contact@jonlabs.ch" class="text-[var(--blue)] font-mono hover:underline">
-                            contact@jonlabs.ch
-                        </a>
-                    </div>
-
-                    <!-- Not ready yet -->
-                    <div class="text-center mt-8 p-4 bg-white border-2 border-dashed border-gray-300">
-                        <p class="text-gray-500 text-sm">
-                            <strong>Pas encore prêt ?</strong> C'est normal. Vous pouvez aussi consulter mes <a href="/services" class="text-[var(--blue)] hover:underline">autres services</a> ou lire quelques articles sur le <a href="/blog" class="text-[var(--blue)] hover:underline">blog</a> pour mieux me connaître.
-                        </p>
+                    <div class="cr-field cr-field--full">
+                        <button type="submit" class="co-btn submit-btn cr-submit">
+                            <span>Envoyer ma demande</span>
+                            <i class="ri-send-plane-line"></i>
+                        </button>
                     </div>
                 </div>
+            </form>
+
+            <div class="cr-form-after" data-animate>
+                <div class="cr-trust">
+                    <span><i class="ri-time-line"></i> Réponse sous 24h</span>
+                    <span><i class="ri-gift-line"></i> Premier échange gratuit</span>
+                    <span><i class="ri-file-list-3-line"></i> Devis clair</span>
+                </div>
+                <div class="cr-alt">
+                    <p class="co-mut">Vous préférez réserver un créneau directement ?</p>
+                    <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="cr-inline"><i class="ri-calendar-line"></i> Prendre rendez-vous sur Cal.com</a>
+                </div>
+                <div class="cr-alt">
+                    <p class="co-mut">Besoin d'une réponse rapide ?</p>
+                    <a href="mailto:contact@jonlabs.ch" class="cr-inline">contact@jonlabs.ch</a>
+                </div>
+                <p class="cr-note-inline" style="text-align:center;">
+                    <strong>Pas encore prêt ?</strong> C'est normal. Vous pouvez aussi consulter mes
+                    <a href="/services" class="cr-inline">autres services</a> ou lire quelques articles sur le
+                    <a href="/blog" class="cr-inline">blog</a> pour mieux me connaître.
+                </p>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
 
     <Footer />
 </Layout>
 
-<style>
-    /* Dot pattern background */
-    .dots-bg {
-        background-image: radial-gradient(circle, #000 1px, transparent 1px);
-        background-size: 24px 24px;
-    }
+<style is:global>
+    /* ══ CRÉATION SITE WEB — styles .cr-* (namespace scopé, corps .co-root) ══ */
 
-    /* FAQ animations */
-    .faq-item[data-open="true"] .faq-icon {
-        transform: rotate(45deg);
-        background-color: var(--blue);
-    }
+    /* ── Hero ── */
+    .cr-hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
+    .cr-hero-title { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+    .co-root .cr-hero-lead { margin-top: 18px; max-width: 52ch; font-size: 1.075rem; line-height: 1.65; color: var(--muted); }
+    .cr-hero-lead strong { color: var(--ink); font-weight: 600; }
+    .cr-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .cr-hero-btns .co-btn i { transition: transform .18s ease-out; }
+    .cr-hero-btns .co-btn:hover i { transform: translateY(2px); }
+    .co-root .cr-hero-loc { margin-top: 22px; font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px; }
+    .cr-hero-loc i { color: var(--accent); }
 
-    /* H1 SEO style terminal */
-    .seo-h1 {
-        font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace;
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: var(--color-accent-strong);
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    /* browser mockup */
+    .cr-hero-media { position: relative; }
+    .cr-browser { position: relative; background: var(--surface); border: 1px solid var(--line-2); }
+    .cr-browser-bar { display: flex; align-items: center; gap: 8px; padding: 11px 14px; border-bottom: 1px solid var(--line); background: var(--bg); }
+    .cr-browser-dot { width: 9px; height: 9px; border-radius: 999px; background: var(--line-2); flex: none; }
+    .cr-browser-url { flex: 1; text-align: center; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .cr-browser-img { display: block; width: 100%; height: auto; }
+    .cr-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: 8px 12px; font-size: 12px; font-weight: 600; }
+    .cr-badge--score { top: -16px; left: -14px; display: flex; flex-direction: column; line-height: 1.1; }
+    .cr-badge--score b { color: var(--accent); font-size: 15px; }
+    .cr-badge--score span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .cr-badge--speed { bottom: -16px; right: -14px; background: var(--accent); border-color: var(--accent); color: #fff; }
 
-    /* Custom checkbox checkmark */
-    input[type="checkbox"]:checked::after {
-        content: '';
-        position: absolute;
-        left: 5px;
-        top: 1px;
-        width: 6px;
-        height: 12px;
-        border: solid black;
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
+    /* ── Cartes génériques (problèmes / résultats / tech) ── */
+    .cr-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .cr-grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .cr-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .cr-card {
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        background: var(--surface); border: 1px solid var(--line-2);
+        transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
+    .cr-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+    .cr-card-icon { font-size: 24px; color: var(--accent); line-height: 1; }
+    .cr-card-title { font-size: 1.1rem; }
+    .cr-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
+    .cr-card-tag { margin-top: auto; padding-top: 4px; font-size: 12.5px; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 5px; }
 
-    /* Submit button loading state */
-    .submit-btn.loading {
-        pointer-events: none;
-        opacity: 0.7;
+    /* ── Notes / callouts ── */
+    .cr-note { display: flex; align-items: flex-start; gap: 12px; margin-top: 20px; padding: 18px 22px; border: 1px solid var(--line-2); background: var(--surface); }
+    .cr-note i { color: var(--accent); font-size: 20px; flex: none; margin-top: 1px; }
+    .co-root .cr-note p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+    .cr-note--accent { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .cr-note-inline { margin-top: 14px !important; font-size: 14px; line-height: 1.6; color: var(--muted); }
+    .cr-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
+    .cr-inline:hover { color: var(--ink); }
+    .cr-note strong, .cr-note-inline strong { color: var(--ink); font-weight: 600; }
+
+    /* ── Étapes méthode ── */
+    .cr-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+    .cr-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .cr-step-num { font-size: 20px; font-weight: 600; }
+    .cr-step-title { font-size: 1.15rem; }
+    .co-root .cr-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
+    .co-root .cr-step-dur { margin-top: 10px; font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+    .cr-step-dur i { color: var(--accent); }
+
+    /* ── Encart différenciateurs ── */
+    .cr-diff { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .cr-diff-title { text-align: center; font-size: 1.25rem; }
+    .cr-diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 28px; }
+    .cr-diff-item { text-align: center; }
+    .cr-diff-icon { font-size: 26px; color: var(--accent); }
+    .cr-diff-name { margin-top: 10px; font-size: 15px; font-weight: 600; }
+    .co-root .cr-diff-desc { margin-top: 4px; font-size: 13px; line-height: 1.45; color: var(--muted); }
+
+    /* ── Citation ── */
+    .cr-quote { position: relative; margin-top: 28px; padding: 36px 40px; background: var(--surface); border: 1px solid var(--line-2); text-align: center; }
+    .cr-quote blockquote { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: 1.5rem; line-height: 1.4; color: var(--ink); max-width: 60ch; margin: 0 auto; }
+    .co-root .cr-quote figcaption { margin-top: 16px; font-size: 14px; color: var(--muted); }
+
+    /* ── Tarifs ── */
+    .cr-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; margin-top: 36px; }
+    .cr-tier { position: relative; display: flex; flex-direction: column; gap: 18px; padding: 30px 26px; background: var(--surface); border: 1px solid var(--line-2); }
+    .cr-tier--reco { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+    .cr-tier-reco { position: absolute; top: -12px; left: 26px; z-index: 4; }
+    .cr-tier-name { font-size: 1.15rem; }
+    .cr-tier-price { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
+    .cr-tier-pricelabel { font-size: 13px; color: var(--muted); width: 100%; }
+    .cr-tier-price b { font-size: 2.3rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+    .cr-tier-cur { font-size: 15px; color: var(--muted); font-weight: 500; }
+    .cr-tier-features { gap: 10px; }
+    .cr-tier-features li { font-size: 14px; line-height: 1.45; }
+    .co-root .cr-tier-ideal { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; line-height: 1.5; color: var(--muted); }
+    .cr-tier-ideal strong { color: var(--ink); }
+
+    .cr-pricenote { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .cr-pricenote-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
+    .cr-pricenote-title i { color: var(--accent); }
+    .cr-pricenote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 40px; margin-top: 18px; }
+    .cr-pricenote-grid li { font-size: 14px; }
+    .co-root .cr-pricenote-pay { margin-top: 18px; font-size: 14px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
+    .cr-pricenote-pay i { color: var(--accent); }
+
+    /* ── FAQ (accordéon natif <details> — smooth via ::details-content, zéro JS) ── */
+    .cr-faq { border-top: 1px solid var(--line); }
+    .cr-faq details { border-bottom: 1px solid var(--line); }
+    .cr-faq summary {
+        list-style: none; cursor: pointer; padding: 20px 0;
+        display: flex; justify-content: space-between; align-items: center; gap: 20px;
+        font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
     }
-
-    .submit-btn.loading i {
-        animation: spin 1s linear infinite;
+    .cr-faq summary::-webkit-details-marker { display: none; }
+    .cr-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
+    .cr-faq details[open] summary i { transform: rotate(180deg); }
+    .co-root .cr-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 68ch; }
+    .cr-faq details::details-content {
+        block-size: 0; overflow: hidden;
+        transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
     }
+    .cr-faq details[open]::details-content { block-size: auto; }
 
-    @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
+    /* ── Local ── */
+    .cr-local-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; margin-top: 32px; }
+    .cr-local-h3 { font-size: 1.15rem; margin-bottom: 18px; }
+    .cr-local-adv { display: flex; flex-direction: column; gap: 12px; }
+    .cr-local-item { position: relative; display: flex; align-items: flex-start; gap: 14px; padding: 18px; background: var(--surface); border: 1px solid var(--line-2); }
+    .cr-local-icon { font-size: 22px; color: var(--accent); flex: none; margin-top: 2px; }
+    .cr-local-name { font-size: 15px; font-weight: 600; }
+    .co-root .cr-local-desc { margin-top: 3px; font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+    .cr-zones { display: flex; flex-direction: column; gap: 10px; }
+    .cr-zone { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line-2); font-size: 14px; }
+    .cr-zone i { color: var(--muted); font-size: 18px; }
+    .cr-zone--primary { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .cr-zone--primary i { color: var(--accent); }
+
+    .cr-geo { margin-top: 44px; }
+    .cr-geo-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 18px; }
+    .cr-geo-link {
+        display: inline-flex; align-items: center; gap: 7px; padding: 9px 15px;
+        font-size: 13.5px; font-weight: 500; background: var(--surface); border: 1px solid var(--line-2); color: var(--ink);
+        transition: border-color .18s ease-out, color .18s ease-out;
     }
+    .cr-geo-link i { color: var(--muted); font-size: 15px; transition: color .18s ease-out; }
+    .cr-geo-link:hover { border-color: var(--accent); color: var(--accent); }
+    .cr-geo-link:hover i { color: var(--accent); }
+    .cr-geo-link--primary { border-color: var(--accent); color: var(--accent); font-weight: 600; }
+    .cr-geo-link--primary i { color: var(--accent); }
 
-    /* Scroll margin for anchor navigation */
-    section[id] {
-        scroll-margin-top: 100px;
+    /* ── Ressources ── */
+    .cr-res { position: relative; padding: 24px; background: var(--surface); border: 1px solid var(--line-2); }
+    .cr-res-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .cr-res-icon { font-size: 22px; color: var(--accent); flex: none; }
+    .cr-res-label { font-size: 1.05rem; }
+    .cr-res-list { display: flex; flex-direction: column; gap: 8px; }
+    .cr-res-link { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--muted); transition: color .18s ease-out; }
+    .cr-res-link i { color: var(--accent); margin-top: 2px; transition: transform .18s ease-out; }
+    .cr-res-link:hover { color: var(--ink); }
+    .cr-res-link:hover i { transform: translateX(3px); }
+
+    /* ── Formulaire (Web3Forms restylé, câblage préservé) ── */
+    .cr-form { position: relative; margin-top: 32px; padding: 34px; background: var(--surface); border: 1px solid var(--line-2); }
+    .cr-form-title { font-size: 1.25rem; text-align: center; margin-bottom: 6px; }
+    .cr-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .cr-field { display: flex; flex-direction: column; gap: 8px; }
+    .cr-field--full { grid-column: 1 / -1; }
+    .cr-label { display: flex; align-items: baseline; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink); }
+    .cr-label .co-index { font-size: 11px; }
+    .cr-req { color: var(--accent); }
+    .cr-input, .cr-select, .cr-textarea {
+        width: 100%; font-family: "Inter Tight", ui-sans-serif, sans-serif; font-size: 15px; color: var(--ink);
+        background: var(--bg); border: 1px solid var(--line-2); padding: 12px 14px;
+        transition: border-color .18s ease-out, box-shadow .18s ease-out;
+    }
+    .cr-input::placeholder, .cr-textarea::placeholder { color: var(--muted); opacity: .7; }
+    .cr-input:focus, .cr-select:focus, .cr-textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,168,125,.15); }
+    .cr-textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
+    .cr-select-wrap { position: relative; }
+    .cr-select { appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 40px; }
+    .cr-select-caret { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 18px; color: var(--muted); pointer-events: none; }
+    .cr-consent { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.5; color: var(--muted); cursor: pointer; }
+    .cr-consent:hover { color: var(--ink); }
+    .cr-checkbox { margin-top: 2px; width: 16px; height: 16px; flex: none; accent-color: var(--accent); cursor: pointer; }
+    .cr-submit { width: 100%; justify-content: center; padding: 14px 20px; font-size: 16px; }
+    .submit-btn.loading { pointer-events: none; opacity: 0.7; }
+    .submit-btn.loading i { animation: crSpin 1s linear infinite; }
+    @keyframes crSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+
+    /* ── Après-formulaire ── */
+    .cr-form-after { margin-top: 28px; display: flex; flex-direction: column; gap: 18px; align-items: center; text-align: center; }
+    .cr-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; font-size: 13.5px; color: var(--muted); }
+    .cr-trust i { color: var(--accent); margin-right: 4px; }
+    .cr-alt { display: flex; flex-direction: column; gap: 4px; }
+    .cr-alt .cr-inline { display: inline-flex; align-items: center; gap: 6px; justify-content: center; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+        .cr-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+        .cr-hero-media { max-width: 520px; }
+        .cr-local-grid { grid-template-columns: 1fr; gap: 32px; }
+        .cr-diff-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 720px) {
+        .cr-grid--2, .cr-grid--3, .cr-tiers, .cr-form-grid, .cr-pricenote-grid { grid-template-columns: 1fr; }
+        .cr-diff-grid { grid-template-columns: 1fr 1fr; }
+        .cr-step { grid-template-columns: 44px 1fr; gap: 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .cr-card, .cr-geo-link, .cr-res-link, .cr-res-link i, .cr-faq summary i, .cr-hero-btns .co-btn i { transition: none; }
+        .submit-btn.loading i { animation: none; }
     }
 </style>
 
 <script>
-    // FAQ accordion logic
-    const faqItems = document.querySelectorAll('[data-faq-item]');
-
-    faqItems.forEach(item => {
-        const trigger = item.querySelector('[data-faq-trigger]');
-        const content = item.querySelector('[data-faq-content]') as HTMLElement;
-
-        trigger?.addEventListener('click', () => {
-            const isOpen = item.getAttribute('data-open') === 'true';
-
-            // Close all other items
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.setAttribute('data-open', 'false');
-                    const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
-                    const otherTrigger = otherItem.querySelector('[data-faq-trigger]');
-                    if (otherContent) otherContent.style.maxHeight = '0';
-                    otherTrigger?.setAttribute('aria-expanded', 'false');
-                }
-            });
-
-            // Toggle current item
-            if (isOpen) {
-                item.setAttribute('data-open', 'false');
-                content.style.maxHeight = '0';
-                trigger.setAttribute('aria-expanded', 'false');
-            } else {
-                item.setAttribute('data-open', 'true');
-                content.style.maxHeight = content.scrollHeight + 'px';
-                trigger.setAttribute('aria-expanded', 'true');
-            }
-        });
-    });
-
-    // Form submission
+    // Form submission — HARD-PRESERVE (câblage Web3Forms inchangé)
     const form = document.getElementById('creation-form') as HTMLFormElement;
     const submitBtn = form?.querySelector('.submit-btn') as HTMLButtonElement;
     const btnText = submitBtn?.querySelector('span');
@@ -1347,12 +929,11 @@ const budgetOptions = [
     form?.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        // Loading state
         if (submitBtn) {
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
             if (btnText) btnText.textContent = 'Envoi en cours...';
-            if (btnIcon) btnIcon.className = 'ri-loader-4-line text-xl animate-spin';
+            if (btnIcon) btnIcon.className = 'ri-loader-4-line';
         }
 
         try {
@@ -1365,7 +946,6 @@ const budgetOptions = [
             const result = await response.json();
 
             if (result.success) {
-                // Show success message
                 alert('Merci ! Votre demande a bien été envoyée. Je vous réponds sous 24h.');
                 form.reset();
             } else {
@@ -1374,12 +954,11 @@ const budgetOptions = [
         } catch (error) {
             alert('Erreur de connexion. Veuillez réessayer.');
         } finally {
-            // Reset button
             if (submitBtn) {
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
                 if (btnText) btnText.textContent = 'Envoyer ma demande';
-                if (btnIcon) btnIcon.className = 'ri-send-plane-line text-xl';
+                if (btnIcon) btnIcon.className = 'ri-send-plane-line';
             }
         }
     });

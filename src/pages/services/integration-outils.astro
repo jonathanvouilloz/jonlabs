@@ -1,22 +1,17 @@
 ---
+// Intégration & connexion d'outils — sous-page service (blueprint).
+// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
+// accent teal unique, Inter Tight × Instrument Serif. Namespace scopé .ig-*.
+//
+// HARD-PRESERVE : Schema.org (serviceSchemas/breadcrumb/FAQ), robots noindex,
+// câblage Web3Forms (#integration-form, access_key + hidden inputs, tous les name=,
+// honeypot, JS submit), chiffres exacts (80 CHF/h, 40'000 CHF/an, 5-15h, délais
+// 3-4 jours / 1-2 semaines), liens SEO internes (/blog/0a30joursgooglevisible, /services).
+
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import IconChip from '../../components/IconChip.astro';
-
-// Import background components
-import BackgroundGlitchGrid from '../../components/backgrounds/BackgroundGlitchGrid.astro';
-import BackgroundProgressFlow from '../../components/backgrounds/BackgroundProgressFlow.astro';
-import BackgroundCircuitBoard from '../../components/backgrounds/BackgroundCircuitBoard.astro';
-import BackgroundQuestionMarks from '../../components/backgrounds/BackgroundQuestionMarks.astro';
-import BackgroundMapContours from '../../components/backgrounds/BackgroundMapContours.astro';
-
-// Import images
-import heroImage from '../../assets/services/integration-hero.png';
-import balanceImage from '../../assets/services/balance-temps-argent.png';
-import qrCodeImage from '../../assets/services/qr-code-avis-google.png';
-import puzzleImage from '../../assets/services/puzzle-connexion.png';
 
 // Schema.org
 import { serviceSchemas, SITE_URL } from '../../data/schema';
@@ -288,1033 +283,671 @@ const projectTypes = [
 >
     <Header />
 
-    <!-- ============================================== -->
-    <!-- HERO SECTION -->
-    <!-- ============================================== -->
-    <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-20 px-4 relative overflow-hidden">
-        <!-- Gradient mesh background -->
-        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-            <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
-            <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-accent-strong opacity-15 blur-[100px] rounded-full"></div>
-            <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-[var(--blue)] opacity-10 blur-[80px] rounded-full"></div>
-        </div>
+    <main class="co-root">
 
-        <div class="max-w-4xl mx-auto relative z-10">
-            <!-- Text content centered -->
-            <div class="text-center">
-                <!-- H1 SEO discret -->
-                <h1 class="seo-h1 mb-6 mt-8 text-center">Intégration et connexion d'outils à Genève et en Suisse romande</h1>
-
-                <!-- Main title -->
-                <p class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6" data-animate="fade-up">
-                    Vos outils ne se parlent pas.<br/>
-                    <span class="relative inline-block">
-                        <span class="absolute bg-accent-soft w-full h-[40%] left-0 bottom-1 -z-1"></span>
-                        <span class="relative z-10">Vos données non plus.</span>
-                    </span>
-                </p>
-
-                <!-- Description -->
-                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="0.1">
-                    Notion d'un côté, Bexio de l'autre, un CRM par-ci, des fichiers Excel par-là. Vous passez votre temps à copier-coller les mêmes infos d'un outil à l'autre.<br class="hidden md:block"/>
-                    <strong class="text-[var(--text)]">Et si tout ça se synchronisait automatiquement ?</strong>
-                </p>
-
-                <!-- CTAs -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 md:mb-16" data-animate="fade-up" data-delay="0.2">
-                    <a
-                        href="#contact"
-                        class="
-                            bg-[var(--blue)]
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                            transition-all duration-200
-                            hover:bg-[var(--yellow)]
-                            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                            hover:translate-x-[2px] hover:translate-y-[2px]
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        <i class="ri-chat-3-line"></i>
-                        Discuter de mon besoin
-                    </a>
-                    <a
-                        href="#resultats"
-                        class="
-                            bg-white
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            transition-all duration-200
-                            hover:bg-gray-100
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        Voir des exemples concrets
-                        <i class="ri-arrow-down-line"></i>
-                    </a>
-                </div>
+        <!-- ══ HERO ══ -->
+        <section class="co-sec co-pad co-hero ig-hero" style="padding:64px 40px 56px;">
+            <p class="co-eyebrow" data-animate>Intégration &amp; connexion d'outils · Genève &amp; Suisse romande</p>
+            <h1 class="ig-hero-title" data-animate data-delay="0.1">
+                Vos outils ne se parlent pas. <span class="co-ser">Vos données non plus.</span>
+            </h1>
+            <p class="ig-hero-lead" data-animate data-delay="0.2">
+                Notion d'un côté, Bexio de l'autre, un CRM par-ci, des fichiers Excel par-là. Vous passez votre
+                temps à copier-coller les mêmes infos d'un outil à l'autre.
+                <strong>Et si tout ça se synchronisait automatiquement ?</strong>
+            </p>
+            <div class="ig-hero-btns" data-animate data-delay="0.3">
+                <a href="#contact" class="co-btn"><i class="ri-chat-3-line"></i> Discuter de mon besoin</a>
+                <a href="#resultats" class="co-btn co-btn--ghost">Voir des exemples concrets <i class="ri-arrow-down-line"></i></a>
             </div>
+            <p class="ig-hero-loc co-mut" data-animate data-delay="0.4">
+                <i class="ri-map-pin-fill"></i> Basé à Genève · Service en Suisse romande
+            </p>
+        </section>
 
-            <!-- Hero illustration centered below -->
-            <div class="max-w-2xl mx-auto" data-animate="scale" data-delay="0.3">
-                <div class="bg-white border-3 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] p-4 relative">
-                    <img
-                        src={heroImage.src}
-                        alt="Illustration d'outils numériques connectés entre eux pour automatisation"
-                        class="w-full h-auto"
-                    />
-                    <!-- Corner boxes -->
-                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--violet)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--violet)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                </div>
-            </div>
+        <!-- ══ 01 · CONTEXTE ══ -->
+        <section id="contexte" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">01 — Contexte</p>
+            <h2 style="margin-top:8px;">Le vrai coût des tâches manuelles <span class="co-ser">en Suisse.</span></h2>
 
-            <!-- Location badge -->
-            <div class="flex items-center justify-center gap-2 text-sm text-gray-500 mt-12">
-                <i class="ri-map-pin-fill text-[var(--blue)]"></i>
-                <span>Basé à Genève | Service en Suisse romande</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- CONTEXTE SUISSE SECTION -->
-    <!-- ============================================== -->
-    <section id="contexte" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-        <div class="max-w-5xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center">
-                <!-- Text content -->
-                <div data-animate="fade-right">
-                    <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                        <span class="w-8 h-px bg-gray-400"></span>
-                        contexte
-                        <span class="w-8 h-px bg-gray-400"></span>
-                    </span>
-                    <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-6">
-                        Le vrai coût des tâches manuelles <span class="text-[var(--blue)]">en Suisse</span>
-                    </h2>
-                    <div class="space-y-4 text-gray-600 leading-relaxed">
-                        <p>
-                            À Genève, le coût du travail est parmi les plus élevés au monde. Chaque heure passée à copier-coller des données d'un outil à l'autre, c'est une heure facturée à prix suisse — pour une tâche qui n'apporte aucune valeur.
-                        </p>
-                        <p>
-                            Pourtant, beaucoup de PME et d'indépendants romands perdent encore <strong class="text-[var(--text)]">5 à 15 heures par semaine</strong> sur des tâches répétitives : double saisie, réconciliation manuelle, emails de suivi envoyés un par un.
-                        </p>
-                        <div class="bg-panel border-2 border-black p-4 my-6">
-                            <p class="text-lg font-medium text-ink">
-                                À <span class="bg-accent-soft px-1">80 CHF de l'heure</span>, 10 heures perdues par semaine représentent plus de <span class="bg-accent-soft px-1 font-bold">40'000 CHF par an</span>.
-                            </p>
-                            <p class="text-sm text-ink mt-2">Partis en fumée sur des tâches qu'une machine pourrait faire en quelques secondes.</p>
-                        </div>
-                        <p>
-                            La compétitivité en Suisse romande ne se joue pas sur les prix — elle se joue sur <strong class="text-[var(--text)]">l'efficacité</strong>. Et l'efficacité, ça commence par des outils qui travaillent ensemble au lieu de vous faire travailler pour eux.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Illustration -->
-                <div class="relative" data-animate="fade-left">
-                    <img
-                        src={balanceImage.src}
-                        alt="Illustration du coût du temps perdu en tâches manuelles pour les entreprises suisses"
-                        class="w-full h-auto max-w-md mx-auto"
-                    />
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- PAIN POINTS SECTION -->
-    <!-- ============================================== -->
-    <section id="problemes" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <BackgroundGlitchGrid color="rgba(239, 68, 68, 0.5)" opacity={0.12} />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    problèmes
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    <span class="relative inline-block">
-                        <span class="absolute bg-panel w-full h-[40%] left-0 bottom-1 -z-1"></span>
-                        Ça vous parle ?
-                    </span>
-                </h2>
-                <p class="text-lg text-gray-600">Vous n'êtes pas seul. La plupart des entreprises et indépendants en Suisse romande jonglent avec des outils qui ne communiquent pas.</p>
-            </div>
-
-            <!-- Pain points grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12" data-animate-stagger>
-                {painPoints.map((point) => (
-                    <div class="pain-card bg-white border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Red X icon -->
-                        <IconChip icon="ri-close-line" variant="muted" size="md" class="mb-4" />
-                        <h3 class="text-lg font-bold mb-2">{point.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">{point.description}</p>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Transition callout -->
-            <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-6 md:p-8 text-center" data-animate="fade-up">
-                <p class="text-lg md:text-xl font-medium">
-                    <i class="ri-lightbulb-line text-[var(--blue)] mr-2"></i>
-                    <strong>Le problème n'est pas vos outils.</strong> C'est qu'ils ne communiquent pas entre eux. Et ça, ça se résout.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- METHODOLOGY SECTION -->
-    <!-- ============================================== -->
-    <section id="methode" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundProgressFlow />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    méthode
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Comment ça se passe ?
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    On garde vos outils actuels. On les fait parler entre eux.
-                </p>
-            </div>
-
-            <!-- Method steps grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" data-animate-stagger>
-                {methodSteps.map((step, index) => (
-                    <div class="bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
-                        <!-- Number badge -->
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
-                                0{index + 1}
-                            </span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">{step.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">{step.description}</p>
-                        <!-- Duration -->
-                        <div class="flex items-center gap-2 text-sm text-gray-500">
-                            <i class="ri-time-line"></i>
-                            <span>{step.duration}</span>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Differentiators box -->
-            <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,0.2)] relative" data-animate="fade-up">
-                <!-- Corner decoration -->
-                <div class="absolute -top-2 -left-2 w-4 h-4 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -top-2 -right-2 w-4 h-4 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -bottom-2 -left-2 w-4 h-4 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -bottom-2 -right-2 w-4 h-4 bg-[var(--blue)] border-2 border-black"></div>
-
-                <h3 class="text-xl font-bold mb-6 text-center">Ce qui change avec Jon Labs</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {differentiators.map((diff) => (
-                        <div class="text-center">
-                            <IconChip icon={diff.icon} class="mx-auto mb-3" />
-                            <h4 class="font-bold mb-1">{diff.title}</h4>
-                            <p class="text-sm text-gray-600">{diff.description}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- RESULTS SECTION -->
-    <!-- ============================================== -->
-    <section id="resultats" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    résultats
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Ce que vous obtenez concrètement
-                </h2>
-            </div>
-
-            <!-- Results grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12" data-animate-stagger>
-                {results.map((result) => (
-                    <div class="bg-white border-2 border-black p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <div class="flex items-start gap-4">
-                            <IconChip icon="ri-check-line" size="md" class="flex-shrink-0" />
-                            <div>
-                                <h3 class="font-bold mb-1">{result.title}</h3>
-                                <p class="text-sm text-gray-600">{result.description}</p>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Concrete example -->
-            <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-6 md:p-8" data-animate="fade-up">
-                <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                    <i class="ri-flashlight-line text-[var(--blue)]"></i>
-                    Exemple concret : {concreteExample.title}
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                    <!-- AVANT -->
-                    <div class="bg-white border-2 border-gray-300 p-5 relative">
-                        <div class="absolute -top-3 left-4 bg-gray-100 border border-gray-300 px-3 py-1">
-                            <span class="text-xs font-mono uppercase tracking-wider text-gray-500 flex items-center gap-1">
-                                <i class="ri-close-circle-line text-muted"></i>
-                                Avant
-                            </span>
-                        </div>
-                        <p class="text-gray-600 mt-2">{concreteExample.before}</p>
-                    </div>
-                    <!-- MAINTENANT -->
-                    <div class="bg-white border-2 border-[var(--blue)] p-5 relative">
-                        <div class="absolute -top-3 left-4 bg-[var(--blue)] px-3 py-1">
-                            <span class="text-xs font-mono uppercase tracking-wider text-white flex items-center gap-1">
-                                <i class="ri-check-line"></i>
-                                Maintenant
-                            </span>
-                        </div>
-                        <p class="text-gray-800 font-medium mt-2">{concreteExample.after}</p>
-                    </div>
-                </div>
-                <p class="mt-6 text-center font-bold text-lg border-t-2 border-[var(--blue)] border-opacity-30 pt-4">{concreteExample.result}</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- TOOLS SECTION -->
-    <!-- ============================================== -->
-    <section id="outils" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundCircuitBoard animated={true} />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    outils
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Les outils que j'utilise
-                </h2>
-                <p class="text-lg text-gray-600">Je m'adapte à votre écosystème — pas l'inverse.</p>
-            </div>
-
-            <!-- Tools grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" data-animate-stagger>
-                {tools.map((tool) => (
-                    <div class="bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] transition-all duration-200 hover:-translate-y-1" data-animate-item>
-                        <div class="flex items-start gap-4">
-                            <IconChip icon={tool.icon} class="flex-shrink-0" />
-                            <div>
-                                <h3 class="text-lg font-bold mb-2">{tool.name}</h3>
-                                <p class="text-gray-600 text-sm leading-relaxed">{tool.description}</p>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Note -->
-            <div class="bg-gray-50 border-l-4 border-[var(--blue)] p-4 text-sm text-gray-600" data-animate="fade-up">
+            <div class="ig-prose" data-animate>
                 <p>
-                    <i class="ri-information-line mr-1 text-[var(--blue)]"></i>
-                    <strong>Note :</strong> Je ne pousse pas un outil plutôt qu'un autre. Je choisis la solution la plus adaptée à votre contexte : simplicité de maintenance, coût, évolutivité. L'objectif, c'est que ça marche pour vous sur le long terme — pas que ce soit impressionnant techniquement.
+                    À Genève, le coût du travail est parmi les plus élevés au monde. Chaque heure passée à
+                    copier-coller des données d'un outil à l'autre, c'est une heure facturée à prix suisse —
+                    pour une tâche qui n'apporte aucune valeur.
+                </p>
+                <p>
+                    Pourtant, beaucoup de PME et d'indépendants romands perdent encore
+                    <strong>5 à 15 heures par semaine</strong> sur des tâches répétitives : double saisie,
+                    réconciliation manuelle, emails de suivi envoyés un par un.
+                </p>
+                <div class="ig-callout co-frame">
+                    <span class="co-x tl"></span><span class="co-x tr"></span>
+                    <span class="co-x bl"></span><span class="co-x br"></span>
+                    <p class="ig-callout-lead">
+                        À <span class="ig-hl">80 CHF de l'heure</span>, 10 heures perdues par semaine
+                        représentent plus de <span class="ig-hl">40'000 CHF par an</span>.
+                    </p>
+                    <p class="ig-callout-sub">Partis en fumée sur des tâches qu'une machine pourrait faire en quelques secondes.</p>
+                </div>
+                <p>
+                    La compétitivité en Suisse romande ne se joue pas sur les prix — elle se joue sur
+                    <strong>l'efficacité</strong>. Et l'efficacité, ça commence par des outils qui travaillent
+                    ensemble au lieu de vous faire travailler pour eux.
                 </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================== -->
-    <!-- LOCAL SECTION (GENÈVE) -->
-    <!-- ============================================== -->
-    <section id="local" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <BackgroundMapContours />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    local
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Automatisation pour commerces et indépendants<br/>
-                    <span class="text-[var(--blue)]">à Genève</span>
-                </h2>
-                <p class="text-lg text-gray-600">Des cas concrets adaptés au marché local</p>
-            </div>
+        <!-- ══ 02 · PROBLÈMES ══ -->
+        <section id="problemes" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">02 — Problèmes</p>
+            <h2 style="margin-top:8px;">Ça vous <span class="co-ser">parle ?</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+                Vous n'êtes pas seul. La plupart des entreprises et indépendants en Suisse romande jonglent
+                avec des outils qui ne communiquent pas.
+            </p>
 
-            <!-- Machine à avis Google - Featured subsection -->
-            <div class="bg-white border-2 border-black mb-12 overflow-hidden" data-animate="fade-up">
-                <!-- Header -->
-                <div class="bg-[var(--blue)] px-6 py-4 border-b-2 border-black">
-                    <h3 class="text-2xl font-bold flex items-center gap-3 text-white">
-                        <i class="ri-star-smile-fill text-[var(--yellow)]"></i>
-                        La machine à avis Google
-                    </h3>
-                </div>
-
-                <div class="p-6 md:p-8">
-                    <!-- Problem statement -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <div class="bg-gray-50 p-4 border-l-4 border-gray-300">
-                            <p class="text-sm text-gray-500 uppercase tracking-wider font-mono mb-2">Le constat</p>
-                            <p class="text-gray-700">
-                                Sur Google Maps, les avis font la différence. Un restaurant avec 150 avis et 4.5 étoiles apparaît avant celui qui en a 12.
-                            </p>
-                        </div>
-                        <div class="bg-panel p-4 border-l-4 border-black">
-                            <p class="text-sm text-muted uppercase tracking-wider font-mono mb-2">Le problème</p>
-                            <p class="text-gray-700">
-                                Demander des avis, c'est gênant. Et quand on y pense, c'est souvent trop tard — le client est déjà parti.
-                            </p>
-                        </div>
+            <div class="ig-grid ig-grid--2" data-animate-stagger>
+                {painPoints.map((point) => (
+                    <div class="ig-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${point.icon} ig-card-icon`} aria-hidden="true"></i>
+                        <h3 class="ig-card-title">{point.title}</h3>
+                        <p class="ig-card-text">{point.description}</p>
                     </div>
-
-                    <!-- Solution flow -->
-                    <div class="mb-8">
-                        <p class="font-bold text-lg mb-6 flex items-center gap-2">
-                            <i class="ri-magic-line text-[var(--blue)]"></i>
-                            La solution automatisée
-                        </p>
-
-                        <!-- Steps as horizontal flow -->
-                        <div class="grid grid-cols-1 sm:grid-cols-5 gap-3">
-                            {googleReviewSteps.map((step, index) => (
-                                <div class="relative">
-                                    <div class="bg-[var(--main-bg)] border-2 border-black p-4 h-full">
-                                        <div class="w-8 h-8 bg-accent border-2 border-black flex items-center justify-center font-bold text-white mb-3">
-                                            {index + 1}
-                                        </div>
-                                        <p class="text-sm leading-snug">{step}</p>
-                                    </div>
-                                    {index < googleReviewSteps.length - 1 && (
-                                        <div class="hidden sm:block absolute top-1/2 -right-3 transform -translate-y-1/2 text-[var(--blue)] z-10">
-                                            <i class="ri-arrow-right-line text-xl"></i>
-                                        </div>
-                                    )}
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-
-                    <!-- Result highlight -->
-                    <div class="bg-[var(--blue)] bg-opacity-15 border-2 border-[var(--blue)] p-5 flex flex-col md:flex-row items-start md:items-center gap-4">
-                        <IconChip icon="ri-check-double-line" class="flex-shrink-0" />
-                        <div>
-                            <p class="font-bold text-lg mb-1">Résultat</p>
-                            <p class="text-gray-700">Plus d'avis Google (meilleur référencement local), une base clients qui se construit toute seule, et des clients qui reviennent.</p>
-                        </div>
-                    </div>
-                </div>
+                ))}
             </div>
 
-            <!-- Other local automations -->
-            <div class="mb-12">
-                <h3 class="text-xl font-bold mb-6 text-center">Autres automatisations pour commerces locaux</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" data-animate-stagger>
-                    {localAutomations.map((auto) => (
-                        <div class="bg-white border-2 border-black p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                            <div class="flex items-start gap-4">
-                                <IconChip icon={auto.icon} size="md" class="flex-shrink-0" />
-                                <div>
-                                    <h4 class="font-bold mb-1">{auto.title}</h4>
-                                    <p class="text-sm text-gray-600">{auto.description}</p>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
+            <div class="ig-note ig-note--accent" data-animate>
+                <i class="ri-lightbulb-line"></i>
+                <p><strong>Le problème n'est pas vos outils.</strong> C'est qu'ils ne communiquent pas entre eux. Et ça, ça se résout.</p>
             </div>
+        </section>
 
-            <!-- Two columns: Why local + Zones -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                <!-- Why local -->
-                <div class="bg-white border-2 border-black p-6" data-animate="fade-right">
-                    <h3 class="text-xl font-bold mb-4">Pourquoi un prestataire local ?</h3>
-                    <p class="text-gray-600 mb-4">
-                        Je suis basé à Genève. Je connais le tissu économique romand, les outils utilisés ici (Bexio, TWINT, les spécificités suisses de facturation et de conformité), et je peux vous rencontrer si besoin.
-                    </p>
-                    <p class="text-gray-600">
-                        Pour un commerce local, avoir quelqu'un qui comprend le contexte — et qui peut passer prendre un café pour voir comment ça se passe sur le terrain — ça change la donne.
-                    </p>
-                </div>
+        <!-- ══ 03 · MÉTHODE ══ -->
+        <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">03 — Méthode</p>
+            <h2 style="margin-top:8px;">Comment ça se passe ?</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">
+                On garde vos outils actuels. On les fait parler entre eux.
+            </p>
 
-                <!-- Zones -->
-                <div data-animate="fade-left">
-                    <h3 class="text-xl font-bold mb-4">Zones couvertes</h3>
-                    <div class="space-y-2">
-                        {zones.map((zone) => (
-                            <div class={`
-                                flex items-center gap-3 p-3 border-2 border-black
-                                ${zone.type === 'primary' ? 'bg-[var(--blue)] border-[var(--blue)]' : 'bg-white'}
-                            `}>
-                                <i class={`${zone.icon} text-lg ${zone.type === 'primary' ? 'text-white' : 'text-gray-600'}`}></i>
-                                <span class={`${zone.type === 'primary' ? 'font-bold text-white' : ''}`}>
-                                    {zone.name}
-                                    {zone.type === 'primary' && <span class="text-sm font-normal text-white/70 ml-2">(basé sur place)</span>}
-                                    {zone.type === 'tertiary' && <span class="text-sm font-normal text-gray-500 ml-2">(remote)</span>}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- PRICING SECTION -->
-    <!-- ============================================== -->
-    <section id="prix" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-        <div class="max-w-4xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    investissement
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Investissement
-                </h2>
-                <p class="text-lg text-gray-600">Chaque situation est différente. Le prix aussi.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                <!-- Pricing factors -->
-                <div class="bg-[var(--main-bg)] border-2 border-black p-6" data-animate="fade-right">
-                    <h3 class="font-bold mb-4 flex items-center gap-2">
-                        <i class="ri-calculator-line text-[var(--blue)]"></i>
-                        Ce qui influence le prix :
-                    </h3>
-                    <ul class="space-y-3">
-                        {pricingFactors.map((factor) => (
-                            <li class="flex items-center gap-2">
-                                <i class="ri-arrow-right-s-line text-[var(--blue)]"></i>
-                                <span>{factor}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-
-                <!-- What's included -->
-                <div class="bg-[var(--main-bg)] border-2 border-black p-6" data-animate="fade-left">
-                    <h3 class="font-bold mb-4 flex items-center gap-2">
-                        <i class="ri-checkbox-circle-line text-[var(--blue)]"></i>
-                        Ce qui est toujours inclus :
-                    </h3>
-                    <ul class="space-y-3">
-                        {pricingInclusions.map((inc) => (
-                            <li class="flex items-center gap-2">
-                                <i class="ri-check-line text-accent"></i>
-                                <span>{inc}</span>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Delays -->
-            <div class="bg-gray-50 border-2 border-black p-6 mb-8 text-center" data-animate="fade-up">
-                <h3 class="font-bold mb-4">Délais indicatifs :</h3>
-                <div class="flex flex-wrap justify-center gap-8">
-                    <div>
-                        <span class="text-2xl font-bold text-[var(--blue)]">3-4 jours</span>
-                        <p class="text-sm text-gray-600">Intégration simple</p>
-                    </div>
-                    <div class="hidden md:block w-px h-16 bg-gray-300"></div>
-                    <div>
-                        <span class="text-2xl font-bold text-[var(--blue)]">1-2 semaines</span>
-                        <p class="text-sm text-gray-600">Intégration complexe</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- CTA -->
-            <div class="text-center" data-animate="fade-up">
-                <a
-                    href="#contact"
-                    class="
-                        inline-flex items-center gap-2
-                        bg-[var(--blue)]
-                        border-2 border-black
-                        px-8 py-4
-                        text-lg font-bold
-                        shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                        transition-all duration-200
-                        hover:bg-[var(--yellow)]
-                        hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                        hover:translate-x-[2px] hover:translate-y-[2px]
-                    "
-                >
-                    <i class="ri-calculator-line"></i>
-                    Demander une estimation
-                </a>
-                <p class="mt-4 text-sm text-gray-500">
-                    Premier échange gratuit et sans engagement. On regarde ensemble si une automatisation fait sens pour votre situation.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- FAQ SECTION -->
-    <!-- ============================================== -->
-    <section id="faq" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <BackgroundQuestionMarks animated={true} />
-        <div class="max-w-3xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    faq
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">Questions fréquentes</h2>
-            </div>
-
-            <!-- FAQ items -->
-            <div class="faq-list space-y-4">
-                {faqs.map((faq, index) => (
-                    <div class="faq-item border-2 border-black bg-[var(--main-bg)]" data-faq-item>
-                        <button
-                            class="
-                                faq-trigger
-                                w-full
-                                flex items-center justify-between gap-4
-                                p-5
-                                text-left
-                                font-medium
-                                cursor-pointer
-                                transition-colors duration-200
-                                hover:bg-[var(--blue)] hover:bg-opacity-10
-                            "
-                            aria-expanded="false"
-                            data-faq-trigger
-                        >
-                            <span class="flex items-start gap-3">
-                                <span class="font-mono text-sm text-gray-400 mt-0.5">{String(index + 1).padStart(2, '0')}</span>
-                                <span class="text-lg">{faq.question}</span>
-                            </span>
-                            <span class="
-                                faq-icon
-                                w-8 h-8
-                                border-2 border-black
-                                bg-white
-                                flex items-center justify-center
-                                transition-transform duration-300
-                                flex-shrink-0
-                            ">
-                                <i class="ri-add-line text-lg"></i>
-                            </span>
-                        </button>
-                        <div
-                            class="faq-content overflow-hidden transition-all duration-300"
-                            style="max-height: 0;"
-                            data-faq-content
-                        >
-                            <div class="p-6 pt-2 pl-12">
-                                <p class="text-gray-600 leading-relaxed">
-                                    {faq.answer}
-                                </p>
-                            </div>
+            <div class="ig-steps" data-animate-stagger>
+                {methodSteps.map((step, index) => (
+                    <div class="ig-step" data-animate-item>
+                        <span class="ig-step-num co-index">0{index + 1}</span>
+                        <div class="ig-step-body">
+                            <h3 class="ig-step-title">{step.title}</h3>
+                            <p class="ig-step-text">{step.description}</p>
+                            <p class="ig-step-dur"><i class="ri-time-line"></i> {step.duration}</p>
                         </div>
                     </div>
                 ))}
             </div>
 
-            <!-- Extra question note -->
-            <div class="text-center mt-8">
-                <p class="text-gray-500">
-                    Autre question ? <a href="#contact" class="text-[var(--blue)] font-medium hover:underline">Contactez-moi directement</a>
+            <div class="ig-diff co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="ig-diff-title">Ce qui change avec Jon Labs</h3>
+                <div class="ig-diff-grid">
+                    {differentiators.map((diff) => (
+                        <div class="ig-diff-item">
+                            <i class={`${diff.icon} ig-diff-icon`} aria-hidden="true"></i>
+                            <h4 class="ig-diff-name">{diff.title}</h4>
+                            <p class="ig-diff-desc">{diff.description}</p>
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ 04 · RÉSULTATS ══ -->
+        <section id="resultats" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">04 — Résultats</p>
+            <h2 style="margin-top:8px;">Ce que vous <span class="co-ser">obtenez.</span></h2>
+
+            <div class="ig-grid ig-grid--3" data-animate-stagger>
+                {results.map((result) => (
+                    <div class="ig-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${result.icon} ig-card-icon`} aria-hidden="true"></i>
+                        <h3 class="ig-card-title">{result.title}</h3>
+                        <p class="ig-card-text">{result.description}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div class="ig-example co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="ig-example-title"><i class="ri-flashlight-line"></i> Exemple concret : {concreteExample.title}</h3>
+                <div class="ig-ba">
+                    <div class="ig-ba-card">
+                        <p class="ig-ba-label ig-ba-label--before"><i class="ri-close-circle-line"></i> Avant</p>
+                        <p class="ig-ba-text">{concreteExample.before}</p>
+                    </div>
+                    <div class="ig-ba-card ig-ba-card--after">
+                        <p class="ig-ba-label ig-ba-label--after"><i class="ri-check-line"></i> Maintenant</p>
+                        <p class="ig-ba-text ig-ba-text--strong">{concreteExample.after}</p>
+                    </div>
+                </div>
+                <p class="ig-example-result">{concreteExample.result}</p>
+            </div>
+        </section>
+
+        <!-- ══ 05 · OUTILS ══ -->
+        <section id="outils" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">05 — Outils</p>
+            <h2 style="margin-top:8px;">Les outils que j'utilise</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">
+                Je m'adapte à votre écosystème — pas l'inverse.
+            </p>
+
+            <div class="ig-grid ig-grid--2" data-animate-stagger>
+                {tools.map((tool) => (
+                    <div class="ig-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${tool.icon} ig-card-icon`} aria-hidden="true"></i>
+                        <h3 class="ig-card-title">{tool.name}</h3>
+                        <p class="ig-card-text">{tool.description}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div class="ig-note" data-animate>
+                <i class="ri-information-line"></i>
+                <p>
+                    <strong>Note :</strong> Je ne pousse pas un outil plutôt qu'un autre. Je choisis la solution
+                    la plus adaptée à votre contexte : simplicité de maintenance, coût, évolutivité. L'objectif,
+                    c'est que ça marche pour vous sur le long terme — pas que ce soit impressionnant techniquement.
                 </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================== -->
-    <!-- CTA + FORM SECTION -->
-    <!-- ============================================== -->
-    <section id="contact" class="py-20 md:py-28 px-4 bg-[var(--main-bg)] border-t-2 border-black relative overflow-hidden">
-        <!-- Dot pattern background -->
-        <div class="absolute inset-0 dots-bg opacity-[0.4]"></div>
+        <!-- ══ 06 · LOCAL (Genève) ══ -->
+        <section id="local" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">06 — Local</p>
+            <h2 style="margin-top:8px;">Automatisation pour commerces et indépendants <span class="co-ser">à Genève.</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">Des cas concrets adaptés au marché local.</p>
 
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Header with illustration -->
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center mb-12">
-                <div class="text-center lg:text-left" data-animate="fade-right">
-                    <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4 text-[var(--text)]">
-                        Vos outils peuvent travailler ensemble
-                    </h2>
-                    <p class="text-lg text-gray-600 mb-6">
-                        Premier échange gratuit. On regarde ensemble votre situation — que vous soyez une PME genevoise avec 15 outils qui ne se parlent pas, ou un commerce local qui veut automatiser sa récolte d'avis Google.
-                    </p>
-                    <p class="text-gray-600">
-                        Si une automatisation peut vous aider, je vous dis comment. Si ce n'est pas la bonne solution pour vous, je vous le dis aussi.
-                    </p>
+            <!-- Machine à avis Google -->
+            <div class="ig-review co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <div class="ig-review-head">
+                    <i class="ri-star-smile-line" aria-hidden="true"></i>
+                    <h3>La machine à avis Google</h3>
                 </div>
-                <div class="flex justify-center" data-animate="fade-left">
-                    <div class="bg-white border-2 border-black p-4 shadow-[4px_4px_0px_rgba(0,0,0,0.2)] max-w-sm">
-                        <img
-                            src={puzzleImage.src}
-                            alt="Illustration symbolisant la connexion entre outils et le partenariat avec Jon Labs"
-                            class="w-full h-auto"
-                        />
+                <div class="ig-review-body">
+                    <div class="ig-review-cols">
+                        <div class="ig-review-col">
+                            <p class="co-eyebrow">Le constat</p>
+                            <p class="ig-review-col-text">Sur Google Maps, les avis font la différence. Un restaurant avec 150 avis et 4.5 étoiles apparaît avant celui qui en a 12.</p>
+                        </div>
+                        <div class="ig-review-col ig-review-col--accent">
+                            <p class="co-eyebrow">Le problème</p>
+                            <p class="ig-review-col-text">Demander des avis, c'est gênant. Et quand on y pense, c'est souvent trop tard — le client est déjà parti.</p>
+                        </div>
+                    </div>
+
+                    <p class="ig-review-solution"><i class="ri-magic-line"></i> La solution automatisée</p>
+                    <div class="ig-flow">
+                        {googleReviewSteps.map((step, index) => (
+                            <div class="ig-flow-step">
+                                <span class="ig-flow-num co-index">0{index + 1}</span>
+                                <p class="ig-flow-text">{step}</p>
+                            </div>
+                        ))}
+                    </div>
+
+                    <div class="ig-review-result">
+                        <i class="ri-check-double-line" aria-hidden="true"></i>
+                        <div>
+                            <p class="ig-review-result-title">Résultat</p>
+                            <p class="ig-review-result-text">Plus d'avis Google (meilleur référencement local), une base clients qui se construit toute seule, et des clients qui reviennent.</p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Contact Form -->
-            <div class="contact-form-container max-w-2xl mx-auto" data-animate="scale">
-                <form
-                    class="bg-white text-[var(--text)] border-3 border-black p-6 md:p-8 shadow-[8px_8px_0px_rgba(0,217,163,0.3)] relative"
-                    id="integration-form"
-                >
-                    <!-- Corner boxes -->
-                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-
-                    <h3 class="text-xl font-bold mb-6 text-center">Discutons de votre besoin</h3>
-
-                    <!-- Hidden fields for Web3Forms -->
-                    <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
-                    <input type="hidden" name="subject" value="Demande intégration outils - Jon Labs">
-                    <input type="hidden" name="from_name" value="Jon Labs - Intégration outils">
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Nom -->
-                        <div class="form-field">
-                            <label for="name" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">01</span>
-                                Nom / Prénom <span class="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                required
-                                placeholder="Jean Dupont"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
+            <!-- Autres automatisations locales -->
+            <h3 class="ig-sub-h3" data-animate>Autres automatisations pour commerces locaux</h3>
+            <div class="ig-grid ig-grid--2" data-animate-stagger>
+                {localAutomations.map((auto) => (
+                    <div class="ig-local-item co-frame" data-animate-item>
+                        <i class={`${auto.icon} ig-local-icon`} aria-hidden="true"></i>
+                        <div>
+                            <h4 class="ig-local-name">{auto.title}</h4>
+                            <p class="ig-local-desc">{auto.description}</p>
                         </div>
+                    </div>
+                ))}
+            </div>
 
-                        <!-- Email -->
-                        <div class="form-field">
-                            <label for="email" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">02</span>
-                                Email <span class="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                required
-                                placeholder="vous@exemple.ch"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
+            <!-- Pourquoi local + Zones -->
+            <div class="ig-local-grid">
+                <div data-animate="fade-left">
+                    <h3 class="ig-local-h3">Pourquoi un prestataire local ?</h3>
+                    <p class="ig-local-p">
+                        Je suis basé à Genève. Je connais le tissu économique romand, les outils utilisés ici
+                        (Bexio, TWINT, les spécificités suisses de facturation et de conformité), et je peux vous
+                        rencontrer si besoin.
+                    </p>
+                    <p class="ig-local-p">
+                        Pour un commerce local, avoir quelqu'un qui comprend le contexte — et qui peut passer
+                        prendre un café pour voir comment ça se passe sur le terrain — ça change la donne.
+                    </p>
+                </div>
 
-                        <!-- Téléphone -->
-                        <div class="form-field">
-                            <label for="phone" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">03</span>
-                                Téléphone (optionnel)
-                            </label>
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                placeholder="+41 79 123 45 67"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
-
-                        <!-- Activité -->
-                        <div class="form-field">
-                            <label for="activity" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">04</span>
-                                Votre activité
-                            </label>
-                            <input
-                                type="text"
-                                id="activity"
-                                name="activity"
-                                placeholder="Restaurant, cabinet, commerce..."
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
-
-                        <!-- Type de projet -->
-                        <div class="form-field md:col-span-2">
-                            <label for="project-type" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">05</span>
-                                Type de besoin <span class="text-red-500">*</span>
-                            </label>
-                            <select
-                                id="project-type"
-                                name="project_type"
-                                required
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all cursor-pointer"
-                            >
-                                <option value="" disabled selected>Choisir...</option>
-                                {projectTypes.map((type) => (
-                                    <option value={type.value}>{type.label}</option>
-                                ))}
-                            </select>
-                        </div>
-
-                        <!-- Message -->
-                        <div class="form-field md:col-span-2">
-                            <label for="message" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">06</span>
-                                Décrivez votre situation <span class="text-red-500">*</span>
-                            </label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="4"
-                                required
-                                placeholder="Quels outils utilisez-vous ? Qu'est-ce qui vous fait perdre du temps ? Qu'aimeriez-vous automatiser ?"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            ></textarea>
-                        </div>
-
-                        <!-- Consent -->
-                        <div class="form-field md:col-span-2">
-                            <label class="flex items-start gap-3 cursor-pointer group">
-                                <input
-                                    type="checkbox"
-                                    name="consent"
-                                    required
-                                    class="mt-1 w-5 h-5 border-2 border-black appearance-none cursor-pointer checked:bg-[var(--blue)] checked:border-black relative transition-all"
-                                />
-                                <span class="text-sm text-gray-600 group-hover:text-black transition-colors">
-                                    Vos données sont utilisées uniquement pour répondre à votre demande. Pas de spam, promis. <span class="text-red-500">*</span>
+                <div data-animate="fade-left" data-delay="0.1">
+                    <h3 class="ig-local-h3">Zones couvertes</h3>
+                    <div class="ig-zones">
+                        {zones.map((zone) => (
+                            <div class={`ig-zone ${zone.type === 'primary' ? 'ig-zone--primary' : ''}`}>
+                                <i class={zone.icon}></i>
+                                <span>
+                                    <strong>{zone.name}</strong>
+                                    {zone.type === 'primary' && <span class="co-mut"> (basé sur place)</span>}
+                                    {zone.type === 'tertiary' && <span class="co-mut"> (remote)</span>}
                                 </span>
-                            </label>
-                        </div>
-
-                        <!-- Submit -->
-                        <div class="md:col-span-2 pt-4">
-                            <button
-                                type="submit"
-                                class="
-                                    submit-btn
-                                    w-full
-                                    bg-[var(--blue)]
-                                    border-2 border-black
-                                    px-8 py-4
-                                    text-lg font-bold
-                                    shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                                    transition-all duration-200
-                                    hover:bg-[var(--yellow)]
-                                    hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                                    hover:translate-x-[2px] hover:translate-y-[2px]
-                                    focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2
-                                    flex items-center justify-center gap-3
-                                "
-                            >
-                                <span>Envoyer ma demande</span>
-                                <i class="ri-send-plane-line text-xl"></i>
-                            </button>
-                        </div>
-                    </div>
-                </form>
-
-                <!-- Post-form content -->
-                <div class="bg-[var(--main-bg)]/90 backdrop-blur-sm p-6 mt-8">
-                    <!-- Trust indicators -->
-                    <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-600">
-                        <span class="flex items-center gap-2">
-                            <i class="ri-time-line text-[var(--blue)]"></i>
-                            Réponse sous 24h
-                        </span>
-                        <span class="flex items-center gap-2">
-                            <i class="ri-gift-line text-[var(--blue)]"></i>
-                            Premier échange gratuit
-                        </span>
-                        <span class="flex items-center gap-2">
-                            <i class="ri-file-list-3-line text-[var(--blue)]"></i>
-                            Devis clair
-                        </span>
-                    </div>
-
-                    <!-- Alternatives -->
-                    <div class="text-center mt-8 space-y-4">
-                        <p class="text-gray-500 text-sm">Vous préférez réserver un créneau directement ?</p>
-                        <a
-                            href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 text-[var(--blue)] font-medium hover:underline"
-                        >
-                            <i class="ri-calendar-line"></i>
-                            Réserver un appel découverte
-                        </a>
-                    </div>
-
-                    <!-- Direct contact -->
-                    <div class="text-center mt-6">
-                        <p class="text-gray-500 text-sm mb-2">Besoin d'une réponse rapide ?</p>
-                        <a href="mailto:contact@jonlabs.ch" class="text-[var(--blue)] font-mono hover:underline">
-                            contact@jonlabs.ch
-                        </a>
-                    </div>
-
-                    <!-- Not ready yet -->
-                    <div class="text-center mt-8 p-4 bg-white border-2 border-dashed border-gray-300">
-                        <p class="text-gray-500 text-sm">
-                            <strong>Pas encore prêt ?</strong> Découvrez comment <a href="/blog/0a30joursgooglevisible" class="text-[var(--blue)] hover:underline">passer de 0 à visible sur Google en 30 jours</a> ou explorez les <a href="/services" class="text-[var(--blue)] hover:underline">autres services</a>.
-                        </p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <!-- ══ 07 · INVESTISSEMENT ══ -->
+        <section id="prix" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">07 — Investissement</p>
+            <h2 style="margin-top:8px;">Chaque situation est <span class="co-ser">différente.</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:52ch;">Le prix aussi. On définit le périmètre ensemble avant de commencer.</p>
+
+            <div class="ig-price-grid" data-animate-stagger>
+                <div class="ig-price-card co-frame" data-animate-item>
+                    <h3 class="ig-price-title"><i class="ri-calculator-line"></i> Ce qui influence le prix</h3>
+                    <ul class="co-list">
+                        {pricingFactors.map((factor) => (<li>{factor}</li>))}
+                    </ul>
+                </div>
+                <div class="ig-price-card co-frame" data-animate-item>
+                    <h3 class="ig-price-title"><i class="ri-checkbox-circle-line"></i> Ce qui est toujours inclus</h3>
+                    <ul class="co-list co-list--check">
+                        {pricingInclusions.map((inc) => (<li><i class="ri-check-line"></i><span>{inc}</span></li>))}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="ig-delays co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <p class="ig-delays-label co-eyebrow">Délais indicatifs</p>
+                <div class="ig-delays-row">
+                    <div class="ig-delay">
+                        <b>3-4 jours</b>
+                        <span class="co-mut">Intégration simple</span>
+                    </div>
+                    <span class="ig-delays-sep" aria-hidden="true"></span>
+                    <div class="ig-delay">
+                        <b>1-2 semaines</b>
+                        <span class="co-mut">Intégration complexe</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ig-price-cta" data-animate>
+                <a href="#contact" class="co-btn"><i class="ri-calculator-line"></i> Demander une estimation</a>
+                <p class="co-mut" style="margin-top:14px;font-size:14px;line-height:1.6;max-width:56ch;">
+                    Premier échange gratuit et sans engagement. On regarde ensemble si une automatisation fait
+                    sens pour votre situation.
+                </p>
+            </div>
+        </section>
+
+        <!-- ══ 08 · FAQ (accordéon natif <details>, zéro JS) ══ -->
+        <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">08 — FAQ</p>
+            <h2 style="margin-top:8px;">Questions fréquentes</h2>
+
+            <div class="ig-faq" style="margin-top:32px;">
+                {faqs.map((faq, index) => (
+                    <details open={index === 0}>
+                        <summary>
+                            {faq.question}
+                            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+                        </summary>
+                        <p class="ig-faq-answer">{faq.answer}</p>
+                    </details>
+                ))}
+            </div>
+
+            <p class="co-mut" style="margin-top:24px;text-align:center;">
+                Autre question ? <a href="#contact" class="ig-inline">Contactez-moi directement</a>, je réponds sous 24h.
+            </p>
+        </section>
+
+        <!-- ══ 09 · CONTACT (formulaire Web3Forms — HARD-PRESERVE câblage) ══ -->
+        <section id="contact" class="co-sec co-pad" style="padding:64px 40px;">
+            <p class="co-eyebrow">09 — Contact</p>
+            <h2 style="margin-top:8px;">Vos outils peuvent travailler <span class="co-ser">ensemble.</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+                Premier échange gratuit. On regarde ensemble votre situation — que vous soyez une PME genevoise
+                avec 15 outils qui ne se parlent pas, ou un commerce local qui veut automatiser sa récolte
+                d'avis Google. Si une automatisation peut vous aider, je vous dis comment. Si ce n'est pas la
+                bonne solution pour vous, je vous le dis aussi.
+            </p>
+
+            <form class="ig-form co-frame" id="integration-form" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+
+                <!-- Hidden fields for Web3Forms (HARD-PRESERVE) -->
+                <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
+                <input type="hidden" name="subject" value="Demande intégration outils - Jon Labs">
+                <input type="hidden" name="from_name" value="Jon Labs - Intégration outils">
+                <input type="checkbox" name="botcheck" class="ig-honeypot" style="display: none;">
+
+                <h3 class="ig-form-title">Discutons de votre besoin</h3>
+
+                <div class="ig-form-grid">
+                    <div class="ig-field">
+                        <label for="name" class="ig-label"><span class="co-index">01</span> Nom / Prénom <span class="ig-req">*</span></label>
+                        <input type="text" id="name" name="name" required placeholder="Jean Dupont" class="ig-input" />
+                    </div>
+
+                    <div class="ig-field">
+                        <label for="email" class="ig-label"><span class="co-index">02</span> Email <span class="ig-req">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="vous@exemple.ch" class="ig-input" />
+                    </div>
+
+                    <div class="ig-field">
+                        <label for="phone" class="ig-label"><span class="co-index">03</span> Téléphone (optionnel)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+41 79 123 45 67" class="ig-input" />
+                    </div>
+
+                    <div class="ig-field">
+                        <label for="activity" class="ig-label"><span class="co-index">04</span> Votre activité</label>
+                        <input type="text" id="activity" name="activity" placeholder="Restaurant, cabinet, commerce..." class="ig-input" />
+                    </div>
+
+                    <div class="ig-field ig-field--full">
+                        <label for="project-type" class="ig-label"><span class="co-index">05</span> Type de besoin <span class="ig-req">*</span></label>
+                        <div class="ig-select-wrap">
+                            <select id="project-type" name="project_type" required class="ig-select">
+                                <option value="" disabled selected>Choisir...</option>
+                                {projectTypes.map((type) => (<option value={type.value}>{type.label}</option>))}
+                            </select>
+                            <i class="ri-arrow-down-s-line ig-select-caret" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+                    <div class="ig-field ig-field--full">
+                        <label for="message" class="ig-label"><span class="co-index">06</span> Décrivez votre situation <span class="ig-req">*</span></label>
+                        <textarea id="message" name="message" rows="4" required placeholder="Quels outils utilisez-vous ? Qu'est-ce qui vous fait perdre du temps ? Qu'aimeriez-vous automatiser ?" class="ig-textarea"></textarea>
+                    </div>
+
+                    <div class="ig-field ig-field--full">
+                        <label class="ig-consent">
+                            <input type="checkbox" name="consent" required class="ig-checkbox" />
+                            <span>Vos données sont utilisées uniquement pour répondre à votre demande. Pas de spam, promis. <span class="ig-req">*</span></span>
+                        </label>
+                    </div>
+
+                    <div class="ig-field ig-field--full">
+                        <button type="submit" class="co-btn submit-btn ig-submit">
+                            <span>Envoyer ma demande</span>
+                            <i class="ri-send-plane-line"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="ig-form-after" data-animate>
+                <div class="ig-trust">
+                    <span><i class="ri-time-line"></i> Réponse sous 24h</span>
+                    <span><i class="ri-gift-line"></i> Premier échange gratuit</span>
+                    <span><i class="ri-file-list-3-line"></i> Devis clair</span>
+                </div>
+                <div class="ig-alt">
+                    <p class="co-mut">Vous préférez réserver un créneau directement ?</p>
+                    <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="ig-inline"><i class="ri-calendar-line"></i> Réserver un appel découverte</a>
+                </div>
+                <div class="ig-alt">
+                    <p class="co-mut">Besoin d'une réponse rapide ?</p>
+                    <a href="mailto:contact@jonlabs.ch" class="ig-inline">contact@jonlabs.ch</a>
+                </div>
+                <p class="ig-note-inline" style="text-align:center;">
+                    <strong>Pas encore prêt ?</strong> Découvrez comment
+                    <a href="/blog/0a30joursgooglevisible" class="ig-inline">passer de 0 à visible sur Google en 30 jours</a>
+                    ou explorez les <a href="/services" class="ig-inline">autres services</a>.
+                </p>
+            </div>
+        </section>
+
+    </main>
 
     <Footer />
 </Layout>
 
-<style>
-    /* Dot pattern background */
-    .dots-bg {
-        background-image: radial-gradient(circle, #000 1px, transparent 1px);
-        background-size: 24px 24px;
-    }
+<style is:global>
+    /* ══ INTÉGRATION D'OUTILS — styles .ig-* (namespace scopé, corps .co-root) ══ */
 
-    /* FAQ animations */
-    .faq-item[data-open="true"] .faq-icon {
-        transform: rotate(45deg);
-        background-color: var(--blue);
-    }
+    /* ── Hero ── */
+    .ig-hero { display: flex; flex-direction: column; align-items: flex-start; }
+    .ig-hero-title { font-size: clamp(2.2rem, 5vw, 3.4rem); margin-top: 14px; max-width: 20ch; }
+    .co-root .ig-hero-lead { margin-top: 18px; max-width: 60ch; font-size: 1.075rem; line-height: 1.65; color: var(--muted); }
+    .ig-hero-lead strong { color: var(--ink); font-weight: 600; }
+    .ig-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .ig-hero-btns .co-btn i { transition: transform .18s ease-out; }
+    .ig-hero-btns .co-btn:hover i { transform: translateY(2px); }
+    .co-root .ig-hero-loc { margin-top: 22px; font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px; }
+    .ig-hero-loc i { color: var(--accent); }
 
-    /* H1 SEO style terminal */
-    .seo-h1 {
-        font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace;
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: var(--color-accent-strong);
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    /* ── Contexte (prose + callout) ── */
+    .ig-prose { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; max-width: 72ch; }
+    .ig-prose p { font-size: 1.02rem; line-height: 1.7; color: var(--muted); }
+    .ig-prose strong { color: var(--ink); font-weight: 600; }
+    .ig-callout { position: relative; padding: 24px 28px; background: var(--surface); border: 1px solid var(--line-2); }
+    .co-root .ig-callout-lead { font-size: 1.2rem; line-height: 1.5; color: var(--ink); font-weight: 500; }
+    .ig-hl { color: var(--accent); font-weight: 700; }
+    .co-root .ig-callout-sub { margin-top: 10px; font-size: 14px; color: var(--muted); line-height: 1.55; }
 
-    @media (min-width: 1024px) {
-        .seo-h1 {
-            justify-content: center;
-        }
+    /* ── Cartes génériques (problèmes / résultats / outils) ── */
+    .ig-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .ig-grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .ig-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .ig-card {
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        background: var(--surface); border: 1px solid var(--line-2);
+        transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
+    .ig-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+    .ig-card-icon { font-size: 24px; color: var(--accent); line-height: 1; }
+    .ig-card-title { font-size: 1.1rem; }
+    .ig-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
 
-    /* Custom checkbox checkmark */
-    input[type="checkbox"]:checked::after {
-        content: '';
-        position: absolute;
-        left: 5px;
-        top: 1px;
-        width: 6px;
-        height: 12px;
-        border: solid black;
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
+    /* ── Notes / callouts ── */
+    .ig-note { display: flex; align-items: flex-start; gap: 12px; margin-top: 20px; padding: 18px 22px; border: 1px solid var(--line-2); background: var(--surface); }
+    .ig-note i { color: var(--accent); font-size: 20px; flex: none; margin-top: 1px; }
+    .co-root .ig-note p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+    .ig-note--accent { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .ig-note strong, .ig-note-inline strong { color: var(--ink); font-weight: 600; }
+    .ig-note-inline { margin-top: 14px !important; font-size: 14px; line-height: 1.6; color: var(--muted); }
+    .ig-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
+    .ig-inline:hover { color: var(--ink); }
+
+    /* ── Étapes méthode ── */
+    .ig-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+    .ig-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .ig-step-num { font-size: 20px; font-weight: 600; }
+    .ig-step-title { font-size: 1.15rem; }
+    .co-root .ig-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
+    .co-root .ig-step-dur { margin-top: 10px; font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+    .ig-step-dur i { color: var(--accent); }
+
+    /* ── Encart différenciateurs ── */
+    .ig-diff { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .ig-diff-title { text-align: center; font-size: 1.25rem; }
+    .ig-diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 28px; }
+    .ig-diff-item { text-align: center; }
+    .ig-diff-icon { font-size: 26px; color: var(--accent); }
+    .ig-diff-name { margin-top: 10px; font-size: 15px; font-weight: 600; }
+    .co-root .ig-diff-desc { margin-top: 4px; font-size: 13px; line-height: 1.45; color: var(--muted); }
+
+    /* ── Exemple concret (avant / après) ── */
+    .ig-example { position: relative; margin-top: 28px; padding: 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .ig-example-title { font-size: 1.2rem; display: inline-flex; align-items: center; gap: 8px; }
+    .ig-example-title i { color: var(--accent); }
+    .ig-ba { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 22px; }
+    .ig-ba-card { padding: 20px; background: var(--bg); border: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 10px; }
+    .ig-ba-card--after { border-color: var(--accent); }
+    .ig-ba-label { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; display: inline-flex; align-items: center; gap: 6px; }
+    .ig-ba-label--before { color: var(--muted); }
+    .ig-ba-label--after { color: var(--accent); }
+    .co-root .ig-ba-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
+    .ig-ba-text--strong { color: var(--ink); font-weight: 500; }
+    .co-root .ig-example-result { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); text-align: center; font-size: 1.05rem; font-weight: 600; color: var(--ink); }
+
+    /* ── Machine à avis Google ── */
+    .ig-review { position: relative; margin-top: 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .ig-review-head { display: flex; align-items: center; gap: 12px; padding: 20px 26px; border-bottom: 1px solid var(--line); }
+    .ig-review-head i { color: var(--accent); font-size: 22px; }
+    .ig-review-head h3 { font-size: 1.25rem; }
+    .ig-review-body { padding: 26px; }
+    .ig-review-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .ig-review-col { padding: 18px; background: var(--bg); border: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 8px; }
+    .ig-review-col--accent { border-color: var(--accent); }
+    .co-root .ig-review-col-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
+    .co-root .ig-review-solution { margin-top: 26px; font-size: 1.05rem; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; }
+    .ig-review-solution i { color: var(--accent); }
+    .ig-flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 18px; }
+    .ig-flow-step { padding: 16px; background: var(--bg); border: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 10px; }
+    .ig-flow-num { font-size: 15px; font-weight: 700; color: var(--accent); }
+    .co-root .ig-flow-text { font-size: 12.5px; line-height: 1.4; color: var(--ink); }
+    .ig-review-result { display: flex; align-items: flex-start; gap: 14px; margin-top: 22px; padding: 18px 20px; background: rgba(0,168,125,0.05); border: 1px solid var(--accent); }
+    .ig-review-result i { color: var(--accent); font-size: 22px; flex: none; margin-top: 1px; }
+    .ig-review-result-title { font-size: 15px; font-weight: 700; }
+    .co-root .ig-review-result-text { margin-top: 3px; font-size: 14px; line-height: 1.55; color: var(--muted); }
+
+    /* ── Sous-titre + automatisations locales ── */
+    .ig-sub-h3 { font-size: 1.15rem; margin-top: 40px; text-align: center; }
+    .ig-local-item { position: relative; display: flex; align-items: flex-start; gap: 14px; padding: 20px; background: var(--surface); border: 1px solid var(--line-2); }
+    .ig-local-icon { font-size: 22px; color: var(--accent); flex: none; margin-top: 2px; }
+    .ig-local-name { font-size: 15px; font-weight: 600; }
+    .co-root .ig-local-desc { margin-top: 3px; font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+
+    /* ── Pourquoi local + zones ── */
+    .ig-local-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; margin-top: 44px; }
+    .ig-local-h3 { font-size: 1.15rem; margin-bottom: 16px; }
+    .co-root .ig-local-p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+    .co-root .ig-local-p + .ig-local-p { margin-top: 14px; }
+    .ig-zones { display: flex; flex-direction: column; gap: 10px; }
+    .ig-zone { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line-2); font-size: 14px; }
+    .ig-zone i { color: var(--muted); font-size: 18px; }
+    .ig-zone--primary { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .ig-zone--primary i { color: var(--accent); }
+
+    /* ── Investissement ── */
+    .ig-price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 32px; }
+    .ig-price-card { position: relative; padding: 26px; background: var(--surface); border: 1px solid var(--line-2); }
+    .ig-price-title { font-size: 1.05rem; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+    .ig-price-title i { color: var(--accent); }
+    .ig-price-card .co-list li { font-size: 14px; }
+
+    .ig-delays { position: relative; margin-top: 20px; padding: 26px 30px; background: var(--surface); border: 1px solid var(--line-2); text-align: center; }
+    .ig-delays-label { display: block; }
+    .ig-delays-row { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 32px; margin-top: 16px; }
+    .ig-delay { display: flex; flex-direction: column; gap: 4px; }
+    .ig-delay b { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.02em; color: var(--accent); line-height: 1; }
+    .ig-delay span { font-size: 13px; }
+    .ig-delays-sep { width: 1px; height: 40px; background: var(--line-2); }
+    .ig-price-cta { margin-top: 24px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+
+    /* ── FAQ (accordéon natif <details> — smooth via ::details-content, zéro JS) ── */
+    .ig-faq { border-top: 1px solid var(--line); }
+    .ig-faq details { border-bottom: 1px solid var(--line); }
+    .ig-faq summary {
+        list-style: none; cursor: pointer; padding: 20px 0;
+        display: flex; justify-content: space-between; align-items: center; gap: 20px;
+        font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
     }
-
-    /* Submit button loading state */
-    .submit-btn.loading {
-        pointer-events: none;
-        opacity: 0.7;
+    .ig-faq summary::-webkit-details-marker { display: none; }
+    .ig-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
+    .ig-faq details[open] summary i { transform: rotate(180deg); }
+    .co-root .ig-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 68ch; }
+    .ig-faq details::details-content {
+        block-size: 0; overflow: hidden;
+        transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
     }
+    .ig-faq details[open]::details-content { block-size: auto; }
 
-    .submit-btn.loading i {
-        animation: spin 1s linear infinite;
+    /* ── Formulaire (Web3Forms restylé, câblage préservé) ── */
+    .ig-form { position: relative; margin-top: 32px; padding: 34px; background: var(--surface); border: 1px solid var(--line-2); }
+    .ig-form-title { font-size: 1.25rem; text-align: center; margin-bottom: 6px; }
+    .ig-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .ig-field { display: flex; flex-direction: column; gap: 8px; }
+    .ig-field--full { grid-column: 1 / -1; }
+    .ig-label { display: flex; align-items: baseline; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink); }
+    .ig-label .co-index { font-size: 11px; }
+    .ig-req { color: var(--accent); }
+    .ig-input, .ig-select, .ig-textarea {
+        width: 100%; font-family: "Inter Tight", ui-sans-serif, sans-serif; font-size: 15px; color: var(--ink);
+        background: var(--bg); border: 1px solid var(--line-2); padding: 12px 14px;
+        transition: border-color .18s ease-out, box-shadow .18s ease-out;
     }
+    .ig-input::placeholder, .ig-textarea::placeholder { color: var(--muted); opacity: .7; }
+    .ig-input:focus, .ig-select:focus, .ig-textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,168,125,.15); }
+    .ig-textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
+    .ig-select-wrap { position: relative; }
+    .ig-select { appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 40px; }
+    .ig-select-caret { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 18px; color: var(--muted); pointer-events: none; }
+    .ig-consent { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.5; color: var(--muted); cursor: pointer; }
+    .ig-consent:hover { color: var(--ink); }
+    .ig-checkbox { margin-top: 2px; width: 16px; height: 16px; flex: none; accent-color: var(--accent); cursor: pointer; }
+    .ig-submit { width: 100%; justify-content: center; padding: 14px 20px; font-size: 16px; }
+    .submit-btn.loading { pointer-events: none; opacity: 0.7; }
+    .submit-btn.loading i { animation: igSpin 1s linear infinite; }
+    @keyframes igSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-    @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
+    /* ── Après-formulaire ── */
+    .ig-form-after { margin-top: 28px; display: flex; flex-direction: column; gap: 18px; align-items: center; text-align: center; }
+    .ig-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; font-size: 13.5px; color: var(--muted); }
+    .ig-trust i { color: var(--accent); margin-right: 4px; }
+    .ig-alt { display: flex; flex-direction: column; gap: 4px; }
+    .ig-alt .ig-inline { display: inline-flex; align-items: center; gap: 6px; justify-content: center; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+        .ig-local-grid { grid-template-columns: 1fr; gap: 32px; }
+        .ig-diff-grid { grid-template-columns: repeat(3, 1fr); }
+        .ig-flow { grid-template-columns: repeat(2, 1fr); }
     }
-
-    /* Scroll margin for anchor navigation */
-    section[id] {
-        scroll-margin-top: 100px;
+    @media (max-width: 720px) {
+        .ig-grid--2, .ig-grid--3, .ig-price-grid, .ig-form-grid, .ig-review-cols, .ig-ba { grid-template-columns: 1fr; }
+        .ig-diff-grid { grid-template-columns: 1fr; }
+        .ig-flow { grid-template-columns: 1fr; }
+        .ig-step { grid-template-columns: 44px 1fr; gap: 14px; }
+        .ig-delays-sep { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .ig-card, .ig-faq summary i, .ig-hero-btns .co-btn i { transition: none; }
+        .submit-btn.loading i { animation: none; }
     }
 </style>
 
 <script>
-    // FAQ accordion logic
-    const faqItems = document.querySelectorAll('[data-faq-item]');
-
-    faqItems.forEach(item => {
-        const trigger = item.querySelector('[data-faq-trigger]');
-        const content = item.querySelector('[data-faq-content]') as HTMLElement;
-
-        trigger?.addEventListener('click', () => {
-            const isOpen = item.getAttribute('data-open') === 'true';
-
-            // Close all other items
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.setAttribute('data-open', 'false');
-                    const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
-                    const otherTrigger = otherItem.querySelector('[data-faq-trigger]');
-                    if (otherContent) otherContent.style.maxHeight = '0';
-                    otherTrigger?.setAttribute('aria-expanded', 'false');
-                }
-            });
-
-            // Toggle current item
-            if (isOpen) {
-                item.setAttribute('data-open', 'false');
-                if (content) content.style.maxHeight = '0';
-                trigger.setAttribute('aria-expanded', 'false');
-            } else {
-                item.setAttribute('data-open', 'true');
-                if (content) content.style.maxHeight = content.scrollHeight + 'px';
-                trigger.setAttribute('aria-expanded', 'true');
-            }
-        });
-    });
-
-    // Form submission with Web3Forms
+    // Form submission — HARD-PRESERVE (câblage Web3Forms inchangé)
     const form = document.getElementById('integration-form') as HTMLFormElement;
-    const submitBtn = form?.querySelector('.submit-btn');
+    const submitBtn = form?.querySelector('.submit-btn') as HTMLButtonElement;
+    const btnText = submitBtn?.querySelector('span');
+    const btnIcon = submitBtn?.querySelector('i');
 
     form?.addEventListener('submit', async (e) => {
         e.preventDefault();
 
-        if (!submitBtn) return;
-
-        // Add loading state
-        submitBtn.classList.add('loading');
-        const originalContent = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<span>Envoi en cours...</span><i class="ri-loader-4-line text-xl"></i>';
+        if (submitBtn) {
+            submitBtn.classList.add('loading');
+            submitBtn.disabled = true;
+            if (btnText) btnText.textContent = 'Envoi en cours...';
+            if (btnIcon) btnIcon.className = 'ri-loader-4-line';
+        }
 
         try {
             const formData = new FormData(form);
@@ -1323,29 +956,23 @@ const projectTypes = [
                 body: formData
             });
 
-            const data = await response.json();
+            const result = await response.json();
 
-            if (data.success) {
-                // Success state
-                submitBtn.innerHTML = '<span>Message envoyé !</span><i class="ri-check-line text-xl"></i>';
-                submitBtn.classList.remove('loading');
-
-                // Reset form after delay
-                setTimeout(() => {
-                    form.reset();
-                    submitBtn.innerHTML = originalContent;
-                }, 3000);
+            if (result.success) {
+                alert('Merci ! Votre demande a bien été envoyée. Je vous réponds sous 24h.');
+                form.reset();
             } else {
-                throw new Error('Erreur lors de l\'envoi');
+                alert('Erreur lors de l\'envoi. Veuillez réessayer ou m\'écrire directement à contact@jonlabs.ch');
             }
         } catch (error) {
-            // Error state
-            submitBtn.innerHTML = '<span>Erreur, réessayez</span><i class="ri-error-warning-line text-xl"></i>';
-            submitBtn.classList.remove('loading');
-
-            setTimeout(() => {
-                submitBtn.innerHTML = originalContent;
-            }, 3000);
+            alert('Erreur de connexion. Veuillez réessayer.');
+        } finally {
+            if (submitBtn) {
+                submitBtn.classList.remove('loading');
+                submitBtn.disabled = false;
+                if (btnText) btnText.textContent = 'Envoyer ma demande';
+                if (btnIcon) btnIcon.className = 'ri-send-plane-line';
+            }
         }
     });
 </script>

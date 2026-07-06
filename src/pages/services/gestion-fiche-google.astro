@@ -1,21 +1,20 @@
 ---
+// Gestion de fiche Google Business Profile — sous-page service (blueprint).
+// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
+// accent teal unique, Inter Tight × Instrument Serif. Suit le gabarit-or
+// /services/creation-site-web.astro (namespace scopé .gm-*).
+//
+// HARD-PRESERVE : Schema.org (serviceSchemas/breadcrumb/FAQ + ordre), câblage
+// Web3Forms (#gmb-form, access_key + hidden inputs, tous les name=, honeypot, JS submit
+// + validation situation), prix exacts (CHF 590 setup / CHF 300 mensuel), tous les
+// liens SEO internes (cluster blog GMB, /services/referencement-local).
+
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import IconChip from '../../components/IconChip.astro';
 
-import arrowUnderline from '../../assets/arrow-3.svg';
-
-import BackgroundGlitchGrid from '../../components/backgrounds/BackgroundGlitchGrid.astro';
-import BackgroundProgressFlow from '../../components/backgrounds/BackgroundProgressFlow.astro';
-import BackgroundCircuitBoard from '../../components/backgrounds/BackgroundCircuitBoard.astro';
-import BackgroundQuestionMarks from '../../components/backgrounds/BackgroundQuestionMarks.astro';
-import BackgroundMapContours from '../../components/backgrounds/BackgroundMapContours.astro';
-
-import FAQ from '../../components/FAQ.astro';
-import type { FAQItem } from '../../components/FAQ.astro';
-
+// Schema.org
 import { serviceSchemas, SITE_URL } from '../../data/schema';
 import { getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
 
@@ -168,7 +167,16 @@ const inclusions = [
     "Mensuel résiliable, 1 mois de préavis"
 ];
 
-const faqs: FAQItem[] = [
+const setupInclusions = [
+    "Audit complet fiche actuelle",
+    "Création / récupération / vérification",
+    "Optimisation complète (catégorie, description 750c, photos, attributs, services, horaires)",
+    "Schema LocalBusiness sur votre site",
+    "Système d'avis (lien court + QR code)",
+    "Réponses aux avis existants en attente"
+];
+
+const faqs = [
     {
         question: "Combien de temps avant de voir des résultats ?",
         answer: "Pour une fiche existante mal optimisée, les premiers effets se voient en 30-60 jours sur les itinéraires demandés et les appels. Pour une fiche neuve à créer, compte 60-90 jours pour entrer dans le pack local sur votre commune. Le SEO local n'est pas instantané, mais c'est plus rapide que le SEO classique."
@@ -269,599 +277,358 @@ const clusterGroups = [
 ];
 ---
 
-<Layout
-    title={seoData.title}
-    description={seoData.description}
-    schemas={schemas}
->
+<Layout title={seoData.title} description={seoData.description} schemas={schemas}>
     <Header />
 
-    <!-- HERO - Faux GMB card mockup -->
-    <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-20 px-4 relative overflow-hidden">
-        <!-- Gradient mesh background -->
-        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-            <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
-            <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-[var(--violet)] opacity-15 blur-[100px] rounded-full"></div>
-            <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-[var(--blue)] opacity-10 blur-[80px] rounded-full"></div>
-        </div>
+    <main class="co-root">
 
-        <div class="max-w-4xl mx-auto relative z-10">
-            <div class="text-center">
-                <h1 class="seo-h1 mb-8 mt-8">Gestion de fiche Google My Business</h1>
-
-                <p class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6" data-animate="fade-up">
-                    Votre fiche Google,<br/>
-                    gérée
-                    <span class="relative inline-block">
-                        <span class="relative z-10">comme un actif</span>
-                        <img
-                            src={arrowUnderline.src}
-                            alt=""
-                            class="absolute -bottom-0 left-0 w-full h-8 pointer-events-none"
-                            aria-hidden="true"
-                        />
-                    </span>
-                </p>
-
-                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="0.1">
-                    Création, optimisation, posts hebdomadaires, gestion des avis.<br class="hidden md:block"/>
-                    <strong class="text-[var(--text)]">Vous gardez la main, je m'occupe du reste.</strong>
-                </p>
-
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16 md:mb-20" data-animate="fade-up" data-delay="0.2">
-                    <a
-                        href="#contact"
-                        class="
-                            bg-[var(--blue)]
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                            transition-all duration-200
-                            hover:bg-[var(--yellow)]
-                            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                            hover:translate-x-[2px] hover:translate-y-[2px]
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        <i class="ri-search-eye-line"></i>
-                        Audit gratuit de ma fiche
-                    </a>
-                    <a
-                        href="#prix"
-                        class="
-                            bg-white
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            transition-all duration-200
-                            hover:bg-gray-100
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        Voir le forfait
-                        <i class="ri-arrow-down-line"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Faux GMB card mockup -->
-            <div class="w-full max-w-2xl mx-auto relative" data-animate="scale" data-delay="0.3">
-                <div class="bg-white border-3 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] relative">
-                    <!-- Browser bar -->
-                    <div class="flex items-center gap-2 p-3 border-b-2 border-black bg-gray-50">
-                        <div class="flex gap-1.5">
-                            <div class="w-3 h-3 rounded-full bg-red-400 border border-black"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-400 border border-black"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-400 border border-black"></div>
-                        </div>
-                        <div class="flex-1 bg-white border border-black px-3 py-1 text-xs text-gray-400 font-mono text-center">
-                            google.com/maps
-                        </div>
+        <!-- ══ HERO ══ -->
+        <section class="co-sec co-pad co-hero gm-hero" style="padding:64px 40px 56px;">
+            <div class="gm-hero-grid">
+                <div class="gm-hero-copy">
+                    <p class="co-eyebrow" data-animate>Gestion de fiche Google · Genève &amp; francophonie</p>
+                    <h1 class="gm-hero-title" data-animate data-delay="0.1">
+                        Gestion de fiche Google <span class="co-ser">My Business.</span>
+                    </h1>
+                    <p class="gm-hero-lead" data-animate data-delay="0.2">
+                        Votre fiche Google, gérée comme un actif. Création, optimisation, posts hebdomadaires,
+                        gestion des avis. <strong>Vous gardez la main, je m'occupe du reste.</strong>
+                    </p>
+                    <div class="gm-hero-btns" data-animate data-delay="0.3">
+                        <a href="#contact" class="co-btn"><i class="ri-search-eye-line"></i> Audit gratuit de ma fiche</a>
+                        <a href="#prix" class="co-btn co-btn--ghost">Voir le forfait <i class="ri-arrow-down-line"></i></a>
                     </div>
+                    <p class="gm-hero-loc co-mut" data-animate data-delay="0.4">
+                        <i class="ri-map-pin-fill"></i> Basé à Genève · Service francophonie complète
+                    </p>
+                </div>
 
-                    <!-- GMB card content -->
-                    <div class="p-6">
-                        <!-- Business header -->
-                        <div class="flex items-start justify-between mb-4">
-                            <div>
-                                <h3 class="text-xl font-bold text-gray-800">Votre commerce</h3>
-                                <p class="text-sm text-gray-500">Votre catégorie · Genève</p>
+                <div class="gm-hero-media" data-animate="scale" data-delay="0.3">
+                    <div class="gm-mock co-frame">
+                        <span class="co-x tl"></span><span class="co-x tr"></span>
+                        <span class="co-x bl"></span><span class="co-x br"></span>
+                        <div class="gm-mock-bar">
+                            <span class="gm-mock-dot"></span>
+                            <span class="gm-mock-dot"></span>
+                            <span class="gm-mock-dot"></span>
+                            <span class="gm-mock-url">google.com/maps</span>
+                        </div>
+                        <div class="gm-mock-body">
+                            <div class="gm-mock-head">
+                                <div>
+                                    <h3 class="gm-mock-name">Votre commerce</h3>
+                                    <p class="gm-mock-cat">Votre catégorie · Genève</p>
+                                </div>
+                                <span class="gm-mock-status"><span class="gm-mock-live"></span> Ouvert</span>
                             </div>
-                            <div class="bg-accent-soft border-2 border-black px-2 py-1">
-                                <span class="text-xs font-bold text-accent flex items-center gap-1">
-                                    <span class="w-2 h-2 bg-accent rounded-full"></span>
-                                    Ouvert
+                            <div class="gm-mock-rating">
+                                <span class="gm-mock-stars">
+                                    <i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i><i class="ri-star-fill"></i>
                                 </span>
+                                <b>4.9</b><span class="gm-mock-count">· 127 avis</span>
                             </div>
-                        </div>
-
-                        <!-- Rating -->
-                        <div class="flex items-center gap-2 mb-4">
-                            <div class="flex text-yellow-400">
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
-                                <i class="ri-star-fill"></i>
+                            <div class="gm-mock-info">
+                                <div class="gm-mock-row"><i class="ri-map-pin-line"></i><span>Rue du Marché 1, 1204 Genève</span></div>
+                                <div class="gm-mock-row"><i class="ri-time-line"></i><span>Ouvre 9:00 · Ferme 19:00</span></div>
+                                <div class="gm-mock-row"><i class="ri-phone-line"></i><span>+41 22 123 45 67</span></div>
                             </div>
-                            <span class="font-bold text-gray-800">4.9</span>
-                            <span class="text-sm text-gray-500">· 127 avis</span>
-                        </div>
-
-                        <!-- Photos preview -->
-                        <div class="grid grid-cols-3 gap-1 mb-4">
-                            <div class="aspect-square bg-gradient-to-br from-[var(--blue)]/40 to-[var(--violet)]/30 border border-gray-200"></div>
-                            <div class="aspect-square bg-gradient-to-br from-[var(--yellow)]/40 to-orange-200 border border-gray-200"></div>
-                            <div class="aspect-square bg-gradient-to-br from-pink-200 to-[var(--blue)]/40 border border-gray-200"></div>
-                        </div>
-
-                        <!-- Quick info -->
-                        <div class="space-y-2 text-sm text-gray-700">
-                            <div class="flex items-center gap-2">
-                                <i class="ri-map-pin-line text-[var(--blue)]"></i>
-                                <span>Rue du Marché 1, 1204 Genève</span>
+                            <div class="gm-mock-actions">
+                                <span class="gm-mock-act"><i class="ri-direction-line"></i> Itinéraire</span>
+                                <span class="gm-mock-act"><i class="ri-phone-line"></i> Appeler</span>
+                                <span class="gm-mock-act"><i class="ri-global-line"></i> Site web</span>
                             </div>
-                            <div class="flex items-center gap-2">
-                                <i class="ri-time-line text-[var(--blue)]"></i>
-                                <span>Ouvre 9:00 · Ferme 19:00</span>
-                            </div>
-                            <div class="flex items-center gap-2">
-                                <i class="ri-phone-line text-[var(--blue)]"></i>
-                                <span>+41 22 123 45 67</span>
-                            </div>
-                        </div>
-
-                        <!-- Actions -->
-                        <div class="grid grid-cols-3 gap-2 mt-4 pt-4 border-t border-gray-200">
-                            <button class="flex flex-col items-center gap-1 text-xs text-[var(--blue)] font-medium">
-                                <i class="ri-direction-line text-lg"></i>
-                                Itinéraire
-                            </button>
-                            <button class="flex flex-col items-center gap-1 text-xs text-[var(--blue)] font-medium">
-                                <i class="ri-phone-line text-lg"></i>
-                                Appeler
-                            </button>
-                            <button class="flex flex-col items-center gap-1 text-xs text-[var(--blue)] font-medium">
-                                <i class="ri-global-line text-lg"></i>
-                                Site web
-                            </button>
                         </div>
                     </div>
-                </div>
-
-                <!-- Stat badges -->
-                <div class="absolute -top-4 -left-4 bg-white border-2 border-black px-3 py-2 shadow-[3px_3px_0px_rgba(0,0,0,1)] -rotate-6">
-                    <span class="font-mono text-sm font-bold text-[var(--blue)]">+520%</span>
-                    <span class="text-xs text-gray-500 block">itinéraires</span>
-                </div>
-                <div class="absolute -bottom-4 -right-4 bg-[var(--blue)] border-2 border-black px-4 py-2 shadow-[3px_3px_0px_rgba(0,0,0,1)] rotate-3">
-                    <span class="font-bold text-sm">Pack local</span>
+                    <div class="gm-badge gm-badge--stat"><b>+520%</b><span>itinéraires</span></div>
+                    <div class="gm-badge gm-badge--tag">Pack local</div>
                 </div>
             </div>
+        </section>
 
-            <div class="flex items-center justify-center gap-2 text-sm text-gray-500 mt-12">
-                <i class="ri-map-pin-fill text-[var(--blue)]"></i>
-                <span>Basé à Genève | Service francophonie complète</span>
-            </div>
-        </div>
-    </section>
+        <!-- ══ 01 · PROBLÈMES ══ -->
+        <section id="problemes" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">01 — Problèmes</p>
+            <h2 style="margin-top:8px;">Votre fiche vous fait <span class="co-ser">perdre des clients ?</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">
+                Vous êtes au bon endroit si vous vous reconnaissez dans l'une de ces situations.
+            </p>
 
-    <!-- PAIN POINTS SECTION -->
-    <section id="problemes" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundGlitchGrid />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    problèmes
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Votre fiche Google vous fait <span class="relative inline-block">
-                        <span class="absolute bg-panel w-full h-[40%] left-0 bottom-1 -z-1"></span>
-                        perdre des clients
-                    </span><br/>
-                    au lieu d'en attirer ?
-                </h2>
-                <p class="text-lg text-gray-600">Vous êtes au bon endroit si...</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12" data-animate-stagger>
+            <div class="gm-grid gm-grid--3" data-animate-stagger>
                 {painPoints.map((point) => (
-                    <div class="pain-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <IconChip icon={point.icon} variant="muted" size="md" class="mb-4" />
-                        <h3 class="text-lg font-bold mb-2">{point.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">{point.description}</p>
+                    <div class="gm-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${point.icon} gm-card-icon`} aria-hidden="true"></i>
+                        <h3 class="gm-card-title">{point.title}</h3>
+                        <p class="gm-card-text">{point.description}</p>
                     </div>
                 ))}
             </div>
 
-            <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-6 md:p-8 text-center" data-animate="fade-up">
-                <p class="text-lg md:text-xl font-medium">
-                    <i class="ri-lightbulb-line text-[var(--blue)] mr-2"></i>
-                    <strong>Bonne nouvelle :</strong> tout ça est réparable. Et plus rapidement qu'une refonte de site.
-                </p>
+            <div class="gm-note gm-note--accent" data-animate>
+                <i class="ri-lightbulb-line"></i>
+                <p><strong>Bonne nouvelle :</strong> tout ça est réparable. Et plus rapidement qu'une refonte de site.</p>
             </div>
 
-            <p class="mt-8 p-4 bg-[var(--yellow)]/30 border-l-4 border-black text-sm md:text-base max-w-3xl mx-auto">
-                <strong>Pas sûr du potentiel de votre fiche ?</strong> Le
-                <a href="/services/referencement-local" class="underline font-bold hover:text-[var(--violet)]">guide référencement local Genève</a>
-                explique comment Google classe les fiches en 2026, et pourquoi 80% du ranking se joue dans 3 paramètres souvent négligés.
+            <div class="gm-note" data-animate>
+                <p>
+                    <strong>Pas sûr du potentiel de votre fiche ?</strong> Le
+                    <a href="/services/referencement-local" class="gm-inline">guide référencement local Genève</a>
+                    explique comment Google classe les fiches en 2026, et pourquoi 80% du ranking se joue dans 3 paramètres souvent négligés.
+                </p>
+            </div>
+        </section>
+
+        <!-- ══ 02 · CADRAGE (pour qui / pas pour qui) ══ -->
+        <section id="pour-qui" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">02 — Cadrage</p>
+            <h2 style="margin-top:8px;">Pour qui c'est <span class="co-ser">utile</span> (et pour qui non)</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+                Une fiche Google n'a de sens que si votre clientèle vous cherche localement. Sans dimension locale, c'est de l'argent jeté.
             </p>
-        </div>
-    </section>
 
-    <!-- POUR QUI / PAS POUR QUI -->
-    <section id="pour-qui" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <div class="max-w-5xl mx-auto relative z-10">
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    cadrage
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Pour qui ce service est <span class="text-[var(--blue)]">utile</span><br/>
-                    et pour qui il ne l'est pas
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Une fiche Google n'a de sens que si votre clientèle vous cherche localement. Sans dimension locale, c'est de l'argent jeté.
-                </p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8" data-animate-stagger>
-                <!-- For -->
-                <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)]" data-animate-item>
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <i class="ri-checkbox-circle-fill text-[var(--blue)] text-2xl"></i>
-                        Pour vous si vous êtes...
-                    </h3>
-                    <ul class="space-y-3">
-                        {forQui.filter(i => i.type === 'for').map((item) => (
-                            <li class="flex items-start gap-3">
-                                <i class={`${item.icon} text-[var(--blue)] text-lg mt-0.5 flex-shrink-0`}></i>
-                                <span class="text-gray-700">{item.text}</span>
-                            </li>
+            <div class="gm-fit-grid" data-animate-stagger>
+                <div class="gm-fit co-frame" data-animate-item>
+                    <span class="co-x tl"></span><span class="co-x tr"></span>
+                    <span class="co-x bl"></span><span class="co-x br"></span>
+                    <h3 class="gm-fit-title"><i class="ri-checkbox-circle-line"></i> Pour vous si vous êtes...</h3>
+                    <ul class="co-list co-list--check gm-fit-list">
+                        {forQui.filter((i) => i.type === 'for').map((item) => (
+                            <li><i class="ri-check-line"></i><span>{item.text}</span></li>
                         ))}
                     </ul>
                 </div>
 
-                <!-- Not for -->
-                <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)]" data-animate-item>
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <i class="ri-close-circle-fill text-muted text-2xl"></i>
-                        Pas pour vous si...
-                    </h3>
-                    <ul class="space-y-3">
-                        {forQui.filter(i => i.type === 'not').map((item) => (
-                            <li class="flex items-start gap-3 text-gray-500">
-                                <i class={`${item.icon} text-muted text-lg mt-0.5 flex-shrink-0`}></i>
-                                <span>{item.text}</span>
-                            </li>
+                <div class="gm-fit co-frame" data-animate-item>
+                    <span class="co-x tl"></span><span class="co-x tr"></span>
+                    <span class="co-x bl"></span><span class="co-x br"></span>
+                    <h3 class="gm-fit-title gm-fit-title--muted"><i class="ri-close-circle-line"></i> Pas pour vous si...</h3>
+                    <ul class="gm-fit-list gm-fit-list--not">
+                        {forQui.filter((i) => i.type === 'not').map((item) => (
+                            <li><i class="ri-close-line"></i><span>{item.text}</span></li>
                         ))}
                     </ul>
-                    <p class="mt-6 text-sm text-gray-500 italic border-t border-dashed border-gray-300 pt-4">
+                    <p class="gm-fit-foot">
                         Dans ces cas, mieux vaut investir ailleurs : SEO classique, contenu, partenariats sectoriels.
                     </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- 4 PILIERS -->
-    <section id="ce-que-je-fais" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundCircuitBoard animated={true} />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    périmètre
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Concrètement,<br/>
-                    <span class="text-[var(--blue)]">ce que je fais sur votre fiche</span>
-                </h2>
-            </div>
+        <!-- ══ 03 · PÉRIMÈTRE (4 piliers) ══ -->
+        <section id="ce-que-je-fais" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">03 — Périmètre</p>
+            <h2 style="margin-top:8px;">Concrètement, ce que je fais sur <span class="co-ser">votre fiche</span></h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8" data-animate-stagger>
+            <div class="gm-grid gm-grid--2" data-animate-stagger>
                 {piliers.map((pilier, index) => (
-                    <div class="bg-[var(--main-bg)] border-2 border-black p-6 md:p-7 relative" data-animate-item>
-                        <div class="flex items-center gap-3 mb-4">
-                            <IconChip icon={pilier.icon} />
-                            <span class="font-mono text-sm text-gray-500">0{index + 1}</span>
+                    <div class="gm-card co-frame co-frame--reveal" data-animate-item>
+                        <div class="gm-card-head">
+                            <i class={`${pilier.icon} gm-card-icon`} aria-hidden="true"></i>
+                            <span class="co-index">0{index + 1}</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">{pilier.title}</h3>
-                        <p class="text-gray-600 mb-4">{pilier.description}</p>
-                        <ul class="space-y-2 pt-4 border-t border-dashed border-gray-300">
+                        <h3 class="gm-card-title">{pilier.title}</h3>
+                        <p class="gm-card-text">{pilier.description}</p>
+                        <ul class="co-list co-list--check gm-card-items">
                             {pilier.items.map((item) => (
-                                <li class="flex items-start gap-2 text-sm text-gray-700">
-                                    <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
-                                    <span>{item}</span>
-                                </li>
+                                <li><i class="ri-check-line"></i><span>{item}</span></li>
                             ))}
                         </ul>
                     </div>
                 ))}
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- METHODOLOGY -->
-    <section id="methode" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <BackgroundProgressFlow />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    méthode
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Le setup d'abord.<br/>
-                    <span class="text-[var(--blue)]">La cadence ensuite.</span>
-                </h2>
-            </div>
+        <!-- ══ 04 · MÉTHODE ══ -->
+        <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">04 — Méthode</p>
+            <h2 style="margin-top:8px;">Le setup d'abord, la <span class="co-ser">cadence</span> ensuite</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:58ch;line-height:1.6;">
+                Un socle propre en deux semaines, puis une cadence récurrente qui transforme la fiche en actif.
+            </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-animate-stagger>
+            <div class="gm-weeks" data-animate-stagger>
                 {methodSteps.map((step, index) => (
-                    <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
-                                0{index + 1}
-                            </span>
-                            <span class="bg-accent px-3 py-1 text-sm font-mono font-bold border-2 border-black">
-                                {step.week}
-                            </span>
+                    <div class="gm-week co-frame" data-animate-item>
+                        <div class="gm-week-head">
+                            <span class="co-index">0{index + 1}</span>
+                            <span class="co-badge">{step.week}</span>
                         </div>
-                        <h3 class="text-xl font-bold mb-4">{step.title}</h3>
-                        <ul class="space-y-2 mb-4">
+                        <h3 class="gm-week-title">{step.title}</h3>
+                        <ul class="co-list co-list--check gm-week-tasks">
                             {step.tasks.map((task) => (
-                                <li class="flex items-start gap-2 text-gray-600">
-                                    <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
-                                    <span>{task}</span>
-                                </li>
+                                <li><i class="ri-check-line"></i><span>{task}</span></li>
                             ))}
                         </ul>
-                        <div class="flex flex-col gap-1 text-sm pt-4 border-t border-dashed border-gray-300">
-                            <span class="text-gray-400">Livrable</span>
-                            <span class="bg-gray-100 border border-gray-300 px-2 py-1 font-medium text-xs">{step.deliverable}</span>
+                        <div class="gm-week-deliver">
+                            <span class="gm-week-deliver-label">Livrable</span>
+                            <span class="gm-week-deliver-val">{step.deliverable}</span>
                         </div>
                     </div>
                 ))}
             </div>
 
-            <div class="mt-16 md:mt-20">
-                <h3 class="text-xl md:text-2xl font-bold text-center mb-8" data-animate="fade-up">Ce qui me différencie</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" data-animate-stagger>
+            <div class="gm-diff co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="gm-diff-title">Ce qui me différencie</h3>
+                <div class="gm-diff-grid">
                     {differentiators.map((diff) => (
-                        <div class="bg-white border-2 border-black p-5" data-animate-item>
-                            <i class={`${diff.icon} text-2xl text-[var(--blue)] mb-3 block`}></i>
-                            <h4 class="font-bold mb-2">{diff.title}</h4>
-                            <p class="text-sm text-gray-600">{diff.description}</p>
+                        <div class="gm-diff-item">
+                            <i class={`${diff.icon} gm-diff-icon`} aria-hidden="true"></i>
+                            <h4 class="gm-diff-name">{diff.title}</h4>
+                            <p class="gm-diff-desc">{diff.description}</p>
                         </div>
                     ))}
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- PRICING -->
-    <section id="prix" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    investissement
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Un setup unique,<br/>
-                    <span class="text-[var(--blue)]">un mensuel tout inclus</span>
-                </h2>
-                <p class="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">
-                    Pas de palier compliqué, pas de surprise. Vous voyez ce que vous payez et ce que vous recevez.
-                </p>
-            </div>
+        <!-- ══ 05 · INVESTISSEMENT (prix) ══ -->
+        <section id="prix" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">05 — Investissement</p>
+            <h2 style="margin-top:8px;">Un setup unique, un <span class="co-ser">mensuel tout inclus</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">
+                Pas de palier compliqué, pas de surprise. Vous voyez ce que vous payez et ce que vous recevez.
+            </p>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12" data-animate-stagger>
-                <!-- Setup card -->
-                <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate-item>
-                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-
-                    <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
-                        <i class="ri-tools-line text-[var(--blue)]"></i>
-                        Setup unique
-                    </h3>
-                    <p class="text-sm text-gray-500 mb-6">Le travail de fond — fait une seule fois, propre.</p>
-
-                    <div class="mb-6">
-                        <p class="text-5xl font-bold text-[var(--text)]">CHF 590</p>
-                        <p class="text-sm text-gray-600">Une fois, en début de mission</p>
+            <div class="gm-tiers" data-animate-stagger>
+                <!-- Setup unique -->
+                <div class="gm-tier" data-animate-item>
+                    <h3 class="gm-tier-name"><i class="ri-tools-line"></i> Setup unique</h3>
+                    <p class="gm-tier-sub">Le travail de fond — fait une seule fois, propre.</p>
+                    <div class="gm-tier-price">
+                        <b>CHF 590</b>
+                        <span class="gm-tier-cur">Une fois, en début de mission</span>
                     </div>
-
-                    <ul class="space-y-2 text-sm">
-                        <li class="flex items-start gap-2">
-                            <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
-                            <span>Audit complet fiche actuelle</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
-                            <span>Création / récupération / vérification</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
-                            <span>Optimisation complète (catégorie, description 750c, photos, attributs, services, horaires)</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
-                            <span>Schema LocalBusiness sur votre site</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
-                            <span>Système d'avis (lien court + QR code)</span>
-                        </li>
-                        <li class="flex items-start gap-2">
-                            <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
-                            <span>Réponses aux avis existants en attente</span>
-                        </li>
+                    <ul class="co-list co-list--check gm-tier-features">
+                        {setupInclusions.map((item) => (
+                            <li><i class="ri-check-line"></i><span>{item}</span></li>
+                        ))}
                     </ul>
-
-                    <p class="mt-6 text-xs text-gray-500 bg-white border border-gray-300 p-3">
+                    <p class="gm-tier-note">
                         <strong>Setup-only possible :</strong> on s'arrête là, je vous laisse une feuille de route, vous gérez seul ensuite.
                     </p>
                 </div>
 
-                <!-- Mensuel card -->
-                <div class="bg-[var(--blue)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate-item>
-                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-black border-2 border-black"></div>
-                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-black border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-black border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-black border-2 border-black"></div>
-
-                    <span class="absolute -top-3 right-4 bg-accent border-2 border-black px-3 py-1 text-xs font-mono font-bold rotate-3">
-                        Recommandé
-                    </span>
-
-                    <h3 class="text-xl font-bold mb-2 flex items-center gap-2">
-                        <i class="ri-loop-left-line"></i>
-                        Mensuel tout inclus
-                    </h3>
-                    <p class="text-sm text-gray-800 mb-6">La cadence qui transforme une fiche en actif.</p>
-
-                    <div class="mb-6">
-                        <p class="text-5xl font-bold">CHF 300<span class="text-xl font-normal">/mois</span></p>
-                        <p class="text-sm text-gray-800">Sans engagement, 1 mois de préavis</p>
+                <!-- Mensuel tout inclus -->
+                <div class="gm-tier gm-tier--reco" data-animate-item>
+                    <span class="co-badge co-badge--solid gm-tier-reco">Recommandé</span>
+                    <h3 class="gm-tier-name"><i class="ri-loop-left-line"></i> Mensuel tout inclus</h3>
+                    <p class="gm-tier-sub">La cadence qui transforme une fiche en actif.</p>
+                    <div class="gm-tier-price">
+                        <b>CHF 300<span class="gm-tier-per">/mois</span></b>
+                        <span class="gm-tier-cur">Sans engagement, 1 mois de préavis</span>
                     </div>
-
-                    <ul class="space-y-2 text-sm">
+                    <ul class="co-list co-list--check gm-tier-features">
                         {inclusions.map((item) => (
-                            <li class="flex items-start gap-2">
-                                <i class="ri-check-line text-black mt-0.5 flex-shrink-0 font-bold"></i>
-                                <span>{item}</span>
-                            </li>
+                            <li><i class="ri-check-line"></i><span>{item}</span></li>
                         ))}
                     </ul>
                 </div>
             </div>
 
-            <div class="bg-[var(--main-bg)] border-2 border-black p-6 md:p-8" data-animate="fade-up">
-                <p class="text-sm text-gray-700 mb-2 flex items-start gap-2">
-                    <i class="ri-information-line text-[var(--blue)] mt-1"></i>
-                    <span>
-                        <strong>Multi-établissements ?</strong> Le forfait couvre 1 fiche.
-                        Pour 2-5 fiches, dégressif sur devis. Pour 6+, on bascule sur Google Business Profile API (automatisation partielle).
-                    </span>
+            <div class="gm-pricenote co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <p class="gm-pricenote-line">
+                    <i class="ri-information-line"></i>
+                    <span><strong>Multi-établissements ?</strong> Le forfait couvre 1 fiche. Pour 2-5 fiches, dégressif sur devis. Pour 6+, on bascule sur Google Business Profile API (automatisation partielle).</span>
                 </p>
-                <p class="text-sm text-gray-700 flex items-start gap-2">
-                    <i class="ri-information-line text-[var(--blue)] mt-1"></i>
-                    <span>
-                        <strong>Pour aller plus loin :</strong> ce service couvre la fiche et son écosystème direct.
-                        Pour du <a href="/services/referencement-local" class="underline font-bold hover:text-[var(--violet)]">SEO local complet</a> (contenu blog, citations, netlinking), c'est un autre périmètre.
-                    </span>
+                <p class="gm-pricenote-line">
+                    <i class="ri-information-line"></i>
+                    <span><strong>Pour aller plus loin :</strong> ce service couvre la fiche et son écosystème direct. Pour du <a href="/services/referencement-local" class="gm-inline">SEO local complet</a> (contenu blog, citations, netlinking), c'est un autre périmètre.</span>
                 </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FAQ SECTION -->
-    <FAQ faqs={faqs} sectionId="faq">
-        <BackgroundQuestionMarks slot="background" animated={true} />
-    </FAQ>
+        <!-- ══ 06 · FAQ (accordéon natif <details>, zéro JS) ══ -->
+        <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">06 — FAQ</p>
+            <h2 style="margin-top:8px;">Questions fréquentes</h2>
 
-    <!-- LOCAL SEO -->
-    <section id="local" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundMapContours />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    local
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Basé à <span class="text-[var(--blue)]">Genève</span>,<br/>
-                    service francophonie complète
-                </h2>
+            <div class="gm-faq" style="margin-top:32px;">
+                {faqs.map((faq, index) => (
+                    <details open={index === 0}>
+                        <summary>
+                            {faq.question}
+                            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+                        </summary>
+                        <p class="gm-faq-answer">
+                            {faq.answer}
+                            {faq.linkUrl && (<> <a href={faq.linkUrl} class="gm-inline">{faq.linkText}</a></>)}
+                        </p>
+                    </details>
+                ))}
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+            <p class="co-mut" style="margin-top:24px;text-align:center;">
+                Une autre question ? <a href="#contact" class="gm-inline">Contactez-moi directement</a>, je réponds sous 24-48h.
+            </p>
+        </section>
+
+        <!-- ══ 07 · LOCAL (SEO géo) ══ -->
+        <section id="local" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">07 — Local</p>
+            <h2 style="margin-top:8px;">Basé à <span class="co-ser">Genève</span>, service francophonie complète</h2>
+
+            <div class="gm-local-grid">
                 <div data-animate="fade-left">
-                    <h3 class="text-xl font-bold mb-6">Pourquoi un prestataire qui connaît le marché ?</h3>
-                    <div class="space-y-4">
+                    <h3 class="gm-local-h3">Pourquoi un prestataire qui connaît le marché ?</h3>
+                    <div class="gm-local-adv">
                         {localAdvantages.map((adv) => (
-                            <div class="flex items-start gap-4 p-4 bg-[var(--main-bg)] border-2 border-black">
-                                <IconChip icon={adv.icon} size="md" class="flex-shrink-0" />
+                            <div class="gm-local-item co-frame">
+                                <i class={`${adv.icon} gm-local-icon`} aria-hidden="true"></i>
                                 <div>
-                                    <h4 class="font-bold mb-1">{adv.title}</h4>
-                                    <p class="text-sm text-gray-600">{adv.description}</p>
+                                    <h4 class="gm-local-name">{adv.title}</h4>
+                                    <p class="gm-local-desc">{adv.description}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                <div data-animate="fade-right">
-                    <h3 class="text-xl font-bold mb-6">Zones d'intervention prioritaires</h3>
-                    <div class="space-y-3">
+                <div data-animate="fade-left" data-delay="0.1">
+                    <h3 class="gm-local-h3">Zones d'intervention prioritaires</h3>
+                    <div class="gm-zones">
                         {zones.map((zone) => (
-                            <div class={`
-                                flex items-center gap-4 p-4 border-2 border-black
-                                ${zone.type === 'primary' ? 'bg-[var(--blue)] bg-opacity-20 border-[var(--blue)]' : 'bg-white'}
-                            `}>
-                                <i class={`${zone.icon} text-xl ${zone.type === 'primary' ? 'text-[var(--blue)]' : 'text-gray-600'}`}></i>
-                                <span class={`font-medium ${zone.type === 'primary' ? 'text-lg font-bold' : ''}`}>
-                                    {zone.name}
-                                    {zone.type === 'primary' && <span class="text-sm font-normal text-gray-600 ml-2">(basé sur place)</span>}
+                            <div class={`gm-zone ${zone.type === 'primary' ? 'gm-zone--primary' : ''}`}>
+                                <i class={zone.icon}></i>
+                                <span>
+                                    <strong>{zone.name}</strong>
+                                    {zone.type === 'primary' && <span class="co-mut"> (basé sur place)</span>}
                                 </span>
                             </div>
                         ))}
                     </div>
-                    <p class="mt-6 text-sm text-gray-500">
-                        <i class="ri-information-line mr-1"></i>
-                        La gestion de fiche se fait à 100% en remote. Aucun déplacement nécessaire.
+                    <p class="co-mut" style="margin-top:16px;font-size:13.5px;">
+                        <i class="ri-information-line"></i> La gestion de fiche se fait à 100% en remote. Aucun déplacement nécessaire.
                     </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- RESSOURCES — maillage cluster GMB -->
-    <section id="ressources" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    ressources
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Tout comprendre sur ta fiche Google
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Avant de déléguer, fais-toi ton propre avis. J'ai écrit un dossier complet sur la fiche Google My Business pour les PME romandes — commence par le <a href="/blog/fiche-google-my-business-guide-complet-2026" class="text-[var(--blue)] font-medium hover:underline">guide complet</a>.
-                </p>
-            </div>
+        <!-- ══ 08 · RESSOURCES (maillage cluster GMB) ══ -->
+        <section id="ressources" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">08 — Ressources</p>
+            <h2 style="margin-top:8px;">Tout comprendre sur ta fiche Google</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+                Avant de déléguer, fais-toi ton propre avis. J'ai écrit un dossier complet sur la fiche Google My Business
+                pour les PME romandes — commence par le
+                <a href="/blog/fiche-google-my-business-guide-complet-2026" class="gm-inline">guide complet</a>.
+            </p>
 
-            <!-- Cluster groups grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6" data-animate-stagger>
+            <div class="gm-grid gm-grid--2" data-animate-stagger>
                 {clusterGroups.map((group) => (
-                    <div class="bg-white border-2 border-black p-6 relative" data-animate-item>
-                        <div class="flex items-center gap-3 mb-4">
-                            <IconChip icon={group.icon} size="md" class="flex-shrink-0" />
-                            <h3 class="text-lg font-bold">{group.label}</h3>
+                    <div class="gm-res co-frame" data-animate-item>
+                        <div class="gm-res-head">
+                            <i class={`${group.icon} gm-res-icon`} aria-hidden="true"></i>
+                            <h3 class="gm-res-label">{group.label}</h3>
                         </div>
-                        <ul class="space-y-2">
+                        <ul class="gm-res-list">
                             {group.articles.map((article) => (
                                 <li>
-                                    <a href={article.href} class="flex items-start gap-2 text-sm text-gray-700 hover:text-[var(--text)] group">
-                                        <i class="ri-arrow-right-s-line text-[var(--blue)] mt-0.5 group-hover:translate-x-1 transition-transform"></i>
-                                        <span class="group-hover:underline">{article.title}</span>
+                                    <a href={article.href} class="gm-res-link">
+                                        <i class="ri-arrow-right-s-line"></i>
+                                        <span>{article.title}</span>
                                     </a>
                                 </li>
                             ))}
@@ -869,247 +636,367 @@ const clusterGroups = [
                     </div>
                 ))}
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA + FORM -->
-    <section id="contact" class="py-20 md:py-28 px-4 bg-[var(--main-bg)] border-t-2 border-black relative overflow-hidden">
-        <div class="absolute inset-0 dots-bg opacity-[0.4]"></div>
+        <!-- ══ 09 · CONTACT (formulaire Web3Forms — HARD-PRESERVE câblage) ══ -->
+        <section id="contact" class="co-sec co-pad" style="padding:64px 40px;">
+            <p class="co-eyebrow">09 — Contact</p>
+            <h2 style="margin-top:8px;">Prêt à confier votre <span class="co-ser">fiche ?</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:52ch;line-height:1.6;">2 façons de démarrer.</p>
 
-        <div class="max-w-4xl mx-auto relative z-10">
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4 text-[var(--text)]">
-                    Prêt à confier votre fiche ?
-                </h2>
-                <p class="text-lg text-gray-600">2 façons de démarrer</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" data-animate-stagger>
-                <div class="bg-white border-2 border-black p-6 text-center shadow-[4px_4px_0px_rgba(0,0,0,0.15)]" data-animate-item>
-                    <IconChip icon="ri-search-eye-line" class="mx-auto mb-4" />
-                    <h3 class="text-xl font-bold mb-2">Option 1 : Audit gratuit</h3>
-                    <p class="text-gray-600 text-sm mb-4">Donnez l'URL de votre fiche.<br/>Je vous envoie un mini-rapport sous 24-48h.</p>
+            <div class="gm-opts" data-animate-stagger>
+                <div class="gm-opt co-frame" data-animate-item>
+                    <i class="ri-search-eye-line gm-opt-icon" aria-hidden="true"></i>
+                    <h3 class="gm-opt-title">Option 1 · Audit gratuit</h3>
+                    <p class="gm-opt-text">Donnez l'URL de votre fiche. Je vous envoie un mini-rapport sous 24-48h.</p>
                 </div>
-                <div class="bg-white border-2 border-black p-6 text-center shadow-[4px_4px_0px_rgba(0,0,0,0.15)]" data-animate-item>
-                    <IconChip icon="ri-chat-3-line" class="mx-auto mb-4" />
-                    <h3 class="text-xl font-bold mb-2">Option 2 : Discutons</h3>
-                    <p class="text-gray-600 text-sm mb-4">Idée claire ?<br/>Direct un appel de 15 min via Cal.com.</p>
-                    <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener" class="text-sm text-[var(--violet)] underline font-mono">
-                        → Réserver un créneau
-                    </a>
+                <div class="gm-opt co-frame" data-animate-item>
+                    <i class="ri-chat-3-line gm-opt-icon" aria-hidden="true"></i>
+                    <h3 class="gm-opt-title">Option 2 · Discutons</h3>
+                    <p class="gm-opt-text">Idée claire ? Direct un appel de 15 min via Cal.com.</p>
+                    <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="gm-inline"><i class="ri-calendar-line"></i> Réserver un créneau</a>
                 </div>
             </div>
 
-            <div class="contact-form-container" data-animate="scale">
-                <form
-                    class="bg-white text-[var(--text)] border-3 border-black p-6 md:p-8 shadow-[8px_8px_0px_rgba(0,217,163,0.3)] relative"
-                    id="gmb-form"
-                >
-                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+            <form class="gm-form co-frame" id="gmb-form" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
 
-                    <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
-                    <input type="hidden" name="subject" value="Demande gestion fiche Google - Jon Labs">
-                    <input type="hidden" name="from_name" value="Jon Labs - GMB">
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                <!-- Hidden fields for Web3Forms (HARD-PRESERVE) -->
+                <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
+                <input type="hidden" name="subject" value="Demande gestion fiche Google - Jon Labs">
+                <input type="hidden" name="from_name" value="Jon Labs - GMB">
+                <input type="checkbox" name="botcheck" class="gm-honeypot" style="display: none;">
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div class="form-field">
-                            <label for="name" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">01</span>
-                                Votre nom <span class="text-red-500">*</span>
+                <h3 class="gm-form-title">Demandez votre audit gratuit</h3>
+
+                <div class="gm-form-grid">
+                    <div class="gm-field">
+                        <label for="name" class="gm-label"><span class="co-index">01</span> Votre nom <span class="gm-req">*</span></label>
+                        <input type="text" id="name" name="name" required placeholder="Jean Dupont" class="gm-input" />
+                    </div>
+
+                    <div class="gm-field">
+                        <label for="email" class="gm-label"><span class="co-index">02</span> Votre email <span class="gm-req">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="vous@exemple.ch" class="gm-input" />
+                    </div>
+
+                    <div class="gm-field">
+                        <label for="business" class="gm-label"><span class="co-index">03</span> Nom de votre commerce <span class="gm-req">*</span></label>
+                        <input type="text" id="business" name="business" required placeholder="Salon Tendance" class="gm-input" />
+                    </div>
+
+                    <div class="gm-field">
+                        <label for="activity" class="gm-label"><span class="co-index">04</span> Secteur d'activité <span class="gm-req">*</span></label>
+                        <input type="text" id="activity" name="activity" required placeholder="Coiffeur, Restaurant, Artisan..." class="gm-input" />
+                    </div>
+
+                    <div class="gm-field gm-field--full">
+                        <label for="fiche-url" class="gm-label"><span class="co-index">05</span> URL de votre fiche Google (si elle existe)</label>
+                        <input type="url" id="fiche-url" name="fiche_url" placeholder="https://maps.app.goo.gl/..." class="gm-input" />
+                        <p class="gm-hint"><i class="ri-information-line"></i> Laissez vide si vous n'avez pas encore de fiche — je m'en occupe.</p>
+                    </div>
+
+                    <div class="gm-field gm-field--full">
+                        <span class="gm-label"><span class="co-index">06</span> Situation actuelle <span class="gm-req">*</span></span>
+                        <div class="gm-radio-grid">
+                            <label class="gm-radio">
+                                <input type="radio" name="situation" value="pas-de-fiche" required />
+                                <span>Je n'ai pas de fiche (à créer)</span>
                             </label>
-                            <input type="text" id="name" name="name" required placeholder="Jean Dupont"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all" />
-                        </div>
-
-                        <div class="form-field">
-                            <label for="email" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">02</span>
-                                Votre email <span class="text-red-500">*</span>
+                            <label class="gm-radio">
+                                <input type="radio" name="situation" value="fiche-pas-optim" />
+                                <span>J'ai une fiche, jamais optimisée</span>
                             </label>
-                            <input type="email" id="email" name="email" required placeholder="vous@exemple.ch"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all" />
-                        </div>
-
-                        <div class="form-field">
-                            <label for="business" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">03</span>
-                                Nom de votre commerce <span class="text-red-500">*</span>
+                            <label class="gm-radio">
+                                <input type="radio" name="situation" value="fiche-suspendue" />
+                                <span>Ma fiche est suspendue / bloquée</span>
                             </label>
-                            <input type="text" id="business" name="business" required placeholder="Salon Tendance"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all" />
-                        </div>
-
-                        <div class="form-field">
-                            <label for="activity" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">04</span>
-                                Secteur d'activité <span class="text-red-500">*</span>
+                            <label class="gm-radio">
+                                <input type="radio" name="situation" value="recuperer" />
+                                <span>Je veux récupérer une fiche existante</span>
                             </label>
-                            <input type="text" id="activity" name="activity" required placeholder="Coiffeur, Restaurant, Artisan..."
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all" />
-                        </div>
-
-                        <div class="form-field md:col-span-2">
-                            <label for="fiche-url" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">05</span>
-                                URL de votre fiche Google (si elle existe)
+                            <label class="gm-radio gm-radio--full">
+                                <input type="radio" name="situation" value="autre" />
+                                <span>Autre / je ne sais pas</span>
                             </label>
-                            <input type="url" id="fiche-url" name="fiche_url" placeholder="https://maps.app.goo.gl/..."
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all" />
-                            <p class="text-xs text-gray-500 mt-2">
-                                <i class="ri-information-line mr-1"></i>
-                                Laissez vide si vous n'avez pas encore de fiche — je m'en occupe.
-                            </p>
-                        </div>
-
-                        <div class="form-field md:col-span-2">
-                            <label class="flex items-center gap-2 text-sm font-medium mb-3">
-                                <span class="font-mono text-xs text-gray-400">06</span>
-                                Situation actuelle <span class="text-red-500">*</span>
-                            </label>
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
-                                <label class="flex items-start gap-2 cursor-pointer group p-3 border-2 border-gray-300 hover:border-black transition-colors">
-                                    <input type="radio" name="situation" value="pas-de-fiche" required class="mt-1" />
-                                    <span class="text-sm">Je n'ai pas de fiche (à créer)</span>
-                                </label>
-                                <label class="flex items-start gap-2 cursor-pointer group p-3 border-2 border-gray-300 hover:border-black transition-colors">
-                                    <input type="radio" name="situation" value="fiche-pas-optim" class="mt-1" />
-                                    <span class="text-sm">J'ai une fiche, jamais optimisée</span>
-                                </label>
-                                <label class="flex items-start gap-2 cursor-pointer group p-3 border-2 border-gray-300 hover:border-black transition-colors">
-                                    <input type="radio" name="situation" value="fiche-suspendue" class="mt-1" />
-                                    <span class="text-sm">Ma fiche est suspendue / bloquée</span>
-                                </label>
-                                <label class="flex items-start gap-2 cursor-pointer group p-3 border-2 border-gray-300 hover:border-black transition-colors">
-                                    <input type="radio" name="situation" value="recuperer" class="mt-1" />
-                                    <span class="text-sm">Je veux récupérer une fiche existante</span>
-                                </label>
-                                <label class="flex items-start gap-2 cursor-pointer group p-3 border-2 border-gray-300 hover:border-black transition-colors md:col-span-2">
-                                    <input type="radio" name="situation" value="autre" class="mt-1" />
-                                    <span class="text-sm">Autre / je ne sais pas</span>
-                                </label>
-                            </div>
-                        </div>
-
-                        <div class="form-field md:col-span-2">
-                            <label for="message" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">07</span>
-                                Message (optionnel)
-                            </label>
-                            <textarea id="message" name="message" rows="4"
-                                placeholder="Vos questions, votre contexte, ce que vous attendez du service..."
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"></textarea>
-                        </div>
-
-                        <div class="form-field md:col-span-2">
-                            <label class="flex items-start gap-3 cursor-pointer group">
-                                <input type="checkbox" name="consent" required
-                                    class="mt-1 w-5 h-5 border-2 border-black appearance-none cursor-pointer checked:bg-[var(--blue)] checked:border-black relative transition-all" />
-                                <span class="text-sm text-gray-600 group-hover:text-black transition-colors">
-                                    J'accepte d'être contacté par Jon Labs concernant ma demande. <span class="text-red-500">*</span>
-                                </span>
-                            </label>
-                        </div>
-
-                        <div class="md:col-span-2 pt-4">
-                            <button type="submit" class="
-                                submit-btn w-full
-                                bg-[var(--blue)] border-2 border-black
-                                px-8 py-4 text-lg font-bold
-                                shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                                transition-all duration-200
-                                hover:bg-[var(--yellow)]
-                                hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                                hover:translate-x-[2px] hover:translate-y-[2px]
-                                focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2
-                                flex items-center justify-center gap-3
-                            ">
-                                <span>Demander mon audit gratuit</span>
-                                <i class="ri-send-plane-line text-xl"></i>
-                            </button>
                         </div>
                     </div>
-                </form>
 
-                <div class="flex flex-wrap justify-center gap-6 mt-8 text-sm text-gray-600">
+                    <div class="gm-field gm-field--full">
+                        <label for="message" class="gm-label"><span class="co-index">07</span> Message (optionnel)</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Vos questions, votre contexte, ce que vous attendez du service..." class="gm-textarea"></textarea>
+                    </div>
+
+                    <div class="gm-field gm-field--full">
+                        <label class="gm-consent">
+                            <input type="checkbox" name="consent" required class="gm-checkbox" />
+                            <span>J'accepte d'être contacté par Jon Labs concernant ma demande. <span class="gm-req">*</span></span>
+                        </label>
+                    </div>
+
+                    <div class="gm-field gm-field--full">
+                        <button type="submit" class="co-btn submit-btn gm-submit">
+                            <span>Demander mon audit gratuit</span>
+                            <i class="ri-send-plane-line"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+
+            <div class="gm-form-after" data-animate>
+                <div class="gm-trust">
                     {trustItems.map((t) => (
-                        <span class="flex items-center gap-2">
-                            <i class={`${t.icon} text-[var(--blue)]`}></i>
-                            {t.text}
-                        </span>
+                        <span><i class={t.icon}></i> {t.text}</span>
                     ))}
                 </div>
-
-                <div class="text-center mt-8">
-                    <p class="text-gray-500 text-sm mb-2">Besoin d'une réponse rapide ?</p>
-                    <a href="mailto:contact@jonlabs.ch" class="text-[var(--blue)] font-mono hover:underline">
-                        → contact@jonlabs.ch
-                    </a>
+                <div class="gm-alt">
+                    <p class="co-mut">Besoin d'une réponse rapide ?</p>
+                    <a href="mailto:contact@jonlabs.ch" class="gm-inline">contact@jonlabs.ch</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
 
     <Footer />
 </Layout>
 
-<style>
-    .dots-bg {
-        background-image: radial-gradient(circle, #000 1px, transparent 1px);
-        background-size: 24px 24px;
-    }
+<style is:global>
+    /* ══ GESTION FICHE GOOGLE — styles .gm-* (namespace scopé, corps .co-root) ══ */
 
-    .seo-h1 {
-        font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace;
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: var(--color-accent-strong);
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    /* ── Hero ── */
+    .gm-hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
+    .gm-hero-title { font-size: clamp(2.1rem, 4.6vw, 3.2rem); }
+    .co-root .gm-hero-lead { margin-top: 18px; max-width: 52ch; font-size: 1.075rem; line-height: 1.65; color: var(--muted); }
+    .gm-hero-lead strong { color: var(--ink); font-weight: 600; }
+    .gm-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .gm-hero-btns .co-btn i { transition: transform .18s ease-out; }
+    .gm-hero-btns .co-btn:hover i { transform: translateY(2px); }
+    .co-root .gm-hero-loc { margin-top: 22px; font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px; }
+    .gm-hero-loc i { color: var(--accent); }
 
-    input[type="checkbox"]:checked::after {
-        content: '';
-        position: absolute;
-        left: 5px;
-        top: 1px;
-        width: 6px;
-        height: 12px;
-        border: solid black;
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
-    }
+    /* GMB card mockup */
+    .gm-hero-media { position: relative; }
+    .gm-mock { position: relative; background: var(--surface); border: 1px solid var(--line-2); }
+    .gm-mock-bar { display: flex; align-items: center; gap: 8px; padding: 11px 14px; border-bottom: 1px solid var(--line); background: var(--bg); }
+    .gm-mock-dot { width: 9px; height: 9px; border-radius: 999px; background: var(--line-2); flex: none; }
+    .gm-mock-url { flex: 1; text-align: center; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .gm-mock-body { padding: 22px 24px; display: flex; flex-direction: column; gap: 16px; }
+    .gm-mock-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .gm-mock-name { font-size: 1.15rem; }
+    .co-root .gm-mock-cat { margin-top: 2px; font-size: 13px; color: var(--muted); }
+    .gm-mock-status { display: inline-flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 600; color: var(--accent); border: 1px solid var(--accent); padding: 4px 9px; white-space: nowrap; }
+    .gm-mock-live { width: 7px; height: 7px; border-radius: 999px; background: var(--accent); flex: none; }
+    .gm-mock-rating { display: flex; align-items: center; gap: 7px; font-size: 14px; }
+    .gm-mock-stars { color: var(--accent); display: inline-flex; gap: 1px; font-size: 15px; }
+    .gm-mock-rating b { font-weight: 600; }
+    .gm-mock-count { color: var(--muted); font-size: 13px; }
+    .gm-mock-info { display: flex; flex-direction: column; gap: 9px; }
+    .gm-mock-row { display: flex; align-items: center; gap: 10px; font-size: 13.5px; color: var(--ink); }
+    .gm-mock-row i { color: var(--muted); font-size: 16px; flex: none; }
+    .gm-mock-actions { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; padding-top: 14px; border-top: 1px solid var(--line); }
+    .gm-mock-act { display: flex; flex-direction: column; align-items: center; gap: 5px; font-size: 12px; font-weight: 500; color: var(--accent); text-align: center; }
+    .gm-mock-act i { font-size: 18px; }
+    .gm-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: 8px 12px; font-size: 12px; font-weight: 600; }
+    .gm-badge--stat { top: -16px; left: -14px; display: flex; flex-direction: column; line-height: 1.1; }
+    .gm-badge--stat b { color: var(--accent); font-size: 15px; font-variant-numeric: tabular-nums; }
+    .gm-badge--stat span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .gm-badge--tag { bottom: -16px; right: -14px; background: var(--accent); border-color: var(--accent); color: #fff; }
 
-    input[type="radio"] {
-        accent-color: var(--blue);
+    /* ── Cartes génériques (problèmes / piliers / ressources) ── */
+    .gm-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .gm-grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .gm-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .gm-card {
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        background: var(--surface); border: 1px solid var(--line-2);
+        transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
+    .gm-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+    .gm-card-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .gm-card-icon { font-size: 24px; color: var(--accent); line-height: 1; }
+    .gm-card-title { font-size: 1.1rem; }
+    .gm-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
+    .gm-card-items { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); gap: 8px; }
+    .gm-card-items li { font-size: 13.5px; line-height: 1.45; }
 
-    .submit-btn.loading {
-        pointer-events: none;
-        opacity: 0.7;
+    /* ── Notes / callouts ── */
+    .gm-note { display: flex; align-items: flex-start; gap: 12px; margin-top: 20px; padding: 18px 22px; border: 1px solid var(--line-2); background: var(--surface); }
+    .gm-note i { color: var(--accent); font-size: 20px; flex: none; margin-top: 1px; }
+    .co-root .gm-note p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+    .gm-note--accent { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .gm-note strong { color: var(--ink); font-weight: 600; }
+    .gm-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
+    .gm-inline:hover { color: var(--ink); }
+
+    /* ── Cadrage (pour qui / pas pour qui) ── */
+    .gm-fit-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; margin-top: 32px; align-items: start; }
+    .gm-fit { position: relative; padding: 30px 28px; background: var(--surface); border: 1px solid var(--line-2); }
+    .gm-fit-title { font-size: 1.15rem; display: flex; align-items: center; gap: 9px; margin-bottom: 18px; }
+    .gm-fit-title i { color: var(--accent); font-size: 22px; }
+    .gm-fit-title--muted i { color: var(--muted); }
+    .gm-fit-list { gap: 11px; }
+    .gm-fit-list li { font-size: 14.5px; line-height: 1.45; }
+    .gm-fit-list--not { display: flex; flex-direction: column; gap: 11px; list-style: none; }
+    .gm-fit-list--not li { display: flex; align-items: flex-start; gap: 10px; font-size: 14.5px; line-height: 1.45; color: var(--muted); }
+    .gm-fit-list--not li i { color: var(--muted); font-size: 17px; flex: none; margin-top: 1px; }
+    .co-root .gm-fit-foot { margin-top: 18px; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; font-style: italic; line-height: 1.5; color: var(--muted); }
+
+    /* ── Méthode : cartes semaines ── */
+    .gm-weeks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; align-items: start; }
+    .gm-week { position: relative; display: flex; flex-direction: column; gap: 14px; padding: 26px 24px; background: var(--surface); border: 1px solid var(--line-2); }
+    .gm-week-head { display: flex; align-items: center; gap: 12px; }
+    .gm-week-title { font-size: 1.15rem; }
+    .gm-week-tasks { gap: 9px; }
+    .gm-week-tasks li { font-size: 14px; line-height: 1.45; }
+    .gm-week-deliver { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); display: flex; flex-direction: column; gap: 6px; }
+    .gm-week-deliver-label { font-size: 11px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+    .gm-week-deliver-val { font-size: 13px; font-weight: 500; color: var(--ink); border-left: 2px solid var(--accent); padding-left: 10px; line-height: 1.4; }
+
+    /* ── Encart différenciateurs ── */
+    .gm-diff { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .gm-diff-title { text-align: center; font-size: 1.25rem; }
+    .gm-diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 28px; }
+    .gm-diff-item { text-align: center; }
+    .gm-diff-icon { font-size: 26px; color: var(--accent); }
+    .gm-diff-name { margin-top: 10px; font-size: 15px; font-weight: 600; }
+    .co-root .gm-diff-desc { margin-top: 4px; font-size: 13px; line-height: 1.45; color: var(--muted); }
+
+    /* ── Tarifs ── */
+    .gm-tiers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: start; margin-top: 36px; }
+    .gm-tier { position: relative; display: flex; flex-direction: column; gap: 18px; padding: 32px 28px; background: var(--surface); border: 1px solid var(--line-2); }
+    .gm-tier--reco { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+    .gm-tier-reco { position: absolute; top: -12px; right: 26px; z-index: 4; }
+    .gm-tier-name { font-size: 1.2rem; display: inline-flex; align-items: center; gap: 8px; }
+    .gm-tier-name i { color: var(--accent); }
+    .co-root .gm-tier-sub { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin-top: -8px; }
+    .gm-tier-price { display: flex; flex-direction: column; gap: 4px; }
+    .gm-tier-price b { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+    .gm-tier-per { font-size: 1rem; font-weight: 500; color: var(--muted); }
+    .gm-tier-cur { font-size: 13px; color: var(--muted); }
+    .gm-tier-features { gap: 10px; }
+    .gm-tier-features li { font-size: 14px; line-height: 1.45; }
+    .co-root .gm-tier-note { margin-top: 4px; padding: 12px 14px; border: 1px solid var(--line); background: var(--bg); font-size: 12.5px; line-height: 1.5; color: var(--muted); }
+    .gm-tier-note strong { color: var(--ink); }
+
+    .gm-pricenote { position: relative; margin-top: 28px; padding: 28px 32px; background: var(--surface); border: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 14px; }
+    .co-root .gm-pricenote-line { display: flex; align-items: flex-start; gap: 10px; font-size: 14px; line-height: 1.6; color: var(--muted); }
+    .gm-pricenote-line i { color: var(--accent); font-size: 18px; flex: none; margin-top: 2px; }
+    .gm-pricenote-line strong { color: var(--ink); font-weight: 600; }
+
+    /* ── FAQ (accordéon natif <details> — smooth via ::details-content, zéro JS) ── */
+    .gm-faq { border-top: 1px solid var(--line); }
+    .gm-faq details { border-bottom: 1px solid var(--line); }
+    .gm-faq summary {
+        list-style: none; cursor: pointer; padding: 20px 0;
+        display: flex; justify-content: space-between; align-items: center; gap: 20px;
+        font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
     }
-
-    .submit-btn.loading i {
-        animation: spin 1s linear infinite;
+    .gm-faq summary::-webkit-details-marker { display: none; }
+    .gm-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
+    .gm-faq details[open] summary i { transform: rotate(180deg); }
+    .co-root .gm-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 68ch; }
+    .gm-faq-answer .gm-inline { white-space: nowrap; }
+    .gm-faq details::details-content {
+        block-size: 0; overflow: hidden;
+        transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
     }
+    .gm-faq details[open]::details-content { block-size: auto; }
 
-    @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
+    /* ── Local ── */
+    .gm-local-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; margin-top: 32px; }
+    .gm-local-h3 { font-size: 1.15rem; margin-bottom: 18px; }
+    .gm-local-adv { display: flex; flex-direction: column; gap: 12px; }
+    .gm-local-item { position: relative; display: flex; align-items: flex-start; gap: 14px; padding: 18px; background: var(--surface); border: 1px solid var(--line-2); }
+    .gm-local-icon { font-size: 22px; color: var(--accent); flex: none; margin-top: 2px; }
+    .gm-local-name { font-size: 15px; font-weight: 600; }
+    .co-root .gm-local-desc { margin-top: 3px; font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+    .gm-zones { display: flex; flex-direction: column; gap: 10px; }
+    .gm-zone { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line-2); font-size: 14px; }
+    .gm-zone i { color: var(--muted); font-size: 18px; flex: none; }
+    .gm-zone strong { font-weight: 600; }
+    .gm-zone--primary { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .gm-zone--primary i { color: var(--accent); }
+
+    /* ── Ressources ── */
+    .gm-res { position: relative; padding: 24px; background: var(--surface); border: 1px solid var(--line-2); }
+    .gm-res-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .gm-res-icon { font-size: 22px; color: var(--accent); flex: none; }
+    .gm-res-label { font-size: 1.05rem; }
+    .gm-res-list { display: flex; flex-direction: column; gap: 8px; }
+    .gm-res-link { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--muted); transition: color .18s ease-out; }
+    .gm-res-link i { color: var(--accent); margin-top: 2px; transition: transform .18s ease-out; }
+    .gm-res-link:hover { color: var(--ink); }
+    .gm-res-link:hover i { transform: translateX(3px); }
+
+    /* ── Contact : options ── */
+    .gm-opts { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 32px; }
+    .gm-opt { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 26px 24px; background: var(--surface); border: 1px solid var(--line-2); }
+    .gm-opt-icon { font-size: 26px; color: var(--accent); }
+    .gm-opt-title { font-size: 1.1rem; }
+    .co-root .gm-opt-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
+    .gm-opt .gm-inline { margin-top: 4px; display: inline-flex; align-items: center; gap: 6px; }
+
+    /* ── Formulaire (Web3Forms restylé, câblage préservé) ── */
+    .gm-form { position: relative; margin-top: 24px; padding: 34px; background: var(--surface); border: 1px solid var(--line-2); }
+    .gm-form-title { font-size: 1.25rem; text-align: center; margin-bottom: 24px; }
+    .gm-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .gm-field { display: flex; flex-direction: column; gap: 8px; }
+    .gm-field--full { grid-column: 1 / -1; }
+    .gm-label { display: flex; align-items: baseline; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink); }
+    .gm-label .co-index { font-size: 11px; }
+    .gm-req { color: var(--accent); }
+    .co-root .gm-hint { font-size: 12.5px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+    .gm-hint i { color: var(--accent); }
+    .gm-input, .gm-textarea {
+        width: 100%; font-family: "Inter Tight", ui-sans-serif, sans-serif; font-size: 15px; color: var(--ink);
+        background: var(--bg); border: 1px solid var(--line-2); padding: 12px 14px;
+        transition: border-color .18s ease-out, box-shadow .18s ease-out;
     }
+    .gm-input::placeholder, .gm-textarea::placeholder { color: var(--muted); opacity: .7; }
+    .gm-input:focus, .gm-textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,168,125,.15); }
+    .gm-textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
+    .gm-radio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    .gm-radio { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; background: var(--bg); border: 1px solid var(--line-2); font-size: 13.5px; line-height: 1.4; color: var(--ink); cursor: pointer; transition: border-color .18s ease-out; }
+    .gm-radio:hover { border-color: var(--accent); }
+    .gm-radio--full { grid-column: 1 / -1; }
+    .gm-radio input { margin-top: 2px; width: 15px; height: 15px; flex: none; accent-color: var(--accent); cursor: pointer; }
+    .gm-consent { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.5; color: var(--muted); cursor: pointer; }
+    .gm-consent:hover { color: var(--ink); }
+    .gm-checkbox { margin-top: 2px; width: 16px; height: 16px; flex: none; accent-color: var(--accent); cursor: pointer; }
+    .gm-submit { width: 100%; justify-content: center; padding: 14px 20px; font-size: 16px; }
+    .submit-btn.loading { pointer-events: none; opacity: 0.7; }
+    .submit-btn.loading i { animation: gmSpin 1s linear infinite; }
+    @keyframes gmSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-    section[id] {
-        scroll-margin-top: 100px;
+    /* ── Après-formulaire ── */
+    .gm-form-after { margin-top: 28px; display: flex; flex-direction: column; gap: 18px; align-items: center; text-align: center; }
+    .gm-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; font-size: 13.5px; color: var(--muted); }
+    .gm-trust i { color: var(--accent); margin-right: 4px; }
+    .gm-alt { display: flex; flex-direction: column; gap: 4px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+        .gm-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+        .gm-hero-media { max-width: 520px; }
+        .gm-local-grid { grid-template-columns: 1fr; gap: 32px; }
+        .gm-diff-grid { grid-template-columns: repeat(2, 1fr); }
+        .gm-weeks { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 720px) {
+        .gm-grid--2, .gm-grid--3, .gm-fit-grid, .gm-tiers, .gm-opts, .gm-form-grid, .gm-radio-grid { grid-template-columns: 1fr; }
+        .gm-diff-grid { grid-template-columns: 1fr 1fr; }
+        .gm-radio--full { grid-column: 1; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .gm-card, .gm-res-link, .gm-res-link i, .gm-faq summary i, .gm-radio, .gm-hero-btns .co-btn i { transition: none; }
+        .submit-btn.loading i { animation: none; }
     }
 </style>
 
 <script>
+    // Form submission — HARD-PRESERVE (câblage Web3Forms + validation situation inchangés)
     const form = document.getElementById('gmb-form') as HTMLFormElement;
     const submitBtn = form?.querySelector('.submit-btn') as HTMLButtonElement;
     const btnText = submitBtn?.querySelector('span');
@@ -1128,7 +1015,7 @@ const clusterGroups = [
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
             if (btnText) btnText.textContent = 'Envoi en cours...';
-            if (btnIcon) btnIcon.className = 'ri-loader-4-line text-xl animate-spin';
+            if (btnIcon) btnIcon.className = 'ri-loader-4-line';
         }
 
         try {
@@ -1153,7 +1040,7 @@ const clusterGroups = [
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
                 if (btnText) btnText.textContent = 'Demander mon audit gratuit';
-                if (btnIcon) btnIcon.className = 'ri-send-plane-line text-xl';
+                if (btnIcon) btnIcon.className = 'ri-send-plane-line';
             }
         }
     });

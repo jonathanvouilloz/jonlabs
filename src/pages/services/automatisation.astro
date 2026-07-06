@@ -1,18 +1,20 @@
 ---
+// Automatisation de tâches — sous-page service (blueprint).
+// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
+// accent teal unique, Inter Tight × Instrument Serif. Namespace scopé .au-*.
+// Gabarit-or de référence : src/pages/services/creation-site-web.astro.
+//
+// HARD-PRESERVE : Schema.org (serviceSchemas/breadcrumb/FAQ) + ordre, robots noindex,
+// câblage Web3Forms (#automatisation-form, access_key + hidden inputs, tous les name=,
+// honeypot botcheck, JS submit), copywriting réel, ROI/chiffres, liens SEO internes
+// (/services/integration-outils, /blog/pourquoi-excel-ne-suffit-plus-club-sportif, /services).
+
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import IconChip from '../../components/IconChip.astro';
 
-// Import background components
-import BackgroundGlitchGrid from '../../components/backgrounds/BackgroundGlitchGrid.astro';
-import BackgroundProgressFlow from '../../components/backgrounds/BackgroundProgressFlow.astro';
-import BackgroundCircuitBoard from '../../components/backgrounds/BackgroundCircuitBoard.astro';
-import BackgroundQuestionMarks from '../../components/backgrounds/BackgroundQuestionMarks.astro';
-import BackgroundMapContours from '../../components/backgrounds/BackgroundMapContours.astro';
-
-// Import images
+// Images (illustrations de contenu — cadrées .co-frame)
 import heroImage from '../../assets/services/automatisation-hero.png';
 import methodeImage from '../../assets/services/automatisation-methode.png';
 import workflowImage from '../../assets/services/automatisation-workflow.png';
@@ -178,7 +180,7 @@ const useCases = [
         solution: ["Inscription en ligne → paiement QR/TWINT → mise à jour automatique du fichier membres → relances automatiques pour les retardataires."],
         result: "Le trésorier récupère ses soirées. Les cotisations rentrent mieux. Et le club peut se concentrer sur le sport.",
         link: {
-            text: "Lire l'article complet →",
+            text: "Lire l'article complet",
             url: "/blog/pourquoi-excel-ne-suffit-plus-club-sportif"
         }
     }
@@ -309,1032 +311,711 @@ const projectTypes = [
     { value: "processus-validation", label: "Processus de validation" },
     { value: "autre", label: "Autre / Je ne sais pas" }
 ];
+
+const otherUseCases = useCases.slice(1);
 ---
 
-<Layout
-    title={seoData.title}
-    description={seoData.description}
-    schemas={schemas}
-    robots="noindex, follow"
->
+<Layout title={seoData.title} description={seoData.description} schemas={schemas} robots="noindex, follow">
     <Header />
 
-    <!-- ============================================== -->
-    <!-- HERO SECTION -->
-    <!-- ============================================== -->
-    <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-20 px-4 relative overflow-hidden">
-        <!-- Gradient mesh background -->
-        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-            <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
-            <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-accent-strong opacity-15 blur-[100px] rounded-full"></div>
-            <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-[var(--blue)] opacity-10 blur-[80px] rounded-full"></div>
-        </div>
+    <main class="co-root">
 
-        <div class="max-w-4xl mx-auto relative z-10">
-            <!-- Text content centered -->
-            <div class="text-center">
-                <!-- H1 SEO discret -->
-                <h1 class="seo-h1 mb-6 mt-8 text-center">Automatisation de tâches administratives à Genève et en Suisse romande</h1>
-
-                <!-- Main title -->
-                <p class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6" data-animate="fade-up">
-                    Vos journées ne devraient pas<br/>
-                    <span class="relative inline-block">
-                        <span class="absolute bg-accent-soft w-full h-[40%] left-0 bottom-1 -z-1"></span>
-                        <span class="relative z-10">ressembler à ça.</span>
-                    </span>
-                </p>
-
-                <!-- Description -->
-                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="0.1">
-                    Relancer les factures. Copier-coller des emails. Vérifier trois fois la même info. Vous passez des heures chaque semaine sur des tâches répétitives qui pourraient se faire toutes seules.<br class="hidden md:block"/>
-                    <strong class="text-[var(--text)]">Pendant ce temps, votre vrai métier attend.</strong>
-                </p>
-
-                <!-- CTAs -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 md:mb-16" data-animate="fade-up" data-delay="0.2">
-                    <a
-                        href="#contact"
-                        class="
-                            bg-[var(--blue)]
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                            transition-all duration-200
-                            hover:bg-[var(--yellow)]
-                            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                            hover:translate-x-[2px] hover:translate-y-[2px]
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        <i class="ri-time-line"></i>
-                        Récupérer mes heures
-                    </a>
-                    <a
-                        href="#cas-usage"
-                        class="
-                            bg-white
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            transition-all duration-200
-                            hover:bg-gray-100
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        Voir ce qu'on peut automatiser
-                        <i class="ri-arrow-down-line"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Hero illustration centered below -->
-            <div class="max-w-2xl mx-auto" data-animate="scale" data-delay="0.3">
-                <div class="bg-white border-3 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] p-4 relative">
-                    <img
-                        src={heroImage.src}
-                        alt="Avant/après automatisation : d'une charge mentale écrasante à un quotidien libéré"
-                        class="w-full h-auto"
-                    />
-                    <!-- Corner boxes -->
-                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--violet)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--violet)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                </div>
-            </div>
-
-            <!-- Location badge -->
-            <div class="flex items-center justify-center gap-2 text-sm text-gray-500 mt-12">
-                <i class="ri-map-pin-fill text-accent"></i>
-                <span>Basé à Genève | Service en Suisse romande</span>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- PAIN POINTS SECTION -->
-    <!-- ============================================== -->
-    <section id="problemes" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <BackgroundGlitchGrid color="rgba(239, 68, 68, 0.5)" opacity={0.12} />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    problèmes
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    <span class="relative inline-block">
-                        <span class="absolute bg-panel w-full h-[40%] left-0 bottom-1 -z-1"></span>
-                        Combien d'heures par semaine vous perdez là-dessus ?
-                    </span>
-                </h2>
-                <p class="text-lg text-gray-600">En moyenne, un entrepreneur suisse passe <strong>40% de son temps</strong> sur des tâches administratives répétitives. Faites le calcul.</p>
-            </div>
-
-            <!-- Pain points grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12" data-animate-stagger>
-                {painPoints.map((point) => (
-                    <div class="pain-card bg-white border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Red X icon -->
-                        <IconChip icon={point.icon} variant="muted" size="md" class="mb-4" />
-                        <h3 class="text-lg font-bold mb-2">{point.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-3">{point.description}</p>
-                        <p class="text-sm text-gray-500 italic">{point.extra}</p>
+        <!-- ══ HERO ══ -->
+        <section class="co-sec co-pad co-hero au-hero" style="padding:64px 40px 56px;">
+            <div class="au-hero-grid">
+                <div class="au-hero-copy">
+                    <p class="co-eyebrow" data-animate>Automatisation de tâches · Genève &amp; Suisse romande</p>
+                    <h1 class="au-hero-title" data-animate data-delay="0.1">
+                        Automatisation de tâches administratives à <span class="co-ser">Genève.</span>
+                    </h1>
+                    <p class="au-hero-lead" data-animate data-delay="0.2">
+                        Relancer les factures. Copier-coller des emails. Vérifier trois fois la même info.
+                        Vous passez des heures chaque semaine sur des tâches répétitives qui pourraient se faire
+                        toutes seules. <strong>Pendant ce temps, votre vrai métier attend.</strong>
+                    </p>
+                    <div class="au-hero-btns" data-animate data-delay="0.3">
+                        <a href="#contact" class="co-btn"><i class="ri-time-line"></i> Récupérer mes heures</a>
+                        <a href="#cas-usage" class="co-btn co-btn--ghost">Voir ce qu'on peut automatiser <i class="ri-arrow-down-line"></i></a>
                     </div>
-                ))}
-            </div>
-
-            <!-- Stats callout -->
-            <div class="bg-panel border-2 border-black p-6 md:p-8 text-center" data-animate="fade-up">
-                <p class="text-xl md:text-2xl font-medium text-ink">
-                    Ces tâches répétitives vous bouffent <span class="bg-accent-soft px-2 py-1 font-bold">5 à 10 heures par semaine</span>.
-                </p>
-                <p class="text-lg text-ink mt-2">
-                    Sur un an, ça fait 300 à 500 heures. Soit <strong>7 à 12 semaines de travail</strong> passées à faire des choses qu'une machine pourrait faire à votre place.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- METHODOLOGY SECTION -->
-    <!-- ============================================== -->
-    <section id="methode" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundProgressFlow />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    méthode
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Comment on vous rend vos heures ?
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    On identifie ce qui vous prend du temps, et on le fait disparaître de votre quotidien.
-                </p>
-            </div>
-
-            <!-- Method illustration -->
-            <div class="mb-12 max-w-3xl mx-auto" data-animate="fade-up">
-                <div class="bg-[var(--main-bg)] border-2 border-black p-4 shadow-[4px_4px_0px_rgba(0,0,0,0.15)]">
-                    <img
-                        src={methodeImage.src}
-                        alt="Les 4 étapes de mise en place d'une automatisation : audit, design, implémentation, transfert"
-                        class="w-full h-auto"
-                    />
-                </div>
-            </div>
-
-            <!-- Method steps grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" data-animate-stagger>
-                {methodSteps.map((step, index) => (
-                    <div class="bg-[var(--main-bg)] border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
-                        <!-- Number badge -->
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
-                                0{index + 1}
-                            </span>
-                            <span class="text-sm font-mono text-gray-500">Étape {step.step}</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">{step.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">{step.description}</p>
-                        <!-- Duration + Goal -->
-                        <div class="flex flex-wrap gap-4 text-sm">
-                            <span class="flex items-center gap-1 text-gray-500">
-                                <i class="ri-time-line text-accent"></i>
-                                {step.duration}
-                            </span>
-                            <span class="flex items-center gap-1 text-gray-500">
-                                <i class="ri-target-line text-accent"></i>
-                                {step.goal}
-                            </span>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Differentiator box -->
-            <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,0.2)] relative" data-animate="fade-up">
-                <!-- Corner decoration -->
-                <div class="absolute -top-2 -left-2 w-4 h-4 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -top-2 -right-2 w-4 h-4 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -bottom-2 -left-2 w-4 h-4 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -bottom-2 -right-2 w-4 h-4 bg-[var(--blue)] border-2 border-black"></div>
-
-                <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-                    <i class="ri-lightbulb-line text-accent"></i>
-                    La différence avec la connexion d'outils
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div>
-                        <p class="text-sm font-bold text-gray-700 mb-2">Connecter des outils :</p>
-                        <p class="text-gray-600 text-sm">Faire circuler l'information automatiquement. C'est utile — et c'est souvent la première étape.</p>
-                    </div>
-                    <div>
-                        <p class="text-sm font-bold text-gray-700 mb-2">Automatiser des tâches :</p>
-                        <p class="text-gray-600 text-sm">Déclencher des <strong>actions</strong> sans intervention humaine. L'email qui part tout seul. Le rapport qui se génère. Le rappel qui se crée automatiquement.</p>
-                    </div>
-                </div>
-                <p class="mt-4 text-center text-sm text-gray-500">
-                    La connexion fait circuler les données. L'automatisation <strong>agit à votre place</strong>.
-                    <a href="/services/integration-outils" class="text-[var(--blue)] hover:underline ml-2">
-                        Découvrir le service de connexion d'outils →
-                    </a>
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- RESULTS SECTION -->
-    <!-- ============================================== -->
-    <section id="resultats" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    résultats
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Ce que vous récupérez concrètement
-                </h2>
-            </div>
-
-            <!-- Results grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12" data-animate-stagger>
-                {results.map((result) => (
-                    <div class="bg-white border-2 border-black p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <div class="flex items-start gap-4">
-                            <IconChip icon="ri-check-line" size="md" class="flex-shrink-0" />
-                            <div>
-                                <h3 class="font-bold mb-1">{result.title}</h3>
-                                <p class="text-sm text-gray-600">{result.description}</p>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Stats box -->
-            <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-6 md:p-8" data-animate="fade-up">
-                <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
-                    <i class="ri-bar-chart-2-line text-accent"></i>
-                    Le coût réel des tâches manuelles
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-white border-2 border-gray-200 p-4">
-                        <p class="text-3xl font-bold text-[var(--text)] mb-2">100-150k CHF</p>
-                        <p class="text-sm text-gray-600">Pertes annuelles en inefficacités opérationnelles pour une PME suisse de 500k CHF de CA <span class="text-gray-400">(source: IDC)</span></p>
-                    </div>
-                    <div class="bg-white border-2 border-gray-200 p-4">
-                        <p class="text-3xl font-bold text-[var(--text)] mb-2">~8'000 CHF</p>
-                        <p class="text-sm text-gray-600">Coût annuel par employé en temps perdu sur des tâches manuelles (85% des tâches admin encore manuelles)</p>
-                    </div>
-                </div>
-                <p class="mt-4 text-center font-medium">
-                    Une automatisation bien pensée se rentabilise en quelques semaines — parfois en quelques jours.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- USE CASES SECTION -->
-    <!-- ============================================== -->
-    <section id="cas-usage" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-        <div class="max-w-5xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    cas d'usage
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Ce qu'on automatise le plus souvent
-                </h2>
-                <p class="text-lg text-gray-600">Des exemples concrets d'automatisation de tâches, adaptés au marché suisse romand.</p>
-            </div>
-
-            <!-- Featured use case with illustration -->
-            <div class="mb-12" data-animate="fade-up">
-                <div class="bg-[var(--main-bg)] border-2 border-black overflow-hidden">
-                    <!-- Header -->
-                    <div class="bg-[var(--blue)] px-6 py-4 border-b-2 border-black">
-                        <h3 class="text-xl font-bold flex items-center gap-3">
-                            <i class="ri-money-euro-circle-line text-2xl"></i>
-                            Relances de paiement automatiques
-                        </h3>
-                    </div>
-
-                    <div class="p-6 md:p-8">
-                        <!-- Illustration -->
-                        <div class="mb-6 bg-white border-2 border-gray-200 p-4">
-                            <img
-                                src={workflowImage.src}
-                                alt="Workflow automatisé de relance de paiement : emails automatiques à J+7 et J+15, notification manuelle à J+30"
-                                class="w-full h-auto max-w-2xl mx-auto"
-                            />
-                        </div>
-
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                            <div>
-                                <p class="text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
-                                    <i class="ri-close-circle-line text-muted"></i>
-                                    Le problème
-                                </p>
-                                <p class="text-gray-600 text-sm">{useCases[0].problem}</p>
-                            </div>
-                            <div>
-                                <p class="text-sm font-bold text-gray-700 mb-2 flex items-center gap-2">
-                                    <i class="ri-check-line text-accent"></i>
-                                    Résultat
-                                </p>
-                                <p class="text-gray-600 text-sm">{useCases[0].result}</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Other use cases grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6" data-animate-stagger>
-                {useCases.slice(1).map((useCase, index) => {
-                    const remainingItems = useCases.slice(1);
-                    const isLastOdd = index === remainingItems.length - 1 && remainingItems.length % 2 === 1;
-                    return (
-                        <div class={`bg-[var(--main-bg)] border-2 border-black p-6 h-full flex flex-col transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)] ${isLastOdd ? 'md:col-span-2 md:max-w-[calc(50%-12px)] md:mx-auto' : ''}`} data-animate-item>
-                            <IconChip icon={useCase.icon} class="mb-4" />
-                            <h3 class="text-lg font-bold mb-3">{useCase.title}</h3>
-                            <p class="text-sm text-gray-500 mb-3">{useCase.problem}</p>
-                            <div class="bg-white border border-gray-200 p-3 mb-3 flex-grow">
-                                {useCase.solution.map((step) => (
-                                    <p class="text-sm text-gray-700">{step}</p>
-                                ))}
-                            </div>
-                            <p class="text-sm font-medium text-[var(--text)]">{useCase.result}</p>
-                            {useCase.link && (
-                                <a href={useCase.link.url} class="inline-flex items-center gap-1 text-sm text-[var(--blue)] font-medium mt-3 hover:underline">
-                                    {useCase.link.text}
-                                </a>
-                            )}
-                        </div>
-                    );
-                })}
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- TOOLS SECTION -->
-    <!-- ============================================== -->
-    <section id="outils" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <BackgroundCircuitBoard animated={true} />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    outils
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Les outils d'automatisation que j'utilise
-                </h2>
-                <p class="text-lg text-gray-600">La technique est mon problème, pas le vôtre.</p>
-            </div>
-
-            <!-- Tools grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" data-animate-stagger>
-                {tools.map((tool) => (
-                    <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] transition-all duration-200 hover:-translate-y-1" data-animate-item>
-                        <div class="flex items-start gap-4">
-                            <IconChip icon={tool.icon} class="flex-shrink-0" />
-                            <div>
-                                <h3 class="text-lg font-bold mb-2">{tool.name}</h3>
-                                <p class="text-gray-600 text-sm leading-relaxed">{tool.description}</p>
-                            </div>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Note -->
-            <div class="bg-gray-50 border-l-4 border-[var(--blue)] p-4 text-sm text-gray-600" data-animate="fade-up">
-                <p>
-                    <i class="ri-information-line mr-1 text-accent"></i>
-                    <strong>Note :</strong> Je ne pousse pas un outil plutôt qu'un autre. Le choix dépend de votre contexte : complexité du workflow, outils déjà en place, budget, facilité de maintenance future. L'objectif, c'est que ça fonctionne pour vous sur le long terme.
-                </p>
-                <p class="mt-2">
-                    Si vous avez besoin que vos outils communiquent mieux entre eux, c'est aussi possible — <a href="/services/integration-outils" class="text-[var(--blue)] hover:underline">découvrir le service de connexion d'outils</a>.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- LOCAL SECTION (SUISSE ROMANDE) -->
-    <!-- ============================================== -->
-    <section id="local" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundMapContours />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    local
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Automatisation pour PME et indépendants<br/>
-                    <span class="text-[var(--blue)]">en Suisse romande</span>
-                </h2>
-                <p class="text-lg text-gray-600">Des solutions adaptées au contexte local genevois et romand.</p>
-            </div>
-
-            <!-- Why local matters -->
-            <div class="bg-[var(--main-bg)] border-2 border-black p-6 md:p-8 mb-12" data-animate="fade-up">
-                <h3 class="text-xl font-bold mb-4">Pourquoi ça compte d'être basé ici</h3>
-                <p class="text-gray-600 mb-4">
-                    La Suisse a ses spécificités. La facturation QR obligatoire. Les particularités de Bexio et des outils locaux. La conformité nLPD. Les attentes culturelles en matière de communication client.
-                </p>
-                <p class="text-gray-600">
-                    Je connais ce contexte parce que j'y travaille tous les jours. Les automatisations que je mets en place tiennent compte de ces réalités — pas besoin de m'expliquer ce qu'est un BVR ou pourquoi TWINT c'est important.
-                </p>
-            </div>
-
-            <!-- Sectors grid -->
-            <div class="mb-12">
-                <h3 class="text-xl font-bold mb-6 text-center">Exemples d'automatisation par secteur</h3>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" data-animate-stagger>
-                    {localSectors.map((sector, index) => (
-                        <div class={`bg-white border-2 border-black p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)] ${index === localSectors.length - 1 && localSectors.length % 3 === 2 ? 'lg:col-start-2' : ''} ${index === localSectors.length - 1 && localSectors.length % 2 === 1 ? 'sm:col-span-2 lg:col-span-1' : ''}`} data-animate-item>
-                            <IconChip icon={sector.icon} size="md" class="mb-3" />
-                            <h4 class="font-bold mb-2">{sector.title}</h4>
-                            <p class="text-sm text-gray-600">{sector.description}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-
-            <!-- ROI calculation + Zones -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                <!-- ROI -->
-                <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-6" data-animate="fade-right">
-                    <h3 class="text-xl font-bold mb-4">Le gain de temps, traduit en francs suisses</h3>
-                    <div class="bg-white border-2 border-gray-200 p-4 mb-4">
-                        <p class="text-2xl font-bold text-[var(--text)]">150 CHF/h × 5h/sem = <span class="text-[var(--blue)]">750 CHF/sem</span></p>
-                        <p class="text-lg font-bold text-[var(--text)] mt-2">Sur un an : <span class="text-[var(--blue)]">~40'000 CHF</span></p>
-                    </div>
-                    <p class="text-sm text-gray-600">
-                        Même si vous ne facturez pas ces heures, c'est du temps que vous pouvez investir dans le développement de votre activité, vos clients existants, ou simplement votre qualité de vie.
+                    <p class="au-hero-loc co-mut" data-animate data-delay="0.4">
+                        <i class="ri-map-pin-fill"></i> Basé à Genève · Service en Suisse romande
                     </p>
                 </div>
 
-                <!-- Zones -->
+                <div class="au-hero-media" data-animate="scale" data-delay="0.3">
+                    <div class="au-shot co-frame">
+                        <span class="co-x tl"></span><span class="co-x tr"></span>
+                        <span class="co-x bl"></span><span class="co-x br"></span>
+                        <img src={heroImage.src} alt="Avant/après automatisation : d'une charge mentale écrasante à un quotidien libéré" loading="eager" class="au-shot-img" />
+                    </div>
+                    <div class="au-badge-float">5-10 h / sem.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ 01 · PROBLÈMES ══ -->
+        <section id="problemes" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">01 — Problèmes</p>
+            <h2 style="margin-top:8px;">Combien d'heures vous <span class="co-ser">perdez</span> là-dessus ?</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:58ch;line-height:1.6;">
+                En moyenne, un entrepreneur suisse passe <strong>40% de son temps</strong> sur des tâches
+                administratives répétitives. Faites le calcul.
+            </p>
+
+            <div class="au-grid au-grid--2" data-animate-stagger>
+                {painPoints.map((point) => (
+                    <div class="au-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${point.icon} au-card-icon`} aria-hidden="true"></i>
+                        <h3 class="au-card-title">{point.title}</h3>
+                        <p class="au-card-text">{point.description}</p>
+                        <p class="au-card-extra">{point.extra}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div class="au-note au-note--accent" data-animate>
+                <i class="ri-time-line"></i>
+                <div class="au-note-stack">
+                    <p>Ces tâches répétitives vous bouffent <strong>5 à 10 heures par semaine</strong>.</p>
+                    <p>Sur un an, ça fait 300 à 500 heures. Soit <strong>7 à 12 semaines de travail</strong> passées à faire des choses qu'une machine pourrait faire à votre place.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ 02 · MÉTHODE ══ -->
+        <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">02 — Méthode</p>
+            <h2 style="margin-top:8px;">Comment on vous rend vos <span class="co-ser">heures ?</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+                On identifie ce qui vous prend du temps, et on le fait disparaître de votre quotidien.
+            </p>
+
+            <div class="au-method-media au-shot co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <img src={methodeImage.src} alt="Les 4 étapes de mise en place d'une automatisation : audit, design, implémentation, transfert" class="au-shot-img" />
+            </div>
+
+            <div class="au-steps" data-animate-stagger>
+                {methodSteps.map((step, index) => (
+                    <div class="au-step" data-animate-item>
+                        <span class="au-step-num co-index">0{index + 1}</span>
+                        <div class="au-step-body">
+                            <h3 class="au-step-title">{step.title}</h3>
+                            <p class="au-step-text">{step.description}</p>
+                            <div class="au-step-meta">
+                                <span class="au-step-tag"><i class="ri-time-line"></i> {step.duration}</span>
+                                <span class="au-step-tag"><i class="ri-focus-3-line"></i> {step.goal}</span>
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            <div class="au-cmp co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="au-cmp-title"><i class="ri-lightbulb-line"></i> La différence avec la connexion d'outils</h3>
+                <div class="au-cmp-grid">
+                    <div class="au-cmp-col">
+                        <p class="au-cmp-h">Connecter des outils</p>
+                        <p class="au-cmp-p">Faire circuler l'information automatiquement. C'est utile — et c'est souvent la première étape.</p>
+                    </div>
+                    <div class="au-cmp-col">
+                        <p class="au-cmp-h">Automatiser des tâches</p>
+                        <p class="au-cmp-p">Déclencher des <strong>actions</strong> sans intervention humaine. L'email qui part tout seul. Le rapport qui se génère. Le rappel qui se crée automatiquement.</p>
+                    </div>
+                </div>
+                <p class="au-cmp-concl">
+                    La connexion fait circuler les données. L'automatisation <strong>agit à votre place</strong>.
+                    <a href="/services/integration-outils" class="au-inline">Découvrir le service de connexion d'outils</a>
+                </p>
+            </div>
+        </section>
+
+        <!-- ══ 03 · RÉSULTATS ══ -->
+        <section id="resultats" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">03 — Résultats</p>
+            <h2 style="margin-top:8px;">Ce que vous <span class="co-ser">récupérez.</span></h2>
+
+            <div class="au-grid au-grid--3" data-animate-stagger>
+                {results.map((result) => (
+                    <div class="au-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${result.icon} au-card-icon`} aria-hidden="true"></i>
+                        <h3 class="au-card-title">{result.title}</h3>
+                        <p class="au-card-text">{result.description}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div class="au-stats co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="au-stats-title"><i class="ri-bar-chart-2-line"></i> Le coût réel des tâches manuelles</h3>
+                <div class="au-stats-grid">
+                    <div class="au-figure">
+                        <b>100-150k CHF</b>
+                        <p>Pertes annuelles en inefficacités opérationnelles pour une PME suisse de 500k CHF de CA <span class="au-figure-src">(source : IDC)</span></p>
+                    </div>
+                    <div class="au-figure">
+                        <b>~8'000 CHF</b>
+                        <p>Coût annuel par employé en temps perdu sur des tâches manuelles (85% des tâches admin encore manuelles)</p>
+                    </div>
+                </div>
+                <p class="au-stats-concl">Une automatisation bien pensée se rentabilise en quelques semaines — parfois en quelques jours.</p>
+            </div>
+        </section>
+
+        <!-- ══ 04 · CAS D'USAGE ══ -->
+        <section id="cas-usage" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">04 — Cas d'usage</p>
+            <h2 style="margin-top:8px;">Ce qu'on automatise le plus <span class="co-ser">souvent.</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+                Des exemples concrets d'automatisation de tâches, adaptés au marché suisse romand.
+            </p>
+
+            <div class="au-uc-featured co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <div class="au-uc-head">
+                    <i class={useCases[0].icon} aria-hidden="true"></i>
+                    <h3>{useCases[0].title}</h3>
+                </div>
+                <div class="au-uc-body">
+                    <div class="au-uc-shot">
+                        <img src={workflowImage.src} alt="Workflow automatisé de relance de paiement : emails automatiques à J+7 et J+15, notification manuelle à J+30" class="au-shot-img" />
+                    </div>
+                    <div class="au-uc-split">
+                        <div class="au-uc-col">
+                            <p class="au-uc-label is-problem"><i class="ri-close-circle-line"></i> Le problème</p>
+                            <p class="au-uc-p">{useCases[0].problem}</p>
+                        </div>
+                        <div class="au-uc-col">
+                            <p class="au-uc-label"><i class="ri-check-line"></i> Résultat</p>
+                            <p class="au-uc-p">{useCases[0].result}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="au-grid au-grid--2" data-animate-stagger>
+                {otherUseCases.map((useCase) => (
+                    <div class="au-uc co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${useCase.icon} au-uc-icon`} aria-hidden="true"></i>
+                        <h3 class="au-uc-title">{useCase.title}</h3>
+                        <p class="au-uc-problem">{useCase.problem}</p>
+                        <div class="au-uc-sol">
+                            <ul class="co-list">
+                                {useCase.solution.map((step) => (<li>{step}</li>))}
+                            </ul>
+                        </div>
+                        <p class="au-uc-result">{useCase.result}</p>
+                        {useCase.link && (
+                            <a href={useCase.link.url} class="au-uc-link">
+                                <span>{useCase.link.text}</span><i class="ri-arrow-right-line"></i>
+                            </a>
+                        )}
+                    </div>
+                ))}
+            </div>
+        </section>
+
+        <!-- ══ 05 · OUTILS ══ -->
+        <section id="outils" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">05 — Outils</p>
+            <h2 style="margin-top:8px;">Les outils que <span class="co-ser">j'utilise.</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">
+                La technique est mon problème, pas le vôtre.
+            </p>
+
+            <div class="au-grid au-grid--2" data-animate-stagger="scale">
+                {tools.map((tool) => (
+                    <div class="au-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${tool.icon} au-card-icon`} aria-hidden="true"></i>
+                        <h3 class="au-card-title">{tool.name}</h3>
+                        <p class="au-card-text">{tool.description}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div class="au-note" data-animate>
+                <i class="ri-information-line"></i>
+                <div class="au-note-stack">
+                    <p><strong>Note :</strong> Je ne pousse pas un outil plutôt qu'un autre. Le choix dépend de votre contexte : complexité du workflow, outils déjà en place, budget, facilité de maintenance future. L'objectif, c'est que ça fonctionne pour vous sur le long terme.</p>
+                    <p>Si vous avez besoin que vos outils communiquent mieux entre eux, c'est aussi possible — <a href="/services/integration-outils" class="au-inline">découvrir le service de connexion d'outils</a>.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ 06 · LOCAL (SEO géo) ══ -->
+        <section id="local" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">06 — Local</p>
+            <h2 style="margin-top:8px;">PME &amp; indépendants en <span class="co-ser">Suisse romande.</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+                Des solutions adaptées au contexte local genevois et romand.
+            </p>
+
+            <div class="au-why co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3>Pourquoi ça compte d'être basé ici</h3>
+                <p>La Suisse a ses spécificités. La facturation QR obligatoire. Les particularités de Bexio et des outils locaux. La conformité nLPD. Les attentes culturelles en matière de communication client.</p>
+                <p>Je connais ce contexte parce que j'y travaille tous les jours. Les automatisations que je mets en place tiennent compte de ces réalités — pas besoin de m'expliquer ce qu'est un BVR ou pourquoi TWINT c'est important.</p>
+            </div>
+
+            <p class="co-eyebrow" style="margin-top:44px;">Exemples d'automatisation par secteur</p>
+            <div class="au-grid au-grid--3" style="margin-top:20px;" data-animate-stagger>
+                {localSectors.map((sector) => (
+                    <div class="au-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${sector.icon} au-card-icon`} aria-hidden="true"></i>
+                        <h3 class="au-card-title">{sector.title}</h3>
+                        <p class="au-card-text">{sector.description}</p>
+                    </div>
+                ))}
+            </div>
+
+            <div class="au-local-grid">
+                <div class="au-roi co-frame" data-animate="fade-right">
+                    <span class="co-x tl"></span><span class="co-x tr"></span>
+                    <span class="co-x bl"></span><span class="co-x br"></span>
+                    <h3>Le gain de temps, traduit en francs suisses</h3>
+                    <div class="au-roi-fig">
+                        <b>150 CHF/h × 5h/sem = <span class="au-hl">750 CHF/sem</span></b>
+                        <b>Sur un an : <span class="au-hl">~40'000 CHF</span></b>
+                    </div>
+                    <p>Même si vous ne facturez pas ces heures, c'est du temps que vous pouvez investir dans le développement de votre activité, vos clients existants, ou simplement votre qualité de vie.</p>
+                </div>
+
                 <div data-animate="fade-left">
-                    <h3 class="text-xl font-bold mb-4">Zones couvertes</h3>
-                    <div class="space-y-2">
+                    <h3 class="au-side-h3">Zones couvertes</h3>
+                    <div class="au-zones">
                         {zones.map((zone) => (
-                            <div class={`
-                                flex items-center gap-3 p-3 border-2 border-black
-                                ${zone.type === 'primary' ? 'bg-[var(--blue)] border-[var(--blue)]' : 'bg-white'}
-                            `}>
-                                <i class={`${zone.icon} text-lg ${zone.type === 'primary' ? 'text-white' : 'text-gray-600'}`}></i>
-                                <span class={`${zone.type === 'primary' ? 'font-bold text-white' : ''}`}>
-                                    {zone.name}
-                                    {zone.type === 'primary' && <span class="text-sm font-normal text-white/70 ml-2">(basé sur place)</span>}
-                                    {zone.type === 'tertiary' && <span class="text-sm font-normal text-gray-500 ml-2">(remote)</span>}
+                            <div class={`au-zone ${zone.type === 'primary' ? 'au-zone--primary' : ''}`}>
+                                <i class={zone.icon} aria-hidden="true"></i>
+                                <span>
+                                    <strong>{zone.name}</strong>
+                                    {zone.type === 'primary' && <span class="au-zone-sub"> (basé sur place)</span>}
+                                    {zone.type === 'tertiary' && <span class="au-zone-sub"> (remote)</span>}
                                 </span>
                             </div>
                         ))}
                     </div>
-                    <p class="mt-4 text-sm text-gray-500">
+                    <p class="co-mut" style="margin-top:16px;font-size:13.5px;line-height:1.6;">
                         On peut se voir pour un café si ça aide à clarifier le projet. Mais 90% du travail se fait à distance, sans friction.
                     </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================== -->
-    <!-- PRICING SECTION -->
-    <!-- ============================================== -->
-    <section id="prix" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <div class="max-w-4xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    investissement
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Investissement
-                </h2>
-                <p class="text-lg text-gray-600">Chaque besoin est différent. Le devis aussi.</p>
-            </div>
+        <!-- ══ 07 · INVESTISSEMENT ══ -->
+        <section id="prix" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">07 — Investissement</p>
+            <h2 style="margin-top:8px;">Des tarifs <span class="co-ser">sur mesure.</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:52ch;">Chaque besoin est différent. Le devis aussi.</p>
 
-            <!-- Pricing approach -->
-            <div class="bg-[var(--main-bg)] border-2 border-black p-6 md:p-8 mb-8" data-animate="fade-up">
-                <h3 class="font-bold mb-4">Mon approche :</h3>
-                <p class="text-gray-600 mb-6">
-                    Pas de grille tarifaire rigide. Chaque situation est unique : le nombre de tâches à automatiser, la complexité des workflows, les outils impliqués, votre contexte métier.
+            <div class="au-pricenote co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="au-pricenote-title">Mon approche</h3>
+                <p class="au-pricenote-lead">
+                    Pas de grille tarifaire rigide. Chaque situation est unique : {pricingFactors.map((f, i) => (
+                        <>{i > 0 ? ', ' : ''}{f.charAt(0).toLowerCase() + f.slice(1)}</>
+                    ))}.
                 </p>
-                <div class="space-y-3">
-                    <p class="flex items-center gap-3">
-                        <span class="w-8 h-8 bg-accent border-2 border-black flex items-center justify-center font-bold text-sm">1</span>
-                        <span><strong>On en parle</strong> — Un premier échange pour comprendre votre quotidien</span>
-                    </p>
-                    <p class="flex items-center gap-3">
-                        <span class="w-8 h-8 bg-accent border-2 border-black flex items-center justify-center font-bold text-sm">2</span>
-                        <span><strong>Je comprends votre besoin</strong> — Questions concrètes sur vos tâches répétitives</span>
-                    </p>
-                    <p class="flex items-center gap-3">
-                        <span class="w-8 h-8 bg-accent border-2 border-black flex items-center justify-center font-bold text-sm">3</span>
-                        <span><strong>Je vous propose un devis sur mesure</strong> — Adapté à votre réalité</span>
-                    </p>
+                <div class="au-approach">
+                    <div class="au-approach-step">
+                        <span class="au-approach-num">1</span>
+                        <p class="au-approach-txt"><strong>On en parle</strong> — Un premier échange pour comprendre votre quotidien</p>
+                    </div>
+                    <div class="au-approach-step">
+                        <span class="au-approach-num">2</span>
+                        <p class="au-approach-txt"><strong>Je comprends votre besoin</strong> — Questions concrètes sur vos tâches répétitives</p>
+                    </div>
+                    <div class="au-approach-step">
+                        <span class="au-approach-num">3</span>
+                        <p class="au-approach-txt"><strong>Je vous propose un devis sur mesure</strong> — Adapté à votre réalité</p>
+                    </div>
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-                <!-- What's included -->
-                <div class="bg-white border-2 border-black p-6" data-animate="fade-right">
-                    <h3 class="font-bold mb-4 flex items-center gap-2">
-                        <i class="ri-checkbox-circle-line text-accent"></i>
-                        Ce qui est toujours inclus :
-                    </h3>
-                    <ul class="space-y-3">
-                        {pricingInclusions.map((inc) => (
-                            <li class="flex items-center gap-2">
-                                <i class="ri-check-line text-accent"></i>
-                                <span>{inc}</span>
-                            </li>
-                        ))}
+            <div class="au-grid au-grid--2" data-animate-stagger>
+                <div class="au-card co-frame" data-animate-item>
+                    <h3 class="au-card-title"><i class="ri-checkbox-circle-line au-inline-icon"></i> Ce qui est toujours inclus</h3>
+                    <ul class="co-list co-list--check" style="margin-top:6px;">
+                        {pricingInclusions.map((inc) => (<li><i class="ri-check-line"></i><span>{inc}</span></li>))}
                     </ul>
                 </div>
-
-                <!-- Delays -->
-                <div class="bg-white border-2 border-black p-6" data-animate="fade-left">
-                    <h3 class="font-bold mb-4 flex items-center gap-2">
-                        <i class="ri-time-line text-accent"></i>
-                        Délais indicatifs :
-                    </h3>
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <span>Automatisation simple</span>
-                            <span class="font-bold text-[var(--blue)]">3-5 jours</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <span>Projet plus complexe</span>
-                            <span class="font-bold text-[var(--blue)]">1-3 semaines</span>
-                        </div>
+                <div class="au-card co-frame" data-animate-item>
+                    <h3 class="au-card-title"><i class="ri-time-line au-inline-icon"></i> Délais indicatifs</h3>
+                    <div class="au-delays" style="margin-top:6px;">
+                        <div class="au-delay-row"><span>Automatisation simple</span><b>3-5 jours</b></div>
+                        <div class="au-delay-row"><span>Projet plus complexe</span><b>1-3 semaines</b></div>
                     </div>
                 </div>
             </div>
 
-            <!-- CTA -->
-            <div class="text-center" data-animate="fade-up">
-                <a
-                    href="#contact"
-                    class="
-                        inline-flex items-center gap-2
-                        bg-[var(--blue)]
-                        border-2 border-black
-                        px-8 py-4
-                        text-lg font-bold
-                        shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                        transition-all duration-200
-                        hover:bg-[var(--yellow)]
-                        hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                        hover:translate-x-[2px] hover:translate-y-[2px]
-                    "
-                >
-                    <i class="ri-calculator-line"></i>
-                    Demander un devis personnalisé
-                </a>
-                <p class="mt-4 text-sm text-gray-500">
-                    Premier échange gratuit et sans engagement. On calcule ensemble combien d'heures vous perdez actuellement sur des tâches répétitives, et si une automatisation peut les récupérer. Si le ROI n'est pas là, je vous le dis.
+            <div class="au-cta-row" data-animate>
+                <a href="#contact" class="co-btn"><i class="ri-calculator-line"></i> Demander un devis personnalisé</a>
+                <p class="co-mut" style="margin-top:14px;max-width:64ch;line-height:1.6;font-size:14px;">
+                    Premier échange gratuit et sans engagement. On calcule ensemble combien d'heures vous perdez
+                    actuellement sur des tâches répétitives, et si une automatisation peut les récupérer.
+                    Si le ROI n'est pas là, je vous le dis.
                 </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================== -->
-    <!-- FAQ SECTION -->
-    <!-- ============================================== -->
-    <section id="faq" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundQuestionMarks animated={true} />
-        <div class="max-w-3xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    faq
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">Questions fréquentes sur l'automatisation de tâches</h2>
-            </div>
+        <!-- ══ 08 · FAQ (accordéon natif <details>, zéro JS) ══ -->
+        <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">08 — FAQ</p>
+            <h2 style="margin-top:8px;">Questions fréquentes sur l'automatisation de tâches</h2>
 
-            <!-- FAQ items -->
-            <div class="faq-list space-y-4">
+            <div class="au-faq" style="margin-top:32px;">
                 {faqs.map((faq, index) => (
-                    <div class="faq-item border-2 border-black bg-[var(--main-bg)]" data-faq-item>
-                        <button
-                            class="
-                                faq-trigger
-                                w-full
-                                flex items-center justify-between gap-4
-                                p-5
-                                text-left
-                                font-medium
-                                cursor-pointer
-                                transition-colors duration-200
-                                hover:bg-[var(--blue)] hover:bg-opacity-10
-                            "
-                            aria-expanded="false"
-                            data-faq-trigger
-                        >
-                            <span class="flex items-start gap-3">
-                                <span class="font-mono text-sm text-gray-400 mt-0.5">{String(index + 1).padStart(2, '0')}</span>
-                                <span class="text-lg">{faq.question}</span>
-                            </span>
-                            <span class="
-                                faq-icon
-                                w-8 h-8
-                                border-2 border-black
-                                bg-white
-                                flex items-center justify-center
-                                transition-transform duration-300
-                                flex-shrink-0
-                            ">
-                                <i class="ri-add-line text-lg"></i>
-                            </span>
-                        </button>
-                        <div
-                            class="faq-content overflow-hidden transition-all duration-300"
-                            style="max-height: 0;"
-                            data-faq-content
-                        >
-                            <div class="p-6 pt-2 pl-12">
-                                <p class="text-gray-600 leading-relaxed">
-                                    {faq.answer}
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    <details open={index === 0}>
+                        <summary>
+                            {faq.question}
+                            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+                        </summary>
+                        <p class="au-faq-answer">{faq.answer}</p>
+                    </details>
                 ))}
             </div>
 
-            <!-- Extra question note -->
-            <div class="text-center mt-8">
-                <p class="text-gray-500">
-                    Autre question ? <a href="#contact" class="text-[var(--blue)] font-medium hover:underline">Contactez-moi directement</a>
-                </p>
-            </div>
-        </div>
-    </section>
+            <p class="co-mut" style="margin-top:24px;text-align:center;">
+                Autre question ? <a href="#contact" class="au-inline">Contactez-moi directement</a>.
+            </p>
+        </section>
 
-    <!-- ============================================== -->
-    <!-- CTA + FORM SECTION -->
-    <!-- ============================================== -->
-    <section id="contact" class="py-20 md:py-28 px-4 bg-[var(--main-bg)] relative overflow-hidden">
-        <!-- Dot pattern background -->
-        <div class="absolute inset-0 dots-bg opacity-[0.4]"></div>
+        <!-- ══ 09 · CONTACT (formulaire Web3Forms — HARD-PRESERVE câblage) ══ -->
+        <section id="contact" class="co-sec co-pad" style="padding:64px 40px;">
+            <p class="co-eyebrow">09 — Contact</p>
+            <h2 style="margin-top:8px;">Récupérez vos heures <span class="co-ser">perdues.</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+                Chaque semaine, vous passez entre 5 et 10 heures sur des tâches répétitives qu'une machine pourrait
+                faire à votre place. Ce temps, vous pourriez le passer sur votre métier, vos clients, ou simplement
+                rentrer plus tôt chez vous.
+            </p>
 
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Header -->
-            <div class="text-center mb-12" data-animate="fade-up">
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4 text-[var(--text)]">
-                    Récupérez vos heures perdues
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Chaque semaine, vous passez entre 5 et 10 heures sur des tâches répétitives qu'une machine pourrait faire à votre place. Ce temps, vous pourriez le passer sur votre métier, vos clients, ou simplement rentrer plus tôt chez vous.
-                </p>
-            </div>
+            <form class="au-form co-frame" id="automatisation-form" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
 
-            <!-- Contact Form -->
-            <div class="contact-form-container max-w-2xl mx-auto" data-animate="scale">
-                <form
-                    class="bg-white text-[var(--text)] border-3 border-black p-6 md:p-8 shadow-[8px_8px_0px_rgba(0,217,163,0.3)] relative"
-                    id="automatisation-form"
-                >
-                    <!-- Corner boxes -->
-                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+                <!-- Hidden fields for Web3Forms (HARD-PRESERVE) -->
+                <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
+                <input type="hidden" name="subject" value="Demande automatisation tâches - Jon Labs">
+                <input type="hidden" name="from_name" value="Jon Labs - Automatisation">
+                <input type="checkbox" name="botcheck" class="au-honeypot" style="display: none;">
 
-                    <h3 class="text-xl font-bold mb-6 text-center">Parlons de vos tâches répétitives</h3>
+                <h3 class="au-form-title">Parlons de vos tâches répétitives</h3>
 
-                    <!-- Hidden fields for Web3Forms -->
-                    <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
-                    <input type="hidden" name="subject" value="Demande automatisation tâches - Jon Labs">
-                    <input type="hidden" name="from_name" value="Jon Labs - Automatisation">
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                <div class="au-form-grid">
+                    <div class="au-field">
+                        <label for="name" class="au-label"><span class="co-index">01</span> Nom / Prénom <span class="au-req">*</span></label>
+                        <input type="text" id="name" name="name" required placeholder="Jean Dupont" class="au-input" />
+                    </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Nom -->
-                        <div class="form-field">
-                            <label for="name" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">01</span>
-                                Nom / Prénom <span class="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                required
-                                placeholder="Jean Dupont"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all"
-                            />
-                        </div>
+                    <div class="au-field">
+                        <label for="email" class="au-label"><span class="co-index">02</span> Email <span class="au-req">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="vous@exemple.ch" class="au-input" />
+                    </div>
 
-                        <!-- Email -->
-                        <div class="form-field">
-                            <label for="email" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">02</span>
-                                Email <span class="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                required
-                                placeholder="vous@exemple.ch"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all"
-                            />
-                        </div>
+                    <div class="au-field">
+                        <label for="phone" class="au-label"><span class="co-index">03</span> Téléphone (optionnel)</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+41 79 123 45 67" class="au-input" />
+                    </div>
 
-                        <!-- Téléphone -->
-                        <div class="form-field">
-                            <label for="phone" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">03</span>
-                                Téléphone (optionnel)
-                            </label>
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                placeholder="+41 79 123 45 67"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all"
-                            />
-                        </div>
-
-                        <!-- Type de projet -->
-                        <div class="form-field">
-                            <label for="project-type" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">04</span>
-                                Type d'automatisation <span class="text-red-500">*</span>
-                            </label>
-                            <select
-                                id="project-type"
-                                name="project_type"
-                                required
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all cursor-pointer"
-                            >
+                    <div class="au-field">
+                        <label for="project-type" class="au-label"><span class="co-index">04</span> Type d'automatisation <span class="au-req">*</span></label>
+                        <div class="au-select-wrap">
+                            <select id="project-type" name="project_type" required class="au-select">
                                 <option value="" disabled selected>Choisir...</option>
-                                {projectTypes.map((type) => (
-                                    <option value={type.value}>{type.label}</option>
-                                ))}
+                                {projectTypes.map((type) => (<option value={type.value}>{type.label}</option>))}
                             </select>
-                        </div>
-
-                        <!-- Message -->
-                        <div class="form-field md:col-span-2">
-                            <label for="message" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">05</span>
-                                Décrivez vos tâches répétitives <span class="text-red-500">*</span>
-                            </label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="4"
-                                required
-                                placeholder="Quelles tâches vous prennent le plus de temps chaque semaine ? Qu'aimeriez-vous automatiser ?"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 transition-all"
-                            ></textarea>
-                        </div>
-
-                        <!-- Consent -->
-                        <div class="form-field md:col-span-2">
-                            <label class="flex items-start gap-3 cursor-pointer group">
-                                <input
-                                    type="checkbox"
-                                    name="consent"
-                                    required
-                                    class="mt-1 w-5 h-5 border-2 border-black appearance-none cursor-pointer checked:bg-[var(--blue)] checked:border-black relative transition-all"
-                                />
-                                <span class="text-sm text-gray-600 group-hover:text-black transition-colors">
-                                    Vos données sont utilisées uniquement pour répondre à votre demande. Pas de spam, promis. <span class="text-red-500">*</span>
-                                </span>
-                            </label>
-                        </div>
-
-                        <!-- Submit -->
-                        <div class="md:col-span-2 pt-4">
-                            <button
-                                type="submit"
-                                class="
-                                    submit-btn
-                                    w-full
-                                    bg-[var(--blue)]
-                                    border-2 border-black
-                                    px-8 py-4
-                                    text-lg font-bold
-                                    shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                                    transition-all duration-200
-                                    hover:bg-[var(--yellow)]
-                                    hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                                    hover:translate-x-[2px] hover:translate-y-[2px]
-                                    focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2
-                                    flex items-center justify-center gap-3
-                                "
-                            >
-                                <span>Réserver un appel découverte</span>
-                                <i class="ri-send-plane-line text-xl"></i>
-                            </button>
+                            <i class="ri-arrow-down-s-line au-select-caret" aria-hidden="true"></i>
                         </div>
                     </div>
-                </form>
 
-                <!-- Post-form content -->
-                <div class="bg-[var(--main-bg)]/90 backdrop-blur-sm p-6 mt-8">
-                    <!-- Trust indicators -->
-                    <div class="flex flex-wrap justify-center gap-6 text-sm text-gray-600">
-                        <span class="flex items-center gap-2">
-                            <i class="ri-time-line text-accent"></i>
-                            Réponse sous 24h
-                        </span>
-                        <span class="flex items-center gap-2">
-                            <i class="ri-gift-line text-accent"></i>
-                            Premier échange gratuit
-                        </span>
-                        <span class="flex items-center gap-2">
-                            <i class="ri-file-list-3-line text-accent"></i>
-                            ROI calculé ensemble
-                        </span>
+                    <div class="au-field au-field--full">
+                        <label for="message" class="au-label"><span class="co-index">05</span> Décrivez vos tâches répétitives <span class="au-req">*</span></label>
+                        <textarea id="message" name="message" rows="4" required placeholder="Quelles tâches vous prennent le plus de temps chaque semaine ? Qu'aimeriez-vous automatiser ?" class="au-textarea"></textarea>
                     </div>
 
-                    <!-- Alternatives -->
-                    <div class="text-center mt-8 space-y-4">
-                        <p class="text-gray-500 text-sm">Vous préférez réserver un créneau directement ?</p>
-                        <a
-                            href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="inline-flex items-center gap-2 text-[var(--blue)] font-medium hover:underline"
-                        >
-                            <i class="ri-calendar-line"></i>
-                            Réserver un appel découverte
-                        </a>
+                    <div class="au-field au-field--full">
+                        <label class="au-consent">
+                            <input type="checkbox" name="consent" required class="au-checkbox" />
+                            <span>Vos données sont utilisées uniquement pour répondre à votre demande. Pas de spam, promis. <span class="au-req">*</span></span>
+                        </label>
                     </div>
 
-                    <!-- Direct contact -->
-                    <div class="text-center mt-6">
-                        <p class="text-gray-500 text-sm mb-2">Besoin d'une réponse rapide ?</p>
-                        <a href="mailto:contact@jonlabs.ch" class="text-[var(--blue)] font-mono hover:underline">
-                            contact@jonlabs.ch
-                        </a>
-                    </div>
-
-                    <!-- Not ready yet -->
-                    <div class="text-center mt-8 p-4 bg-white border-2 border-dashed border-gray-300">
-                        <p class="text-gray-500 text-sm">
-                            <strong>Pas encore prêt ?</strong> Découvrez comment <a href="/services/integration-outils" class="text-[var(--blue)] hover:underline">vos outils peuvent travailler ensemble</a> ou explorez les <a href="/services" class="text-[var(--blue)] hover:underline">autres services</a>.
-                        </p>
+                    <div class="au-field au-field--full">
+                        <button type="submit" class="co-btn submit-btn au-submit">
+                            <span>Réserver un appel découverte</span>
+                            <i class="ri-send-plane-line"></i>
+                        </button>
                     </div>
                 </div>
+            </form>
+
+            <div class="au-form-after" data-animate>
+                <div class="au-trust">
+                    <span><i class="ri-time-line"></i> Réponse sous 24h</span>
+                    <span><i class="ri-gift-line"></i> Premier échange gratuit</span>
+                    <span><i class="ri-file-list-3-line"></i> ROI calculé ensemble</span>
+                </div>
+                <div class="au-alt">
+                    <p class="co-mut">Vous préférez réserver un créneau directement ?</p>
+                    <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="au-inline"><i class="ri-calendar-line"></i> Réserver un appel découverte</a>
+                </div>
+                <div class="au-alt">
+                    <p class="co-mut">Besoin d'une réponse rapide ?</p>
+                    <a href="mailto:contact@jonlabs.ch" class="au-inline">contact@jonlabs.ch</a>
+                </div>
+                <p class="au-note-inline" style="text-align:center;">
+                    <strong>Pas encore prêt ?</strong> Découvrez comment
+                    <a href="/services/integration-outils" class="au-inline">vos outils peuvent travailler ensemble</a>
+                    ou explorez les <a href="/services" class="au-inline">autres services</a>.
+                </p>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
 
     <Footer />
 </Layout>
 
-<style>
-    /* Dot pattern background */
-    .dots-bg {
-        background-image: radial-gradient(circle, #000 1px, transparent 1px);
-        background-size: 24px 24px;
-    }
+<style is:global>
+    /* ══ AUTOMATISATION DE TÂCHES — styles .au-* (namespace scopé, corps .co-root) ══ */
 
-    /* FAQ animations */
-    .faq-item[data-open="true"] .faq-icon {
-        transform: rotate(45deg);
-        background-color: var(--blue);
-    }
+    /* ── Hero ── */
+    .au-hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
+    .au-hero-title { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+    .co-root .au-hero-lead { margin-top: 18px; max-width: 52ch; font-size: 1.075rem; line-height: 1.65; color: var(--muted); }
+    .au-hero-lead strong { color: var(--ink); font-weight: 600; }
+    .au-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .au-hero-btns .co-btn i { transition: transform .18s ease-out; }
+    .au-hero-btns .co-btn:hover i { transform: translateY(2px); }
+    .co-root .au-hero-loc { margin-top: 22px; font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px; }
+    .au-hero-loc i { color: var(--accent); }
 
-    /* H1 SEO style terminal */
-    .seo-h1 {
-        font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace;
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: var(--color-accent-strong);
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    /* ── Media (illustration cadrée) ── */
+    .au-hero-media { position: relative; }
+    .au-shot { position: relative; background: var(--surface); border: 1px solid var(--line-2); padding: 14px; }
+    .au-shot-img { display: block; width: 100%; height: auto; }
+    .au-badge-float { position: absolute; bottom: -16px; right: -14px; z-index: 4; background: var(--accent); border: 1px solid var(--accent); color: #fff; padding: 8px 14px; font-size: 13px; font-weight: 600; }
+    .au-method-media { margin-top: 32px; max-width: 760px; }
 
-    @media (min-width: 1024px) {
-        .seo-h1 {
-            justify-content: center;
-        }
+    /* ── Cartes génériques (problèmes / résultats / tech / secteurs) ── */
+    .au-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .au-grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .au-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .au-card {
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        background: var(--surface); border: 1px solid var(--line-2);
+        transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
+    .au-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+    .au-card-icon { font-size: 24px; color: var(--accent); line-height: 1; }
+    .au-card-title { font-size: 1.1rem; display: flex; align-items: center; gap: 8px; }
+    .au-inline-icon { color: var(--accent); font-size: 20px; flex: none; }
+    .au-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
+    .co-root .au-card-extra { margin-top: 2px; font-size: 13.5px; font-style: italic; color: var(--muted); }
 
-    /* Custom checkbox checkmark */
-    input[type="checkbox"]:checked::after {
-        content: '';
-        position: absolute;
-        left: 5px;
-        top: 1px;
-        width: 6px;
-        height: 12px;
-        border: solid black;
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
+    /* ── Notes / callouts ── */
+    .au-note { display: flex; align-items: flex-start; gap: 12px; margin-top: 20px; padding: 18px 22px; border: 1px solid var(--line-2); background: var(--surface); }
+    .au-note > i { color: var(--accent); font-size: 20px; flex: none; margin-top: 1px; }
+    .au-note-stack { display: flex; flex-direction: column; gap: 8px; }
+    .co-root .au-note p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+    .au-note--accent { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .au-note-inline { margin-top: 14px !important; font-size: 14px; line-height: 1.6; color: var(--muted); }
+    .au-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
+    .au-inline:hover { color: var(--ink); }
+    .au-note strong, .au-note-inline strong { color: var(--ink); font-weight: 600; }
+
+    /* ── Étapes méthode ── */
+    .au-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+    .au-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .au-step-num { font-size: 20px; font-weight: 600; }
+    .au-step-title { font-size: 1.15rem; }
+    .co-root .au-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
+    .au-step-meta { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 10px; }
+    .co-root .au-step-tag { font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+    .au-step-tag i { color: var(--accent); }
+
+    /* ── Comparaison (connexion vs automatisation) ── */
+    .au-cmp { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .au-cmp-title { font-size: 1.25rem; display: inline-flex; align-items: center; gap: 8px; }
+    .au-cmp-title i { color: var(--accent); }
+    .au-cmp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 24px; }
+    .au-cmp-col { display: flex; flex-direction: column; gap: 8px; }
+    .au-cmp-h { font-size: 14px; font-weight: 600; color: var(--ink); }
+    .co-root .au-cmp-p { font-size: 14px; line-height: 1.55; color: var(--muted); }
+    .au-cmp-p strong { color: var(--ink); font-weight: 600; }
+    .co-root .au-cmp-concl { margin-top: 22px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 14px; line-height: 1.6; color: var(--muted); text-align: center; }
+    .au-cmp-concl strong { color: var(--ink); }
+
+    /* ── Stats / figures ── */
+    .au-stats { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .au-stats-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
+    .au-stats-title i { color: var(--accent); }
+    .au-stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px; }
+    .au-figure { padding: 18px; background: var(--bg); border: 1px solid var(--line); }
+    .au-figure b { display: block; font-size: 1.8rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; color: var(--ink); }
+    .co-root .au-figure p { margin-top: 10px; font-size: 13px; line-height: 1.5; color: var(--muted); }
+    .au-figure-src { color: var(--muted); opacity: .7; }
+    .co-root .au-stats-concl { margin-top: 16px; font-size: 14.5px; line-height: 1.6; color: var(--muted); text-align: center; }
+
+    /* ── Cas d'usage ── */
+    .au-uc-featured { position: relative; margin-top: 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .au-uc-head { display: flex; align-items: center; gap: 12px; padding: 20px 28px; border-bottom: 1px solid var(--line); }
+    .au-uc-head i { font-size: 24px; color: var(--accent); flex: none; }
+    .au-uc-head h3 { font-size: 1.2rem; }
+    .au-uc-body { padding: 28px; }
+    .au-uc-shot { padding: 16px; background: var(--bg); border: 1px solid var(--line); }
+    .au-uc-shot .au-shot-img { max-width: 640px; margin: 0 auto; }
+    .au-uc-split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px; }
+    .au-uc-col { display: flex; flex-direction: column; gap: 8px; }
+    .au-uc-label { font-size: 13px; font-weight: 600; display: inline-flex; align-items: center; gap: 8px; color: var(--ink); }
+    .au-uc-label i { color: var(--accent); }
+    .au-uc-label.is-problem i { color: var(--muted); }
+    .co-root .au-uc-p { font-size: 14px; line-height: 1.55; color: var(--muted); }
+
+    .au-uc {
+        position: relative; display: flex; flex-direction: column; gap: 12px; padding: 24px;
+        background: var(--surface); border: 1px solid var(--line-2);
+        transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
+    .au-uc:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+    .au-uc-icon { font-size: 24px; color: var(--accent); line-height: 1; }
+    .au-uc-title { font-size: 1.1rem; }
+    .co-root .au-uc-problem { font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+    .au-uc-sol { background: var(--bg); border: 1px solid var(--line); padding: 14px 16px; }
+    .au-uc-sol .co-list li { font-size: 13.5px; line-height: 1.5; }
+    .co-root .au-uc-result { font-size: 14px; font-weight: 500; color: var(--ink); }
+    .au-uc-link { margin-top: auto; font-size: 13.5px; color: var(--accent); font-weight: 500; display: inline-flex; align-items: center; gap: 5px; transition: color .18s ease-out; }
+    .au-uc-link i { transition: transform .18s ease-out; }
+    .au-uc-link:hover { color: var(--ink); }
+    .au-uc-link:hover i { transform: translateX(3px); }
 
-    /* Submit button loading state */
-    .submit-btn.loading {
-        pointer-events: none;
-        opacity: 0.7;
+    /* ── Local ── */
+    .au-why { position: relative; margin-top: 32px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 14px; }
+    .au-why h3 { font-size: 1.2rem; }
+    .co-root .au-why p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+
+    .au-local-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 32px; }
+    .au-roi { position: relative; padding: 28px; background: var(--surface); border: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 14px; }
+    .au-roi h3 { font-size: 1.15rem; }
+    .au-roi-fig { display: flex; flex-direction: column; gap: 8px; padding: 18px; background: var(--bg); border: 1px solid var(--line); }
+    .au-roi-fig b { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+    .au-hl { color: var(--accent); }
+    .co-root .au-roi p { font-size: 13.5px; line-height: 1.55; color: var(--muted); }
+    .au-side-h3 { font-size: 1.15rem; margin-bottom: 16px; }
+    .au-zones { display: flex; flex-direction: column; gap: 10px; }
+    .au-zone { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line-2); font-size: 14px; }
+    .au-zone i { color: var(--muted); font-size: 18px; flex: none; }
+    .au-zone--primary { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .au-zone--primary i { color: var(--accent); }
+    .au-zone-sub { color: var(--muted); font-size: 12.5px; font-weight: 400; }
+
+    /* ── Investissement ── */
+    .au-pricenote { position: relative; margin-top: 32px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .au-pricenote-title { font-size: 1.15rem; }
+    .co-root .au-pricenote-lead { margin-top: 12px; font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+    .au-pricenote-lead strong { color: var(--ink); }
+    .au-approach { display: flex; flex-direction: column; gap: 12px; margin-top: 18px; }
+    .au-approach-step { display: flex; align-items: flex-start; gap: 12px; }
+    .au-approach-num { flex: none; width: 26px; height: 26px; border-radius: 999px; background: var(--accent); color: #fff; display: inline-flex; align-items: center; justify-content: center; font-size: 13px; font-weight: 600; }
+    .co-root .au-approach-txt { font-size: 14.5px; line-height: 1.55; color: var(--muted); }
+    .au-approach-txt strong { color: var(--ink); font-weight: 600; }
+    .au-delays { display: flex; flex-direction: column; }
+    .au-delay-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+    .au-delay-row:last-child { border-bottom: 0; }
+    .au-delay-row b { color: var(--accent); font-weight: 600; }
+    .au-cta-row { margin-top: 28px; display: flex; flex-direction: column; align-items: center; text-align: center; }
+
+    /* ── FAQ (accordéon natif <details> — smooth via ::details-content, zéro JS) ── */
+    .au-faq { border-top: 1px solid var(--line); }
+    .au-faq details { border-bottom: 1px solid var(--line); }
+    .au-faq summary {
+        list-style: none; cursor: pointer; padding: 20px 0;
+        display: flex; justify-content: space-between; align-items: center; gap: 20px;
+        font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
     }
-
-    .submit-btn.loading i {
-        animation: spin 1s linear infinite;
+    .au-faq summary::-webkit-details-marker { display: none; }
+    .au-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
+    .au-faq details[open] summary i { transform: rotate(180deg); }
+    .co-root .au-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 68ch; }
+    .au-faq details::details-content {
+        block-size: 0; overflow: hidden;
+        transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
     }
+    .au-faq details[open]::details-content { block-size: auto; }
 
-    @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
+    /* ── Formulaire (Web3Forms restylé, câblage préservé) ── */
+    .au-form { position: relative; margin-top: 32px; padding: 34px; background: var(--surface); border: 1px solid var(--line-2); }
+    .au-form-title { font-size: 1.25rem; text-align: center; margin-bottom: 6px; }
+    .au-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .au-field { display: flex; flex-direction: column; gap: 8px; }
+    .au-field--full { grid-column: 1 / -1; }
+    .au-label { display: flex; align-items: baseline; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink); }
+    .au-label .co-index { font-size: 11px; }
+    .au-req { color: var(--accent); }
+    .au-input, .au-select, .au-textarea {
+        width: 100%; font-family: "Inter Tight", ui-sans-serif, sans-serif; font-size: 15px; color: var(--ink);
+        background: var(--bg); border: 1px solid var(--line-2); padding: 12px 14px;
+        transition: border-color .18s ease-out, box-shadow .18s ease-out;
     }
+    .au-input::placeholder, .au-textarea::placeholder { color: var(--muted); opacity: .7; }
+    .au-input:focus, .au-select:focus, .au-textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,168,125,.15); }
+    .au-textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
+    .au-select-wrap { position: relative; }
+    .au-select { appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 40px; }
+    .au-select-caret { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 18px; color: var(--muted); pointer-events: none; }
+    .au-consent { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.5; color: var(--muted); cursor: pointer; }
+    .au-consent:hover { color: var(--ink); }
+    .au-checkbox { margin-top: 2px; width: 16px; height: 16px; flex: none; accent-color: var(--accent); cursor: pointer; }
+    .au-submit { width: 100%; justify-content: center; padding: 14px 20px; font-size: 16px; }
+    .submit-btn.loading { pointer-events: none; opacity: 0.7; }
+    .submit-btn.loading i { animation: auSpin 1s linear infinite; }
+    @keyframes auSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-    /* Scroll margin for anchor navigation */
-    section[id] {
-        scroll-margin-top: 100px;
+    /* ── Après-formulaire ── */
+    .au-form-after { margin-top: 28px; display: flex; flex-direction: column; gap: 18px; align-items: center; text-align: center; }
+    .au-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; font-size: 13.5px; color: var(--muted); }
+    .au-trust i { color: var(--accent); margin-right: 4px; }
+    .au-alt { display: flex; flex-direction: column; gap: 4px; }
+    .au-alt .au-inline { display: inline-flex; align-items: center; gap: 6px; justify-content: center; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+        .au-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+        .au-hero-media { max-width: 520px; }
+        .au-local-grid { grid-template-columns: 1fr; gap: 32px; }
+        .au-cmp-grid, .au-stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 720px) {
+        .au-grid--2, .au-grid--3, .au-form-grid, .au-uc-split, .au-cmp-grid, .au-stats-grid { grid-template-columns: 1fr; }
+        .au-step { grid-template-columns: 44px 1fr; gap: 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .au-card, .au-uc, .au-uc-link, .au-uc-link i, .au-faq summary i, .au-hero-btns .co-btn i { transition: none; }
+        .submit-btn.loading i { animation: none; }
     }
 </style>
 
 <script>
-    // FAQ accordion logic
-    const faqItems = document.querySelectorAll('[data-faq-item]');
-
-    faqItems.forEach(item => {
-        const trigger = item.querySelector('[data-faq-trigger]');
-        const content = item.querySelector('[data-faq-content]') as HTMLElement;
-
-        trigger?.addEventListener('click', () => {
-            const isOpen = item.getAttribute('data-open') === 'true';
-
-            // Close all other items
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item) {
-                    otherItem.setAttribute('data-open', 'false');
-                    const otherContent = otherItem.querySelector('[data-faq-content]') as HTMLElement;
-                    const otherTrigger = otherItem.querySelector('[data-faq-trigger]');
-                    if (otherContent) otherContent.style.maxHeight = '0';
-                    otherTrigger?.setAttribute('aria-expanded', 'false');
-                }
-            });
-
-            // Toggle current item
-            if (isOpen) {
-                item.setAttribute('data-open', 'false');
-                if (content) content.style.maxHeight = '0';
-                trigger.setAttribute('aria-expanded', 'false');
-            } else {
-                item.setAttribute('data-open', 'true');
-                if (content) content.style.maxHeight = content.scrollHeight + 'px';
-                trigger.setAttribute('aria-expanded', 'true');
-            }
-        });
-    });
-
-    // Form submission with Web3Forms
+    // Form submission — HARD-PRESERVE (câblage Web3Forms inchangé, id automatisation-form)
     const form = document.getElementById('automatisation-form') as HTMLFormElement;
-    const submitBtn = form?.querySelector('.submit-btn');
+    const submitBtn = form?.querySelector('.submit-btn') as HTMLButtonElement;
 
     form?.addEventListener('submit', async (e) => {
         e.preventDefault();
 
         if (!submitBtn) return;
 
-        // Add loading state
         submitBtn.classList.add('loading');
+        submitBtn.disabled = true;
         const originalContent = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<span>Envoi en cours...</span><i class="ri-loader-4-line text-xl"></i>';
+        submitBtn.innerHTML = '<span>Envoi en cours...</span><i class="ri-loader-4-line"></i>';
 
         try {
             const formData = new FormData(form);
@@ -1346,23 +1027,20 @@ const projectTypes = [
             const data = await response.json();
 
             if (data.success) {
-                // Success state
-                submitBtn.innerHTML = '<span>Message envoyé !</span><i class="ri-check-line text-xl"></i>';
+                submitBtn.innerHTML = '<span>Message envoyé !</span><i class="ri-check-line"></i>';
                 submitBtn.classList.remove('loading');
-
-                // Reset form after delay
                 setTimeout(() => {
                     form.reset();
                     submitBtn.innerHTML = originalContent;
+                    submitBtn.disabled = false;
                 }, 3000);
             } else {
                 throw new Error('Erreur lors de l\'envoi');
             }
         } catch (error) {
-            // Error state
-            submitBtn.innerHTML = '<span>Erreur, réessayez</span><i class="ri-error-warning-line text-xl"></i>';
+            submitBtn.innerHTML = '<span>Erreur, réessayez</span><i class="ri-error-warning-line"></i>';
             submitBtn.classList.remove('loading');
-
+            submitBtn.disabled = false;
             setTimeout(() => {
                 submitBtn.innerHTML = originalContent;
             }, 3000);

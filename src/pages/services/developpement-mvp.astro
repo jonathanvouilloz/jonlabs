@@ -1,24 +1,20 @@
 ---
+// Développement sur mesure & MVP — sous-page service (blueprint).
+// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
+// accent teal unique, Inter Tight × Instrument Serif. Namespace scopé .mv-*.
+//
+// Pas de formulaire embarqué : cette page CTA vers Cal.com / /contact (restylés
+// en .co-cta / .co-btn). HARD-PRESERVE : Schema.org (serviceSchemas/breadcrumb/FAQ),
+// liens SEO internes (/portfolio/wisp, /portfolio, /about, /contact,
+// /services/validation-idee), lien Cal.com, copywriting réel.
+
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import FAQ from '../../components/FAQ.astro';
-import IconChip from '../../components/IconChip.astro';
 
-// Import SVG pour surlignement hero
-import svgArrowHero from '../../assets/arrow-3.svg';
-
-// Import background components
-import BackgroundQuestionMarks from '../../components/backgrounds/BackgroundQuestionMarks.astro';
-import BackgroundProgressFlow from '../../components/backgrounds/BackgroundProgressFlow.astro';
-import BackgroundGlitchGrid from '../../components/backgrounds/BackgroundGlitchGrid.astro';
-
-// Import images
+// Image hero (illustration MVP)
 import imgHero from '../../assets/services/mvp-hero.png';
-import imgProblemes from '../../assets/services/mvp-problemes.png';
-import imgMethode from '../../assets/services/mvp-methode.png';
-import imgCtaFinal from '../../assets/services/mvp-cta-final.png';
 
 // Schema.org
 import { serviceSchemas, SITE_URL } from '../../data/schema';
@@ -174,588 +170,407 @@ const zones = [
 ];
 ---
 
-<Layout
-    title={seoData.title}
-    description={seoData.description}
-    schemas={schemas}
->
+<Layout title={seoData.title} description={seoData.description} schemas={schemas}>
     <Header />
 
-    <!-- ============================================== -->
-    <!-- HERO SECTION -->
-    <!-- ============================================== -->
-    <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-24 px-4 relative overflow-hidden">
-        <!-- Gradient mesh background -->
-        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-            <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--yellow)] opacity-15 blur-[120px] rounded-full"></div>
-            <div class="absolute bottom-0 -right-20 w-[400px] h-[400px] bg-[var(--blue)] opacity-10 blur-[100px] rounded-full"></div>
-        </div>
+    <main class="co-root">
 
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Centered text content -->
-            <div class="text-center">
-                <!-- H1 SEO discret -->
-                <h1 class="seo-h1 mb-8 mt-8">Développeur MVP Freelance à Genève</h1>
-
-                <!-- Main title -->
-                <p class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6" data-animate="fade-up">
-                    Ton prototype fonctionnel<br/>
-                    en
-                    <span class="relative inline-block">
-                        <span class="relative z-10">2-3 semaines.</span>
-                        <img
-                            src={svgArrowHero.src}
-                            alt=""
-                            class="absolute -bottom-1 left-0 w-full h-5 md:h-6 pointer-events-none"
-                            aria-hidden="true"
-                        />
-                    </span>
-                </p>
-
-                <!-- Subtitle -->
-                <p class="text-xl md:text-2xl font-medium text-[var(--text)] mb-4" data-animate="fade-up" data-delay="0.1">
-                    Arrête de construire dans ton coin pendant 6 mois.
-                </p>
-
-                <!-- Description -->
-                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="0.15">
-                    Tu as une idée, un concept à tester, un pitch à préparer. Tu n'as pas besoin d'une app complète — tu as besoin d'un <strong class="text-[var(--text)]">partenaire technique en Suisse romande</strong> pour sortir un truc qui marche, maintenant.
-                </p>
-
-                <!-- CTAs centered -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 md:mb-16" data-animate="fade-up" data-delay="0.2">
-                    <a
-                        href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="
-                            bg-[var(--blue)]
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                            transition-all duration-200
-                            hover:bg-[var(--yellow)]
-                            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                            hover:translate-x-[2px] hover:translate-y-[2px]
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        <i class="ri-rocket-line"></i>
-                        Discuter de mon projet
-                    </a>
-                    <a
-                        href="#methode"
-                        class="
-                            bg-white
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            transition-all duration-200
-                            hover:bg-gray-100
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        Voir comment ça fonctionne
-                        <i class="ri-arrow-down-line"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Visual element: Hero illustration -->
-            <div class="w-full max-w-3xl mx-auto relative" data-animate="scale" data-delay="0.3">
-                <div class="bg-white border-3 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] p-4 md:p-6 relative">
-                    <!-- Corner boxes -->
-                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-
-                    <!-- Image -->
-                    <img
-                        src={imgHero.src}
-                        alt="MVP: Sortir vite - Comparaison entre 6 mois seul et 2-3 semaines avec un prototype"
-                        class="w-full h-auto"
-                        loading="eager"
-                    />
+        <!-- ══ HERO ══ -->
+        <section class="co-sec co-pad co-hero mv-hero" style="padding:64px 40px 56px;">
+            <div class="mv-hero-grid">
+                <div class="mv-hero-copy">
+                    <p class="co-eyebrow" data-animate>Développeur MVP freelance · Genève &amp; Suisse romande</p>
+                    <h1 class="mv-hero-title" data-animate data-delay="0.1">
+                        Ton prototype fonctionnel en <span class="co-ser">2-3 semaines.</span>
+                    </h1>
+                    <p class="mv-hero-lead" data-animate data-delay="0.2">
+                        <strong>Arrête de construire dans ton coin pendant 6 mois.</strong> Tu as une idée,
+                        un concept à tester, un pitch à préparer. Tu n'as pas besoin d'une app complète —
+                        tu as besoin d'un <strong>partenaire technique en Suisse romande</strong> pour sortir
+                        un truc qui marche, maintenant.
+                    </p>
+                    <div class="mv-hero-btns" data-animate data-delay="0.3">
+                        <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="co-btn"><i class="ri-rocket-line"></i> Discuter de mon projet</a>
+                        <a href="#methode" class="co-btn co-btn--ghost">Voir comment ça fonctionne <i class="ri-arrow-down-line"></i></a>
+                    </div>
+                    <p class="mv-hero-loc co-mut" data-animate data-delay="0.4">
+                        <i class="ri-map-pin-fill"></i> Basé à Genève · Service en Suisse romande
+                    </p>
                 </div>
 
+                <div class="mv-hero-media" data-animate="scale" data-delay="0.3">
+                    <div class="mv-media-frame co-frame">
+                        <span class="co-x tl"></span><span class="co-x tr"></span>
+                        <span class="co-x bl"></span><span class="co-x br"></span>
+                        <img src={imgHero.src} alt="MVP : sortir vite — comparaison entre 6 mois seul et 2-3 semaines avec un prototype fonctionnel" loading="eager" class="mv-media-img" />
+                    </div>
+                    <div class="mv-badge mv-badge--focus">
+                        <b>1</b><span>fonctionnalité clé</span>
+                    </div>
+                    <div class="mv-badge mv-badge--speed">2-3 sem.</div>
+                </div>
             </div>
+        </section>
 
-            <!-- Location badge centered -->
-            <div class="flex items-center justify-center gap-2 text-sm text-gray-500 mt-12">
-                <i class="ri-map-pin-fill text-accent"></i>
-                <span>Basé à Genève | Service en Suisse romande</span>
-            </div>
-        </div>
-    </section>
+        <!-- ══ 01 · SITUATIONS ══ -->
+        <section id="problemes" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">01 — Situations</p>
+            <h2 style="margin-top:8px;">Tu te <span class="co-ser">reconnais ?</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">
+                Ces situations où le temps joue contre toi.
+            </p>
 
-    <!-- ============================================== -->
-    <!-- PAIN POINTS SECTION -->
-    <!-- ============================================== -->
-    <section id="problemes" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundGlitchGrid color="rgba(239, 68, 68, 0.4)" opacity={0.08} />
-
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    situations
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    <span class="relative inline-block">
-                        <span class="absolute bg-panel w-full h-[40%] left-0 bottom-1 -z-1"></span>
-                        Tu te reconnais ?
-                    </span>
-                </h2>
-                <p class="text-lg text-gray-600">Ces situations où le temps joue contre toi.</p>
-            </div>
-
-            <!-- Pain points grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12" data-animate-stagger>
-                {painPoints.map((point) => (
-                    <div class="pain-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Red X icon -->
-                        <IconChip icon="ri-close-line" variant="muted" size="md" class="mb-4" />
-                        <h3 class="text-lg font-bold mb-2">{point.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">{point.description}</p>
+            <div class="mv-grid mv-grid--2" data-animate-stagger>
+                {painPoints.map((point, i) => (
+                    <div class="mv-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${["ri-presentation-line","ri-loop-left-line","ri-question-line","ri-flow-chart"][i]} mv-card-icon`} aria-hidden="true"></i>
+                        <h3 class="mv-card-title">{point.title}</h3>
+                        <p class="mv-card-text">{point.description}</p>
                     </div>
                 ))}
             </div>
 
-            <!-- Illustration problèmes -->
-            <div class="w-full max-w-md mx-auto mb-12" data-animate="fade-up">
-                <img
-                    src={imgProblemes.src}
-                    alt="L'idée qui tourne en boucle - illustration des doutes et blocages"
-                    class="w-full h-auto"
-                    loading="lazy"
-                />
-            </div>
-
-            <!-- Personal story callout -->
-            <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate="fade-up">
-                <i class="ri-double-quotes-l text-6xl text-gray-100 absolute -top-4 -left-2 md:-left-4"></i>
-
-                <div class="space-y-4 text-gray-700 leading-relaxed relative z-10">
-                    <p class="font-bold text-lg text-[var(--text)]">J'ai vécu exactement ça.</p>
-
-                    <p>On a passé un mois entier à développer un produit "parfait" — une plateforme de vente de contenu digital. L'UX était nickel, trois clics et c'était en ligne. Le problème ? <strong>On a découvert que le marché s'en foutait après avoir tout construit.</strong></p>
-
+            <figure class="mv-story co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <p class="mv-story-lead">J'ai vécu exactement ça.</p>
+                <div class="mv-body">
+                    <p>On a passé un mois entier à développer un produit « parfait » — une plateforme de vente de contenu digital. L'UX était nickel, trois clics et c'était en ligne. Le problème ? <strong>On a découvert que le marché s'en foutait après avoir tout construit.</strong></p>
                     <p>Un mois de dev, des nuits blanches, un produit qui n'existe plus aujourd'hui.</p>
-
-                    <div class="bg-[var(--blue)] bg-opacity-20 border-l-4 border-[var(--blue)] p-4 mt-6">
-                        <p class="font-bold text-[var(--text)]">
-                            Si j'avais sorti un proto moche mais fonctionnel en une semaine, j'aurais eu ma réponse sans y laisser des plumes.
-                        </p>
-                    </div>
                 </div>
-            </div>
-        </div>
-    </section>
+                <blockquote class="mv-story-highlight">
+                    Si j'avais sorti un proto moche mais fonctionnel en une semaine, j'aurais eu ma réponse sans y laisser des plumes.
+                </blockquote>
+            </figure>
+        </section>
 
-    <!-- ============================================== -->
-    <!-- METHOD SECTION -->
-    <!-- ============================================== -->
-    <section id="methode" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <BackgroundProgressFlow opacity={0.08} />
+        <!-- ══ 02 · MÉTHODE ══ -->
+        <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">02 — Méthode</p>
+            <h2 style="margin-top:8px;">Comment ça se passe ?</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+                Pas de tunnel de développement. Tu vois ce qui se passe à chaque étape.
+            </p>
 
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    méthode
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Comment ça se passe ?
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Pas de tunnel de développement. Tu vois ce qui se passe à chaque étape.
-                </p>
-            </div>
-
-            <!-- Method illustration -->
-            <div class="w-full max-w-2xl mx-auto mb-12" data-animate="fade-up">
-                <img
-                    src={imgMethode.src}
-                    alt="La méthode MVP en 3 étapes: Cadrage, Construction, Livraison"
-                    class="w-full h-auto"
-                    loading="lazy"
-                />
-            </div>
-
-            <!-- Process steps -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12" data-animate-stagger>
+            <div class="mv-steps" data-animate-stagger>
                 {methodSteps.map((step, index) => (
-                    <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
-                        <!-- Step badge -->
-                        <div class="absolute -top-3 left-4 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-bold">
-                            ÉTAPE {step.step}
-                        </div>
-                        <h3 class="text-xl font-bold mb-3 mt-4">{step.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">{step.description}</p>
-                        <!-- Duration -->
-                        <div class="flex items-center gap-2 text-sm pt-3 border-t border-dashed border-gray-300">
-                            <i class="ri-time-line text-accent"></i>
-                            <span class="text-gray-500">{step.duration}</span>
+                    <div class="mv-step" data-animate-item>
+                        <span class="mv-step-num co-index">0{index + 1}</span>
+                        <div class="mv-step-body">
+                            <h3 class="mv-step-title">{step.title}</h3>
+                            <p class="mv-step-text">{step.description}</p>
+                            <p class="mv-step-dur"><i class="ri-time-line"></i> {step.duration}</p>
                         </div>
                     </div>
                 ))}
             </div>
 
-            <!-- Differentiators box -->
-            <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate="fade-up">
-                <!-- Corner boxes -->
-                <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-
-                <h3 class="text-xl font-bold text-center mb-6">Ce qui change avec Jon Labs</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="mv-diff co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="mv-diff-title">Ce qui change avec Jon Labs</h3>
+                <div class="mv-diff-grid">
                     {differentiators.map((diff) => (
-                        <div class="flex items-start gap-3">
-                            <IconChip icon={diff.icon} size="md" class="flex-shrink-0" />
-                            <p class="text-sm text-gray-700">{diff.text}</p>
+                        <div class="mv-diff-item">
+                            <i class={`${diff.icon} mv-diff-icon`} aria-hidden="true"></i>
+                            <p class="mv-diff-text">{diff.text}</p>
                         </div>
                     ))}
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================== -->
-    <!-- RESULTS SECTION -->
-    <!-- ============================================== -->
-    <section id="resultats" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundProgressFlow opacity={0.05} />
+        <!-- ══ 03 · RÉSULTATS ══ -->
+        <section id="resultats" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">03 — Résultats</p>
+            <h2 style="margin-top:8px;">Ce que tu <span class="co-ser">obtiens.</span></h2>
 
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    résultats
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Ce que tu obtiens
-                </h2>
-            </div>
-
-            <!-- Results grid: 3 cards on top -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6" data-animate-stagger>
-                {results.slice(0, 3).map((result) => (
-                    <div class="result-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Green check icon -->
-                        <IconChip icon="ri-check-line" size="md" class="mb-4" />
-                        <h3 class="text-lg font-bold mb-2">{result.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">{result.description}</p>
+            <div class="mv-grid mv-grid--3" data-animate-stagger>
+                {results.map((result, i) => (
+                    <div class="mv-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${["ri-rocket-line","ri-focus-3-line","ri-presentation-line","ri-stack-line","ri-checkbox-circle-line"][i]} mv-card-icon`} aria-hidden="true"></i>
+                        <h3 class="mv-card-title">{result.title}</h3>
+                        <p class="mv-card-text">{result.description}</p>
                     </div>
                 ))}
             </div>
 
-            <!-- Results grid: 2 cards centered below -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto" data-animate-stagger>
-                {results.slice(3).map((result) => (
-                    <div class="result-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Green check icon -->
-                        <IconChip icon="ri-check-line" size="md" class="mb-4" />
-                        <h3 class="text-lg font-bold mb-2">{result.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">{result.description}</p>
-                    </div>
-                ))}
-            </div>
-
-            <!-- Lien contextuel : réalisation -->
-            <p class="mt-10 p-4 border-2 border-dashed border-gray-300 text-sm md:text-base max-w-3xl mx-auto text-gray-600">
-                <strong class="text-black">Un exemple ?</strong> Découvre
-                <a href="/portfolio/wisp" class="text-[var(--blue)] hover:underline font-medium">Wisp</a>,
-                un MVP d'app d'écriture que j'ai construit en SvelteKit, ou l'ensemble de mes
-                <a href="/portfolio" class="text-[var(--blue)] hover:underline font-medium">réalisations</a>.
-            </p>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- PRICING SECTION -->
-    <!-- ============================================== -->
-    <section id="prix" class="py-20 md:py-28 px-4">
-        <div class="max-w-4xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    investissement
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Investissement
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Chaque MVP est différent. Un proto pour tester une idée en interne, ce n'est pas la même chose qu'un démonstrateur pour lever des fonds.
+            <div class="mv-note" data-animate>
+                <i class="ri-briefcase-line"></i>
+                <p>
+                    <strong>Un exemple ?</strong> Découvre
+                    <a href="/portfolio/wisp" class="mv-inline">Wisp</a>,
+                    un MVP d'app d'écriture que j'ai construit en SvelteKit, ou l'ensemble de mes
+                    <a href="/portfolio" class="mv-inline">réalisations</a>.
                 </p>
             </div>
+        </section>
 
-            <!-- Pricing info card -->
-            <div class="bg-white border-3 border-black p-8 md:p-10 shadow-[8px_8px_0px_rgba(0,0,0,1)] relative mb-8" data-animate="scale">
-                <!-- Corner boxes -->
-                <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+        <!-- ══ 04 · INVESTISSEMENT ══ -->
+        <section id="prix" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">04 — Investissement</p>
+            <h2 style="margin-top:8px;">Un devis <span class="co-ser">clair.</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+                Chaque MVP est différent. Un proto pour tester une idée en interne, ce n'est pas la même
+                chose qu'un démonstrateur pour lever des fonds.
+            </p>
 
-                <div class="text-center mb-8">
-                    <p class="text-xl md:text-2xl font-bold text-[var(--text)] mb-2">
-                        On en discute, je te fais un devis clair avec un périmètre précis.
-                    </p>
-                    <p class="text-gray-600">Pas de surprise en cours de route.</p>
-                </div>
+            <div class="mv-pricenote co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <p class="mv-pricenote-lead">On en discute, je te fais un devis clair avec un périmètre précis.</p>
+                <p class="mv-pricenote-sub co-mut">Pas de surprise en cours de route.</p>
 
-                <div class="border-t-2 border-dashed border-gray-300 pt-6">
-                    <h4 class="font-bold mb-4 flex items-center justify-center gap-2">
-                        <i class="ri-information-line text-accent"></i>
-                        Ce qui influence le prix :
-                    </h4>
-                    <ul class="space-y-2 max-w-md mx-auto">
-                        {priceFactors.map((factor) => (
-                            <li class="flex items-center gap-2 text-sm text-gray-600">
-                                <i class="ri-arrow-right-s-line text-accent"></i>
-                                {factor}
-                            </li>
-                        ))}
+                <div class="mv-pricenote-factors">
+                    <h3 class="mv-pricenote-title"><i class="ri-information-line"></i> Ce qui influence le prix</h3>
+                    <ul class="co-list">
+                        {priceFactors.map((factor) => (<li>{factor}</li>))}
                     </ul>
                 </div>
-            </div>
 
-            <!-- CTA -->
-            <div class="text-center" data-animate="fade-up">
-                <a
-                    href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="
-                        inline-flex items-center gap-2
-                        bg-[var(--blue)]
-                        border-2 border-black
-                        px-8 py-4
-                        text-lg font-bold
-                        shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                        transition-all duration-200
-                        hover:bg-[var(--yellow)]
-                        hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                        hover:translate-x-[2px] hover:translate-y-[2px]
-                    "
-                >
-                    <i class="ri-file-list-3-line"></i>
-                    Demander un devis
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- FAQ SECTION -->
-    <!-- ============================================== -->
-    <FAQ
-        faqs={faqs}
-        title="Questions fréquentes"
-        sectionId="faq"
-    >
-        <BackgroundQuestionMarks slot="background" />
-    </FAQ>
-
-    <!-- Extra question note -->
-    <div class="text-center py-8 px-4 -mt-16 relative z-10">
-        <p class="text-gray-500">
-            Autre question ? <a href="/contact" class="text-[var(--blue)] font-medium hover:underline">Contacte-moi directement</a>, je réponds sous 24h.
-        </p>
-    </div>
-
-    <!-- ============================================== -->
-    <!-- ABOUT SECTION -->
-    <!-- ============================================== -->
-    <section id="about" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-        <div class="max-w-3xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    à propos
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Qui est derrière Jon Labs ?
-                </h2>
-            </div>
-
-            <!-- About card -->
-            <div class="bg-[var(--main-bg)] border-3 border-black p-8 md:p-10 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate="fade-up">
-                <div class="space-y-4 text-gray-700 leading-relaxed">
-                    <p>Je suis <strong class="text-[var(--text)]">Jonathan</strong>, développeur et créateur de solutions digitales basé à Genève.</p>
-
-                    <p>Je ne suis pas une agence avec 15 commerciaux et des juniors qui font le travail. Je suis <strong class="text-[var(--text)]">ton partenaire technique direct</strong> — celui qui va coder ton MVP, répondre à tes questions, et t'aider à trancher quand il faut faire des choix.</p>
-
-                    <p>Mon approche : <strong class="text-[var(--text)]">action plutôt que perfection</strong>. Mieux vaut un proto imparfait entre les mains qu'une idée parfaite qui reste dans ta tête.</p>
-
-                    <p>J'ai accompagné des entrepreneurs romands, des startups en phase d'amorçage et des PME suisses qui avaient besoin de tester vite avant d'investir gros.</p>
-                </div>
-
-                <div class="mt-8 pt-6 border-t border-dashed border-gray-300">
-                    <a href="/about" class="inline-flex items-center gap-2 text-[var(--blue)] font-medium hover:underline">
-                        <i class="ri-user-line"></i>
-                        En savoir plus sur mon parcours
-                        <i class="ri-arrow-right-line"></i>
+                <div class="mv-price-cta">
+                    <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="co-btn">
+                        <i class="ri-file-list-3-line"></i> Demander un devis
                     </a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================== -->
-    <!-- LOCAL SECTION -->
-    <!-- ============================================== -->
-    <section id="local" class="py-20 md:py-28 px-4">
-        <div class="max-w-4xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    local
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Basé à <span class="text-[var(--blue)]">Genève</span>, disponible partout en Suisse romande
-                </h2>
+        <!-- ══ 05 · FAQ (accordéon natif <details>, zéro JS) ══ -->
+        <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">05 — FAQ</p>
+            <h2 style="margin-top:8px;">Questions fréquentes</h2>
+
+            <div class="mv-faq" style="margin-top:32px;">
+                {faqs.map((faq, index) => (
+                    <details open={index === 0}>
+                        <summary>
+                            {faq.question}
+                            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+                        </summary>
+                        <p class="mv-faq-answer">{faq.answer}</p>
+                    </details>
+                ))}
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-animate="fade-up">
-                <!-- Description -->
-                <div class="space-y-4 text-gray-700">
-                    <p>
-                        Le développement de MVP se fait généralement à distance — les échanges, le suivi, les démos, tout peut se faire en visio. C'est souvent plus efficace.
-                    </p>
-                    <p>
-                        Mais si tu préfères un échange en personne pour le cadrage initial ou les points d'étape, je suis disponible sur Genève et ses environs.
-                    </p>
-                    <p>
-                        Je connais le contexte suisse romand — les attentes des investisseurs locaux, la nLPD pour la protection des données, les habitudes des utilisateurs d'ici.
-                    </p>
-                </div>
-
-                <!-- Zones -->
-                <div class="space-y-3">
-                    {zones.map((zone) => (
-                        <div class={`
-                            flex items-center gap-4 p-4 border-2 border-black
-                            ${zone.type === 'primary' ? 'bg-[var(--blue)] bg-opacity-20 border-[var(--blue)]' : 'bg-white'}
-                        `}>
-                            <i class={`${zone.icon} text-xl ${zone.type === 'primary' ? 'text-[var(--text)]' : 'text-gray-600'}`}></i>
-                            <span class={`font-medium ${zone.type === 'primary' ? 'text-lg font-bold' : ''}`}>
-                                {zone.name}
-                                {zone.type === 'primary' && <span class="text-sm font-normal text-gray-600 ml-2">(basé sur place)</span>}
-                            </span>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- CTA FINAL SECTION -->
-    <!-- ============================================== -->
-    <section id="cta-final" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <!-- Dot pattern background -->
-        <div class="absolute inset-0 dots-bg opacity-[0.3]"></div>
-
-        <div class="max-w-3xl mx-auto relative z-10 text-center">
-            <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-6" data-animate="fade-up">
-                T'as un truc à construire ?
-            </h2>
-            <p class="text-xl font-medium text-[var(--text)] mb-4" data-animate="fade-up" data-delay="0.1">
-                Arrête de tourner en rond.
+            <p class="co-mut" style="margin-top:24px;text-align:center;">
+                Autre question ? <a href="/contact" class="mv-inline">Contacte-moi directement</a>, je réponds sous 24h.
             </p>
-            <p class="text-lg text-gray-600 mb-8" data-animate="fade-up" data-delay="0.15">
-                En 30 minutes, on regarde ton projet ensemble et je te dis honnêtement si un MVP fait sens — et ce qu'il faudrait pour le sortir.
-            </p>
+        </section>
 
-            <!-- CTA illustration -->
-            <div class="w-full max-w-sm mx-auto mb-8" data-animate="fade-up" data-delay="0.2">
-                <img
-                    src={imgCtaFinal.src}
-                    alt="Le premier pas - Franchir la porte vers votre MVP"
-                    class="w-full h-auto"
-                    loading="lazy"
-                />
-            </div>
+        <!-- ══ 06 · À PROPOS ══ -->
+        <section id="about" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">06 — À propos</p>
+            <h2 style="margin-top:8px;">Qui est derrière <span class="co-ser">Jon Labs ?</span></h2>
 
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12" data-animate="fade-up" data-delay="0.25">
-                <a
-                    href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="
-                        bg-[var(--blue)]
-                        border-2 border-black
-                        px-8 py-4
-                        text-lg font-bold
-                        shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                        transition-all duration-200
-                        hover:bg-[var(--yellow)]
-                        hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                        hover:translate-x-[2px] hover:translate-y-[2px]
-                        flex items-center justify-center gap-2
-                    "
-                >
-                    <i class="ri-calendar-line"></i>
-                    Réserver un appel découverte
+            <div class="mv-about co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <div class="mv-body">
+                    <p>Je suis <strong>Jonathan</strong>, développeur et créateur de solutions digitales basé à Genève.</p>
+                    <p>Je ne suis pas une agence avec 15 commerciaux et des juniors qui font le travail. Je suis <strong>ton partenaire technique direct</strong> — celui qui va coder ton MVP, répondre à tes questions, et t'aider à trancher quand il faut faire des choix.</p>
+                    <p>Mon approche : <strong>action plutôt que perfection</strong>. Mieux vaut un proto imparfait entre les mains qu'une idée parfaite qui reste dans ta tête.</p>
+                    <p>J'ai accompagné des entrepreneurs romands, des startups en phase d'amorçage et des PME suisses qui avaient besoin de tester vite avant d'investir gros.</p>
+                </div>
+                <a href="/about" class="mv-about-link">
+                    <i class="ri-user-line"></i> En savoir plus sur mon parcours <i class="ri-arrow-right-line"></i>
                 </a>
             </div>
+        </section>
 
-            <!-- Alternative -->
-            <div class="bg-[var(--main-bg)] border-2 border-dashed border-gray-300 p-6 inline-block" data-animate="fade-up" data-delay="0.3">
-                <p class="text-gray-500 text-sm mb-2">
-                    <strong>Pas encore prêt ?</strong> Tu peux d'abord valider ton idée avant de construire quoi que ce soit.
+        <!-- ══ 07 · LOCAL ══ -->
+        <section id="local" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">07 — Local</p>
+            <h2 style="margin-top:8px;">Basé à <span class="co-ser">Genève</span>, disponible partout en Suisse romande</h2>
+
+            <div class="mv-local-grid">
+                <div class="mv-local-copy mv-body" data-animate="fade-left">
+                    <p>Le développement de MVP se fait généralement à distance — les échanges, le suivi, les démos, tout peut se faire en visio. C'est souvent plus efficace.</p>
+                    <p>Mais si tu préfères un échange en personne pour le cadrage initial ou les points d'étape, je suis disponible sur Genève et ses environs.</p>
+                    <p>Je connais le contexte suisse romand — les attentes des investisseurs locaux, la nLPD pour la protection des données, les habitudes des utilisateurs d'ici.</p>
+                </div>
+
+                <div data-animate="fade-left" data-delay="0.1">
+                    <h3 class="mv-local-h3">Zones couvertes</h3>
+                    <div class="mv-zones">
+                        {zones.map((zone) => (
+                            <div class={`mv-zone ${zone.type === 'primary' ? 'mv-zone--primary' : ''}`}>
+                                <i class={zone.icon}></i>
+                                <span>
+                                    <strong>{zone.name}</strong>
+                                    {zone.type === 'primary' && <span class="co-mut"> (basé sur place)</span>}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                    <p class="co-mut" style="margin-top:16px;font-size:13.5px;">
+                        <i class="ri-information-line"></i> Les échanges se font en personne ou en visio selon tes préférences.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ 08 · CTA FINAL (primitive .co-cta) ══ -->
+        <section class="co-cta">
+            <span class="co-x tl"></span><span class="co-x tr"></span>
+            <span class="co-x bl"></span><span class="co-x br"></span>
+            <div class="co-cta-inner">
+                <p class="co-cta-eyebrow">T'as un truc à construire ?</p>
+                <h2 class="co-cta-title">Arrête de <span class="co-ser">tourner en rond.</span></h2>
+                <p class="co-cta-lead">
+                    En 30 minutes, on regarde ton projet ensemble et je te dis honnêtement si un MVP fait
+                    sens — et ce qu'il faudrait pour le sortir.
                 </p>
-                <a href="/services/validation-idee" class="inline-flex items-center gap-2 text-[var(--blue)] font-medium hover:underline">
-                    <i class="ri-flask-line"></i>
-                    Découvrir le service de validation d'idée
-                    <i class="ri-arrow-right-line"></i>
-                </a>
+                <div class="co-cta-btns">
+                    <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="co-btn co-cta-btn"><i class="ri-calendar-line"></i> Réserver un appel découverte</a>
+                    <a href="/services/validation-idee" class="co-btn co-btn--ghost co-cta-btn co-cta-btn--ghost"><i class="ri-flask-line"></i> Valider mon idée d'abord</a>
+                </div>
+                <div class="co-cta-trust">
+                    <span><i class="ri-time-line"></i> Réponse sous 24 h</span>
+                    <span><i class="ri-phone-line"></i> Premier appel gratuit</span>
+                    <span><i class="ri-map-pin-line"></i> Basé à Genève</span>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
 
     <Footer />
 </Layout>
 
-<style>
-    /* Dot pattern background */
-    .dots-bg {
-        background-image: radial-gradient(circle, #000 1px, transparent 1px);
-        background-size: 24px 24px;
+<style is:global>
+    /* ══ DÉVELOPPEMENT MVP — styles .mv-* (namespace scopé, corps .co-root) ══ */
+
+    /* ── Corps rédactionnel réutilisable (story / about / local) ── */
+    .mv-body { display: flex; flex-direction: column; gap: 14px; }
+    .co-root .mv-body p { font-size: 14.5px; line-height: 1.65; color: var(--muted); }
+    .mv-body strong { color: var(--ink); font-weight: 600; }
+
+    /* ── Hero ── */
+    .mv-hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
+    .mv-hero-title { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+    .co-root .mv-hero-lead { margin-top: 18px; max-width: 54ch; font-size: 1.075rem; line-height: 1.65; color: var(--muted); }
+    .mv-hero-lead strong { color: var(--ink); font-weight: 600; }
+    .mv-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .mv-hero-btns .co-btn i { transition: transform .18s ease-out; }
+    .mv-hero-btns .co-btn:hover i { transform: translateY(2px); }
+    .co-root .mv-hero-loc { margin-top: 22px; font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px; }
+    .mv-hero-loc i { color: var(--accent); }
+
+    /* media */
+    .mv-hero-media { position: relative; }
+    .mv-media-frame { position: relative; background: var(--surface); border: 1px solid var(--line-2); padding: 14px; }
+    .mv-media-img { display: block; width: 100%; height: auto; }
+    .mv-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: 8px 12px; font-size: 12px; font-weight: 600; }
+    .mv-badge--focus { top: -16px; left: -14px; display: flex; align-items: baseline; gap: 6px; line-height: 1.1; }
+    .mv-badge--focus b { color: var(--accent); font-size: 15px; }
+    .mv-badge--focus span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .mv-badge--speed { bottom: -16px; right: -14px; background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    /* ── Cartes génériques (situations / résultats) ── */
+    .mv-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .mv-grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .mv-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .mv-card {
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        background: var(--surface); border: 1px solid var(--line-2);
+        transition: box-shadow .18s ease-out, transform .18s ease-out;
+    }
+    .mv-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+    .mv-card-icon { font-size: 24px; color: var(--accent); line-height: 1; }
+    .mv-card-title { font-size: 1.1rem; }
+    .mv-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
+
+    /* ── Notes / callouts ── */
+    .mv-note { display: flex; align-items: flex-start; gap: 12px; margin-top: 24px; padding: 18px 22px; border: 1px solid var(--line-2); background: var(--surface); }
+    .mv-note i { color: var(--accent); font-size: 20px; flex: none; margin-top: 1px; }
+    .co-root .mv-note p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+    .mv-note strong { color: var(--ink); font-weight: 600; }
+    .mv-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
+    .mv-inline:hover { color: var(--ink); }
+
+    /* ── Story personnelle ── */
+    .mv-story { position: relative; margin-top: 28px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 16px; }
+    .mv-story-lead { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); }
+    .mv-story-highlight {
+        margin: 0; padding: 4px 0 4px 20px; border-left: 2px solid var(--accent);
+        font-family: "Instrument Serif", Georgia, serif; font-style: italic;
+        font-size: 1.35rem; line-height: 1.4; color: var(--ink);
     }
 
-    /* H1 SEO style terminal */
-    .seo-h1 {
-        font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace;
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: var(--color-accent-strong);
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    /* ── Étapes méthode ── */
+    .mv-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+    .mv-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .mv-step-num { font-size: 20px; font-weight: 600; }
+    .mv-step-title { font-size: 1.15rem; }
+    .co-root .mv-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 72ch; }
+    .co-root .mv-step-dur { margin-top: 10px; font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+    .mv-step-dur i { color: var(--accent); }
 
-    /* Scroll margin for anchor navigation */
-    section[id] {
-        scroll-margin-top: 100px;
+    /* ── Encart différenciateurs ── */
+    .mv-diff { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .mv-diff-title { text-align: center; font-size: 1.25rem; }
+    .mv-diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 28px; }
+    .mv-diff-item { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+    .mv-diff-icon { font-size: 26px; color: var(--accent); }
+    .co-root .mv-diff-text { font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+
+    /* ── Investissement ── */
+    .mv-pricenote { position: relative; margin-top: 32px; padding: 34px; background: var(--surface); border: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 8px; }
+    .mv-pricenote-lead { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.3; }
+    .co-root .mv-pricenote-sub { font-size: 14.5px; }
+    .mv-pricenote-factors { margin-top: 16px; padding-top: 20px; border-top: 1px solid var(--line); }
+    .mv-pricenote-title { font-size: 1.05rem; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+    .mv-pricenote-title i { color: var(--accent); }
+    .mv-pricenote-factors .co-list li { font-size: 14px; }
+    .mv-price-cta { margin-top: 20px; }
+
+    /* ── FAQ (accordéon natif <details> — smooth via ::details-content, zéro JS) ── */
+    .mv-faq { border-top: 1px solid var(--line); }
+    .mv-faq details { border-bottom: 1px solid var(--line); }
+    .mv-faq summary {
+        list-style: none; cursor: pointer; padding: 20px 0;
+        display: flex; justify-content: space-between; align-items: center; gap: 20px;
+        font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
+    }
+    .mv-faq summary::-webkit-details-marker { display: none; }
+    .mv-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
+    .mv-faq details[open] summary i { transform: rotate(180deg); }
+    .co-root .mv-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 72ch; }
+    .mv-faq details::details-content {
+        block-size: 0; overflow: hidden;
+        transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
+    }
+    .mv-faq details[open]::details-content { block-size: auto; }
+
+    /* ── À propos ── */
+    .mv-about { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 24px; }
+    .mv-about-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 600; color: var(--accent); transition: gap .18s ease-out; }
+    .mv-about-link:hover { gap: 12px; }
+
+    /* ── Local ── */
+    .mv-local-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; margin-top: 32px; align-items: start; }
+    .mv-local-h3 { font-size: 1.15rem; margin-bottom: 18px; }
+    .mv-zones { display: flex; flex-direction: column; gap: 10px; }
+    .mv-zone { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line-2); font-size: 14px; }
+    .mv-zone i { color: var(--muted); font-size: 18px; }
+    .mv-zone strong { font-weight: 600; }
+    .mv-zone--primary { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .mv-zone--primary i { color: var(--accent); }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+        .mv-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+        .mv-hero-media { max-width: 520px; }
+        .mv-local-grid { grid-template-columns: 1fr; gap: 32px; }
+        .mv-diff-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 720px) {
+        .mv-grid--2, .mv-grid--3 { grid-template-columns: 1fr; }
+        .mv-diff-grid { grid-template-columns: 1fr 1fr; }
+        .mv-step { grid-template-columns: 44px 1fr; gap: 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .mv-card, .mv-about-link, .mv-faq summary i, .mv-hero-btns .co-btn i { transition: none; }
     }
 </style>

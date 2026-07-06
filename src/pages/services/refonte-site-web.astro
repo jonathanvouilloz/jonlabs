@@ -1,26 +1,21 @@
 ---
+// Refonte de site web — sous-page service (blueprint).
+// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
+// accent teal unique, Inter Tight × Instrument Serif. Calquée sur le gabarit-or
+// /services/creation-site-web.astro. Namespace page-local : .rf-*.
+//
+// HARD-PRESERVE : Schema.org (serviceSchemas/breadcrumb/FAQ), câblage Web3Forms
+// (#refonte-form, access_key + hidden inputs, honeypot, needs[] + tous les name=,
+// JS submit avec validation needs), prix exacts (950 / 1'000-2'500 / 2'000-4'000 /
+// Sur devis + 3 semaines / 10 jours), tous les liens SEO internes (cluster/ressources).
+
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import IconChip from '../../components/IconChip.astro';
 
-// Import SVG pour surlignement
-import arrowUnderline from '../../assets/arrow-3.svg';
-
-// Import image hero
+// Image hero (mockup navigateur)
 import refonteHero from '../../assets/services/refonte-1.webp';
-
-// Import background components
-import BackgroundGlitchGrid from '../../components/backgrounds/BackgroundGlitchGrid.astro';
-import BackgroundProgressFlow from '../../components/backgrounds/BackgroundProgressFlow.astro';
-import BackgroundCircuitBoard from '../../components/backgrounds/BackgroundCircuitBoard.astro';
-import BackgroundQuestionMarks from '../../components/backgrounds/BackgroundQuestionMarks.astro';
-import BackgroundMapContours from '../../components/backgrounds/BackgroundMapContours.astro';
-
-// Import FAQ component
-import FAQ from '../../components/FAQ.astro';
-import type { FAQItem } from '../../components/FAQ.astro';
 
 // Schema.org
 import { serviceSchemas, SITE_URL } from '../../data/schema';
@@ -241,7 +236,7 @@ const inclusions = [
 ];
 
 // FAQ data
-const faqs: FAQItem[] = [
+const faqs = [
     {
         question: "Je dois refaire TOUT mon site ou on peut garder des choses ?",
         answer: "Ça dépend. Si votre contenu est bon, on le réutilise. Si votre design est sauvable, on s'en inspire. On ne jette pas par principe, on optimise."
@@ -314,575 +309,361 @@ const needOptions = [
 ];
 ---
 
-<Layout
-    title={seoData.title}
-    description={seoData.description}
-    schemas={schemas}
->
+<Layout title={seoData.title} description={seoData.description} schemas={schemas}>
     <Header />
 
-    <!-- ============================================== -->
-    <!-- HERO OPTION A - Browser Showcase (ACTIVE) -->
-    <!-- ============================================== -->
-    <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-20 px-4 relative overflow-hidden">
-        <!-- Gradient mesh background -->
-        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-            <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--blue)] opacity-20 blur-[120px] rounded-full"></div>
-            <div class="absolute top-1/3 -right-20 w-[400px] h-[400px] bg-accent-strong opacity-15 blur-[100px] rounded-full"></div>
-            <div class="absolute bottom-0 left-1/3 w-[300px] h-[300px] bg-[var(--blue)] opacity-10 blur-[80px] rounded-full"></div>
-        </div>
+    <main class="co-root">
 
-        <div class="max-w-4xl mx-auto relative z-10">
-            <!-- Centered text content -->
-            <div class="text-center">
-                <!-- H1 SEO discret -->
-                <h1 class="seo-h1 mb-8 mt-8">Refonte de site web à Genève</h1>
-
-                <!-- Main title -->
-                <p class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6" data-animate="fade-up">
-                    Votre site date de 2015 ?<br/>
-                    Il est temps de passer à la
-                    <span class="relative inline-block">
-                        <span class="relative z-10">vitesse supérieure</span>
-                        <img
-                            src={arrowUnderline.src}
-                            alt=""
-                            class="absolute -bottom-0 left-0 w-full h-8 pointer-events-none"
-                            aria-hidden="true"
-                        />
-                    </span>
-                </p>
-
-                <!-- Description -->
-                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="0.1">
-                    Site lent, design vieillot, impossible à modifier vous-même, invisible sur Google ?<br class="hidden md:block"/>
-                    <strong class="text-[var(--text)]">Je refais tout. Proprement. En 3 semaines.</strong>
-                </p>
-
-                <!-- CTAs centered -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16 md:mb-20" data-animate="fade-up" data-delay="0.2">
-                    <a
-                        href="#contact"
-                        class="
-                            bg-[var(--blue)]
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                            transition-all duration-200
-                            hover:bg-[var(--yellow)]
-                            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                            hover:translate-x-[2px] hover:translate-y-[2px]
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        <i class="ri-search-eye-line"></i>
-                        Audit gratuit de mon site
-                    </a>
-                    <a
-                        href="/portfolio"
-                        class="
-                            bg-white
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            transition-all duration-200
-                            hover:bg-gray-100
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        Voir des exemples
-                        <i class="ri-arrow-right-line"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Browser mockup centered -->
-            <div class="w-full mx-auto relative" data-animate="scale" data-delay="0.3">
-                <div class="bg-white border-3 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] relative">
-                    <!-- Browser bar -->
-                    <div class="flex items-center gap-2 p-3 border-b-2 border-black bg-gray-50">
-                        <div class="flex gap-1.5">
-                            <div class="w-3 h-3 rounded-full bg-red-400 border border-black"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-400 border border-black"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-400 border border-black"></div>
-                        </div>
-                        <div class="flex-1 bg-white border border-black px-3 py-1 text-xs text-gray-400 font-mono text-center">
-                            barberconcept.ch
-                        </div>
+        <!-- ══ HERO ══ -->
+        <section class="co-sec co-pad co-hero rf-hero" style="padding:64px 40px 56px;">
+            <div class="rf-hero-grid">
+                <div class="rf-hero-copy">
+                    <p class="co-eyebrow" data-animate>Refonte de site web · Genève &amp; Suisse romande</p>
+                    <h1 class="rf-hero-title" data-animate data-delay="0.1">
+                        Refonte de site web à <span class="co-ser">Genève.</span>
+                    </h1>
+                    <p class="rf-hero-lead" data-animate data-delay="0.2">
+                        Votre site date de 2015 ? Site lent, design vieillot, impossible à modifier vous-même,
+                        invisible sur Google ? <strong>Je refais tout. Proprement. En 3 semaines.</strong>
+                    </p>
+                    <div class="rf-hero-btns" data-animate data-delay="0.3">
+                        <a href="#contact" class="co-btn"><i class="ri-search-eye-line"></i> Audit gratuit de mon site</a>
+                        <a href="/portfolio" class="co-btn co-btn--ghost">Voir des exemples <i class="ri-arrow-right-line"></i></a>
                     </div>
-                    <!-- Screenshot -->
-                    <img
-                        src={refonteHero.src}
-                        alt="Exemple de refonte de site web - Barber Concept"
-                        class="w-full h-auto"
-                    />
+                    <p class="rf-hero-loc co-mut" data-animate data-delay="0.4">
+                        <i class="ri-map-pin-fill"></i> Basé à Genève · Service en Suisse romande
+                    </p>
                 </div>
-                <!-- Score badge -->
-                <div class="absolute -top-4 -left-4 bg-white border-2 border-black px-3 py-2 shadow-[3px_3px_0px_rgba(0,0,0,1)] -rotate-6">
-                    <span class="font-mono text-sm font-bold text-[var(--blue)]">90+</span>
-                    <span class="text-xs text-gray-500 block">Google</span>
-                </div>
-                <!-- Speed badge -->
-                <div class="absolute -bottom-4 -right-4 bg-[var(--blue)] border-2 border-black px-4 py-2 shadow-[3px_3px_0px_rgba(0,0,0,1)] rotate-3">
-                    <span class="font-bold text-sm">1 sec.</span>
-                </div>
-            </div>
 
-            <!-- Location badge centered -->
-            <div class="flex items-center justify-center gap-2 text-sm text-gray-500 mt-12">
-                <i class="ri-map-pin-fill text-[var(--blue)]"></i>
-                <span>Basé à Genève | Service en Suisse romande</span>
-            </div>
-        </div>
-    </section>
-  
-    <!-- PAIN POINTS SECTION -->
-    <section id="problemes" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundGlitchGrid />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    problèmes
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Votre site vous fait <span class="relative inline-block">
-                        <span class="absolute bg-panel w-full h-[40%] left-0 bottom-1 -z-1"></span>
-                        perdre des clients
-                    </span><br/>
-                    au lieu d'en gagner ?
-                </h2>
-                <p class="text-lg text-gray-600">Vous êtes au bon endroit si votre site...</p>
-            </div>
-
-            <!-- Pain points grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12" data-animate-stagger>
-                {painPoints.map((point) => (
-                    <div class="pain-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Red X icon -->
-                        <IconChip icon="ri-close-line" variant="muted" size="md" class="mb-4" />
-                        <h3 class="text-lg font-bold mb-2">{point.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">{point.description}</p>
+                <div class="rf-hero-media" data-animate="scale" data-delay="0.3">
+                    <div class="rf-browser co-frame">
+                        <span class="co-x tl"></span><span class="co-x tr"></span>
+                        <span class="co-x bl"></span><span class="co-x br"></span>
+                        <div class="rf-browser-bar">
+                            <span class="rf-browser-dot"></span>
+                            <span class="rf-browser-dot"></span>
+                            <span class="rf-browser-dot"></span>
+                            <span class="rf-browser-url">barberconcept.ch</span>
+                        </div>
+                        <img src={refonteHero.src} alt="Exemple de refonte de site web - Barber Concept" loading="eager" class="rf-browser-img" />
                     </div>
-                ))}
+                    <div class="rf-badge rf-badge--score">
+                        <b>90+</b><span>Google</span>
+                    </div>
+                    <div class="rf-badge rf-badge--speed">1 sec.</div>
+                </div>
             </div>
+        </section>
 
-            <!-- Good news callout -->
-            <div class="bg-[var(--blue)] bg-opacity-10 border-2 border-[var(--blue)] p-6 md:p-8 text-center" data-animate="fade-up">
-                <p class="text-lg md:text-xl font-medium">
-                    <i class="ri-lightbulb-line text-[var(--blue)] mr-2"></i>
-                    <strong>Bonne nouvelle :</strong> Tout ça, c'est réparable. Et plus vite que vous pensez.
-                </p>
-            </div>
-
-            <!-- Lien contextuel : signes site dort -->
-            <p class="mt-8 p-4 bg-[var(--yellow)]/30 border-l-4 border-black text-sm md:text-base max-w-3xl mx-auto">
-                <strong>Pas sûr que ton site doit être refait ?</strong> Cette
-                <a href="/blog/15-signes-site-web-dort" class="underline font-bold hover:text-[var(--violet)]">checklist des 15 signes que ton site web dort</a>
-                te donne une réponse en 4 minutes. Si tu coches plus de 5 signes, c'est qu'une refonte vaut le coup.
+        <!-- ══ 01 · PROBLÈMES ══ -->
+        <section id="problemes" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">01 — Problèmes</p>
+            <h2 style="margin-top:8px;">Votre site vous fait <span class="co-ser">perdre des clients</span> au lieu d'en gagner ?</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">
+                Vous êtes au bon endroit si votre site...
             </p>
-        </div>
-    </section>
 
-    <!-- METHODOLOGY SECTION -->
-    <section id="methode" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <BackgroundProgressFlow />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    méthode
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Je ne refais pas « pareil mais plus joli ».<br/>
-                    <span class="text-[var(--blue)]">Je reconstruis stratégiquement.</span>
-                </h2>
+            <div class="rf-grid rf-grid--3" data-animate-stagger>
+                {painPoints.map((point) => (
+                    <div class="rf-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${point.icon} rf-card-icon`} aria-hidden="true"></i>
+                        <h3 class="rf-card-title">{point.title}</h3>
+                        <p class="rf-card-text">{point.description}</p>
+                    </div>
+                ))}
             </div>
 
-            <!-- Timeline - Grid simple -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" data-animate-stagger>
+            <div class="rf-note rf-note--accent" data-animate>
+                <i class="ri-lightbulb-line"></i>
+                <p><strong>Bonne nouvelle :</strong> Tout ça, c'est réparable. Et plus vite que vous pensez.</p>
+            </div>
+
+            <div class="rf-note" data-animate>
+                <p>
+                    <strong>Pas sûr que ton site doit être refait ?</strong> Cette
+                    <a href="/blog/15-signes-site-web-dort" class="rf-inline">checklist des 15 signes que ton site web dort</a>
+                    te donne une réponse en 4 minutes. Si tu coches plus de 5 signes, c'est qu'une refonte vaut le coup.
+                </p>
+            </div>
+        </section>
+
+        <!-- ══ 02 · MÉTHODE ══ -->
+        <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">02 — Méthode</p>
+            <h2 style="margin-top:8px;">Je ne refais pas « pareil mais plus joli ».<br/><span class="co-ser">Je reconstruis stratégiquement.</span></h2>
+
+            <div class="rf-steps" data-animate-stagger>
                 {methodSteps.map((step, index) => (
-                    <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
-                        <!-- Number badge intégré -->
-                        <div class="flex items-center gap-3 mb-4">
-                            <span class="w-10 h-10 bg-accent border-2 border-black flex items-center justify-center font-mono font-bold text-sm">
-                                0{index + 1}
-                            </span>
-                            <span class="bg-accent-soft px-3 py-1 text-sm font-mono font-bold">
-                                {step.week}
-                            </span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-4">{step.title}</h3>
-                        <ul class="space-y-2 mb-4">
-                            {step.tasks.map((task) => (
-                                <li class="flex items-start gap-2 text-gray-600">
-                                    <i class="ri-check-line text-[var(--blue)] mt-0.5 flex-shrink-0"></i>
-                                    <span>{task}</span>
-                                </li>
-                            ))}
-                        </ul>
-                        <!-- Deliverable -->
-                        <div class="flex flex-col gap-1 text-sm pt-4 border-t border-dashed border-gray-300">
-                            <span class="text-gray-400">Livrable</span>
-                            <span class="bg-gray-100 border border-gray-300 px-2 py-1 font-medium text-xs">{step.deliverable}</span>
+                    <div class="rf-step" data-animate-item>
+                        <span class="rf-step-num co-index">0{index + 1}</span>
+                        <div class="rf-step-body">
+                            <div class="rf-step-head">
+                                <h3 class="rf-step-title">{step.title}</h3>
+                                <span class="co-badge">{step.week}</span>
+                            </div>
+                            <ul class="co-list co-list--check rf-step-tasks">
+                                {step.tasks.map((task) => (
+                                    <li><i class="ri-check-line"></i><span>{task}</span></li>
+                                ))}
+                            </ul>
+                            <p class="rf-step-deliv"><span class="co-mut">Livrable</span> {step.deliverable}</p>
                         </div>
                     </div>
                 ))}
             </div>
 
-            <!-- Differentiators -->
-            <div class="mt-16 md:mt-20">
-                <h3 class="text-xl md:text-2xl font-bold text-center mb-8" data-animate="fade-up">Ce qui me différencie</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4" data-animate-stagger>
+            <div class="rf-diff co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="rf-diff-title">Ce qui me différencie</h3>
+                <div class="rf-diff-grid">
                     {differentiators.map((diff) => (
-                        <div class="bg-white border-2 border-black p-5" data-animate-item>
-                            <i class={`${diff.icon} text-2xl text-[var(--blue)] mb-3 block`}></i>
-                            <h4 class="font-bold mb-2">{diff.title}</h4>
-                            <p class="text-sm text-gray-600">{diff.description}</p>
+                        <div class="rf-diff-item">
+                            <i class={`${diff.icon} rf-diff-icon`} aria-hidden="true"></i>
+                            <h4 class="rf-diff-name">{diff.title}</h4>
+                            <p class="rf-diff-desc">{diff.description}</p>
                         </div>
                     ))}
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- BEFORE/AFTER SECTION -->
-    <section id="resultats" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-        <div class="max-w-5xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    résultats
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Avant / Après :<br/>
-                    <span class="text-[var(--blue)]">Les résultats mesurables</span>
-                </h2>
+        <!-- ══ 03 · RÉSULTATS ══ -->
+        <section id="resultats" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">03 — Résultats</p>
+            <h2 style="margin-top:8px;">Avant / Après : <span class="co-ser">les résultats mesurables.</span></h2>
+
+            <div class="rf-note" data-animate>
+                <p>
+                    <strong>Pour comparer avec d'autres sites romands :</strong> j'ai analysé
+                    <a href="/blog/audit-50-sites-indeps-romands" class="rf-inline">50 sites d'indépendants romands</a>
+                    pour identifier ce qui marche et ce qui plante. Et ce
+                    <a href="/blog/visibilite-site-internet-2026" class="rf-inline">guide visibilité 2026</a>
+                    explique comment positionner ton nouveau site sur Google + les IA.
+                </p>
             </div>
 
-            <!-- Lien contextuel : audit + visibilité -->
-            <p class="mb-8 p-4 bg-[var(--yellow)]/30 border-l-4 border-black text-sm md:text-base max-w-3xl mx-auto">
-                <strong>Pour comparer avec d'autres sites romands :</strong> j'ai analysé
-                <a href="/blog/audit-50-sites-indeps-romands" class="underline font-bold hover:text-[var(--violet)]">50 sites d'indépendants romands</a>
-                pour identifier ce qui marche et ce qui plante. Et ce
-                <a href="/blog/visibilite-site-internet-2026" class="underline font-bold hover:text-[var(--violet)]">guide visibilité 2026</a>
-                explique comment positionner ton nouveau site sur Google + les IA.
-            </p>
-
-            <!-- Results table -->
-            <div class="overflow-x-auto" data-animate="fade-up" data-delay="0.1">
-                <table class="w-full border-3 border-black bg-[var(--main-bg)]">
-                    <!-- Header -->
+            <div class="rf-table-wrap" data-animate>
+                <table class="rf-table">
                     <thead>
-                        <tr class="bg-white border-b-3 border-black">
-                            <th class="p-4 text-left font-bold border-r-2 border-black">Métrique</th>
-                            <th class="p-4 text-center font-bold border-r-2 border-black bg-panel">
-                                <span class="flex items-center justify-center gap-2">
-                                    <i class="ri-close-line text-muted"></i>
-                                    Avant
-                                </span>
-                            </th>
-                            <th class="p-4 text-center font-bold border-r-2 border-black bg-[var(--blue)] bg-opacity-20">
-                                <span class="flex items-center justify-center gap-2">
-                                    <i class="ri-check-line text-[var(--blue)]"></i>
-                                    Après
-                                </span>
-                            </th>
-                            <th class="p-4 text-center font-bold">Impact</th>
+                        <tr>
+                            <th>Métrique</th>
+                            <th><span class="rf-th-ic"><i class="ri-close-line"></i> Avant</span></th>
+                            <th><span class="rf-th-after"><i class="ri-check-line"></i> Après</span></th>
+                            <th>Impact</th>
                         </tr>
                     </thead>
-                    <!-- Body -->
                     <tbody>
-                        {results.map((result, index) => (
-                            <tr class={`border-b-2 border-black last:border-b-0 hover:bg-white transition-colors ${index % 2 === 0 ? 'bg-white/50' : ''}`}>
-                                <td class="p-4 border-r-2 border-black">
-                                    <span class="flex items-center gap-3">
-                                        <i class={`${result.icon} text-xl text-[var(--blue)]`}></i>
-                                        <span class="font-medium">{result.metric}</span>
-                                    </span>
+                        {results.map((result) => (
+                            <tr>
+                                <td>
+                                    <span class="rf-metric"><i class={result.icon}></i> {result.metric}</span>
                                 </td>
-                                <td class="p-4 text-center border-r-2 border-black text-gray-600">
-                                    {result.before}
-                                </td>
-                                <td class="p-4 text-center border-r-2 border-black font-bold text-[var(--text)]">
-                                    {result.after}
-                                </td>
-                                <td class="p-4 text-center">
-                                    <span class="inline-block bg-[var(--blue)] bg-opacity-15 border border-[var(--blue)] px-3 py-1 text-sm font-medium">
-                                        {result.impact}
-                                    </span>
-                                </td>
+                                <td class="rf-before">{result.before}</td>
+                                <td class="rf-after">{result.after}</td>
+                                <td><span class="rf-impact">{result.impact}</span></td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- TECHNOLOGY SECTION -->
-    <section id="technologie" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <BackgroundCircuitBoard animated={true} />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    technologie
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Technologie moderne,<br/>
-                    <span class="text-[var(--blue)]">adaptée à vous</span>
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Pas de religion technologique. On choisit la techno <strong>APRÈS</strong> avoir compris votre besoin.
-                </p>
-            </div>
+        <!-- ══ 04 · TECHNOLOGIE ══ -->
+        <section id="technologie" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">04 — Technologie</p>
+            <h2 style="margin-top:8px;">Technologie moderne, <span class="co-ser">adaptée à vous.</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+                Pas de religion technologique. On choisit la techno <strong>APRÈS</strong> avoir compris votre besoin.
+            </p>
 
-            <!-- Tech options -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-12" data-animate-stagger="scale">
+            <div class="rf-grid rf-grid--3" data-animate-stagger="scale">
                 {techOptions.map((tech) => (
-                    <div class="tech-card bg-white border-2 border-black p-6 text-center transition-all duration-200 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <i class={`${tech.icon} text-3xl text-[var(--violet)] mb-4 block`}></i>
-                        <p class="text-sm text-gray-500 mb-1">{tech.type}</p>
-                        <h3 class="text-xl font-bold mb-2">{tech.solution}</h3>
-                        <p class="text-sm text-[var(--blue)] font-medium">{tech.benefit}</p>
+                    <div class="rf-card rf-card--tech co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${tech.icon} rf-card-icon`} aria-hidden="true"></i>
+                        <p class="rf-card-eyebrow">{tech.type}</p>
+                        <h3 class="rf-card-title">{tech.solution}</h3>
+                        <p class="rf-card-tag"><i class="ri-check-line"></i> {tech.benefit}</p>
                     </div>
                 ))}
             </div>
 
-            <!-- Guarantees -->
-            <div class="bg-white border-2 border-black p-6 md:p-8 mb-12" data-animate="fade-up">
-                <h3 class="text-lg font-bold text-center mb-6">Les 3 garanties (peu importe la techno)</h3>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="rf-guarantees co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="rf-guarantees-title">Les 3 garanties (peu importe la techno)</h3>
+                <div class="rf-guarantees-grid">
                     {guarantees.map((g) => (
-                        <div class="flex items-start gap-4">
-                            <IconChip icon={g.icon} class="flex-shrink-0" />
+                        <div class="rf-guarantee">
+                            <i class={`${g.icon} rf-guarantee-icon`} aria-hidden="true"></i>
                             <div>
-                                <h4 class="font-bold mb-1">{g.title}</h4>
-                                <p class="text-sm text-gray-600">{g.description}</p>
+                                <h4 class="rf-guarantee-name">{g.title}</h4>
+                                <p class="rf-guarantee-desc">{g.description}</p>
                             </div>
                         </div>
                     ))}
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- PRICING SECTION -->
-    <section id="prix" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-        <div class="max-w-5xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    investissement
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Combien de temps ?<br/>
-                    <span class="text-[var(--blue)]">Combien ça coûte ?</span>
-                </h2>
-            </div>
+        <!-- ══ 05 · PRIX ══ -->
+        <section id="prix" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">05 — Investissement</p>
+            <h2 style="margin-top:8px;">Combien de temps ? <span class="co-ser">Combien ça coûte ?</span></h2>
 
-            <!-- Pricing cards -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-12" data-animate-stagger>
-                <!-- Timeline card -->
-                <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate-item>
-                    <!-- Corner boxes -->
-                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <i class="ri-calendar-line text-[var(--blue)]"></i>
-                        Timeline réaliste
-                    </h3>
-
-                    <div class="space-y-4">
-                        <div class="bg-white border-2 border-black p-4">
-                            <span class="text-sm text-gray-500">Refonte complète</span>
-                            <p class="text-2xl font-bold">3 semaines</p>
-                            <ul class="text-sm text-gray-600 mt-2 space-y-1">
-                                <li>• Semaine 1 : Stratégie & Design</li>
-                                <li>• Semaine 2 : Contenu & Développement</li>
-                                <li>• Semaine 3 : Tests & Lancement</li>
+            <div class="rf-price-grid" data-animate-stagger>
+                <!-- Timeline -->
+                <div class="rf-pricecard co-frame" data-animate-item>
+                    <span class="co-x tl"></span><span class="co-x tr"></span>
+                    <span class="co-x bl"></span><span class="co-x br"></span>
+                    <h3 class="rf-pricecard-title"><i class="ri-calendar-line"></i> Timeline réaliste</h3>
+                    <div class="rf-timeline">
+                        <div class="rf-timeblock">
+                            <span class="co-mut">Refonte complète</span>
+                            <b class="rf-timeblock-big">3 semaines</b>
+                            <ul class="co-list rf-timeline-list">
+                                <li>Semaine 1 : Stratégie &amp; Design</li>
+                                <li>Semaine 2 : Contenu &amp; Développement</li>
+                                <li>Semaine 3 : Tests &amp; Lancement</li>
                             </ul>
                         </div>
-                        <div class="bg-accent-soft border-2 border-black p-4">
-                            <span class="text-sm text-accent-strong">Refonte express</span>
-                            <p class="text-2xl font-bold">10 jours</p>
-                            <p class="text-sm text-gray-600">Pour sites &lt; 10 pages sans fonctionnalités complexes</p>
+                        <div class="rf-timeblock rf-timeblock--accent">
+                            <span class="rf-timeblock-label">Refonte express</span>
+                            <b class="rf-timeblock-big">10 jours</b>
+                            <p class="rf-timeblock-desc">Pour sites &lt; 10 pages sans fonctionnalités complexes</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Pricing card -->
-                <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate-item>
-                    <!-- Corner boxes -->
-                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--violet)] border-2 border-black"></div>
-                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--violet)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--violet)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--violet)] border-2 border-black"></div>
-
-                    <h3 class="text-xl font-bold mb-6 flex items-center gap-2">
-                        <i class="ri-price-tag-3-line text-[var(--violet)]"></i>
-                        Budget transparent
-                    </h3>
-
-                    <div class="mb-6">
-                        <span class="text-sm text-gray-500">À partir de</span>
-                        <p class="text-4xl font-bold text-[var(--text)]">950 <span class="text-xl">CHF</span></p>
-                        <p class="text-sm text-gray-600">(site vitrine simple 1-3 pages)</p>
+                <!-- Budget -->
+                <div class="rf-pricecard co-frame" data-animate-item>
+                    <span class="co-x tl"></span><span class="co-x tr"></span>
+                    <span class="co-x bl"></span><span class="co-x br"></span>
+                    <h3 class="rf-pricecard-title"><i class="ri-price-tag-3-line"></i> Budget transparent</h3>
+                    <div class="rf-budget-head">
+                        <span class="co-mut">À partir de</span>
+                        <b class="rf-budget-price">950 <span class="rf-budget-cur">CHF</span></b>
+                        <span class="co-mut rf-budget-sub">(site vitrine simple 1-3 pages)</span>
                     </div>
-
-                    <div class="space-y-3 text-sm">
-                        <div class="flex justify-between py-2 border-b border-dashed border-gray-300">
-                            <span class="text-gray-600">Site vitrine 5-10 pages</span>
-                            <span class="font-bold">1'000 - 2'500 CHF</span>
+                    <div class="rf-budget-rows">
+                        <div class="rf-budget-row">
+                            <span>Site vitrine 5-10 pages</span>
+                            <b>1'000 - 2'500 CHF</b>
                         </div>
-                        <div class="flex justify-between py-2 border-b border-dashed border-gray-300">
-                            <span class="text-gray-600">Avec fonctionnalités (blog, formulaires...)</span>
-                            <span class="font-bold">2'000 - 4'000 CHF</span>
+                        <div class="rf-budget-row">
+                            <span>Avec fonctionnalités (blog, formulaires...)</span>
+                            <b>2'000 - 4'000 CHF</b>
                         </div>
-                        <div class="flex justify-between py-2">
-                            <span class="text-gray-600">E-commerce ou application</span>
-                            <span class="font-bold">Sur devis</span>
+                        <div class="rf-budget-row">
+                            <span>E-commerce ou application</span>
+                            <b>Sur devis</b>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Inclusions -->
-            <div class="bg-white border-2 border-black p-6 md:p-8" data-animate="fade-up">
-                <h3 class="font-bold mb-4 flex items-center gap-2">
-                    <i class="ri-checkbox-circle-line text-[var(--blue)]"></i>
-                    Ce qui est TOUJOURS inclus :
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div class="rf-incl co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="rf-incl-title"><i class="ri-checkbox-circle-line"></i> Ce qui est TOUJOURS inclus :</h3>
+                <ul class="co-list co-list--check rf-incl-list">
                     {inclusions.map((item) => (
-                        <div class="flex items-center gap-2">
-                            <i class="ri-check-line text-[var(--blue)]"></i>
-                            <span class="text-sm">{item}</span>
-                        </div>
+                        <li><i class="ri-check-line"></i><span>{item}</span></li>
                     ))}
-                </div>
-                <p class="mt-6 text-sm text-gray-500 bg-gray-50 p-3 border-l-4 border-[var(--blue)]">
-                    <strong>Principe :</strong> Pas de mauvaise surprise. Devis clair avant de commencer.
-                </p>
+                </ul>
+                <p class="rf-note-inline"><strong>Principe :</strong> Pas de mauvaise surprise. Devis clair avant de commencer.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- FAQ SECTION -->
-    <FAQ faqs={faqs} sectionId="faq">
-        <BackgroundQuestionMarks slot="background" animated={true} />
-    </FAQ>
+        <!-- ══ 06 · FAQ (accordéon natif <details>, zéro JS) ══ -->
+        <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">06 — FAQ</p>
+            <h2 style="margin-top:8px;">Questions fréquentes</h2>
 
-    <!-- LOCAL SEO SECTION -->
-    <section id="local" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundMapContours />
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    local
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Basé à <span class="text-[var(--blue)]">Genève</span>,<br/>
-                    service en Suisse romande
-                </h2>
+            <div class="rf-faq" style="margin-top:32px;">
+                {faqs.map((faq, index) => (
+                    <details open={index === 0}>
+                        <summary>
+                            {faq.question}
+                            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+                        </summary>
+                        <p class="rf-faq-answer">
+                            {faq.answer}
+                            {faq.linkUrl && <> <a href={faq.linkUrl} class="rf-inline">{faq.linkText}</a></>}
+                        </p>
+                    </details>
+                ))}
             </div>
 
-            <!-- Two columns -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-                <!-- Why local -->
+            <p class="co-mut" style="margin-top:24px;text-align:center;">
+                Une autre question ? <a href="#contact" class="rf-inline">Contactez-moi directement</a>, je réponds sous 24-48h.
+            </p>
+        </section>
+
+        <!-- ══ 07 · LOCAL (SEO géo) ══ -->
+        <section id="local" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">07 — Local</p>
+            <h2 style="margin-top:8px;">Basé à <span class="co-ser">Genève</span>, service en Suisse romande.</h2>
+
+            <div class="rf-local-grid">
                 <div data-animate="fade-left">
-                    <h3 class="text-xl font-bold mb-6">Pourquoi choisir un prestataire local ?</h3>
-                    <div class="space-y-4">
+                    <h3 class="rf-local-h3">Pourquoi choisir un prestataire local ?</h3>
+                    <div class="rf-local-adv">
                         {localAdvantages.map((adv) => (
-                            <div class="flex items-start gap-4 p-4 bg-[var(--main-bg)] border-2 border-black">
-                                <IconChip icon={adv.icon} size="md" class="flex-shrink-0" />
+                            <div class="rf-local-item co-frame">
+                                <i class={`${adv.icon} rf-local-icon`} aria-hidden="true"></i>
                                 <div>
-                                    <h4 class="font-bold mb-1">{adv.title}</h4>
-                                    <p class="text-sm text-gray-600">{adv.description}</p>
+                                    <h4 class="rf-local-name">{adv.title}</h4>
+                                    <p class="rf-local-desc">{adv.description}</p>
                                 </div>
                             </div>
                         ))}
                     </div>
                 </div>
 
-                <!-- Zones -->
-                <div data-animate="fade-right">
-                    <h3 class="text-xl font-bold mb-6">Zones d'intervention prioritaires</h3>
-                    <div class="space-y-3">
+                <div data-animate="fade-left" data-delay="0.1">
+                    <h3 class="rf-local-h3">Zones d'intervention prioritaires</h3>
+                    <div class="rf-zones">
                         {zones.map((zone) => (
-                            <div class={`
-                                flex items-center gap-4 p-4 border-2 border-black
-                                ${zone.type === 'primary' ? 'bg-[var(--blue)] bg-opacity-20 border-[var(--blue)]' : 'bg-white'}
-                            `}>
-                                <i class={`${zone.icon} text-xl ${zone.type === 'primary' ? 'text-[var(--blue)]' : 'text-gray-600'}`}></i>
-                                <span class={`font-medium ${zone.type === 'primary' ? 'text-lg font-bold' : ''}`}>
-                                    {zone.name}
-                                    {zone.type === 'primary' && <span class="text-sm font-normal text-gray-600 ml-2">(basé sur place)</span>}
+                            <div class={`rf-zone ${zone.type === 'primary' ? 'rf-zone--primary' : ''}`}>
+                                <i class={zone.icon}></i>
+                                <span>
+                                    <strong>{zone.name}</strong>
+                                    {zone.type === 'primary' && <span class="co-mut"> (basé sur place)</span>}
                                 </span>
                             </div>
                         ))}
                     </div>
-                    <p class="mt-6 text-sm text-gray-500">
-                        <i class="ri-information-line mr-1"></i>
-                        Distance pas un problème : tout se fait en remote. Déplacements possibles si rencontre souhaitée.
+                    <p class="co-mut" style="margin-top:16px;font-size:13.5px;">
+                        <i class="ri-information-line"></i> Distance pas un problème : tout se fait en remote. Déplacements possibles si rencontre souhaitée.
                     </p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================== -->
-    <!-- CLUSTER / RESSOURCES SECTION -->
-    <!-- ============================================== -->
-    <section id="ressources" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    ressources
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Faut-il vraiment refondre votre site ?
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Avant de tout refaire, faites le diagnostic. J'ai écrit des guides pour savoir quand une refonte se justifie et combien ça coûte. Pas encore de site du tout ? Voyez plutôt la <a href="/services/creation-site-web" class="text-[var(--blue)] font-medium hover:underline">création de site web</a>.
-                </p>
-            </div>
+        <!-- ══ 08 · RESSOURCES ══ -->
+        <section id="ressources" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">08 — Ressources</p>
+            <h2 style="margin-top:8px;">Faut-il vraiment refondre votre site ?</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+                Avant de tout refaire, faites le diagnostic. J'ai écrit des guides pour savoir quand une refonte se
+                justifie et combien ça coûte. Pas encore de site du tout ? Voyez plutôt la
+                <a href="/services/creation-site-web" class="rf-inline">création de site web</a>.
+            </p>
 
-            <!-- Cluster groups grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6" data-animate-stagger>
+            <div class="rf-grid rf-grid--2" data-animate-stagger>
                 {clusterGroups.map((group) => (
-                    <div class="bg-[var(--main-bg)] border-2 border-black p-6 relative" data-animate-item>
-                        <div class="flex items-center gap-3 mb-4">
-                            <IconChip icon={group.icon} size="md" class="flex-shrink-0" />
-                            <h3 class="text-lg font-bold">{group.label}</h3>
+                    <div class="rf-res co-frame" data-animate-item>
+                        <div class="rf-res-head">
+                            <i class={`${group.icon} rf-res-icon`} aria-hidden="true"></i>
+                            <h3 class="rf-res-label">{group.label}</h3>
                         </div>
-                        <ul class="space-y-2">
+                        <ul class="rf-res-list">
                             {group.articles.map((article) => (
                                 <li>
-                                    <a href={article.href} class="flex items-start gap-2 text-sm text-gray-700 hover:text-[var(--text)] group">
-                                        <i class="ri-arrow-right-s-line text-[var(--blue)] mt-0.5 group-hover:translate-x-1 transition-transform"></i>
-                                        <span class="group-hover:underline">{article.title}</span>
+                                    <a href={article.href} class="rf-res-link">
+                                        <i class="ri-arrow-right-s-line"></i>
+                                        <span>{article.title}</span>
                                     </a>
                                 </li>
                             ))}
@@ -890,299 +671,354 @@ const needOptions = [
                     </div>
                 ))}
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA + FORM SECTION -->
-    <section id="contact" class="py-20 md:py-28 px-4 bg-[var(--main-bg)] relative overflow-hidden">
-        <!-- Dot pattern background -->
-        <div class="absolute inset-0 dots-bg opacity-[0.4]"></div>
+        <!-- ══ 09 · CONTACT (formulaire Web3Forms — HARD-PRESERVE câblage) ══ -->
+        <section id="contact" class="co-sec co-pad" style="padding:64px 40px;">
+            <p class="co-eyebrow">09 — Contact</p>
+            <h2 style="margin-top:8px;">Prêt à moderniser votre <span class="co-ser">site ?</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+                2 options pour commencer.
+            </p>
 
-        <div class="max-w-4xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4 text-[var(--text)]">
-                    Prêt à moderniser votre site ?
-                </h2>
-                <p class="text-lg text-gray-600">2 options pour commencer</p>
-            </div>
-
-            <!-- Options -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12" data-animate-stagger>
-                <div class="bg-white border-2 border-black p-6 text-center shadow-[4px_4px_0px_rgba(0,0,0,0.15)]" data-animate-item>
-                    <IconChip icon="ri-search-eye-line" class="mx-auto mb-4" />
-                    <h3 class="text-xl font-bold mb-2">Option 1 : Audit gratuit</h3>
-                    <p class="text-gray-600 text-sm mb-4">15 min, pas de bullshit, pas de vente forcée.<br/>Je regarde votre site et vous dis ce qui cloche.</p>
+            <div class="rf-options" data-animate-stagger>
+                <div class="rf-option co-frame" data-animate-item>
+                    <i class="ri-search-eye-line rf-option-icon" aria-hidden="true"></i>
+                    <h3 class="rf-option-title">Option 1 : Audit gratuit</h3>
+                    <p class="rf-option-text">15 min, pas de bullshit, pas de vente forcée. Je regarde votre site et vous dis ce qui cloche.</p>
                 </div>
-                <div class="bg-white border-2 border-black p-6 text-center shadow-[4px_4px_0px_rgba(0,0,0,0.15)]" data-animate-item>
-                    <IconChip icon="ri-chat-3-line" class="mx-auto mb-4" />
-                    <h3 class="text-xl font-bold mb-2">Option 2 : Discutons</h3>
-                    <p class="text-gray-600 text-sm mb-4">Vous avez une idée claire ?<br/>On skip l'audit et on parle budget/timeline direct.</p>
+                <div class="rf-option co-frame" data-animate-item>
+                    <i class="ri-chat-3-line rf-option-icon" aria-hidden="true"></i>
+                    <h3 class="rf-option-title">Option 2 : Discutons</h3>
+                    <p class="rf-option-text">Vous avez une idée claire ? On skip l'audit et on parle budget/timeline direct.</p>
                 </div>
             </div>
 
-            <!-- Contact Form -->
-            <div class="contact-form-container" data-animate="scale">
-                <form
-                    class="bg-white text-[var(--text)] border-3 border-black p-6 md:p-8 shadow-[8px_8px_0px_rgba(0,217,163,0.3)] relative"
-                    id="refonte-form"
-                >
-                    <!-- Corner boxes -->
-                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
+            <form class="rf-form co-frame" id="refonte-form" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
 
-                    <!-- Hidden fields for Web3Forms -->
-                    <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
-                    <input type="hidden" name="subject" value="Demande refonte site web - Jon Labs">
-                    <input type="hidden" name="from_name" value="Jon Labs - Refonte">
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                <!-- Hidden fields for Web3Forms (HARD-PRESERVE) -->
+                <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
+                <input type="hidden" name="subject" value="Demande refonte site web - Jon Labs">
+                <input type="hidden" name="from_name" value="Jon Labs - Refonte">
+                <input type="checkbox" name="botcheck" class="rf-honeypot" style="display: none;">
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Nom -->
-                        <div class="form-field">
-                            <label for="name" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">01</span>
-                                Votre nom <span class="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="text"
-                                id="name"
-                                name="name"
-                                required
-                                placeholder="Jean Dupont"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
+                <h3 class="rf-form-title">Parlons de votre projet</h3>
 
-                        <!-- Email -->
-                        <div class="form-field">
-                            <label for="email" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">02</span>
-                                Votre email <span class="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                required
-                                placeholder="vous@exemple.ch"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
+                <div class="rf-form-grid">
+                    <div class="rf-field">
+                        <label for="name" class="rf-label"><span class="co-index">01</span> Votre nom <span class="rf-req">*</span></label>
+                        <input type="text" id="name" name="name" required placeholder="Jean Dupont" class="rf-input" />
+                    </div>
 
-                        <!-- Téléphone -->
-                        <div class="form-field">
-                            <label for="phone" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">03</span>
-                                Téléphone
-                            </label>
-                            <input
-                                type="tel"
-                                id="phone"
-                                name="phone"
-                                placeholder="+41 79 123 45 67"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
+                    <div class="rf-field">
+                        <label for="email" class="rf-label"><span class="co-index">02</span> Votre email <span class="rf-req">*</span></label>
+                        <input type="email" id="email" name="email" required placeholder="vous@exemple.ch" class="rf-input" />
+                    </div>
 
-                        <!-- Activité -->
-                        <div class="form-field">
-                            <label for="activity" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">04</span>
-                                Votre activité <span class="text-red-500">*</span>
-                            </label>
-                            <input
-                                type="text"
-                                id="activity"
-                                name="activity"
-                                required
-                                placeholder="Coach, Restaurant, Artisan..."
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
+                    <div class="rf-field">
+                        <label for="phone" class="rf-label"><span class="co-index">03</span> Téléphone</label>
+                        <input type="tel" id="phone" name="phone" placeholder="+41 79 123 45 67" class="rf-input" />
+                    </div>
 
-                        <!-- URL site actuel -->
-                        <div class="form-field md:col-span-2">
-                            <label for="current-site" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">05</span>
-                                URL de votre site actuel
-                            </label>
-                            <input
-                                type="url"
-                                id="current-site"
-                                name="current_site"
-                                placeholder="https://votresite.ch"
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            />
-                        </div>
+                    <div class="rf-field">
+                        <label for="activity" class="rf-label"><span class="co-index">04</span> Votre activité <span class="rf-req">*</span></label>
+                        <input type="text" id="activity" name="activity" required placeholder="Coach, Restaurant, Artisan..." class="rf-input" />
+                    </div>
 
-                        <!-- Besoin principal (checkboxes) -->
-                        <div class="form-field md:col-span-2">
-                            <label class="flex items-center gap-2 text-sm font-medium mb-3">
-                                <span class="font-mono text-xs text-gray-400">06</span>
-                                Besoin principal <span class="text-red-500">*</span>
-                            </label>
-                            <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
-                                {needOptions.map((option) => (
-                                    <label class="flex items-center gap-2 cursor-pointer group">
-                                        <input
-                                            type="checkbox"
-                                            name="needs[]"
-                                            value={option.value}
-                                            class="w-5 h-5 border-2 border-black appearance-none cursor-pointer checked:bg-[var(--blue)] checked:border-black relative transition-all"
-                                        />
-                                        <span class="text-sm group-hover:text-[var(--blue)] transition-colors">{option.label}</span>
-                                    </label>
-                                ))}
-                            </div>
-                        </div>
+                    <div class="rf-field rf-field--full">
+                        <label for="current-site" class="rf-label"><span class="co-index">05</span> URL de votre site actuel</label>
+                        <input type="url" id="current-site" name="current_site" placeholder="https://votresite.ch" class="rf-input" />
+                    </div>
 
-                        <!-- Message -->
-                        <div class="form-field md:col-span-2">
-                            <label for="message" class="flex items-center gap-2 text-sm font-medium mb-2">
-                                <span class="font-mono text-xs text-gray-400">07</span>
-                                Message (optionnel)
-                            </label>
-                            <textarea
-                                id="message"
-                                name="message"
-                                rows="4"
-                                placeholder="Décrivez votre situation, vos besoins, vos questions..."
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 resize-none focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
-                            ></textarea>
-                        </div>
-
-                        <!-- Consent -->
-                        <div class="form-field md:col-span-2">
-                            <label class="flex items-start gap-3 cursor-pointer group">
-                                <input
-                                    type="checkbox"
-                                    name="consent"
-                                    required
-                                    class="mt-1 w-5 h-5 border-2 border-black appearance-none cursor-pointer checked:bg-[var(--blue)] checked:border-black relative transition-all"
-                                />
-                                <span class="text-sm text-gray-600 group-hover:text-black transition-colors">
-                                    J'accepte d'être contacté par Jon Labs concernant ma demande. <span class="text-red-500">*</span>
-                                </span>
-                            </label>
-                        </div>
-
-                        <!-- Submit -->
-                        <div class="md:col-span-2 pt-4">
-                            <button
-                                type="submit"
-                                class="
-                                    submit-btn
-                                    w-full
-                                    bg-[var(--blue)]
-                                    border-2 border-black
-                                    px-8 py-4
-                                    text-lg font-bold
-                                    shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                                    transition-all duration-200
-                                    hover:bg-[var(--yellow)]
-                                    hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                                    hover:translate-x-[2px] hover:translate-y-[2px]
-                                    focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2
-                                    flex items-center justify-center gap-3
-                                "
-                            >
-                                <span>Envoyer ma demande</span>
-                                <i class="ri-send-plane-line text-xl"></i>
-                            </button>
+                    <div class="rf-field rf-field--full">
+                        <label class="rf-label"><span class="co-index">06</span> Besoin principal <span class="rf-req">*</span></label>
+                        <div class="rf-checks">
+                            {needOptions.map((option) => (
+                                <label class="rf-check">
+                                    <input type="checkbox" name="needs[]" value={option.value} class="rf-checkbox" />
+                                    <span>{option.label}</span>
+                                </label>
+                            ))}
                         </div>
                     </div>
-                </form>
 
-                <!-- Trust indicators -->
-                <div class="flex flex-wrap justify-center gap-6 mt-8 text-sm text-gray-600">
-                    <span class="flex items-center gap-2">
-                        <i class="ri-time-line text-[var(--blue)]"></i>
-                        Réponse sous 24-48h
-                    </span>
-                    <span class="flex items-center gap-2">
-                        <i class="ri-gift-line text-[var(--blue)]"></i>
-                        Audit gratuit
-                    </span>
-                    <span class="flex items-center gap-2">
-                        <i class="ri-file-list-3-line text-[var(--blue)]"></i>
-                        Devis clair
-                    </span>
+                    <div class="rf-field rf-field--full">
+                        <label for="message" class="rf-label"><span class="co-index">07</span> Message (optionnel)</label>
+                        <textarea id="message" name="message" rows="4" placeholder="Décrivez votre situation, vos besoins, vos questions..." class="rf-textarea"></textarea>
+                    </div>
+
+                    <div class="rf-field rf-field--full">
+                        <label class="rf-consent">
+                            <input type="checkbox" name="consent" required class="rf-checkbox" />
+                            <span>J'accepte d'être contacté par Jon Labs concernant ma demande. <span class="rf-req">*</span></span>
+                        </label>
+                    </div>
+
+                    <div class="rf-field rf-field--full">
+                        <button type="submit" class="co-btn submit-btn rf-submit">
+                            <span>Envoyer ma demande</span>
+                            <i class="ri-send-plane-line"></i>
+                        </button>
+                    </div>
                 </div>
+            </form>
 
-                <!-- Direct contact -->
-                <div class="text-center mt-8">
-                    <p class="text-gray-500 text-sm mb-2">Besoin d'une réponse rapide ?</p>
-                    <a href="mailto:contact@jonlabs.ch" class="text-[var(--blue)] font-mono hover:underline">
-                        → contact@jonlabs.ch
-                    </a>
+            <div class="rf-form-after" data-animate>
+                <div class="rf-trust">
+                    <span><i class="ri-time-line"></i> Réponse sous 24-48h</span>
+                    <span><i class="ri-gift-line"></i> Audit gratuit</span>
+                    <span><i class="ri-file-list-3-line"></i> Devis clair</span>
+                </div>
+                <div class="rf-alt">
+                    <p class="co-mut">Besoin d'une réponse rapide ?</p>
+                    <a href="mailto:contact@jonlabs.ch" class="rf-inline">contact@jonlabs.ch</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
 
     <Footer />
 </Layout>
 
-<style>
-    /* Dot pattern background */
-    .dots-bg {
-        background-image: radial-gradient(circle, #000 1px, transparent 1px);
-        background-size: 24px 24px;
+<style is:global>
+    /* ══ REFONTE SITE WEB — styles .rf-* (namespace scopé, corps .co-root) ══ */
+
+    /* ── Hero ── */
+    .rf-hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
+    .rf-hero-title { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+    .co-root .rf-hero-lead { margin-top: 18px; max-width: 52ch; font-size: 1.075rem; line-height: 1.65; color: var(--muted); }
+    .rf-hero-lead strong { color: var(--ink); font-weight: 600; }
+    .rf-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .rf-hero-btns .co-btn i { transition: transform .18s ease-out; }
+    .rf-hero-btns .co-btn:hover i { transform: translateX(2px); }
+    .co-root .rf-hero-loc { margin-top: 22px; font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px; }
+    .rf-hero-loc i { color: var(--accent); }
+
+    /* browser mockup */
+    .rf-hero-media { position: relative; }
+    .rf-browser { position: relative; background: var(--surface); border: 1px solid var(--line-2); }
+    .rf-browser-bar { display: flex; align-items: center; gap: 8px; padding: 11px 14px; border-bottom: 1px solid var(--line); background: var(--bg); }
+    .rf-browser-dot { width: 9px; height: 9px; border-radius: 999px; background: var(--line-2); flex: none; }
+    .rf-browser-url { flex: 1; text-align: center; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .rf-browser-img { display: block; width: 100%; height: auto; }
+    .rf-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: 8px 12px; font-size: 12px; font-weight: 600; }
+    .rf-badge--score { top: -16px; left: -14px; display: flex; flex-direction: column; line-height: 1.1; }
+    .rf-badge--score b { color: var(--accent); font-size: 15px; }
+    .rf-badge--score span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .rf-badge--speed { bottom: -16px; right: -14px; background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    /* ── Cartes génériques (problèmes / tech) ── */
+    .rf-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .rf-grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .rf-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .rf-card {
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        background: var(--surface); border: 1px solid var(--line-2);
+        transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
+    .rf-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+    .rf-card-icon { font-size: 24px; color: var(--accent); line-height: 1; }
+    .rf-card-title { font-size: 1.1rem; }
+    .rf-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
+    .rf-card--tech { text-align: center; align-items: center; gap: 8px; }
+    .co-root .rf-card-eyebrow { font-size: 12.5px; color: var(--muted); }
+    .rf-card-tag { margin-top: auto; padding-top: 4px; font-size: 12.5px; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 5px; }
 
-     /* H1 SEO style terminal */
-  .seo-h1 {
-    font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace;
-    font-size: 0.8rem;
-    font-weight: 600;
-    color: var(--color-accent-strong);
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+    /* ── Notes / callouts ── */
+    .rf-note { display: flex; align-items: flex-start; gap: 12px; margin-top: 20px; padding: 18px 22px; border: 1px solid var(--line-2); background: var(--surface); }
+    .rf-note i { color: var(--accent); font-size: 20px; flex: none; margin-top: 1px; }
+    .co-root .rf-note p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+    .rf-note--accent { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .rf-note-inline { margin-top: 14px !important; font-size: 14px; line-height: 1.6; color: var(--muted); }
+    .rf-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
+    .rf-inline:hover { color: var(--ink); }
+    .rf-note strong, .rf-note-inline strong { color: var(--ink); font-weight: 600; }
 
+    /* ── Étapes méthode ── */
+    .rf-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+    .rf-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+    .rf-step-num { font-size: 20px; font-weight: 600; }
+    .rf-step-head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+    .rf-step-title { font-size: 1.15rem; }
+    .rf-step-tasks { margin-top: 14px; gap: 8px; }
+    .rf-step-tasks li { font-size: 14.5px; line-height: 1.45; }
+    .co-root .rf-step-deliv { margin-top: 14px; padding-top: 12px; border-top: 1px solid var(--line); font-size: 13.5px; color: var(--ink); font-weight: 500; }
+    .rf-step-deliv .co-mut { margin-right: 8px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.06em; font-size: 11px; }
 
-    /* Custom checkbox checkmark */
-    input[type="checkbox"]:checked::after {
-        content: '';
-        position: absolute;
-        left: 5px;
-        top: 1px;
-        width: 6px;
-        height: 12px;
-        border: solid black;
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
+    /* ── Encart différenciateurs ── */
+    .rf-diff { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rf-diff-title { text-align: center; font-size: 1.25rem; }
+    .rf-diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 28px; }
+    .rf-diff-item { text-align: center; }
+    .rf-diff-icon { font-size: 26px; color: var(--accent); }
+    .rf-diff-name { margin-top: 10px; font-size: 15px; font-weight: 600; }
+    .co-root .rf-diff-desc { margin-top: 4px; font-size: 13px; line-height: 1.45; color: var(--muted); }
+
+    /* ── Tableau Avant / Après ── */
+    .rf-table-wrap { overflow-x: auto; margin-top: 32px; border: 1px solid var(--line-2); background: var(--surface); }
+    .rf-table { width: 100%; min-width: 640px; border-collapse: collapse; }
+    .rf-table th, .rf-table td { padding: 15px 18px; border-bottom: 1px solid var(--line); text-align: center; font-size: 14px; vertical-align: middle; }
+    .rf-table thead th { font-weight: 600; color: var(--ink); border-bottom: 1px solid var(--line-2); white-space: nowrap; }
+    .rf-table th:first-child, .rf-table td:first-child { text-align: left; }
+    .rf-table tbody tr:last-child td { border-bottom: none; }
+    .rf-th-ic { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); }
+    .rf-th-after { display: inline-flex; align-items: center; gap: 6px; color: var(--accent); }
+    .rf-metric { display: inline-flex; align-items: center; gap: 10px; font-weight: 500; color: var(--ink); }
+    .rf-metric i { color: var(--accent); font-size: 18px; flex: none; }
+    .rf-before { color: var(--muted); }
+    .rf-after { font-weight: 600; color: var(--ink); }
+    .rf-impact { display: inline-block; font-size: 13px; color: var(--accent); font-weight: 500; }
+
+    /* ── Garanties (bloc tech) ── */
+    .rf-guarantees { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rf-guarantees-title { font-size: 1.1rem; text-align: center; }
+    .rf-guarantees-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
+    .rf-guarantee { display: flex; align-items: flex-start; gap: 14px; }
+    .rf-guarantee-icon { font-size: 24px; color: var(--accent); flex: none; margin-top: 2px; }
+    .rf-guarantee-name { font-size: 15px; font-weight: 600; }
+    .co-root .rf-guarantee-desc { margin-top: 3px; font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+
+    /* ── Prix ── */
+    .rf-price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; margin-top: 36px; }
+    .rf-pricecard { position: relative; padding: 30px 28px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rf-pricecard-title { font-size: 1.15rem; display: flex; align-items: center; gap: 9px; margin-bottom: 22px; }
+    .rf-pricecard-title i { color: var(--accent); }
+    .rf-timeline { display: flex; flex-direction: column; gap: 16px; }
+    .rf-timeblock { padding: 18px; background: var(--bg); border: 1px solid var(--line-2); }
+    .rf-timeblock--accent { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .rf-timeblock span { font-size: 13px; color: var(--muted); }
+    .rf-timeblock-label { color: var(--accent) !important; font-weight: 600; }
+    .rf-timeblock-big { display: block; margin-top: 4px; font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
+    .rf-timeline-list { margin-top: 12px; gap: 6px; }
+    .rf-timeline-list li { font-size: 13.5px; color: var(--muted); }
+    .co-root .rf-timeblock-desc { margin-top: 8px; font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+
+    .rf-budget-head { padding-bottom: 20px; border-bottom: 1px solid var(--line); }
+    .rf-budget-head span { display: block; font-size: 13px; }
+    .rf-budget-price { display: block; margin: 4px 0; font-size: 2.6rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; color: var(--ink); }
+    .rf-budget-cur { font-size: 1.1rem; color: var(--muted); font-weight: 500; }
+    .rf-budget-sub { color: var(--muted); }
+    .rf-budget-rows { display: flex; flex-direction: column; margin-top: 18px; }
+    .rf-budget-row { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; padding: 12px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+    .rf-budget-row:last-child { border-bottom: none; }
+    .rf-budget-row span { color: var(--muted); }
+    .rf-budget-row b { color: var(--ink); font-weight: 600; white-space: nowrap; }
+
+    .rf-incl { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rf-incl-title { font-size: 1.1rem; display: flex; align-items: center; gap: 9px; }
+    .rf-incl-title i { color: var(--accent); }
+    .rf-incl-list { margin-top: 18px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 24px; }
+    .rf-incl-list li { font-size: 14px; }
+
+    /* ── FAQ (accordéon natif <details> — smooth via ::details-content, zéro JS) ── */
+    .rf-faq { border-top: 1px solid var(--line); }
+    .rf-faq details { border-bottom: 1px solid var(--line); }
+    .rf-faq summary {
+        list-style: none; cursor: pointer; padding: 20px 0;
+        display: flex; justify-content: space-between; align-items: center; gap: 20px;
+        font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
     }
-
-    /* Submit button loading state */
-    .submit-btn.loading {
-        pointer-events: none;
-        opacity: 0.7;
+    .rf-faq summary::-webkit-details-marker { display: none; }
+    .rf-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
+    .rf-faq details[open] summary i { transform: rotate(180deg); }
+    .co-root .rf-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 68ch; }
+    .rf-faq details::details-content {
+        block-size: 0; overflow: hidden;
+        transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
     }
+    .rf-faq details[open]::details-content { block-size: auto; }
 
-    .submit-btn.loading i {
-        animation: spin 1s linear infinite;
+    /* ── Local ── */
+    .rf-local-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; margin-top: 32px; }
+    .rf-local-h3 { font-size: 1.15rem; margin-bottom: 18px; }
+    .rf-local-adv { display: flex; flex-direction: column; gap: 12px; }
+    .rf-local-item { position: relative; display: flex; align-items: flex-start; gap: 14px; padding: 18px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rf-local-icon { font-size: 22px; color: var(--accent); flex: none; margin-top: 2px; }
+    .rf-local-name { font-size: 15px; font-weight: 600; }
+    .co-root .rf-local-desc { margin-top: 3px; font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+    .rf-zones { display: flex; flex-direction: column; gap: 10px; }
+    .rf-zone { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line-2); font-size: 14px; }
+    .rf-zone i { color: var(--muted); font-size: 18px; flex: none; }
+    .rf-zone--primary { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .rf-zone--primary i { color: var(--accent); }
+
+    /* ── Ressources ── */
+    .rf-res { position: relative; padding: 24px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rf-res-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .rf-res-icon { font-size: 22px; color: var(--accent); flex: none; }
+    .rf-res-label { font-size: 1.05rem; }
+    .rf-res-list { display: flex; flex-direction: column; gap: 8px; }
+    .rf-res-link { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--muted); transition: color .18s ease-out; }
+    .rf-res-link i { color: var(--accent); margin-top: 2px; transition: transform .18s ease-out; }
+    .rf-res-link:hover { color: var(--ink); }
+    .rf-res-link:hover i { transform: translateX(3px); }
+
+    /* ── Options (avant formulaire) ── */
+    .rf-options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+    .rf-option { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 24px; text-align: center; align-items: center; background: var(--surface); border: 1px solid var(--line-2); }
+    .rf-option-icon { font-size: 26px; color: var(--accent); }
+    .rf-option-title { font-size: 1.1rem; }
+    .rf-option-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
+
+    /* ── Formulaire (Web3Forms restylé, câblage préservé) ── */
+    .rf-form { position: relative; margin-top: 24px; padding: 34px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rf-form-title { font-size: 1.25rem; text-align: center; margin-bottom: 6px; }
+    .rf-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px; }
+    .rf-field { display: flex; flex-direction: column; gap: 8px; }
+    .rf-field--full { grid-column: 1 / -1; }
+    .rf-label { display: flex; align-items: baseline; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink); }
+    .rf-label .co-index { font-size: 11px; }
+    .rf-req { color: var(--accent); }
+    .rf-input, .rf-textarea {
+        width: 100%; font-family: "Inter Tight", ui-sans-serif, sans-serif; font-size: 15px; color: var(--ink);
+        background: var(--bg); border: 1px solid var(--line-2); padding: 12px 14px;
+        transition: border-color .18s ease-out, box-shadow .18s ease-out;
     }
+    .rf-input::placeholder, .rf-textarea::placeholder { color: var(--muted); opacity: .7; }
+    .rf-input:focus, .rf-textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,168,125,.15); }
+    .rf-textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
+    .rf-checks { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px 16px; }
+    .rf-check { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--muted); cursor: pointer; transition: color .18s ease-out; }
+    .rf-check:hover { color: var(--ink); }
+    .rf-consent { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.5; color: var(--muted); cursor: pointer; }
+    .rf-consent:hover { color: var(--ink); }
+    .rf-checkbox { margin: 0; margin-top: 1px; width: 16px; height: 16px; flex: none; accent-color: var(--accent); cursor: pointer; }
+    .rf-submit { width: 100%; justify-content: center; padding: 14px 20px; font-size: 16px; }
+    .submit-btn.loading { pointer-events: none; opacity: 0.7; }
+    .submit-btn.loading i { animation: rfSpin 1s linear infinite; }
+    @keyframes rfSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
 
-    @keyframes spin {
-        from { transform: rotate(0deg); }
-        to { transform: rotate(360deg); }
+    /* ── Après-formulaire ── */
+    .rf-form-after { margin-top: 28px; display: flex; flex-direction: column; gap: 18px; align-items: center; text-align: center; }
+    .rf-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; font-size: 13.5px; color: var(--muted); }
+    .rf-trust i { color: var(--accent); margin-right: 4px; }
+    .rf-alt { display: flex; flex-direction: column; gap: 4px; }
+    .rf-alt .rf-inline { display: inline-flex; align-items: center; gap: 6px; justify-content: center; }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+        .rf-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+        .rf-hero-media { max-width: 520px; }
+        .rf-local-grid { grid-template-columns: 1fr; gap: 32px; }
+        .rf-diff-grid { grid-template-columns: repeat(2, 1fr); }
+        .rf-price-grid { grid-template-columns: 1fr; }
     }
-
-    /* Scroll margin for anchor navigation */
-    section[id] {
-        scroll-margin-top: 100px;
+    @media (max-width: 720px) {
+        .rf-grid--2, .rf-grid--3, .rf-options, .rf-form-grid, .rf-incl-list, .rf-guarantees-grid, .rf-checks { grid-template-columns: 1fr; }
+        .rf-diff-grid { grid-template-columns: 1fr 1fr; }
+        .rf-step { grid-template-columns: 44px 1fr; gap: 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .rf-card, .rf-res-link, .rf-res-link i, .rf-faq summary i, .rf-hero-btns .co-btn i, .rf-check { transition: none; }
+        .submit-btn.loading i { animation: none; }
     }
 </style>
 
 <script>
-    // Form submission
+    // Form submission — HARD-PRESERVE (câblage Web3Forms inchangé, id refonte-form)
     const form = document.getElementById('refonte-form') as HTMLFormElement;
     const submitBtn = form?.querySelector('.submit-btn') as HTMLButtonElement;
     const btnText = submitBtn?.querySelector('span');
@@ -1203,7 +1039,7 @@ const needOptions = [
             submitBtn.classList.add('loading');
             submitBtn.disabled = true;
             if (btnText) btnText.textContent = 'Envoi en cours...';
-            if (btnIcon) btnIcon.className = 'ri-loader-4-line text-xl animate-spin';
+            if (btnIcon) btnIcon.className = 'ri-loader-4-line';
         }
 
         try {
@@ -1216,7 +1052,6 @@ const needOptions = [
             const result = await response.json();
 
             if (result.success) {
-                // Show success message
                 alert('Merci ! Votre demande a bien été envoyée. Je vous réponds sous 24-48h.');
                 form.reset();
             } else {
@@ -1225,12 +1060,11 @@ const needOptions = [
         } catch (error) {
             alert('Erreur de connexion. Veuillez réessayer.');
         } finally {
-            // Reset button
             if (submitBtn) {
                 submitBtn.classList.remove('loading');
                 submitBtn.disabled = false;
                 if (btnText) btnText.textContent = 'Envoyer ma demande';
-                if (btnIcon) btnIcon.className = 'ri-send-plane-line text-xl';
+                if (btnIcon) btnIcon.className = 'ri-send-plane-line';
             }
         }
     });

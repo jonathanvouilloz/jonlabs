@@ -1,24 +1,17 @@
 ---
+// Développement d'application mobile — sous-page service (blueprint).
+// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
+// accent teal unique, Inter Tight × Instrument Serif. Namespace .am-*.
+//
+// Pas de formulaire embarqué : les CTA pointent vers cal.com (appel découverte) et
+// /contact. HARD-PRESERVE : Schema.org (serviceSchemas/breadcrumb/FAQ), tous les
+// liens SEO internes (cluster /blog/*, /portfolio/*, /services/*, /about, /contact),
+// copywriting réel.
+
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import FAQ from '../../components/FAQ.astro';
-import IconChip from '../../components/IconChip.astro';
-
-// Import SVG pour surlignement hero
-import svgArrowHero from '../../assets/arrow-3.svg';
-
-// Import background components
-import BackgroundQuestionMarks from '../../components/backgrounds/BackgroundQuestionMarks.astro';
-import BackgroundProgressFlow from '../../components/backgrounds/BackgroundProgressFlow.astro';
-import BackgroundGlitchGrid from '../../components/backgrounds/BackgroundGlitchGrid.astro';
-
-// Import images
-import imgHero from '../../assets/services/mobile-hero.png';
-import imgProblemes from '../../assets/services/mobile-problemes.png';
-import imgMethode from '../../assets/services/mobile-methode.png';
-import imgCtaFinal from '../../assets/services/mobile-cta-final.png';
 
 // Schema.org
 import { serviceSchemas, SITE_URL } from '../../data/schema';
@@ -28,7 +21,7 @@ import { getBreadcrumbSchema } from '../../lib/seo';
 // SEO Data
 const seoData = {
     title: "Développement d'application mobile à Genève | Jonlabs",
-    description: "Développeur freelance à Genève : applications mobiles iOS et Android pour PME et startups romandes. Natif, Flutter, React Native ou PWA. 📩 Devis en CHF"
+    description: "Développeur freelance à Genève : applications mobiles iOS et Android pour PME et startups romandes. Natif, Flutter, React Native ou PWA. Devis en CHF."
 };
 
 // Schema.org data
@@ -42,18 +35,22 @@ const schemas: any[] = [serviceSchemas["developpement-application-mobile"], brea
 // Pain points data
 const painPoints = [
     {
+        icon: "ri-user-voice-line",
         title: "Tes clients réclament une app",
         description: "Tes utilisateurs te demandent une application — pour réserver, suivre une commande, recevoir une notification. Un site responsive ne suffit plus, mais tu ne sais pas par où commencer ni ce que ça implique vraiment."
     },
     {
+        icon: "ri-price-tag-3-line",
         title: "Le devis d'agence t'a refroidi",
         description: "Tu as demandé un devis pour une app mobile et le chiffre t'a fait reculer. 60 000 CHF, 8 mois, trois interlocuteurs et un chef de projet entre toi et le code. Il y a forcément un moyen plus direct et plus raisonnable."
     },
     {
+        icon: "ri-git-branch-line",
         title: "Tu hésites entre app et site",
         description: "Application native, application hybride, PWA, site mobile… On t'a vendu plein de termes, mais personne ne t'a dit honnêtement ce dont TON projet a besoin. Tu veux un avis franc avant de dépenser un franc."
     },
     {
+        icon: "ri-error-warning-line",
         title: "Ton app dort, personne ne la maintient",
         description: "Tu as déjà une application, mais elle plante, elle n'est plus à jour sur les stores, et le prestataire qui l'a faite a disparu. Tu as besoin de quelqu'un qui reprenne les choses en main proprement."
     }
@@ -104,22 +101,27 @@ const differentiators = [
 // Results
 const results = [
     {
+        icon: "ri-store-2-line",
         title: "Une app publiée sur les stores",
         description: "Pas une maquette cliquable. Une vraie application téléchargeable sur l'App Store et le Play Store, que tes utilisateurs peuvent installer et utiliser."
     },
     {
+        icon: "ri-smartphone-line",
         title: "iOS + Android sans doubler le budget",
         description: "Grâce à Flutter ou React Native, ton app tourne sur les deux plateformes à partir d'un seul code. Tu couvres tout le marché sans payer deux développements."
     },
     {
+        icon: "ri-links-line",
         title: "Une app connectée à tes outils",
         description: "Ton application peut parler à ton CRM, ton agenda, ta facturation ou tes automatisations. Une app isolée perd l'essentiel de sa valeur — la tienne sera branchée."
     },
     {
+        icon: "ri-stack-line",
         title: "Une base solide pour la suite",
         description: "Code propre, documenté, sans dette technique cachée. Tu peux itérer dessus, ajouter des fonctionnalités, ou confier la suite à quelqu'un d'autre. Aucun verrou."
     },
     {
+        icon: "ri-shake-hands-line",
         title: "Un avis honnête, dès le départ",
         description: "Si une PWA ou un site suffit pour ton cas, je te le dis. Tu investis dans une app mobile seulement si elle apporte vraiment quelque chose à ton business."
     }
@@ -212,426 +214,212 @@ const zones = [
 ];
 ---
 
-<Layout
-    title={seoData.title}
-    description={seoData.description}
-    schemas={schemas}
->
+<Layout title={seoData.title} description={seoData.description} schemas={schemas}>
     <Header />
 
-    <!-- ============================================== -->
-    <!-- HERO SECTION -->
-    <!-- ============================================== -->
-    <section class="hero-section -mt-[120px] pt-[150px] pb-16 md:pt-[160px] md:pb-24 px-4 relative overflow-hidden">
-        <!-- Gradient mesh background -->
-        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-            <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--yellow)] opacity-15 blur-[120px] rounded-full"></div>
-            <div class="absolute bottom-0 -right-20 w-[400px] h-[400px] bg-[var(--blue)] opacity-10 blur-[100px] rounded-full"></div>
-        </div>
+    <main class="co-root">
 
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Centered text content -->
-            <div class="text-center">
-                <!-- H1 SEO discret -->
-                <h1 class="seo-h1 mb-8 mt-8">Développeur application mobile freelance à Genève</h1>
-
-                <!-- Main title -->
-                <p class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6" data-animate="fade-up">
-                    Ton application mobile<br/>
-                    <span class="relative inline-block">
-                        <span class="relative z-10">iOS &amp; Android.</span>
-                        <img
-                            src={svgArrowHero.src}
-                            alt=""
-                            class="absolute -bottom-1 left-0 w-full h-5 md:h-6 pointer-events-none"
-                            aria-hidden="true"
-                        />
-                    </span>
-                </p>
-
-                <!-- Subtitle -->
-                <p class="text-xl md:text-2xl font-medium text-[var(--text)] mb-4" data-animate="fade-up" data-delay="0.1">
-                    Pensée pour tes utilisateurs, pas pour une agence.
-                </p>
-
-                <!-- Description -->
-                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto" data-animate="fade-up" data-delay="0.15">
-                    PME, startup ou indépendant : tu n'as pas besoin d'un tunnel de 6 mois à 60 000 CHF. Tu as besoin d'un <strong class="text-[var(--text)]">développeur mobile en Suisse romande</strong> qui code ton app, la publie sur les stores et te dit la vérité sur ce qu'il te faut vraiment.
-                </p>
-
-                <!-- CTAs centered -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12 md:mb-16" data-animate="fade-up" data-delay="0.2">
-                    <a
-                        href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        class="
-                            bg-[var(--blue)]
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                            transition-all duration-200
-                            hover:bg-[var(--yellow)]
-                            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                            hover:translate-x-[2px] hover:translate-y-[2px]
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        <i class="ri-smartphone-line"></i>
-                        Discuter de mon app
-                    </a>
-                    <a
-                        href="#methode"
-                        class="
-                            bg-white
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            transition-all duration-200
-                            hover:bg-gray-100
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        Voir comment ça fonctionne
-                        <i class="ri-arrow-down-line"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Visual element: Hero illustration -->
-            <div class="w-full max-w-3xl mx-auto relative" data-animate="scale" data-delay="0.3">
-                <div class="bg-white border-3 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] p-4 md:p-6 relative">
-                    <!-- Corner boxes -->
-                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-
-                    <!-- Image -->
-                    <img
-                        src={imgHero.src}
-                        alt="Application mobile iOS et Android développée par un freelance à Genève"
-                        class="w-full h-auto"
-                        loading="eager"
-                    />
+        <!-- ══ HERO ══ -->
+        <section class="co-sec co-pad co-hero am-hero" style="padding:64px 40px 56px;">
+            <div class="am-hero-grid">
+                <div class="am-hero-copy">
+                    <p class="co-eyebrow" data-animate>Développement d'application mobile · Genève &amp; Suisse romande</p>
+                    <h1 class="am-hero-title" data-animate data-delay="0.1">
+                        Ton application mobile <span class="co-ser">iOS &amp; Android.</span>
+                    </h1>
+                    <p class="am-hero-sub" data-animate data-delay="0.15">
+                        Pensée pour tes utilisateurs, pas pour une agence.
+                    </p>
+                    <p class="am-hero-lead" data-animate data-delay="0.2">
+                        PME, startup ou indépendant : tu n'as pas besoin d'un tunnel de 6 mois à 60 000 CHF.
+                        Tu as besoin d'un <strong>développeur mobile en Suisse romande</strong> qui code ton app,
+                        la publie sur les stores et te dit la vérité sur ce qu'il te faut vraiment.
+                    </p>
+                    <div class="am-hero-btns" data-animate data-delay="0.3">
+                        <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="co-btn"><i class="ri-smartphone-line"></i> Discuter de mon app</a>
+                        <a href="#methode" class="co-btn co-btn--ghost">Voir comment ça fonctionne <i class="ri-arrow-down-line"></i></a>
+                    </div>
+                    <p class="am-hero-loc co-mut" data-animate data-delay="0.4">
+                        <i class="ri-map-pin-fill"></i> Basé à Genève · Service en Suisse romande
+                    </p>
                 </div>
 
+                <div class="am-hero-media" data-animate="scale" data-delay="0.3">
+                    <div class="am-panel co-frame">
+                        <span class="co-x tl"></span><span class="co-x tr"></span>
+                        <span class="co-x bl"></span><span class="co-x br"></span>
+                        <p class="co-eyebrow">Un seul code · deux stores</p>
+                        <div class="am-panel-plats">
+                            <div class="am-plat"><i class="ri-apple-line" aria-hidden="true"></i><span>iOS · App Store</span></div>
+                            <div class="am-plat"><i class="ri-android-line" aria-hidden="true"></i><span>Android · Play Store</span></div>
+                        </div>
+                        <ul class="co-list co-list--check am-panel-list">
+                            <li><i class="ri-check-line"></i><span>Flutter / React Native</span></li>
+                            <li><i class="ri-check-line"></i><span>Publication sur les stores incluse</span></li>
+                            <li><i class="ri-check-line"></i><span>Code propre, sans lock-in</span></li>
+                            <li><i class="ri-check-line"></i><span>Données conformes nLPD</span></li>
+                        </ul>
+                    </div>
+                    <div class="am-badge am-badge--stores">
+                        <b>2</b><span>stores</span>
+                    </div>
+                    <div class="am-badge am-badge--code">1 code</div>
+                </div>
             </div>
+        </section>
 
-            <!-- Location badge centered -->
-            <div class="flex items-center justify-center gap-2 text-sm text-gray-500 mt-12">
-                <i class="ri-map-pin-fill text-accent"></i>
-                <span>Basé à Genève | Service en Suisse romande</span>
-            </div>
-        </div>
-    </section>
+        <!-- ══ 01 · SITUATIONS ══ -->
+        <section id="problemes" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">01 — Situations</p>
+            <h2 style="margin-top:8px;">Tu te <span class="co-ser">reconnais ?</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">
+                Ces moments où une app devient une vraie question.
+            </p>
 
-    <!-- ============================================== -->
-    <!-- PAIN POINTS SECTION -->
-    <!-- ============================================== -->
-    <section id="problemes" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundGlitchGrid color="rgba(239, 68, 68, 0.4)" opacity={0.08} />
-
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    situations
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    <span class="relative inline-block">
-                        <span class="absolute bg-panel w-full h-[40%] left-0 bottom-1 -z-1"></span>
-                        Tu te reconnais ?
-                    </span>
-                </h2>
-                <p class="text-lg text-gray-600">Ces moments où une app devient une vraie question.</p>
-            </div>
-
-            <!-- Pain points grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-12" data-animate-stagger>
+            <div class="am-grid am-grid--2" data-animate-stagger>
                 {painPoints.map((point) => (
-                    <div class="pain-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Red X icon -->
-                        <IconChip icon="ri-close-line" variant="muted" size="md" class="mb-4" />
-                        <h3 class="text-lg font-bold mb-2">{point.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">{point.description}</p>
+                    <div class="am-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${point.icon} am-card-icon`} aria-hidden="true"></i>
+                        <h3 class="am-card-title">{point.title}</h3>
+                        <p class="am-card-text">{point.description}</p>
                     </div>
                 ))}
             </div>
 
-            <!-- Illustration problèmes -->
-            <div class="w-full max-w-md mx-auto mb-12" data-animate="fade-up">
-                <img
-                    src={imgProblemes.src}
-                    alt="PME face au choix de développer une application mobile"
-                    class="w-full h-auto"
-                    loading="lazy"
-                />
-            </div>
-
-            <!-- Personal story callout -->
-            <div class="bg-[var(--main-bg)] border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate="fade-up">
-                <i class="ri-double-quotes-l text-6xl text-gray-100 absolute -top-4 -left-2 md:-left-4"></i>
-
-                <div class="space-y-4 text-gray-700 leading-relaxed relative z-10">
-                    <p class="font-bold text-lg text-[var(--text)]">Une app, ce n'est pas un site avec des coins arrondis.</p>
-
-                    <p>La plupart des projets mobiles qui dérapent partent du même endroit : <strong>on construit trop, trop tôt, sans avoir validé que les gens utiliseront vraiment l'app.</strong> Quinze écrans, des fonctionnalités que personne n'ouvrira, et une facture qui gonfle.</p>
-
-                    <p>Mon approche est l'inverse : on identifie le cœur de ton app, on le sort vite et bien sur iOS et Android, et on enrichit ensuite — seulement si tes utilisateurs suivent.</p>
-
-                    <div class="bg-[var(--blue)] bg-opacity-20 border-l-4 border-[var(--blue)] p-4 mt-6">
-                        <p class="font-bold text-[var(--text)]">
-                            Une bonne app mobile, c'est d'abord une bonne décision : quoi construire, et surtout quoi ne pas construire.
-                        </p>
-                    </div>
+            <div class="am-story co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="am-story-title">Une app, ce n'est pas un site avec des coins arrondis.</h3>
+                <p class="am-story-text">
+                    La plupart des projets mobiles qui dérapent partent du même endroit :
+                    <strong>on construit trop, trop tôt, sans avoir validé que les gens utiliseront vraiment l'app.</strong>
+                    Quinze écrans, des fonctionnalités que personne n'ouvrira, et une facture qui gonfle.
+                </p>
+                <p class="am-story-text">
+                    Mon approche est l'inverse : on identifie le cœur de ton app, on le sort vite et bien sur
+                    iOS et Android, et on enrichit ensuite — seulement si tes utilisateurs suivent.
+                </p>
+                <div class="am-story-accent">
+                    <p>Une bonne app mobile, c'est d'abord une bonne décision : quoi construire, et surtout quoi ne pas construire.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================== -->
-    <!-- METHOD SECTION -->
-    <!-- ============================================== -->
-    <section id="methode" class="py-20 md:py-28 px-4 relative overflow-hidden">
-        <BackgroundProgressFlow opacity={0.08} />
+        <!-- ══ 02 · MÉTHODE ══ -->
+        <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">02 — Méthode</p>
+            <h2 style="margin-top:8px;">Comment ça se passe ?</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+                Pas de tunnel de développement. Tu testes ton app sur ton téléphone <strong>à chaque étape</strong>.
+            </p>
 
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    méthode
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Comment ça se passe ?
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Pas de tunnel de développement. Tu testes ton app sur ton téléphone à chaque étape.
-                </p>
-            </div>
-
-            <!-- Method illustration -->
-            <div class="w-full max-w-2xl mx-auto mb-12" data-animate="fade-up">
-                <img
-                    src={imgMethode.src}
-                    alt="La méthode en 3 étapes: Cadrage, Construction, Lancement sur les stores"
-                    class="w-full h-auto"
-                    loading="lazy"
-                />
-            </div>
-
-            <!-- Process steps -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12" data-animate-stagger>
+            <div class="am-steps" data-animate-stagger>
                 {methodSteps.map((step, index) => (
-                    <div class="bg-white border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] relative" data-animate-item>
-                        <!-- Step badge -->
-                        <div class="absolute -top-3 left-4 bg-[var(--blue)] border-2 border-black px-3 py-1 text-xs font-bold">
-                            ÉTAPE {step.step}
-                        </div>
-                        <h3 class="text-xl font-bold mb-3 mt-4">{step.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed mb-4">{step.description}</p>
-                        <!-- Duration -->
-                        <div class="flex items-center gap-2 text-sm pt-3 border-t border-dashed border-gray-300">
-                            <i class="ri-time-line text-accent"></i>
-                            <span class="text-gray-500">{step.duration}</span>
+                    <div class="am-step" data-animate-item>
+                        <span class="am-step-num co-index">0{index + 1}</span>
+                        <div class="am-step-body">
+                            <h3 class="am-step-title">{step.title}</h3>
+                            <p class="am-step-text">{step.description}</p>
+                            <p class="am-step-dur"><i class="ri-time-line"></i> {step.duration}</p>
                         </div>
                     </div>
                 ))}
             </div>
 
-            <!-- Differentiators box -->
-            <div class="bg-white border-3 border-black p-6 md:p-8 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate="fade-up">
-                <!-- Corner boxes -->
-                <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-
-                <h3 class="text-xl font-bold text-center mb-6">Ce qui change avec Jon Labs</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="am-diff co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <h3 class="am-diff-title">Ce qui change avec Jon Labs</h3>
+                <div class="am-diff-grid">
                     {differentiators.map((diff) => (
-                        <div class="flex items-start gap-3">
-                            <IconChip icon={diff.icon} size="md" class="flex-shrink-0" />
-                            <p class="text-sm text-gray-700">{diff.text}</p>
+                        <div class="am-diff-item">
+                            <i class={`${diff.icon} am-diff-icon`} aria-hidden="true"></i>
+                            <p class="am-diff-text">{diff.text}</p>
                         </div>
                     ))}
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================== -->
-    <!-- RESULTS SECTION -->
-    <!-- ============================================== -->
-    <section id="resultats" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <BackgroundProgressFlow opacity={0.05} />
+        <!-- ══ 03 · RÉSULTATS ══ -->
+        <section id="resultats" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">03 — Résultats</p>
+            <h2 style="margin-top:8px;">Ce que tu <span class="co-ser">obtiens.</span></h2>
 
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    résultats
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Ce que tu obtiens
-                </h2>
-            </div>
-
-            <!-- Results grid: 3 cards on top -->
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mb-6" data-animate-stagger>
-                {results.slice(0, 3).map((result) => (
-                    <div class="result-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Green check icon -->
-                        <IconChip icon="ri-check-line" size="md" class="mb-4" />
-                        <h3 class="text-lg font-bold mb-2">{result.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">{result.description}</p>
+            <div class="am-grid am-grid--3" data-animate-stagger>
+                {results.map((result) => (
+                    <div class="am-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${result.icon} am-card-icon`} aria-hidden="true"></i>
+                        <h3 class="am-card-title">{result.title}</h3>
+                        <p class="am-card-text">{result.description}</p>
                     </div>
                 ))}
             </div>
 
-            <!-- Results grid: 2 cards centered below -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 max-w-3xl mx-auto" data-animate-stagger>
-                {results.slice(3).map((result) => (
-                    <div class="result-card bg-[var(--main-bg)] border-2 border-black p-6 relative transition-all duration-200 hover:-translate-y-1 hover:shadow-[4px_4px_0px_rgba(0,0,0,0.2)]" data-animate-item>
-                        <!-- Green check icon -->
-                        <IconChip icon="ri-check-line" size="md" class="mb-4" />
-                        <h3 class="text-lg font-bold mb-2">{result.title}</h3>
-                        <p class="text-gray-600 text-sm leading-relaxed">{result.description}</p>
-                    </div>
-                ))}
+            <div class="am-note" data-animate>
+                <i class="ri-apps-2-line"></i>
+                <p>
+                    <strong>Un exemple ?</strong> Découvre
+                    <a href="/portfolio/isla-plomo" class="am-inline">Isla Plomo</a>,
+                    une application web mobile (PWA) installable que j'ai conçue de A à Z, ou l'ensemble de mes
+                    <a href="/portfolio" class="am-inline">réalisations</a>.
+                </p>
             </div>
+        </section>
 
-            <!-- Lien contextuel : réalisation -->
-            <p class="mt-10 p-4 border-2 border-dashed border-gray-300 text-sm md:text-base max-w-3xl mx-auto text-gray-600">
-                <strong class="text-black">Un exemple ?</strong> Découvre
-                <a href="/portfolio/isla-plomo" class="text-[var(--blue)] hover:underline font-medium">Isla Plomo</a>,
-                une application web mobile (PWA) installable que j'ai conçue de A à Z, ou l'ensemble de mes
-                <a href="/portfolio" class="text-[var(--blue)] hover:underline font-medium">réalisations</a>.
+        <!-- ══ 04 · INVESTISSEMENT ══ -->
+        <section id="prix" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">04 — Investissement</p>
+            <h2 style="margin-top:8px;">Un devis <span class="co-ser">clair.</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+                Chaque app est différente. Une PWA pour tester un usage, ce n'est pas la même chose qu'une
+                application native connectée à ton système métier.
             </p>
-        </div>
-    </section>
 
-    <!-- ============================================== -->
-    <!-- PRICING SECTION -->
-    <!-- ============================================== -->
-    <section id="prix" class="py-20 md:py-28 px-4">
-        <div class="max-w-4xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    investissement
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Investissement
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Chaque app est différente. Une PWA pour tester un usage, ce n'est pas la même chose qu'une application native connectée à ton système métier.
+            <div class="am-pricenote co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <p class="am-pricenote-lead">On en discute, je te fais un devis clair avec un périmètre précis.</p>
+                <p class="am-pricenote-sub co-mut">Pas de coûts cachés, pas de surprise en cours de route.</p>
+
+                <h3 class="am-pricenote-title"><i class="ri-information-line"></i> Ce qui influence le prix</h3>
+                <ul class="co-list am-pricenote-list">
+                    {priceFactors.map((factor) => (<li>{factor}</li>))}
+                </ul>
+                <p class="am-note-inline">
+                    Pour te faire une idée des fourchettes, lis mon guide sur le
+                    <a href="/blog/prix-application-mobile-suisse" class="am-inline">prix d'une application mobile en Suisse</a>.
                 </p>
             </div>
 
-            <!-- Pricing info card -->
-            <div class="bg-white border-3 border-black p-8 md:p-10 shadow-[8px_8px_0px_rgba(0,0,0,1)] relative mb-8" data-animate="scale">
-                <!-- Corner boxes -->
-                <div class="absolute -top-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -top-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-                <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 bg-[var(--blue)] border-2 border-black"></div>
-
-                <div class="text-center mb-8">
-                    <p class="text-xl md:text-2xl font-bold text-[var(--text)] mb-2">
-                        On en discute, je te fais un devis clair avec un périmètre précis.
-                    </p>
-                    <p class="text-gray-600">Pas de coûts cachés, pas de surprise en cours de route.</p>
-                </div>
-
-                <div class="border-t-2 border-dashed border-gray-300 pt-6">
-                    <h4 class="font-bold mb-4 flex items-center justify-center gap-2">
-                        <i class="ri-information-line text-accent"></i>
-                        Ce qui influence le prix :
-                    </h4>
-                    <ul class="space-y-2 max-w-md mx-auto">
-                        {priceFactors.map((factor) => (
-                            <li class="flex items-center gap-2 text-sm text-gray-600">
-                                <i class="ri-arrow-right-s-line text-accent"></i>
-                                {factor}
-                            </li>
-                        ))}
-                    </ul>
-                    <p class="text-center text-sm text-gray-500 mt-6">
-                        Pour te faire une idée des fourchettes, lis mon guide sur le <a href="/blog/prix-application-mobile-suisse" class="text-[var(--blue)] font-medium hover:underline">prix d'une application mobile en Suisse</a>.
-                    </p>
-                </div>
+            <div class="am-cta-row" data-animate>
+                <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="co-btn"><i class="ri-file-list-3-line"></i> Demander un devis</a>
             </div>
+        </section>
 
-            <!-- CTA -->
-            <div class="text-center" data-animate="fade-up">
-                <a
-                    href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="
-                        inline-flex items-center gap-2
-                        bg-[var(--blue)]
-                        border-2 border-black
-                        px-8 py-4
-                        text-lg font-bold
-                        shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                        transition-all duration-200
-                        hover:bg-[var(--yellow)]
-                        hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                        hover:translate-x-[2px] hover:translate-y-[2px]
-                    "
-                >
-                    <i class="ri-file-list-3-line"></i>
-                    Demander un devis
-                </a>
-            </div>
-        </div>
-    </section>
+        <!-- ══ 05 · RESSOURCES ══ -->
+        <section id="ressources" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">05 — Ressources</p>
+            <h2 style="margin-top:8px;">Tout comprendre avant de te lancer</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:64ch;line-height:1.6;">
+                Avant de demander un devis, fais-toi ton propre avis. J'ai écrit un dossier complet sur le
+                développement d'applications mobiles pour les PME romandes — commence par le
+                <a href="/blog/developper-application-mobile-suisse" class="am-inline">guide complet</a>.
+            </p>
 
-    <!-- ============================================== -->
-    <!-- CLUSTER / RESSOURCES SECTION -->
-    <!-- ============================================== -->
-    <section id="ressources" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <div class="max-w-5xl mx-auto relative z-10">
-            <!-- Section header -->
-            <div class="text-center mb-12 md:mb-16" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    ressources
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-4">
-                    Tout comprendre avant de te lancer
-                </h2>
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Avant de demander un devis, fais-toi ton propre avis. J'ai écrit un dossier complet sur le développement d'applications mobiles pour les PME romandes — commence par le <a href="/blog/developper-application-mobile-suisse" class="text-[var(--blue)] font-medium hover:underline">guide complet</a>.
-                </p>
-            </div>
-
-            <!-- Cluster groups grid -->
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6" data-animate-stagger>
+            <div class="am-grid am-grid--2" data-animate-stagger>
                 {clusterGroups.map((group) => (
-                    <div class="bg-[var(--main-bg)] border-2 border-black p-6 relative" data-animate-item>
-                        <div class="flex items-center gap-3 mb-4">
-                            <IconChip icon={group.icon} size="md" class="flex-shrink-0" />
-                            <h3 class="text-lg font-bold">{group.label}</h3>
+                    <div class="am-res co-frame" data-animate-item>
+                        <div class="am-res-head">
+                            <i class={`${group.icon} am-res-icon`} aria-hidden="true"></i>
+                            <h3 class="am-res-label">{group.label}</h3>
                         </div>
-                        <ul class="space-y-2">
+                        <ul class="am-res-list">
                             {group.articles.map((article) => (
                                 <li>
-                                    <a href={article.href} class="flex items-start gap-2 text-sm text-gray-700 hover:text-[var(--text)] group">
-                                        <i class="ri-arrow-right-s-line text-accent mt-0.5 group-hover:translate-x-1 transition-transform"></i>
-                                        <span class="group-hover:underline">{article.title}</span>
+                                    <a href={article.href} class="am-res-link">
+                                        <i class="ri-arrow-right-s-line"></i>
+                                        <span>{article.title}</span>
                                     </a>
                                 </li>
                             ))}
@@ -639,207 +427,264 @@ const zones = [
                     </div>
                 ))}
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ============================================== -->
-    <!-- FAQ SECTION -->
-    <!-- ============================================== -->
-    <FAQ
-        faqs={faqs}
-        title="Questions fréquentes"
-        sectionId="faq"
-    >
-        <BackgroundQuestionMarks slot="background" />
-    </FAQ>
+        <!-- ══ 06 · FAQ (accordéon natif <details>, zéro JS) ══ -->
+        <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">06 — FAQ</p>
+            <h2 style="margin-top:8px;">Questions fréquentes</h2>
 
-    <!-- Extra question note -->
-    <div class="text-center py-8 px-4 -mt-16 relative z-10">
-        <p class="text-gray-500">
-            Autre question ? <a href="/contact" class="text-[var(--blue)] font-medium hover:underline">Contacte-moi directement</a>, je réponds sous 24h.
-        </p>
-    </div>
-
-    <!-- ============================================== -->
-    <!-- ABOUT SECTION -->
-    <!-- ============================================== -->
-    <section id="about" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black">
-        <div class="max-w-3xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    à propos
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Qui est derrière Jon Labs ?
-                </h2>
+            <div class="am-faq" style="margin-top:32px;">
+                {faqs.map((faq, index) => (
+                    <details open={index === 0}>
+                        <summary>
+                            {faq.question}
+                            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+                        </summary>
+                        <p class="am-faq-answer">{faq.answer}</p>
+                    </details>
+                ))}
             </div>
 
-            <!-- About card -->
-            <div class="bg-[var(--main-bg)] border-3 border-black p-8 md:p-10 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative" data-animate="fade-up">
-                <div class="space-y-4 text-gray-700 leading-relaxed">
-                    <p>Je suis <strong class="text-[var(--text)]">Jonathan</strong>, développeur et créateur de solutions digitales basé à Genève.</p>
-
-                    <p>Je ne suis pas une agence avec 15 commerciaux et des juniors qui font le travail. Je suis <strong class="text-[var(--text)]">ton partenaire technique direct</strong> — celui qui va coder ton application, la publier sur les stores, et t'aider à trancher quand il faut faire des choix.</p>
-
-                    <p>Mon approche : <strong class="text-[var(--text)]">action plutôt que perfection</strong>. Une app utile entre les mains de tes utilisateurs vaut mieux qu'une roadmap parfaite qui ne sort jamais.</p>
-
-                    <p>J'ai accompagné des entrepreneurs romands, des startups en phase d'amorçage et des PME suisses qui avaient besoin d'outiller leur activité — sans exploser leur budget.</p>
-                </div>
-
-                <div class="mt-8 pt-6 border-t border-dashed border-gray-300">
-                    <a href="/about" class="inline-flex items-center gap-2 text-[var(--blue)] font-medium hover:underline">
-                        <i class="ri-user-line"></i>
-                        En savoir plus sur mon parcours
-                        <i class="ri-arrow-right-line"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- LOCAL SECTION -->
-    <!-- ============================================== -->
-    <section id="local" class="py-20 md:py-28 px-4">
-        <div class="max-w-4xl mx-auto">
-            <!-- Section header -->
-            <div class="text-center mb-12" data-animate="fade-up">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    local
-                    <span class="w-8 h-px bg-gray-400"></span>
-                </span>
-                <h2 class="text-3xl md:text-4xl font-normal tracking-tight">
-                    Basé à <span class="text-[var(--blue)]">Genève</span>, disponible partout en Suisse romande
-                </h2>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8" data-animate="fade-up">
-                <!-- Description -->
-                <div class="space-y-4 text-gray-700">
-                    <p>
-                        Le développement d'une application mobile se fait très bien à distance — échanges, suivi, démos et tests sur ton téléphone, tout peut se gérer en visio. C'est souvent plus efficace.
-                    </p>
-                    <p>
-                        Mais si tu préfères un échange en personne pour le cadrage ou les points d'étape, je suis disponible sur Genève et ses environs.
-                    </p>
-                    <p>
-                        Je connais le contexte suisse romand — les attentes des utilisateurs d'ici, la nLPD pour la protection des données, et les réalités d'une PME locale.
-                    </p>
-                </div>
-
-                <!-- Zones -->
-                <div class="space-y-3">
-                    {zones.map((zone) => (
-                        <div class={`
-                            flex items-center gap-4 p-4 border-2 border-black
-                            ${zone.type === 'primary' ? 'bg-[var(--blue)] bg-opacity-20 border-[var(--blue)]' : 'bg-white'}
-                        `}>
-                            <i class={`${zone.icon} text-xl ${zone.type === 'primary' ? 'text-[var(--text)]' : 'text-gray-600'}`}></i>
-                            <span class={`font-medium ${zone.type === 'primary' ? 'text-lg font-bold' : ''}`}>
-                                {zone.name}
-                                {zone.type === 'primary' && <span class="text-sm font-normal text-gray-600 ml-2">(basé sur place)</span>}
-                            </span>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ============================================== -->
-    <!-- CTA FINAL SECTION -->
-    <!-- ============================================== -->
-    <section id="cta-final" class="py-20 md:py-28 px-4 bg-white border-y-2 border-black relative overflow-hidden">
-        <!-- Dot pattern background -->
-        <div class="absolute inset-0 dots-bg opacity-[0.3]"></div>
-
-        <div class="max-w-3xl mx-auto relative z-10 text-center">
-            <h2 class="text-3xl md:text-4xl font-normal tracking-tight mb-6" data-animate="fade-up">
-                T'as une app en tête ?
-            </h2>
-            <p class="text-xl font-medium text-[var(--text)] mb-4" data-animate="fade-up" data-delay="0.1">
-                Arrête de tourner en rond.
+            <p class="co-mut" style="margin-top:24px;text-align:center;">
+                Autre question ? <a href="/contact" class="am-inline">Contacte-moi directement</a>, je réponds sous 24h.
             </p>
-            <p class="text-lg text-gray-600 mb-8" data-animate="fade-up" data-delay="0.15">
-                En 30 minutes, on regarde ton projet ensemble et je te dis honnêtement ce qu'il te faut — app native, hybride ou PWA — et ce que ça coûterait pour le sortir.
-            </p>
+        </section>
 
-            <!-- CTA illustration -->
-            <div class="w-full max-w-sm mx-auto mb-8" data-animate="fade-up" data-delay="0.2">
-                <img
-                    src={imgCtaFinal.src}
-                    alt="Passer à l'action et lancer son application mobile"
-                    class="w-full h-auto"
-                    loading="lazy"
-                />
-            </div>
+        <!-- ══ 07 · À PROPOS ══ -->
+        <section id="about" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">07 — À propos</p>
+            <h2 style="margin-top:8px;">Qui est derrière <span class="co-ser">Jon Labs ?</span></h2>
 
-            <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12" data-animate="fade-up" data-delay="0.25">
-                <a
-                    href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="
-                        bg-[var(--blue)]
-                        border-2 border-black
-                        px-8 py-4
-                        text-lg font-bold
-                        shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                        transition-all duration-200
-                        hover:bg-[var(--yellow)]
-                        hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                        hover:translate-x-[2px] hover:translate-y-[2px]
-                        flex items-center justify-center gap-2
-                    "
-                >
-                    <i class="ri-calendar-line"></i>
-                    Réserver un appel découverte
+            <div class="am-about co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <p class="am-about-text">Je suis <strong>Jonathan</strong>, développeur et créateur de solutions digitales basé à Genève.</p>
+                <p class="am-about-text">Je ne suis pas une agence avec 15 commerciaux et des juniors qui font le travail. Je suis <strong>ton partenaire technique direct</strong> — celui qui va coder ton application, la publier sur les stores, et t'aider à trancher quand il faut faire des choix.</p>
+                <p class="am-about-text">Mon approche : <strong>action plutôt que perfection</strong>. Une app utile entre les mains de tes utilisateurs vaut mieux qu'une roadmap parfaite qui ne sort jamais.</p>
+                <p class="am-about-text">J'ai accompagné des entrepreneurs romands, des startups en phase d'amorçage et des PME suisses qui avaient besoin d'outiller leur activité — sans exploser leur budget.</p>
+                <a href="/about" class="am-about-link">
+                    <i class="ri-user-line"></i> En savoir plus sur mon parcours <i class="ri-arrow-right-line"></i>
                 </a>
             </div>
+        </section>
 
-            <!-- Alternative -->
-            <div class="bg-[var(--main-bg)] border-2 border-dashed border-gray-300 p-6 inline-block" data-animate="fade-up" data-delay="0.3">
-                <p class="text-gray-500 text-sm mb-2">
-                    <strong>Juste une idée à tester ?</strong> Commence petit avec un prototype fonctionnel avant de développer l'app complète.
+        <!-- ══ 08 · LOCAL ══ -->
+        <section id="local" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">08 — Local</p>
+            <h2 style="margin-top:8px;">Basé à <span class="co-ser">Genève</span>, disponible partout en Suisse romande</h2>
+
+            <div class="am-local-grid">
+                <div data-animate="fade-left">
+                    <p class="am-local-text">
+                        Le développement d'une application mobile se fait très bien à distance — échanges, suivi,
+                        démos et tests sur ton téléphone, tout peut se gérer en visio. C'est souvent plus efficace.
+                    </p>
+                    <p class="am-local-text">
+                        Mais si tu préfères un échange en personne pour le cadrage ou les points d'étape, je suis
+                        disponible sur Genève et ses environs.
+                    </p>
+                    <p class="am-local-text">
+                        Je connais le contexte suisse romand — les attentes des utilisateurs d'ici, la nLPD pour la
+                        protection des données, et les réalités d'une PME locale.
+                    </p>
+                </div>
+
+                <div data-animate="fade-left" data-delay="0.1">
+                    <h3 class="am-local-h3">Zones couvertes</h3>
+                    <div class="am-zones">
+                        {zones.map((zone) => (
+                            <div class={`am-zone ${zone.type === 'primary' ? 'am-zone--primary' : ''}`}>
+                                <i class={zone.icon}></i>
+                                <span>
+                                    <strong>{zone.name}</strong>
+                                    {zone.type === 'primary' && <span class="co-mut"> (basé sur place)</span>}
+                                </span>
+                            </div>
+                        ))}
+                    </div>
+                    <p class="co-mut" style="margin-top:16px;font-size:13.5px;">
+                        <i class="ri-information-line"></i> Les échanges se font en personne ou en visio selon tes préférences.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ 09 · CTA FINAL (primitive .co-cta) ══ -->
+        <section class="co-cta">
+            <span class="co-x tl"></span><span class="co-x tr"></span>
+            <div class="co-cta-inner">
+                <p class="co-cta-eyebrow">T'as une app en tête ?</p>
+                <h2 class="co-cta-title">Arrête de <span class="co-ser">tourner en rond.</span></h2>
+                <p class="co-cta-lead">
+                    En 30 minutes, on regarde ton projet ensemble et je te dis honnêtement ce qu'il te faut —
+                    app native, hybride ou PWA — et ce que ça coûterait pour le sortir.
                 </p>
-                <a href="/services/developpement-mvp" class="inline-flex items-center gap-2 text-[var(--blue)] font-medium hover:underline">
-                    <i class="ri-rocket-line"></i>
-                    Découvrir le développement de MVP
-                    <i class="ri-arrow-right-line"></i>
-                </a>
+                <div class="co-cta-btns">
+                    <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="co-btn co-cta-btn">Réserver un appel découverte <i class="ri-arrow-right-line"></i></a>
+                    <a href="/services/developpement-mvp" class="co-btn co-btn--ghost co-cta-btn co-cta-btn--ghost"><i class="ri-rocket-line"></i> Juste une idée à tester ? Découvrir le MVP</a>
+                </div>
+                <div class="co-cta-trust">
+                    <span><i class="ri-chat-check-line"></i> Avis honnête, sans engagement</span>
+                    <span><i class="ri-phone-line"></i> Premier appel gratuit</span>
+                    <span><i class="ri-time-line"></i> Réponse sous 24 h</span>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+    </main>
 
     <Footer />
 </Layout>
 
-<style>
-    /* Dot pattern background */
-    .dots-bg {
-        background-image: radial-gradient(circle, #000 1px, transparent 1px);
-        background-size: 24px 24px;
-    }
+<style is:global>
+    /* ══ DÉVELOPPEMENT APP MOBILE — styles .am-* (namespace scopé, corps .co-root) ══ */
 
-    /* H1 SEO style terminal */
-    .seo-h1 {
-        font-family: 'JetBrains Mono', 'Plus Jakarta Sans', monospace;
-        font-size: 0.8rem;
-        font-weight: 600;
-        color: var(--color-accent-strong);
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
+    /* ── Hero ── */
+    .am-hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
+    .am-hero-title { font-size: clamp(2.2rem, 5vw, 3.4rem); }
+    .co-root .am-hero-sub { margin-top: 14px; font-size: 1.15rem; font-weight: 600; color: var(--ink); }
+    .co-root .am-hero-lead { margin-top: 14px; max-width: 54ch; font-size: 1.05rem; line-height: 1.65; color: var(--muted); }
+    .am-hero-lead strong { color: var(--ink); font-weight: 600; }
+    .am-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .am-hero-btns .co-btn i { transition: transform .18s ease-out; }
+    .am-hero-btns .co-btn:hover i { transform: translateY(2px); }
+    .co-root .am-hero-loc { margin-top: 22px; font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px; }
+    .am-hero-loc i { color: var(--accent); }
 
-    /* Scroll margin for anchor navigation */
-    section[id] {
-        scroll-margin-top: 100px;
+    /* hero media — panneau spec blueprint */
+    .am-hero-media { position: relative; }
+    .am-panel { position: relative; display: flex; flex-direction: column; gap: 18px; padding: 30px 28px; background: var(--surface); border: 1px solid var(--line-2); }
+    .am-panel-plats { display: flex; flex-direction: column; gap: 10px; }
+    .am-plat { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--bg); border: 1px solid var(--line-2); font-size: 15px; font-weight: 600; color: var(--ink); }
+    .am-plat i { font-size: 22px; color: var(--accent); flex: none; }
+    .am-panel-list { gap: 10px; }
+    .am-panel-list li { font-size: 14px; line-height: 1.45; }
+    .am-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: 8px 12px; font-size: 12px; font-weight: 600; }
+    .am-badge--stores { top: -16px; left: -14px; display: flex; flex-direction: column; line-height: 1.1; }
+    .am-badge--stores b { color: var(--accent); font-size: 15px; }
+    .am-badge--stores span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
+    .am-badge--code { bottom: -16px; right: -14px; background: var(--accent); border-color: var(--accent); color: #fff; }
+
+    /* ── Cartes génériques (situations / résultats) ── */
+    .am-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .am-grid--2 { grid-template-columns: repeat(2, 1fr); }
+    .am-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .am-card {
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        background: var(--surface); border: 1px solid var(--line-2);
+        transition: box-shadow .18s ease-out, transform .18s ease-out;
+    }
+    .am-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+    .am-card-icon { font-size: 24px; color: var(--accent); line-height: 1; }
+    .am-card-title { font-size: 1.1rem; }
+    .am-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
+
+    /* ── Notes / callouts ── */
+    .am-note { display: flex; align-items: flex-start; gap: 12px; margin-top: 24px; padding: 18px 22px; border: 1px solid var(--line-2); background: var(--surface); }
+    .am-note i { color: var(--accent); font-size: 20px; flex: none; margin-top: 1px; }
+    .co-root .am-note p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+    .am-note-inline { margin-top: 16px; font-size: 14px; line-height: 1.6; color: var(--muted); }
+    .am-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
+    .am-inline:hover { color: var(--ink); }
+    .am-note strong, .am-note-inline strong { color: var(--ink); font-weight: 600; }
+
+    /* ── Story callout ── */
+    .am-story { position: relative; display: flex; flex-direction: column; gap: 14px; margin-top: 28px; padding: 34px 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .am-story-title { font-size: 1.2rem; }
+    .co-root .am-story-text { font-size: 15px; line-height: 1.65; color: var(--muted); max-width: 72ch; }
+    .am-story-text strong { color: var(--ink); font-weight: 600; }
+    .am-story-accent { margin-top: 6px; padding: 16px 20px; border-left: 2px solid var(--accent); background: rgba(0,168,125,0.05); }
+    .co-root .am-story-accent p { font-size: 15px; font-weight: 600; line-height: 1.5; color: var(--ink); }
+
+    /* ── Étapes méthode ── */
+    .am-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+    .am-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+    .am-step-num { font-size: 20px; font-weight: 600; }
+    .am-step-title { font-size: 1.15rem; }
+    .co-root .am-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 72ch; }
+    .co-root .am-step-dur { margin-top: 10px; font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+    .am-step-dur i { color: var(--accent); }
+
+    /* ── Encart différenciateurs ── */
+    .am-diff { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .am-diff-title { text-align: center; font-size: 1.25rem; }
+    .am-diff-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px 32px; margin-top: 28px; }
+    .am-diff-item { display: flex; align-items: flex-start; gap: 12px; }
+    .am-diff-icon { font-size: 22px; color: var(--accent); flex: none; margin-top: 1px; }
+    .co-root .am-diff-text { font-size: 14px; line-height: 1.5; color: var(--muted); }
+
+    /* ── Investissement ── */
+    .am-pricenote { position: relative; display: flex; flex-direction: column; gap: 6px; margin-top: 32px; padding: 32px 34px; background: var(--surface); border: 1px solid var(--line-2); }
+    .am-pricenote-lead { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+    .am-pricenote-sub { font-size: 14.5px; }
+    .am-pricenote-title { margin-top: 20px; font-size: 1.05rem; display: inline-flex; align-items: center; gap: 8px; }
+    .am-pricenote-title i { color: var(--accent); }
+    .am-pricenote-list { margin-top: 14px; gap: 8px; }
+    .am-pricenote-list li { font-size: 14px; }
+    .am-cta-row { display: flex; justify-content: center; margin-top: 28px; }
+
+    /* ── Ressources ── */
+    .am-res { position: relative; padding: 24px; background: var(--surface); border: 1px solid var(--line-2); }
+    .am-res-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+    .am-res-icon { font-size: 22px; color: var(--accent); flex: none; }
+    .am-res-label { font-size: 1.05rem; }
+    .am-res-list { display: flex; flex-direction: column; gap: 8px; }
+    .am-res-link { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--muted); transition: color .18s ease-out; }
+    .am-res-link i { color: var(--accent); margin-top: 2px; transition: transform .18s ease-out; }
+    .am-res-link:hover { color: var(--ink); }
+    .am-res-link:hover i { transform: translateX(3px); }
+
+    /* ── FAQ (accordéon natif <details> — smooth via ::details-content, zéro JS) ── */
+    .am-faq { border-top: 1px solid var(--line); }
+    .am-faq details { border-bottom: 1px solid var(--line); }
+    .am-faq summary {
+        list-style: none; cursor: pointer; padding: 20px 0;
+        display: flex; justify-content: space-between; align-items: center; gap: 20px;
+        font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
+    }
+    .am-faq summary::-webkit-details-marker { display: none; }
+    .am-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
+    .am-faq details[open] summary i { transform: rotate(180deg); }
+    .co-root .am-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 72ch; }
+    .am-faq details::details-content {
+        block-size: 0; overflow: hidden;
+        transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
+    }
+    .am-faq details[open]::details-content { block-size: auto; }
+
+    /* ── À propos ── */
+    .am-about { position: relative; display: flex; flex-direction: column; gap: 14px; margin-top: 32px; padding: 34px 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .co-root .am-about-text { font-size: 15px; line-height: 1.65; color: var(--muted); max-width: 74ch; }
+    .am-about-text strong { color: var(--ink); font-weight: 600; }
+    .am-about-link { margin-top: 8px; display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 600; color: var(--accent); }
+    .am-about-link:hover { color: var(--ink); }
+    .am-about-link i:last-child { transition: transform .18s ease-out; }
+    .am-about-link:hover i:last-child { transform: translateX(3px); }
+
+    /* ── Local ── */
+    .am-local-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 44px; margin-top: 32px; }
+    .co-root .am-local-text { font-size: 15px; line-height: 1.65; color: var(--muted); }
+    .co-root .am-local-text + .am-local-text { margin-top: 14px; }
+    .am-local-h3 { font-size: 1.15rem; margin-bottom: 16px; }
+    .am-zones { display: flex; flex-direction: column; gap: 10px; }
+    .am-zone { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line-2); font-size: 14px; }
+    .am-zone i { color: var(--muted); font-size: 18px; }
+    .am-zone--primary { border-color: var(--accent); background: rgba(0,168,125,0.05); }
+    .am-zone--primary i { color: var(--accent); }
+
+    /* ── Responsive ── */
+    @media (max-width: 960px) {
+        .am-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+        .am-hero-media { max-width: 480px; }
+        .am-local-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 720px) {
+        .am-grid--2, .am-grid--3 { grid-template-columns: 1fr; }
+        .am-diff-grid { grid-template-columns: 1fr; }
+        .am-step { grid-template-columns: 44px 1fr; gap: 14px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .am-card, .am-res-link, .am-res-link i, .am-faq summary i, .am-hero-btns .co-btn i, .am-about-link i:last-child { transition: none; }
     }
 </style>
