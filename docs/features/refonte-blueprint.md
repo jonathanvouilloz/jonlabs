@@ -3,6 +3,27 @@
 > Sortir du look brutaliste (bordures noires 2px + ombres offset, Plus Jakarta Sans) jugé « banal » vers un style **blueprint** : filets très fins qui cadrent les sections, aération, nouveau font pairing éditorial. Exploration en pages lab AVANT toute migration du vrai site.
 > **Réfs visuelles** : pengon.dev, sakib.design. **Statut** : 🔄 EN COURS — migration lancée : **homepage + chrome migrés en blueprint**, reste les autres pages.
 
+## Etat session 2026-07-06 — Phases services + géo + divers + fix pilules-eyebrow ✅ (migration site complète)
+
+**Fait :** (3 vagues de sous-agents parallèles file-disjoints + vérif centralisée coordinateur, protocole `blueprint.css`/`Layout`/chrome/`global.css` réservés)
+- **Phase services (`7ed8ada`)** : 13 sous-pages `/services/*` migrées blueprint (déjà produites en working tree la session d'avant — vérifiées + commitées). 0 résidu brutaliste, build vert.
+- **Phase géo (`3282bf2`)** : 5 pages via 5 sous-agents — `consultant-ia/{index,[ville]}`, `developpement-web/[ville]`, `developpeur-web-freelance-geneve`, `metiers/[metier]`. `Halo` retiré (illustrations réencadrées `.co-frame`), `IconChip`→Remix mono inline, FAQ→`<details>` natif. Namespaces `.cii/.civ/.dwv/.dfg/.met-*`. HARD-PRESERVE : Schema (WebPage/Breadcrumb/FAQ/ServiceItem), `getStaticPaths` + data villes/métiers, preuve `proof-lecureux` (0 chiffre en dur), villes voisines.
+- **Phase divers (`dd3be04`)** : 7 pages via 7 sous-agents — `outils/index`, `checklist-15-signes-site-dort`, `checklist-commerce-google`, `reddit-dashboard`, `merci-checklist(-15-signes)`, `portfolio/[slug]`. `CTASection`→`.co-cta` inline, `FAQ`→`<details>`, corps étude de cas→`.co-prose`. HARD-PRESERVE : **2 formulaires Web3Forms intacts** (access_key `3f64c7a1…` + tous `name=` + redirects merci), `softwareSchema`, `caseStudySchema`, `getStaticPaths`+`getCollection('portfolio')`+`<Content>`, `noindex` des merci.
+- **Fix pilules-eyebrow (`db619ce`)** : 9 héros nettoyés — pilule `.co-badge` en kicker au-dessus du H1 retirée (« Outil gratuit »/reddit sur 3 outils, « Disponible »+lieu/tag sur 4 géo+hermes+metiers). **Règle gravée** : mémoire `feedback_pas_pilule_eyebrow_titre` + note `blueprint.css` près de `.co-badge` + Décisions clés.
+- **Vérifié** : build vert **221 pages** à chaque phase, guardrails auto (co-root présent, 0 brutaliste, 0 Halo/IconChip hors commentaires, Web3Forms intacts, noindex conservés), 0 console.log.
+
+**Prochain :** Migration du site **terminée** (tout le réel est blueprint). Reste optionnel : (1) **cleanup coordinateur** — `Halo`, `CTASection`, `FAQ` désormais **orphelins** (0 import) → suppressibles ; (2) **validation mobile <720/<900px sur device** (non capturable par l'outil) ; (3) décisions ouvertes : sticky-score de `checklist-15` neutralisé par `.co-root{overflow:hidden}` (refixer ?) + couleurs sévérité vert/ambre/rouge sur ce diagnostic (unifier teal ?). Sinon → **`/epic-recap`** (epic de fait terminé).
+
+**Pièges :**
+- **`.co-root { overflow:hidden }` tue `position:sticky`** dans le corps de page → tout comportement sticky d'une page migrée est neutralisé (incident score `checklist-15`). Prévoir une exception scopée si sticky requis.
+- Cas `.co-badge` **gardés délibérément** (pas des pilules-eyebrow) : `about` figcaption photo, `AboutHome` badges compétences, `portfolio/[slug]` ligne méta (catégorie·secteur·date). Ne pas les confondre avec la règle anti-pilule.
+- **Hors scope migration** (standalone, pas de chrome) : `outils/*-pdf` (2 layouts print), `devis-client/[slug]` (doc devis client) · CV repoussé · `styleguide` brutaliste (source de vérité noindex) intacts.
+- Pièges antérieurs inchangés (artefact motion screenshot, scoping `.co-*`, mobile non capturable).
+
+**Commit :** [db619ce] fix(design): retire les pilules-eyebrow au-dessus des titres + grave la règle
+
+---
+
 ## Etat session 2026-07-05 (nuit 2) — Phase blog complète (4 pages + 5 composants + 2 primitives) ✅
 
 **Fait :** (coordinateur direct — pages non file-disjointes car couche de composants partagée → parallélisation écartée au profit d'un poste unique séquentiel)
@@ -183,7 +204,28 @@
 **Commit :** [e92b8f2] feat(design): exploration blueprint — pairing 04, BlueprintKit partagé, pages lab (branche `design/blueprint-lab`)
 
 ## Carte du code
-> Mise à jour : 2026-07-05 (nuit 2) — Phase blog complète. **14 corps de page migrés** (home, services, 7 vague, + blog/[slug], blog/tag, guides/index, guides/[slug]), chrome global + design system en place. Couche composants blog entièrement blueprint.
+> Mise à jour : 2026-07-06 — **Migration site complète.** ~31 corps de page migrés blueprint (home+chrome, Vague 1 (7), Phase blog (4), services hub + 13 sous-services, 5 géo, 7 divers). Design system + chrome global en place. Reste hors scope : CV (repoussé), styleguide brutaliste (noindex), 2 `outils/*-pdf` + `devis-client/[slug]` (standalone sans chrome).
+
+### Pages migrées cette session (2026-07-06)
+| Page | Namespace | Note |
+|------|-----------|------|
+| `src/pages/services/*.astro` (×13) | `.rl/.cr/.wf/.wp/.fo/.gm/.ou…-*` | sous-pages service, gabarit-or `referencement-local` |
+| `src/pages/consultant-ia/index.astro` | `.cii-*` | ServiceItem schema, maillage géo/métiers |
+| `src/pages/consultant-ia/[ville].astro` | `.civ-*` | getStaticPaths villesSuisseIA + voisines |
+| `src/pages/developpement-web/[ville].astro` | `.dwv-*` | getStaticPaths villesFrontalieres, tarifs CHF/EUR |
+| `src/pages/developpeur-web-freelance-geneve.astro` | `.dfg-*` | preuve `proof-lecureux` (0 chiffre en dur) |
+| `src/pages/metiers/[metier].astro` | `.met-*` | getStaticPaths metiersIA, 15 bindings dyn |
+| `src/pages/outils/index.astro` | `.ou-*` | hub outils, `getCollectionPageSchema` |
+| `src/pages/outils/checklist-15-signes-site-dort.astro` | `.c15-*` | **Web3Forms** + checklist score (sticky neutralisé) |
+| `src/pages/outils/checklist-commerce-google.astro` | `.ccg-*` | **Web3Forms** + checklist CSS |
+| `src/pages/outils/reddit-dashboard.astro` | `.rd-*` | `softwareSchema` + FAQ `<details>` |
+| `src/pages/merci-checklist{,-15-signes}.astro` | `.mc/.mc15-*` | pages remerciement noindex (redirect Web3Forms) |
+| `src/pages/portfolio/[slug].astro` | `.psl-*` | getStaticPaths + getCollection portfolio + corps `.co-prose` |
+
+### Composants désormais orphelins (0 import — suppressibles au cleanup)
+`src/components/shapes/Halo.astro` · `src/components/CTASection.astro` · `src/components/FAQ.astro` · `src/components/IconChip.astro` (ne reste que dans `styleguide.astro` brutaliste). `src/components/lab/BlueprintKit.astro` (no-op déprécié).
+
+
 
 ### Pages migrées blueprint (corps en `.co-root`)
 | Page | Composants réécrits | Note |
