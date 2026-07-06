@@ -1,10 +1,21 @@
 ---
+// Reddit Dashboard — landing outil gratuit (blueprint).
+// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
+// crosshairs, colonne capée, coins nets, accent teal unique. Namespace scopé .rd-*.
+// Gabarit-or de référence : services/referencement-local.astro.
+//
+// HARD-PRESERVE : Schema.org (getWebPageSchema / getBreadcrumbSchema /
+// getFAQPageSchema(troubleshooting) + softwareSchema SoftwareApplication custom),
+// tableau `schemas` (ordre : webPage, breadcrumb, software, faq), injection Layout.
+// Data `troubleshooting` (alimente faqSchema ET les <details>), seoData exact,
+// tous les deep-links (/outils, /services/outils-sur-mesure) et liens de
+// téléchargement (ZIP + fichiers un par un). Import global.css gardé.
+// FAQ.astro & CTASection.astro NE SONT PLUS importés : rendus inline en blueprint.
+
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import FAQ from '../../components/FAQ.astro';
-import CTASection from '../../components/CTASection.astro';
 
 // Schema.org
 import { SITE_URL } from '../../data/schema';
@@ -84,7 +95,7 @@ const cliOptions = [
     { opt: "--output", def: "auto", desc: "Nom du fichier de sortie" }
 ];
 
-// Dépannage (FAQ)
+// Dépannage (FAQ) — HARD-PRESERVE : alimente le faqSchema ET les <details>
 const troubleshooting = [
     {
         question: "ModuleNotFoundError: ddgs (ou playwright)",
@@ -112,7 +123,7 @@ const troubleshooting = [
     }
 ];
 
-// Schema.org : SoftwareApplication
+// Schema.org : SoftwareApplication (HARD-PRESERVE — custom, ne pas modifier)
 const softwareSchema = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
@@ -158,277 +169,406 @@ const BASE = "/tools/reddit-dashboard";
 >
     <Header />
 
-    <main class="pt-28 md:pt-36 pb-16">
-        <!-- ============ HERO ============ -->
-        <section class="px-4">
-            <div class="max-w-4xl mx-auto">
-                <!-- Breadcrumb -->
-                <nav class="text-sm text-gray-500 mb-8 flex items-center gap-2 flex-wrap" aria-label="Fil d'ariane">
-                    <a href="/" class="hover:text-[var(--violet)]">Accueil</a>
-                    <i class="ri-arrow-right-s-line"></i>
-                    <a href="/outils" class="hover:text-[var(--violet)]">Outils</a>
-                    <i class="ri-arrow-right-s-line"></i>
-                    <span class="text-black font-medium">Reddit Dashboard</span>
-                </nav>
+    <main class="co-root">
 
-                <div class="text-center">
-                    <span class="inline-flex items-center gap-2 bg-[var(--blue)] border-2 border-black px-4 py-1 text-sm font-medium mb-6">
-                        <i class="ri-reddit-line text-black"></i>
-                        Outil gratuit · Open source
-                    </span>
+        <!-- ══ HERO ══ -->
+        <section class="co-sec co-pad co-hero rd-hero" style="padding:64px 40px 56px;">
+            <nav class="rd-crumb" aria-label="Fil d'ariane">
+                <a href="/">Accueil</a>
+                <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
+                <a href="/outils">Outils</a>
+                <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
+                <span class="rd-crumb-cur">Reddit Dashboard</span>
+            </nav>
 
-                    <h1 class="text-3xl md:text-5xl font-normal tracking-tight mb-5">
-                        Reddit Dashboard
-                    </h1>
-
-                    <p class="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-8">
-                        Un petit outil <strong>local</strong> qui scrape les discussions Reddit sur un mot-clé —
-                        <strong>sans API ni compte</strong> — et te les sert dans une interface web propre.
-                        Idéal pour nourrir tes prompts SEO avec de la vraie parole d'utilisateurs.
-                    </p>
-
-                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                        <a
-                            href={ZIP}
-                            download
-                            class="inline-flex items-center gap-2 bg-[var(--blue)] text-black border-2 border-black px-8 py-4 text-lg font-bold shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:bg-[var(--yellow)] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]"
-                        >
-                            <i class="ri-download-2-line"></i>
-                            Télécharger (ZIP)
-                        </a>
-                        <a
-                            href="#guide"
-                            class="inline-flex items-center gap-2 bg-white text-black border-2 border-black px-8 py-4 text-lg font-medium shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all duration-200 hover:shadow-[2px_2px_0px_rgba(0,0,0,0.3)] hover:translate-x-[2px] hover:translate-y-[2px]"
-                        >
-                            <i class="ri-book-open-line"></i>
-                            Voir le guide
-                        </a>
-                    </div>
-                    <p class="text-sm text-gray-500 mt-4">
-                        Python 3 requis · Windows, macOS &amp; Linux · Aucune inscription
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ BÉNÉFICES ============ -->
-        <section class="px-4 py-16 md:py-24">
-            <div class="max-w-5xl mx-auto">
-                <h2 class="text-2xl md:text-3xl font-normal text-center mb-12">À quoi ça sert&nbsp;?</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    {benefits.map((b) => (
-                        <div class="bg-white border-3 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,1)]">
-                            <div class="w-12 h-12 bg-[var(--blue)] border-2 border-black flex items-center justify-center mb-4">
-                                <i class={`${b.icon} text-2xl`}></i>
-                            </div>
-                            <h3 class="text-xl font-bold mb-2">{b.title}</h3>
-                            <p class="text-gray-600">{b.text}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ COMMENT ÇA MARCHE ============ -->
-        <section class="px-4 py-16 md:py-20 bg-white border-y-2 border-black">
-            <div class="max-w-4xl mx-auto">
-                <h2 class="text-2xl md:text-3xl font-normal text-center mb-4">Comment ça marche</h2>
-                <p class="text-gray-600 text-center max-w-2xl mx-auto mb-12">
-                    Trois fichiers travaillent ensemble. Tu n'en lances qu'un seul ; le reste est automatique.
-                </p>
-
-                <!-- Flux -->
-                <div class="bg-[var(--main-bg)] border-2 border-black p-6 md:p-8 mb-10">
-                    <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 text-center">
-                        <div class="flex-1 bg-white border-2 border-black p-4">
-                            <i class="ri-global-line text-2xl block mb-2"></i>
-                            <span class="font-bold block">Toi (navigateur)</span>
-                            <span class="text-xs text-gray-500 font-mono">localhost:8765</span>
-                        </div>
-                        <i class="ri-arrow-right-line text-2xl text-gray-400 hidden md:block"></i>
-                        <i class="ri-arrow-down-line text-2xl text-gray-400 md:hidden mx-auto"></i>
-                        <div class="flex-1 bg-white border-2 border-black p-4">
-                            <i class="ri-server-line text-2xl block mb-2"></i>
-                            <span class="font-bold block">dashboard.py</span>
-                            <span class="text-xs text-gray-500">le serveur</span>
-                        </div>
-                        <i class="ri-arrow-right-line text-2xl text-gray-400 hidden md:block"></i>
-                        <i class="ri-arrow-down-line text-2xl text-gray-400 md:hidden mx-auto"></i>
-                        <div class="flex-1 bg-white border-2 border-black p-4">
-                            <i class="ri-radar-line text-2xl block mb-2"></i>
-                            <span class="font-bold block">reddit_scraper.py</span>
-                            <span class="text-xs text-gray-500">Playwright + DuckDuckGo</span>
-                        </div>
-                    </div>
-                    <p class="text-center text-sm text-gray-500 mt-6">
-                        Le scraper cherche les threads Reddit, ouvre chaque page sur <span class="font-mono">old.reddit.com</span>
-                        avec un navigateur invisible, extrait titres + commentaires, et écrit le tout dans
-                        <span class="font-mono">extraction_reddit_&lt;mot-clé&gt;.txt</span>.
-                    </p>
-                </div>
-
-                <!-- Les 3 fichiers -->
-                <div class="space-y-3">
-                    {files.map((f) => (
-                        <div class="flex items-start gap-4 bg-white border-2 border-black p-4">
-                            <span class="font-mono text-sm bg-[var(--blue)] border-2 border-black px-2 py-1 whitespace-nowrap">{f.name}</span>
-                            <span class="text-gray-600">{f.role}</span>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ TÉLÉCHARGEMENT ============ -->
-        <section id="download" class="px-4 py-16 md:py-24" style="scroll-margin-top: 100px;">
-            <div class="max-w-3xl mx-auto">
-                <div class="bg-white border-3 border-black p-8 md:p-12 shadow-[6px_6px_0px_rgba(0,0,0,1)] relative">
-                    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 border-2 border-black bg-[var(--blue)]"></div>
-                    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 border-2 border-black bg-[var(--blue)]"></div>
-                    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 border-2 border-black bg-[var(--blue)]"></div>
-                    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-2 border-black bg-[var(--blue)]"></div>
-
-                    <div class="text-center">
-                        <h2 class="text-2xl md:text-3xl font-bold mb-3">Télécharger l'outil</h2>
-                        <p class="text-gray-600 mb-8 max-w-xl mx-auto">
-                            Un seul fichier ZIP avec tout ce qu'il faut : les scripts, l'interface, le guide et la liste des dépendances.
-                            Décompresse, suis les 2 commandes d'installation, c'est parti.
-                        </p>
-
-                        <a
-                            href={ZIP}
-                            download
-                            class="inline-flex items-center gap-2 bg-[var(--blue)] text-black border-2 border-black px-8 py-4 text-lg font-bold shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:bg-[var(--yellow)] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]"
-                        >
-                            <i class="ri-download-2-line"></i>
-                            reddit-dashboard.zip
-                        </a>
-
-                        <p class="text-sm text-gray-500 mt-8 mb-3">Ou télécharge les fichiers un par un :</p>
-                        <div class="flex flex-wrap items-center justify-center gap-2 text-sm">
-                            <a href={`${BASE}/dashboard.py`} download class="font-mono border-2 border-black px-3 py-1 hover:bg-[var(--yellow)] transition-colors">dashboard.py</a>
-                            <a href={`${BASE}/dashboard.html`} download class="font-mono border-2 border-black px-3 py-1 hover:bg-[var(--yellow)] transition-colors">dashboard.html</a>
-                            <a href={`${BASE}/reddit_scraper.py`} download class="font-mono border-2 border-black px-3 py-1 hover:bg-[var(--yellow)] transition-colors">reddit_scraper.py</a>
-                            <a href={`${BASE}/requirements.txt`} download class="font-mono border-2 border-black px-3 py-1 hover:bg-[var(--yellow)] transition-colors">requirements.txt</a>
-                            <a href={`${BASE}/GUIDE-reddit-dashboard.md`} download class="font-mono border-2 border-black px-3 py-1 hover:bg-[var(--yellow)] transition-colors">GUIDE.md</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============ GUIDE : INSTALLATION ============ -->
-        <section id="guide" class="px-4 py-16 md:py-20 bg-white border-y-2 border-black" style="scroll-margin-top: 90px;">
-            <div class="max-w-3xl mx-auto">
-                <span class="inline-flex items-center gap-2 text-xs font-mono uppercase tracking-[0.2em] text-gray-500 mb-4">
-                    <span class="w-8 h-px bg-gray-400"></span>
-                    guide
+            <div class="rd-hero-inner">
+                <span class="co-badge" data-animate>
+                    <i class="ri-reddit-line" aria-hidden="true"></i> Outil gratuit · Open source
                 </span>
-                <h2 class="text-2xl md:text-3xl font-normal mb-4">Installation</h2>
-                <p class="text-gray-600 mb-6">
-                    À faire une seule fois. Ouvre PowerShell (ou ton terminal) dans le dossier des scripts et lance :
+                <h1 class="rd-hero-title" data-animate data-delay="0.1">
+                    Reddit <span class="co-ser">Dashboard</span>
+                </h1>
+                <p class="rd-hero-lead" data-animate data-delay="0.2">
+                    Un petit outil <strong>local</strong> qui scrape les discussions Reddit sur un mot-clé —
+                    <strong>sans API ni compte</strong> — et te les sert dans une interface web propre.
+                    Idéal pour nourrir tes prompts SEO avec de la vraie parole d'utilisateurs.
                 </p>
-
-                <div class="bg-[#1e1e1e] border-2 border-black p-5 font-mono text-sm text-gray-100 overflow-x-auto mb-3">
-                    <div class="flex gap-3"><span class="text-[var(--blue)] select-none">$</span><span>pip install -r requirements.txt</span></div>
-                    <div class="flex gap-3 mt-2"><span class="text-[var(--blue)] select-none">$</span><span>python -m playwright install chromium</span></div>
+                <div class="rd-hero-btns" data-animate data-delay="0.3">
+                    <a href={ZIP} download class="co-btn"><i class="ri-download-2-line"></i> Télécharger (ZIP)</a>
+                    <a href="#guide" class="co-btn co-btn--ghost"><i class="ri-book-open-line"></i> Voir le guide</a>
                 </div>
-                <ul class="text-sm text-gray-500 space-y-1 mb-2">
-                    <li><span class="font-mono">ddgs</span> → recherche DuckDuckGo</li>
-                    <li><span class="font-mono">playwright</span> → pilote un navigateur Chromium invisible</li>
-                    <li><span class="font-mono">playwright install chromium</span> → télécharge le navigateur utilisé pour scraper</li>
-                </ul>
+                <p class="rd-hero-meta co-mut" data-animate data-delay="0.4">
+                    <i class="ri-terminal-box-line" aria-hidden="true"></i>
+                    Python 3 requis · Windows, macOS &amp; Linux · Aucune inscription
+                </p>
             </div>
         </section>
 
-        <!-- ============ GUIDE : UTILISATION ÉTAPE PAR ÉTAPE ============ -->
-        <section class="px-4 py-16 md:py-24">
-            <div class="max-w-3xl mx-auto">
-                <h2 class="text-2xl md:text-3xl font-normal mb-12">Utilisation, étape par étape</h2>
+        <!-- ══ 01 · UTILITÉ ══ -->
+        <section id="utilite" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">01 — Utilité</p>
+            <h2 style="margin-top:8px;">À quoi ça <span class="co-ser">sert ?</span></h2>
 
-                <div class="space-y-8">
-                    {steps.map((s) => (
-                        <div class="flex gap-5">
-                            <div class="flex-shrink-0 w-10 h-10 bg-[var(--blue)] border-2 border-black flex items-center justify-center font-bold">
-                                {s.n}
-                            </div>
-                            <div class="flex-1 pt-1">
-                                <h3 class="text-xl font-bold mb-2">{s.title}</h3>
-                                <p class="text-gray-600 mb-3">{s.text}</p>
-                                {s.cmd && (
-                                    <div class="bg-[#1e1e1e] border-2 border-black p-4 font-mono text-sm text-gray-100 overflow-x-auto">
-                                        <div class="flex gap-3"><span class="text-[var(--blue)] select-none">$</span><span>{s.cmd}</span></div>
-                                    </div>
-                                )}
-                            </div>
+            <div class="rd-grid rd-grid--3" data-animate-stagger>
+                {benefits.map((b) => (
+                    <div class="rd-card co-frame co-frame--reveal" data-animate-item>
+                        <i class={`${b.icon} rd-card-icon`} aria-hidden="true"></i>
+                        <h3 class="rd-card-title">{b.title}</h3>
+                        <p class="rd-card-text">{b.text}</p>
+                    </div>
+                ))}
+            </div>
+        </section>
+
+        <!-- ══ 02 · FONCTIONNEMENT ══ -->
+        <section id="fonctionnement" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">02 — Fonctionnement</p>
+            <h2 style="margin-top:8px;">Comment ça marche</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+                Trois fichiers travaillent ensemble. Tu n'en lances qu'un seul ; le reste est automatique.
+            </p>
+
+            <!-- Flux -->
+            <div class="rd-flow co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <div class="rd-flow-nodes">
+                    <div class="rd-node">
+                        <i class="ri-global-line" aria-hidden="true"></i>
+                        <span class="rd-node-name">Toi (navigateur)</span>
+                        <span class="rd-node-sub">localhost:8765</span>
+                    </div>
+                    <i class="ri-arrow-right-line rd-flow-arrow rd-flow-arrow--h" aria-hidden="true"></i>
+                    <i class="ri-arrow-down-line rd-flow-arrow rd-flow-arrow--v" aria-hidden="true"></i>
+                    <div class="rd-node">
+                        <i class="ri-server-line" aria-hidden="true"></i>
+                        <span class="rd-node-name">dashboard.py</span>
+                        <span class="rd-node-sub">le serveur</span>
+                    </div>
+                    <i class="ri-arrow-right-line rd-flow-arrow rd-flow-arrow--h" aria-hidden="true"></i>
+                    <i class="ri-arrow-down-line rd-flow-arrow rd-flow-arrow--v" aria-hidden="true"></i>
+                    <div class="rd-node">
+                        <i class="ri-radar-line" aria-hidden="true"></i>
+                        <span class="rd-node-name">reddit_scraper.py</span>
+                        <span class="rd-node-sub">Playwright + DuckDuckGo</span>
+                    </div>
+                </div>
+                <p class="rd-flow-note">
+                    Le scraper cherche les threads Reddit, ouvre chaque page sur <code>old.reddit.com</code>
+                    avec un navigateur invisible, extrait titres + commentaires, et écrit le tout dans
+                    <code>extraction_reddit_&lt;mot-clé&gt;.txt</code>.
+                </p>
+            </div>
+
+            <!-- Les 3 fichiers -->
+            <div class="rd-files" data-animate-stagger>
+                {files.map((f) => (
+                    <div class="rd-file co-frame co-frame--reveal" data-animate-item>
+                        <span class="rd-file-name">{f.name}</span>
+                        <span class="rd-file-role">{f.role}</span>
+                    </div>
+                ))}
+            </div>
+        </section>
+
+        <!-- ══ 03 · TÉLÉCHARGEMENT ══ -->
+        <section id="download" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">03 — Téléchargement</p>
+            <h2 style="margin-top:8px;">Télécharger <span class="co-ser">l'outil</span></h2>
+
+            <div class="rd-download co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <p class="rd-download-desc">
+                    Un seul fichier ZIP avec tout ce qu'il faut : les scripts, l'interface, le guide et la liste des dépendances.
+                    Décompresse, suis les 2 commandes d'installation, c'est parti.
+                </p>
+                <a href={ZIP} download class="co-btn rd-download-btn">
+                    <i class="ri-download-2-line"></i> reddit-dashboard.zip
+                </a>
+
+                <p class="rd-download-alt co-mut">Ou télécharge les fichiers un par un :</p>
+                <div class="rd-download-files">
+                    <a href={`${BASE}/dashboard.py`} download class="rd-chip">dashboard.py</a>
+                    <a href={`${BASE}/dashboard.html`} download class="rd-chip">dashboard.html</a>
+                    <a href={`${BASE}/reddit_scraper.py`} download class="rd-chip">reddit_scraper.py</a>
+                    <a href={`${BASE}/requirements.txt`} download class="rd-chip">requirements.txt</a>
+                    <a href={`${BASE}/GUIDE-reddit-dashboard.md`} download class="rd-chip">GUIDE.md</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ 04 · INSTALLATION ══ -->
+        <section id="guide" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">04 — Installation</p>
+            <h2 style="margin-top:8px;">À faire une seule fois</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+                Ouvre PowerShell (ou ton terminal) dans le dossier des scripts et lance les deux commandes :
+            </p>
+
+            <div class="rd-term" data-animate>
+                <div class="rd-term-line"><span class="rd-term-p">$</span><span>pip install -r requirements.txt</span></div>
+                <div class="rd-term-line"><span class="rd-term-p">$</span><span>python -m playwright install chromium</span></div>
+            </div>
+
+            <ul class="co-list rd-deps">
+                <li><code>ddgs</code> → recherche DuckDuckGo</li>
+                <li><code>playwright</code> → pilote un navigateur Chromium invisible</li>
+                <li><code>playwright install chromium</code> → télécharge le navigateur utilisé pour scraper</li>
+            </ul>
+        </section>
+
+        <!-- ══ 05 · UTILISATION ══ -->
+        <section id="utilisation" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">05 — Utilisation</p>
+            <h2 style="margin-top:8px;">Étape par étape</h2>
+
+            <div class="rd-steps" data-animate-stagger>
+                {steps.map((s, index) => (
+                    <div class="rd-step" data-animate-item>
+                        <span class="rd-step-num co-index">0{index + 1}</span>
+                        <div class="rd-step-body">
+                            <h3 class="rd-step-title">{s.title}</h3>
+                            <p class="rd-step-text">{s.text}</p>
+                            {s.cmd && (
+                                <div class="rd-term rd-term--sm">
+                                    <div class="rd-term-line"><span class="rd-term-p">$</span><span>{s.cmd}</span></div>
+                                </div>
+                            )}
                         </div>
-                    ))}
-                </div>
+                    </div>
+                ))}
             </div>
         </section>
 
-        <!-- ============ MODE CLI ============ -->
-        <section class="px-4 py-16 md:py-20 bg-white border-y-2 border-black">
-            <div class="max-w-3xl mx-auto">
-                <h2 class="text-2xl md:text-3xl font-normal mb-4">Mode ligne de commande <span class="text-gray-400 text-lg">(optionnel)</span></h2>
-                <p class="text-gray-600 mb-6">
-                    Tu peux aussi lancer le scraper directement, sans l'interface :
-                </p>
+        <!-- ══ 06 · LIGNE DE COMMANDE ══ -->
+        <section id="cli" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">06 — Ligne de commande</p>
+            <h2 style="margin-top:8px;">Mode CLI <span class="co-mut" style="font-weight:400;">(optionnel)</span></h2>
+            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+                Tu peux aussi lancer le scraper directement, sans l'interface :
+            </p>
 
-                <div class="bg-[#1e1e1e] border-2 border-black p-5 font-mono text-sm text-gray-100 overflow-x-auto mb-8">
-                    <div class="flex gap-3"><span class="text-[var(--blue)] select-none">$</span><span>python reddit_scraper.py --keyword "chiang mai dtv" --threads 10</span></div>
-                </div>
+            <div class="rd-term" data-animate>
+                <div class="rd-term-line"><span class="rd-term-p">$</span><span>python reddit_scraper.py --keyword "chiang mai dtv" --threads 10</span></div>
+            </div>
 
-                <div class="overflow-x-auto">
-                    <table class="w-full border-2 border-black text-left text-sm">
-                        <thead>
-                            <tr class="bg-[var(--blue)] border-b-2 border-black">
-                                <th class="p-3 border-r-2 border-black font-bold">Option</th>
-                                <th class="p-3 border-r-2 border-black font-bold">Défaut</th>
-                                <th class="p-3 font-bold">Description</th>
+            <div class="rd-tablewrap" data-animate>
+                <table class="rd-table">
+                    <thead>
+                        <tr>
+                            <th>Option</th>
+                            <th>Défaut</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {cliOptions.map((o) => (
+                            <tr>
+                                <td class="rd-table-opt">{o.opt}</td>
+                                <td class="rd-table-def">{o.def}</td>
+                                <td>{o.desc}</td>
                             </tr>
-                        </thead>
-                        <tbody>
-                            {cliOptions.map((o, i) => (
-                                <tr class={i < cliOptions.length - 1 ? "border-b-2 border-black" : ""}>
-                                    <td class="p-3 border-r-2 border-black font-mono">{o.opt}</td>
-                                    <td class="p-3 border-r-2 border-black font-mono text-gray-600">{o.def}</td>
-                                    <td class="p-3 text-gray-600">{o.desc}</td>
-                                </tr>
-                            ))}
-                        </tbody>
-                    </table>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- ══ 07 · DÉPANNAGE (accordéon natif <details>, zéro JS) ══ -->
+        <section id="depannage" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">07 — Dépannage</p>
+            <h2 style="margin-top:8px;">Problèmes courants</h2>
+            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+                Les pannes les plus fréquentes et comment les régler.
+            </p>
+
+            <div class="rd-faq" style="margin-top:32px;">
+                {troubleshooting.map((item, index) => (
+                    <details open={index === 0}>
+                        <summary>
+                            {item.question}
+                            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
+                        </summary>
+                        <p class="rd-faq-answer">{item.answer}</p>
+                    </details>
+                ))}
+            </div>
+        </section>
+
+        <!-- ══ CTA (primitive .co-cta) ══ -->
+        <section class="co-cta">
+            <span class="co-x tl"></span><span class="co-x tr"></span>
+            <div class="co-cta-inner">
+                <p class="co-cta-eyebrow">Outil sur mesure</p>
+                <h2 class="co-cta-title">Besoin d'un outil <span class="co-ser">sur mesure ?</span></h2>
+                <p class="co-cta-lead">
+                    Ce dashboard est un exemple de ce que j'automatise au quotidien. Si tu as un workflow
+                    répétitif à transformer en outil, on en parle.
+                </p>
+                <div class="co-cta-btns">
+                    <a href="/services/outils-sur-mesure" class="co-btn co-cta-btn"><i class="ri-tools-line"></i> Discuter d'un outil sur mesure</a>
+                </div>
+                <div class="co-cta-trust">
+                    <span><i class="ri-time-line"></i> Réponse rapide</span>
+                    <span><i class="ri-shield-check-line"></i> Sans engagement</span>
                 </div>
             </div>
         </section>
 
-        <!-- ============ DÉPANNAGE ============ -->
-        <FAQ
-            faqs={troubleshooting}
-            title="Problèmes courants"
-            subtitle="Les pannes les plus fréquentes et comment les régler."
-            sectionId="depannage"
-        />
+        <!-- Retour outils -->
+        <section class="co-sec co-pad" style="padding:32px 40px;text-align:center;">
+            <a href="/outils" class="rd-back">
+                <i class="ri-arrow-left-line" aria-hidden="true"></i> Tous les outils gratuits
+            </a>
+        </section>
+
     </main>
-
-    <!-- ============ CTA ============ -->
-    <CTASection
-        title="Besoin d'un outil sur mesure&nbsp;?"
-        description="Ce dashboard est un exemple de ce que j'automatise au quotidien. Si tu as un workflow répétitif à transformer en outil, on en parle."
-        buttonText="Discuter d'un outil sur mesure"
-        buttonLink="/services/outils-sur-mesure"
-        buttonIcon="ri-tools-line"
-        subtext="Réponse rapide, sans engagement."
-        variant="dark"
-    />
-
-    <!-- Retour outils -->
-    <div class="px-4 py-10 text-center bg-[var(--main-bg)]">
-        <a href="/outils" class="inline-flex items-center gap-2 text-gray-600 hover:text-[var(--violet)] font-medium">
-            <i class="ri-arrow-left-line"></i>
-            Tous les outils gratuits
-        </a>
-    </div>
 
     <Footer />
 </Layout>
+
+<style is:global>
+    /* ══ REDDIT DASHBOARD — styles .rd-* (namespace scopé, corps .co-root) ══ */
+
+    /* ── Fil d'ariane ── */
+    .rd-crumb { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+    .rd-crumb a { color: var(--muted); transition: color .18s ease-out; }
+    .rd-crumb a:hover { color: var(--accent); }
+    .rd-crumb i { font-size: 15px; opacity: .6; }
+    .rd-crumb-cur { color: var(--ink); font-weight: 500; }
+
+    /* ── Hero ── */
+    .rd-hero-inner { max-width: 640px; }
+    .rd-hero-title { font-size: clamp(2.4rem, 6vw, 3.6rem); margin-top: 20px; }
+    .co-root .rd-hero-lead { margin-top: 18px; max-width: 56ch; font-size: 1.075rem; line-height: 1.65; color: var(--muted); }
+    .rd-hero-lead strong { color: var(--ink); font-weight: 600; }
+    .rd-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .rd-hero-btns .co-btn i { transition: transform .18s ease-out; }
+    .rd-hero-btns .co-btn:hover i { transform: translateY(1px); }
+    .co-root .rd-hero-meta { margin-top: 22px; font-size: 13.5px; display: inline-flex; align-items: center; gap: 7px; }
+    .rd-hero-meta i { color: var(--accent); font-size: 16px; }
+
+    /* ── Cartes génériques ── */
+    .rd-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .rd-grid--3 { grid-template-columns: repeat(3, 1fr); }
+    .rd-card {
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        background: var(--surface); border: 1px solid var(--line-2);
+        transition: box-shadow .18s ease-out, transform .18s ease-out;
+    }
+    .rd-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+    .rd-card-icon { font-size: 24px; color: var(--accent); line-height: 1; }
+    .rd-card-title { font-size: 1.1rem; }
+    .rd-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
+
+    /* ── Flux (diagramme 3 nodes) ── */
+    .rd-flow { position: relative; margin-top: 32px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rd-flow-nodes { display: flex; align-items: stretch; gap: 12px; }
+    .rd-node {
+        flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px;
+        padding: 18px 14px; background: var(--bg); border: 1px solid var(--line);
+    }
+    .rd-node > i { font-size: 24px; color: var(--accent); }
+    .rd-node-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+    .rd-node-sub { font-size: 11.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
+    .rd-flow-arrow { font-size: 22px; color: var(--muted); align-self: center; flex: none; }
+    .rd-flow-arrow--v { display: none; }
+    .co-root .rd-flow-note { margin-top: 20px; font-size: 13px; line-height: 1.55; color: var(--muted); text-align: center; }
+    .rd-flow-note code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12px; color: var(--ink); background: rgba(20,22,26,.05); border: 1px solid var(--line); padding: 1px 5px; }
+
+    /* ── Les 3 fichiers ── */
+    .rd-files { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
+    .rd-file {
+        position: relative; display: flex; align-items: flex-start; gap: 16px; padding: 16px 20px;
+        background: var(--surface); border: 1px solid var(--line-2);
+    }
+    .rd-file-name {
+        flex: none; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13px; font-weight: 600;
+        color: var(--accent); white-space: nowrap;
+    }
+    .rd-file-role { font-size: 14px; line-height: 1.5; color: var(--muted); }
+
+    /* ── Téléchargement ── */
+    .rd-download { position: relative; margin-top: 32px; padding: 40px 32px; background: var(--surface); border: 1px solid var(--line-2); text-align: center; }
+    .co-root .rd-download-desc { max-width: 52ch; margin: 0 auto 24px; font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+    .rd-download-btn { font-size: 16px; padding: 14px 26px; }
+    .co-root .rd-download-alt { margin-top: 28px; margin-bottom: 14px; font-size: 13px; }
+    .rd-download-files { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; }
+    .rd-chip {
+        font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12.5px; color: var(--ink);
+        background: var(--bg); border: 1px solid var(--line-2); padding: 6px 12px;
+        transition: border-color .18s ease-out, color .18s ease-out;
+    }
+    .rd-chip:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── Terminal / bloc code ── */
+    .rd-term {
+        margin-top: 24px; padding: 18px 20px; background: #0b0d10; border: 1px solid var(--line-2);
+        overflow-x: auto; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13.5px; line-height: 1.7;
+    }
+    .rd-term--sm { margin-top: 14px; padding: 14px 16px; font-size: 13px; }
+    .rd-term-line { display: flex; gap: 12px; color: #f4f3ee; white-space: nowrap; }
+    .rd-term-p { color: var(--accent-bright); user-select: none; flex: none; }
+
+    .rd-deps { margin-top: 18px; }
+    .rd-deps li { font-size: 14px; color: var(--muted); }
+    .rd-deps code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12.5px; color: var(--ink); background: rgba(20,22,26,.05); border: 1px solid var(--line); padding: 1px 5px; }
+
+    /* ── Étapes ── */
+    .rd-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+    .rd-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--line); }
+    .rd-step-num { font-size: 20px; font-weight: 600; }
+    .rd-step-title { font-size: 1.15rem; }
+    .co-root .rd-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
+
+    /* ── Table CLI ── */
+    .rd-tablewrap { margin-top: 28px; overflow-x: auto; border: 1px solid var(--line-2); }
+    .rd-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+    .rd-table thead { background: rgba(20,22,26,.04); }
+    .rd-table th { padding: 12px 16px; text-align: left; font-weight: 600; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); }
+    .rd-table td { padding: 12px 16px; border-bottom: 1px solid var(--line); color: var(--muted); line-height: 1.5; }
+    .rd-table tbody tr:last-child td { border-bottom: 0; }
+    .rd-table-opt { font-family: ui-monospace, "SF Mono", Menlo, monospace; color: var(--accent) !important; font-weight: 600; }
+    .rd-table-def { font-family: ui-monospace, "SF Mono", Menlo, monospace; color: var(--ink) !important; }
+
+    /* ── FAQ (accordéon natif <details> — smooth via ::details-content, zéro JS) ── */
+    .rd-faq { border-top: 1px solid var(--line); }
+    .rd-faq details { border-bottom: 1px solid var(--line); }
+    .rd-faq summary {
+        list-style: none; cursor: pointer; padding: 20px 0;
+        display: flex; justify-content: space-between; align-items: center; gap: 20px;
+        font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
+    }
+    .rd-faq summary::-webkit-details-marker { display: none; }
+    .rd-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
+    .rd-faq details[open] summary i { transform: rotate(180deg); }
+    .co-root .rd-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 68ch; }
+    .rd-faq details::details-content {
+        block-size: 0; overflow: hidden;
+        transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
+    }
+    .rd-faq details[open]::details-content { block-size: auto; }
+
+    /* ── Retour outils ── */
+    .rd-back { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--muted); transition: color .18s ease-out; }
+    .rd-back:hover { color: var(--accent); }
+    .rd-back i { transition: transform .18s ease-out; }
+    .rd-back:hover i { transform: translateX(-3px); }
+
+    /* ── Anchor scroll offset ── */
+    .co-root section[id] { scroll-margin-top: 100px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 720px) {
+        .rd-grid--3 { grid-template-columns: 1fr; }
+        .rd-flow-nodes { flex-direction: column; }
+        .rd-flow-arrow--h { display: none; }
+        .rd-flow-arrow--v { display: block; }
+        .rd-step { grid-template-columns: 44px 1fr; gap: 14px; }
+        .rd-file { flex-direction: column; gap: 6px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .rd-card, .rd-chip, .rd-faq summary i, .rd-hero-btns .co-btn i, .rd-back i, .rd-crumb a { transition: none; }
+    }
+</style>

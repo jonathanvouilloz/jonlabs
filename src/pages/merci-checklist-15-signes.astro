@@ -1,4 +1,15 @@
 ---
+// Merci — page de remerciement post-opt-in (checklist « 15 signes que ton site dort »).
+// Migrée du brutaliste vers le design system .co-* : hero de confirmation cadré filets,
+// coins nets, « prochaines étapes » en .co-frame + liste .co-index, CTA .co-btn.
+// Accent teal unique, Inter Tight × Instrument Serif. Namespace scopé .mc15-*.
+// Gabarit-or de référence : services/referencement-local.astro.
+//
+// HARD-PRESERVE : robots="noindex, nofollow", seoData exact, lien de téléchargement PDF
+// (/outils/checklist-15-signes-site-dort-pdf), lien retour checklist interactive
+// (/outils/checklist-15-signes-site-dort), CTA audit (/services/refonte-site-web),
+// import global.css. Copie éditoriale FR-CH préservée.
+
 import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
@@ -8,6 +19,14 @@ const seoData = {
     title: "Merci ! Ta checklist diagnostic est prête | Jon Labs",
     description: "Ta checklist 15 signes que ton site dort est prête. Télécharge le PDF pour la remplir au stylo ou la partager."
 };
+
+// Étapes « comment ça marche »
+const steps = [
+    "Clique sur « Télécharger le PDF » ci-dessus.",
+    "Une page s'ouvre avec la checklist complète mise en page.",
+    "Clique sur le bouton « Télécharger PDF » en haut à droite.",
+    "Imprime-la ou garde-la sur ton téléphone."
+];
 ---
 
 <Layout
@@ -17,110 +36,152 @@ const seoData = {
 >
     <Header />
 
-    <main class="min-h-[70vh] flex items-center justify-center py-20 px-4">
-        <div class="max-w-xl mx-auto text-center">
-            <!-- Success icon -->
-            <div class="w-20 h-20 bg-green-500 border-3 border-black mx-auto mb-8 flex items-center justify-center shadow-[4px_4px_0px_rgba(0,0,0,1)]">
-                <i class="ri-check-line text-white text-4xl"></i>
-            </div>
+    <main class="co-root">
 
-            <!-- Title -->
-            <h1 class="text-3xl md:text-4xl font-bold mb-4">
-                Ta checklist diagnostic est prête.
-            </h1>
+        <!-- ══ CONFIRMATION ══ -->
+        <section class="co-sec co-pad mc15-sec" style="padding:80px 40px;">
+            <div class="mc15-wrap">
 
-            <p class="text-lg text-gray-600 mb-8">
-                Clique sur le bouton ci-dessous pour accéder à la version PDF imprimable.
-            </p>
+                <!-- Badge de succès -->
+                <div class="mc15-check" aria-hidden="true">
+                    <i class="ri-check-line"></i>
+                </div>
 
-            <!-- Download button -->
-            <a
-                href="/outils/checklist-15-signes-site-dort-pdf"
-                class="
-                    inline-flex items-center gap-3
-                    bg-[var(--blue)]
-                    border-3 border-black
-                    px-8 py-4
-                    text-xl font-bold
-                    shadow-[6px_6px_0px_rgba(0,0,0,1)]
-                    transition-all duration-200
-                    hover:bg-[var(--yellow)]
-                    hover:shadow-[3px_3px_0px_rgba(0,0,0,1)]
-                    hover:translate-x-[3px] hover:translate-y-[3px]
-                "
-            >
-                <i class="ri-download-line"></i>
-                Télécharger le PDF
-            </a>
-
-            <!-- Instructions -->
-            <div class="mt-8 bg-white border-2 border-black p-6 text-left">
-                <h2 class="font-bold mb-3 flex items-center gap-2">
-                    <i class="ri-information-line text-[var(--blue)]"></i>
-                    Comment ça marche ?
-                </h2>
-                <ol class="space-y-2 text-gray-600">
-                    <li class="flex items-start gap-2">
-                        <span class="font-bold text-black">1.</span>
-                        Clique sur "Télécharger le PDF" ci-dessus
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="font-bold text-black">2.</span>
-                        Une page s'ouvre avec la checklist complète mise en page
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="font-bold text-black">3.</span>
-                        Clique sur le bouton "Télécharger PDF" en haut à droite
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="font-bold text-black">4.</span>
-                        Imprime-la ou garde-la sur ton téléphone
-                    </li>
-                </ol>
-            </div>
-
-            <!-- PDF contents reminder -->
-            <div class="mt-6 bg-[var(--main-bg)] border-2 border-black p-4">
-                <p class="text-sm">
-                    <strong>Dans ton PDF :</strong> Les 15 signes groupés par catégorie avec cases à cocher + tableau des 3 paliers de diagnostic + plan d'action par niveau
+                <p class="co-eyebrow" data-animate>Checklist reçue</p>
+                <h1 class="mc15-title" data-animate data-delay="0.1">
+                    Ta checklist diagnostic est <span class="co-ser">prête.</span>
+                </h1>
+                <p class="mc15-lead" data-animate data-delay="0.2">
+                    Clique sur le bouton ci-dessous pour accéder à la version PDF imprimable.
                 </p>
-            </div>
 
-            <!-- CTA Section -->
-            <div class="mt-12 pt-8 border-t-2 border-gray-200">
-                <p class="text-gray-600 mb-3 font-medium">Score au-dessus de 10 ?</p>
-                <p class="text-gray-500 text-sm mb-6">
-                    Je peux regarder ton site avec toi, chiffres concrets en main, et te dire ce qui saigne le plus.
+                <!-- Bouton de téléchargement (HARD-PRESERVE href) -->
+                <div class="mc15-cta" data-animate data-delay="0.3">
+                    <a href="/outils/checklist-15-signes-site-dort-pdf" class="co-btn mc15-download">
+                        <i class="ri-download-line"></i> Télécharger le PDF
+                    </a>
+                </div>
+
+                <!-- Comment ça marche -->
+                <div class="mc15-steps-box co-frame" data-animate data-delay="0.4">
+                    <span class="co-x tl"></span><span class="co-x tr"></span>
+                    <span class="co-x bl"></span><span class="co-x br"></span>
+                    <h2 class="mc15-box-title"><i class="ri-information-line"></i> Comment ça marche ?</h2>
+                    <ol class="mc15-steps">
+                        {steps.map((step, index) => (
+                            <li>
+                                <span class="mc15-step-num co-index">0{index + 1}</span>
+                                <p>{step}</p>
+                            </li>
+                        ))}
+                    </ol>
+                </div>
+
+                <!-- Rappel contenu PDF -->
+                <div class="mc15-note" data-animate>
+                    <i class="ri-file-list-3-line"></i>
+                    <p>
+                        <strong>Dans ton PDF :</strong> les 15 signes groupés par catégorie avec cases à cocher,
+                        le tableau des 3 paliers de diagnostic et un plan d'action par niveau.
+                    </p>
+                </div>
+
+                <!-- CTA audit -->
+                <div class="mc15-audit co-frame" data-animate>
+                    <span class="co-x tl"></span><span class="co-x tr"></span>
+                    <span class="co-x bl"></span><span class="co-x br"></span>
+                    <p class="mc15-audit-kicker">Score au-dessus de 10 ?</p>
+                    <p class="mc15-audit-text">
+                        Je peux regarder ton site avec toi, chiffres concrets en main, et te dire ce qui saigne le plus.
+                    </p>
+                    <a href="/services/refonte-site-web" class="co-btn co-btn--ghost mc15-audit-btn">
+                        <i class="ri-search-eye-line"></i> Demander un audit personnalisé
+                    </a>
+                </div>
+
+                <!-- Lien retour -->
+                <p class="mc15-back" data-animate>
+                    <a href="/outils/checklist-15-signes-site-dort" class="mc15-back-link">
+                        <i class="ri-arrow-left-line"></i> Retour à la checklist interactive
+                    </a>
                 </p>
-                <a
-                    href="/services/refonte-site-web"
-                    class="
-                        inline-flex items-center gap-2
-                        bg-[var(--blue)]
-                        border-2 border-black
-                        px-6 py-3
-                        font-bold
-                        shadow-[3px_3px_0px_rgba(0,0,0,1)]
-                        transition-all duration-200
-                        hover:bg-[var(--yellow)]
-                        hover:shadow-[1px_1px_0px_rgba(0,0,0,1)]
-                        hover:translate-x-[2px] hover:translate-y-[2px]
-                    "
-                >
-                    <i class="ri-search-eye-line"></i>
-                    Demander un audit personnalisé
-                </a>
-            </div>
 
-            <!-- Back link -->
-            <div class="mt-8">
-                <a href="/outils/checklist-15-signes-site-dort" class="text-gray-500 hover:text-[var(--blue)] transition-colors">
-                    <i class="ri-arrow-left-line"></i>
-                    Retour à la checklist interactive
-                </a>
             </div>
-        </div>
+        </section>
+
     </main>
 
     <Footer />
 </Layout>
+
+<style is:global>
+    /* ══ MERCI CHECKLIST 15 SIGNES — styles .mc15-* (namespace scopé, corps .co-root) ══ */
+
+    .mc15-sec { text-align: center; }
+    .mc15-wrap { max-width: 620px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; }
+
+    /* ── Badge de succès (teal solide, coins nets) ── */
+    .mc15-check {
+        width: 72px; height: 72px; margin-bottom: 28px;
+        display: flex; align-items: center; justify-content: center;
+        background: var(--accent); border: 1px solid var(--accent);
+    }
+    .mc15-check i { color: #fff; font-size: 38px; line-height: 1; }
+
+    /* ── Titre + lead ── */
+    .mc15-title { font-size: clamp(1.9rem, 4.4vw, 2.9rem); }
+    .co-root .mc15-lead { margin-top: 16px; max-width: 46ch; font-size: 1.075rem; line-height: 1.6; color: var(--muted); }
+
+    /* ── CTA download ── */
+    .mc15-cta { margin-top: 30px; }
+    .mc15-download { font-size: 1rem; padding: 14px 26px; }
+    .mc15-download i { transition: transform .18s ease-out; }
+    .mc15-download:hover i { transform: translateY(2px); }
+
+    /* ── Encart « comment ça marche » ── */
+    .mc15-steps-box {
+        position: relative; width: 100%; margin-top: 40px; padding: 28px 32px;
+        text-align: left; background: var(--surface); border: 1px solid var(--line-2);
+    }
+    .mc15-box-title { font-size: 1.05rem; display: inline-flex; align-items: center; gap: 8px; }
+    .mc15-box-title i { color: var(--accent); }
+    .mc15-steps { display: flex; flex-direction: column; gap: 14px; margin-top: 18px; list-style: none; padding: 0; }
+    .mc15-steps li { display: flex; align-items: flex-start; gap: 14px; }
+    .mc15-step-num { flex: none; font-size: 13px; font-weight: 600; color: var(--accent); padding-top: 1px; }
+    .co-root .mc15-steps p { font-size: 14.5px; line-height: 1.55; color: var(--muted); }
+
+    /* ── Note contenu PDF ── */
+    .mc15-note {
+        display: flex; align-items: flex-start; gap: 12px; width: 100%; margin-top: 20px;
+        padding: 18px 22px; text-align: left;
+        border: 1px solid var(--accent); background: rgba(0,168,125,0.05);
+    }
+    .mc15-note i { color: var(--accent); font-size: 20px; flex: none; margin-top: 1px; }
+    .co-root .mc15-note p { font-size: 14px; line-height: 1.6; color: var(--muted); }
+    .mc15-note strong { color: var(--ink); font-weight: 600; }
+
+    /* ── CTA audit ── */
+    .mc15-audit {
+        position: relative; width: 100%; margin-top: 40px; padding: 32px;
+        display: flex; flex-direction: column; align-items: center; gap: 8px;
+        background: var(--surface); border: 1px solid var(--line-2);
+    }
+    .mc15-audit-kicker { font-weight: 600; color: var(--ink); }
+    .co-root .mc15-audit-text { max-width: 44ch; font-size: 14px; line-height: 1.6; color: var(--muted); }
+    .mc15-audit-btn { margin-top: 12px; }
+    .mc15-audit-btn i { color: var(--accent); }
+
+    /* ── Lien retour ── */
+    .mc15-back { margin-top: 32px; }
+    .mc15-back-link {
+        display: inline-flex; align-items: center; gap: 6px; font-size: 14px;
+        color: var(--muted); transition: color .18s ease-out;
+    }
+    .mc15-back-link:hover { color: var(--accent); }
+
+    /* ── Responsive ── */
+    @media (max-width: 720px) {
+        .mc15-sec { padding: 56px 20px !important; }
+        .mc15-steps-box, .mc15-audit { padding: 24px 20px; }
+    }
+</style>

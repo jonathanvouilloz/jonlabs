@@ -1,4 +1,13 @@
 ---
+// Hub des outils gratuits — page blueprint.
+// Migrée du brutaliste vers le design system .co-* : section cadrée, filets fins,
+// crosshairs, colonne capée, coins nets. Accent teal unique, Inter Tight ×
+// Instrument Serif. Namespace scopé .ou-*. Réf canonique : services/referencement-local.astro.
+//
+// HARD-PRESERVE : Schema.org (getCollectionPageSchema → outilsSchema → schemas,
+// injecté via Layout schemas={schemas}), seoData title/description exacts, tous les
+// liens /outils/* et la copie éditoriale FR. Import global.css gardé.
+
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
@@ -54,66 +63,90 @@ const schemas = [outilsSchema];
 >
     <Header />
 
-    <main class="pt-32 pb-16 md:pt-40 md:pb-24 px-4">
-        <div class="max-w-4xl mx-auto">
-            <!-- Header -->
-            <div class="text-center mb-12">
-                <span class="inline-flex items-center gap-2 bg-[var(--blue)] border-2 border-black px-4 py-1 text-sm font-medium mb-6">
-                    <i class="ri-tools-line text-black"></i>
-                    Ressources
-                </span>
+    <main class="co-root">
 
-                <h1 class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-4">
-                    Outils gratuits
-                </h1>
+        <!-- ══ RESSOURCES · Hub outils ══ -->
+        <section class="co-sec co-pad" style="padding:72px 40px 64px;">
+            <p class="co-eyebrow" data-animate>Ressources · Outils gratuits</p>
+            <h1 class="ou-title" data-animate data-delay="0.1">
+                Des outils <span class="co-ser">gratuits</span> pour développer votre présence en ligne
+            </h1>
+            <p class="ou-lead co-mut" data-animate data-delay="0.2">
+                Des ressources pratiques pour t'aider à développer ta présence en ligne, sans jargon.
+            </p>
 
-                <p class="text-lg text-gray-600 max-w-2xl mx-auto">
-                    Des ressources pratiques pour t'aider à développer ta présence en ligne, sans jargon.
-                </p>
-            </div>
-
-            <!-- Liste des outils -->
-            <div class="space-y-6">
+            <div class="ou-list" data-animate-stagger>
                 {outils.map((outil) => (
-                    <a
-                        href={outil.link}
-                        class="block bg-white border-3 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,1)] transition-all duration-200 hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] group"
-                    >
-                        <div class="flex flex-col md:flex-row md:items-center gap-4">
-                            <div class="w-14 h-14 bg-[var(--blue)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                                <i class={`${outil.icon} text-2xl`}></i>
-                            </div>
-
-                            <div class="flex-1">
-                                <div class="flex items-center gap-3 mb-2">
-                                    <h2 class="text-xl font-bold group-hover:text-[var(--violet)] transition-colors">
-                                        {outil.title}
-                                    </h2>
-                                    <span class="bg-green-100 text-green-700 text-xs font-bold px-2 py-1 border border-green-300">
-                                        {outil.badge}
-                                    </span>
-                                </div>
-                                <p class="text-gray-600">
-                                    {outil.description}
-                                </p>
-                            </div>
-
-                            <div class="flex-shrink-0 hidden md:block">
-                                <i class="ri-arrow-right-line text-2xl text-gray-400 group-hover:text-[var(--violet)] group-hover:translate-x-1 transition-all"></i>
-                            </div>
+                    <a href={outil.link} class="ou-card co-frame co-frame--reveal" data-animate-item>
+                        <div class="ou-card-icon">
+                            <i class={outil.icon} aria-hidden="true"></i>
                         </div>
+                        <div class="ou-card-body">
+                            <div class="ou-card-head">
+                                <h2 class="ou-card-title">{outil.title}</h2>
+                                <span class="co-badge">{outil.badge}</span>
+                            </div>
+                            <p class="ou-card-text">{outil.description}</p>
+                        </div>
+                        <i class="ri-arrow-right-line ou-card-arrow" aria-hidden="true"></i>
                     </a>
                 ))}
             </div>
 
-            <!-- Note -->
-            <div class="mt-12 text-center">
-                <p class="text-sm text-gray-500">
-                    D'autres outils arrivent bientôt.
-                </p>
-            </div>
-        </div>
+            <p class="ou-note co-mut" data-animate>
+                <i class="ri-more-line" aria-hidden="true"></i> D'autres outils arrivent bientôt.
+            </p>
+        </section>
+
     </main>
 
     <Footer />
 </Layout>
+
+<style is:global>
+    /* ══ OUTILS (hub) — styles .ou-* (namespace scopé, corps .co-root) ══ */
+
+    .ou-title { font-size: clamp(2rem, 4.6vw, 3rem); max-width: 20ch; }
+    .co-root .ou-lead { margin-top: 16px; max-width: 54ch; font-size: 1.075rem; line-height: 1.6; }
+
+    /* ── Liste des outils (cartes-liens filet, coins nets, crosshairs au survol) ── */
+    .ou-list { display: flex; flex-direction: column; gap: 16px; margin-top: 40px; }
+    .ou-card {
+        position: relative;
+        display: flex; align-items: flex-start; gap: 20px; padding: 24px;
+        background: var(--surface); border: 1px solid var(--line-2);
+        transition: transform .18s ease-out, box-shadow .18s ease-out;
+    }
+    .ou-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+    .ou-card-icon {
+        flex: none; display: flex; align-items: center; justify-content: center;
+        width: 52px; height: 52px; background: var(--bg); border: 1px solid var(--line-2);
+    }
+    .ou-card-icon i { font-size: 24px; color: var(--muted); transition: color .18s ease-out; }
+    .ou-card:hover .ou-card-icon i { color: var(--accent); }
+    .ou-card-body { flex: 1; min-width: 0; }
+    .ou-card-head { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
+    .ou-card-title { font-size: 1.2rem; transition: color .18s ease-out; }
+    .ou-card:hover .ou-card-title { color: var(--accent); }
+    .co-root .ou-card-text { margin-top: 8px; font-size: 14.5px; line-height: 1.55; color: var(--muted); }
+    .ou-card-arrow {
+        flex: none; align-self: center; font-size: 22px; color: var(--muted);
+        transition: color .18s ease-out, transform .18s ease-out;
+    }
+    .ou-card:hover .ou-card-arrow { color: var(--accent); transform: translateX(3px); }
+
+    /* ── Note bas de section ── */
+    .co-root .ou-note {
+        margin-top: 32px; font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px;
+    }
+    .ou-note i { color: var(--accent); font-size: 16px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 640px) {
+        .ou-card { flex-wrap: wrap; gap: 16px; }
+        .ou-card-arrow { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .ou-card, .ou-card-icon i, .ou-card-title, .ou-card-arrow { transition: none; }
+    }
+</style>

@@ -1,10 +1,27 @@
 ---
+// Détail d'étude de cas / side-project — page programmatique portfolio (blueprint).
+// Migrée du brutaliste vers le design system .co-* : colonne de lecture cadrée filets,
+// accent teal unique, Inter Tight × Instrument Serif. Namespace scopé .psl-*.
+// Le corps markdown rendu (<Content />) est enveloppé dans la primitive .co-prose.
+//
+// HARD-PRESERVE :
+//  - getStaticPaths() intact + getCollection('portfolio', ({data}) => !data.draft)
+//    (signature + filtre draft + tri fallback « projets similaires » inchangés).
+//  - Rendu du corps markdown (entry.render() → <Content />) — juste wrappé .co-prose.
+//  - Schema.org caseStudySchema (branche about via client Organization), tableau schemas,
+//    injection Layout schemas={schemas} — data + logique + ordre.
+//  - Tous les bindings dynamiques de l'entrée (titre, client, projet, résultats, contexte,
+//    approche, images, tags, testimonial, learnings, liveUrl…) — rien en dur.
+//  - seoData dynamique (pageTitle/pageDescription), deep-links internes (/portfolio,
+//    serviceLink, related), liens externes du projet (liveUrl, client.website).
+//  - inlineLinks() sur les champs éditoriaux, lightbox (JS + classes .gallery-img/.lightbox).
+//  - Import global.css gardé. CTASection remplacé par .co-cta inline (composant non touché).
+
 import '../../styles/global.css';
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import CTASection from '../../components/CTASection.astro';
 import { SITE_URL } from '../../data/schema';
 import { inlineLinks } from '../../lib/markdown';
 import { portfolioServiceLinks } from '../../data/portfolio-relations';
@@ -129,378 +146,296 @@ const schemas = [caseStudySchema];
 >
   <Header />
 
-  <main class="pb-24">
-    <!-- Back button -->
-    <div class="max-w-3xl mx-auto px-4 pt-28 pb-8">
-      <a
-        href="/portfolio"
-        class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors"
-      >
-        <i class="ri-arrow-left-line"></i>
-        Retour au portfolio
+  <main class="co-root">
+
+    <!-- ══ ARTICLE — étude de cas ══ -->
+    <article class="psl-wrap">
+
+      <!-- Retour -->
+      <a href="/portfolio" class="psl-back">
+        <i class="ri-arrow-left-line"></i> Retour au portfolio
       </a>
-    </div>
 
-    <!-- Hero image -->
-    {heroImage && (
-      <div class="max-w-4xl mx-auto px-4 mb-12">
-        <div class="aspect-video overflow-hidden bg-gray-100 rounded-lg">
-          <img
-            src={heroImage.url}
-            alt={heroImage.alt}
-            class="w-full h-full object-cover"
-          />
-        </div>
-      </div>
-    )}
-
-    <!-- Header -->
-    <header class="max-w-3xl mx-auto px-4 mb-12">
-      <div class="flex flex-wrap items-center gap-3 mb-4 text-sm">
-        <span class="px-2 py-0.5 bg-gray-100 text-gray-700 rounded text-xs font-medium uppercase tracking-wide">
-          {isSideProject ? 'Side project' : project.category}
-        </span>
-        {client && (
-          <>
-            <span class="text-gray-300">·</span>
-            <span class="text-gray-500">{client.sector}</span>
-          </>
-        )}
-        <span class="text-gray-300">·</span>
-        <span class="text-gray-500">{formattedDate}</span>
-      </div>
-
-      <h1 class="text-4xl md:text-5xl font-normal mb-4 tracking-tight">
-        {title}
-      </h1>
-
-      <p class="text-xl text-gray-600 mb-8">
-        {description}
-      </p>
-
-      <!-- Tags -->
-      {tags && tags.length > 0 && (
-        <div class="flex flex-wrap gap-2 mb-8">
-          {tags.map(tag => (
-            <span class="text-sm px-3 py-1 bg-gray-100 text-gray-600 rounded">
-              {tag}
-            </span>
-          ))}
+      <!-- Hero image cadrée filets -->
+      {heroImage && (
+        <div class="psl-hero-media co-frame">
+          <span class="co-x tl"></span><span class="co-x tr"></span>
+          <span class="co-x bl"></span><span class="co-x br"></span>
+          <img src={heroImage.url} alt={heroImage.alt} />
         </div>
       )}
 
-      <!-- CTAs -->
-      <div class="flex flex-wrap gap-3">
-        {liveUrl && (
-          <a
-            href={liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-6 py-3 bg-gray-900 text-white text-sm font-medium hover:bg-gray-800 transition-colors"
-          >
-            <i class="ri-external-link-line"></i>
-            Voir le projet
-          </a>
-        )}
-        {client?.website && client.website !== liveUrl && (
-          <a
-            href={client.website}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 px-6 py-3 border border-gray-300 text-sm font-medium hover:border-gray-900 transition-colors"
-          >
-            <i class="ri-global-line"></i>
-            Site client
-          </a>
-        )}
-      </div>
-    </header>
-
-    <!-- Content -->
-    <article class="max-w-3xl mx-auto px-4">
-      <div class="prose-portfolio">
-
-        <!-- TLDR -->
-        <div class="tldr">
-          <h2 class="tldr-title">En bref</h2>
-          <p class="tldr-text">{description}</p>
-          {results && results.length > 0 && (
-            <div class="tldr-metrics">
-              {results.slice(0, 4).map(result => (
-                <div class="tldr-metric">
-                  <span class="tldr-metric-value">{result.value}</span>
-                  <span class="tldr-metric-label">{result.label}</span>
-                </div>
-              ))}
-            </div>
+      <!-- En-tête -->
+      <header class="psl-header">
+        <div class="psl-meta">
+          <span class="co-badge">{isSideProject ? 'Side project' : project.category}</span>
+          {client && (
+            <>
+              <span class="psl-dot" aria-hidden="true">·</span>
+              <span>{client.sector}</span>
+            </>
           )}
+          <span class="psl-dot" aria-hidden="true">·</span>
+          <span>{formattedDate}</span>
         </div>
 
-        <!-- Table des matières -->
-        <nav class="toc">
-          <h2 class="toc-title">Sommaire</h2>
-          <ol class="toc-list">
-            {tocItems.map((item) => (
-              <li>
-                <a href={`#${item.id}`} class="toc-link">{item.label}</a>
+        <h1 class="psl-title">{title}</h1>
+        <p class="psl-lead">{description}</p>
+
+        {tags && tags.length > 0 && (
+          <div class="psl-tags">
+            {tags.map(tag => (
+              <span class="psl-tag">{tag}</span>
+            ))}
+          </div>
+        )}
+
+        <div class="psl-btns">
+          {liveUrl && (
+            <a href={liveUrl} target="_blank" rel="noopener noreferrer" class="co-btn">
+              <i class="ri-external-link-line"></i> Voir le projet
+            </a>
+          )}
+          {client?.website && client.website !== liveUrl && (
+            <a href={client.website} target="_blank" rel="noopener noreferrer" class="co-btn co-btn--ghost">
+              <i class="ri-global-line"></i> Site client
+            </a>
+          )}
+        </div>
+      </header>
+
+      <!-- TLDR -->
+      <div class="psl-tldr co-frame">
+        <span class="co-x tl"></span><span class="co-x tr"></span>
+        <span class="co-x bl"></span><span class="co-x br"></span>
+        <p class="psl-tldr-title"><i class="ri-flashlight-line"></i> En bref</p>
+        <p class="psl-tldr-text">{description}</p>
+        {results && results.length > 0 && (
+          <div class="psl-tldr-metrics">
+            {results.slice(0, 4).map(result => (
+              <div class="psl-tldr-metric">
+                <span class="psl-tldr-value">{result.value}</span>
+                <span class="psl-tldr-label">{result.label}</span>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+
+      <!-- Sommaire -->
+      <nav class="psl-toc" aria-label="Sommaire">
+        <p class="psl-toc-title">Sommaire</p>
+        <ol class="psl-toc-list">
+          {tocItems.map((item) => (
+            <li><a href={`#${item.id}`} class="psl-toc-link">{item.label}</a></li>
+          ))}
+        </ol>
+      </nav>
+
+      <!-- Fiche projet -->
+      <section id="fiche-projet" class="psl-sec">
+        <h2 class="psl-h2">Fiche projet</h2>
+        <dl class="co-spec psl-spec">
+          {client ? (
+            <>
+              <div class="co-spec-row"><dt>Client</dt><dd>{client.name}</dd></div>
+              <div class="co-spec-row"><dt>Secteur</dt><dd>{client.sector}</dd></div>
+            </>
+          ) : (
+            <div class="co-spec-row"><dt>Type</dt><dd>Projet personnel</dd></div>
+          )}
+          <div class="co-spec-row"><dt>Durée</dt><dd>{project.duration}</dd></div>
+          <div class="co-spec-row"><dt>Période</dt><dd>{project.period}</dd></div>
+          {project.measurementPeriod && (
+            <div class="co-spec-row"><dt>Mesure</dt><dd>{project.measurementPeriod}</dd></div>
+          )}
+          <div class="co-spec-row"><dt>Plateforme</dt><dd>{project.platform}</dd></div>
+          {liveUrl && (
+            <div class="co-spec-row">
+              <dt>URL</dt>
+              <dd><a href={liveUrl} target="_blank" rel="noopener noreferrer">{liveUrl.replace('https://', '')}</a></dd>
+            </div>
+          )}
+        </dl>
+      </section>
+
+      <!-- Résultats -->
+      {results && results.length > 0 && (
+        <section id="resultats" class="psl-sec">
+          <h2 class="psl-h2">Résultats</h2>
+          <div class="psl-results">
+            {results.map(result => (
+              <div class="psl-result">
+                <i class={`${result.icon} psl-result-icon`} aria-hidden="true"></i>
+                <span class="psl-result-value">{result.value}</span>
+                <span class="psl-result-label">{result.label}</span>
+                {result.detail && <span class="psl-result-detail">{result.detail}</span>}
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- Contexte -->
+      {context && (
+        <section id="contexte" class="psl-sec">
+          <h2 class="psl-h2">Contexte</h2>
+          {context.clientDescription && (
+            <>
+              <h3 class="psl-h3">Le client</h3>
+              <p class="psl-text" set:html={inlineLinks(context.clientDescription)} />
+            </>
+          )}
+          {context.challenge && (
+            <>
+              <h3 class="psl-h3">Le défi</h3>
+              <p class="psl-text" set:html={inlineLinks(context.challenge)} />
+            </>
+          )}
+          {context.whyThisProject && (
+            <>
+              <h3 class="psl-h3">Pourquoi ce projet</h3>
+              <p class="psl-text" set:html={inlineLinks(context.whyThisProject)} />
+            </>
+          )}
+        </section>
+      )}
+
+      <!-- Approche -->
+      {approach && approach.length > 0 && (
+        <section id="approche" class="psl-sec">
+          <h2 class="psl-h2">Approche</h2>
+          <div class="psl-steps">
+            {approach.map((phase) => (
+              <div class="psl-step">
+                <span class="psl-step-num co-index">{String(phase.phase).padStart(2, '0')}</span>
+                <div class="psl-step-body">
+                  <h3 class="psl-step-title">{phase.title}</h3>
+                  <p class="psl-step-desc" set:html={inlineLinks(phase.description)} />
+                  {phase.tasks && phase.tasks.length > 0 && (
+                    <ul class="psl-step-tasks">
+                      {phase.tasks.map(task => <li set:html={inlineLinks(task)} />)}
+                    </ul>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- Captures -->
+      {resultImages && resultImages.length > 0 && (
+        <section id="captures" class="psl-sec">
+          <h2 class="psl-h2">Captures</h2>
+          <div class="psl-gallery">
+            {resultImages.map(image => (
+              <figure class="psl-fig">
+                <img src={image.url} alt={image.alt} class="gallery-img" />
+                {image.caption && <figcaption>{image.caption}</figcaption>}
+              </figure>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- Facteurs de succès -->
+      {successFactors && successFactors.length > 0 && (
+        <section id="facteurs-succes" class="psl-sec">
+          <h2 class="psl-h2">Facteurs de succès</h2>
+          <ul class="psl-success">
+            {successFactors.map(factor => (
+              <li class="psl-success-item">
+                <i class={`${factor.icon} psl-success-icon`} aria-hidden="true"></i>
+                <div>
+                  <strong>{factor.title}</strong>
+                  <span class="psl-success-desc" set:html={inlineLinks(factor.description)} />
+                </div>
               </li>
             ))}
-          </ol>
-        </nav>
-
-        <!-- Fiche projet -->
-        <section id="fiche-projet">
-          <h2>Fiche projet</h2>
-          <table>
-            <tbody>
-              {client ? (
-                <>
-                  <tr>
-                    <td><strong>Client</strong></td>
-                    <td>{client.name}</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Secteur</strong></td>
-                    <td>{client.sector}</td>
-                  </tr>
-                </>
-              ) : (
-                <tr>
-                  <td><strong>Type</strong></td>
-                  <td>Projet personnel</td>
-                </tr>
-              )}
-              <tr>
-                <td><strong>Durée</strong></td>
-                <td>{project.duration}</td>
-              </tr>
-              <tr>
-                <td><strong>Période</strong></td>
-                <td>{project.period}</td>
-              </tr>
-              {project.measurementPeriod && (
-                <tr>
-                  <td><strong>Mesure</strong></td>
-                  <td>{project.measurementPeriod}</td>
-                </tr>
-              )}
-              <tr>
-                <td><strong>Plateforme</strong></td>
-                <td>{project.platform}</td>
-              </tr>
-              {liveUrl && (
-                <tr>
-                  <td><strong>URL</strong></td>
-                  <td><a href={liveUrl} target="_blank" rel="noopener noreferrer">{liveUrl.replace('https://', '')}</a></td>
-                </tr>
-              )}
-            </tbody>
-          </table>
+          </ul>
         </section>
+      )}
 
-        <!-- Résultats -->
-        {results && results.length > 0 && (
-          <section id="resultats">
-            <h2>Résultats</h2>
-            <div class="results-grid">
-              {results.map(result => (
-                <div class="result-item">
-                  <i class={`${result.icon} result-icon`}></i>
-                  <div class="result-content">
-                    <span class="result-value">{result.value}</span>
-                    <span class="result-label">{result.label}</span>
-                    {result.detail && <span class="result-detail">{result.detail}</span>}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
+      <!-- Apprentissages -->
+      {learnings && (learnings.limitations?.length || learnings.insights?.length) && (
+        <section id="apprentissages" class="psl-sec">
+          <h2 class="psl-h2">Apprentissages</h2>
+          {learnings.insights && learnings.insights.length > 0 && (
+            <>
+              <h3 class="psl-h3">Ce que j'ai appris</h3>
+              <ul class="co-list">
+                {learnings.insights.map(insight => (
+                  <li set:html={inlineLinks(insight)} />
+                ))}
+              </ul>
+            </>
+          )}
+          {learnings.limitations && learnings.limitations.length > 0 && (
+            <>
+              <h3 class="psl-h3">Limites &amp; améliorations</h3>
+              <ul class="co-list">
+                {learnings.limitations.map(limitation => (
+                  <li set:html={inlineLinks(limitation)} />
+                ))}
+              </ul>
+            </>
+          )}
+        </section>
+      )}
 
-        <!-- Contexte -->
-        {context && (
-          <section id="contexte">
-            <h2>Contexte</h2>
+      <!-- Témoignage -->
+      {testimonial && (
+        <section id="temoignage" class="psl-sec">
+          <h2 class="psl-h2">Témoignage</h2>
+          <blockquote class="psl-quote">
+            <p>« {testimonial.quote} »</p>
+            <footer>
+              <strong>{testimonial.author}</strong>{testimonial.role && <span>, {testimonial.role}</span>}
+            </footer>
+          </blockquote>
+        </section>
+      )}
 
-            {context.clientDescription && (
-              <>
-                <h3>Le client</h3>
-                <p set:html={inlineLinks(context.clientDescription)} />
-              </>
-            )}
-
-            {context.challenge && (
-              <>
-                <h3>Le défi</h3>
-                <p set:html={inlineLinks(context.challenge)} />
-              </>
-            )}
-
-            {context.whyThisProject && (
-              <>
-                <h3>Pourquoi ce projet</h3>
-                <p set:html={inlineLinks(context.whyThisProject)} />
-              </>
-            )}
-          </section>
-        )}
-
-        <!-- Approche -->
-        {approach && approach.length > 0 && (
-          <section id="approche">
-            <h2>Approche</h2>
-            <div class="approach-timeline">
-              {approach.map((phase, index) => (
-                <div class={`approach-card ${index % 2 === 0 ? 'align-left' : 'align-right'}`}>
-                  <span class="approach-bg-number">{phase.phase}</span>
-                  <div class="approach-card-content">
-                    <span class="approach-phase-num">Phase {phase.phase}</span>
-                    <h3 class="approach-title">{phase.title}</h3>
-                    <p class="approach-desc" set:html={inlineLinks(phase.description)} />
-                    {phase.tasks && phase.tasks.length > 0 && (
-                      <ul class="approach-tasks">
-                        {phase.tasks.map(task => <li set:html={inlineLinks(task)} />)}
-                      </ul>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </section>
-        )}
-
-        <!-- Captures -->
-        {resultImages && resultImages.length > 0 && (
-          <section id="captures">
-            <h2>Captures</h2>
-            <div class="image-gallery">
-              {resultImages.map(image => (
-                <figure class="gallery-item">
-                  <img
-                    src={image.url}
-                    alt={image.alt}
-                    class="gallery-img"
-                  />
-                  {image.caption && (
-                    <figcaption>{image.caption}</figcaption>
-                  )}
-                </figure>
-              ))}
-            </div>
-          </section>
-        )}
-
-        <!-- Facteurs de succès -->
-        {successFactors && successFactors.length > 0 && (
-          <section id="facteurs-succes">
-            <h2>Facteurs de succès</h2>
-            <ul class="success-list">
-              {successFactors.map(factor => (
-                <li class="success-item">
-                  <i class={`${factor.icon} success-icon`}></i>
-                  <div>
-                    <strong>{factor.title}</strong>
-                    <span class="success-desc" set:html={inlineLinks(factor.description)} />
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </section>
-        )}
-
-        <!-- Apprentissages -->
-        {learnings && (learnings.limitations?.length || learnings.insights?.length) && (
-          <section id="apprentissages">
-            <h2>Apprentissages</h2>
-
-            {learnings.insights && learnings.insights.length > 0 && (
-              <>
-                <h3>Ce que j'ai appris</h3>
-                <ul>
-                  {learnings.insights.map(insight => (
-                    <li set:html={inlineLinks(insight)} />
-                  ))}
-                </ul>
-              </>
-            )}
-
-            {learnings.limitations && learnings.limitations.length > 0 && (
-              <>
-                <h3>Limites & améliorations</h3>
-                <ul>
-                  {learnings.limitations.map(limitation => (
-                    <li set:html={inlineLinks(limitation)} />
-                  ))}
-                </ul>
-              </>
-            )}
-          </section>
-        )}
-
-        <!-- Témoignage -->
-        {testimonial && (
-          <section id="temoignage">
-            <h2>Témoignage</h2>
-            <blockquote class="testimonial">
-              <p>"{testimonial.quote}"</p>
-              <footer>
-                <strong>{testimonial.author}</strong>
-                {testimonial.role && <span>, {testimonial.role}</span>}
-              </footer>
-            </blockquote>
-          </section>
-        )}
-
-        <!-- Contenu Markdown additionnel -->
+      <!-- Corps markdown additionnel (primitive .co-prose) -->
+      <div class="co-prose psl-content">
         <Content />
+      </div>
 
+      <!-- Retour bas de page -->
+      <div class="psl-foot">
+        <a href="/portfolio" class="psl-back">
+          <i class="ri-arrow-left-line"></i> Voir tous les projets
+        </a>
       </div>
     </article>
 
-    <!-- Footer nav -->
-    <div class="max-w-3xl mx-auto px-4 mt-16 pt-8 border-t border-gray-200">
-      <a
-        href="/portfolio"
-        class="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-900 transition-colors"
-      >
-        <i class="ri-arrow-left-line"></i>
-        Voir tous les projets
-      </a>
-    </div>
-
-    <!-- Maillage interne : service lié + projets similaires -->
-    <section class="max-w-3xl mx-auto px-4 mt-16">
+    <!-- ══ MAILLAGE — service lié + projets similaires ══ -->
+    <section class="psl-maillage">
       {serviceLink && (
-        <div class="mb-10">
-          <h2 class="text-sm font-bold uppercase tracking-wider text-gray-500 mb-3">Service lié</h2>
-          <a
-            href={serviceLink.href}
-            class="group flex items-center justify-between gap-4 bg-[var(--blue)] border-2 border-black p-5 shadow-[4px_4px_0px_rgba(0,0,0,0.3)] transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_rgba(0,0,0,0.3)]"
-          >
-            <span class="font-bold text-lg">
-              Ce projet illustre mon offre <span class="bg-accent-soft px-1 rounded-sm">{serviceLink.label}</span>
+        <div class="psl-service-block">
+          <p class="psl-maillage-label">Service lié</p>
+          <a href={serviceLink.href} class="psl-service">
+            <span class="psl-service-text">
+              Ce projet illustre mon offre <b>{serviceLink.label}</b>
             </span>
-            <i class="ri-arrow-right-line text-2xl shrink-0 transition-transform group-hover:translate-x-1"></i>
+            <i class="ri-arrow-right-line" aria-hidden="true"></i>
           </a>
         </div>
       )}
 
       {relatedEntries && relatedEntries.length > 0 && (
         <div>
-          <h2 class="text-sm font-bold uppercase tracking-wider text-gray-500 mb-3">Projets similaires</h2>
-          <div class="grid gap-4 sm:grid-cols-2">
+          <p class="psl-maillage-label">Projets similaires</p>
+          <div class="psl-related">
             {relatedEntries.map((related) => (
-              <a
-                href={`/portfolio/${related.slug}`}
-                class="group block bg-white border-2 border-black p-5 shadow-[4px_4px_0px_rgba(0,0,0,0.15)] transition-all hover:-translate-x-0.5 hover:-translate-y-0.5 hover:shadow-[6px_6px_0px_rgba(0,0,0,0.25)]"
-              >
+              <a href={`/portfolio/${related.slug}`} class="psl-related-card">
                 {related.data.tags?.[0] && (
-                  <span class="inline-block text-xs font-bold uppercase tracking-wider bg-accent-soft rounded-sm px-2 py-0.5 mb-2">{related.data.tags[0]}</span>
+                  <span class="co-badge">{related.data.tags[0]}</span>
                 )}
-                <h3 class="font-bold leading-snug">{related.data.title}</h3>
-                <span class="mt-3 inline-flex items-center gap-1 text-sm font-medium text-[var(--blue)]">
-                  Voir le projet
-                  <i class="ri-arrow-right-line transition-transform group-hover:translate-x-1"></i>
+                <h3 class="psl-related-title">{related.data.title}</h3>
+                <span class="psl-related-cta">
+                  Voir le projet <i class="ri-arrow-right-line" aria-hidden="true"></i>
                 </span>
               </a>
             ))}
@@ -509,17 +444,21 @@ const schemas = [caseStudySchema];
       )}
     </section>
 
-    <!-- CTA -->
-    <div class="mt-16">
-      <CTASection
-        title="Un projet similaire ?"
-        description="Je travaille avec des indépendants et PME locales qui veulent développer leur visibilité en ligne."
-        buttonText="Discuter de votre projet"
-        buttonLink="/contact"
-        buttonIcon="ri-chat-3-line"
-        subtext="Réponse sous 48h"
-      />
-    </div>
+    <!-- ══ CTA FINAL (primitive .co-cta — remplace CTASection) ══ -->
+    <section class="co-cta">
+      <span class="co-x tl"></span><span class="co-x tr"></span>
+      <div class="co-cta-inner">
+        <p class="co-cta-eyebrow">Un projet similaire ?</p>
+        <h2 class="co-cta-title">Le vôtre mérite le même <span class="co-ser">soin.</span></h2>
+        <p class="co-cta-lead">Je travaille avec des indépendants et PME locales qui veulent développer leur visibilité en ligne.</p>
+        <div class="co-cta-btns">
+          <a href="/contact" class="co-btn co-cta-btn"><i class="ri-chat-3-line"></i> Discuter de votre projet</a>
+        </div>
+        <div class="co-cta-trust">
+          <span><i class="ri-time-line"></i> Réponse sous 48h</span>
+        </div>
+      </div>
+    </section>
   </main>
 
   <Footer />
@@ -544,446 +483,138 @@ const schemas = [caseStudySchema];
 </Layout>
 
 <style is:global>
-  /* Prose styling for portfolio content - minimal style inspired by lab */
-  .prose-portfolio {
-    color: #1a1a1a;
-    font-size: 1.125rem;
-    line-height: 1.8;
-  }
-
-  .prose-portfolio > * + * {
-    margin-top: 1.5rem;
-  }
-
-  .prose-portfolio h2 {
-    font-size: 1.5rem;
-    font-weight: 500;
-    margin-top: 3rem;
-    margin-bottom: 1rem;
-    padding-bottom: 0.5rem;
-    border-bottom: 1px solid #e5e5e5;
-  }
-
-  .prose-portfolio h3 {
-    font-size: 1.25rem;
-    font-weight: 500;
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-  }
-
-  .prose-portfolio p {
-    margin-bottom: 1.5rem;
-    color: #555;
-    font-size: 1rem;
-  }
-
-  .prose-portfolio ul,
-  .prose-portfolio ol {
-    margin-bottom: 1.5rem;
-    padding-left: 1.5rem;
-  }
-
-  .prose-portfolio ul {
-    list-style-type: disc;
-  }
-
-  .prose-portfolio ol {
-    list-style-type: decimal;
-  }
-
-  .prose-portfolio li {
-    margin-bottom: 0.5rem;
-    color: #555;
-    font-size: 1rem;
-  }
-
-  .prose-portfolio a {
-    color: #1a1a1a;
-    text-decoration: underline;
-    text-underline-offset: 2px;
-  }
-
-  .prose-portfolio a:hover {
-    color: #666;
-  }
-
-  .prose-portfolio strong {
-    font-weight: 600;
-  }
-
-  .prose-portfolio blockquote {
-    border-left: 2px solid #e5e5e5;
-    padding-left: 1.5rem;
-    margin: 2rem 0;
-    font-style: italic;
-    color: #666;
-  }
-
-  /* TLDR Section */
-  .tldr {
-    background: color-mix(in srgb, var(--blue) 50%, white);
-    border: 2px solid #000;
-    padding: 1rem 1.5rem 1.25rem;
-    margin-bottom: 2rem;
-  }
-
-  .tldr-title {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-size: 1rem;
-    font-weight: 600;
-    margin: 0 0 0.5rem 0 !important;
-    margin-top: 0 !important;
-    padding: 0 0 0.5rem 0;
-    border: none;
-    border-bottom: 1px solid #000 !important;
-    color: #000;
-  }
-
-  .tldr-text {
-    margin-bottom: 1rem;
-    color: #1a1a1a;
-    font-size: 1rem;
-    line-height: 1.6;
-  }
-
-  .tldr-metrics {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-
-  @media (min-width: 640px) {
-    .tldr-metrics {
-      grid-template-columns: repeat(4, 1fr);
-    }
-  }
-
-  .tldr-metric {
-    text-align: center;
-  }
-
-  .tldr-metric-value {
-    display: block;
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #1a1a1a;
-  }
-
-  .tldr-metric-label {
-    display: block;
-    font-size: 0.8rem;
-    color: #666;
-  }
-
-  /* Table of Contents */
-  .toc {
-    background: #fff;
-    border: 1px solid #e5e5e5;
-    padding: 1.25rem 1.5rem;
-    margin-bottom: 2rem;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-  }
-
-  .toc-title {
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin: 0 0 0.75rem 0 !important;
-    margin-top: 0 !important;
-    padding: 0;
-    border: none;
-    color: #666;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .toc-list {
-    margin: 0;
-    padding-left: 1.25rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-  }
-
-  .toc-list li {
-    padding-left: 0.25rem;
-  }
-
-  .toc-link {
-    color: #1a1a1a;
-    text-decoration: none !important;
-    font-size: 0.95rem;
-    transition: color 0.2s;
-  }
-
-  .toc-link:hover {
-    color: #666;
-    text-decoration: none !important;
-  }
-
-  /* Table styling */
-  .prose-portfolio table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5rem 0;
-    font-size: 0.95rem;
-  }
-
-  .prose-portfolio td {
-    padding: 0.75rem 1rem;
-    border-bottom: 1px solid #f0f0f0;
-  }
-
-  .prose-portfolio td:first-child {
-    width: 120px;
-    color: #666;
-  }
-
-  .prose-portfolio tbody tr:last-child td {
-    border-bottom: none;
-  }
-
-  /* Results grid */
-  .results-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin: 1.5rem 0;
-  }
-
-  @media (min-width: 640px) {
-    .results-grid {
-      grid-template-columns: repeat(3, 1fr);
-    }
-  }
-
-  .result-item {
-    display: flex;
-    flex-direction: row-reverse;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem;
-    background: #fff;
-    border: 1px solid #e5e5e5;
-    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
-  }
-
-  .result-icon {
-    font-size: 1.25rem;
-    color: #666;
-    flex-shrink: 0;
-    margin-top: 0.125rem;
-  }
-
-  .result-content {
-    display: flex;
-    flex-direction: column;
-  }
-
-  .result-value {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: #000;
-    line-height: 1.2;
-  }
-
-  .result-label {
-    font-size: 0.85rem;
-    color: #555;
-    font-weight: 500;
-  }
-
-  .result-detail {
-    font-size: 0.75rem;
-    color: #999;
-    font-style: italic;
-  }
-
-  /* Approach Timeline - Zigzag layout */
-  .approach-timeline {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin: 2rem 0;
-  }
-
-  .approach-card {
-    position: relative;
-    background: #fff;
-    border: 1px solid #e5e5e5;
-    padding: 2rem 2rem 2rem 2.5rem;
-    max-width: 85%;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    overflow: hidden;
-  }
-
-  .approach-card.align-left {
-    margin-right: auto;
-    margin-left: 0;
-  }
-
-  .approach-card.align-right {
-    margin-left: auto;
-    margin-right: 0;
-  }
-
-  /* Numéro géant en background */
-  .approach-bg-number {
-    position: absolute;
-    top: -0.5rem;
-    left: -0.5rem;
-    font-size: 8rem;
-    font-weight: 800;
-    color: rgba(0,0,0,0.03);
-    line-height: 1;
-    pointer-events: none;
-    user-select: none;
-    z-index: 0;
-  }
-
-  .approach-card-content {
-    position: relative;
-    z-index: 1;
-  }
-
-  .approach-phase-num {
-    font-size: 0.7rem;
-    font-weight: 600;
-    color: #999;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    display: block;
-    margin-bottom: 0.25rem;
-  }
-
-  .approach-title {
-    font-size: 1.25rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin: 0 0 0.75rem 0;
-    padding: 0;
-    border: none;
-  }
-
-  .approach-desc {
-    color: #444;
-    margin-bottom: 1rem;
-    font-size: 0.95rem;
-    line-height: 1.7;
-  }
-
-  .approach-tasks {
-    margin: 0;
-    padding-left: 1.25rem;
-    list-style-type: disc;
-  }
-
-  .approach-tasks li {
-    font-size: 0.9rem;
-    color: #666;
-    margin-bottom: 0.25rem;
-  }
-
-  /* Mobile : pas de zigzag, full width */
-  @media (max-width: 640px) {
-    .approach-card {
-      max-width: 100%;
-    }
-
-    .approach-bg-number {
-      font-size: 5rem;
-    }
-  }
-
-  /* Image gallery */
-  .image-gallery {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin: 1.5rem 0;
-  }
-
-  .gallery-item {
-    margin: 0;
-  }
-
-  .gallery-img {
-    width: 100%;
-    height: auto;
-    cursor: zoom-in;
-    border: 1px solid #e5e5e5;
-    border-radius: 4px;
-    transition: opacity 0.2s;
-  }
-
-  .gallery-img:hover {
-    opacity: 0.9;
-  }
-
-  .gallery-item figcaption {
-    font-size: 0.85rem;
-    color: #666;
-    text-align: center;
-    margin-top: 0.5rem;
-  }
-
-  /* Success factors */
-  .success-list {
-    list-style: none;
-    padding: 0;
-    margin: 1.5rem 0;
-  }
-
-  .success-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    margin-bottom: 1.25rem;
-    padding: 0;
-  }
-
-  .success-icon {
-    font-size: 1.25rem;
-    color: #666;
-    flex-shrink: 0;
-    margin-top: 0.125rem;
-  }
-
-  .success-item strong {
-    display: block;
-    margin-bottom: 0.25rem;
-  }
-
-  .success-desc {
-    display: block;
-    font-size: 0.95rem;
-    color: #666;
-  }
-
-  /* Testimonial */
-  .testimonial {
-    background: #fafafa;
-    border: none;
-    border-left: 3px solid #1a1a1a;
-    padding: 1.5rem;
-    margin: 2rem 0;
-  }
-
-  .testimonial p {
-    font-size: 1.1rem;
-    font-style: italic;
-    margin-bottom: 1rem;
-  }
-
-  .testimonial footer {
-    font-style: normal;
-    font-size: 0.9rem;
-    color: #666;
-  }
-
-  /* Lightbox */
+  /* ══ PORTFOLIO DÉTAIL — styles scopés .psl-* (blueprint) ══ */
+
+  /* Colonne de lecture cadrée */
+  .psl-wrap { max-width: 780px; margin: 0 auto; padding: 40px 40px 8px; }
+
+  /* Liens retour / bas de page */
+  .co-root .psl-back { display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 500; color: var(--muted); transition: color .16s ease-out; }
+  .co-root .psl-back:hover { color: var(--accent); }
+
+  /* Hero image */
+  .psl-hero-media { position: relative; margin: 24px 0 30px; overflow: hidden; }
+  .psl-hero-media img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--bg); }
+
+  /* En-tête */
+  .psl-header { display: flex; flex-direction: column; align-items: flex-start; }
+  .psl-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+  .psl-meta .psl-dot { color: var(--line-2); }
+  .co-root .psl-title { font-size: clamp(1.9rem, 4.4vw, 2.8rem); line-height: 1.08; letter-spacing: -0.03em; margin: 0 0 16px; }
+  .co-root .psl-lead { font-size: 1.15rem; line-height: 1.6; color: var(--muted); margin: 0 0 22px; max-width: 60ch; }
+  .psl-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
+  .psl-tag { font-size: 0.8rem; color: var(--muted); padding: 4px 11px; border: 1px solid var(--line-2); border-radius: 999px; }
+  .psl-btns { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  /* Titres de section */
+  .psl-sec { margin-top: 52px; }
+  .co-root .psl-h2 { font-size: clamp(1.4rem, 2.6vw, 1.7rem); line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 20px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .co-root .psl-h3 { font-size: 1.15rem; font-weight: 600; margin: 26px 0 8px; }
+  .co-root .psl-text { color: var(--ink); line-height: 1.7; margin: 0 0 14px; }
+  .psl-text a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; transition: text-decoration-thickness .16s ease-out; }
+  .psl-text a:hover { text-decoration-thickness: 2px; }
+
+  /* TLDR — callout cadré */
+  .psl-tldr { position: relative; background: var(--surface); border: 1px solid var(--line-2); padding: 22px 24px; margin-top: 30px; }
+  .co-root .psl-tldr-title { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+  .co-root .psl-tldr-title i { color: var(--accent); }
+  .co-root .psl-tldr-text { line-height: 1.6; margin: 0; }
+  .psl-tldr-metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
+  .psl-tldr-metric { display: flex; flex-direction: column; gap: 3px; }
+  .psl-tldr-value { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+  .psl-tldr-label { font-size: 12px; color: var(--muted); }
+  @media (min-width: 640px) { .psl-tldr-metrics { grid-template-columns: repeat(4, 1fr); } }
+
+  /* Sommaire */
+  .psl-toc { background: var(--surface); border: 1px solid var(--line-2); padding: 18px 22px; margin-top: 24px; }
+  .co-root .psl-toc-title { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+  .psl-toc-list { display: flex; flex-direction: column; gap: 8px; counter-reset: psl-toc; }
+  .psl-toc-list li { counter-increment: psl-toc; }
+  .co-root .psl-toc-link { display: inline-flex; align-items: baseline; gap: 10px; font-size: 0.95rem; color: var(--ink); transition: color .16s ease-out; }
+  .psl-toc-link::before { content: counter(psl-toc, decimal-leading-zero); color: var(--accent); font-variant-numeric: tabular-nums; font-weight: 600; font-size: 0.82em; }
+  .co-root .psl-toc-link:hover { color: var(--accent); }
+
+  /* Fiche projet (primitive .co-spec) */
+  .psl-spec { margin-top: 4px; }
+  .psl-spec dd a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
+
+  /* Résultats — tuiles */
+  .psl-results { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 4px; }
+  @media (min-width: 640px) { .psl-results { grid-template-columns: repeat(3, 1fr); } }
+  .psl-result { display: flex; flex-direction: column; gap: 4px; padding: 18px 20px; background: var(--surface); border: 1px solid var(--line-2); }
+  .psl-result-icon { font-size: 17px; color: var(--accent); line-height: 1; }
+  .psl-result-value { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; }
+  .psl-result-label { font-size: 13px; font-weight: 500; }
+  .psl-result-detail { font-size: 12px; color: var(--muted); font-style: italic; }
+
+  /* Approche — étapes */
+  .psl-steps { display: flex; flex-direction: column; gap: 16px; margin-top: 4px; }
+  .psl-step { display: grid; grid-template-columns: auto 1fr; gap: 20px; padding: 22px 24px; background: var(--surface); border: 1px solid var(--line-2); }
+  .psl-step-num { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+  .co-root .psl-step-title { font-size: 1.1rem; font-weight: 600; margin: 0 0 8px; }
+  .co-root .psl-step-desc { color: var(--muted); line-height: 1.6; margin: 0 0 12px; }
+  .psl-step-tasks { display: flex; flex-direction: column; gap: 6px; }
+  .psl-step-tasks li { position: relative; padding-left: 20px; font-size: 0.92rem; color: var(--muted); line-height: 1.5; }
+  .psl-step-tasks li::before { content: ""; position: absolute; left: 2px; top: 0.66em; width: 6px; height: 6px; border-radius: 999px; background: var(--accent); }
+
+  /* Captures — galerie */
+  .psl-gallery { display: flex; flex-direction: column; gap: 24px; margin-top: 4px; }
+  .psl-fig { margin: 0; }
+  .psl-fig .gallery-img { display: block; width: 100%; height: auto; cursor: zoom-in; border: 1px solid var(--line-2); transition: opacity .18s ease-out; }
+  .psl-fig .gallery-img:hover { opacity: 0.92; }
+  .psl-fig figcaption { font-size: 13px; color: var(--muted); text-align: center; margin-top: 8px; }
+
+  /* Facteurs de succès */
+  .psl-success { display: flex; flex-direction: column; gap: 16px; margin-top: 4px; }
+  .psl-success-item { display: flex; gap: 12px; }
+  .psl-success-icon { font-size: 18px; color: var(--accent); flex: none; margin-top: 2px; }
+  .co-root .psl-success-item strong { display: block; margin-bottom: 2px; font-weight: 650; }
+  .psl-success-desc { display: block; font-size: 0.95rem; color: var(--muted); line-height: 1.6; }
+
+  /* Témoignage */
+  .psl-quote { margin-top: 4px; padding: 4px 0 4px 22px; border-left: 2px solid var(--accent); }
+  .co-root .psl-quote p { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: 1.35rem; line-height: 1.4; margin: 0 0 10px; }
+  .psl-quote footer { font-size: 0.9rem; color: var(--muted); }
+  .psl-quote footer strong { color: var(--ink); font-weight: 650; }
+
+  /* Corps markdown (.co-prose) — espacement */
+  .psl-content { margin-top: 44px; }
+
+  /* Retour bas de page */
+  .psl-foot { margin-top: 44px; padding-top: 24px; border-top: 1px solid var(--line); }
+
+  /* Maillage interne */
+  .psl-maillage { max-width: 780px; margin: 0 auto; padding: 24px 40px 8px; }
+  .co-root .psl-maillage-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
+  .psl-service-block { margin-bottom: 40px; }
+  .psl-service { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; background: var(--surface); border: 1px solid var(--line-2); transition: box-shadow .18s ease-out, transform .18s ease-out; }
+  .psl-service:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(20, 22, 26, .08); }
+  .psl-service-text { font-size: 1.05rem; font-weight: 600; line-height: 1.35; }
+  .psl-service-text b { color: var(--accent); font-weight: 700; }
+  .psl-service > i { font-size: 1.4rem; color: var(--accent); flex: none; transition: transform .18s ease-out; }
+  .psl-service:hover > i { transform: translateX(4px); }
+
+  .psl-related { display: grid; gap: 14px; }
+  @media (min-width: 640px) { .psl-related { grid-template-columns: repeat(2, 1fr); } }
+  .psl-related-card { display: flex; flex-direction: column; align-items: flex-start; gap: 9px; padding: 18px 20px; background: var(--surface); border: 1px solid var(--line-2); transition: box-shadow .18s ease-out, transform .18s ease-out; }
+  .psl-related-card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(20, 22, 26, .08); }
+  .co-root .psl-related-title { font-size: 1.05rem; line-height: 1.25; font-weight: 650; }
+  .psl-related-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 0.9rem; font-weight: 500; color: var(--accent); margin-top: auto; }
+  .psl-related-cta i { transition: transform .18s ease-out; }
+  .psl-related-card:hover .psl-related-cta i { transform: translateX(3px); }
+
+  /* Responsive */
+  @media (max-width: 720px) {
+    .psl-wrap, .psl-maillage { padding-left: 20px; padding-right: 20px; }
+    .psl-step { grid-template-columns: 1fr; gap: 10px; }
+    .psl-results { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .co-root .psl-back, .psl-service, .psl-service > i, .psl-related-card,
+    .psl-related-cta i, .psl-fig .gallery-img, .co-root .psl-toc-link, .psl-text a { transition: none; }
+  }
+
+  /* ══ Lightbox (préservée — overlay sombre neutre) ══ */
   .lightbox {
     position: fixed;
     inset: 0;
@@ -993,7 +624,7 @@ const schemas = [caseStudySchema];
     justify-content: center;
     opacity: 0;
     visibility: hidden;
-    transition: opacity 0.2s, visibility 0.2s;
+    transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
     z-index: 9999;
   }
 
@@ -1011,7 +642,6 @@ const schemas = [caseStudySchema];
     max-width: 90vw;
     max-height: 80vh;
     object-fit: contain;
-    border-radius: 4px;
   }
 
   .lightbox-close,
@@ -1025,7 +655,7 @@ const schemas = [caseStudySchema];
     cursor: pointer;
     padding: 1rem;
     opacity: 0.7;
-    transition: opacity 0.2s;
+    transition: opacity 0.2s ease-out;
   }
 
   .lightbox-close:hover,

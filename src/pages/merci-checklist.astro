@@ -1,4 +1,14 @@
 ---
+// Merci — confirmation post-opt-in checklist commerce Google (blueprint, noindex).
+// Migrée du brutaliste vers le design system .co-* : hero de confirmation cadré filets,
+// coins nets, accent teal unique, Inter Tight × Instrument Serif. Namespace scopé .mc-*.
+// Gabarit de référence : services/referencement-local.astro.
+//
+// HARD-PRESERVE : robots="noindex, nofollow" (page de remerciement), lien de
+// téléchargement du PDF (/outils/checklist-commerce-google-pdf), lien retour
+// (/outils/checklist-commerce-google), CTA /contact, seoData exact, import global.css,
+// copie éditoriale FR-CH.
+
 import '../styles/global.css';
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
@@ -9,6 +19,14 @@ const seoData = {
     title: "Merci ! Voici votre checklist | Jon Labs",
     description: "Votre checklist est prête. Téléchargez le PDF et commencez à rendre votre commerce visible sur Google."
 };
+
+// Étapes « comment ça marche »
+const steps = [
+    "Clique sur « Télécharger le PDF » ci-dessus",
+    "Une page s'ouvre avec ta checklist complète",
+    "Clique sur le bouton « Télécharger PDF » en haut à droite",
+    "Garde-la sur ton téléphone ou imprime-la !"
+];
 ---
 
 <Layout
@@ -18,104 +36,140 @@ const seoData = {
 >
     <Header />
 
-    <main class="min-h-[70vh] flex items-center justify-center py-20 px-4">
-        <div class="max-w-xl mx-auto text-center">
-            <!-- Success icon -->
-            <div class="w-20 h-20 bg-green-500 border-3 border-black mx-auto mb-8 flex items-center justify-center shadow-[4px_4px_0px_rgba(0,0,0,1)]">
-                <i class="ri-check-line text-white text-4xl"></i>
-            </div>
+    <main class="co-root">
 
-            <!-- Title -->
-            <h1 class="text-3xl md:text-4xl font-bold mb-4">
-                Merci ! Ta checklist est prete.
-            </h1>
+        <!-- ══ HERO — confirmation ══ -->
+        <section class="co-sec co-pad mc-hero" style="padding:80px 40px 56px;">
+            <div class="mc-wrap">
+                <p class="co-eyebrow" data-animate>Checklist commerce Google · Confirmation</p>
 
-            <p class="text-lg text-gray-600 mb-8">
-                Clique sur le bouton ci-dessous pour acceder a ta checklist PDF avec tous les bonus.
-            </p>
+                <!-- Icône de succès (Remix mono, accent teal — pas de green legacy) -->
+                <div class="mc-check co-frame" data-animate="scale" data-delay="0.1">
+                    <span class="co-x tl"></span><span class="co-x tr"></span>
+                    <span class="co-x bl"></span><span class="co-x br"></span>
+                    <i class="ri-check-line" aria-hidden="true"></i>
+                </div>
 
-            <!-- Download button -->
-            <a
-                href="/outils/checklist-commerce-google-pdf"
-                class="
-                    inline-flex items-center gap-3
-                    bg-[var(--blue)]
-                    border-3 border-black
-                    px-8 py-4
-                    text-xl font-bold
-                    shadow-[6px_6px_0px_rgba(0,0,0,1)]
-                    transition-all duration-200
-                    hover:bg-[var(--yellow)]
-                    hover:shadow-[3px_3px_0px_rgba(0,0,0,1)]
-                    hover:translate-x-[3px] hover:translate-y-[3px]
-                "
-            >
-                <i class="ri-download-line"></i>
-                Telecharger le PDF
-            </a>
+                <h1 class="mc-title" data-animate data-delay="0.15">
+                    Merci ! Ta checklist est <span class="co-ser">prête.</span>
+                </h1>
 
-            <!-- Instructions -->
-            <div class="mt-8 bg-white border-2 border-black p-6 text-left">
-                <h2 class="font-bold mb-3 flex items-center gap-2">
-                    <i class="ri-information-line text-[var(--blue)]"></i>
-                    Comment ca marche ?
-                </h2>
-                <ol class="space-y-2 text-gray-600">
-                    <li class="flex items-start gap-2">
-                        <span class="font-bold text-black">1.</span>
-                        Clique sur "Telecharger le PDF" ci-dessus
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="font-bold text-black">2.</span>
-                        Une page s'ouvre avec ta checklist complete
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="font-bold text-black">3.</span>
-                        Clique sur le bouton "Telecharger PDF" en haut a droite
-                    </li>
-                    <li class="flex items-start gap-2">
-                        <span class="font-bold text-black">4.</span>
-                        Garde-la sur ton telephone ou imprime-la !
-                    </li>
-                </ol>
-            </div>
-
-            <!-- Bonus reminder -->
-            <div class="mt-6 bg-[var(--main-bg)] border-2 border-black p-4">
-                <p class="text-sm">
-                    <strong>Dans ton PDF :</strong> La checklist complete + 3 modeles de messages + guide QR code + audit express + hack horaires Google
+                <p class="mc-lead" data-animate data-delay="0.2">
+                    Clique sur le bouton ci-dessous pour accéder à ta checklist PDF avec tous les bonus.
                 </p>
-            </div>
 
-            <!-- CTA Section -->
-            <div class="mt-12 pt-8 border-t-2 border-gray-200">
-                <p class="text-gray-500 mb-4">Tu preferes qu'on s'en occupe pour toi ?</p>
-                <a
-                    href="/contact"
-                    class="
-                        inline-flex items-center gap-2
-                        bg-white
-                        border-2 border-black
-                        px-6 py-3
-                        font-medium
-                        transition-all duration-200
-                        hover:bg-gray-100
-                    "
-                >
+                <div class="mc-actions" data-animate data-delay="0.25">
+                    <a href="/outils/checklist-commerce-google-pdf" class="co-btn mc-download">
+                        <i class="ri-download-line"></i>
+                        Télécharger le PDF
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ PROCHAINES ÉTAPES ══ -->
+        <section class="co-sec co-pad" style="padding:48px 40px;">
+            <div class="mc-wrap mc-wrap--left">
+                <div class="mc-steps-frame co-frame" data-animate>
+                    <span class="co-x tl"></span><span class="co-x tr"></span>
+                    <span class="co-x bl"></span><span class="co-x br"></span>
+                    <h2 class="mc-steps-title">
+                        <i class="ri-information-line" aria-hidden="true"></i>
+                        Comment ça marche ?
+                    </h2>
+                    <ol class="mc-steps">
+                        {steps.map((step, index) => (
+                            <li>
+                                <span class="mc-step-num co-index">0{index + 1}</span>
+                                <span class="mc-step-text">{step}</span>
+                            </li>
+                        ))}
+                    </ol>
+                </div>
+
+                <!-- Rappel bonus -->
+                <div class="mc-bonus" data-animate>
+                    <i class="ri-gift-line" aria-hidden="true"></i>
+                    <p>
+                        <strong>Dans ton PDF :</strong> la checklist complète + 3 modèles de messages
+                        + guide QR code + audit express + hack horaires Google.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ══ CTA — délégation ══ -->
+        <section class="co-sec co-pad" style="padding:48px 40px 72px;">
+            <div class="mc-wrap mc-cta" data-animate>
+                <p class="co-mut mc-cta-lead">Tu préfères qu'on s'en occupe pour toi ?</p>
+                <a href="/contact" class="co-btn co-btn--ghost mc-devis">
                     <i class="ri-chat-3-line"></i>
                     Demander un devis
                 </a>
+                <p class="mc-back">
+                    <a href="/outils/checklist-commerce-google" class="mc-back-link">
+                        <i class="ri-arrow-left-line"></i>
+                        Retour à la checklist en ligne
+                    </a>
+                </p>
             </div>
+        </section>
 
-            <!-- Back link -->
-            <div class="mt-8">
-                <a href="/outils/checklist-commerce-google" class="text-gray-500 hover:text-[var(--blue)] transition-colors">
-                    <i class="ri-arrow-left-line"></i>
-                    Retour a la checklist en ligne
-                </a>
-            </div>
-        </div>
     </main>
 
     <Footer />
 </Layout>
+
+<style is:global>
+    /* ══ MERCI CHECKLIST — styles .mc-* (namespace scopé, corps .co-root) ══ */
+
+    /* ── Conteneur centré ── */
+    .mc-wrap { max-width: 620px; margin: 0 auto; display: flex; flex-direction: column; align-items: center; text-align: center; }
+    .mc-wrap--left { align-items: stretch; text-align: left; gap: 20px; }
+
+    /* ── Icône de succès (carré cadré filets, coche teal mono) ── */
+    .mc-check {
+        position: relative; width: 76px; height: 76px; margin-top: 28px;
+        display: flex; align-items: center; justify-content: center;
+        background: var(--surface); border: 1px solid var(--line-2);
+    }
+    .mc-check i { font-size: 38px; color: var(--accent); line-height: 1; }
+
+    /* ── Titre / lead ── */
+    .mc-title { font-size: clamp(2rem, 5vw, 2.9rem); margin-top: 26px; }
+    .co-root .mc-lead { margin-top: 16px; max-width: 46ch; font-size: 1.075rem; line-height: 1.65; color: var(--muted); }
+
+    /* ── Action principale (download) ── */
+    .mc-actions { margin-top: 30px; }
+    .mc-download { font-size: 16px; padding: 14px 26px; }
+    .mc-download i { transition: transform .18s ease-out; }
+    .mc-download:hover i { transform: translateY(2px); }
+
+    /* ── Prochaines étapes (encart cadré) ── */
+    .mc-steps-frame { position: relative; padding: 28px 30px; background: var(--surface); border: 1px solid var(--line-2); }
+    .mc-steps-title { font-size: 1.15rem; display: inline-flex; align-items: center; gap: 8px; }
+    .mc-steps-title i { color: var(--accent); font-size: 20px; }
+    .mc-steps { display: flex; flex-direction: column; gap: 14px; margin-top: 20px; padding: 0; list-style: none; }
+    .mc-steps li { display: flex; align-items: baseline; gap: 14px; }
+    .mc-step-num { flex: none; font-size: 13px; font-weight: 600; color: var(--accent); }
+    .co-root .mc-step-text { font-size: 14.5px; line-height: 1.55; color: var(--muted); }
+
+    /* ── Rappel bonus ── */
+    .mc-bonus { display: flex; align-items: flex-start; gap: 12px; padding: 18px 22px; border: 1px solid var(--accent); background: rgba(0,168,125,0.05); }
+    .mc-bonus i { color: var(--accent); font-size: 20px; flex: none; margin-top: 1px; }
+    .co-root .mc-bonus p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+    .mc-bonus strong { color: var(--ink); font-weight: 600; }
+
+    /* ── CTA délégation + retour ── */
+    .mc-cta { gap: 16px; padding-top: 40px; border-top: 1px solid var(--line); }
+    .co-root .mc-cta-lead { font-size: 15px; }
+    .mc-devis i { transition: transform .18s ease-out; }
+    .mc-devis:hover i { transform: translateX(-2px); }
+    .mc-back { margin-top: 12px; }
+    .mc-back-link { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; color: var(--muted); transition: color .18s ease-out; }
+    .mc-back-link:hover { color: var(--accent); }
+
+    @media (max-width: 720px) {
+        .mc-steps-frame { padding: 24px 20px; }
+    }
+</style>

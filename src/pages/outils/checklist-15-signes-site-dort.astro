@@ -1,9 +1,29 @@
 ---
+// Checklist « 15 signes que ton site dort » — landing lead-magnet (blueprint).
+// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
+// crosshairs, colonne capée, coins nets, accent teal unique, Inter Tight ×
+// Instrument Serif. Namespace scopé .c15-*. Gabarit-or : services/referencement-local.astro.
+//
+// HARD-PRESERVE :
+//  - Formulaire Web3Forms (#pdf-form) INTACT : action/endpoint, method, access_key
+//    (3f64c7a1-46b9-4524-8e78-47524896d467), hidden subject/from_name, honeypot
+//    botcheck, name="email", bouton submit + le <script> de submit (fetch + redirect
+//    vers /merci-checklist-15-signes). Seul le STYLE change, jamais le câblage.
+//  - Script de score interactif : ids/classes conservés (.score-checkbox,
+//    #score-count, #score-bar, #score-label, .diagnostic-score-display,
+//    #palier-initial, #palier-0/1/2, classe hidden togglée).
+//  - Schema.org : getWebPageSchema + getBreadcrumbSchema, tableau schemas, injection
+//    Layout schemas — data + ordre. seoData exact. global.css gardé. Copie FR préservée.
+//    Deep-links internes (/outils, /blog/*, /services/*) intacts.
+//
+// Déviation assumée : la barre de score sticky brutaliste devient un panneau non
+// sticky (`.co-root` a `overflow:hidden`, qui casse position:sticky). Feedback live
+// conservé + rappel du score dans la section diagnostic.
+
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
-import CTASection from '../../components/CTASection.astro';
 
 // Schema.org
 import { SITE_URL } from '../../data/schema';
@@ -31,8 +51,7 @@ const categories = [
         id: "visibilite",
         title: "Visibilité Google",
         range: "Signes 1 à 3",
-        accent: "blue",
-        accentVar: "var(--blue)",
+        icon: "ri-search-eye-line",
         items: [
             { num: 1, text: "Tu n'as jamais ouvert Google Search Console (ou tu ne sais pas ce que c'est)." },
             { num: 2, text: "Tu tapes le nom exact de ton activité plus ta ville sur Google, et tu n'apparais pas en page 1." },
@@ -43,8 +62,7 @@ const categories = [
         id: "contenu",
         title: "Contenu",
         range: "Signes 4 à 6",
-        accent: "yellow",
-        accentVar: "var(--yellow)",
+        icon: "ri-article-line",
         items: [
             { num: 4, text: "Ton dernier article ou ta dernière actualité date de plus de 6 mois (ou tu n'as jamais rien publié)." },
             { num: 5, text: "Tes pages services font moins de 300 mots et se ressemblent toutes." },
@@ -55,8 +73,7 @@ const categories = [
         id: "technique",
         title: "Technique",
         range: "Signes 7 à 9",
-        accent: "violet",
-        accentVar: "var(--violet)",
+        icon: "ri-code-s-slash-line",
         items: [
             { num: 7, text: "Ton site n'est pas en HTTPS." },
             { num: 8, text: "Tu ouvres ton site sur ton téléphone et c'est illisible." },
@@ -67,8 +84,7 @@ const categories = [
         id: "conversion",
         title: "Conversion",
         range: "Signes 10 à 12",
-        accent: "blue",
-        accentVar: "var(--blue)",
+        icon: "ri-cursor-line",
         items: [
             { num: 10, text: "Aucun call-to-action clair au-dessus de la ligne de flottaison." },
             { num: 11, text: "Ton formulaire de contact, tu ne sais même pas s'il fonctionne." },
@@ -79,8 +95,7 @@ const categories = [
         id: "autorite",
         title: "Autorité et E-E-A-T",
         range: "Signes 13 à 15",
-        accent: "yellow",
-        accentVar: "var(--yellow)",
+        icon: "ri-shield-check-line",
         items: [
             { num: 13, text: "Aucune page « À propos » réelle avec photo et histoire." },
             { num: 14, text: "Aucun avis client visible sur le site." },
@@ -97,378 +112,253 @@ const categories = [
 >
     <Header />
 
-    <!-- HERO SECTION -->
-    <section class="hero-section pt-32 pb-16 md:pt-40 md:pb-20 px-4 relative overflow-hidden">
-        <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
-            <div class="absolute top-0 -left-20 w-[500px] h-[500px] bg-[var(--blue)] opacity-15 blur-[120px] rounded-full"></div>
-            <div class="absolute bottom-0 right-0 w-[400px] h-[400px] bg-[var(--violet)] opacity-10 blur-[100px] rounded-full"></div>
-        </div>
+    <main class="co-root">
 
-        <div class="max-w-4xl mx-auto relative z-10">
-            <div class="text-center">
-                <!-- Breadcrumb -->
-                <div class="flex items-center justify-center gap-2 text-sm text-gray-500 mb-6">
-                    <a href="/" class="hover:text-[var(--blue)]">Accueil</a>
-                    <span>/</span>
-                    <a href="/outils" class="hover:text-[var(--blue)]">Outils</a>
-                    <span>/</span>
-                    <span class="text-[var(--text)]">Checklist 15 signes</span>
-                </div>
+        <!-- ══ HERO ══ -->
+        <section class="co-sec co-pad co-hero c15-hero" style="padding:64px 40px 48px;">
+            <nav class="c15-crumb" aria-label="Fil d'Ariane">
+                <a href="/">Accueil</a>
+                <span aria-hidden="true">/</span>
+                <a href="/outils">Outils</a>
+                <span aria-hidden="true">/</span>
+                <span class="co-mut">Checklist 15 signes</span>
+            </nav>
 
-                <!-- Badge -->
-                <span class="inline-flex items-center gap-2 bg-[var(--blue)] border-2 border-black px-4 py-1 text-sm font-medium mb-6">
-                    <i class="ri-checkbox-circle-line text-black"></i>
-                    Outil gratuit
-                </span>
+            <span class="co-badge" data-animate>Outil gratuit</span>
 
-                <h1 class="text-3xl md:text-4xl lg:text-5xl font-normal tracking-tight mb-6">
-                    15 signes que<br/>
-                    <span class="relative inline-block">
-                        <span class="absolute bg-[var(--accent)] w-full h-[40%] left-0 bottom-1 -z-1"></span>
-                        <span class="relative z-10">ton site dort</span>
-                    </span>
-                </h1>
+            <h1 class="c15-hero-title" data-animate data-delay="0.1">
+                15 signes que <span class="co-ser">ton site dort</span>
+            </h1>
 
-                <p class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed max-w-2xl mx-auto">
-                    15 questions fermées, oui ou non, 4 minutes montre en main.<br/>
-                    <strong class="text-[var(--text)]">Coche, additionne, lis ton diagnostic.</strong>
+            <p class="c15-hero-lead" data-animate data-delay="0.2">
+                15 questions fermées, oui ou non, 4 minutes montre en main.
+                <strong>Coche, additionne, lis ton diagnostic.</strong>
+            </p>
+
+            <div class="c15-hero-btns" data-animate data-delay="0.3">
+                <a href="#signe-1" class="co-btn"><i class="ri-play-line"></i> Commencer le diagnostic</a>
+                <a href="#telecharger" class="co-btn co-btn--ghost"><i class="ri-download-line"></i> Télécharger le PDF</a>
+            </div>
+
+            <div class="c15-hero-context co-frame" data-animate data-delay="0.4">
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <i class="ri-article-line" aria-hidden="true"></i>
+                <p>
+                    Tu n'as pas lu l'article complet ?
+                    <a href="/blog/15-signes-site-web-dort" class="c15-inline">Commence par là <i class="ri-arrow-right-line"></i></a>
                 </p>
-
-                <!-- CTAs -->
-                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-                    <a
-                        href="#signe-1"
-                        class="
-                            bg-[var(--blue)]
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                            transition-all duration-200
-                            hover:bg-[var(--yellow)]
-                            hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                            hover:translate-x-[2px] hover:translate-y-[2px]
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        <i class="ri-play-line"></i>
-                        Commencer le diagnostic
-                    </a>
-                    <a
-                        href="#telecharger"
-                        class="
-                            bg-white
-                            border-2 border-black
-                            px-6 py-4
-                            text-lg font-medium
-                            transition-all duration-200
-                            hover:bg-gray-100
-                            flex items-center justify-center gap-2
-                        "
-                    >
-                        <i class="ri-download-line"></i>
-                        Télécharger le PDF
-                    </a>
-                </div>
-
-                <!-- Context link -->
-                <div class="mt-4 p-4 bg-white border-2 border-black inline-block">
-                    <p class="text-sm text-gray-600">
-                        <i class="ri-article-line mr-2 text-[var(--blue)]"></i>
-                        Tu n'as pas lu l'article complet ?
-                        <a href="/blog/15-signes-site-web-dort" class="text-[var(--blue)] font-medium hover:underline">
-                            Commence par là →
-                        </a>
-                    </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- INTRO BAR -->
-    <section class="intro-bar relative py-8 px-4 text-white overflow-hidden">
-        <div class="max-w-4xl mx-auto relative z-10">
-            <div class="flex flex-col items-center gap-6">
-                <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-3 text-base md:text-lg">
-                    <span class="flex items-center gap-2">
-                        <span class="w-8 h-8 bg-[var(--blue)] bg-opacity-20 border border-[var(--blue)] border-opacity-50 flex items-center justify-center text-sm font-mono font-bold">15</span>
-                        <span class="text-white/80">signes</span>
-                    </span>
-                    <span class="text-white/20 text-2xl hidden sm:inline">·</span>
-                    <span class="flex items-center gap-2">
-                        <span class="font-bold text-white">4 minutes</span>
-                        <span class="text-white/60">montre en main</span>
-                    </span>
-                    <span class="text-white/20 text-2xl hidden sm:inline">·</span>
-                    <span class="flex items-center gap-2">
-                        <span class="font-bold text-[var(--blue)]">0 CHF</span>
-                        <span class="text-white/60">100% gratuit</span>
-                    </span>
-                </div>
-                <div class="flex flex-wrap justify-center gap-6 text-sm">
-                    <span class="flex items-center gap-2 text-white/70">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--blue)]">
-                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
-                            <path d="M22 4L12 14.01l-3-3"/>
-                        </svg>
-                        Score calculé en direct
-                    </span>
-                    <span class="flex items-center gap-2 text-white/70">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--blue)]">
-                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
-                            <path d="M22 4L12 14.01l-3-3"/>
-                        </svg>
-                        Diagnostic personnalisé
-                    </span>
-                    <span class="flex items-center gap-2 text-white/70">
-                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-[var(--blue)]">
-                            <path d="M22 11.08V12a10 10 0 11-5.93-9.14"/>
-                            <path d="M22 4L12 14.01l-3-3"/>
-                        </svg>
-                        PDF imprimable
-                    </span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- SCORE STICKY BAR -->
-    <div class="score-bar sticky top-0 z-40 bg-white border-b-2 border-black py-3 px-4 shadow-sm">
-        <div class="max-w-4xl mx-auto flex items-center justify-between gap-4">
-            <div class="flex items-center gap-3">
-                <span class="text-sm font-mono text-gray-500 hidden sm:inline">Score :</span>
-                <span class="text-xl font-bold font-mono"><span id="score-count">0</span><span class="text-gray-400">/15</span></span>
-            </div>
-            <div class="flex-1 max-w-xs">
-                <div class="h-3 bg-gray-100 border border-gray-300 rounded-none overflow-hidden">
-                    <div id="score-bar" class="h-full bg-[var(--blue)] transition-all duration-300" style="width: 0%"></div>
-                </div>
-            </div>
-            <div id="score-label" class="text-sm font-medium text-gray-500 hidden sm:block">Commence le diagnostic</div>
-        </div>
-    </div>
-
-    <!-- CATEGORIES -->
-    {categories.map((cat, catIndex) => (
-        <section
-            id={`signe-${cat.items[0].num}`}
-            class={`py-16 md:py-20 px-4 ${catIndex % 2 === 0 ? 'bg-white border-b-2 border-black' : 'border-b-2 border-black'}`}
-        >
-            <div class="max-w-4xl mx-auto">
-                <!-- Category header -->
-                <div class="flex items-start gap-4 mb-8">
-                    <div
-                        class="w-16 h-16 border-3 border-black flex items-center justify-center flex-shrink-0 shadow-[4px_4px_0px_rgba(0,0,0,1)]"
-                        style={`background: ${cat.accentVar}`}
-                    >
-                        <i class="ri-bar-chart-horizontal-line text-black text-2xl"></i>
-                    </div>
-                    <div>
-                        <span class="text-sm font-mono text-gray-500 uppercase tracking-wider">{cat.range}</span>
-                        <h2 class="text-2xl md:text-3xl font-bold">{cat.title}</h2>
-                    </div>
-                </div>
-
-                <!-- Items -->
-                <div class="space-y-4">
-                    {cat.items.map((item) => (
-                        <div class="checklist-card bg-[var(--main-bg)] border-2 border-black p-5">
-                            <div class="flex items-start gap-4">
-                                <!-- Checkbox -->
-                                <div class="checkbox-wrapper mt-0.5 flex-shrink-0">
-                                    <input
-                                        type="checkbox"
-                                        class="peer sr-only score-checkbox"
-                                        id={`signe-check-${item.num}`}
-                                    />
-                                    <label
-                                        for={`signe-check-${item.num}`}
-                                        class="w-6 h-6 border-2 border-black bg-white flex items-center justify-center cursor-pointer transition-all peer-checked:bg-[var(--blue)]"
-                                    >
-                                        <i class="ri-check-line text-white opacity-0 peer-checked:opacity-100 transition-opacity text-sm"></i>
-                                    </label>
-                                </div>
-                                <!-- Content -->
-                                <div class="flex-1">
-                                    <div class="flex items-baseline gap-2 mb-1">
-                                        <span class="text-xs font-mono font-bold text-gray-400">#{item.num}</span>
-                                        <p class="text-gray-800 font-medium leading-snug">{item.text}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    ))}
-                </div>
             </div>
         </section>
-    ))}
 
-    <!-- DIAGNOSTIC SECTION -->
-    <section id="diagnostic" class="py-16 md:py-20 px-4 bg-white border-b-2 border-black">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-10">
-                <h2 class="text-2xl md:text-3xl font-bold mb-2">Ton diagnostic</h2>
-                <p class="text-gray-600">Score actuel : <strong><span class="diagnostic-score-display">0</span>/15</strong></p>
+        <!-- ══ MÉTRIQUES + SCORE LIVE ══ -->
+        <section class="co-sec co-pad" style="padding:48px 40px;">
+            <p class="co-eyebrow">Le diagnostic en chiffres</p>
+
+            <div class="c15-metrics" data-animate-stagger>
+                <div class="c15-stat co-frame co-frame--reveal" data-animate-item>
+                    <div class="c15-stat-value">15</div>
+                    <div class="c15-stat-label">signes à vérifier</div>
+                </div>
+                <div class="c15-stat co-frame co-frame--reveal" data-animate-item>
+                    <div class="c15-stat-value">4 min</div>
+                    <div class="c15-stat-label">montre en main</div>
+                </div>
+                <div class="c15-stat co-frame co-frame--reveal" data-animate-item>
+                    <div class="c15-stat-value">0 CHF</div>
+                    <div class="c15-stat-label">100 % gratuit</div>
+                </div>
             </div>
 
+            <div class="c15-trust" data-animate>
+                <span><i class="ri-check-line"></i> Score calculé en direct</span>
+                <span><i class="ri-check-line"></i> Diagnostic personnalisé</span>
+                <span><i class="ri-check-line"></i> PDF imprimable</span>
+            </div>
+
+            <!-- Panneau score (live, alimenté par le script — non sticky, cf. note frontmatter) -->
+            <div class="c15-score co-frame" data-animate>
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <div class="c15-score-head">
+                    <span class="co-eyebrow">Score</span>
+                    <span class="c15-score-num"><span id="score-count">0</span><span class="co-mut">/15</span></span>
+                </div>
+                <div class="c15-score-track">
+                    <div id="score-bar" class="c15-score-fill" style="width: 0%"></div>
+                </div>
+                <div id="score-label" class="c15-score-status">Commence le diagnostic</div>
+            </div>
+        </section>
+
+        <!-- ══ CATÉGORIES ══ -->
+        {categories.map((cat, catIndex) => (
+            <section
+                id={`signe-${cat.items[0].num}`}
+                class="co-sec co-pad c15-cat"
+                style="padding:52px 40px;"
+            >
+                <div class="c15-cat-head" data-animate>
+                    <span class="c15-cat-index co-index">0{catIndex + 1}</span>
+                    <i class={`${cat.icon} c15-cat-icon`} aria-hidden="true"></i>
+                    <div>
+                        <span class="co-eyebrow">{cat.range}</span>
+                        <h2 class="c15-cat-title">{cat.title}</h2>
+                    </div>
+                </div>
+
+                <div class="c15-items" data-animate-stagger>
+                    {cat.items.map((item) => (
+                        <label class="c15-item co-frame co-frame--reveal" data-animate-item>
+                            <input
+                                type="checkbox"
+                                class="score-checkbox c15-check"
+                                id={`signe-check-${item.num}`}
+                                aria-label={`Signe ${item.num}`}
+                            />
+                            <span class="c15-item-num co-index">#{item.num}</span>
+                            <span class="c15-item-text">{item.text}</span>
+                        </label>
+                    ))}
+                </div>
+            </section>
+        ))}
+
+        <!-- ══ DIAGNOSTIC ══ -->
+        <section id="diagnostic" class="co-sec co-pad" style="padding:56px 40px;">
+            <p class="co-eyebrow">Résultat</p>
+            <h2 style="margin-top:8px;">Ton <span class="co-ser">diagnostic</span></h2>
+            <p class="co-mut" style="margin-top:10px;">
+                Score actuel : <strong class="c15-diag-score"><span class="diagnostic-score-display">0</span>/15</strong>
+            </p>
+
             <!-- Palier 0-5 : Site réveillé -->
-            <div id="palier-0" class="palier-block border-2 border-black p-6 mb-4 hidden">
-                <div class="flex items-start gap-4">
-                    <div class="w-14 h-14 bg-green-400 border-2 border-black flex items-center justify-center flex-shrink-0 flex-shrink-0">
-                        <i class="ri-sun-line text-black text-2xl"></i>
+            <div id="palier-0" class="c15-palier c15-palier--ok palier-block co-frame hidden">
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <div class="c15-palier-head">
+                    <i class="ri-sun-line c15-palier-icon" aria-hidden="true"></i>
+                    <div class="c15-palier-titlerow">
+                        <h3>Site réveillé</h3>
+                        <span class="c15-palier-tag">0-5 signes</span>
                     </div>
-                    <div class="flex-1">
-                        <div class="flex items-center gap-3 mb-2">
-                            <h3 class="text-xl font-bold">Site réveillé</h3>
-                            <span class="text-xs font-mono bg-green-100 text-green-700 border border-green-300 px-2 py-0.5">0-5 signes</span>
-                        </div>
-                        <p class="text-gray-700 leading-relaxed">
-                            Tu fais déjà beaucoup de choses bien. Les signes cochés sont des optimisations, pas des fondations manquantes. Pas besoin de tout refaire : un article de plus par trimestre, une page À propos enrichie, quelques avis clients captés.
-                        </p>
-                        <p class="text-gray-600 text-sm mt-3">
-                            Risque principal : la complaisance. Un site qui fonctionne aujourd'hui peut dormir dans 18 mois si tu le laisses tranquille. Relis cette checklist tous les 6 mois.
-                        </p>
-                    </div>
+                </div>
+                <div class="c15-palier-body">
+                    <p>
+                        Tu fais déjà beaucoup de choses bien. Les signes cochés sont des optimisations, pas des fondations manquantes. Pas besoin de tout refaire : un article de plus par trimestre, une page À propos enrichie, quelques avis clients captés.
+                    </p>
+                    <p class="c15-palier-note">
+                        Risque principal : la complaisance. Un site qui fonctionne aujourd'hui peut dormir dans 18 mois si tu le laisses tranquille. Relis cette checklist tous les 6 mois.
+                    </p>
                 </div>
             </div>
 
             <!-- Palier 6-10 : Site en sommeil -->
-            <div id="palier-1" class="palier-block border-2 border-black p-6 mb-4 hidden">
-                <div class="flex items-start gap-4">
-                    <div class="w-14 h-14 bg-[var(--yellow)] border-2 border-black flex items-center justify-center flex-shrink-0">
-                        <i class="ri-moon-line text-black text-2xl"></i>
+            <div id="palier-1" class="c15-palier c15-palier--warn palier-block co-frame hidden">
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <div class="c15-palier-head">
+                    <i class="ri-moon-line c15-palier-icon" aria-hidden="true"></i>
+                    <div class="c15-palier-titlerow">
+                        <h3>Site en sommeil</h3>
+                        <span class="c15-palier-tag">6-10 signes</span>
                     </div>
-                    <div class="flex-1">
-                        <div class="flex items-center gap-3 mb-2">
-                            <h3 class="text-xl font-bold">Site en sommeil</h3>
-                            <span class="text-xs font-mono bg-yellow-100 text-yellow-700 border border-yellow-300 px-2 py-0.5">6-10 signes</span>
-                        </div>
-                        <p class="text-gray-700 leading-relaxed">
-                            C'est la zone la plus fréquente. Le site existe, il a été bien pensé au départ, mais personne ne l'a touché depuis la mise en ligne. Tu as probablement un bon produit et un site qui sous-performe de 50 à 70 %.
-                        </p>
-                        <p class="text-gray-600 text-sm mt-3 mb-4">
-                            Bonne nouvelle : ça se réveille. Il te faut un plan de 30 jours ciblé sur les signes cochés.
-                        </p>
-                        <a
-                            href="/blog/0a30joursgooglevisible"
-                            class="inline-flex items-center gap-2 bg-[var(--yellow)] border-2 border-black px-4 py-2 text-sm font-bold shadow-[3px_3px_0px_rgba(0,0,0,1)] transition-all hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]"
-                        >
-                            <i class="ri-arrow-right-line"></i>
-                            Plan 30 jours étape par étape
-                        </a>
-                    </div>
+                </div>
+                <div class="c15-palier-body">
+                    <p>
+                        C'est la zone la plus fréquente. Le site existe, il a été bien pensé au départ, mais personne ne l'a touché depuis la mise en ligne. Tu as probablement un bon produit et un site qui sous-performe de 50 à 70 %.
+                    </p>
+                    <p class="c15-palier-note">
+                        Bonne nouvelle : ça se réveille. Il te faut un plan de 30 jours ciblé sur les signes cochés.
+                    </p>
+                    <a href="/blog/0a30joursgooglevisible" class="co-btn c15-palier-btn">
+                        <i class="ri-arrow-right-line"></i> Plan 30 jours étape par étape
+                    </a>
                 </div>
             </div>
 
             <!-- Palier 11-15 : Site mort clinique -->
-            <div id="palier-2" class="palier-block border-2 border-red-500 p-6 mb-4 hidden">
-                <div class="flex items-start gap-4">
-                    <div class="w-14 h-14 bg-red-500 border-2 border-black flex items-center justify-center flex-shrink-0">
-                        <i class="ri-alarm-warning-line text-white text-2xl"></i>
+            <div id="palier-2" class="c15-palier c15-palier--bad palier-block co-frame hidden">
+                <span class="co-x tl"></span><span class="co-x tr"></span>
+                <span class="co-x bl"></span><span class="co-x br"></span>
+                <div class="c15-palier-head">
+                    <i class="ri-alarm-warning-line c15-palier-icon" aria-hidden="true"></i>
+                    <div class="c15-palier-titlerow">
+                        <h3>Site mort clinique</h3>
+                        <span class="c15-palier-tag">11-15 signes</span>
                     </div>
-                    <div class="flex-1">
-                        <div class="flex items-center gap-3 mb-2">
-                            <h3 class="text-xl font-bold">Site mort clinique</h3>
-                            <span class="text-xs font-mono bg-red-100 text-red-700 border border-red-300 px-2 py-0.5">11-15 signes</span>
-                        </div>
-                        <p class="text-gray-700 leading-relaxed">
-                            À 11 ou plus, tu paies l'hébergement d'un site qui travaille contre toi. Chaque semaine qui passe, un prospect qui aurait dû t'appeler appelle quelqu'un d'autre.
-                        </p>
-                        <p class="text-gray-600 text-sm mt-3 mb-4">
-                            Si tu veux mettre un chiffre dessus avant de décider, le calculateur de coût d'un site dormant te donne une estimation en 60 secondes.
-                        </p>
-                        <div class="flex flex-wrap gap-3">
-                            <a
-                                href="/services/refonte-site-web"
-                                class="inline-flex items-center gap-2 bg-red-500 text-white border-2 border-black px-4 py-2 text-sm font-bold shadow-[3px_3px_0px_rgba(0,0,0,1)] transition-all hover:shadow-[1px_1px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px]"
-                            >
-                                <i class="ri-arrow-right-line"></i>
-                                Regarder ensemble ton site
-                            </a>
-                            <a
-                                href="/blog/cout-site-web-dormant-calculateur"
-                                class="inline-flex items-center gap-2 bg-white border-2 border-black px-4 py-2 text-sm font-medium transition-all hover:bg-gray-100"
-                            >
-                                Calculer ton coût dormant
-                            </a>
-                        </div>
+                </div>
+                <div class="c15-palier-body">
+                    <p>
+                        À 11 ou plus, tu paies l'hébergement d'un site qui travaille contre toi. Chaque semaine qui passe, un prospect qui aurait dû t'appeler appelle quelqu'un d'autre.
+                    </p>
+                    <p class="c15-palier-note">
+                        Si tu veux mettre un chiffre dessus avant de décider, le calculateur de coût d'un site dormant te donne une estimation en 60 secondes.
+                    </p>
+                    <div class="c15-palier-btns">
+                        <a href="/services/refonte-site-web" class="co-btn c15-palier-btn">
+                            <i class="ri-arrow-right-line"></i> Regarder ensemble ton site
+                        </a>
+                        <a href="/blog/cout-site-web-dormant-calculateur" class="co-btn co-btn--ghost">
+                            Calculer ton coût dormant
+                        </a>
                     </div>
                 </div>
             </div>
 
             <!-- État initial : pas encore commencé -->
-            <div id="palier-initial" class="border-2 border-dashed border-gray-300 p-6 text-center">
-                <i class="ri-checkbox-blank-circle-line text-4xl text-gray-300 mb-3 block"></i>
-                <p class="text-gray-500">Coche les signes ci-dessus pour voir ton diagnostic apparaître ici.</p>
+            <div id="palier-initial" class="c15-palier-initial">
+                <i class="ri-checkbox-blank-circle-line" aria-hidden="true"></i>
+                <p class="co-mut">Coche les signes ci-dessus pour voir ton diagnostic apparaître ici.</p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- PDF DOWNLOAD SECTION -->
-    <section id="telecharger" class="py-16 md:py-24 px-4">
-        <div class="max-w-4xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                <!-- Left: Visual -->
-                <div class="order-2 md:order-1">
-                    <div class="bg-white border-3 border-black shadow-[6px_6px_0px_rgba(0,0,0,1)] p-8 -rotate-2 hover:rotate-0 transition-transform duration-300">
-                        <div class="text-center">
-                            <div class="w-16 h-16 bg-[var(--blue)] border-2 border-black flex items-center justify-center mx-auto mb-4">
-                                <i class="ri-file-list-3-line text-3xl text-black"></i>
-                            </div>
-                            <p class="font-bold text-lg mb-2">Checklist PDF</p>
-                            <p class="text-sm text-gray-500 mb-4">15 signes que ton site dort</p>
-                            <div class="space-y-2 text-left">
-                                {[1,2,3,4,5].map(() => (
-                                    <div class="flex items-center gap-2">
-                                        <div class="w-4 h-4 border border-gray-400 flex-shrink-0"></div>
-                                        <div class="h-2 bg-gray-200 rounded flex-1"></div>
-                                    </div>
-                                ))}
-                                <div class="text-xs text-gray-400 text-center mt-3">+ 10 autres signes</div>
-                            </div>
+        <!-- ══ TÉLÉCHARGEMENT PDF + FORMULAIRE (Web3Forms — HARD-PRESERVE câblage) ══ -->
+        <section id="telecharger" class="co-sec co-pad" style="padding:56px 40px 64px;">
+            <div class="c15-dl-grid">
+                <!-- Visuel -->
+                <div class="c15-dl-visual" data-animate="scale">
+                    <div class="c15-mock co-frame">
+                        <span class="co-x tl"></span><span class="co-x tr"></span>
+                        <span class="co-x bl"></span><span class="co-x br"></span>
+                        <div class="c15-mock-icon"><i class="ri-file-list-3-line" aria-hidden="true"></i></div>
+                        <p class="c15-mock-title">Checklist PDF</p>
+                        <p class="c15-mock-sub">15 signes que ton site dort</p>
+                        <div class="c15-mock-lines">
+                            {[1,2,3,4,5].map(() => (
+                                <div class="c15-mock-line">
+                                    <span class="c15-mock-box"></span>
+                                    <span class="c15-mock-bar"></span>
+                                </div>
+                            ))}
+                            <p class="c15-mock-more">+ 10 autres signes</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right: Content + Form -->
-                <div class="order-1 md:order-2">
-                    <span class="inline-flex items-center gap-2 text-sm font-mono uppercase tracking-wider text-gray-500 mb-4">
-                        <i class="ri-file-pdf-line text-red-500"></i>
-                        Téléchargement gratuit
-                    </span>
-                    <h2 class="text-2xl md:text-3xl font-bold mb-4">Télécharge la checklist en PDF</h2>
-                    <p class="text-gray-600 mb-6">
+                <!-- Contenu + formulaire -->
+                <div class="c15-dl-content" data-animate>
+                    <p class="co-eyebrow"><i class="ri-file-pdf-line"></i> Téléchargement gratuit</p>
+                    <h2 style="margin-top:10px;">Télécharge la checklist en <span class="co-ser">PDF</span></h2>
+                    <p class="co-mut" style="margin-top:10px;line-height:1.6;">
                         Imprime-la, remplis-la au stylo, partage-la à un associé ou glisse-la dans un dossier client.
                     </p>
 
-                    <!-- Bonus list -->
-                    <div class="bg-white border-2 border-black p-4 mb-6">
-                        <p class="font-bold text-sm mb-3">Dans la version PDF :</p>
-                        <ul class="space-y-2 text-sm text-gray-600">
-                            <li class="flex items-start gap-2">
-                                <i class="ri-check-line text-[var(--blue)] mt-0.5"></i>
-                                Les 15 signes groupés par catégorie avec cases à cocher
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="ri-check-line text-[var(--blue)] mt-0.5"></i>
-                                Tableau récap des 3 paliers de diagnostic
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="ri-check-line text-[var(--blue)] mt-0.5"></i>
-                                Plan d'action par palier (0-5 / 6-10 / 11-15)
-                            </li>
-                            <li class="flex items-start gap-2">
-                                <i class="ri-check-line text-[var(--violet)] mt-0.5"></i>
-                                <strong>Bonus :</strong> Liens vers les ressources utiles pour chaque signe
-                            </li>
+                    <div class="c15-bonus co-frame">
+                        <p class="c15-bonus-title">Dans la version PDF :</p>
+                        <ul class="co-list co-list--check">
+                            <li><i class="ri-check-line"></i><span>Les 15 signes groupés par catégorie avec cases à cocher</span></li>
+                            <li><i class="ri-check-line"></i><span>Tableau récap des 3 paliers de diagnostic</span></li>
+                            <li><i class="ri-check-line"></i><span>Plan d'action par palier (0-5 / 6-10 / 11-15)</span></li>
+                            <li><i class="ri-check-line"></i><span><strong>Bonus :</strong> Liens vers les ressources utiles pour chaque signe</span></li>
                         </ul>
                     </div>
 
-                    <!-- Form -->
+                    <!-- Form — HARD-PRESERVE : action, access_key, name=, botcheck, script -->
                     <form
                         action="https://api.web3forms.com/submit"
                         method="POST"
-                        class="space-y-4"
+                        class="c15-form"
                         id="pdf-form"
                     >
                         <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
@@ -476,110 +366,226 @@ const categories = [
                         <input type="hidden" name="from_name" value="Jon Labs - Checklist 15 Signes PDF">
                         <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
 
-                        <div>
+                        <div class="c15-field">
+                            <label for="c15-email" class="c15-label"><span class="co-index">01</span> Ton email</label>
                             <input
                                 type="email"
+                                id="c15-email"
                                 name="email"
-                                placeholder="Ton email"
+                                placeholder="vous@exemple.ch"
                                 required
-                                class="w-full px-4 py-3 border-2 border-black bg-white text-lg placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[var(--blue)] focus:ring-offset-2 transition-all"
+                                class="c15-input"
                             />
                         </div>
 
-                        <button
-                            type="submit"
-                            class="
-                                w-full
-                                bg-[var(--blue)]
-                                border-2 border-black
-                                px-6 py-4
-                                text-lg font-bold
-                                shadow-[4px_4px_0px_rgba(0,0,0,1)]
-                                transition-all duration-200
-                                hover:bg-[var(--yellow)]
-                                hover:shadow-[2px_2px_0px_rgba(0,0,0,1)]
-                                hover:translate-x-[2px] hover:translate-y-[2px]
-                                flex items-center justify-center gap-2
-                            "
-                        >
-                            <i class="ri-download-line"></i>
-                            Recevoir le PDF →
+                        <button type="submit" class="co-btn c15-submit">
+                            <i class="ri-download-line"></i> Recevoir le PDF →
                         </button>
 
-                        <p class="text-xs text-gray-500 text-center">
+                        <p class="c15-form-note">
                             Pas de spam. Juste la checklist, et de temps en temps des conseils pratiques.
                         </p>
                     </form>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- CTA -->
-    <CTASection
-        title="Tu préfères un regard extérieur ?"
-        description="Cette checklist diagnostique l'état. Si ton score est élevé et que tu veux aller vite, je peux regarder ton site avec toi, chiffres en main, et te dire ce qui saigne le plus."
-        buttonText="Demander un audit"
-        buttonLink="/services/refonte-site-web"
-        buttonIcon="ri-search-eye-line"
-        subtext="Score au-dessus de 10 et tu n'as pas envie de tout refaire seul ? On commence par là."
-        variant="light"
-        badge="Option accompagnée"
-    />
+        <!-- ══ CTA (ancien composant CTA remplacé par la primitive .co-cta inline — bouton clair sur ink) ══ -->
+        <section class="co-cta">
+            <span class="co-x tl"></span><span class="co-x tr"></span>
+            <span class="co-x bl"></span><span class="co-x br"></span>
+            <div class="co-cta-inner">
+                <p class="co-cta-eyebrow">Option accompagnée</p>
+                <h2 class="co-cta-title">Tu préfères un regard <span class="co-ser">extérieur ?</span></h2>
+                <p class="co-cta-lead">
+                    Cette checklist diagnostique l'état. Si ton score est élevé et que tu veux aller vite, je peux regarder ton site avec toi, chiffres en main, et te dire ce qui saigne le plus.
+                </p>
+                <div class="co-cta-btns">
+                    <a href="/services/refonte-site-web" class="co-btn co-cta-btn">
+                        <i class="ri-search-eye-line"></i> Demander un audit
+                    </a>
+                </div>
+                <p class="c15-cta-sub">Score au-dessus de 10 et tu n'as pas envie de tout refaire seul ? On commence par là.</p>
+            </div>
+        </section>
 
-    <!-- BACK TO ARTICLE -->
-    <section class="py-8 px-4 bg-white border-t-2 border-black">
-        <div class="max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-            <a
-                href="/blog/15-signes-site-web-dort"
-                class="flex items-center gap-2 text-gray-600 hover:text-[var(--blue)] transition-colors"
-            >
-                <i class="ri-arrow-left-line"></i>
-                Retour à l'article complet
+        <!-- ══ RETOUR ARTICLE ══ -->
+        <section class="co-sec co-pad c15-back" style="padding:28px 40px;">
+            <a href="/blog/15-signes-site-web-dort" class="c15-back-link">
+                <i class="ri-arrow-left-line"></i> Retour à l'article complet
             </a>
-            <p class="text-sm text-gray-500">
-                <strong>Jon Labs</strong> — Genève
-            </p>
-        </div>
-    </section>
+            <p class="co-mut c15-back-sign"><strong>Jon Labs</strong> — Genève</p>
+        </section>
+
+    </main>
 
     <Footer />
 </Layout>
 
-<style>
-    .intro-bar {
-        background: #0a0a0f;
-    }
+<style is:global>
+    /* ══ CHECKLIST 15 SIGNES — styles .c15-* (namespace scopé, corps .co-root) ══ */
 
-    .intro-bar::before {
-        content: '';
-        position: absolute;
-        inset: 0;
-        background-image:
-            linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-        background-size: 50px 50px;
-        pointer-events: none;
-    }
+    /* Sévérité diagnostic (data-driven, pas accent décoratif) */
+    .co-root { --c15-ok: #16a34a; --c15-warn: #d97706; --c15-bad: #dc2626; }
 
-    .score-bar {
-        background: white;
-    }
+    /* ── Liens inline ── */
+    .c15-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; display: inline-flex; align-items: center; gap: 5px; }
+    .c15-inline:hover { color: var(--ink); }
+    .c15-inline i { transition: transform .18s ease-out; }
+    .c15-inline:hover i { transform: translateX(3px); }
 
-    .checklist-card {
-        transition: all 0.15s ease;
-    }
+    /* ── Hero ── */
+    .c15-crumb { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; font-size: 13px; color: var(--muted); }
+    .c15-crumb a { color: var(--muted); transition: color .18s ease-out; }
+    .c15-crumb a:hover { color: var(--accent); }
+    .co-root .c15-hero .co-badge { margin-top: 22px; }
+    .c15-hero-title { font-size: clamp(2.1rem, 5.4vw, 3.4rem); margin-top: 18px; }
+    .co-root .c15-hero-lead { margin-top: 18px; max-width: 54ch; font-size: 1.1rem; line-height: 1.65; color: var(--muted); }
+    .c15-hero-lead strong { color: var(--ink); font-weight: 600; }
+    .c15-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+    .c15-hero-btns .co-btn i { transition: transform .18s ease-out; }
+    .c15-hero-btns .co-btn:hover i { transform: translateY(1px); }
+    .c15-hero-context { position: relative; display: inline-flex; align-items: center; gap: 10px; margin-top: 28px; padding: 14px 20px; background: var(--surface); border: 1px solid var(--line-2); }
+    .c15-hero-context i { color: var(--accent); font-size: 18px; flex: none; }
+    .co-root .c15-hero-context p { font-size: 14px; color: var(--muted); }
 
-    .checklist-card:hover {
-        box-shadow: 4px 4px 0px rgba(0,0,0,0.12);
-    }
+    /* ── Métriques ── */
+    .c15-metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
+    .c15-stat { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; padding: 26px 16px; background: var(--surface); border: 1px solid var(--line-2); transition: transform .18s ease-out; }
+    .c15-stat:hover { transform: translateY(-2px); }
+    .c15-stat-value { font-size: 1.9rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+    .c15-stat-label { font-size: 12.5px; color: var(--muted); }
+    .c15-trust { display: flex; flex-wrap: wrap; gap: 12px 26px; margin-top: 20px; font-size: 13.5px; color: var(--muted); }
+    .c15-trust span { display: inline-flex; align-items: center; gap: 6px; }
+    .c15-trust i { color: var(--accent); font-size: 15px; }
 
-    .palier-block {
-        transition: all 0.25s ease;
-    }
+    /* ── Panneau score (live) ── */
+    .c15-score { position: relative; margin-top: 28px; padding: 22px 26px; background: var(--surface); border: 1px solid var(--line-2); }
+    .c15-score-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; }
+    .c15-score-num { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.02em; font-variant-numeric: tabular-nums; }
+    .c15-score-track { margin-top: 14px; height: 6px; background: var(--bg); border: 1px solid var(--line); overflow: hidden; }
+    .c15-score-fill { height: 100%; background: var(--accent); transition: width .3s ease-out; }
+    .co-root .c15-score-status { margin-top: 12px; font-size: 13.5px; font-weight: 600; color: var(--muted); }
 
-    section[id] {
-        scroll-margin-top: 80px;
+    /* ── Catégories ── */
+    .c15-cat-head { display: flex; align-items: center; gap: 16px; }
+    .c15-cat-index { font-size: 20px; font-weight: 700; }
+    .c15-cat-icon { font-size: 26px; color: var(--accent); flex: none; }
+    .c15-cat-title { font-size: clamp(1.4rem, 3vw, 1.75rem); }
+    .c15-cat-head .co-eyebrow { display: block; }
+
+    .c15-items { display: flex; flex-direction: column; gap: 12px; margin-top: 28px; }
+    .c15-item {
+        position: relative; display: flex; align-items: flex-start; gap: 16px;
+        padding: 18px 20px; background: var(--surface); border: 1px solid var(--line-2);
+        cursor: pointer; transition: box-shadow .18s ease-out, transform .18s ease-out;
+    }
+    .c15-item:hover { transform: translateY(-1px); box-shadow: 0 6px 18px rgba(20,22,26,.06); }
+    .c15-check {
+        appearance: none; -webkit-appearance: none; flex: none; position: relative;
+        width: 22px; height: 22px; margin: 0; margin-top: 1px; cursor: pointer;
+        background: var(--bg); border: 1px solid var(--line-2);
+        transition: background .16s ease-out, border-color .16s ease-out;
+    }
+    .c15-check:hover { border-color: var(--accent); }
+    .c15-check:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(0,168,125,.2); }
+    .c15-check:checked { background: var(--accent); border-color: var(--accent); }
+    .c15-check:checked::after {
+        content: ""; position: absolute; left: 7px; top: 3px; width: 6px; height: 11px;
+        border: solid #fff; border-width: 0 2px 2px 0; transform: rotate(45deg);
+    }
+    .c15-item-num { font-size: 12px; font-weight: 700; flex: none; margin-top: 3px; }
+    .co-root .c15-item-text { font-size: 15px; line-height: 1.5; color: var(--ink); }
+    .c15-check:checked ~ .c15-item-text { color: var(--muted); }
+
+    /* ── Diagnostic ── */
+    .c15-diag-score { color: var(--ink); }
+    .c15-palier { position: relative; margin-top: 18px; padding: 28px 30px; background: var(--surface); border: 1px solid var(--line-2); }
+    .c15-palier-head { display: flex; align-items: center; gap: 16px; }
+    .c15-palier-icon { font-size: 26px; flex: none; color: var(--sev, var(--accent)); }
+    .c15-palier-titlerow { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .c15-palier-titlerow h3 { font-size: 1.25rem; }
+    .c15-palier-tag { font-size: 11px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 10px; color: var(--sev, var(--accent)); border: 1px solid var(--sev, var(--line-2)); border-radius: 999px; }
+    .c15-palier-body { margin-top: 16px; }
+    .co-root .c15-palier-body p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+    .co-root .c15-palier-note { margin-top: 12px; font-size: 13.5px; }
+    .c15-palier-btn { margin-top: 18px; }
+    .c15-palier-btn i { transition: transform .18s ease-out; }
+    .c15-palier-btn:hover i { transform: translateX(3px); }
+    .c15-palier-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+    .c15-palier-btns .c15-palier-btn { margin-top: 0; }
+    .c15-palier--ok { --sev: var(--c15-ok); }
+    .c15-palier--warn { --sev: var(--c15-warn); }
+    .c15-palier--bad { --sev: var(--c15-bad); }
+
+    .c15-palier-initial { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; margin-top: 18px; padding: 34px 30px; border: 1px dashed var(--line-2); }
+    .c15-palier-initial i { font-size: 32px; color: var(--line-2); }
+
+    /* ── Téléchargement PDF ── */
+    .c15-dl-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 44px; align-items: center; }
+    .c15-dl-visual { display: flex; justify-content: center; }
+    .c15-mock { position: relative; width: 100%; max-width: 320px; padding: 32px 28px; text-align: center; background: var(--surface); border: 1px solid var(--line-2); }
+    .c15-mock-icon { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; margin: 0 auto 16px; background: var(--bg); border: 1px solid var(--line-2); }
+    .c15-mock-icon i { font-size: 26px; color: var(--accent); }
+    .c15-mock-title { font-size: 1.05rem; font-weight: 700; }
+    .co-root .c15-mock-sub { margin-top: 4px; font-size: 13px; color: var(--muted); }
+    .c15-mock-lines { margin-top: 18px; display: flex; flex-direction: column; gap: 10px; text-align: left; }
+    .c15-mock-line { display: flex; align-items: center; gap: 10px; }
+    .c15-mock-box { flex: none; width: 15px; height: 15px; border: 1px solid var(--line-2); }
+    .c15-mock-bar { flex: 1; height: 7px; background: var(--line); }
+    .co-root .c15-mock-more { margin-top: 6px; text-align: center; font-size: 12px; color: var(--muted); }
+
+    .c15-dl-content .co-eyebrow { display: inline-flex; align-items: center; gap: 7px; }
+    .c15-dl-content .co-eyebrow i { color: var(--accent); font-size: 14px; }
+    .c15-bonus { position: relative; margin-top: 22px; padding: 22px 24px; background: var(--surface); border: 1px solid var(--line-2); }
+    .c15-bonus-title { font-size: 14px; font-weight: 700; margin-bottom: 14px; }
+    .c15-bonus .co-list li { font-size: 14px; line-height: 1.5; }
+    .c15-bonus strong { color: var(--ink); font-weight: 600; }
+
+    /* ── Formulaire (Web3Forms restylé, câblage préservé) ── */
+    .c15-form { margin-top: 24px; display: flex; flex-direction: column; gap: 14px; }
+    .c15-field { display: flex; flex-direction: column; gap: 8px; }
+    .c15-label { display: flex; align-items: baseline; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink); }
+    .c15-label .co-index { font-size: 11px; }
+    .c15-input {
+        width: 100%; font-family: "Inter Tight", ui-sans-serif, sans-serif; font-size: 15px; color: var(--ink);
+        background: var(--bg); border: 1px solid var(--line-2); padding: 13px 15px;
+        transition: border-color .18s ease-out, box-shadow .18s ease-out;
+    }
+    .c15-input::placeholder { color: var(--muted); opacity: .7; }
+    .c15-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,168,125,.15); }
+    .c15-submit { width: 100%; justify-content: center; padding: 14px 20px; font-size: 16px; }
+    .c15-submit .ri-loader-4-line { animation: c15Spin 1s linear infinite; }
+    @keyframes c15Spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    .co-root .c15-form-note { text-align: center; font-size: 12px; color: var(--muted); }
+
+    /* ── CTA sous-texte ── */
+    .co-root .c15-cta-sub { margin-top: 6px; font-size: 13px; color: rgba(255,255,255,0.6); max-width: 46ch; line-height: 1.55; }
+
+    /* ── Retour article ── */
+    .c15-back { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 14px; }
+    .c15-back-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--muted); transition: color .18s ease-out; }
+    .c15-back-link:hover { color: var(--accent); }
+    .c15-back-link i { transition: transform .18s ease-out; }
+    .c15-back-link:hover i { transform: translateX(-3px); }
+    .co-root .c15-back-sign { font-size: 13px; }
+    .c15-back-sign strong { color: var(--ink); }
+
+    /* ── Anchor scroll offset ── */
+    .co-root section[id] { scroll-margin-top: 100px; }
+
+    /* ── Responsive ── */
+    @media (max-width: 860px) {
+        .c15-dl-grid { grid-template-columns: 1fr; gap: 32px; }
+        .c15-dl-visual { order: 2; }
+    }
+    @media (max-width: 640px) {
+        .c15-metrics { grid-template-columns: 1fr; }
+        .c15-cat-head { flex-wrap: wrap; gap: 12px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+        .c15-stat, .c15-item, .c15-check, .c15-score-fill, .c15-inline i, .c15-hero-btns .co-btn i, .c15-palier-btn i, .c15-back-link i { transition: none; }
+        .c15-submit .ri-loader-4-line { animation: none; }
     }
 </style>
 
@@ -608,11 +614,11 @@ const categories = [
         // Color the bar
         if (scoreBar) {
             if (checked <= 5) {
-                scoreBar.style.background = '#4ade80';
+                scoreBar.style.background = '#16a34a';
             } else if (checked <= 10) {
-                scoreBar.style.background = 'var(--yellow)';
+                scoreBar.style.background = '#d97706';
             } else {
-                scoreBar.style.background = '#ef4444';
+                scoreBar.style.background = '#dc2626';
             }
         }
 
@@ -620,16 +626,16 @@ const categories = [
         if (scoreLabel) {
             if (checked === 0) {
                 scoreLabel.textContent = 'Commence le diagnostic';
-                scoreLabel.className = 'text-sm font-medium text-gray-500 hidden sm:block';
+                scoreLabel.style.color = 'var(--muted)';
             } else if (checked <= 5) {
                 scoreLabel.textContent = 'Site réveillé';
-                scoreLabel.className = 'text-sm font-medium text-green-600 hidden sm:block';
+                scoreLabel.style.color = '#16a34a';
             } else if (checked <= 10) {
                 scoreLabel.textContent = 'Site en sommeil';
-                scoreLabel.className = 'text-sm font-medium text-yellow-600 hidden sm:block';
+                scoreLabel.style.color = '#d97706';
             } else {
                 scoreLabel.textContent = 'Site mort clinique';
-                scoreLabel.className = 'text-sm font-medium text-red-600 hidden sm:block';
+                scoreLabel.style.color = '#dc2626';
             }
         }
 
@@ -652,7 +658,7 @@ const categories = [
 
         const submitBtn = pdfForm.querySelector('button[type="submit"]') as HTMLButtonElement;
         submitBtn.disabled = true;
-        submitBtn.innerHTML = '<i class="ri-loader-4-line animate-spin"></i> Envoi en cours...';
+        submitBtn.innerHTML = '<i class="ri-loader-4-line"></i> Envoi en cours...';
 
         try {
             const formData = new FormData(pdfForm);
