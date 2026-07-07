@@ -3,6 +3,24 @@
 > Sortir du look brutaliste (bordures noires 2px + ombres offset, Plus Jakarta Sans) jugé « banal » vers un style **blueprint** : filets très fins qui cadrent les sections, aération, nouveau font pairing éditorial. Exploration en pages lab AVANT toute migration du vrai site.
 > **Réfs visuelles** : pengon.dev, sakib.design. **Statut** : 🔄 EN COURS — migration lancée : **homepage + chrome migrés en blueprint**, reste les autres pages.
 
+## Etat session 2026-07-07 — Retouches design post-migration (2 lots) ✅
+
+**Fait :**
+- **Lot socials & héros :** YouTube ajouté aux réseaux (hero, contact, CV hero/footer, `sameAs` Schema.org) ; home = punchline « L'idée que tu repoussais… » retirée + citation « Pourquoi Jon Labs » remplacée (résultats mesurables) ; **fix taille des H2 de section** (échelle de titres par défaut `:not([class])` dans `blueprint.css` — les `<h2>` nus collapsaient à 16px sous Preflight Tailwind) ; **retrait de l'eyebrow au-dessus du H1 sur 21 pages indexées** (home comprise ; eyebrows de section 01—/02— conservés).
+- **Lot logo / article / tarifs :** nouveau logo (mark + wordmark) via composant `Logo.astro` (navbar desktop + drawer + footer, fond clair partout donc logo sombre OK) ; eyebrows de section 12→11px ; **fix sommaire sticky article** (double cause : `.co-root{overflow:hidden}` tuait `position:sticky` → `overflow:clip` scopé `:has(.ar-wrap)` ; ET colonne `.ar-side` trop courte → `align-self:stretch`) ; en-tête article = badge de type retiré + date/temps de lecture après le H1 + tags gardés ; bloc **« L'essentiel en bref » → callout Inter visuel** via plugin `remark-tldr.mjs` (3 formes gérées, témoignages laissés en citation serif) ; tarifs = label « Article blog » retiré des cartes « Aller plus loin ».
+- **Vérifié :** build vert **221 pages**, sticky prouvé live (épinglé + scroll-spy), plugin précis (test `apparaitre-gemini` : TLDR `## H2` → callout Inter, 2 témoignages blockquote restent serif), 0 erreur console.
+
+**Prochain :** Migration blueprint toujours bouclée. Restes optionnels : cleanup orphelins (`Halo`/`CTASection`/`FAQ`/`IconChip`/`nav/*`/`MarkdownPost`), validation mobile device, **migrer le calculateur brutaliste** encore présent dans `/blog/cout-site-web-dormant-calculateur`, et le CSS mort `.nav-logo`. Sinon `/epic-recap`.
+
+**Pièges :**
+- **`position:sticky` dans `.co-root`** : nécessite `overflow:clip` (pas `hidden`) sur le `.co-root` de l'article ET une colonne sticky étirée (`.ar-side { align-self:stretch }`) — **les deux**, sinon ça ne colle pas. Fix scopé `:has(.ar-wrap)` → n'affecte que blog/guides.
+- **TLDR = plugin `remark-tldr.mjs`** (enregistré dans `astro.config.mjs`) : détecte le bloc « L'essentiel en bref » (blockquote / `## H2` / paragraphe gras) et le transforme en `aside.co-tldr`. **NE PAS restyler `.co-prose blockquote` globalement** (sert aux témoignages serif). Nouveaux articles : n'importe laquelle des 3 formes marche.
+- Bruit esbuild au boot dev (« Failed to scan… `<script>` ») = mot `<script>` littéral dans un commentaire de frontmatter (ContactForm/checklist-15), inoffensif, pages en 200.
+
+**Commit :** [04910a8] feat(design): logo, callout TLDR, sommaire sticky, YouTube socials + épuration héros/en-tête
+
+---
+
 ## Etat session 2026-07-06 (soir) — CV migré ✅ → toutes les pages indexées en blueprint
 
 **Fait :**
@@ -223,7 +241,20 @@
 **Commit :** [e92b8f2] feat(design): exploration blueprint — pairing 04, BlueprintKit partagé, pages lab (branche `design/blueprint-lab`)
 
 ## Carte du code
-> Mise à jour : 2026-07-06 (soir) — **45/51 pages en `.co-root` · toutes les pages indexées migrées.** ~32 corps de page migrés (home+chrome, Vague 1 (7), Phase blog (4), services hub + 13 sous-services, 5 géo, 7 divers, **CV + 9 composants `cv/*`**). Design system + chrome global en place. **6 restantes = toutes noindex hors périmètre** : `styleguide{,-lab}` (réf brutaliste), `cv-pdf` + `devis-client/[slug]` + 2 `outils/*-pdf` (docs standalone sans chrome).
+> Mise à jour : 2026-07-07 — retouches design post-migration (voir sous-section ci-dessous). Base : **45/51 pages en `.co-root` · toutes les pages indexées migrées.**
+
+### Retouches 2026-07-07 (nouveaux / modifiés)
+| Fichier | Rôle |
+|---------|------|
+| `src/components/Logo.astro` | **Nouveau** — logo de marque (mark + wordmark, `src/assets/logo-jonlabs.png`). Source unique : Header (nav + drawer) + Footer. Remplace le wordmark texte `jonlabs.` (CSS `.nav-logo` désormais mort) |
+| `src/plugins/remark-tldr.mjs` | **Nouveau** — plugin remark (enregistré dans `astro.config.mjs`). Transforme le bloc « L'essentiel en bref » (blockquote / H2 / paragraphe gras) en `aside.co-tldr` Inter. Laisse les blockquotes de témoignage intacts (serif) |
+| `src/styles/blueprint.css` | `.co-eyebrow` 12→11px · échelle de titres par défaut `:not([class])` (fix H2 nus à 16px) · **`.co-root:has(.ar-wrap){overflow:clip}`** + **`.ar-side{align-self:stretch}`** (fix sommaire sticky) · styles `.co-tldr`/`.co-tldr-head`/`.co-tldr-list` |
+| `src/pages/blog/[slug].astro`, `guides/[slug].astro` | En-tête réordonné : H1 → méta (date+RT) → tags. Badge de type retiré (CategoryBadge / « Guide ») |
+| `src/components/{Hero,AboutHome,ContactInfo,cv/CVHero,cv/CVFooter}.astro` · `src/data/schema.ts` | YouTube dans les socials + `sameAs` · home : punchline retirée, citation remplacée |
+| `src/pages/tarifs.astro` | Label « Article blog » retiré des cartes « Aller plus loin » |
+| 21 pages indexées (13 services + services/portfolio/tarifs/about/mentions/outils/guides/tag + home) | Eyebrow au-dessus du H1 retiré |
+
+ ~32 corps de page migrés (home+chrome, Vague 1 (7), Phase blog (4), services hub + 13 sous-services, 5 géo, 7 divers, **CV + 9 composants `cv/*`**). Design system + chrome global en place. **6 restantes = toutes noindex hors périmètre** : `styleguide{,-lab}` (réf brutaliste), `cv-pdf` + `devis-client/[slug]` + 2 `outils/*-pdf` (docs standalone sans chrome).
 
 ### Pages migrées cette session (2026-07-06)
 | Page | Namespace | Note |
