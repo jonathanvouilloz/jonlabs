@@ -5,6 +5,7 @@ import sitemap from '@astrojs/sitemap';
 import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 import rehypeExternalLinks from 'rehype-external-links';
+import remarkTldr from './src/plugins/remark-tldr.mjs';
 
 // https://astro.build/config
 export default defineConfig({
@@ -44,6 +45,7 @@ export default defineConfig({
     })
   ],
   markdown: {
+    remarkPlugins: [remarkTldr],
     rehypePlugins: [
       [rehypeExternalLinks, { target: '_blank', rel: ['noopener', 'noreferrer'] }]
     ]

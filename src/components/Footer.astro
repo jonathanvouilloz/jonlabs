@@ -4,6 +4,7 @@
 // footer historique : CTA, coordonnées réelles, 5 colonnes de liens profonds,
 // socials, mentions. Self-scopé `.co-chrome` → rendu blueprint sur toutes les pages.
 import { author } from '../sample'
+import Logo from './Logo.astro'
 import { mainNav, ctaContact, footerZonesWeb, footerRegionsIA } from '../data/navigation'
 import type { NavSection } from '../data/navigation'
 
@@ -69,7 +70,7 @@ const year = new Date().getFullYear()
     <div class="co-foot-grid co-pad">
         <!-- Marque -->
         <div class="co-foot-brand">
-            <a href="/" class="nav-logo" aria-label="Accueil Jon Labs">jonlabs<span style="color:var(--accent);">.</span></a>
+            <Logo />
             <p class="co-mut co-foot-baseline">
                 Développement web, automatisation, applications sur-mesure. J'accompagne
                 entrepreneurs et petites équipes à Genève et en Suisse romande.

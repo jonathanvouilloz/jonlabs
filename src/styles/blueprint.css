@@ -62,6 +62,11 @@
   /* autorise l'animation des tailles auto (ex. ::details-content de la FAQ) */
   interpolate-size: allow-keywords;
 }
+/* Pages article (blog/guides) : overflow:clip clippe comme hidden MAIS ne crée pas
+   de conteneur de défilement → le sommaire `position:sticky` (.ar-side-sticky) colle
+   de nouveau au viewport. Ciblé via :has(.ar-wrap) → n'affecte QUE les pages article ;
+   toutes les autres pages gardent overflow:hidden (marquees home, pixel-explosion CV, etc.). */
+.co-root:has(.ar-wrap) { overflow: clip; }
 
 /* ── RÈGLE MOTION GRAVÉE : toute animation/transition en ease-out, JAMAIS ease-in
    (ni ease-in-out) — l'entrée doit décélérer, pas accélérer. cubic-bezier custom OK
@@ -69,10 +74,20 @@
 
 .co-root h1, .co-root h2, .co-root h3,
 .co-chrome h1, .co-chrome h2, .co-chrome h3 { font-weight: 700; letter-spacing: -0.025em; line-height: 1.05; }
+
+/* Échelle de titres par défaut — s'applique UNIQUEMENT aux titres SANS classe
+   (`:not([class])`) : les titres nus de section (`<h2 style="margin-top:8px">`)
+   héritaient sinon de la taille du corps (Preflight Tailwind → font-size:inherit),
+   d'où des H2 à 16px. Le sélecteur perd volontairement face à toute classe de taille
+   (héros `.xx-hero-title`, `.co-cta-title`, `.co-prose h2`…), qu'il ne touche pas. */
+.co-root h1:not([class]) { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.06; }
+.co-root h2:not([class]) { font-size: clamp(1.55rem, 3vw, 2.05rem); line-height: 1.12; }
+.co-root h3:not([class]) { font-size: clamp(1.2rem, 2vw, 1.4rem); line-height: 1.2; }
+
 .co-ser { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-weight: 400; letter-spacing: 0; }
 .co-eyebrow {
   font-family: "Inter Tight", ui-sans-serif, sans-serif;
-  font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted);
+  font-size: 11px; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted);
 }
 .co-mut { color: var(--muted); }
 
@@ -281,6 +296,18 @@
 .co-prose li ul > li::before { background: transparent; border: 1px solid var(--accent); }
 .co-prose blockquote { margin: 1.6em 0; padding: 4px 0 4px 20px; border-left: 2px solid var(--accent); font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: 1.35rem; line-height: 1.4; color: var(--ink); }
 .co-prose blockquote p { margin-bottom: 0.4em; }
+
+/* Callout « L'essentiel en bref » — généré depuis un blockquote par remark-tldr.
+   Reste dans .co-prose → hérite d'Inter Tight (plus de serif). En-tête eyebrow +
+   icône teal, puces en checklist. */
+.co-prose .co-tldr { margin: 2em 0; padding: 22px 26px 20px 24px; background: var(--surface); border: 1px solid var(--line-2); box-shadow: inset 3px 0 0 var(--accent); }
+.co-prose .co-tldr > :last-child { margin-bottom: 0; }
+.co-prose .co-tldr-head { display: flex; align-items: center; gap: 9px; margin: 0 0 14px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); }
+.co-prose .co-tldr-head strong { font-weight: 700; }
+.co-tldr-ic { color: var(--accent); font-size: 1.05rem; }
+.co-prose .co-tldr-list { margin: 0; gap: 0.6em; }
+.co-prose .co-tldr-list > li { padding-left: 28px; line-height: 1.6; }
+.co-prose .co-tldr-list > li::before { content: "\2713"; position: absolute; left: 2px; top: 0; width: auto; height: auto; background: none; border-radius: 0; color: var(--accent); font-weight: 700; font-size: 0.95em; line-height: 1.7; }
 .co-prose code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.88em; background: rgba(20,22,26,.05); border: 1px solid var(--line); padding: 0.12em 0.4em; }
 .co-prose pre { background: #0b0d10; color: #f4f3ee; padding: 18px 20px; margin: 1.6em 0; overflow-x: auto; border: 1px solid var(--line-2); }
 .co-prose pre code { background: transparent; border: 0; padding: 0; font-size: 0.9em; color: inherit; }
@@ -317,7 +344,10 @@
 .ar-foot { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 48px; padding-top: 28px; border-top: 1px solid var(--line); }
 .ar-foot-share { background: none; border: 0; cursor: pointer; color: var(--muted); font-size: 1.3rem; padding: 0; transition: color .16s ease-out; }
 .ar-foot-share:hover { color: var(--accent); }
-.ar-side { position: relative; }
+/* align-self:stretch → la colonne sidebar prend toute la hauteur de la ligne grid
+   (le .ar-grid est en align-items:start), ce qui donne au sommaire sticky la marge
+   de déplacement nécessaire pour coller pendant tout le défilement de l'article. */
+.ar-side { position: relative; align-self: stretch; }
 .ar-side-sticky { position: sticky; top: 96px; }
 .ar-mtoc { margin-bottom: 24px; }
 .ar-mtoc-btn {

@@ -96,17 +96,16 @@ if (page.data.faqs && page.data.faqs.length > 0) {
             </div>
           </div>
 
-          <!-- Meta -->
+          <!-- Title (H1 distinct du title SEO ; fallback sur title si absent) -->
+          <h1 class="ar-title">{h1 ?? title}</h1>
+
+          <!-- Méta : date + temps de lecture (après le H1) -->
           <div class="ar-meta">
-            <span class="co-badge co-badge--solid">Guide</span>
             <span class="ar-date">{formatDate(pubDate)}</span>
             {readingTime && (
               <span class="ar-rt"><i class="ri-time-line"></i> {readingTime} min de lecture</span>
             )}
           </div>
-
-          <!-- Title (H1 distinct du title SEO ; fallback sur title si absent) -->
-          <h1 class="ar-title">{h1 ?? title}</h1>
 
           <!-- Tags -->
           {tags.length > 0 && (

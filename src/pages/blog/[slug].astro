@@ -4,7 +4,6 @@ import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
 import AppHeader from '../../components/Header.astro';
 import AppFooter from '../../components/Footer.astro';
-import CategoryBadge from '../../components/blog/CategoryBadge.astro';
 import VideoEmbed from '../../components/blog/VideoEmbed.astro';
 import AuthorBio from '../../components/blog/AuthorBio.astro';
 import RelatedPosts from '../../components/blog/RelatedPosts.astro';
@@ -120,17 +119,16 @@ if (post.data.faqs && post.data.faqs.length > 0) {
             </div>
           </div>
 
-          <!-- Meta -->
+          <!-- Title (H1 distinct du title SEO ; fallback sur title si absent) -->
+          <h1 class="ar-title">{h1 ?? title}</h1>
+
+          <!-- Méta : date + temps de lecture (après le H1) -->
           <div class="ar-meta">
-            <CategoryBadge category={category} size="md" />
             <span class="ar-date">{formatDate(pubDate)}</span>
             {readingTime && (
               <span class="ar-rt"><i class="ri-time-line"></i> {readingTime} min de lecture</span>
             )}
           </div>
-
-          <!-- Title (H1 distinct du title SEO ; fallback sur title si absent) -->
-          <h1 class="ar-title">{h1 ?? title}</h1>
 
           <!-- Vidéo YouTube (optionnelle, pilotée par le frontmatter youtubeId) -->
           {youtubeId && <VideoEmbed youtubeId={youtubeId} title={youtubeTitle ?? title} />}

@@ -126,7 +126,8 @@ export const personData = {
   "knowsLanguage": ["fr-CH", "en"],
   "sameAs": [
     "https://www.linkedin.com/in/jonathan-vouilloz-3b5741139/",
-    "https://github.com/jonathanvouilloz"
+    "https://github.com/jonathanvouilloz",
+    "https://www.youtube.com/@jonlabs1005"
   ]
 };
 
@@ -161,7 +162,8 @@ export const localBusinessData = {
   "areaServed": ["Genève", "Vaud", "Valais", "Suisse Romande"],
   "sameAs": [
     "https://www.linkedin.com/in/jonathan-vouilloz-3b5741139/",
-    "https://github.com/jonathanvouilloz"
+    "https://github.com/jonathanvouilloz",
+    "https://www.youtube.com/@jonlabs1005"
   ]
 };
 

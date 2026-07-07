@@ -4,6 +4,7 @@
 // → tokens + font blueprint disponibles même quand le corps de page est encore
 // brutaliste. Données réelles : mainNav / ctaContact (data/navigation.ts).
 import { mainNav, ctaContact } from '../data/navigation';
+import Logo from './Logo.astro';
 
 interface Props {
   // Conservées pour compat des 35 sites d'appel (ex. services.astro passe variant
@@ -26,7 +27,7 @@ const badgeClass = (b?: string) => (b === 'featured' ? 'co-badge co-badge--solid
   <!-- ══ BARRE NAV + MÉGA-MENU ══ -->
   <div class="nav-wrap">
     <nav class="co-nav nav-bar" aria-label="Navigation principale">
-      <a href="/" class="nav-logo" aria-label="Accueil Jon Labs">jonlabs<span style="color:var(--accent);">.</span></a>
+      <Logo />
 
       <ul class="nav-links">
         {mainNav.map((section) => {
@@ -107,7 +108,7 @@ const badgeClass = (b?: string) => (b === 'featured' ? 'co-badge co-badge--solid
   <!-- ══ DRAWER MOBILE (accordéons) ══ -->
   <div id="nav-drawer" class="co-drawer" role="dialog" aria-modal="true" aria-label="Menu de navigation">
     <div class="co-drawer-top">
-      <a href="/" class="nav-logo" aria-label="Accueil Jon Labs">jonlabs<span style="color:var(--accent);">.</span></a>
+      <Logo />
       <button id="nav-menu-close" class="co-burger" aria-label="Fermer le menu">
         <i class="ri-close-line" aria-hidden="true"></i>
       </button>

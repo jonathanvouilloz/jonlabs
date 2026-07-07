@@ -6,6 +6,7 @@ import { author, cta } from '../sample';
 const socials = [
   { icon: 'ri-linkedin-fill', link: author.linkedin, label: 'LinkedIn', ext: true },
   { icon: 'ri-github-fill', link: author.github, label: 'GitHub', ext: true },
+  { icon: 'ri-youtube-fill', link: author.youtube, label: 'YouTube', ext: true },
   { icon: 'ri-mail-fill', link: author.email, label: 'Email', ext: false },
 ];
 ---
@@ -15,14 +16,10 @@ const socials = [
   <div class="hp-hero-grid">
     <!-- Texte -->
     <div class="hp-hero-body">
-      <p class="co-eyebrow" data-animate>Développeur web &amp; automatisation · Genève</p>
       <h1 class="hp-hero-title" data-animate data-delay="0.1">
         Développeur web &amp; <span class="co-ser">partenaire digital</span> à Genève
       </h1>
-      <p class="hp-hero-hook" data-animate data-delay="0.2">
-        L'idée que tu repoussais depuis des mois ? Elle peut exister demain.
-      </p>
-      <p class="co-mut hp-hero-lead" data-animate data-delay="0.25">
+      <p class="co-mut hp-hero-lead" data-animate data-delay="0.2">
         De l'idée au produit fini, j'accompagne <strong>entrepreneurs</strong> et
         <strong>PME en Suisse romande</strong> dans leurs projets digitaux : sites performants,
         applications sur-mesure et workflows automatisés.
@@ -81,8 +78,7 @@ const socials = [
   }
   .hp-hero-body { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
   .hp-hero-title { font-size: clamp(2.3rem, 5.2vw, 3.6rem); }
-  .hp-hero-hook { font-size: clamp(1.15rem, 2.2vw, 1.4rem); font-weight: 500; line-height: 1.4; max-width: 30ch; }
-  .hp-hero-lead { font-size: 1.05rem; line-height: 1.65; max-width: 46ch; }
+  .hp-hero-lead { font-size: 1.05rem; line-height: 1.65; max-width: 46ch; margin-top: 4px; }
   .hp-hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 6px; }
   .hp-hero-ctas .co-btn i { transition: transform .18s ease-out; }
   .hp-hero-ctas .co-btn:hover i { transform: translateX(3px); }

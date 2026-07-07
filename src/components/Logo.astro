@@ -1,0 +1,14 @@
+---
+// Logo Jon Labs — mark + wordmark. Source unique du logo de marque
+// (navbar desktop + drawer mobile + footer). Fond clair partout → logo sombre OK.
+import logo from '../assets/logo-jonlabs.png';
+---
+
+<a href="/" class="site-logo" aria-label="Accueil Jon Labs">
+  <img src={logo.src} width={logo.width} height={logo.height} alt="Jon Labs" />
+</a>
+
+<style>
+  .site-logo { display: inline-flex; align-items: center; line-height: 0; }
+  .site-logo img { height: 26px; width: auto; display: block; }
+</style>
