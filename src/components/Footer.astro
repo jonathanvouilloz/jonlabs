@@ -5,7 +5,7 @@
 // socials, mentions. Self-scopé `.co-chrome` → rendu blueprint sur toutes les pages.
 import { author } from '../sample'
 import Logo from './Logo.astro'
-import { mainNav, ctaContact, footerZonesWeb, footerRegionsIA } from '../data/navigation'
+import { mainNav, ctaContact } from '../data/navigation'
 import type { NavSection } from '../data/navigation'
 
 const socials = [
@@ -40,7 +40,6 @@ const ressourcesLinks = [
     ...col(ressources, 'À la une'),
     { label: 'Tous les articles', href: '/blog' },
 ]
-const zonesLinks = [...footerZonesWeb, ...footerRegionsIA]
 const secondaryLinks = [
     { label: 'Tarifs', href: '/tarifs' },
     { label: 'Réalisations', href: '/portfolio' },
@@ -132,16 +131,6 @@ const year = new Date().getFullYear()
             </ul>
         </div>
 
-        <!-- Zones & régions -->
-        <div class="co-foot-col">
-            <h3 class="co-eyebrow">Zones &amp; régions</h3>
-            <ul>
-                {zonesLinks.map((link) => (
-                    <li><a href={link.href} class="co-foot-link">{link.label}</a></li>
-                ))}
-            </ul>
-        </div>
-
         <!-- Ressources -->
         <div class="co-foot-col">
             <h3 class="co-eyebrow">Ressources</h3>
@@ -191,7 +180,7 @@ const year = new Date().getFullYear()
 
     /* Colonnes */
     .co-foot-grid {
-        display: grid; grid-template-columns: 1.7fr 1.1fr 1fr 1fr 1fr 1fr; gap: 40px;
+        display: grid; grid-template-columns: 1.7fr 1.1fr 1fr 1fr 1fr; gap: 40px;
         padding: 56px 40px; border-bottom: 1px solid var(--line);
     }
     .co-foot-brand .co-foot-baseline { margin-top: 14px; max-width: 34ch; line-height: 1.55; font-size: 14px; }
