@@ -1,0 +1,28 @@
+# Production log — choisir-technologie-site-web-pme
+Date : 2026-07-10 16:20
+Worker : @article-producer
+
+## Étapes
+- [✓] /seo-write     : draft écrit dans content/_drafts/blog/choisir-technologie-site-web-pme.draft.md (~1900 mots, module A appliqué à la section comparatif outils)
+- [✓] /humanizer     : ~15 em dash remplacés (virgule/deux-points), 1 heading avec em dash reformulé, injection de voix (première personne implicite, ton direct : "on a chronométré", "ce que la plupart des dirigeants ignorent encore")
+- [✓] /seo-sources   : 4 sources Confirmé liées via WebFetch réel (Google Search Central, WebVitals.tools, Cloudflare press release, W3Techs) + 1 citation attribuée vérifiée (Fred Schott, PDG The Astro Technology Company). 3 claims du dossier-prep source adoucis/corrigés après vérification (43% INP → remplacé par la donnée réellement confirmée 72%/78%/84% ; Framer 1,5-3 Mo → chiffre retiré, non trouvé sur la source candidate ; Webflow 20-25$/20 000 items → prix précis retiré, tier CMS confirmé isolément). Sidecar : content/_drafts/blog/choisir-technologie-site-web-pme.sources.json
+- [✓] /seo-enrich    : src/content/blog/choisir-technologie-site-web-pme.md créé (~9.5 kB). Frontmatter complet (title 54c/meta 137c/h1 59c distinct), category "web", 6 FAQ en frontmatter (schema FAQPage auto), pubDate 2026-09-14 (prochain lundi/vendredi libre après le dernier créneau occupé 2026-09-11). Build Astro : 223 pages, 0 erreur.
+- [✓] /seo-review    : 2 tour(s) — Tour 1 score 13/18 (fails : Meta Critical [mot banni "solutions" + keyword absent], Hn Medium [saut H2→H4 sur les 4 familles d'outils], Bold Medium [doublon TLDR "site statique"], TLDR High [keyword absent], Patterns IA Medium [mot banni]) → corrections appliquées directement (Edit) sans ré-invoquer seo-enrich (corrections purement techniques : meta, hiérarchie Hn, bold). Tour 2 score final **18/18, PASS**.
+- [✓] /generate-cover : public/images/blog/choisir-technologie-site-web-pme.webp (38.7 kB, pipeline template, aucun appel API)
+- [✓] /publish-hub    : registre choisir-technologie-site-web-pme → statut published (content ID 0ea7210aef1a13588ffd283e)
+
+## Note youtubeId
+Le brief demande `youtubeId: "{{VIDEO_ID}}"` en frontmatter pour l'embed VideoEmbed (épisode 5 Wildcat, vidéo pas encore uploadée). Un `youtubeId` littéral avec ce placeholder casserait l'iframe en production (`{youtubeId && <VideoEmbed>}` est truthy sur n'importe quelle string non vide → src invalide affiché aux visiteurs). Décision : champ laissé en **commentaire YAML** dans le frontmatter (`# youtubeId: "{{VIDEO_ID}}"  # rempli post-upload par /episode-fill...`), invisible au schema Zod (optionnel, absent = pas d'embed cassé), mais repérable par /episode-fill pour décommenter/remplir une fois la vidéo uploadée. Article publiable dès maintenant sans dépendre de l'upload vidéo.
+
+## Statut final
+PUBLISHED — article publié sur le hub (status=published), review 18/18, build Astro propre. Programmé en ligne sur le site au pubDate 2026-09-14 (gating cadence lundi/vendredi standard).
+
+## Fails résiduels (si needs_human)
+Aucun — PASS complet après 1 tour de correction (sur 2 tours autorisés).
+
+## Suggestions de maillage retour (non appliquées — hors scope article-producer)
+| Page existante | Où insérer le lien | Ancre suggérée |
+|---|---|---|
+| src/content/blog/15-signes-site-web-dort.md | Section sur les causes techniques | "quelle technologie choisir pour son site" |
+| src/content/blog/no-code-vs-developpement-sur-mesure.md | Intro ou conclusion | "comparatif WordPress, Webflow, Framer et statique" |
+| src/content/blog/audit-50-sites-indeps-romands.md | Section méthodologie/résultats | "quel type de site choisir pour sa PME" |
