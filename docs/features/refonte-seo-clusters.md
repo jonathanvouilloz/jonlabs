@@ -4,6 +4,26 @@
 > **Plan maître** : `docs/restructuration-clusters.md` (archi cible, verdict par page, liste KILL, feuille de route 5 phases).
 > **Diagnostic data** : `.seo-data/diagnostic-gsc-pages-cannibalisation.md`.
 
+## Etat session 2026-07-10 — Article Wildcat Ep5 « choix techno site PME » (publié)
+
+**Fait :**
+- **Article `choisir-technologie-site-web-pme` produit + publié** via `@article-producer` (pipeline complet write→humanizer→sources→enrich→review→cover→publish). Money site canonique du cluster web/perf/choix techno, angle **dirigeant PME** (distinct de l'essai Substack maker). ~1900 mots, FAQ + Schema.org (BlogPosting + FAQPage), maillage interne ×4 (15-signes-site-web-dort, no-code-vs-developpement-sur-mesure, creer-site-vitrine-ia-visibilite-google, audit-50-sites). Review PASS 18/18 (2 tours).
+- **Seed brief cross-projet** : le slug demandé `wildcat-ep5-stack-technique` était le nom du dossier idée (bip-jon), pas le slug article. Brief réel déposé par `video-spread` sous `content/_drafts/blog/choisir-technologie-site-web-pme.md`.
+- **Vidéo YouTube câblée** : `youtubeId: "k__n0e0sIH0"` posé en frontmatter actif (embed VideoEmbed en tête d'article). L'article-producer l'avait laissé en commentaire (placeholder `{{VIDEO_ID}}`) faute de vidéo uploadée.
+- **Publié aujourd'hui** : `pubDate` avancée de 2026-09-14 → 2026-07-10 (vendredi, cadence OK). Build clean 232 pages, article dans `dist/`. Hub resynchro (content ID `0ea7210aef1a13588ffd283e`). Commit + push sur `main`.
+
+**Prochain :** Reprise du chantier SEO IA (Phase 1 planSEOIA — hub `/consultant-ia`) ou `/epic-recap` de l'epic Refonte blueprint (bouclé). Côté cet article : décommenter/valider via `/episode-fill` post-upload si besoin d'autres champs vidéo.
+
+**Pièges :**
+- **Sources vérifiées réellement** (pas fabriquées) : le « 43% » INP du dossier-prep bip-jon n'a pas été retrouvé → remplacé par WebVitals.tools (INP 72%). 2 claims non confirmables (JS Framer, tarif Webflow) adoucis, pas inventés. Détail dans `.sources.json`.
+- **Warning « duplicate id » au build** = artefact de cache Astro (fichier passé par plusieurs états producer) → disparaît au build propre (`rm -rf dist .astro node_modules/.astro`). Pas un vrai doublon.
+- **Publication réelle = commit + push** (le site build depuis `src/content/blog/` local, pas depuis le hub). Le hub n'est que registre/dashboard.
+- Action manuelle Jonathan : **Request Indexing** GSC sur `/blog/choisir-technologie-site-web-pme` une fois le déploiement Vercel passé.
+
+**Commit :** 4b4d7a7 feat(blog): article « quelle techno pour son site PME » (Wildcat Ep5) + vidéo YouTube
+
+---
+
 ## Etat session 2026-07-01 — Refonte titles/métas piliers + lancement chantier SEO IA
 
 **Fait :**
@@ -230,10 +250,11 @@
 ---
 
 ## Carte du code
-> Mise a jour : 2026-07-01 (titles/métas piliers + chantier SEO IA)
+> Mise a jour : 2026-07-10 (article Wildcat Ep5 choix techno + vidéo YouTube)
 
 | Fichier | Role |
 |---------|------|
+| `src/content/blog/choisir-technologie-site-web-pme.md` | **Article C3a (choix techno site PME, Wildcat Ep5)** : money site canonique cluster web/perf, angle dirigeant. `youtubeId` (embed VideoEmbed) + FAQ + maillage ×4. Sources vérifiées dans le `.sources.json` jumeau |
 | `docs/planSEOIA.md` | **Plan de chantier maître du silo IA** : architecture cible (hub `/consultant-ia` + géo + métiers + landings Hermès/OpenClaw), 4 phases, templates réutilisables, décisions §6, réutilisation du contenu existant. Riposte à hgnn.io |
 | `docs/topical-map-consultant-ia.md` | **Topical map IA** : cluster 30 entrées (2 piliers conversion+info), scoring, fan-out, blueprint maillage, 6 mini-briefs articles, anti-cannibalisation |
 | `src/pages/services/automatisation.astro` | Pilier C1 Automate : title retitré « Automatisation & agents IA entreprise à Genève » (ciblage agent IA). Futur point d'ancrage du hub IA |
