@@ -3,6 +3,23 @@
 > Sortir du look brutaliste (bordures noires 2px + ombres offset, Plus Jakarta Sans) jugé « banal » vers un style **blueprint** : filets très fins qui cadrent les sections, aération, nouveau font pairing éditorial. Exploration en pages lab AVANT toute migration du vrai site.
 > **Réfs visuelles** : pengon.dev, sakib.design. **Statut** : 🔄 EN COURS — migration lancée : **homepage + chrome migrés en blueprint**, reste les autres pages.
 
+## Etat session 2026-07-10 — Calculateur blueprint + sweep orphelins ✅
+
+**Fait :**
+- **Calculateur migré (`40f8060`)** : `CoutDormantCalculateur.astro` (dernier îlot brutaliste, monté dans `/blog/cout-site-web-dormant-calculateur`) réécrit en namespace `.calc-*` + `<style>` scopé. Bordures noires 2px → filets `var(--line-2)` ; ombres offset supprimées (coins nets) ; `bg-accent`/`bg-panel` pleins → `var(--surface)` ; total 1 an mis en avant via **liseré teal inset** (`box-shadow: inset 3px 0 0 var(--accent)`, façon `.co-tldr`) au lieu d'un bloc teal plein ; `font-mono` → chiffres tabulaires (`font-variant-numeric: tabular-nums`) ; labels → eyebrow muted ; bouton CTA → pill sombre `var(--ink)`. **JS 100% inchangé** (IDs `#panier/#clients/#anciennete` + 5 sorties + toggle `.hidden` préservés). Fix layout : `min-width:0` sur les items de grille — les inputs `number` faisaient déborder les colonnes `1fr` (débordement masqué par `overflow:clip` du `.co-root`).
+- **Sweep orphelins (`fdb990d`)** : suppression de **17 composants 0-import** — décos brutalistes (`shapes/{Halo,HalfCircle,DotGrid,Connector}`, `Bars`, `backgrounds/*` ×5, `CTASection`, `FAQ`, `MarkdownPost`), ancien système de nav (`nav/{MegaMenu,MobileNavDrawer,NavLink}` = cluster auto-référentiel fermé ; le chrome utilise `data/navigation` + `Logo`), `IconChip` (+ nettoyage de sa section dans `styleguide.astro`). CSS mort `.nav-logo` retiré de `Header.astro` + `Footer.astro`.
+- **Vérifié :** build vert **223 pages** (inchangé, aucune route supprimée) aux 2 étapes ; calculateur validé live (`localhost:4322`) — logique OK (panier 1200 / 18 mois → CHF 29 050 sur 1 an, CHF 87 150 sur 3 ans), débordement corrigé (field « mois » dans le cadre), 0 erreur console, rendu blueprint cohérent avec l'article.
+
+**Prochain :** Epic **entièrement bouclé** (migration + retouches + calculateur + cleanup). → **`/epic-recap`**. Restes vraiment optionnels : validation mobile <720/<900 sur device réel ; page démo `styleguide-nav.astro` (ancien système nav, garde son propre `.nav-logo`) suppressible plus tard si voulu.
+
+**Pièges :**
+- **Inputs `number` en grille `1fr`** : ont une largeur min-content qui fait déborder la colonne → toujours `min-width:0` sur l'item de grille (le débordement est invisible car `.co-root` clippe, mais l'élément sort du cadre).
+- Pièges antérieurs inchangés (`.co-root{overflow}` vs sticky, plugin `remark-tldr`, artefact motion screenshot).
+
+**Commits :** [40f8060] feat(design): calculateur blueprint · [fdb990d] chore(cleanup): supprime les orphelins
+
+---
+
 ## Etat session 2026-07-07 — Retouches design post-migration (2 lots) ✅
 
 **Fait :**
