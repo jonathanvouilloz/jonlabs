@@ -133,9 +133,9 @@
 .co-glow, .co-cta::before {
   content: ""; position: absolute; inset: -25%; z-index: 0; pointer-events: none;
   background:
-    radial-gradient(38% 46% at 20% 15%, rgba(0,217,163,0.30), transparent 66%),
-    radial-gradient(40% 52% at 84% 92%, rgba(0,168,125,0.22), transparent 70%);
-  filter: blur(70px);
+    radial-gradient(44% 54% at 20% 15%, rgba(0,217,163,0.48), transparent 66%),
+    radial-gradient(46% 60% at 84% 92%, rgba(0,168,125,0.36), transparent 70%);
+  filter: blur(62px);
 }
 /* grain (feTurbulence data URI) — overlay réutilisable (A13). .co-cta l'expose via ::after. */
 .co-grain, .co-cta::after {
@@ -148,7 +148,6 @@
   display: flex; flex-direction: column; align-items: center; text-align: center;
   gap: 20px; padding: 104px 40px;
 }
-.co-cta-eyebrow { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--accent-bright); }
 .co-cta-title { font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1.08; max-width: 18ch; }
 .co-cta-title .co-ser { color: var(--accent-bright); }
 .co-cta-lead { color: rgba(255,255,255,0.7); max-width: 46ch; line-height: 1.6; }

@@ -92,7 +92,7 @@ const featuredMeta = [
       <article class="po-feature co-frame" data-animate data-delay="0.15">
         <!-- Image cadrée filets -->
         <a href={proofLecureux.portfolioUrl} class="po-feature-media" aria-label={`Voir l'étude de cas : ${proofLecureux.company}`}>
-          <img src="/images/portfolio/leo-lecureux/hero.webp" alt={`Site ${proofLecureux.company} — ${proofLecureux.metierShort}`} loading="lazy" />
+          <img src="/images/portfolio/leo-lecureux/featured.webp" alt={`Site ${proofLecureux.company} — ${proofLecureux.metierShort}`} loading="lazy" />
           <span class="po-feature-tag"><i class="po-dot" aria-hidden="true"></i>SEO local</span>
         </a>
 
@@ -170,7 +170,6 @@ const featuredMeta = [
     <section class="co-cta">
       <span class="co-x tl"></span><span class="co-x tr"></span>
       <div class="co-cta-inner">
-        <p class="co-cta-eyebrow">Un projet en tête ?</p>
         <h2 class="co-cta-title">Le prochain cas vedette, c'est <span class="co-ser">le vôtre.</span></h2>
         <p class="co-cta-lead">Un premier appel gratuit pour cadrer, un devis clair, une réponse sous 24&nbsp;h.</p>
         <div class="co-cta-btns">
@@ -203,9 +202,10 @@ const featuredMeta = [
     position: relative; display: block; overflow: hidden;
     grid-row: 1 / span 2; min-height: 340px; /* s'étire sur la hauteur de la colonne droite */
     border-right: 1px solid var(--line);
+    background: #eaeef6; /* = bord bas de featured.webp : remplit le bas du slot sans raccord visible */
   }
   .po-feature-media img {
-    width: 100%; height: 100%; object-fit: cover; display: block;
+    width: 100%; height: auto; display: block; /* carré affiché à sa taille naturelle en haut, 0 crop ; le fond lavande remplit dessous */
     transition: transform .6s ease-out;
   }
   .po-feature:hover .po-feature-media img { transform: scale(1.03); }
@@ -298,7 +298,7 @@ const featuredMeta = [
   }
   @media (max-width: 900px) {
     .po-feature { grid-template-columns: 1fr; }
-    .po-feature-media { grid-row: auto; min-height: 0; aspect-ratio: 16 / 10; border-right: 0; border-bottom: 1px solid var(--line); }
+    .po-feature-media { grid-row: auto; min-height: 0; aspect-ratio: 1 / 1; border-right: 0; border-bottom: 1px solid var(--line); }
     .po-stats { grid-column: 1; grid-row: auto; border-left: 0; }
   }
   @media (max-width: 720px) {
