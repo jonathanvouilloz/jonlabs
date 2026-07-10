@@ -45,7 +45,7 @@ export const organizationData = {
   "sameAs": [
     "https://www.linkedin.com/in/jonathan-vouilloz-3b5741139/",
     "https://github.com/jonathanvouilloz",
-    "https://www.youtube.com/@jonlabs1005"
+    "https://www.youtube.com/@jonlabs_ia"
   ],
   "areaServed": [
     {
@@ -127,7 +127,7 @@ export const personData = {
   "sameAs": [
     "https://www.linkedin.com/in/jonathan-vouilloz-3b5741139/",
     "https://github.com/jonathanvouilloz",
-    "https://www.youtube.com/@jonlabs1005"
+    "https://www.youtube.com/@jonlabs_ia"
   ]
 };
 
@@ -163,7 +163,7 @@ export const localBusinessData = {
   "sameAs": [
     "https://www.linkedin.com/in/jonathan-vouilloz-3b5741139/",
     "https://github.com/jonathanvouilloz",
-    "https://www.youtube.com/@jonlabs1005"
+    "https://www.youtube.com/@jonlabs_ia"
   ]
 };
 
