@@ -65,7 +65,7 @@ export const mainNav: NavSection[] = [
     spotlight: {
       icon: 'ri-star-fill',
       title: 'Tu cherches un freelance basé à Genève ?',
-      description: 'Page dédiée freelance Genève — positionnement transactionnel',
+      description: 'Développeur freelance basé à Genève, disponible pour votre projet.',
       href: '/developpeur-web-freelance-geneve',
     },
   },
