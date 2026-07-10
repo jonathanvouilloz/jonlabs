@@ -9,14 +9,16 @@
 - **Calculateur migré (`40f8060`)** : `CoutDormantCalculateur.astro` (dernier îlot brutaliste, monté dans `/blog/cout-site-web-dormant-calculateur`) réécrit en namespace `.calc-*` + `<style>` scopé. Bordures noires 2px → filets `var(--line-2)` ; ombres offset supprimées (coins nets) ; `bg-accent`/`bg-panel` pleins → `var(--surface)` ; total 1 an mis en avant via **liseré teal inset** (`box-shadow: inset 3px 0 0 var(--accent)`, façon `.co-tldr`) au lieu d'un bloc teal plein ; `font-mono` → chiffres tabulaires (`font-variant-numeric: tabular-nums`) ; labels → eyebrow muted ; bouton CTA → pill sombre `var(--ink)`. **JS 100% inchangé** (IDs `#panier/#clients/#anciennete` + 5 sorties + toggle `.hidden` préservés). Fix layout : `min-width:0` sur les items de grille — les inputs `number` faisaient déborder les colonnes `1fr` (débordement masqué par `overflow:clip` du `.co-root`).
 - **Sweep orphelins (`fdb990d`)** : suppression de **17 composants 0-import** — décos brutalistes (`shapes/{Halo,HalfCircle,DotGrid,Connector}`, `Bars`, `backgrounds/*` ×5, `CTASection`, `FAQ`, `MarkdownPost`), ancien système de nav (`nav/{MegaMenu,MobileNavDrawer,NavLink}` = cluster auto-référentiel fermé ; le chrome utilise `data/navigation` + `Logo`), `IconChip` (+ nettoyage de sa section dans `styleguide.astro`). CSS mort `.nav-logo` retiré de `Header.astro` + `Footer.astro`.
 - **Vérifié :** build vert **223 pages** (inchangé, aucune route supprimée) aux 2 étapes ; calculateur validé live (`localhost:4322`) — logique OK (panier 1200 / 18 mois → CHF 29 050 sur 1 an, CHF 87 150 sur 3 ans), débordement corrigé (field « mois » dans le cadre), 0 erreur console, rendu blueprint cohérent avec l'article.
+- **Maintenance post-epic (même session)** : fix handle YouTube (`@jonlabs1005` → `@jonlabs_ia`, `b9f78a8`) ; **page contact anti-cannibalisation** — title « Développeur Web Freelance Genève » → « Me contacter | Jon Labs » + meta reformulée (`a6bd52b`, la home garde la requête géo-dev) ; titre form « Lancer une expérience » → « Parlez-moi de votre projet » + eyebrow « Alternative » du bloc CTA retiré (`8bc5e73`) ; **Substack ajouté aux réseaux** (author + hero/footer/contact + 3 `sameAs`, `1518c5f`) ; fix jargon SEO interne fuité dans le méga-menu (`navigation.ts`, `0c522b7`) ; lot contenu pré-existant committé (`86ad00a`, repositionnement identité SEO/GEO + drafts/LinkedIn/moodboard).
 
 **Prochain :** Epic **entièrement bouclé** (migration + retouches + calculateur + cleanup). → **`/epic-recap`**. Restes vraiment optionnels : validation mobile <720/<900 sur device réel ; page démo `styleguide-nav.astro` (ancien système nav, garde son propre `.nav-logo`) suppressible plus tard si voulu.
 
 **Pièges :**
 - **Inputs `number` en grille `1fr`** : ont une largeur min-content qui fait déborder la colonne → toujours `min-width:0` sur l'item de grille (le débordement est invisible car `.co-root` clippe, mais l'élément sort du cadre).
+- **Remix Icon 4.6.0 n'a PAS de glyphe Substack** (`ri-substack-line/fill` = carré vide, largeur 0) → fallback `ri-newspaper-line/fill`. Toujours vérifier live qu'un glyphe rend (largeur > 0) avant de graver une icône.
 - Pièges antérieurs inchangés (`.co-root{overflow}` vs sticky, plugin `remark-tldr`, artefact motion screenshot).
 
-**Commits :** [40f8060] feat(design): calculateur blueprint · [fdb990d] chore(cleanup): supprime les orphelins
+**Commits :** [40f8060] calculateur blueprint · [fdb990d] cleanup orphelins · [b9f78a8] fix YouTube · [a6bd52b] SEO contact · [8bc5e73] copy contact · [1518c5f] Substack · [0c522b7] fix nav · [86ad00a] lot contenu
 
 ---
 
@@ -258,7 +260,17 @@
 **Commit :** [e92b8f2] feat(design): exploration blueprint — pairing 04, BlueprintKit partagé, pages lab (branche `design/blueprint-lab`)
 
 ## Carte du code
-> Mise à jour : 2026-07-07 — retouches design post-migration (voir sous-section ci-dessous). Base : **45/51 pages en `.co-root` · toutes les pages indexées migrées.**
+> Mise à jour : 2026-07-10 — calculateur blueprint + sweep orphelins fait + maintenance contact/socials. Base : **45/51 pages en `.co-root` · toutes les pages indexées migrées.**
+
+### Session 2026-07-10 (nouveaux / modifiés)
+| Fichier | Rôle |
+|---------|------|
+| `src/components/CoutDormantCalculateur.astro` | Calculateur `/blog/cout-site-web-dormant` migré blueprint (namespace `.calc-*` + `<style>` scopé, `min-width:0` sur items de grille). JS/IDs intacts |
+| `src/pages/contact.astro` | Title/meta reframe anti-cannibalisation (« Me contacter » au lieu de « Développeur Freelance Genève ») |
+| `src/components/{ContactForm,ContactCTA,ContactInfo}.astro` | Titre form « Parlez-moi de votre projet » · eyebrow CTA retiré · carte Substack (icône `ri-newspaper-line`) |
+| `src/sample.ts` · `src/components/{Hero,Footer}.astro` · `src/data/schema.ts` | `author.substack` + Substack dans rangées sociales + 3 `sameAs`. YouTube handle corrigé (`@jonlabs_ia`) |
+| `src/data/navigation.ts` | Jargon SEO interne (« positionnement transactionnel ») retiré du spotlight méga-menu |
+| **17 composants supprimés** | `shapes/{Halo,HalfCircle,DotGrid,Connector}`, `Bars`, `backgrounds/*`, `CTASection`, `FAQ`, `MarkdownPost`, `nav/*`, `IconChip` — tous 0-import après migration |
 
 ### Retouches 2026-07-07 (nouveaux / modifiés)
 | Fichier | Rôle |
@@ -290,8 +302,8 @@
 | `src/pages/portfolio/[slug].astro` | `.psl-*` | getStaticPaths + getCollection portfolio + corps `.co-prose` |
 | `src/pages/cv.astro` + `src/components/cv/*.astro` (×9) | `.cv-*` | CV : ProfilePage schema, JS pixel-explosion + GSAP, Modal, lien `/cv-pdf` (doc print laissé brutaliste) |
 
-### Composants désormais orphelins (0 import — suppressibles au cleanup)
-`src/components/shapes/Halo.astro` · `src/components/CTASection.astro` · `src/components/FAQ.astro` · `src/components/IconChip.astro` (ne reste que dans `styleguide.astro` brutaliste). `src/components/lab/BlueprintKit.astro` (no-op déprécié).
+### Composants orphelins — SUPPRIMÉS le 2026-07-10 (`fdb990d`)
+17 composants 0-import supprimés (voir sous-section « Session 2026-07-10 » en tête). Reste `src/components/lab/BlueprintKit.astro` (no-op déprécié, non supprimé) et la page démo `styleguide-nav.astro` (ancien système nav) — candidats optionnels.
 
 
 

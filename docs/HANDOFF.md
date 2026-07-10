@@ -9,8 +9,8 @@
 | Refonte SEO / clusters | docs/features/refonte-seo-clusters.md | EN COURS |
 
 ## Reprendre ici
-**Refonte blueprint** — epic **entièrement terminé**. Dernière session (10.07) : calculateur `/blog/cout-site-web-dormant-calculateur` migré en blueprint + suppression de 17 composants orphelins + CSS mort `.nav-logo`. Build vert 223 pages. → lancer **`/epic-recap`** (rapport de fin d'epic). Restes optionnels : validation mobile device, suppression `styleguide-nav.astro`.
-Commits : [40f8060] calculateur blueprint · [fdb990d] chore(cleanup) orphelins
+**Refonte blueprint** — epic **entièrement terminé** → lancer **`/epic-recap`** (rapport de fin d'epic). Session 10.07 : calculateur migré blueprint + 17 orphelins supprimés + maintenance (SEO contact anti-cannibalisation, Substack socials, fix nav). Build vert 223 pages. Restes optionnels : validation mobile device, `styleguide-nav.astro`.
+Commit : [86ad00a] content: repositionnement identité + drafts (dernier de session)
 
 ## Actions manuelles en attente (côté Jonathan)
 - **Validation mobile <720/<900px sur device** des pages blueprint (l'outil capture à 1568px fixe).
