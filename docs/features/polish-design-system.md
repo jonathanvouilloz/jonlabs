@@ -4,6 +4,25 @@
 > **Source ADN visuel marque perso** : skill `visual` (`~/.claude/skills/visual/`) — mono-accent teal `#00D9A3`, fond warm, connecteurs fins, formes arrondies, illustration « collage éditorial ».
 > **Statut** : 🔄 EN COURS — Phases 1a + 1b + 2 + 3 + 4 faites ✅. **Phase 5 (Lecureux) faite ✅** (source unique + harmonisation + fix erreur factuelle divorce, build vert 211 pages). Reste : 1 sous-tâche Phase 5 **bloquée** (chiffres GSC de l'article blog) + **Phase 6 (tags)** bloquée par vérif GSC.
 
+## Etat session 2026-07-10 — Label catégorie « slash slug » + nettoyage footer ✅
+
+**Fait :** deux retouches de design system, buildées vertes (232 pages) et poussées sur `main`.
+
+- **Nouveau langage de label catégorie sur les cartes** : la pill `.co-badge` (arrondie, uppercase, point teal) est remplacée par un **slash slug** minimaliste — `/ applications-mobiles`, `/ site-vitrine` — en **Inter Tight light italic** (poids 300), gris `--muted`, le slash en teal `--accent`. Nouvelle primitive **`.co-cat`** dans `blueprint.css` (d'abord introduite `.bl-cat` puis **généralisée en `.co-cat`** neutre, partagée blog + portfolio). Chargement font mis à jour dans `Layout.astro` (axe `ital` + poids `300..700` ajoutés à Inter Tight).
+- **Appliqué partout où une carte affiche sa catégorie** :
+  - Blog : `PostCard` (grille + page tag + articles similaires) — label **déplacé de l'image vers le corps** au-dessus du titre (lisibilité) ; carte à la une `blog/index.astro`. Slug via nouveau `getCategorySlug()` + champ `slug` ajouté à `categories` dans `src/lib/blog.ts`.
+  - Portfolio : `PortfolioCardEditorial` (grille /portfolio), `PortfolioHighlight` (home — affiche le **type** en kebab `/ etude-de-cas` `/ side-project`, CTA « Voir l'étude de cas » vs « Voir le projet » recâblé), en-tête + cartes similaires des fiches `[slug].astro`, et **cas vedette Lécureux** (`portfolio.astro`) : tag retiré de l'image → `/ seo-local` dans le corps, styles morts `.po-feature-tag` / `.po-dot` supprimés.
+  - Non touché (voulu) : chips de filtre (`.bl-chip` / `.po-chip`, gardent l'affordance bouton), tags d'article, `.co-badge` global (pricing/étapes/guides), pages `styleguide-*` lab (noindex).
+- **Footer allégé** : suppression de la colonne **« Zones & régions »** (revient sur l'ajout Phase 4) — jugée sans plus-value. Grille rééquilibrée 6→5 colonnes. **Aucune page orphelinisée** : villes web toujours liées via `GeoZonesStrip`/`services`/pilier C3a, régions IA via leur hub `/consultant-ia`. Les exports `footerZonesWeb`/`footerRegionsIA` de `navigation.ts` sont conservés (encore lus par `styleguide-nav`).
+
+**Piège utile :** un warning build « duplicate id » sur un `.md` blog = artefact de cache Astro (fichier passé par plusieurs états) → disparaît avec `rm -rf dist .astro node_modules/.astro`. Pas un vrai doublon.
+
+**Prochain :** inchangé — **Phase 6 (tags)** toujours bloquée par vérif indexation GSC ; reframe éditorial article Lécureux (`visibilite-site-internet-2026.md`) toujours reporté.
+
+**Commits :** [d247cc7] footer sans Zones & régions · [2687009] slash slug blog · [7827ad8] slash slug cartes réalisations (+.bl-cat→.co-cat) · [8ba0165] slash slug home/fiches/vedette — tous poussés (`4b4d7a7..8ba0165`).
+
+---
+
 ## Etat session 2026-07-03 (suite) — Phase 5 : Rationalisation Lecureux ✅
 
 **Fait :** harmonisation complète de la preuve Léo Lécureux, **recalée sur la vraie data GSC** (accès `sc-domain:lecureux-conseil.ch` ouvert par Jonathan en cours de session). Build **vert (211 pages)**. Approche = source unique + fix ciblé, devis non touchés.
