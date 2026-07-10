@@ -25,7 +25,7 @@ const { title, description, image, category, tags, pubDate, readingTime } = post
   </div>
 
   <div class="bl-card-body">
-    <span class="bl-cat">{getCategorySlug(category)}</span>
+    <span class="co-cat">{getCategorySlug(category)}</span>
     <h3 class="bl-card-title">{title}</h3>
     <div class="bl-meta">
       <time datetime={pubDate.toISOString()}>{formatDateShort(pubDate)}</time>

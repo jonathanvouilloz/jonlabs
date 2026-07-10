@@ -3,8 +3,8 @@
  * PortfolioCardEditorial — Carte blueprint pour la page Réalisations
  *
  * Coins nets, filet + crosshairs au survol (.co-frame--reveal), média cadré
- * (ou placeholder hachuré .co-hatch si pas d'image), badge catégorie unique
- * (.co-badge, point teal — pas de couleur par catégorie), 1 résultat clé.
+ * (ou placeholder hachuré .co-hatch si pas d'image), label catégorie en slash
+ * slug (.co-cat, ex. « / site-vitrine » — pas de couleur par catégorie), 1 résultat clé.
  * Les styles .po-* vivent dans le <style is:global> de portfolio.astro.
  *
  * data-category = utilisé par le JS de filtres de la grille.
@@ -20,18 +20,8 @@ interface Props {
 const { project } = Astro.props;
 const { title, description, heroImage, project: projectData, entryType, client, results } = project.data;
 
-const categoryLabels: Record<string, string> = {
-  'site-vitrine': 'Site vitrine',
-  'e-commerce': 'E-commerce',
-  'application': 'Application',
-  'seo': 'SEO',
-  'automatisation': 'Automatisation',
-  'side-project': 'Projet perso',
-};
-
 const isSideProject = entryType === 'side-project';
 const categoryKey = isSideProject ? 'side-project' : projectData.category;
-const categoryLabel = categoryLabels[categoryKey] || categoryKey;
 const top = results?.[0];
 ---
 
@@ -52,7 +42,7 @@ const top = results?.[0];
 
   <div class="po-card-body">
     <div class="po-card-meta">
-      <span class="co-badge">{categoryLabel}</span>
+      <span class="co-cat">{categoryKey}</span>
       {client?.name && <span class="co-mut">{client.name}</span>}
     </div>
     <h3 class="po-card-title">{title}</h3>

@@ -181,14 +181,14 @@
 .co-badge--solid { background: var(--accent); border-color: var(--accent); color: #fff; }
 .co-badge--solid::before { background: #fff; }
 
-/* Label catégorie blog — slash slug, Inter Tight light italic (remplace .co-badge sur les cartes) */
-.bl-cat {
+/* Label catégorie cartes (blog + réalisations) — slash slug, Inter Tight light italic (remplace .co-badge) */
+.co-cat {
   display: inline-flex; align-items: baseline; gap: 5px;
   font-family: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
   font-size: 12.5px; font-weight: 300; font-style: italic;
   letter-spacing: 0.01em; line-height: 1.4; color: var(--muted);
 }
-.bl-cat::before { content: "/"; font-style: normal; font-weight: 400; color: var(--accent); }
+.co-cat::before { content: "/"; font-style: normal; font-weight: 400; color: var(--accent); }
 
 /* A2 · Cadre 4 crosshairs sans markup. Parent = position:relative.
    ::before = TL + BR ; ::after = TR + BL (4 backgrounds/pseudo, positions 4-valeurs).
