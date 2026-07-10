@@ -100,7 +100,7 @@ CHF 800 à 1 600 la première année. C'est le budget réaliste d'Hermes Agent p
 ```
 Illustration style Excalidraw / hand-drawn sketch on warm off-white background.
 Messy, quick, like someone drew it in 30 seconds on a whiteboard.
-Colors: black ink on off-white, with #00D4AA for positive elements and #FFDC58 for accents.
+Colors: black ink on off-white, with #00D9A3 for positive elements and #FFDC58 for accents.
 Wobbly lines, imperfect handwriting. No polished vector art.
 
 Content: A rough robot sketch on the left labeled "Hermes Agent" with a memory chip icon and a thought bubble showing "Memory: ON". Three arrows pointing right to small task icons: a magnifying glass ("veille"), an envelope ("emails"), a document ("propositions"). Below, a small caption in messy handwriting: "61k stars GitHub". Feels like a quick whiteboard explanation.
@@ -110,7 +110,7 @@ Content: A rough robot sketch on the left labeled "Hermes Agent" with a memory c
 ```
 Illustration style Excalidraw / hand-drawn sketch on warm off-white background.
 Messy, quick, like someone drew it in 30 seconds on a whiteboard.
-Colors: black ink on off-white, with #00D4AA for positive elements and #FFDC58 for accents.
+Colors: black ink on off-white, with #00D9A3 for positive elements and #FFDC58 for accents.
 Wobbly lines, imperfect handwriting. No polished vector art.
 
 Content: A rough invoice or receipt sketch with handwritten line items: "Code: CHF 0", "Hosting: CHF 5-15/mo", "API LLM: CHF 10-60/mo", "Setup: CHF 400-1200". A big total at the bottom in yellow: "CHF 800-1600 année 1". The word "GRATUIT" crossed out in red ink at the top. Feels like a back-of-envelope calculation.

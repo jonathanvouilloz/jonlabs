@@ -99,7 +99,7 @@ Contenu: 3 angles (Detailed SEO + Redirect Path / GSC Indexation>Pages / curl ou
 - placement: cover
 - type: illustration
 - subject: le perso blob jonlabs face à une page web dupliquée en plusieurs fantômes d'URL
-- description: blob perplexe (lunettes) devant 5 cartes "page" identiques empilées et décalées, une seule surlignée en turquoise #00D4AA. Fond clair #FEFFF0, style doodle cohérent moodboard.
+- description: blob perplexe (lunettes) devant 5 cartes "page" identiques empilées et décalées, une seule surlignée en turquoise #00D9A3. Fond clair #FEFFF0, style doodle cohérent moodboard.
 - alt_text: Une page web servie sous plusieurs URL, illustrant le duplicate content à corriger avec le canonical
 - aspect_ratio: 16:9
 

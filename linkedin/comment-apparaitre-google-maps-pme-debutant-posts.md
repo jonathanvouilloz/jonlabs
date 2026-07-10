@@ -59,10 +59,10 @@ Ta fiche Google existe peut-être déjà, créée automatiquement par Google ave
 ### Image Vendredi
 ```
 Hand-drawn Excalidraw sketch on warm off-white background (#FEFFF0).
-Left side: a simple map outline with 3 location pins. Two of them have green checkmarks in #00D4AA, the third (centered) is replaced by a large wobbly question mark in black ink.
+Left side: a simple map outline with 3 location pins. Two of them have green checkmarks in #00D9A3, the third (centered) is replaced by a large wobbly question mark in black ink.
 Right side: a vertical checklist of 5 items in messy handwriting: "Créer", "Renseigner", "Catégorie", "Vérifier", "Photos". Items 1 and 2 are crossed out.
 A #FFDC58 highlighter stroke smeared across "Vérifier" — the make-or-break step.
 Style: quick, like someone drew it in 30 seconds on a whiteboard. Wobbly lines, imperfect handwriting, no polished vector art.
-Black ink on off-white, #00D4AA for the validated pins, #FFDC58 for the highlight.
+Black ink on off-white, #00D9A3 for the validated pins, #FFDC58 for the highlight.
 Max 5 visible words on the checklist + question mark. Readable in LinkedIn thumbnail.
 ```

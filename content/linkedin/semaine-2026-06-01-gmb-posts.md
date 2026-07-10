@@ -137,7 +137,7 @@ Tu collectes des avis Google avec un QR code. Bonne nouvelle : tu fais comme tou
 Illustration style Excalidraw / hand-drawn sketch on warm off-white background.
 Messy, quick, like someone drew it in 30 seconds on a whiteboard.
 A storefront sign drawn in black ink with a big red X across it, labeled "GMB SUSPENDED".
-To the right, three doors drawn in a row labeled "APPEAL", "APPEAL 2", "FORUM" — the first two have a small red cross, the third has a green check in #00D4AA.
+To the right, three doors drawn in a row labeled "APPEAL", "APPEAL 2", "FORUM" — the first two have a small red cross, the third has a green check in #00D9A3.
 A wobbly arrow in #FFDC58 points from "FORUM" to a small figure escalating a folder.
 Wobbly lines, imperfect handwriting. No polished vector art.
 Text in image: "GMB SUSPENDED", "FORUM = escalade".
@@ -148,7 +148,7 @@ Text in image: "GMB SUSPENDED", "FORUM = escalade".
 Illustration style Excalidraw / hand-drawn sketch on warm off-white background.
 Messy, quick, like someone drew it in 30 seconds on a whiteboard.
 A speech bubble drawn in black ink, divided into 4 horizontal blocks labeled "1. MERCI", "2. CONTENU", "3. SERVICE + VILLE", "4. SIGNATURE".
-Block 3 highlighted in #00D4AA with a small star next to it.
+Block 3 highlighted in #00D9A3 with a small star next to it.
 A tiny Google "G" logo drawn in the corner with an arrow pointing at the bubble in #FFDC58.
 Wobbly lines, imperfect handwriting. No polished vector art.
 Text in image: "1. MERCI", "2. CONTENU", "3. SERVICE+VILLE", "4. SIGNATURE".
@@ -159,7 +159,7 @@ Text in image: "1. MERCI", "2. CONTENU", "3. SERVICE+VILLE", "4. SIGNATURE".
 Illustration style Excalidraw / hand-drawn sketch on warm off-white background.
 Messy, quick, like someone drew it in 30 seconds on a whiteboard.
 On the left, a sad-looking QR code drawn in black ink sitting alone on a comptoir, with cobwebs and "3/mois" written above in messy script.
-On the right, an arrow in #00D4AA pointing to a phone with an SMS bubble + a forking diagram showing "4-5 étoiles → Google" (green check) and "1-3 étoiles → SAV" (yellow arrow in #FFDC58).
+On the right, an arrow in #00D9A3 pointing to a phone with an SMS bubble + a forking diagram showing "4-5 étoiles → Google" (green check) and "1-3 étoiles → SAV" (yellow arrow in #FFDC58).
 Wobbly lines, imperfect handwriting. No polished vector art.
 Text in image: "QR seul = 3/mois", "SMS + filtre = système".
 ```

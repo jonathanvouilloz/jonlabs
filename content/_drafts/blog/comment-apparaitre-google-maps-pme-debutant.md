@@ -85,7 +85,7 @@ Contenu : 5 erreurs simples à éviter pour les débutants. (1) Mettre un faux n
 - placement: cover
 - type: photo composite avec overlay texte
 - subject: Carte Google Maps sur smartphone avec épingle de localisation et interface business
-- description: Main tenant un smartphone avec l'app Google Maps ouverte, épingle rouge sur une rue commerçante. Fond crème (#FEFFF0) ou sombre. Overlay texte en Plus Jakarta Sans SemiBold : "Apparaître sur Google Maps". Accent vert menthe (#00D4AA). Style brutaliste : bordure épaisse noire, ombre décalée 3D.
+- description: Main tenant un smartphone avec l'app Google Maps ouverte, épingle rouge sur une rue commerçante. Fond crème (#FEFFF0) ou sombre. Overlay texte en Plus Jakarta Sans SemiBold : "Apparaître sur Google Maps". Accent vert menthe (#00D9A3). Style brutaliste : bordure épaisse noire, ombre décalée 3D.
 - alt_text: Comment apparaître sur Google Maps — guide PME débutant 2026
 - aspect_ratio: 16:9
 

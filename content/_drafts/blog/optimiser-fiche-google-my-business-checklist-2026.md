@@ -140,7 +140,7 @@ Contenu : Conclusion actionnable. Pour ceux qui ont une fiche existante mais jam
 - placement: cover
 - type: photo composite avec overlay texte
 - subject: Checklist sur clipboard avec fiche GMB sur smartphone en arrière-plan
-- description: Bureau avec clipboard montrant une checklist annotée (cases cochées), smartphone affichant une fiche GBP optimisée en fond flou. Fond crème (#FEFFF0). Overlay texte : "Checklist GMB 2026". Accent vert menthe (#00D4AA). Style brutaliste Jon Labs.
+- description: Bureau avec clipboard montrant une checklist annotée (cases cochées), smartphone affichant une fiche GBP optimisée en fond flou. Fond crème (#FEFFF0). Overlay texte : "Checklist GMB 2026". Accent vert menthe (#00D9A3). Style brutaliste Jon Labs.
 - alt_text: Checklist optimiser fiche Google My Business 2026 — 25 points classés par impact
 - aspect_ratio: 16:9
 

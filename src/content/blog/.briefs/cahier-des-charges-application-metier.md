@@ -126,7 +126,7 @@ Contenu: Synthèse en 2-3 phrases : un bon cahier des charges décrit ton métie
 - Alt text: Commanditaire non-technique remettant un cahier des charges clair à un développeur pour un devis
 - Text overlay: Cahier des charges
 - Aspect ratio: 16:9
-- Notes: Fond clair, palette Jon Labs (vert menthe #00D4AA + jaune #FFDC58). Style flat. Pas de jargon visible.
+- Notes: Fond clair, palette Jon Labs (vert menthe #00D9A3 + jaune #FFDC58). Style flat. Pas de jargon visible.
 
 **Image 2 — after-h2:Ce que ton dev attend vraiment de toi**
 - Type: schema/diagram

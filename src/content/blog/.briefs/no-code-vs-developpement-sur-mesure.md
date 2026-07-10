@@ -136,7 +136,7 @@ Contenu: Synthèse en 2-3 phrases : no-code pour tester, sur-mesure pour durer ;
 - Alt text: Comparatif no-code versus développement sur-mesure pour PME avec framework en 3 phases
 - Text overlay: No-code vs Sur-mesure
 - Aspect ratio: 16:9
-- Notes: Fond clair, palette Jon Labs (vert menthe #00D4AA + jaune #FFDC58). Pas de logos de marques réelles (pas de logo Bubble/Webflow).
+- Notes: Fond clair, palette Jon Labs (vert menthe #00D9A3 + jaune #FFDC58). Pas de logos de marques réelles (pas de logo Bubble/Webflow).
 
 **Image 2 — after-h2:Le framework en 3 phases**
 - Type: schema/diagram

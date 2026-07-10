@@ -90,7 +90,7 @@ Je vais être transparent sur les tarifs du référencement local à Genève. Le
 ```
 Illustration style Excalidraw / hand-drawn sketch on warm off-white background.
 Messy, quick, like someone drew it in 30 seconds on a whiteboard.
-On the left, a phone showing an Instagram-style post crossed out with a red X. On the right, the same space redrawn as a tiny "landing page" with a bold first line, a single big button labeled "RÉSERVER" in #00D4AA, and a link with a "?utm" tag highlighted in #FFDC58.
+On the left, a phone showing an Instagram-style post crossed out with a red X. On the right, the same space redrawn as a tiny "landing page" with a bold first line, a single big button labeled "RÉSERVER" in #00D9A3, and a link with a "?utm" tag highlighted in #FFDC58.
 A small "1/semaine" note with a calendar, and a faded "3/semaine" with a downward arrow.
 Wobbly lines, imperfect handwriting. No polished vector art.
 Text in image: "pas Instagram", "mini landing page".
@@ -100,7 +100,7 @@ Text in image: "pas Instagram", "mini landing page".
 ```
 Illustration style Excalidraw / hand-drawn sketch on warm off-white background.
 Messy, quick, like someone drew it in 30 seconds on a whiteboard.
-A Google Maps local pack of 3 cards drawn in black ink, the top one highlighted in #00D4AA. Around it, hand-written price tags: "30-50 avis", "setup 800-2500 CHF", "suivi 200-800/mois", "DIY 4-6h/mois", the DIY one circled in #FFDC58.
+A Google Maps local pack of 3 cards drawn in black ink, the top one highlighted in #00D9A3. Around it, hand-written price tags: "30-50 avis", "setup 800-2500 CHF", "suivi 200-800/mois", "DIY 4-6h/mois", the DIY one circled in #FFDC58.
 Wobbly lines, imperfect handwriting. No polished vector art.
 Text in image: "top 3 Genève", "les vrais chiffres".
 ```

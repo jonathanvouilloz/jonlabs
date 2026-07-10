@@ -134,7 +134,7 @@
 - placement: after-h2:Technologies disponibles pour développer votre application mobile
 - type: infographic / tableau visuel
 - subject: Comparatif visuel natif vs Flutter vs React Native vs PWA
-- description: Tableau 4 colonnes, style brutaliste (bordures noires, fond blanc, accent vert menthe #00D4AA pour la colonne recommandée Flutter/RN). Critères : performances, coût, délai, stores. Lecture rapide, taille de police lisible, sans fond grisé fade.
+- description: Tableau 4 colonnes, style brutaliste (bordures noires, fond blanc, accent vert menthe #00D9A3 pour la colonne recommandée Flutter/RN). Critères : performances, coût, délai, stores. Lecture rapide, taille de police lisible, sans fond grisé fade.
 - alt_text: Comparatif technologies app mobile : natif vs Flutter vs React Native vs PWA
 - aspect_ratio: 16:9
 

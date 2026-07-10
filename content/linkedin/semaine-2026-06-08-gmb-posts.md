@@ -87,7 +87,7 @@ Il y a deux champs dans la création d'une fiche Google que tu remplis en 30 sec
 Illustration style Excalidraw / hand-drawn sketch on warm off-white background.
 Messy, quick, like someone drew it in 30 seconds on a whiteboard.
 A small Google Maps podium drawn in black ink with 3 pins of decreasing height labeled "1", "2", "3".
-The "1" pin is highlighted in #00D4AA. Next to the podium, a wobbly balance scale weighing two stacks of star reviews: a tall stack labeled "40 vieux" tipping UP (lighter), a short stack labeled "20 récents" tipping DOWN (heavier), the heavier one circled in #FFDC58.
+The "1" pin is highlighted in #00D9A3. Next to the podium, a wobbly balance scale weighing two stacks of star reviews: a tall stack labeled "40 vieux" tipping UP (lighter), a short stack labeled "20 récents" tipping DOWN (heavier), the heavier one circled in #FFDC58.
 Wobbly lines, imperfect handwriting. No polished vector art.
 Text in image: "TOP 3 MAPS", "fraîcheur > total".
 ```
@@ -96,7 +96,7 @@ Text in image: "TOP 3 MAPS", "fraîcheur > total".
 ```
 Illustration style Excalidraw / hand-drawn sketch on warm off-white background.
 Messy, quick, like someone drew it in 30 seconds on a whiteboard.
-A simple phone screen drawn in black ink showing a "Créer ma fiche" form. Two fields are circled hard in #FFDC58 and pulled out with arrows: one labeled "CATÉGORIE", one labeled "ADRESSE vs ZONE". A small clock in the corner says "1h" with a #00D4AA check.
+A simple phone screen drawn in black ink showing a "Créer ma fiche" form. Two fields are circled hard in #FFDC58 and pulled out with arrows: one labeled "CATÉGORIE", one labeled "ADRESSE vs ZONE". A small clock in the corner says "1h" with a #00D9A3 check.
 The other form fields are faded/greyed to show they matter less.
 Wobbly lines, imperfect handwriting. No polished vector art.
 Text in image: "1h pour créer", "2 choix pour 3 ans".

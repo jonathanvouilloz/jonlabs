@@ -92,7 +92,7 @@ Optimiser une fiche Google, ce n'est pas une to-do de 25 lignes. C'est 8 groupes
 ```
 Illustration style Excalidraw / hand-drawn sketch on warm off-white background.
 Messy, quick, like someone drew it in 30 seconds on a whiteboard.
-A wobbly balance scale drawn in black ink. Left pan: a huge dusty stack of stars labeled "200 vieux" with cobwebs, tipping UP (light). Right pan: a small fresh stack labeled "60 récents" glowing, tipping DOWN (heavy), circled in #00D4AA.
+A wobbly balance scale drawn in black ink. Left pan: a huge dusty stack of stars labeled "200 vieux" with cobwebs, tipping UP (light). Right pan: a small fresh stack labeled "60 récents" glowing, tipping DOWN (heavy), circled in #00D9A3.
 A small calendar icon with a #FFDC58 highlight and "5/mois" written next to a recurring arrow loop.
 Wobbly lines, imperfect handwriting. No polished vector art.
 Text in image: "fraîcheur > volume", "5/mois pour toujours".
@@ -102,7 +102,7 @@ Text in image: "fraîcheur > volume", "5/mois pour toujours".
 ```
 Illustration style Excalidraw / hand-drawn sketch on warm off-white background.
 Messy, quick, like someone drew it in 30 seconds on a whiteboard.
-A long hand-drawn checklist labeled "25" with most items faded grey, and the top 5 items boxed in #FFDC58 with check marks in #00D4AA.
+A long hand-drawn checklist labeled "25" with most items faded grey, and the top 5 items boxed in #FFDC58 with check marks in #00D9A3.
 A small arrow points from the 5 highlighted items to a rising Google Maps pin.
 Wobbly lines, imperfect handwriting. No polished vector art.
 Text in image: "25 points", "commence par 5".

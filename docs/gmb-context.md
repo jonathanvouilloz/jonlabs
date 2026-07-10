@@ -13,9 +13,9 @@ keywords:
   - freelance web Genève
   - site vitrine Genève
 art_direction:
-  style: brutaliste
-  typography: bold sans-serif
-  mood: professionnel, créatif, maker
+  style: éditorial minimaliste warm, mono-accent #00D9A3
+  typography: sans-serif moderne (pas ultra-bold), pas de serif en titre
+  mood: clarté, intelligence calme, maîtrise, moderne
   ratio: "4:3"
 post_frequency: 3/week
 period_months: 1

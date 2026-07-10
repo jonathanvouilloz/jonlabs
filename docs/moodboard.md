@@ -2,8 +2,8 @@
 extends: identity
 base_style: photoreal-dslr
 typography:
-  display: Plus Jakarta Sans SemiBold
-  body: Plus Jakarta Sans
+  display: Inter Tight
+  body: Inter
 photography:
   lighting: "Natural ambient, clean and modern"
   mood: "Professional but approachable, tech-forward"
@@ -27,6 +27,8 @@ references:
 
 ## ADN visuel
 
-Identité visuelle brutaliste créative : bordures épaisses, ombres 3D décalées, accents colorés (vert menthe + jaune). Les visuels mélangent photographie photoréaliste DSLR et compositions templates avec overlay typographique fort.
+Identité visuelle **éditoriale minimaliste warm** : fond clair légèrement warm (jamais blanc pur), sans-serif élégante pas ultra-bold, **un seul accent vert `#00D9A3`** (signal : mot-clé, trait, nœud, CTA), formes arrondies sobres et connecteurs fins. Les visuels mélangent photographie photoréaliste DSLR et compositions templates avec overlay typographique net. Jamais de « AI slop », jamais de surcharge, plus de brutalisme ni de jaune.
 
-Blog covers : image de fond statique (`bg-template.png`) + titre texte overlay en Plus Jakarta Sans SemiBold. LinkedIn covers : illustration cartoon/absurde via Gemini, format carré 1:1.
+Blog covers : image de fond statique (`bg-template.png`) + titre texte overlay en Inter Tight. LinkedIn covers : illustration cartoon/absurde via Gemini, format carré 1:1.
+
+> Le volet visuel canonique complet (palette verrouillée, éléments signature, formats) vit dans `bip-jon/docs/moodboard.md`. Ce fichier n'est que la config de génération d'images de la surface jonlabs.ch.

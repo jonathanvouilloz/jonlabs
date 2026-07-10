@@ -63,7 +63,7 @@ Le guide complet (cas d'usage, coûts CHF, comparaison Hermes Agent et marché) 
 ```
 Illustration style Excalidraw / hand-drawn sketch on warm off-white background.
 Messy, quick, like someone drew it in 30 seconds on a whiteboard.
-Colors: black ink on off-white, with #00D4AA for positive elements and #FFDC58 for accents.
+Colors: black ink on off-white, with #00D9A3 for positive elements and #FFDC58 for accents.
 Wobbly lines, imperfect handwriting. No polished vector art.
 
 Content: A simple smartphone sketched with a WhatsApp conversation bubble. Inside the bubble, a small robot icon labeled "OpenClaw" replies with text: "Voici ton draft + contexte client". Below the phone, a memory chip icon with arrows looping back, labeled "mémoire 6 mois". On the right, a small Mac laptop with a green light "ON". Feels like a quick sketch of a real product demo.

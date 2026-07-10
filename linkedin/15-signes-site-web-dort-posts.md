@@ -131,15 +131,15 @@ Tu n'as pas besoin de refaire ton site. (Sauf dans 3 cas précis.)
 
 ### Image Lundi
 ```
-Illustration style Excalidraw / hand-drawn sketch on warm off-white background #FEFFF0. Messy, quick, like someone drew it in 30 seconds on a whiteboard. A row of 10 small website thumbnails (rectangles with squiggly lines representing content blocks), 7 of them with floating sleeping Zzz icons above in #00D4AA, the remaining 3 with small smile icons in #FFDC58. Below the row: hand-drawn text "7/10 DORMENT" in messy black ink, wobbly capitals. Thin wobbly lines, imperfect handwriting, no polished vector art, no realistic faces, no logos, no identifiable people. White space breathing around the row.
+Illustration style Excalidraw / hand-drawn sketch on warm off-white background #FEFFF0. Messy, quick, like someone drew it in 30 seconds on a whiteboard. A row of 10 small website thumbnails (rectangles with squiggly lines representing content blocks), 7 of them with floating sleeping Zzz icons above in #00D9A3, the remaining 3 with small smile icons in #FFDC58. Below the row: hand-drawn text "7/10 DORMENT" in messy black ink, wobbly capitals. Thin wobbly lines, imperfect handwriting, no polished vector art, no realistic faces, no logos, no identifiable people. White space breathing around the row.
 ```
 
 ### Image Mercredi
 ```
-Illustration style Excalidraw / hand-drawn sketch on warm off-white background #FEFFF0. Messy, quick, like a 30-second whiteboard sketch. Centered: a hand-drawn contact form with 3 horizontal input fields and a chunky "Envoyer" button filled with #00D4AA. A curved arrow loops from the button down to a hand-drawn trash bin labeled "SPAM" in #FFDC58 paint stroke. Above the form, a small wobbly clock face showing "90 sec". Wobbly lines, imperfect handwriting, no polished vector art, no realistic faces, no logos. Clear contrast, readable in LinkedIn thumbnail.
+Illustration style Excalidraw / hand-drawn sketch on warm off-white background #FEFFF0. Messy, quick, like a 30-second whiteboard sketch. Centered: a hand-drawn contact form with 3 horizontal input fields and a chunky "Envoyer" button filled with #00D9A3. A curved arrow loops from the button down to a hand-drawn trash bin labeled "SPAM" in #FFDC58 paint stroke. Above the form, a small wobbly clock face showing "90 sec". Wobbly lines, imperfect handwriting, no polished vector art, no realistic faces, no logos. Clear contrast, readable in LinkedIn thumbnail.
 ```
 
 ### Image Vendredi
 ```
-Illustration style Excalidraw / hand-drawn sketch on warm off-white background #FEFFF0. Messy, quick whiteboard energy. A hand-drawn balance scale tilted heavily toward the left side. Left pan: a small intact house labeled "RÉNOVATION" in #00D4AA. Right pan: a tiny demolished building (dotted lines, debris) labeled "REFONTE" in #FFDC58. Above the scale: hand-drawn text "80% sauvable" in messy black ink. Wobbly lines, imperfect handwriting, no polished vector art, no realistic faces, no logos, no identifiable people. White space around the scene.
+Illustration style Excalidraw / hand-drawn sketch on warm off-white background #FEFFF0. Messy, quick whiteboard energy. A hand-drawn balance scale tilted heavily toward the left side. Left pan: a small intact house labeled "RÉNOVATION" in #00D9A3. Right pan: a tiny demolished building (dotted lines, debris) labeled "REFONTE" in #FFDC58. Above the scale: hand-drawn text "80% sauvable" in messy black ink. Wobbly lines, imperfect handwriting, no polished vector art, no realistic faces, no logos, no identifiable people. White space around the scene.
 ```

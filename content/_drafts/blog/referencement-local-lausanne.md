@@ -99,7 +99,7 @@ Contenu: 4-5 questions ré-ancrées Lausanne. "Faut-il être physiquement à Lau
 - placement: cover
 - type: illustration
 - subject: Skyline/repère lausannois stylisé (cathédrale, Ouchy/lac) avec pin Maps, brutaliste
-- description: Illustration brutaliste (bordures noires, ombre 3D, accent vert #00D4AA, fond crème) — silhouette reconnaissable de Lausanne (cathédrale + pente vers le lac Léman) avec un pin Google Maps planté. Distincte visuellement de la cover Genève.
+- description: Illustration brutaliste (bordures noires, ombre 3D, accent vert #00D9A3, fond crème) — silhouette reconnaissable de Lausanne (cathédrale + pente vers le lac Léman) avec un pin Google Maps planté. Distincte visuellement de la cover Genève.
 - alt_text: Référencement local pour PME et indépendants à Lausanne
 - aspect_ratio: 16:9
 

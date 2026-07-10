@@ -83,7 +83,7 @@ Contenu: 4-5 questions. "Combien de catégories puis-je ajouter ?", "Changer de 
 - placement: cover
 - type: illustration
 - subject: Sélecteur de catégorie type menu déroulant, style brutaliste
-- description: Illustration brutaliste (bordures noires, ombre 3D, accent vert #00D4AA, fond crème). Une fiche d'établissement stylisée avec un menu déroulant ouvert montrant plusieurs catégories, la principale surlignée en vert. Esthétique maker.
+- description: Illustration brutaliste (bordures noires, ombre 3D, accent vert #00D9A3, fond crème). Une fiche d'établissement stylisée avec un menu déroulant ouvert montrant plusieurs catégories, la principale surlignée en vert. Esthétique maker.
 - alt_text: Choisir la catégorie principale de sa fiche Google Business Profile
 - aspect_ratio: 16:9
 

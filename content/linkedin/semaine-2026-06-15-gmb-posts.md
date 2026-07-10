@@ -87,7 +87,7 @@ Il y a pire qu'une entreprise absente de Google Maps : une fiche créée puis la
 Illustration style Excalidraw / hand-drawn sketch on warm off-white background.
 Messy, quick, like someone drew it in 30 seconds on a whiteboard.
 A Google Business form drawn in black ink with many fields (photos, hours, address) faded grey, and ONE field labeled "CATÉGORIE" boxed hard in #FFDC58 with a big arrow.
-Below, a tiny magnifying glass over a competitor card revealing "= Plombier" written in #00D4AA, suggesting spying on a rival's category.
+Below, a tiny magnifying glass over a competitor card revealing "= Plombier" written in #00D9A3, suggesting spying on a rival's category.
 Wobbly lines, imperfect handwriting. No polished vector art.
 Text in image: "CATÉGORIE = pertinence", "espionne le top 3".
 ```
@@ -96,7 +96,7 @@ Text in image: "CATÉGORIE = pertinence", "espionne le top 3".
 ```
 Illustration style Excalidraw / hand-drawn sketch on warm off-white background.
 Messy, quick, like someone drew it in 30 seconds on a whiteboard.
-Two storefront map pins drawn in black ink side by side. Left pin is empty/greyed with cobwebs and "ABANDONNÉE" written above, a small downward red arrow. Right pin is lively with stars and a #00D4AA upward arrow labeled "ACTIVE".
+Two storefront map pins drawn in black ink side by side. Left pin is empty/greyed with cobwebs and "ABANDONNÉE" written above, a small downward red arrow. Right pin is lively with stars and a #00D9A3 upward arrow labeled "ACTIVE".
 A flat dotted outline of a third pin labeled "INEXISTANTE" sits neutral in the middle.
 Wobbly lines, imperfect handwriting. No polished vector art.
 Text in image: "abandonnée < inexistante".

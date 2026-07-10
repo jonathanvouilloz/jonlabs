@@ -99,7 +99,7 @@ Contenu: 4-5 questions issues de l'intent. Ex : "Combien de temps pour entrer da
 - placement: cover
 - type: illustration
 - subject: Un podium top 3 fusionné avec un pin Google Maps, style brutaliste
-- description: Illustration brutaliste (bordures noires épaisses, ombre portée 3D décalée, accent vert #00D4AA et jaune #FFDC58 sur fond crème #FEFFF0). Trois pins de carte de hauteurs décroissantes formant un podium (1-2-3), le pin n°1 surligné en vert. Esthétique maker, pas corporate.
+- description: Illustration brutaliste (bordures noires épaisses, ombre portée 3D décalée, accent vert #00D9A3 et jaune #FFDC58 sur fond crème #FEFFF0). Trois pins de carte de hauteurs décroissantes formant un podium (1-2-3), le pin n°1 surligné en vert. Esthétique maker, pas corporate.
 - alt_text: Podium des 3 premières positions sur Google Maps (Local Pack)
 - aspect_ratio: 16:9
 

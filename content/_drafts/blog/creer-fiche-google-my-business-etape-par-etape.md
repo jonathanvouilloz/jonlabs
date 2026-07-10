@@ -104,7 +104,7 @@ Contenu : 3 cas fréquents en pratique. Multi-établissements (même enseigne, 2
 - placement: cover
 - type: photo composite avec overlay texte
 - subject: Écran d'ordinateur montrant l'interface business.google.com avec formulaire de création de fiche
-- description: Bureau minimaliste avec écran montrant le dashboard GBP en cours de remplissage. Fond crème (#FEFFF0). Overlay texte fort : "Créer sa fiche Google My Business". Accent vert menthe (#00D4AA) sur un élément graphique. Style brutaliste : bordure épaisse noire, ombre décalée.
+- description: Bureau minimaliste avec écran montrant le dashboard GBP en cours de remplissage. Fond crème (#FEFFF0). Overlay texte fort : "Créer sa fiche Google My Business". Accent vert menthe (#00D9A3) sur un élément graphique. Style brutaliste : bordure épaisse noire, ombre décalée.
 - alt_text: Créer fiche Google My Business étape par étape — guide 2026
 - aspect_ratio: 16:9
 

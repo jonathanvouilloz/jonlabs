@@ -100,7 +100,7 @@ Contenu : Outils gratuits : GBP Insights natif (impressions, clics, appels, itin
 - placement: cover
 - type: photo composite avec overlay texte
 - subject: Téléphone montrant une fiche Google Business Profile complète avec étoiles et carte Maps en fond
-- description: Fond sombre ou crème (#FEFFF0), main tenant un smartphone affichant une fiche GMB avec 5 étoiles et photos d'un commerce. Overlay texte fort : "Fiche Google My Business" en Plus Jakarta Sans SemiBold. Accent vert menthe (#00D4AA) sur un élément graphique. Style brutaliste : bordure épaisse noire, ombre décalée.
+- description: Fond sombre ou crème (#FEFFF0), main tenant un smartphone affichant une fiche GMB avec 5 étoiles et photos d'un commerce. Overlay texte fort : "Fiche Google My Business" en Plus Jakarta Sans SemiBold. Accent vert menthe (#00D9A3) sur un élément graphique. Style brutaliste : bordure épaisse noire, ombre décalée.
 - alt_text: Guide complet fiche Google My Business 2026 — optimisation PME francophone
 - aspect_ratio: 16:9
 

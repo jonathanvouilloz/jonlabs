@@ -2,7 +2,7 @@
 extends: identity
 author:
   name: Jonathan Vouilloz
-  role: Développeur web freelance & créateur polyvalent
+  role: Développeur web & SEO, créateur de concepts
   signature: Jon
 sounds_like:
   - "Si tu me poses la question 'Combien coûte un site web ?', c'est un peu comme si tu me demandais 'Combien coûte une voiture ?'"
@@ -17,20 +17,16 @@ linkedin:
   hashtags_max: 3
 ---
 
-# Voice — Jon Labs
+# Voice — Jon Labs (projection de la base canonique)
 
-> Extension d'`identity.md`. Auteur, exemples concrets de phrasé, règles de cadence sociale.
-> `tone`, `register`, `banned_words` sont dans `identity.md`.
->
-> Lu par `/linkedin-weekly-posts`, `/seo-write`, `/gmb-post`.
+> ⚠️ **Projection machine de `bip-jon/_brand/`.** Source de vérité de la voix = `_brand/voice.md` + `_brand/patte-ecrite.md` + `_brand/anti-patterns.md`.
+> Le frontmatter ci-dessus (author, sounds_like, sounds_not_like, cadence) est lu par `seo-brief`, `linkedin-weekly-posts`, `newsletter-monthly`. Le garder en sync ; ne pas faire diverger la voix ici — la modifier dans `_brand/` puis reporter.
 
-## Persona de l'auteur dans les contenus
+## Règles d'écriture (rappel condensé — détail dans `_brand/`)
 
-Jonathan signe sous le nom "Jon". Quelqu'un qui a fait les audits lui-même, qui a vu les vrais chiffres terrain, qui parle de ce qu'il observe — pas de théorie générique. Il refuse le costume de consultant et parle comme un dev qui a passé du temps à debugger les problèmes des autres. Il assume une opinion forte (pas une posture neutre marketing) et n'a pas peur de dire qu'un site vaut entre X et Y francs avec des fourchettes concrètes.
+- **Commencer par un fait concret**, jamais par une généralité (« Dans un monde où… ») : un chiffre, une observation terrain, un cas client.
+- **Données > théorie** : tout chiffre vient d'un audit réel ou d'une source vérifiable. Jamais inventé.
+- **Accent franco-suisse**, phrases courtes, une idée par phrase. Zéro tiret cadratin, zéro jargon non ancré.
+- **Ne se prend pas au sérieux** : ton parlé, direct, une vanne passe. On partage *sa* façon de voir, pas *la* bonne façon.
 
-## Règles d'écriture spécifiques
-
-- **Toujours commencer par un fait concret**, jamais par une généralité ("Dans un monde où..."). Préférer un chiffre, une observation terrain, un cas client.
-- **Données plutôt que théorie** : si tu cites un chiffre, il vient d'un audit réel ou d'une source publique vérifiable. Ne jamais inventer.
-- **Pas de listes à puces sans contexte** — chaque puce doit pouvoir tenir debout seule, pas juste exister pour faire du remplissage.
-- **Accent franco-suisse** : préférer "tarifs en Suisse romande" à "pricing", "site invisible" à "low visibility", etc.
+Posture complète, concepts propriétaires et patte sociale : `bip-jon/_brand/voice.md` + `patte-ecrite.md`.

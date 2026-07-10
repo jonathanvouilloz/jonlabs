@@ -56,7 +56,7 @@ Si tu ne peux pas calculer le ROI en CHF avant de lancer un workflow, ce n'est p
 ```
 Hand-drawn Excalidraw sketch on warm off-white background (#FEFFF0).
 Five rectangular boxes drawn in wobbly black ink, connected by arrows, labeled "Workflow 1" through "Workflow 5" in messy handwriting.
-Above the row of boxes, a thought bubble in #00D4AA outline reading "CHF 350-700 / mois" in handwritten style.
+Above the row of boxes, a thought bubble in #00D9A3 outline reading "CHF 350-700 / mois" in handwritten style.
 Below the boxes, a small clock icon and "1-2h / workflow" label.
 A #FFDC58 highlighter stroke smeared across the word "maintenance" written in the bottom right corner.
 Style: quick, like someone sketched it on a whiteboard in 30 seconds. Wobbly lines, imperfect handwriting, no polished vector art.

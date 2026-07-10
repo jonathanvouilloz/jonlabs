@@ -83,7 +83,7 @@ Contenu: "Combien d'avis viser et à quel rythme ?", "Peut-on offrir une réduct
 - placement: cover
 - type: illustration
 - subject: Flux d'étoiles d'avis alimentant une fiche, style brutaliste
-- description: Illustration brutaliste (bordures noires, ombre 3D, accent jaune #FFDC58 pour les étoiles, vert #00D4AA, fond crème). Un "tuyau"/flux d'étoiles 5★ qui remplit une fiche d'établissement. Idée de régularité, de système. Esthétique maker.
+- description: Illustration brutaliste (bordures noires, ombre 3D, accent jaune #FFDC58 pour les étoiles, vert #00D9A3, fond crème). Un "tuyau"/flux d'étoiles 5★ qui remplit une fiche d'établissement. Idée de régularité, de système. Esthétique maker.
 - alt_text: Obtenir un flux régulier d'avis Google pour son entreprise
 - aspect_ratio: 16:9
 

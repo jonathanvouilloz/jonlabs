@@ -1,12 +1,14 @@
 ---
 project: jonlabs
 brand_name: Jon Labs
-positioning: Développement web, automatisation & SEO local pour PME et indépendants romands
-audience: Indépendant romand / dirigeant TPE/PME (30-55 ans, Suisse romande)
+positioning: Visibilité Google + IA (SEO/GEO) pour PME et TPE de Suisse romande
+audience: Indépendant romand / dirigeant TPE/PME (30-55 ans, Suisse romande), non-technique
 tone:
   - direct
   - pragmatique
   - sans bullshit marketing
+  - ne se prend pas au sérieux
+  - à contre-courant du tout-génératif
 register:
   default: tutoiement       # blog, posts sociaux
   formal: vouvoiement       # pages services, méta descriptions
@@ -25,28 +27,26 @@ banned_words:
   - transformation digitale
   - écosystème
   - paradigme
+  - plongeons dans
+  - il est important de noter
 colors:
-  primary: "#00D4AA"
-  secondary: "#FFDC58"
-  background: "#FEFFF0"
-  text: "#1a1a1a"
+  primary: "#00D9A3"        # vert canonique (signal) — aligné _brand + thème live
+  text: "#111315"
+  background: "#F3F3F1"     # warm, jamais blanc pur
 language: fr-CH
-website: https://jonlabs.ch
+website: https://www.jonlabs.ch
 ---
 
-# Identity — Jon Labs
+# Identity — Jon Labs (projection de la base canonique)
 
-> Source de vérité commune à tous les skills projet (voice, seo-context, moodboard, gmb-context).
-> Modifier ce fichier directement ou relancer `/init-identity` pour mise à jour partielle.
+> ⚠️ **Projection machine de la base canonique `bip-jon/_brand/`.** Source de vérité = `_brand/` (socle `identity.md`).
+> Le frontmatter ci-dessus est la tranche lue par les skills côté jonlabs (`seo-brief`, `gmb-*`, `linkedin-weekly-posts`, `newsletter-monthly`). **Le garder en sync avec `_brand/`, ne pas éditer la voix/identité ici** — modifier dans `_brand/` puis reporter la valeur ici.
+> jonlabs.ch, c'est Jon lui-même, pas un client : son identité, sa voix, son positionnement et sa palette vivent dans `bip-jon/_brand/`. Ce fichier ne porte que la config machine de la surface jonlabs.ch.
 
-## Positionnement
+## Où vit quoi
 
-Jon Labs est un atelier freelance basé à Genève qui combine **développement web sur mesure**, **automatisation** (Make, Zapier, n8n, intégrations API) et **SEO local** pour les PME et indépendants de Suisse romande. Le positionnement croise trois piliers que peu d'acteurs locaux couvrent simultanément : code, IA appliquée et visibilité Google.
-
-## Audience cible
-
-Entrepreneurs et dirigeants de TPE/PME romandes de 30 à 55 ans, dans des entreprises de 1 à 15 personnes (Genève, Vaud, Neuchâtel principalement). Ils ont déjà un site, comprennent les bases du business digital, savent que "le SEO c'est important" sans toujours savoir pourquoi. Frustrations typiques : site vieilli ou invisible sur Google, dépendance à un prestataire absent, coûts de maintenance imprévisibles, aucune visibilité sur le ROI.
-
-## Ton (comment ça se manifeste)
-
-Direct, franc, sans bullshit marketing. Première personne, pragmatique, accent franco-suisse. Expert qui partage ses vraies observations terrain, pas un consultant en costume. Pas de "synergies", pas de "transformation digitale", pas de "dans un contexte numérique en constante évolution". À la place : des chiffres concrets, des audits réels, des exemples vécus.
+- **Identité, pourquoi, histoire, positionnement porte/âme, take IA** → `bip-jon/_brand/identity.md`
+- **Voix, formules, patte écrite, anti-patterns** → `bip-jon/_brand/voice.md` + `patte-ecrite.md` + `anti-patterns.md`
+- **Message, offre, piliers éditoriaux, preuves** (Barber Concept…) → `bip-jon/_brand/message.md`
+- **Palette / volet visuel** → `bip-jon/docs/moodboard.md` (vert `#00D9A3` verrouillé)
+- **Spécifique surface jonlabs.ch** (SEO, GMB, schema, tech, archi) → les autres fichiers de ce dossier `docs/`
