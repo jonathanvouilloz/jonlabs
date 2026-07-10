@@ -4,114 +4,87 @@
 // Méthodologie : OFS 2024 (tarif horaire ~95 CHF/h) + audit terrain 50 sites romands (2026)
 ---
 
-<div id="calc-wrapper" class="my-10 border-2 border-black shadow-[4px_4px_0px_rgba(0,0,0,0.3)] bg-white">
+<div id="calc-wrapper" class="calc">
 
   <!-- Header -->
-  <div class="bg-accent border-b-2 border-black px-6 py-4">
-    <p class="font-black text-lg">Calculateur de coût d'inaction</p>
-    <p class="text-sm mt-0.5">3 chiffres — résultat immédiat — pas d'email requis</p>
+  <div class="calc-head">
+    <p class="calc-title">Calculateur de coût d'inaction</p>
+    <p class="calc-sub">3 chiffres — résultat immédiat — pas d'email requis</p>
   </div>
 
   <!-- Inputs -->
-  <div class="px-6 py-6 grid grid-cols-1 md:grid-cols-3 gap-6">
+  <div class="calc-inputs">
 
-    <div class="flex flex-col gap-2">
-      <label for="panier" class="font-bold text-sm uppercase tracking-wide">
-        Valeur d'un client (CHF)
-      </label>
-      <p class="text-xs text-gray-500">Ce qu'un client te rapporte en moyenne (devis, prestation, produit)</p>
-      <div class="flex border-2 border-black focus-within:border-[var(--color-accent)]">
-        <span class="bg-gray-100 border-r-2 border-black px-3 flex items-center text-sm font-mono font-bold">CHF</span>
-        <input
-          type="number"
-          id="panier"
-          min="0"
-          step="50"
-          placeholder="1200"
-          class="flex-1 px-3 py-2.5 outline-none text-base font-mono"
-        />
+    <div class="calc-group">
+      <label for="panier" class="calc-label">Valeur d'un client (CHF)</label>
+      <p class="calc-hint">Ce qu'un client te rapporte en moyenne (devis, prestation, produit)</p>
+      <div class="calc-field">
+        <span class="calc-unit">CHF</span>
+        <input type="number" id="panier" min="0" step="50" placeholder="1200" class="calc-input" />
       </div>
     </div>
 
-    <div class="flex flex-col gap-2">
-      <label for="clients" class="font-bold text-sm uppercase tracking-wide">
-        Clients/mois via le site
-      </label>
-      <p class="text-xs text-gray-500">Combien de clients contactent via ton site par mois (0 si aucun)</p>
-      <div class="flex border-2 border-black focus-within:border-[var(--color-accent)]">
-        <span class="bg-gray-100 border-r-2 border-black px-3 flex items-center text-sm font-mono font-bold">#</span>
-        <input
-          type="number"
-          id="clients"
-          min="0"
-          step="1"
-          placeholder="0"
-          class="flex-1 px-3 py-2.5 outline-none text-base font-mono"
-        />
+    <div class="calc-group">
+      <label for="clients" class="calc-label">Clients/mois via le site</label>
+      <p class="calc-hint">Combien de clients contactent via ton site par mois (0 si aucun)</p>
+      <div class="calc-field">
+        <span class="calc-unit">#</span>
+        <input type="number" id="clients" min="0" step="1" placeholder="0" class="calc-input" />
       </div>
     </div>
 
-    <div class="flex flex-col gap-2">
-      <label for="anciennete" class="font-bold text-sm uppercase tracking-wide">
-        Sans mise à jour depuis
-      </label>
-      <p class="text-xs text-gray-500">Nombre de mois depuis le dernier contenu publié ou refonte</p>
-      <div class="flex border-2 border-black focus-within:border-[var(--color-accent)]">
-        <input
-          type="number"
-          id="anciennete"
-          min="0"
-          step="1"
-          placeholder="18"
-          class="flex-1 px-3 py-2.5 outline-none text-base font-mono"
-        />
-        <span class="bg-gray-100 border-l-2 border-black px-3 flex items-center text-sm font-mono font-bold">mois</span>
+    <div class="calc-group">
+      <label for="anciennete" class="calc-label">Sans mise à jour depuis</label>
+      <p class="calc-hint">Nombre de mois depuis le dernier contenu publié ou refonte</p>
+      <div class="calc-field">
+        <input type="number" id="anciennete" min="0" step="1" placeholder="18" class="calc-input" />
+        <span class="calc-unit calc-unit--right">mois</span>
       </div>
     </div>
 
   </div>
 
   <!-- Result (hidden until inputs filled) -->
-  <div id="calc-result" class="hidden border-t-2 border-black px-6 py-6">
+  <div id="calc-result" class="hidden calc-result">
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
+    <div class="calc-stats">
 
-      <div class="border-2 border-black p-4 bg-panel">
-        <p class="text-xs uppercase tracking-wide text-gray-500 mb-1">Frais fixes annuels</p>
-        <p class="font-black text-xl font-mono" id="r-frais">CHF 250</p>
-        <p class="text-xs text-gray-400 mt-1">hébergement + domaine (estimation)</p>
+      <div class="calc-stat">
+        <p class="calc-stat-label">Frais fixes annuels</p>
+        <p class="calc-stat-val" id="r-frais">CHF 250</p>
+        <p class="calc-stat-note">hébergement + domaine (estimation)</p>
       </div>
 
-      <div class="border-2 border-black p-4 bg-panel">
-        <p class="text-xs uppercase tracking-wide text-gray-500 mb-1">Clients manqués / an</p>
-        <p class="font-black text-xl font-mono" id="r-clients">—</p>
-        <p class="text-xs text-gray-400 mt-1">leads qualifiés non captés</p>
+      <div class="calc-stat">
+        <p class="calc-stat-label">Clients manqués / an</p>
+        <p class="calc-stat-val" id="r-clients">—</p>
+        <p class="calc-stat-note">leads qualifiés non captés</p>
       </div>
 
-      <div class="border-2 border-black p-4 bg-panel">
-        <p class="text-xs uppercase tracking-wide text-gray-500 mb-1">Manque à gagner / an</p>
-        <p class="font-black text-xl font-mono" id="r-manque">—</p>
-        <p class="text-xs text-gray-400 mt-1">clients manqués × valeur client</p>
+      <div class="calc-stat">
+        <p class="calc-stat-label">Manque à gagner / an</p>
+        <p class="calc-stat-val" id="r-manque">—</p>
+        <p class="calc-stat-note">clients manqués × valeur client</p>
       </div>
 
     </div>
 
     <!-- Total highlight -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="calc-totals">
 
-      <div class="border-2 border-black p-5 bg-accent">
-        <p class="text-xs uppercase tracking-wide font-bold mb-1">Coût d'inaction — 1 an</p>
-        <p class="font-black text-3xl font-mono" id="r-total1">—</p>
+      <div class="calc-total calc-total--accent">
+        <p class="calc-total-label">Coût d'inaction — 1 an</p>
+        <p class="calc-total-val" id="r-total1">—</p>
       </div>
 
-      <div class="border-2 border-black p-5 bg-panel">
-        <p class="text-xs uppercase tracking-wide font-bold mb-1 text-gray-500">Coût d'inaction — 3 ans</p>
-        <p class="font-black text-3xl font-mono text-gray-700" id="r-total3">—</p>
+      <div class="calc-total">
+        <p class="calc-total-label">Coût d'inaction — 3 ans</p>
+        <p class="calc-total-val calc-total-val--muted" id="r-total3">—</p>
       </div>
 
     </div>
 
-    <p class="text-xs text-gray-400 mt-4">
+    <p class="calc-method">
       Estimation basée sur un taux de conversion moyen de 1.5% pour un site vitrine local suisse,
       calibrée sur l'audit de 50 sites romands (avril 2026). Chiffres indicatifs — ton cas peut varier.
     </p>
@@ -119,17 +92,88 @@
   </div>
 
   <!-- CTA -->
-  <div id="calc-cta" class="hidden border-t-2 border-black px-6 py-4 bg-accent-soft flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-    <p class="font-bold text-sm">Maintenant que tu connais le chiffre — que faire ?</p>
-    <a
-      href="/services/refonte-site-web"
-      class="inline-flex items-center gap-2 bg-black text-white px-5 py-2.5 text-sm font-bold border-2 border-black hover:bg-accent hover:text-black transition-colors shrink-0"
-    >
-      Obtenir un audit gratuit →
-    </a>
+  <div id="calc-cta" class="hidden calc-cta">
+    <p class="calc-cta-text">Maintenant que tu connais le chiffre — que faire ?</p>
+    <a href="/services/refonte-site-web" class="calc-cta-btn">Obtenir un audit gratuit →</a>
   </div>
 
 </div>
+
+<style>
+  /* Calculateur — blueprint (filets fins, coins nets, accent teal).
+     Tokens hérités du .co-root parent (--ink/--muted/--surface/--line/--line-2/--accent). */
+  .calc { margin: 2.5rem 0; border: 1px solid var(--line-2); background: var(--surface); }
+
+  .calc-head { padding: 16px 24px; border-bottom: 1px solid var(--line); }
+  .calc-title { font-weight: 700; font-size: 1.125rem; color: var(--ink); }
+  .calc-sub { margin-top: 2px; font-size: 0.875rem; color: var(--muted); }
+
+  .calc-inputs { padding: 24px; display: grid; grid-template-columns: 1fr; gap: 24px; }
+  @media (min-width: 768px) { .calc-inputs { grid-template-columns: repeat(3, 1fr); } }
+
+  .calc-group { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+  .calc-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.13em;
+    text-transform: uppercase; color: var(--muted);
+  }
+  .calc-hint { font-size: 0.75rem; line-height: 1.4; color: var(--muted); }
+
+  .calc-field {
+    display: flex; border: 1px solid var(--line-2); background: var(--surface);
+    transition: border-color .18s ease-out;
+  }
+  .calc-field:focus-within { border-color: var(--accent); }
+  .calc-unit {
+    display: flex; align-items: center; padding: 0 12px; font-size: 0.8rem; font-weight: 600;
+    color: var(--muted); background: rgba(20,22,26,.04); border-right: 1px solid var(--line-2);
+    font-variant-numeric: tabular-nums;
+  }
+  .calc-unit--right { border-right: 0; border-left: 1px solid var(--line-2); }
+  .calc-input {
+    flex: 1; min-width: 0; padding: 10px 12px; outline: none; border: 0;
+    font-size: 1rem; color: var(--ink); background: transparent;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .calc-result { padding: 24px; border-top: 1px solid var(--line); }
+
+  .calc-stats { display: grid; grid-template-columns: 1fr; gap: 16px; margin-bottom: 24px; }
+  @media (min-width: 768px) { .calc-stats { grid-template-columns: repeat(3, 1fr); } }
+  .calc-stat { padding: 16px; border: 1px solid var(--line-2); background: var(--surface); }
+  .calc-stat-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 4px;
+  }
+  .calc-stat-val { font-weight: 700; font-size: 1.25rem; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .calc-stat-note { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+
+  .calc-totals { display: grid; grid-template-columns: 1fr; gap: 16px; }
+  @media (min-width: 768px) { .calc-totals { grid-template-columns: repeat(2, 1fr); } }
+  .calc-total { padding: 20px; border: 1px solid var(--line-2); background: var(--surface); }
+  .calc-total--accent { box-shadow: inset 3px 0 0 var(--accent); }
+  .calc-total-label {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--muted); margin-bottom: 4px;
+  }
+  .calc-total-val { font-weight: 700; font-size: 1.875rem; color: var(--ink); font-variant-numeric: tabular-nums; }
+  .calc-total-val--muted { color: var(--muted); }
+
+  .calc-method { font-size: 0.75rem; line-height: 1.5; color: var(--muted); margin-top: 16px; }
+
+  .calc-cta {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
+    padding: 16px 24px; border-top: 1px solid var(--line);
+  }
+  @media (min-width: 640px) { .calc-cta { flex-direction: row; align-items: center; justify-content: space-between; } }
+  .calc-cta-text { font-size: 0.875rem; font-weight: 600; color: var(--ink); }
+  .calc-cta-btn {
+    display: inline-flex; align-items: center; gap: 8px; flex: none;
+    padding: 12px 20px; border-radius: 999px; background: var(--ink); color: #fff;
+    font-size: 0.875rem; font-weight: 600; text-decoration: none;
+    transition: transform .18s ease-out;
+  }
+  .calc-cta-btn:hover { transform: translateY(-1px); }
+</style>
 
 <script>
   function formatCHF(val: number): string {
