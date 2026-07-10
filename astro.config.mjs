@@ -29,9 +29,10 @@ export default defineConfig({
       filter: (page) =>
         !page.includes('/cv-pdf') &&
         !page.includes('/merci-') &&
-        !page.includes('-pdf/') &&
+        !page.includes('-pdf') &&
         !page.includes('/devis-client/') &&
         !page.includes('/blog/tag/') &&
+        !page.includes('/styleguide') &&
         // Services en draft Session 3 — gardés accessibles aux liens internes mais hors sitemap + noindex
         !page.includes('/services/automatisation') &&
         !page.includes('/services/integration-outils') &&
