@@ -4,6 +4,7 @@ const author = {
     linkedin: `https://www.linkedin.com/in/jonathan-vouilloz-3b5741139/`,
     github: `https://github.com/jonathanvouilloz`,
     youtube: `https://www.youtube.com/@jonlabs_ia`,
+    substack: `https://substack.com/@jonvolio`,
     email: `mailto:contact@jonlabs.ch`,
     location: `Genève, Suisse`
 }
