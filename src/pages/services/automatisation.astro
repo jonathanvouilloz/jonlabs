@@ -585,7 +585,7 @@ const otherUseCases = useCases.slice(1);
                     <p>Même si vous ne facturez pas ces heures, c'est du temps que vous pouvez investir dans le développement de votre activité, vos clients existants, ou simplement votre qualité de vie.</p>
                 </div>
 
-                <div data-animate="fade-left">
+                <div class="au-zones-col" data-animate="fade-left">
                     <h3 class="au-side-h3">Zones couvertes</h3>
                     <div class="au-zones">
                         {zones.map((zone) => (
@@ -907,6 +907,7 @@ const otherUseCases = useCases.slice(1);
     .au-roi-fig b { font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
     .au-hl { color: var(--accent); }
     .co-root .au-roi p { font-size: 13.5px; line-height: 1.55; color: var(--muted); }
+    .au-zones-col { padding-top: 28px; }
     .au-side-h3 { font-size: 1.15rem; margin-bottom: 16px; }
     .au-zones { display: flex; flex-direction: column; gap: 10px; }
     .au-zone { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line-2); font-size: 14px; }
@@ -951,7 +952,7 @@ const otherUseCases = useCases.slice(1);
 
     /* ── Formulaire (Web3Forms restylé, câblage préservé) ── */
     .au-form { position: relative; margin-top: 32px; padding: 34px; background: var(--surface); border: 1px solid var(--line-2); }
-    .au-form-title { font-size: 1.25rem; text-align: center; margin-bottom: 6px; }
+    .au-form-title { font-size: 1.25rem; text-align: left; margin-bottom: 22px; }
     .au-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .au-field { display: flex; flex-direction: column; gap: 8px; }
     .au-field--full { grid-column: 1 / -1; }
@@ -989,6 +990,7 @@ const otherUseCases = useCases.slice(1);
         .au-hero-grid { grid-template-columns: 1fr; gap: 40px; }
         .au-hero-media { max-width: 520px; }
         .au-local-grid { grid-template-columns: 1fr; gap: 32px; }
+        .au-zones-col { padding-top: 0; }
         .au-cmp-grid, .au-stats-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 720px) {
