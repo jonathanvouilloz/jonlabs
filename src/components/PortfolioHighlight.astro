@@ -11,7 +11,7 @@ const projects = portfolioProjects
     imageUrl: project.data.heroImage.url,
     imageAlt: project.data.heroImage.alt,
     tags: project.data.tags,
-    category: project.data.entryType === 'side-project' ? 'Side Project' : 'Étude de cas',
+    category: project.data.entryType === 'side-project' ? 'side-project' : 'etude-de-cas',
     link: `/portfolio/${project.slug}`,
     date: project.data.date,
   }))
@@ -47,7 +47,7 @@ const projects = portfolioProjects
           />
         </div>
         <div class="hp-proj-body">
-          <span class="co-badge hp-proj-cat">{project.category}</span>
+          <span class="co-cat hp-proj-cat">{project.category}</span>
           <h3 class="hp-proj-title">{project.title}</h3>
           <p class="co-mut hp-proj-desc">{project.description}</p>
           <div class="hp-proj-tags">
@@ -56,7 +56,7 @@ const projects = portfolioProjects
             ))}
           </div>
           <span class="hp-proj-more">
-            {project.category === 'Étude de cas' ? "Voir l'étude de cas" : 'Voir le projet'}
+            {project.category === 'etude-de-cas' ? "Voir l'étude de cas" : 'Voir le projet'}
             <i class="ri-arrow-right-line"></i>
           </span>
         </div>

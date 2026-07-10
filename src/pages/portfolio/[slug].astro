@@ -168,7 +168,7 @@ const schemas = [caseStudySchema];
       <!-- En-tête -->
       <header class="psl-header">
         <div class="psl-meta">
-          <span class="co-badge">{isSideProject ? 'Side project' : project.category}</span>
+          <span class="co-cat">{isSideProject ? 'side-project' : project.category}</span>
           {client && (
             <>
               <span class="psl-dot" aria-hidden="true">·</span>
@@ -431,7 +431,7 @@ const schemas = [caseStudySchema];
             {relatedEntries.map((related) => (
               <a href={`/portfolio/${related.slug}`} class="psl-related-card">
                 {related.data.tags?.[0] && (
-                  <span class="co-badge">{related.data.tags[0]}</span>
+                  <span class="co-cat">{related.data.tags[0]}</span>
                 )}
                 <h3 class="psl-related-title">{related.data.title}</h3>
                 <span class="psl-related-cta">

@@ -93,12 +93,11 @@ const featuredMeta = [
         <!-- Image cadrée filets -->
         <a href={proofLecureux.portfolioUrl} class="po-feature-media" aria-label={`Voir l'étude de cas : ${proofLecureux.company}`}>
           <img src="/images/portfolio/leo-lecureux/featured.webp" alt={`Site ${proofLecureux.company} — ${proofLecureux.metierShort}`} loading="lazy" />
-          <span class="po-feature-tag"><i class="po-dot" aria-hidden="true"></i>SEO local</span>
         </a>
 
         <!-- Corps -->
         <div class="po-feature-body">
-          <p class="co-eyebrow">Étude de cas · SEO local</p>
+          <span class="co-cat">seo-local</span>
           <h3 class="po-feature-title">
             De zéro au <span class="co-ser">#1 sur sa niche.</span>
           </h3>
@@ -209,12 +208,6 @@ const featuredMeta = [
     transition: transform .6s ease-out;
   }
   .po-feature:hover .po-feature-media img { transform: scale(1.03); }
-  .po-feature-tag {
-    position: absolute; left: 14px; bottom: 14px;
-    display: inline-flex; align-items: center; gap: 7px;
-    padding: 6px 12px; font-size: 12px; font-weight: 600;
-    background: var(--bg); border: 1px solid var(--line-2); color: var(--ink);
-  }
   /* Flex+gap : l'espacement s'applique vraiment (le reset .co-root h/p { margin:0 } neutraliserait les margin-top sur h3/p) */
   .po-feature-body { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding: 32px; border-bottom: 1px solid var(--line); }
   .po-feature-title { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.08; }
@@ -245,8 +238,6 @@ const featuredMeta = [
   .po-stat-label { font-size: 12px; line-height: 1.25; }
   .po-stats-note { grid-column: 1 / -1; padding: 12px 32px; font-size: 12px; border-top: 1px solid var(--line); }
 
-  /* Point plein du tag image (badge catégorie carte = primitive .co-badge dans la carte) */
-  .po-dot { width: 6px; height: 6px; border-radius: 999px; background: var(--accent); flex: none; }
 
   /* ── Filtres ── */
   .po-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 24px; }
