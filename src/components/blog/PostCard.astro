@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { formatDateShort, getCategoryName } from '../../lib/blog';
+import { formatDateShort, getCategorySlug } from '../../lib/blog';
 
 // Signature INCHANGÉE (aussi consommée par src/pages/blog/tag/[tag].astro).
 interface Props {
@@ -22,10 +22,10 @@ const { title, description, image, category, tags, pubDate, readingTime } = post
 
   <div class="bl-card-cover">
     <img src={image.url} alt={image.alt} loading="lazy" />
-    <span class="co-badge bl-onimg">{getCategoryName(category)}</span>
   </div>
 
   <div class="bl-card-body">
+    <span class="bl-cat">{getCategorySlug(category)}</span>
     <h3 class="bl-card-title">{title}</h3>
     <div class="bl-meta">
       <time datetime={pubDate.toISOString()}>{formatDateShort(pubDate)}</time>
@@ -59,9 +59,6 @@ const { title, description, image, category, tags, pubDate, readingTime } = post
   .bl-card-cover { position: relative; aspect-ratio: 16 / 9; overflow: hidden; border-bottom: 1px solid var(--line-2); background: var(--bg); }
   .bl-card-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease-out; }
   .bl-card:hover .bl-card-cover img { transform: scale(1.05); }
-
-  /* Modificateur position badge sur image (co-badge = primitive kit) */
-  .bl-onimg { position: absolute; top: 12px; left: 12px; z-index: 2; backdrop-filter: saturate(1.2); }
 
   .bl-card-body { padding: 18px 18px 20px; display: flex; flex-direction: column; gap: 9px; flex: 1; }
   .bl-card-title { font-size: 1.12rem; line-height: 1.2; }

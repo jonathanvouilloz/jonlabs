@@ -7,7 +7,7 @@ import AppFooter from '../../components/Footer.astro';
 import BlogHero from '../../components/blog/BlogHero.astro';
 import BlogFilters from '../../components/blog/BlogFilters.astro';
 import PostCard from '../../components/blog/PostCard.astro';
-import { isPublished, getCategoryName, formatDateShort } from '../../lib/blog';
+import { isPublished, getCategorySlug, formatDateShort } from '../../lib/blog';
 
 // Schema.org
 import { blogSchema } from '../../data/schema';
@@ -48,7 +48,7 @@ const schemas = [blogSchema];
             <img src={featured.data.image.url} alt={featured.data.image.alt} loading="lazy" />
           </div>
           <div class="bl-feature-body">
-            <span class="co-badge">{getCategoryName(featured.data.category)}</span>
+            <span class="bl-cat">{getCategorySlug(featured.data.category)}</span>
             <h2 class="bl-feature-title">{featured.data.title}</h2>
             <p class="co-mut bl-feature-desc">{featured.data.description}</p>
             <div class="bl-meta">

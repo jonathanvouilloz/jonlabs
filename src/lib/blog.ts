@@ -1,17 +1,21 @@
 // Blog helper functions
 
 export const categories = {
-  mobile: { name: 'Applications mobiles', color: 'var(--blue)' },
-  automatisation: { name: 'Automatisation & IA', color: 'var(--yellow)' },
-  'seo-local': { name: 'Référencement local', color: 'var(--violet)' },
-  web: { name: 'Sites web', color: 'var(--orange)' },
-  geo: { name: 'Visibilité IA', color: 'var(--cyan)' },
+  mobile: { name: 'Applications mobiles', slug: 'applications-mobiles', color: 'var(--blue)' },
+  automatisation: { name: 'Automatisation & IA', slug: 'automatisation-ia', color: 'var(--yellow)' },
+  'seo-local': { name: 'Référencement local', slug: 'referencement-local', color: 'var(--violet)' },
+  web: { name: 'Sites web', slug: 'sites-web', color: 'var(--orange)' },
+  geo: { name: 'Visibilité IA', slug: 'visibilite-ia', color: 'var(--cyan)' },
 } as const;
 
 export type CategoryKey = keyof typeof categories;
 
 export function getCategoryName(key: CategoryKey): string {
   return categories[key]?.name || key;
+}
+
+export function getCategorySlug(key: CategoryKey): string {
+  return categories[key]?.slug || key;
 }
 
 export function getCategoryColor(key: CategoryKey): string {
