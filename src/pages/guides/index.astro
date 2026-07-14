@@ -20,7 +20,7 @@ const aLire = (await getCollection('blog', ({ data }) => isPublished(data) && da
   .slice(0, 3)
   .map((post) => ({ label: post.data.title, href: `/blog/${post.slug}`, icon: 'ri-article-line' }));
 
-const pageTitle = 'Guides IA & automatisation pour PME romandes | Jon Labs';
+const pageTitle = 'Guides IA & automatisation pour PME romandes';
 const pageDescription = 'Guides pas-à-pas pour mettre l\'IA et l\'automatisation en place dans ta PME en Suisse romande : méthode, coûts CHF, outils et adoption d\'équipe.';
 const pageUrl = `${SITE_URL}/guides`;
 

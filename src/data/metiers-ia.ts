@@ -91,7 +91,7 @@ export const metiersIA: MetierIAData[] = [
     slug: 'ia-fiduciaire',
     metier: 'Fiduciaire',
     h1: "IA pour fiduciaires et experts-comptables en Suisse romande",
-    title: "IA pour fiduciaires en Suisse romande | Jon Labs",
+    title: "IA pour fiduciaires en Suisse romande",
     metaDescription:
       "IA et automatisation pour fiduciaires romandes : tri des pièces, pré-saisie Bexio/Crésus, relances, TVA, veille légale. Prix en CHF, conformité nLPD.",
     motCleSEO: 'IA fiduciaire',
@@ -269,7 +269,7 @@ export const metiersIA: MetierIAData[] = [
     slug: 'ia-agence-immobiliere',
     metier: 'Agence immobilière',
     h1: "IA pour agences immobilières et régies en Suisse romande",
-    title: "IA pour agence immobilière romande | Jon Labs",
+    title: "IA pour agence immobilière romande",
     metaDescription:
       "IA et automatisation pour agences immobilières et régies romandes : qualification des leads, annonces, tri des dossiers locataires, relances. Prix en CHF.",
     motCleSEO: 'IA agence immobilière',

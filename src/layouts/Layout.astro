@@ -26,7 +26,7 @@ interface Props {
 }
 
 const {
-	title = "Jon Labs - Solutions Digitales",
+	title = "Développeur web freelance à Genève",
 	description = "Développement web, automatisation, applications. De l'idée au produit fini, j'accompagne entrepreneurs et petites équipes dans leurs projets digitaux.",
 	ogImage = "/og-image.png",
 	ogType = "website",
@@ -36,6 +36,14 @@ const {
 	article,
 	robots
 } = Astro.props;
+
+// Suffixe de marque centralisé : retire toute marque héritée en fin de titre
+// (Jon Labs / Jonlabs / Jon Labs Genève, séparée par | – — -) puis ré-appose la
+// marque canonique. Idempotent, s'applique à toutes les pages passant par ce Layout
+// (y compris blog & guides, sans marque à la source).
+const BRAND = "Jonlabs";
+const baseTitle = title.replace(/\s*[|–—-]\s*Jon\s?Labs(?:\s+Genève)?\s*$/i, "").trim();
+const fullTitle = `${baseTitle} | ${BRAND}`;
 ---
 
 <!doctype html>
@@ -76,10 +84,10 @@ const {
 		<meta name="theme-color" content="#F5F4F0" />
 
 		<meta name="generator" content={Astro.generator} />
-		<link rel="alternate" type="application/rss+xml" title="Blog Jon Labs" href="/rss.xml" />
+		<link rel="alternate" type="application/rss+xml" title="Blog Jonlabs" href="/rss.xml" />
 
 		<SEO
-			title={title}
+			title={fullTitle}
 			description={description}
 			ogImage={ogImage}
 			ogType={ogType}
@@ -90,7 +98,7 @@ const {
 			robots={robots}
 		/>
 
-		<title>{title}</title>
+		<title>{fullTitle}</title>
 	</head>
 	<body>
 		<slot />

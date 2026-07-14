@@ -48,10 +48,10 @@ const { ville } = Astro.props;
 // ============================================
 const pageUrl = `${SITE_URL}/developpement-web/${ville.slug}`;
 // Title : on adapte la longueur pour passer sous 60 chars sur les noms longs
-const titleLong = `Développeur web ${ville.nom} — sites sur-mesure | Jon Labs`;
+const titleLong = `Développeur web ${ville.nom} — sites sur-mesure | Jonlabs`;
 const pageTitle = titleLong.length <= 60
   ? titleLong
-  : `Développeur web ${ville.nom} | Jon Labs`;
+  : `Développeur web ${ville.nom} | Jonlabs`;
 // Description : version compacte si nom de ville long pour rester sous 160 chars
 const descLong = `Développement web sur mesure à ${ville.nom} (${ville.distanceGeneve} de Genève). Sites pro, refonte, MVP. Tarifs CHF/EUR transparents, freelance basé à Genève.`;
 const pageDescription = descLong.length <= 158

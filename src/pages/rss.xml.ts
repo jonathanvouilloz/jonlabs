@@ -9,7 +9,7 @@ export async function GET(context: any) {
   );
 
   return rss({
-    title: 'Blog Jon Labs',
+    title: 'Blog Jonlabs',
     description: 'Articles sur le développement web, l\'automatisation et l\'entrepreneuriat en Suisse romande.',
     site: context.site,
     items: sortedPosts.map((post) => ({

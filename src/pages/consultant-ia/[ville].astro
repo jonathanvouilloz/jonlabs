@@ -45,10 +45,10 @@ const { ville } = Astro.props;
 // ============================================
 const pageUrl = `${SITE_URL}/consultant-ia/${ville.slug}`;
 // Title : keyword-led, on raccourcit si > 60 chars
-const titleLong = `Consultant IA à ${ville.nom} — agents IA pour PME | Jon Labs`;
+const titleLong = `Consultant IA à ${ville.nom} — agents IA pour PME | Jonlabs`;
 const pageTitle = titleLong.length <= 60
   ? titleLong
-  : `Consultant IA à ${ville.nom} — agents IA PME | Jon Labs`;
+  : `Consultant IA à ${ville.nom} — agents IA PME | Jonlabs`;
 // Description : meta locale unique par ville (évite les doublons entre villes)
 const pageDescription = ville.metaDescription;
 
