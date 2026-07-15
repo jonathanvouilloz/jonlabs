@@ -24,15 +24,20 @@ Sinon :
 | `hero.priority` | ✅ | La priorité/urgence du client |
 | `hero.problem` | ✅ | Le problème identifié |
 | `hero.solution` | ✅ | La solution proposée |
-| `constat` | ✅ | Analyse détaillée du problème (HTML autorisé) |
+| `constat` | ⚪ | Analyse du problème en un bloc (HTML autorisé). Préférer `audit` si les points sont mesurés |
+| `audit` | ⚪ | Diagnostic chiffré : `moments`, `scores` (tone bad/mid/good), `screenshot`, `nuance` |
 | `offers` | ✅ | Au moins 1 offre avec prix, features |
+| `showComparison` | ⚪ | `false` quand les offres se cumulent au lieu de s'exclure (défaut `true`) |
 | `advice` | ✅ | Ton conseil personnel |
 | `timeline` | ⚪ | Étapes du projet |
-| `proof` | ⚪ | Résultats SEO/client existant |
-| `roi` | ⚪ | Argument retour sur investissement |
-| `portfolio` | ⚪ | Réalisations pertinentes |
+| `proof` | ⚪ | Une preuve ou un tableau de preuves. `caseStudy` = lien vers l'étude de cas interne |
+| `roi` | ⚪ | Le calcul, rendu sous les offres |
+| `disclaimer` | ⚪ | Ce qu'on ne promet pas. Rendu **avant** le prix |
+| `options` | ⚪ | Options « sur devis », rendues après le prix |
+| `legal` | ⚪ | Mention légale de bas de page (TVA, paiement, validité) |
+| `portfolio` | ⚪ | Réalisations pertinentes. Préférer les chemins internes `/portfolio/{slug}` |
 | `postponed` | ⚪ | Projet reporté si mentionné |
-| `nextSteps` | ✅ | Prochaines étapes concrètes |
+| `nextSteps` | ⚪ | **Plus rendu par le template** (retiré le 15.07.2026) — champ conservé pour compat |
 
 ### Étape 3 : Sélection du portfolio
 
@@ -156,23 +161,42 @@ Demander confirmation :
 
 ## Structure de référence
 
-Voir le template existant : `src/content/devis/constantin-diederichs.md`
+Voir le template existant : `src/content/devis/cabinet-grange-canal.md`
 
 ### Sections affichées dans l'ordre :
 
-1. Header (logo + client + date)
-2. Title + Hero box
-3. Tableau comparatif des offres
-4. Grille des offres
-5. Conseil personnel
-6. **Constat** (si présent)
-7. **Proof/SEO** (si présent)
-8. **ROI** (si présent)
-9. **Portfolio** (si présent)
-10. **Postponed** (si présent)
-11. **Next Steps** (si présent)
-12. Contenu markdown libre (si présent)
-13. Footer contact
+L'ordre suit un arc de proposition : **le problème, puis le raisonnement, puis la
+preuve, et le prix seulement à la fin**. Le prix n'apparaît jamais avant l'argument
+qui le justifie. Les sections absentes du frontmatter disparaissent, et les eyebrows
+(`01 —`, `02 —`…) se renumérotent automatiquement.
+
+1. En-tête (logo + client + date)
+2. Title + hero (priorité / problème / solution)
+3. **Audit** — le diagnostic chiffré (si présent) · + relance WhatsApp
+4. **Constat** (si présent, et si pas d'`audit`)
+5. **Corps markdown** — le raisonnement (si présent)
+6. **Timeline** — le plan (si présent)
+7. **Proofs** — les preuves (si présent) · + relance WhatsApp
+8. **Advice** — mon conseil
+9. **Disclaimer** — les limites (si présent)
+10. **Offers** — la proposition et le prix · puis `roi` (« Le calcul »), `options`, `legal`
+11. **Portfolio** — références (si présent)
+12. **Postponed** (si présent)
+13. CTA final sombre — gros bouton WhatsApp + tél + e-mail
+
+### Pièges du template (relire avant d'y toucher)
+
+- Le corps markdown est rendu **au milieu** de la page, pas à la fin : y mettre le
+  raisonnement, pas les annexes. Les options et la mention légale passent par
+  `options` / `legal`, jamais par un tableau markdown (il déborderait sous 720px).
+- `offers[].name` est découpé sur ` — ` pour le tableau comparatif. Garder le
+  format `Poste 1 — Nom` / `Offre 1 — Nom`.
+- Une ligne de `features` **tout en majuscules** devient un intertitre de groupe.
+- `recommended: true` n'a de sens que si les offres s'**excluent**. Sur des postes
+  cumulatifs, le badge fait croire à un choix : le laisser à `false`.
+- **Ne jamais écrire une balise script littérale ni imbriquer un template literal
+  dans l'interpolation d'un autre** dans le frontmatter `.astro` : le scanner esbuild
+  casse le `npm run dev` avec une erreur sans rapport, pendant que le build passe.
 
 ### Portfolio dynamique
 

@@ -1,5 +1,24 @@
 ---
+// Devis client — document privé sous mot de passe (noindex).
+// Migré du brutaliste standalone vers le design system .co-* : sections cadrées,
+// filets fins, accent teal, Inter Tight × Instrument Serif. Namespace scopé .dv-*.
+// Gabarit-or de référence : services/referencement-local.astro.
+//
+// Pas de Header/Footer : c'est un doc client, pas une page du site. Le chrome se
+// limite à l'en-tête logo/client/date et au CTA de contact final.
+//
+// Ordre = arc de proposition : problème → raisonnement → plan → preuve → limites
+// → PRIX. Le prix arrive après l'argument qui le justifie, jamais avant.
+//
+// HARD-PRESERVE : le JS du lock screen (IDs, clé localStorage, define:vars), les
+// bindings du schéma devis (constat/postponed/comparison/pack/excluded servent
+// encore les devis Constantin), le split(' — ') des noms d'offres du tableau
+// comparatif, les prix exacts, noindex/nofollow.
+
 import { getCollection } from 'astro:content';
+import '../../styles/global.css';
+import Layout from '../../layouts/Layout.astro';
+import Logo from '../../components/Logo.astro';
 
 export async function getStaticPaths() {
   const quotes = await getCollection('devis');
@@ -18,264 +37,273 @@ const dateFormat = new Intl.DateTimeFormat('fr-CH', {
   year: 'numeric'
 });
 
-const { hero, offers, timeline, advice, proof, constat, roi, portfolio, postponed, nextSteps, disclaimer, comparison } = entry.data;
+const {
+  hero, audit, offers, showComparison, timeline, advice, proof, constat,
+  roi, portfolio, postponed, disclaimer, comparison, options, legal
+} = entry.data;
+
+// `proof` accepte une preuve unique ou plusieurs. On normalise.
+const proofs = proof ? (Array.isArray(proof) ? proof : [proof]) : [];
+const hasBody = Boolean(entry.body.trim());
+
+// Numérotation des eyebrows : calculée sur les sections réellement présentes.
+// Un numéro en dur mentirait dès qu'un devis omet un bloc (les 2 Constantin
+// n'ont ni audit ni preuve).
+const sections = [
+  audit && 'audit',
+  constat && 'constat',
+  hasBody && 'body',
+  timeline?.length && 'timeline',
+  proofs.length && 'proofs',
+  advice && 'advice',
+  disclaimer && 'disclaimer',
+  offers?.length && 'offers',
+  portfolio?.length && 'portfolio',
+  postponed && 'postponed',
+].filter(Boolean) as string[];
+const num = (key: string) => String(sections.indexOf(key) + 1).padStart(2, '0');
+
+// Les références pointent soit sur une étude de cas interne, soit sur le site du
+// client. Le drapeau est calculé ici : un spread d'attributs conditionnel dans le
+// template est plus fragile à compiler.
+const refs = (portfolio ?? []).map(p => ({ ...p, external: p.url.startsWith('http') }));
+
+// Contact WhatsApp — numéro canonique du site (cf. Footer.astro, data/schema.ts).
+// waMessage est extrait volontairement : imbriquer un template literal dans
+// l'interpolation d'un autre désynchronise le scanner esbuild qui relit le
+// frontmatter, et fait échouer le build sur un « Unexpected export » sans rapport
+// (15.07.2026). Même famille de piège que la balise script écrite en commentaire.
+const WHATSAPP = '41789447707';
+const waMessage = `Bonjour Jonathan, j'ai une question sur la proposition pour ${entry.data.client}.`;
+const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`;
 ---
 
-<html lang="fr">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Proposition — {entry.data.client}</title>
-    <meta name="robots" content="noindex, nofollow" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-      :root {
-        --main-bg: #FAFAFA;
-        --blue: #00D9A3;
-        --yellow: #00A87D;
-        --violet: #00A87D;
-        --text: #0F172A;
-        --white: #FFFFFF;
-        --black: #000000;
-        --space-lg: 40px;
-        --space-xl: 80px;
-      }
+<Layout title={`Proposition — ${entry.data.client}`} robots="noindex, nofollow">
 
-      * { box-sizing: border-box; }
-      body {
-        font-family: 'Plus Jakarta Sans', sans-serif;
-        background-color: var(--main-bg);
-        color: var(--text);
-        margin: 0;
-        line-height: 1.6;
-        -webkit-font-smoothing: antialiased;
-      }
-
-      .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-      
-      h1, h2, h3, h4 { font-weight: 800; letter-spacing: -0.03em; margin: 0; }
-      h1 { font-size: 3.5rem; line-height: 1; margin-bottom: 2rem; }
-      h2 { font-size: 2rem; margin-bottom: 2rem; border-bottom: 4px solid var(--black); padding-bottom: 10px; display: inline-block; }
-
-      /* Sections */
-      section { margin-bottom: var(--space-xl); }
-
-      /* Hero Box */
-      .hero-box {
-        background: var(--white);
-        border: 4px solid var(--black);
-        padding: var(--space-lg);
-        box-shadow: 12px 12px 0 var(--black);
-        margin-bottom: var(--space-xl);
-      }
-
-      /* Comparison Table */
-      .comp-table-wrapper { overflow-x: auto; margin-bottom: var(--space-xl); border: 4px solid var(--black); }
-      table { width: 100%; border-collapse: collapse; background: white; min-width: 700px; }
-      th { background: var(--black); color: white; padding: 1.5rem; text-align: left; }
-      td { padding: 1.2rem 1.5rem; border-bottom: 1px solid #eee; }
-      .check { color: var(--blue); font-weight: bold; }
-      .cross { color: #ccc; }
-
-      /* Offers Grid */
-      .offers-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 30px;
-      }
-      .offer-card {
-        background: white;
-        border: 4px solid var(--black);
-        padding: 2.5rem;
-        position: relative;
-        display: flex;
-        flex-direction: column;
-      }
-      .offer-card.recommended { border-color: var(--violet); box-shadow: 12px 12px 0 var(--violet); transform: scale(1.02); z-index: 2; }
-      .offer-card.pack { box-shadow: 8px 8px 0 var(--blue); }
-      
-      .price-tag { font-size: 3rem; font-weight: 800; margin: 1rem 0; color: var(--text); }
-      .recommended .price-tag { color: var(--violet); }
-      
-      .rec-badge {
-        position: absolute; top: -18px; right: 20px; background: var(--violet); color: white;
-        padding: 5px 15px; font-weight: 800; font-size: 0.8rem; border: 2px solid var(--black);
-      }
-
-      /* Advice */
-      .advice-card {
-        background: #F0FDF4;
-        border: 4px solid var(--blue);
-        padding: var(--space-lg);
-        position: relative;
-        box-shadow: 8px 8px 0 var(--blue);
-      }
-      .advice-card::before { content: "CONSEIL DE JON"; position: absolute; top: -15px; left: 20px; background: var(--blue); padding: 0 10px; font-weight: 800; font-size: 0.8rem; }
-
-      /* Lock Screen */
-      #lock-screen { position: fixed; inset: 0; background: var(--main-bg); z-index: 100; display: flex; align-items: center; justify-content: center; }
-      .lock-card { background: white; border: 4px solid var(--black); padding: 3rem; box-shadow: 16px 16px 0 var(--black); text-align: center; max-width: 450px; width: 90%; }
-      .btn { background: var(--blue); border: 3px solid var(--black); padding: 1rem 2rem; font-weight: 800; cursor: pointer; width: 100%; text-transform: uppercase; transition: 0.1s; }
-      .btn:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--black); }
-
-      .hidden { display: none !important; }
-
-      /* Prose styling for markdown content */
-      .prose h2 { font-size: 1.8rem; font-weight: 800; margin: 2.5rem 0 1rem; border-bottom: 4px solid var(--black); display: inline-block; padding-bottom: 0.5rem; }
-      .prose h3 { font-size: 1.4rem; font-weight: 700; margin: 2rem 0 0.75rem; color: var(--violet); }
-      .prose p { margin: 1rem 0; line-height: 1.7; }
-      .prose ul { padding-left: 1.5rem; margin: 1rem 0; }
-      .prose li { margin: 0.5rem 0; }
-      .prose strong { font-weight: 700; }
-      .prose blockquote { border-left: 4px solid var(--violet); padding: 1rem 1.5rem; margin: 1.5rem 0; background: #f8f8f8; font-style: italic; }
-      .prose a { color: var(--violet); text-decoration: underline; }
-      .prose hr { border: none; border-top: 2px dashed #ccc; margin: 2rem 0; }
-      .prose img { max-width: 100%; border: 2px solid #eee; margin: 1rem 0; }
-
-      /* Content boxes */
-      .content-box {
-        background: white;
-        border: 4px solid var(--black);
-        padding: 2rem;
-        margin-bottom: var(--space-lg);
-      }
-      .content-box h2 { margin-top: 0; }
-      .content-box p { line-height: 1.7; }
-
-      /* ROI box */
-      .roi-box {
-        background: #E6FFF7;
-        border: 4px solid var(--black);
-        padding: 2rem;
-        box-shadow: 8px 8px 0 var(--blue);
-        margin-bottom: var(--space-lg);
-      }
-      .roi-box h2 { margin-top: 0; }
-      .roi-box blockquote {
-        border-left: 4px solid var(--blue);
-        padding-left: 1.5rem;
-        margin: 1rem 0;
-        font-style: italic;
-      }
-      .roi-box .highlight { font-weight: 800; font-size: 1.2rem; color: var(--yellow); }
-
-      /* Disclaimer box */
-      .disclaimer-box {
-        background: #FFF8E6;
-        border: 4px solid var(--black);
-        padding: 2rem;
-        box-shadow: 8px 8px 0 #F59E0B;
-        margin-bottom: var(--space-lg);
-      }
-      .disclaimer-box h2 { margin-top: 0; }
-
-      /* Portfolio grid */
-      .portfolio-section { margin-bottom: var(--space-lg); }
-      .portfolio-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-      }
-      .portfolio-card {
-        background: white;
-        border: 3px solid var(--black);
-        padding: 1.5rem;
-        text-decoration: none;
-        color: inherit;
-        transition: transform 0.1s, box-shadow 0.1s;
-      }
-      .portfolio-card:hover {
-        transform: translate(-4px, -4px);
-        box-shadow: 4px 4px 0 var(--black);
-      }
-      .portfolio-card h3 { margin: 0 0 0.5rem; color: var(--violet); }
-      .portfolio-card p { margin: 0; color: #666; font-size: 0.9rem; }
-
-      /* Postponed box */
-      .postponed-box {
-        background: #FEF2F2;
-        border: 4px solid #EF4444;
-        padding: 2rem;
-        margin-bottom: var(--space-lg);
-      }
-      .postponed-box h2 { margin-top: 0; color: #EF4444; }
-      .postponed-box a { color: var(--violet); }
-
-      /* Next steps */
-      .next-steps { margin-bottom: var(--space-lg); }
-      .next-steps ol {
-        list-style: none;
-        padding: 0;
-        counter-reset: step;
-      }
-      .next-steps li {
-        padding: 1rem;
-        margin: 0.5rem 0;
-        background: white;
-        border: 2px solid var(--black);
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-      }
-      .next-steps li strong {
-        background: var(--black);
-        color: white;
-        padding: 0.3rem 0.8rem;
-        font-weight: 800;
-      }
-
-      @media (max-width: 768px) {
-        h1 { font-size: 2.5rem; }
-        .container { padding: 20px; }
-      }
-    </style>
-  </head>
-  <body>
-    
-    <div id="lock-screen">
-      <div class="lock-card">
-        <div style="font-size: 3rem; margin-bottom: 1rem;">🔒</div>
-        <h2>Document Sécurisé</h2>
-        <p>Veuillez entrer le code d'accès pour Jon Labs.</p>
-        <form id="unlock-form">
-          <input type="password" id="password-input" style="width:100%; padding:1rem; margin:1.5rem 0; border:3px solid black; font-size:1.2rem; text-align:center;" placeholder="CODE" />
-          <button type="submit" class="btn">Déverrouiller</button>
-          <p id="error-msg" style="color:red; margin-top:1rem;" class="hidden">Code incorrect</p>
-        </form>
-      </div>
+  <div id="lock-screen" class="co-chrome">
+    <div class="dv-lock-card">
+      <i class="ri-lock-line dv-lock-ic" aria-hidden="true"></i>
+      <h2 class="dv-lock-title">Document privé</h2>
+      <p class="dv-lock-lead">Entrez le code d'accès qui vous a été transmis.</p>
+      <form id="unlock-form" class="dv-lock-form">
+        <input
+          type="password"
+          id="password-input"
+          class="dv-lock-input"
+          placeholder="Code d'accès"
+          autocomplete="current-password"
+          aria-label="Code d'accès"
+        />
+        <button type="submit" class="co-btn dv-lock-btn">
+          Ouvrir le document <i class="ri-arrow-right-line"></i>
+        </button>
+        <p id="error-msg" class="dv-lock-err hidden">
+          <i class="ri-error-warning-line"></i> Code incorrect
+        </p>
+      </form>
     </div>
+  </div>
 
-    <main id="main-content" class="container hidden">
-      <header style="margin-bottom: var(--space-xl); border-bottom: 8px solid black; padding-bottom: 2rem; display: flex; justify-content: space-between; align-items: flex-end;">
-        <div>
-          <div style="font-weight: 900; font-size: 1.5rem; margin-bottom: 0.5rem;">JON LABS.</div>
-          <div style="text-transform: uppercase; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.1em; color: #666;">Création digitale & Innovation</div>
-        </div>
-        <div style="text-align: right;">
-          <div style="font-weight: 700;">{entry.data.client}</div>
-          <div style="color: #666;">{dateFormat.format(entry.data.date)}</div>
-        </div>
-      </header>
+  <main id="main-content" class="co-root hidden">
 
-      <section>
-        <h1>{entry.data.title}</h1>
-        {hero && (
-          <div class="hero-box">
-            <h3 style="color: var(--violet); margin-bottom: 1rem;">CONTEXTE DU PROJET</h3>
-            <p><strong>Priorité :</strong> {hero.priority}</p>
-            <p><strong>Problème :</strong> {hero.problem}</p>
-            <p style="margin-bottom: 0;"><strong>Solution :</strong> {hero.solution}</p>
+    <!-- En-tête document -->
+    <header class="dv-head co-pad">
+      <div class="dv-head-brand">
+        <Logo />
+      </div>
+      <dl class="co-spec dv-head-spec">
+        <div class="co-spec-row"><dt>Pour</dt><dd>{entry.data.client}</dd></div>
+        <div class="co-spec-row"><dt>Date</dt><dd>{dateFormat.format(entry.data.date)}</dd></div>
+      </dl>
+    </header>
+
+    <!-- Hero : H1 + cadrage. Pas d'eyebrow au-dessus du H1 (règle gravée). -->
+    <section class="co-sec co-pad co-hero dv-sec" style="padding:64px 40px 56px;">
+      <h1 class="dv-h1" data-animate data-delay="0.1">{entry.data.title}</h1>
+      {hero && (
+        <div class="dv-hero-box co-frame" data-animate data-delay="0.2">
+          <dl class="dv-hero-list">
+            <div class="dv-hero-row">
+              <dt>Priorité</dt>
+              <dd>{hero.priority}</dd>
+            </div>
+            <div class="dv-hero-row">
+              <dt>Problème</dt>
+              <dd>{hero.problem}</dd>
+            </div>
+            <div class="dv-hero-row">
+              <dt>Solution</dt>
+              <dd>{hero.solution}</dd>
+            </div>
+          </dl>
+        </div>
+      )}
+    </section>
+
+    <!-- Le diagnostic -->
+    {audit && (
+      <section class="co-sec co-pad dv-sec" style="padding:56px 40px;">
+        <p class="co-eyebrow">{num('audit')} — Le diagnostic</p>
+        <h2 style="margin-top:8px;">{audit.title}</h2>
+        {audit.intro && <p class="dv-lead" set:html={audit.intro} />}
+
+        {audit.moments && (
+          <div class="dv-moments" data-animate-stagger>
+            {audit.moments.map(m => (
+              <div class="dv-moment" data-animate-item>
+                <p class="dv-moment-q">{m.query}</p>
+                <p class="dv-moment-f" set:html={m.finding} />
+              </div>
+            ))}
           </div>
         )}
-      </section>
 
-      {offers && (
-        <section>
-          <h2>Comparaison des offres</h2>
-          <div class="comp-table-wrapper">
-            <table>
+        {audit.scores && (
+          <div class="dv-scores" data-animate-stagger>
+            {audit.scores.map(s => (
+              <div class={`dv-score dv-score--${s.tone}`} data-animate-item>
+                <div class="dv-score-val">{s.value}</div>
+                <div class="dv-score-lbl">{s.label}</div>
+              </div>
+            ))}
+          </div>
+        )}
+
+        {audit.screenshot && (
+          <figure class="dv-shot co-frame" data-animate>
+            <img src={audit.screenshot.image} alt={audit.title} loading="lazy" />
+            {audit.screenshot.caption && <figcaption set:html={audit.screenshot.caption} />}
+          </figure>
+        )}
+
+        {audit.nuance && (
+          <div class="dv-callout" data-animate>
+            <h3 class="dv-callout-title">{audit.nuance.title}</h3>
+            <p class="dv-callout-text" set:html={audit.nuance.content} />
+          </div>
+        )}
+
+        <div class="dv-ask">
+          <p class="dv-ask-text">Une question sur ce constat ?</p>
+          <a href={waHref} target="_blank" rel="noopener" class="co-btn co-btn--ghost dv-wa">
+            <i class="ri-whatsapp-line"></i> Écrivez-moi sur WhatsApp
+          </a>
+        </div>
+      </section>
+    )}
+
+    <!-- Constat (devis sans bloc audit) -->
+    {constat && (
+      <section class="co-sec co-pad dv-sec" style="padding:56px 40px;">
+        <p class="co-eyebrow">{num('constat')} — Le constat</p>
+        <h2 style="margin-top:8px;">Ce que j'ai relevé</h2>
+        <div class="dv-callout" style="margin-top:24px;">
+          <p class="dv-callout-text" set:html={constat} />
+        </div>
+      </section>
+    )}
+
+    <!-- Le raisonnement (corps markdown) -->
+    {hasBody && (
+      <section class="co-sec co-pad dv-sec" style="padding:56px 40px;">
+        <p class="co-eyebrow">{num('body')} — Le raisonnement</p>
+        <div class="co-prose dv-prose">
+          <Content />
+        </div>
+      </section>
+    )}
+
+    <!-- Le plan -->
+    {timeline && timeline.length > 0 && (
+      <section class="co-sec co-pad dv-sec" style="padding:56px 40px;">
+        <p class="co-eyebrow">{num('timeline')} — Le plan</p>
+        <h2 style="margin-top:8px;">Comment ça <span class="co-ser">se déroule</span></h2>
+        <div class="dv-steps">
+          {timeline.map((t, i) => (
+            <div class="dv-step">
+              <span class="co-index dv-step-num">{String(i + 1).padStart(2, '0')}</span>
+              <div>
+                <h3 class="dv-step-title">{t.step}</h3>
+                <p class="dv-step-text" set:html={t.description} />
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Les preuves -->
+    {proofs.length > 0 && (
+      <section class="co-sec co-pad dv-sec" style="padding:56px 40px;">
+        <p class="co-eyebrow">{num('proofs')} — Les preuves</p>
+        <h2 style="margin-top:8px;">
+          {proofs.length > 1 ? 'Des dossiers comparables' : 'Un dossier comparable'}
+        </h2>
+        <div class="dv-proofs">
+          {proofs.map(p => (
+            <article class="dv-proof co-frame">
+              <h3 class="dv-proof-title">{p.title}</h3>
+              <img src={p.image} alt={p.title} class="dv-proof-img" loading="lazy" />
+              <div class="dv-proof-stats">
+                {p.stats.map(stat => (
+                  <div class="dv-proof-stat">
+                    <div class="dv-proof-val">{stat.value}</div>
+                    <div class="dv-proof-lbl">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+              {p.caption && <p class="dv-proof-cap" set:html={p.caption} />}
+              {p.caseStudy && (
+                <a href={p.caseStudy} class="dv-proof-link">
+                  Voir l'étude de cas <i class="ri-arrow-right-line"></i>
+                </a>
+              )}
+            </article>
+          ))}
+        </div>
+
+        <div class="dv-ask">
+          <p class="dv-ask-text">Vous voulez en parler de vive voix ?</p>
+          <a href={waHref} target="_blank" rel="noopener" class="co-btn co-btn--ghost dv-wa">
+            <i class="ri-whatsapp-line"></i> Écrivez-moi sur WhatsApp
+          </a>
+        </div>
+      </section>
+    )}
+
+    <!-- Mon conseil -->
+    {advice && (
+      <section class="co-sec co-pad dv-sec" style="padding:56px 40px;">
+        <p class="co-eyebrow">{num('advice')} — Mon conseil</p>
+        <div class="dv-advice">
+          <i class="ri-lightbulb-line" aria-hidden="true"></i>
+          <p class="dv-advice-text">{advice}</p>
+        </div>
+      </section>
+    )}
+
+    <!-- Ce que je ne promets pas -->
+    {disclaimer && (
+      <section class="co-sec co-pad dv-sec" style="padding:56px 40px;">
+        <p class="co-eyebrow">{num('disclaimer')} — Les limites</p>
+        <h2 style="margin-top:8px;">{disclaimer.title}</h2>
+        <div class="dv-callout" style="margin-top:24px;">
+          <p class="dv-callout-text" set:html={disclaimer.content} />
+        </div>
+      </section>
+    )}
+
+    <!-- La proposition : le prix arrive ici, après l'argument -->
+    {offers && offers.length > 0 && (
+      <section class="co-sec co-pad dv-sec" style="padding:56px 40px;">
+        <p class="co-eyebrow">{num('offers')} — La proposition</p>
+        <h2 style="margin-top:8px;">
+          {showComparison ? 'Comparaison des offres' : 'Le détail et le prix'}
+        </h2>
+
+        {showComparison && (
+          <div class="dv-table-wrap">
+            <table class="dv-table">
               <thead>
                 <tr>
                   <th>Caractéristique</th>
@@ -285,7 +313,7 @@ const { hero, offers, timeline, advice, proof, constat, roi, portfolio, postpone
               <tbody>
                 <tr>
                   <td><strong>Prix</strong></td>
-                  {offers.map(o => <td style="text-align:center; font-weight:800; font-size:1.2rem;">{o.price}</td>)}
+                  {offers.map(o => <td style="text-align:center" class="dv-table-price">{o.price}</td>)}
                 </tr>
                 {comparison ? (
                   comparison.map(row => (
@@ -293,12 +321,16 @@ const { hero, offers, timeline, advice, proof, constat, roi, portfolio, postpone
                       <td>{row.label}</td>
                       <td style="text-align:center">
                         {typeof row.starter === 'boolean'
-                          ? (row.starter ? <span class="check">✓</span> : <span class="cross">✕</span>)
+                          ? (row.starter
+                              ? <i class="ri-check-line dv-yes" aria-label="Inclus"></i>
+                              : <i class="ri-close-line dv-no" aria-label="Non inclus"></i>)
                           : row.starter}
                       </td>
                       <td style="text-align:center">
                         {typeof row.premium === 'boolean'
-                          ? (row.premium ? <span class="check">✓</span> : <span class="cross">✕</span>)
+                          ? (row.premium
+                              ? <i class="ri-check-line dv-yes" aria-label="Inclus"></i>
+                              : <i class="ri-close-line dv-no" aria-label="Non inclus"></i>)
                           : row.premium}
                       </td>
                     </tr>
@@ -307,169 +339,421 @@ const { hero, offers, timeline, advice, proof, constat, roi, portfolio, postpone
                   <>
                     <tr>
                       <td>SEO Local</td>
-                      {offers.map(o => <td style="text-align:center">{o.name.includes('Starter') ? <span class="cross">✕</span> : <span class="check">✓</span>}</td>)}
+                      {offers.map(o => <td style="text-align:center">{o.name.includes('Starter') ? <i class="ri-close-line dv-no" aria-label="Non inclus"></i> : <i class="ri-check-line dv-yes" aria-label="Inclus"></i>}</td>)}
                     </tr>
                     <tr>
                       <td>Bilingue FR/EN</td>
-                      {offers.map(o => <td style="text-align:center">{o.name.includes('Starter') ? <span class="cross">✕</span> : <span class="check">✓</span>}</td>)}
+                      {offers.map(o => <td style="text-align:center">{o.name.includes('Starter') ? <i class="ri-close-line dv-no" aria-label="Non inclus"></i> : <i class="ri-check-line dv-yes" aria-label="Inclus"></i>}</td>)}
                     </tr>
                     <tr>
                       <td>Avis Automatisés</td>
-                      {offers.map(o => <td style="text-align:center">{o.name.includes('Starter') ? <span class="cross">✕</span> : <span class="check">✓</span>}</td>)}
+                      {offers.map(o => <td style="text-align:center">{o.name.includes('Starter') ? <i class="ri-close-line dv-no" aria-label="Non inclus"></i> : <i class="ri-check-line dv-yes" aria-label="Inclus"></i>}</td>)}
                     </tr>
                   </>
                 )}
               </tbody>
             </table>
           </div>
+        )}
 
-          <div class="offers-grid">
-            {offers.map(o => (
-              <div class={`offer-card ${o.recommended ? 'recommended' : ''} ${o.pack ? 'pack' : ''}`}>
-                {o.recommended && <div class="rec-badge">★ RECOMMANDÉE</div>}
-                <h3>{o.name}</h3>
-                <div class="price-tag">{o.price}</div>
-                <p class="subtitle">{o.subtitle}</p>
-                <ul style="list-style:none; padding:0; margin-top:1.5rem;">
-                  {o.features.map(f => <li style="margin-bottom:10px; display:flex; align-items:flex-start;"><span style="color:var(--blue); margin-right:10px;">✓</span> {f}</li>)}
-                  {o.excluded?.map(e => <li style="margin-bottom:10px; display:flex; align-items:flex-start; color:#999; text-decoration:line-through;"><span style="margin-right:10px;">✕</span> {e}</li>)}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
-
-      {advice && (
-        <section>
-          <div class="advice-card">
-            <h2>Mon Conseil Personnel</h2>
-            <p style="font-size: 1.2rem; margin: 0;">{advice}</p>
-          </div>
-        </section>
-      )}
-
-      {/* Section Constat */}
-      {constat && (
-        <section class="content-box">
-          <h2>Le Constat</h2>
-          <p set:html={constat} />
-        </section>
-      )}
-
-      {proof && (
-        <section>
-          <h2>{proof.title}</h2>
-          <div style="background: white; border: 4px solid black; padding: 2rem; box-shadow: 8px 8px 0 var(--blue);">
-            <img src={proof.image} alt={proof.title} style="width: 100%; border: 2px solid #eee; margin-bottom: 1.5rem;" />
-            <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-bottom: 1rem;">
-              {proof.stats.map(stat => (
-                <div style="text-align: center;">
-                  <div style="font-size: 2rem; font-weight: 800; color: var(--violet);">{stat.value}</div>
-                  <div style="font-size: 0.9rem; color: #666;">{stat.label}</div>
-                </div>
-              ))}
+        <div class="dv-tiers">
+          {offers.map(o => (
+            <div class={`dv-tier ${o.recommended ? 'dv-tier--reco' : ''}`}>
+              {o.recommended && (
+                <span class="co-badge co-badge--solid dv-tier-badge">Recommandé</span>
+              )}
+              <h3 class="dv-tier-name">{o.name}</h3>
+              <div class="dv-tier-price"><b>{o.price}</b></div>
+              {o.subtitle && <p class="dv-tier-sub">{o.subtitle}</p>}
+              <ul class="dv-tier-features">
+                {o.features.map(f => (
+                  f === f.toUpperCase() && /[A-ZÀ-Ý]/.test(f)
+                    ? <li class="dv-feature-group">{f}</li>
+                    : <li class="dv-feature"><i class="ri-check-line"></i><span>{f}</span></li>
+                ))}
+                {o.excluded?.map(e => (
+                  <li class="dv-feature dv-feature--out"><i class="ri-close-line"></i><span>{e}</span></li>
+                ))}
+              </ul>
             </div>
-            {proof.caption && <p style="margin: 0; font-style: italic; color: #666;">{proof.caption}</p>}
+          ))}
+        </div>
+
+        {roi && (
+          <div class="dv-roi">
+            <h3 class="dv-roi-title">Le calcul</h3>
+            <p class="dv-roi-context">{roi.context}</p>
+            <p class="dv-roi-calc">{roi.calculation}</p>
+            <p class="dv-roi-result">{roi.result}</p>
           </div>
-        </section>
-      )}
+        )}
 
-      {/* Section ROI */}
-      {roi && (
-        <section class="roi-box">
-          <h2>Argument ROI</h2>
-          <blockquote>
-            <p>{roi.context}</p>
-            <p class="highlight">{roi.calculation}</p>
-            <p>{roi.result}</p>
-          </blockquote>
-        </section>
-      )}
-
-      {/* Section Disclaimer */}
-      {disclaimer && (
-        <section class="disclaimer-box">
-          <h2>{disclaimer.title}</h2>
-          <p set:html={disclaimer.content} />
-        </section>
-      )}
-
-      {/* Section Portfolio */}
-      {portfolio && portfolio.length > 0 && (
-        <section class="portfolio-section">
-          <h2>Réalisations Jon Labs</h2>
-          <div class="portfolio-grid">
-            {portfolio.map(p => (
-              <a href={p.url} target="_blank" rel="noopener" class="portfolio-card">
-                <h3>{p.name}</h3>
-                <p>{p.description}</p>
-              </a>
-            ))}
+        {options && options.length > 0 && (
+          <div class="dv-options">
+            <h3 class="dv-options-title">À discuter ensemble</h3>
+            <p class="dv-options-lead">
+              Rien de tout ça n'est nécessaire au démarrage, et rien n'est chiffré ici :
+              ça dépend de ce que vous avez déjà en interne. On en parle, je regarde, et
+              je vous dis ce qui vaut le coup.
+            </p>
+            <ul class="dv-options-list">
+              {options.map(o => (
+                <li class="dv-option">
+                  <div class="dv-option-main">
+                    <span class="dv-option-name">{o.name}</span>
+                    <span class="dv-option-benefit">{o.benefit}</span>
+                  </div>
+                  {o.price && <span class="dv-option-price">{o.price}</span>}
+                </li>
+              ))}
+            </ul>
           </div>
-        </section>
-      )}
+        )}
 
-      {/* Section Postponed */}
-      {postponed && (
-        <section class="postponed-box">
-          <h2>{postponed.title}</h2>
-          <p>{postponed.reason}</p>
+        {legal && <p class="dv-legal" set:html={legal} />}
+      </section>
+    )}
+
+    <!-- Références -->
+    {portfolio && portfolio.length > 0 && (
+      <section class="co-sec co-pad dv-sec" style="padding:56px 40px;">
+        <p class="co-eyebrow">{num('portfolio')} — Références</p>
+        <h2 style="margin-top:8px;">Quelques <span class="co-ser">réalisations</span></h2>
+        <div class="dv-refs">
+          {refs.map(p => (
+            <a
+              href={p.url}
+              class="dv-ref co-frame co-frame--reveal"
+              target={p.external ? '_blank' : undefined}
+              rel={p.external ? 'noopener' : undefined}
+            >
+              <h3 class="dv-ref-name">{p.name}</h3>
+              <p class="dv-ref-desc">{p.description}</p>
+              <span class="dv-ref-go">
+                {p.external ? 'Voir le site' : "Voir l'étude de cas"}
+                <i class={p.external ? 'ri-external-link-line' : 'ri-arrow-right-line'}></i>
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Reporté -->
+    {postponed && (
+      <section class="co-sec co-pad dv-sec" style="padding:56px 40px;">
+        <p class="co-eyebrow">{num('postponed')} — Reporté</p>
+        <h2 style="margin-top:8px;">{postponed.title}</h2>
+        <div class="dv-callout" style="margin-top:24px;">
+          <p class="dv-callout-text">{postponed.reason}</p>
           {postponed.action && postponed.link && (
-            <p>→ {postponed.action} : <a href={postponed.link} target="_blank" rel="noopener">{postponed.link}</a></p>
+            <p class="dv-callout-text" style="margin-top:12px;">
+              {postponed.action} : <a href={postponed.link} target="_blank" rel="noopener" class="dv-inline">{postponed.link}</a>
+            </p>
           )}
-        </section>
-      )}
+        </div>
+      </section>
+    )}
 
-      {/* Section Next Steps */}
-      {nextSteps && nextSteps.length > 0 && (
-        <section class="next-steps">
-          <h2>Prochaines Étapes</h2>
-          <ol>
-            {nextSteps.map((step, i) => (
-              <li><strong>{i + 1}</strong> {step}</li>
-            ))}
-          </ol>
-        </section>
-      )}
+    <!-- CTA final -->
+    <section class="co-cta dv-cta">
+      <span class="co-x tl"></span><span class="co-x tr"></span>
+      <div class="co-cta-inner">
+        <h2 class="co-cta-title">Une question sur <span class="co-ser">ce devis ?</span></h2>
+        <p class="co-cta-lead">
+          Envoyez-moi un message sur WhatsApp, même pour un détail. Je réponds
+          dans la journée, et il n'y a pas de mauvaise question.
+        </p>
+        <div class="co-cta-btns">
+          <a href={waHref} target="_blank" rel="noopener" class="co-btn co-cta-btn dv-cta-wa">
+            <i class="ri-whatsapp-line"></i> M'écrire sur WhatsApp
+          </a>
+        </div>
+        <div class="co-cta-trust">
+          <a href="tel:+41789447707"><i class="ri-phone-line"></i> 078 944 77 07</a>
+          <a href="mailto:contact@jonlabs.ch"><i class="ri-mail-line"></i> contact@jonlabs.ch</a>
+        </div>
+      </div>
+    </section>
 
-      {/* Markdown body - optional additional content */}
-      {entry.body.trim() && (
-        <section class="prose" style="background: white; border: 4px solid black; padding: 3rem;">
-          <Content />
-        </section>
-      )}
+  </main>
 
-      <footer style="text-align:center; padding: var(--space-xl) 0; border-top: 4px solid black; margin-top: var(--space-xl);">
-        <h3 style="margin-bottom: 1rem;">Prêt à lancer le projet ?</h3>
-        <p>Contacte-moi directement pour valider l'offre et lancer le calendrier.</p>
-        <div style="font-weight: 800; font-size: 1.5rem; margin-top: 2rem;">078 944 77 07</div>
-        <div style="color: var(--violet);">contact@jonlabs.ch</div>
-      </footer>
-    </main>
+  
 
-    <script define:vars={{ correctPassword: entry.data.password, slug: entry.slug }}>
-      const storageKey = `unlocked_devis_${slug}`;
-      const lockScreen = document.getElementById('lock-screen');
-      const mainContent = document.getElementById('main-content');
-      const form = document.getElementById('unlock-form');
-      const input = document.getElementById('password-input');
+  <script define:vars={{ correctPassword: entry.data.password, slug: entry.slug }}>
+    const storageKey = `unlocked_devis_${slug}`;
+    const lockScreen = document.getElementById('lock-screen');
+    const mainContent = document.getElementById('main-content');
+    const form = document.getElementById('unlock-form');
+    const input = document.getElementById('password-input');
 
-      if (localStorage.getItem(storageKey) === 'true' || !correctPassword) {
+    if (localStorage.getItem(storageKey) === 'true' || !correctPassword) {
+      lockScreen.classList.add('hidden');
+      mainContent.classList.remove('hidden');
+    }
+
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      if (input.value === correctPassword) {
+        localStorage.setItem(storageKey, 'true');
         lockScreen.classList.add('hidden');
         mainContent.classList.remove('hidden');
+      } else {
+        document.getElementById('error-msg').classList.remove('hidden');
       }
+    });
+  </script>
 
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        if (input.value === correctPassword) {
-          localStorage.setItem(storageKey, 'true');
-          lockScreen.classList.add('hidden');
-          mainContent.classList.remove('hidden');
-        } else {
-          document.getElementById('error-msg').classList.remove('hidden');
-        }
-      });
-    </script>
-  </body>
-</html>
+</Layout>
+
+<style is:global>
+  /* ══ DEVIS CLIENT — styles .dv-* (namespace scopé, corps .co-root) ══ */
+
+  .hidden { display: none !important; }
+
+  /* Sévérité du diagnostic : exception assumée à l'accent unique.
+     Sur un diagnostic, rouge/vert EST l'information (Jonathan, 15.07.2026).
+     Intensité tenue : le chiffre porte la couleur, la carte reste neutre. */
+  .co-root, .co-chrome {
+    --dv-bad: #C4342B;
+    --dv-mid: #B0741A;
+  }
+
+  /* ── Lock screen ── */
+  #lock-screen {
+    position: fixed; inset: 0; z-index: 100;
+    background: var(--bg);
+    display: flex; align-items: center; justify-content: center; padding: 20px;
+  }
+  .dv-lock-card {
+    display: flex; flex-direction: column; align-items: center; text-align: center;
+    gap: 10px; width: 100%; max-width: 420px; padding: 40px 32px;
+    background: var(--surface); border: 1px solid var(--line-2);
+  }
+  .dv-lock-ic { font-size: 30px; color: var(--accent); line-height: 1; }
+  .dv-lock-title { font-size: 1.4rem; font-weight: 700; letter-spacing: -0.025em; margin: 0; }
+  .dv-lock-lead { margin: 0; font-size: 14.5px; line-height: 1.55; color: var(--muted); }
+  .dv-lock-form { display: flex; flex-direction: column; gap: 12px; width: 100%; margin-top: 14px; }
+  .dv-lock-input {
+    /* min-width:0 — un input en flex/grid garde sa largeur min-content et déborde,
+       débordement invisible car clippé par .co-root{overflow:hidden}. */
+    width: 100%; min-width: 0;
+    font-family: "Inter Tight", ui-sans-serif, sans-serif; font-size: 15px; color: var(--ink);
+    background: var(--bg); border: 1px solid var(--line-2); padding: 12px 14px; text-align: center;
+    letter-spacing: 0.08em;
+    transition: border-color .18s ease-out, box-shadow .18s ease-out;
+  }
+  .dv-lock-input::placeholder { color: var(--muted); opacity: .7; letter-spacing: 0; }
+  .dv-lock-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,168,125,.15); }
+  .dv-lock-btn { justify-content: center; border: 0; cursor: pointer; font-family: inherit; }
+  .dv-lock-err { margin: 0; font-size: 13px; color: var(--dv-bad); display: inline-flex; align-items: center; justify-content: center; gap: 6px; }
+
+  /* ── En-tête document ── */
+  .dv-head {
+    display: flex; align-items: flex-end; justify-content: space-between;
+    gap: 32px; flex-wrap: wrap; padding: 28px 40px;
+  }
+  .dv-head-brand { line-height: 0; }
+  .dv-head-spec { min-width: 240px; border-top: 0; }
+
+  /* ── Hero ── */
+  .co-root .dv-h1 { font-size: clamp(2.1rem, 4.8vw, 3.2rem); line-height: 1.06; letter-spacing: -0.03em; max-width: 20ch; }
+  .dv-hero-box {
+    position: relative; margin-top: 32px; padding: 30px 32px;
+    background: var(--surface); border: 1px solid var(--line-2);
+  }
+  .dv-hero-list { display: flex; flex-direction: column; gap: 20px; margin: 0; }
+  .dv-hero-row { display: grid; grid-template-columns: 96px 1fr; gap: 18px; align-items: baseline; }
+  .dv-hero-row dt { font-size: 11px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+  .dv-hero-row dd { margin: 0; font-size: 1.02rem; line-height: 1.6; }
+
+  /* ── Corps de section ── */
+  .co-root .dv-lead { margin-top: 12px; font-size: 1.05rem; line-height: 1.65; color: var(--muted); max-width: 68ch; }
+
+  /* ── Diagnostic : les moments ── */
+  .dv-moments { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+  .dv-moment {
+    padding: 20px 24px; background: var(--surface); border: 1px solid var(--line-2);
+    box-shadow: inset 3px 0 0 var(--dv-bad);
+  }
+  .co-root .dv-moment-q { font-size: 1.02rem; font-weight: 600; letter-spacing: -0.01em; }
+  .co-root .dv-moment-f { margin-top: 7px; font-size: 14.5px; line-height: 1.6; color: var(--muted); }
+  .dv-moment-f strong { color: var(--ink); font-weight: 600; }
+  .dv-moment-f code {
+    font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.86em;
+    background: rgba(20,22,26,.05); border: 1px solid var(--line); padding: 0.12em 0.4em;
+  }
+
+  /* ── Diagnostic : les scores ── */
+  .dv-scores { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 32px; }
+  .dv-score { padding: 22px 18px; text-align: center; background: var(--surface); border: 1px solid var(--line-2); }
+  .dv-score-val { font-size: 2.2rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+  .dv-score-lbl { margin-top: 7px; font-size: 13px; line-height: 1.4; color: var(--muted); }
+  .dv-score--bad .dv-score-val { color: var(--dv-bad); }
+  .dv-score--mid .dv-score-val { color: var(--dv-mid); }
+  .dv-score--good .dv-score-val { color: var(--accent); }
+
+  /* ── Capture d'écran ── */
+  .dv-shot { position: relative; margin-top: 32px; padding: 20px; background: var(--surface); border: 1px solid var(--line-2); }
+  .dv-shot img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
+  .co-root .dv-shot figcaption { margin-top: 14px; font-size: 13px; line-height: 1.55; color: var(--muted); font-style: italic; }
+
+  /* ── Callout (nuance, disclaimer, constat, reporté) ── */
+  .dv-callout {
+    margin-top: 32px; padding: 24px 28px;
+    background: var(--surface); border: 1px solid var(--line-2);
+    box-shadow: inset 3px 0 0 var(--accent);
+  }
+  .co-root .dv-callout-title { font-size: 1.15rem; line-height: 1.3; margin-bottom: 12px; }
+  .co-root .dv-callout-text { font-size: 15px; line-height: 1.7; color: var(--muted); max-width: 72ch; }
+  .dv-callout-text strong { color: var(--ink); font-weight: 600; }
+  .dv-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+
+  /* ── Relance WhatsApp inline ── */
+  .dv-ask {
+    display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;
+    margin-top: 36px; padding-top: 24px; border-top: 1px solid var(--line);
+  }
+  .co-root .dv-ask-text { font-size: 14.5px; color: var(--muted); }
+  .dv-wa i { color: #25D366; font-size: 17px; }
+
+  /* ── Le corps markdown ── */
+  .dv-prose { margin-top: 20px; }
+  /* Le premier H2 du corps ne doit pas doubler l'espace laissé par l'eyebrow. */
+  .co-root .dv-prose > h2:first-child { margin-top: 0.3em; }
+
+  /* ── Le plan ── */
+  .dv-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+  .dv-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
+  .dv-step-num { font-size: 20px; font-weight: 600; }
+  .co-root .dv-step-title { font-size: 1.1rem; line-height: 1.3; }
+  .co-root .dv-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.6; color: var(--muted); max-width: 70ch; }
+
+  /* ── Les preuves ── */
+  .dv-proofs { display: flex; flex-direction: column; gap: 20px; margin-top: 32px; }
+  .dv-proof { position: relative; padding: 28px 30px; background: var(--surface); border: 1px solid var(--line-2); }
+  .co-root .dv-proof-title { font-size: 1.2rem; line-height: 1.3; max-width: 44ch; }
+  .dv-proof-img { display: block; width: 100%; height: auto; margin-top: 20px; border: 1px solid var(--line); }
+  .dv-proof-stats {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px;
+    margin-top: 22px; padding: 18px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  }
+  .dv-proof-val { font-size: 1.7rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; color: var(--accent); font-variant-numeric: tabular-nums; }
+  .dv-proof-lbl { margin-top: 6px; font-size: 12.5px; line-height: 1.4; color: var(--muted); }
+  .co-root .dv-proof-cap { margin-top: 18px; font-size: 14px; line-height: 1.7; color: var(--muted); max-width: 72ch; }
+  .dv-proof-cap strong { color: var(--ink); font-weight: 600; }
+  .dv-proof-link {
+    display: inline-flex; align-items: center; gap: 7px; margin-top: 18px;
+    font-size: 14px; font-weight: 600; color: var(--accent);
+    transition: gap .18s ease-out;
+  }
+  .dv-proof-link:hover { gap: 11px; }
+
+  /* ── Mon conseil ── */
+  .dv-advice {
+    display: flex; align-items: flex-start; gap: 14px; margin-top: 20px; padding: 24px 28px;
+    background: rgba(0,168,125,0.05); border: 1px solid var(--accent);
+  }
+  .dv-advice > i { color: var(--accent); font-size: 22px; flex: none; margin-top: 2px; }
+  .co-root .dv-advice-text { font-size: 1.05rem; line-height: 1.65; max-width: 68ch; }
+
+  /* ── Tableau comparatif ── */
+  .dv-table-wrap { margin-top: 32px; overflow-x: auto; border: 1px solid var(--line-2); }
+  .dv-table { width: 100%; border-collapse: collapse; font-size: 14.5px; background: var(--surface); min-width: 560px; }
+  .dv-table thead { background: rgba(20,22,26,.04); }
+  .dv-table th { padding: 14px 16px; text-align: left; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; border-bottom: 1px solid var(--line-2); }
+  .dv-table td { padding: 13px 16px; border-bottom: 1px solid var(--line); }
+  .dv-table tr:last-child td { border-bottom: 0; }
+  .dv-table-price { font-weight: 700; font-size: 1.05rem; }
+  .dv-yes { color: var(--accent); font-size: 17px; }
+  .dv-no { color: var(--muted); opacity: .5; font-size: 17px; }
+
+  /* ── Les offres ── */
+  .dv-tiers { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; align-items: start; margin-top: 36px; }
+  .dv-tier { position: relative; display: flex; flex-direction: column; gap: 14px; padding: 30px 26px; background: var(--surface); border: 1px solid var(--line-2); }
+  .dv-tier--reco { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+  .dv-tier-badge { position: absolute; top: -12px; left: 26px; z-index: 4; }
+  .co-root .dv-tier-name { font-size: 1.15rem; line-height: 1.3; }
+  .dv-tier-price b { font-size: 2.3rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+  .co-root .dv-tier-sub { font-size: 13px; line-height: 1.5; color: var(--muted); }
+  .dv-tier-features { display: flex; flex-direction: column; gap: 10px; margin-top: 6px; padding: 0; list-style: none; }
+  .dv-feature { display: flex; gap: 9px; font-size: 14px; line-height: 1.5; }
+  .dv-feature i { color: var(--accent); font-size: 15px; flex: none; margin-top: 2px; }
+  .dv-feature--out { color: var(--muted); text-decoration: line-through; }
+  .dv-feature--out i { color: var(--muted); opacity: .6; }
+  /* Intertitre dans une liste de features (ligne tout en majuscules dans le contenu) */
+  .dv-feature-group {
+    margin-top: 14px; padding-bottom: 8px; border-bottom: 1px solid var(--line);
+    font-size: 11px; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted);
+  }
+  .dv-tier-features > .dv-feature-group:first-child { margin-top: 0; }
+
+  /* ── Le calcul ── */
+  .dv-roi {
+    display: flex; flex-direction: column; gap: 12px; margin-top: 36px; padding: 28px 30px;
+    background: var(--surface); border: 1px solid var(--line-2); box-shadow: inset 3px 0 0 var(--accent);
+  }
+  .co-root .dv-roi-title { font-size: 1.15rem; }
+  .co-root .dv-roi-context, .co-root .dv-roi-result { font-size: 14.5px; line-height: 1.7; color: var(--muted); max-width: 72ch; }
+  .co-root .dv-roi-calc {
+    font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* ── Les options ── */
+  .dv-options { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--line); }
+  .co-root .dv-options-title { font-size: 1.15rem; }
+  .co-root .dv-options-lead { margin-top: 8px; font-size: 14px; line-height: 1.6; color: var(--muted); max-width: 68ch; }
+  .dv-options-list { display: flex; flex-direction: column; margin-top: 20px; border-top: 1px solid var(--line); padding: 0; list-style: none; }
+  .dv-option {
+    display: flex; align-items: baseline; justify-content: space-between; gap: 24px;
+    padding: 14px 0; border-bottom: 1px solid var(--line);
+  }
+  .dv-option-main { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+  .dv-option-name { font-size: 14.5px; font-weight: 600; }
+  .dv-option-benefit { font-size: 13px; line-height: 1.5; color: var(--muted); }
+  .dv-option-price { flex: none; font-size: 13px; font-weight: 600; color: var(--accent); white-space: nowrap; }
+
+  /* ── Mention légale ── */
+  .co-root .dv-legal { margin-top: 32px; font-size: 12.5px; line-height: 1.6; color: var(--muted); font-style: italic; max-width: 72ch; }
+
+  /* ── Références ── */
+  .dv-refs { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 32px; }
+  .dv-ref {
+    position: relative; display: flex; flex-direction: column; gap: 7px; padding: 24px;
+    background: var(--surface); border: 1px solid var(--line-2);
+    transition: box-shadow .18s ease-out, transform .18s ease-out;
+  }
+  .dv-ref:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+  .co-root .dv-ref-name { font-size: 1.05rem; }
+  .co-root .dv-ref-desc { font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+  .dv-ref-go {
+    display: inline-flex; align-items: center; gap: 6px; margin-top: 6px;
+    font-size: 13px; font-weight: 600; color: var(--accent);
+  }
+  .dv-ref-go i { transition: transform .18s ease-out; }
+  .dv-ref:hover .dv-ref-go i { transform: translateX(3px); }
+
+  /* ── CTA final ── */
+  .dv-cta-wa i { color: #25D366; font-size: 18px; transition: transform .18s ease-out; }
+  .dv-cta .co-cta-btn:hover i { transform: none; }
+  .dv-cta .co-cta-trust a { display: inline-flex; align-items: center; gap: 6px; color: rgba(255,255,255,0.6); transition: color .18s ease-out; }
+  .dv-cta .co-cta-trust a:hover { color: #fff; }
+
+  @media (max-width: 900px) {
+    .dv-tiers, .dv-refs, .dv-scores { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 720px) {
+    .dv-head { padding: 22px 20px; align-items: flex-start; flex-direction: column; gap: 20px; }
+    .dv-head-spec { width: 100%; min-width: 0; }
+    .dv-hero-box { padding: 24px 20px; }
+    .dv-hero-row { grid-template-columns: 1fr; gap: 5px; }
+    .dv-moment, .dv-callout, .dv-proof, .dv-roi, .dv-advice { padding-left: 20px; padding-right: 20px; }
+    .dv-step { grid-template-columns: 44px 1fr; gap: 14px; }
+    .dv-option { flex-direction: column; gap: 5px; }
+    .dv-ask { flex-direction: column; align-items: flex-start; gap: 14px; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .dv-ref, .dv-ref-go i, .dv-proof-link, .dv-lock-input { transition: none; }
+  }
+</style>

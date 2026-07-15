@@ -1,6 +1,6 @@
 ---
 title: "Barber Concept"
-description: "Site Webflow pour une chaîne de barbiers à Genève — CMS multi-salon, SEO local et pages franchise."
+description: "Chaîne de barbiers à Genève — site refondu en Astro et activé en SEO en 2026 : 15'000 clics organiques sur six mois."
 date: 2023-09-01
 draft: false
 featured: false
@@ -12,9 +12,9 @@ client:
   website: "https://barberconcept.ch"
 
 project:
-  duration: "~2 mois"
-  period: "Septembre - Octobre 2023"
-  platform: "Webflow"
+  duration: "~2 mois (création) · en continu depuis 2026"
+  period: "Sept. – Oct. 2023 (Webflow) · 2026 (refonte Astro + SEO)"
+  platform: "Astro — refonte 2026 (Webflow à l'origine)"
   category: "seo"
 
 heroImage:
@@ -44,6 +44,23 @@ resultImages:
     alt: "Formulaire de recrutement multi-step — Parle nous de toi avec upload CV"
     caption: "Formulaire multi-step de candidature intégré au site"
 
+results:
+  - label: "Clics organiques"
+    value: "15'000"
+    detail: "Search Console, 6 mois (janvier – juillet 2026)"
+    icon: "ri-cursor-line"
+  - label: "Impressions"
+    value: "571'000"
+    detail: "Sur la même période"
+    icon: "ri-eye-line"
+  - label: "Position moyenne"
+    value: "6,8"
+    icon: "ri-bar-chart-line"
+  - label: "Salons couverts"
+    value: "6"
+    detail: "Genève, Lausanne, Sion — CMS multi-salon"
+    icon: "ri-store-2-line"
+
 context:
   clientDescription: "Barber Concept est une chaîne de salons de barbiers en pleine expansion en Suisse romande, avec 6 établissements (4 à Genève, 1 à Lausanne, 1 à Sion). La marque se positionne sur un créneau premium dans l'univers de la coiffure masculine, avec des ambassadeurs comme Zakaria, Gazo, Gims et Tiakola."
   challenge: "Le site existant était vieillissant et ne reflétait plus l'image de la marque. Barber Concept lançait en parallèle une application mobile de réservation personnalisée (développée par [Kusari](https://kusari.ch)) — il fallait un site à la hauteur de cette nouvelle identité, capable de présenter les salons, le programme de franchise et de gérer le recrutement."
@@ -69,13 +86,14 @@ approach:
       - "Section ambassadeurs avec carrousel"
       - "Custom code pour les interactions avancées"
   - phase: 3
-    title: "Optimisation SEO (en cours)"
-    description: "Phase actuelle : retravail du site pour améliorer le référencement naturel. Barber Concept est une marque forte localement mais sous-représentée sur Google face à des concurrents comme Agile. Le blog existant n'a jamais été exploité — c'est un levier clé à activer."
+    title: "Refonte Astro et activation SEO (2026)"
+    description: "Pendant deux ans, le site n'a reçu aucun travail de référencement. Le trafic venait presque uniquement de la marque : les gens qui tapaient « Barber Concept ». Sur tout le reste — barbier Genève, les services, les quartiers — le site était absent, face à des concurrents comme Agile. Début 2026, refonte complète en Astro, puis publication régulière de contenu à partir de mai. La courbe Search Console est plate jusqu'à mai, puis décolle et ne redescend plus."
     tasks:
-      - "Audit SEO du site actuel"
-      - "Optimisation des balises, structure et contenu"
+      - "Refonte complète du site de Webflow vers Astro"
+      - "Optimisation des balises, de la structure et du contenu"
       - "Stratégie de mots-clés locaux (barbier Genève, etc.)"
-      - "Reprise et développement du blog (existant mais jamais travaillé)"
+      - "Reprise du blog, jamais exploité depuis 2023, et publication régulière"
+      - "Résultat : 15'000 clics et 571'000 impressions sur six mois, l'essentiel après mai"
 
 successFactors:
   - title: "Positionnement premium"
@@ -87,6 +105,9 @@ successFactors:
   - title: "Recrutement intégré"
     description: "Un formulaire multi-step qui génère régulièrement des candidatures, transformant le site en outil RH actif pour une chaîne en expansion."
     icon: "ri-user-add-line"
+  - title: "Une marque forte ne suffit pas"
+    description: "Barber Concept était connu, et son trafic ne venait que de son nom. Il a fallu une refonte Astro et du contenu publié régulièrement pour exister sur autre chose que la marque — et être cité dans les AI Overviews de Google."
+    icon: "ri-line-chart-line"
 
 learnings:
   insights:
@@ -94,12 +115,17 @@ learnings:
     - "Le CMS Webflow est idéal pour gérer des listings multi-localisations avec filtres"
     - "Un formulaire multi-step bien pensé peut devenir un vrai canal de recrutement"
     - "Ne pas négliger le SEO dès le départ — 3 ans après, c'est le chantier principal à rattraper"
+    - "Le trafic de marque masque l'absence de SEO : on croit que le site fonctionne, alors qu'il ne capte que les gens qui connaissent déjà l'enseigne"
+    - "Deux ans de site sans SEO, puis deux mois de contenu régulier : c'est le contenu qui a fait décoller la courbe, pas l'ancienneté du domaine"
 
 tags:
   - "Site vitrine"
   - "Barbier"
   - "Genève"
   - "Local"
+  - "Astro"
+  - "SEO"
+  - "GEO"
   - "Webflow"
 
 liveUrl: "https://barberconcept.ch"

@@ -160,6 +160,19 @@ const portfolioCollection = defineCollection({
   }),
 });
 
+const proofSchema = z.object({
+  image: z.string(),
+  title: z.string(),
+  stats: z.array(z.object({
+    label: z.string(),
+    value: z.string(),
+  })),
+  caption: z.string().optional(),
+  // Lien vers l'étude de cas interne (ex. /portfolio/barber-concept). Sans ce champ,
+  // la preuve reste un cul-de-sac : le prospect lit les chiffres sans pouvoir lire le dossier.
+  caseStudy: z.string().optional(),
+});
+
 const devisCollection = defineCollection({
   type: 'content',
   schema: z.object({
@@ -178,6 +191,35 @@ const devisCollection = defineCollection({
 
     // Constat détaillé
     constat: z.string().optional(),
+
+    // Diagnostic chiffré (avant les offres : le problème avant le prix)
+    audit: z.object({
+      title: z.string(),
+      intro: z.string().optional(),
+      // Les moments où un client cherche et ne trouve pas
+      moments: z.array(z.object({
+        query: z.string(),
+        finding: z.string(),
+      })).optional(),
+      // Scores relevés (PageSpeed, visibilité IA, etc.)
+      scores: z.array(z.object({
+        label: z.string(),
+        value: z.string(),
+        tone: z.enum(['bad', 'mid', 'good']).default('bad'),
+      })).optional(),
+      screenshot: z.object({
+        image: z.string(),
+        caption: z.string().optional(),
+      }).optional(),
+      // Désamorçage d'une objection prévisible (ex. « mon score SEO est à 100 »)
+      nuance: z.object({
+        title: z.string(),
+        content: z.string(),
+      }).optional(),
+    }).optional(),
+
+    // Tableau comparatif auto (à couper quand les offres ne sont pas des alternatives)
+    showComparison: z.boolean().default(true),
 
     // Offres
     offers: z.array(z.object({
@@ -207,16 +249,11 @@ const devisCollection = defineCollection({
     // Conseil
     advice: z.string().optional(),
 
-    // Preuve/Résultats SEO
-    proof: z.object({
-      image: z.string(),
-      title: z.string(),
-      stats: z.array(z.object({
-        label: z.string(),
-        value: z.string(),
-      })),
-      caption: z.string().optional(),
-    }).optional(),
+    // Preuve/Résultats SEO — un objet, ou plusieurs preuves
+    proof: z.union([
+      proofSchema,
+      z.array(proofSchema),
+    ]).optional(),
 
     // ROI
     roi: z.object({
@@ -248,6 +285,18 @@ const devisCollection = defineCollection({
 
     // Prochaines étapes
     nextSteps: z.array(z.string()).optional(),
+
+    // Pistes à discuter — annexe rendue après le prix. Rien n'y est engagé : ce sont
+    // les sujets qui dépendent de l'existant du client et se diagnostiquent au call.
+    // `price` reste optionnel : la plupart n'ont volontairement pas de montant.
+    options: z.array(z.object({
+      name: z.string(),
+      benefit: z.string(),
+      price: z.string().optional(),
+    })).optional(),
+
+    // Mention légale de bas de devis (TVA, modalités de paiement, validité).
+    legal: z.string().optional(),
   }),
 });
 
