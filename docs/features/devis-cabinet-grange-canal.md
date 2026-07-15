@@ -2,7 +2,7 @@
 
 > Devis client publié sur le site (collection `devis`), pour le **Cabinet Dentaire Grange-Canal** (Ch. de Grange-Canal 6, 1224 Chêne-Bougeries · dentiste-gc.ch · fondatrice **Malika Hafici**, hygiéniste dentaire). Offre : **refonte Astro 750 CHF** + **partenaire digital 260 CHF/mois**, engagement 6 mois. (Prix abaissé de 290 à 260 le 15.07 au soir.)
 > **Statut** : 🔄 **PAS ENVOYÉ** — `status: draft`. Page en ligne mais personne n'a l'URL. 3 vérifs bloquantes avant envoi (voir Pièges).
-> URL : `/devis-client/cabinet-grange-canal` · mot de passe **`malika`** · `noindex`.
+> URL : `/devis-client/cabinet-grange-canal` · **sans mot de passe** (champ `password` retiré du frontmatter le 15.07 — le template ouvre le doc directement quand le champ est absent) · `noindex`.
 
 ## Etat session 2026-07-15 (nuit) — Migration blueprint + réécriture complète du devis ✅
 

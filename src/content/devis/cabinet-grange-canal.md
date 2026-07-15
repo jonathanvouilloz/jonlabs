@@ -2,7 +2,6 @@
 title: "Proposition pour le Cabinet Dentaire Grange-Canal"
 client: "Cabinet Dentaire Grange-Canal"
 date: 2026-07-15
-password: "malika"
 status: "draft"
 
 hero:
