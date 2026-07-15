@@ -175,8 +175,14 @@ export const ctaContact: NavItem = {
   href: '/contact',
 };
 
-// Silos géographiques — sortis du méga-menu (Phase 4), exposés uniquement dans le
-// fat footer pour rester crawlables sitewide sans alourdir la nav principale.
+// Silos géographiques — sortis du méga-menu (Phase 4). Exposés un temps dans le fat
+// footer, colonne « Zones & régions » RETIRÉE volontairement le 10.07.2026 (d247cc7) :
+// jugée sans plus-value, et un lien boilerplate répété sitewide pèse peu.
+// Ces exports ne sont plus lus que par styleguide-nav.astro — ce n'est PAS un oubli
+// de câblage, ne pas les rebrancher au footer sans rouvrir la décision.
+// Le maillage réel de ces pages est éditorial : villes web via GeoZonesStrip (home),
+// /services, /developpement-web (hub) et les cross-links voisins → 6 à 9 liens en
+// corps chacune. Régions IA : voir le hub /consultant-ia.
 export const footerZonesWeb: NavItem[] = [
   { label: 'Développeur web Annemasse', href: '/developpement-web/annemasse' },
   { label: 'Développeur web Gaillard', href: '/developpement-web/gaillard' },
