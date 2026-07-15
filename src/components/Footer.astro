@@ -5,7 +5,7 @@
 // socials, mentions. Self-scopé `.co-chrome` → rendu blueprint sur toutes les pages.
 import { author } from '../sample'
 import Logo from './Logo.astro'
-import { mainNav, ctaContact } from '../data/navigation'
+import { mainNav, ctaContact, footerZonesWeb, footerRegionsIA } from '../data/navigation'
 import type { NavSection } from '../data/navigation'
 
 const socials = [
@@ -142,6 +142,26 @@ const year = new Date().getFullYear()
         </div>
     </div>
 
+    <!-- ══ ZONES GÉO ══ -->
+    <div class="co-foot-zones co-pad">
+        <div class="co-foot-zone">
+            <h3 class="co-eyebrow">Développement web</h3>
+            <nav class="co-foot-zone-links" aria-label="Zones d'intervention développement web">
+                {footerZonesWeb.map((zone) => (
+                    <a href={zone.href} class="co-foot-link">{zone.label}</a>
+                ))}
+            </nav>
+        </div>
+        <div class="co-foot-zone">
+            <h3 class="co-eyebrow">Consultant IA</h3>
+            <nav class="co-foot-zone-links" aria-label="Régions consultant IA">
+                {footerRegionsIA.map((region) => (
+                    <a href={region.href} class="co-foot-link">{region.label}</a>
+                ))}
+            </nav>
+        </div>
+    </div>
+
     <!-- ══ BAS DE PAGE ══ -->
     <div class="co-foot-legal co-pad">
         <nav class="co-foot-secondary" aria-label="Navigation secondaire">
@@ -203,6 +223,14 @@ const year = new Date().getFullYear()
     .co-foot-coord i { color: var(--accent); margin-top: 2px; flex: none; }
     .co-foot-coord .co-foot-link { display: inline-flex; align-items: center; gap: 8px; }
 
+    /* Zones géo — liens sitewide vers les silos ville (crawlables en plain HTML) */
+    .co-foot-zones {
+        display: grid; grid-template-columns: 1.7fr 1fr; gap: 40px;
+        padding: 28px 40px; border-bottom: 1px solid var(--line);
+    }
+    .co-foot-zone h3 { margin-bottom: 12px; }
+    .co-foot-zone-links { display: flex; flex-wrap: wrap; gap: 8px 20px; }
+
     /* Bas de page */
     .co-foot-legal { padding: 22px 40px; display: flex; flex-direction: column; gap: 16px; }
     .co-foot-secondary { display: flex; flex-wrap: wrap; gap: 8px 22px; }
@@ -216,6 +244,7 @@ const year = new Date().getFullYear()
     @media (max-width: 720px) {
         .co-foot-cta { padding: 48px 20px; }
         .co-foot-grid { grid-template-columns: 1fr 1fr; gap: 28px 20px; padding: 44px 20px; }
+        .co-foot-zones { grid-template-columns: 1fr; gap: 24px; padding: 24px 20px; }
         .co-foot-legal { padding: 22px 20px; }
         .co-foot-copy { flex-direction: column; align-items: flex-start; gap: 8px; }
     }

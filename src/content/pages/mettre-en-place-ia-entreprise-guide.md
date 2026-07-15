@@ -2,7 +2,7 @@
 title: "Mettre l'IA en place dans ton entreprise : le guide"
 h1: "Mettre l'IA en place dans ton entreprise : par où commencer, concrètement"
 description: "Découvre la méthode pour mettre l'IA en place dans ta PME romande : étapes, coûts CHF, outils, adoption d'équipe."
-pubDate: 2026-08-12
+pubDate: 2026-07-15
 image:
   url: "/images/blog/mettre-en-place-ia-entreprise-guide.webp"
   alt: "Méthode en 4 phases pour mettre l'IA en place dans une PME suisse romande"
