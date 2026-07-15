@@ -4,6 +4,41 @@
 > **Plan maître** : `docs/restructuration-clusters.md` (archi cible, verdict par page, liste KILL, feuille de route 5 phases).
 > **Diagnostic data** : `.seo-data/diagnostic-gsc-pages-cannibalisation.md`.
 
+## Etat session 2026-07-15 — Diagnostic indexation GSC + 3 lots correctifs (déployés)
+
+**Baseline figée** : `.seo-data/index-jonlabs-ch-2026-07-15.json` (URL Inspection API sur les 88 URLs du sitemap) → **50 indexées / 88 (57 %)** · 19 crawled-not-indexed · 13 discovered-not-crawled · 5 unknown · 1 noindex. **Zéro** erreur serveur, soft 404, conflit canonical ou blocage robots.
+
+**Fait :**
+- **Sitemap : `lastmod` réel** (`astro.config.mjs`) — lu depuis les frontmatter (`updatedDate` > `pubDate`) au lieu de `new Date()` à chaque build. Avant : 88 URLs pour **2** valeurs distinctes → le cron lundi/vendredi annonçait « les 88 pages ont changé » 2×/semaine et détruisait le signal de fraîcheur. Après : **45 valeurs distinctes**. Les pages `.astro` n'ont pas de date fiable → aucun `lastmod` (volontaire).
+- **404 sitewide tué** : le pillar `mettre-en-place-ia-entreprise-guide` est **publié** (`pubDate` 2026-08-12 → 2026-07-15). `navigation.ts:104` pointait vers un 404 réel depuis le méga-menu de **toutes** les pages, et `/guides` était un hub sans pilier (d'où son statut unknown-to-Google). Décision assumée : court-circuite la cadence lundi/vendredi pour ce contenu.
+- **Hub `/developpement-web` créé** (`src/pages/developpement-web/index.astro`) : les 5 pages ville n'avaient pas de parent. Alimenté par `villes-frontalieres.ts` (source unique, aucune liste en dur). Breadcrumb de `[ville].astro` recâblé vers le vrai hub (il s'intitulait « Développement web » mais pointait vers `/services`).
+- **`refonte-site-web` aligné noindex** — la page était indexable tout en étant exclue du sitemap, incohérente avec ses 3 jumelles de la décision Session 3 (34af97e). **`mentions-legales`** retirée du sitemap (noindex + sitemap = bruit).
+- **Pilier automatisation dé-dupliqué** (2270 → 2029 mots) : ses 4 sections qui recopiaient ses satellites mot pour mot (méthode 3 critères, tableau 5 processus, par où commencer, bilan honnête) deviennent des résumés qui routent. **Dé-dup en place, PAS de fusion** : le pilier a 12 liens entrants dont `navigation.ts:105` sitewide — le 301-er décapiterait le cluster IA. Zéro URL supprimée, zéro 301, réversible.
+- **`developpement-application-mobile`** ajoutée au corps du hub `/services` (elle était liée depuis la nav et 2 articles, absente de son propre hub).
+
+**⚠️ Erreur commise et corrigée en séance — à ne pas refaire.** J'ai **rebranché la colonne géo au footer** (0650361), en écrivant que les exports `footerZonesWeb`/`footerRegionsIA` étaient « morts » et le fat footer « jamais câblé ». **C'était faux** : câblé en Phase 4, puis **retiré volontairement le 10.07** (d247cc7, « sans plus-value »). J'ai lu l'état du code et conclu à un oubli au lieu d'une décision. **Reverté** (ffe993e) après mesure du graphe de liens, qui donne raison au 10.07 :
+- villes web = **6 à 9 liens ÉDITORIAUX** chacune (GeoZonesStrip/home, `/services`, creation-site-web, cross-links) → le footer n'a jamais été ce qui les maillait ;
+- `/consultant-ia/geneve|lausanne` = **2 liens édito**, tous deux depuis `/consultant-ia` → **seul vrai trou**, mais un lien footer sert la **découverte**, or la GSC les classe *Discovered – currently not indexed* : Google connaît déjà les URLs et refuse de les crawler. Le footer traitait un problème inexistant ;
+- un lien boilerplate répété sur 223 pages est escompté par Google, à l'inverse d'un lien contextuel en corps.
+Commentaire `navigation.ts:178` corrigé : il documente désormais la décision et interdit le rebranchement sans arbitrage (c'est ce commentaire périmé qui a causé l'erreur).
+
+**3 chantiers annulés sur preuves (ne pas les re-proposer) :**
+- **Host canonical** : déjà réglé — `jonlabs.ch` → **308** → www, `google_canonical` = www, coverage « Page with redirect ». Les recos type A/B de `.seo-data/cannibalisation-*.json` sont **périmées** (impressions historiques de la fenêtre 91 j, antérieures au fix).
+- **« Désorphaniser 11 pages »** : chantier fantôme. GSC `referringUrls` vide = **jamais crawlée**, pas « sans liens » (vide par construction). Vérif code : `apparaitre-gemini` 7 liens live, `comment-apparaitre-google-maps` 5, etc. Voir mémoire `feedback_gsc_referringurls_pas_orphelines`.
+- **Fusion du cluster GMB** : archi hub-and-spoke correcte, intentions distinctes (créer / ranker / suspension-recours). Le crawled-not-indexed y vient d'une publication en rafale (5 articles du 05.05 au 05.06) sur un sujet très concurrentiel, pas d'une redondance.
+
+**Prochain :** **maillage éditorial de `/consultant-ia/geneve` et `/lausanne`** — 2 liens édito chacune, tous deux depuis `/consultant-ia`. Poser des liens **contextuels en corps** depuis des articles **publiés ET indexés** du silo IA : `hermes-agent-ia-pme`, `workflows-vs-agents-ia-pme`, `temps-perdu-pme-automatisation`. Ne PAS repasser par le footer (cf. ci-dessus). Puis, **vers la mi-septembre (J+60)** : relancer `/seo-index-diagnose --site "sc-domain:jonlabs.ch"` et comparer au baseline du jour.
+
+**Pièges :**
+- **Aucun de ces fixes ne garantit l'indexation.** Profil GSC sans erreur serveur / soft 404 / conflit canonical / blocage robots, avec 43 % des URLs non indexées = signature d'un **déficit d'autorité de domaine**, pas d'un bug. Si à J+60 les 13 discovered-not-crawled n'ont pas bougé → le chantier bascule sur `/seo-backlinks` et les signaux externes, pas sur du code.
+- **10 liens 404 émis par des articles publiés** (vers `prix-agent-ia-automatisation-suisse` 05.08, `application-mobile-automatisation-pme` 20.07, `application-native-vs-hybride` 17.07, etc.) : effet attendu de la cadence `pubDate` future + cron. **Confirmé « prévu » par Jonathan**, auto-résolutif d'ici au 05.08. Ne pas s'en alarmer.
+- Le champ `angleHero` de `villes-frontalieres.ts` (88-104 car.) sert de description de carte dans le nouveau hub — pratique, à réutiliser.
+- Rien à faire dans GSC : l'URL du sitemap n'a pas bougé, Google le re-fetchera seul.
+
+**Commit :** ffe993e revert(footer) · 33e1ba4 lot 3 dé-dup pilier · cf515f1 lot 2 hub developpement-web · 0650361 lot 1 sitemap/404/footer — tous poussés (`41c857a..ffe993e`), prod vérifiée en ligne.
+
+---
+
 ## Etat session 2026-07-10 — Article Wildcat Ep5 « choix techno site PME » (publié)
 
 **Fait :**
@@ -250,10 +285,17 @@
 ---
 
 ## Carte du code
-> Mise a jour : 2026-07-10 (article Wildcat Ep5 choix techno + vidéo YouTube)
+> Mise a jour : 2026-07-15 (diagnostic indexation GSC + 3 lots correctifs)
 
 | Fichier | Role |
 |---------|------|
+| `astro.config.mjs` | **`buildLastmodMap()` + `serialize`** : `lastmod` réel par URL lu depuis les frontmatter (`updatedDate` > `pubDate`) via `node:fs`, blog → `/blog/{slug}`, pages → `/guides/{slug}`. Ne jamais revenir à `new Date()` (détruit le signal de fraîcheur). Filtre sitemap : exclut aussi `/mentions-legales` + les 4 services draft Session 3 |
+| `.seo-data/index-jonlabs-ch-2026-07-15.json` | **Baseline indexation** (50/88) — référence de comparaison pour le re-run J+60 de `/seo-index-diagnose` |
+| `src/pages/developpement-web/index.astro` | **Hub du silo géo** (namespace `.dw-*`, modèle `guides/index.astro`) : liste les villes depuis `villes-frontalieres.ts`, jamais en dur. Schemas CollectionPage + Breadcrumb. Parent des 5 pages ville |
+| `src/data/navigation.ts` | Source unique nav+footer. **`footerZonesWeb`/`footerRegionsIA` (l.180+) : NE PAS rebrancher au footer** — colonne retirée volontairement le 10.07 (d247cc7), lien boilerplate sitewide escompté par Google. Commentaire l.178 documente la décision |
+| `src/content/blog/automatisation-pme-suisse-guide-complet.md` | **Pilier du cluster automatisation** (12 liens entrants dont `navigation.ts:105` sitewide + `metiers-ia.ts:441`) → **ne jamais 301-er**. Dé-dupliqué le 15.07 : rôle = vue d'ensemble qui route vers ses satellites, pas concurrent |
+| `src/content/pages/mettre-en-place-ia-entreprise-guide.md` | **Unique pillar de la collection `pages`** — publié le 15.07 pour réparer le 404 sitewide du méga-menu. `/guides` dépend de lui pour ne pas être un hub vide |
+| `src/data/scenarios.ts` | `serviceSections` = corps du hub `/services` (8 enfants). Le footer en linke 13 : le corps ne doit contenir que les pages du bon silo (`formation-ia-equipe` appartient à `/consultant-ia`, pas ici) |
 | `src/content/blog/choisir-technologie-site-web-pme.md` | **Article C3a (choix techno site PME, Wildcat Ep5)** : money site canonique cluster web/perf, angle dirigeant. `youtubeId` (embed VideoEmbed) + FAQ + maillage ×4. Sources vérifiées dans le `.sources.json` jumeau |
 | `docs/planSEOIA.md` | **Plan de chantier maître du silo IA** : architecture cible (hub `/consultant-ia` + géo + métiers + landings Hermès/OpenClaw), 4 phases, templates réutilisables, décisions §6, réutilisation du contenu existant. Riposte à hgnn.io |
 | `docs/topical-map-consultant-ia.md` | **Topical map IA** : cluster 30 entrées (2 piliers conversion+info), scoring, fan-out, blueprint maillage, 6 mini-briefs articles, anti-cannibalisation |
@@ -291,8 +333,12 @@
 
 ### Decisions cles
 - Canonical = **www** (déjà enforced par 308 infra Vercel) ; tout le code déclare www (Astro.site, SITE_URL, robots, sitemap).
-- Maillage profond = **footer plain-HTML** (le méga-menu JS est sous-pondéré au crawl) ; ne pas compter sur la nav seule pour la découvrabilité.
+- Maillage profond = **footer plain-HTML** (le méga-menu JS est sous-pondéré au crawl) ; ne pas compter sur la nav seule pour la découvrabilité. **Nuance 15.07 : ça vaut pour la DÉCOUVERTE, pas pour le poids.** Un lien footer/nav est du boilerplate répété sur ~223 pages, escompté par Google. Une page déjà connue de Google (statut `Discovered`) ne gagne RIEN à un lien footer de plus — il lui faut des liens **contextuels en corps**. Mesurer avant d'agir : compter les liens dans `<main>` vs le chrome.
 - Le fat footer lit `mainNav.columns` — pour ajouter une page au maillage sitewide, l'ajouter dans `navigation.ts`.
+- **`referringUrls` de la GSC n'est PAS un détecteur d'orphelines** : vide = page jamais crawlée (par construction), pas « sans liens ». Un vrai orphelin se prouve par un grep vide dans `src/`, jamais par un champ GSC vide. Cf. mémoire `feedback_gsc_referringurls_pas_orphelines`.
+- **`lastmod` du sitemap doit rester une vraie date de contenu.** Un `lastmod` = date de build sur toutes les pages, avec un cron 2×/semaine, apprend à Google à ignorer le sitemap. Ne jamais réintroduire `new Date()` dans `serialize`.
+- **Un pilier très maillé ne se fusionne pas, il se dé-duplique.** Si un pilier recopie ses satellites, raccourcir ses sections en résumés + liens montants — pas de 301 (qui casserait ses liens entrants et décapiterait le cluster).
+- **Avant d'exécuter une reco de `.seo-data/*.json`, vérifier qu'elle n'est pas périmée** : le JSON de cannibalisation recommandait un fix host canonical déjà en place depuis des mois (fenêtre glissante 91 j = data historique).
 - **Consolidation = 301 dans `vercel.json` + suppression du `.md`** (pas `draft:true` : le filtre sitemap n'exclut pas les drafts). Repointer le maillage interne vers la cible (ou `/tarifs` pour les ancres prix, pour éviter les doublons de lien).
 - **Maillage géo = importer `villesFrontalieres` depuis `villes-frontalieres.ts`** partout (strip home, /services, pilier C3a). Une seule liste de villes, jamais dupliquée en dur.
 - **Home : désoptimisation title/H1 reportée** jusqu'à l'indexation de la landing geneve — d'ici là, seul le maillage léger désambiguïse (vote vers les pages dédiées), « Genève » reste sur la home.

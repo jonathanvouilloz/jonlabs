@@ -2,7 +2,25 @@
 
 > Chantier de fond : uniformiser le style graphique du site (thème, titres, couleurs), casser l'effet « très AI » (mur de texte, peu d'images, peu d'aération), rationaliser l'architecture/navigation, et transformer les pages tags thin en vraies pages — pour un rendu **plus professionnel**.
 > **Source ADN visuel marque perso** : skill `visual` (`~/.claude/skills/visual/`) — mono-accent teal `#00D9A3`, fond warm, connecteurs fins, formes arrondies, illustration « collage éditorial ».
-> **Statut** : 🔄 EN COURS — Phases 1a + 1b + 2 + 3 + 4 faites ✅. **Phase 5 (Lecureux) faite ✅** (source unique + harmonisation + fix erreur factuelle divorce, build vert 211 pages). Reste : 1 sous-tâche Phase 5 **bloquée** (chiffres GSC de l'article blog) + **Phase 6 (tags)** bloquée par vérif GSC.
+> **Statut** : 🔄 EN COURS — Phases 1a + 1b + 2 + 3 + 4 faites ✅. **Phase 5 (Lecureux) faite ✅** (source unique + harmonisation + fix erreur factuelle divorce, build vert 211 pages). Reste : 1 sous-tâche Phase 5 **reportée** (reframe éditorial de l'article blog — choix de voix, appartient à Jonathan) + **Phase 6 (tags) DÉBLOQUÉE** le 15.07 (vérif indexation GSC faite, baseline `.seo-data/index-jonlabs-ch-2026-07-15.json`).
+
+## Etat session 2026-07-15 — Note SEO : le footer a été rebranché puis reverté ✅
+
+> Session principale = indexation GSC, voir `docs/features/refonte-seo-clusters.md`. Ce bloc n'est là que parce qu'il touche à **ta décision footer du 10.07**.
+
+**Ce qui s'est passé :** j'ai **rebranché la colonne « Zones & régions »** au footer (0650361), en croyant que `footerZonesWeb`/`footerRegionsIA` étaient des exports oubliés. **C'était ta décision** (d247cc7, « sans plus-value »), pas un oubli — le commentaire périmé de `navigation.ts:178` (« exposés dans le fat footer ») m'a induit en erreur. **Reverté** (ffe993e) : `Footer.astro` est **strictement identique à l'état du 10.07**, grille 5 colonnes intacte.
+
+**Ta décision était la bonne, la mesure le prouve :** villes web = **6 à 9 liens éditoriaux** chacune (GeoZonesStrip/home, `/services`, creation-site-web, cross-links) → le footer n'était pas ce qui les maillait. Et ton argument « un lien nav a peu de poids » est exact : le boilerplate répété sur 223 pages est escompté par Google.
+
+**Garde-fou posé :** commentaire `navigation.ts:178` réécrit — il documente la décision du 10.07 et interdit le rebranchement sans arbitrage.
+
+**Phase 6 (tags) : le blocage GSC est levé.** La vérif d'indexation attendue est faite (baseline `.seo-data/index-jonlabs-ch-2026-07-15.json`, 50/88 indexées). Élément utile pour Phase 6 : les pages `/blog/tag/*` sont `noindex, follow` (`blog/tag/[tag].astro:33`) alors que `navigation.ts:142-146` y envoie **5 liens sitewide**. Ce n'est pas un bug (`follow` fait circuler le jus vers les articles), mais si tu veux des vraies pages catégorie indexables, c'est le chantier à ouvrir.
+
+**Prochain :** inchangé côté design — Phase 6 (tags) **désormais débloquée**, reframe éditorial Lécureux (`visibilite-site-internet-2026.md`) toujours reporté.
+
+**Commit :** ffe993e revert(footer) — poussé.
+
+---
 
 ## Etat session 2026-07-10 — Label catégorie « slash slug » + nettoyage footer ✅
 

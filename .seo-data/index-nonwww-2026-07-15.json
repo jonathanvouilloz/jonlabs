@@ -1,0 +1,79 @@
+{
+  "site_url": "sc-domain:jonlabs.ch",
+  "generated_at": "2026-07-15T07:13:41Z",
+  "source": "list",
+  "sitemap_url": null,
+  "page_filter": null,
+  "language": "en-US",
+  "urls_total": 2,
+  "urls_inspected": 2,
+  "summary": {
+    "blocked_robots": 0,
+    "blocked_noindex": 0,
+    "redirect": 1,
+    "soft_404": 0,
+    "not_found": 0,
+    "server_error": 0,
+    "canonical_conflict": 0,
+    "crawled_not_indexed": 0,
+    "discovered_not_indexed": 0,
+    "url_unknown": 1,
+    "indexed": 0,
+    "unknown": 0
+  },
+  "by_state": {
+    "Page with redirect": 1,
+    "URL is unknown to Google": 1
+  },
+  "buckets": {
+    "blocked_robots": [],
+    "blocked_noindex": [],
+    "redirect": [
+      {
+        "url": "https://jonlabs.ch/",
+        "bucket": "redirect",
+        "coverage_state": "Page with redirect",
+        "indexing_state": "INDEXING_ALLOWED",
+        "page_fetch_state": "SUCCESSFUL",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": "2026-07-12T00:54:50Z",
+        "google_canonical": "https://www.jonlabs.ch/",
+        "user_canonical": "https://www.jonlabs.ch/",
+        "referring_urls": [
+          "https://www.jonlabs.ch/",
+          "http://jonlabs.ch/"
+        ],
+        "robots_txt_state": "ALLOWED",
+        "error": null,
+        "diagnosis": "L'URL redirige vers une autre page. Google indexe la cible, pas l'URL soumise.",
+        "suggested_action": "retirer cette URL du sitemap, mettre a jour les liens internes pour pointer directement vers la cible (eviter les chaines de redirections)"
+      }
+    ],
+    "soft_404": [],
+    "not_found": [],
+    "server_error": [],
+    "canonical_conflict": [],
+    "crawled_not_indexed": [],
+    "discovered_not_indexed": [],
+    "url_unknown": [
+      {
+        "url": "https://jonlabs.ch/blog/0a30joursgooglevisible",
+        "bucket": "url_unknown",
+        "coverage_state": "URL is unknown to Google",
+        "indexing_state": "INDEXING_STATE_UNSPECIFIED",
+        "page_fetch_state": "PAGE_FETCH_STATE_UNSPECIFIED",
+        "verdict": "NEUTRAL",
+        "last_crawl_time": null,
+        "google_canonical": null,
+        "user_canonical": null,
+        "referring_urls": [],
+        "robots_txt_state": "ROBOTS_TXT_STATE_UNSPECIFIED",
+        "error": null,
+        "diagnosis": "Google ne reconnait pas cette URL. Soit elle est trop recente, soit elle n'est pas dans le sitemap, soit elle est hors de la propriete GSC inspectee.",
+        "suggested_action": "verifier que l'URL appartient bien a la propriete GSC, l'ajouter au sitemap, soumettre via Indexing API, ajouter des liens internes pour la rendre decouvrable"
+      }
+    ],
+    "indexed": [],
+    "unknown": []
+  }
+}
