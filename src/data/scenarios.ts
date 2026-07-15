@@ -235,6 +235,19 @@ export const serviceSections: ServiceSection[] = [
         link: '/services/developpement-mvp'
       },
       {
+        id: 'application-mobile',
+        title: 'Application mobile',
+        description: 'Applications iOS et Android pour PME et startups romandes. Natif, Flutter, React Native ou PWA selon ton besoin réel.',
+        features: [
+          'Le bon choix technique selon ton usage, pas selon la mode',
+          'Pas de tunnel de 6 mois : on livre par itérations',
+          'En direct avec le dev, sans chef de projet intermédiaire',
+          'Devis clair en CHF, à partir de 10 000–15 000 pour une app simple'
+        ],
+        ctaText: 'En savoir plus',
+        link: '/services/developpement-application-mobile'
+      },
+      {
         id: 'outils-mesure',
         title: 'Outils sur mesure',
         description: 'Applications et tableaux de bord adaptés à tes besoins spécifiques.',
