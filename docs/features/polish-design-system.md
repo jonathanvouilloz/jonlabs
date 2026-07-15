@@ -4,6 +4,28 @@
 > **Source ADN visuel marque perso** : skill `visual` (`~/.claude/skills/visual/`) — mono-accent teal `#00D9A3`, fond warm, connecteurs fins, formes arrondies, illustration « collage éditorial ».
 > **Statut** : 🔄 EN COURS — Phases 1a + 1b + 2 + 3 + 4 faites ✅. **Phase 5 (Lecureux) faite ✅** (source unique + harmonisation + fix erreur factuelle divorce, build vert 211 pages). Reste : 1 sous-tâche Phase 5 **reportée** (reframe éditorial de l'article blog — choix de voix, appartient à Jonathan) + **Phase 6 (tags) DÉBLOQUÉE** le 15.07 (vérif indexation GSC faite, baseline `.seo-data/index-jonlabs-ch-2026-07-15.json`).
 
+## Etat session 2026-07-15 (soir) — Portrait hero + bandeau de confiance ✅
+
+**Fait :** deux retouches home, build vert (237 pages), poussées sur `main` (`8641d42..f3e8fab`).
+
+- **Portrait remplacé** (`f3e8fab`) : nouvelle source (illustration lofi, salon) **recadrée 4:5** sur le buste — boîte `(256, 112, 984, 1022)` sur un original 1254×1254 carré, sortie **768×960 WebP q88** (563 ko → 68 ko). ~80 % du décor hors champ. **Couleurs d'origine, aucun étalonnage.**
+- **Bandeau de confiance** (`a5df376`) : `ClientsBanner.astro` — liste `clients` **en dur**, passée de 4 à 6 avec **Physio Pommier** et **Ugo Mighali** (vraies études de cas). Libellés repris des `client.name` des `.md` portfolio. Marquee (`translateX -50%`, liste ×3) boucle sans couture à 6 noms, vérifié en navigateur.
+
+**⚠️ Le regrade a été tenté puis rejeté — ne pas le re-proposer.** J'avais désaturé le portrait vers la palette du site (bleus 175-275° tirés vers le teal `#00A87D`, chauds atténués, voile crème). **Jonathan n'en a pas voulu** → version brute remise. Le diagnostic reste valable pour la suite : l'écart avec le langage visuel du site n'est **pas la teinte mais la valeur et l'air** (illustrations `visual` = sujet qui flotte sur crème ; la photo = bloc dense edge-to-edge). Un fondu vers le crème a aussi été testé → halo flou, abandonné. C'est le `co-frame` (repères de coupe) qui fait tenir le rectangle net.
+
+**Piste retenue pour plus tard (Jonathan) :** repartir d'un **portrait américain**, **détourer le fond**, puis intégrer sur crème — c'est ce qui donnerait l'air manquant. Ni `rembg` ni `opencv` dispo dans l'env (≈200 Mo de modèle à installer si on y va).
+
+**Prochain :** inchangé côté design — Phase 6 (tags) débloquée. Aucun reste sur le portrait/bandeau.
+
+**Pièges :**
+- `jonathan-vouilloz.webp` a **4 consommateurs** (`Hero`, `AboutHome` avatar 42px, `blog/AuthorBio`, + `schema.ts` → `Person.image`). Il vit en **2 exemplaires** : `src/assets/` (composants) et `public/images/` (schema.org) → **les deux doivent bouger ensemble**, sinon deux portraits différents cohabitent sur `/`.
+- **Non tranché :** le bandeau affiche « Lécureux Conseil » alors que `content/portfolio/leo-lecureux-seo.md` porte `client.name: "Léo Lécureux"`. Les 5 autres correspondent exactement. Nom de boîte vs nom de personne — arbitrage Jonathan.
+- Le hook pre-commit lance un build complet → chaque commit prend ~10 s, normal.
+
+**Commits :** [a5df376] bandeau · [f3e8fab] portrait — poussés.
+
+---
+
 ## Etat session 2026-07-15 — Note SEO : le footer a été rebranché puis reverté ✅
 
 > Session principale = indexation GSC, voir `docs/features/refonte-seo-clusters.md`. Ce bloc n'est là que parce qu'il touche à **ta décision footer du 10.07**.
@@ -288,10 +310,12 @@
 4. **Pages tags** — *recommandé : vérifier GSC d'abord* (elles sont noindex), puis normaliser, puis enrichir uniquement les candidats sûrs.
 
 ## Carte du code
-> Mise à jour : 2026-07-03 (Phase 5 Lecureux)
+> Mise à jour : 2026-07-15 (portrait hero + bandeau)
 
 | Fichier | Rôle |
 |---------|------|
+| `src/assets/jonathan-vouilloz.webp` **+** `public/images/jonathan-vouilloz.webp` | **Portrait (15.07)** — recadrage 4:5, 768×960 WebP q88, couleurs brutes (regrade rejeté). **Même image en 2 exemplaires** : `src/assets` sert `Hero` / `AboutHome` (avatar 42px) / `blog/AuthorBio` ; `public/images` sert `schema.ts` → `Person.image`. **Toujours remplacer les deux ensemble.** |
+| `src/components/ClientsBanner.astro` | **Bandeau de confiance home (15.07)** — marquee `translateX -50%`, liste `clients` **en dur** (6 noms). Libellés = `client.name` des `.md` portfolio. Écart connu : « Lécureux Conseil » vs `client.name: "Léo Lécureux"`. |
 | `src/data/proof-lecureux.ts` | **Source unique preuve Lécureux (Phase 5 ✅, NOUVEAU)** — chiffres **GSC réels** (19.1k imp · 367 clics · 1,9 % · 5 mois), accroche « #1 sur sa niche, 19 000 impressions en 5 mois », `rankClaim`, métier (juriste restauration), « 10+ leads », `stats[]`, `portfolioUrl`. Consommé par referencement-local / dev-freelance / about / CVProjects. **Ne jamais réécrire « Top 1 Google » (pos. moy. réelle 15,3).** |
 | `src/styles/global.css` | **Source de vérité tokens** : bloc `@theme` (neutres warm + accent teal), `--font-sans` |
 | `src/layouts/Layout.astro` | Alias legacy `:root` (`--blue/--yellow/--violet/--accent` → tokens), charge les fonts |
