@@ -1,0 +1,15 @@
+{
+  "topic": "agent IA entreprise",
+  "generated_at": "2026-07-12T00:00:00Z",
+  "candidates": [
+    {
+      "keyword": "agent IA entreprise",
+      "verdict": "FAIL",
+      "gates": { "surprise_gap": "fail", "grounding": "pass" },
+      "signals": { "intent": "know-simple", "pseo_scalable": false },
+      "failed_pillar": "surprise_gap",
+      "rationale": "Terme générique à intention navigationnelle (intent_probability 0.82, volume 10) : ChatGPT répond déjà bien à 'c'est quoi un agent IA en entreprise'. Grounding existe (jonlabs construit des agents) mais la requête elle-même est une commodité — sans angle first-party spécifique, page à faible valeur. Cas subjectif → arbitrage humain plutôt que rejet.",
+      "priority": "basse"
+    }
+  ]
+}

@@ -1,0 +1,15 @@
+{
+  "topic": "consultant SEO Genève",
+  "generated_at": "2026-07-12T00:00:00Z",
+  "candidates": [
+    {
+      "keyword": "consultant SEO Genève",
+      "verdict": "PASS",
+      "gates": { "surprise_gap": "pass", "grounding": "pass" },
+      "signals": { "intent": "do", "pseo_scalable": false },
+      "failed_pillar": null,
+      "rationale": "Requête locale commerciale : ChatGPT ne peut pas se substituer à un prestataire local nommé avec preuve E-E-A-T. Grounding confirmé : seo-context expertise = 'SEO local Suisse romande', location Genève (data first-party réelle).",
+      "priority": "haute"
+    }
+  ]
+}

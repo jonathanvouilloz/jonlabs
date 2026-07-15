@@ -1,0 +1,1136 @@
+{
+  "site_url": "sc-domain:jonlabs.ch",
+  "period": {
+    "start": "2026-04-11",
+    "end": "2026-07-10",
+    "days": 91
+  },
+  "generated_at": "2026-07-12T21:09:03Z",
+  "min_impressions": 5,
+  "rows_scanned": 500,
+  "conflicts": [
+    {
+      "query": "agence seo local",
+      "total_impressions": 145,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/services/referencement-local",
+          "impressions": 144,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 57.4
+        },
+        {
+          "url": "https://www.jonlabs.ch/blog/tarif-package-seo-local-suisse",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 19
+        }
+      ],
+      "type": "C",
+      "action": "Renforcer /services/referencement-local (title/meta/contenu) — le blog n est pas un vrai concurrent",
+      "diagnostic": "Page service commerciale (pos 57.4 / 144 imp = mal rankee mais bonne cible) vs article blog (pos 19 / 1 imp = non-signal). Pas de 301 : le blog ne capte rien."
+    },
+    {
+      "query": "développeur web",
+      "total_impressions": 108,
+      "url_count": 4,
+      "urls": [
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 105,
+          "clicks": 2,
+          "ctr": 0.019,
+          "position": 5
+        },
+        {
+          "url": "https://www.jonlabs.ch/",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 3
+        },
+        {
+          "url": "https://www.jonlabs.ch/about",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 3
+        },
+        {
+          "url": "https://www.jonlabs.ch/contact",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 3
+        }
+      ],
+      "type": "A",
+      "action": "Forcer un host canonical (301 non-www→www ou inverse) — resout la racine commune de la majorite des conflits",
+      "diagnostic": "www vs non-www du meme contenu (homepage + /about + /contact) : split de host non canonicalise, pas une vraie cannibalisation inter-pages. Metriques lues : non-www pos 5 / 105 imp / 2 clics, www pos 3 / 1 imp / 0 clic."
+    },
+    {
+      "query": "développeur web freelance",
+      "total_impressions": 104,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 99,
+          "clicks": 1,
+          "ctr": 0.0101,
+          "position": 10.1
+        },
+        {
+          "url": "https://www.jonlabs.ch/",
+          "impressions": 5,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 8.2
+        }
+      ],
+      "type": "A",
+      "action": "Meme fix host canonical que ci-dessus (aucune 301 inter-pages)",
+      "diagnostic": "Homepage dupliquee www/non-www. Metriques : non-www pos 10.1 / 99 imp / 1 clic, www pos 8.2 / 5 imp / 0 clic."
+    },
+    {
+      "query": "entreprise développement web saint-julien",
+      "total_impressions": 84,
+      "url_count": 3,
+      "urls": [
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 42,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 2.3
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/saint-julien-en-genevois",
+          "impressions": 41,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 10.5
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/ville-la-grand",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 69
+        }
+      ],
+      "type": "B",
+      "action": "Canonical host + RENFORCER la page ville dediee /developpement-web/saint-julien-en-genevois (contenu + maillage) ; NE PAS 301 la homepage",
+      "diagnostic": "La homepage (non-www, pos 2.3 / 42 imp) cannibalise la landing ville dediee (pos 10.5 / 41 imp) : homepage cannibalise le local. La page ville doit devenir la reponse. 3e URL (ville-la-grand pos 69 / 1 imp) = bruit."
+    },
+    {
+      "query": "entreprise développement web ville-la-grand",
+      "total_impressions": 75,
+      "url_count": 3,
+      "urls": [
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 38,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 2.7
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/ville-la-grand",
+          "impressions": 36,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 6.1
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/saint-julien-en-genevois",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 43
+        }
+      ],
+      "type": "B",
+      "action": "Canonical host + renforcer /developpement-web/ville-la-grand ; ne pas 301 la homepage",
+      "diagnostic": "Homepage (pos 2.7 / 38 imp) devant la landing ville dediee (pos 6.1 / 36 imp). Meme pattern local. 3e URL (saint-julien pos 43) = bruit."
+    },
+    {
+      "query": "entreprise développement web gaillard",
+      "total_impressions": 60,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 36,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 2
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/gaillard",
+          "impressions": 24,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 12
+        }
+      ],
+      "type": "B",
+      "action": "Canonical host + renforcer /developpement-web/gaillard",
+      "diagnostic": "Homepage (pos 2 / 36 imp) devant la landing /developpement-web/gaillard (pos 12 / 24 imp)."
+    },
+    {
+      "query": "agence de développement web ville-la-grand",
+      "total_impressions": 59,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 34,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 1.6
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/ville-la-grand",
+          "impressions": 25,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 5
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "agence web ville-la-grand",
+      "total_impressions": 55,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 41,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 7.9
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/ville-la-grand",
+          "impressions": 14,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 12.8
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "agence de référencement internet ville-la-grand",
+      "total_impressions": 54,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 42,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 9.1
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/ville-la-grand",
+          "impressions": 12,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 15.9
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "freelance seo suisse",
+      "total_impressions": 52,
+      "url_count": 3,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/services/referencement-local",
+          "impressions": 49,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 30.9
+        },
+        {
+          "url": "https://www.jonlabs.ch/blog/tarif-package-seo-local-suisse",
+          "impressions": 2,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 33
+        },
+        {
+          "url": "https://www.jonlabs.ch/blog/prix-site-web-suisse-2026",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 100
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "developpement web sur mesure ville-la-grand",
+      "total_impressions": 50,
+      "url_count": 4,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/ville-la-grand",
+          "impressions": 36,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 4.4
+        },
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 11,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 14.9
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/saint-julien-en-genevois",
+          "impressions": 2,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 18.5
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/annemasse",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 29
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "developpement web sur mesure gaillard",
+      "total_impressions": 43,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/gaillard",
+          "impressions": 37,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 7.9
+        },
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 6,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 21
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "developpement web sur mesure saint-julien",
+      "total_impressions": 43,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/saint-julien-en-genevois",
+          "impressions": 42,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 6
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/ville-la-grand",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 52
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "entreprise développement web la-roche-sur-foron",
+      "total_impressions": 42,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 34,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 12
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/la-roche-sur-foron",
+          "impressions": 8,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 9.6
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "agence referencement ville-la-grand",
+      "total_impressions": 40,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 37,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 9.5
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/ville-la-grand",
+          "impressions": 3,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 10.7
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "développeur web sur mesure",
+      "total_impressions": 39,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/blog/specialiste-developpement-web-suisse",
+          "impressions": 34,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 11.2
+        },
+        {
+          "url": "https://www.jonlabs.ch/",
+          "impressions": 5,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 52.2
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "agence de développement web gaillard",
+      "total_impressions": 38,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/gaillard",
+          "impressions": 33,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 11.9
+        },
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 5,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 11.6
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "développeur web freelance suisse",
+      "total_impressions": 37,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/",
+          "impressions": 32,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 7.8
+        },
+        {
+          "url": "https://www.jonlabs.ch/blog/specialiste-developpement-web-suisse",
+          "impressions": 5,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 7.2
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "agence seo ville-la-grand",
+      "total_impressions": 36,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 32,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 8.8
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/ville-la-grand",
+          "impressions": 4,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 9.8
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "agence de creation de site internet ville-la-grand",
+      "total_impressions": 35,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 29,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 14.8
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/ville-la-grand",
+          "impressions": 6,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 9.3
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "agence de développement web la-roche-sur-foron",
+      "total_impressions": 35,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 33,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 11.7
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/la-roche-sur-foron",
+          "impressions": 2,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 11.5
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "creation sites internet ville-la-grand",
+      "total_impressions": 35,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 32,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 10.2
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/ville-la-grand",
+          "impressions": 3,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 4.7
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "agence de développement web saint-julien",
+      "total_impressions": 34,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 32,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 6
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/saint-julien-en-genevois",
+          "impressions": 2,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 4.5
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "développement web suisse",
+      "total_impressions": 33,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/blog/specialiste-developpement-web-suisse",
+          "impressions": 23,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 14.3
+        },
+        {
+          "url": "https://www.jonlabs.ch/",
+          "impressions": 10,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 59.4
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "développeur web genève",
+      "total_impressions": 33,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/",
+          "impressions": 28,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 23.4
+        },
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 5,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 5.6
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "developpement web sur mesure la-roche-sur-foron",
+      "total_impressions": 32,
+      "url_count": 3,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/la-roche-sur-foron",
+          "impressions": 29,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 8.2
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/saint-julien-en-genevois",
+          "impressions": 2,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 23
+        },
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 11
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "développement site internet gaillard",
+      "total_impressions": 25,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/gaillard",
+          "impressions": 13,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 5.7
+        },
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 12,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 8.1
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "agence création de site gaillard",
+      "total_impressions": 24,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/gaillard",
+          "impressions": 15,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 18.1
+        },
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 9,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 18.9
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "entreprise développeur web",
+      "total_impressions": 20,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 19,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 1
+        },
+        {
+          "url": "https://www.jonlabs.ch/blog/specialiste-developpement-web-suisse",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 12
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "hermes ia",
+      "total_impressions": 20,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/blog/hermes-agent-ia-pme",
+          "impressions": 19,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 10.3
+        },
+        {
+          "url": "https://www.jonlabs.ch/hermes",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 9
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "combien coute un site internet en suisse",
+      "total_impressions": 16,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/blog/prix-site-web-suisse-2026",
+          "impressions": 15,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 11.7
+        },
+        {
+          "url": "https://www.jonlabs.ch/tarifs",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 1
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "freelance genève",
+      "total_impressions": 14,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/",
+          "impressions": 11,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 20.1
+        },
+        {
+          "url": "https://www.jonlabs.ch/contact",
+          "impressions": 3,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 23.7
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "expert ia freelance suisse romande",
+      "total_impressions": 13,
+      "url_count": 3,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/consultant-ia",
+          "impressions": 7,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 28.9
+        },
+        {
+          "url": "https://www.jonlabs.ch/metiers/ia-fiduciaire",
+          "impressions": 5,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 81
+        },
+        {
+          "url": "https://www.jonlabs.ch/contact",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 52
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "développement web genève",
+      "total_impressions": 12,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/",
+          "impressions": 11,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 34.5
+        },
+        {
+          "url": "https://www.jonlabs.ch/services",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 108
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "agence e-mail transactionnel genève",
+      "total_impressions": 11,
+      "url_count": 4,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/services/referencement-local",
+          "impressions": 5,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 50.6
+        },
+        {
+          "url": "https://www.jonlabs.ch/blog",
+          "impressions": 3,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 74
+        },
+        {
+          "url": "https://www.jonlabs.ch/contact",
+          "impressions": 2,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 66
+        },
+        {
+          "url": "https://www.jonlabs.ch/consultant-ia",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 90
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "agence e mail transactionnel genève",
+      "total_impressions": 10,
+      "url_count": 4,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/services/referencement-local",
+          "impressions": 5,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 49.2
+        },
+        {
+          "url": "https://www.jonlabs.ch/blog",
+          "impressions": 2,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 82
+        },
+        {
+          "url": "https://www.jonlabs.ch/blog/specialiste-developpement-web-suisse",
+          "impressions": 2,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 43
+        },
+        {
+          "url": "https://www.jonlabs.ch/contact",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 67
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "agence suisse laravel",
+      "total_impressions": 8,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/contact",
+          "impressions": 7,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 74.6
+        },
+        {
+          "url": "https://www.jonlabs.ch/",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 84
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "developpement web sur mesure annemasse",
+      "total_impressions": 7,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 6,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 17.8
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/annemasse",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 40
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "freelance web",
+      "total_impressions": 6,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 4,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 2.5
+        },
+        {
+          "url": "https://www.jonlabs.ch/",
+          "impressions": 2,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 15
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "julien ctr x.com seo maps",
+      "total_impressions": 6,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/blog/geo-seo-ia",
+          "impressions": 4,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 31.5
+        },
+        {
+          "url": "https://www.jonlabs.ch/blog",
+          "impressions": 2,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 59.5
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "creation site web saint-julien",
+      "total_impressions": 5,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/saint-julien-en-genevois",
+          "impressions": 4,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 5.8
+        },
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 31
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "developpement informatique saint-julien",
+      "total_impressions": 5,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://jonlabs.ch/",
+          "impressions": 4,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 5.2
+        },
+        {
+          "url": "https://www.jonlabs.ch/developpement-web/saint-julien-en-genevois",
+          "impressions": 1,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 15
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    },
+    {
+      "query": "développeur site web suisse",
+      "total_impressions": 5,
+      "url_count": 2,
+      "urls": [
+        {
+          "url": "https://www.jonlabs.ch/",
+          "impressions": 3,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 65
+        },
+        {
+          "url": "https://www.jonlabs.ch/blog/specialiste-developpement-web-suisse",
+          "impressions": 2,
+          "clicks": 0,
+          "ctr": 0,
+          "position": 10.5
+        }
+      ],
+      "type": null,
+      "action": null,
+      "diagnostic": null
+    }
+  ]
+}
