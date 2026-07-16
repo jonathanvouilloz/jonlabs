@@ -45,3 +45,11 @@ moodboard/.generations/
 
 # Local backups (calendar drafts during pipeline iterations)
 *.PREVIOUS.json
+
+# Scratch / sorties de pipeline hors build Astro (source de vérité = src/content/)
+content/_drafts/blog/
+/linkedin/
+content/linkedin/
+
+# Logs de production du pipeline de contenu (article-producer)
+*.production.log
