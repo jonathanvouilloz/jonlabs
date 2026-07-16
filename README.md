@@ -1,72 +1,82 @@
+# Jon Labs
 
-# JonLabs
+Site freelance de **Jonathan Vouilloz** — développement web, automatisation IA et référencement local pour PME et indépendants de Suisse romande. En production sur [jonlabs.ch](https://www.jonlabs.ch).
 
+Design brutaliste (bordures épaisses, ombres décalées, accents colorés), contenu en français (FR-CH).
 
-![basics](./src/assets/demo/thumbnail.png)
+## Stack
 
+- **[Astro 5](https://astro.build)** (sorties statiques) + **[MDX](https://docs.astro.build/en/guides/integrations-guide/mdx/)**
+- **[Tailwind CSS 4](https://tailwindcss.com)** via `@tailwindcss/vite`
+- **[React 19](https://react.dev)** pour les îlots interactifs
+- **[GSAP](https://gsap.com)** + **[Motion](https://motion.dev)** pour les animations
+- `@astrojs/sitemap`, `@astrojs/rss`, `sharp` (images), `lucide` (icônes)
+- **TypeScript**
 
-### Dependencies used in this project:
-- [TailwindCSS](https://tailwindcss.com/)
-- [GSAP](https://gsap.com/)
-- [Remix Icon](https://remixicon.com/)
+## Démarrage
 
-### Credits:
-- [Pexels images](https://www.pexels.com/)
-- [Design inspo](https://www.figma.com/design/YHGwlMXQLVCE3mTF4JVA5I/2024-Portfolios-(Community)?node-id=1-914&t=6JAt4v8pqxzppZ0b-0)
-
-
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Bars.astro
-        └── Button.astro
-        └── CallToAction.astro
-        └── Footer.astro
-        └── Header.astro
-        └── Hero.astro
-        └── MarddownPost.astro
-        └── Reviews.astro
-        └── Service.astro
-        └── Tools.astro
-        └── Work.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-        └── posts/
-        └── blog.astro
-        └── index.astro
-└── styles/
-└── package.json
+```bash
+npm install
+npm run dev      # serveur local sur http://localhost:4321
+npm run build    # build de production dans ./dist/
+npm run preview  # prévisualise le build de production
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Structure
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+```
+src/
+├── pages/          # Routes (voir ci-dessous)
+├── content/        # Collections de contenu — SEULE source de vérité (config.ts)
+├── components/     # Composants Astro/React
+├── layouts/        # Layout.astro (template de base, normalise le <title>)
+├── data/           # schema.ts, navigation.ts, données géo/métiers, scénarios
+├── plugins/        # remark-tldr.mjs (bloc TL;DR auto en tête d'article)
+├── styles/         # global.css (import Tailwind)
+└── assets/         # SVGs, images sources
 
-Any static assets, like images, can be placed in the `public/` directory.
+public/             # Assets servis tels quels : og-image.png, robots.txt,
+                    # llm.txt / llms.txt, favicon/, fonts/, outils/
+docs/               # Documentation projet — voir docs/README.md
+```
 
-## 🧞 Commands
+### Routes principales (`src/pages/`)
 
-All commands are run from the root of the project, from a terminal:
+- `index`, `about`, `contact`, `tarifs`, `mentions-legales`, `cv`, `hermes`
+- `services` + `services/*` (creation-site-web, refonte-site-web, developpement-mvp, automatisation, integration-outils, outils-sur-mesure, validation-idee, gestion-fiche-google, formation-ia-equipe, referencement-local, developpeur-webflow, developpeur-wordpress, developpement-application-mobile)
+- Pages géo/métiers dynamiques : `consultant-ia/[ville]`, `developpement-web/[ville]`, `metiers/[metier]`
+- `blog/` + `blog/[slug]` + `blog/tag/[tag]`, hubs piliers `guides/[slug]`
+- `portfolio` + `portfolio/[slug]`
+- `outils/` (checklists PDF, dashboard Reddit), `devis-client/[slug]`
+- `styleguide*` (pages internes de référence design)
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
+### Collections de contenu (`src/content/config.ts`)
 
+| Collection | Emplacement | Rendu |
+|---|---|---|
+| `blog` | `src/content/blog/*.md` | `/blog/{slug}` |
+| `pages` | `src/content/pages/*.md` | `/guides/{slug}` (piliers « pillar ») |
+| `portfolio` | `src/content/portfolio/*.md` | `/portfolio/{slug}` |
+| `devis` | `src/content/devis/*.md` | `/devis-client/{slug}` |
+| `linkedin` | `src/content/linkedin/*.md` | interne (brouillons) |
 
+> Le dossier `content/` à la racine du repo (hors `src/`) est un espace de travail du pipeline de contenu et **n'est pas dans le build**. La source de vérité publiée est toujours `src/content/`.
 
-## 👀 Curious to Explore More?
+## Points de configuration (`astro.config.mjs`)
 
-Check out [LAB-CH3](https://github.com/LaB-CH3) for a growing collection of current and future templates. 
+- `site: https://www.jonlabs.ch`, `trailingSlash: 'never'`
+- **Sitemap filtré** : exclut les PDF, pages `merci-*`, `devis-client/`, `styleguide*`, tags blog et les services encore en draft (noindex).
+- **`lastmod` réel** calculé depuis les frontmatter (`updatedDate` > `pubDate`) des articles et guides — évite un `lastmod` = date de build qui casserait le signal de fraîcheur à chaque rebuild.
+- **Redirects** : anciens slugs `-2026` → versions sans année (le jus SEO est resté dessus).
+- Plugin remark maison `remark-tldr` (bloc TL;DR) + `rehype-external-links` (liens externes en `_blank` `noopener`).
 
-If you’ve found this helpful, consider fueling my creativity!  
-[![Buy me a coffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/d2OuR1c)
+## Documentation
 
+- **[`CLAUDE.md`](./CLAUDE.md)** — instructions et conventions du projet (source de vérité).
+- **[`docs/README.md`](./docs/README.md)** — index documentaire complet (contexte, design system, clusters de contenu, recherche).
+
+Le contenu SEO suit un pipeline de skills (`/seo-brief` → `/seo-write` → publish) ; les briefs vivent dans `src/content/blog/.briefs/`.
+
+---
+
+*Basé à l'origine sur le template Astro « Angie » ([LaB-CH3](https://github.com/LaB-CH3)), depuis largement réécrit.*
