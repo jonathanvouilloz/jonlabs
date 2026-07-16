@@ -48,6 +48,7 @@ moodboard/.generations/
 
 # Scratch / sorties de pipeline hors build Astro (source de vérité = src/content/)
 content/_drafts/blog/
+content/_drafts/services/
 /linkedin/
 content/linkedin/
 

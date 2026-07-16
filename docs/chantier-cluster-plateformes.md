@@ -46,8 +46,8 @@ Un lead réel a trouvé Jon Labs en cherchant un **développeur Webflow pour sit
 
 ## Phase 1 — Briefs ✅ 2026-06-07
 
-- [x] Brief page Webflow → `content/_drafts/services/developpeur-webflow.md`
-- [x] Brief page WordPress → `content/_drafts/services/developpeur-wordpress.md`
+- [x] Brief page Webflow → consommé, intégré dans `src/pages/services/developpeur-webflow.astro` (draft retiré)
+- [x] Brief page WordPress → consommé, intégré dans `src/pages/services/developpeur-wordpress.astro` (draft retiré)
 - [ ] **Validation des 2 briefs par Jonathan** (notamment fourchettes tarifs CHF à afficher)
 
 ## Phase 2 — Page `/services/developpeur-webflow` ✅ 2026-06-07
@@ -124,7 +124,7 @@ Pipeline par article : `/seo-keywords` → `/seo-serp` → `/seo-brief` → vali
 | `src/pages/developpeur-web-freelance-geneve.astro` | Maillage sortant |
 | `src/pages/developpement-web/[ville].astro` | Lien template vers page WordPress |
 | `src/content/blog/{prix-site-web-suisse-2026, specialiste-developpement-web-suisse, freelance-ou-agence-web}.md` | Liens contextuels |
-| `content/_drafts/services/developpeur-{webflow,wordpress}.md` | Briefs (sources de vérité contenu) |
+| ~~`content/_drafts/services/developpeur-{webflow,wordpress}.md`~~ | Briefs consommés (retirés) — stratégie SEO conservée dans ce doc |
 | `.seo-data/{keywords,serp}-*.json` + `gsc-jonlabs-ch-last_3_months.json` | Data |
 
 ## Journal
