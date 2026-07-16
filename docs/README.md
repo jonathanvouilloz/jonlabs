@@ -22,6 +22,30 @@ Lues automatiquement par CLAUDE.md, `.claude/commands/*` et les skills d'init.
 | `seo-todo.md` | TODO SEO vivant (P2 restants) | référence audit |
 | `checklist-commerce-google.md` | Asset éditorial article | `.briefs/15-signes-site-web-dort.md` |
 
+## Racine — Planification SEO / clusters (sources de vérité contenu)
+
+Docs vivantes de pilotage éditorial, consommées par les feature files (`docs/features/*`) et seedées dans les briefs (`src/content/blog/.briefs/*` : ligne « Contexte chargé depuis: … »).
+
+| Fichier | Rôle |
+|---|---|
+| `restructuration-clusters.md` | Plan maître du chantier SEO (3 clusters, verdict par page, liste KILL, feuille de route) |
+| `planSEOIA.md` | Roadmap globale cluster « consultant IA » (epic EN COURS) |
+| `plan-mise-en-place-ia.md` | Tracking exécution du cluster « Mettre l'IA en place » |
+| `topical-map-consultant-ia.md` | Topical map cluster IA (2 piliers, scoring, mini-briefs) |
+| `topical-map-mise-en-place-ia.md` | Topical map cluster « Mettre l'IA en place » |
+| `topical-map-c1-sur-mesure-automatisation.md` | Topical map C1 (Build / Automate) |
+| `topical-map-c3-web-referencement.md` | Topical map C3 (web / SEO local / GEO / GMB) |
+| `topical-map-application-mobile.md` | Topical map cluster application mobile |
+| `chantier-cluster-plateformes.md` | Session 8 — cluster Webflow/WordPress (EN ATTENTE, prochain epic candidat) |
+
+## `features/` — Feature files (epics)
+
+Un fichier par epic, index léger dans `HANDOFF.md`. Contient la « Carte du code » lue par `/resume-feature`.
+
+## `tools/` — Outillage dev (hors site)
+
+Dashboard Reddit (`dashboard.py`, `reddit_scraper.py`, `dashboard.html`) + guide. Le tool servi au public vit séparément dans `public/tools/reddit-dashboard/`.
+
 ## `clusters/` — Clusters de contenu actifs
 
 Un sous-dossier par cluster. Chaque cluster contient sa source de vérité (`cluster.md` ou équivalent) + les briefs/sources spécifiques.
@@ -52,9 +76,12 @@ Notes thématiques (style Obsidian) consultées par les clusters comme matière 
 
 ## `archive/` — Historique projet
 
-| Dossier | Contenu |
+| Dossier / fichier | Contenu |
 |---|---|
 | `archive/cv/` | Fichiers d'origine de la livraison page CV (template, content, intégration) |
+| `archive/snapshots/` | Snapshots pré-refactor + briefs figés (mai 2026) |
+| `archive/maillage/` | Rapport one-shot de maillage interne (graphe, 11.06.2026) |
+| `archive/chantier-seo-refactor.md` | Log du chantier SEO (Sessions 1-5 terminées) |
 
 ---
 

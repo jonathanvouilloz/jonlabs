@@ -50,14 +50,14 @@
 **Statut** : terminée
 **Date** : 2026-05-20
 **Risque** : 🟢 zéro (lecture pure)
-**Livrable** : [`docs/snapshots/2026-05-20-pre-refactor.md`](./snapshots/2026-05-20-pre-refactor.md)
+**Livrable** : [`docs/archive/snapshots/2026-05-20-pre-refactor.md`](./snapshots/2026-05-20-pre-refactor.md)
 
 #### Checklist
 - [x] `/seo-gsc` : positions actuelles → 7'922 imp / 91j / pos moy 9.7
 - [x] `/seo-index-diagnose` : 46/75 indexées (61%), 9 services non indexés sur 9
 - [x] `/seo-keywords` clusters services (10 topics) :
   - Volumes FR-CH réels obtenus via DataForSEO
-- [x] Consolidation dans `docs/snapshots/2026-05-20-pre-refactor.md`
+- [x] Consolidation dans `docs/archive/snapshots/2026-05-20-pre-refactor.md`
 
 #### Découvertes majeures
 1. **Astro config contient déjà 7 redirects** pour les articles "apparaitre" → on peut les **inverser** au lieu de redo
@@ -156,7 +156,7 @@
 **Statut** : terminée
 **Date** : 2026-05-20
 **Risque** : 🟡 modéré (changement Title/H1 sur page établie)
-**Livrable** : [`docs/snapshots/2026-05-20-brief-pivot-referencement-local.md`](./snapshots/2026-05-20-brief-pivot-referencement-local.md)
+**Livrable** : [`docs/archive/snapshots/2026-05-20-brief-pivot-referencement-local.md`](./snapshots/2026-05-20-brief-pivot-referencement-local.md)
 
 #### Décisions
 - **Pivot keyword** : ancienne page rankait sur `référencement local Genève` (0/mois sur DataForSEO). Pivot vers `référencement Genève` (estimé 10-30/mois) + capture du money keyword `agence référencement Genève` (110/mois) via FAQ et sections "freelance vs agence" — sans mettre "agence" dans Title/H1
@@ -165,7 +165,7 @@
 - **Sweep vocab limité à cette page** (pas sitewide cette fois)
 
 #### Checklist
-- [x] Brief SEO complet (`docs/snapshots/2026-05-20-brief-pivot-referencement-local.md`) — cluster KW, structure H2/H3, snippets x3, maillage, gap concurrent, banned words
+- [x] Brief SEO complet (`docs/archive/snapshots/2026-05-20-brief-pivot-referencement-local.md`) — cluster KW, structure H2/H3, snippets x3, maillage, gap concurrent, banned words
 - [x] `seoData.title` : "Référencement local SEO à Genève | Jon Labs" → "Référencement à Genève — Freelance SEO local PME romandes" (58 car. ✓)
 - [x] `seoData.description` : sweep + mention freelance + 155 car. ✓
 - [x] Breadcrumb label : "Référencement local SEO" → "Référencement local"
@@ -202,7 +202,7 @@
 **Statut** : terminée
 **Date** : 2026-05-21
 **Risque** : 🟢 faible (page transactionnelle, slug gardé, scope réduit à 1 fichier)
-**Livrable** : [`docs/snapshots/2026-05-21-brief-tarifs.md`](./snapshots/2026-05-21-brief-tarifs.md)
+**Livrable** : [`docs/archive/snapshots/2026-05-21-brief-tarifs.md`](./snapshots/2026-05-21-brief-tarifs.md)
 
 #### Décisions
 - **Scope réduit** : refonte `/tarifs.astro` uniquement. Le sweep vocabulaire sitewide (navigation, schema central, pages services, composants CV, villes-frontalieres, etc.) est reporté en Session 4c — pour un commit propre par session
@@ -391,9 +391,9 @@ Déclencheur : lead réel "développeur webflow pour site e-commerce" + 0 visibi
 
 | Document | Session | Statut |
 |----------|---------|--------|
-| `docs/snapshots/2026-05-20-pre-refactor.md` | 1 | ✅ |
-| `docs/snapshots/2026-05-20-brief-pivot-referencement-local.md` | 4a | ✅ |
-| `docs/snapshots/2026-05-21-brief-tarifs.md` | 4b | ✅ |
+| `docs/archive/snapshots/2026-05-20-pre-refactor.md` | 1 | ✅ |
+| `docs/archive/snapshots/2026-05-20-brief-pivot-referencement-local.md` | 4a | ✅ |
+| `docs/archive/snapshots/2026-05-21-brief-tarifs.md` | 4b | ✅ |
 | Commit `526f689` (pas de snapshot MD — maillage direct) | 5 | ✅ |
 
 ---
@@ -437,7 +437,7 @@ Déclencheur : lead réel "développeur webflow pour site e-commerce" + 0 visibi
 - Validation des 4 piliers services (création / référencement local / GMB / applications sur mesure)
 - Validation principe : slugs permanents sauf exception trafic-nul
 - Validation : skill seo-brief modifié seulement sur la règle slug-année (universel), pas sur le vocabulaire "référencement vs SEO" (spécifique projet)
-- ✅ Session 1 terminée → snapshot `docs/snapshots/2026-05-20-pre-refactor.md`
+- ✅ Session 1 terminée → snapshot `docs/archive/snapshots/2026-05-20-pre-refactor.md`
 - ✅ Session 2 terminée :
   - Skill `seo-brief/SKILL.md` : règle "JAMAIS d'année dans un slug" maintenant universelle
   - 7 articles renommés via revert (le jus SEO était resté sur les anciennes URLs grâce aux redirects existants)
@@ -455,7 +455,7 @@ Déclencheur : lead réel "développeur webflow pour site e-commerce" + 0 visibi
   - Décision validée : pas de mot "agence" dans Title/H1 (positionnement freelance/indé assumé)
   - Décision révisée : pas de fusion mvp + outils-sur-mesure — pages gardées séparées
   - Keyword research DataForSEO 10 topics services CH (`.seo-data/keywords-*.json` 2026-05-20)
-  - Brief SEO complet (`docs/snapshots/2026-05-20-brief-pivot-referencement-local.md`) — cluster, structure, snippets x3, gap concurrent
+  - Brief SEO complet (`docs/archive/snapshots/2026-05-20-brief-pivot-referencement-local.md`) — cluster, structure, snippets x3, gap concurrent
   - Page refondue : Title (58 car), Meta (155 car), H1, breadcrumb, FAQ "agence", sections éditoriales, schema serviceSchemas["referencement-local"]
   - **Conservé** : slug, @id schema, id="seo-form", FAQ techniques (SEO/Ads, SEO local, etc.)
   - Build OK : 182 pages, 3 JSON-LD blocks (Service + Breadcrumb + FAQPage), 7 liens internes intacts
@@ -465,7 +465,7 @@ Déclencheur : lead réel "développeur webflow pour site e-commerce" + 0 visibi
   - Décision méthodo : scope réduit à `tarifs.astro` uniquement ; sweep vocab sitewide → Session 4c (commit propre par session)
   - Phase 0 DataForSEO sur 5 topics tarifs : marché FR-CH petit, seul `tarif création site web` mesurable (20/mois). Output : `.seo-data/keywords-tarif-*.json` + `keywords-prix-*.json`
   - Stratégie KW composite : capture `tarif site web` (10/mois) + variations (10-20/mois cumulées) + `agence référencement Genève` (110/mois) en FAQ #7 + différenciateur "freelance / sans contrat 12 mois"
-  - Brief SEO complet (`docs/snapshots/2026-05-21-brief-tarifs.md`) — cluster KW, FAQ verbatim, gap concurrent
+  - Brief SEO complet (`docs/archive/snapshots/2026-05-21-brief-tarifs.md`) — cluster KW, FAQ verbatim, gap concurrent
   - Page refondue : Title (58 car), Meta (155 car), H1, hero subtitle, packages features sweep, FAQ 6→8 (NEW : freelance vs agence + engagement 12 mois), inclusions grid, bullet "Bon à savoir" +2, lien sortant vers `/services/referencement-local`
   - Schema restructuré (4 blocs propres vs 3 mal typés avant) : WebPage + BreadcrumbList + Service+AggregateOffer (low=1490 high=2490 count=3) + FAQPage (8 Q)
   - Sweep interne tarifs.astro : 13 → 0 occurrence "SEO" éditoriale. 3 résidus dist (mega-menu chrome) reportés S4c

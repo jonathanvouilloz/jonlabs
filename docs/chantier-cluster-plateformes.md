@@ -1,6 +1,6 @@
 # Chantier — Cluster plateformes (Webflow + WordPress)
 
-> **Session 8 du chantier SEO** (cf. `docs/chantier-seo-refactor.md`).
+> **Session 8 du chantier SEO** (cf. `docs/archive/chantier-seo-refactor.md`).
 > Suivi par checklist au fil des sessions : cocher au fur et à mesure, noter date + commit en fin de phase.
 >
 > **État au 2026-06-07 (2e session)** : Phases 0-5 terminées — les 2 pages services sont buildées et commitées. Restent : actions GSC post-deploy (Jonathan), phase 6 (satellites blog) et phase 7 (suivi).
@@ -108,7 +108,7 @@ Pipeline par article : `/seo-keywords` → `/seo-serp` → `/seo-brief` → vali
 
 - [ ] `/seo-weekly` : surveiller `développeur webflow`, `freelance wordpress geneve`, `webflow ecommerce`, `migration wordpress` à S+2 et S+4
 - [ ] Si un intent WordPress (refonte/migration) décolle en GSC → envisager split en page dédiée
-- [ ] Clore la Session 8 dans `docs/chantier-seo-refactor.md`
+- [ ] Clore la Session 8 dans `docs/archive/chantier-seo-refactor.md`
 
 ---
 
