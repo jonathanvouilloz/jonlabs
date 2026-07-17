@@ -30,7 +30,7 @@ Tes concurrents du centre-ville te passent devant sur Google Maps, alors que ta 
 
 La bonne nouvelle : ce facteur ne joue pas partout de la même façon. Il écrase tout pour un type de recherche, et il devient presque invisible pour deux autres. Cet article explique pourquoi ton adresse te pénalise, pourquoi le réflexe classique (créer des pages par quartier) se retourne contre toi, et ce qu'il reste à faire quand la géographie ne joue pas en ta faveur.
 
-<!-- TODO:image illustration : Vue de dessus d'un plan de ville minimaliste, masse dense de pins gris au centre et un pin vert isolé en périphérie avec son propre cercle de rayon (brief: content/_drafts/blog/seo-local-commerce-excentre.md#image-cover) -->
+![Plan de ville vu du dessus : une masse dense de marqueurs gris concentrés au centre, et un seul marqueur teal isolé en périphérie avec son cercle de rayon](/images/blog/seo-local-commerce-excentre-1.webp)
 
 > **L'essentiel en bref**
 >
@@ -54,7 +54,23 @@ Ce mécanisme fait partie des [trois facteurs du classement local](/blog/entrer-
 
 Il n'y a pas une recherche locale, il y en a deux, et elles n'ont rien à voir. La première, c'est **celui qui est déjà sur place**. La seconde, c'est celui qui n'est pas encore là. Confondre les deux te fait courir après un client que tu ne peux pas gagner, en délaissant celui que tu peux vraiment convaincre.
 
-<!-- TODO:image schema : Schéma à deux colonnes. "il est déjà là" -> la proximité décide -> la fiche (verrouillé) ; "il n'est pas encore là" -> pas de proximité à calculer -> le site (actif) (brief: content/_drafts/blog/seo-local-commerce-excentre.md#image-2) -->
+<figure style="margin:2rem 0;">
+  <div style="display:flex; flex-wrap:wrap; gap:1rem;">
+    <div style="flex:1 1 240px; border:2px solid #000; background:#fff; box-shadow:4px 4px 0 rgba(0,0,0,0.2); padding:1.25rem 1.25rem 1.5rem;">
+      <p style="margin:0 0 .75rem; font-size:.75rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#666;">Il est déjà là</p>
+      <p style="margin:0 0 .5rem; font-weight:700; font-size:1.05rem;">La proximité écrase tout</p>
+      <p style="margin:0 0 .5rem; color:#333;">C'est ta <strong>fiche</strong> qui décide</p>
+      <p style="margin:0; color:#666;">Si tu es loin, tu as déjà perdu — terrain verrouillé.</p>
+    </div>
+    <div style="flex:1 1 240px; border:2px solid #000; background:#fff; box-shadow:4px 4px 0 rgba(0,0,0,0.2); padding:1.25rem 1.25rem 1.5rem; border-left:6px solid #00D9A3;">
+      <p style="margin:0 0 .75rem; font-size:.75rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:#00A37B;">Il n'est pas encore là</p>
+      <p style="margin:0 0 .5rem; font-weight:700; font-size:1.05rem;">Aucune proximité à calculer</p>
+      <p style="margin:0 0 .5rem; color:#333;">C'est ton <strong>site</strong> qui décide</p>
+      <p style="margin:0; color:#666;">Ton terrain, celui que tu peux vraiment gagner.</p>
+    </div>
+  </div>
+  <figcaption style="margin-top:.75rem; font-size:.85rem; color:#666; text-align:center;">Deux recherches locales, deux terrains différents : renoncer au premier pour investir le second.</figcaption>
+</figure>
 
 Quelqu'un debout dans la rue tape « muay thai » ou « coiffeur » sur son téléphone : la proximité écrase tout, ta fiche décide, et si tu es loin, tu as déjà perdu. Continuer à optimiser dans l'espoir de rattraper ce client-là, c'est gaspiller du budget sur une bataille que tu ne peux pas remporter.
 
@@ -96,7 +112,7 @@ Ces personnes cherchent près de chez elles, et près de chez elles, c'est toi. 
 
 La distance ne se compense pas, mais elle n'est qu'un pilier sur trois. Les deux autres, **pertinence** et **notoriété**, restent entièrement sous ton contrôle, et la plupart de tes concurrents ne les travaillent pas sérieusement.
 
-Le geste le plus rentable reste le premier de la liste : choisir la bonne catégorie principale sur ta fiche, que [Whitespark](https://whitespark.ca/google-business-profile-guide/categories/) désigne comme le facteur de classement local numéro un, devant le [mot-clé dans le nom, 3e, et les horaires renseignés, 5e](https://whitespark.ca/blog/7-local-search-ranking-factors-that-may-challenge-your-current-thinking/). Pour aller plus loin, [le guide complet de ta fiche Google Business Profile](/blog/fiche-google-my-business-guide-complet-2026) couvre l'ensemble des réglages qui font la différence, et [la checklist complète d'optimisation](/blog/optimiser-fiche-google-my-business-checklist-2026) permet de vérifier point par point que rien n'a été oublié.
+Le geste le plus rentable reste le premier de la liste : choisir la bonne catégorie principale sur ta fiche, que [Whitespark](https://whitespark.ca/google-business-profile-guide/categories/) désigne comme le facteur de classement local numéro un, devant le [mot-clé dans le nom, 3e, et les horaires renseignés, 5e](https://whitespark.ca/blog/7-local-search-ranking-factors-that-may-challenge-your-current-thinking/). Pour aller plus loin, [le guide complet de ta fiche Google Business Profile](/blog/fiche-google-my-business-guide-complet-2026) couvre l'ensemble des réglages qui font la différence, et [la checklist complète d'optimisation](/blog/optimiser-fiche-google-my-business-checklist-2026) permet de vérifier point par point que rien n'a été oublié. J'ai aussi détaillé la marche à suivre côté newsletter, dans [Optimiser sa fiche Google Business](https://jonvolio.substack.com/p/optimiser-sa-fiche-google-business).
 
 ## FAQ sur le SEO local en périphérie
 
