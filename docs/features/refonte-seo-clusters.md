@@ -4,6 +4,26 @@
 > **Plan maître** : `docs/restructuration-clusters.md` (archi cible, verdict par page, liste KILL, feuille de route 5 phases).
 > **Diagnostic data** : `.seo-data/diagnostic-gsc-pages-cannibalisation.md`.
 
+## Etat session 2026-07-17 — Article « SEO local commerce excentré » produit + publié en prod
+
+**Fait :**
+- **Article `seo-local-commerce-excentre` produit + publié** via `@article-producer` (pipeline complet). ~2170 mots, review 18/18 au 1er tour, angle Wildcat (commerce excentré, la distance = seul pilier non contrôlable). Hub content ID `14ceebfd9a2eae5f1f800615`.
+- **Misattribution Whitespark corrigée** (vérif WebFetch directe des 3 citations depuis le main, l'`@article-producer` n'avait pas WebFetch et avait recoupé en seconde main). Le claim « catégorie principale = facteur #1 » était attribué au billet *7 Local Search Ranking Factors*, qui **ne classe pas** la catégorie principale (son #1 = « expert-curated best-of lists »). Réattribué au **GBP Guide de Whitespark** (verbatim « It is also the #1 most important local search ranking factor ») ; positions réelles ajoutées (nom 3e, horaires 5e). Google Business Profile Help + Sterling Sky confirmées verbatim.
+- **2 placeholders images comblés** : illustration de tête générée via skill `visual`/gpt-image-2 (plan de ville, pins gris centre vs pin teal isolé, mono-teal, sans texte/logo, `public/images/blog/seo-local-commerce-excentre-1.webp`) ; schéma « deux recherches locales » fait en **HTML inline brutaliste** dans l'article (PAS généré — texte-dans-image non fiable, le skill visual bloque ce cas).
+- **Lien newsletter** ajouté (section optimisation) vers le post Substack « Optimiser sa fiche Google Business », URL canonique sans code de parrainage.
+- **Merge `chore/cleanup-docs` → `main` (fast-forward) + push prod.** Le bundle emportait aussi les 8 fixes GMB (« retire les chiffres non sourcés du cluster ») + le nettoyage docs/drafts/logs. Build vert 243 pages à chaque étape.
+
+**Prochain :** inchangé — **maillage éditorial de `/consultant-ia/geneve` et `/lausanne`** (liens contextuels en corps depuis `hermes-agent-ia-pme`, `workflows-vs-agents-ia-pme`, `temps-perdu-pme-automatisation`, PAS le footer). Puis `/seo-index-diagnose` à J+60 (mi-sept.) vs baseline 50/88. Action manuelle Jonathan : **Request Indexing GSC** sur `/blog/seo-local-commerce-excentre` une fois Vercel déployé.
+
+**Pièges :**
+- **Commit `1a66fff` apparu sans que je le crée** (« fix(seo-local): retire les chiffres non sourcés… ») : au moment du merge, l'article + la cover + les 8 GMB y étaient déjà committés, alors que mon `git status` juste avant les donnait non suivis. Cause non identifiée (auteur « Jon » comme tout outil ici). Historique sain et linéaire, rien perdu — mais surveiller si un hook/outil auto-commit.
+- **Schéma HTML + lien Substack partis direct en prod sans preview navigateur.** Build OK et HTML non échappé vérifié dans `dist`, mais rendu réel non validé à l'œil. Trivialement réversible (1 fichier).
+- **Sources vérifiées réellement** : le pipeline `@article-producer` (worker) n'a ni WebFetch ni WebSearch → il recoupe en seconde main et peut laisser passer une misattribution. Toujours re-vérifier les citations depuis le main quand l'article part en prod (surtout YMYL/SEO à claims chiffrés).
+
+**Commit :** 33d3a0d feat(seo-local): complète l'article excentré (visuels + lien newsletter) · e1666ab fix(seo-local): corrige l'attribution Whitespark · merge ff `fa9557d..33d3a0d` poussé sur main.
+
+---
+
 ## Etat session 2026-07-15 — Diagnostic indexation GSC + 3 lots correctifs (déployés)
 
 **Baseline figée** : `.seo-data/index-jonlabs-ch-2026-07-15.json` (URL Inspection API sur les 88 URLs du sitemap) → **50 indexées / 88 (57 %)** · 19 crawled-not-indexed · 13 discovered-not-crawled · 5 unknown · 1 noindex. **Zéro** erreur serveur, soft 404, conflit canonical ou blocage robots.
@@ -285,10 +305,11 @@ Commentaire `navigation.ts:178` corrigé : il documente désormais la décision 
 ---
 
 ## Carte du code
-> Mise a jour : 2026-07-15 (diagnostic indexation GSC + 3 lots correctifs)
+> Mise a jour : 2026-07-17 (article SEO local commerce excentré)
 
 | Fichier | Role |
 |---------|------|
+| `src/content/blog/seo-local-commerce-excentre.md` | **Article cluster seo-local (Wildcat, commerce excentré)** : la distance = seul pilier non contrôlable, 2 recherches locales, 3 stratégies. Contient un **schéma HTML inline brutaliste** (« deux recherches locales ») + illustration hero. Sources vérifiées WebFetch dans le `.sources.json` jumeau (attribution Whitespark = GBP Guide, PAS le billet 7-factors). Lien sortant newsletter Substack |
 | `astro.config.mjs` | **`buildLastmodMap()` + `serialize`** : `lastmod` réel par URL lu depuis les frontmatter (`updatedDate` > `pubDate`) via `node:fs`, blog → `/blog/{slug}`, pages → `/guides/{slug}`. Ne jamais revenir à `new Date()` (détruit le signal de fraîcheur). Filtre sitemap : exclut aussi `/mentions-legales` + les 4 services draft Session 3 |
 | `.seo-data/index-jonlabs-ch-2026-07-15.json` | **Baseline indexation** (50/88) — référence de comparaison pour le re-run J+60 de `/seo-index-diagnose` |
 | `src/pages/developpement-web/index.astro` | **Hub du silo géo** (namespace `.dw-*`, modèle `guides/index.astro`) : liste les villes depuis `villes-frontalieres.ts`, jamais en dur. Schemas CollectionPage + Breadcrumb. Parent des 5 pages ville |

@@ -1,4 +1,4 @@
-# HANDOFF — 2026-07-15
+# HANDOFF — 2026-07-17
 
 ## Features actives
 | Feature | Fichier | Statut |
@@ -11,10 +11,12 @@
 
 ## Reprendre ici
 **Refonte SEO / clusters** — mailler `/consultant-ia/geneve` + `/lausanne` par des liens **contextuels en corps** depuis `hermes-agent-ia-pme`, `workflows-vs-agents-ia-pme`, `temps-perdu-pme-automatisation`. **Pas par le footer** (raison dans le feature file). Puis re-run `/seo-index-diagnose` à J+60 (mi-sept.) vs baseline 50/88.
+Dernière session (17.07) : article `seo-local-commerce-excentre` produit + publié en prod (visuels + lien newsletter + fix attribution Whitespark). Détail dans le feature file.
 Le **Devis Grange-Canal** n'a plus rien à coder : il attend le call (3 vérifs bloquantes listées dans son feature file).
-Commit : [5d3fa66] chore(seo-data) · devis : [8c522b9] feat(devis): migre le template en blueprint et réécrit le devis Grange-Canal
+Commit : [33d3a0d] feat(seo-local): complète l'article excentré · devis : [8c522b9] feat(devis): migre le template en blueprint
 
 ## Actions manuelles en attente (côté Jonathan)
+- **Request Indexing GSC** sur `/blog/seo-local-commerce-excentre` une fois Vercel déployé (article publié 17.07).
 - **Devis Grange-Canal — 3 vérifs AVANT envoi** : le « 45 à 60 minutes » attribué à un concurrent (réponse d'IA non reproductible → capture ou retrait), le « 9 vs 160 » (jamais recompté), et « dont personne ne se sert » sur les 31 avis (si elle y répond : faux et vexant). Détail dans le feature file.
 - **`/epic-recap`** de l'epic Refonte blueprint (bouclé).
 - **Portrait hero** : reprendre un **portrait américain**, détourer le fond, réintégrer sur crème (le recadrage actuel est transitoire). Détail dans `polish-design-system.md`.
