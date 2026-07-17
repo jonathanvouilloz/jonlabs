@@ -3,6 +3,7 @@ title: "Obtenir plus d'avis Google : la méthode pour PME"
 h1: "Comment obtenir un flux régulier d'avis Google (sans quémander)"
 description: "Quand demander, à qui, par quel canal : la méthode complète pour générer des avis Google en continu, légalement, sans harceler tes clients."
 pubDate: 2026-06-19
+updatedDate: 2026-07-17
 author: "Jonathan Vouilloz"
 image:
   url: "/images/blog/obtenir-plus-avis-google.webp"
@@ -14,7 +15,7 @@ draft: false
 readingTime: 8
 faqs:
   - question: "Combien d'avis Google viser par mois pour une PME ?"
-    answer: "Regarde les 3 premières fiches qui apparaissent quand tu cherches ton activité sur Google Maps. Si elles ont 80 avis, viser 20 ne suffira pas. Pour un indépendant romand sans automatisation, 4 à 8 avis par mois est atteignable. La majorité de tes avis récents devraient dater de moins de 30 jours pour que ta fiche soit considérée comme dynamique par Google."
+    answer: "Regarde les 3 premières fiches qui apparaissent quand tu cherches ton activité sur Google Maps. Si elles ont 80 avis, viser 20 ne suffira pas. Pour un indépendant romand sans automatisation, 4 à 8 avis par mois est atteignable. Vise un flux continu plutôt qu'un sprint, non pas pour un effet de fraîcheur algorithmique que personne ne peut mesurer, mais parce que 45 % des gens qui lisent des avis regardent surtout les plus récents (GatherUp). C'est ton prochain client qui trie par date, pas Google."
   - question: "Peut-on offrir une réduction contre un avis Google ?"
     answer: "Non. Toute contrepartie matérielle liée à la publication d'un avis est interdite par les règles Google et problématique en droit suisse. La demande doit être gratuite et sans condition. Un simple 'merci' oral n'est pas une contrepartie au sens légal. Toute réduction, cadeau ou avantage conditionné à un avis peut entraîner la suppression des avis et la suspension de la fiche."
   - question: "Que faire si un client promet un avis Google et ne le laisse pas ?"
@@ -29,7 +30,7 @@ Obtenir des avis Google en continu, c'est une question de méthode, pas de chanc
 
 Pour le contexte général sur ta fiche, commence par le [guide complet de ta fiche Google Business Profile](/blog/fiche-google-my-business-guide-complet-2026).
 
-**L'essentiel :** obtenir des avis Google régulièrement dépend du timing, pas de la chance. Le volume et la fraîcheur comptent autant que la note. Un système continu bat toujours un sprint ponctuel. Et le cadre légal suisse (LPD, règles Google) tient en une règle simple : demander sans filtrer, sans contrepartie.
+**L'essentiel :** obtenir des avis Google régulièrement dépend du timing, pas de la chance. Le volume compte autant que la note, et la fraîcheur, c'est ton prochain client qui la regarde. Un système continu bat toujours un sprint ponctuel. Et le cadre légal suisse (LPD, règles Google) tient en une règle simple : demander sans filtrer, sans contrepartie.
 
 ---
 
@@ -37,11 +38,13 @@ Pour le contexte général sur ta fiche, commence par le [guide complet de ta fi
 
 Les avis Google ne rassurent pas seulement tes prospects. Ils influencent directement ta position dans le **Local Pack**, la zone avec les 3 fiches en haut des résultats locaux.
 
-Ce que le facteur notoriété du classement local mesure concrètement, tu peux le lire dans l'article dédié : [comment entrer dans le top 3 de Google Maps](/blog/entrer-top-3-google-maps). En résumé, Google ne regarde pas uniquement ta note moyenne. Il regarde la quantité totale d'avis, leur vélocité (combien par mois), leur récence, et le taux de réponse du propriétaire.
+Ce que le facteur notoriété du classement local recouvre, tu peux le lire dans l'article dédié : [comment entrer dans le top 3 de Google Maps](/blog/entrer-top-3-google-maps). Google dit lui-même que le nombre d'avis et la note entrent dans la notoriété, l'un des trois piliers du classement local avec la pertinence et la distance. Ce qu'il ne dit nulle part, c'est combien ça pèse, ni s'il regarde le rythme auquel tu collectes.
 
-Une PME avec 60 avis récents bat souvent un concurrent avec 200 avis vieux de trois ans. Les anciens avis perdent progressivement leur poids SEO. C'est pour ça qu'un sprint de 20 avis en janvier, puis rien jusqu'en décembre, ne suffit pas.
+Méfie-toi donc de tout ce qui circule là-dessus : les pourcentages du type "les avis, c'est 20 % du Local Pack", ou l'idée qu'un avis de dix-huit mois ne vaudrait plus rien. Aucune source primaire ne dit ça. Vu de l'extérieur de l'algorithme, personne ne peut mesurer la courbe de décroissance du poids d'un avis, et surtout pas la mettre en pourcentage.
 
-La fraîcheur est le critère que les PME ignorent le plus. Si tu n'as plus de nouveaux avis, ta fiche perd en dynamisme aux yeux de Google, même si ta note reste bonne.
+Le vrai argument pour collecter en continu n'est pas algorithmique, il est commercial, et c'est justement pour ça qu'il est solide : il survivra à la prochaine mise à jour de Google. 45 % des gens qui lisent des avis s'intéressent surtout aux plus récents (GatherUp). Un concurrent avec 200 avis dont le dernier date de trois ans rassure moins qu'une fiche à 60 avis dont le dernier date de mardi. Ce qui se joue là, c'est la décision de ton prochain client.
+
+C'est pour ça qu'un sprint de 20 avis en janvier, puis plus rien jusqu'en décembre, ne suffit pas. Six mois plus tard, ta fiche raconte une entreprise qui tournait l'an dernier.
 
 <!-- TODO:image illustration — Flux d'étoiles d'avis alimentant une fiche Google, style brutaliste avec fond crème et accents jaune #FFDC58 — brief: content/_drafts/blog/obtenir-plus-avis-google.md#image-cover -->
 
@@ -80,7 +83,7 @@ Première chose à faire dans tous les cas : générer ton lien d'avis Google de
 
 **Email de clôture.** Pour les prestations longues (projets web, conseil, formations) : intègre le lien dans l'email de fin de projet. Le sujet "[Prénom], ton avis sur [service]" convertit mieux que "Laissez-nous un avis". Ne demande jamais dans un email de facture.
 
-**Signature email.** Un lien "Laisser un avis Google" en bas de chaque signature génère un flux passif sans effort. Ce n'est pas le canal principal, mais il alimente la vélocité sur la durée.
+**Signature email.** Un lien "Laisser un avis Google" en bas de chaque signature génère un flux passif sans effort. Ce n'est pas le canal principal, mais il fait tomber quelques avis en continu, sans que tu aies à y penser.
 
 Arbre de décision en quatre lignes :
 - Client en face à face → QR code + demande orale
@@ -128,7 +131,7 @@ Ce qui est autorisé : demander poliment à tous tes clients sans filtrer, utili
 
 ### Combien d'avis viser, et à quel rythme ?
 
-Regarde les 3 premières fiches qui apparaissent quand tu cherches ton activité sur Google Maps. Si elles ont 80 avis, viser 20 ne suffira pas. La règle pratique : la majorité de tes avis récents devraient dater de moins de 30 jours pour que ta fiche soit considérée comme dynamique. Pour un indépendant romand sans automatisation, 4 à 8 avis par mois est atteignable.
+Regarde les 3 premières fiches qui apparaissent quand tu cherches ton activité sur Google Maps. Si elles ont 80 avis, viser 20 ne suffira pas. Pour un indépendant romand sans automatisation, 4 à 8 avis par mois est atteignable. Vise un flux continu plutôt qu'un sprint, non pas pour un effet de fraîcheur algorithmique que personne ne peut mesurer, mais parce que 45 % des gens qui lisent des avis regardent surtout les plus récents (GatherUp). C'est ton prochain client qui trie par date, pas Google.
 
 ### Peut-on offrir une réduction contre un avis ?
 
@@ -159,5 +162,8 @@ Si tu veux mettre en place ce système sans t'en occuper toi-même, du lien d'av
 ## Sources
 
 - Règles Google Business Profile sur les avis (politique publique officielle Google, support.google.com)
+- Google Business Profile Help, comment Google classe les fiches locales : pertinence, distance, notoriété, sans aucune pondération publiée. Le nombre d'avis et la note entrent dans la notoriété : https://support.google.com/business/answer/7091
+- GatherUp, étude sur le comportement des lecteurs d'avis : 45 % d'entre eux regardent surtout les avis les plus récents
+- Whitespark, Local Search Ranking Factors : sondage d'opinion auprès de 47 experts sur 187 facteurs (une influence perçue par des praticiens, pas une mesure de l'algorithme). La récence des avis y ressort au 11e rang des facteurs individuels, derrière la catégorie principale de la fiche qui arrive n°1 : https://whitespark.ca/blog/7-local-search-ranking-factors-that-may-challenge-your-current-thinking/
 - Loi fédérale sur la protection des données (LPD), cadre légal suisse, entrée en vigueur septembre 2023
 - Politiques de contenu Google sur les avis d'utilisateurs (policy.google.com/policies/terms)

@@ -3,6 +3,7 @@ title: "Fiche Google My Business suspendue : que faire ?"
 h1: "Fiche Google My Business suspendue : pourquoi ça arrive et comment la récupérer"
 description: "Soft ou hard suspension ? 7 causes, procédure de réclamation, preuves à joindre et recours forum si refus. Le protocole complet pour les PME."
 pubDate: 2026-05-28
+updatedDate: 2026-07-17
 image:
   url: "/images/blog/fiche-google-my-business-suspendue-recours.webp"
   alt: "Fiche Google My Business suspendue : procédure de réclamation et recours pour PME"
@@ -48,10 +49,10 @@ Ce guide te donne le protocole complet en 5 étapes : identifier le type de susp
 
 ## Les 7 causes pour lesquelles Google suspend une fiche, et laquelle te concerne
 
-**Google suspend une fiche dès qu'elle enfreint ses guidelines**, pas toujours pour des raisons graves. Voici les 7 causes documentées, de la plus fréquente à la plus grave.
+**Google suspend une fiche dès qu'elle enfreint ses guidelines**, pas toujours pour des raisons graves. Voici les 7 causes documentées, de la plus bénigne à la plus grave.
 
 **1. Nom d'entreprise non conforme.**
-C'est la cause numéro un. Ajouter des mots-clés, une zone géographique ou un slogan dans le nom déclenche une suspension quasi automatique. `"Plombier Paris 15 - Dépannage Rapide"` à la place de `"Dupont Plomberie"` : Google détecte ça comme du spam. Le nom sur ta fiche doit correspondre exactement à celui de ton enseigne réelle.
+Ajouter des mots-clés, une zone géographique ou un slogan dans le nom te met en infraction. `"Plombier Paris 15 - Dépannage Rapide"` à la place de `"Dupont Plomberie"` : c'est du spam au sens des guidelines. Le nom sur ta fiche doit correspondre exactement à celui de ton enseigne réelle. Une chose que personne ne dit : Google ne repère pas ce bourrage tout seul, la sanction tombe presque toujours après le signalement d'un concurrent. C'est pour ça que des fiches non conformes vivent tranquillement pendant des années, puis sautent du jour au lendemain sans qu'il ne se soit rien passé de leur côté.
 
 **2. Adresse non éligible.**
 Une boîte postale, une domiciliation virtuelle ou une adresse de coworking non autorisée suffit. Si ton activité se fait à domicile ou chez le client, Google a des règles spécifiques selon les catégories. Une adresse "fantôme" invalide la fiche.
@@ -154,7 +155,7 @@ Après soumission, Google envoie une confirmation par email avec un numéro de c
 1. **Extrait Kbis** (ou équivalent européen, extrait du RC en Suisse) daté de moins de 3 mois
 2. **Bail commercial ou contrat de location** à l'adresse de la fiche
 3. **Facture d'utilité** (électricité, eau, internet professionnel) à l'adresse, avec une date récente
-4. **Photo géolocalisée de la devanture** avec le nom de l'enseigne visible. Format JPG haute résolution, géolocalisation intégrée dans les métadonnées EXIF si possible
+4. **Photo récente de la devanture** avec le nom de l'enseigne bien lisible, et si possible un repère de rue reconnaissable dans le cadre (numéro de rue, commerce voisin, arrêt de bus) qui prouve que tu es bien à cette adresse. Format JPG haute résolution. Ce qui compte, c'est ce qu'on voit sur l'image, pas ce qu'il y a dans les métadonnées du fichier : Google les efface à l'upload
 5. **Capture d'écran de la page "Nos coordonnées"** de ton site web officiel avec l'adresse correspondante
 
 ### Pour les prestataires sans vitrine (domicile ou chez le client)
@@ -228,7 +229,7 @@ Les schémas d'avis artificiels (rafale d'avis 5 étoiles en peu de temps, profi
 **6. Google Stacks et techniques black-hat de ranking local.**
 Les méthodes de "cloud stacking" (Google Sites, Google Sheets, Google Drive empilés pour renforcer la fiche) ne sont pas éligibles aux guidelines GBP et peuvent déclencher une inspection manuelle. Le [guide complet de la fiche Google My Business](/blog/fiche-google-my-business-guide-complet-2026) détaille les pratiques white-hat qui renforcent le ranking sans risque.
 
-Si tu veux sécuriser ta fiche durablement après l'avoir récupérée, consulte la [checklist d'optimisation complète de ta fiche](/blog/optimiser-fiche-google-my-business-checklist-2026). Elle couvre tous les signaux GBP (32% du Local Pack selon Whitespark LSRF 2026).
+Si tu veux sécuriser ta fiche durablement après l'avoir récupérée, consulte la [checklist d'optimisation complète de ta fiche](/blog/optimiser-fiche-google-my-business-checklist-2026). Elle couvre les signaux de ta fiche dans l'ordre où ils comptent, en commençant par la catégorie principale, que les praticiens interrogés par Whitespark placent en tête des facteurs de classement local.
 
 ---
 
@@ -267,4 +268,5 @@ Si tu es en situation d'urgence : fiche suspendue, appel refusé, ou tu ne sais 
 - Google Business Profile Help, Corriger les fiches suspendues : https://support.google.com/business/answer/4569145?hl=fr
 - Google Business Profile Guidelines officielles, causes de suspension
 - Forum Google Business Profile Product Experts, cas documentés de recours après refus
-- Whitespark Local Search Ranking Factors 2026, GBP Signals = 32% du Local Pack, soft vs hard suspension, preuves recommandées
+- Sterling Sky, motifs réels de suspension d'une fiche (mise à jour mars 2026) : trop de modifications sur les champs sensibles, absence de présence physique réelle à l'adresse, compte gestionnaire suspendu, fiches multiples, verticales à spam
+- Whitespark, Local Search Ranking Factors : sondage d'opinion auprès de 47 experts sur 187 facteurs, donc une influence perçue par des praticiens et pas une mesure de l'algorithme. La catégorie principale de la fiche y ressort comme facteur individuel n°1, le mot-clé dans le nom 3e : https://whitespark.ca/blog/7-local-search-ranking-factors-that-may-challenge-your-current-thinking/

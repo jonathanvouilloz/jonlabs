@@ -3,6 +3,7 @@ title: "Créer fiche Google My Business : guide étape par étape 2026"
 h1: "Créer sa fiche Google My Business étape par étape : le guide complet pour 2026"
 description: "Créer ta fiche Google My Business en 7 étapes : catégorie, adresse, vérification vidéo, NAP. Le guide 2026 qui explique le pourquoi derrière chaque choix."
 pubDate: 2026-05-12
+updatedDate: 2026-07-17
 image:
   url: "/images/blog/creer-fiche-google-my-business-etape-par-etape.webp"
   alt: "Créer fiche Google My Business étape par étape — guide 2026"
@@ -15,7 +16,7 @@ faqs:
   - question: "Combien de temps prend la création d'une fiche Google My Business ?"
     answer: "La création initiale (saisir les informations de base) prend 20 à 30 minutes. La vérification prend de 48h (vidéo) à 14 jours (carte postale). Une fois vérifiée, la fiche est publique et commence à être indexée par Google dans les jours suivants."
   - question: "Puis-je créer une fiche si je n'ai pas de site web ?"
-    answer: "Oui. Un site web n'est pas obligatoire pour créer une fiche GBP. Tu peux renseigner uniquement un numéro de téléphone comme point de contact. Cela dit, les fiches liées à un site web ont un meilleur ranking : le site renforce les signaux On-Page qui représentent 15% du Local Pack selon Whitespark 2026."
+    answer: "Oui. Un site web n'est pas obligatoire pour créer une fiche GBP. Tu peux renseigner uniquement un numéro de téléphone comme point de contact. Cela dit, un site lié à ta fiche donne à Google de la matière pour juger la pertinence de ton activité, qui est l'un des trois piliers du classement local avec la distance et la notoriété. Google ne publie aucune pondération de ces piliers, donc méfie-toi des pourcentages qui circulent. En pratique, une page qui décrit clairement ce que tu fais et où tu le fais reste le meilleur appui que tu puisses donner à ta fiche."
   - question: "Comment choisir entre adresse visible et zone de chalandise ?"
     answer: "Si tu reçois des clients dans un lieu physique, même occasionnellement : affiche l'adresse. Le ranking Local Pack est significativement meilleur. Si tu n'as vraiment aucun lieu accessible aux clients (consultant entièrement en ligne, coach en distanciel), utilise la zone de service."
   - question: "Que faire si ma catégorie principale n'existe pas dans la liste Google ?"
@@ -237,7 +238,7 @@ La création initiale (saisir les informations de base) prend 20 à 30 minutes. 
 
 ### Puis-je créer une fiche si je n'ai pas de site web ?
 
-Oui. Un site web n'est pas obligatoire pour créer une fiche GBP. Tu peux renseigner uniquement un numéro de téléphone comme point de contact. Cela dit, les fiches liées à un site web ont un meilleur ranking — le site renforce les signaux On-Page qui représentent 15% du Local Pack selon Whitespark 2026.
+Oui. Un site web n'est pas obligatoire pour créer une fiche GBP. Tu peux renseigner uniquement un numéro de téléphone comme point de contact. Cela dit, un site lié à ta fiche donne à Google de la matière pour juger la pertinence de ton activité, qui est l'un des trois piliers du classement local avec la distance et la notoriété. Google ne publie aucune pondération de ces piliers, donc méfie-toi des pourcentages qui circulent. En pratique, une page qui décrit clairement ce que tu fais et où tu le fais reste le meilleur appui que tu puisses donner à ta fiche.
 
 ### Comment choisir entre adresse visible et zone de chalandise ?
 
@@ -265,5 +266,6 @@ Une fois la fiche créée et vérifiée, le travail commence vraiment : photos f
 
 ## Sources et Références
 
-- Google Business Profile Help — support.google.com/business/answer/2911778
-- Whitespark Local Search Ranking Factors 2026 — whitespark.ca/local-search-ranking-factors/
+- Google Business Profile Help, créer et vérifier sa fiche : support.google.com/business/answer/2911778
+- Google Business Profile Help, comment Google classe les fiches locales (pertinence, distance, notoriété ; aucune pondération publiée) : support.google.com/business/answer/7091
+- Whitespark, Local Search Ranking Factors : sondage d'opinion auprès de 47 experts sur 187 facteurs, donc une influence perçue par des praticiens et pas une mesure de l'algorithme. La catégorie principale de la fiche y ressort comme facteur individuel n°1, le mot-clé dans le nom 3e, les horaires 5e, l'adresse visible 7e : https://whitespark.ca/blog/7-local-search-ranking-factors-that-may-challenge-your-current-thinking/

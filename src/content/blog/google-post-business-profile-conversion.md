@@ -3,6 +3,7 @@ title: "Google Posts : le guide pour vraiment convertir (2026)"
 h1: "Google Posts sur votre fiche d'établissement : publier des posts qui convertissent vraiment"
 description: "Tes Google Posts ne génèrent rien ? Framework V+S+R, UTM tracking et cadence stratégique : tout ce que les tutoriels oublient de dire."
 pubDate: 2026-05-19
+updatedDate: 2026-07-17
 image:
   url: "/images/blog/google-post-business-profile-conversion.webp"
   alt: "Exemple de Google Post bien structuré sur une fiche Google Business Profile — framework copy conversion PME"
@@ -13,7 +14,7 @@ draft: false
 readingTime: 13
 faqs:
   - question: "Les Google Posts améliorent-ils le référencement local ?"
-    answer: "Oui, indirectement. Les posts contribuent au signal de fraîcheur de ta fiche, facteur de ranking dans le Local Pack selon les Local Search Ranking Factors Whitespark 2026. Ils ne remplacent pas les avis ou la cohérence NAP, mais ils complètent un profil actif."
+    answer: "Indirectement au mieux, et il ne faut pas en attendre grand-chose. Google classe les fiches locales sur trois piliers (pertinence, distance, notoriété) et n'a jamais dit qu'un post en faisait partie. Personne à l'extérieur de l'algorithme ne peut le mesurer non plus. Ce qu'un post fait vraiment, c'est occuper la fiche avec une offre ou une info datée au moment où un client la consulte. Les leviers qui pèsent restent la catégorie principale de ta fiche, la cohérence NAP et les avis."
   - question: "Quelle est la durée de vie d'un Google Post ?"
     answer: "Un post de type Mise à jour reste visible jusqu'à 6 mois. Un post Offre ou Événement disparaît automatiquement à la date de fin que tu as définie. Pour garder ta fiche active, planifie un renouvellement régulier des Mises à jour."
   - question: "Comment savoir si mes posts Google fonctionnent ?"
@@ -173,7 +174,7 @@ La tentation de poster tous les jours pour "rester visible" est compréhensible.
 
 Chaque nouveau post pousse les anciens vers le bas dans ta fiche. Si tu publies 3 posts en une semaine dont 2 anodins, ton post Offre le plus important va disparaître sous les nouveaux. L'utilisateur qui arrive sur ta fiche voit le post le plus récent en premier. Si c'est "Bonne fête des mères à toutes !" au lieu de ton offre de consultation gratuite, tu viens de gâcher ta visibilité la plus précieuse.
 
-1 post par semaine maintient le signal d'activité que Google utilise comme facteur de ranking dans le Local Pack. Whitespark le confirme dans ses Local Search Ranking Factors 2026 : la régularité contribue au signal de fraîcheur de la fiche. Pas besoin de plus.
+1 post par semaine suffit à garder une fiche vivante pour celui qui la consulte, et c'est la seule raison valable de tenir la cadence. Personne ne peut te prouver qu'un post fait bouger ton classement : Google ne le dit nulle part, et les praticiens interrogés par Whitespark, qui donnent leur opinion et pas une mesure de l'algorithme, placent la catégorie principale de la fiche loin devant tout le reste. Poste pour le client qui arrive sur ta fiche, pas pour l'algorithme, et une fois par semaine c'est largement assez.
 
 Pour les événements récurrents (cours de yoga tous les jeudis, marché mensuel), utilise une plage de dates sur le mois entier au lieu de recréer le même post chaque semaine. Tu gagnes du temps et ta fiche reste lisible.
 
@@ -225,7 +226,7 @@ Le guide pour [créer ta fiche étape par étape](/blog/creer-fiche-google-my-bu
 
 ### Les Google Posts améliorent-ils le référencement local ?
 
-Oui, indirectement. Les posts contribuent au signal de fraîcheur de ta fiche, facteur de ranking dans le Local Pack selon les Local Search Ranking Factors Whitespark 2026. Ils ne remplacent pas les avis ou la cohérence NAP, mais ils complètent un profil actif.
+Indirectement au mieux, et il ne faut pas en attendre grand-chose. Google classe les fiches locales sur trois piliers (pertinence, distance, notoriété) et n'a jamais dit qu'un post en faisait partie. Personne à l'extérieur de l'algorithme ne peut le mesurer non plus. Ce qu'un post fait vraiment, c'est occuper la fiche avec une offre ou une info datée au moment où un client la consulte. Les leviers qui pèsent restent la catégorie principale de ta fiche, la cohérence NAP et les avis.
 
 ### Quelle est la durée de vie d'un Google Post ?
 
@@ -266,4 +267,5 @@ Tu veux aller plus loin sur la gestion de ta réputation en ligne ? Les articles
 - Claudia Tomina (GBP Product Expert) : Google Business Profile Posts Best Practices SOP
 - [Google Business Profile Posts Policy](https://support.google.com/business/answer/7213077)
 - [Google UTM Builder](https://ga-dev-tools.google/ga4/campaign-url-builder/)
-- Whitespark Local Search Ranking Factors 2026
+- [Google Business Profile Help, comment Google classe les fiches locales](https://support.google.com/business/answer/7091) : pertinence, distance, notoriété, sans aucune pondération publiée
+- [Whitespark, Local Search Ranking Factors](https://whitespark.ca/blog/7-local-search-ranking-factors-that-may-challenge-your-current-thinking/) : sondage d'opinion auprès de 47 experts sur 187 facteurs, donc une influence perçue par des praticiens et pas une mesure de l'algorithme. La catégorie principale de la fiche y ressort comme facteur individuel n°1

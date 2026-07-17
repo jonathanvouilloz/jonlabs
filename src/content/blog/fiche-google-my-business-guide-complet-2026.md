@@ -1,8 +1,9 @@
 ---
 title: "Fiche Google My Business : guide complet 2026"
 h1: "Fiche Google My Business : le guide complet pour la créer, l'optimiser et la classer en 2026"
-description: "GBP signals = 32% du Local Pack selon Whitespark 2026. Ce guide couvre tout : créer, optimiser, animer et mesurer ta fiche Google My Business en 2026."
+description: "Le guide complet de la fiche Google My Business en 2026 : la créer, la remplir, l'animer, et le seul facteur qui compte vraiment avant tous les autres."
 pubDate: 2026-05-05
+updatedDate: 2026-07-17
 image:
   url: "/images/blog/fiche-google-my-business-guide-complet-2026.webp"
   alt: "Guide complet fiche Google My Business 2026 — optimisation PME francophone"
@@ -17,16 +18,16 @@ faqs:
   - question: "Combien de temps faut-il pour voir des résultats après avoir optimisé ma fiche ?"
     answer: "Les premiers effets sont visibles en 4 à 8 semaines sur les métriques GBP Insights. Un impact mesurable sur le ranking du Local Pack demande 2 à 3 mois d'optimisation continue : catégorie correcte, photos fraîches, posts réguliers, avis accumulés."
   - question: "Est-ce que les avis Google sont vraiment importants pour le ranking ?"
-    answer: "Oui. Les signaux d'avis représentent 20% du ranking du Local Pack selon Whitespark 2026. Ce qui compte : la quantité, la vélocité (50% des avis doivent dater de moins de 30 jours pour leur plein poids), la note globale (objectif 4.0+), et les réponses du propriétaire."
+    answer: "Oui, mais pas comme on le répète. Google cite la notoriété comme l'un de ses trois piliers, sans jamais publier de pondération. Whitespark, qui interroge chaque année une cinquantaine de spécialistes, classe la récence des avis 11e des facteurs individuels, loin derrière la catégorie principale de la fiche, qui est première. La vraie raison de demander des avis en continu est commerciale : 45% des lecteurs d'avis regardent surtout les récents. Un stock figé rassure moins qu'un flux."
   - question: "Puis-je avoir plusieurs fiches pour le même établissement ?"
     answer: "Non, Google n'autorise qu'une seule fiche par établissement physique. Créer plusieurs fiches constitue une violation des guidelines et expose à une suspension. Si tu as plusieurs adresses (franchises, succursales), chaque adresse a sa propre fiche gérée via le même compte manager."
   - question: "Les backlinks vers ma fiche GBP améliorent-ils mon ranking ?"
-    answer: "Non, c'est un mythe. Les backlinks vers la fiche GBP ne transmettent pas de PageRank : GBP n'est pas une page web indexable, c'est une entité dans le Knowledge Graph de Google. Ce qui aide : les backlinks locaux vers ton site web (8% des signaux) et les citations NAP cohérentes (6-8%)."
+    answer: "Non, c'est un mythe. Les backlinks vers la fiche GBP ne transmettent pas de PageRank : GBP n'est pas une page web indexable, c'est une entité dans le Knowledge Graph de Google. Ce qui aide : les backlinks locaux vers ton site web et les citations NAP cohérentes sur les annuaires."
 ---
 
 # Fiche Google My Business en 2026 : tout ce qu'une PME doit vraiment savoir
 
-Ta **fiche Google My Business** pèse 32% de ton classement dans le Local Pack. Ces 3 résultats Maps que tout le monde voit avant de scroller. C'est le chiffre sorti du Local Search Ranking Factors 2026 de Whitespark, basé sur 47 experts SEO et 187 facteurs analysés. C'est le levier de visibilité locale le plus puissant à ta disposition, et il est gratuit.
+Ta **fiche Google My Business** est ce qui décide de ta place dans le Local Pack, ces 3 résultats Maps que tout le monde voit avant de scroller. C'est le levier de visibilité locale le plus puissant à ta disposition, et il est gratuit.
 
 Sauf que la plupart des PME le sous-utilisent. Fiche vide, catégorie vague, zéro photo, aucun avis répondu depuis 6 mois. Et elles se demandent pourquoi leurs concurrents apparaissent avant elles sur Maps.
 
@@ -38,11 +39,12 @@ Ce guide couvre tout ce qu'une PME doit vraiment savoir sur la **fiche d'établi
 
 **L'essentiel en bref**
 
-- La **fiche Google My Business** (rebaptisée Google Business Profile en 2021) représente 32% des signaux de ranking du Local Pack selon Whitespark 2026.
-- Il existe deux algorithmes distincts : Local Pack (GBP dominant) et AI Search Visibility (site web dominant). Optimiser les deux est nécessaire.
+- La **fiche Google My Business** (rebaptisée Google Business Profile en 2021) est l'actif qui pèse le plus lourd sur ta visibilité dans le Local Pack.
+- Google classe une fiche sur trois piliers : pertinence, distance, notoriété. Il ne publie aucune pondération entre les trois.
+- Le facteur individuel qui compte le plus est la **catégorie principale**. C'est un menu déroulant, et il est gratuit.
+- Il existe deux terrains distincts : le Local Pack (ta fiche domine) et la visibilité dans les réponses IA (ton site domine). Les deux se travaillent.
 - Le cycle de vie d'une fiche se structure en 4 phases : créer, optimiser, animer, mesurer.
 - Les backlinks vers ta fiche GBP n'aident pas ton ranking. C'est un mythe démontré par les données.
-- Les avis représentent 20% du Local Pack : y répondre à 100% est un levier de ranking direct.
 
 ---
 
@@ -71,25 +73,15 @@ Créer et gérer une **fiche Google Business Profile en français** est entière
 
 ## Pourquoi c'est l'actif local le plus sous-estimé d'une PME en 2026
 
-32% du Local Pack. Ce chiffre vient du Local Search Ranking Factors 2026 de Whitespark, enquête annuelle auprès de 47 experts SEO locaux qui analysent 187 facteurs.
-
 Le **Local Pack**, c'est ces 3 résultats avec carte qui apparaissent en haut de Google quand quelqu'un cherche "boulangerie près de chez moi" ou "plombier Genève". Sur mobile, ils occupent tout l'écran. Le CTR sur ces 3 résultats est massif, le reste de la page existe à peine.
 
 Si ta fiche GBP est mal optimisée, tu n'es pas dans ces 3 résultats. Tu n'existes pas pour ces recherches.
 
-<!-- TODO:image infographic — Tableau comparatif poids des signaux Local Pack vs AI Search Visibility (Whitespark 2026) — brief: content/_drafts/blog/fiche-google-my-business-guide-complet-2026.md#image-2 -->
+Et sur ce terrain, c'est ta fiche qui décide, pas ton site. C'est ce qui rend la chose absurde : l'actif qui pèse le plus lourd sur ta visibilité locale est celui que tu peux remplir toi-même, en une après-midi, sans rien payer.
 
-En 2026, il y a un deuxième algorithme à connaître. Whitespark distingue maintenant deux systèmes de ranking distincts :
+<!-- TODO:image infographic — Les 3 piliers Google (pertinence, distance, notoriété) et ce qu'on contrôle dans chacun — brief: content/_drafts/blog/fiche-google-my-business-guide-complet-2026.md#image-2 -->
 
-| Signal | Local Pack / Maps | AI Search Visibility |
-|---|---|---|
-| GBP Signals | **32%** | 12% |
-| On-Page (site web) | 15% | **24%** |
-| Review Signals | 20% | 16% |
-| Link Signals | 8% | 13% |
-| Citation Signals | 6-8% | 13% |
-
-L'**AI Search Visibility**, c'est la visibilité dans les réponses de ChatGPT, Perplexity, Google AI Overviews. Et là, c'est le site web qui domine, pas la fiche GBP.
+En 2026, il y a un deuxième terrain à connaître, et il ne fonctionne pas pareil. Il y a d'un côté le Local Pack (Maps), où ta fiche domine. Et de l'autre la visibilité dans les réponses de ChatGPT, Perplexity et des AI Overviews, où c'est ton **site web** qui domine, parce que ces systèmes lisent des pages, pas des fiches.
 
 Si tu n'optimises que ta fiche et que tu négliges ton site, tu rates la moitié des opportunités. C'est exactement ce que font 90% des petits commerçants. Pour aller plus loin, j'ai un article complet sur la [visibilité IA en 2026](/blog/geo-seo-ia).
 
@@ -111,7 +103,7 @@ Les étapes sont plus critiques qu'elles n'y paraissent : le choix de la catégo
 
 ### Optimiser
 
-Une fois la fiche créée et vérifiée, il faut la remplir complètement. Catégories secondaires, description 750 caractères, services, produits, attributs d'accessibilité, horaires exceptionnels, photos. Chaque champ renseigné est un signal GBP qui contribue aux 32%.
+Une fois la fiche créée et vérifiée, il faut la remplir complètement. Catégories secondaires, description 750 caractères, services, produits, attributs d'accessibilité, horaires exceptionnels, photos. Chaque champ renseigné est une occasion supplémentaire d'être une réponse pertinente, et un signal de sérieux.
 
 La [checklist complète pour optimiser ta fiche](/blog/optimiser-fiche-google-my-business-checklist-2026) couvre les 25 points classés par impact, avec le "pourquoi chiffré" derrière chaque action.
 
@@ -151,34 +143,59 @@ Ce qui ne marche pas (et peut être contre-productif) :
 - Acheter des liens pointant vers ta fiche GBP sur des plateformes
 - Bots de clics sur ta fiche
 
-Pour l'analyse complète avec les données sources, consulte la documentation officielle Whitespark Local Search Ranking Factors 2023.
+Pour creuser, le rapport annuel de Whitespark (Local Search Ranking Factors) reste la meilleure ressource publique sur le sujet, à condition de se rappeler que c'est un sondage de praticiens et non une mesure de l'algorithme.
 
 ---
 
-## Les vrais signaux de ranking en 2026 (et leur poids réel)
+## Les facteurs qui comptent vraiment (et pourquoi personne ne connaît leur poids)
 
-<!-- TODO:image infographic — Graphique à barres des 8 groupes de signaux Whitespark LSRF 2026 avec poids Local Pack vs AI Search — brief: content/_drafts/blog/fiche-google-my-business-guide-complet-2026.md#image-4 -->
+<!-- TODO:image infographic — La hiérarchie des facteurs individuels (catégorie n°1, nom 3e, horaires 5e, adresse 7e, récence des avis 11e) — brief: content/_drafts/blog/fiche-google-my-business-guide-complet-2026.md#image-4 -->
 
-Whitespark LSRF 2026 est clair sur les poids réels. Voici le tableau complet pour le **Local Pack / Google Maps** :
+Google documente les trois piliers de son classement local : la **pertinence** (à quel point ta fiche correspond à la recherche), la **distance** (entre toi et la personne qui cherche) et la **notoriété** (à quel point tu es connu).
 
-| Groupe de signaux | Poids 2026 | Ce que ça inclut |
+Note bien que la distance se mesure **entre toi et le chercheur**, pas entre toi et le centre-ville. C'est le seul des trois que tu ne contrôles pas, et si ton commerce est en périphérie, il joue contre toi sur une partie des recherches. Ça ne se compense pas, ça se contourne : j'ai détaillé la stratégie dans [SEO local quand ton commerce est loin du centre](/blog/seo-local-commerce-excentre).
+
+Il s'arrête là. **Aucune pondération, aucun pourcentage, aucune proportion entre les trois.** Il publie les ingrédients, jamais les quantités. Retiens ça, on y revient juste après, parce que c'est ce qui explique la moitié des bêtises qui circulent sur le sujet.
+
+Ce qu'on a de mieux, c'est une **hiérarchie**. Whitespark interroge chaque année une cinquantaine de spécialistes du référencement local et leur fait noter près de 200 facteurs. Le classement des facteurs individuels qui en sort :
+
+| Rang | Facteur | Ce que tu en fais |
 |---|---|---|
-| **GBP Signals** | **32%** | Catégories, description, services, photos, posts, attributs |
-| **Review Signals** | **20%** | Quantité, vélocité, récence, réponses du propriétaire |
-| **On-Page Signals** | 15% | NAP sur le site, title tags, authority, contenu localisé |
-| **Behavioral Signals** | 9% | CTR, appels, demandes d'itinéraire, temps passé |
-| **Link Signals** | 8% | Backlinks vers le site web (domaine) |
-| **Citation Signals** | 6-8% | Cohérence NAP sur les annuaires |
-| **Personalization** | 5-6% | Localisation du chercheur, historique |
-| **Social Signals** | 3-4% | Engagement Facebook, Instagram |
+| **1** | **Catégorie principale de la fiche** | Le geste à faire aujourd'hui, avant tout le reste |
+| 3 | Mot-clé dans le nom | Ton nom de marque, puis ton activité. Ne bourre pas. |
+| 5 | Horaires renseignés | Exacts, et identiques à ceux du site |
+| 7 | Adresse visible | Cohérente au caractère près avec le site |
+| 11 | Récence des avis | Utile, mais surtout pour convaincre le client |
 
-Ce que ces chiffres changent concrètement pour toi :
+Ce classement est plus utile qu'un pourcentage, et pour une raison simple : tu ne peux rien faire de "32 %". Tu peux faire quelque chose de "la catégorie principale passe avant tout le reste".
 
-Les avis représentent 20% de ton ranking. Chaque avis sans réponse est un signal négatif. Selon Whitespark, 50% de tes avis doivent dater de moins de 30 jours pour avoir leur plein poids dans l'algorithme. La vélocité compte autant que le volume total.
+Ce que ça change concrètement pour toi :
 
-Les signaux GBP (32%) couvrent tout ce que tu renseignes directement dans ta fiche : catégorie, description, services, photos, posts, attributs. Chaque champ vide ou générique laisse du ranking sur la table.
+**Ta catégorie principale est le levier n°1, et c'est une case.** Elle décide à quelle requête Google te considère comme une réponse valide. Une salle de boxe thaïlandaise et une salle de boxe française ne répondent pas à la même recherche. Si elle est approximative, tout le reste de ton travail bute sur un plafond. La plupart des fiches ont une catégorie choisie une fois, à l'ouverture, sans y réfléchir, et jamais rouverte depuis.
 
-Les signaux On-Page (15% Local Pack, 24% AI Search) montrent que ton site web n'est pas optionnel. Un NAP identique sur ta fiche et sur chaque page de ton site, un schema.org LocalBusiness correctement implémenté, des title tags avec ta ville : tout ça compte.
+**Ce que tu renseignes toi-même domine le haut du classement.** Catégorie, nom, horaires, adresse : quatre des sept premiers facteurs sont des champs que tu remplis en une après-midi. Chaque champ vide ou générique laisse de la visibilité sur la table.
+
+**Ton site web n'est pas optionnel.** Un NAP identique sur ta fiche et sur chaque page de ton site, un schema.org LocalBusiness correctement implémenté, des title tags avec ta ville : tout ça compte, et ça compte double sur le terrain des réponses IA, où c'est ton site qui est lu.
+
+---
+
+## Pourquoi les pourcentages que tu lis partout sont faux
+
+Tu vas croiser, partout, des chiffres très précis : "la fiche pèse 32 % du Local Pack", "les avis 20 %", "la proximité 55 %", "50 % de tes avis doivent dater de moins de 30 jours". Ils sont presque toujours attribués à Whitespark.
+
+Je les ai publiés ici pendant des mois. J'ai voulu les re-sourcer avant de faire une vidéo sur le sujet, en ouvrant les pages d'origine une par une. **Sur huit affirmations, une a survécu** : les trois piliers de Google.
+
+Le reste s'effondre pour deux raisons.
+
+**La première : le rapport Whitespark est un sondage d'opinion.** Une cinquantaine de praticiens remplissent un questionnaire et notent des facteurs. C'est précieux, ce sont des gens compétents, mais c'est une **influence perçue**, pas une mesure de l'algorithme. Personne, en dehors de Google, ne peut mesurer un poids. Et les pourcentages thématiques qui circulent sont en accès payant dans le rapport : ceux que tu lis viennent de résumés secondaires **qui ne sont même pas d'accord entre eux**.
+
+**La seconde : certains chiffres n'existent nulle part.** Le "55 % de proximité" n'est dans aucune source, et la proximité n'est même pas une catégorie du rapport auquel on l'attribue. Le "50 % des avis de moins de 30 jours" n'a aucune origine traçable, et pour cause : la courbe de décroissance du poids d'un avis serait **invisible depuis l'extérieur de l'algorithme**. Personne ne l'a mesurée parce que personne ne peut la mesurer.
+
+Ces nombres n'ont pas d'origine. Ils ont une **circulation**. Une dizaine de sites de contenu se recopient en boucle, et vu de loin, ça ressemble beaucoup à un fait établi.
+
+Le plus troublant est arrivé pendant la vérification : en interrogeant les moteurs, **les résumés IA me confirmaient ces chiffres avec aplomb**, en les attribuant proprement à leurs sources supposées. Ils ne mentaient pas. Ils synthétisaient fidèlement un corpus, sauf que ce corpus est du recyclage. Une erreur assez répétée devient statistiquement indiscernable d'un fait.
+
+Le geste qui protège, et il vaut bien au-delà du SEO local : **un résumé, un article de blog ou une réponse d'IA ne sont pas des sources, ce sont des pointeurs vers des sources.** Tant que tu n'as pas suivi le pointeur, tu n'as rien vérifié. C'est exactement le geste que l'IA te promet d'éviter, et c'est précisément celui qu'il ne faut pas lâcher.
 
 Pour passer à l'action sur chacun de ces points : la [checklist complète pour optimiser ta fiche](/blog/optimiser-fiche-google-my-business-checklist-2026) les couvre dans l'ordre d'impact.
 
@@ -264,7 +281,9 @@ Les premiers effets sont visibles en 4 à 8 semaines sur les métriques GBP Insi
 
 ### Est-ce que les avis Google sont vraiment importants pour le ranking ?
 
-Oui, et plus que la plupart des gens ne le pensent. Les signaux d'avis représentent 20% du ranking du Local Pack selon Whitespark 2026. Ce qui compte : la quantité, la vélocité (50% des avis doivent dater de moins de 30 jours pour leur plein poids), la note globale (objectif 4.0+), et les réponses du propriétaire. Un commerce avec 50 avis récents et 100% de réponses ranke significativement mieux qu'un commerce avec 200 avis vieux de 3 ans et aucune réponse.
+Oui, mais pas comme on le répète. Google cite la notoriété comme l'un de ses trois piliers, sans jamais publier de pondération. Et dans le classement Whitespark, la récence des avis arrive **11e** des facteurs individuels, loin derrière la catégorie principale de la fiche, qui est première.
+
+La vraie raison de demander des avis en continu est commerciale, et elle est plus solide que la version algorithmique : **45 % des lecteurs d'avis regardent surtout les récents**. Un commerce avec 200 avis figés depuis trois ans envoie un signal humain, pas algorithmique. On ne sait pas s'il est encore bon, ni même s'il est encore ouvert. Le client qui compare deux fiches tranche là-dessus. Répondre aux avis, dans la même logique, sert d'abord celui qui les lit.
 
 ### Puis-je avoir plusieurs fiches pour le même établissement ?
 
@@ -272,13 +291,13 @@ Non, Google n'autorise qu'une seule fiche par établissement physique. Créer pl
 
 ### Les backlinks vers ma fiche GBP améliorent-ils mon ranking ?
 
-Non. C'est un mythe. Les backlinks vers la fiche GBP ne transmettent pas de PageRank : GBP n'est pas une page web indexable, c'est une entité dans le Knowledge Graph de Google. Ce qui aide : les backlinks locaux vers ton site web (8% des signaux) et les citations NAP cohérentes (6-8%). Pointer des liens vers ta fiche elle-même n'a aucun effet démontré sur le ranking.
+Non. C'est un mythe. Les backlinks vers la fiche GBP ne transmettent pas de PageRank : GBP n'est pas une page web indexable, c'est une entité dans le Knowledge Graph de Google. Ce qui aide : les backlinks locaux vers ton site web et les citations NAP cohérentes sur les annuaires. Pointer des liens vers ta fiche elle-même n'a aucun effet démontré sur le ranking.
 
 ---
 
 ## Conclusion
 
-La **fiche Google My Business** est l'actif local le plus puissant à ta disposition : gratuit, accessible en quelques heures, et responsable de 32% de ton ranking dans le Local Pack selon les données Whitespark 2026. Mais elle demande un cycle de gestion continu : créer, optimiser, animer, mesurer. Pas une configuration unique.
+La **fiche Google My Business** est l'actif local le plus puissant à ta disposition : gratuit, accessible en quelques heures, et c'est lui qui décide de ta place dans le Local Pack. Mais il demande un cycle de gestion continu : créer, optimiser, animer, mesurer. Pas une configuration unique.
 
 Ce guide t'a donné la vue d'ensemble. Les articles satellites du cluster entrent dans le détail de chaque phase. La prochaine étape concrète : auditer ta fiche avec la checklist des 25 points, puis mettre en place la cadence hebdomadaire (1 post, surveillance des avis, nouvelles photos).
 
@@ -313,7 +332,10 @@ Ce guide est le point d'entrée. Pour creuser chaque phase du cycle de vie, voic
 
 ## Sources et Références
 
-- Whitespark Local Search Ranking Factors 2026 — whitespark.ca/local-search-ranking-factors/
+- Google Business Profile Help, "Tips to improve your local ranking on Google" — support.google.com/business/answer/7091 (les 3 piliers : pertinence, distance, notoriete. Aucune ponderation publiee.)
+- Whitespark, "7 Local Search Ranking Factors That May Challenge Your Current Thinking" — whitespark.ca/blog/7-local-search-ranking-factors-that-may-challenge-your-current-thinking/ (categorie principale = facteur n°1, recence des avis = 11e)
+- Whitespark, Local Search Ranking Factors 2026 — whitespark.ca/local-search-ranking-factors/ (methodologie : sondage aupres d'une cinquantaine d'experts sur pres de 200 facteurs. Influence percue, pas une mesure de l'algorithme.)
+- GatherUp — 45 % des lecteurs d'avis regardent surtout les avis recents (donnee consommateur, pas un facteur de classement)
 - LocalMighty — "Do Backlinks to My GBP Help?" (2026) — localmighty.com/blog/google-business-profile-ranking-factors/
 - Searchlab — "Local SEO Statistics 2026" — searchlab.nl/en/statistics/local-seo-statistics-2026
 - BrightLocal — "Google's Local Algorithm and Local Ranking Factors" (2026) — brightlocal.com/learn/google-local-algorithm-and-ranking-factors/

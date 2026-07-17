@@ -3,6 +3,7 @@ title: "Répondre aux avis Google : 12 modèles prêts à copier"
 h1: "Comment répondre aux avis Google en 2026 : framework 4 blocs et 12 modèles par secteur"
 description: "Répondre aux avis Google booste ton ranking local. Framework 4 blocs + 12 modèles positifs et négatifs par secteur, prêts à copier."
 pubDate: 2026-05-26
+updatedDate: 2026-07-17
 author: "Jonathan Vouilloz"
 image:
   url: "/images/blog/repondre-avis-google-modeles-2026.webp"
@@ -351,7 +352,7 @@ Si tu préfères déléguer ça à quelqu'un qui applique ce framework chaque jo
 ## Sources et Références
 
 - Google Business Profile Help : Répondre aux avis : https://support.google.com/business/answer/3474050
-- Whitespark Local Search Ranking Factors 2026 : les avis représentent 20 % du Local Pack
+- Whitespark, Local Search Ranking Factors : sondage d'opinion auprès de 47 experts sur 187 facteurs (une influence perçue par des praticiens, pas une mesure de l'algorithme). La récence des avis y ressort au 11e rang des facteurs individuels, loin derrière la catégorie principale de la fiche qui arrive n°1 : https://whitespark.ca/blog/7-local-search-ranking-factors-that-may-challenge-your-current-thinking/
 - Données internes JLabs : `docs/research/gmb-avis/repondre-aux-avis.md` (délai optimal, mots-clés dans réponses, impact ranking)
 - `docs/research/gmb-avis/mots-cles-et-avis.md` (placer naturellement les mots-clés service+ville dans les réponses)
 - `docs/research/gmb-avis/impact-des-avis-localguide.md` (poids algorithmique des avis Local Guides niveau 4+)

@@ -3,6 +3,7 @@ title: "QR code avis Google : guide complet pour PME (2026)"
 h1: "QR code pour collecter des avis Google : le guide complet pour les PME en 2026"
 description: "Lien court GBP, QR code, sondage filtrant 4-5★→Google / 1-3★→SAV, modèles SMS et email. La méthode pour collecter des avis sans inciter illégalement."
 pubDate: 2026-05-21
+updatedDate: 2026-07-17
 image:
   url: "/images/blog/qr-code-avis-google-collecte-pme.webp"
   alt: "QR code avis Google sur comptoir PME, pour collecter des avis clients facilement"
@@ -18,25 +19,25 @@ faqs:
     answer: "Oui, à condition de ne pas sélectionner uniquement les clients satisfaits (review gating) et de ne proposer aucune contrepartie écrite. Demander poliment à tous tes clients, par SMS ou email, est explicitement autorisé par les règles Google. L'incitation verbale sans lien écrit (café, simple merci) est tolérée."
   - question: "Comment augmenter rapidement le nombre d'avis Google pour une PME ?"
     answer: "La demande systématique dans les 2 à 4 heures post-prestation, combinée au sondage filtrant (4-5★ vers Google, 1-3★ vers SAV interne) et à une plaque QR code sur le comptoir, donne les meilleurs résultats. Un niveau 2 automatisé (Zapier + SMS) peut faire passer une TPE de 5 à 20 avis par mois en 60 jours."
-  - question: "Qu'est-ce que la vélocité des avis Google et pourquoi c'est important ?"
-    answer: "La vélocité mesure la fréquence à laquelle tu reçois de nouveaux avis. Google pondère les avis récents bien plus fortement que les anciens : un avis de 18 mois a quasi-nul impact algorithmique. La règle pratique : 50 % de tes avis actifs doivent dater de moins de 30 jours pour que ton profil soit considéré comme dynamique."
+  - question: "Faut-il vraiment recevoir des avis en continu, ou un gros stock suffit-il ?"
+    answer: "En continu, mais pas pour la raison qu'on répète. Le '50 % de tes avis de moins de 30 jours' qui circule partout n'a aucune source, et personne ne peut mesurer le poids d'un avis dans l'algorithme depuis l'extérieur. La vraie raison est commerciale : 45 % des lecteurs d'avis regardent surtout les récents. Un commerce avec 200 avis figés depuis trois ans ne rassure pas, on ne sait pas s'il est encore bon ni même s'il est encore ouvert. C'est un flux qui convainc, pas un stock."
   - question: "Un QR code pour les avis Google sur comptoir suffit-il ?"
-    answer: "Non. Le QR code sur comptoir est la première brique, mais sans vélocité active (SMS/email post-prestation), sans sondage filtrant et sans process systématique, le QR code reste décoratif. Il faut combiner les supports physiques et les relances numériques pour construire une vraie machine à avis."
+    answer: "Non. Le QR code sur comptoir est la première brique, mais sans relance active (SMS/email post-prestation), sans sondage filtrant et sans process systématique, le QR code reste décoratif. Il faut combiner les supports physiques et les relances numériques pour construire une vraie machine à avis."
 ---
 
 # QR code avis Google : comment construire une vraie machine à avis pour ta PME
 
 Si tu affiches un QR code sur ton comptoir sans rien changer d'autre, tu récolteras peut-être 3 avis supplémentaires par mois. Pas assez pour ranker. La vraie question n'est pas "comment créer un QR code pour les avis Google" : c'est "comment construire un système qui fait tourner la collecte d'avis en autonomie, sans inciter illégalement, et sans harceler tes clients".
 
-Cet article te donne le système complet : vélocité algorithmique, **QR code pour les avis Google**, supports physiques, modèles SMS/email prêts à copier, et la technique du sondage filtrant que personne ne documente.
+Cet article te donne le système complet : **QR code pour les avis Google**, supports physiques, modèles SMS/email prêts à copier, et la technique du sondage filtrant que personne ne documente.
 
 ---
 
 **L'essentiel en bref**
 
 - **Le QR code d'avis Google** est la première brique, pas la solution complète.
-- Les avis représentent 20 % du ranking Local Pack selon Whitespark LSRF 2026.
-- La règle de vélocité : 50 % de tes avis doivent dater de moins de 30 jours.
+- Les avis pèsent sur ton classement local, mais Google ne publie aucune pondération. Méfie-toi des chiffres très précis qui circulent.
+- La vraie raison de viser un flux régulier est commerciale : 45 % des lecteurs d'avis regardent surtout les récents.
 - Le sondage filtrant (4-5★ vers Google, 1-3★ vers SAV interne) multiplie les avis positifs publiés.
 - Demander des avis à ses clients dans les 2-4 heures post-prestation est légal et efficace.
 
@@ -46,31 +47,29 @@ Cet article te donne le système complet : vélocité algorithmique, **QR code p
 
 Les avis Google ne servent pas qu'à rassurer les clients indécis. Ils influencent directement ton positionnement dans le **Local Pack** de Google, cette zone avec les 3 fiches qui apparaît avant tous les résultats organiques quand quelqu'un cherche un service près de chez lui.
 
-Selon le **Whitespark Local Search Ranking Factors 2026** (47 experts, 187 facteurs analysés), les signaux d'avis représentent **20 % du ranking Local Pack**. C'est le deuxième facteur le plus influent après les signaux "Google Business Profile".
+Google range les avis sous la **notoriété**, l'un de ses trois piliers de classement local (avec la pertinence et la distance). Ce qu'il ne dit jamais, c'est le poids de chacun : aucune pondération n'est publiée. Méfie-toi donc des pourcentages très précis qui circulent sur le sujet, ils viennent de résumés qui se recopient.
 
-Ce que Google mesure concrètement :
+Ce que Google dit regarder, dans sa documentation, tient en deux points : le **nombre** d'avis et la **note globale**. C'est tout. C'est frustrant, et c'est déjà plus honnête que la plupart des listes que tu croiseras.
 
-- **La quantité totale d'avis** : un seuil minimal de crédibilité
-- **La vélocité** : la fréquence à laquelle tu en reçois de nouveaux
-- **La récence** : la fraîcheur des avis les plus récents
-- **Le taux de réponse du propriétaire** : est-ce que tu réponds à tes avis ?
-- **La note globale** : mais moins décisive que les quatre points précédents
+Le reste (la fréquence à laquelle tu en reçois, la fraîcheur des derniers, ton taux de réponse) est ce que les praticiens observent et supposent. C'est plausible, et ça n'engage qu'eux : personne, en dehors de Google, ne peut mesurer le poids d'un de ces éléments. Travaille-les, mais en sachant que tu agis sur une hypothèse, pas sur une règle publiée.
 
-Un commerce avec 100 avis vieux de deux ans pèse algorithmiquement moins qu'un concurrent avec 30 avis du dernier mois. La plupart des PME l'ignorent : les vieux avis perdent progressivement leur poids SEO, ils ne capitalisent pas indéfiniment.
+Ce qui est certain, en revanche, c'est ce que voit ton prochain client quand il ouvre ta fiche.
 
 Pour aller plus loin sur la fiche Google dans son ensemble, consulte le [guide complet de ta fiche Google My Business](/blog/fiche-google-my-business-guide-complet-2026).
 
 <!-- TODO:image infographic — Infographie "Les 5 signaux d'avis mesurés par Google" — brief: src/content/blog/.briefs/qr-code-avis-google-collecte-pme.md#image-2 -->
 
-## La règle de la vélocité : pourquoi 50 % de tes avis doivent dater de moins de 30 jours
+## Pourquoi le flux bat le stock (et pourquoi ce n'est pas une histoire d'algorithme)
 
-Un avis reçu cette semaine a son **plein poids algorithmique**. Un avis de 18 mois est quasi-transparent pour l'algorithme de Google. C'est ce qu'on appelle la vélocité des avis, et c'est le point que presque personne ne comprend quand il parle de "stratégie d'avis".
+Tu vas lire partout une règle très précise : 50 % de tes avis devraient dater de moins de 30 jours, un avis de 18 mois ne pèserait plus rien, la "vélocité" serait le facteur que personne ne comprend.
 
-La règle opérationnelle : **50 % de tes avis actifs doivent dater de moins de 30 jours** pour que ton profil soit considéré comme dynamique par Google.
+Ce chiffre n'a aucune source. Il est attribué à Whitespark, qui ne le dit nulle part, et dans leur classement la récence des avis arrive **11e**, loin derrière la catégorie principale de ta fiche. Personne n'a jamais mesuré la courbe de décroissance du poids d'un avis, pour une raison simple : ce serait invisible depuis l'extérieur de l'algorithme.
+
+Garde quand même le flux, parce que la vraie raison est meilleure. Elle est **commerciale** : **45 % des lecteurs d'avis regardent surtout les récents**. Un commerce avec 200 avis figés depuis trois ans envoie un signal humain, pas algorithmique. On ne sait pas s'il est encore bon, ni même s'il est encore ouvert. Le client qui compare deux fiches tranche là-dessus, et ça ne dépend d'aucune mise à jour de Google.
 
 Tu ne peux donc pas attendre que tes clients pensent spontanément à laisser un avis. Il faut systématiser la **demande d'avis auprès de tes clients** après chaque prestation. Pas de manière agressive, de manière systématique. Nuance importante.
 
-Le QR code seul ne suffit pas pour ça. Sans relance active (SMS, email, verbal), la vélocité ne sera jamais au rendez-vous.
+Le QR code seul ne suffit pas pour ça. Sans relance active (SMS, email, verbal), le flux ne sera jamais au rendez-vous.
 
 Pour optimiser ta fiche dans sa globalité en parallèle de la collecte d'avis, consulte comment [optimiser ta fiche GMB dans sa globalité](/blog/optimiser-fiche-google-my-business-checklist-2026).
 
@@ -242,19 +241,19 @@ Oui, à condition de ne pas sélectionner uniquement les clients satisfaits (rev
 
 La demande systématique dans les 2 à 4 heures post-prestation, combinée au sondage filtrant (4-5★ vers Google, 1-3★ vers SAV interne) et à une plaque QR code sur le comptoir, donne les meilleurs résultats. Un niveau 2 automatisé (Zapier + SMS) peut faire passer une TPE de 5 à 20 avis par mois en 60 jours.
 
-### Qu'est-ce que la vélocité des avis Google et pourquoi c'est important ?
+### Faut-il vraiment recevoir des avis en continu, ou un gros stock suffit-il ?
 
-La vélocité mesure la fréquence à laquelle tu reçois de nouveaux avis. Google pondère les avis récents bien plus fortement que les anciens : un avis de 18 mois a quasi-nul impact algorithmique. La règle pratique : 50 % de tes avis actifs doivent dater de moins de 30 jours pour que ton profil soit considéré comme dynamique.
+En continu, mais pas pour la raison qu'on répète. Le "50 % de tes avis de moins de 30 jours" qui circule partout n'a aucune source, et personne ne peut mesurer le poids d'un avis dans l'algorithme depuis l'extérieur. La vraie raison est commerciale : **45 % des lecteurs d'avis regardent surtout les récents**. Un commerce avec 200 avis figés depuis trois ans ne rassure pas, on ne sait pas s'il est encore bon ni même s'il est encore ouvert. C'est un flux qui convainc, pas un stock.
 
 ### Un QR code pour les avis Google sur comptoir suffit-il ?
 
-Non. Le QR code sur comptoir est la première brique, mais sans vélocité active (SMS/email post-prestation), sans sondage filtrant et sans process systématique, le QR code reste décoratif. Il faut combiner les supports physiques et les relances numériques pour construire une vraie machine à avis.
+Non. Le QR code sur comptoir est la première brique, mais sans relance active (SMS/email post-prestation), sans sondage filtrant et sans process systématique, le QR code reste décoratif. Il faut combiner les supports physiques et les relances numériques pour construire une vraie machine à avis.
 
 ---
 
 ## Conclusion
 
-Le **QR code pour collecter des avis Google** n'est efficace que s'il fait partie d'un système : vélocité, sondage filtrant, SMS/email dans les 2-4 heures, respect des règles Google. Seule la combinaison transforme un QR code isolé en machine à avis qui tourne en continu.
+Le **QR code pour collecter des avis Google** n'est efficace que s'il fait partie d'un système : un flux régulier, le sondage filtrant, un SMS ou un email dans les 2-4 heures, le respect des règles Google. Seule la combinaison transforme un QR code isolé en machine à avis qui tourne en continu.
 
 Et cette machine à avis n'est elle-même qu'un rouage : pour [améliorer ton positionnement local sur Google](/services/referencement-local) en entier, elle se combine avec la catégorie, les citations et le contenu géolocalisé.
 
@@ -266,9 +265,11 @@ Si tu es une PME en Suisse romande ou en France et que tu n'as pas le temps de m
 
 ## Sources et Références
 
-- Whitespark Local Search Ranking Factors 2026 : 47 experts, 187 facteurs analysés ; avis = 20 % du ranking Local Pack
+- Google Business Profile Help, "Tips to improve your local ranking on Google" : https://support.google.com/business/answer/7091 (les 3 piliers : pertinence, distance, notoriété. Aucune pondération publiée.)
+- Whitespark, "7 Local Search Ranking Factors That May Challenge Your Current Thinking" : https://whitespark.ca/blog/7-local-search-ranking-factors-that-may-challenge-your-current-thinking/ (récence des avis = 11e ; catégorie principale = facteur n°1)
+- GatherUp : 45 % des lecteurs d'avis regardent surtout les avis récents (donnée consommateur, pas un facteur de classement)
 - Google Reviews Policy : règles officielles sur les incitations et le review gating : https://support.google.com/contributionpolicy/answer/7422880
 - `docs/research/gmb-avis/collecte-davis-et-tri.md` : méthode sondage filtrant 4-5★ vers Google / 1-3★ vers SAV
 - `docs/research/gmb-avis/facilite-le-depot.md` : QR code, NFC, lien direct GBP
-- `docs/research/gmb-avis/frequence-avis.md` : vélocité, règle des 50 % d'avis < 30 jours
+- GatherUp : 45 % des lecteurs d'avis regardent surtout les avis récents (donnée consommateur, pas un facteur de classement)
 - `docs/research/gmb-avis/eviter-les-incitations.md` : règles Google sur les incitations
