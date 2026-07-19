@@ -32,7 +32,7 @@ export interface NavSection {
 
 export const mainNav: NavSection[] = [
   {
-    label: 'Création Web',
+    label: 'Sites & SEO',
     href: '/services',
     type: 'mega',
     columns: [
@@ -46,19 +46,20 @@ export const mainNav: NavSection[] = [
         ],
       },
       {
+        title: 'Référencement',
+        items: [
+          { label: 'Référencement local', href: '/services/referencement-local', icon: 'ri-map-pin-line' },
+          { label: 'Gestion fiche Google', href: '/services/gestion-fiche-google', icon: 'ri-store-2-line' },
+          { label: 'Site + SEO dès 1\'490 CHF', href: '/tarifs', icon: 'ri-price-tag-3-line' },
+        ],
+      },
+      {
         title: 'Apps & sur-mesure',
         items: [
           { label: 'Application mobile', href: '/services/developpement-application-mobile', icon: 'ri-smartphone-line' },
           { label: 'Développement MVP', href: '/services/developpement-mvp', icon: 'ri-rocket-line' },
           { label: 'Validation d\'idée', href: '/services/validation-idee', icon: 'ri-lightbulb-flash-line' },
           { label: 'Outils sur mesure', href: '/services/outils-sur-mesure', icon: 'ri-tools-line' },
-        ],
-      },
-      {
-        title: 'SEO local',
-        items: [
-          { label: 'Référencement local', href: '/services/referencement-local', icon: 'ri-map-pin-line' },
-          { label: 'Gestion fiche Google', href: '/services/gestion-fiche-google', icon: 'ri-store-2-line' },
         ],
       },
     ],
@@ -114,7 +115,7 @@ export const mainNav: NavSection[] = [
     },
   },
   {
-    label: 'Réalisations',
+    label: 'Cas clients',
     href: '/portfolio',
     type: 'flat',
   },
@@ -124,7 +125,7 @@ export const mainNav: NavSection[] = [
     type: 'flat',
   },
   {
-    label: 'Ressources',
+    label: 'Articles',
     href: '/blog',
     type: 'mega',
     columns: [
