@@ -3,7 +3,28 @@
 > Chantier de fond : uniformiser le style graphique du site (thème, titres, couleurs), casser l'effet « très AI » (mur de texte, peu d'images, peu d'aération), rationaliser l'architecture/navigation, et transformer les pages tags thin en vraies pages — pour un rendu **plus professionnel**.
 > **Source ADN visuel marque perso** : skill `visual` (`~/.claude/skills/visual/`) — mono-accent teal `#00D9A3`, fond warm, connecteurs fins, formes arrondies, illustration « collage éditorial ».
 > **Statut** : 🔄 EN COURS — Phases 1a + 1b + 2 + 3 + 4 faites ✅. **Phase 5 (Lecureux) faite ✅** (source unique + harmonisation + fix erreur factuelle divorce, build vert 211 pages). Reste : 1 sous-tâche Phase 5 **reportée** (reframe éditorial de l'article blog — choix de voix, appartient à Jonathan) + **Phase 6 (tags) DÉBLOQUÉE** le 15.07 (vérif indexation GSC faite, baseline `.seo-data/index-jonlabs-ch-2026-07-15.json`).
-> **19.07** : passe polish supplémentaire — CTA clarifiés, recherche blog remontée, **variables d'espacement de section** introduites (`blueprint.css`), et **48 covers illustrées** (DA semi-concrète). Nouveau reste : **migration spacing site-wide** (voir dernier bloc session).
+> **19.07** : passe polish supplémentaire — CTA clarifiés, recherche blog remontée, **variables d'espacement de section** introduites (`blueprint.css`), et **48 covers illustrées** (DA semi-concrète).
+> **19.07 (suite)** : **migration spacing site-wide BOUCLÉE** ✅ — tout l'espacement en dur des pages/composants `.co-root` branché sur les variables `blueprint.css` (+5 tokens `--pad-*`), 6 commits, 0 résidu migrable. Restes epic : revue covers, reframe Lécureux (reporté), portrait détouré.
+
+## Etat session 2026-07-19 (suite) — Migration spacing site-wide ✅ (chantier bouclé)
+
+**Fait :** migration complète de l'espacement en dur → variables `blueprint.css`, sur **toutes** les pages/composants `.co-root`. **6 commits sur `main`**, build vert (243 pages) + zéro corruption à chaque lot.
+- **Échelle étendue** : 5 nouveaux tokens de padding composant ajoutés à `blueprint.css` (`--pad-card:24px`, `--pad-panel:36px`, `--pad-encart:30px 32px`, `--pad-chip:12px 14px`, `--pad-pill:8px 12px`) — valeurs = ancien hardcodé, migration neutre.
+- **~780 remplacements** : rythme de section (`56px 40px`→`--sec-pad-y/x`, heros, `margin-top:8px/10px/32px`→vars), sections 3-valeurs (top+sides tokenisés, bas littéral gardé), paddings composant récurrents. Périmètre : 13 services + metiers/villes/freelance + devis-client + 21 pages restantes + 6 composants (Footer, Hero, AboutHome, CV, BlogHero) + Header.
+- **Seul changement visuel (approuvé Jonathan)** : sous-titres H3 `margin-top:44px → var(--space-subsection)` (44→64px), aération alignée sur consultant-ia. Vérifié live (referencement-local).
+- **Vérifs live** faites : referencement-local, freelance-geneve, tarifs, devis Grange-Canal (contenu intact), home (Hero/Footer — vars résolvent bien dans les composants).
+- **Audit final** : **0 pattern migrable résiduel** dans les fichiers `.co-root`.
+
+**Prochain :** chantier spacing terminé. Restes de l'epic Polish : (1) revue live des 48 covers (`npm run dev` → `/blog`) ; (2) reframe éditorial article Lécureux (reporté, choix de voix) ; (3) portrait hero détouré (piste Jonathan). **Passe optionnelle** : consolider les quasi-doublons de padding (34/26/28px → arrondis sur l'échelle) = vrai changement visuel, non fait.
+
+**Pièges :**
+- Les tokens spacing ne résolvent que **sous `.co-root`/`.co-chrome`**. Laissés en dur volontairement : templates PDF-print (`outils/*-pdf.astro`) et `styleguide-lab.astro` (hors co-root), paddings asymétriques structurels (inputs 4-valeurs `12px 14px 12px 40px`, `24px 20px`…), bas de section littéraux (72/64px), composant **mort** `CoutDormantCalculateur` (importé nulle part → candidat suppression).
+- Moteur de migration réutilisable : `scratchpad/migrate_spacing.py` — règles ancrées sur `padding:`/`margin-top:` + terminateur non-whitespace `(?=[;"}]|$)` = ne corrompt jamais une déclaration multi-valeurs. Ordre : hero 3-val → 2-val → composants → marges.
+- Le devis Grange-Canal n'a reçu **que** des changements CSS d'espacement — les 3 vérifs bloquantes côté Jonathan restent intactes.
+
+**Commits :** [619a61b] tokens+services · [1a3cd90] landings · [b233c16] devis-client · [34fdc39] 21 pages · [22e91a4] composants · [9e0d476] sweep final 3-valeurs — tous sur `main`.
+
+---
 
 ## Etat session 2026-07-19 — CTA + blog UX + variables spacing + covers illustrées (48) ✅
 
@@ -332,11 +353,11 @@
 4. **Pages tags** — *recommandé : vérifier GSC d'abord* (elles sont noindex), puis normaliser, puis enrichir uniquement les candidats sûrs.
 
 ## Carte du code
-> Mise à jour : 2026-07-19 (CTA + blog UX + variables spacing + covers)
+> Mise à jour : 2026-07-19 (suite — migration spacing site-wide bouclée)
 
 | Fichier | Rôle |
 |---------|------|
-| `src/styles/blueprint.css` (`.co-root`) | **Variables d'espacement de section (19.07, NOUVEAU)** — `--sec-pad-y/x`, `--space-eyebrow`, `--space-title-lead`, `--space-block`, `--space-subsection` (=64px, ex-44px). À côté des tokens couleur. **~176 paddings + ~212 marges eyebrow encore en dur ailleurs → migration site-wide à faire (consultant-ia = patron).** |
+| `src/styles/blueprint.css` (`.co-root, .co-chrome`) | **Source de vérité espacement (migration bouclée 19.07)** — échelle section (`--sec-pad-y/x`, `--space-eyebrow`, `--space-title-lead`, `--space-block`, `--space-subsection`=64px) **+ 5 tokens padding composant** (`--pad-card/panel/encart/chip/pill`). **Tout l'espacement des pages/composants `.co-root` en dérive — 0 valeur de section en dur. Ne résout que sous `.co-root`/`.co-chrome`.** |
 | `public/images/blog/{slug}.webp` (×48) | **Covers illustrées semi-concrètes (19.07)** — statue N&B + ancre concrète + accent teal, sans texte, 16:9. Générées via skill `visual` (gpt-image-2, 1536×1024 → center-crop 16:9). Nom = slug, écrase l'ancienne cover texte, `image.url` frontmatter inchangé. |
 | `src/data/navigation.ts` (`ctaContact`) | **CTA header (19.07)** — `label: 'Démarrer mon projet'` (ex-« Contact »), la flèche `→` ajoutée par `Header.astro`. (+ IA du menu Phase 4, exports géo.) |
 | `src/pages/tarifs.astro` (tableau `packages`) | **CTA packs (19.07)** — champ `cta` par pack (« Lancer mon site » / « Devenir visible sur Google » / « Construire mon autorité »), remplace le ternaire générique. |
