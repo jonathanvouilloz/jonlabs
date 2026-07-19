@@ -6,7 +6,7 @@ pubDate: 2026-07-13
 author: "Jon"
 image:
   url: "/images/blog/budget-mvp-application-mobile.webp"
-  alt: "Tableau de fourchettes CHF pour un MVP d'application mobile en Suisse — planification budget développement mobile PME"
+  alt: "Illustration éditoriale : buste de statue antique tenant un smartphone réduit à une seule fonction essentielle verte, fonctionnalités supplémentaires mises de côté, DA jonlabs"
 category: "mobile"
 tags: ["MVP", "application mobile", "budget", "suisse", "développement mobile", "PME"]
 featured: false

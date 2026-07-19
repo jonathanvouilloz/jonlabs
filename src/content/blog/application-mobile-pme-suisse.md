@@ -6,7 +6,7 @@ pubDate: 2026-07-06
 author: "Jon"
 image:
   url: "/images/blog/application-mobile-pme-suisse.webp"
-  alt: "Dirigeant PME romand qui évalue si une application mobile vaut l'investissement — guide de décision avec critères concrets"
+  alt: "Illustration éditoriale : main de statue antique tenant un smartphone avec une application métier de PME, devanture de commerce en arrière-plan, accent vert, DA jonlabs"
 category: "mobile"
 tags: ["application mobile", "PME", "suisse", "budget", "PWA", "décision"]
 featured: false

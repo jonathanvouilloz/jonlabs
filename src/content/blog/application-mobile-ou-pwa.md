@@ -6,7 +6,7 @@ pubDate: 2026-07-10
 author: "Jon"
 image:
   url: "/images/blog/application-mobile-ou-pwa.webp"
-  alt: "Comparatif application mobile native vs PWA pour PME suisse romande — guide de décision avec tableau de critères"
+  alt: "Illustration éditoriale : un smartphone partagé entre une application installée et un navigateur web, aiguillage vert, main de statue antique, DA jonlabs"
 category: "mobile"
 tags: ["PWA", "application mobile", "suisse", "PME", "développement mobile", "budget"]
 featured: false
