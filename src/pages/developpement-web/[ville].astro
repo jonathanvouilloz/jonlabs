@@ -182,7 +182,7 @@ const blogArticles = [
   <main class="co-root">
 
     <!-- ══ HERO LOCAL ══ -->
-    <section class="co-sec co-pad dwv-hero" style="padding:64px 40px 56px;">
+    <section class="co-sec co-pad dwv-hero" style="padding:64px var(--sec-pad-x) var(--sec-pad-y);">
       <div class="dwv-hero-inner">
 
         <h1 class="dwv-hero-title" data-animate data-delay="0.1">
@@ -207,12 +207,12 @@ const blogArticles = [
     </section>
 
     <!-- ══ 01 · CONTEXTE LOCAL ══ -->
-    <section id="contexte" class="co-sec co-pad" style="padding:56px 40px;">
+    <section id="contexte" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <p class="co-eyebrow" data-animate>01 — Contexte local</p>
-      <h2 style="margin-top:8px;" data-animate>
+      <h2 style="margin-top:var(--space-eyebrow);" data-animate>
         Pourquoi un <span class="co-ser">développeur web</span> pour {ville.nom} ?
       </h2>
-      <p class="co-mut" data-animate style="margin-top:10px;max-width:64ch;line-height:1.6;">
+      <p class="co-mut" data-animate style="margin-top:var(--space-title-lead);max-width:64ch;line-height:1.6;">
         {ville.description}
       </p>
 
@@ -236,10 +236,10 @@ const blogArticles = [
     </section>
 
     <!-- ══ 02 · SERVICES ══ -->
-    <section id="services" class="co-sec co-pad" style="padding:56px 40px;">
+    <section id="services" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <p class="co-eyebrow" data-animate>02 — Services</p>
-      <h2 style="margin-top:8px;" data-animate>Services adaptés au tissu de {ville.nom}</h2>
-      <p class="co-mut" data-animate style="margin-top:10px;max-width:62ch;line-height:1.6;">
+      <h2 style="margin-top:var(--space-eyebrow);" data-animate>Services adaptés au tissu de {ville.nom}</h2>
+      <p class="co-mut" data-animate style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
         Du <strong>créateur de site web {ville.nom}</strong> au développement d'outils internes — toute la chaîne, un seul interlocuteur.
       </p>
 
@@ -289,12 +289,12 @@ const blogArticles = [
     </section>
 
     <!-- ══ 03 · TARIFS CHF / EUR ══ -->
-    <section id="tarifs" class="co-sec co-pad" style="padding:56px 40px;">
+    <section id="tarifs" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <p class="co-eyebrow" data-animate>03 — Tarifs</p>
-      <h2 style="margin-top:8px;" data-animate>
+      <h2 style="margin-top:var(--space-eyebrow);" data-animate>
         Tarifs en <span class="co-ser">CHF</span> et en <span class="co-ser">EUR</span>
       </h2>
-      <p class="co-mut" data-animate style="margin-top:10px;max-width:60ch;line-height:1.6;">
+      <p class="co-mut" data-animate style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
         Trois fourchettes pour situer ton projet à {ville.nom}. Devis personnalisé après notre premier échange.
       </p>
 
@@ -329,7 +329,7 @@ const blogArticles = [
     </section>
 
     <!-- ══ 04 · FAQ VILLE-SPÉCIFIQUE ══ -->
-    <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+    <section id="faq" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <div class="dwv-faq-grid">
         <!-- Illustration contextuelle (encadrée .co-frame) -->
         <div class="dwv-faq-media">
@@ -343,8 +343,8 @@ const blogArticles = [
         <!-- Colonne FAQ -->
         <div>
           <p class="co-eyebrow" data-animate>04 — FAQ</p>
-          <h2 style="margin-top:8px;" data-animate>Questions fréquentes ({ville.nom})</h2>
-          <p class="co-mut" data-animate style="margin-top:10px;line-height:1.6;">
+          <h2 style="margin-top:var(--space-eyebrow);" data-animate>Questions fréquentes ({ville.nom})</h2>
+          <p class="co-mut" data-animate style="margin-top:var(--space-title-lead);line-height:1.6;">
             Ce que les clients de {ville.nom} et du Genevois français me demandent en premier.
           </p>
 
@@ -368,10 +368,10 @@ const blogArticles = [
     </section>
 
     <!-- ══ 05 · AUTRES VILLES + PAGE PILIER ══ -->
-    <section id="zones" class="co-sec co-pad" style="padding:56px 40px;">
+    <section id="zones" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <p class="co-eyebrow" data-animate>05 — Zones</p>
-      <h2 style="margin-top:8px;" data-animate>Autres zones d'intervention</h2>
-      <p class="co-mut" data-animate style="margin-top:10px;max-width:64ch;line-height:1.6;">
+      <h2 style="margin-top:var(--space-eyebrow);" data-animate>Autres zones d'intervention</h2>
+      <p class="co-mut" data-animate style="margin-top:var(--space-title-lead);max-width:64ch;line-height:1.6;">
         Je couvre l'ensemble du Genevois français et la <strong>Suisse romande</strong>. Voici les autres communes voisines de {ville.nom} où j'interviens régulièrement.
       </p>
 
@@ -430,10 +430,10 @@ const blogArticles = [
     </section>
 
     <!-- ══ 06 · À LIRE ══ -->
-    <section id="ressources" class="co-sec co-pad" style="padding:56px 40px;">
+    <section id="ressources" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <p class="co-eyebrow" data-animate>06 — Ressources</p>
-      <h2 style="margin-top:8px;" data-animate>À lire avant de te décider</h2>
-      <p class="co-mut" data-animate style="margin-top:10px;max-width:60ch;line-height:1.6;">
+      <h2 style="margin-top:var(--space-eyebrow);" data-animate>À lire avant de te décider</h2>
+      <p class="co-mut" data-animate style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
         Deux articles pour cadrer ton projet de <strong>création site web {ville.nom}</strong> avant même d'envoyer un mail.
       </p>
 
@@ -493,12 +493,12 @@ const blogArticles = [
   .dwv-hero-trust i { color: var(--accent); }
 
   /* ── Grilles génériques ── */
-  .dwv-grid { display: grid; gap: 16px; margin-top: 32px; }
+  .dwv-grid { display: grid; gap: 16px; margin-top: var(--space-block); }
   .dwv-grid--2 { grid-template-columns: repeat(2, 1fr); }
   .dwv-grid--3 { grid-template-columns: repeat(3, 1fr); }
 
   /* ── Encarts cadrés (contexte économique / exemples) ── */
-  .dwv-context, .dwv-examples { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+  .dwv-context, .dwv-examples { position: relative; margin-top: 28px; padding: var(--pad-encart); background: var(--surface); border: 1px solid var(--line-2); }
   .dwv-context-title, .dwv-examples-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 12px; }
   .dwv-context-title i, .dwv-examples-title i { color: var(--accent); }
   .co-root .dwv-context p { font-size: 14.5px; line-height: 1.65; color: var(--muted); }
@@ -517,7 +517,7 @@ const blogArticles = [
 
   /* ── Cartes lien (services / articles / voisines) ── */
   .dwv-service, .dwv-article, .dwv-voisine {
-    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+    position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
     background: var(--surface); border: 1px solid var(--line-2);
     transition: box-shadow .18s ease-out, transform .18s ease-out;
   }
@@ -599,7 +599,7 @@ const blogArticles = [
   .dwv-inline:hover { color: var(--ink); }
 
   /* ── Page pilier (bloc sombre) ── */
-  .dwv-pilier { position: relative; overflow: hidden; margin-top: 32px; padding: 40px; background: #0b0d10; color: #fff; border: 1px solid var(--line-2); }
+  .dwv-pilier { position: relative; overflow: hidden; margin-top: var(--space-block); padding: 40px; background: #0b0d10; color: #fff; border: 1px solid var(--line-2); }
   .dwv-pilier > .co-x { --line-2: rgba(255,255,255,0.28); }
   .dwv-pilier-inner { position: relative; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 24px; }
   .dwv-pilier-copy { flex: 1 1 320px; }
@@ -613,7 +613,7 @@ const blogArticles = [
   .dwv-pilier-btn:hover i { transform: translateX(3px); }
 
   /* ── Liens secondaires ── */
-  .dwv-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 32px; }
+  .dwv-links { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: var(--space-block); }
   .dwv-link { position: relative; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 18px; background: var(--surface); border: 1px solid var(--line-2); font-weight: 600; font-size: 14.5px; transition: transform .18s ease-out, box-shadow .18s ease-out; }
   .dwv-link:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
   .dwv-link-label { display: inline-flex; align-items: center; gap: 10px; }
