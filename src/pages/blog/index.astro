@@ -39,9 +39,22 @@ const schemas = [blogSchema];
     <!-- ══ HERO ══ -->
     <BlogHero />
 
+    <!-- ══ RECHERCHE (remontée sous le hero, visible sans scroll) ══ -->
+    <section class="co-sec co-pad bl-searchsec" style="padding:0 40px 4px;">
+      <div class="bl-search">
+        <i class="ri-search-line" aria-hidden="true"></i>
+        <input
+          type="search"
+          id="blog-search"
+          placeholder="Rechercher un article…"
+          aria-label="Rechercher un article"
+        />
+      </div>
+    </section>
+
     <!-- ══ 01 · ARTICLE À LA UNE ══ -->
     {featured && (
-      <section class="co-sec co-pad" style="padding:48px 40px;">
+      <section id="bl-feature-section" class="co-sec co-pad" style="padding:48px 40px;">
         <p class="co-eyebrow">01 — À la une</p>
         <a href={`/blog/${featured.slug}`} class="bl-feature co-frame" data-animate>
           <div class="bl-feature-cover">
@@ -106,6 +119,18 @@ const schemas = [blogSchema];
 
 <style is:global>
   /* ══ Blog index blueprint — .bl-* (dans .co-root) ══ */
+
+  /* Barre de recherche — remontée sous le hero (visible sans scroll) */
+  .bl-searchsec { margin-top: 4px; }
+  .bl-search { position: relative; max-width: 420px; }
+  .bl-search i { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 17px; }
+  .bl-search input {
+    width: 100%; font-family: inherit; font-size: 15px; color: var(--ink);
+    background: var(--surface); border: 1px solid var(--line-2); padding: 12px 14px 12px 40px;
+    transition: border-color .18s ease-out, box-shadow .18s ease-out;
+  }
+  .bl-search input::placeholder { color: var(--muted); }
+  .bl-search input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0, 168, 125, .15); }
 
   /* Article à la une */
   .bl-feature {

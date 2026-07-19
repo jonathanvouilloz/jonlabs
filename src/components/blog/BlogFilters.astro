@@ -8,16 +8,6 @@ const categoryList = [
 ---
 
 <div class="bl-filters">
-  <div class="bl-search">
-    <i class="ri-search-line" aria-hidden="true"></i>
-    <input
-      type="search"
-      id="blog-search"
-      placeholder="Rechercher un article…"
-      aria-label="Rechercher un article"
-    />
-  </div>
-
   <div class="bl-chips" id="category-filters" role="group" aria-label="Filtrer par catégorie">
     {categoryList.map((cat) => (
       <button
@@ -34,16 +24,8 @@ const categoryList = [
 
 <style is:global>
   /* ══ Filtres blog blueprint (rendu dans .co-root/index) ══ */
-  .bl-filters { display: flex; flex-direction: column; gap: 16px; margin: 28px 0 32px; }
-  .bl-search { position: relative; max-width: 340px; }
-  .bl-search i { position: absolute; left: 14px; top: 50%; transform: translateY(-50%); color: var(--muted); font-size: 17px; }
-  .bl-search input {
-    width: 100%; font-family: inherit; font-size: 15px; color: var(--ink);
-    background: var(--surface); border: 1px solid var(--line-2); padding: 11px 14px 11px 40px;
-    transition: border-color .18s ease-out, box-shadow .18s ease-out;
-  }
-  .bl-search input::placeholder { color: var(--muted); }
-  .bl-search input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0, 168, 125, .15); }
+  /* Chips catégories : au-dessus de la grille, là où elles filtrent (la recherche est remontée sous le hero) */
+  .bl-filters { display: flex; flex-direction: column; gap: 16px; margin: 24px 0 28px; }
 
   .bl-chips { display: flex; flex-wrap: wrap; gap: 8px; }
   .bl-chip {
@@ -66,6 +48,8 @@ const categoryList = [
     const prevBtn = document.getElementById('prev-page') as HTMLButtonElement | null;
     const nextBtn = document.getElementById('next-page') as HTMLButtonElement | null;
     const viewButtons = Array.from(document.querySelectorAll<HTMLElement>('[data-view-btn]'));
+    // Article à la une : non filtré (hors #posts-list) → on le masque dès qu'une recherche/catégorie est active
+    const featuredSection = document.getElementById('bl-feature-section');
 
     if (!postsList) return;
 
@@ -130,9 +114,16 @@ const categoryList = [
       postsList!.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
+    function updateFeaturedVisibility() {
+      if (!featuredSection) return;
+      const isFiltering = currentSearch !== '' || currentCategory !== 'all';
+      featuredSection.style.display = isFiltering ? 'none' : '';
+    }
+
     function filterPosts() {
       filteredItems = getFilteredItems();
       currentPage = 1;
+      updateFeaturedVisibility();
       displayPage();
     }
 
