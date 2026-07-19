@@ -56,15 +56,6 @@ const pagesCollection = defineCollection({
   }),
 });
 
-// LinkedIn drafts (internal use, no frontmatter required)
-const linkedinCollection = defineCollection({
-  type: 'content',
-  schema: z.object({
-    title: z.string().optional(),
-    draft: z.boolean().default(true),
-  }),
-});
-
 const portfolioCollection = defineCollection({
   type: 'content',
   schema: z.object({
@@ -303,7 +294,6 @@ const devisCollection = defineCollection({
 export const collections = {
   blog: blogCollection,
   pages: pagesCollection,
-  linkedin: linkedinCollection,
   devis: devisCollection,
   portfolio: portfolioCollection,
 };
