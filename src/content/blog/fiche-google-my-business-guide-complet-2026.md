@@ -3,7 +3,7 @@ title: "Fiche Google My Business : guide complet 2026"
 h1: "Fiche Google My Business : le guide complet pour la créer, l'optimiser et la classer en 2026"
 description: "Le guide complet de la fiche Google My Business en 2026 : la créer, la remplir, l'animer, et le seul facteur qui compte vraiment avant tous les autres."
 pubDate: 2026-05-05
-updatedDate: 2026-07-17
+updatedDate: 2026-07-19
 image:
   url: "/images/blog/fiche-google-my-business-guide-complet-2026.webp"
   alt: "Illustration éditoriale : buste de statue antique tenant un smartphone affichant une fiche d'établissement Google (photo, étoiles vertes, pin), carte en arrière-plan, DA jonlabs"
@@ -12,6 +12,8 @@ tags: ["google-my-business", "google-business-profile", "seo-local", "local-pack
 featured: true
 draft: false
 readingTime: 14
+youtubeId: "NLJXNLBBBDE"
+youtubeTitle: "Fiche Google : les 4 seuls facteurs qui comptent (SEO local 2026)"
 faqs:
   - question: "Quelle est la différence entre Google My Business et Google Business Profile ?"
     answer: "Aucune différence fonctionnelle, c'est le même outil. Google My Business a été renommé Google Business Profile en novembre 2021. L'interface, les fonctionnalités et l'URL (business.google.com) restent identiques. GMB reste utilisé dans le jargon SEO parce que c'est ce que les gens cherchent."
@@ -131,11 +133,11 @@ Ta **fiche Google Business Profile** n'est pas une page web indexable. C'est une
 
 Citation directe de LocalMighty (2026) : *"PageRank applies to websites. Google evaluates backlinks pointing to your domain, not directly to your GBP panel. Authority flows through your website architecture."*
 
-Dans le LSRF 2026, les **Link Signals** représentent 8% du ranking du Local Pack. Ces 8% correspondent aux **backlinks vers ton site web**, pas vers ta fiche GBP. Il n'existe aucun facteur de ranking dans l'étude pour "backlinks vers GBP".
+Les signaux de liens comptent dans le classement local, mais ils correspondent aux **backlinks vers ton site web**, pas vers ta fiche GBP. Il n'existe aucun facteur de ranking, dans aucune étude sérieuse, pour "backlinks vers GBP".
 
 Ce qui marche vraiment :
 - Backlinks locaux vers ton site (journaux régionaux, partenaires, associations professionnelles)
-- Citations NAP cohérentes sur les annuaires (6-8% des signaux)
+- Citations NAP cohérentes sur les annuaires
 - Une landing page optimisée liée à ta fiche GBP
 
 Ce qui ne marche pas (et peut être contre-productif) :
@@ -336,6 +338,4 @@ Ce guide est le point d'entrée. Pour creuser chaque phase du cycle de vie, voic
 - Whitespark, "7 Local Search Ranking Factors That May Challenge Your Current Thinking" — whitespark.ca/blog/7-local-search-ranking-factors-that-may-challenge-your-current-thinking/ (categorie principale = facteur n°1, recence des avis = 11e)
 - Whitespark, Local Search Ranking Factors 2026 — whitespark.ca/local-search-ranking-factors/ (methodologie : sondage aupres d'une cinquantaine d'experts sur pres de 200 facteurs. Influence percue, pas une mesure de l'algorithme.)
 - GatherUp — 45 % des lecteurs d'avis regardent surtout les avis recents (donnee consommateur, pas un facteur de classement)
-- LocalMighty — "Do Backlinks to My GBP Help?" (2026) — localmighty.com/blog/google-business-profile-ranking-factors/
-- Searchlab — "Local SEO Statistics 2026" — searchlab.nl/en/statistics/local-seo-statistics-2026
-- BrightLocal — "Google's Local Algorithm and Local Ranking Factors" (2026) — brightlocal.com/learn/google-local-algorithm-and-ranking-factors/
+- LocalMighty — "Do Backlinks to My GBP Help?" (2026) — localmighty.com/blog/google-business-profile-ranking-factors/ (le PageRank s'applique aux sites, pas aux entites GBP)
