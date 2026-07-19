@@ -68,7 +68,7 @@ const { tag, posts } = Astro.props;
   .tg-back:hover { color: var(--accent); }
   .tg-eyebrow { display: block; margin-bottom: 12px; }
   .co-root .tg-title { font-size: clamp(2rem, 4.5vw, 3rem); line-height: 1.08; letter-spacing: -0.03em; }
-  .co-root .tg-count { margin-top: 10px; font-size: 0.95rem; }
+  .co-root .tg-count { margin-top: var(--space-title-lead); font-size: 0.95rem; }
   .tg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 36px; }
 
   @media (max-width: 980px) { .tg-grid { grid-template-columns: repeat(2, 1fr); } }

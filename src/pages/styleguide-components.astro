@@ -221,7 +221,7 @@ const projectTypes = ["Développement web", "Automatisation", "Application sur-m
     </section>
 
     <!-- ══ 01 · CARTES BLOG ══ -->
-    <section class="co-sec co-pad" style="padding:64px 40px;">
+    <section class="co-sec co-pad" style="padding:64px var(--sec-pad-x);">
       <div class="cc-head">
         <p class="co-eyebrow">01 — Contenu</p>
         <h2>Cartes d'article</h2>
@@ -252,14 +252,14 @@ const projectTypes = ["Développement web", "Automatisation", "Application sur-m
     </section>
 
     <!-- ══ 02 · TARIFS ══ -->
-    <section class="co-sec co-pad" style="padding:64px 40px;">
+    <section class="co-sec co-pad" style="padding:64px var(--sec-pad-x);">
       <div class="cc-head">
         <p class="co-eyebrow">02 — Offre</p>
         <h2>Tarifs</h2>
         <p>Trois paliers, le recommandé mis en avant par l'accent teal.</p>
       </div>
 
-      <div class="cc-price-grid" style="margin-top:44px;">
+      <div class="cc-price-grid" style="margin-top:var(--space-subsection);">
         {tiers.map((tier) => (
           <div class={`cc-tier${tier.recommended ? " cc-tier--reco" : ""}`}>
             {tier.recommended && <span class="cc-reco">Recommandé</span>}
@@ -284,7 +284,7 @@ const projectTypes = ["Développement web", "Automatisation", "Application sur-m
     </section>
 
     <!-- ══ 03 · FAQ ══ -->
-    <section class="co-sec co-pad" style="padding:64px 40px;">
+    <section class="co-sec co-pad" style="padding:64px var(--sec-pad-x);">
       <div class="cc-head">
         <p class="co-eyebrow">03 — FAQ</p>
         <h2>Questions fréquentes</h2>
@@ -305,7 +305,7 @@ const projectTypes = ["Développement web", "Automatisation", "Application sur-m
     </section>
 
     <!-- ══ 04 · FORMULAIRE ══ -->
-    <section class="co-sec co-pad" style="padding:64px 40px;">
+    <section class="co-sec co-pad" style="padding:64px var(--sec-pad-x);">
       <div class="cc-head">
         <p class="co-eyebrow">04 — Contact</p>
         <h2>Formulaire</h2>
@@ -342,7 +342,7 @@ const projectTypes = ["Développement web", "Automatisation", "Application sur-m
     </section>
 
     <!-- ══ 05 · ATOMES ══ -->
-    <section class="co-sec co-pad" style="padding:64px 40px;">
+    <section class="co-sec co-pad" style="padding:64px var(--sec-pad-x);">
       <div class="cc-head">
         <p class="co-eyebrow">05 — Atomes</p>
         <h2>Boutons &amp; champs</h2>
@@ -369,7 +369,7 @@ const projectTypes = ["Développement web", "Automatisation", "Application sur-m
     </section>
 
     <!-- ══ 06 · DÉCORATIFS ══ -->
-    <section class="co-sec co-pad" style="padding:64px 40px;">
+    <section class="co-sec co-pad" style="padding:64px var(--sec-pad-x);">
       <div class="cc-head">
         <p class="co-eyebrow"><span class="co-index">06</span> — Décoratifs</p>
         <h2>Vocabulaire blueprint</h2>
