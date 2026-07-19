@@ -161,6 +161,7 @@ const packages = [
     ],
     ideal: "Indépendants et micro-entreprises qui veulent un site pro rapidement.",
     delay: "2-3 semaines",
+    cta: "Lancer mon site",
   },
   {
     name: "Visibilité",
@@ -179,6 +180,7 @@ const packages = [
     ],
     ideal: "PME locales qui veulent attirer des clients via Google.",
     delay: "4-8 semaines",
+    cta: "Devenir visible sur Google",
   },
   {
     name: "Autorité",
@@ -196,6 +198,7 @@ const packages = [
     ],
     ideal: "Entreprises ambitieuses qui veulent une présence digitale complète.",
     delay: "Sur mesure",
+    cta: "Construire mon autorité",
   },
 ];
 
@@ -303,7 +306,7 @@ const faqs = [
               <div class="co-spec-row"><dt>Délai</dt><dd>{plan.delay}</dd></div>
             </dl>
             <a href="/contact" class={`co-btn tr-tier-cta${plan.highlighted ? "" : " co-btn--ghost"}`}>
-              {plan.price === "Sur devis" ? "Demander un devis" : "Choisir ce pack"}
+              {plan.cta}
               <i class="ri-arrow-right-line"></i>
             </a>
           </div>

@@ -171,7 +171,7 @@ export const mainNav: NavSection[] = [
 ];
 
 export const ctaContact: NavItem = {
-  label: 'Contact',
+  label: 'Démarrer mon projet',
   href: '/contact',
 };
 
