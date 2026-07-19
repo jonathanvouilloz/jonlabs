@@ -122,9 +122,12 @@ if (post.data.faqs && post.data.faqs.length > 0) {
           <!-- Title (H1 distinct du title SEO ; fallback sur title si absent) -->
           <h1 class="ar-title">{h1 ?? title}</h1>
 
-          <!-- Méta : date + temps de lecture (après le H1) -->
+          <!-- Méta : date + mise à jour + temps de lecture (après le H1) -->
           <div class="ar-meta">
             <span class="ar-date">{formatDate(pubDate)}</span>
+            {post.data.updatedDate && post.data.updatedDate.getTime() !== pubDate.getTime() && (
+              <span class="ar-updated"><i class="ri-refresh-line"></i> Mis à jour le {formatDate(post.data.updatedDate)}</span>
+            )}
             {readingTime && (
               <span class="ar-rt"><i class="ri-time-line"></i> {readingTime} min de lecture</span>
             )}

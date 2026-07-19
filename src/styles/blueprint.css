@@ -365,6 +365,7 @@
 .ar-share a:hover, .ar-share button:hover { color: var(--accent); }
 .ar-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-bottom: 20px; }
 .ar-date, .ar-rt { font-size: 0.85rem; color: var(--muted); display: inline-flex; align-items: center; gap: 5px; }
+.ar-updated { font-size: 0.85rem; color: var(--accent); display: inline-flex; align-items: center; gap: 5px; }
 .co-root .ar-title { font-size: clamp(1.9rem, 4.2vw, 2.9rem); line-height: 1.08; letter-spacing: -0.03em; margin-bottom: 28px; }
 .ar-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 32px; padding-bottom: 28px; border-bottom: 1px solid var(--line); }
 .ar-tag { font-size: 0.8rem; color: var(--muted); padding: 4px 11px; border: 1px solid var(--line-2); border-radius: 999px; transition: color .16s ease-out, border-color .16s ease-out; }
