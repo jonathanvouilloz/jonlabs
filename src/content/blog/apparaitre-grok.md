@@ -5,7 +5,7 @@ description: "Grok cite 46x plus que ChatGPT et lit X en temps réel. Plan d'act
 pubDate: 2026-04-13
 image:
   url: "/images/blog/apparaitre-grok-2026.webp"
-  alt: "Apparaître sur Grok et X/Twitter"
+  alt: "Illustration éditoriale : buste de statue antique et flux de réponses d'IA en temps réel, carte-source citée en vert, DA jonlabs"
 category: "geo"
 tags: ["grok", "xai", "x", "twitter", "geo", "seo", "ia", "visibilité"]
 featured: false

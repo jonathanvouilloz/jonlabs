@@ -5,7 +5,7 @@ description: "Tes clients demandent à ChatGPT le meilleur prestataire à Genèv
 pubDate: 2026-02-18
 image:
   url: "/images/blog/apparaitre-chatgpt-geneve-2026.webp"
-  alt: "Apparaître sur ChatGPT pour les commerces genevois"
+  alt: "Illustration éditoriale : buste de statue antique à un ordinateur portable, panneau de conversation IA citant une fiche d'entreprise genevoise en vert, DA jonlabs"
 category: "geo"
 tags: ["chatgpt", "geo", "seo", "genève", "visibilité", "ia"]
 featured: false

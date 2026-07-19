@@ -5,7 +5,7 @@ description: "Les AI Overviews captent 30% des recherches services et font chute
 pubDate: 2026-03-16
 image:
   url: "/images/blog/apparaitre-gemini-2026.webp"
-  alt: "Apparaître sur Gemini et les AI Overviews de Google"
+  alt: "Illustration éditoriale : buste de statue antique reliant une constellation de sources à une réponse d'IA, source citée en vert, DA jonlabs"
 category: "geo"
 tags: ["gemini", "google", "geo", "seo", "ai-overviews", "visibilite", "ia"]
 featured: false

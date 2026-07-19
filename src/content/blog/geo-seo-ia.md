@@ -6,7 +6,7 @@ pubDate: 2026-04-14
 updatedDate: 2026-05-27
 image:
   url: "/images/blog/geo-seo-ia-2026.webp"
-  alt: "GEO Generative Engine Optimization — apparaître sur les IA en 2026"
+  alt: "Illustration éditoriale : main de statue antique déposant des fiches de contenu dans un flux vert vers un moteur de réponse IA qui les cite, DA jonlabs"
 category: "geo"
 tags: ["geo", "seo", "ia", "chatgpt", "perplexity", "gemini", "copilot", "claude", "grok", "visibilité", "suisse"]
 featured: true

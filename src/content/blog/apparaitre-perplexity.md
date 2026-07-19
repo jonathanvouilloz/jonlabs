@@ -5,7 +5,7 @@ description: "Pages structurées citées 2,6× plus, contenu chiffré 4,1× plus
 pubDate: 2026-03-24
 image:
   url: "/images/blog/apparaitre-perplexity-2026.webp"
-  alt: "Apparaître sur Perplexity AI avec des citations sources"
+  alt: "Illustration éditoriale : buste de statue antique désignant une réponse d'IA avec une liste de sources, la source citée surlignée en vert, DA jonlabs"
 category: "geo"
 tags: ["perplexity", "geo", "seo", "ia", "visibilité", "citations"]
 featured: false

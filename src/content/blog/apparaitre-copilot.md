@@ -5,7 +5,7 @@ description: "Copilot ne cite que 3 liens par réponse et touche 33M users via W
 pubDate: 2026-03-30
 image:
   url: "/images/blog/apparaitre-copilot-2026.webp"
-  alt: "Apparaître sur Microsoft Copilot via Bing et l'écosystème Microsoft"
+  alt: "Illustration éditoriale : buste de statue antique à un ordinateur portable, panneau d'assistant IA mettant en avant une fiche d'entreprise en vert, DA jonlabs"
 category: "geo"
 tags: ["copilot", "microsoft", "bing", "geo", "seo", "ia", "visibilité"]
 featured: false

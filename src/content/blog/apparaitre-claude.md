@@ -5,7 +5,7 @@ description: "Claude cite Brave à 86,7% : index moins concurrentiel, audience q
 pubDate: 2026-03-05
 image:
   url: "/images/blog/apparaitre-claude-2026.webp"
-  alt: "Apparaître sur Claude et Brave Search"
+  alt: "Illustration éditoriale : buste de statue antique consultant une réponse d'IA avec une citation verte renvoyant à une fiche d'entreprise, DA jonlabs"
 category: "geo"
 tags: ["claude", "anthropic", "brave-search", "geo", "seo", "ia", "visibilité"]
 featured: false
