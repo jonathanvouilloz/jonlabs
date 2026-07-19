@@ -1,26 +1,23 @@
-# HANDOFF — 2026-07-17
+# HANDOFF — 2026-07-19
 
 ## Features actives
 | Feature | Fichier | Statut |
 |---------|---------|--------|
-| Devis Cabinet Grange-Canal | docs/features/devis-cabinet-grange-canal.md | **CODE FINI** — poussé, `status: draft`. Bloqué sur 3 vérifs + le call |
-| Refonte SEO / clusters | docs/features/refonte-seo-clusters.md | **EN COURS** (indexation GSC : 3 lots déployés 15.07) |
-| Refonte blueprint (design/typo) | docs/features/refonte-blueprint.md | **BOUCLÉE** — reste `/epic-recap` |
-| Polish global & design system | docs/features/polish-design-system.md | EN COURS (Phase 6 tags débloquée · portrait + bandeau faits 15.07) |
-| Chantier SEO IA (consultant IA) | docs/planSEOIA.md | EN COURS (Phase 1-2 ✅, Phase 3 à venir) |
+| Polish global & design system | docs/features/polish-design-system.md | **EN COURS** (19.07 : CTA + blog UX + variables spacing + 48 covers illustrées ✅) |
+| Refonte SEO / clusters | docs/features/refonte-seo-clusters.md | EN ATTENTE (indexation GSC : re-run /seo-index-diagnose mi-sept. vs baseline 50/88) |
+| Devis Cabinet Grange-Canal | docs/features/devis-cabinet-grange-canal.md | CODE FINI — attend le call (3 vérifs bloquantes) |
+| Refonte blueprint (design/typo) | docs/features/refonte-blueprint.md | BOUCLÉE — reste `/epic-recap` |
+| Chantier SEO IA (consultant IA) | docs/planSEOIA.md | EN ATTENTE (Phase 1-2 ✅, Phase 3 à venir) |
 
 ## Reprendre ici
-**Refonte SEO / clusters** — mailler `/consultant-ia/geneve` + `/lausanne` par des liens **contextuels en corps** depuis `hermes-agent-ia-pme`, `workflows-vs-agents-ia-pme`, `temps-perdu-pme-automatisation`. **Pas par le footer** (raison dans le feature file). Puis re-run `/seo-index-diagnose` à J+60 (mi-sept.) vs baseline 50/88.
-Dernière session (17.07) : article `seo-local-commerce-excentre` produit + publié en prod (visuels + lien newsletter + fix attribution Whitespark). Détail dans le feature file.
-Le **Devis Grange-Canal** n'a plus rien à coder : il attend le call (3 vérifs bloquantes listées dans son feature file).
-Commit : [33d3a0d] feat(seo-local): complète l'article excentré · devis : [8c522b9] feat(devis): migre le template en blueprint
+**Polish / design system** — prochain lot : **migration spacing site-wide** (~176 paddings + ~212 marges eyebrow en dur → variables `blueprint.css`, consultant-ia = patron ; par lots, pas en masse). Avant : revue live des 48 covers (`npm run dev` → /blog).
+Covers réutilisables via `scratchpad/gen_covers.py` + specs JSON + `place_wave.py` (pipeline skill `visual`, semi-concret, 1536×1024 → crop 16:9, qualité medium).
+Commit : [7126a2a] feat(covers): vague seo-local — 13 covers semi-concrètes
 
 ## Actions manuelles en attente (côté Jonathan)
-- **Request Indexing GSC** sur `/blog/seo-local-commerce-excentre` une fois Vercel déployé (article publié 17.07).
-- **Devis Grange-Canal — 3 vérifs AVANT envoi** : le « 45 à 60 minutes » attribué à un concurrent (réponse d'IA non reproductible → capture ou retrait), le « 9 vs 160 » (jamais recompté), et « dont personne ne se sert » sur les 31 avis (si elle y répond : faux et vexant). Détail dans le feature file.
+- **Devis Grange-Canal — 3 vérifs AVANT envoi** (« 45 à 60 min » concurrent, « 9 vs 160 », « dont personne ne se sert » sur les 31 avis) — détail dans son feature file.
 - **`/epic-recap`** de l'epic Refonte blueprint (bouclé).
-- **Portrait hero** : reprendre un **portrait américain**, détourer le fond, réintégrer sur crème (le recadrage actuel est transitoire). Détail dans `polish-design-system.md`.
+- **Portrait hero** : reprendre un portrait américain, détourer le fond, réintégrer sur crème (recadrage actuel transitoire) — `polish-design-system.md`.
 - **Bandeau de confiance** : trancher « Lécureux Conseil » vs `client.name: "Léo Lécureux"` (`ClientsBanner.astro`).
-- **Validation mobile <720/<900px sur device** des pages blueprint — inclut `/developpement-web` et **la nouvelle page devis** (jamais validée sur un vrai mobile : le viewport du navigateur outillé reste bloqué à 2116px).
-- **Reframe éditorial article Lécureux** (`visibilite-site-internet-2026.md`) — chiffre inflaté vs GSC réelle (choix de voix, reporté).
-- `src/content/devis/perf-lecureux.png` : orphelin (0 référence, non servi depuis `src/content/`). À supprimer ?
+- **Reframe éditorial article Lécureux** (`visibilite-site-internet-2026.md`) — chiffre inflaté vs GSC (choix de voix, reporté).
+- Le dossier Bureau `covers-preview/` (vieilles previews v1/v2) peut être supprimé.

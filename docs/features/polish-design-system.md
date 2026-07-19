@@ -3,6 +3,28 @@
 > Chantier de fond : uniformiser le style graphique du site (thème, titres, couleurs), casser l'effet « très AI » (mur de texte, peu d'images, peu d'aération), rationaliser l'architecture/navigation, et transformer les pages tags thin en vraies pages — pour un rendu **plus professionnel**.
 > **Source ADN visuel marque perso** : skill `visual` (`~/.claude/skills/visual/`) — mono-accent teal `#00D9A3`, fond warm, connecteurs fins, formes arrondies, illustration « collage éditorial ».
 > **Statut** : 🔄 EN COURS — Phases 1a + 1b + 2 + 3 + 4 faites ✅. **Phase 5 (Lecureux) faite ✅** (source unique + harmonisation + fix erreur factuelle divorce, build vert 211 pages). Reste : 1 sous-tâche Phase 5 **reportée** (reframe éditorial de l'article blog — choix de voix, appartient à Jonathan) + **Phase 6 (tags) DÉBLOQUÉE** le 15.07 (vérif indexation GSC faite, baseline `.seo-data/index-jonlabs-ch-2026-07-15.json`).
+> **19.07** : passe polish supplémentaire — CTA clarifiés, recherche blog remontée, **variables d'espacement de section** introduites (`blueprint.css`), et **48 covers illustrées** (DA semi-concrète). Nouveau reste : **migration spacing site-wide** (voir dernier bloc session).
+
+## Etat session 2026-07-19 — CTA + blog UX + variables spacing + covers illustrées (48) ✅
+
+**Fait :** grosse passe polish, **9 commits sur `main`**, build vert à chaque commit (hook pre-commit).
+- **CTA clarifiés** : header `Contact` → « Démarrer mon projet » (`navigation.ts`) ; packs tarifs → CTA propre par pack via champ `cta` (« Lancer mon site » / « Devenir visible sur Google » / « Construire mon autorité », `tarifs.astro`) ; génériques « Me contacter » reformulés (`services.astro`, `about.astro`, `ConversationModal.astro`). Heros déjà contextuels **conservés**.
+- **Blog** : barre de recherche remontée **sous le hero** (`blog/index.astro` + `BlogFilters.astro`) ; chips catégories restées au-dessus de la grille ; article à la une **masqué auto** quand une recherche/filtre est actif.
+- **Variables d'espacement de section** : échelle `--sec-pad-y/x`, `--space-eyebrow`, `--space-title-lead`, `--space-block`, `--space-subsection` dans `blueprint.css` (`.co-root`). Bug consultant-ia réglé (sous-titres H3 `.cii-sub-title`/`.cii-mini-title` 44→64px via `--space-subsection`). Page `consultant-ia/index.astro` **entièrement migrée** en variables = cas de référence, rendu pixel-identique ailleurs.
+- **Covers illustrées (48 articles publiés)** : toutes les covers texte remplacées par des **illustrations semi-concrètes sans texte** (DA `visual` : statue N&B en signature + une ancre concrète qui nomme le sujet + accent teal), format **16:9**, `alt` réécrits. 5 vagues : automatisation(9) · mobile(8) · geo(7) · web(8) · seo-local(13) + essai initial 3.
+- **Skill `visual` enrichi** (hors repo, `~/.claude/skills/visual/`) : axe **abstrait ↔ semi-concret** + table de routage par placement (X/tweets → abstrait, cover article → semi-concret) + **garde-fou faux-texte**, gravé dans `prompt-master.md` / `moodboard.md` / `SKILL.md`.
+
+**Prochain :** (1) revue live des covers (`npm run dev` → `/blog` ; `automatisation-pme` = featured actuel). (2) **Migration spacing site-wide** — ~176 `padding:56px 40px` + ~212 `margin-top:8px` (eyebrow→titre) encore **en dur** ailleurs (`services/*`, `metiers/[metier]`, `developpement-web/[ville]`, `developpeur-web-freelance-geneve`, `devis-client/[slug]`) à brancher sur les variables `blueprint.css` — consultant-ia = patron. Chantier mécanique par lots, **volontairement pas fait en masse** (risque de régression d'un coup).
+
+**Pièges :**
+- **Génération cover** = pipeline gpt-image-2 (skill `visual`) : générer en `1536x1024` (3:2) puis **center-crop 16:9** (box `(0,80,1536,944)`) — `render.py` ne fait que du **padding warm**, jamais de crop. Refs objet = `illustration/illu2-statue-laptop.png` + `illu6-phone-collage.png` (ou `illu4-plugged-in.png`). Qualité **`medium`** (choix Jonathan, pas de HD). Moteur réutilisable : `scratchpad/gen_covers.py` + specs JSON `{slug:{sujet,ancre}}` + `place_wave.py`.
+- Le **nom de fichier cover ne change pas** (`{slug}.webp` dans `public/images/blog/`) → l'`image.url` du frontmatter reste valide, on écrase juste le fichier.
+- Les covers `apparaitre-chatgpt`/`gemini` incluent un cue de marque (swirl ChatGPT, spark Gemini) rendu par l'IA — assumé, aide la lisibilité.
+- La cover ne s'affiche **jamais dans le corps de l'article** (`blog/[slug].astro`) — uniquement en liste `/blog` + `og:image`. Featured = article publié le plus récent (dynamique, `blog/index.astro:24`), pas le champ `featured` du frontmatter.
+
+**Commits :** [c835ba4] cta · [7f64b63] blog recherche · [5cf5a57] variables spacing · [8964d8b] essai covers · [a42a550] vague automatisation · [614cec3] mobile · [915e04b] geo · [117a1fc] web · [7126a2a] seo-local — tous sur `main`.
+
+---
 
 ## Etat session 2026-07-15 (soir) — Portrait hero + bandeau de confiance ✅
 
@@ -310,10 +332,15 @@
 4. **Pages tags** — *recommandé : vérifier GSC d'abord* (elles sont noindex), puis normaliser, puis enrichir uniquement les candidats sûrs.
 
 ## Carte du code
-> Mise à jour : 2026-07-15 (portrait hero + bandeau)
+> Mise à jour : 2026-07-19 (CTA + blog UX + variables spacing + covers)
 
 | Fichier | Rôle |
 |---------|------|
+| `src/styles/blueprint.css` (`.co-root`) | **Variables d'espacement de section (19.07, NOUVEAU)** — `--sec-pad-y/x`, `--space-eyebrow`, `--space-title-lead`, `--space-block`, `--space-subsection` (=64px, ex-44px). À côté des tokens couleur. **~176 paddings + ~212 marges eyebrow encore en dur ailleurs → migration site-wide à faire (consultant-ia = patron).** |
+| `public/images/blog/{slug}.webp` (×48) | **Covers illustrées semi-concrètes (19.07)** — statue N&B + ancre concrète + accent teal, sans texte, 16:9. Générées via skill `visual` (gpt-image-2, 1536×1024 → center-crop 16:9). Nom = slug, écrase l'ancienne cover texte, `image.url` frontmatter inchangé. |
+| `src/data/navigation.ts` (`ctaContact`) | **CTA header (19.07)** — `label: 'Démarrer mon projet'` (ex-« Contact »), la flèche `→` ajoutée par `Header.astro`. (+ IA du menu Phase 4, exports géo.) |
+| `src/pages/tarifs.astro` (tableau `packages`) | **CTA packs (19.07)** — champ `cta` par pack (« Lancer mon site » / « Devenir visible sur Google » / « Construire mon autorité »), remplace le ternaire générique. |
+| `src/pages/blog/index.astro` + `src/components/blog/BlogFilters.astro` | **Recherche remontée (19.07)** — input `#blog-search` sous le hero (nouvelle `.bl-searchsec`), chips catégories seules dans BlogFilters au-dessus de la grille, featured `#bl-feature-section` masqué via JS quand recherche/filtre actif. |
 | `src/assets/jonathan-vouilloz.webp` **+** `public/images/jonathan-vouilloz.webp` | **Portrait (15.07)** — recadrage 4:5, 768×960 WebP q88, couleurs brutes (regrade rejeté). **Même image en 2 exemplaires** : `src/assets` sert `Hero` / `AboutHome` (avatar 42px) / `blog/AuthorBio` ; `public/images` sert `schema.ts` → `Person.image`. **Toujours remplacer les deux ensemble.** |
 | `src/components/ClientsBanner.astro` | **Bandeau de confiance home (15.07)** — marquee `translateX -50%`, liste `clients` **en dur** (6 noms). Libellés = `client.name` des `.md` portfolio. Écart connu : « Lécureux Conseil » vs `client.name: "Léo Lécureux"`. |
 | `src/data/proof-lecureux.ts` | **Source unique preuve Lécureux (Phase 5 ✅, NOUVEAU)** — chiffres **GSC réels** (19.1k imp · 367 clics · 1,9 % · 5 mois), accroche « #1 sur sa niche, 19 000 impressions en 5 mois », `rankClaim`, métier (juriste restauration), « 10+ leads », `stats[]`, `portfolioUrl`. Consommé par referencement-local / dev-freelance / about / CVProjects. **Ne jamais réécrire « Top 1 Google » (pos. moy. réelle 15,3).** |
@@ -348,3 +375,5 @@
 - **Fix H1 invisible `/services/*`** via la règle CSS `.seo-h1` (eyebrow teal), pas via le markup — mot-clé conservé dans le `<h1>`, zéro régression SEO.
 - Highlight unique = wash teal (`bg-accent-soft` ou `var(--accent)`). Éviter les fonds solides `var(--yellow)` (contraste).
 - Ne PAS toucher la structure brutaliste (bordures/ombres/corner boxes) ni les chiffres/badges `font-mono font-black` (display volontaire).
+- **Covers d'article = niveau semi-concret** (ancre concrète + statue en signature), PAS abstrait pur — l'image doit annoncer le sujet au premier coup d'œil (retour Jonathan 19.07). Le niveau **abstrait** reste pour les réseaux/tweets. Les deux vivent dans le skill `visual` (axe de concrétude + routage), on route selon le placement.
+- **Espacement = variables `blueprint.css`**, plus de valeurs en dur pour les patterns généraux répétés (padding section, eyebrow→titre, sous-titres). `--space-subsection` porté à 64px pour aérer les sous-titres H3.
