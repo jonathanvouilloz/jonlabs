@@ -214,7 +214,7 @@ const budgetOptions = [
     <main class="co-root">
 
         <!-- ══ HERO ══ -->
-        <section class="co-sec co-pad co-hero ou-hero" style="padding:64px 40px 56px;">
+        <section class="co-sec co-pad co-hero ou-hero" style="padding:64px var(--sec-pad-x) var(--sec-pad-y);">
             <div class="ou-hero-grid">
                 <div class="ou-hero-copy">
                     <h1 class="ou-hero-title" data-animate data-delay="0.1">
@@ -254,10 +254,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 01 · PROBLÈMES ══ -->
-        <section id="problemes" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="problemes" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">01 — Problèmes</p>
-            <h2 style="margin-top:8px;">Tu te <span class="co-ser">reconnais ?</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:58ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Tu te <span class="co-ser">reconnais ?</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:58ch;line-height:1.6;">
                 Ces situations reviennent souvent chez les PME et indépendants que j'accompagne.
             </p>
 
@@ -278,10 +278,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 02 · MÉTHODE ══ -->
-        <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="methode" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">02 — Méthode</p>
-            <h2 style="margin-top:8px;">Comment ça se passe ?</h2>
-            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Comment ça se passe ?</h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
                 On part de ton besoin réel, pas d'un cahier des charges fictif. Tu vois un
                 <strong>prototype fonctionnel en 1-2 semaines</strong>, pas dans 6 mois.
             </p>
@@ -323,9 +323,9 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 03 · RÉSULTATS ══ -->
-        <section id="resultats" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="resultats" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">03 — Résultats</p>
-            <h2 style="margin-top:8px;">Ce que tu <span class="co-ser">obtiens.</span></h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Ce que tu <span class="co-ser">obtiens.</span></h2>
 
             <div class="ou-grid ou-grid--3" data-animate-stagger>
                 {results.map((result) => (
@@ -357,10 +357,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 04 · TECHNOLOGIE ══ -->
-        <section id="technologie" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="technologie" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">04 — Sous le capot</p>
-            <h2 style="margin-top:8px;">Technologie moderne</h2>
-            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Technologie moderne</h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
                 Je choisis la technologie en fonction de <strong>ton</strong> projet, pas de mes préférences.
                 Mais voici ce avec quoi je travaille le plus souvent.
             </p>
@@ -382,10 +382,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 05 · PRIX ══ -->
-        <section id="prix" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="prix" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">05 — Investissement</p>
-            <h2 style="margin-top:8px;">Des ordres de <span class="co-ser">grandeur.</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:56ch;">Chaque projet est différent. Voici des repères pour te donner une idée.</p>
+            <h2 style="margin-top:var(--space-eyebrow);">Des ordres de <span class="co-ser">grandeur.</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:56ch;">Chaque projet est différent. Voici des repères pour te donner une idée.</p>
 
             <div class="ou-tiers" data-animate-stagger>
                 {pricingTiers.map((tier) => (
@@ -413,11 +413,11 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 06 · FAQ (accordéon natif <details>, zéro JS) ══ -->
-        <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="faq" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">06 — FAQ</p>
-            <h2 style="margin-top:8px;">Questions fréquentes</h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes</h2>
 
-            <div class="ou-faq" style="margin-top:32px;">
+            <div class="ou-faq" style="margin-top:var(--space-block);">
                 {faqs.map((faq, index) => (
                     <details open={index === 0}>
                         <summary>
@@ -438,9 +438,9 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 07 · LOCAL ══ -->
-        <section id="local" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="local" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">07 — Local</p>
-            <h2 style="margin-top:8px;">Basé à <span class="co-ser">Genève</span>, disponible en Suisse romande.</h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Basé à <span class="co-ser">Genève</span>, disponible en Suisse romande.</h2>
 
             <div class="ou-grid ou-grid--2 ou-local-adv" data-animate-stagger>
                 {localAdvantages.map((adv) => (
@@ -460,10 +460,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 08 · CONTACT (formulaire Web3Forms — HARD-PRESERVE câblage) ══ -->
-        <section id="contact" class="co-sec co-pad" style="padding:64px 40px;">
+        <section id="contact" class="co-sec co-pad" style="padding:64px var(--sec-pad-x);">
             <p class="co-eyebrow">08 — Contact</p>
-            <h2 style="margin-top:8px;">Un process qui mériterait son propre <span class="co-ser">outil ?</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Un process qui mériterait son propre <span class="co-ser">outil ?</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
                 Premier échange gratuit et sans engagement. On regarde ensemble si un outil sur mesure est la bonne
                 réponse — ou si une solution plus simple existe.
             </p>
@@ -591,17 +591,17 @@ const budgetOptions = [
     .ou-browser-dot { width: 9px; height: 9px; border-radius: 999px; background: var(--line-2); flex: none; }
     .ou-browser-url { flex: 1; text-align: center; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
     .ou-browser-img { display: block; width: 100%; height: auto; }
-    .ou-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: 8px 12px; font-size: 12px; font-weight: 600; }
+    .ou-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: var(--pad-pill); font-size: 12px; font-weight: 600; }
     .ou-badge--tag { top: -16px; left: -14px; color: var(--accent); }
     .ou-badge--speed { bottom: -16px; right: -14px; background: var(--accent); border-color: var(--accent); color: #fff; }
 
     /* ── Cartes génériques (problèmes / résultats / tech) ── */
-    .ou-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .ou-grid { display: grid; gap: 16px; margin-top: var(--space-block); }
     .ou-grid--2 { grid-template-columns: repeat(2, 1fr); }
     .ou-grid--3 { grid-template-columns: repeat(3, 1fr); }
     .ou-grid--4 { grid-template-columns: repeat(4, 1fr); }
     .ou-card {
-        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
         background: var(--surface); border: 1px solid var(--line-2);
         transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
@@ -625,21 +625,21 @@ const budgetOptions = [
     .ou-note strong, .ou-note-inline strong { color: var(--ink); font-weight: 600; }
 
     /* ── Étapes méthode ── */
-    .ou-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+    .ou-steps { display: flex; flex-direction: column; margin-top: var(--space-block); border-top: 1px solid var(--line); }
     .ou-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
     .ou-step-num { font-size: 20px; font-weight: 600; }
     .ou-step-title { font-size: 1.15rem; }
     .co-root .ou-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
-    .co-root .ou-step-dur { margin-top: 10px; font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+    .co-root .ou-step-dur { margin-top: var(--space-title-lead); font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
     .ou-step-dur i { color: var(--accent); }
 
     /* ── Encart différenciateurs ── */
-    .ou-diff { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .ou-diff { position: relative; margin-top: var(--space-block); padding: var(--pad-panel); background: var(--surface); border: 1px solid var(--line-2); }
     .ou-diff-title { text-align: center; font-size: 1.25rem; }
     .ou-diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 28px; }
     .ou-diff-item { text-align: center; }
     .ou-diff-icon { font-size: 26px; color: var(--accent); }
-    .ou-diff-name { margin-top: 10px; font-size: 15px; font-weight: 600; }
+    .ou-diff-name { margin-top: var(--space-title-lead); font-size: 15px; font-weight: 600; }
     .co-root .ou-diff-desc { margin-top: 4px; font-size: 13px; line-height: 1.45; color: var(--muted); }
 
     /* ── Étude de cas ── */
@@ -663,7 +663,7 @@ const budgetOptions = [
     .ou-tier-cur { font-size: 15px; color: var(--muted); font-weight: 500; }
     .co-root .ou-tier-desc { font-size: 14px; line-height: 1.55; color: var(--muted); }
 
-    .ou-pricenote { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .ou-pricenote { position: relative; margin-top: 28px; padding: var(--pad-encart); background: var(--surface); border: 1px solid var(--line-2); }
     .ou-pricenote-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
     .ou-pricenote-title i { color: var(--accent); }
     .ou-pricenote-grid { margin-top: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px 40px; }
@@ -695,7 +695,7 @@ const budgetOptions = [
     .co-root .ou-local-desc { margin-top: 3px; font-size: 13.5px; line-height: 1.5; color: var(--muted); }
 
     /* ── Formulaire (Web3Forms restylé, câblage préservé) ── */
-    .ou-form { position: relative; margin-top: 32px; padding: 34px; background: var(--surface); border: 1px solid var(--line-2); }
+    .ou-form { position: relative; margin-top: var(--space-block); padding: 34px; background: var(--surface); border: 1px solid var(--line-2); }
     .ou-form-title { font-size: 1.25rem; text-align: left; margin-bottom: 22px; }
     .ou-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .ou-field { display: flex; flex-direction: column; gap: 8px; }
@@ -705,7 +705,7 @@ const budgetOptions = [
     .ou-req { color: var(--accent); }
     .ou-input, .ou-select, .ou-textarea {
         width: 100%; font-family: "Inter Tight", ui-sans-serif, sans-serif; font-size: 15px; color: var(--ink);
-        background: var(--bg); border: 1px solid var(--line-2); padding: 12px 14px;
+        background: var(--bg); border: 1px solid var(--line-2); padding: var(--pad-chip);
         transition: border-color .18s ease-out, box-shadow .18s ease-out;
     }
     .ou-input::placeholder, .ou-textarea::placeholder { color: var(--muted); opacity: .7; }

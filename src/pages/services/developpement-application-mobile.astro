@@ -220,7 +220,7 @@ const zones = [
     <main class="co-root">
 
         <!-- ══ HERO ══ -->
-        <section class="co-sec co-pad co-hero am-hero" style="padding:64px 40px 56px;">
+        <section class="co-sec co-pad co-hero am-hero" style="padding:64px var(--sec-pad-x) var(--sec-pad-y);">
             <div class="am-hero-grid">
                 <div class="am-hero-copy">
                     <h1 class="am-hero-title" data-animate data-delay="0.1">
@@ -268,10 +268,10 @@ const zones = [
         </section>
 
         <!-- ══ 01 · SITUATIONS ══ -->
-        <section id="problemes" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="problemes" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">01 — Situations</p>
-            <h2 style="margin-top:8px;">Tu te <span class="co-ser">reconnais ?</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Tu te <span class="co-ser">reconnais ?</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:56ch;line-height:1.6;">
                 Ces moments où une app devient une vraie question.
             </p>
 
@@ -305,10 +305,10 @@ const zones = [
         </section>
 
         <!-- ══ 02 · MÉTHODE ══ -->
-        <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="methode" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">02 — Méthode</p>
-            <h2 style="margin-top:8px;">Comment ça se passe ?</h2>
-            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Comment ça se passe ?</h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 Pas de tunnel de développement. Tu testes ton app sur ton téléphone <strong>à chaque étape</strong>.
             </p>
 
@@ -341,9 +341,9 @@ const zones = [
         </section>
 
         <!-- ══ 03 · RÉSULTATS ══ -->
-        <section id="resultats" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="resultats" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">03 — Résultats</p>
-            <h2 style="margin-top:8px;">Ce que tu <span class="co-ser">obtiens.</span></h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Ce que tu <span class="co-ser">obtiens.</span></h2>
 
             <div class="am-grid am-grid--3" data-animate-stagger>
                 {results.map((result) => (
@@ -367,10 +367,10 @@ const zones = [
         </section>
 
         <!-- ══ 04 · INVESTISSEMENT ══ -->
-        <section id="prix" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="prix" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">04 — Investissement</p>
-            <h2 style="margin-top:8px;">Un devis <span class="co-ser">clair.</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Un devis <span class="co-ser">clair.</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
                 Chaque app est différente. Une PWA pour tester un usage, ce n'est pas la même chose qu'une
                 application native connectée à ton système métier.
             </p>
@@ -397,10 +397,10 @@ const zones = [
         </section>
 
         <!-- ══ 05 · RESSOURCES ══ -->
-        <section id="ressources" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="ressources" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">05 — Ressources</p>
-            <h2 style="margin-top:8px;">Tout comprendre avant de te lancer</h2>
-            <p class="co-mut" style="margin-top:10px;max-width:64ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Tout comprendre avant de te lancer</h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:64ch;line-height:1.6;">
                 Avant de demander un devis, fais-toi ton propre avis. J'ai écrit un dossier complet sur le
                 développement d'applications mobiles pour les PME romandes — commence par le
                 <a href="/blog/developper-application-mobile-suisse" class="am-inline">guide complet</a>.
@@ -429,11 +429,11 @@ const zones = [
         </section>
 
         <!-- ══ 06 · FAQ (accordéon natif <details>, zéro JS) ══ -->
-        <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="faq" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">06 — FAQ</p>
-            <h2 style="margin-top:8px;">Questions fréquentes</h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes</h2>
 
-            <div class="am-faq" style="margin-top:32px;">
+            <div class="am-faq" style="margin-top:var(--space-block);">
                 {faqs.map((faq, index) => (
                     <details open={index === 0}>
                         <summary>
@@ -451,9 +451,9 @@ const zones = [
         </section>
 
         <!-- ══ 07 · À PROPOS ══ -->
-        <section id="about" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="about" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">07 — À propos</p>
-            <h2 style="margin-top:8px;">Qui est derrière <span class="co-ser">Jon Labs ?</span></h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Qui est derrière <span class="co-ser">Jon Labs ?</span></h2>
 
             <div class="am-about co-frame" data-animate>
                 <span class="co-x tl"></span><span class="co-x tr"></span>
@@ -469,9 +469,9 @@ const zones = [
         </section>
 
         <!-- ══ 08 · LOCAL ══ -->
-        <section id="local" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="local" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">08 — Local</p>
-            <h2 style="margin-top:8px;">Basé à <span class="co-ser">Genève</span>, disponible partout en Suisse romande</h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Basé à <span class="co-ser">Genève</span>, disponible partout en Suisse romande</h2>
 
             <div class="am-local-grid">
                 <div data-animate="fade-left">
@@ -558,18 +558,18 @@ const zones = [
     .am-plat i { font-size: 22px; color: var(--accent); flex: none; }
     .am-panel-list { gap: 10px; }
     .am-panel-list li { font-size: 14px; line-height: 1.45; }
-    .am-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: 8px 12px; font-size: 12px; font-weight: 600; }
+    .am-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: var(--pad-pill); font-size: 12px; font-weight: 600; }
     .am-badge--stores { top: -16px; left: -14px; display: flex; flex-direction: column; line-height: 1.1; }
     .am-badge--stores b { color: var(--accent); font-size: 15px; }
     .am-badge--stores span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
     .am-badge--code { bottom: -16px; right: -14px; background: var(--accent); border-color: var(--accent); color: #fff; }
 
     /* ── Cartes génériques (situations / résultats) ── */
-    .am-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .am-grid { display: grid; gap: 16px; margin-top: var(--space-block); }
     .am-grid--2 { grid-template-columns: repeat(2, 1fr); }
     .am-grid--3 { grid-template-columns: repeat(3, 1fr); }
     .am-card {
-        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
         background: var(--surface); border: 1px solid var(--line-2);
         transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
@@ -596,16 +596,16 @@ const zones = [
     .co-root .am-story-accent p { font-size: 15px; font-weight: 600; line-height: 1.5; color: var(--ink); }
 
     /* ── Étapes méthode ── */
-    .am-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+    .am-steps { display: flex; flex-direction: column; margin-top: var(--space-block); border-top: 1px solid var(--line); }
     .am-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
     .am-step-num { font-size: 20px; font-weight: 600; }
     .am-step-title { font-size: 1.15rem; }
     .co-root .am-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 72ch; }
-    .co-root .am-step-dur { margin-top: 10px; font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+    .co-root .am-step-dur { margin-top: var(--space-title-lead); font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
     .am-step-dur i { color: var(--accent); }
 
     /* ── Encart différenciateurs ── */
-    .am-diff { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .am-diff { position: relative; margin-top: var(--space-block); padding: var(--pad-panel); background: var(--surface); border: 1px solid var(--line-2); }
     .am-diff-title { text-align: center; font-size: 1.25rem; }
     .am-diff-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px 32px; margin-top: 28px; }
     .am-diff-item { display: flex; align-items: flex-start; gap: 12px; }
@@ -613,7 +613,7 @@ const zones = [
     .co-root .am-diff-text { font-size: 14px; line-height: 1.5; color: var(--muted); }
 
     /* ── Investissement ── */
-    .am-pricenote { position: relative; display: flex; flex-direction: column; gap: 6px; margin-top: 32px; padding: 32px 34px; background: var(--surface); border: 1px solid var(--line-2); }
+    .am-pricenote { position: relative; display: flex; flex-direction: column; gap: 6px; margin-top: var(--space-block); padding: 32px 34px; background: var(--surface); border: 1px solid var(--line-2); }
     .am-pricenote-lead { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
     .am-pricenote-sub { font-size: 14.5px; }
     .am-pricenote-title { margin-top: 20px; font-size: 1.05rem; display: inline-flex; align-items: center; gap: 8px; }
@@ -623,7 +623,7 @@ const zones = [
     .am-cta-row { display: flex; justify-content: center; margin-top: 28px; }
 
     /* ── Ressources ── */
-    .am-res { position: relative; padding: 24px; background: var(--surface); border: 1px solid var(--line-2); }
+    .am-res { position: relative; padding: var(--pad-card); background: var(--surface); border: 1px solid var(--line-2); }
     .am-res-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
     .am-res-icon { font-size: 22px; color: var(--accent); flex: none; }
     .am-res-label { font-size: 1.05rem; }
@@ -652,16 +652,16 @@ const zones = [
     .am-faq details[open]::details-content { block-size: auto; }
 
     /* ── À propos ── */
-    .am-about { position: relative; display: flex; flex-direction: column; gap: 14px; margin-top: 32px; padding: 34px 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .am-about { position: relative; display: flex; flex-direction: column; gap: 14px; margin-top: var(--space-block); padding: 34px 36px; background: var(--surface); border: 1px solid var(--line-2); }
     .co-root .am-about-text { font-size: 15px; line-height: 1.65; color: var(--muted); max-width: 74ch; }
     .am-about-text strong { color: var(--ink); font-weight: 600; }
-    .am-about-link { margin-top: 8px; display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 600; color: var(--accent); }
+    .am-about-link { margin-top: var(--space-eyebrow); display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 600; color: var(--accent); }
     .am-about-link:hover { color: var(--ink); }
     .am-about-link i:last-child { transition: transform .18s ease-out; }
     .am-about-link:hover i:last-child { transform: translateX(3px); }
 
     /* ── Local ── */
-    .am-local-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 44px; margin-top: 32px; }
+    .am-local-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 44px; margin-top: var(--space-block); }
     .co-root .am-local-text { font-size: 15px; line-height: 1.65; color: var(--muted); }
     .co-root .am-local-text + .am-local-text { margin-top: 14px; }
     .am-local-h3 { font-size: 1.15rem; margin-bottom: 16px; }

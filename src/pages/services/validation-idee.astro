@@ -207,7 +207,7 @@ const zones = [
     <main class="co-root">
 
         <!-- ══ HERO ══ -->
-        <section class="co-sec co-pad co-hero vi-hero" style="padding:64px 40px 56px;">
+        <section class="co-sec co-pad co-hero vi-hero" style="padding:64px var(--sec-pad-x) var(--sec-pad-y);">
             <div class="vi-hero-grid">
                 <div class="vi-hero-copy">
                     <h1 class="vi-hero-title" data-animate data-delay="0.1">
@@ -252,10 +252,10 @@ const zones = [
         </section>
 
         <!-- ══ 01 · PROBLÈMES ══ -->
-        <section id="problemes" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="problemes" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">01 — Problèmes</p>
-            <h2 style="margin-top:8px;">Vous vous <span class="co-ser">reconnaissez ?</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Vous vous <span class="co-ser">reconnaissez ?</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:56ch;line-height:1.6;">
                 Ces situations sont plus courantes qu'on ne le croit.
             </p>
 
@@ -276,16 +276,16 @@ const zones = [
         </section>
 
         <!-- ══ 02 · MÉTHODE ══ -->
-        <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="methode" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">02 — Méthode</p>
-            <h2 style="margin-top:8px;">Comment ça se passe ?</h2>
-            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Comment ça se passe ?</h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 Une approche itérative qui minimise le risque et maximise l'apprentissage.
             </p>
 
             <!-- 3 phases -->
             <h3 class="vi-sub" style="margin-top:36px;">La méthode en 3 phases</h3>
-            <p class="co-mut" style="margin-top:8px;max-width:64ch;line-height:1.6;">
+            <p class="co-mut" style="margin-top:var(--space-eyebrow);max-width:64ch;line-height:1.6;">
                 La plupart des prestataires vous livrent une landing page et vous souhaitent bonne chance.
                 Ici, je procède par étapes — chaque phase nous apprend quelque chose avant de passer à la suivante.
             </p>
@@ -306,7 +306,7 @@ const zones = [
             </div>
 
             <!-- Processus concret -->
-            <h3 class="vi-sub" style="margin-top:44px;">Le processus concret</h3>
+            <h3 class="vi-sub" style="margin-top:var(--space-subsection);">Le processus concret</h3>
             <div class="vi-steps" data-animate-stagger>
                 {processSteps.map((step, index) => (
                     <div class="vi-step" data-animate-item>
@@ -338,9 +338,9 @@ const zones = [
         </section>
 
         <!-- ══ 03 · RÉSULTATS ══ -->
-        <section id="resultats" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="resultats" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">03 — Résultats</p>
-            <h2 style="margin-top:8px;">Ce que vous <span class="co-ser">obtenez.</span></h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Ce que vous <span class="co-ser">obtenez.</span></h2>
 
             <div class="vi-grid vi-grid--3" data-animate-stagger>
                 {results.map((result) => (
@@ -354,9 +354,9 @@ const zones = [
         </section>
 
         <!-- ══ 04 · HISTOIRE (pourquoi ce service) ══ -->
-        <section id="histoire" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="histoire" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">04 — Pourquoi ce service</p>
-            <h2 style="margin-top:8px;">Pourquoi je propose ce service</h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Pourquoi je propose ce service</h2>
 
             <div class="vi-story co-frame" data-animate>
                 <span class="co-x tl"></span><span class="co-x tr"></span>
@@ -382,9 +382,9 @@ const zones = [
         </section>
 
         <!-- ══ 05 · PRIX ══ -->
-        <section id="prix" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="prix" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">05 — Investissement</p>
-            <h2 style="margin-top:8px;">Un test qui coûte moins cher qu'un mois de <span class="co-ser">développement raté.</span></h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Un test qui coûte moins cher qu'un mois de <span class="co-ser">développement raté.</span></h2>
 
             <div class="vi-price co-frame" data-animate>
                 <span class="co-x tl"></span><span class="co-x tr"></span>
@@ -427,11 +427,11 @@ const zones = [
         </section>
 
         <!-- ══ 06 · FAQ (accordéon natif <details>, zéro JS) ══ -->
-        <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="faq" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">06 — FAQ</p>
-            <h2 style="margin-top:8px;">Questions fréquentes</h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes</h2>
 
-            <div class="vi-faq" style="margin-top:32px;">
+            <div class="vi-faq" style="margin-top:var(--space-block);">
                 {faqs.map((faq, index) => (
                     <details open={index === 0}>
                         <summary>
@@ -454,9 +454,9 @@ const zones = [
         </section>
 
         <!-- ══ 07 · LOCAL ══ -->
-        <section id="local" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="local" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">07 — Local</p>
-            <h2 style="margin-top:8px;">Basé à <span class="co-ser">Genève</span>, disponible partout en Suisse romande</h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Basé à <span class="co-ser">Genève</span>, disponible partout en Suisse romande</h2>
 
             <div class="vi-local-grid">
                 <div class="vi-local-copy" data-animate="fade-left">
@@ -526,18 +526,18 @@ const zones = [
     .vi-flow-node i { font-size: 30px; color: var(--accent); line-height: 1; }
     .vi-flow-node span { font-size: 13px; font-weight: 600; color: var(--ink); }
     .vi-flow-arrow { color: var(--line-2); font-size: 20px; flex: none; }
-    .vi-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: 8px 12px; font-size: 12px; font-weight: 600; }
+    .vi-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: var(--pad-pill); font-size: 12px; font-weight: 600; }
     .vi-badge--delai { top: -16px; right: -14px; display: flex; flex-direction: column; line-height: 1.1; background: var(--accent); border-color: var(--accent); color: #fff; }
     .vi-badge--delai b { font-size: 15px; }
     .vi-badge--delai span { font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; opacity: .85; }
     .vi-badge--prix { bottom: -16px; left: -14px; font-variant-numeric: tabular-nums; }
 
     /* ── Cartes génériques ── */
-    .vi-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .vi-grid { display: grid; gap: 16px; margin-top: var(--space-block); }
     .vi-grid--2 { grid-template-columns: repeat(2, 1fr); }
     .vi-grid--3 { grid-template-columns: repeat(3, 1fr); }
     .vi-card {
-        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
         background: var(--surface); border: 1px solid var(--line-2);
         transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
@@ -568,16 +568,16 @@ const zones = [
     .vi-step-num { font-size: 20px; font-weight: 600; }
     .vi-step-title { font-size: 1.15rem; }
     .co-root .vi-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
-    .co-root .vi-step-dur { margin-top: 10px; font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+    .co-root .vi-step-dur { margin-top: var(--space-title-lead); font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
     .vi-step-dur i { color: var(--accent); }
 
     /* ── Encart différenciateurs ── */
-    .vi-diff { position: relative; margin-top: 36px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .vi-diff { position: relative; margin-top: 36px; padding: var(--pad-panel); background: var(--surface); border: 1px solid var(--line-2); }
     .vi-diff-title { text-align: center; font-size: 1.25rem; }
     .vi-diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 28px; }
     .vi-diff-item { text-align: center; }
     .vi-diff-icon { font-size: 26px; color: var(--accent); }
-    .vi-diff-name { margin-top: 10px; font-size: 15px; font-weight: 600; }
+    .vi-diff-name { margin-top: var(--space-title-lead); font-size: 15px; font-weight: 600; }
     .co-root .vi-diff-desc { margin-top: 4px; font-size: 13px; line-height: 1.45; color: var(--muted); }
 
     /* ── Histoire ── */
@@ -590,14 +590,14 @@ const zones = [
     .vi-story-link { margin-top: 28px !important; padding-top: 22px; border-top: 1px solid var(--line); }
 
     /* ── Prix ── */
-    .vi-price { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .vi-price { position: relative; margin-top: var(--space-block); padding: var(--pad-panel); background: var(--surface); border: 1px solid var(--line-2); }
     .vi-price-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; text-align: center; }
     .vi-price-item { display: flex; flex-direction: column; gap: 8px; }
     .vi-price-label { font-size: 13px; color: var(--muted); }
     .vi-price-value { font-size: 1.9rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; }
     .vi-price-sub { font-size: 12px; color: var(--muted); }
 
-    .vi-pricenote { position: relative; margin-top: 20px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .vi-pricenote { position: relative; margin-top: 20px; padding: var(--pad-encart); background: var(--surface); border: 1px solid var(--line-2); }
     .vi-pricenote-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
     .vi-pricenote-title i { color: var(--accent); }
     .vi-pricenote-list { margin-top: 16px; gap: 8px; }
@@ -625,7 +625,7 @@ const zones = [
     .vi-faq details[open]::details-content { block-size: auto; }
 
     /* ── Local ── */
-    .vi-local-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; margin-top: 32px; }
+    .vi-local-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; margin-top: var(--space-block); }
     .vi-local-copy { display: flex; flex-direction: column; gap: 14px; }
     .co-root .vi-local-copy p { font-size: 15px; line-height: 1.65; color: var(--muted); }
     .vi-local-h3 { font-size: 1.15rem; margin-bottom: 18px; }

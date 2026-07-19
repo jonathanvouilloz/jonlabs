@@ -259,7 +259,7 @@ const budgetOptions = [
     <main class="co-root">
 
         <!-- ══ HERO ══ -->
-        <section class="co-sec co-pad co-hero cr-hero" style="padding:64px 40px 56px;">
+        <section class="co-sec co-pad co-hero cr-hero" style="padding:64px var(--sec-pad-x) var(--sec-pad-y);">
             <div class="cr-hero-grid">
                 <div class="cr-hero-copy">
                     <h1 class="cr-hero-title" data-animate data-delay="0.1">
@@ -300,10 +300,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 01 · PROBLÈMES ══ -->
-        <section id="problemes" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="problemes" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">01 — Problèmes</p>
-            <h2 style="margin-top:8px;">Vous vous <span class="co-ser">reconnaissez ?</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Vous vous <span class="co-ser">reconnaissez ?</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:56ch;line-height:1.6;">
                 Ce sont les situations que rencontrent la plupart de mes clients avant de travailler ensemble.
             </p>
 
@@ -334,10 +334,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 02 · MÉTHODE ══ -->
-        <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="methode" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">02 — Méthode</p>
-            <h2 style="margin-top:8px;">Comment ça se passe ?</h2>
-            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Comment ça se passe ?</h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 Pas de tunnel de développement interminable. Un processus clair, des validations régulières,
                 un site en ligne en <strong>3-4 semaines</strong>.
             </p>
@@ -372,9 +372,9 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 03 · RÉSULTATS ══ -->
-        <section id="resultats" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="resultats" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">03 — Résultats</p>
-            <h2 style="margin-top:8px;">Ce que vous <span class="co-ser">obtenez.</span></h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Ce que vous <span class="co-ser">obtenez.</span></h2>
 
             <div class="cr-grid cr-grid--3" data-animate-stagger>
                 {results.map((result) => (
@@ -413,10 +413,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 04 · TECHNOLOGIE ══ -->
-        <section id="technologie" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="technologie" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">04 — Sous le capot</p>
-            <h2 style="margin-top:8px;">Technologie moderne</h2>
-            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Technologie moderne</h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 Pas de solution unique pour tous. <strong>Je choisis l'outil adapté à votre projet</strong> —
                 simplicité, flexibilité ou performance.
             </p>
@@ -439,10 +439,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 05 · PRIX ══ -->
-        <section id="prix" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="prix" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">05 — Investissement</p>
-            <h2 style="margin-top:8px;">Des tarifs <span class="co-ser">clairs.</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:52ch;">Adaptés à la taille de votre projet. Pas de mauvaise surprise.</p>
+            <h2 style="margin-top:var(--space-eyebrow);">Des tarifs <span class="co-ser">clairs.</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:52ch;">Adaptés à la taille de votre projet. Pas de mauvaise surprise.</p>
 
             <div class="cr-tiers" data-animate-stagger>
                 {pricingPlans.map((plan) => (
@@ -488,11 +488,11 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 06 · FAQ (accordéon natif <details>, zéro JS) ══ -->
-        <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="faq" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">06 — FAQ</p>
-            <h2 style="margin-top:8px;">Questions fréquentes</h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes</h2>
 
-            <div class="cr-faq" style="margin-top:32px;">
+            <div class="cr-faq" style="margin-top:var(--space-block);">
                 {faqs.map((faq, index) => (
                     <details open={index === 0}>
                         <summary>
@@ -510,9 +510,9 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 07 · LOCAL (SEO géo) ══ -->
-        <section id="local" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="local" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">07 — Local</p>
-            <h2 style="margin-top:8px;">Un prestataire à <span class="co-ser">Genève</span>, ça change quoi ?</h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Un prestataire à <span class="co-ser">Genève</span>, ça change quoi ?</h2>
 
             <div class="cr-local-grid">
                 <div data-animate="fade-left">
@@ -551,7 +551,7 @@ const budgetOptions = [
             <!-- Maillage géo : pages dédiées par ville -->
             <div class="cr-geo" data-animate>
                 <p class="co-eyebrow" style="text-align:center;">Création de site web par ville</p>
-                <p class="co-mut" style="text-align:center;margin-top:8px;">Pages dédiées pour Genève et la zone frontalière française :</p>
+                <p class="co-mut" style="text-align:center;margin-top:var(--space-eyebrow);">Pages dédiées pour Genève et la zone frontalière française :</p>
                 <div class="cr-geo-links">
                     <a href="/developpeur-web-freelance-geneve" class="cr-geo-link cr-geo-link--primary">
                         <i class="ri-map-pin-fill"></i> Développeur web à Genève
@@ -566,10 +566,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 08 · RESSOURCES ══ -->
-        <section id="ressources" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="ressources" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">08 — Ressources</p>
-            <h2 style="margin-top:8px;">Tout comprendre avant de lancer ton site</h2>
-            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Tout comprendre avant de lancer ton site</h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
                 Avant de demander un devis, fais-toi ton propre avis. J'ai écrit des guides détaillés sur la
                 création de site web en Suisse romande — commence par
                 <a href="/blog/prix-site-web-suisse-2026" class="cr-inline">combien coûte vraiment un site web</a>.
@@ -600,10 +600,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 09 · CONTACT (formulaire Web3Forms — HARD-PRESERVE câblage) ══ -->
-        <section id="contact" class="co-sec co-pad" style="padding:64px 40px;">
+        <section id="contact" class="co-sec co-pad" style="padding:64px var(--sec-pad-x);">
             <p class="co-eyebrow">09 — Contact</p>
-            <h2 style="margin-top:8px;">Prêt à lancer votre <span class="co-ser">site ?</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Prêt à lancer votre <span class="co-ser">site ?</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 Premier échange gratuit et sans engagement. Je discute de votre projet avec vous, je vous donne
                 mon avis honnête, vous décidez ensuite.
             </p>
@@ -732,18 +732,18 @@ const budgetOptions = [
     .cr-browser-dot { width: 9px; height: 9px; border-radius: 999px; background: var(--line-2); flex: none; }
     .cr-browser-url { flex: 1; text-align: center; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
     .cr-browser-img { display: block; width: 100%; height: auto; }
-    .cr-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: 8px 12px; font-size: 12px; font-weight: 600; }
+    .cr-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: var(--pad-pill); font-size: 12px; font-weight: 600; }
     .cr-badge--score { top: -16px; left: -14px; display: flex; flex-direction: column; line-height: 1.1; }
     .cr-badge--score b { color: var(--accent); font-size: 15px; }
     .cr-badge--score span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
     .cr-badge--speed { bottom: -16px; right: -14px; background: var(--accent); border-color: var(--accent); color: #fff; }
 
     /* ── Cartes génériques (problèmes / résultats / tech) ── */
-    .cr-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .cr-grid { display: grid; gap: 16px; margin-top: var(--space-block); }
     .cr-grid--2 { grid-template-columns: repeat(2, 1fr); }
     .cr-grid--3 { grid-template-columns: repeat(3, 1fr); }
     .cr-card {
-        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
         background: var(--surface); border: 1px solid var(--line-2);
         transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
@@ -764,21 +764,21 @@ const budgetOptions = [
     .cr-note strong, .cr-note-inline strong { color: var(--ink); font-weight: 600; }
 
     /* ── Étapes méthode ── */
-    .cr-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+    .cr-steps { display: flex; flex-direction: column; margin-top: var(--space-block); border-top: 1px solid var(--line); }
     .cr-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
     .cr-step-num { font-size: 20px; font-weight: 600; }
     .cr-step-title { font-size: 1.15rem; }
     .co-root .cr-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
-    .co-root .cr-step-dur { margin-top: 10px; font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+    .co-root .cr-step-dur { margin-top: var(--space-title-lead); font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
     .cr-step-dur i { color: var(--accent); }
 
     /* ── Encart différenciateurs ── */
-    .cr-diff { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .cr-diff { position: relative; margin-top: var(--space-block); padding: var(--pad-panel); background: var(--surface); border: 1px solid var(--line-2); }
     .cr-diff-title { text-align: center; font-size: 1.25rem; }
     .cr-diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 28px; }
     .cr-diff-item { text-align: center; }
     .cr-diff-icon { font-size: 26px; color: var(--accent); }
-    .cr-diff-name { margin-top: 10px; font-size: 15px; font-weight: 600; }
+    .cr-diff-name { margin-top: var(--space-title-lead); font-size: 15px; font-weight: 600; }
     .co-root .cr-diff-desc { margin-top: 4px; font-size: 13px; line-height: 1.45; color: var(--muted); }
 
     /* ── Citation ── */
@@ -801,7 +801,7 @@ const budgetOptions = [
     .co-root .cr-tier-ideal { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; line-height: 1.5; color: var(--muted); }
     .cr-tier-ideal strong { color: var(--ink); }
 
-    .cr-pricenote { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .cr-pricenote { position: relative; margin-top: 28px; padding: var(--pad-encart); background: var(--surface); border: 1px solid var(--line-2); }
     .cr-pricenote-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
     .cr-pricenote-title i { color: var(--accent); }
     .cr-pricenote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 40px; margin-top: 18px; }
@@ -828,7 +828,7 @@ const budgetOptions = [
     .cr-faq details[open]::details-content { block-size: auto; }
 
     /* ── Local ── */
-    .cr-local-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; margin-top: 32px; }
+    .cr-local-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; margin-top: var(--space-block); }
     .cr-local-h3 { font-size: 1.15rem; margin-bottom: 18px; }
     .cr-local-adv { display: flex; flex-direction: column; gap: 12px; }
     .cr-local-item { position: relative; display: flex; align-items: flex-start; gap: 14px; padding: 18px; background: var(--surface); border: 1px solid var(--line-2); }
@@ -841,7 +841,7 @@ const budgetOptions = [
     .cr-zone--primary { border-color: var(--accent); background: rgba(0,168,125,0.05); }
     .cr-zone--primary i { color: var(--accent); }
 
-    .cr-geo { margin-top: 44px; }
+    .cr-geo { margin-top: var(--space-subsection); }
     .cr-geo-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 18px; }
     .cr-geo-link {
         display: inline-flex; align-items: center; gap: 7px; padding: 9px 15px;
@@ -855,7 +855,7 @@ const budgetOptions = [
     .cr-geo-link--primary i { color: var(--accent); }
 
     /* ── Ressources ── */
-    .cr-res { position: relative; padding: 24px; background: var(--surface); border: 1px solid var(--line-2); }
+    .cr-res { position: relative; padding: var(--pad-card); background: var(--surface); border: 1px solid var(--line-2); }
     .cr-res-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
     .cr-res-icon { font-size: 22px; color: var(--accent); flex: none; }
     .cr-res-label { font-size: 1.05rem; }
@@ -866,7 +866,7 @@ const budgetOptions = [
     .cr-res-link:hover i { transform: translateX(3px); }
 
     /* ── Formulaire (Web3Forms restylé, câblage préservé) ── */
-    .cr-form { position: relative; margin-top: 32px; padding: 34px; background: var(--surface); border: 1px solid var(--line-2); }
+    .cr-form { position: relative; margin-top: var(--space-block); padding: 34px; background: var(--surface); border: 1px solid var(--line-2); }
     .cr-form-title { font-size: 1.25rem; text-align: left; margin-bottom: 22px; }
     .cr-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .cr-field { display: flex; flex-direction: column; gap: 8px; }
@@ -876,7 +876,7 @@ const budgetOptions = [
     .cr-req { color: var(--accent); }
     .cr-input, .cr-select, .cr-textarea {
         width: 100%; font-family: "Inter Tight", ui-sans-serif, sans-serif; font-size: 15px; color: var(--ink);
-        background: var(--bg); border: 1px solid var(--line-2); padding: 12px 14px;
+        background: var(--bg); border: 1px solid var(--line-2); padding: var(--pad-chip);
         transition: border-color .18s ease-out, box-shadow .18s ease-out;
     }
     .cr-input::placeholder, .cr-textarea::placeholder { color: var(--muted); opacity: .7; }

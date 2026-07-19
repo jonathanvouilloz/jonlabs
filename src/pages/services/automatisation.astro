@@ -321,7 +321,7 @@ const otherUseCases = useCases.slice(1);
     <main class="co-root">
 
         <!-- ══ HERO ══ -->
-        <section class="co-sec co-pad co-hero au-hero" style="padding:64px 40px 56px;">
+        <section class="co-sec co-pad co-hero au-hero" style="padding:64px var(--sec-pad-x) var(--sec-pad-y);">
             <div class="au-hero-grid">
                 <div class="au-hero-copy">
                     <h1 class="au-hero-title" data-animate data-delay="0.1">
@@ -353,10 +353,10 @@ const otherUseCases = useCases.slice(1);
         </section>
 
         <!-- ══ 01 · PROBLÈMES ══ -->
-        <section id="problemes" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="problemes" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">01 — Problèmes</p>
-            <h2 style="margin-top:8px;">Combien d'heures vous <span class="co-ser">perdez</span> là-dessus ?</h2>
-            <p class="co-mut" style="margin-top:10px;max-width:58ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Combien d'heures vous <span class="co-ser">perdez</span> là-dessus ?</h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:58ch;line-height:1.6;">
                 En moyenne, un entrepreneur suisse passe <strong>40% de son temps</strong> sur des tâches
                 administratives répétitives. Faites le calcul.
             </p>
@@ -382,10 +382,10 @@ const otherUseCases = useCases.slice(1);
         </section>
 
         <!-- ══ 02 · MÉTHODE ══ -->
-        <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="methode" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">02 — Méthode</p>
-            <h2 style="margin-top:8px;">Comment on vous rend vos <span class="co-ser">heures ?</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Comment on vous rend vos <span class="co-ser">heures ?</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 On identifie ce qui vous prend du temps, et on le fait disparaître de votre quotidien.
             </p>
 
@@ -433,9 +433,9 @@ const otherUseCases = useCases.slice(1);
         </section>
 
         <!-- ══ 03 · RÉSULTATS ══ -->
-        <section id="resultats" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="resultats" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">03 — Résultats</p>
-            <h2 style="margin-top:8px;">Ce que vous <span class="co-ser">récupérez.</span></h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Ce que vous <span class="co-ser">récupérez.</span></h2>
 
             <div class="au-grid au-grid--3" data-animate-stagger>
                 {results.map((result) => (
@@ -466,10 +466,10 @@ const otherUseCases = useCases.slice(1);
         </section>
 
         <!-- ══ 04 · CAS D'USAGE ══ -->
-        <section id="cas-usage" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="cas-usage" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">04 — Cas d'usage</p>
-            <h2 style="margin-top:8px;">Ce qu'on automatise le plus <span class="co-ser">souvent.</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Ce qu'on automatise le plus <span class="co-ser">souvent.</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 Des exemples concrets d'automatisation de tâches, adaptés au marché suisse romand.
             </p>
 
@@ -520,10 +520,10 @@ const otherUseCases = useCases.slice(1);
         </section>
 
         <!-- ══ 05 · OUTILS ══ -->
-        <section id="outils" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="outils" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">05 — Outils</p>
-            <h2 style="margin-top:8px;">Les outils que <span class="co-ser">j'utilise.</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Les outils que <span class="co-ser">j'utilise.</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:56ch;line-height:1.6;">
                 La technique est mon problème, pas le vôtre.
             </p>
 
@@ -547,10 +547,10 @@ const otherUseCases = useCases.slice(1);
         </section>
 
         <!-- ══ 06 · LOCAL (SEO géo) ══ -->
-        <section id="local" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="local" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">06 — Local</p>
-            <h2 style="margin-top:8px;">PME &amp; indépendants en <span class="co-ser">Suisse romande.</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">PME &amp; indépendants en <span class="co-ser">Suisse romande.</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 Des solutions adaptées au contexte local genevois et romand.
             </p>
 
@@ -562,7 +562,7 @@ const otherUseCases = useCases.slice(1);
                 <p>Je connais ce contexte parce que j'y travaille tous les jours. Les automatisations que je mets en place tiennent compte de ces réalités — pas besoin de m'expliquer ce qu'est un BVR ou pourquoi TWINT c'est important.</p>
             </div>
 
-            <p class="co-eyebrow" style="margin-top:44px;">Exemples d'automatisation par secteur</p>
+            <p class="co-eyebrow" style="margin-top:var(--space-subsection);">Exemples d'automatisation par secteur</p>
             <div class="au-grid au-grid--3" style="margin-top:20px;" data-animate-stagger>
                 {localSectors.map((sector) => (
                     <div class="au-card co-frame co-frame--reveal" data-animate-item>
@@ -607,10 +607,10 @@ const otherUseCases = useCases.slice(1);
         </section>
 
         <!-- ══ 07 · INVESTISSEMENT ══ -->
-        <section id="prix" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="prix" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">07 — Investissement</p>
-            <h2 style="margin-top:8px;">Des tarifs <span class="co-ser">sur mesure.</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:52ch;">Chaque besoin est différent. Le devis aussi.</p>
+            <h2 style="margin-top:var(--space-eyebrow);">Des tarifs <span class="co-ser">sur mesure.</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:52ch;">Chaque besoin est différent. Le devis aussi.</p>
 
             <div class="au-pricenote co-frame" data-animate>
                 <span class="co-x tl"></span><span class="co-x tr"></span>
@@ -664,11 +664,11 @@ const otherUseCases = useCases.slice(1);
         </section>
 
         <!-- ══ 08 · FAQ (accordéon natif <details>, zéro JS) ══ -->
-        <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="faq" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">08 — FAQ</p>
-            <h2 style="margin-top:8px;">Questions fréquentes sur l'automatisation de tâches</h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes sur l'automatisation de tâches</h2>
 
-            <div class="au-faq" style="margin-top:32px;">
+            <div class="au-faq" style="margin-top:var(--space-block);">
                 {faqs.map((faq, index) => (
                     <details open={index === 0}>
                         <summary>
@@ -686,10 +686,10 @@ const otherUseCases = useCases.slice(1);
         </section>
 
         <!-- ══ 09 · CONTACT (formulaire Web3Forms — HARD-PRESERVE câblage) ══ -->
-        <section id="contact" class="co-sec co-pad" style="padding:64px 40px;">
+        <section id="contact" class="co-sec co-pad" style="padding:64px var(--sec-pad-x);">
             <p class="co-eyebrow">09 — Contact</p>
-            <h2 style="margin-top:8px;">Récupérez vos heures <span class="co-ser">perdues.</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Récupérez vos heures <span class="co-ser">perdues.</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
                 Chaque semaine, vous passez entre 5 et 10 heures sur des tâches répétitives qu'une machine pourrait
                 faire à votre place. Ce temps, vous pourriez le passer sur votre métier, vos clients, ou simplement
                 rentrer plus tôt chez vous.
@@ -801,14 +801,14 @@ const otherUseCases = useCases.slice(1);
     .au-shot { position: relative; background: var(--surface); border: 1px solid var(--line-2); padding: 14px; }
     .au-shot-img { display: block; width: 100%; height: auto; }
     .au-badge-float { position: absolute; bottom: -16px; right: -14px; z-index: 4; background: var(--accent); border: 1px solid var(--accent); color: #fff; padding: 8px 14px; font-size: 13px; font-weight: 600; }
-    .au-method-media { margin-top: 32px; max-width: 760px; }
+    .au-method-media { margin-top: var(--space-block); max-width: 760px; }
 
     /* ── Cartes génériques (problèmes / résultats / tech / secteurs) ── */
-    .au-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .au-grid { display: grid; gap: 16px; margin-top: var(--space-block); }
     .au-grid--2 { grid-template-columns: repeat(2, 1fr); }
     .au-grid--3 { grid-template-columns: repeat(3, 1fr); }
     .au-card {
-        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
         background: var(--surface); border: 1px solid var(--line-2);
         transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
@@ -831,17 +831,17 @@ const otherUseCases = useCases.slice(1);
     .au-note strong, .au-note-inline strong { color: var(--ink); font-weight: 600; }
 
     /* ── Étapes méthode ── */
-    .au-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+    .au-steps { display: flex; flex-direction: column; margin-top: var(--space-block); border-top: 1px solid var(--line); }
     .au-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
     .au-step-num { font-size: 20px; font-weight: 600; }
     .au-step-title { font-size: 1.15rem; }
     .co-root .au-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
-    .au-step-meta { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: 10px; }
+    .au-step-meta { display: flex; flex-wrap: wrap; gap: 8px 20px; margin-top: var(--space-title-lead); }
     .co-root .au-step-tag { font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
     .au-step-tag i { color: var(--accent); }
 
     /* ── Comparaison (connexion vs automatisation) ── */
-    .au-cmp { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .au-cmp { position: relative; margin-top: var(--space-block); padding: var(--pad-panel); background: var(--surface); border: 1px solid var(--line-2); }
     .au-cmp-title { font-size: 1.25rem; display: inline-flex; align-items: center; gap: 8px; }
     .au-cmp-title i { color: var(--accent); }
     .au-cmp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 24px; }
@@ -853,18 +853,18 @@ const otherUseCases = useCases.slice(1);
     .au-cmp-concl strong { color: var(--ink); }
 
     /* ── Stats / figures ── */
-    .au-stats { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .au-stats { position: relative; margin-top: 28px; padding: var(--pad-encart); background: var(--surface); border: 1px solid var(--line-2); }
     .au-stats-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
     .au-stats-title i { color: var(--accent); }
     .au-stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 18px; }
     .au-figure { padding: 18px; background: var(--bg); border: 1px solid var(--line); }
     .au-figure b { display: block; font-size: 1.8rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; color: var(--ink); }
-    .co-root .au-figure p { margin-top: 10px; font-size: 13px; line-height: 1.5; color: var(--muted); }
+    .co-root .au-figure p { margin-top: var(--space-title-lead); font-size: 13px; line-height: 1.5; color: var(--muted); }
     .au-figure-src { color: var(--muted); opacity: .7; }
     .co-root .au-stats-concl { margin-top: 16px; font-size: 14.5px; line-height: 1.6; color: var(--muted); text-align: center; }
 
     /* ── Cas d'usage ── */
-    .au-uc-featured { position: relative; margin-top: 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .au-uc-featured { position: relative; margin-top: var(--space-block); background: var(--surface); border: 1px solid var(--line-2); }
     .au-uc-head { display: flex; align-items: center; gap: 12px; padding: 20px 28px; border-bottom: 1px solid var(--line); }
     .au-uc-head i { font-size: 24px; color: var(--accent); flex: none; }
     .au-uc-head h3 { font-size: 1.2rem; }
@@ -879,7 +879,7 @@ const otherUseCases = useCases.slice(1);
     .co-root .au-uc-p { font-size: 14px; line-height: 1.55; color: var(--muted); }
 
     .au-uc {
-        position: relative; display: flex; flex-direction: column; gap: 12px; padding: 24px;
+        position: relative; display: flex; flex-direction: column; gap: 12px; padding: var(--pad-card);
         background: var(--surface); border: 1px solid var(--line-2);
         transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
@@ -896,11 +896,11 @@ const otherUseCases = useCases.slice(1);
     .au-uc-link:hover i { transform: translateX(3px); }
 
     /* ── Local ── */
-    .au-why { position: relative; margin-top: 32px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 14px; }
+    .au-why { position: relative; margin-top: var(--space-block); padding: var(--pad-encart); background: var(--surface); border: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 14px; }
     .au-why h3 { font-size: 1.2rem; }
     .co-root .au-why p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
 
-    .au-local-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 32px; }
+    .au-local-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: var(--space-block); }
     .au-roi { position: relative; padding: 28px; background: var(--surface); border: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 14px; }
     .au-roi h3 { font-size: 1.15rem; }
     .au-roi-fig { display: flex; flex-direction: column; gap: 8px; padding: 18px; background: var(--bg); border: 1px solid var(--line); }
@@ -917,7 +917,7 @@ const otherUseCases = useCases.slice(1);
     .au-zone-sub { color: var(--muted); font-size: 12.5px; font-weight: 400; }
 
     /* ── Investissement ── */
-    .au-pricenote { position: relative; margin-top: 32px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .au-pricenote { position: relative; margin-top: var(--space-block); padding: var(--pad-encart); background: var(--surface); border: 1px solid var(--line-2); }
     .au-pricenote-title { font-size: 1.15rem; }
     .co-root .au-pricenote-lead { margin-top: 12px; font-size: 14.5px; line-height: 1.6; color: var(--muted); }
     .au-pricenote-lead strong { color: var(--ink); }
@@ -951,7 +951,7 @@ const otherUseCases = useCases.slice(1);
     .au-faq details[open]::details-content { block-size: auto; }
 
     /* ── Formulaire (Web3Forms restylé, câblage préservé) ── */
-    .au-form { position: relative; margin-top: 32px; padding: 34px; background: var(--surface); border: 1px solid var(--line-2); }
+    .au-form { position: relative; margin-top: var(--space-block); padding: 34px; background: var(--surface); border: 1px solid var(--line-2); }
     .au-form-title { font-size: 1.25rem; text-align: left; margin-bottom: 22px; }
     .au-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .au-field { display: flex; flex-direction: column; gap: 8px; }
@@ -961,7 +961,7 @@ const otherUseCases = useCases.slice(1);
     .au-req { color: var(--accent); }
     .au-input, .au-select, .au-textarea {
         width: 100%; font-family: "Inter Tight", ui-sans-serif, sans-serif; font-size: 15px; color: var(--ink);
-        background: var(--bg); border: 1px solid var(--line-2); padding: 12px 14px;
+        background: var(--bg); border: 1px solid var(--line-2); padding: var(--pad-chip);
         transition: border-color .18s ease-out, box-shadow .18s ease-out;
     }
     .au-input::placeholder, .au-textarea::placeholder { color: var(--muted); opacity: .7; }

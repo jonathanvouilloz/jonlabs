@@ -285,7 +285,7 @@ const budgetOptions = [
     <main class="co-root">
 
         <!-- ══ HERO ══ -->
-        <section class="co-sec co-pad co-hero wp-hero" style="padding:64px 40px 56px;">
+        <section class="co-sec co-pad co-hero wp-hero" style="padding:64px var(--sec-pad-x) var(--sec-pad-y);">
             <div class="wp-hero-inner">
                 <h1 class="wp-hero-title" data-animate data-delay="0.1">
                     Freelance WordPress à <span class="co-ser">Genève.</span>
@@ -325,10 +325,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 01 · PROBLÈMES ══ -->
-        <section id="problemes" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="problemes" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">01 — Problèmes</p>
-            <h2 style="margin-top:8px;">Votre WordPress vous <span class="co-ser">fait ça ?</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Votre WordPress vous <span class="co-ser">fait ça ?</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 Quatre situations que je retrouve chez la plupart des PME romandes qui me contactent.
             </p>
 
@@ -349,10 +349,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 02 · PRESTATIONS (3 trajectoires) ══ -->
-        <section id="prestations" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="prestations" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">02 — Prestations</p>
-            <h2 style="margin-top:8px;">Trois trajectoires pour votre site <span class="co-ser">WordPress.</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Trois trajectoires pour votre site <span class="co-ser">WordPress.</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
                 Créer proprement, refaire ce qui rame, ou migrer vers du moderne.
                 <strong>L'audit gratuit détermine la bonne trajectoire</strong> — pas mes préférences.
             </p>
@@ -388,10 +388,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 03 · MÉTHODE ══ -->
-        <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="methode" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">03 — Méthode</p>
-            <h2 style="margin-top:8px;">Comment ça se passe ?</h2>
-            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Comment ça se passe ?</h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 Tout commence par un <strong>audit gratuit</strong> de votre site WordPress. Votre site reste
                 en ligne pendant tout le chantier.
             </p>
@@ -434,10 +434,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 04 · INVESTISSEMENT (prix) ══ -->
-        <section id="prix" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="prix" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">04 — Investissement</p>
-            <h2 style="margin-top:8px;">Combien coûte un freelance <span class="co-ser">WordPress ?</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Combien coûte un freelance <span class="co-ser">WordPress ?</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 Des fourchettes claires en CHF, un devis ferme après l'audit. Aucun concurrent romand n'affiche
                 ses prix — moi, oui.
             </p>
@@ -485,11 +485,11 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 05 · FAQ (accordéon natif <details>, zéro JS) ══ -->
-        <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="faq" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">05 — FAQ</p>
-            <h2 style="margin-top:8px;">Questions fréquentes</h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes</h2>
 
-            <div class="wp-faq" style="margin-top:32px;">
+            <div class="wp-faq" style="margin-top:var(--space-block);">
                 {faqs.map((faq, index) => (
                     <details open={index === 0}>
                         <summary>
@@ -508,9 +508,9 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 06 · LOCAL (SEO géo) ══ -->
-        <section id="local" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="local" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">06 — Local</p>
-            <h2 style="margin-top:8px;">Un freelance WordPress à <span class="co-ser">Genève</span>, ça change quoi ?</h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Un freelance WordPress à <span class="co-ser">Genève</span>, ça change quoi ?</h2>
 
             <div class="wp-local-grid">
                 <div data-animate="fade-left">
@@ -556,10 +556,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 07 · CONTACT (formulaire Web3Forms — HARD-PRESERVE câblage) ══ -->
-        <section id="contact" class="co-sec co-pad" style="padding:64px 40px;">
+        <section id="contact" class="co-sec co-pad" style="padding:64px var(--sec-pad-x);">
             <p class="co-eyebrow">07 — Contact</p>
-            <h2 style="margin-top:8px;">On regarde votre site WordPress <span class="co-ser">ensemble ?</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">On regarde votre site WordPress <span class="co-ser">ensemble ?</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
                 Audit gratuit sous 48h : vitesse, sécurité, structure, référencement. Vous recevez un diagnostic
                 clair — et mon avis honnête sur la suite.
             </p>
@@ -689,17 +689,17 @@ const budgetOptions = [
     .wp-browser-dot { width: 9px; height: 9px; border-radius: 999px; background: var(--line-2); flex: none; }
     .wp-browser-url { flex: 1; text-align: center; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
     .wp-browser-img { display: block; width: 100%; height: auto; }
-    .wp-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: 8px 12px; font-size: 12px; font-weight: 600; }
+    .wp-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: var(--pad-pill); font-size: 12px; font-weight: 600; }
     .wp-badge--score { top: -16px; left: -14px; display: flex; flex-direction: column; line-height: 1.1; }
     .wp-badge--score b { color: var(--accent); font-size: 15px; }
     .wp-badge--score span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
     .wp-badge--speed { bottom: -16px; right: -14px; background: var(--accent); border-color: var(--accent); color: #fff; }
 
     /* ── Cartes génériques (problèmes) ── */
-    .wp-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .wp-grid { display: grid; gap: 16px; margin-top: var(--space-block); }
     .wp-grid--2 { grid-template-columns: repeat(2, 1fr); }
     .wp-card {
-        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
         background: var(--surface); border: 1px solid var(--line-2);
         transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
@@ -732,21 +732,21 @@ const budgetOptions = [
     .wp-intent-body .co-list--check li { font-size: 14px; line-height: 1.5; }
 
     /* ── Étapes méthode ── */
-    .wp-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+    .wp-steps { display: flex; flex-direction: column; margin-top: var(--space-block); border-top: 1px solid var(--line); }
     .wp-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
     .wp-step-num { font-size: 20px; font-weight: 600; }
     .wp-step-title { font-size: 1.15rem; }
     .co-root .wp-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
-    .co-root .wp-step-dur { margin-top: 10px; font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+    .co-root .wp-step-dur { margin-top: var(--space-title-lead); font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
     .wp-step-dur i { color: var(--accent); }
 
     /* ── Encart différenciateurs ── */
-    .wp-diff { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .wp-diff { position: relative; margin-top: var(--space-block); padding: var(--pad-panel); background: var(--surface); border: 1px solid var(--line-2); }
     .wp-diff-title { text-align: center; font-size: 1.25rem; }
     .wp-diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 28px; }
     .wp-diff-item { text-align: center; }
     .wp-diff-icon { font-size: 26px; color: var(--accent); }
-    .wp-diff-name { margin-top: 10px; font-size: 15px; font-weight: 600; }
+    .wp-diff-name { margin-top: var(--space-title-lead); font-size: 15px; font-weight: 600; }
     .co-root .wp-diff-desc { margin-top: 4px; font-size: 13px; line-height: 1.45; color: var(--muted); }
 
     /* ── Tarifs ── */
@@ -764,7 +764,7 @@ const budgetOptions = [
     .co-root .wp-tier-ideal { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; line-height: 1.5; color: var(--muted); }
     .wp-tier-ideal strong { color: var(--ink); }
 
-    .wp-pricenote { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .wp-pricenote { position: relative; margin-top: 28px; padding: var(--pad-encart); background: var(--surface); border: 1px solid var(--line-2); }
     .wp-pricenote-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
     .wp-pricenote-title i { color: var(--accent); }
     .wp-pricenote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 40px; margin-top: 18px; }
@@ -789,7 +789,7 @@ const budgetOptions = [
     .wp-faq details[open]::details-content { block-size: auto; }
 
     /* ── Local ── */
-    .wp-local-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; margin-top: 32px; }
+    .wp-local-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; margin-top: var(--space-block); }
     .wp-local-h3 { font-size: 1.15rem; margin-bottom: 18px; }
     .wp-local-adv { display: flex; flex-direction: column; gap: 12px; }
     .wp-local-item { position: relative; display: flex; align-items: flex-start; gap: 14px; padding: 18px; background: var(--surface); border: 1px solid var(--line-2); }
@@ -803,7 +803,7 @@ const budgetOptions = [
     .wp-zone--primary i { color: var(--accent); }
 
     /* ── Formulaire (Web3Forms restylé, câblage préservé) ── */
-    .wp-form { position: relative; margin-top: 32px; padding: 34px; background: var(--surface); border: 1px solid var(--line-2); }
+    .wp-form { position: relative; margin-top: var(--space-block); padding: 34px; background: var(--surface); border: 1px solid var(--line-2); }
     .wp-form-title { font-size: 1.25rem; text-align: left; margin-bottom: 22px; }
     .wp-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .wp-field { display: flex; flex-direction: column; gap: 8px; }
@@ -813,7 +813,7 @@ const budgetOptions = [
     .wp-req { color: var(--accent); }
     .wp-input, .wp-select, .wp-textarea {
         width: 100%; font-family: "Inter Tight", ui-sans-serif, sans-serif; font-size: 15px; color: var(--ink);
-        background: var(--bg); border: 1px solid var(--line-2); padding: 12px 14px;
+        background: var(--bg); border: 1px solid var(--line-2); padding: var(--pad-chip);
         transition: border-color .18s ease-out, box-shadow .18s ease-out;
     }
     .wp-input::placeholder, .wp-textarea::placeholder { color: var(--muted); opacity: .7; }

@@ -315,7 +315,7 @@ const needOptions = [
     <main class="co-root">
 
         <!-- ══ HERO ══ -->
-        <section class="co-sec co-pad co-hero rf-hero" style="padding:64px 40px 56px;">
+        <section class="co-sec co-pad co-hero rf-hero" style="padding:64px var(--sec-pad-x) var(--sec-pad-y);">
             <div class="rf-hero-grid">
                 <div class="rf-hero-copy">
                     <h1 class="rf-hero-title" data-animate data-delay="0.1">
@@ -355,10 +355,10 @@ const needOptions = [
         </section>
 
         <!-- ══ 01 · PROBLÈMES ══ -->
-        <section id="problemes" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="problemes" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">01 — Problèmes</p>
-            <h2 style="margin-top:8px;">Votre site vous fait <span class="co-ser">perdre des clients</span> au lieu d'en gagner ?</h2>
-            <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Votre site vous fait <span class="co-ser">perdre des clients</span> au lieu d'en gagner ?</h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:56ch;line-height:1.6;">
                 Vous êtes au bon endroit si votre site...
             </p>
 
@@ -387,9 +387,9 @@ const needOptions = [
         </section>
 
         <!-- ══ 02 · MÉTHODE ══ -->
-        <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="methode" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">02 — Méthode</p>
-            <h2 style="margin-top:8px;">Je ne refais pas « pareil mais plus joli ».<br/><span class="co-ser">Je reconstruis stratégiquement.</span></h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Je ne refais pas « pareil mais plus joli ».<br/><span class="co-ser">Je reconstruis stratégiquement.</span></h2>
 
             <div class="rf-steps" data-animate-stagger>
                 {methodSteps.map((step, index) => (
@@ -428,9 +428,9 @@ const needOptions = [
         </section>
 
         <!-- ══ 03 · RÉSULTATS ══ -->
-        <section id="resultats" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="resultats" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">03 — Résultats</p>
-            <h2 style="margin-top:8px;">Avant / Après : <span class="co-ser">les résultats mesurables.</span></h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Avant / Après : <span class="co-ser">les résultats mesurables.</span></h2>
 
             <div class="rf-note" data-animate>
                 <p>
@@ -469,10 +469,10 @@ const needOptions = [
         </section>
 
         <!-- ══ 04 · TECHNOLOGIE ══ -->
-        <section id="technologie" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="technologie" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">04 — Technologie</p>
-            <h2 style="margin-top:8px;">Technologie moderne, <span class="co-ser">adaptée à vous.</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Technologie moderne, <span class="co-ser">adaptée à vous.</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 Pas de religion technologique. On choisit la techno <strong>APRÈS</strong> avoir compris votre besoin.
             </p>
 
@@ -506,9 +506,9 @@ const needOptions = [
         </section>
 
         <!-- ══ 05 · PRIX ══ -->
-        <section id="prix" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="prix" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">05 — Investissement</p>
-            <h2 style="margin-top:8px;">Combien de temps ? <span class="co-ser">Combien ça coûte ?</span></h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Combien de temps ? <span class="co-ser">Combien ça coûte ?</span></h2>
 
             <div class="rf-price-grid" data-animate-stagger>
                 <!-- Timeline -->
@@ -575,11 +575,11 @@ const needOptions = [
         </section>
 
         <!-- ══ 06 · FAQ (accordéon natif <details>, zéro JS) ══ -->
-        <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="faq" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">06 — FAQ</p>
-            <h2 style="margin-top:8px;">Questions fréquentes</h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes</h2>
 
-            <div class="rf-faq" style="margin-top:32px;">
+            <div class="rf-faq" style="margin-top:var(--space-block);">
                 {faqs.map((faq, index) => (
                     <details open={index === 0}>
                         <summary>
@@ -600,9 +600,9 @@ const needOptions = [
         </section>
 
         <!-- ══ 07 · LOCAL (SEO géo) ══ -->
-        <section id="local" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="local" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">07 — Local</p>
-            <h2 style="margin-top:8px;">Basé à <span class="co-ser">Genève</span>, service en Suisse romande.</h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Basé à <span class="co-ser">Genève</span>, service en Suisse romande.</h2>
 
             <div class="rf-local-grid">
                 <div data-animate="fade-left">
@@ -641,10 +641,10 @@ const needOptions = [
         </section>
 
         <!-- ══ 08 · RESSOURCES ══ -->
-        <section id="ressources" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="ressources" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">08 — Ressources</p>
-            <h2 style="margin-top:8px;">Faut-il vraiment refondre votre site ?</h2>
-            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Faut-il vraiment refondre votre site ?</h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
                 Avant de tout refaire, faites le diagnostic. J'ai écrit des guides pour savoir quand une refonte se
                 justifie et combien ça coûte. Pas encore de site du tout ? Voyez plutôt la
                 <a href="/services/creation-site-web" class="rf-inline">création de site web</a>.
@@ -673,10 +673,10 @@ const needOptions = [
         </section>
 
         <!-- ══ 09 · CONTACT (formulaire Web3Forms — HARD-PRESERVE câblage) ══ -->
-        <section id="contact" class="co-sec co-pad" style="padding:64px 40px;">
+        <section id="contact" class="co-sec co-pad" style="padding:64px var(--sec-pad-x);">
             <p class="co-eyebrow">09 — Contact</p>
-            <h2 style="margin-top:8px;">Prêt à moderniser votre <span class="co-ser">site ?</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Prêt à moderniser votre <span class="co-ser">site ?</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 2 options pour commencer.
             </p>
 
@@ -803,18 +803,18 @@ const needOptions = [
     .rf-browser-dot { width: 9px; height: 9px; border-radius: 999px; background: var(--line-2); flex: none; }
     .rf-browser-url { flex: 1; text-align: center; font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
     .rf-browser-img { display: block; width: 100%; height: auto; }
-    .rf-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: 8px 12px; font-size: 12px; font-weight: 600; }
+    .rf-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: var(--pad-pill); font-size: 12px; font-weight: 600; }
     .rf-badge--score { top: -16px; left: -14px; display: flex; flex-direction: column; line-height: 1.1; }
     .rf-badge--score b { color: var(--accent); font-size: 15px; }
     .rf-badge--score span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
     .rf-badge--speed { bottom: -16px; right: -14px; background: var(--accent); border-color: var(--accent); color: #fff; }
 
     /* ── Cartes génériques (problèmes / tech) ── */
-    .rf-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .rf-grid { display: grid; gap: 16px; margin-top: var(--space-block); }
     .rf-grid--2 { grid-template-columns: repeat(2, 1fr); }
     .rf-grid--3 { grid-template-columns: repeat(3, 1fr); }
     .rf-card {
-        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
         background: var(--surface); border: 1px solid var(--line-2);
         transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
@@ -837,7 +837,7 @@ const needOptions = [
     .rf-note strong, .rf-note-inline strong { color: var(--ink); font-weight: 600; }
 
     /* ── Étapes méthode ── */
-    .rf-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+    .rf-steps { display: flex; flex-direction: column; margin-top: var(--space-block); border-top: 1px solid var(--line); }
     .rf-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--line); }
     .rf-step-num { font-size: 20px; font-weight: 600; }
     .rf-step-head { display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
@@ -848,16 +848,16 @@ const needOptions = [
     .rf-step-deliv .co-mut { margin-right: 8px; font-weight: 400; text-transform: uppercase; letter-spacing: 0.06em; font-size: 11px; }
 
     /* ── Encart différenciateurs ── */
-    .rf-diff { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rf-diff { position: relative; margin-top: var(--space-block); padding: var(--pad-panel); background: var(--surface); border: 1px solid var(--line-2); }
     .rf-diff-title { text-align: center; font-size: 1.25rem; }
     .rf-diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 28px; }
     .rf-diff-item { text-align: center; }
     .rf-diff-icon { font-size: 26px; color: var(--accent); }
-    .rf-diff-name { margin-top: 10px; font-size: 15px; font-weight: 600; }
+    .rf-diff-name { margin-top: var(--space-title-lead); font-size: 15px; font-weight: 600; }
     .co-root .rf-diff-desc { margin-top: 4px; font-size: 13px; line-height: 1.45; color: var(--muted); }
 
     /* ── Tableau Avant / Après ── */
-    .rf-table-wrap { overflow-x: auto; margin-top: 32px; border: 1px solid var(--line-2); background: var(--surface); }
+    .rf-table-wrap { overflow-x: auto; margin-top: var(--space-block); border: 1px solid var(--line-2); background: var(--surface); }
     .rf-table { width: 100%; min-width: 640px; border-collapse: collapse; }
     .rf-table th, .rf-table td { padding: 15px 18px; border-bottom: 1px solid var(--line); text-align: center; font-size: 14px; vertical-align: middle; }
     .rf-table thead th { font-weight: 600; color: var(--ink); border-bottom: 1px solid var(--line-2); white-space: nowrap; }
@@ -872,7 +872,7 @@ const needOptions = [
     .rf-impact { display: inline-block; font-size: 13px; color: var(--accent); font-weight: 500; }
 
     /* ── Garanties (bloc tech) ── */
-    .rf-guarantees { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rf-guarantees { position: relative; margin-top: 28px; padding: var(--pad-encart); background: var(--surface); border: 1px solid var(--line-2); }
     .rf-guarantees-title { font-size: 1.1rem; text-align: center; }
     .rf-guarantees-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 24px; }
     .rf-guarantee { display: flex; align-items: flex-start; gap: 14px; }
@@ -893,7 +893,7 @@ const needOptions = [
     .rf-timeblock-big { display: block; margin-top: 4px; font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.1; }
     .rf-timeline-list { margin-top: 12px; gap: 6px; }
     .rf-timeline-list li { font-size: 13.5px; color: var(--muted); }
-    .co-root .rf-timeblock-desc { margin-top: 8px; font-size: 13.5px; line-height: 1.5; color: var(--muted); }
+    .co-root .rf-timeblock-desc { margin-top: var(--space-eyebrow); font-size: 13.5px; line-height: 1.5; color: var(--muted); }
 
     .rf-budget-head { padding-bottom: 20px; border-bottom: 1px solid var(--line); }
     .rf-budget-head span { display: block; font-size: 13px; }
@@ -906,7 +906,7 @@ const needOptions = [
     .rf-budget-row span { color: var(--muted); }
     .rf-budget-row b { color: var(--ink); font-weight: 600; white-space: nowrap; }
 
-    .rf-incl { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rf-incl { position: relative; margin-top: 28px; padding: var(--pad-encart); background: var(--surface); border: 1px solid var(--line-2); }
     .rf-incl-title { font-size: 1.1rem; display: flex; align-items: center; gap: 9px; }
     .rf-incl-title i { color: var(--accent); }
     .rf-incl-list { margin-top: 18px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px 24px; }
@@ -931,7 +931,7 @@ const needOptions = [
     .rf-faq details[open]::details-content { block-size: auto; }
 
     /* ── Local ── */
-    .rf-local-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; margin-top: 32px; }
+    .rf-local-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; margin-top: var(--space-block); }
     .rf-local-h3 { font-size: 1.15rem; margin-bottom: 18px; }
     .rf-local-adv { display: flex; flex-direction: column; gap: 12px; }
     .rf-local-item { position: relative; display: flex; align-items: flex-start; gap: 14px; padding: 18px; background: var(--surface); border: 1px solid var(--line-2); }
@@ -945,7 +945,7 @@ const needOptions = [
     .rf-zone--primary i { color: var(--accent); }
 
     /* ── Ressources ── */
-    .rf-res { position: relative; padding: 24px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rf-res { position: relative; padding: var(--pad-card); background: var(--surface); border: 1px solid var(--line-2); }
     .rf-res-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
     .rf-res-icon { font-size: 22px; color: var(--accent); flex: none; }
     .rf-res-label { font-size: 1.05rem; }
@@ -956,8 +956,8 @@ const needOptions = [
     .rf-res-link:hover i { transform: translateX(3px); }
 
     /* ── Options (avant formulaire) ── */
-    .rf-options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
-    .rf-option { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 24px; text-align: center; align-items: center; background: var(--surface); border: 1px solid var(--line-2); }
+    .rf-options { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: var(--space-block); }
+    .rf-option { position: relative; display: flex; flex-direction: column; gap: 8px; padding: var(--pad-card); text-align: center; align-items: center; background: var(--surface); border: 1px solid var(--line-2); }
     .rf-option-icon { font-size: 26px; color: var(--accent); }
     .rf-option-title { font-size: 1.1rem; }
     .rf-option-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
@@ -973,7 +973,7 @@ const needOptions = [
     .rf-req { color: var(--accent); }
     .rf-input, .rf-textarea {
         width: 100%; font-family: "Inter Tight", ui-sans-serif, sans-serif; font-size: 15px; color: var(--ink);
-        background: var(--bg); border: 1px solid var(--line-2); padding: 12px 14px;
+        background: var(--bg); border: 1px solid var(--line-2); padding: var(--pad-chip);
         transition: border-color .18s ease-out, box-shadow .18s ease-out;
     }
     .rf-input::placeholder, .rf-textarea::placeholder { color: var(--muted); opacity: .7; }

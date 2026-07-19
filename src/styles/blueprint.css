@@ -57,6 +57,14 @@
   --space-block: 32px;       /* titre/section → grille de cartes */
   --space-subsection: 64px;  /* sous-titre H3 de sous-section → air au-dessus (ex-44px) */
 
+  /* ── Paddings de composant (valeurs récurrentes tokenisées ; valeur = ancien
+     hardcodé, migration neutre). Les offsets structurels one-off restent en dur. ── */
+  --pad-card: 24px;          /* carte standard */
+  --pad-panel: 36px;         /* grand panneau plein */
+  --pad-encart: 30px 32px;   /* encart large asymétrique */
+  --pad-chip: 12px 14px;     /* chip moyenne */
+  --pad-pill: 8px 12px;      /* petite pilule */
+
   color: var(--ink);
   font-family: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
 }

@@ -176,7 +176,7 @@ const zones = [
     <main class="co-root">
 
         <!-- ══ HERO ══ -->
-        <section class="co-sec co-pad co-hero mv-hero" style="padding:64px 40px 56px;">
+        <section class="co-sec co-pad co-hero mv-hero" style="padding:64px var(--sec-pad-x) var(--sec-pad-y);">
             <div class="mv-hero-grid">
                 <div class="mv-hero-copy">
                     <h1 class="mv-hero-title" data-animate data-delay="0.1">
@@ -212,10 +212,10 @@ const zones = [
         </section>
 
         <!-- ══ 01 · SITUATIONS ══ -->
-        <section id="problemes" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="problemes" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">01 — Situations</p>
-            <h2 style="margin-top:8px;">Tu te <span class="co-ser">reconnais ?</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Tu te <span class="co-ser">reconnais ?</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:56ch;line-height:1.6;">
                 Ces situations où le temps joue contre toi.
             </p>
 
@@ -244,10 +244,10 @@ const zones = [
         </section>
 
         <!-- ══ 02 · MÉTHODE ══ -->
-        <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="methode" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">02 — Méthode</p>
-            <h2 style="margin-top:8px;">Comment ça se passe ?</h2>
-            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Comment ça se passe ?</h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 Pas de tunnel de développement. Tu vois ce qui se passe à chaque étape.
             </p>
 
@@ -280,9 +280,9 @@ const zones = [
         </section>
 
         <!-- ══ 03 · RÉSULTATS ══ -->
-        <section id="resultats" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="resultats" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">03 — Résultats</p>
-            <h2 style="margin-top:8px;">Ce que tu <span class="co-ser">obtiens.</span></h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Ce que tu <span class="co-ser">obtiens.</span></h2>
 
             <div class="mv-grid mv-grid--3" data-animate-stagger>
                 {results.map((result, i) => (
@@ -306,10 +306,10 @@ const zones = [
         </section>
 
         <!-- ══ 04 · INVESTISSEMENT ══ -->
-        <section id="prix" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="prix" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">04 — Investissement</p>
-            <h2 style="margin-top:8px;">Un devis <span class="co-ser">clair.</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Un devis <span class="co-ser">clair.</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 Chaque MVP est différent. Un proto pour tester une idée en interne, ce n'est pas la même
                 chose qu'un démonstrateur pour lever des fonds.
             </p>
@@ -336,11 +336,11 @@ const zones = [
         </section>
 
         <!-- ══ 05 · FAQ (accordéon natif <details>, zéro JS) ══ -->
-        <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="faq" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">05 — FAQ</p>
-            <h2 style="margin-top:8px;">Questions fréquentes</h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes</h2>
 
-            <div class="mv-faq" style="margin-top:32px;">
+            <div class="mv-faq" style="margin-top:var(--space-block);">
                 {faqs.map((faq, index) => (
                     <details open={index === 0}>
                         <summary>
@@ -358,9 +358,9 @@ const zones = [
         </section>
 
         <!-- ══ 06 · À PROPOS ══ -->
-        <section id="about" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="about" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">06 — À propos</p>
-            <h2 style="margin-top:8px;">Qui est derrière <span class="co-ser">Jon Labs ?</span></h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Qui est derrière <span class="co-ser">Jon Labs ?</span></h2>
 
             <div class="mv-about co-frame" data-animate>
                 <span class="co-x tl"></span><span class="co-x tr"></span>
@@ -378,9 +378,9 @@ const zones = [
         </section>
 
         <!-- ══ 07 · LOCAL ══ -->
-        <section id="local" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="local" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">07 — Local</p>
-            <h2 style="margin-top:8px;">Basé à <span class="co-ser">Genève</span>, disponible partout en Suisse romande</h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Basé à <span class="co-ser">Genève</span>, disponible partout en Suisse romande</h2>
 
             <div class="mv-local-grid">
                 <div class="mv-local-copy mv-body" data-animate="fade-left">
@@ -459,18 +459,18 @@ const zones = [
     .mv-hero-media { position: relative; }
     .mv-media-frame { position: relative; background: var(--surface); border: 1px solid var(--line-2); padding: 14px; }
     .mv-media-img { display: block; width: 100%; height: auto; }
-    .mv-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: 8px 12px; font-size: 12px; font-weight: 600; }
+    .mv-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: var(--pad-pill); font-size: 12px; font-weight: 600; }
     .mv-badge--focus { top: -16px; left: -14px; display: flex; align-items: baseline; gap: 6px; line-height: 1.1; }
     .mv-badge--focus b { color: var(--accent); font-size: 15px; }
     .mv-badge--focus span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
     .mv-badge--speed { bottom: -16px; right: -14px; background: var(--accent); border-color: var(--accent); color: #fff; }
 
     /* ── Cartes génériques (situations / résultats) ── */
-    .mv-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .mv-grid { display: grid; gap: 16px; margin-top: var(--space-block); }
     .mv-grid--2 { grid-template-columns: repeat(2, 1fr); }
     .mv-grid--3 { grid-template-columns: repeat(3, 1fr); }
     .mv-card {
-        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
         background: var(--surface); border: 1px solid var(--line-2);
         transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
@@ -488,7 +488,7 @@ const zones = [
     .mv-inline:hover { color: var(--ink); }
 
     /* ── Story personnelle ── */
-    .mv-story { position: relative; margin-top: 28px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 16px; }
+    .mv-story { position: relative; margin-top: 28px; padding: var(--pad-panel); background: var(--surface); border: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 16px; }
     .mv-story-lead { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); }
     .mv-story-highlight {
         margin: 0; padding: 4px 0 4px 20px; border-left: 2px solid var(--accent);
@@ -497,16 +497,16 @@ const zones = [
     }
 
     /* ── Étapes méthode ── */
-    .mv-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+    .mv-steps { display: flex; flex-direction: column; margin-top: var(--space-block); border-top: 1px solid var(--line); }
     .mv-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
     .mv-step-num { font-size: 20px; font-weight: 600; }
     .mv-step-title { font-size: 1.15rem; }
     .co-root .mv-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 72ch; }
-    .co-root .mv-step-dur { margin-top: 10px; font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+    .co-root .mv-step-dur { margin-top: var(--space-title-lead); font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
     .mv-step-dur i { color: var(--accent); }
 
     /* ── Encart différenciateurs ── */
-    .mv-diff { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .mv-diff { position: relative; margin-top: var(--space-block); padding: var(--pad-panel); background: var(--surface); border: 1px solid var(--line-2); }
     .mv-diff-title { text-align: center; font-size: 1.25rem; }
     .mv-diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 28px; }
     .mv-diff-item { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 10px; }
@@ -514,7 +514,7 @@ const zones = [
     .co-root .mv-diff-text { font-size: 13.5px; line-height: 1.5; color: var(--muted); }
 
     /* ── Investissement ── */
-    .mv-pricenote { position: relative; margin-top: 32px; padding: 34px; background: var(--surface); border: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 8px; }
+    .mv-pricenote { position: relative; margin-top: var(--space-block); padding: 34px; background: var(--surface); border: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 8px; }
     .mv-pricenote-lead { font-size: 1.3rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.3; }
     .co-root .mv-pricenote-sub { font-size: 14.5px; }
     .mv-pricenote-factors { margin-top: 16px; padding-top: 20px; border-top: 1px solid var(--line); }
@@ -542,12 +542,12 @@ const zones = [
     .mv-faq details[open]::details-content { block-size: auto; }
 
     /* ── À propos ── */
-    .mv-about { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 24px; }
+    .mv-about { position: relative; margin-top: var(--space-block); padding: var(--pad-panel); background: var(--surface); border: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 24px; }
     .mv-about-link { display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 600; color: var(--accent); transition: gap .18s ease-out; }
     .mv-about-link:hover { gap: 12px; }
 
     /* ── Local ── */
-    .mv-local-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; margin-top: 32px; align-items: start; }
+    .mv-local-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; margin-top: var(--space-block); align-items: start; }
     .mv-local-h3 { font-size: 1.15rem; margin-bottom: 18px; }
     .mv-zones { display: flex; flex-direction: column; gap: 10px; }
     .mv-zone { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line-2); font-size: 14px; }

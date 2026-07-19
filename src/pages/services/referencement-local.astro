@@ -449,7 +449,7 @@ const budgetOptions = [
     <main class="co-root">
 
         <!-- ══ HERO ══ -->
-        <section class="co-sec co-pad co-hero rl-hero" style="padding:64px 40px 56px;">
+        <section class="co-sec co-pad co-hero rl-hero" style="padding:64px var(--sec-pad-x) var(--sec-pad-y);">
             <div class="rl-hero-grid">
                 <div class="rl-hero-copy">
                     <h1 class="rl-hero-title" data-animate data-delay="0.1">
@@ -501,10 +501,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 01 · PROBLÈMES ══ -->
-        <section id="problemes" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="problemes" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">01 — Problèmes</p>
-            <h2 style="margin-top:8px;">Vous vous <span class="co-ser">reconnaissez ?</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:58ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Vous vous <span class="co-ser">reconnaissez ?</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:58ch;line-height:1.6;">
                 Les problèmes que rencontrent la majorité des PME suisses avec leur visibilité en ligne.
             </p>
 
@@ -525,10 +525,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 02 · CAS RÉEL (étude de cas Lécureux) ══ -->
-        <section id="etude-de-cas" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="etude-de-cas" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">02 — Cas réel</p>
-            <h2 style="margin-top:8px;">De <span class="rl-strike">invisible</span> à <span class="co-ser">#1 sur sa niche</span> en 5 mois</h2>
-            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">De <span class="rl-strike">invisible</span> à <span class="co-ser">#1 sur sa niche</span> en 5 mois</h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
                 Léo Lécureux, juriste spécialisé en droit de la restauration à Genève. Niche juridique
                 ultra-concurrentielle (800+ cabinets). Zéro présence en ligne au départ.
             </p>
@@ -566,10 +566,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 03 · MÉTHODE ══ -->
-        <section id="methode" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="methode" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">03 — Méthode</p>
-            <h2 style="margin-top:8px;">Comment je vous fais remonter sur Google</h2>
-            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Comment je vous fais remonter sur Google</h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 Une méthodologie éprouvée, calquée sur le cas réel qui a donné le #1 sur sa niche.
                 <strong>4 phases claires</strong>, des résultats mesurables.
             </p>
@@ -604,10 +604,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 04 · LEVIERS ══ -->
-        <section id="leviers" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="leviers" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">04 — Leviers</p>
-            <h2 style="margin-top:8px;">Les 7 leviers du <span class="co-ser">référencement local</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Les 7 leviers du <span class="co-ser">référencement local</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
                 Le SEO local n'est pas du SEO miniature, c'est une discipline à part. Voici les
                 <strong>7 actions concrètes</strong> qui font la différence pour une PME romande.
             </p>
@@ -657,9 +657,9 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 05 · RÉSULTATS ══ -->
-        <section id="resultats" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="resultats" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">05 — Résultats</p>
-            <h2 style="margin-top:8px;">Ce que vous <span class="co-ser">obtenez.</span></h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Ce que vous <span class="co-ser">obtenez.</span></h2>
 
             <div class="rl-grid rl-grid--3" data-animate-stagger>
                 {results.map((result) => (
@@ -673,10 +673,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 06 · FORMULES ══ -->
-        <section id="formules" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="formules" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">06 — Formules</p>
-            <h2 style="margin-top:8px;">3 approches selon votre situation</h2>
-            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">3 approches selon votre situation</h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 Pas de solution unique. <strong>On choisit ensemble l'approche adaptée</strong> à votre
                 budget, vos objectifs et votre situation actuelle.
             </p>
@@ -699,10 +699,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 07 · INVESTISSEMENT ══ -->
-        <section id="prix" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="prix" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">07 — Investissement</p>
-            <h2 style="margin-top:8px;">Des tarifs <span class="co-ser">clairs.</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:56ch;">Adaptés à vos ambitions. Pas de contrat 12 mois, pas de mauvaise surprise.</p>
+            <h2 style="margin-top:var(--space-eyebrow);">Des tarifs <span class="co-ser">clairs.</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:56ch;">Adaptés à vos ambitions. Pas de contrat 12 mois, pas de mauvaise surprise.</p>
 
             <div class="rl-tiers" data-animate-stagger>
                 {pricingPlans.map((plan) => (
@@ -746,7 +746,7 @@ const budgetOptions = [
             <!-- Transparence marché -->
             <div class="rl-transp" data-animate>
                 <h3 class="rl-sub-title">La transparence avant de signer</h3>
-                <p class="co-mut" style="margin-top:8px;max-width:64ch;line-height:1.6;">
+                <p class="co-mut" style="margin-top:var(--space-eyebrow);max-width:64ch;line-height:1.6;">
                     Le marché du SEO local en Suisse est opaque : des prestations qui portent le même nom
                     vont de 200 à 3'000 CHF par mois. Voici comment lire les prix — chez moi comme ailleurs.
                 </p>
@@ -800,11 +800,11 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 08 · FAQ (accordéon natif <details>, zéro JS) ══ -->
-        <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="faq" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">08 — FAQ</p>
-            <h2 style="margin-top:8px;">Questions fréquentes</h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes</h2>
 
-            <div class="rl-faq" style="margin-top:32px;">
+            <div class="rl-faq" style="margin-top:var(--space-block);">
                 {faqs.map((faq, index) => (
                     <details open={index === 0}>
                         <summary>
@@ -822,9 +822,9 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 09 · LOCAL (SEO géo) ══ -->
-        <section id="local" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="local" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">09 — Local</p>
-            <h2 style="margin-top:8px;">Un freelance référencement à <span class="co-ser">Genève</span>, ça change quoi ?</h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Un freelance référencement à <span class="co-ser">Genève</span>, ça change quoi ?</h2>
 
             <div class="rl-local-grid">
                 <div data-animate="fade-left">
@@ -863,10 +863,10 @@ const budgetOptions = [
         </section>
 
         <!-- ══ 10 · CONTACT (formulaire Web3Forms — HARD-PRESERVE câblage) ══ -->
-        <section id="contact" class="co-sec co-pad" style="padding:64px 40px;">
+        <section id="contact" class="co-sec co-pad" style="padding:64px var(--sec-pad-x);">
             <p class="co-eyebrow">10 — Contact</p>
-            <h2 style="margin-top:8px;">Prêt à devenir visible sur <span class="co-ser">Google ?</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Prêt à devenir visible sur <span class="co-ser">Google ?</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
                 Premier échange gratuit : je regarde votre situation, je vous donne mon avis honnête,
                 vous décidez ensuite. Pas de jargon, pas de pression.
             </p>
@@ -1006,7 +1006,7 @@ const budgetOptions = [
     .rl-serp-link { font-size: 11.5px; color: var(--accent); font-variant-numeric: tabular-nums; }
     .rl-serp-title { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.25; }
     .co-root .rl-serp-desc { font-size: 12.5px; line-height: 1.45; color: var(--muted); }
-    .rl-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: 8px 12px; font-size: 12px; font-weight: 600; }
+    .rl-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: var(--pad-pill); font-size: 12px; font-weight: 600; }
     .rl-badge--score { top: -16px; left: -14px; display: flex; flex-direction: column; line-height: 1.1; }
     .rl-badge--score b { color: var(--accent); font-size: 15px; }
     .rl-badge--score span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
@@ -1016,11 +1016,11 @@ const budgetOptions = [
     .rl-strike { text-decoration: line-through; color: var(--muted); }
 
     /* ── Cartes génériques (problèmes / résultats / formules / drivers) ── */
-    .rl-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .rl-grid { display: grid; gap: 16px; margin-top: var(--space-block); }
     .rl-grid--2 { grid-template-columns: repeat(2, 1fr); }
     .rl-grid--3 { grid-template-columns: repeat(3, 1fr); }
     .rl-card {
-        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
         background: var(--surface); border: 1px solid var(--line-2);
         transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
@@ -1041,7 +1041,7 @@ const budgetOptions = [
     .rl-note strong, .rl-note-inline strong { color: var(--ink); font-weight: 600; }
 
     /* ── Stats (étude de cas) ── */
-    .rl-stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-top: 32px; }
+    .rl-stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 16px; margin-top: var(--space-block); }
     .rl-stat { position: relative; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; padding: 22px 14px; background: var(--surface); border: 1px solid var(--line-2); transition: transform .18s ease-out; }
     .rl-stat:hover { transform: translateY(-2px); }
     .rl-stat-icon { font-size: 20px; color: var(--accent); }
@@ -1049,7 +1049,7 @@ const budgetOptions = [
     .rl-stat-label { font-size: 12px; color: var(--muted); }
 
     /* ── Contexte (encart) ── */
-    .rl-context { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rl-context { position: relative; margin-top: 28px; padding: var(--pad-encart); background: var(--surface); border: 1px solid var(--line-2); }
     .rl-context-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
     .rl-context-title i { color: var(--accent); }
     .rl-context-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 40px; margin-top: 18px; }
@@ -1060,52 +1060,52 @@ const budgetOptions = [
     .rl-context-cta .rl-inline:hover i { transform: translateX(3px); }
 
     /* ── Étapes méthode ── */
-    .rl-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+    .rl-steps { display: flex; flex-direction: column; margin-top: var(--space-block); border-top: 1px solid var(--line); }
     .rl-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
     .rl-step-num { font-size: 20px; font-weight: 600; }
     .rl-step-title { font-size: 1.15rem; }
     .co-root .rl-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
-    .co-root .rl-step-dur { margin-top: 10px; font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
+    .co-root .rl-step-dur { margin-top: var(--space-title-lead); font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
     .rl-step-dur i { color: var(--accent); }
 
     /* ── Encart différenciateurs / angles ── */
-    .rl-diff, .rl-angles { position: relative; margin-top: 32px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rl-diff, .rl-angles { position: relative; margin-top: var(--space-block); padding: var(--pad-panel); background: var(--surface); border: 1px solid var(--line-2); }
     .rl-diff-title { text-align: center; font-size: 1.25rem; }
     .rl-diff-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; margin-top: 28px; }
     .rl-angles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 28px; }
     .rl-diff-item { text-align: center; }
     .rl-diff-icon { font-size: 26px; color: var(--accent); }
-    .rl-diff-name { margin-top: 10px; font-size: 15px; font-weight: 600; }
+    .rl-diff-name { margin-top: var(--space-title-lead); font-size: 15px; font-weight: 600; }
     .co-root .rl-diff-desc { margin-top: 4px; font-size: 13px; line-height: 1.45; color: var(--muted); }
 
     /* ── Leviers (cartes numérotées) ── */
-    .rl-lever { position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px; background: var(--surface); border: 1px solid var(--line-2); transition: box-shadow .18s ease-out, transform .18s ease-out; }
+    .rl-lever { position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card); background: var(--surface); border: 1px solid var(--line-2); transition: box-shadow .18s ease-out, transform .18s ease-out; }
     .rl-lever:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
     .rl-lever-head { display: flex; align-items: center; gap: 12px; }
     .rl-lever-num { font-size: 18px; font-weight: 700; }
     .rl-lever-icon { font-size: 20px; color: var(--accent); }
 
     /* ── Bloc code (schema example) ── */
-    .rl-codeblock { position: relative; margin-top: 32px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rl-codeblock { position: relative; margin-top: var(--space-block); padding: var(--pad-encart); background: var(--surface); border: 1px solid var(--line-2); }
     .rl-codeblock-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
     .rl-codeblock-title i { color: var(--accent); }
-    .co-root .rl-codeblock-desc { margin-top: 8px; font-size: 14px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
+    .co-root .rl-codeblock-desc { margin-top: var(--space-eyebrow); font-size: 14px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
     .rl-code { margin-top: 18px; padding: 18px 20px; background: #0b0d10; color: #f4f3ee; border: 1px solid var(--line-2); overflow-x: auto; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12.5px; line-height: 1.6; }
     .rl-code code { font-family: inherit; color: inherit; }
 
     /* ── Transparence marché ── */
-    .rl-transp { margin-top: 44px; }
+    .rl-transp { margin-top: var(--space-subsection); }
     .rl-sub-title { font-size: 1.5rem; }
     .rl-drivers { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 28px; }
     .rl-driver { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 20px; background: var(--surface); border: 1px solid var(--line-2); }
     .rl-driver-name { font-size: 14.5px; font-weight: 600; }
     .rl-compare { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
-    .rl-compare-item { position: relative; padding: 24px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rl-compare-item { position: relative; padding: var(--pad-card); background: var(--surface); border: 1px solid var(--line-2); }
     .rl-compare-name { font-size: 1rem; display: inline-flex; align-items: center; gap: 8px; margin-bottom: 10px; }
     .rl-compare-name i { color: var(--accent); }
     .rl-compare-item .rl-card-text strong { color: var(--ink); font-weight: 600; }
 
-    .rl-questions { position: relative; margin-top: 24px; padding: 36px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rl-questions { position: relative; margin-top: 24px; padding: var(--pad-panel); background: var(--surface); border: 1px solid var(--line-2); }
     .rl-questions-list { display: flex; flex-direction: column; gap: 16px; margin-top: 24px; list-style: none; padding: 0; }
     .rl-questions-list li { display: grid; grid-template-columns: 32px 1fr; gap: 14px; align-items: start; }
     .rl-questions-num { display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; border: 1px solid var(--accent); color: var(--accent); font-size: 13px; font-weight: 700; }
@@ -1126,7 +1126,7 @@ const budgetOptions = [
     .co-root .rl-tier-ideal { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13px; line-height: 1.5; color: var(--muted); }
     .rl-tier-ideal strong { color: var(--ink); }
 
-    .rl-pricenote { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rl-pricenote { position: relative; margin-top: 28px; padding: var(--pad-encart); background: var(--surface); border: 1px solid var(--line-2); }
     .rl-pricenote-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
     .rl-pricenote-title i { color: var(--accent); }
     .rl-pricenote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 40px; margin-top: 18px; }
@@ -1151,7 +1151,7 @@ const budgetOptions = [
     .rl-faq details[open]::details-content { block-size: auto; }
 
     /* ── Local ── */
-    .rl-local-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; margin-top: 32px; }
+    .rl-local-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 40px; margin-top: var(--space-block); }
     .rl-local-h3 { font-size: 1.15rem; margin-bottom: 18px; }
     .rl-local-adv { display: flex; flex-direction: column; gap: 12px; }
     .rl-local-item { position: relative; display: flex; align-items: flex-start; gap: 14px; padding: 18px; background: var(--surface); border: 1px solid var(--line-2); }
@@ -1166,7 +1166,7 @@ const budgetOptions = [
     .rl-zone--primary i { color: var(--accent); }
 
     /* ── Formulaire (Web3Forms restylé, câblage préservé) ── */
-    .rl-form { position: relative; margin-top: 32px; padding: 34px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rl-form { position: relative; margin-top: var(--space-block); padding: 34px; background: var(--surface); border: 1px solid var(--line-2); }
     .rl-form-title { font-size: 1.25rem; text-align: left; margin-bottom: 22px; }
     .rl-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
     .rl-field { display: flex; flex-direction: column; gap: 8px; }
@@ -1176,7 +1176,7 @@ const budgetOptions = [
     .rl-req { color: var(--accent); }
     .rl-input, .rl-select, .rl-textarea {
         width: 100%; font-family: "Inter Tight", ui-sans-serif, sans-serif; font-size: 15px; color: var(--ink);
-        background: var(--bg); border: 1px solid var(--line-2); padding: 12px 14px;
+        background: var(--bg); border: 1px solid var(--line-2); padding: var(--pad-chip);
         transition: border-color .18s ease-out, box-shadow .18s ease-out;
     }
     .rl-input::placeholder, .rl-textarea::placeholder { color: var(--muted); opacity: .7; }
