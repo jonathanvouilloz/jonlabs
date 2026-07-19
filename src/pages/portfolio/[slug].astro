@@ -561,7 +561,7 @@ const schemas = [caseStudySchema];
   .psl-fig { margin: 0; }
   .psl-fig .gallery-img { display: block; width: 100%; height: auto; cursor: zoom-in; border: 1px solid var(--line-2); transition: opacity .18s ease-out; }
   .psl-fig .gallery-img:hover { opacity: 0.92; }
-  .psl-fig figcaption { font-size: 13px; color: var(--muted); text-align: center; margin-top: 8px; }
+  .psl-fig figcaption { font-size: 13px; color: var(--muted); text-align: center; margin-top: var(--space-eyebrow); }
 
   /* Facteurs de succès */
   .psl-success { display: flex; flex-direction: column; gap: 16px; margin-top: 4px; }
@@ -577,10 +577,10 @@ const schemas = [caseStudySchema];
   .psl-quote footer strong { color: var(--ink); font-weight: 650; }
 
   /* Corps markdown (.co-prose) — espacement */
-  .psl-content { margin-top: 44px; }
+  .psl-content { margin-top: var(--space-subsection); }
 
   /* Retour bas de page */
-  .psl-foot { margin-top: 44px; padding-top: 24px; border-top: 1px solid var(--line); }
+  .psl-foot { margin-top: var(--space-subsection); padding-top: 24px; border-top: 1px solid var(--line); }
 
   /* Maillage interne */
   .psl-maillage { max-width: 780px; margin: 0 auto; padding: 24px 40px 8px; }

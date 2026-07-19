@@ -39,9 +39,9 @@ const authorInitials = author.name.split(" ").map((w) => w[0]).slice(0, 2).join(
     </section>
 
     <!-- ══ 01 · HERO BLOG + ARTICLE À LA UNE ══ -->
-    <section class="co-sec co-pad" style="padding:56px 40px;">
+    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <p class="co-eyebrow">01 — En-tête</p>
-      <h2 style="margin-top:8px;">Hero &amp; article à la une</h2>
+      <h2 style="margin-top:var(--space-eyebrow);">Hero &amp; article à la une</h2>
 
       {posts[0] && (
         <a href={`/blog/${posts[0].slug}`} class="blog-feature" data-animate="fade-up">
@@ -63,11 +63,11 @@ const authorInitials = author.name.split(" ").map((w) => w[0]).slice(0, 2).join(
     </section>
 
     <!-- ══ 02 · GRILLE + FILTRES ══ -->
-    <section class="co-sec co-pad" style="padding:56px 40px;">
+    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <div class="blog-listhead">
         <div>
           <p class="co-eyebrow">02 — Liste</p>
-          <h2 style="margin-top:8px;">Grille, filtres &amp; vues</h2>
+          <h2 style="margin-top:var(--space-eyebrow);">Grille, filtres &amp; vues</h2>
         </div>
         <div class="blog-viewtoggle" role="group" aria-label="Mode d'affichage">
           <button class="blog-view-btn is-active" data-view-btn="grid" aria-pressed="true" aria-label="Vue grille"><i class="ri-grid-fill"></i></button>
@@ -137,9 +137,9 @@ const authorInitials = author.name.split(" ").map((w) => w[0]).slice(0, 2).join(
     </section>
 
     <!-- ══ 03 · COMPOSANTS D'ARTICLE ══ -->
-    <section class="co-sec co-pad" style="padding:56px 40px;">
+    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <p class="co-eyebrow">03 — Page article</p>
-      <h2 style="margin-top:8px;">Composants d'article</h2>
+      <h2 style="margin-top:var(--space-eyebrow);">Composants d'article</h2>
 
       <!-- Reading progress -->
       <div class="blog-sub">
@@ -219,7 +219,7 @@ const authorInitials = author.name.split(" ").map((w) => w[0]).slice(0, 2).join(
 
     /* Article à la une */
     .blog-feature {
-      display: grid; grid-template-columns: 1.1fr 1fr; gap: 0; margin-top: 32px;
+      display: grid; grid-template-columns: 1.1fr 1fr; gap: 0; margin-top: var(--space-block);
       border: 1px solid var(--line-2); background: var(--surface); overflow: hidden;
       transition: box-shadow .2s ease-out;
     }
@@ -227,7 +227,7 @@ const authorInitials = author.name.split(" ").map((w) => w[0]).slice(0, 2).join(
     .blog-feature-cover { position: relative; overflow: hidden; border-right: 1px solid var(--line-2); min-height: 300px; }
     .blog-feature-cover img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease-out; }
     .blog-feature:hover .blog-feature-cover img { transform: scale(1.04); }
-    .blog-feature-body { padding: 36px; display: flex; flex-direction: column; align-items: flex-start; gap: 14px; justify-content: center; }
+    .blog-feature-body { padding: var(--pad-panel); display: flex; flex-direction: column; align-items: flex-start; gap: 14px; justify-content: center; }
     .blog-feature-title { font-size: clamp(1.5rem, 2.4vw, 2.1rem); line-height: 1.1; }
     .blog-feature-desc { line-height: 1.6; font-size: 1.02rem; }
     .blog-feature-cta {
@@ -355,11 +355,11 @@ const authorInitials = author.name.split(" ").map((w) => w[0]).slice(0, 2).join(
     .blog-prose li::before { content: ""; position: absolute; left: 4px; top: 10px; width: 6px; height: 6px; border-radius: 999px; background: var(--accent); }
 
     /* Author bio */
-    .blog-author { display: flex; gap: 18px; align-items: flex-start; padding: 24px; border: 1px solid var(--line-2); background: var(--surface); max-width: 620px; }
+    .blog-author { display: flex; gap: 18px; align-items: flex-start; padding: var(--pad-card); border: 1px solid var(--line-2); background: var(--surface); max-width: 620px; }
     .blog-author-avatar { flex: none; width: 56px; height: 56px; border-radius: 999px; background: var(--accent); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 20px; letter-spacing: -0.02em; }
     .blog-author-body { display: flex; flex-direction: column; gap: 3px; }
     .blog-author-body strong { font-size: 17px; }
-    .co-root .blog-author-bio { font-size: 14px; line-height: 1.55; margin-top: 8px; max-width: 46ch; }
+    .co-root .blog-author-bio { font-size: 14px; line-height: 1.55; margin-top: var(--space-eyebrow); max-width: 46ch; }
     .blog-author-socials { display: flex; gap: 12px; margin-top: 12px; font-size: 21px; }
     .blog-author-socials a { color: var(--muted); transition: color .16s ease-out; }
     .blog-author-socials a:hover { color: var(--accent); }

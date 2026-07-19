@@ -278,7 +278,7 @@ const timeline = [
   /* ══ À PROPOS — styles scopés .ab-* ══ */
 
   /* Rythme vertical des sections narratives via flex+gap (jamais margin seul). */
-  .ab-sec { padding: 64px 40px; }
+  .ab-sec { padding: 64px var(--sec-pad-x); }
   .ab-narrow {
     display: flex; flex-direction: column; gap: 28px;
     max-width: 720px; margin: 0 auto;
@@ -365,7 +365,7 @@ const timeline = [
 
   /* ── Responsive ── */
   @media (max-width: 900px) {
-    .ab-hero-grid { grid-template-columns: 1fr; gap: 40px; padding: 56px 40px; }
+    .ab-hero-grid { grid-template-columns: 1fr; gap: 40px; padding: var(--sec-pad-y) var(--sec-pad-x); }
     .ab-hero-media { order: -1; }
     .ab-hero-frame { max-width: 300px; }
     .ab-do-grid { grid-template-columns: 1fr; gap: 40px; }

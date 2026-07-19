@@ -166,9 +166,9 @@ const badgeClass = (b?: string) => (b === "featured" ? "co-badge co-badge--solid
     </section>
 
     <!-- ══ ÉTATS DES LIENS ══ -->
-    <section class="co-sec co-pad" style="padding:56px 40px;">
+    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <p class="co-eyebrow">01 — Atomes</p>
-      <h2 style="margin-top:8px;">États &amp; badges</h2>
+      <h2 style="margin-top:var(--space-eyebrow);">États &amp; badges</h2>
       <div class="nav-states">
         <div class="nav-state-row">
           <span class="co-mut nav-state-tag">Lien plat</span>
@@ -240,7 +240,7 @@ const badgeClass = (b?: string) => (b === "featured" ? "co-badge co-badge--solid
     .nav-flat, .nav-trigger {
       display: inline-flex; align-items: center; gap: 5px;
       font-family: inherit; font-size: 15px; font-weight: 500; color: var(--muted);
-      background: none; border: 0; cursor: pointer; padding: 8px 12px; border-radius: 8px;
+      background: none; border: 0; cursor: pointer; padding: var(--pad-pill); border-radius: 8px;
       transition: color .18s ease-out, background .18s ease-out;
     }
     .nav-flat:hover, .nav-trigger:hover,
@@ -327,9 +327,9 @@ const badgeClass = (b?: string) => (b === "featured" ? "co-badge co-badge--solid
     .nav-drawer-cta { margin-top: 20px; justify-content: center; }
 
     /* ══ FAT FOOTER ══ */
-    .nav-footer { position: relative; margin-top: 8px; }
+    .nav-footer { position: relative; margin-top: var(--space-eyebrow); }
     .nav-footer-grid {
-      display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 40px; padding: 56px 40px;
+      display: grid; grid-template-columns: 1.6fr 1fr 1fr; gap: 40px; padding: var(--sec-pad-y) var(--sec-pad-x);
     }
     .nav-footer-col h3 { margin-bottom: 14px; }
     .nav-footer-col ul { display: flex; flex-direction: column; gap: 9px; }

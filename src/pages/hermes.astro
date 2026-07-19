@@ -463,13 +463,13 @@ const liens = [
   .co-root section[id] { scroll-margin-top: 100px; }
 
   /* ── En-tête de section commun ── */
-  .hm-sec { padding: 64px 40px; }
+  .hm-sec { padding: 64px var(--sec-pad-x); }
   .hm-head { max-width: 62ch; }
-  .hm-h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-top: 10px; }
+  .hm-h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin-top: var(--space-title-lead); }
   .co-root .hm-lead { margin-top: 14px; font-size: 1.05rem; line-height: 1.65; max-width: 52ch; }
 
   /* ── Grilles ── */
-  .hm-grid { display: grid; gap: 16px; margin-top: 44px; }
+  .hm-grid { display: grid; gap: 16px; margin-top: var(--space-subsection); }
   .hm-grid--3 { grid-template-columns: repeat(3, 1fr); }
   .hm-grid--2 { grid-template-columns: repeat(2, 1fr); }
 
@@ -485,7 +485,7 @@ const liens = [
   .hm-hero-ctas .co-btn i { transition: transform .18s ease-out; }
   .hm-hero-ctas .co-btn:hover i { transform: translateX(3px); }
   .hm-hero-trust {
-    display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 8px; padding-top: 22px;
+    display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: var(--space-eyebrow); padding-top: 22px;
     border-top: 1px solid var(--line); width: 100%; font-size: 14px; color: var(--muted);
   }
   .hm-hero-proof { display: inline-flex; align-items: center; gap: 7px; }
@@ -493,7 +493,7 @@ const liens = [
 
   /* ── Capacités ── */
   .hm-cap {
-    position: relative; display: flex; flex-direction: column; gap: 12px; padding: 24px;
+    position: relative; display: flex; flex-direction: column; gap: 12px; padding: var(--pad-card);
     background: var(--surface); border: 1px solid var(--line-2);
     transition: box-shadow .18s ease-out, transform .18s ease-out;
   }
@@ -507,7 +507,7 @@ const liens = [
 
   /* ── Cas d'usage ── */
   .hm-cas {
-    position: relative; display: flex; align-items: flex-start; gap: 16px; padding: 24px;
+    position: relative; display: flex; align-items: flex-start; gap: 16px; padding: var(--pad-card);
     background: var(--surface); border: 1px solid var(--line-2);
   }
   .hm-cas-icon {
@@ -518,7 +518,7 @@ const liens = [
   .co-root .hm-cas-desc { margin-top: 6px; font-size: 14px; line-height: 1.55; }
 
   /* ── Paliers (offre) ── */
-  .hm-paliers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 44px; align-items: stretch; }
+  .hm-paliers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: var(--space-subsection); align-items: stretch; }
   .hm-palier {
     position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
     padding: 28px; background: var(--surface); border: 1px solid var(--line-2);
@@ -527,7 +527,7 @@ const liens = [
   .hm-palier-nom { font-size: 1.25rem; margin-top: 12px; }
   .co-root .hm-palier-pour { font-size: 13.5px; line-height: 1.45; }
   .hm-palier-prix { font-size: clamp(1.5rem, 3vw, 1.9rem); font-weight: 700; letter-spacing: -0.02em; margin: 14px 0 6px; font-variant-numeric: tabular-nums; }
-  .hm-palier-inclus { margin-top: 10px; }
+  .hm-palier-inclus { margin-top: var(--space-title-lead); }
   .hm-palier-inclus li { font-size: 13.5px; line-height: 1.45; }
 
   /* ── Délai (callout) ── */
@@ -547,7 +547,7 @@ const liens = [
   .hm-delai-cta:hover i { transform: translateX(3px); }
 
   /* ── Étapes (paper grid) ── */
-  .hm-etapes { grid-template-columns: repeat(4, 1fr); margin-top: 44px; }
+  .hm-etapes { grid-template-columns: repeat(4, 1fr); margin-top: var(--space-subsection); }
   .hm-etape { display: flex; flex-direction: column; gap: 8px; padding: 28px 24px; transition: background .18s ease-out; }
   .hm-etape:hover { background: var(--surface); }
   .hm-etape-num { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.02em; color: var(--accent); }
@@ -555,7 +555,7 @@ const liens = [
   .co-root .hm-etape-desc { font-size: 13.5px; line-height: 1.55; }
 
   /* ── FAQ ── */
-  .hm-faq { display: flex; flex-direction: column; gap: 12px; margin-top: 44px; }
+  .hm-faq { display: flex; flex-direction: column; gap: 12px; margin-top: var(--space-subsection); }
   .hm-faq-item { border: 1px solid var(--line-2); background: var(--surface); }
   .hm-faq-trigger {
     width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px;
@@ -581,7 +581,7 @@ const liens = [
 
   /* ── Maillage ── */
   .hm-lien {
-    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+    position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
     background: var(--surface); border: 1px solid var(--line-2);
     transition: box-shadow .18s ease-out, transform .18s ease-out;
   }

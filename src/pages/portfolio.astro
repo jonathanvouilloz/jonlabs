@@ -87,7 +87,7 @@ const featuredMeta = [
     <!-- ══ 01 · CAS VEDETTE (Lécureux) ══ -->
     <section class="co-sec co-pad" style="padding:48px 40px 64px;">
       <p class="co-eyebrow" data-animate>01 — Cas vedette</p>
-      <h2 style="margin-top:8px;" data-animate data-delay="0.1">Étude de cas</h2>
+      <h2 style="margin-top:var(--space-eyebrow);" data-animate data-delay="0.1">Étude de cas</h2>
 
       <article class="po-feature co-frame" data-animate data-delay="0.15">
         <!-- Image cadrée filets -->
@@ -136,8 +136,8 @@ const featuredMeta = [
     <!-- ══ 02 · GRILLE FILTRABLE ══ -->
     <section class="co-sec co-pad" style="padding:56px 40px 72px;">
       <p class="co-eyebrow" data-animate>02 — Toutes les réalisations</p>
-      <h2 style="margin-top:8px;" data-animate data-delay="0.1">La grille</h2>
-      <p class="co-mut" style="margin-top:8px;max-width:52ch;" data-animate data-delay="0.15">Filtre par type de projet.</p>
+      <h2 style="margin-top:var(--space-eyebrow);" data-animate data-delay="0.1">La grille</h2>
+      <p class="co-mut" style="margin-top:var(--space-eyebrow);max-width:52ch;" data-animate data-delay="0.15">Filtre par type de projet.</p>
 
       {grid.length > 0 ? (
         <>
@@ -192,7 +192,7 @@ const featuredMeta = [
 
   /* ── Cas vedette ── */
   .po-feature {
-    position: relative; margin-top: 32px;
+    position: relative; margin-top: var(--space-block);
     display: grid; grid-template-columns: 1.15fr 1fr; grid-template-rows: auto auto;
     gap: 0;
     border: 1px solid var(--line-2); background: var(--surface);
@@ -216,7 +216,7 @@ const featuredMeta = [
   /* Fiche technique = primitive .co-spec (kit) ; ici juste le placement dans le corps. */
   .po-meta { align-self: stretch; margin-top: 6px; }
 
-  .po-feature-cta { margin-top: 10px; }
+  .po-feature-cta { margin-top: var(--space-title-lead); }
   .po-feature-cta i { transition: transform .18s ease-out; }
   .po-feature-cta:hover i { transform: translateX(3px); }
 

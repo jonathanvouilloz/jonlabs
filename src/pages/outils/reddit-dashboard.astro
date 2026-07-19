@@ -172,7 +172,7 @@ const BASE = "/tools/reddit-dashboard";
     <main class="co-root">
 
         <!-- ══ HERO ══ -->
-        <section class="co-sec co-pad co-hero rd-hero" style="padding:64px 40px 56px;">
+        <section class="co-sec co-pad co-hero rd-hero" style="padding:64px var(--sec-pad-x) var(--sec-pad-y);">
             <nav class="rd-crumb" aria-label="Fil d'ariane">
                 <a href="/">Accueil</a>
                 <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
@@ -202,9 +202,9 @@ const BASE = "/tools/reddit-dashboard";
         </section>
 
         <!-- ══ 01 · UTILITÉ ══ -->
-        <section id="utilite" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="utilite" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">01 — Utilité</p>
-            <h2 style="margin-top:8px;">À quoi ça <span class="co-ser">sert ?</span></h2>
+            <h2 style="margin-top:var(--space-eyebrow);">À quoi ça <span class="co-ser">sert ?</span></h2>
 
             <div class="rd-grid rd-grid--3" data-animate-stagger>
                 {benefits.map((b) => (
@@ -218,10 +218,10 @@ const BASE = "/tools/reddit-dashboard";
         </section>
 
         <!-- ══ 02 · FONCTIONNEMENT ══ -->
-        <section id="fonctionnement" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="fonctionnement" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">02 — Fonctionnement</p>
-            <h2 style="margin-top:8px;">Comment ça marche</h2>
-            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Comment ça marche</h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 Trois fichiers travaillent ensemble. Tu n'en lances qu'un seul ; le reste est automatique.
             </p>
 
@@ -269,9 +269,9 @@ const BASE = "/tools/reddit-dashboard";
         </section>
 
         <!-- ══ 03 · TÉLÉCHARGEMENT ══ -->
-        <section id="download" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="download" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">03 — Téléchargement</p>
-            <h2 style="margin-top:8px;">Télécharger <span class="co-ser">l'outil</span></h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Télécharger <span class="co-ser">l'outil</span></h2>
 
             <div class="rd-download co-frame" data-animate>
                 <span class="co-x tl"></span><span class="co-x tr"></span>
@@ -296,10 +296,10 @@ const BASE = "/tools/reddit-dashboard";
         </section>
 
         <!-- ══ 04 · INSTALLATION ══ -->
-        <section id="guide" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="guide" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">04 — Installation</p>
-            <h2 style="margin-top:8px;">À faire une seule fois</h2>
-            <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">À faire une seule fois</h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
                 Ouvre PowerShell (ou ton terminal) dans le dossier des scripts et lance les deux commandes :
             </p>
 
@@ -316,9 +316,9 @@ const BASE = "/tools/reddit-dashboard";
         </section>
 
         <!-- ══ 05 · UTILISATION ══ -->
-        <section id="utilisation" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="utilisation" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">05 — Utilisation</p>
-            <h2 style="margin-top:8px;">Étape par étape</h2>
+            <h2 style="margin-top:var(--space-eyebrow);">Étape par étape</h2>
 
             <div class="rd-steps" data-animate-stagger>
                 {steps.map((s, index) => (
@@ -339,10 +339,10 @@ const BASE = "/tools/reddit-dashboard";
         </section>
 
         <!-- ══ 06 · LIGNE DE COMMANDE ══ -->
-        <section id="cli" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="cli" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">06 — Ligne de commande</p>
-            <h2 style="margin-top:8px;">Mode CLI <span class="co-mut" style="font-weight:400;">(optionnel)</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Mode CLI <span class="co-mut" style="font-weight:400;">(optionnel)</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 Tu peux aussi lancer le scraper directement, sans l'interface :
             </p>
 
@@ -373,14 +373,14 @@ const BASE = "/tools/reddit-dashboard";
         </section>
 
         <!-- ══ 07 · DÉPANNAGE (accordéon natif <details>, zéro JS) ══ -->
-        <section id="depannage" class="co-sec co-pad" style="padding:56px 40px;">
+        <section id="depannage" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">07 — Dépannage</p>
-            <h2 style="margin-top:8px;">Problèmes courants</h2>
-            <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Problèmes courants</h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 Les pannes les plus fréquentes et comment les régler.
             </p>
 
-            <div class="rd-faq" style="margin-top:32px;">
+            <div class="rd-faq" style="margin-top:var(--space-block);">
                 {troubleshooting.map((item, index) => (
                     <details open={index === 0}>
                         <summary>
@@ -446,10 +446,10 @@ const BASE = "/tools/reddit-dashboard";
     .rd-hero-meta i { color: var(--accent); font-size: 16px; }
 
     /* ── Cartes génériques ── */
-    .rd-grid { display: grid; gap: 16px; margin-top: 32px; }
+    .rd-grid { display: grid; gap: 16px; margin-top: var(--space-block); }
     .rd-grid--3 { grid-template-columns: repeat(3, 1fr); }
     .rd-card {
-        position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+        position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
         background: var(--surface); border: 1px solid var(--line-2);
         transition: box-shadow .18s ease-out, transform .18s ease-out;
     }
@@ -459,7 +459,7 @@ const BASE = "/tools/reddit-dashboard";
     .rd-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
 
     /* ── Flux (diagramme 3 nodes) ── */
-    .rd-flow { position: relative; margin-top: 32px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+    .rd-flow { position: relative; margin-top: var(--space-block); padding: var(--pad-encart); background: var(--surface); border: 1px solid var(--line-2); }
     .rd-flow-nodes { display: flex; align-items: stretch; gap: 12px; }
     .rd-node {
         flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px;
@@ -486,7 +486,7 @@ const BASE = "/tools/reddit-dashboard";
     .rd-file-role { font-size: 14px; line-height: 1.5; color: var(--muted); }
 
     /* ── Téléchargement ── */
-    .rd-download { position: relative; margin-top: 32px; padding: 40px 32px; background: var(--surface); border: 1px solid var(--line-2); text-align: center; }
+    .rd-download { position: relative; margin-top: var(--space-block); padding: 40px 32px; background: var(--surface); border: 1px solid var(--line-2); text-align: center; }
     .co-root .rd-download-desc { max-width: 52ch; margin: 0 auto 24px; font-size: 14.5px; line-height: 1.6; color: var(--muted); }
     .rd-download-btn { font-size: 16px; padding: 14px 26px; }
     .co-root .rd-download-alt { margin-top: 28px; margin-bottom: 14px; font-size: 13px; }
@@ -512,7 +512,7 @@ const BASE = "/tools/reddit-dashboard";
     .rd-deps code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12.5px; color: var(--ink); background: rgba(20,22,26,.05); border: 1px solid var(--line); padding: 1px 5px; }
 
     /* ── Étapes ── */
-    .rd-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+    .rd-steps { display: flex; flex-direction: column; margin-top: var(--space-block); border-top: 1px solid var(--line); }
     .rd-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--line); }
     .rd-step-num { font-size: 20px; font-weight: 600; }
     .rd-step-title { font-size: 1.15rem; }

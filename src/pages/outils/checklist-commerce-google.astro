@@ -252,7 +252,7 @@ const recap = [
     <main class="co-root">
 
         <!-- ══ HERO ══ -->
-        <section class="co-sec co-pad co-hero ccg-hero" style="padding:64px 40px 56px;">
+        <section class="co-sec co-pad co-hero ccg-hero" style="padding:64px var(--sec-pad-x) var(--sec-pad-y);">
             <div class="ccg-hero-inner">
                 <nav class="ccg-crumbs" aria-label="Fil d'Ariane">
                     <a href="/">Accueil</a>
@@ -315,7 +315,7 @@ const recap = [
 
         <!-- ══ SEMAINES 1 → 4 ══ -->
         {semaines.map((semaine, sIndex) => (
-            <section id={`semaine-${sIndex + 1}`} class="co-sec co-pad" style="padding:56px 40px;">
+            <section id={`semaine-${sIndex + 1}`} class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
                 <div class="ccg-week">
                     <span class="ccg-week-num co-index">0{sIndex + 1}</span>
                     <div>
@@ -386,10 +386,10 @@ const recap = [
         ))}
 
         <!-- ══ RÉCAP ══ -->
-        <section class="co-sec co-pad" style="padding:56px 40px;">
+        <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">Récap</p>
-            <h2 style="margin-top:8px;">Ton plan sur <span class="co-ser">4 semaines</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:58ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Ton plan sur <span class="co-ser">4 semaines</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:58ch;line-height:1.6;">
                 Total : environ <strong style="color:var(--ink);font-weight:600;">10-15 heures</strong> sur un mois. Moins d'une heure par jour.
             </p>
 
@@ -424,10 +424,10 @@ const recap = [
         </section>
 
         <!-- ══ TÉLÉCHARGEMENT PDF (formulaire Web3Forms — HARD-PRESERVE câblage) ══ -->
-        <section id="telecharger" class="co-sec co-pad" style="padding:64px 40px;">
+        <section id="telecharger" class="co-sec co-pad" style="padding:64px var(--sec-pad-x);">
             <p class="co-eyebrow">Téléchargement gratuit</p>
-            <h2 style="margin-top:8px;">Télécharge cette <span class="co-ser">checklist</span></h2>
-            <p class="co-mut" style="margin-top:10px;max-width:58ch;line-height:1.6;">
+            <h2 style="margin-top:var(--space-eyebrow);">Télécharge cette <span class="co-ser">checklist</span></h2>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:58ch;line-height:1.6;">
                 Garde-la sur ton téléphone, imprime-la, partage-la à un collègue commerçant.
             </p>
 
@@ -531,7 +531,7 @@ const recap = [
     .ccg-hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
     .ccg-hero-btns .co-btn i { transition: transform .18s ease-out; }
     .ccg-hero-btns .co-btn:hover i { transform: translateY(2px); }
-    .ccg-hero-media { position: relative; margin-top: 44px; max-width: 620px; width: 100%; background: var(--surface); border: 1px solid var(--line-2); }
+    .ccg-hero-media { position: relative; margin-top: var(--space-subsection); max-width: 620px; width: 100%; background: var(--surface); border: 1px solid var(--line-2); }
     .ccg-hero-media img { display: block; width: 100%; height: auto; }
     .co-root .ccg-hero-context { margin-top: 26px; font-size: 14px; display: inline-flex; align-items: center; gap: 7px; flex-wrap: wrap; justify-content: center; }
     .ccg-hero-context i { color: var(--accent); }
@@ -567,15 +567,15 @@ const recap = [
     .ccg-week { display: grid; grid-template-columns: auto 1fr; gap: 20px; align-items: start; }
     .ccg-week-num { font-size: 2.4rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; color: var(--accent); }
     .ccg-week-title { font-size: clamp(1.5rem, 3vw, 2rem); margin-top: 6px; }
-    .co-root .ccg-week-sub { margin-top: 8px; font-size: 1rem; line-height: 1.55; max-width: 60ch; }
+    .co-root .ccg-week-sub { margin-top: var(--space-eyebrow); font-size: 1rem; line-height: 1.55; max-width: 60ch; }
 
     /* ── Cartes de section (filet, coins nets) ── */
-    .ccg-cards { display: flex; flex-direction: column; gap: 16px; margin-top: 32px; }
+    .ccg-cards { display: flex; flex-direction: column; gap: 16px; margin-top: var(--space-block); }
     .ccg-card { padding: 24px 26px; background: var(--surface); border: 1px solid var(--line-2); transition: box-shadow .18s ease-out; }
     .ccg-card:hover { box-shadow: 0 8px 24px rgba(20,22,26,.06); }
     .ccg-card-title { font-size: 1.1rem; display: flex; align-items: center; gap: 9px; }
     .ccg-card-title i { color: var(--accent); font-size: 18px; flex: none; }
-    .co-root .ccg-card-desc { margin-top: 8px; font-size: 14px; line-height: 1.55; color: var(--muted); }
+    .co-root .ccg-card-desc { margin-top: var(--space-eyebrow); font-size: 14px; line-height: 1.55; color: var(--muted); }
 
     /* ── Checklist (checkboxes pur CSS) ── */
     .ccg-checklist { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; list-style: none; padding: 0; }
@@ -611,7 +611,7 @@ const recap = [
     .ccg-result strong { color: var(--ink); font-weight: 600; }
 
     /* ── Table récap ── */
-    .ccg-table-wrap { overflow-x: auto; margin-top: 32px; }
+    .ccg-table-wrap { overflow-x: auto; margin-top: var(--space-block); }
     .ccg-table { width: 100%; border-collapse: collapse; border: 1px solid var(--line-2); font-size: 14.5px; }
     .ccg-table thead { background: rgba(20,22,26,.04); }
     .ccg-table th { text-align: left; padding: 12px 16px; font-weight: 600; font-size: 13px; letter-spacing: 0.02em; border: 1px solid var(--line); }
@@ -627,7 +627,7 @@ const recap = [
     .ccg-note strong { color: var(--ink); font-weight: 600; }
 
     /* ── Téléchargement PDF ── */
-    .ccg-dl-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 40px; align-items: start; margin-top: 32px; }
+    .ccg-dl-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 40px; align-items: start; margin-top: var(--space-block); }
     .ccg-dl-media { position: relative; background: var(--surface); border: 1px solid var(--line-2); padding: 16px; }
     .ccg-dl-media img { display: block; width: 100%; height: auto; }
     .ccg-dl-body { display: flex; flex-direction: column; gap: 24px; }

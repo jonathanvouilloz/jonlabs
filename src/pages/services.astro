@@ -66,8 +66,8 @@ const positions = [
     <!-- ══ 01 · CONSTELLATION ══ -->
     <section class="co-sec co-pad" style="padding:48px 40px 64px;">
       <p class="co-eyebrow">01 — Situation</p>
-      <h2 style="margin-top:8px;">Dans quelle situation es-tu ?</h2>
-      <p class="co-mut" style="margin-top:8px;max-width:52ch;">Choisis le scénario qui te ressemble le plus.</p>
+      <h2 style="margin-top:var(--space-eyebrow);">Dans quelle situation es-tu ?</h2>
+      <p class="co-mut" style="margin-top:var(--space-eyebrow);max-width:52ch;">Choisis le scénario qui te ressemble le plus.</p>
 
       <div class="svc-constellation co-dots" id="svc-constellation">
         <p class="svc-mobilehead co-eyebrow">Clique ta situation</p>
@@ -92,9 +92,9 @@ const positions = [
     </section>
 
     <!-- ══ 02 · SECTIONS DE SERVICES ══ -->
-    <section class="co-sec co-pad" id="svc-sections" style="padding:56px 40px;">
+    <section class="co-sec co-pad" id="svc-sections" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <p class="co-eyebrow">02 — Offre</p>
-      <h2 style="margin-top:8px;">Sections de services</h2>
+      <h2 style="margin-top:var(--space-eyebrow);">Sections de services</h2>
 
       {serviceSections.map((section) => (
         <div class="svc-section" id={section.id}>
@@ -122,7 +122,7 @@ const positions = [
     </section>
 
     <!-- ══ 03 · ZONE LOCALE (SEO géo) ══ -->
-    <section class="co-sec co-pad" style="padding:56px 40px;">
+    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <p class="co-eyebrow">03 — Zone d'intervention</p>
       <div class="loc-card co-frame" data-animate>
         <span class="co-x tl"></span><span class="co-x tr"></span>
@@ -158,8 +158,8 @@ const positions = [
     <!-- ══ 04 · RESSOURCES ══ -->
     <section class="co-sec co-pad" style="padding:56px 40px 64px;">
       <p class="co-eyebrow">04 — Ressources</p>
-      <h2 style="margin-top:8px;">Pour aller <span class="co-ser">plus loin.</span></h2>
-      <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">
+      <h2 style="margin-top:var(--space-eyebrow);">Pour aller <span class="co-ser">plus loin.</span></h2>
+      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:56ch;line-height:1.6;">
         Articles et guides pour cadrer ton projet — y compris
         <a href="/blog/specialiste-developpement-web-suisse" class="res-inline">comment choisir un spécialiste en développement web en Suisse</a>.
       </p>
@@ -247,7 +247,7 @@ const positions = [
 
   /* ── Constellation ── */
   .svc-constellation {
-    position: relative; height: 600px; margin-top: 32px;
+    position: relative; height: 600px; margin-top: var(--space-block);
     border: 1px solid var(--line); background-color: var(--surface);
   }
   .svc-mobilehead { display: none; }
@@ -280,11 +280,11 @@ const positions = [
   .svc-node:hover .svc-node-arrow { color: var(--accent); transform: translate(2px, -2px); }
 
   /* ── Sections services ── */
-  .svc-section { margin-top: 44px; scroll-margin-top: 100px; }
-  .svc-section:first-of-type { margin-top: 32px; }
+  .svc-section { margin-top: var(--space-subsection); scroll-margin-top: 100px; }
+  .svc-section:first-of-type { margin-top: var(--space-block); }
   .svc-section-head { max-width: 60ch; }
   .svc-section-title { font-size: 1.5rem; }
-  .co-root .svc-section-accroche { margin-top: 8px; line-height: 1.55; }
+  .co-root .svc-section-accroche { margin-top: var(--space-eyebrow); line-height: 1.55; }
   .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
   .svc-card {
     display: flex; flex-direction: column; gap: 10px; padding: 22px;
@@ -331,7 +331,7 @@ const positions = [
   /* ── Ressources ── */
   .res-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
   .res-inline:hover { color: var(--ink); }
-  .res-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 32px; }
+  .res-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: var(--space-block); }
   .res-card {
     position: relative; display: flex; flex-direction: column; gap: 10px; padding: 22px;
     background: var(--surface); border: 1px solid var(--line-2);
@@ -371,7 +371,7 @@ const positions = [
   .svc-bubble { padding: 10px 14px; font-size: 14px; line-height: 1.45; }
   .svc-msg.client .svc-bubble { background: var(--surface); border: 1px solid var(--line); color: var(--ink); }
   .svc-msg.jon .svc-bubble { background: var(--accent); color: #fff; }
-  .svc-typing { display: none; align-self: flex-start; gap: 4px; padding: 12px 14px; background: var(--surface); border: 1px solid var(--line); }
+  .svc-typing { display: none; align-self: flex-start; gap: 4px; padding: var(--pad-chip); background: var(--surface); border: 1px solid var(--line); }
   .svc-typing.is-on { display: flex; }
   .svc-typing span { width: 6px; height: 6px; border-radius: 999px; background: var(--muted); animation: svcTyping 1s infinite; }
   .svc-typing span:nth-child(2) { animation-delay: .15s; }
@@ -385,7 +385,7 @@ const positions = [
     .res-grid { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 900px) {
-    .svc-constellation { height: auto; display: flex; flex-direction: column; gap: 12px; padding: 24px; background: transparent; border: 0; }
+    .svc-constellation { height: auto; display: flex; flex-direction: column; gap: 12px; padding: var(--pad-card); background: transparent; border: 0; }
     .svc-mobilehead { display: block; }
     .svc-hub, #svc-lines { display: none; }
     .svc-node { position: static !important; width: 100%; }

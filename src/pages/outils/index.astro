@@ -112,7 +112,7 @@ const schemas = [outilsSchema];
     .ou-list { display: flex; flex-direction: column; gap: 16px; margin-top: 40px; }
     .ou-card {
         position: relative;
-        display: flex; align-items: flex-start; gap: 20px; padding: 24px;
+        display: flex; align-items: flex-start; gap: 20px; padding: var(--pad-card);
         background: var(--surface); border: 1px solid var(--line-2);
         transition: transform .18s ease-out, box-shadow .18s ease-out;
     }
@@ -127,7 +127,7 @@ const schemas = [outilsSchema];
     .ou-card-head { display: flex; align-items: center; flex-wrap: wrap; gap: 12px; }
     .ou-card-title { font-size: 1.2rem; transition: color .18s ease-out; }
     .ou-card:hover .ou-card-title { color: var(--accent); }
-    .co-root .ou-card-text { margin-top: 8px; font-size: 14.5px; line-height: 1.55; color: var(--muted); }
+    .co-root .ou-card-text { margin-top: var(--space-eyebrow); font-size: 14.5px; line-height: 1.55; color: var(--muted); }
     .ou-card-arrow {
         flex: none; align-self: center; font-size: 22px; color: var(--muted);
         transition: color .18s ease-out, transform .18s ease-out;
@@ -136,7 +136,7 @@ const schemas = [outilsSchema];
 
     /* ── Note bas de section ── */
     .co-root .ou-note {
-        margin-top: 32px; font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px;
+        margin-top: var(--space-block); font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px;
     }
     .ou-note i { color: var(--accent); font-size: 16px; }
 

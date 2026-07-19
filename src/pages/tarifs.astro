@@ -279,10 +279,10 @@ const faqs = [
     </section>
 
     <!-- ══ 01 · PACKAGES ══ -->
-    <section id="packages" class="co-sec co-pad" style="padding:56px 40px;scroll-margin-top:80px;">
+    <section id="packages" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);scroll-margin-top:80px;">
       <p class="co-eyebrow">01 — Offre</p>
-      <h2 style="margin-top:8px;">Choisissez votre package</h2>
-      <p class="co-mut" style="margin-top:8px;max-width:52ch;">Site web + référencement local. Tout inclus, prix fixe.</p>
+      <h2 style="margin-top:var(--space-eyebrow);">Choisissez votre package</h2>
+      <p class="co-mut" style="margin-top:var(--space-eyebrow);max-width:52ch;">Site web + référencement local. Tout inclus, prix fixe.</p>
 
       <div class="tr-grid" data-animate-stagger>
         {packages.map((plan) => (
@@ -334,10 +334,10 @@ const faqs = [
     </section>
 
     <!-- ══ 02 · INCLUSIONS ══ -->
-    <section class="co-sec co-pad" style="padding:56px 40px;">
+    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <p class="co-eyebrow">02 — Comparatif</p>
-      <h2 style="margin-top:8px;">Ce qui est inclus</h2>
-      <p class="co-mut" style="margin-top:8px;max-width:52ch;">Comparaison détaillée des 3 packages.</p>
+      <h2 style="margin-top:var(--space-eyebrow);">Ce qui est inclus</h2>
+      <p class="co-mut" style="margin-top:var(--space-eyebrow);max-width:52ch;">Comparaison détaillée des 3 packages.</p>
 
       <div class="tr-table-wrap" data-animate>
         <table class="tr-table">
@@ -371,12 +371,12 @@ const faqs = [
     </section>
 
     <!-- ══ 03 · FAQ (accordéon natif, zéro JS) ══ -->
-    <section class="co-sec co-pad" style="padding:56px 40px;">
+    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <p class="co-eyebrow">03 — FAQ</p>
-      <h2 style="margin-top:8px;">Questions fréquentes</h2>
-      <p class="co-mut" style="margin-top:8px;max-width:52ch;">Les réponses aux questions que vous vous posez sûrement.</p>
+      <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes</h2>
+      <p class="co-mut" style="margin-top:var(--space-eyebrow);max-width:52ch;">Les réponses aux questions que vous vous posez sûrement.</p>
 
-      <div class="tr-faq" style="margin-top:32px;">
+      <div class="tr-faq" style="margin-top:var(--space-block);">
         {faqs.map((item, i) => (
           <details open={i === 0}>
             <summary>
@@ -392,8 +392,8 @@ const faqs = [
     <!-- ══ 04 · RESSOURCES ══ -->
     <section class="co-sec co-pad" style="padding:56px 40px 64px;">
       <p class="co-eyebrow">04 — Ressources</p>
-      <h2 style="margin-top:8px;">Aller <span class="co-ser">plus loin.</span></h2>
-      <p class="co-mut" style="margin-top:10px;max-width:56ch;line-height:1.6;">
+      <h2 style="margin-top:var(--space-eyebrow);">Aller <span class="co-ser">plus loin.</span></h2>
+      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:56ch;line-height:1.6;">
         Quelques articles pour creuser le sujet avant de te décider.
       </p>
 
@@ -471,7 +471,7 @@ const faqs = [
   .tr-inline:hover { color: var(--ink); }
 
   /* ── Table comparatif ── */
-  .tr-table-wrap { margin-top: 32px; overflow-x: auto; border: 1px solid var(--line-2); }
+  .tr-table-wrap { margin-top: var(--space-block); overflow-x: auto; border: 1px solid var(--line-2); }
   .tr-table { width: 100%; border-collapse: collapse; font-size: 14px; background: var(--surface); }
   .tr-table th, .tr-table td { padding: 14px 16px; text-align: center; border-bottom: 1px solid var(--line); }
   .tr-table thead th { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line-2); white-space: nowrap; }
@@ -504,7 +504,7 @@ const faqs = [
   .tr-faq details[open]::details-content { block-size: auto; }
 
   /* ── Ressources ── */
-  .tr-res-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 32px; }
+  .tr-res-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: var(--space-block); }
   .tr-res-card {
     position: relative; display: flex; flex-direction: column; gap: 10px; padding: 22px;
     background: var(--surface); border: 1px solid var(--line-2);

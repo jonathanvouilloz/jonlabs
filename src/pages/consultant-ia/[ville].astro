@@ -136,7 +136,7 @@ const blogArticles = [
   <main class="co-root">
 
     <!-- ══ HERO LOCAL ══ -->
-    <section class="co-sec co-pad co-hero civ-hero" style="padding:64px 40px 56px;">
+    <section class="co-sec co-pad co-hero civ-hero" style="padding:64px var(--sec-pad-x) var(--sec-pad-y);">
 
       <h1 class="civ-hero-title" data-animate data-delay="0.1">
         Consultant IA à <span class="co-ser">{ville.nom}</span>
@@ -159,10 +159,10 @@ const blogArticles = [
     </section>
 
     <!-- ══ 01 · CONTEXTE LOCAL ══ -->
-    <section id="contexte" class="co-sec co-pad" style="padding:56px 40px;">
+    <section id="contexte" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <p class="co-eyebrow">01 — Contexte local</p>
-      <h2 style="margin-top:8px;">Pourquoi un consultant IA à <span class="co-ser">{ville.nom}</span> ?</h2>
-      <p class="co-mut" style="margin-top:10px;max-width:64ch;line-height:1.6;">
+      <h2 style="margin-top:var(--space-eyebrow);">Pourquoi un consultant IA à <span class="co-ser">{ville.nom}</span> ?</h2>
+      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:64ch;line-height:1.6;">
         {ville.description}
       </p>
 
@@ -187,10 +187,10 @@ const blogArticles = [
     </section>
 
     <!-- ══ 02 · CAS D'USAGE ══ -->
-    <section id="cas-usage" class="co-sec co-pad" style="padding:56px 40px;">
+    <section id="cas-usage" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <p class="co-eyebrow">02 — Cas d'usage</p>
-      <h2 style="margin-top:8px;">Ce que l'IA change concrètement à <span class="co-ser">{ville.nom}</span></h2>
-      <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+      <h2 style="margin-top:var(--space-eyebrow);">Ce que l'IA change concrètement à <span class="co-ser">{ville.nom}</span></h2>
+      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
         Pas de démo de labo. Des agents IA branchés sur des métiers réels du bassin de {ville.nom}, secteur par secteur.
       </p>
 
@@ -206,10 +206,10 @@ const blogArticles = [
     </section>
 
     <!-- ══ 03 · BLOCAGES ══ -->
-    <section id="blocages" class="co-sec co-pad" style="padding:56px 40px;">
+    <section id="blocages" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <p class="co-eyebrow">03 — Blocages</p>
-      <h2 style="margin-top:8px;">Les <span class="co-ser">blocages</span> que je vois à {ville.nom}</h2>
-      <p class="co-mut" style="margin-top:10px;max-width:60ch;line-height:1.6;">
+      <h2 style="margin-top:var(--space-eyebrow);">Les <span class="co-ser">blocages</span> que je vois à {ville.nom}</h2>
+      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
         Si vous vous reconnaissez dans l'un de ces points, il y a probablement du temps à récupérer.
       </p>
 
@@ -224,9 +224,9 @@ const blogArticles = [
     </section>
 
     <!-- ══ 04 · POUR QUI ══ -->
-    <section id="pour-qui" class="co-sec co-pad" style="padding:56px 40px;">
+    <section id="pour-qui" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <p class="co-eyebrow">04 — Pour qui</p>
-      <h2 style="margin-top:8px;">À qui je m'adresse à {ville.nom}</h2>
+      <h2 style="margin-top:var(--space-eyebrow);">À qui je m'adresse à {ville.nom}</h2>
 
       <div class="civ-chips" data-animate>
         {ville.publicCible.map((p) => (
@@ -236,10 +236,10 @@ const blogArticles = [
     </section>
 
     <!-- ══ 05 · FAQ (accordéon natif <details>, zéro JS) ══ -->
-    <section id="faq" class="co-sec co-pad" style="padding:56px 40px;">
+    <section id="faq" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <p class="co-eyebrow">05 — FAQ</p>
-      <h2 style="margin-top:8px;">Questions fréquentes ({ville.nom})</h2>
-      <p class="co-mut" style="margin-top:10px;max-width:62ch;line-height:1.6;">
+      <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes ({ville.nom})</h2>
+      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
         Ce que les entreprises de {ville.nom} me demandent avant de se lancer sur l'IA.
       </p>
 
@@ -274,9 +274,9 @@ const blogArticles = [
     </section>
 
     <!-- ══ 06 · ALLER PLUS LOIN (maillage) ══ -->
-    <section id="aller-plus-loin" class="co-sec co-pad" style="padding:56px 40px;">
+    <section id="aller-plus-loin" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <p class="co-eyebrow">06 — Aller plus loin</p>
-      <h2 style="margin-top:8px;">Pour creuser le sujet</h2>
+      <h2 style="margin-top:var(--space-eyebrow);">Pour creuser le sujet</h2>
 
       <!-- Page pilier / HUB consultant IA -->
       <div class="civ-pilier co-frame" data-animate>
@@ -416,7 +416,7 @@ const blogArticles = [
 
   /* ── Cartes génériques ── */
   .civ-card {
-    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+    position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
     background: var(--surface); border: 1px solid var(--line-2);
     transition: box-shadow .18s ease-out, transform .18s ease-out;
   }
@@ -437,7 +437,7 @@ const blogArticles = [
   }
 
   /* ── Contexte économique (encart) ── */
-  .civ-context { position: relative; margin-top: 28px; padding: 30px 32px; background: var(--surface); border: 1px solid var(--line-2); }
+  .civ-context { position: relative; margin-top: 28px; padding: var(--pad-encart); background: var(--surface); border: 1px solid var(--line-2); }
   .civ-context-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
   .civ-context-title i { color: var(--accent); }
   .co-root .civ-context-text { margin-top: 14px; font-size: 14.5px; line-height: 1.65; color: var(--muted); max-width: 74ch; }
@@ -460,7 +460,7 @@ const blogArticles = [
   .civ-chip i { color: var(--accent); }
 
   /* ── FAQ (2 col : illustration + accordéon) ── */
-  .civ-faq-grid { display: grid; grid-template-columns: minmax(0, 320px) 1fr; gap: 48px; margin-top: 32px; align-items: start; }
+  .civ-faq-grid { display: grid; grid-template-columns: minmax(0, 320px) 1fr; gap: 48px; margin-top: var(--space-block); align-items: start; }
   .civ-faq-media { position: sticky; top: 100px; }
   .civ-illu { position: relative; background: var(--surface); border: 1px solid var(--line-2); }
   .civ-illu-img { display: block; width: 100%; height: auto; }
@@ -500,7 +500,7 @@ const blogArticles = [
   .civ-pilier-btn:hover i { transform: translateX(3px); }
 
   .civ-link-card {
-    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
+    position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
     background: var(--surface); border: 1px solid var(--line-2);
     transition: box-shadow .18s ease-out, transform .18s ease-out;
   }
