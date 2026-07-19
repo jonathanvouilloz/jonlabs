@@ -72,7 +72,7 @@ Un petit personnage blob/fantome mignon avec :
 └────────────────────────────────────────────────┘
 ```
 
-- **Cote gauche (70%)** : Titre en texte noir gras, police Space Grotesk, aligne a gauche
+- **Cote gauche (70%)** : Titre en texte noir gras, police Plus Jakarta Sans, aligne a gauche
 - **Cote droit (30%)** : Personnage blob avec sa pose
 - **Fond** : #fcfbfc (blanc casse, adapte au blob genere)
 
@@ -161,7 +161,7 @@ node src/scripts/generate-blog-cover.js \
 ### Titre
 - **Longueur** : 5 a 8 mots
 - **Objectif** : Resumer l'article de maniere accrocheuse
-- **Style** : Texte noir, gras, police Space Grotesk
+- **Style** : Texte noir, gras, police Plus Jakarta Sans
 
 > **⚠️ ORTHOGRAPHE :** Le script garantit l'orthographe, mais verifier quand meme le texte passe en parametre !
 

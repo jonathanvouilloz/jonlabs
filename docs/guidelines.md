@@ -133,28 +133,29 @@ Suivre l'ordre logique :
   {/* 3. Sizing */}
   w-full max-w-md h-auto
   {/* 4. Background */}
-  bg-white bg-[var(--main-bg)]
+  bg-[var(--surface)]
   {/* 5. Border */}
-  border-2 border-black rounded-lg
+  border border-[color:var(--line-2)]
   {/* 6. Typography */}
-  text-lg font-bold text-black
+  text-lg font-semibold text-[color:var(--ink)]
   {/* 7. Effects */}
-  shadow-lg opacity-90
+  opacity-90
   {/* 8. Transitions */}
-  transition-all duration-200
+  transition-all duration-200 ease-out
   {/* 9. Responsive */}
   md:flex-row md:p-8
   {/* 10. States */}
-  hover:bg-[var(--yellow)] focus:ring-2
+  hover:text-[color:var(--accent)] focus-visible:outline
 ">
 ```
 
-### Utilisation des CSS Variables
+### Utilisation des CSS Variables (tokens blueprint)
 
 ```html
-<!-- Préférer les variables CSS du projet -->
-<div class="bg-[var(--main-bg)]">
-<button class="bg-[var(--blue)] hover:bg-[var(--yellow)]">
+<!-- Préférer les tokens du design system (cf. src/styles/blueprint.css) -->
+<div class="bg-[var(--surface)] border border-[color:var(--line-2)]">
+<a class="text-[color:var(--muted)] hover:text-[color:var(--accent)]">
+<!-- Sur une page/colonne blueprint, privilégier les primitives .co-* -->
 ```
 
 ### Responsive Design
@@ -378,7 +379,7 @@ Quand `scrollTransition={true}` :
 
 ### FAQ
 
-Le composant FAQ (`src/components/FAQ.astro`) permet d'afficher des sections de questions/réponses avec un accordion brutaliste.
+Le composant FAQ (`src/components/FAQ.astro`) permet d'afficher des sections de questions/réponses avec un accordion.
 
 ```astro
 ---

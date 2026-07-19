@@ -5,8 +5,8 @@ Create a new page `src/pages/$ARGUMENTS.astro` for Jon Labs:
 ## Requirements
 
 1. **Read first**:
-   - `docs/content.md` - Get the content for this page
-   - `docs/styleguide.md` - Follow the design system
+   - `docs/project-context.md` - Positionnement, ton (le contenu vient du brief/de la demande, pas d'un copydeck central)
+   - `docs/styleguide.md` + `src/styles/blueprint.css` - Design system blueprint
    - `docs/schema-guide.md` - Schema.org implementation guide
    - `src/layouts/Layout.astro` - Use this layout
 
@@ -18,16 +18,16 @@ Create a new page `src/pages/$ARGUMENTS.astro` for Jon Labs:
    - Mobile-first responsive design
 
 3. **Styling**:
-   - Use CSS variables: `--main-bg`, `--blue`, `--yellow`
-   - Brutalist style: `border-2 border-black`, offset shadows
-   - Tailwind utilities only
+   - Système blueprint : primitives `.co-*` scopées sous `.co-root` / `.co-chrome`
+   - Tokens `--ink` / `--muted` / `--line` / `--accent` (teal) ; filets fins, coins nets, zéro emoji
+   - Tailwind utilities + classes blueprint
 
 4. **Components**:
    - Reuse existing components from `src/components/`
    - Create new components if needed (in separate files)
 
 5. **Content**:
-   - Use ONLY content from `docs/content.md`
+   - Contenu issu du brief / de la demande (pas de copydeck central)
    - No Lorem Ipsum or placeholder text
    - French language (FR-CH)
 
