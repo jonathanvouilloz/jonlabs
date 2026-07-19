@@ -5,7 +5,7 @@ description: "Hermes Agent par Nous Research, agent IA autonome open source. Cas
 pubDate: 2026-04-30
 image:
   url: "/images/blog/hermes-agent-ia-pme.webp"
-  alt: "Logo Hermes Agent et terminal Mac affichant la configuration de l'agent IA dans un bureau de PME romande"
+  alt: "Illustration éditoriale : buste de statue antique devant un ordinateur portable affichant l'interface d'un agent IA autonome, accent vert, direction artistique jonlabs"
 category: "automatisation"
 tags: ["hermes-agent", "agent-ia", "automatisation", "pme", "suisse-romande", "nous-research", "open-source", "llm"]
 featured: false

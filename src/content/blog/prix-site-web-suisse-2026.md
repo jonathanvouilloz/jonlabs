@@ -5,7 +5,7 @@ description: "Guide transparent des vrais tarifs web en Suisse : CHF 750-2000 po
 pubDate: 2025-12-25
 image:
   url: "/images/blog/prix-site-web-suisse-2026.webp"
-  alt: "Guide des prix pour un site web en Suisse - blob avec étiquette de prix CHF"
+  alt: "Illustration éditoriale : maquette de site web en couches transparentes soulevée par une main de statue antique révélant sa structure, accent vert, direction artistique jonlabs"
 category: "web"
 tags: ["prix", "site-web", "suisse", "freelance", "tarifs", "geneve"]
 featured: false

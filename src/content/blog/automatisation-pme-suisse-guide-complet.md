@@ -6,7 +6,7 @@ pubDate: 2026-04-26
 updatedDate: 2026-07-15
 image:
   url: "/images/blog/automatisation-pme-suisse-guide-complet.webp"
-  alt: "Interface n8n ouverte sur un laptop posé sur un bureau de PME suisse, lumière naturelle, ambiance sobre"
+  alt: "Illustration éditoriale : pile de documents désordonnée transformée en flux automatisé de tâches validées via une chaîne de workflow, accent vert, direction artistique jonlabs"
 category: "automatisation"
 tags: ["automatisation", "pme", "suisse-romande", "n8n", "make", "zapier", "agents-ia", "workflows", "roi"]
 featured: true
