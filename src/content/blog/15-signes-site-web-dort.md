@@ -5,7 +5,7 @@ description: "Checklist 15 signes en 4 minutes : score auto-calculé + diagnosti
 pubDate: 2026-04-15
 image:
   url: "/images/blog/15-signes-site-web-dort.webp"
-  alt: "Checklist papier avec croix rouges sur un bureau d'indépendant romand - diagnostic site web qui dort"
+  alt: "Illustration éditoriale : buste de statue antique pointant un navigateur affichant un site endormi (lune, œil fermé) qu'un signal vert réveille, DA jonlabs"
 category: "web"
 tags: ["site-web", "checklist", "audit", "diagnostic", "seo", "independant", "suisse-romande"]
 featured: false

@@ -5,7 +5,7 @@ description: "Tu peux tester ton idée business en Suisse sans 20k CHF. Découvr
 pubDate: 2025-12-11
 image:
   url: "/images/blog/valide-idee-business-suisse.webp"
-  alt: "Illustration comparant la création d'une Sàrl complexe versus un test rapide d'idée business"
+  alt: "Illustration éditoriale : buste de statue antique tenant une ampoule-idée branchée à une checklist de validation verte et confrontée à un marché de silhouettes, DA jonlabs"
 category: "web"
 tags: ["startup", "validation", "suisse", "mvp", "entrepreneuriat"]
 featured: false

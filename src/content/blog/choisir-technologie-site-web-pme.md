@@ -6,7 +6,7 @@ pubDate: 2026-07-10
 author: "Jon"
 image:
   url: "/images/blog/choisir-technologie-site-web-pme.webp"
-  alt: "Tableau de bord illustrant le choix de la technologie du site web d'une PME en 2026"
+  alt: "Illustration éditoriale : buste de statue antique choisissant un moteur technologique dans une rangée de rouages, le moteur sélectionné en vert, sous une maquette de site, DA jonlabs"
 category: "web"
 tags: ["site web", "PME", "WordPress", "Webflow", "Framer", "site statique", "Core Web Vitals", "INP", "suisse romande"]
 featured: false

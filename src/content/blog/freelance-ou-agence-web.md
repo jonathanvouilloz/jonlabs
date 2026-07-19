@@ -5,7 +5,7 @@ description: "Tarifs, avantages, limites : le guide complet pour choisir entre f
 pubDate: 2025-12-09
 image:
   url: "/images/blog/freelance-ou-agence-web.webp"
-  alt: "Agence vs Freelance - Que choisir en 2026 ?"
+  alt: "Illustration éditoriale : maquette de site entre une main de statue antique (freelance) et un groupe de mains (agence) qui l'assemblent, accent vert, DA jonlabs"
 category: "web"
 tags: ["freelance", "agence", "suisse", "budget", "web"]
 featured: false

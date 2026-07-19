@@ -5,7 +5,7 @@ description: "Méthodo Lighthouse + GMB + Wayback sur 50 sites d'indépendants r
 pubDate: 2026-04-22
 image:
   url: "/images/blog/audit-50-sites-indeps-romands.webp"
-  alt: "Audit de 50 sites d'indépendants romands — constats bruts et archétypes"
+  alt: "Illustration éditoriale : buste de statue antique passant à la loupe une grille de sites web, un site mis en avant en vert, DA jonlabs"
 category: "web"
 tags: ["audit", "seo", "suisse-romande", "site-web", "data", "etude"]
 featured: false

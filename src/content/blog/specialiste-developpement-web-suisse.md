@@ -6,7 +6,7 @@ pubDate: 2026-04-25
 updatedDate: 2026-05-06
 image:
   url: "/images/blog/specialiste-developpement-web-suisse.webp"
-  alt: "Spécialiste en développement web en Suisse romande — guide pour choisir entre freelance et agence web"
+  alt: "Illustration éditoriale : buste de statue antique construisant un site web à partir de blocs sur un ordinateur portable, un bloc actif en vert, DA jonlabs"
 category: "web"
 tags: ["developpement-web", "suisse-romande", "freelance", "agence-web", "geneve", "choix-prestataire", "tarifs-web"]
 featured: false

@@ -6,7 +6,7 @@ pubDate: 2025-12-01
 updatedDate: 2026-04-15
 image:
   url: "/images/blog/visibilite-site-internet-2026.webp"
-  alt: "Site web qui dort vs site web qui travaille - guide complet pour indépendants romands"
+  alt: "Illustration éditoriale : buste de statue antique et fenêtre de navigateur d'où monte une courbe de visibilité verte ascendante, DA jonlabs"
 category: "web"
 tags: ["site-web", "contenu", "seo", "freelance-romand", "strategie-editoriale"]
 featured: true

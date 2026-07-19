@@ -5,7 +5,7 @@ description: "Lovable, Bolt, Claude Code : créer un site web n'a jamais été a
 pubDate: 2026-02-13
 image:
   url: "/images/blog/creer-site-vitrine-ia-visibilite-google.webp"
-  alt: "Site web créé par IA vs visibilité Google - illustration d'un site invisible dans les résultats de recherche"
+  alt: "Illustration éditoriale : buste de statue antique désignant une maquette de site vitrine reliée à un pin de recherche vert sur une carte, DA jonlabs"
 category: "web"
 tags: ["ia", "site-vitrine", "seo", "visibilite", "google", "freelance", "creation-site-web"]
 featured: true
