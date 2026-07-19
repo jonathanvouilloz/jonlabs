@@ -46,6 +46,17 @@
   --accent-bright: #00D9A3;
   --dash: var(--line-2);     /* filet pointillé (guides) */
 
+  /* ── Échelle d'espacement de section (généralise les valeurs en dur) ──
+     Migrée d'abord sur consultant-ia comme cas de référence ; les autres
+     pages suivront. Voir --space-subsection : volontairement plus grand
+     que l'ancien 44px pour aérer les sous-titres H3 collés aux cartes. */
+  --sec-pad-y: 56px;         /* padding vertical de section (standard actuel) */
+  --sec-pad-x: 40px;         /* gouttière horizontale de section */
+  --space-eyebrow: 8px;      /* eyebrow → titre H2 */
+  --space-title-lead: 10px;  /* titre H2 → paragraphe lead */
+  --space-block: 32px;       /* titre/section → grille de cartes */
+  --space-subsection: 64px;  /* sous-titre H3 de sous-section → air au-dessus (ex-44px) */
+
   color: var(--ink);
   font-family: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
 }
