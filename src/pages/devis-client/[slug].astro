@@ -118,7 +118,7 @@ const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`
     </header>
 
     <!-- Hero : H1 + cadrage. Pas d'eyebrow au-dessus du H1 (règle gravée). -->
-    <section class="co-sec co-pad co-hero dv-sec" style="padding:64px 40px 56px;">
+    <section class="co-sec co-pad co-hero dv-sec" style="padding:64px var(--sec-pad-x) var(--sec-pad-y);">
       <h1 class="dv-h1" data-animate data-delay="0.1">{entry.data.title}</h1>
       {hero && (
         <div class="dv-hero-box co-frame" data-animate data-delay="0.2">
@@ -142,9 +142,9 @@ const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`
 
     <!-- Le diagnostic -->
     {audit && (
-      <section class="co-sec co-pad dv-sec" style="padding:56px 40px;">
+      <section class="co-sec co-pad dv-sec" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
         <p class="co-eyebrow">{num('audit')} — Le diagnostic</p>
-        <h2 style="margin-top:8px;">{audit.title}</h2>
+        <h2 style="margin-top:var(--space-eyebrow);">{audit.title}</h2>
         {audit.intro && <p class="dv-lead" set:html={audit.intro} />}
 
         {audit.moments && (
@@ -194,9 +194,9 @@ const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`
 
     <!-- Constat (devis sans bloc audit) -->
     {constat && (
-      <section class="co-sec co-pad dv-sec" style="padding:56px 40px;">
+      <section class="co-sec co-pad dv-sec" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
         <p class="co-eyebrow">{num('constat')} — Le constat</p>
-        <h2 style="margin-top:8px;">Ce que j'ai relevé</h2>
+        <h2 style="margin-top:var(--space-eyebrow);">Ce que j'ai relevé</h2>
         <div class="dv-callout" style="margin-top:24px;">
           <p class="dv-callout-text" set:html={constat} />
         </div>
@@ -205,7 +205,7 @@ const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`
 
     <!-- Le raisonnement (corps markdown) -->
     {hasBody && (
-      <section class="co-sec co-pad dv-sec" style="padding:56px 40px;">
+      <section class="co-sec co-pad dv-sec" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
         <p class="co-eyebrow">{num('body')} — Le raisonnement</p>
         <div class="co-prose dv-prose">
           <Content />
@@ -215,9 +215,9 @@ const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`
 
     <!-- Le plan -->
     {timeline && timeline.length > 0 && (
-      <section class="co-sec co-pad dv-sec" style="padding:56px 40px;">
+      <section class="co-sec co-pad dv-sec" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
         <p class="co-eyebrow">{num('timeline')} — Le plan</p>
-        <h2 style="margin-top:8px;">Comment ça <span class="co-ser">se déroule</span></h2>
+        <h2 style="margin-top:var(--space-eyebrow);">Comment ça <span class="co-ser">se déroule</span></h2>
         <div class="dv-steps">
           {timeline.map((t, i) => (
             <div class="dv-step">
@@ -234,9 +234,9 @@ const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`
 
     <!-- Les preuves -->
     {proofs.length > 0 && (
-      <section class="co-sec co-pad dv-sec" style="padding:56px 40px;">
+      <section class="co-sec co-pad dv-sec" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
         <p class="co-eyebrow">{num('proofs')} — Les preuves</p>
-        <h2 style="margin-top:8px;">
+        <h2 style="margin-top:var(--space-eyebrow);">
           {proofs.length > 1 ? 'Des dossiers comparables' : 'Un dossier comparable'}
         </h2>
         <div class="dv-proofs">
@@ -273,7 +273,7 @@ const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`
 
     <!-- Mon conseil -->
     {advice && (
-      <section class="co-sec co-pad dv-sec" style="padding:56px 40px;">
+      <section class="co-sec co-pad dv-sec" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
         <p class="co-eyebrow">{num('advice')} — Mon conseil</p>
         <div class="dv-advice">
           <i class="ri-lightbulb-line" aria-hidden="true"></i>
@@ -284,9 +284,9 @@ const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`
 
     <!-- Ce que je ne promets pas -->
     {disclaimer && (
-      <section class="co-sec co-pad dv-sec" style="padding:56px 40px;">
+      <section class="co-sec co-pad dv-sec" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
         <p class="co-eyebrow">{num('disclaimer')} — Les limites</p>
-        <h2 style="margin-top:8px;">{disclaimer.title}</h2>
+        <h2 style="margin-top:var(--space-eyebrow);">{disclaimer.title}</h2>
         <div class="dv-callout" style="margin-top:24px;">
           <p class="dv-callout-text" set:html={disclaimer.content} />
         </div>
@@ -295,9 +295,9 @@ const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`
 
     <!-- La proposition : le prix arrive ici, après l'argument -->
     {offers && offers.length > 0 && (
-      <section class="co-sec co-pad dv-sec" style="padding:56px 40px;">
+      <section class="co-sec co-pad dv-sec" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
         <p class="co-eyebrow">{num('offers')} — La proposition</p>
-        <h2 style="margin-top:8px;">
+        <h2 style="margin-top:var(--space-eyebrow);">
           {showComparison ? 'Comparaison des offres' : 'Le détail et le prix'}
         </h2>
 
@@ -416,9 +416,9 @@ const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`
 
     <!-- Références -->
     {portfolio && portfolio.length > 0 && (
-      <section class="co-sec co-pad dv-sec" style="padding:56px 40px;">
+      <section class="co-sec co-pad dv-sec" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
         <p class="co-eyebrow">{num('portfolio')} — Références</p>
-        <h2 style="margin-top:8px;">Quelques <span class="co-ser">réalisations</span></h2>
+        <h2 style="margin-top:var(--space-eyebrow);">Quelques <span class="co-ser">réalisations</span></h2>
         <div class="dv-refs">
           {refs.map(p => (
             <a
@@ -441,9 +441,9 @@ const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`
 
     <!-- Reporté -->
     {postponed && (
-      <section class="co-sec co-pad dv-sec" style="padding:56px 40px;">
+      <section class="co-sec co-pad dv-sec" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
         <p class="co-eyebrow">{num('postponed')} — Reporté</p>
-        <h2 style="margin-top:8px;">{postponed.title}</h2>
+        <h2 style="margin-top:var(--space-eyebrow);">{postponed.title}</h2>
         <div class="dv-callout" style="margin-top:24px;">
           <p class="dv-callout-text">{postponed.reason}</p>
           {postponed.action && postponed.link && (
@@ -539,7 +539,7 @@ const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`
        débordement invisible car clippé par .co-root{overflow:hidden}. */
     width: 100%; min-width: 0;
     font-family: "Inter Tight", ui-sans-serif, sans-serif; font-size: 15px; color: var(--ink);
-    background: var(--bg); border: 1px solid var(--line-2); padding: 12px 14px; text-align: center;
+    background: var(--bg); border: 1px solid var(--line-2); padding: var(--pad-chip); text-align: center;
     letter-spacing: 0.08em;
     transition: border-color .18s ease-out, box-shadow .18s ease-out;
   }
@@ -559,7 +559,7 @@ const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`
   /* ── Hero ── */
   .co-root .dv-h1 { font-size: clamp(2.1rem, 4.8vw, 3.2rem); line-height: 1.06; letter-spacing: -0.03em; max-width: 20ch; }
   .dv-hero-box {
-    position: relative; margin-top: 32px; padding: 30px 32px;
+    position: relative; margin-top: var(--space-block); padding: var(--pad-encart);
     background: var(--surface); border: 1px solid var(--line-2);
   }
   .dv-hero-list { display: flex; flex-direction: column; gap: 20px; margin: 0; }
@@ -571,7 +571,7 @@ const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`
   .co-root .dv-lead { margin-top: 12px; font-size: 1.05rem; line-height: 1.65; color: var(--muted); max-width: 68ch; }
 
   /* ── Diagnostic : les moments ── */
-  .dv-moments { display: flex; flex-direction: column; gap: 12px; margin-top: 32px; }
+  .dv-moments { display: flex; flex-direction: column; gap: 12px; margin-top: var(--space-block); }
   .dv-moment {
     padding: 20px 24px; background: var(--surface); border: 1px solid var(--line-2);
     box-shadow: inset 3px 0 0 var(--dv-bad);
@@ -585,7 +585,7 @@ const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`
   }
 
   /* ── Diagnostic : les scores ── */
-  .dv-scores { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 32px; }
+  .dv-scores { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: var(--space-block); }
   .dv-score { padding: 22px 18px; text-align: center; background: var(--surface); border: 1px solid var(--line-2); }
   .dv-score-val { font-size: 2.2rem; font-weight: 700; line-height: 1.1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
   .dv-score-lbl { margin-top: 7px; font-size: 13px; line-height: 1.4; color: var(--muted); }
@@ -594,13 +594,13 @@ const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`
   .dv-score--good .dv-score-val { color: var(--accent); }
 
   /* ── Capture d'écran ── */
-  .dv-shot { position: relative; margin-top: 32px; padding: 20px; background: var(--surface); border: 1px solid var(--line-2); }
+  .dv-shot { position: relative; margin-top: var(--space-block); padding: 20px; background: var(--surface); border: 1px solid var(--line-2); }
   .dv-shot img { display: block; width: 100%; height: auto; border: 1px solid var(--line); }
   .co-root .dv-shot figcaption { margin-top: 14px; font-size: 13px; line-height: 1.55; color: var(--muted); font-style: italic; }
 
   /* ── Callout (nuance, disclaimer, constat, reporté) ── */
   .dv-callout {
-    margin-top: 32px; padding: 24px 28px;
+    margin-top: var(--space-block); padding: 24px 28px;
     background: var(--surface); border: 1px solid var(--line-2);
     box-shadow: inset 3px 0 0 var(--accent);
   }
@@ -623,14 +623,14 @@ const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`
   .co-root .dv-prose > h2:first-child { margin-top: 0.3em; }
 
   /* ── Le plan ── */
-  .dv-steps { display: flex; flex-direction: column; margin-top: 32px; border-top: 1px solid var(--line); }
+  .dv-steps { display: flex; flex-direction: column; margin-top: var(--space-block); border-top: 1px solid var(--line); }
   .dv-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
   .dv-step-num { font-size: 20px; font-weight: 600; }
   .co-root .dv-step-title { font-size: 1.1rem; line-height: 1.3; }
   .co-root .dv-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.6; color: var(--muted); max-width: 70ch; }
 
   /* ── Les preuves ── */
-  .dv-proofs { display: flex; flex-direction: column; gap: 20px; margin-top: 32px; }
+  .dv-proofs { display: flex; flex-direction: column; gap: 20px; margin-top: var(--space-block); }
   .dv-proof { position: relative; padding: 28px 30px; background: var(--surface); border: 1px solid var(--line-2); }
   .co-root .dv-proof-title { font-size: 1.2rem; line-height: 1.3; max-width: 44ch; }
   .dv-proof-img { display: block; width: 100%; height: auto; margin-top: 20px; border: 1px solid var(--line); }
@@ -658,7 +658,7 @@ const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`
   .co-root .dv-advice-text { font-size: 1.05rem; line-height: 1.65; max-width: 68ch; }
 
   /* ── Tableau comparatif ── */
-  .dv-table-wrap { margin-top: 32px; overflow-x: auto; border: 1px solid var(--line-2); }
+  .dv-table-wrap { margin-top: var(--space-block); overflow-x: auto; border: 1px solid var(--line-2); }
   .dv-table { width: 100%; border-collapse: collapse; font-size: 14.5px; background: var(--surface); min-width: 560px; }
   .dv-table thead { background: rgba(20,22,26,.04); }
   .dv-table th { padding: 14px 16px; text-align: left; font-size: 13px; font-weight: 600; letter-spacing: 0.02em; border-bottom: 1px solid var(--line-2); }
@@ -703,7 +703,7 @@ const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`
   /* ── Les options ── */
   .dv-options { margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--line); }
   .co-root .dv-options-title { font-size: 1.15rem; }
-  .co-root .dv-options-lead { margin-top: 8px; font-size: 14px; line-height: 1.6; color: var(--muted); max-width: 68ch; }
+  .co-root .dv-options-lead { margin-top: var(--space-eyebrow); font-size: 14px; line-height: 1.6; color: var(--muted); max-width: 68ch; }
   .dv-options-list { display: flex; flex-direction: column; margin-top: 20px; border-top: 1px solid var(--line); padding: 0; list-style: none; }
   .dv-option {
     display: flex; align-items: baseline; justify-content: space-between; gap: 24px;
@@ -715,12 +715,12 @@ const waHref = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(waMessage)}`
   .dv-option-price { flex: none; font-size: 13px; font-weight: 600; color: var(--accent); white-space: nowrap; }
 
   /* ── Mention légale ── */
-  .co-root .dv-legal { margin-top: 32px; font-size: 12.5px; line-height: 1.6; color: var(--muted); font-style: italic; max-width: 72ch; }
+  .co-root .dv-legal { margin-top: var(--space-block); font-size: 12.5px; line-height: 1.6; color: var(--muted); font-style: italic; max-width: 72ch; }
 
   /* ── Références ── */
-  .dv-refs { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: 32px; }
+  .dv-refs { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; margin-top: var(--space-block); }
   .dv-ref {
-    position: relative; display: flex; flex-direction: column; gap: 7px; padding: 24px;
+    position: relative; display: flex; flex-direction: column; gap: 7px; padding: var(--pad-card);
     background: var(--surface); border: 1px solid var(--line-2);
     transition: box-shadow .18s ease-out, transform .18s ease-out;
   }
