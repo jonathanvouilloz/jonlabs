@@ -169,19 +169,19 @@ const year = new Date().getFullYear()
     /* CTA */
     .co-foot-cta {
         display: flex; flex-direction: column; align-items: center; text-align: center; gap: 14px;
-        padding: 64px 40px; border-bottom: 1px solid var(--line);
+        padding: 64px var(--sec-pad-x); border-bottom: 1px solid var(--line);
     }
     .co-foot-cta-title { font-size: clamp(1.8rem, 4vw, 2.6rem); line-height: 1.08; }
     .co-foot-cta-title .co-ser { color: var(--accent); }
     .co-foot-cta-lead { max-width: 44ch; line-height: 1.6; }
-    .co-foot-cta-btn { margin-top: 8px; }
+    .co-foot-cta-btn { margin-top: var(--space-eyebrow); }
     .co-foot-cta-btn i { transition: transform .18s ease-out; }
     .co-foot-cta-btn:hover i { transform: translateX(3px); }
 
     /* Colonnes */
     .co-foot-grid {
         display: grid; grid-template-columns: 1.7fr 1.1fr 1fr 1fr 1fr; gap: 40px;
-        padding: 56px 40px; border-bottom: 1px solid var(--line);
+        padding: var(--sec-pad-y) var(--sec-pad-x); border-bottom: 1px solid var(--line);
     }
     .co-foot-brand .co-foot-baseline { margin-top: 14px; max-width: 34ch; line-height: 1.55; font-size: 14px; }
     .co-foot-socials { display: flex; gap: 10px; margin-top: 18px; }

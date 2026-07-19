@@ -84,7 +84,7 @@ const socials = [
   .hp-hero-ctas .co-btn i { transition: transform .18s ease-out; }
   .hp-hero-ctas .co-btn:hover i { transform: translateX(3px); }
 
-  .hp-hero-socials { display: flex; align-items: center; gap: 16px; margin-top: 10px; padding-top: 22px; border-top: 1px solid var(--line); width: 100%; }
+  .hp-hero-socials { display: flex; align-items: center; gap: 16px; margin-top: var(--space-title-lead); padding-top: 22px; border-top: 1px solid var(--line); width: 100%; }
   .hp-hero-social-row { display: flex; gap: 10px; }
   .hp-hero-social {
     width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;
@@ -98,7 +98,7 @@ const socials = [
   .hp-hero-photo { display: block; width: 100%; height: auto; object-fit: cover; }
 
   @media (max-width: 900px) {
-    .hp-hero-grid { grid-template-columns: 1fr; gap: 40px; padding: 56px 40px; }
+    .hp-hero-grid { grid-template-columns: 1fr; gap: 40px; padding: var(--sec-pad-y) var(--sec-pad-x); }
     .hp-hero-media { order: -1; }
     .hp-hero-frame { max-width: 280px; }
   }
