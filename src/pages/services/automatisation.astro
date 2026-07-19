@@ -15,9 +15,9 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
 // Images (illustrations de contenu — cadrées .co-frame)
-import heroImage from '../../assets/services/automatisation-hero.png';
-import methodeImage from '../../assets/services/automatisation-methode.png';
-import workflowImage from '../../assets/services/automatisation-workflow.png';
+import heroImage from '../../assets/services/automatisation-hero.webp';
+import methodeImage from '../../assets/services/automatisation-methode.webp';
+import workflowImage from '../../assets/services/automatisation-workflow.webp';
 
 // Schema.org
 import { serviceSchemas, SITE_URL } from '../../data/schema';
@@ -345,7 +345,7 @@ const otherUseCases = useCases.slice(1);
                     <div class="au-shot co-frame">
                         <span class="co-x tl"></span><span class="co-x tr"></span>
                         <span class="co-x bl"></span><span class="co-x br"></span>
-                        <img src={heroImage.src} alt="Avant/après automatisation : d'une charge mentale écrasante à un quotidien libéré" loading="eager" class="au-shot-img" />
+                        <img src={heroImage.src} alt="Illustration de l'automatisation des tâches administratives : documents, rouages et emails reliés vers un gain de temps" loading="eager" class="au-shot-img" />
                     </div>
                     <div class="au-badge-float">5-10 h / sem.</div>
                 </div>
@@ -392,7 +392,7 @@ const otherUseCases = useCases.slice(1);
             <div class="au-method-media au-shot co-frame" data-animate>
                 <span class="co-x tl"></span><span class="co-x tr"></span>
                 <span class="co-x bl"></span><span class="co-x br"></span>
-                <img src={methodeImage.src} alt="Les 4 étapes de mise en place d'une automatisation : audit, design, implémentation, transfert" class="au-shot-img" />
+                <img src={methodeImage.src} alt="Illustration des 4 étapes d'une automatisation : audit, design du workflow, mise en place, transfert" class="au-shot-img" />
             </div>
 
             <div class="au-steps" data-animate-stagger>
@@ -482,7 +482,7 @@ const otherUseCases = useCases.slice(1);
                 </div>
                 <div class="au-uc-body">
                     <div class="au-uc-shot">
-                        <img src={workflowImage.src} alt="Workflow automatisé de relance de paiement : emails automatiques à J+7 et J+15, notification manuelle à J+30" class="au-shot-img" />
+                        <img src={workflowImage.src} alt="Illustration d'un workflow de relance de paiement automatique : séquence d'emails puis notification à J+30" class="au-shot-img" />
                     </div>
                     <div class="au-uc-split">
                         <div class="au-uc-col">
