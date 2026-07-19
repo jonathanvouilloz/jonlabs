@@ -5,7 +5,7 @@ description: "Catégorie principale, catégories secondaires : comment choisir c
 pubDate: 2026-06-12
 image:
   url: "/images/blog/choisir-categorie-google-business-profile.webp"
-  alt: "Choisir la catégorie principale de sa fiche Google Business Profile, menu déroulant style brutaliste"
+  alt: "Illustration éditoriale : buste de statue antique choisissant la catégorie d'une fiche d'établissement parmi des pastilles d'activités, la catégorie sélectionnée en vert, DA jonlabs"
 category: "seo-local"
 tags: ["google-business-profile", "google-my-business", "seo-local", "local-pack", "categorie-google", "pme", "suisse-romande"]
 featured: false

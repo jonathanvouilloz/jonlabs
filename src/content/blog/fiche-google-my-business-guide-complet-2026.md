@@ -6,7 +6,7 @@ pubDate: 2026-05-05
 updatedDate: 2026-07-17
 image:
   url: "/images/blog/fiche-google-my-business-guide-complet-2026.webp"
-  alt: "Guide complet fiche Google My Business 2026 — optimisation PME francophone"
+  alt: "Illustration éditoriale : buste de statue antique tenant un smartphone affichant une fiche d'établissement Google (photo, étoiles vertes, pin), carte en arrière-plan, DA jonlabs"
 category: "seo-local"
 tags: ["google-my-business", "google-business-profile", "seo-local", "local-pack", "gmb", "pme"]
 featured: true

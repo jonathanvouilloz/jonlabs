@@ -6,7 +6,7 @@ pubDate: 2026-05-14
 updatedDate: 2026-07-17
 image:
   url: "/images/blog/optimiser-fiche-google-my-business-checklist-2026.webp"
-  alt: "Checklist optimiser fiche Google My Business 2026 — 25 points classés par impact"
+  alt: "Illustration éditoriale : buste de statue antique optimisant une fiche d'établissement sur smartphone à côté d'une checklist verte cochée, DA jonlabs"
 category: "seo-local"
 tags: ["google-my-business", "optimisation-gmb", "local-pack", "checklist", "whitespark", "seo-local"]
 featured: false

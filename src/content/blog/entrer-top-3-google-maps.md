@@ -5,7 +5,7 @@ description: "Proximité, pertinence, notoriété : les 3 facteurs du top 3 Goog
 pubDate: 2026-06-05
 image:
   url: "/images/blog/entrer-top-3-google-maps.webp"
-  alt: "Podium des 3 premières positions sur Google Maps (Local Pack), illustration brutaliste"
+  alt: "Illustration éditoriale : buste de statue antique plaçant le pin gagnant vert parmi trois pins sur une carte, DA jonlabs"
 category: "seo-local"
 tags: ["seo-local", "google-maps", "google-business-profile", "local-pack", "referencement-local", "pme", "suisse-romande"]
 featured: false

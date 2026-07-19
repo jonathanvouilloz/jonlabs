@@ -5,7 +5,7 @@ description: "Apparaître sur Google quand un client tape ton métier à Lausann
 pubDate: 2026-06-26
 image:
   url: "/images/blog/referencement-local-lausanne.webp"
-  alt: "Référencement local pour PME et indépendants à Lausanne, canton de Vaud"
+  alt: "Illustration éditoriale : buste de statue antique plaçant un pin vert sur une carte de la région lausannoise (lac, cathédrale), smartphone avec carte, DA jonlabs"
 category: "seo-local"
 tags: ["seo", "referencement-local", "lausanne", "vaud", "google-business-profile", "suisse-romande", "pme"]
 featured: false

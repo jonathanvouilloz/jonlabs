@@ -5,7 +5,7 @@ description: "Ton commerce excentré ne perce pas sur Google Maps ? La distance 
 pubDate: 2026-07-17
 image:
   url: "/images/blog/seo-local-commerce-excentre.webp"
-  alt: "Commerce excentré sur Google Maps face aux concurrents concentrés au centre-ville"
+  alt: "Illustration éditoriale : buste de statue antique traçant un chemin vert du centre-ville vers un commerce excentré marqué d'un pin sur une carte, DA jonlabs"
 category: "seo-local"
 tags: ["seo-local", "google-maps", "google-business-profile", "zone-de-service", "pme", "suisse-romande"]
 featured: false

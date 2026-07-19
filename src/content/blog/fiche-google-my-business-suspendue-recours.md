@@ -6,7 +6,7 @@ pubDate: 2026-05-28
 updatedDate: 2026-07-17
 image:
   url: "/images/blog/fiche-google-my-business-suspendue-recours.webp"
-  alt: "Fiche Google My Business suspendue : procédure de réclamation et recours pour PME"
+  alt: "Illustration éditoriale : buste de statue antique retirant un cadenas et une chaîne d'une fiche d'établissement suspendue, chemin vert vers une fiche rétablie, DA jonlabs"
 category: "seo-local"
 tags: ["google-my-business", "suspension-gmb", "seo-local", "google-business-profile", "réclamation", "local-pack"]
 featured: false

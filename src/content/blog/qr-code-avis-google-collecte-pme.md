@@ -6,7 +6,7 @@ pubDate: 2026-05-21
 updatedDate: 2026-07-17
 image:
   url: "/images/blog/qr-code-avis-google-collecte-pme.webp"
-  alt: "QR code avis Google sur comptoir PME, pour collecter des avis clients facilement"
+  alt: "Illustration éditoriale : buste de statue antique présentant un QR code devant un commerce, étoiles d'avis vertes qui s'envolent, DA jonlabs"
 category: "seo-local"
 tags: ["qr-code-avis-google", "avis-google", "google-my-business", "seo-local", "pme", "collecte-avis"]
 featured: false

@@ -5,7 +5,7 @@ description: "Tu as un commerce mais tu n'apparais pas sur Google Maps ? Je t'ex
 pubDate: 2026-05-07
 image:
   url: "/images/blog/comment-apparaitre-google-maps-pme-debutant.webp"
-  alt: "Comment apparaître sur Google Maps — guide PME débutant 2026"
+  alt: "Illustration éditoriale : buste de statue antique plantant un pin de localisation vert sur une carte marquant un commerce, DA jonlabs"
 category: "seo-local"
 tags: ["google-maps", "google-my-business", "local-pack", "pme", "debutant", "fiche-google"]
 featured: false

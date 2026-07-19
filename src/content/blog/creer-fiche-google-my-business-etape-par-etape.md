@@ -6,7 +6,7 @@ pubDate: 2026-05-12
 updatedDate: 2026-07-17
 image:
   url: "/images/blog/creer-fiche-google-my-business-etape-par-etape.webp"
-  alt: "Créer fiche Google My Business étape par étape — guide 2026"
+  alt: "Illustration éditoriale : buste de statue antique assemblant étape par étape une fiche d'établissement (étoiles, horaires, photo) reliée par un fil vert, DA jonlabs"
 category: "seo-local"
 tags: ["google-my-business", "google-business-profile", "creation-fiche", "verification-google", "seo-local"]
 featured: false

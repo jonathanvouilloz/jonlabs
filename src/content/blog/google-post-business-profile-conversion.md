@@ -6,7 +6,7 @@ pubDate: 2026-05-19
 updatedDate: 2026-07-17
 image:
   url: "/images/blog/google-post-business-profile-conversion.webp"
-  alt: "Exemple de Google Post bien structuré sur une fiche Google Business Profile — framework copy conversion PME"
+  alt: "Illustration éditoriale : main de statue antique publiant un post d'établissement sur smartphone, flèche verte menant à un client, DA jonlabs"
 category: "seo-local"
 tags: ["google-post", "google-my-business", "google-business-profile", "seo-local", "conversion", "pme"]
 featured: false

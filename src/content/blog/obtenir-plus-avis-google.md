@@ -7,7 +7,7 @@ updatedDate: 2026-07-17
 author: "Jonathan Vouilloz"
 image:
   url: "/images/blog/obtenir-plus-avis-google.webp"
-  alt: "Obtenir un flux régulier d'avis Google pour une PME romande — méthode système avec timing et canaux"
+  alt: "Illustration éditoriale : main de statue antique et fiche d'établissement d'où s'envolent de nombreuses étoiles d'avis vertes, DA jonlabs"
 category: "seo-local"
 tags: ["avis-google", "google-my-business", "seo-local", "google-business-profile", "pme", "obtenir-avis-google"]
 featured: false

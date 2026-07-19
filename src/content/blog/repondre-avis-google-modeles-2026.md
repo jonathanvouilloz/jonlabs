@@ -7,7 +7,7 @@ updatedDate: 2026-07-17
 author: "Jonathan Vouilloz"
 image:
   url: "/images/blog/repondre-avis-google-modeles-2026.webp"
-  alt: "Répondre aux avis Google sur Google Business Profile — interface propriétaire avec framework 4 blocs"
+  alt: "Illustration éditoriale : buste de statue antique à un ordinateur portable, un avis client (étoiles) relié à une bulle de réponse verte, DA jonlabs"
 category: "seo-local"
 tags: ["google-my-business", "avis-google", "seo-local", "google-business-profile", "gestion-avis", "pme"]
 featured: false
