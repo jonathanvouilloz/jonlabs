@@ -61,7 +61,9 @@
       "Bash(rm -rf \"C:/Users/jojo-/.claude/skills/generate-images/scripts/__pycache__/\")",
       "Read(//c/Users/jojo-/.claude/skills/generate-images/scripts/**)",
       "Skill(gmb-post)",
-      "Skill(open-carrusel)"
+      "Skill(open-carrusel)",
+      "Bash(sed 's/padding:\\\\s*//')",
+      "Bash(sed 's/[[:space:]]*$//')"
     ],
     "deny": [],
     "ask": []
