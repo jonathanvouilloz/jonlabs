@@ -5,7 +5,7 @@ description: "L'IA est partout, mais mal utilisée. Découvrez les quick wins co
 pubDate: 2025-12-16
 image:
   url: "/images/blog/ia-pragmatique-pme-suisse.webp"
-  alt: "Illustration sketchnote montrant une Ferrari garée devant une boîte aux lettres - métaphore de l'IA sous-utilisée par les PME"
+  alt: "Illustration editoriale : buste de philosophe antique face a un ordinateur portable et une machine a engrenage vert, IA pragmatique, DA jonlabs"
 category: "automatisation"
 tags: ["ia", "pme", "suisse-romande", "productivite", "automatisation"]
 featured: false

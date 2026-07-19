@@ -5,7 +5,7 @@ description: "Où votre PME perd du temps en admin et 3 automatisations rapides 
 pubDate: 2025-12-15
 image:
   url: "/images/blog/temps-perdu-pme-automatisation.webp"
-  alt: "Illustration comparant une PME submergée de paperasse vs une PME automatisée efficace"
+  alt: "Illustration editoriale : sablier au sable vert et chaine de workflow recuperant le temps perdu sur la paperasse, main de statue antique, DA jonlabs"
 category: "automatisation"
 tags: ["automatisation", "PME", "productivite", "suisse-romande", "admin"]
 featured: false

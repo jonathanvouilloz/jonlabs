@@ -5,7 +5,7 @@ description: "n8n, Make, Zapier vs Hermes Agent, OpenClaw : quelle différence ?
 pubDate: 2026-04-27
 image:
   url: "/images/blog/workflows-vs-agents-ia-pme.webp"
-  alt: "Workflow déterministe n8n Make vs agent IA autonome Hermes OpenClaw — comparaison pour PME romande"
+  alt: "Illustration editoriale : a gauche une chaine lineaire de blocs (workflow), a droite un noeud vert autonome qui s auto-organise (agent), main de statue antique, DA jonlabs"
 category: "automatisation"
 tags: ["automatisation", "agent-ia", "workflow", "n8n", "make", "zapier", "pme", "suisse-romande"]
 featured: false

@@ -5,7 +5,7 @@ description: "La méthode pour choisir quoi automatiser en premier dans ta PME :
 pubDate: 2026-04-28
 image:
   url: "/images/blog/comment-choisir-quoi-automatiser-pme.webp"
-  alt: "Dirigeant de PME suisse face à une liste de processus à prioriser pour l'automatisation"
+  alt: "Illustration editoriale : main de statue antique triant des taches dans un entonnoir, les taches retenues ressortent en vert, DA jonlabs"
 category: "automatisation"
 tags: ["automatisation", "pme", "suisse-romande", "roi", "workflow", "make", "n8n"]
 featured: false

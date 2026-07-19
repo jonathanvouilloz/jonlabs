@@ -5,7 +5,7 @@ description: "Cotisations impayées, fichiers Excel chaotiques, conformité nLPD
 pubDate: 2025-11-27
 image:
   url: "/images/blog/automatisation-club-sportif.webp"
-  alt: "Automatisation pour clubs sportifs en 2025"
+  alt: "Illustration editoriale : ordinateur portable dont sort une chaine de traitement automatise des fiches d un club sportif (ballon, sifflet), main de statue antique, accent vert, DA jonlabs"
 category: "automatisation"
 tags: ["automatisation", "clubs", "associations", "suisse", "gestion"]
 featured: false

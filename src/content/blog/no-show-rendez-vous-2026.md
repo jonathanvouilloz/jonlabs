@@ -5,7 +5,7 @@ description: "Réduisez les no-shows avec un système de réservation adapté : 
 pubDate: 2025-12-06
 image:
   url: "/images/blog/no-show-rendez-vous-2026.webp"
-  alt: "Système de réservation anti no-show pour praticiens"
+  alt: "Illustration editoriale : agenda avec un rendez-vous manque et un rappel automatique (cloche verte) declenche par une main de statue antique, DA jonlabs"
 category: "automatisation"
 tags: ["automatisation", "rendez-vous", "no-show", "praticiens", "suisse"]
 featured: false

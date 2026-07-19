@@ -5,7 +5,7 @@ description: "OpenClaw, agent IA persistant accessible depuis WhatsApp. Cas d'us
 pubDate: 2026-05-01
 image:
   url: "/images/blog/openclaw-pme-suisse.webp"
-  alt: "Smartphone affichant une conversation WhatsApp avec OpenClaw, ambiance bureau de dirigeant de PME romande"
+  alt: "Illustration editoriale : main de statue antique tenant un smartphone avec une messagerie d assistant IA (bulle verte) connectee a des outils, DA jonlabs"
 category: "automatisation"
 tags: ["openclaw", "agent-ia", "automatisation", "pme", "tpe", "suisse-romande", "whatsapp", "open-source", "peter-steinberger"]
 featured: false

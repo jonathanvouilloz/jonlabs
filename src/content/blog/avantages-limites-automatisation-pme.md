@@ -5,7 +5,7 @@ description: "Bilan honnête : les vrais avantages de l'automatisation pour une 
 pubDate: 2026-04-29
 image:
   url: "/images/blog/avantages-limites-automatisation-pme.webp"
-  alt: "Tableau de bord d'un dirigeant de PME romande analysant le ROI d'un workflow automatisé, ambiance bureau sobre"
+  alt: "Illustration editoriale : buste de philosophe antique tenant une balance qui pese les benefices (workflow vert) contre les limites (poids gris) de l automatisation, DA jonlabs"
 category: "automatisation"
 tags: ["automatisation", "pme", "suisse-romande", "roi", "n8n", "make", "zapier", "limites", "couts-caches"]
 featured: false

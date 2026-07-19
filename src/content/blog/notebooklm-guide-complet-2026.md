@@ -5,7 +5,7 @@ description: "Découvrez comment NotebookLM transforme des heures de lecture en 
 pubDate: 2026-01-06
 image:
   url: "/images/blog/notebooklm-guide-complet-2026.webp"
-  alt: "Illustration d'un personnage blob analysant des documents avec NotebookLM"
+  alt: "Illustration editoriale : pile de documents et carnet synthetises en une note via un reseau de noeuds verts, main de statue antique, DA jonlabs"
 category: "automatisation"
 tags: ["ia", "notebooklm", "productivite", "documents", "google", "outils"]
 featured: false
