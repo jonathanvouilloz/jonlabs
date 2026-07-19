@@ -34,7 +34,7 @@ La bonne nouvelle : la solution n'a rien de magique. Une vraie **stratégie de c
 
 Le site moyen d'un indépendant romand est techniquement vivant mais cliniquement mort aux yeux de Google. Il est en ligne, il charge, il est joli. Et personne ne le trouve. Aucune stratégie de contenu site web n'a été pensée après la livraison initiale.
 
-![Diptyque illustré comparant un site web dormant (devanture fermée, rideau baissé) et un site web actif (vitrine éclairée avec passants qui s'arrêtent)](/images/blog/visibilite-site-internet-2026-1.webp)
+<!-- TODO:image — Diptyque illustré comparant un site web dormant (devanture fermée, rideau baissé) et un site web actif (vitrine éclairée avec passants qui s'arrêtent) — /images/blog/visibilite-site-internet-2026-1.webp (à régénérer) -->
 
 ### Ce qu'on appelle un "site qui dort"
 
@@ -191,7 +191,7 @@ Un seul article. Pas dix. Un. Ciblé sur une requête précise de son domaine, r
 
 Pour un coût de production d'environ 4 heures de travail, le ROI parle tout seul. C'est la démonstration la plus concrète de ce qu'un **blog d'entreprise en Suisse romande** peut produire quand il est ciblé correctement, et le genre de résultat qu'une stratégie de contenu site web disciplinée vise dès la première année.
 
-![Dashboard Search Console montrant 20 400 impressions, 340 clics et position moyenne 12,4 sur 5 mois pour un article d'indépendant romand](/images/blog/visibilite-site-internet-2026-3.webp)
+<!-- TODO:image — Dashboard Search Console montrant 20 400 impressions, 340 clics et position moyenne 12,4 sur 5 mois pour un article d'indépendant romand — /images/blog/visibilite-site-internet-2026-3.webp (à régénérer) -->
 
 ### Pourquoi ça a marché sans nouveau contenu
 

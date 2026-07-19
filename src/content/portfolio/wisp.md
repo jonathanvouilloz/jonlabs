@@ -90,7 +90,7 @@ learnings:
 
 > Écris ou tout disparaît. 300 mots. Chaque jour. Sans filtre.
 
-![Wisp - Écran d'écriture](/images/lab/wisp/gallery/writing-screen.webp)
+<!-- TODO:image — Wisp - Écran d'écriture — /images/lab/wisp/gallery/writing-screen.webp (à régénérer) -->
 
 ---
 
@@ -113,13 +113,13 @@ C'est pas le mode hardcore. À 50%, tu as environ 6 secondes de répit. À 100%,
 
 Un petit fantôme d'encre qui flotte à côté de ta zone d'écriture. Il pulse doucement. Et surtout — son opacité est liée à ta jauge. Plus tu ralentis, plus Wisp s'efface. C'est ton compagnon, pas ton surveillant.
 
-![La mascotte Wisp](/images/lab/wisp/gallery/wisp-mascot.webp)
+<!-- TODO:image — La mascotte Wisp — /images/lab/wisp/gallery/wisp-mascot.webp (à régénérer) -->
 
 ### Le calendrier d'encre
 
 Inspiré des apps de suivi d'habitudes — un calendrier annuel où chaque jour complété laisse une tache d'encre. Colorée selon ton mood post-session (de gris ardoise pour "j'ai galéré" à doré pour "état de flow").
 
-![Calendrier annuel](/images/lab/wisp/gallery/calendar-view.webp)
+<!-- TODO:image — Calendrier annuel — /images/lab/wisp/gallery/calendar-view.webp (à régénérer) -->
 
 ### Features MVP
 
@@ -155,15 +155,15 @@ Inspiré des apps de suivi d'habitudes — un calendrier annuel où chaque jour 
 
 <div class="img-grid-2">
 
-![Session active](/images/lab/wisp/gallery/session-active.webp)
-![Jauge d'encre](/images/lab/wisp/gallery/ink-gauge.webp)
+<!-- TODO:image — Session active — /images/lab/wisp/gallery/session-active.webp (à régénérer) -->
+<!-- TODO:image — Jauge d'encre — /images/lab/wisp/gallery/ink-gauge.webp (à régénérer) -->
 
 </div>
 
 <div class="img-grid-2">
 
-![Mood rating post-session](/images/lab/wisp/gallery/mood-rating.webp)
-![Onboarding avec Wisp](/images/lab/wisp/gallery/onboarding.webp)
+<!-- TODO:image — Mood rating post-session — /images/lab/wisp/gallery/mood-rating.webp (à régénérer) -->
+<!-- TODO:image — Onboarding avec Wisp — /images/lab/wisp/gallery/onboarding.webp (à régénérer) -->
 
 </div>
 

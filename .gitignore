@@ -37,20 +37,39 @@ id_*
 .idea/
 nul
 
-# Generated images (AI tools)
+# ─────────────────────────────────────────────────────────────
+# Artefacts du pipeline de contenu (skills SEO/GMB/moodboard).
+# HORS build Astro : le site ne sert que public/ et src/.
+# Gardés en local, jamais versionnés — source de vérité = src/content/.
+# ─────────────────────────────────────────────────────────────
+
+# NB : gitignore ne gère PAS les commentaires en fin de ligne — chaque
+# commentaire est sur sa propre ligne, sinon le pattern est cassé.
+
+# Scratch / cache de génération
 generated_imgs/
-
-# Moodboard generation logs (cache of cli.py runs)
 moodboard/.generations/
-
-# Local backups (calendar drafts during pipeline iterations)
+# backups de drafts pendant les itérations
 *.PREVIOUS.json
-
-# Scratch / sorties de pipeline hors build Astro (source de vérité = src/content/)
-content/_drafts/blog/
-content/_drafts/services/
-/linkedin/
-content/linkedin/
-
-# Logs de production du pipeline de contenu (article-producer)
+# logs article-producer
 *.production.log
+
+# Data & outputs de skills SEO/GMB (ancrés racine — ne pas toucher src/content/)
+# outputs JSON des skills SEO (gsc, keywords…)
+/.seo-data/
+# briefs de travail (source = src/content/blog/.briefs/)
+/.briefs/
+# drafts de posts GMB (json)
+/gmb/
+# espace de travail contenu hors build (≠ src/content/)
+/content/
+# assets pipeline GMB (public/ est le seul dossier servi)
+/static/
+# sorties du skill carousel
+/carousels/
+
+# Masters de génération d'illustrations (sources, non servies)
+src/assets/illustrations/_masters/
+
+# Brouillons LinkedIn
+/linkedin/

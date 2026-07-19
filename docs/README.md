@@ -8,6 +8,7 @@ Lues automatiquement par CLAUDE.md, `.claude/commands/*` et les skills d'init.
 
 | Fichier | Rôle | Consommé par |
 |---|---|---|
+| `HANDOFF.md` | Index des features actives (état de reprise, MàJ chaque session) | `/resume-project`, `/wrap-session` |
 | `project-context.md` | Identité, positionnement, philosophie | CLAUDE.md, `.claude/checklist.md` |
 | `roadmap.md` | Phases de dev (1→7) | CLAUDE.md |
 | `identity.md` | Brand, audience, tone, banned_words | tous les skills d'init |
@@ -16,7 +17,7 @@ Lues automatiquement par CLAUDE.md, `.claude/commands/*` et les skills d'init.
 | `gmb-context.md` | Locations GBP, art direction GMB | `/gmb-*` |
 | `moodboard.md` | ADN visuel | `/generate-images`, `/generate-cover` |
 | `guidelines.md` | Standards code, conventions, blog | CLAUDE.md, `/blog` |
-| `styleguide.md` | Design system brutaliste | CLAUDE.md, `/new-page`, `gmb/config.json` |
+| `styleguide.md` | Design system (⚠️ en cours de resync sur le blueprint — cf. `src/styles/global.css`) | CLAUDE.md, `/new-page`, `gmb/config.json` |
 | `schema-guide.md` | Mode d'emploi Schema.org pour nouvelles pages | `/new-page`, `/schema` |
 | `generate-image-blog.md` | Workflow 3 phases covers blog | `/blog` |
 | `seo-todo.md` | TODO SEO vivant (P2 restants) | référence audit |
@@ -30,21 +31,20 @@ Docs vivantes de pilotage éditorial, consommées par les feature files (`docs/f
 |---|---|
 | `restructuration-clusters.md` | Plan maître du chantier SEO (3 clusters, verdict par page, liste KILL, feuille de route) |
 | `planSEOIA.md` | Roadmap globale cluster « consultant IA » (epic EN COURS) |
-| `plan-mise-en-place-ia.md` | Tracking exécution du cluster « Mettre l'IA en place » |
 | `topical-map-consultant-ia.md` | Topical map cluster IA (2 piliers, scoring, mini-briefs) |
-| `topical-map-mise-en-place-ia.md` | Topical map cluster « Mettre l'IA en place » |
 | `topical-map-c1-sur-mesure-automatisation.md` | Topical map C1 (Build / Automate) |
 | `topical-map-c3-web-referencement.md` | Topical map C3 (web / SEO local / GEO / GMB) |
-| `topical-map-application-mobile.md` | Topical map cluster application mobile |
 | `chantier-cluster-plateformes.md` | Session 8 — cluster Webflow/WordPress (EN ATTENTE, prochain epic candidat) |
+
+> Clusters terminés archivés dans `archive/` : « Mettre l'IA en place » (`plan-mise-en-place-ia.md`, `archive/clusters/topical-map-mise-en-place-ia.md`) et « Application mobile » (`archive/cluster-application-mobile.md`, `archive/clusters/topical-map-application-mobile.md`).
 
 ## `features/` — Feature files (epics)
 
 Un fichier par epic, index léger dans `HANDOFF.md`. Contient la « Carte du code » lue par `/resume-feature`.
 
-## `tools/` — Outillage dev (hors site)
+## Outillage Reddit (hors site)
 
-Dashboard Reddit (`dashboard.py`, `reddit_scraper.py`, `dashboard.html`) + guide. Le tool servi au public vit séparément dans `public/tools/reddit-dashboard/`.
+Le dashboard Reddit (`dashboard.py`, `reddit_scraper.py`, `dashboard.html` + guide) vit dans `public/tools/reddit-dashboard/` (servi au public). L'ancien doublon `docs/tools/` a été supprimé.
 
 ## `clusters/` — Clusters de contenu actifs
 
@@ -82,6 +82,9 @@ Notes thématiques (style Obsidian) consultées par les clusters comme matière 
 | `archive/snapshots/` | Snapshots pré-refactor + briefs figés (mai 2026) |
 | `archive/maillage/` | Rapport one-shot de maillage interne (graphe, 11.06.2026) |
 | `archive/chantier-seo-refactor.md` | Log du chantier SEO (Sessions 1-5 terminées) |
+| `archive/cluster-application-mobile.md` | Epic cluster « Application mobile » (terminé le 2026-06-19) |
+| `archive/plan-mise-en-place-ia.md` | Tracking du cluster « Mettre l'IA en place » (terminé) |
+| `archive/clusters/` | Topical maps des clusters terminés (application-mobile, mise-en-place-ia) |
 
 ---
 

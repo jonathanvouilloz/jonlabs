@@ -32,7 +32,7 @@ Ce guide est fait pour toi. Pas de jargon, pas de théorie SEO. Juste ce que tu 
 
 Pour la vue d'ensemble complète sur la fiche Google, commence par lire [le guide complet sur la fiche Google My Business](/blog/fiche-google-my-business-guide-complet-2026). Ici, on se concentre sur le démarrage de zéro.
 
-![Comment apparaître sur Google Maps — guide PME débutant 2026](/images/blog/comment-apparaitre-google-maps-pme-debutant-1.webp)
+<!-- TODO:image — Comment apparaître sur Google Maps — guide PME débutant 2026 — /images/blog/comment-apparaitre-google-maps-pme-debutant-1.webp (à régénérer) -->
 
 ---
 

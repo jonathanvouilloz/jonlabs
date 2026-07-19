@@ -35,7 +35,7 @@ Cette checklist couvre les 25 points classés par section, avec le groupe de sig
 
 Si tu n'as pas encore de fiche, commence par [comment apparaître sur Google Maps](/blog/comment-apparaitre-google-maps-pme-debutant). Si tu en es à la création : [créer ta fiche de A à Z](/blog/creer-fiche-google-my-business-etape-par-etape). Ici, on suppose que la fiche existe. Et on la fait ranker.
 
-![Checklist optimiser fiche Google My Business 2026 — 25 points classés par impact](/images/blog/optimiser-fiche-google-my-business-checklist-2026-1.webp)
+<!-- TODO:image — Checklist optimiser fiche Google My Business 2026 — 25 points classés par impact — /images/blog/optimiser-fiche-google-my-business-checklist-2026-1.webp (à régénérer) -->
 
 ---
 

@@ -33,7 +33,7 @@ Sauf que la plupart des PME le sous-utilisent. Fiche vide, catégorie vague, zé
 
 Ce guide couvre tout ce qu'une PME doit vraiment savoir sur la **fiche d'établissement Google** en 2026 : ce que c'est, pourquoi ça compte, comment le cycle de vie complet fonctionne, ce qui ranke vraiment (avec les données), et les erreurs qui plombent silencieusement ta visibilité.
 
-![Guide complet fiche Google My Business 2026 — optimisation PME francophone](/images/blog/fiche-google-my-business-guide-complet-2026-1.webp)
+<!-- TODO:image — Guide complet fiche Google My Business 2026 — optimisation PME francophone — /images/blog/fiche-google-my-business-guide-complet-2026-1.webp (à régénérer) -->
 
 ---
 
