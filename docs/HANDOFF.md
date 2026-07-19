@@ -3,15 +3,15 @@
 ## Features actives
 | Feature | Fichier | Statut |
 |---------|---------|--------|
-| Polish global & design system | docs/features/polish-design-system.md | **EN COURS** (19.07 : CTA + blog UX + 48 covers ✅ ; migration spacing site-wide BOUCLÉE ✅) |
+| Polish global & design system | docs/features/polish-design-system.md | **EN COURS** (19.07 : CTA + blog UX + 48 covers ✅ ; spacing site-wide ✅ ; dernières images brutalistes + tableaux ✅) |
 | Refonte SEO / clusters | docs/features/refonte-seo-clusters.md | EN ATTENTE (indexation GSC : re-run /seo-index-diagnose mi-sept. vs baseline 50/88) |
 | Devis Cabinet Grange-Canal | docs/features/devis-cabinet-grange-canal.md | CODE FINI — attend le call (3 vérifs bloquantes) |
 | Refonte blueprint (design/typo) | docs/features/refonte-blueprint.md | BOUCLÉE — reste `/epic-recap` |
 | Chantier SEO IA (consultant IA) | docs/planSEOIA.md | EN ATTENTE (Phase 1-2 ✅, Phase 3 à venir) |
 
 ## Reprendre ici
-**Polish / design system** — migration spacing **bouclée** ✅ (0 résidu migrable co-root). Prochain : **revue live des 48 covers** (`npm run dev` → /blog, featured = article publié le + récent). Puis restes : reframe éditorial Lécureux (reporté), portrait hero détouré (piste Jonathan).
-Commit : [9e0d476] feat(design): sweep final spacing — 3-valeurs + traînards co-root
+**Polish / design system** — dernières images brutalistes migrées + tableaux d'articles formatés ✅. Prochain : **revue live des 48 covers** (`npm run dev` → /blog, featured = article publié le + récent). Puis restes : reframe éditorial Lécureux (reporté), portrait hero détouré (piste Jonathan).
+Commit : [c960380] chore(claude): settings — HEAD (design images+tableaux : ec1e671, 4b488fa)
 
 ## Actions manuelles en attente (côté Jonathan)
 - **Devis Grange-Canal — 3 vérifs AVANT envoi** (« 45 à 60 min » concurrent, « 9 vs 160 », « dont personne ne se sert » sur les 31 avis) — détail dans son feature file.
