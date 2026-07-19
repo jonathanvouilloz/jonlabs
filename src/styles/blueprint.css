@@ -340,11 +340,12 @@
 .co-prose pre code { background: transparent; border: 0; padding: 0; font-size: 0.9em; color: inherit; }
 .co-prose img { display: block; max-width: 100%; height: auto; margin: 2em auto; border: 1px solid var(--line-2); }
 .co-prose hr { border: 0; border-top: 1px solid var(--line); margin: 2.6em 0; }
-.co-prose table { width: 100%; border-collapse: collapse; margin: 1.6em 0; font-size: 0.94rem; border: 1px solid var(--line-2); }
-.co-prose thead { background: rgba(20,22,26,.04); }
-.co-prose th { padding: 10px 14px; text-align: left; font-weight: 600; border: 1px solid var(--line); }
-.co-prose td { padding: 10px 14px; border: 1px solid var(--line); }
-.co-prose tbody tr:hover { background: rgba(20,22,26,.02); }
+.co-prose table { width: 100%; border-collapse: collapse; margin: 1.6em 0; font-size: 0.94rem; background: var(--surface); border: 1px solid var(--line-2); box-shadow: 0 1px 2px rgba(20,22,26,.03); }
+.co-prose thead { background: rgba(20,22,26,.05); }
+.co-prose th { padding: 11px 14px; text-align: left; font-weight: 650; color: var(--ink); border: 1px solid var(--line); }
+.co-prose td { padding: 11px 14px; background: var(--surface); border: 1px solid var(--line); }
+.co-prose tbody tr:nth-child(even) td { background: rgba(20,22,26,.022); }
+.co-prose tbody tr:hover td { background: rgba(0,168,125,.06); }
 @media (max-width: 640px) {
   .co-prose { font-size: 1.02rem; }
   .co-prose table { display: block; overflow-x: auto; white-space: nowrap; }
