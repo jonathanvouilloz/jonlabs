@@ -31,9 +31,9 @@ const CONFIG = {
   height: 1080,
   blobWidth: 900, // Zone pour le blob (agrandi)
   textAreaWidth: 700, // Position du blob (rapproché du texte)
-  backgroundColor: '#fcfbfc',
-  textColor: '#000000',
-  fontFamily: 'Plus Jakarta Sans, Arial, sans-serif',
+  backgroundColor: '#F5F4F0',
+  textColor: '#14161A',
+  fontFamily: 'Inter Tight, Arial, sans-serif',
   fontSize: 120,
   fontWeight: 700,
   padding: 120,

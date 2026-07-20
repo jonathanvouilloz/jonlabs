@@ -3,7 +3,7 @@ extends: identity
 base_style: photoreal-dslr
 typography:
   display: Inter Tight
-  body: Inter
+  body: Inter Tight
 photography:
   lighting: "Natural ambient, clean and modern"
   mood: "Professional but approachable, tech-forward"

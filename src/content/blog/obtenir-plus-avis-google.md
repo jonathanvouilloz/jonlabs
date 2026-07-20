@@ -46,7 +46,7 @@ Le vrai argument pour collecter en continu n'est pas algorithmique, il est comme
 
 C'est pour ça qu'un sprint de 20 avis en janvier, puis plus rien jusqu'en décembre, ne suffit pas. Six mois plus tard, ta fiche raconte une entreprise qui tournait l'an dernier.
 
-<!-- TODO:image illustration — Flux d'étoiles d'avis alimentant une fiche Google, style brutaliste avec fond crème et accents jaune #FFDC58 — brief: content/_drafts/blog/obtenir-plus-avis-google.md#image-cover -->
+<!-- TODO:image illustration — Flux d'étoiles d'avis alimentant une fiche Google, style blueprint minimaliste warm, fond #F5F4F0 et accent teal #00D9A3 — brief: content/_drafts/blog/obtenir-plus-avis-google.md#image-cover -->
 
 ---
 

@@ -1,11 +1,11 @@
 // Blog helper functions
 
 export const categories = {
-  mobile: { name: 'Applications mobiles', slug: 'applications-mobiles', color: 'var(--blue)' },
-  automatisation: { name: 'Automatisation & IA', slug: 'automatisation-ia', color: 'var(--yellow)' },
-  'seo-local': { name: 'Référencement local', slug: 'referencement-local', color: 'var(--violet)' },
-  web: { name: 'Sites web', slug: 'sites-web', color: 'var(--orange)' },
-  geo: { name: 'Visibilité IA', slug: 'visibilite-ia', color: 'var(--cyan)' },
+  mobile: { name: 'Applications mobiles', slug: 'applications-mobiles', color: 'var(--color-accent)' },
+  automatisation: { name: 'Automatisation & IA', slug: 'automatisation-ia', color: 'var(--color-accent-strong)' },
+  'seo-local': { name: 'Référencement local', slug: 'referencement-local', color: 'var(--color-accent-strong)' },
+  web: { name: 'Sites web', slug: 'sites-web', color: 'var(--color-accent)' },
+  geo: { name: 'Visibilité IA', slug: 'visibilite-ia', color: 'var(--color-accent)' },
 } as const;
 
 export type CategoryKey = keyof typeof categories;
@@ -19,7 +19,7 @@ export function getCategorySlug(key: CategoryKey): string {
 }
 
 export function getCategoryColor(key: CategoryKey): string {
-  return categories[key]?.color || 'var(--blue)';
+  return categories[key]?.color || 'var(--color-accent)';
 }
 
 export function formatDate(date: Date): string {

@@ -28,21 +28,21 @@ shell:
     </svg>
 
 # ─── TYPOGRAPHIE ───
-fontset: plus_jakarta
+fontset: inter_tight
 
 fonts:
-  display: "Plus Jakarta Sans"
-  sans: "Plus Jakarta Sans"
+  display: "Inter Tight"
+  sans: "Inter Tight"
   mono: "IBM Plex Mono"
 
-# ─── PALETTE (mint + jaune brutaliste jonlabs) ───
+# ─── PALETTE (blueprint jonlabs — mono-accent teal, canon noyau/brand) ───
 palette:
-  ink:       "#0a0a0a"
-  bone:      "#FEFFF0"
-  paper:     "#f5efd8"
+  ink:       "#14161A"
+  bone:      "#F5F4F0"
+  paper:     "#ECEDEA"
   accent:    "#00D9A3"
-  accent_hi: "#FFDC58"
-  muted:     "#555555"
+  accent_hi: "#00A87D"
+  muted:     "#6F7471"
   danger:    "#EF4444"
 
 # ─── DEFAULTS ───
@@ -52,7 +52,7 @@ defaults:
   slides_count: 6
 
 notes:
-  project_tone: "direct, pragmatique, sans bullshit"
+  project_tone: "direct, concret, sans bullshit"
   audience: "indépendants et PME romandes, budget 5-15k CHF"
-  tone_direction_hint: "style brutaliste — bordures épaisses, accents mint/jaune, opinions tranchées"
-  typography_note: "Plus Jakarta Sans est la font primary du site jonlabs.ch (display + body). IBM Plex Mono conservé pour éléments mono (eyebrows, paginator, URL)."
+  tone_direction_hint: "blueprint éditorial minimaliste warm — filets fins, mono-accent teal, opinions tranchées"
+  typography_note: "Inter Tight est la font primary du site jonlabs.ch (display + body). IBM Plex Mono conservé pour éléments mono (eyebrows, paginator, URL)."

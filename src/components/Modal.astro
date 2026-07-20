@@ -18,8 +18,8 @@ const {
   message,
   buttonText = "Compris",
   icon = "ri-loader-4-line",
-  iconColor = "var(--violet)",
-  cornerColor = "var(--yellow)",
+  iconColor = "var(--color-accent-strong)",
+  cornerColor = "var(--color-accent-strong)",
   spinning = true
 } = Astro.props;
 ---
@@ -29,12 +29,12 @@ const {
   <div class="absolute inset-0 bg-black/50 backdrop-blur-sm" data-close-modal></div>
 
   <!-- Modal content -->
-  <div class="modal-content relative bg-white border-3 border-black p-8 shadow-[8px_8px_0px_rgba(0,0,0,1)] max-w-md mx-4">
+  <div class="modal-content relative bg-white border-3 border-black p-8 max-w-md mx-4">
     <!-- Corner markers -->
-    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 border-2 border-black" style={`background: ${cornerColor}`}></div>
-    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 border-2 border-black" style={`background: ${cornerColor}`}></div>
-    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 border-2 border-black" style={`background: ${cornerColor}`}></div>
-    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 border-2 border-black" style={`background: ${cornerColor}`}></div>
+    <div class="absolute -top-1.5 -left-1.5 w-3 h-3 border border-hairline" style={`background: ${cornerColor}`}></div>
+    <div class="absolute -top-1.5 -right-1.5 w-3 h-3 border border-hairline" style={`background: ${cornerColor}`}></div>
+    <div class="absolute -bottom-1.5 -left-1.5 w-3 h-3 border border-hairline" style={`background: ${cornerColor}`}></div>
+    <div class="absolute -bottom-1.5 -right-1.5 w-3 h-3 border border-hairline" style={`background: ${cornerColor}`}></div>
 
     <!-- Header -->
     <div class="flex items-center gap-3 mb-4">
@@ -49,7 +49,7 @@ const {
     <!-- Button -->
     <button
       data-close-modal
-      class="bg-[var(--blue)] border-2 border-black px-6 py-3 font-bold shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-[2px] hover:translate-y-[2px] transition-all hover:bg-[var(--yellow)]"
+      class="bg-[var(--color-accent)] border border-hairline px-6 py-3 font-bold hover: hover:translate-x-[2px] hover:translate-y-[2px] transition-all hover:bg-[var(--color-accent-strong)]"
     >
       {buttonText}
     </button>

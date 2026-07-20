@@ -65,7 +65,7 @@ const removed = [
           <h3 class="text-xl font-semibold mb-4">Neutres warm</h3>
           <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
             {neutrals.map((c) => (
-              <div class="border-2 border-black bg-surface shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+              <div class="border border-hairline bg-surface">
                 <div class="h-20 border-b-2 border-black" style={`background:${c.hex}`}></div>
                 <div class="p-3 space-y-1">
                   <p class="font-mono text-xs">{c.hex}</p>
@@ -82,7 +82,7 @@ const removed = [
           <h3 class="text-xl font-semibold mb-4">Accent — teal (unique)</h3>
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
             {accents.map((c) => (
-              <div class="border-2 border-black bg-surface shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+              <div class="border border-hairline bg-surface">
                 <div class="h-20 border-b-2 border-black" style={`background:${c.hex}`}></div>
                 <div class="p-3 space-y-1">
                   <p class="font-mono text-xs">{c.hex}</p>
@@ -96,7 +96,7 @@ const removed = [
         </div>
 
         <div class="grid md:grid-cols-2 gap-6">
-          <div class="border-2 border-black bg-surface p-5 shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+          <div class="border border-hairline bg-surface p-5">
             <h3 class="text-lg font-semibold mb-3">Alias legacy → tokens</h3>
             <table class="w-full text-sm">
               <tbody>
@@ -112,7 +112,7 @@ const removed = [
             </table>
             <p class="text-xs text-muted mt-3">Transition : les anciens noms fonctionnent encore, à retirer en Phase 2.</p>
           </div>
-          <div class="border-2 border-black bg-surface p-5 shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+          <div class="border border-hairline bg-surface p-5">
             <h3 class="text-lg font-semibold mb-3">Couleurs retirées / à purger</h3>
             <ul class="space-y-1.5">
               {removed.map((r) => (
@@ -129,8 +129,8 @@ const removed = [
       <!-- 2. Typographie -->
       <section class="space-y-6">
         <h2 class="text-3xl md:text-4xl font-normal tracking-tight border-b-2 border-black pb-3">2 · Typographie</h2>
-        <p class="text-sm text-muted">Plus Jakarta Sans · titres <strong class="font-normal">fins</strong> (H1/H2 en <code>font-normal</code>, look éditorial), tracking resserré. La hiérarchie vient de la <em>taille</em> + des eyebrows mono, pas du gras. H3/titres de carte gardent un peu de poids car petits.</p>
-        <div class="space-y-5 border-2 border-black bg-surface p-6 shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+        <p class="text-sm text-muted">Inter Tight · titres <strong class="font-normal">fins</strong> (H1/H2 en <code>font-normal</code>, look éditorial), tracking resserré. La hiérarchie vient de la <em>taille</em> + des eyebrows mono, pas du gras. H3/titres de carte gardent un peu de poids car petits.</p>
+        <div class="space-y-5 border border-hairline bg-surface p-6">
           <div><span class="text-xs text-muted font-mono">H1 · text-4xl md:text-6xl font-normal tracking-tight</span><p class="text-4xl md:text-6xl font-normal tracking-tight">De l'idée au produit</p></div>
           <div><span class="text-xs text-muted font-mono">H2 · text-3xl md:text-4xl font-normal tracking-tight</span><p class="text-3xl md:text-4xl font-normal tracking-tight">Un titre de section</p></div>
           <div><span class="text-xs text-muted font-mono">H3 · text-xl md:text-2xl font-semibold</span><p class="text-xl md:text-2xl font-semibold">Un sous-titre</p></div>
@@ -142,19 +142,19 @@ const removed = [
       <!-- 3. Surlignage (UN seul style) -->
       <section class="space-y-6">
         <h2 class="text-3xl md:text-4xl font-normal tracking-tight border-b-2 border-black pb-3">3 · Surlignage — style unique</h2>
-        <div class="border-2 border-black bg-surface p-6 shadow-[4px_4px_0px_rgba(0,0,0,1)] space-y-4">
+        <div class="border border-hairline bg-surface p-6 space-y-4">
           <p class="text-lg">Le mot-clé en <mark class="bg-accent-soft text-ink px-1.5 rounded-sm">wash teal</mark> (canonique).</p>
           <p class="text-lg">Ou en <span class="border-b-2 border-accent">soulignement teal</span> pour un accent discret.</p>
-          <p class="text-sm text-muted">On abandonne : flèches SVG déco pour souligner, <code>var(--yellow)</code>, <code>var(--accent)</code> magenta, hex hardcodés.</p>
+          <p class="text-sm text-muted">On abandonne : flèches SVG déco pour souligner, <code>var(--color-accent-strong)</code>, <code>var(--accent)</code> magenta, hex hardcodés.</p>
         </div>
       </section>
 
       <!-- 4. Boutons -->
       <section class="space-y-6">
         <h2 class="text-3xl md:text-4xl font-normal tracking-tight border-b-2 border-black pb-3">4 · Boutons</h2>
-        <div class="border-2 border-black bg-surface p-6 shadow-[4px_4px_0px_rgba(0,0,0,1)] flex flex-wrap gap-4 items-center">
-          <button class="bg-accent hover:bg-accent-strong text-ink font-semibold border-2 border-black px-6 py-3 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all">Primaire</button>
-          <button class="bg-surface hover:bg-panel text-ink font-semibold border-2 border-black px-6 py-3 shadow-[4px_4px_0px_rgba(0,0,0,1)] hover:shadow-[2px_2px_0px_rgba(0,0,0,1)] hover:translate-x-0.5 hover:translate-y-0.5 transition-all">Secondaire</button>
+        <div class="border border-hairline bg-surface p-6 flex flex-wrap gap-4 items-center">
+          <button class="bg-accent hover:bg-accent-strong text-ink font-semibold border border-hairline px-6 py-3 hover: hover:translate-x-0.5 hover:translate-y-0.5 transition-all">Primaire</button>
+          <button class="bg-surface hover:bg-panel text-ink font-semibold border border-hairline px-6 py-3 hover: hover:translate-x-0.5 hover:translate-y-0.5 transition-all">Secondaire</button>
           <a href="#" class="font-semibold text-ink border-b-2 border-accent hover:border-accent-strong transition-colors">Lien texte →</a>
         </div>
       </section>
@@ -164,7 +164,7 @@ const removed = [
         <h2 class="text-3xl md:text-4xl font-normal tracking-tight border-b-2 border-black pb-3">5 · Cartes</h2>
         <div class="grid md:grid-cols-3 gap-6">
           {[1,2,3].map((i) => (
-            <article class="bg-surface border-2 border-black p-6 shadow-[4px_4px_0px_rgba(0,0,0,1)] space-y-3">
+            <article class="bg-surface border border-hairline p-6 space-y-3">
               <h3 class="text-xl font-semibold">Titre carte {i}</h3>
               <p class="text-sm text-muted leading-relaxed">Surface warm, bordure nette, ombre stamp. La structure brutaliste reste ; c'est la couleur qui s'unifie.</p>
             </article>
@@ -177,22 +177,22 @@ const removed = [
         <h2 class="text-3xl md:text-4xl font-normal tracking-tight border-b-2 border-black pb-3">6 · Formes signature <span class="text-base font-normal text-muted">(système d'aération — Phase 3)</span></h2>
         <div class="grid md:grid-cols-4 gap-6">
           <!-- Dot-grid -->
-          <div class="border-2 border-black bg-surface p-4 shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+          <div class="border border-hairline bg-surface p-4">
             <div class="h-28 rounded-sm" style="background-image:radial-gradient(var(--color-accent) 1.5px, transparent 1.5px);background-size:14px 14px;opacity:.7"></div>
             <p class="text-xs text-muted mt-2 text-center">dot-grid</p>
           </div>
           <!-- Halo radial -->
-          <div class="border-2 border-black bg-surface p-4 shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+          <div class="border border-hairline bg-surface p-4">
             <div class="h-28 rounded-sm" style="background:radial-gradient(circle at 50% 50%, var(--color-accent-soft), transparent 70%)"></div>
             <p class="text-xs text-muted mt-2 text-center">halo radial</p>
           </div>
           <!-- Connecteur -->
-          <div class="border-2 border-black bg-surface p-4 shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+          <div class="border border-hairline bg-surface p-4">
             <svg viewBox="0 0 120 112" class="h-28 w-full"><path d="M10 20 C 60 20, 60 92, 110 92" fill="none" stroke="var(--color-accent)" stroke-width="2.5"/><circle cx="10" cy="20" r="5" fill="var(--color-accent)"/><circle cx="110" cy="92" r="5" fill="var(--color-accent)"/></svg>
             <p class="text-xs text-muted mt-2 text-center">connecteur + nœuds</p>
           </div>
           <!-- Demi-cercle -->
-          <div class="border-2 border-black bg-surface p-4 shadow-[4px_4px_0px_rgba(0,0,0,1)]">
+          <div class="border border-hairline bg-surface p-4">
             <div class="h-28 flex items-center justify-center"><div class="w-24 h-12 rounded-t-full border-2 border-accent border-b-0"></div></div>
             <p class="text-xs text-muted mt-2 text-center">demi-cercle</p>
           </div>
@@ -203,7 +203,7 @@ const removed = [
       <!-- 7. Section sombre -->
       <section class="space-y-6">
         <h2 class="text-3xl md:text-4xl font-normal tracking-tight border-b-2 border-black pb-3">7 · Section sombre</h2>
-        <div class="bg-dark text-white p-8 rounded-sm border-2 border-black">
+        <div class="bg-dark text-white p-8 rounded-sm border border-hairline">
           <h3 class="text-2xl font-normal tracking-tight">Bloc CTA final</h3>
           <p class="text-white/70 mt-2 mb-5 max-w-xl">Fond <code class="text-accent">--color-dark</code>, accent teal, un cran plus fort pour clore.</p>
           <button class="bg-accent hover:bg-accent-strong text-ink font-semibold px-6 py-3 rounded-sm transition-colors">Parlons de votre projet</button>

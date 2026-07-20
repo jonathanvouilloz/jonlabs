@@ -29,14 +29,14 @@ const nextUrl = currentPage < totalPages ? `${baseUrl}${currentPage + 1}/` : nul
   {prevUrl ? (
     <a
       href={prevUrl}
-      class="w-10 h-10 flex items-center justify-center border-2 border-black bg-white transition-all duration-200 hover:bg-[var(--blue)]"
+      class="w-10 h-10 flex items-center justify-center border border-hairline bg-white transition-all duration-200 hover:bg-[var(--color-accent)]"
       aria-label="Page précédente"
     >
       <i class="ri-arrow-left-line"></i>
     </a>
   ) : (
     <span
-      class="w-10 h-10 flex items-center justify-center border-2 border-black bg-gray-100 opacity-50 cursor-not-allowed"
+      class="w-10 h-10 flex items-center justify-center border border-hairline bg-gray-100 opacity-50 cursor-not-allowed"
       aria-disabled="true"
     >
       <i class="ri-arrow-left-line"></i>
@@ -48,9 +48,9 @@ const nextUrl = currentPage < totalPages ? `${baseUrl}${currentPage + 1}/` : nul
     <a
       href={page.url}
       class:list={[
-        'w-10 h-10 flex items-center justify-center border-2 border-black font-medium text-sm transition-all duration-200',
+        'w-10 h-10 flex items-center justify-center border border-hairline font-medium text-sm transition-all duration-200',
         page.current
-          ? 'bg-[var(--blue)] shadow-[2px_2px_0px_rgba(0,0,0,1)]'
+          ? 'bg-[var(--color-accent)]'
           : 'bg-white hover:bg-gray-100',
       ]}
       aria-current={page.current ? 'page' : undefined}
@@ -63,14 +63,14 @@ const nextUrl = currentPage < totalPages ? `${baseUrl}${currentPage + 1}/` : nul
   {nextUrl ? (
     <a
       href={nextUrl}
-      class="w-10 h-10 flex items-center justify-center border-2 border-black bg-white transition-all duration-200 hover:bg-[var(--blue)]"
+      class="w-10 h-10 flex items-center justify-center border border-hairline bg-white transition-all duration-200 hover:bg-[var(--color-accent)]"
       aria-label="Page suivante"
     >
       <i class="ri-arrow-right-line"></i>
     </a>
   ) : (
     <span
-      class="w-10 h-10 flex items-center justify-center border-2 border-black bg-gray-100 opacity-50 cursor-not-allowed"
+      class="w-10 h-10 flex items-center justify-center border border-hairline bg-gray-100 opacity-50 cursor-not-allowed"
       aria-disabled="true"
     >
       <i class="ri-arrow-right-line"></i>

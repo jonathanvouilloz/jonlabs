@@ -9,11 +9,11 @@
    Règle gravée : JAMAIS de `.co-*` sans ancêtre `.co-root` OU `.co-chrome`
    (sinon héritage du `--accent` wash legacy de Layout → accent quasi-transparent).
 
-   Coexistence brutaliste ↔ blueprint : namespaces de tokens disjoints
-   (brutaliste = --color-* + Plus Jakarta ; blueprint = --ink/--line/--accent…).
-   La font blueprint s'applique par scope, pas sur `body` → les pages brutalistes
-   gardent Plus Jakarta. On NE promeut PAS `--accent` en :root (garde le wash
-   legacy intact) et on ne repeint PAS `html,body` (Layout garde --color-bg).
+   Tokens : `@theme` global (--color-*) = base ; blueprint scopé (--ink/--line/--accent…)
+   = design system `.co-*`. Base font = **Inter Tight** partout (plus de Plus Jakarta ;
+   alias legacy --blue/--main-bg/… retirés). `--accent` reste surchargé PAR SCOPE (wash en
+   :root via Layout, #00A87D sous .co-root) : on ne le promeut pas en :root, et on ne repeint
+   pas `html,body` (Layout garde --color-bg).
    ══════════════════════════════════════════════════════════════════════════ */
 
 /* ── Reset scopé (box-sizing, margins, listes, underline) ── */
@@ -38,7 +38,7 @@
 .co-root, .co-chrome {
   --ink: #14161A;
   --muted: #6F7471;
-  --bg: #F4F3EE;
+  --bg: #F5F4F0;
   --surface: #FBFBF9;
   --line: rgba(20, 22, 26, 0.09);
   --line-2: rgba(20, 22, 26, 0.16);

@@ -5,7 +5,7 @@
 Site web personnel/freelance pour **Jon Labs** (Jonathan Vouilloz), à l'origine basé sur le template Astro "Angie", depuis largement réécrit.
 
 - **Stack**: Astro 5 (sortie statique) + MDX + Tailwind CSS 4 + React 19 (îlots) + GSAP/Motion
-- **Style**: système « blueprint » (voir `docs/styleguide.md`) — migration depuis l'ancien brutaliste en cours (feature `polish-design-system`)
+- **Style**: système « blueprint » — éditorial minimaliste warm (voir `docs/styleguide.md` + `src/styles/blueprint.css`)
 - **Domaine**: jonlabs.ch (`https://www.jonlabs.ch`)
 - **Langue**: Contenu en francais (FR-CH)
 
@@ -41,14 +41,10 @@ docs/                # Documentation projet — voir docs/README.md pour l'index
 
 ## Design System
 
-Source de vérité = **`src/styles/global.css`** (tokens réels) + **`docs/styleguide.md`** (guide).
+Source de vérité = **`src/styles/global.css`** (@theme, tokens réels) + **`src/styles/blueprint.css`**
+(design system `.co-*`) + **`docs/styleguide.md`** (guide). Palette/typo de marque → canon `noyau/brand/`.
 
-> ⚠️ Dérive connue : `docs/styleguide.md` décrit encore l'ancien système brutaliste
-> (Space Grotesk, `--main-bg`/`--blue`, bordures noires épaisses) alors que `global.css`
-> a migré vers « blueprint ». À rafraîchir sous la feature `polish-design-system`.
-> En attendant, se fier à `global.css`.
-
-### État réel (blueprint, `:root` de global.css)
+### État réel (blueprint, `@theme` de global.css)
 
 ```css
 --color-bg: #F5F4F0;      /* off-white warm (fond)     */
@@ -57,7 +53,7 @@ Source de vérité = **`src/styles/global.css`** (tokens réels) + **`docs/style
 --color-hairline: #D8DCD8;/* filets doux (bordures)    */
 ```
 
-- **Typo** : `Plus Jakarta Sans` (sans) + `Inter Tight` × `Instrument Serif` italique (`.co-ser`)
+- **Typo** : `Inter Tight` (sans, base) + `Instrument Serif` italique (`.co-ser`)
 - **Traits** : filets fins (hairline), pas de bordures noires 2px ni d'ombres offset brutalistes
 - **Icônes** : Remix Icon via CDN (`<i class="ri-code-line"></i>`), monochromes — jamais d'emoji dans l'UI
 

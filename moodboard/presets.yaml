@@ -17,7 +17,7 @@ presets:
     source: template
     template_image: src/assets/bg-template.png
     compose_text: true
-    font_file: fonts/PlusJakartaSans-VariableFont_wght.ttf
+    font_file: fonts/InterTight-VariableFont_wght.ttf
     text_overlay:
       position: bottom-left
       title_anchor: bottom
@@ -60,7 +60,7 @@ presets:
     source: template
     template_image: moodboard/refs/gmb-bg.png
     compose_text: true
-    font_file: fonts/PlusJakartaSans-VariableFont_wght.ttf
+    font_file: fonts/InterTight-VariableFont_wght.ttf
     dimensions: "1200x900"
     # Recommandations longueur (le composer wrap/shrink auto, mais pour briefing humain) :
     # title    : 12-22 caractères (1 ligne, gros) — idéal "Optimiser sa GMB"

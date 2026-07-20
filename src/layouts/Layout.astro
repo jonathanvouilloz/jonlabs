@@ -57,10 +57,6 @@ const fullTitle = `${baseTitle} | ${BRAND}`;
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 
-		<!-- Google Fonts - chargement non-bloquant -->
-		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" media="print" onload="this.media='all'" />
-
 		<!-- Fonts blueprint (pairing 04) - Inter Tight × Instrument Serif, chargement non-bloquant -->
 		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300..700;1,300..700&family=Instrument+Serif:ital@0;1&display=swap" />
 		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300..700;1,300..700&family=Instrument+Serif:ital@0;1&display=swap" media="print" onload="this.media='all'" />
@@ -70,7 +66,6 @@ const fullTitle = `${baseTitle} | ${BRAND}`;
 
 		<!-- Fallback pour navigateurs sans JS -->
 		<noscript>
-			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" />
 			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300..700;1,300..700&family=Instrument+Serif:ital@0;1&display=swap" />
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" />
 		</noscript>
@@ -112,20 +107,12 @@ const fullTitle = `${baseTitle} | ${BRAND}`;
 
 :root{
 	/* ------------------------------------------------------------
-	   ALIAS LEGACY → tokens canoniques (@theme dans global.css)
-	   Transition : les anciens noms mensongers pointent vers les
-	   nouveaux tokens. Le magenta est retiré (→ teal foncé), les
-	   couleurs mortes (orange/cyan) → accent. À supprimer en Phase 2
-	   une fois les usages migrés vers bg-accent/text-ink/etc.
+	   ALIAS LEGACY restant : --accent (wash teal), surchargé en scope
+	   .co-root par blueprint.css (#00A87D). Les autres alias mensongers
+	   (--main-bg/--text/--blue/--yellow/--violet/--orange/--cyan) ont
+	   été migrés vers les tokens @theme de global.css puis retirés.
 	   ------------------------------------------------------------ */
-	--main-bg: var(--color-bg);
-	--text: var(--color-ink);
-	--blue: var(--color-accent);            /* accent teal (inchangé) */
-	--yellow: var(--color-accent-strong);   /* ex "vert foncé" = hover teal */
-	--violet: var(--color-accent-strong);   /* ex magenta → teal foncé (dégradés gardent de la profondeur) */
-	--accent: var(--color-accent-soft);     /* ex soulignement magenta → wash teal */
-	--orange: var(--color-accent);          /* déprécié */
-	--cyan: var(--color-accent);            /* déprécié */
+	--accent: var(--color-accent-soft);     /* wash teal (soulignements legacy hors .co-root) */
 }
 
 html,

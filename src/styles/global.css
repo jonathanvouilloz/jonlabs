@@ -21,7 +21,7 @@
     --color-accent-soft: rgba(0, 217, 163, 0.16); /* wash de surlignage */
 
     /* Typo */
-    --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+    --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
 }
 
 /* Animation fade-up au scroll */

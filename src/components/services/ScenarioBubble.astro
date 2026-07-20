@@ -53,7 +53,7 @@ const { emoji, title, scenarioId, service, position = 'top-left' } = Astro.props
     /* Typographie */
     font-size: 0.9rem;
     font-weight: 500;
-    color: var(--text, #0F172A);
+    color: var(--color-ink);
     white-space: nowrap;
 
     /* Interaction */
@@ -84,7 +84,7 @@ const { emoji, title, scenarioId, service, position = 'top-left' } = Astro.props
     left: 50%;
     transform: translateX(-50%) translateY(5px);
 
-    background: var(--text, #0F172A);
+    background: var(--color-ink);
     color: white;
     padding: 0.5rem 0.875rem;
     border-radius: 6px;
@@ -103,14 +103,14 @@ const { emoji, title, scenarioId, service, position = 'top-left' } = Astro.props
     bottom: -7px;
     left: 50%;
     transform: translateX(-50%);
-    color: var(--text, #0F172A);
+    color: var(--color-ink);
   }
 
   /* Hover state - smooth */
   .scenario-bubble:hover {
     transform: translateY(-4px);
     box-shadow: 5px 5px 0px rgba(0, 0, 0, 0.25);
-    background: var(--main-bg, #FAFAFA);
+    background: var(--color-bg);
   }
 
   .scenario-bubble:hover .bubble-emoji {
@@ -129,13 +129,13 @@ const { emoji, title, scenarioId, service, position = 'top-left' } = Astro.props
     outline: none;
     box-shadow:
       6px 6px 0px rgba(0, 0, 0, 0.35),
-      0 0 0 3px var(--blue, #00D9A3);
+      0 0 0 3px var(--color-accent);
   }
 
   .scenario-bubble:focus-visible {
     box-shadow:
       6px 6px 0px rgba(0, 0, 0, 0.35),
-      0 0 0 3px var(--blue, #00D9A3);
+      0 0 0 3px var(--color-accent);
   }
 
   /* Active state */

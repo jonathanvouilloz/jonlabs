@@ -2,7 +2,7 @@
 
 Site freelance de **Jonathan Vouilloz** — développement web, automatisation IA et référencement local pour PME et indépendants de Suisse romande. En production sur [jonlabs.ch](https://www.jonlabs.ch).
 
-Design brutaliste (bordures épaisses, ombres décalées, accents colorés), contenu en français (FR-CH).
+Design **blueprint** — éditorial minimaliste warm : filets fins, un seul accent teal `#00D9A3`, typo Inter Tight × Instrument Serif. Contenu en français (FR-CH).
 
 ## Stack
 

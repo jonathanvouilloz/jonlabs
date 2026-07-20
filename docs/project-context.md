@@ -1,11 +1,11 @@
 # Jon Labs — Contexte projet (surface jonlabs.ch)
 
-> **Identité, voix, positionnement, histoire, valeurs, preuves → base canonique `bip-jon/_brand/`.** jonlabs.ch, c'est Jon lui-même : on ne redéfinit pas son identité ici.
+> **Identité, voix, positionnement, histoire, valeurs, preuves → canon `noyau/brand/`.** jonlabs.ch, c'est Jon lui-même : on ne redéfinit pas son identité ici.
 > Ce fichier = la fiche **surface** du site (offre, stack, infra, archi). Mis à jour 2026-07-08.
 
-## Positionnement (rappel — détail dans `_brand/`)
+## Positionnement
 
-**Spécialiste en façade, transversal en profondeur.** Porte d'entrée = **visibilité Google + IA (SEO/GEO) pour PME-TPE de Suisse romande**. Destination = **apps, automatisation, IA appliquée** pour la productivité/organisation. Tagline : « gagner en visibilité sans perdre ce qui vous rend unique. »
+Défini dans le canon → `docs/identity.md` (frontmatter **généré** depuis `noyau/brand/`, ne pas éditer) et le canon `noyau/brand/identity.md`. Ne pas le redéfinir ici pour éviter la dérive.
 
 ## Offre réelle (taxonomie des pages services live)
 
@@ -15,7 +15,7 @@
 - **SEO programmatique** (acquisition) : `developpement-web/[ville]`, `consultant-ia/[ville]`, `metiers/[metier]`.
 - **Aimants à leads / liste email** : `outils/*` (checklists « 15 signes », « commerce Google », reddit-dashboard), `guides/*`, `merci-checklist*`.
 
-Public cible, audience et registre : voir `identity.md` (frontmatter) + `_brand/`.
+Public cible, audience et registre : voir `identity.md` (frontmatter généré) + le canon `noyau/brand/`.
 
 ## Stack technique
 
