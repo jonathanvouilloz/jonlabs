@@ -15,7 +15,7 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
 // Schema.org
-import { serviceSchemas, SITE_URL } from '../../data/schema';
+import { serviceSchemas, SITE_URL, localBusinessData } from '../../data/schema';
 import { getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
 
 const seoData = {
@@ -28,7 +28,7 @@ const breadcrumb = getBreadcrumbSchema([
     { name: "Services", url: `${SITE_URL}/services` },
     { name: "Gestion de fiche Google", url: `${SITE_URL}/services/gestion-fiche-google` }
 ]);
-const schemas: any[] = [serviceSchemas["gestion-fiche-google"], breadcrumb];
+const schemas: any[] = [serviceSchemas["gestion-fiche-google"], breadcrumb, localBusinessData];
 
 const painPoints = [
     {

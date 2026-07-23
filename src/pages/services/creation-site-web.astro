@@ -18,7 +18,7 @@ import Footer from '../../components/Footer.astro';
 import creationHero from '../../assets/services/refonte-1.webp';
 
 // Schema.org
-import { serviceSchemas, SITE_URL } from '../../data/schema';
+import { serviceSchemas, SITE_URL, localBusinessData } from '../../data/schema';
 import { getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
 
 // Maillage géo (source de vérité unique des villes)
@@ -36,7 +36,7 @@ const breadcrumb = getBreadcrumbSchema([
     { name: "Services", url: `${SITE_URL}/services` },
     { name: "Création de site web", url: `${SITE_URL}/services/creation-site-web` }
 ]);
-const schemas: any[] = [serviceSchemas["creation-site-web"], breadcrumb];
+const schemas: any[] = [serviceSchemas["creation-site-web"], breadcrumb, localBusinessData];
 
 // Cluster articles — maillage interne vers le contenu éditorial du silo création web (C3a)
 const clusterGroups = [

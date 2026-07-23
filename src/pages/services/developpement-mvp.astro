@@ -17,7 +17,7 @@ import Footer from '../../components/Footer.astro';
 import imgHero from '../../assets/services/mvp-hero.webp';
 
 // Schema.org
-import { serviceSchemas, SITE_URL } from '../../data/schema';
+import { serviceSchemas, SITE_URL, localBusinessData } from '../../data/schema';
 import { getFAQPageSchema } from '../../lib/seo';
 import { getBreadcrumbSchema } from '../../lib/seo';
 
@@ -33,7 +33,7 @@ const breadcrumb = getBreadcrumbSchema([
     { name: "Services", url: `${SITE_URL}/services` },
     { name: "Développement MVP", url: `${SITE_URL}/services/developpement-mvp` }
 ]);
-const schemas: any[] = [serviceSchemas["developpement-mvp"], breadcrumb];
+const schemas: any[] = [serviceSchemas["developpement-mvp"], breadcrumb, localBusinessData];
 
 // Pain points data
 const painPoints = [
