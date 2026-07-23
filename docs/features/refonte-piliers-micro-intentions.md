@@ -18,7 +18,9 @@
 - **Plan ré-ordonné** : d'abord débloquer le ranking (ciblage on-page, schema d'entité, maillage — indépendant de D1-D5), le contenu après. Nouvel ordre : **A → CTR blog → B → C → (D/E/F gated D1/D2/D5)**.
 - **Décisions périmètre** (Jonathan) : ➕ **Lot CTR blog** ajouté (réécriture title/meta des articles page-1 à ~0 clic, hors 12 piliers) ; baseline `/seo-ai-visibility` à prendre **juste avant de shipper Lot A**. **D3 tranchée : Genève** (absorbée en A.2).
 
-**Prochain :** Lot A (ciblage on-page + fix Webflow Genève + dé-compétition home). Baseline `/seo-ai-visibility` juste avant le 1er déploiement. D1/D2/D4/D5 ne bloquent plus que D/E/F.
+**Fait (suite) :** **Lot A** ✅ commit `beaed65` (ciblage H1/lead referencement-local + mobile + mvp ; Webflow title+schema « Genève »). **Lot B** ✅ commit `c0cc742` (`localBusinessData` injecté sur les 7 piliers indexés — vérifié 1 bloc/pilier, 0 sur noindex). A.3 : nav globale suffit ; élargir la grille services home = optionnel (design). Baseline `/seo-ai-visibility` **non prise** (Jonathan a choisi commit sans baseline) → effet AIO avant/après non objectivable.
+
+**Prochain :** **CTR blog** (réécrire title/meta des articles page-1 à ~0 clic — hermes-agent-ia-pme 1783i/0.22 %, specialiste-developpement-web-suisse 369i/0clic, referencement-local-lausanne 258i/0clic, prix-site-web-suisse-2026, geo-seo-ia). ⚠️ Ranger d'abord les ~16 `.md` blog en cours (modifs autre chantier). Puis **Lot C** (maillage blog→pilier, surtout le cluster mobile où le blog coiffe le pilier ; fix CTR freelance sur home+blog). Puis **D/E/F** (gated D1/D2/D5). Commits non pushés.
 
 **Pièges :** le www/non-www est réglé (308) → ne pas re-coder de redirect. Le C.1 « consolider vers la landing freelance » est **abandonné** : la landing GE ne rank pas sur `développeur web freelance suisse` (home pos 7.8 ≈ blog pos 7.2) → devient un **fix CTR** sur home+blog. Le blog `tarif-package-seo-local-suisse` + `referencement-local-geneve` sont **déjà 301→pilier** (vercel.json) : ne pas re-router.
 

@@ -8,10 +8,11 @@
 | Devis Cabinet Grange-Canal | docs/features/devis-cabinet-grange-canal.md | CODE FINI — attend le call (3 vérifs bloquantes) |
 | Refonte blueprint (design/typo) | docs/features/refonte-blueprint.md | BOUCLÉE — reste `/epic-recap` |
 | Chantier SEO IA (consultant IA) | docs/planSEOIA.md | EN ATTENTE (Phase 1-2 ✅, Phase 3 à venir) |
-| Refonte piliers micro-intentions / AIO | docs/features/refonte-piliers-micro-intentions.md | EN COURS (23.07 : Phase 0 GSC mesurée ✅ + plan re-priorisé data-driven — Lot A à démarrer ; D1/D2/D5 ne bloquent que D/E/F) |
+| Refonte piliers micro-intentions / AIO | docs/features/refonte-piliers-micro-intentions.md | EN COURS (23.07 : Phase 0 GSC ✅ · Lot A ciblage ✅ · Lot B schema ✅ committés — reste CTR blog + C maillage + D/E/F ; non pushés) |
 
 ## Reprendre ici
-**Refonte piliers micro-intentions** — Phase 0 GSC mesurée ✅ (28j : pos moy 15.8 ; cannibalisation blog↔pilier + CTR page-1 nul = vrais leviers ; www/non-www = 308 déjà OK). Plan re-priorisé : **A** ciblage on-page → **CTR blog** → **B** schema pilier → **C** maillage → **D/E/F** contenu (gated D1/D2/D5). Prochain : **Lot A** (+ baseline `/seo-ai-visibility` juste avant le 1er déploiement). Détail + tables Phase 0 : `docs/features/refonte-piliers-micro-intentions.md`.
+**Refonte piliers micro-intentions** — Phase 0 GSC ✅ + **Lot A** (ciblage on-page : H1/lead porteurs referencement-local/mobile/mvp + Webflow « Genève ») ✅ commit `beaed65` + **Lot B** (LocalBusiness sur les 7 piliers indexés) ✅ commit `c0cc742`. **Non pushés** (déploiement Vercel = au push). **Reprendre par : CTR blog** (title/meta articles page-1 à ~0 clic : hermes 1783i, specialiste-dev, ref-local-lausanne…) — ⚠️ **d'abord ranger les ~16 `.md` blog en cours** (modifs autre chantier non commitées) pour éviter un commit sale. Puis **Lot C** (maillage blog→pilier, surtout mobile ; fix CTR freelance) puis **D/E/F** (gated D1/D2/D5). Détail + tables Phase 0 : `docs/features/refonte-piliers-micro-intentions.md`.
+Actions manuelles : Request Indexing GSC sur les 4 pages Lot A + les 7 piliers Lot B **une fois déployés**.
 (Autre fil ouvert : Polish/design — revue live des 48 covers, `npm run dev` → /blog.)
 Commit : 5ec98a9 docs(seo) epic piliers micro-intentions — HEAD
 
