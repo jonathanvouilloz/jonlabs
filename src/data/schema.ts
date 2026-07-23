@@ -314,7 +314,7 @@ export const serviceSchemas = {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${SITE_URL}/services/developpeur-webflow/#service`,
-    "name": "Développeur Webflow freelance en Suisse romande",
+    "name": "Développeur Webflow freelance à Genève",
     "url": `${SITE_URL}/services/developpeur-webflow`,
     "description": "Création, refonte et e-commerce Webflow pour PME et indépendants en Suisse romande. Sites rapides, gérables en autonomie, optimisés pour Google.",
     "provider": { "@id": `${SITE_URL}/#organization` },

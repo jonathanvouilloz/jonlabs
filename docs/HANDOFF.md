@@ -8,10 +8,10 @@
 | Devis Cabinet Grange-Canal | docs/features/devis-cabinet-grange-canal.md | CODE FINI — attend le call (3 vérifs bloquantes) |
 | Refonte blueprint (design/typo) | docs/features/refonte-blueprint.md | BOUCLÉE — reste `/epic-recap` |
 | Chantier SEO IA (consultant IA) | docs/planSEOIA.md | EN ATTENTE (Phase 1-2 ✅, Phase 3 à venir) |
-| Refonte piliers micro-intentions / AIO | docs/features/refonte-piliers-micro-intentions.md | PLANIFIÉ (23.07 : diagnostic + plan ✅ — 5 décisions D1-D5 à trancher avant Lot 1) |
+| Refonte piliers micro-intentions / AIO | docs/features/refonte-piliers-micro-intentions.md | EN COURS (23.07 : Phase 0 GSC mesurée ✅ + plan re-priorisé data-driven — Lot A à démarrer ; D1/D2/D5 ne bloquent que D/E/F) |
 
 ## Reprendre ici
-**Refonte piliers micro-intentions** — diagnostic + plan ✅. Prochain : Jonathan tranche **D1-D5** (prix mvp/mobile, liste secteurs, title Webflow, section automatisation, chiffres clients) → puis Lot 1 (`secteurs-preuves.ts` + `SecteursGrid.astro`). Détail : `docs/features/refonte-piliers-micro-intentions.md`.
+**Refonte piliers micro-intentions** — Phase 0 GSC mesurée ✅ (28j : pos moy 15.8 ; cannibalisation blog↔pilier + CTR page-1 nul = vrais leviers ; www/non-www = 308 déjà OK). Plan re-priorisé : **A** ciblage on-page → **CTR blog** → **B** schema pilier → **C** maillage → **D/E/F** contenu (gated D1/D2/D5). Prochain : **Lot A** (+ baseline `/seo-ai-visibility` juste avant le 1er déploiement). Détail + tables Phase 0 : `docs/features/refonte-piliers-micro-intentions.md`.
 (Autre fil ouvert : Polish/design — revue live des 48 covers, `npm run dev` → /blog.)
 Commit : 5ec98a9 docs(seo) epic piliers micro-intentions — HEAD
 

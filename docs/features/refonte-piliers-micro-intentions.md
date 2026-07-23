@@ -10,6 +10,20 @@
 > template `/consultant-ia/[ville]`, landing `/developpeur-web-freelance-geneve`.
 > **Hors périmètre** : blog, pages géo `/developpement-web/*`, /tarifs (touchée seulement pour cohérence).
 
+## Etat session 2026-07-23 (soir) — Phase 0 mesurée + plan re-priorisé data-driven
+
+**Fait :**
+- **Pull GSC frais** (`sc-domain:jonlabs.ch`, 28 j) + **cannibalisation mesurée** (query×page, 3 mois) → `.seo-data/gsc-jonlabs-ch-last_28_days.json` + `.seo-data/cannibalisation-jonlabs-ch-2026-04-22_to_2026-07-21.json`.
+- **3 corrections au diagnostic de contenu** (cf. § Phase 0 ci-dessous) : (1) le levier n°1 est le **ranking**, pas le contenu — enrichir un pilier que Google ne surface pas ne rapporte rien ; (2) le **www/non-www n'est PAS un bug** (308 en place, testé live) → retard d'index, hors code ; (3) le vrai goulot = **le blog coiffe les piliers** + **CTR page-1 catastrophique** (positions page 1 à ~0 clic).
+- **Plan ré-ordonné** : d'abord débloquer le ranking (ciblage on-page, schema d'entité, maillage — indépendant de D1-D5), le contenu après. Nouvel ordre : **A → CTR blog → B → C → (D/E/F gated D1/D2/D5)**.
+- **Décisions périmètre** (Jonathan) : ➕ **Lot CTR blog** ajouté (réécriture title/meta des articles page-1 à ~0 clic, hors 12 piliers) ; baseline `/seo-ai-visibility` à prendre **juste avant de shipper Lot A**. **D3 tranchée : Genève** (absorbée en A.2).
+
+**Prochain :** Lot A (ciblage on-page + fix Webflow Genève + dé-compétition home). Baseline `/seo-ai-visibility` juste avant le 1er déploiement. D1/D2/D4/D5 ne bloquent plus que D/E/F.
+
+**Pièges :** le www/non-www est réglé (308) → ne pas re-coder de redirect. Le C.1 « consolider vers la landing freelance » est **abandonné** : la landing GE ne rank pas sur `développeur web freelance suisse` (home pos 7.8 ≈ blog pos 7.2) → devient un **fix CTR** sur home+blog. Le blog `tarif-package-seo-local-suisse` + `referencement-local-geneve` sont **déjà 301→pilier** (vercel.json) : ne pas re-router.
+
+---
+
 ## Etat session 2026-07-23 — Diagnostic + plan (epic créé)
 
 **Fait :**
@@ -46,6 +60,41 @@
 **Constat clé** : une seule preuve « secteur × chiffres » sur tout le site (Lécureux, `proofLecureux`, présent
 sur referencement-local + landing GE). Les preuves existent en portfolio (6 fiches : santé, coiffure, artisanat
 d'art, juridique, app/PWA, MVP startup) mais ne remontent pas sur les piliers.
+
+---
+
+## Phase 0 — Mesure GSC fraîche (résultats 2026-07-23)
+
+Données : `.seo-data/gsc-jonlabs-ch-last_28_days.json` (28 j : 7 223 impr · 51 clics · CTR 0.71 % · **pos moy 15.8**) + `.seo-data/cannibalisation-jonlabs-ch-2026-04-22_to_2026-07-21.json` (56 conflits de contenu réels, 3 mois).
+
+**Le site rank mieux que les snapshots hebdo ne le montraient** (plusieurs pages déjà page 1) — le problème se déplace de « pas indexé » vers « mauvaise page qui rank + CTR nul ».
+
+**Corrections au diagnostic de contenu :**
+
+1. **www/non-www = pas un bug.** `curl -I https://jonlabs.ch/` → `308 → www.jonlabs.ch` (redirect en place). Les doublons non-www dans GSC = retard de consolidation d'index, se résorbe (accélérable via Request Indexing). **Rien à coder.**
+2. **CTR page-1 catastrophique = le gisement de clics le plus rapide** (→ Lot CTR blog) :
+
+   | Page | Impr (28j) | Pos | Clics |
+   |---|---:|---:|---:|
+   | `/blog/hermes-agent-ia-pme` | 1 783 | 8.5 | 4 (0.22 %) |
+   | `/blog/specialiste-developpement-web-suisse` | 369 | 16 | 0 |
+   | `/blog/referencement-local-lausanne` | 258 | 7.9 | 0 |
+   | `/blog/prix-site-web-suisse-2026` | 305 | 9.1 | 1 |
+   | `/services/developpement-application-mobile` | 501 | 30.6 | 1 |
+
+3. **Cannibalisation pilier (périmètre epic) — table `requête → cible → qui rank → verdict` :**
+
+   | Requête (impr 3 mois) | Cible canonique | Qui rank aujourd'hui | Verdict |
+   |---|---|---|---|
+   | `agence seo local` (178i) | referencement-local | blog tarif **pos 19** > pilier **pos 55** | 301 blog→pilier **déjà posé** (vercel.json) → pilier hérite ; reste H1 pilier sans mot-clé (A.1) |
+   | `dév. app mobile suisse` (58i) · `mobile hybride suisse` (67i) · `création app mobile suisse` (19i) | pilier mobile | blog `developper-application-mobile-suisse` **pos 5-9** > pilier **pos 19-24** | Type B (blog info légitime) → différencier + mailler blog→pilier (ancre commerciale) + renforcer pilier |
+   | `dév. app mobile genève` (76i) · `app android genève` (43i) | pilier mobile | **pilier pos 16-21** > home pos 49-61 | pilier gagne déjà → schema+ciblage pour page 1 |
+   | `expert ia freelance suisse romande` (20i) | consultant-ia | **consultant-ia pos 22** > metiers/ia-fiduciaire pos 81 | renforcer |
+   | `développeur web freelance suisse` (38i) | home / blog | **home pos 7.8 ≈ blog pos 7.2**, landing GE absente | **fix CTR** sur home+blog ; C.1 « consolider vers landing » abandonné |
+
+   *Note : ~30 des 56 conflits sont home↔`/developpement-web/[ville]` (hors périmètre) et se résorbent avec la consolidation www + un home moins générique.*
+
+**Ordre d'exécution re-priorisé :** **A** (ciblage on-page) → **CTR blog** (title/meta articles page-1) → **B** (schema pilier) → **C** (maillage blog→pilier + fix CTR freelance) → **D/E/F** (contenu, gated D1/D2/D5). Le détail des lots ci-dessous garde la numérotation d'origine (Lot 1=D, Lot 2=E, Lot 5=F) ; seul l'**ordre** change.
 
 ---
 
