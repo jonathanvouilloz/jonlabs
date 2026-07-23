@@ -214,16 +214,25 @@ Objectif : les AIO/SERP locales lisent le signal entité locale partout, pas seu
 - **Design blueprint** : `.co-*`, hairlines, Remix Icons monochromes, zéro emoji UI (CLAUDE.md).
 - **Un commit par lot**, checklist `.claude/checklist.md` avant chaque commit.
 
-## Carte du code anticipée
+## Carte du code
+> Mise à jour : 2026-07-23
 
-| Fichier | Rôle dans l'epic |
-|---|---|
-| `src/data/secteurs-preuves.ts` | **À créer** — source de vérité secteur → preuve → piliers |
-| `src/components/SecteursGrid.astro` | **À créer** — grille blueprint filtrable par service |
-| `src/data/schema.ts` | Source probable de `localBusinessData` (à confirmer en 3.1) |
-| `src/data/portfolio-relations.ts` | Mapping fiche → pilier existant (liens retour déjà en place) |
-| `src/pages/services/{referencement-local,gestion-fiche-google,creation-site-web}.astro` | Reçoivent la grille secteurs |
-| `src/pages/consultant-ia/index.astro` | Reçoit la grille + modèle des cartes prix (l.62-105) |
-| `src/pages/services/{developpement-mvp,developpement-application-mobile}.astro` | Reçoivent les grilles prix |
-| `src/pages/services/developpeur-webflow.astro` | Fix title/H1 (D3) |
-| `src/pages/developpeur-web-freelance-geneve.astro` | Référence de cohérence prix (l.104-140, l.236-261) |
+| Fichier | Rôle dans l'epic | État |
+|---|---|---|
+| `src/data/schema.ts` | `localBusinessData` (l.136, injecté sur les 7 piliers) + `serviceSchemas` webflow name « Genève » | ✅ Lot A+B |
+| `src/pages/services/referencement-local.astro` | H1 porteur + `localBusinessData` | ✅ Lot A+B |
+| `src/pages/services/developpement-application-mobile.astro` | H1/lead « Genève » + `localBusinessData` | ✅ Lot A+B |
+| `src/pages/services/developpement-mvp.astro` | H2 mot-clé + lead + `localBusinessData` | ✅ Lot A+B |
+| `src/pages/services/developpeur-webflow.astro` | title « Genève » (D3) + `localBusinessData` | ✅ Lot A+B |
+| `src/pages/services/{creation-site-web,gestion-fiche-google,developpeur-wordpress}.astro` | `localBusinessData` | ✅ Lot B |
+| `src/content/blog/{hermes-agent-ia-pme,specialiste-developpement-web-suisse,referencement-local-lausanne,prix-site-web-suisse-2026,geo-seo-ia}.md` | Réécriture title/meta (CTR) + maillage sortant vers piliers | ⏳ CTR blog + Lot C |
+| `src/data/portfolio-relations.ts` | Mapping fiche → pilier (liens retour en place) | Lot C |
+| `src/data/secteurs-preuves.ts` · `src/components/SecteursGrid.astro` | **À créer** — grille secteur→preuve→piliers | ⏳ Lot D (gated D2/D5) |
+| `src/pages/services/{developpement-mvp,developpement-application-mobile}.astro` · `/tarifs` | Grilles prix cohérentes | ⏳ Lot E (gated D1) |
+| `src/data/proof-lecureux.ts` → `preuves-clients.ts` | Généralisation preuve chiffrée | ⏳ Lot F (gated D5) |
+
+### Décisions clés
+- **D3 tranchée : « Genève » partout** (webflow title+H1+schema alignés ; « Suisse romande » diluait le ciblage mono-ville).
+- **www/non-www = pas un fix** : le 308 non-www→www est en place (testé live), les doublons GSC sont un retard d'index → ne pas recoder de redirect.
+- **Baseline `/seo-ai-visibility` non prise** (choix Jonathan : commit sans baseline) → l'effet AIO avant/après ne sera pas objectivable sur cet epic.
+- **Blog `tarif-package-seo-local-suisse` + `referencement-local-geneve` déjà 301→pilier** (vercel.json) : ne pas re-router ; le pilier hérite de leur autorité.
