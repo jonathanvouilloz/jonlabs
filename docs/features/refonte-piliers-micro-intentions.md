@@ -22,7 +22,7 @@
 
 **Pièges :** ne rien coder avant D1 (prix réels) et D2 (liste secteurs) — le contenu de `secteurs-preuves.ts` en dépend entièrement. Baseline `/seo-ai-visibility` à prendre AVANT le premier déploiement du chantier si on veut mesurer l'effet AIO.
 
-**Commit :** [à committer] docs(seo): epic refonte piliers micro-intentions — diagnostic + plan
+**Commit :** 5ec98a9 docs(seo): epic refonte piliers micro-intentions — diagnostic + plan
 
 ---
 

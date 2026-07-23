@@ -13,7 +13,7 @@
 ## Reprendre ici
 **Refonte piliers micro-intentions** — diagnostic + plan ✅. Prochain : Jonathan tranche **D1-D5** (prix mvp/mobile, liste secteurs, title Webflow, section automatisation, chiffres clients) → puis Lot 1 (`secteurs-preuves.ts` + `SecteursGrid.astro`). Détail : `docs/features/refonte-piliers-micro-intentions.md`.
 (Autre fil ouvert : Polish/design — revue live des 48 covers, `npm run dev` → /blog.)
-Commit : 705682b feat(brand) — HEAD
+Commit : 5ec98a9 docs(seo) epic piliers micro-intentions — HEAD
 
 ## Actions manuelles en attente (côté Jonathan)
 - **Décisions D1-D5** de l'epic piliers micro-intentions (prix réels mvp/mobile, secteurs revendiqués, Webflow GE vs romand, section automatisation, chiffres clients publiables) — détail dans son feature file.
