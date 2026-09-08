@@ -53,7 +53,30 @@ Les lots C et D attendent volontairement cette mesure.
 - Le fil d'Ariane de `[ville].astro` est le **seul** lien interne vers le hub. Le retirer réorpheline
   le hub.
 
-**Commit :** (voir la section Suivi)
+**Commit :** `8165924` fix(seo): éradique l'hôte non-www et sort le maillage géo de la home
+
+---
+
+## Carte du code
+> Mise à jour : 2026-09-08
+
+| Fichier | Rôle |
+|---|---|
+| `public/llm.txt` · `public/llms.txt` | La surface publiée aux crawlers IA. Source n°1 des 38 URLs non-www. Doivent rester **identiques** entre eux |
+| `scripts/check-canonical-host.mjs` | Le garde-fou. Node pur, zéro dépendance. Échec dur sur une URL non-www dans `src/`/`public/` ou sur la divergence `llm.txt` / `llms.txt` |
+| `package.json` | Le hook `prebuild` qui déclenche le garde-fou — donc actif aussi sur Vercel, qui lance `npm run build` |
+| `src/pages/index.astro` | La home. `GeoZonesStrip` en a été retiré : elle ne porte plus aucun nom de ville ni lien vers le silo géo |
+| `src/pages/developpement-web/[ville].astro` | Les 5 pages ville. Porte le **fil d'Ariane visible**, seul lien interne du site vers le hub |
+| `src/pages/developpement-web/index.astro` | Le hub géo. Était orphelin (0 lien entrant), en reçoit 5 depuis le fil d'Ariane |
+| `src/data/navigation.ts` | Porte la doctrine de maillage géo en commentaire. Les exports `footerZonesWeb` ne sont lus que par `styleguide-nav.astro` — pas un oubli de câblage |
+| `src/content/blog/audit-50-sites-indeps-romands.md` | JSON-LD `Dataset.creator.url` — le seul vrai signal structuré qui pointait le non-www |
+
+### Décisions clés
+- **Le canonical n'était pas le problème.** `src/components/SEO.astro` le construit correctement depuis `Astro.site` et le 308 non-www → www fonctionne. Ne pas y toucher : la cause était que le repo *publiait* des URLs non-www, pas qu'il les déclarait mal.
+- **La home ne remaille plus les villes.** C'est une cause mesurée, pas une préférence esthétique. Même logique que le retrait de la colonne « Zones & régions » du fat footer le 10.07 (`d247cc7`), un cran plus haut.
+- **`GeoZonesStrip` n'a pas été déplacé vers le hub** : `developpement-web/index.astro` a déjà une section villes plus riche (cartes avec distance, population, angle éditorial). Le déplacer aurait fait doublon — le composant est supprimé.
+- **Le fil d'Ariane de `[ville].astro` est le seul lien vers le hub.** Le retirer réorpheline le hub, qui reste par ailleurs déclaré comme parent dans `getBreadcrumbSchema`.
+- **Le `prebuild` casse le déploiement Vercel** si une URL non-www réapparaît. C'est voulu, et c'est le seul mécanisme automatique du repo — il n'y a aucun runner de test.
 
 ## Objectif
 
