@@ -199,6 +199,16 @@ const blogArticles = [
     <section class="co-sec co-pad dwv-hero" style="padding:64px var(--sec-pad-x) var(--sec-pad-y);">
       <div class="dwv-hero-inner">
 
+        <!-- Fil d'Ariane visible — miroir exact de getBreadcrumbSchema ci-dessus.
+             C'est le SEUL lien interne du site vers le hub /developpement-web : sans lui
+             les 5 pages ville déclarent un parent que Google ne peut atteindre nulle part
+             (mesuré le 08.09 : 0 lien entrant sur le hub). Ne pas le retirer. -->
+        <nav class="dwv-crumb" aria-label="Fil d'Ariane" data-animate>
+          <a href="/developpement-web">Développement web</a>
+          <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
+          <span aria-current="page">{ville.nom}</span>
+        </nav>
+
         <h1 class="dwv-hero-title" data-animate data-delay="0.1">
           {h1Lead} <span class="co-ser">{ville.nom}</span>
         </h1>
@@ -515,6 +525,11 @@ const blogArticles = [
 
   /* ── Hero ── */
   .dwv-hero-inner { max-width: 760px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
+  .dwv-crumb { display: inline-flex; align-items: center; gap: 6px; margin-bottom: 18px; font-size: 13.5px; color: var(--muted); }
+  .dwv-crumb a { color: var(--muted); text-decoration: none; border-bottom: 1px solid var(--line-2); transition: color .16s ease-out, border-color .16s ease-out; }
+  .dwv-crumb a:hover { color: var(--accent); border-color: var(--accent); }
+  .dwv-crumb i { font-size: 15px; opacity: .6; }
+  .dwv-crumb span { color: var(--ink); }
   .dwv-hero-title { font-size: clamp(2.1rem, 5vw, 3.3rem); }
   .co-root .dwv-hero-lead { margin-top: 20px; max-width: 54ch; font-size: 1.075rem; line-height: 1.65; color: var(--muted); }
   .dwv-hero-lead strong { color: var(--ink); font-weight: 600; }

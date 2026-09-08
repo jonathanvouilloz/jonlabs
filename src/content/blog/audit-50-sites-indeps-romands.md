@@ -368,7 +368,7 @@ Si tu reconnais ton site dans un des trois arch√©types et que tu veux savoir pr√
       "creator": {
         "@type": "Organization",
         "name": "Jon Labs",
-        "url": "https://jonlabs.ch"
+        "url": "https://www.jonlabs.ch"
       },
       "temporalCoverage": "2026",
       "spatialCoverage": {

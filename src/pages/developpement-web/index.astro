@@ -2,8 +2,10 @@
 // Hub du silo géographique /developpement-web (blueprint .co-*, namespace .dw-*).
 // Les 5 pages ville existaient sans parent : maillage latéral via getVoisines
 // uniquement, et le breadcrumb /developpement-web pointait dans le vide.
+// Depuis le 08.09.2026 ce hub reçoit enfin des liens entrants : le fil d'Ariane
+// visible de [ville].astro (5 liens). Il n'en avait AUCUN avant — vérifié sur dist/.
 // Source de vérité unique des villes : src/data/villes-frontalieres.ts — jamais
-// de liste en dur ici (même pattern que GeoZonesStrip et portfolio-relations).
+// de liste en dur ici (même pattern que portfolio-relations).
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
 import AppHeader from '../../components/Header.astro';

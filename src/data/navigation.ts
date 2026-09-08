@@ -181,9 +181,17 @@ export const ctaContact: NavItem = {
 // jugée sans plus-value, et un lien boilerplate répété sitewide pèse peu.
 // Ces exports ne sont plus lus que par styleguide-nav.astro — ce n'est PAS un oubli
 // de câblage, ne pas les rebrancher au footer sans rouvrir la décision.
-// Le maillage réel de ces pages est éditorial : villes web via GeoZonesStrip (home),
-// /services, /developpement-web (hub) et les cross-links voisins → 6 à 9 liens en
-// corps chacune. Régions IA : voir le hub /consultant-ia.
+// Le maillage réel de ces pages est éditorial : /services, /services/creation-site-web,
+// /developpeur-web-freelance-geneve, le hub /developpement-web et les cross-links voisins
+// → 6 à 9 liens en corps chacune. Régions IA : voir le hub /consultant-ia.
+//
+// ⚠️ La HOME ne maille plus les villes depuis le 08.09.2026 : `GeoZonesStrip` en a été
+// retiré et le composant supprimé. Motif mesuré — la home y portait « Développement web
+// dans la région » + les 5 noms de villes, et sortait à la place des pages ville sur
+// leurs propres requêtes (jusqu'à la position 1,1 sur « agence de développement web
+// ville-la-grand »). Même raison que le retrait du fat footer ci-dessus, un cran plus haut.
+// Ne pas remettre de lien géo sur la home sans rouvrir la décision →
+// docs/features/canonical-cannibalisation.md
 export const footerZonesWeb: NavItem[] = [
   { label: 'Développeur web Annemasse', href: '/developpement-web/annemasse' },
   { label: 'Développeur web Gaillard', href: '/developpement-web/gaillard' },

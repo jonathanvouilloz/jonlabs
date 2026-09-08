@@ -153,7 +153,7 @@ utm_content=offre_mai2026
 **Exemple d'URL complète trackée**
 
 ```
-https://jonlabs.ch/services/gestion-fiche-google?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=offre_mai2026
+https://www.jonlabs.ch/services/gestion-fiche-google?utm_source=google&utm_medium=organic&utm_campaign=gbp_post&utm_content=offre_mai2026
 ```
 
 Pour générer ces URLs sans risque d'erreur : [Google UTM Builder](https://ga-dev-tools.google/ga4/campaign-url-builder/).
