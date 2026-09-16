@@ -1,5 +1,5 @@
 ---
-title: "Apparaître sur Claude (Brave Search) en 2026"
+title: "Claude et Brave Search : comment y apparaître en 2026"
 h1: "Comment apparaître sur Claude et Brave Search en 2026 : le guide GEO complet"
 description: "Claude cite Brave Search dans 86,7 % de ses réponses. Comment être indexé par Brave et se faire citer par Claude : 5 actions concrètes."
 pubDate: 2026-03-05

@@ -1,7 +1,7 @@
 ---
-title: "Application mobile en entreprise : utile ou pas ?"
+title: "Application mobile d'entreprise en Suisse : utile ou pas ?"
 h1: "Application mobile pour PME : vaut-il vraiment le coup d'investir ?"
-description: "Une application mobile en entreprise coûte cher et ne sert pas toujours. Les cas où elle se justifie, ceux où une PWA suffit, chiffrés en CHF."
+description: "Une application mobile en entreprise en Suisse coûte cher et ne sert pas toujours. Les cas où elle se justifie, ceux où une PWA suffit, chiffrés en CHF."
 pubDate: 2026-07-06
 author: "Jon"
 image:

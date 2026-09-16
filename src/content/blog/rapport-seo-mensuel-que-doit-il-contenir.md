@@ -1,7 +1,7 @@
 ---
-title: "Rapport SEO : ce qu'il doit vraiment contenir"
+title: "Rapport SEO mensuel : les 6 éléments qu'il doit contenir"
 h1: "Rapport SEO mensuel : les 6 éléments qui le rendent utile (et les 4 qui ne servent à rien)"
-description: "Votre prestataire vous envoie un rapport chaque mois. Voici ce qu'il doit contenir pour que vous puissiez juger si le travail avance vraiment."
+description: "Rapport de suivi SEO ou de référencement : les 6 éléments qui montrent si le travail avance, et les 4 qui ne servent à rien."
 pubDate: 2026-08-07
 image:
   url: "/images/blog/rapport-seo-mensuel.webp"
