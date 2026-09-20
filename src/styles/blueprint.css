@@ -19,9 +19,12 @@
 /* ── Reset scopé (box-sizing, margins, listes, underline) ── */
 .co-root *, .co-root *::before, .co-root *::after,
 .co-chrome *, .co-chrome *::before, .co-chrome *::after { box-sizing: border-box; }
-.co-root h1, .co-root h2, .co-root h3, .co-root h4, .co-root p, .co-root figure,
-.co-chrome h1, .co-chrome h2, .co-chrome h3, .co-chrome h4, .co-chrome p, .co-chrome figure { margin: 0; }
-.co-root ul, .co-chrome ul { margin: 0; padding: 0; list-style: none; }
+/* Reset à spécificité NULLE (:where) : une simple classe de page doit pouvoir
+   reprendre la main sur `margin` sans se préfixer en `.co-root .xx`. L'ancienne
+   forme `.co-root h2 {margin:0}` (0,1,1) battait `.xx-title {margin-top:…}` (0,1,0)
+   et rendait MUETTE toute l'échelle --space-* posée sur les Hn. */
+:where(.co-root, .co-chrome) :where(h1, h2, h3, h4, p, figure) { margin: 0; }
+:where(.co-root, .co-chrome) :where(ul) { margin: 0; padding: 0; list-style: none; }
 /* Reset l'underline navigateur par défaut. :where() neutralise la spécificité
    pour que .co-btn (color:#fff) l'emporte. Underline ré-autorisé sur .co-prose a. */
 .co-root :where(a), .co-chrome :where(a) { text-decoration: none; color: inherit; }
@@ -52,6 +55,8 @@
      que l'ancien 44px pour aérer les sous-titres H3 collés aux cartes. */
   --sec-pad-y: 56px;         /* padding vertical de section (standard actuel) */
   --sec-pad-x: 40px;         /* gouttière horizontale de section */
+  --hero-pad-top: 104px;     /* respiration au-dessus du H1 de hero (ex-64/72 inline) */
+  --hero-pad-bottom: 88px;   /* respiration sous la ligne de preuve du hero */
   --space-eyebrow: 8px;      /* eyebrow → titre H2 */
   --space-title-lead: 10px;  /* titre H2 → paragraphe lead */
   --space-block: 32px;       /* titre/section → grille de cartes */
@@ -407,6 +412,10 @@
     linear-gradient(var(--line-2), var(--line-2)) center / 9px 1px no-repeat;
 }
 .co-sec::before { left: -5px; } .co-sec::after { right: -5px; }
+
+/* Hero : la respiration du haut de page ne se pilote plus en style inline —
+   les pages migrées posent `.co-hero` nu et héritent de ces tokens. */
+.co-root .co-hero { padding: var(--hero-pad-top) var(--sec-pad-x) var(--hero-pad-bottom); }
 
 .co-guides {
   position: absolute; inset: 0; pointer-events: none;

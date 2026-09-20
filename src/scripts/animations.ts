@@ -4,7 +4,7 @@ import { animate, stagger, inView } from 'motion';
 const defaultConfig = {
   duration: 0.6,
   distance: 30,
-  easing: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
+  ease: [0.25, 0.1, 0.25, 1] as [number, number, number, number],
   staggerDelay: 0.1
 };
 
@@ -88,7 +88,7 @@ export function initAnimations() {
       animate(el, animation.final, {
         duration,
         delay,
-        easing: defaultConfig.easing
+        ease: defaultConfig.ease
       });
 
       // Retourner une fonction pour arrêter l'observation après l'animation
@@ -118,7 +118,7 @@ export function initAnimations() {
       animate(children, animation.final, {
         duration: defaultConfig.duration,
         delay: stagger(staggerDelay),
-        easing: defaultConfig.easing
+        ease: defaultConfig.ease
       });
 
       // Retourner une fonction pour arrêter l'observation après l'animation
@@ -127,7 +127,50 @@ export function initAnimations() {
   });
 }
 
+/** Dernier recours : rend visible tout ce que le moteur n'a pas révélé. */
+function revealAll() {
+  document.querySelectorAll<HTMLElement>('[data-animate], [data-animate-item]').forEach((el) => {
+    if (el.hasAttribute('data-animated') || el.closest('[data-animated]')) return;
+    el.style.opacity = '1';
+    el.style.transform = 'none';
+    el.style.filter = 'none';
+  });
+}
+
 // Auto-init
 if (typeof window !== 'undefined') {
-  document.addEventListener('DOMContentLoaded', initAnimations);
+  const boot = () => {
+    try {
+      initAnimations();
+    } catch (err) {
+      // Un moteur cassé ne doit jamais coûter le contenu de la page.
+      console.error('[animations] init failed, fallback visible', err);
+      revealAll();
+    }
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot, { once: true });
+  } else {
+    boot();
+  }
+
+  // Garde-fou : au-delà de 2s au-dessus de la ligne de flottaison, un élément
+  // encore invisible est un bug, pas une animation en attente.
+  window.setTimeout(() => {
+    document.querySelectorAll<HTMLElement>('[data-animate], [data-animate-item]').forEach((el) => {
+      if (el.hasAttribute('data-animated') || el.closest('[data-animated]')) return;
+      const r = el.getBoundingClientRect();
+      if (r.top < window.innerHeight && r.bottom > 0) {
+        el.style.opacity = '1';
+        el.style.transform = 'none';
+        el.style.filter = 'none';
+      }
+    });
+  }, 2000);
+
+  // bfcache / retour arrière : l'IO ne re-notifie pas toujours.
+  window.addEventListener('pageshow', (e) => {
+    if ((e as PageTransitionEvent).persisted) revealAll();
+  });
 }

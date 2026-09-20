@@ -147,10 +147,9 @@ const paliers = [
     highlight: false,
     pour: "Une tâche précise qui te mange du temps chaque semaine.",
     inclus: [
-      "Audit de tes process et repérage de la tâche à automatiser",
+      "Audit de tes process et choix de la tâche à automatiser",
       "Un agent branché sur un outil (boîte mail ou CRM)",
-      "Garde-fous et validation humaine sur les envois",
-      "Prise en main de ton équipe"
+      "Garde-fous, validation humaine et prise en main"
     ]
   },
   {
@@ -161,26 +160,18 @@ const paliers = [
     pour: "Plusieurs tâches et plusieurs outils à connecter.",
     inclus: [
       "Agent multi-tâches connecté à tes outils (CRM, mail, facturation)",
-      "Enchaînements automatiques et mémoire persistante",
-      "Cadrage nLPD : ce qui sort, ce qui reste chez toi",
-      "Tests en conditions réelles avant mise en production",
+      "Cadrage nLPD et tests en conditions réelles avant production",
       "Formation et documentation pour piloter en autonomie"
-    ]
-  },
-  {
-    nom: "Fonctionnement mensuel",
-    prix: "CHF 50 – 150 / mois",
-    tag: "Récurrent",
-    highlight: false,
-    pour: "Ce que coûte l'agent une fois en route.",
-    inclus: [
-      "Hébergement de l'agent (VPS ou serveur)",
-      "API du modèle de langage, facturée à l'usage",
-      "Fourchette basse pour un volume PME classique",
-      "Sans engagement de durée"
     ]
   }
 ];
+
+// Le fonctionnement mensuel n'est pas une offre : c'est ce que coûte l'agent
+// une fois en route. Il sortait en 3e carte de même poids et brouillait le choix.
+const fonctionnement = {
+  prix: "CHF 50 – 150 / mois",
+  detail: "Hébergement + API du modèle de langage, facturée à l'usage. Fourchette basse pour un volume PME classique, sans engagement de durée."
+};
 
 // ============================================
 // COMMENT ÇA SE PASSE — étapes
@@ -254,7 +245,6 @@ const liens = [
 
     <!-- ══ HERO ══ -->
     <section class="co-sec co-pad hm-hero">
-      <div class="co-guides"></div>
       <div class="hm-hero-inner">
         <h1 class="hm-hero-title" data-animate data-delay="0.1">Hermès</h1>
         <p class="hm-hero-lead" data-animate data-delay="0.2">
@@ -343,6 +333,13 @@ const liens = [
           </div>
         ))}
       </div>
+
+      <p class="hm-run" data-animate>
+        <i class="ri-repeat-line" aria-hidden="true"></i>
+        <span>
+          <strong>Puis {fonctionnement.prix}</strong> de fonctionnement — {fonctionnement.detail}
+        </span>
+      </p>
 
       <div class="hm-delai co-frame" data-animate>
         <div class="hm-delai-icon"><i class="ri-timer-flash-line" aria-hidden="true"></i></div>
@@ -475,9 +472,13 @@ const liens = [
 
   /* ── Hero ── */
   .hm-hero { position: relative; overflow: hidden; }
+  /* 44ch se résolvait sur le font-size du conteneur (16px) → ~265px : le hero
+     entier tenait dans la 1re colonne des guides et laissait 2 colonnes vides.
+     Largeur de lecture explicite + respiration alignée sur les tokens de hero. */
   .hm-hero-inner {
     position: relative; display: flex; flex-direction: column; align-items: flex-start;
-    gap: 22px; padding: 76px 40px 68px; max-width: 44ch;
+    gap: 22px; padding: var(--hero-pad-top) var(--sec-pad-x) var(--hero-pad-bottom);
+    max-width: 46rem;
   }
   .hm-hero-title { font-size: clamp(2.8rem, 8vw, 4.4rem); letter-spacing: -0.03em; }
   .hm-hero-lead { font-size: clamp(1.1rem, 2.2vw, 1.35rem); line-height: 1.5; color: var(--ink); max-width: 40ch; }
@@ -518,7 +519,7 @@ const liens = [
   .co-root .hm-cas-desc { margin-top: 6px; font-size: 14px; line-height: 1.55; }
 
   /* ── Paliers (offre) ── */
-  .hm-paliers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: var(--space-subsection); align-items: stretch; }
+  .hm-paliers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: var(--space-subsection); align-items: stretch; }
   .hm-palier {
     position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
     padding: 28px; background: var(--surface); border: 1px solid var(--line-2);
@@ -529,6 +530,14 @@ const liens = [
   .hm-palier-prix { font-size: clamp(1.5rem, 3vw, 1.9rem); font-weight: 700; letter-spacing: -0.02em; margin: 14px 0 6px; font-variant-numeric: tabular-nums; }
   .hm-palier-inclus { margin-top: var(--space-title-lead); }
   .hm-palier-inclus li { font-size: 13.5px; line-height: 1.45; }
+
+  /* ── Coût récurrent (ligne, pas une carte) ── */
+  .co-root .hm-run {
+    display: flex; align-items: flex-start; gap: 10px; margin-top: 18px;
+    font-size: 14px; line-height: 1.55; color: var(--muted);
+  }
+  .hm-run i { color: var(--accent); font-size: 17px; line-height: 1.4; flex: none; }
+  .hm-run strong { color: var(--ink); font-weight: 600; font-variant-numeric: tabular-nums; }
 
   /* ── Délai (callout) ── */
   .hm-delai {
@@ -599,13 +608,12 @@ const liens = [
   /* ── Responsive ── */
   @media (max-width: 980px) {
     .hm-grid--3 { grid-template-columns: repeat(2, 1fr); }
-    .hm-paliers { grid-template-columns: 1fr; }
     .hm-etapes { grid-template-columns: repeat(2, 1fr); }
   }
   @media (max-width: 720px) {
     .hm-sec { padding: 48px 20px; }
-    .hm-hero-inner { padding: 52px 20px; }
-    .hm-grid--3, .hm-grid--2, .hm-etapes { grid-template-columns: 1fr; }
+    .hm-hero-inner { padding: 64px 20px 56px; }
+    .hm-grid--3, .hm-grid--2, .hm-etapes, .hm-paliers { grid-template-columns: 1fr; }
     .hm-delai { flex-direction: column; align-items: flex-start; }
     .hm-delai-cta { width: 100%; justify-content: center; }
   }
