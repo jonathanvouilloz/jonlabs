@@ -86,8 +86,8 @@ export const mainNav: NavSection[] = [
       {
         title: 'Automatiser',
         items: [
-          { label: 'Automatisation de tâches', href: '/services/automatisation', icon: 'ri-loop-left-line' },
-          { label: 'Intégration d\'outils', href: '/services/integration-outils', icon: 'ri-plug-line' },
+          { label: 'Automatisation de tâches', href: '/consultant-ia#automatisation', icon: 'ri-loop-left-line' },
+          { label: 'Intégration d\'outils', href: '/consultant-ia#integration-outils', icon: 'ri-plug-line' },
           { label: 'Formation IA équipe', href: '/services/formation-ia-equipe', icon: 'ri-presentation-line' },
         ],
       },

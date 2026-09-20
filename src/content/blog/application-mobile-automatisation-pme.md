@@ -168,7 +168,7 @@ Toutes les intégrations ne valent pas le même investissement. Par secteur, cel
 
 Le [développement d'une application métier sur mesure](/blog/application-metier-pme-sur-mesure) couvre les spécificités de chaque secteur avec des exemples concrets d'architecture.
 
-Si tu gères déjà des processus répétitifs hors app (approbations, relances, rapports), la [page dédiée à l'automatisation](/services/automatisation) explique comment les structurer avant d'envisager une app.
+Si tu gères déjà des processus répétitifs hors app (approbations, relances, rapports), la [section dédiée à l'automatisation](/consultant-ia#automatisation) explique comment les structurer avant d'envisager une app.
 
 ---
 

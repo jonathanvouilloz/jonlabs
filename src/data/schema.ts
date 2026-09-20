@@ -374,28 +374,6 @@ export const serviceSchemas = {
     "areaServed": ["Genève", "Vaud", "Suisse Romande"],
     "serviceType": "Développement sur mesure"
   },
-  "integration-outils": {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${SITE_URL}/services/integration-outils/#service`,
-    "name": "Intégration d'outils et synchronisation",
-    "url": `${SITE_URL}/services/integration-outils`,
-    "description": "Connectez vos applications pour que les données circulent automatiquement. CRM, comptabilité, emails, Stripe, TWINT.",
-    "provider": { "@id": `${SITE_URL}/#organization` },
-    "areaServed": ["Genève", "Vaud", "Suisse Romande"],
-    "serviceType": "Intégration logicielle"
-  },
-  "automatisation": {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${SITE_URL}/services/automatisation/#service`,
-    "name": "Automatisation de tâches pour PME",
-    "url": `${SITE_URL}/services/automatisation`,
-    "description": "Récupérez 5-10h par semaine en automatisant vos tâches répétitives. Relances, factures, rapports, notifications.",
-    "provider": { "@id": `${SITE_URL}/#organization` },
-    "areaServed": ["Genève", "Vaud", "Suisse Romande"],
-    "serviceType": "Automatisation"
-  },
   "validation-idee": {
     "@context": "https://schema.org",
     "@type": "Service",

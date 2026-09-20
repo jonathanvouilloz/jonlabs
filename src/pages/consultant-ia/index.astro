@@ -57,7 +57,7 @@ const differenciants = [
 ];
 
 // ============================================
-// 6 SERVICES (cartes)
+// SERVICES — famille « sur mesure » (cartes)
 // ============================================
 const services = [
   {
@@ -72,14 +72,14 @@ const services = [
     title: "Automatisation de tâches",
     description: "Relances, rapports, saisies répétitives qui se déclenchent toutes seules. On supprime les corvées du lundi matin avant même de parler d'IA avancée.",
     price: "Sur devis",
-    href: "/services/automatisation"
+    href: "#automatisation"
   },
   {
     icon: "ri-links-line",
     title: "Intégration d'outils",
     description: "On fait parler vos applications entre elles : Bexio, CRM, Google Workspace, votre facturation. L'info saisie une fois, partout, sans recopie.",
     price: "Sur devis",
-    href: "/services/integration-outils"
+    href: "#integration-outils"
   },
   {
     icon: "ri-team-line",
@@ -101,6 +101,64 @@ const services = [
     description: "Tableaux de bord, portails clients, applications internes pilotées par IA. Pour automatiser ce qu'Excel ne sait plus faire seul.",
     price: "Sur devis",
     href: "/services/outils-sur-mesure"
+  }
+];
+
+// ============================================
+// OFFRE CLÉ EN MAIN (bloc à part, pas une 7e carte)
+// ============================================
+const cleEnMain = {
+  nom: "Hermès",
+  accroche: "L'agent que je déploie chez toi",
+  description: "Un agent IA déjà éprouvé sur des tâches concrètes de PME — tri d'e-mails, relances, préparation de documents. On part de cette base, on le branche sur tes outils, on pose les garde-fous. Tu ne payes pas six mois de R&D.",
+  price: "Dès CHF 2'500",
+  delai: "En production en 2 à 3 semaines",
+  href: "/hermes"
+};
+
+// ============================================
+// AUTOMATISATION & INTÉGRATION
+// Contenu repris des ex-pages /consultant-ia#automatisation et
+// /consultant-ia#integration-outils, condensé et redirigé ici.
+// ============================================
+const automatisationCas = [
+  {
+    icon: "ri-money-euro-circle-line",
+    title: "Relances de paiement",
+    text: "J+7 rappel courtois, J+15 relance avec la facture en pièce jointe, J+30 notification pour que tu reprennes la main. Tu n'interviens que sur les cas qui le méritent."
+  },
+  {
+    icon: "ri-bar-chart-grouped-line",
+    title: "Rapports hebdomadaires",
+    text: "Les données sont agrégées depuis tes outils (Bexio, CRM, tableurs) et le rapport arrive formaté dans ta boîte chaque lundi à 8h. La visibilité sans le travail."
+  },
+  {
+    icon: "ri-user-add-line",
+    title: "Onboarding client",
+    text: "Le client signe, et tout s'enchaîne : e-mail de bienvenue, fiche CRM créée, documents envoyés, tâche de suivi posée à deux semaines. Même niveau de service à chaque fois."
+  },
+  {
+    icon: "ri-checkbox-multiple-line",
+    title: "Validations",
+    text: "Une demande arrive, le validateur reçoit une notification avec deux boutons, sa réponse met le système à jour et le demandeur est prévenu. Plus personne ne relance à la main."
+  }
+];
+
+const integrationFrictions = [
+  {
+    icon: "ri-file-copy-2-line",
+    title: "Tu ressaisis les mêmes infos partout",
+    text: "Un nouveau client : dans le CRM, puis dans la facturation, puis dans le fichier de suivi. Trois saisies, trois risques d'erreur, zéro valeur ajoutée."
+  },
+  {
+    icon: "ri-stack-line",
+    title: "Tes outils fonctionnent en silos",
+    text: "Le formulaire ne parle pas au CRM, le CRM ne parle pas à la comptabilité. Tu es le seul pont entre eux — et des infos se perdent en route."
+  },
+  {
+    icon: "ri-apps-2-line",
+    title: "Tu as empilé des outils au fil du temps",
+    text: "Notion, Trello, Bexio, Mailchimp et cinq autres. Chacun fait son job, mais ensemble c'est le chaos, et tu n'as pas le temps de démêler ça."
   }
 ];
 
@@ -358,6 +416,7 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
         De l'<strong>automatisation</strong> simple à l'<strong>agent IA</strong> métier — toute la chaîne, un seul prestataire.
       </p>
 
+      <p class="co-eyebrow cii-fam-label">Sur mesure — on construit pour vous</p>
       <div class="cii-grid cii-grid--3" data-animate-stagger>
         {services.map((service) => (
           <a href={service.href} class="cii-svc co-frame co-frame--reveal" data-animate-item>
@@ -371,11 +430,61 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
           </a>
         ))}
       </div>
+
+      <p class="co-eyebrow cii-fam-label">Clé en main — déjà éprouvé, à brancher</p>
+      <a href={cleEnMain.href} class="cii-keyturn" data-animate>
+        <div class="cii-keyturn-body">
+          <p class="cii-keyturn-kicker">{cleEnMain.accroche}</p>
+          <h3 class="cii-keyturn-title">{cleEnMain.nom}</h3>
+          <p class="cii-keyturn-text">{cleEnMain.description}</p>
+        </div>
+        <div class="cii-keyturn-side">
+          <span class="cii-keyturn-price">{cleEnMain.price}</span>
+          <span class="cii-keyturn-delai">{cleEnMain.delai}</span>
+          <span class="cii-keyturn-cta">Voir l'offre <i class="ri-arrow-right-line" aria-hidden="true"></i></span>
+        </div>
+      </a>
     </section>
 
-    <!-- ══ 03 · AGENTS IA SUR-MESURE ══ -->
+    <!-- ══ 03 · AUTOMATISATION & INTÉGRATION ══ -->
+    <section id="automatisation" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
+      <p class="co-eyebrow">03 — Automatisation &amp; intégration</p>
+      <h2 style="margin-top:var(--space-eyebrow);">Avant l'agent, <span class="co-ser">les corvées.</span></h2>
+      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
+        Une bonne part du temps perdu ne demande aucune IA : juste des tâches qui se déclenchent
+        toutes seules, et des outils qui se parlent. C'est souvent par là qu'on commence.
+      </p>
+
+      <h3 class="cii-sub-title">Ce qu'on automatise le plus souvent</h3>
+      <div class="cii-grid cii-grid--2" data-animate-stagger>
+        {automatisationCas.map((cas) => (
+          <div class="cii-card co-frame co-frame--reveal" data-animate-item>
+            <i class={`${cas.icon} cii-card-icon`} aria-hidden="true"></i>
+            <h4 class="cii-card-title">{cas.title}</h4>
+            <p class="cii-card-text">{cas.text}</p>
+          </div>
+        ))}
+      </div>
+
+      <h3 class="cii-sub-title" id="integration-outils">Quand ce sont les outils qui bloquent</h3>
+      <p class="co-mut cii-sub-lead">
+        Bexio, votre CRM, Google Workspace, votre facturation : l'information est saisie une fois,
+        puis elle circule. Sans recopie, sans fichier qui diverge.
+      </p>
+      <div class="cii-grid cii-grid--3" data-animate-stagger>
+        {integrationFrictions.map((f) => (
+          <div class="cii-card co-frame co-frame--reveal" data-animate-item>
+            <i class={`${f.icon} cii-card-icon`} aria-hidden="true"></i>
+            <h4 class="cii-card-title">{f.title}</h4>
+            <p class="cii-card-text">{f.text}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ══ 04 · AGENTS IA SUR-MESURE ══ -->
     <section id="agents-sur-mesure" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">03 — Agents sur-mesure</p>
+      <p class="co-eyebrow">04 — Agents sur-mesure</p>
       <h2 style="margin-top:var(--space-eyebrow);">Un <span class="co-ser">agent IA sur-mesure</span>, c'est quoi ?</h2>
       <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:64ch;line-height:1.6;">
         Pas un chatbot générique. Un assistant conçu pour votre métier, qui se souvient du contexte,
@@ -409,7 +518,7 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
         <div class="cii-split-grid">
           <div>
             <p class="cii-split-lead">L'automatisation de tâches</p>
-            <p class="cii-card-text">Couvre les workflows larges et prévisibles : « quand X arrive, fais Y ». Idéale pour les relances, les rapports, les saisies récurrentes. <a href="/services/automatisation" class="cii-inline">Voir le service automatisation <i class="ri-arrow-right-line"></i></a></p>
+            <p class="cii-card-text">Couvre les workflows larges et prévisibles : « quand X arrive, fais Y ». Idéale pour les relances, les rapports, les saisies récurrentes. <a href="#automatisation" class="cii-inline">Voir ce qu'on automatise <i class="ri-arrow-right-line"></i></a></p>
           </div>
           <div>
             <p class="cii-split-lead">L'agent IA sur-mesure</p>
@@ -447,7 +556,7 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
 
     <!-- ══ 04 · CAS D'USAGE PME ══ -->
     <section id="cas-usage" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">04 — Cas d'usage</p>
+      <p class="co-eyebrow">05 — Cas d'usage</p>
       <h2 style="margin-top:var(--space-eyebrow);">Où l'IA peut vous <span class="co-ser">enlever du travail</span></h2>
       <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
         Des tâches transversales, valables pour la plupart des <strong>PME de Suisse romande</strong>.
@@ -470,7 +579,7 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
 
     <!-- ══ 05 · PREUVES ══ -->
     <section id="preuves" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">05 — Preuves</p>
+      <p class="co-eyebrow">06 — Preuves</p>
       <h2 style="margin-top:var(--space-eyebrow);">Des résultats, <span class="co-ser">pas des promesses</span></h2>
       <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:58ch;line-height:1.6;">
         La plupart des freelances IA vous demandent de leur faire confiance sur parole. Voici plutôt des chiffres.
@@ -501,7 +610,7 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
 
     <!-- ══ 06 · MAILLAGE / ALLER PLUS LOIN ══ -->
     <section id="aller-plus-loin" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">06 — Aller plus loin</p>
+      <p class="co-eyebrow">07 — Aller plus loin</p>
       <h2 style="margin-top:var(--space-eyebrow);">Explorer le sujet</h2>
       <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:58ch;line-height:1.6;">
         Pages locales, services détaillés et articles pour creuser avant d'en parler.
@@ -533,30 +642,6 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
           <h4 class="cii-card-title">IA pour agences immobilières</h4>
           <p class="cii-card-text">Qualification des leads, tri des dossiers locataires, rédaction d'annonces, relances et suivi des échéances.</p>
           <span class="cii-link-more">Voir la page métier <i class="ri-arrow-right-line"></i></span>
-        </a>
-      </div>
-
-      <!-- Liens services & produit -->
-      <div class="cii-pills" data-animate-stagger>
-        <a href="/hermes" class="cii-pill" data-animate-item>
-          <span><i class="ri-message-3-line"></i> Agent Hermès</span>
-          <i class="ri-arrow-right-line"></i>
-        </a>
-        <a href="/services/automatisation" class="cii-pill" data-animate-item>
-          <span><i class="ri-flow-chart"></i> Automatisation</span>
-          <i class="ri-arrow-right-line"></i>
-        </a>
-        <a href="/services/integration-outils" class="cii-pill" data-animate-item>
-          <span><i class="ri-links-line"></i> Intégration d'outils</span>
-          <i class="ri-arrow-right-line"></i>
-        </a>
-        <a href="/services/formation-ia-equipe" class="cii-pill" data-animate-item>
-          <span><i class="ri-presentation-line"></i> Formation IA équipe</span>
-          <i class="ri-arrow-right-line"></i>
-        </a>
-        <a href="/services/outils-sur-mesure" class="cii-pill" data-animate-item>
-          <span><i class="ri-tools-line"></i> Outils sur mesure</span>
-          <i class="ri-arrow-right-line"></i>
         </a>
       </div>
 
@@ -592,7 +677,7 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
         </aside>
 
         <div class="cii-faq-col">
-          <p class="co-eyebrow">07 — FAQ</p>
+          <p class="co-eyebrow">08 — FAQ</p>
           <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes</h2>
           <p class="co-mut" style="margin-top:var(--space-title-lead);line-height:1.6;">
             Ce que les dirigeants de PME romandes me demandent avant de se lancer.
@@ -678,6 +763,46 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
 
   /* ── Sous-titres de bloc ── */
   .cii-sub-title { font-size: 1.4rem; margin-top: var(--space-subsection); }
+  .co-root .cii-sub-lead { margin-top: 10px; max-width: 58ch; font-size: 14px; line-height: 1.6; }
+
+  /* ── Familles de services (étiquettes de groupe) ── */
+  .co-root .cii-fam-label { margin-top: var(--space-subsection); margin-bottom: 14px; }
+  .co-root .cii-fam-label:first-of-type { margin-top: var(--space-block); }
+
+  /* ── Offre clé en main : une seule, donc pleine largeur et sombre plutôt
+     qu'une carte orpheline dans une grille à 3 colonnes ── */
+  .cii-keyturn {
+    position: relative; display: grid; grid-template-columns: 1fr minmax(0, 260px);
+    gap: 32px; align-items: center; padding: 36px 40px;
+    background: #0E1116; color: #F5F4F0;  /* --dark n'est pas exposé sous .co-root */
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    transition: border-color .18s ease-out, transform .18s ease-out;
+  }
+  .cii-keyturn:hover { transform: translateY(-2px); border-color: rgba(0, 217, 163, 0.45); }
+  .co-root .cii-keyturn-kicker {
+    font-size: 11px; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase;
+    color: var(--accent-bright);
+  }
+  .co-root .cii-keyturn-title { margin-top: 10px; font-size: 1.9rem; letter-spacing: -0.02em; }
+  .co-root .cii-keyturn-text {
+    margin-top: 12px; max-width: 58ch; font-size: 14.5px; line-height: 1.6;
+    color: rgba(245, 244, 240, 0.72);
+  }
+  .cii-keyturn-side {
+    display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
+    padding-left: 32px; border-left: 1px solid rgba(255, 255, 255, 0.12);
+  }
+  .cii-keyturn-price {
+    font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em;
+    font-variant-numeric: tabular-nums; color: var(--accent-bright);
+  }
+  .cii-keyturn-delai { font-size: 13px; color: rgba(245, 244, 240, 0.60); }
+  .cii-keyturn-cta {
+    display: inline-flex; align-items: center; gap: 7px; margin-top: 12px;
+    font-size: 14px; font-weight: 600;
+  }
+  .cii-keyturn-cta i { transition: transform .18s ease-out; }
+  .cii-keyturn:hover .cii-keyturn-cta i { transform: translateX(3px); }
   .cii-mini-title { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: var(--space-subsection); }
 
   /* ── Services (cartes-liens avec prix) ── */
@@ -742,15 +867,6 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
   .cii-link-more i { transition: transform .18s ease-out; }
   .cii-link:hover .cii-link-more i { transform: translateX(3px); }
 
-  /* ── Pills (liens services rapides) ── */
-  .cii-pills { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; }
-  .cii-pill { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 15px 18px; background: var(--surface); border: 1px solid var(--line-2); font-size: 14px; font-weight: 600; color: var(--ink); transition: border-color .18s ease-out, background .18s ease-out; }
-  .cii-pill span { display: inline-flex; align-items: center; gap: 10px; }
-  .cii-pill span i { color: var(--muted); transition: color .18s ease-out; }
-  .cii-pill > i { color: var(--muted); transition: transform .18s ease-out; }
-  .cii-pill:hover { border-color: var(--accent); background: rgba(0,168,125,0.05); }
-  .cii-pill:hover span i, .cii-pill:hover > i { color: var(--accent); }
-  .cii-pill:hover > i { transform: translateX(3px); }
 
   /* ── Lien inline teal ── */
   .cii-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; display: inline-flex; align-items: center; gap: 5px; }
@@ -780,20 +896,26 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
   .cii-faq details[open]::details-content { block-size: auto; }
 
   /* ── Anchor scroll offset ── */
-  .co-root section[id] { scroll-margin-top: 100px; }
+  /* `[id]` et pas seulement `section[id]` : #integration-outils est porté par
+     un H3 à l'intérieur de la section #automatisation. */
+  .co-root section[id], .co-root h3[id] { scroll-margin-top: 100px; }
 
   /* ── Responsive ── */
   @media (max-width: 960px) {
     .cii-grid--4 { grid-template-columns: repeat(2, 1fr); }
     .cii-faq-grid { grid-template-columns: 1fr; gap: 32px; }
     .cii-faq-illu { display: none; }
-    .cii-pills { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 960px) {
+    .cii-keyturn { grid-template-columns: 1fr; gap: 24px; padding: 30px 28px; }
+    .cii-keyturn-side { padding-left: 0; padding-top: 22px; border-left: 0; border-top: 1px solid rgba(255,255,255,0.12); }
   }
   @media (max-width: 720px) {
-    .cii-grid--2, .cii-grid--3, .cii-grid--4, .cii-stats, .cii-split-grid, .cii-pills { grid-template-columns: 1fr; }
+    .cii-grid--2, .cii-grid--3, .cii-grid--4, .cii-stats, .cii-split-grid { grid-template-columns: 1fr; }
+    .cii-keyturn { padding: 26px 20px; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .cii-card, .cii-svc, .cii-tache, .cii-uc, .cii-link, .cii-pill,
+    .cii-card, .cii-svc, .cii-tache, .cii-uc, .cii-link,
     .cii-svc-icon, .cii-svc-arrow, .cii-faq summary i, .cii-hero-btns .co-btn i, .cii-link-more i { transition: none; }
   }
 </style>
