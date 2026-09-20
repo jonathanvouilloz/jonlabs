@@ -1,0 +1,137 @@
+---
+/**
+ * FlowDiagram — schéma de flux « entrée → agent → sorties », en HTML pur.
+ *
+ * Promotion du pattern `.rd-flow` de `src/pages/outils/reddit-dashboard.astro`,
+ * qui était local à une page : blocs + flèches Remix, zéro SVG, zéro JS.
+ * Ici en lecture VERTICALE (une rangée de nodes par étape), ce qui tient dans
+ * une colonne de hero comme dans une cellule de bento.
+ *
+ * À placer sous un ancêtre `.co-root` (les tokens `--accent`, `--line`… y sont
+ * scopés — voir la règle gravée en tête de blueprint.css).
+ */
+export interface FlowNode {
+  /** classe Remix Icon, ex. "ri-mail-line" */
+  icon: string;
+  label: string;
+  sub?: string;
+}
+
+interface Props {
+  /** une entrée = une rangée. Une rangée de plusieurs nodes = un éventail. */
+  steps: FlowNode[][];
+  /** index de la rangée à mettre en avant (l'agent) */
+  highlight?: number;
+  /** garde-fou humain inséré APRÈS la rangée d'index `afterStep` */
+  gate?: { afterStep: number; label: string };
+  note?: string;
+  /** densité réduite, pour une cellule de bento */
+  compact?: boolean;
+  label?: string;
+}
+
+const { steps, highlight, gate, note, compact = false, label } = Astro.props as Props;
+---
+
+<figure
+  class:list={['fd', 'co-frame', compact && 'fd--compact']}
+  role="img"
+  aria-label={label ?? note ?? 'Schéma du flux de traitement'}
+>
+  <span class="co-x tl"></span><span class="co-x tr"></span>
+  <span class="co-x bl"></span><span class="co-x br"></span>
+
+  <div class="fd-stack" aria-hidden="true">
+    {steps.map((row, i) => (
+      <>
+        <div class:list={['fd-row', highlight === i && 'fd-row--hot']}>
+          {row.map((node) => (
+            <div class="fd-node">
+              <i class={node.icon} aria-hidden="true"></i>
+              <span class="fd-node-label">{node.label}</span>
+              {node.sub && <span class="fd-node-sub">{node.sub}</span>}
+            </div>
+          ))}
+        </div>
+
+        {gate && gate.afterStep === i && (
+          <>
+            <i class="ri-arrow-down-line fd-arrow" aria-hidden="true"></i>
+            <p class="fd-gate">
+              <i class="ri-shield-check-line" aria-hidden="true"></i>{gate.label}
+            </p>
+          </>
+        )}
+
+        {i < steps.length - 1 && <i class="ri-arrow-down-line fd-arrow" aria-hidden="true"></i>}
+      </>
+    ))}
+  </div>
+
+  {note && <figcaption class="fd-note">{note}</figcaption>}
+</figure>
+
+<style>
+  .fd {
+    position: relative;
+    padding: var(--pad-encart);
+    background: var(--surface);
+    border: 1px solid var(--line-2);
+  }
+  .fd--compact { padding: 20px; }
+
+  .fd-stack { display: flex; flex-direction: column; align-items: stretch; gap: 8px; }
+
+  .fd-row { display: flex; align-items: stretch; gap: 10px; }
+
+  .fd-node {
+    flex: 1;
+    display: flex; flex-direction: column; align-items: center; text-align: center; gap: 5px;
+    padding: 14px 12px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+  }
+  .fd-node > i { font-size: 21px; color: var(--muted); line-height: 1; }
+  .fd-node-label { font-size: 13.5px; font-weight: 600; color: var(--ink); line-height: 1.3; }
+  .fd-node-sub { font-size: 11.5px; color: var(--muted); line-height: 1.35; }
+
+  /* la rangée de l'agent : c'est elle qui porte le sens, elle seule prend l'accent */
+  .fd-row--hot .fd-node {
+    background: var(--ink);
+    border-color: var(--ink);
+  }
+  .fd-row--hot .fd-node > i { color: var(--accent-bright); }
+  .fd-row--hot .fd-node-label { color: #F5F4F0; }
+  .fd-row--hot .fd-node-sub { color: rgba(245, 244, 240, 0.62); }
+
+  .fd-arrow { align-self: center; font-size: 18px; color: var(--muted); line-height: 1; }
+
+  /* le garde-fou humain — l'argument différenciant, donc il se voit */
+  .fd-gate {
+    align-self: center;
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 5px 12px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.02em;
+    color: var(--accent);
+    background: rgba(0, 168, 125, 0.08);
+    border: 1px solid rgba(0, 168, 125, 0.32);
+  }
+  .fd-gate i { font-size: 14px; }
+
+  .fd-note {
+    margin-top: 18px;
+    font-size: 12.5px; line-height: 1.5; color: var(--muted); text-align: center;
+  }
+
+  .fd--compact .fd-node { padding: 10px 8px; gap: 3px; }
+  .fd--compact .fd-node > i { font-size: 18px; }
+  .fd--compact .fd-node-label { font-size: 12.5px; }
+  .fd--compact .fd-node-sub { font-size: 11px; }
+  .fd--compact .fd-note { margin-top: 14px; font-size: 12px; }
+
+  @media (max-width: 480px) {
+    .fd { padding: 22px 18px; }
+    .fd-row { flex-direction: column; gap: 8px; }
+    .fd-node { padding: 12px; }
+  }
+</style>

@@ -3,6 +3,7 @@ import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import FlowDiagram from "../components/FlowDiagram.astro";
 import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema, getServiceItemSchema } from "../lib/seo";
 import { SITE_URL, localBusinessData } from "../data/schema";
 
@@ -174,6 +175,25 @@ const fonctionnement = {
 };
 
 // ============================================
+// SCHÉMA DU HERO — ce que fait l'agent, de bout en bout
+// La moitié droite du hero était vide : le schéma y met le mécanisme,
+// garde-fou humain compris, qui est l'argument différenciant.
+// ============================================
+const heroFlow = [
+  [
+    { icon: "ri-mail-line", label: "Un e-mail arrive", sub: "demande, relance, pièce" }
+  ],
+  [
+    { icon: "ri-robot-2-line", label: "Hermès", sub: "lit le contexte, prépare l'action" }
+  ],
+  [
+    { icon: "ri-mail-send-line", label: "Réponse" },
+    { icon: "ri-contacts-book-line", label: "CRM" },
+    { icon: "ri-file-list-3-line", label: "Document" }
+  ]
+];
+
+// ============================================
 // COMMENT ÇA SE PASSE — étapes
 // ============================================
 const etapes = [
@@ -245,6 +265,8 @@ const liens = [
 
     <!-- ══ HERO ══ -->
     <section class="co-sec co-pad hm-hero">
+      <div class="co-guides"></div>
+      <div class="hm-hero-grid">
       <div class="hm-hero-inner">
         <p class="co-eyebrow hm-hero-kicker" data-animate>Hermès — l'agent que je déploie chez toi</p>
         <h1 class="hm-hero-title" data-animate data-delay="0.1">Un agent IA <span class="co-ser">sur mesure</span> pour ta PME.</h1>
@@ -261,6 +283,17 @@ const liens = [
             <span class="hm-hero-proof"><i class="ri-checkbox-circle-line" aria-hidden="true"></i>{p}</span>
           ))}
         </div>
+      </div>
+
+      <div class="hm-hero-visual" data-animate="fade-right" data-delay="0.25">
+        <FlowDiagram
+          steps={heroFlow}
+          highlight={1}
+          gate={{ afterStep: 1, label: "Tu valides avant l'envoi" }}
+          note="Sur tout ce qui a un enjeu, l'agent prépare et tu gardes la main."
+          label="De l'e-mail entrant à la réponse préparée : Hermès lit le contexte, prépare l'action, et tu valides avant l'envoi vers la messagerie, le CRM ou un document."
+        />
+      </div>
       </div>
     </section>
 
@@ -476,11 +509,16 @@ const liens = [
   /* 44ch se résolvait sur le font-size du conteneur (16px) → ~265px : le hero
      entier tenait dans la 1re colonne des guides et laissait 2 colonnes vides.
      Largeur de lecture explicite + respiration alignée sur les tokens de hero. */
+  .hm-hero-grid {
+    position: relative;
+    display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center;
+    padding: var(--hero-pad-top) var(--sec-pad-x) var(--hero-pad-bottom);
+  }
   .hm-hero-inner {
     position: relative; display: flex; flex-direction: column; align-items: flex-start;
-    gap: 22px; padding: var(--hero-pad-top) var(--sec-pad-x) var(--hero-pad-bottom);
-    max-width: 46rem;
+    gap: 22px; max-width: 34rem;
   }
+  .hm-hero-visual { position: relative; }
   .hm-hero-title { font-size: clamp(2.2rem, 5.4vw, 3.4rem); letter-spacing: -0.03em; }
   .co-root .hm-hero-kicker { margin-bottom: -8px; }
   .hm-hero-lead { font-size: clamp(1.1rem, 2.2vw, 1.35rem); line-height: 1.5; color: var(--ink); max-width: 40ch; }
@@ -611,10 +649,12 @@ const liens = [
   @media (max-width: 980px) {
     .hm-grid--3 { grid-template-columns: repeat(2, 1fr); }
     .hm-etapes { grid-template-columns: repeat(2, 1fr); }
+    .hm-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+    .hm-hero-inner { max-width: 46rem; }
   }
   @media (max-width: 720px) {
     .hm-sec { padding: 48px 20px; }
-    .hm-hero-inner { padding: 64px 20px 56px; }
+    .hm-hero-grid { padding: 64px 20px 56px; }
     .hm-grid--3, .hm-grid--2, .hm-etapes, .hm-paliers { grid-template-columns: 1fr; }
     .hm-delai { flex-direction: column; align-items: flex-start; }
     .hm-delai-cta { width: 100%; justify-content: center; }
