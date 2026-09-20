@@ -24,17 +24,22 @@
     --font-sans: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
 }
 
-/* État initial pour les animations data-animate - évite le flash */
-[data-animate],
-[data-animate-item] {
+/* État initial pour les animations data-animate - évite le flash.
+   Scopé à `.js-anim` (cf. le script inline du Layout) : sans marqueur, pas
+   d'invisibilité — un moteur qui ne charge pas ne coûte plus la page. */
+html.js-anim [data-animate],
+html.js-anim [data-animate-item] {
     opacity: 0;
 }
 
-/* Fallback si JS ne charge pas ou prefers-reduced-motion */
+/* Fallback si JS ne charge pas ou prefers-reduced-motion.
+   `!important` : la regle anti-flash ci-dessus est scopee `html.js-anim`,
+   donc plus specifique — sans ca, un utilisateur en reduced-motion se
+   retrouverait avec du contenu invisible. */
 @media (prefers-reduced-motion: reduce) {
     [data-animate],
     [data-animate-item] {
-        opacity: 1;
+        opacity: 1 !important;
     }
 }
 

@@ -85,6 +85,20 @@ const fullTitle =
 		<link rel="manifest" href="/favicon/site.webmanifest" />
 		<meta name="theme-color" content="#F5F4F0" />
 
+		<!-- Anti-flash des animations au scroll. Script INLINE volontairement :
+		     le CSS met `[data-animate]` a opacity:0 et seul le moteur
+		     (src/scripts/animations.ts, charge en module) les revele. Si ce
+		     bundle ne charge pas — erreur reseau, dep Vite perimee, navigateur
+		     qui refuse le module — la page reste BLANCHE. Ce marqueur retire la
+		     regle au bout de 3s ; quand le moteur tourne, il a deja pose des
+		     styles INLINE sur les elements, qui survivent au retrait. -->
+		<script is:inline>
+			document.documentElement.classList.add("js-anim");
+			setTimeout(function () {
+				document.documentElement.classList.remove("js-anim");
+			}, 3000);
+		</script>
+
 		<meta name="generator" content={Astro.generator} />
 		<link rel="alternate" type="application/rss+xml" title="Blog Jonlabs" href="/rss.xml" />
 

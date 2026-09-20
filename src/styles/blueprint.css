@@ -29,9 +29,12 @@
    pour que .co-btn (color:#fff) l'emporte. Underline ré-autorisé sur .co-prose a. */
 .co-root :where(a), .co-chrome :where(a) { text-decoration: none; color: inherit; }
 
-/* ── Anti-flash motion (le moteur data-animate est chargé via Layout) ── */
-.co-root [data-animate],
-.co-root [data-animate-stagger] [data-animate-item] { opacity: 0; }
+/* ── Anti-flash motion (le moteur data-animate est chargé via Layout) ──
+   Scopé à `.js-anim`, marqueur posé puis retiré après 3s par un script inline
+   du Layout : si le bundle du moteur ne charge jamais, le contenu réapparaît
+   au lieu de rester invisible. */
+html.js-anim .co-root [data-animate],
+html.js-anim .co-root [data-animate-stagger] [data-animate-item] { opacity: 0; }
 @media (prefers-reduced-motion: reduce) {
   .co-root [data-animate],
   .co-root [data-animate-stagger] [data-animate-item] { opacity: 1 !important; }
