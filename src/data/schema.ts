@@ -541,10 +541,10 @@ export const serviceSchemas = {
   "hermes": {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${SITE_URL}/hermes/#service`,
-    "name": "Hermès — agent IA pour PME romandes",
+    "@id": `${SITE_URL}/hermes#service`,
+    "name": "Agent IA sur mesure pour PME romandes",
     "url": `${SITE_URL}/hermes`,
-    "description": "Hermès : agent IA prêt à déployer pour les PME romandes. Tri d'e-mails, relances, préparation de documents et réponses de premier niveau, intégré à vos outils. Cadrage rapide, prix CHF affichés, conformité nLPD.",
+    "description": "Conception et déploiement d'agents IA sur mesure pour les PME romandes. Tri d'e-mails, relances, préparation de documents et réponses de premier niveau, intégrés à vos outils. Validation humaine, prix CHF affichés, conformité nLPD.",
     "provider": { "@id": `${SITE_URL}/#organization` },
     "areaServed": ["Genève", "Vaud", "Suisse Romande"],
     "serviceType": "Agent IA pour PME",

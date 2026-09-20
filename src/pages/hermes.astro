@@ -10,8 +10,8 @@ import { SITE_URL, localBusinessData } from "../data/schema";
 // SEO META
 // ============================================
 const pageUrl = `${SITE_URL}/hermes`;
-const pageTitle = "Hermès — agent IA pour PME romandes";
-const metaDescription = "Hermès : agent IA prêt à déployer pour ta PME romande. Tri d'e-mails, relances, préparation de documents. Prix CHF affichés, cadrage rapide, conformité nLPD.";
+const pageTitle = "Agent IA sur mesure pour PME romandes";
+const metaDescription = "Conception et déploiement d'agents IA sur mesure pour PME romandes : tri d'e-mails, relances, documents. Prix CHF affichés, validation humaine, conformité nLPD.";
 
 // ============================================
 // FAQ (locale)
@@ -212,8 +212,8 @@ const liens = [
   },
   {
     icon: "ri-book-open-line",
-    title: "Le guide complet sur Hermès",
-    description: "Ce qu'est l'agent, ce qu'il fait, ses limites et ce qu'il coûte si tu l'installes toi-même. Le regard terrain, sans hype.",
+    title: "Hermes Agent, c'est quoi",
+    description: "Le projet open source dont part Hermès : ce qu'il fait, ses limites et ce qu'il coûte si tu l'installes toi-même. Le regard terrain, sans hype.",
     href: "/blog/hermes-agent-ia-pme",
     cta: "Lire le guide"
   },
@@ -246,14 +246,15 @@ const liens = [
     <!-- ══ HERO ══ -->
     <section class="co-sec co-pad hm-hero">
       <div class="hm-hero-inner">
-        <h1 class="hm-hero-title" data-animate data-delay="0.1">Hermès</h1>
+        <p class="co-eyebrow hm-hero-kicker" data-animate>Hermès — l'agent que je déploie chez toi</p>
+        <h1 class="hm-hero-title" data-animate data-delay="0.1">Un agent IA <span class="co-ser">sur mesure</span> pour ta PME.</h1>
         <p class="hm-hero-lead" data-animate data-delay="0.2">
-          L'agent IA qui prend en charge tes tâches répétitives — tri d'e-mails, relances,
+          Hermès prend en charge tes tâches répétitives — tri d'e-mails, relances,
           préparation de documents — et te rend le temps que tu passes à les faire à la main.
         </p>
         <div class="hm-hero-ctas" data-animate data-delay="0.3">
           <a href="/contact" class="co-btn"><i class="ri-calendar-check-line" aria-hidden="true"></i> Cadrer mon déploiement</a>
-          <a href="/blog/hermes-agent-ia-pme" class="co-btn co-btn--ghost">Lire le guide complet <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
+          <a href="/blog/hermes-agent-ia-pme" class="co-btn co-btn--ghost">Ce qu'est Hermes Agent <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
         </div>
         <div class="hm-hero-trust" data-animate data-delay="0.4">
           {preuvesHero.map((p) => (
@@ -480,7 +481,8 @@ const liens = [
     gap: 22px; padding: var(--hero-pad-top) var(--sec-pad-x) var(--hero-pad-bottom);
     max-width: 46rem;
   }
-  .hm-hero-title { font-size: clamp(2.8rem, 8vw, 4.4rem); letter-spacing: -0.03em; }
+  .hm-hero-title { font-size: clamp(2.2rem, 5.4vw, 3.4rem); letter-spacing: -0.03em; }
+  .co-root .hm-hero-kicker { margin-bottom: -8px; }
   .hm-hero-lead { font-size: clamp(1.1rem, 2.2vw, 1.35rem); line-height: 1.5; color: var(--ink); max-width: 40ch; }
   .hm-hero-ctas { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 4px; }
   .hm-hero-ctas .co-btn i { transition: transform .18s ease-out; }

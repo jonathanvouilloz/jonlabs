@@ -3,6 +3,7 @@ title: "Hermes Agent (IA) : c'est quoi, prix et usage en PME"
 h1: "Hermes Agent pour PME : à quoi sert cet agent IA, comment l'utiliser et combien ça coûte"
 description: "Hermes Agent est gratuit et open source. Ce qu'il fait pour une PME, comment le lancer et ce qu'il coûte vraiment en CHF, hébergement compris."
 pubDate: 2026-04-30
+updatedDate: 2026-09-20
 image:
   url: "/images/blog/hermes-agent-ia-pme.webp"
   alt: "Illustration éditoriale : buste de statue antique devant un ordinateur portable affichant l'interface d'un agent IA autonome, accent vert, direction artistique jonlabs"
@@ -212,6 +213,8 @@ Nous Research est une startup américaine spécialisée dans les modèles de lan
 Hermes Agent est un **agent IA autonome** avec mémoire persistante, produit par une équipe crédible distribuée sous licence MIT. Pour une PME de 5 à 15 personnes, il peut apporter une valeur réelle sur la veille concurrentielle, les propositions commerciales, le tri d'emails et les relances clients, à condition d'avoir un prestataire pour la mise en place initiale.
 
 L'outil est jeune, ses arêtes sont encore vives. Mais il est déjà utilisable si tu as les conditions techniques pour le déployer correctement. Si tu hésites, il vaut mieux faire valider ton cas spécifique avant d'investir.
+
+Tu préfères ne pas le déployer toi-même ? Je conçois et j'installe des [agents IA sur mesure pour PME romandes](/hermes) : cadrage, intégration à tes outils, garde-fous et prise en main, avec les prix en CHF affichés.
 
 [**Réserver un appel découverte**](/contact?utm_source=blog&utm_medium=article&utm_campaign=hermes-agent-ia-pme)
 
