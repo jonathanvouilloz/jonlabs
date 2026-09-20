@@ -17,6 +17,7 @@ import "../../styles/global.css";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+import FlowDiagram from "../../components/FlowDiagram.astro";
 import { Image } from "astro:assets";
 import illuConsultant from "../../assets/illustrations/consultant-ia.webp";
 
@@ -165,29 +166,6 @@ const integrationFrictions = [
 // ============================================
 // AGENT SUR-MESURE — tâches enlevées
 // ============================================
-const agentTaches = [
-  {
-    icon: "ri-mail-open-line",
-    title: "Trier et router les demandes entrantes",
-    description: "L'agent lit chaque e-mail ou formulaire, comprend la demande, la classe et la transmet à la bonne personne avec un résumé. Vous ne triez plus, vous traitez."
-  },
-  {
-    icon: "ri-file-text-line",
-    title: "Pré-remplir vos documents métier",
-    description: "Devis, contrats, comptes-rendus : l'agent récupère les données dans vos outils et prépare un brouillon prêt à relire. Vous validez au lieu de saisir."
-  },
-  {
-    icon: "ri-customer-service-2-line",
-    title: "Répondre au premier niveau de support",
-    description: "Les questions récurrentes (horaires, suivi de commande, documents) sont traitées seules. Les cas complexes remontent à vous avec le contexte déjà rassemblé."
-  },
-  {
-    icon: "ri-radar-line",
-    title: "Surveiller et alerter en continu",
-    description: "Appels d'offres, mentions de votre marque, mouvements concurrents : l'agent veille pour vous et vous prévient seulement quand une action est nécessaire."
-  }
-];
-
 const agentProcess = [
   {
     step: "1",
@@ -214,23 +192,42 @@ const agentProcess = [
 // ============================================
 // CAS D'USAGE PME (5-6)
 // ============================================
-const useCases = [
+// Les deux cas principaux : montrés, pas listés.
+const casMontres = [
   {
-    icon: "ri-inbox-archive-line",
-    title: "Tri d'e-mails et de demandes",
-    description: "Chaque message entrant est lu, classé et routé vers la bonne personne avec un résumé. Fini la boîte de réception qui déborde.",
-    gain: "3 à 5 h/sem"
+    gain: "3 à 5 h/sem",
+    title: "Tri et routage des demandes",
+    description: "Chaque message entrant est lu, classé et transmis à la bonne personne avec un résumé. Vous ne triez plus, vous traitez.",
+    flow: [
+      [{ icon: "ri-inbox-archive-line", label: "Boîte de réception", sub: "e-mails, formulaires" }],
+      [{ icon: "ri-robot-2-line", label: "L'agent lit et classe", sub: "objet, urgence, destinataire" }],
+      [
+        { icon: "ri-user-follow-line", label: "Bonne personne" },
+        { icon: "ri-sticky-note-line", label: "Résumé joint" }
+      ]
+    ],
+    gate: null
   },
   {
-    icon: "ri-file-copy-2-line",
-    title: "Pré-remplissage de documents",
-    description: "Devis, contrats et comptes-rendus préparés à partir de vos données existantes. Vous relisez au lieu de tout retaper.",
-    gain: "2 à 4 h/sem"
-  },
+    gain: "2 à 4 h/sem",
+    title: "Documents préparés",
+    description: "Devis, contrats et comptes-rendus montés à partir de vos données existantes. Vous relisez au lieu de tout retaper.",
+    flow: [
+      [{ icon: "ri-database-2-line", label: "Vos outils", sub: "CRM, facturation, notes" }],
+      [{ icon: "ri-robot-2-line", label: "L'agent assemble", sub: "modèle + données du dossier" }],
+      [{ icon: "ri-file-text-line", label: "Brouillon prêt à relire" }]
+    ],
+    gate: { afterStep: 2, label: "Vous validez avant l'envoi" }
+  }
+];
+
+// Les cas secondaires restent en texte : les montrer tous diluerait les deux
+// premiers, et ce sont eux qui portent la demonstration.
+const casListes = [
   {
     icon: "ri-mail-send-line",
     title: "Relances automatiques",
-    description: "Factures impayées, devis sans réponse, rendez-vous à confirmer : les relances partent au bon moment, sans que vous y pensiez.",
+    description: "Factures impayées, devis sans réponse, rendez-vous à confirmer : les relances partent au bon moment.",
     gain: "2 à 3 h/sem"
   },
   {
@@ -527,20 +524,6 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
         </div>
       </div>
 
-      <!-- Tâches enlevées -->
-      <h3 class="cii-sub-title">Des tâches qu'un agent vous enlève</h3>
-      <div class="cii-grid cii-grid--2" data-animate-stagger>
-        {agentTaches.map((tache) => (
-          <div class="cii-tache co-frame co-frame--reveal" data-animate-item>
-            <i class={`${tache.icon} cii-tache-icon`} aria-hidden="true"></i>
-            <div>
-              <h4 class="cii-tache-title">{tache.title}</h4>
-              <p class="cii-card-text">{tache.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-
       <!-- Process -->
       <h3 class="cii-sub-title">Comment on construit votre agent</h3>
       <div class="cii-grid cii-grid--4" data-animate-stagger>
@@ -559,19 +542,35 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
       <p class="co-eyebrow">05 — Cas d'usage</p>
       <h2 style="margin-top:var(--space-eyebrow);">Où l'IA peut vous <span class="co-ser">enlever du travail</span></h2>
       <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
-        Des tâches transversales, valables pour la plupart des <strong>PME de Suisse romande</strong>.
-        Les heures gagnées sont des estimations réalistes, pas des promesses.
+        Deux cas détaillés de bout en bout, quatre autres en clair. Valables pour la plupart des
+        <strong>PME de Suisse romande</strong> — les heures gagnées sont des estimations réalistes,
+        pas des promesses.
       </p>
 
-      <div class="cii-grid cii-grid--3" data-animate-stagger>
-        {useCases.map((uc) => (
-          <div class="cii-uc co-frame co-frame--reveal" data-animate-item>
-            <div class="cii-uc-head">
-              <i class={`${uc.icon} cii-card-icon`} aria-hidden="true"></i>
-              <span class="co-badge cii-uc-gain">{uc.gain}</span>
+      <div class="co-grid-cells cii-bento">
+        {casMontres.map((cas) => (
+          <div class="cii-bento-cell cii-bento-cell--wide" data-animate>
+            <FlowDiagram steps={cas.flow} highlight={1} gate={cas.gate ?? undefined} compact
+              label={`${cas.title} : ${cas.description}`} />
+            <div class="cii-bento-body">
+              <div class="cii-bento-head">
+                <h3 class="cii-card-title">{cas.title}</h3>
+                <span class="co-badge cii-uc-gain">{cas.gain}</span>
+              </div>
+              <p class="cii-card-text">{cas.description}</p>
             </div>
-            <h3 class="cii-card-title">{uc.title}</h3>
-            <p class="cii-card-text">{uc.description}</p>
+          </div>
+        ))}
+        {casListes.map((uc) => (
+          <div class="cii-bento-cell" data-animate>
+            <div class="cii-bento-body">
+              <div class="cii-uc-head">
+                <i class={`${uc.icon} cii-card-icon`} aria-hidden="true"></i>
+                <span class="co-badge cii-uc-gain">{uc.gain}</span>
+              </div>
+              <h3 class="cii-card-title">{uc.title}</h3>
+              <p class="cii-card-text">{uc.description}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -765,6 +764,24 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
   .cii-sub-title { font-size: 1.4rem; margin-top: var(--space-subsection); }
   .co-root .cii-sub-lead { margin-top: 10px; max-width: 58ch; font-size: 14px; line-height: 1.6; }
 
+  /* ── Bento cas d'usage : 2 cellules montrées + 4 listées ── */
+  .cii-bento {
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: var(--space-block);
+  }
+  .cii-bento-cell {
+    display: flex; flex-direction: column; gap: 18px; padding: 24px;
+    background: var(--surface);
+    transition: background .18s ease-out;
+  }
+  .cii-bento-cell:hover { background: var(--bg); }
+  .cii-bento-cell--wide { grid-column: span 2; }
+  .cii-bento-body { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
+  /* le gain est une etiquette fonctionnelle A COTE du titre : `.co-badge` ne
+     sert jamais d'eyebrow au-dessus d'un titre (blueprint.css:198-206) */
+  .cii-bento-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .cii-bento-head .cii-uc-gain { flex: none; }
+
   /* ── Familles de services (étiquettes de groupe) ── */
   .co-root .cii-fam-label { margin-top: var(--space-subsection); margin-bottom: 14px; }
   .co-root .cii-fam-label:first-of-type { margin-top: var(--space-block); }
@@ -826,24 +843,13 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
   .cii-split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 22px; }
   .cii-split-lead { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
 
-  /* ── Tâches (icône à gauche) ── */
-  .cii-tache { position: relative; display: flex; align-items: flex-start; gap: 16px; padding: 22px; background: var(--surface); border: 1px solid var(--line-2); transition: box-shadow .18s ease-out, transform .18s ease-out; }
-  .cii-tache:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
-  .cii-tache-icon { font-size: 24px; color: var(--accent); flex: none; margin-top: 2px; }
-  .cii-tache-title { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
-
   /* ── Process (étapes numérotées) ── */
   .cii-proc { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 24px; background: var(--surface); border: 1px solid var(--line-2); }
   .cii-proc-num { font-size: 20px; font-weight: 700; }
   .cii-proc-title { font-size: 1.05rem; font-weight: 600; }
 
-  /* ── Cas d'usage (avec gain) ── */
-  .cii-uc {
-    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
-    background: var(--surface); border: 1px solid var(--line-2);
-    transition: box-shadow .18s ease-out, transform .18s ease-out;
-  }
-  .cii-uc:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
+  /* ── Cas d'usage : en-tête + étiquette de gain (le reste est porté par
+     `.cii-bento-*` depuis la fusion des deux grilles) ── */
   .cii-uc-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
   .cii-uc-gain { flex: none; }
 
@@ -903,6 +909,7 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
   /* ── Responsive ── */
   @media (max-width: 960px) {
     .cii-grid--4 { grid-template-columns: repeat(2, 1fr); }
+    .cii-bento { grid-template-columns: repeat(2, 1fr); }
     .cii-faq-grid { grid-template-columns: 1fr; gap: 32px; }
     .cii-faq-illu { display: none; }
   }
@@ -912,10 +919,12 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
   }
   @media (max-width: 720px) {
     .cii-grid--2, .cii-grid--3, .cii-grid--4, .cii-stats, .cii-split-grid { grid-template-columns: 1fr; }
+    .cii-bento { grid-template-columns: 1fr; }
+    .cii-bento-cell--wide { grid-column: auto; }
     .cii-keyturn { padding: 26px 20px; }
   }
   @media (prefers-reduced-motion: reduce) {
-    .cii-card, .cii-svc, .cii-tache, .cii-uc, .cii-link,
+    .cii-card, .cii-svc, .cii-bento-cell, .cii-link,
     .cii-svc-icon, .cii-svc-arrow, .cii-faq summary i, .cii-hero-btns .co-btn i, .cii-link-more i { transition: none; }
   }
 </style>
