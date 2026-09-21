@@ -12,10 +12,10 @@
 | Chantier SEO IA (consultant IA) | docs/planSEOIA.md | EN ATTENTE — Phase 3 |
 | Devis Cabinet Grange-Canal | docs/features/devis-cabinet-grange-canal.md | CODE FINI — attend le call |
 | Refonte blueprint (design/typo) | docs/features/refonte-blueprint.md | BOUCLÉE — reste `/epic-recap` |
-| Refresh piliers IA (kirako) | branche `refresh-piliers-ia` | **CODE FINI** — 6 commits, non mergé |
+| Refresh piliers IA (kirako) | mergé dans main (`1cca170`) | **EN LIGNE 21.09** — mesurer vs baseline 428 imp / 0 clic |
 
 ## Reprendre ici
-**Refresh piliers IA** — branche `refresh-piliers-ia`, 6 commits, à relire puis merger. Née d'une veille sur kirako.ai (concurrent direct : même positionnement, même arborescence `/consultant-ia` · `/metiers/*` · `/hermes`).
+**Refresh piliers IA** — mergé dans main et poussé le 21.09 (`1cca170`). Née d'une veille sur kirako.ai (concurrent direct : même positionnement, même arborescence `/consultant-ia` · `/metiers/*` · `/hermes`).
 
 Ce qui a changé :
 1. Bug de spécificité du reset blueprint — l'échelle `--space-*` posée sur les Hn était muette partout. Passage en `:where()`, ce qui réveille ~12 règles mortes.
