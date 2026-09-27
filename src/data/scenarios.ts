@@ -171,7 +171,7 @@ export const serviceSections: ServiceSection[] = [
   {
     id: 'site-web',
     title: 'Développement de site web',
-    accroche: `Un site rapide, clair et trouvable sur Google. Dès CHF 750, devis sur demande.`,
+    accroche: `Un site rapide, clair et trouvable sur Google. Dès CHF 850, devis sur demande.`,
     subServices: [
       {
         id: 'creation-site',
@@ -190,7 +190,7 @@ export const serviceSections: ServiceSection[] = [
         title: 'Développeur Webflow',
         description: 'Création ou reprise de site Webflow, que ton équipe gère en autonomie.',
         features: [
-          'Site Webflow propre et rapide',
+          'Site Webflow propre et rapide, dès CHF 950',
           'Formation à l\'éditeur incluse',
           'Reprise d\'un site Webflow existant'
         ],
@@ -232,7 +232,7 @@ export const serviceSections: ServiceSection[] = [
         features: [
           'Audit et corrections techniques',
           'Pages et contenus pensés pour ta zone',
-          'Suivi mensuel, sans engagement'
+          'Suivi des positions et rapport mensuel'
         ],
         ctaText: 'En savoir plus',
         link: '/services/referencement-local'
@@ -243,7 +243,7 @@ export const serviceSections: ServiceSection[] = [
         description: 'Ta fiche Google Business Profile complète, à jour et active.',
         features: [
           'Optimisation complète de la fiche',
-          'Publications et réponses aux avis',
+          'Publication automatisée de posts et réponses aux avis',
           'Compris dans le suivi à CHF 199/mois'
         ],
         ctaText: 'En savoir plus',

@@ -179,12 +179,7 @@ const pricingPlans = [
         price: chf(pricing.seoLocal.monthly),
         priceLabel: "Par mois, sans engagement",
         unit: "CHF/mois",
-        features: [
-            "Publications sur la fiche Google",
-            "Réponses aux avis",
-            "Ajustements du site et du contenu local",
-            "Point mensuel sur vos positions et vos appels"
-        ],
+        features: [...pricing.seoLocal.monthlyIncludes],
         ideal: "Les entreprises qui veulent monter, puis rester, en haut de Google Maps.",
         highlighted: true
     }
@@ -194,7 +189,7 @@ const pricingPlans = [
 const faqs = [
     {
         question: "Combien ça coûte ?",
-        answer: "CHF 390 pour la mise en place (audit, corrections du site, fiche Google optimisée), puis CHF 199 par mois pour le suivi. Sans engagement, résiliable chaque mois."
+        answer: "CHF 390 pour la mise en place (audit, corrections du site, fiche Google optimisée), puis CHF 199 par mois : suivi des positions SEO, publication automatisée de posts, réponses aux avis et rapport mensuel des évolutions. Aucun contrat de durée, résiliable d'un mois à l'autre."
     },
     {
         question: "Combien de temps pour voir des résultats ?",
@@ -218,7 +213,7 @@ const faqs = [
     },
     {
         question: "Pourquoi un freelance plutôt qu'une agence ?",
-        answer: "Un seul interlocuteur qui fait le travail lui-même, pas de contrat 12 mois, et des outils Google gratuits : vos accès et vos données restent à vous."
+        answer: "Un seul interlocuteur qui fait le travail lui-même, aucun contrat de durée (le suivi se résilie d'un mois à l'autre), et des outils Google gratuits : vos accès et vos données restent à vous."
     }
 ];
 schemas.push(getFAQPageSchema(faqs));

@@ -312,11 +312,11 @@ export const serviceSchemas = {
       "@type": "Offer",
       "priceSpecification": {
         "@type": "PriceSpecification",
-        "price": "750",
+        "price": "850",
         "priceCurrency": "CHF",
-        "minPrice": "750"
+        "minPrice": "850"
       },
-      "description": "À partir de CHF 750, devis sur demande"
+      "description": "À partir de CHF 850, devis sur demande"
     }
   },
   "developpeur-webflow": {
@@ -333,11 +333,11 @@ export const serviceSchemas = {
       "@type": "Offer",
       "priceSpecification": {
         "@type": "PriceSpecification",
-        "price": "750",
+        "price": "950",
         "priceCurrency": "CHF",
-        "minPrice": "750"
+        "minPrice": "950"
       },
-      "description": "À partir de CHF 750, devis sur demande"
+      "description": "À partir de CHF 950, devis sur demande"
     }
   },
   "refonte-site-web": {
@@ -368,7 +368,7 @@ export const serviceSchemas = {
     "@id": `${SITE_URL}/services/referencement-local/#service`,
     "name": "Référencement local à Genève — Freelance SEO PME romandes",
     "url": `${SITE_URL}/services/referencement-local`,
-    "description": "Référencement local pour PME à Genève et Suisse romande. Freelance SEO transparent, outils Google gratuits, sans contrat 12 mois. #1 sur sa niche prouvé en 5 mois sur le cas Lécureux. Audit gratuit.",
+    "description": "Référencement local pour PME à Genève et Suisse romande. Freelance SEO transparent, outils Google gratuits, sans contrat de durée. #1 sur sa niche prouvé en 5 mois sur le cas Lécureux. Audit gratuit.",
     "provider": { "@id": `${SITE_URL}/#organization` },
     "areaServed": ["Genève", "Vaud", "Suisse Romande"],
     "serviceType": "Référencement local",

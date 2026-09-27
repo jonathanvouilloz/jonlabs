@@ -24,7 +24,7 @@ const services = [
     {
         id: 'web-dev',
         title: 'Développement de site web',
-        description: 'Un site rapide et clair, qui donne envie de vous contacter. Dès CHF 750.',
+        description: 'Un site rapide et clair, qui donne envie de vous contacter. Dès CHF 850.',
         icon: 'ri-code-s-slash-line',
         link: '/services/creation-site-web'
     },

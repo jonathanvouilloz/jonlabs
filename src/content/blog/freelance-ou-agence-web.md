@@ -50,7 +50,7 @@ Avant de comparer les avantages, mettons les chiffres sur la table. Parce que ou
 |E-commerce|CHF 5'000 – 10'000|
 |Taux horaire moyen|CHF 120 – 150/h|
 
-Ces fourchettes valent aussi pour les projets sur CMS : chez moi, une [création de site web](/services/creation-site-web) démarre à CHF 750, bien en dessous des grilles d'agence pour le même périmètre.
+Ces fourchettes valent aussi pour les projets sur CMS : chez moi, une [création de site web](/services/creation-site-web) démarre à CHF 850, bien en dessous des grilles d'agence pour le même périmètre.
 
 ### Côté agence
 

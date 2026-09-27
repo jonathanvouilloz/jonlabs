@@ -7,10 +7,10 @@ Jon Labs est l'atelier freelance de Jonathan Vouilloz, basé à Genève. Il con�
 Jonathan Vouilloz — développeur et créateur de solutions digitales, basé à Genève (Suisse). Il intervient en Suisse romande (Genève, Vaud, Neuchâtel). Particularité : il croise trois compétences que peu d'acteurs locaux couvrent ensemble — développement web sur mesure, automatisation / IA appliquée, et SEO local. Contenu basé sur l'expérience terrain : audit publié de 50 sites d'indépendants romands (2026), projets clients livrés pour TPE/PME, et le site jonlabs.ch en production.
 
 ## Thématiques principales
-- Développement de sites web pour PME et indépendants romands (dès CHF 750)
+- Développement de sites web pour PME et indépendants romands (dès CHF 850, Webflow dès CHF 950)
 - Développement d'applications mobiles (iOS, Android, PWA) pour PME suisses
 - IA en entreprise : agents IA sur mesure (Hermès, dès CHF 1'500), automatisation, formation IA
-- SEO local en Suisse romande : site + Google Business Profile (setup CHF 390, suivi CHF 199/mois)
+- SEO local en Suisse romande : site + Google Business Profile (setup CHF 390, puis CHF 199/mois : suivi des positions, posts automatisés, rapport mensuel)
 - GEO — visibilité dans les moteurs IA (ChatGPT, Claude, Gemini, Perplexity, Copilot, Grok)
 
 ## Pages les plus importantes

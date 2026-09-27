@@ -191,7 +191,7 @@ export const villesFrontalieres: VilleData[] = [
       },
       {
         question: "Combien coûte un site web à Gaillard comparé à Genève ?",
-        answer: "Le coût du développement ne dépend pas de la ville, il dépend du périmètre fonctionnel. Un site vitrine démarre à CHF 750, que tu sois à Gaillard ou à Genève. Le différentiel réel se situe surtout sur la TVA : facturation TVA française à 20% pour les sociétés gaillardes, pas de TVA pour les non-assujettis suisses. Je gère les deux cas avec des factures conformes."
+        answer: "Le coût du développement ne dépend pas de la ville, il dépend du périmètre fonctionnel. Un site vitrine démarre à CHF 850, que tu sois à Gaillard ou à Genève. Le différentiel réel se situe surtout sur la TVA : facturation TVA française à 20% pour les sociétés gaillardes, pas de TVA pour les non-assujettis suisses. Je gère les deux cas avec des factures conformes."
       },
       {
         question: "Je peux te rencontrer à Gaillard ou seulement en visio ?",
@@ -419,11 +419,11 @@ export const villesFrontalieres: VilleData[] = [
       },
       {
         question: "Je tiens un commerce dans le centre médiéval, ça vaut le coup d'avoir un site ?",
-        answer: "Ça dépend de ton métier. Pour un commerce alimentaire ou un artisan dont la clientèle est 100% locale, une fiche Google Business Profile bien tenue suffit souvent. Pour un commerce avec un positionnement spécifique (créateurs, antiquités, gastronomie de niche, hébergement touristique), un site valorise nettement la marque et capte la clientèle suisse de passage. Je propose dans ce cas un site simple (dès CHF 750) plutôt qu'un site complet."
+        answer: "Ça dépend de ton métier. Pour un commerce alimentaire ou un artisan dont la clientèle est 100% locale, une fiche Google Business Profile bien tenue suffit souvent. Pour un commerce avec un positionnement spécifique (créateurs, antiquités, gastronomie de niche, hébergement touristique), un site valorise nettement la marque et capte la clientèle suisse de passage. Je propose dans ce cas un site simple (dès CHF 850) plutôt qu'un site complet."
       },
       {
         question: "Je suis frontalier qui rentre à La Roche le soir, tu peux travailler avec moi sur un projet perso ?",
-        answer: "Oui, c'est même un cas fréquent : frontalier salarié à Genève qui veut lancer un side-project (e-commerce, plateforme, application). Sur ces projets, je travaille en soirée ou le samedi pour les démos, parce que tu n'es pas disponible en journée. Le budget varie énormément selon l'idée : un site simple démarre à CHF 750, une application se chiffre sur devis. Premier échange gratuit pour cadrer."
+        answer: "Oui, c'est même un cas fréquent : frontalier salarié à Genève qui veut lancer un side-project (e-commerce, plateforme, application). Sur ces projets, je travaille en soirée ou le samedi pour les démos, parce que tu n'es pas disponible en journée. Le budget varie énormément selon l'idée : un site simple démarre à CHF 850, une application se chiffre sur devis. Premier échange gratuit pour cadrer."
       },
       {
         question: "Tu as déjà travaillé avec des entreprises de la vallée de l'Arve ?",

@@ -6,7 +6,7 @@
 //
 // HARD-PRESERVE : Schema.org (serviceSchemas/breadcrumb/FAQ), câblage Web3Forms
 // (#webflow-form, access_key + hidden inputs, tous les name=, honeypot, JS submit),
-// prix via src/data/pricing.ts (dès 750 / Sur devis), tous les liens SEO internes
+// prix via src/data/pricing.ts (dès 950 / Sur devis), tous les liens SEO internes
 // (/services/*, /portfolio/*, /tarifs, /blog/prix-site-web-suisse-2026).
 
 import '../../styles/global.css';
@@ -160,7 +160,7 @@ const differentiators = [
 const pricingPlans = [
     {
         name: "Site Webflow",
-        price: chf(pricing.siteWeb.from),
+        price: chf(pricing.webflow.from),
         priceLabel: "À partir de",
         features: [
             "Pages sur mesure, adaptées au mobile",
@@ -195,7 +195,7 @@ const faqs = [
     },
     {
         question: "Combien coûte un site Webflow en Suisse ?",
-        answer: "Un site Webflow démarre à CHF 750, avec un devis ferme selon le nombre de pages et les intégrations. L'e-commerce se chiffre sur devis. S'y ajoute l'abonnement Webflow (environ CHF 15-40/mois selon le plan), qui remplace l'hébergement et la maintenance technique."
+        answer: "Un site Webflow démarre à CHF 950, avec un devis ferme selon le nombre de pages et les intégrations. L'e-commerce se chiffre sur devis. S'y ajoute l'abonnement Webflow (environ CHF 15-40/mois selon le plan), qui remplace l'hébergement et la maintenance technique."
     },
     {
         question: "Webflow peut-il gérer un e-commerce ?",
@@ -489,7 +489,7 @@ const budgetOptions = [
                     </ul>
                     <ul class="co-list">
                         <li>Refonte d'un site Webflow existant : audit d'abord, devis ferme ensuite</li>
-                        <li>Paiement : 50 % à la commande, 50 % à la livraison</li>
+                        <li>Paiement : 20 % à la commande, 80 % à la livraison</li>
                     </ul>
                 </div>
                 <p class="wf-note-inline">

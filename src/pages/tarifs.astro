@@ -9,10 +9,10 @@ import Footer from "../components/Footer.astro";
 
 import { SITE_URL } from '../data/schema';
 import { getWebPageSchema, getBreadcrumbSchema } from '../lib/seo';
-import { pricing, chf } from '../data/pricing';
+import { pricing, chf, terms } from '../data/pricing';
 
 const pageTitle = "Tarifs freelance Genève : site web, app, SEO local, IA";
-const pageDescription = "Tarifs clairs en CHF : site web dès 750, référencement local 390 puis 199/mois, agent IA dès 1'500, application mobile sur devis. Freelance à Genève, sans contrat 12 mois.";
+const pageDescription = "Tarifs clairs en CHF : site web dès 850, référencement local 390 puis 199/mois, agent IA dès 1'500, application mobile sur devis. Freelance à Genève, sans contrat de durée.";
 
 const webPageSchema = getWebPageSchema({
   url: `${SITE_URL}/tarifs`,
@@ -64,12 +64,12 @@ const offerCatalog = {
 // FAQ — une seule source pour l'affichage et le schema
 const faqs = [
   {
-    question: "Pourquoi « dès CHF 750 » et pas un prix fixe ?",
-    answer: "Un site d'une page et un site de vingt pages avec réservation en ligne n'ont pas le même coût. CHF 750 correspond à un site vitrine simple. Après un premier appel, vous recevez un devis ferme : le prix annoncé est le prix payé.",
+    question: "Pourquoi « dès CHF 850 » et pas un prix fixe ?",
+    answer: "Un site d'une page et un site de vingt pages avec réservation en ligne n'ont pas le même coût. CHF 850 correspond à un site vitrine simple, sur mesure (site statique rapide). Un site Webflow, que vous gérez vous-même dans l'éditeur, démarre à CHF 950. Le prix annoncé dans le devis est le prix payé.",
   },
   {
     question: "Que comprend le référencement local à CHF 390 + 199/mois ?",
-    answer: "Les CHF 390 couvrent la mise en place : audit, corrections du site et optimisation complète de votre fiche Google. Les CHF 199/mois couvrent le suivi : publications sur la fiche, réponses aux avis, ajustements du site et un point mensuel. Sans engagement, résiliable chaque mois.",
+    answer: "Les CHF 390 couvrent la mise en place : audit, corrections du site et optimisation complète de votre fiche Google. Les CHF 199/mois couvrent le suivi : suivi des positions SEO, publication automatisée de posts sur la fiche, réponses aux avis, ajustements du site et un rapport mensuel des évolutions. Aucun contrat de durée : vous arrêtez quand vous voulez, d'un mois à l'autre.",
   },
   {
     question: "Combien coûte un agent IA une fois en place ?",
@@ -81,11 +81,11 @@ const faqs = [
   },
   {
     question: "Comment se passe le paiement ?",
-    answer: "50 % à la signature du devis, 50 % à la livraison. Le suivi mensuel est facturé chaque mois. Tous les prix sont en CHF, hors TVA (exonéré).",
+    answer: "20 % à la signature du devis, 80 % à la livraison. Le suivi mensuel est facturé chaque mois. Tous les prix sont en CHF, hors TVA (exonéré).",
   },
   {
-    question: "Y a-t-il un contrat de 12 mois ?",
-    answer: "Non. Les projets sont payés une fois, le suivi mensuel est résiliable chaque mois. Si le travail est bon, vous n'aurez pas envie de partir.",
+    question: "Est-ce que je m'engage sur une durée ?",
+    answer: "Non, aucun contrat de durée minimale. Un projet (site, app, agent IA) est payé une fois. Le suivi mensuel du référencement se résilie d'un mois à l'autre, sans frais ni préavis long. Si le travail est bon, vous n'aurez pas envie de partir.",
   },
 ];
 
@@ -112,9 +112,9 @@ const offers = [
     after: "Devis sur demande",
     highlighted: false,
     features: [
-      "Design sur mesure, adapté au mobile",
+      "Site statique sur mesure, très rapide",
       "Optimisé pour Google dès la mise en ligne",
-      "Vous modifiez vos textes vous-même",
+      `Site Webflow (géré par vous) : dès CHF ${chf(pricing.webflow.from)}`,
     ],
     href: "/services/creation-site-web",
     cta: "Demander un devis",
@@ -125,13 +125,11 @@ const offers = [
     prefix: "",
     price: chf(pricing.seoLocal.setup),
     unit: "CHF",
-    after: `puis CHF ${chf(pricing.seoLocal.monthly)}/mois, sans engagement`,
+    after: `puis CHF ${chf(pricing.seoLocal.monthly)}/mois, résiliable d'un mois à l'autre`,
     highlighted: true,
     features: [
-      "Audit et corrections du site",
-      "Fiche Google optimisée et suivie",
-      "Réponses aux avis et publications",
-      "Point mensuel sur vos résultats",
+      "Audit, corrections du site et fiche Google optimisée",
+      ...pricing.seoLocal.monthlyIncludes.filter((f) => f !== "Ajustements du site et du contenu local"),
     ],
     href: "/services/referencement-local",
     cta: "Être trouvé sur Google",
@@ -186,8 +184,8 @@ const offers = [
         Tarifs <span class="co-ser">clairs.</span>
       </h1>
       <p class="co-mut" style="margin-top:16px;max-width:60ch;line-height:1.65;font-size:1.05rem;" data-animate data-delay="0.2">
-        Quatre services, des prix en CHF, pas de contrat 12 mois.
-        Un premier appel gratuit, puis un devis ferme.
+        Quatre services, des prix en CHF, aucun contrat de durée.
+        L'appel découverte est gratuit.
       </p>
       <div style="margin-top:26px;" data-animate data-delay="0.3">
         <a href="#packages" class="co-btn co-btn--ghost">Voir les tarifs <i class="ri-arrow-down-line"></i></a>
@@ -236,11 +234,11 @@ const offers = [
         <p class="co-eyebrow tr-notes-title">Bon à savoir</p>
         <div class="tr-notes-grid">
           <ul class="co-list">
-            <li>Paiement : 50 % à la commande, 50 % à la livraison</li>
-            <li>Pas de contrat 12 mois</li>
+            <li>Paiement : {terms.payment}</li>
+            <li>{terms.commitment}</li>
           </ul>
           <ul class="co-list">
-            <li>Premier appel gratuit, puis devis ferme</li>
+            <li>Appel découverte gratuit</li>
             <li>Prix en CHF, hors TVA (exonéré)</li>
           </ul>
         </div>
@@ -341,7 +339,10 @@ const offers = [
   .tr-tier-cta:hover i { transform: translateX(3px); }
 
   /* ── Bon à savoir ── */
+  .tr-notes { position: relative; margin-top: 40px; padding: 32px; background: var(--surface); border: 1px solid var(--line-2); }
   .co-root .tr-notes-title { color: var(--ink); }
+  .tr-notes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 40px; margin-top: 18px; }
+  .tr-notes-grid .co-list li { font-size: 14px; }
   .tr-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
   .tr-inline:hover { color: var(--ink); }
 
