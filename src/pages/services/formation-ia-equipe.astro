@@ -6,7 +6,7 @@
 //
 // HARD-PRESERVE : Schema.org (getServiceItemSchema/breadcrumb/FAQ), câblage Web3Forms
 // (#formation-form, access_key + hidden inputs, tous les name=, honeypot, JS submit),
-// prix exact (CHF 1'200), liens SEO internes (/consultant-ia, /consultant-ia#automatisation).
+// prix : sur devis (src/data/pricing.ts), liens SEO internes (/consultant-ia, /consultant-ia#automatisation).
 
 import '../../styles/global.css';
 import Layout from '../../layouts/Layout.astro';
@@ -20,7 +20,7 @@ import { getServiceItemSchema, getBreadcrumbSchema, getFAQPageSchema } from '../
 // SEO Data
 const seoData = {
     title: "Formation IA pour équipes en Suisse romande",
-    description: "Formation IA sur-mesure pour les équipes de PME romandes : cadrage des usages, outils, garde-fous nLPD. Présentiel Genève ou distanciel, dès CHF 1'200."
+    description: "Formation IA sur-mesure pour les équipes de PME romandes : cadrage des usages, outils, garde-fous nLPD. Entreprise ou particulier, à Genève ou à distance. Devis sur mesure."
 };
 
 // Schema.org data
@@ -197,7 +197,7 @@ const faqs = [
     },
     {
         question: "Combien ça coûte ?",
-        answer: "À partir de CHF 1'200 la session. Le prix final dépend de la taille de l'équipe, de la durée et du format (présentiel ou distanciel). Je vous envoie un devis clair après un premier échange gratuit — pas de surprise, pas de coût caché."
+        answer: "C'est sur devis, pour une équipe comme pour un particulier. Le prix dépend du nombre de personnes, de la durée et du format (présentiel ou distanciel). Je vous envoie un devis clair après un premier échange gratuit — pas de surprise, pas de coût caché."
     },
     {
         question: "Mon équipe n'y connaît rien, c'est un problème ?",
@@ -454,14 +454,14 @@ const sessionTypes = [
         <section id="prix" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">07 — Investissement</p>
             <h2 style="margin-top:var(--space-eyebrow);">Combien ça <span class="co-ser">coûte ?</span></h2>
-            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:52ch;">Un prix de départ transparent, un devis clair selon votre équipe.</p>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:52ch;">Un devis clair, adapté à votre équipe ou à vous seul.</p>
 
             <div class="fo-price-hero co-frame" data-animate>
                 <span class="co-x tl"></span><span class="co-x tr"></span>
                 <span class="co-x bl"></span><span class="co-x br"></span>
-                <p class="fo-price-label">À partir de</p>
-                <p class="fo-price-amount"><b>CHF 1'200</b> <span>la session</span></p>
-                <p class="co-mut">Devis selon la taille de l'équipe, la durée et le format.</p>
+                <p class="fo-price-label">Entreprise ou particulier</p>
+                <p class="fo-price-amount"><b>Sur devis</b></p>
+                <p class="co-mut">Selon le nombre de personnes, la durée et le format. Premier échange gratuit.</p>
             </div>
 
             <div class="fo-price-cols" data-animate-stagger>

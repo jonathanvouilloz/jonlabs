@@ -131,7 +131,7 @@ export const villesSuisseIA: VilleIAData[] = [
       {
         question: "Combien coûte un projet d'agent IA pour une PME genevoise ?",
         answer:
-          "Tout dépend du périmètre, mais je donne des chiffres au lieu de les cacher. Un premier cadrage et un agent simple (tri d'e-mails, pré-remplissage de documents) démarre autour de CHF 2'500 à 4'000. Un agent métier intégré à vos outils (Bexio, CRM, boîte mail) se situe généralement entre CHF 6'000 et 15'000 selon la complexité. Vous recevez un devis chiffré avant de vous engager, pas une fourchette floue après trois réunions.",
+          "Tout dépend du périmètre, mais je donne des chiffres au lieu de les cacher. Un agent simple (tri d'e-mails, pré-remplissage de documents) démarre à CHF 1'500. Un agent intégré à plusieurs outils (Bexio, CRM, boîte mail) est chiffré sur devis. Vous recevez un devis chiffré avant de vous engager, pas une fourchette floue après trois réunions.",
       },
       {
         question: "On n'a aucune compétence technique en interne, c'est gérable ?",
@@ -224,7 +224,7 @@ export const villesSuisseIA: VilleIAData[] = [
       {
         question: "Combien coûte un accompagnement IA pour une PME lausannoise ?",
         answer:
-          "Je donne des chiffres. Un cadrage et un premier agent simple démarrent autour de CHF 2'500 à 4'000. Un agent métier intégré à vos outils se situe généralement entre CHF 6'000 et 15'000 selon la complexité et le nombre d'intégrations. Vous avez un devis chiffré avant de signer. Pas d'abonnement obligatoire, pas de contrat de 12 mois pour vous garder captif.",
+          "Je donne des chiffres. Un premier agent démarre à CHF 1'500. Si l'agent doit gérer plusieurs tâches et outils, c'est sur devis. Vous avez un devis chiffré avant de signer. Pas d'abonnement obligatoire, pas de contrat de 12 mois pour vous garder captif.",
       },
       {
         question: "On est une startup, on bouge vite. Vous pouvez suivre le rythme ?",

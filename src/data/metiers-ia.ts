@@ -220,7 +220,7 @@ export const metiersIA: MetierIAData[] = [
       {
         question: "Combien coûte un projet IA pour une fiduciaire ?",
         answer:
-          "Je donne des chiffres. Un cadrage et un premier agent (tri et pré-imputation des pièces, relances) démarrent autour de CHF 2'500 à 4'000. Un agent intégré à vos outils métier se situe généralement entre CHF 6'000 et 15'000 selon la complexité. Vous recevez un devis chiffré avant de vous engager.",
+          "Je donne des chiffres. Un premier agent démarre à CHF 1'500. Si l'agent doit gérer plusieurs tâches et outils, c'est sur devis. Vous recevez un devis chiffré avant de vous engager.",
       },
       {
         question: "On est une petite structure, ça vaut le coup ?",
@@ -398,7 +398,7 @@ export const metiersIA: MetierIAData[] = [
       {
         question: "Combien coûte un projet IA pour une agence ?",
         answer:
-          "Je donne des chiffres. Un cadrage et un premier agent (qualification des leads, tri des dossiers) démarrent autour de CHF 2'500 à 4'000. Un agent intégré à votre logiciel de gérance se situe généralement entre CHF 6'000 et 15'000 selon la complexité. Devis chiffré avant engagement.",
+          "Je donne des chiffres. Un premier agent démarre à CHF 1'500. Si l'agent doit gérer plusieurs tâches et outils, c'est sur devis. Devis chiffré avant engagement.",
       },
       {
         question: "Nos leads viennent de plusieurs portails. On peut tout centraliser ?",

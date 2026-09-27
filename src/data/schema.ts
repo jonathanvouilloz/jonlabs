@@ -187,9 +187,9 @@ export const servicesListData = {
   "@context": "https://schema.org",
   "@type": "ItemList",
   "name": "Services Jon Labs",
-  "description": "Services de développement web et de référencement local pour entrepreneurs et PME en Suisse romande",
+  "description": "Sites web, applications mobiles, référencement local et intelligence artificielle pour PME et indépendants en Suisse romande",
   "url": `${SITE_URL}/services`,
-  "numberOfItems": 8,
+  "numberOfItems": 9,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -205,8 +205,8 @@ export const servicesListData = {
       "position": 2,
       "item": {
         "@type": "Service",
-        "name": "Développement MVP",
-        "url": `${SITE_URL}/services/developpement-mvp`
+        "name": "Développeur Webflow",
+        "url": `${SITE_URL}/services/developpeur-webflow`
       }
     },
     {
@@ -214,13 +214,22 @@ export const servicesListData = {
       "position": 3,
       "item": {
         "@type": "Service",
-        "name": "Outils sur mesure",
-        "url": `${SITE_URL}/services/outils-sur-mesure`
+        "name": "Refonte de site web",
+        "url": `${SITE_URL}/services/refonte-site-web`
       }
     },
     {
       "@type": "ListItem",
       "position": 4,
+      "item": {
+        "@type": "Service",
+        "name": "Développement d'application mobile",
+        "url": `${SITE_URL}/services/developpement-application-mobile`
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
       "item": {
         "@type": "Service",
         "name": "Référencement local",
@@ -229,7 +238,7 @@ export const servicesListData = {
     },
     {
       "@type": "ListItem",
-      "position": 5,
+      "position": 6,
       "item": {
         "@type": "Service",
         "name": "Gestion fiche Google My Business",
@@ -238,20 +247,11 @@ export const servicesListData = {
     },
     {
       "@type": "ListItem",
-      "position": 6,
-      "item": {
-        "@type": "Service",
-        "name": "Développeur Webflow",
-        "url": `${SITE_URL}/services/developpeur-webflow`
-      }
-    },
-    {
-      "@type": "ListItem",
       "position": 7,
       "item": {
         "@type": "Service",
-        "name": "Freelance WordPress",
-        "url": `${SITE_URL}/services/developpeur-wordpress`
+        "name": "Consultant IA et agents IA",
+        "url": `${SITE_URL}/consultant-ia`
       }
     },
     {
@@ -259,7 +259,16 @@ export const servicesListData = {
       "position": 8,
       "item": {
         "@type": "Service",
-        "name": "Formation IA pour équipes",
+        "name": "Agent IA Hermès",
+        "url": `${SITE_URL}/hermes`
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 9,
+      "item": {
+        "@type": "Service",
+        "name": "Formation IA",
         "url": `${SITE_URL}/services/formation-ia-equipe`
       }
     }
@@ -282,11 +291,11 @@ export const serviceSchemas = {
       "@type": "Offer",
       "priceSpecification": {
         "@type": "PriceSpecification",
-        "price": "2500",
+        "price": "1500",
         "priceCurrency": "CHF",
-        "minPrice": "2500"
+        "minPrice": "1500"
       },
-      "description": "À partir de CHF 2'500"
+      "description": "À partir de CHF 1'500"
     }
   },
   "creation-site-web": {
@@ -303,11 +312,11 @@ export const serviceSchemas = {
       "@type": "Offer",
       "priceSpecification": {
         "@type": "PriceSpecification",
-        "price": "1500",
+        "price": "750",
         "priceCurrency": "CHF",
-        "minPrice": "1500"
+        "minPrice": "750"
       },
-      "description": "À partir de CHF 1'500"
+      "description": "À partir de CHF 750, devis sur demande"
     }
   },
   "developpeur-webflow": {
@@ -324,32 +333,11 @@ export const serviceSchemas = {
       "@type": "Offer",
       "priceSpecification": {
         "@type": "PriceSpecification",
-        "price": "1490",
+        "price": "750",
         "priceCurrency": "CHF",
-        "minPrice": "1490"
+        "minPrice": "750"
       },
-      "description": "À partir de CHF 1'490"
-    }
-  },
-  "developpeur-wordpress": {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${SITE_URL}/services/developpeur-wordpress/#service`,
-    "name": "Freelance WordPress à Genève",
-    "url": `${SITE_URL}/services/developpeur-wordpress`,
-    "description": "Création de site WordPress, refonte de site lent ou obsolète, migration vers une stack moderne. Freelance basé à Genève, service Suisse romande.",
-    "provider": { "@id": `${SITE_URL}/#organization` },
-    "areaServed": ["Genève", "Vaud", "Suisse Romande"],
-    "serviceType": "Développement WordPress",
-    "offers": {
-      "@type": "Offer",
-      "priceSpecification": {
-        "@type": "PriceSpecification",
-        "price": "1490",
-        "priceCurrency": "CHF",
-        "minPrice": "1490"
-      },
-      "description": "À partir de CHF 1'490"
+      "description": "À partir de CHF 750, devis sur demande"
     }
   },
   "refonte-site-web": {
@@ -362,39 +350,6 @@ export const serviceSchemas = {
     "provider": { "@id": `${SITE_URL}/#organization` },
     "areaServed": ["Genève", "Vaud", "Suisse Romande"],
     "serviceType": "Refonte Web"
-  },
-  "outils-sur-mesure": {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${SITE_URL}/services/outils-sur-mesure/#service`,
-    "name": "Développement d'outils sur mesure",
-    "url": `${SITE_URL}/services/outils-sur-mesure`,
-    "description": "Applications et tableaux de bord adaptés à vos besoins spécifiques. Outils internes, CRM métier, portails clients.",
-    "provider": { "@id": `${SITE_URL}/#organization` },
-    "areaServed": ["Genève", "Vaud", "Suisse Romande"],
-    "serviceType": "Développement sur mesure"
-  },
-  "validation-idee": {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${SITE_URL}/services/validation-idee/#service`,
-    "name": "Validation d'idée business en Suisse",
-    "url": `${SITE_URL}/services/validation-idee`,
-    "description": "Testez votre idée avant d'investir. Landing page, campagne pub ciblée, métriques concrètes en 1-2 semaines.",
-    "provider": { "@id": `${SITE_URL}/#organization` },
-    "areaServed": ["Genève", "Vaud", "Suisse Romande"],
-    "serviceType": "Validation de concept"
-  },
-  "developpement-mvp": {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${SITE_URL}/services/developpement-mvp/#service`,
-    "name": "Développement MVP à Genève",
-    "url": `${SITE_URL}/services/developpement-mvp`,
-    "description": "Prototype fonctionnel en 2-3 semaines. Partenaire technique pour startups et PME souhaitant tester rapidement leur concept.",
-    "provider": { "@id": `${SITE_URL}/#organization` },
-    "areaServed": ["Genève", "Vaud", "Suisse Romande"],
-    "serviceType": "Développement MVP"
   },
   "developpement-application-mobile": {
     "@context": "https://schema.org",
@@ -416,7 +371,31 @@ export const serviceSchemas = {
     "description": "Référencement local pour PME à Genève et Suisse romande. Freelance SEO transparent, outils Google gratuits, sans contrat 12 mois. #1 sur sa niche prouvé en 5 mois sur le cas Lécureux. Audit gratuit.",
     "provider": { "@id": `${SITE_URL}/#organization` },
     "areaServed": ["Genève", "Vaud", "Suisse Romande"],
-    "serviceType": "Référencement local"
+    "serviceType": "Référencement local",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Setup initial",
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "390",
+          "priceCurrency": "CHF"
+        },
+        "description": "Optimisation du site et de la fiche Google Business Profile"
+      },
+      {
+        "@type": "Offer",
+        "name": "Suivi mensuel",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "199",
+          "priceCurrency": "CHF",
+          "billingIncrement": 1,
+          "unitCode": "MON"
+        },
+        "description": "Suivi du référencement local et de la fiche Google, sans engagement"
+      }
+    ]
   },
   "gestion-fiche-google": {
     "@context": "https://schema.org",
@@ -424,32 +403,32 @@ export const serviceSchemas = {
     "@id": `${SITE_URL}/services/gestion-fiche-google/#service`,
     "name": "Gestion de fiche Google My Business",
     "url": `${SITE_URL}/services/gestion-fiche-google`,
-    "description": "Création, optimisation et gestion mensuelle de votre fiche Google Business Profile : posts hebdomadaires, gestion illimitée des avis, suivi positions. Setup unique CHF 590 + mensuel CHF 300 sans engagement.",
+    "description": "Création, optimisation et gestion mensuelle de votre fiche Google Business Profile : posts hebdomadaires, gestion illimitée des avis, suivi positions. Setup CHF 390 puis suivi CHF 199/mois, sans engagement.",
     "provider": { "@id": `${SITE_URL}/#organization` },
     "areaServed": ["Genève", "Vaud", "Suisse Romande", "Francophonie"],
     "serviceType": "Gestion Google Business Profile",
     "offers": [
       {
         "@type": "Offer",
-        "name": "Setup unique",
+        "name": "Setup initial",
         "priceSpecification": {
           "@type": "PriceSpecification",
-          "price": "590",
+          "price": "390",
           "priceCurrency": "CHF"
         },
-        "description": "Audit + optimisation complète + schema LocalBusiness + système d'avis"
+        "description": "Optimisation du site et de la fiche Google Business Profile"
       },
       {
         "@type": "Offer",
-        "name": "Mensuel tout inclus",
+        "name": "Suivi mensuel",
         "priceSpecification": {
           "@type": "UnitPriceSpecification",
-          "price": "300",
+          "price": "199",
           "priceCurrency": "CHF",
           "billingIncrement": 1,
           "unitCode": "MON"
         },
-        "description": "Posts hebdomadaires, réponses avis illimitées, reporting mensuel — sans engagement"
+        "description": "Suivi du référencement local et de la fiche Google, sans engagement"
       }
     ]
   },
@@ -467,11 +446,11 @@ export const serviceSchemas = {
       "@type": "Offer",
       "priceSpecification": {
         "@type": "PriceSpecification",
-        "price": "2500",
+        "price": "1500",
         "priceCurrency": "CHF",
-        "minPrice": "2500"
+        "minPrice": "1500"
       },
-      "description": "À partir de CHF 2'500"
+      "description": "À partir de CHF 1'500"
     }
   },
   "metiers/ia-agence-immobiliere": {
@@ -488,11 +467,11 @@ export const serviceSchemas = {
       "@type": "Offer",
       "priceSpecification": {
         "@type": "PriceSpecification",
-        "price": "2500",
+        "price": "1500",
         "priceCurrency": "CHF",
-        "minPrice": "2500"
+        "minPrice": "1500"
       },
-      "description": "À partir de CHF 2'500"
+      "description": "À partir de CHF 1'500"
     }
   },
   "formation-ia-equipe": {
@@ -501,20 +480,10 @@ export const serviceSchemas = {
     "@id": `${SITE_URL}/services/formation-ia-equipe/#service`,
     "name": "Formation IA pour équipes en Suisse romande",
     "url": `${SITE_URL}/services/formation-ia-equipe`,
-    "description": "Formation IA sur-mesure pour les équipes de PME romandes : cadrage des usages, prise en main des agents et outils IA, garde-fous et bonnes pratiques nLPD. En présentiel à Genève ou à distance, prix en CHF.",
+    "description": "Formation IA sur-mesure pour les équipes de PME romandes : cadrage des usages, prise en main des agents et outils IA, garde-fous et bonnes pratiques nLPD. Pour entreprises et particuliers, en présentiel à Genève ou à distance, devis sur mesure.",
     "provider": { "@id": `${SITE_URL}/#organization` },
     "areaServed": ["Genève", "Vaud", "Suisse Romande"],
-    "serviceType": "Formation en intelligence artificielle",
-    "offers": {
-      "@type": "Offer",
-      "priceSpecification": {
-        "@type": "PriceSpecification",
-        "price": "1200",
-        "priceCurrency": "CHF",
-        "minPrice": "1200"
-      },
-      "description": "À partir de CHF 1'200 la session"
-    }
+    "serviceType": "Formation en intelligence artificielle"
   },
   "hermes": {
     "@context": "https://schema.org",
@@ -530,11 +499,11 @@ export const serviceSchemas = {
       "@type": "Offer",
       "priceSpecification": {
         "@type": "PriceSpecification",
-        "price": "2500",
+        "price": "1500",
         "priceCurrency": "CHF",
-        "minPrice": "2500"
+        "minPrice": "1500"
       },
-      "description": "À partir de CHF 2'500"
+      "description": "À partir de CHF 1'500"
     }
   }
 };

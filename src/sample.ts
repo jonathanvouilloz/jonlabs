@@ -23,24 +23,31 @@ const cta = {
 const services = [
     {
         id: 'web-dev',
-        title: 'Création de Sites Web & E-commerce',
-        description: 'Sites vitrines ultra-rapides (Astro) et boutiques en ligne. Je crée des expériences digitales qui convertissent les visiteurs en clients.',
+        title: 'Développement de site web',
+        description: 'Un site rapide et clair, qui donne envie de vous contacter. Dès CHF 750.',
         icon: 'ri-code-s-slash-line',
         link: '/services/creation-site-web'
     },
     {
-        id: 'automation',
-        title: 'Automatisation & Processus Métiers',
-        description: 'Faites travailler les robots à votre place. Je connecte vos outils (Make, Zapier, API) pour éliminer les tâches répétitives.',
-        icon: 'ri-loop-left-line',
-        link: '/consultant-ia'
+        id: 'app-mobile',
+        title: 'Application mobile',
+        description: 'Une app iPhone et Android pour vos clients ou votre équipe, de l\'idée aux stores.',
+        icon: 'ri-smartphone-line',
+        link: '/services/developpement-application-mobile'
     },
     {
-        id: 'custom-apps',
-        title: 'Applications Web & SaaS Sur-Mesure',
-        description: 'Votre besoin est unique ? Je développe des outils métiers, dashboards et MVPs spécifiques pour votre activité.',
-        icon: 'ri-smartphone-line',
-        link: '/services/developpement-mvp'
+        id: 'seo-local',
+        title: 'Référencement local',
+        description: 'Votre site et votre fiche Google remontent quand on vous cherche près de chez vous.',
+        icon: 'ri-map-pin-line',
+        link: '/services/referencement-local'
+    },
+    {
+        id: 'ia',
+        title: 'IA pour votre entreprise',
+        description: 'Des agents IA qui prennent en charge les tâches répétitives, et une formation pour votre équipe.',
+        icon: 'ri-robot-2-line',
+        link: '/consultant-ia'
     }
 ]
 

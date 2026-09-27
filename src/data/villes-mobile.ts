@@ -234,7 +234,7 @@ export const villesMobile: VilleMobileData[] = [
       {
         question: "Combien coûte une application mobile à Genève ?",
         answer:
-          "Comme indiqué sur la page de service, on parle généralement d'une fourchette à partir de 10 000 à 15 000 CHF pour une application simple, qui monte selon la complexité : backend, intégrations métier, design sur mesure, nombre de plateformes. En passant par un freelance plutôt que par une agence, tu ne finances pas une structure. Tu reçois un devis chiffré avant de t'engager, et le guide détaillé sur le prix d'une application mobile en Suisse explique ce qui fait vraiment bouger le chiffre.",
+          "C'est sur devis, parce que tout dépend du projet : nombre d'écrans, comptes utilisateurs, connexions à tes outils, design sur mesure. En passant par un freelance plutôt que par une agence, tu ne finances pas une structure. Tu reçois un devis chiffré avant de t'engager, et le guide détaillé sur le prix d'une application mobile en Suisse explique ce qui fait vraiment bouger le chiffre.",
       },
       {
         question: "Vous vous déplacez dans nos bureaux à Genève ?",
@@ -402,7 +402,7 @@ export const villesMobile: VilleMobileData[] = [
       {
         question: "Combien coûte une application mobile à Lausanne ?",
         answer:
-          "La fourchette est la même que celle affichée sur la page de service : à partir de 10 000 à 15 000 CHF pour une application simple, davantage selon le backend, les intégrations et le design. Pour une spin-off ou une PME vaudoise, la variable qui compte n'est pas le tarif horaire mais le périmètre : un MVP resserré coûte une fraction d'une application complète et répond souvent mieux au besoin du moment. On chiffre ce périmètre avant de commencer.",
+          "C'est sur devis, comme sur la page de service : le prix dépend du nombre d'écrans, des intégrations et du design. Pour une spin-off ou une PME vaudoise, la variable qui compte n'est pas le tarif horaire mais le périmètre : un MVP resserré coûte une fraction d'une application complète et répond souvent mieux au besoin du moment. On chiffre ce périmètre avant de commencer.",
       },
     ],
 

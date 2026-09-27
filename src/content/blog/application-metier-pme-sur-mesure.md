@@ -190,7 +190,7 @@ Si tu ne sais pas encore si une app ou un outil SaaS est la bonne réponse, le [
 
 Pour les PME qui ont des process manuels répétitifs, il y a souvent un angle complémentaire : [l'automatisation couplée à l'app mobile](/blog/application-mobile-automatisation-pme) permet de réduire encore davantage les interventions humaines sur les tâches à faible valeur.
 
-Si tu veux comprendre comment construire ton projet d'outils sur mesure, la [page sur mes outils sur mesure](/services/outils-sur-mesure) détaille mon approche et les technologies utilisées.
+Si tu veux comprendre comment construire ton projet d'outils sur mesure, la [page sur mes outils sur mesure](/consultant-ia) détaille mon approche et les technologies utilisées.
 
 ---
 
@@ -237,4 +237,4 @@ Avant de contacter un prestataire, prépare un [cahier des charges d'application
 - Valeur bénévolat : standards Statistique Suisse / Swiss Volunteering Monitor
 - [Développer une application mobile en Suisse, guide complet](/blog/developper-application-mobile-suisse)
 - [Budget MVP application mobile](/blog/budget-mvp-application-mobile)
-- [Outils sur mesure pour PME](/services/outils-sur-mesure)
+- [Outils sur mesure pour PME](/consultant-ia)

@@ -69,7 +69,6 @@ export default defineConfig({
         !page.includes('/mentions-legales') &&
         // Services en draft Session 3 — gardés accessibles aux liens internes mais hors sitemap + noindex
         // (automatisation et integration-outils ont été absorbés dans /consultant-ia le 20.09)
-        !page.includes('/services/validation-idee') &&
         !page.includes('/services/refonte-site-web'),
       serialize(item) {
         const lastmod = lastmodByUrl.get(item.url.replace(/\/$/, ''));

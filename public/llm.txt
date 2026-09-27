@@ -7,10 +7,10 @@ Jon Labs est l'atelier freelance de Jonathan Vouilloz, basé à Genève. Il con�
 Jonathan Vouilloz — développeur et créateur de solutions digitales, basé à Genève (Suisse). Il intervient en Suisse romande (Genève, Vaud, Neuchâtel). Particularité : il croise trois compétences que peu d'acteurs locaux couvrent ensemble — développement web sur mesure, automatisation / IA appliquée, et SEO local. Contenu basé sur l'expérience terrain : audit publié de 50 sites d'indépendants romands (2026), projets clients livrés pour TPE/PME, et le site jonlabs.ch en production.
 
 ## Thématiques principales
-- Développement web sur mesure et MVP pour PME et startups romandes (Astro, Tailwind, Node.js)
+- Développement de sites web pour PME et indépendants romands (dès CHF 750)
 - Développement d'applications mobiles (iOS, Android, PWA) pour PME suisses
-- Automatisation des tâches métier pour PME (Make, Zapier, n8n, agents IA)
-- SEO local en Suisse romande (Google Business Profile, référencement local Genève / Lausanne)
+- IA en entreprise : agents IA sur mesure (Hermès, dès CHF 1'500), automatisation, formation IA
+- SEO local en Suisse romande : site + Google Business Profile (setup CHF 390, suivi CHF 199/mois)
 - GEO — visibilité dans les moteurs IA (ChatGPT, Claude, Gemini, Perplexity, Copilot, Grok)
 
 ## Pages les plus importantes
@@ -18,7 +18,6 @@ Jonathan Vouilloz — développeur et créateur de solutions digitales, basé à
 ### Pages de service
 - https://www.jonlabs.ch/services — Vue d'ensemble des services (web, automatisation, SEO local)
 - https://www.jonlabs.ch/services/creation-site-web — Création de site web sur mesure pour PME romandes
-- https://www.jonlabs.ch/services/developpement-mvp — Développement de MVP (web, mobile iOS/Android, PWA) en 2-3 semaines
 - https://www.jonlabs.ch/services/developpement-application-mobile — Développement d'applications mobiles iOS et Android pour PME suisses
 - https://www.jonlabs.ch/services/referencement-local — SEO local pour entreprises de Suisse romande
 - https://www.jonlabs.ch/services/gestion-fiche-google — Gestion et optimisation de fiche Google Business Profile

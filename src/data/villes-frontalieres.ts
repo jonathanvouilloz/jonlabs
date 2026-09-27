@@ -123,7 +123,7 @@ export const villesFrontalieres: VilleData[] = [
       },
       {
         question: "Tu travailles avec quelles entreprises à Annemasse ?",
-        answer: "Le profil typique de mes clients du Genevois français : PME entre 3 et 50 personnes, commerces installés, professions libérales et indépendants frontaliers. Pas de très grosses structures industrielles avec service informatique interne, pas non plus de microsites à 500 EUR. Le ticket d'entrée se situe autour de 1'500 EUR pour un site vitrine et grimpe selon la complexité (e-commerce, multilingue, espace client, intégrations métier)."
+        answer: "Le profil typique de mes clients du Genevois français : PME entre 3 et 50 personnes, commerces installés, professions libérales et indépendants frontaliers. Pas de très grosses structures industrielles avec service informatique interne. Le ticket d'entrée se situe autour de 1'500 EUR pour un site vitrine et grimpe selon la complexité (e-commerce, multilingue, espace client, intégrations métier)."
       },
       {
         question: "Je tiens un commerce à Annemasse, comment je passe à la vente en ligne ?",
@@ -191,7 +191,7 @@ export const villesFrontalieres: VilleData[] = [
       },
       {
         question: "Combien coûte un site web à Gaillard comparé à Genève ?",
-        answer: "Le coût du développement ne dépend pas de la ville, il dépend du périmètre fonctionnel. Pour un site vitrine équivalent, un client de Gaillard paie environ 1'550 EUR (équivalent CHF 1'490). Le différentiel réel se situe surtout sur la TVA : facturation TVA française à 20% pour les sociétés gaillardes, pas de TVA pour les non-assujettis suisses. Je gère les deux cas avec des factures conformes."
+        answer: "Le coût du développement ne dépend pas de la ville, il dépend du périmètre fonctionnel. Un site vitrine démarre à CHF 750, que tu sois à Gaillard ou à Genève. Le différentiel réel se situe surtout sur la TVA : facturation TVA française à 20% pour les sociétés gaillardes, pas de TVA pour les non-assujettis suisses. Je gère les deux cas avec des factures conformes."
       },
       {
         question: "Je peux te rencontrer à Gaillard ou seulement en visio ?",
@@ -263,7 +263,7 @@ export const villesFrontalieres: VilleData[] = [
       },
       {
         question: "Mon entreprise est dans la zone Borly ou Mont Blanc, ça t'intéresse ?",
-        answer: "Oui, c'est même un profil que je connais bien. Les zones d'activité de Ville-la-Grand concentrent des PME B2B (services aux entreprises, industrie légère, négoce) qui ont besoin d'un site corporate solide : présentation des activités, formulaire de contact qualifié, parfois un espace client ou une intégration CRM. Le ticket moyen sur ce type de projet se situe entre CHF 4'000 et CHF 8'000 selon le périmètre."
+        answer: "Oui, c'est même un profil que je connais bien. Les zones d'activité de Ville-la-Grand concentrent des PME B2B (services aux entreprises, industrie légère, négoce) qui ont besoin d'un site corporate solide : présentation des activités, formulaire de contact qualifié, parfois un espace client ou une intégration CRM. Le devis dépend du périmètre, chiffré après un premier appel gratuit."
       },
       {
         question: "Tu peux te déplacer dans nos locaux à Ville-la-Grand ?",
@@ -271,7 +271,7 @@ export const villesFrontalieres: VilleData[] = [
       },
       {
         question: "Je suis cadre frontalier et je veux lancer une activité en parallèle, tu peux m'aider ?",
-        answer: "C'est un cas classique à Ville-la-Grand : cadres employés à Genève qui montent une activité de conseil ou un produit en parallèle. Sur ce type de projet, je commence souvent par une landing page de validation (CHF 800–1'200) avant d'investir dans un site complet. L'objectif est de tester la demande réelle avant d'engager 4'000 EUR de développement. Si la traction est là, on bascule sur un vrai site."
+        answer: "C'est un cas classique à Ville-la-Grand : cadres employés à Genève qui montent une activité de conseil ou un produit en parallèle. Sur ce type de projet, je commence souvent par une page simple pour tester la demande réelle avant d'investir dans un site complet. Si la traction est là, on bascule sur un vrai site."
       },
       {
         question: "Vous gérez l'hébergement et le nom de domaine depuis la France ?",
@@ -343,7 +343,7 @@ export const villesFrontalieres: VilleData[] = [
       },
       {
         question: "Je gère une étude notariale à Saint-Julien, tu fais ce genre de site ?",
-        answer: "Oui. Les études notariales et cabinets d'avocats ont des besoins assez stables : présentation des associés, domaines de compétence, espace client sécurisé pour le partage de documents, formulaire de contact qualifié, blog d'actualités juridiques pour le SEO. Le ticket moyen se situe entre CHF 3'500 et CHF 6'000 selon le périmètre, avec un focus particulier sur la confidentialité des échanges."
+        answer: "Oui. Les études notariales et cabinets d'avocats ont des besoins assez stables : présentation des associés, domaines de compétence, espace client sécurisé pour le partage de documents, formulaire de contact qualifié, blog d'actualités juridiques pour le SEO. Le devis dépend du périmètre, avec un focus particulier sur la confidentialité des échanges."
       },
       {
         question: "Mon entreprise exporte en Suisse et en Allemagne, je dois faire un site multilingue ?",
@@ -351,7 +351,7 @@ export const villesFrontalieres: VilleData[] = [
       },
       {
         question: "Combien coûte un site corporate pour une PME industrielle à Saint-Julien ?",
-        answer: "La fourchette typique pour une PME industrielle de 10 à 50 personnes : CHF 4'000 à CHF 8'000 (équivalent EUR 4'150 à 8'300). Ça inclut un site sur-mesure de 8 à 15 pages, un blog ou actualités, un formulaire de contact qualifié, l'optimisation SEO de base et la mise en ligne. Les options qui font monter le devis : multilingue, espace client, intégration CRM/ERP, certifications spécifiques au secteur."
+        answer: "Le devis dépend du périmètre, et je le chiffre après un premier appel gratuit. Un site de ce type inclut en général un site sur-mesure de 8 à 15 pages, un blog ou actualités, un formulaire de contact qualifié, l'optimisation SEO de base et la mise en ligne. Les options qui font monter le devis : multilingue, espace client, intégration CRM/ERP, certifications spécifiques au secteur."
       },
       {
         question: "Je veux créer une boutique en ligne à Saint-Julien, tu fais ça ?",
@@ -415,15 +415,15 @@ export const villesFrontalieres: VilleData[] = [
       },
       {
         question: "Mon entreprise fait du décolletage, mon site n'a jamais été refait, c'est récupérable ?",
-        answer: "Oui, dans 90% des cas. Les sites des PME industrielles de la vallée de l'Arve datent souvent de 2010-2015, avec des CMS abandonnés ou du HTML statique non maintenu. Le bon move n'est généralement pas de réparer l'existant mais de repartir d'une stack moderne (Astro ou Next.js) en récupérant ton contenu existant : textes, photos produits, certifications. Compter 6 à 8 semaines pour une refonte complète, avec un budget entre CHF 3'500 et CHF 6'500 selon la complexité du catalogue."
+        answer: "Oui, dans 90% des cas. Les sites des PME industrielles de la vallée de l'Arve datent souvent de 2010-2015, avec des CMS abandonnés ou du HTML statique non maintenu. Le bon move n'est généralement pas de réparer l'existant mais de repartir d'une stack moderne (Astro ou Next.js) en récupérant ton contenu existant : textes, photos produits, certifications. Compter 6 à 8 semaines pour une refonte complète, sur devis selon la complexité du catalogue."
       },
       {
         question: "Je tiens un commerce dans le centre médiéval, ça vaut le coup d'avoir un site ?",
-        answer: "Ça dépend de ton métier. Pour un commerce alimentaire ou un artisan dont la clientèle est 100% locale, une fiche Google Business Profile bien tenue suffit souvent. Pour un commerce avec un positionnement spécifique (créateurs, antiquités, gastronomie de niche, hébergement touristique), un site valorise nettement la marque et capte la clientèle suisse de passage. Je propose dans ce cas un site simple à 1'500 EUR plutôt qu'un site complet à 4'000."
+        answer: "Ça dépend de ton métier. Pour un commerce alimentaire ou un artisan dont la clientèle est 100% locale, une fiche Google Business Profile bien tenue suffit souvent. Pour un commerce avec un positionnement spécifique (créateurs, antiquités, gastronomie de niche, hébergement touristique), un site valorise nettement la marque et capte la clientèle suisse de passage. Je propose dans ce cas un site simple (dès CHF 750) plutôt qu'un site complet."
       },
       {
         question: "Je suis frontalier qui rentre à La Roche le soir, tu peux travailler avec moi sur un projet perso ?",
-        answer: "Oui, c'est même un cas fréquent : frontalier salarié à Genève qui veut lancer un side-project (e-commerce, plateforme, application). Sur ces projets, je travaille en soirée ou le samedi pour les démos, parce que tu n'es pas disponible en journée. Le ticket varie énormément selon l'idée — d'une landing page de validation (CHF 800) à un MVP complet (CHF 4'500 et plus). Premier échange gratuit pour cadrer."
+        answer: "Oui, c'est même un cas fréquent : frontalier salarié à Genève qui veut lancer un side-project (e-commerce, plateforme, application). Sur ces projets, je travaille en soirée ou le samedi pour les démos, parce que tu n'es pas disponible en journée. Le budget varie énormément selon l'idée : un site simple démarre à CHF 750, une application se chiffre sur devis. Premier échange gratuit pour cadrer."
       },
       {
         question: "Tu as déjà travaillé avec des entreprises de la vallée de l'Arve ?",

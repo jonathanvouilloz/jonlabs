@@ -6,7 +6,7 @@
 //
 // HARD-PRESERVE : Schema.org (serviceSchemas/breadcrumb/FAQ) + ordre, data imports
 // (proofLecureux), câblage Web3Forms (#seo-form, access_key + hidden inputs, tous les
-// name=, honeypot botcheck, JS submit), prix exacts (1'490 / 2'490 / Sur devis),
+// name=, honeypot botcheck, JS submit), prix via src/data/pricing.ts (390 + 199/mois),
 // tous les liens SEO internes (/portfolio/leo-lecureux-seo, /blog/geo-seo-ia, /tarifs,
 // /services, /blog).
 
@@ -19,6 +19,7 @@ import Footer from '../../components/Footer.astro';
 import { serviceSchemas, SITE_URL, localBusinessData } from '../../data/schema';
 import { getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
 import { proofLecureux } from '../../data/proof-lecureux';
+import { pricing, chf } from "../../data/pricing";
 
 // SEO Data
 const seoData = {
@@ -260,50 +261,35 @@ const preSigningQuestions = [
     "Est-ce que je garde l'accès à mes outils (fiche Google, Search Console, GA4) ? La réponse doit être oui — vos données vous appartiennent."
 ];
 
-// Pricing plans (SEO)
+// Pricing plans (SEO) — prix : src/data/pricing.ts
 const pricingPlans = [
     {
-        name: "Présence",
-        price: "1'490",
-        priceLabel: "À partir de",
+        name: "Mise en place",
+        price: chf(pricing.seoLocal.setup),
+        priceLabel: "Une fois",
+        unit: "CHF",
         features: [
-            "Audit de référencement complet",
-            "Optimisation technique du site",
-            "Fiche Google Business Profile",
-            "Référencement local de base",
-            "1 rapport de positionnement"
+            "Audit de votre site et de votre fiche Google",
+            "Corrections techniques du site",
+            "Fiche Google Business Profile optimisée",
+            "Plan d'action clair pour la suite"
         ],
-        ideal: "Indépendants et petites structures qui veulent poser les bases d'une visibilité locale.",
+        ideal: "Tout le monde : c'est le point de départ.",
         highlighted: false
     },
     {
-        name: "Visibilité",
-        price: "2'490",
-        priceLabel: "À partir de",
+        name: "Suivi mensuel",
+        price: chf(pricing.seoLocal.monthly),
+        priceLabel: "Par mois, sans engagement",
+        unit: "CHF/mois",
         features: [
-            "Tout ce qui est inclus dans Présence",
-            "Stratégie de contenu localisé",
-            "Optimisation avancée (Schema.org)",
-            "Suivi mensuel des positions",
-            "Rapports Google Search Console",
-            "Recommandations d'amélioration continues"
+            "Publications sur la fiche Google",
+            "Réponses aux avis",
+            "Ajustements du site et du contenu local",
+            "Point mensuel sur vos positions et vos appels"
         ],
-        ideal: "PME qui veulent dominer les résultats locaux et générer des leads via Google.",
+        ideal: "Les entreprises qui veulent monter, puis rester, en haut de Google Maps.",
         highlighted: true
-    },
-    {
-        name: "Autorité",
-        price: "Sur devis",
-        priceLabel: "",
-        features: [
-            "Tout ce qui est inclus dans Visibilité",
-            "Stratégie de contenu avancée",
-            "Accompagnement référencement mensuel",
-            "Veille concurrentielle",
-            "Multi-localités si nécessaire"
-        ],
-        ideal: "Entreprises ambitieuses qui veulent devenir LA référence dans leur secteur en Suisse romande.",
-        highlighted: false
     }
 ];
 
@@ -381,7 +367,7 @@ const faqs = [
     },
     {
         question: "Quel est le minimum mensuel viable pour du SEO local ?",
-        answer: "En dessous de 200 CHF par mois, vous payez pour du copier-coller automatisé. Le minimum réellement utile se situe autour de 250 à 350 CHF par mois : suivi de la fiche Google, une citation ajoutée par mois, vérification du NAP et un mini-reporting. En dessous, ce n'est pas du SEO, c'est un abonnement décoratif."
+        answer: "Mon suivi coûte CHF 199 par mois, après une mise en place à CHF 390. Il couvre la fiche Google, les avis, les ajustements du site et un point mensuel. Méfiez-vous des offres beaucoup moins chères : sans travail sur la fiche et les avis, ce n'est pas du SEO, c'est un abonnement décoratif."
     },
     {
         question: "Le référencement local inclut-il aussi les IA (Perplexity, ChatGPT) ?",
@@ -435,11 +421,10 @@ const projectTypes = [
 
 // Budget options for form
 const budgetOptions = [
-    { value: "moins-1500", label: "< 1'500 CHF" },
-    { value: "1500-2500", label: "1'500 - 2'500 CHF" },
-    { value: "2500-5000", label: "2'500 - 5'000 CHF" },
-    { value: "plus-5000", label: "> 5'000 CHF" },
-    { value: "ne-sait-pas", label: "Je ne sais pas" }
+    { value: "setup-suivi", label: "Mise en place + suivi (CHF 390 + 199/mois)" },
+    { value: "setup-seul", label: "Mise en place seule (CHF 390)" },
+    { value: "site-et-seo", label: "Nouveau site + référencement" },
+    { value: "ne-sait-pas", label: "Je ne sais pas encore" }
 ];
 ---
 
@@ -707,11 +692,11 @@ const budgetOptions = [
             <div class="rl-tiers" data-animate-stagger>
                 {pricingPlans.map((plan) => (
                     <div class={`rl-tier ${plan.highlighted ? 'rl-tier--reco' : ''}`} data-animate-item>
-                        {plan.highlighted && <span class="co-badge co-badge--solid rl-tier-reco">Recommandé</span>}
+                        {plan.highlighted && <span class="co-badge co-badge--solid rl-tier-reco">Le cœur du travail</span>}
                         <h3 class="rl-tier-name">{plan.name}</h3>
                         <div class="rl-tier-price">
                             {plan.priceLabel && <span class="rl-tier-pricelabel">{plan.priceLabel}</span>}
-                            <b>{plan.price}{plan.priceLabel && <span class="rl-tier-cur"> CHF</span>}</b>
+                            <b>{plan.price}<span class="rl-tier-cur"> {plan.unit}</span></b>
                         </div>
                         <ul class="co-list co-list--check rl-tier-features">
                             {plan.features.map((feature) => (
@@ -775,8 +760,8 @@ const budgetOptions = [
                         <h4 class="rl-compare-name"><i class="ri-building-line"></i> Agence vs freelance</h4>
                         <p class="rl-card-text">
                             Pour le même périmètre, une agence à Genève facture <strong>1'200 à 3'000 CHF/mois</strong>
-                            (locaux, account managers, marges), là où un freelance romand fait
-                            <strong>400 à 900 CHF/mois</strong> — 80 % du tarif part dans la production réelle.
+                            (locaux, account managers, marges), là où mon suivi est à
+                            <strong>CHF 199/mois</strong>, sans engagement : le tarif part dans la production réelle.
                             L'agence offre du process ; le freelance, du contact direct et un meilleur rapport
                             qualité-prix sur les budgets PME.
                         </p>
@@ -921,7 +906,7 @@ const budgetOptions = [
                     </div>
 
                     <div class="rl-field">
-                        <label for="budget" class="rl-label"><span class="co-index">07</span> Budget approximatif</label>
+                        <label for="budget" class="rl-label"><span class="co-index">07</span> Formule envisagée</label>
                         <div class="rl-select-wrap">
                             <select id="budget" name="budget" class="rl-select">
                                 <option value="" disabled selected>Choisir...</option>
@@ -1112,7 +1097,7 @@ const budgetOptions = [
     .co-root .rl-questions-list p { font-size: 14px; line-height: 1.55; color: var(--muted); }
 
     /* ── Tarifs ── */
-    .rl-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; margin-top: 36px; }
+    .rl-tiers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: start; margin-top: 36px; }
     .rl-tier { position: relative; display: flex; flex-direction: column; gap: 18px; padding: 30px 26px; background: var(--surface); border: 1px solid var(--line-2); }
     .rl-tier--reco { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
     .rl-tier-reco { position: absolute; top: -12px; left: 26px; z-index: 4; }

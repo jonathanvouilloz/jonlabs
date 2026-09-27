@@ -135,7 +135,7 @@ Le coût apparent est attractif. Mais il faut l'ajuster : PM local (20 à 40 CHF
 
 Pour une PME romande avec un budget de 20 000 à 80 000 CHF, le **freelance senior local est généralement le meilleur rapport qualité/prix/réactivité**. Au-delà de 80 000 CHF, l'agence vaut l'investissement.
 
-Si tu envisages de [démarrer par un MVP de ton application](/services/developpement-mvp), c'est le format le plus adapté au freelance senior : périmètre réduit, livraison rapide, validation terrain avant l'investissement complet.
+Si tu envisages de [démarrer par un MVP de ton application](/services/developpement-application-mobile), c'est le format le plus adapté au freelance senior : périmètre réduit, livraison rapide, validation terrain avant l'investissement complet.
 
 ---
 
@@ -191,7 +191,7 @@ Oui, deux principaux : la **maintenance corrective** (bugs, mises à jour de sé
 
 L'incertitude sur le budget vient presque toujours d'un besoin mal défini, pas d'un marché opaque. Quand le périmètre est clair (nombre d'écrans, intégrations, rôles utilisateur), le chiffrage devient rapide et fiable.
 
-Première étape concrète avant de contacter un développeur : mettre par écrit les process que l'app doit gérer. Un [cahier des charges d'application métier](/blog/cahier-des-charges-application-metier) même sommaire de 2 pages te permet d'obtenir des devis précis et comparables. Ensuite, si tu veux valider l'approche avant l'investissement complet, la page [développement d'applications métier sur mesure](/services/developpement-mvp) détaille l'option MVP.
+Première étape concrète avant de contacter un développeur : mettre par écrit les process que l'app doit gérer. Un [cahier des charges d'application métier](/blog/cahier-des-charges-application-metier) même sommaire de 2 pages te permet d'obtenir des devis précis et comparables. Ensuite, si tu veux valider l'approche avant l'investissement complet, la page [développement d'applications métier sur mesure](/services/developpement-application-mobile) détaille l'option MVP.
 
 [**Obtenir un chiffrage pour ton projet →**](/contact?utm_source=blog&utm_medium=article&utm_campaign=prix-logiciel-sur-mesure-pme)
 

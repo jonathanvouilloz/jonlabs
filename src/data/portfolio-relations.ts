@@ -14,5 +14,5 @@ export const portfolioServiceLinks: Record<string, ServiceLink> = {
   'barber-concept': { label: 'Développeur Webflow', href: '/services/developpeur-webflow' },
   'ugo-mighali-coutelier': { label: 'Création de site web', href: '/services/creation-site-web' },
   'isla-plomo': { label: 'Application mobile', href: '/services/developpement-application-mobile' },
-  'wisp': { label: 'Développement MVP', href: '/services/developpement-mvp' },
+  'wisp': { label: 'Application mobile', href: '/services/developpement-application-mobile' },
 };

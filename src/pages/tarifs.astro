@@ -1,6 +1,6 @@
 ---
 // Page Tarifs - Jon Labs
-// Packages combinés création de site web + référencement local
+// Grille des 4 services — prix lus dans src/data/pricing.ts
 
 import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
@@ -9,9 +9,10 @@ import Footer from "../components/Footer.astro";
 
 import { SITE_URL } from '../data/schema';
 import { getWebPageSchema, getBreadcrumbSchema } from '../lib/seo';
+import { pricing, chf } from '../data/pricing';
 
-const pageTitle = "Tarifs site web & référencement freelance Genève";
-const pageDescription = "Tarifs transparents pour la création de site web et le référencement local à Genève. Packages freelance dès 1'490 CHF, sans contrat 12 mois. Devis gratuit.";
+const pageTitle = "Tarifs freelance Genève : site web, app, SEO local, IA";
+const pageDescription = "Tarifs clairs en CHF : site web dès 750, référencement local 390 puis 199/mois, agent IA dès 1'500, application mobile sur devis. Freelance à Genève, sans contrat 12 mois.";
 
 const webPageSchema = getWebPageSchema({
   url: `${SITE_URL}/tarifs`,
@@ -25,232 +26,147 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: "Tarifs", url: `${SITE_URL}/tarifs` }
 ]);
 
-// Service + AggregateOffer schema (page-specific, inline)
-const serviceWithPricing = {
+// Offres chiffrées (prix = src/data/pricing.ts)
+const offerCatalog = {
   "@context": "https://schema.org",
-  "@type": "Service",
-  "@id": `${SITE_URL}/tarifs#service`,
-  "name": "Création de site web et référencement à Genève",
-  "description": "Packages combinant création de site web et référencement local pour PME et indépendants en Suisse romande.",
-  "provider": { "@id": `${SITE_URL}/#organization` },
-  "areaServed": ["Genève", "Vaud", "Suisse Romande"],
-  "serviceType": "Création de site web et référencement",
+  "@type": "OfferCatalog",
+  "@id": `${SITE_URL}/tarifs#catalog`,
+  "name": "Tarifs Jon Labs",
   "url": `${SITE_URL}/tarifs`,
-  "offers": {
-    "@type": "AggregateOffer",
-    "priceCurrency": "CHF",
-    "lowPrice": "1490",
-    "highPrice": "2490",
-    "offerCount": 3,
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "Présence",
-        "description": "Site vitrine + référencement local de base + Google Business Profile",
-        "price": "1490",
-        "priceCurrency": "CHF",
-        "url": `${SITE_URL}/tarifs#packages`
-      },
-      {
-        "@type": "Offer",
-        "name": "Visibilité",
-        "description": "Site vitrine jusqu'à 30 pages + blog + 5 articles + suivi 3 mois + formation",
-        "price": "2490",
-        "priceCurrency": "CHF",
-        "url": `${SITE_URL}/tarifs#packages`
-      },
-      {
-        "@type": "Offer",
-        "name": "Autorité",
-        "description": "Solution sur-mesure pour projets complexes et stratégie de référencement long terme",
-        "priceCurrency": "CHF",
-        "url": `${SITE_URL}/tarifs#packages`
-      }
-    ]
-  }
-};
-
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "itemListElement": [
     {
-      "@type": "Question",
-      "name": "Quels sont les délais de livraison ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Le pack Présence est livré en 2-3 semaines. Le pack Visibilité en 4-8 semaines (incluant la rédaction des 5 articles). Pour le pack Autorité, le planning est défini ensemble selon la complexité du projet."
-      }
+      "@type": "Offer",
+      "name": pricing.siteWeb.label,
+      "priceSpecification": { "@type": "PriceSpecification", "minPrice": String(pricing.siteWeb.from), "priceCurrency": "CHF" },
+      "url": `${SITE_URL}/services/creation-site-web`
     },
     {
-      "@type": "Question",
-      "name": "Est-ce que le référencement est inclus dans tous les packs ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Oui. Chaque pack inclut une optimisation technique de référencement de base (balises, vitesse, mobile, schema). Les packs Visibilité et Autorité ajoutent une stratégie de contenu et un suivi des positions Google via Search Console."
-      }
+      "@type": "Offer",
+      "name": `${pricing.seoLocal.label} — setup`,
+      "priceSpecification": { "@type": "PriceSpecification", "price": String(pricing.seoLocal.setup), "priceCurrency": "CHF" },
+      "url": `${SITE_URL}/services/referencement-local`
     },
     {
-      "@type": "Question",
-      "name": "Qu'est-ce qui n'est PAS inclus ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "L'hébergement (environ 10-20 CHF/mois), le nom de domaine (environ 15 CHF/an), et les abonnements à des outils tiers (newsletter, CRM). Je vous guide dans les choix."
-      }
+      "@type": "Offer",
+      "name": `${pricing.seoLocal.label} — suivi mensuel`,
+      "priceSpecification": { "@type": "UnitPriceSpecification", "price": String(pricing.seoLocal.monthly), "priceCurrency": "CHF", "unitCode": "MON" },
+      "url": `${SITE_URL}/services/referencement-local`
     },
     {
-      "@type": "Question",
-      "name": "Et si j'ai besoin de modifications après la livraison ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Le pack Visibilité inclut 3 mois de suivi avec modifications mineures. Pour les autres packs, je propose une maintenance à 90 CHF/h ou un forfait mensuel adapté à vos besoins."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Vous travaillez avec quelles technologies ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Principalement Astro et Framer pour les sites vitrines (rapides, optimisés référencement). Pour les projets plus complexes : React, SvelteKit, ou la stack adaptée à votre besoin."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Comment se passe le paiement ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "50% à la signature du devis, 50% à la livraison. Pour le pack Autorité, un échéancier sur mesure est proposé selon la durée du projet."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Pourquoi vos tarifs sont moins chers qu'une agence à Genève ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Une agence web à Genève facture en moyenne 8'000 à 15'000 CHF pour un site équivalent à mon pack Visibilité (2'490 CHF). La différence : pas de locaux à payer, pas de commerciaux, pas de chef de projet entre vous et le développeur. Vous parlez directement à la personne qui code. Le tarif finance le travail, pas la structure. Pour les projets très volumineux qui demandent plusieurs profils en parallèle (design, dev, marketing, ops), l'agence reste pertinente."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Y a-t-il un contrat d'engagement de 12 mois ?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Non. Les packs Présence et Visibilité sont des forfaits one-shot, sans abonnement. Pour le pack Autorité avec suivi mensuel, le mensuel est résiliable avec 1 mois de préavis. Je ne crois pas aux engagements 12 mois fermes : si le travail est sérieux, vous n'aurez pas envie de partir. Si vous partez, j'ai mal fait mon job."
-      }
+      "@type": "Offer",
+      "name": pricing.agentIA.label,
+      "priceSpecification": { "@type": "PriceSpecification", "minPrice": String(pricing.agentIA.from), "priceCurrency": "CHF" },
+      "url": `${SITE_URL}/hermes`
     }
   ]
 };
 
-const schemas = [webPageSchema, breadcrumbSchema, serviceWithPricing, faqSchema];
-
-// Pricing data
-const packages = [
-  {
-    name: "Présence",
-    price: "1'490",
-    subtitle: "Exister en ligne, bien",
-    highlighted: false,
-    features: [
-      "Site vitrine jusqu'à 5 pages",
-      "Design responsive sur-mesure",
-      "Optimisation référencement technique",
-      "Google Business Profile configuré",
-      "Formulaire de contact",
-      "Score Lighthouse 90+",
-      "Formation utilisation (1h)",
-    ],
-    ideal: "Indépendants et micro-entreprises qui veulent un site pro rapidement.",
-    delay: "2-3 semaines",
-    cta: "Lancer mon site",
-  },
-  {
-    name: "Visibilité",
-    price: "2'490",
-    subtitle: "Être trouvé sur Google",
-    highlighted: true,
-    features: [
-      "Tout le pack Présence +",
-      "Site jusqu'à 30 pages",
-      "Blog intégré avec 5 articles optimisés référencement",
-      "Recherche de mots-clés locale",
-      "Stratégie de contenu initiale",
-      "Suivi Google Search Console",
-      "3 mois de suivi & ajustements",
-      "Formation référencement autonomie (2h)",
-    ],
-    ideal: "PME locales qui veulent attirer des clients via Google.",
-    delay: "4-8 semaines",
-    cta: "Devenir visible sur Google",
-  },
-  {
-    name: "Autorité",
-    price: "Sur devis",
-    subtitle: "Dominer votre marché local",
-    highlighted: false,
-    features: [
-      "Tout le pack Visibilité +",
-      "Site complexe ou e-commerce",
-      "Stratégie de référencement long terme",
-      "Contenu mensuel (articles, landing pages)",
-      "Automatisations sur-mesure",
-      "Suivi mensuel avec reporting",
-      "Support prioritaire",
-    ],
-    ideal: "Entreprises ambitieuses qui veulent une présence digitale complète.",
-    delay: "Sur mesure",
-    cta: "Construire mon autorité",
-  },
-];
-
-// Inclusion grid
-const inclusions = [
-  { feature: "Pages du site", presence: "Jusqu'à 5", visibilite: "Jusqu'à 30", autorite: "Illimité" },
-  { feature: "Design responsive", presence: true, visibilite: true, autorite: true },
-  { feature: "Référencement technique", presence: true, visibilite: true, autorite: true },
-  { feature: "Google Business Profile", presence: true, visibilite: true, autorite: true },
-  { feature: "Blog intégré", presence: false, visibilite: true, autorite: true },
-  { feature: "Articles rédigés", presence: "—", visibilite: "5 articles", autorite: "Mensuel" },
-  { feature: "Recherche mots-clés", presence: false, visibilite: true, autorite: true },
-  { feature: "Suivi Search Console", presence: false, visibilite: true, autorite: true },
-  { feature: "Suivi post-livraison", presence: "—", visibilite: "3 mois", autorite: "6-12 mois" },
-  { feature: "Formation", presence: "1h", visibilite: "2h", autorite: "Sur mesure" },
-  { feature: "Automatisations", presence: false, visibilite: false, autorite: true },
-  { feature: "Support prioritaire", presence: false, visibilite: false, autorite: true },
-];
-
-// FAQ data
+// FAQ — une seule source pour l'affichage et le schema
 const faqs = [
   {
-    question: "Quels sont les délais de livraison ?",
-    answer: "Le pack Présence est livré en 2-3 semaines. Le pack Visibilité en 4-8 semaines (incluant la rédaction des 5 articles). Pour le pack Autorité, le planning est défini ensemble selon la complexité du projet.",
+    question: "Pourquoi « dès CHF 750 » et pas un prix fixe ?",
+    answer: "Un site d'une page et un site de vingt pages avec réservation en ligne n'ont pas le même coût. CHF 750 correspond à un site vitrine simple. Après un premier appel, vous recevez un devis ferme : le prix annoncé est le prix payé.",
   },
   {
-    question: "Est-ce que le référencement est inclus dans tous les packs ?",
-    answer: "Oui. Chaque pack inclut une optimisation technique de référencement de base (balises, vitesse, mobile, schema). Les packs Visibilité et Autorité ajoutent une stratégie de contenu et un suivi des positions Google via Search Console.",
+    question: "Que comprend le référencement local à CHF 390 + 199/mois ?",
+    answer: "Les CHF 390 couvrent la mise en place : audit, corrections du site et optimisation complète de votre fiche Google. Les CHF 199/mois couvrent le suivi : publications sur la fiche, réponses aux avis, ajustements du site et un point mensuel. Sans engagement, résiliable chaque mois.",
   },
   {
-    question: "Qu'est-ce qui n'est PAS inclus ?",
-    answer: "L'hébergement (environ 10-20 CHF/mois), le nom de domaine (environ 15 CHF/an), et les abonnements à des outils tiers (newsletter, CRM). Je vous guide dans les choix.",
+    question: "Combien coûte un agent IA une fois en place ?",
+    answer: "La mise en place démarre à CHF 1'500. Ensuite, l'agent tourne sur un hébergement suisse (Infomaniak) pour environ CHF 10 à 40 par mois, facturés directement par l'hébergeur, sans marge de ma part.",
   },
   {
-    question: "Et si j'ai besoin de modifications après la livraison ?",
-    answer: "Le pack Visibilité inclut 3 mois de suivi avec modifications mineures. Pour les autres packs, je propose une maintenance à 90 CHF/h ou un forfait mensuel adapté à vos besoins.",
-  },
-  {
-    question: "Vous travaillez avec quelles technologies ?",
-    answer: "Principalement Astro et Framer pour les sites vitrines (rapides, optimisés référencement). Pour les projets plus complexes : React, SvelteKit, ou la stack adaptée à votre besoin.",
+    question: "Qu'est-ce qui n'est pas inclus ?",
+    answer: "Le nom de domaine et l'hébergement du site (quelques dizaines de francs par an), ainsi que les abonnements à des outils tiers. Je vous aide à choisir.",
   },
   {
     question: "Comment se passe le paiement ?",
-    answer: "50% à la signature du devis, 50% à la livraison. Pour le pack Autorité, un échéancier sur mesure est proposé selon la durée du projet.",
+    answer: "50 % à la signature du devis, 50 % à la livraison. Le suivi mensuel est facturé chaque mois. Tous les prix sont en CHF, hors TVA (exonéré).",
   },
   {
-    question: "Pourquoi vos tarifs sont moins chers qu'une agence à Genève ?",
-    answer: "Une agence web à Genève facture en moyenne 8'000 à 15'000 CHF pour un site équivalent à mon pack Visibilité (2'490 CHF). La différence : pas de locaux à payer, pas de commerciaux, pas de chef de projet entre vous et le développeur. Vous parlez directement à la personne qui code. Le tarif finance le travail, pas la structure. Pour les projets très volumineux qui demandent plusieurs profils en parallèle (design, dev, marketing, ops), l'agence reste pertinente.",
+    question: "Y a-t-il un contrat de 12 mois ?",
+    answer: "Non. Les projets sont payés une fois, le suivi mensuel est résiliable chaque mois. Si le travail est bon, vous n'aurez pas envie de partir.",
+  },
+];
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map((f) => ({
+    "@type": "Question",
+    "name": f.question,
+    "acceptedAnswer": { "@type": "Answer", "text": f.answer }
+  }))
+};
+
+const schemas = [webPageSchema, breadcrumbSchema, offerCatalog, faqSchema];
+
+// Cartes tarifs
+const offers = [
+  {
+    name: "Site web",
+    subtitle: "Un site clair, rapide, trouvable",
+    prefix: "Dès",
+    price: chf(pricing.siteWeb.from),
+    unit: "CHF",
+    after: "Devis sur demande",
+    highlighted: false,
+    features: [
+      "Design sur mesure, adapté au mobile",
+      "Optimisé pour Google dès la mise en ligne",
+      "Vous modifiez vos textes vous-même",
+    ],
+    href: "/services/creation-site-web",
+    cta: "Demander un devis",
   },
   {
-    question: "Y a-t-il un contrat d'engagement de 12 mois ?",
-    answer: "Non. Les packs Présence et Visibilité sont des forfaits one-shot, sans abonnement. Pour le pack Autorité avec suivi mensuel, le mensuel est résiliable avec 1 mois de préavis. Je ne crois pas aux engagements 12 mois fermes : si le travail est sérieux, vous n'aurez pas envie de partir. Si vous partez, j'ai mal fait mon job.",
+    name: "Référencement local",
+    subtitle: "Site + fiche Google",
+    prefix: "",
+    price: chf(pricing.seoLocal.setup),
+    unit: "CHF",
+    after: `puis CHF ${chf(pricing.seoLocal.monthly)}/mois, sans engagement`,
+    highlighted: true,
+    features: [
+      "Audit et corrections du site",
+      "Fiche Google optimisée et suivie",
+      "Réponses aux avis et publications",
+      "Point mensuel sur vos résultats",
+    ],
+    href: "/services/referencement-local",
+    cta: "Être trouvé sur Google",
+  },
+  {
+    name: "IA en entreprise",
+    subtitle: "Agent IA Hermès, automatisation",
+    prefix: "Dès",
+    price: chf(pricing.agentIA.from),
+    unit: "CHF",
+    after: `Fonctionnement ${pricing.agentIA.runningCost}, hébergé en Suisse`,
+    highlighted: false,
+    features: [
+      "Un agent branché sur vos outils",
+      "Vous validez avant chaque envoi",
+      "Formation IA équipe ou individuelle : sur devis",
+    ],
+    href: "/hermes",
+    cta: "Parler de mon projet IA",
+  },
+  {
+    name: "Application mobile",
+    subtitle: "iPhone et Android",
+    prefix: "",
+    price: "Sur devis",
+    unit: "",
+    after: "Selon votre projet",
+    highlighted: false,
+    features: [
+      "De l'idée à la publication sur les stores",
+      "Une première version simple, puis on ajoute",
+      "Un seul interlocuteur",
+    ],
+    href: "/services/developpement-application-mobile",
+    cta: "Parler de mon app",
   },
 ];
 ---
@@ -267,48 +183,48 @@ const faqs = [
     <!-- ══ INTRO ══ -->
     <section class="co-sec co-pad co-hero">
       <h1 style="font-size:clamp(2.2rem,5.5vw,3.5rem);margin-top:14px;" data-animate data-delay="0.1">
-        Tarifs freelance — site web &amp; <span class="co-ser">référencement à Genève.</span>
+        Tarifs <span class="co-ser">clairs.</span>
       </h1>
       <p class="co-mut" style="margin-top:16px;max-width:60ch;line-height:1.65;font-size:1.05rem;" data-animate data-delay="0.2">
-        Des packages clairs combinant création de site web et référencement local.
-        Tarif fixe, pas de contrat 12 mois, pas de marge cachée d'agence. Vous savez ce que vous payez.
+        Quatre services, des prix en CHF, pas de contrat 12 mois.
+        Un premier appel gratuit, puis un devis ferme.
       </p>
       <div style="margin-top:26px;" data-animate data-delay="0.3">
-        <a href="#packages" class="co-btn co-btn--ghost">Voir les packages <i class="ri-arrow-down-line"></i></a>
+        <a href="#packages" class="co-btn co-btn--ghost">Voir les tarifs <i class="ri-arrow-down-line"></i></a>
       </div>
     </section>
 
-    <!-- ══ 01 · PACKAGES ══ -->
+    <!-- ══ 01 · TARIFS ══ -->
     <section id="packages" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);scroll-margin-top:80px;">
       <p class="co-eyebrow">01 — Offre</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Choisissez votre package</h2>
-      <p class="co-mut" style="margin-top:var(--space-eyebrow);max-width:52ch;">Site web + référencement local. Tout inclus, prix fixe.</p>
+      <h2 style="margin-top:var(--space-eyebrow);">Ce que ça coûte</h2>
 
       <div class="tr-grid" data-animate-stagger>
-        {packages.map((plan) => (
+        {offers.map((plan) => (
           <div class={`tr-tier co-frame${plan.highlighted ? " tr-tier--reco" : ""}`} data-animate-item>
-            {plan.highlighted && <span class="co-badge co-badge--solid tr-reco">Recommandé</span>}
+            {plan.highlighted && <span class="co-badge co-badge--solid tr-reco">Le plus demandé</span>}
             <div class="tr-tier-head">
               <p class="co-eyebrow tr-tier-name">{plan.name}</p>
               <p class="co-mut tr-tier-sub">{plan.subtitle}</p>
             </div>
             <div class="tr-price">
+              {plan.prefix && <span>{plan.prefix}</span>}
               <b>{plan.price}</b>
-              {plan.price !== "Sur devis" && <span>CHF</span>}
+              {plan.unit && <span>{plan.unit}</span>}
             </div>
+            <p class="co-mut tr-after">{plan.after}</p>
             <ul class="tr-features co-list co-list--check">
               {plan.features.map((feature) => (
                 <li><i class="ri-check-line" aria-hidden="true"></i><span>{feature}</span></li>
               ))}
             </ul>
-            <dl class="co-spec tr-spec">
-              <div class="co-spec-row"><dt>Idéal pour</dt><dd>{plan.ideal}</dd></div>
-              <div class="co-spec-row"><dt>Délai</dt><dd>{plan.delay}</dd></div>
-            </dl>
-            <a href="/contact" class={`co-btn tr-tier-cta${plan.highlighted ? "" : " co-btn--ghost"}`}>
-              {plan.cta}
-              <i class="ri-arrow-right-line"></i>
-            </a>
+            <div class="tr-tier-actions">
+              <a href="/contact" class={`co-btn tr-tier-cta${plan.highlighted ? "" : " co-btn--ghost"}`}>
+                {plan.cta}
+                <i class="ri-arrow-right-line"></i>
+              </a>
+              <a href={plan.href} class="tr-inline tr-more">Voir le service</a>
+            </div>
           </div>
         ))}
       </div>
@@ -320,61 +236,21 @@ const faqs = [
         <p class="co-eyebrow tr-notes-title">Bon à savoir</p>
         <div class="tr-notes-grid">
           <ul class="co-list">
-            <li>Paiement : 50% à la commande, 50% à la livraison</li>
-            <li>Hébergement et domaine non inclus (~30 CHF/an)</li>
-            <li>Pas de contrat 12 mois — engagement projet par projet</li>
+            <li>Paiement : 50 % à la commande, 50 % à la livraison</li>
+            <li>Pas de contrat 12 mois</li>
           </ul>
           <ul class="co-list">
-            <li>Chaque projet commence par un appel découverte gratuit</li>
-            <li>Tous les prix sont en CHF, HT (exonéré TVA)</li>
-            <li>Service détaillé : <a href="/services/referencement-local" class="tr-inline">page référencement local</a></li>
+            <li>Premier appel gratuit, puis devis ferme</li>
+            <li>Prix en CHF, hors TVA (exonéré)</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- ══ 02 · INCLUSIONS ══ -->
+    <!-- ══ 02 · FAQ (accordéon natif, zéro JS) ══ -->
     <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">02 — Comparatif</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Ce qui est inclus</h2>
-      <p class="co-mut" style="margin-top:var(--space-eyebrow);max-width:52ch;">Comparaison détaillée des 3 packages.</p>
-
-      <div class="tr-table-wrap" data-animate>
-        <table class="tr-table">
-          <thead>
-            <tr>
-              <th>Fonctionnalité</th>
-              <th>Présence</th>
-              <th class="tr-col-reco">Visibilité</th>
-              <th>Autorité</th>
-            </tr>
-          </thead>
-          <tbody>
-            {inclusions.map((row) => (
-              <tr>
-                <td class="tr-cell-feat">{row.feature}</td>
-                {[row.presence, row.visibilite, row.autorite].map((val, colIdx) => (
-                  <td class={colIdx === 1 ? "tr-col-reco" : ""}>
-                    {typeof val === 'boolean'
-                      ? (val
-                        ? <i class="ri-check-line tr-yes" aria-hidden="true"></i>
-                        : <i class="ri-close-line tr-no" aria-hidden="true"></i>)
-                      : <span>{val}</span>
-                    }
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-    </section>
-
-    <!-- ══ 03 · FAQ (accordéon natif, zéro JS) ══ -->
-    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">03 — FAQ</p>
+      <p class="co-eyebrow">02 — FAQ</p>
       <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes</h2>
-      <p class="co-mut" style="margin-top:var(--space-eyebrow);max-width:52ch;">Les réponses aux questions que vous vous posez sûrement.</p>
 
       <div class="tr-faq" style="margin-top:var(--space-block);">
         {faqs.map((item, i) => (
@@ -389,9 +265,9 @@ const faqs = [
       </div>
     </section>
 
-    <!-- ══ 04 · RESSOURCES ══ -->
+    <!-- ══ 03 · RESSOURCES ══ -->
     <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x) 64px;">
-      <p class="co-eyebrow">04 — Ressources</p>
+      <p class="co-eyebrow">03 — Ressources</p>
       <h2 style="margin-top:var(--space-eyebrow);">Aller <span class="co-ser">plus loin.</span></h2>
       <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:56ch;line-height:1.6;">
         Quelques articles pour creuser le sujet avant de te décider.
@@ -443,7 +319,7 @@ const faqs = [
   /* ══ TARIFS — styles .tr-* (namespace scopé, corps .co-root) ══ */
 
   /* ── Packages ── */
-  .tr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: start; margin-top: 40px; }
+  .tr-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; align-items: stretch; margin-top: 40px; }
   .tr-tier {
     position: relative; display: flex; flex-direction: column; gap: 20px;
     padding: 32px 28px; background: var(--surface); border: 1px solid var(--line-2);
@@ -455,33 +331,21 @@ const faqs = [
   .tr-price { display: flex; align-items: baseline; gap: 6px; }
   .tr-price b { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
   .tr-price span { font-size: 14px; color: var(--muted); }
+  .tr-after { margin-top: 8px; font-size: 14px; }
+  .tr-tier-actions { margin-top: auto; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+  .tr-more { font-size: 14px; }
   .tr-features { gap: 11px; }
   .tr-features li { font-size: 14px; line-height: 1.45; }
-  .tr-spec { margin-top: auto; }
   .tr-tier-cta { justify-content: center; }
   .tr-tier-cta i { transition: transform .18s ease-out; }
   .tr-tier-cta:hover i { transform: translateX(3px); }
 
   /* ── Bon à savoir ── */
-  .tr-notes { position: relative; margin-top: 40px; padding: 32px; background: var(--surface); border: 1px solid var(--line-2); }
   .co-root .tr-notes-title { color: var(--ink); }
-  .tr-notes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 40px; margin-top: 18px; }
-  .tr-notes-grid .co-list li { font-size: 14px; }
   .tr-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
   .tr-inline:hover { color: var(--ink); }
 
   /* ── Table comparatif ── */
-  .tr-table-wrap { margin-top: var(--space-block); overflow-x: auto; border: 1px solid var(--line-2); }
-  .tr-table { width: 100%; border-collapse: collapse; font-size: 14px; background: var(--surface); }
-  .tr-table th, .tr-table td { padding: 14px 16px; text-align: center; border-bottom: 1px solid var(--line); }
-  .tr-table thead th { font-size: 12px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line-2); white-space: nowrap; }
-  .tr-table th:first-child, .tr-table .tr-cell-feat { text-align: left; }
-  .tr-cell-feat { font-weight: 500; color: var(--ink); }
-  .tr-table tbody tr:last-child td { border-bottom: 0; }
-  .tr-col-reco { background: rgba(0, 168, 125, 0.05); }
-  .tr-table thead .tr-col-reco { color: var(--accent); }
-  .tr-yes { color: var(--accent); font-size: 18px; }
-  .tr-no { color: var(--line-2); font-size: 18px; }
 
   /* ── FAQ (accordéon natif <details> — smooth via ::details-content, zéro JS) ── */
   .tr-faq { border-top: 1px solid var(--line); }

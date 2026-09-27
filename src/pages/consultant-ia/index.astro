@@ -23,6 +23,7 @@ import illuConsultant from "../../assets/illustrations/consultant-ia.webp";
 
 import { getServiceItemSchema, getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from "../../lib/seo";
 import { SITE_URL, localBusinessData } from "../../data/schema";
+import { pricing } from "../../data/pricing";
 
 // ============================================
 // SEO META
@@ -43,7 +44,7 @@ const differenciants = [
   {
     icon: "ri-price-tag-3-line",
     title: "Prix en CHF, affichés",
-    description: "Des fourchettes claires dès cette page : cadrage + agent simple CHF 2'500–4'000, agent métier intégré CHF 6'000–15'000. Pas de devis opaque ni de prix caché jusqu'au dernier rendez-vous."
+    description: "Un agent IA démarre à CHF 1'500, avec un devis ferme après un premier échange gratuit. Pas de prix caché jusqu'au dernier rendez-vous."
   },
   {
     icon: "ri-bar-chart-box-line",
@@ -65,7 +66,7 @@ const services = [
     icon: "ri-robot-2-line",
     title: "Agents IA sur-mesure",
     description: "Conception d'agents autonomes capables d'agir sur vos outils, avec mémoire et validation humaine. Pour les tâches pointues que les workflows génériques ne couvrent pas.",
-    price: "Dès CHF 2'500",
+    price: pricing.agentIA.display,
     href: "#agents-sur-mesure"
   },
   {
@@ -86,22 +87,8 @@ const services = [
     icon: "ri-team-line",
     title: "Formation IA pour votre équipe",
     description: "Vos collaborateurs apprennent à utiliser l'IA au quotidien sans se mettre en danger côté données. Cas concrets de votre métier, pas une démo générique.",
-    price: "Dès CHF 1'200",
+    price: pricing.formationIA.display,
     href: "/services/formation-ia-equipe"
-  },
-  {
-    icon: "ri-search-eye-line",
-    title: "Audit & conseil IA",
-    description: "Où l'IA vous fait gagner du temps, où elle ne sert à rien, et dans quel ordre attaquer. Un état des lieux honnête avant de dépenser le moindre franc.",
-    price: "Dès CHF 800",
-    href: "/contact"
-  },
-  {
-    icon: "ri-tools-line",
-    title: "Outils sur mesure",
-    description: "Tableaux de bord, portails clients, applications internes pilotées par IA. Pour automatiser ce qu'Excel ne sait plus faire seul.",
-    price: "Sur devis",
-    href: "/services/outils-sur-mesure"
   }
 ];
 
@@ -112,7 +99,7 @@ const cleEnMain = {
   nom: "Hermès",
   accroche: "L'agent que je déploie chez vous",
   description: "Un agent IA déjà éprouvé sur des tâches concrètes de PME — tri d'e-mails, relances, préparation de documents. On part de cette base, on le branche sur vos outils, on pose les garde-fous. Vous ne payez pas six mois de R&D.",
-  price: "Dès CHF 2'500",
+  price: pricing.agentIA.display,
   delai: "En production en 2 à 3 semaines",
   href: "/hermes"
 };
@@ -309,7 +296,7 @@ const faqs = [
   },
   {
     question: "Combien coûte un projet IA pour une PME ?",
-    answer: "Tout dépend du périmètre, et je préfère afficher des fourchettes plutôt qu'un devis opaque. Un cadrage avec un agent IA simple se situe entre CHF 2'500 et 4'000. Un agent métier intégré à vos outils, avec garde-fous et conformité nLPD, va de CHF 6'000 à 15'000. Un audit seul démarre à CHF 800. Le premier échange est gratuit, et si le retour sur investissement n'est pas là, je vous le dis."
+    answer: "Un agent IA démarre à CHF 1'500. Le prix final dépend du nombre de tâches et d'outils à connecter : vous recevez un devis ferme après un premier échange gratuit. Une fois en place, l'agent tourne sur un hébergement suisse pour environ CHF 10 à 40 par mois. Si le retour sur investissement n'est pas là, je vous le dis."
   },
   {
     question: "Mes données sont-elles protégées ? Et la nLPD ?",
@@ -414,7 +401,7 @@ const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, loca
       </p>
 
       <p class="co-eyebrow cii-fam-label">Sur mesure — on construit pour vous</p>
-      <div class="cii-grid cii-grid--3" data-animate-stagger>
+      <div class="cii-grid cii-grid--2" data-animate-stagger>
         {services.map((service) => (
           <a href={service.href} class="cii-svc co-frame co-frame--reveal" data-animate-item>
             <i class={`${service.icon} cii-svc-icon`} aria-hidden="true"></i>

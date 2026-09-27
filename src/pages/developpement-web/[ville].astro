@@ -15,7 +15,7 @@
 //  - Maillage villes voisines (getVoisines) → mêmes hrefs /developpement-web/{slug}.
 //  - Deep-links SEO internes (/services/*, /portfolio, /tarifs, /blog/*,
 //    /developpeur-web-freelance-geneve, /contact, mailto).
-//  - Prix exacts (CHF/EUR) et copie éditoriale.
+//  - Prix : src/data/pricing.ts (CHF uniquement depuis le 27.09.2026).
 import "../../styles/global.css";
 import Layout from "../../layouts/Layout.astro";
 import Header from "../../components/Header.astro";
@@ -25,6 +25,7 @@ import illuDevWeb from "../../assets/illustrations/developpement-web.webp";
 
 import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from "../../lib/seo";
 import { SITE_URL, localBusinessData } from "../../data/schema";
+import { pricing, chf } from "../../data/pricing";
 import { villesFrontalieres, getVoisines, type VilleData } from "../../data/villes-frontalieres";
 
 // ============================================
@@ -57,10 +58,10 @@ const titleFallback = titleLong.length <= 60
   : `Développeur web ${ville.nom} | Jonlabs`;
 const pageTitle = ville.metaTitle ?? titleFallback;
 // Description : version compacte si nom de ville long pour rester sous 160 chars
-const descLong = `Développement web sur mesure à ${ville.nom} (${ville.distanceGeneve} de Genève). Sites pro, refonte, MVP. Tarifs CHF/EUR transparents, freelance basé à Genève.`;
+const descLong = `Développement web sur mesure à ${ville.nom} (${ville.distanceGeneve} de Genève). Sites pro, boutiques, SEO local. Tarifs transparents, freelance basé à Genève.`;
 const descFallback = descLong.length <= 158
   ? descLong
-  : `Développeur web freelance pour ${ville.nom} (${ville.distanceGeneve} de Genève). Sites sur-mesure, refonte, MVP. Tarifs CHF/EUR. Basé à Genève.`;
+  : `Développeur web freelance pour ${ville.nom} (${ville.distanceGeneve} de Genève). Sites sur mesure, SEO local, tarifs clairs. Basé à Genève.`;
 const pageDescription = ville.metaDescription ?? descFallback;
 // H1 : amorce par ville (cohérente avec le title), fallback générique.
 const h1Lead = ville.h1Lead ?? 'Développeur web sur mesure à';
@@ -90,79 +91,68 @@ const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
 const voisines = getVoisines(ville);
 
 // ============================================
-// SERVICES (5 cards génériques)
+// SERVICES (4 cards génériques) — prix : src/data/pricing.ts
 // ============================================
 const services = [
   {
     icon: "ri-window-line",
     title: "Création de site web",
-    description: `Site vitrine sur-mesure pour PME et indépendants de ${ville.nom}. Design unique, performance Google, livré en 3-4 semaines.`,
-    price: "Dès CHF 1'490 / EUR 1'550",
+    description: `Site vitrine sur mesure pour PME et indépendants de ${ville.nom}. Rapide, clair, trouvable sur Google.`,
+    price: pricing.siteWeb.display,
     href: "/services/creation-site-web"
   },
   {
     icon: "ri-shopping-bag-3-line",
     title: "Boutique en ligne",
-    description: `Vendre depuis ${ville.nom} : catalogue, paiement sécurisé (Stripe, TWINT), gestion des stocks et fonctionnalités sur-mesure.`,
+    description: `Vendre depuis ${ville.nom} : catalogue, paiement sécurisé (Stripe, TWINT) et gestion des stocks.`,
     price: "Sur devis",
     href: "/services/creation-site-web"
   },
   {
-    icon: "ri-refresh-line",
-    title: "Refonte de site web",
-    description: "Modernisation d'un site existant. Refonte WordPress ou migration depuis WordPress, Wix ou Squarespace vers une stack rapide et maintenable.",
-    price: "Dès CHF 2'490 / EUR 2'600",
-    href: "/services/developpeur-wordpress"
-  },
-  {
-    icon: "ri-rocket-line",
-    title: "Développement MVP",
-    description: "Prototype fonctionnel en 2-3 semaines pour tester ton idée auprès de vrais utilisateurs avant de t'engager plus loin.",
-    price: "Dès CHF 4'500 / EUR 4'700",
-    href: "/services/developpement-mvp"
-  },
-  {
-    icon: "ri-tools-line",
-    title: "Outils sur mesure",
-    description: "Applications internes, tableaux de bord, portails clients. Pour automatiser ce qu'Excel ne sait plus faire seul.",
-    price: "Sur devis",
-    href: "/services/outils-sur-mesure"
+    icon: "ri-smartphone-line",
+    title: "Application mobile",
+    description: "Une app iPhone et Android pour tes clients ou ton équipe, de l'idée aux stores.",
+    price: pricing.appMobile.display,
+    href: "/services/developpement-application-mobile"
   },
   {
     icon: "ri-map-pin-2-line",
     title: "Référencement local",
-    description: `SEO local pour exister sur Google quand un habitant de ${ville.nom} ou un Genevois cherche ton métier.`,
-    price: "Dès CHF 800/mois",
+    description: `Ton site et ta fiche Google remontent quand un habitant de ${ville.nom} ou un Genevois cherche ton métier.`,
+    price: pricing.seoLocal.display,
     href: "/services/referencement-local"
   }
 ];
 
 // ============================================
-// PRICING — version EUR/CHF
+// PRICING — CHF uniquement
 // ============================================
 const pricingPlans = [
   {
-    name: "Site vitrine",
-    priceChf: "1'490",
-    priceEur: "1'550",
-    description: `Pour indépendants et artisans de ${ville.nom} qui veulent une présence en ligne propre.`,
-    features: ["1 à 5 pages", "Design sur-mesure", "Responsive", "SEO de base", "Hébergement 1 an"],
+    name: "Site web",
+    pricePrefix: "À partir de",
+    price: chf(pricing.siteWeb.from),
+    unit: "CHF",
+    description: `Pour indépendants et PME de ${ville.nom} qui veulent un site pro, clair et rapide.`,
+    features: ["Design sur mesure", "Adapté au mobile", "Optimisé pour Google", "Devis sur demande"],
     highlighted: false
   },
   {
-    name: "Site sur-mesure",
-    priceChf: "4'000",
-    priceEur: "4'150",
-    description: `Pour PME de ${ville.nom} avec contenu, blog, intégrations spécifiques.`,
-    features: ["Pages illimitées", "CMS / blog", "SEO avancé", "Intégrations (Stripe, GMB...)", "Formation incluse"],
+    name: "Référencement local",
+    pricePrefix: "Mise en place",
+    price: chf(pricing.seoLocal.setup),
+    unit: `CHF + ${pricing.seoLocal.monthly}/mois`,
+    description: `Pour être trouvé sur Google quand on cherche ton métier à ${ville.nom}.`,
+    features: ["Site optimisé", "Fiche Google suivie", "Réponses aux avis", "Sans engagement"],
     highlighted: true
   },
   {
-    name: "Application web",
-    priceChf: "8'000",
-    priceEur: "8'300",
-    description: "Pour outils internes, MVP, plateformes avec authentification et données.",
-    features: ["Backend custom", "Base de données", "Authentification", "API tiers", "Maintenance évolutive"],
+    name: "Boutique ou application",
+    pricePrefix: "",
+    price: "Sur devis",
+    unit: "",
+    description: "E-commerce, application mobile : chiffré selon ton projet, après un premier appel gratuit.",
+    features: ["Devis ferme en CHF", "Un seul interlocuteur", "Livraison par étapes"],
     highlighted: false
   }
 ];
@@ -173,7 +163,7 @@ const pricingPlans = [
 const blogArticles = [
   {
     title: "Combien coûte vraiment un site web en Suisse en 2026 ?",
-    description: "Fourchettes en CHF et EUR par profil de prestataire (freelance, agence, no-code) et par type de projet.",
+    description: "Fourchettes en CHF par profil de prestataire (freelance, agence, no-code) et par type de projet.",
     href: "/blog/prix-site-web-suisse-2026",
     icon: "ri-money-cny-circle-line"
   },
@@ -214,7 +204,7 @@ const blogArticles = [
         </h1>
 
         <p class="dwv-hero-lead" data-animate data-delay="0.2">
-          {ville.angleHero} Un freelance, pas une agence : tu parles directement à celui qui code. Devis transparent en <strong>CHF ou EUR</strong>, basé à <strong>Genève</strong>.
+          {ville.angleHero} Un freelance, pas une agence : tu parles directement à celui qui code. Devis transparent, basé à <strong>Genève</strong>.
         </p>
 
         <div class="dwv-hero-btns" data-animate data-delay="0.3">
@@ -278,7 +268,7 @@ const blogArticles = [
       </div>
 
       <!-- Services grid -->
-      <div class="dwv-grid dwv-grid--3" data-animate-stagger>
+      <div class="dwv-grid dwv-grid--2" data-animate-stagger>
         {services.map((service) => (
           <a href={service.href} class="dwv-service co-frame co-frame--reveal" data-animate-item>
             <i class={`${service.icon} dwv-service-icon`} aria-hidden="true"></i>
@@ -331,14 +321,14 @@ const blogArticles = [
       </div>
     </section>
 
-    <!-- ══ 03 · TARIFS CHF / EUR ══ -->
+    <!-- ══ 03 · TARIFS ══ -->
     <section id="tarifs" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
       <p class="co-eyebrow" data-animate>03 — Tarifs</p>
       <h2 style="margin-top:var(--space-eyebrow);" data-animate>
-        Tarifs en <span class="co-ser">CHF</span> et en <span class="co-ser">EUR</span>
+        Combien ça <span class="co-ser">coûte ?</span>
       </h2>
       <p class="co-mut" data-animate style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-        Trois fourchettes pour situer ton projet à {ville.nom}. Devis personnalisé après notre premier échange.
+        Des prix clairs pour situer ton projet à {ville.nom}. Devis ferme après un premier échange gratuit.
       </p>
 
       <div class="dwv-tiers" data-animate-stagger>
@@ -348,9 +338,8 @@ const blogArticles = [
             <h3 class="dwv-tier-name">{plan.name}</h3>
             <p class="dwv-tier-desc">{plan.description}</p>
             <div class="dwv-tier-price">
-              <span class="dwv-tier-pricelabel">À partir de</span>
-              <b>{plan.priceChf}<span class="dwv-tier-cur"> CHF</span></b>
-              <span class="dwv-tier-eur">≈ {plan.priceEur} EUR</span>
+              {plan.pricePrefix && <span class="dwv-tier-pricelabel">{plan.pricePrefix}</span>}
+              <b>{plan.price}{plan.unit && <span class="dwv-tier-cur"> {plan.unit}</span>}</b>
             </div>
             <ul class="co-list co-list--check dwv-tier-features">
               {plan.features.map((feature) => (
@@ -363,7 +352,7 @@ const blogArticles = [
 
       <p class="dwv-tier-note co-mut" data-animate>
         <i class="ri-information-line"></i>
-        Facturation possible en CHF (IBAN suisse) ou en EUR (virement SEPA). TVA française appliquée pour les sociétés assujetties.
+        Prix en CHF. Facturation possible en EUR (virement SEPA) au taux du jour, TVA française appliquée pour les sociétés assujetties.
       </p>
 
       <div class="dwv-tier-cta" data-animate>
@@ -615,7 +604,6 @@ const blogArticles = [
   .dwv-tier-pricelabel { font-size: 13px; color: var(--muted); }
   .dwv-tier-price b { font-size: 2.3rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.1; }
   .dwv-tier-cur { font-size: 15px; color: var(--muted); font-weight: 500; }
-  .dwv-tier-eur { font-size: 14px; color: var(--muted); font-variant-numeric: tabular-nums; }
   .dwv-tier-features { gap: 10px; }
   .dwv-tier-features li { font-size: 14px; line-height: 1.45; }
   .co-root .dwv-tier-note { margin-top: 24px; text-align: center; font-size: 13.5px; display: flex; align-items: center; justify-content: center; gap: 6px; flex-wrap: wrap; }

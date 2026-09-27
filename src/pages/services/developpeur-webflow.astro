@@ -6,7 +6,7 @@
 //
 // HARD-PRESERVE : Schema.org (serviceSchemas/breadcrumb/FAQ), câblage Web3Forms
 // (#webflow-form, access_key + hidden inputs, tous les name=, honeypot, JS submit),
-// prix exacts (1'490 / 2'490 / Sur devis), tous les liens SEO internes
+// prix via src/data/pricing.ts (dès 750 / Sur devis), tous les liens SEO internes
 // (/services/*, /portfolio/*, /tarifs, /blog/prix-site-web-suisse-2026).
 
 import '../../styles/global.css';
@@ -20,6 +20,7 @@ import webflowHero from '../../assets/services/refonte-1.webp';
 // Schema.org
 import { serviceSchemas, SITE_URL, localBusinessData } from '../../data/schema';
 import { getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
+import { pricing, chf } from "../../data/pricing";
 
 // SEO Data
 const seoData = {
@@ -155,34 +156,20 @@ const differentiators = [
     }
 ];
 
-// Pricing plans (alignés sur /tarifs)
+// Pricing plans — prix : src/data/pricing.ts
 const pricingPlans = [
     {
-        name: "Site Webflow essentiel",
-        price: "1'490",
+        name: "Site Webflow",
+        price: chf(pricing.siteWeb.from),
         priceLabel: "À partir de",
         features: [
-            "1 à 5 pages sur-mesure",
-            "Responsive (mobile + desktop)",
-            "SEO de base : balises, structure, vitesse",
-            "Formulaire de contact connecté",
-            "Formation à l'éditeur Webflow"
+            "Pages sur mesure, adaptées au mobile",
+            "Optimisé pour Google",
+            "CMS (blog, portfolio) si besoin",
+            "Formation à l'éditeur Webflow",
+            "Devis ferme après un premier appel"
         ],
-        ideal: "Indépendants et consultants qui veulent une présence pro, gérable en autonomie.",
-        highlighted: false
-    },
-    {
-        name: "Site Webflow + CMS",
-        price: "2'490",
-        priceLabel: "À partir de",
-        features: [
-            "Tout ce qui est inclus dans Essentiel",
-            "CMS configuré : blog, portfolio, fiches",
-            "SEO avancé + données structurées",
-            "Animations et interactions sur-mesure",
-            "Intégrations (CRM, newsletter, Make/n8n)"
-        ],
-        ideal: "PME et marques qui publient du contenu et veulent un site qui travaille pour elles.",
+        ideal: "Indépendants et PME qui veulent un site pro, gérable en autonomie.",
         highlighted: true
     },
     {
@@ -192,10 +179,10 @@ const pricingPlans = [
         features: [
             "Boutique Webflow Ecommerce",
             "Paiement sécurisé via Stripe",
-            "Ou alternative sur-mesure si Webflow ne suffit pas",
-            "Intégrations logistique et facturation"
+            "Intégrations (CRM, newsletter…)",
+            "Reprise d'un site Webflow existant"
         ],
-        ideal: "Commerçants et créateurs qui veulent vendre en ligne — on valide d'abord la faisabilité ensemble.",
+        ideal: "Commerçants et marques qui veulent vendre en ligne ou faire évoluer leur site.",
         highlighted: false
     }
 ];
@@ -208,7 +195,7 @@ const faqs = [
     },
     {
         question: "Combien coûte un site Webflow en Suisse ?",
-        answer: "Comptez à partir de CHF 1'490 pour un site essentiel de 1 à 5 pages, à partir de CHF 2'490 avec un CMS (blog, portfolio), et sur devis pour l'e-commerce. S'y ajoute l'abonnement Webflow (environ CHF 15-40/mois selon le plan), qui remplace l'hébergement et la maintenance technique."
+        answer: "Un site Webflow démarre à CHF 750, avec un devis ferme selon le nombre de pages et les intégrations. L'e-commerce se chiffre sur devis. S'y ajoute l'abonnement Webflow (environ CHF 15-40/mois selon le plan), qui remplace l'hébergement et la maintenance technique."
     },
     {
         question: "Webflow peut-il gérer un e-commerce ?",
@@ -475,7 +462,7 @@ const budgetOptions = [
             <div class="wf-tiers" data-animate-stagger>
                 {pricingPlans.map((plan) => (
                     <div class={`wf-tier ${plan.highlighted ? 'wf-tier--reco' : ''}`} data-animate-item>
-                        {plan.highlighted && <span class="co-badge co-badge--solid wf-tier-reco">Populaire</span>}
+                        {plan.highlighted && <span class="co-badge co-badge--solid wf-tier-reco">Le plus demandé</span>}
                         <h3 class="wf-tier-name">{plan.name}</h3>
                         <div class="wf-tier-price">
                             {plan.priceLabel && <span class="wf-tier-pricelabel">{plan.priceLabel}</span>}
@@ -502,7 +489,7 @@ const budgetOptions = [
                     </ul>
                     <ul class="co-list">
                         <li>Refonte d'un site Webflow existant : audit d'abord, devis ferme ensuite</li>
-                        <li>Paiement en 2-3 fois possible selon le montant</li>
+                        <li>Paiement : 50 % à la commande, 50 % à la livraison</li>
                     </ul>
                 </div>
                 <p class="wf-note-inline">
@@ -682,7 +669,7 @@ const budgetOptions = [
                 <p class="wf-note-inline" style="text-align:center;">
                     <strong>Webflow n'est pas adapté à votre projet ?</strong> Je développe aussi des sites
                     <a href="/services/creation-site-web" class="wf-inline">sur-mesure</a> et je reprends des sites
-                    <a href="/services/developpeur-wordpress" class="wf-inline">WordPress</a>. Pour un exemple concret,
+                    <a href="/services/creation-site-web" class="wf-inline">WordPress</a>. Pour un exemple concret,
                     voyez mon étude de cas <a href="/portfolio/barber-concept" class="wf-inline">Barber Concept</a>
                     ou l'ensemble de mes <a href="/portfolio" class="wf-inline">réalisations</a>.
                 </p>
@@ -778,7 +765,7 @@ const budgetOptions = [
     .co-root .wf-diff-desc { margin-top: 4px; font-size: 13px; line-height: 1.45; color: var(--muted); }
 
     /* ── Tarifs ── */
-    .wf-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; margin-top: 36px; }
+    .wf-tiers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: start; margin-top: 36px; }
     .wf-tier { position: relative; display: flex; flex-direction: column; gap: 18px; padding: 30px 26px; background: var(--surface); border: 1px solid var(--line-2); }
     .wf-tier--reco { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
     .wf-tier-reco { position: absolute; top: -12px; left: 26px; z-index: 4; }

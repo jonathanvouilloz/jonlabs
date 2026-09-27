@@ -121,7 +121,7 @@ Si tu es dans la zone 10 000–25 000 CHF, la décision tourne autour d'un seul 
 
 Quand c'est moi qui prends le projet, le cadre est celui décrit sur ma page [développeur d'application mobile en Suisse romande](/services/developpement-application-mobile) : forfait annoncé d'avance, jalons liés aux livrables, code et accès qui restent à ton nom.
 
-Pour les projets MVP en Suisse, les étapes et le budget type sont détaillés sur la [page service développement MVP](/services/developpement-mvp).
+Pour les projets MVP en Suisse, les étapes et le budget type sont détaillés sur la [page service développement MVP](/services/developpement-application-mobile).
 
 ---
 

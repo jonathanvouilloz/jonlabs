@@ -78,7 +78,7 @@ J'ai repris un projet pour un distributeur vaudois qui avait construit son outil
 
 Les apps métier que j'ai livrées pour PME romandes en phase 3 se situent entre **15 000 et 40 000 CHF** pour une app simple à périmètre défini, investissement qui s'amortit en 12 à 24 mois si l'outil remplace des heures manuelles. Les [5 cas concrets d'applications métier pour PME romandes](/blog/application-metier-pme-sur-mesure) détaillent les chiffres réels projet par projet.
 
-C'est en phase 3 que le [développement d'applications métier sur mesure](/services/developpement-mvp) est la décision économiquement rationnelle.
+C'est en phase 3 que le [développement d'applications métier sur mesure](/services/developpement-application-mobile) est la décision économiquement rationnelle.
 
 ## Tableau comparatif : no-code vs sur-mesure sur 6 critères
 
@@ -173,7 +173,7 @@ Oui, et c'est souvent la trajectoire la plus rationnelle. Le no-code sert à val
 
 No-code pour tester, sur-mesure pour durer. Les vrais arbitrages ne sont pas la vitesse versus la qualité : c'est la complexité métier, l'hébergement des données (LPD), et le risque de te retrouver dépendant d'une plateforme qui change ses règles sans te demander ton avis. Si tu en es à la phase 3, ou si tu veux éviter d'y arriver par défaut après 18 mois de bricolage no-code, le bon moment pour en parler, c'est maintenant.
 
-[Discuter de ton projet d'application sur mesure →](/services/developpement-mvp?utm_source=blog&utm_medium=article&utm_campaign=no-code-vs-developpement-sur-mesure)
+[Discuter de ton projet d'application sur mesure →](/services/developpement-application-mobile?utm_source=blog&utm_medium=article&utm_campaign=no-code-vs-developpement-sur-mesure)
 
 ---
 

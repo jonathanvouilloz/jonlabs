@@ -36,6 +36,14 @@
     { "source": "/services/automatisation", "destination": "/consultant-ia#automatisation", "permanent": true },
     { "source": "/services/automatisation/", "destination": "/consultant-ia#automatisation", "permanent": true },
     { "source": "/services/integration-outils", "destination": "/consultant-ia#integration-outils", "permanent": true },
-    { "source": "/services/integration-outils/", "destination": "/consultant-ia#integration-outils", "permanent": true }
+    { "source": "/services/integration-outils/", "destination": "/consultant-ia#integration-outils", "permanent": true },
+    { "source": "/services/developpement-mvp", "destination": "/services/developpement-application-mobile", "permanent": true },
+    { "source": "/services/developpement-mvp/", "destination": "/services/developpement-application-mobile", "permanent": true },
+    { "source": "/services/validation-idee", "destination": "/services", "permanent": true },
+    { "source": "/services/validation-idee/", "destination": "/services", "permanent": true },
+    { "source": "/services/outils-sur-mesure", "destination": "/consultant-ia", "permanent": true },
+    { "source": "/services/outils-sur-mesure/", "destination": "/consultant-ia", "permanent": true },
+    { "source": "/services/developpeur-wordpress", "destination": "/services/creation-site-web", "permanent": true },
+    { "source": "/services/developpeur-wordpress/", "destination": "/services/creation-site-web", "permanent": true }
   ]
 }

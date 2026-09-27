@@ -6,6 +6,7 @@ import Footer from "../components/Footer.astro";
 import FlowDiagram from "../components/FlowDiagram.astro";
 import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema, getServiceItemSchema } from "../lib/seo";
 import { SITE_URL, localBusinessData } from "../data/schema";
+import { pricing, chf } from "../data/pricing";
 
 // ============================================
 // SEO META
@@ -24,7 +25,7 @@ const faqs = [
   },
   {
     question: "Combien ça coûte, concrètement ?",
-    answer: "Un cadrage + un agent simple part de CHF 2'500 à 4'000 selon le nombre de tâches. Un agent métier intégré à plusieurs outils (CRM, boîte mail, facturation) se situe entre CHF 6'000 et 15'000. À cela s'ajoute un coût récurrent de CHF 50 à 150 par mois (hébergement + API du modèle de langage). Tout est affiché sur cette page, sans devis-surprise."
+    answer: "La mise en place démarre à CHF 1'500 pour un agent sur une tâche précise. Si l'agent doit gérer plusieurs tâches et plusieurs outils, c'est sur devis. Ensuite, l'agent tourne chez Infomaniak, en Suisse, pour environ CHF 10 à 40 par mois, que tu paies directement à l'hébergeur."
   },
   {
     question: "Combien de temps avant que l'agent tourne ?",
@@ -142,8 +143,8 @@ const casUsage = [
 // ============================================
 const paliers = [
   {
-    nom: "Cadrage + agent simple",
-    prix: "CHF 2'500 – 4'000",
+    nom: "Agent simple",
+    prix: `Dès CHF ${chf(pricing.agentIA.from)}`,
     tag: "Pour démarrer",
     highlight: false,
     pour: "Une tâche précise qui te mange du temps chaque semaine.",
@@ -155,7 +156,7 @@ const paliers = [
   },
   {
     nom: "Agent métier intégré",
-    prix: "CHF 6'000 – 15'000",
+    prix: "Sur devis",
     tag: "Le plus demandé",
     highlight: true,
     pour: "Plusieurs tâches et plusieurs outils à connecter.",
@@ -170,8 +171,8 @@ const paliers = [
 // Le fonctionnement mensuel n'est pas une offre : c'est ce que coûte l'agent
 // une fois en route. Il sortait en 3e carte de même poids et brouillait le choix.
 const fonctionnement = {
-  prix: "CHF 50 – 150 / mois",
-  detail: "Hébergement + API du modèle de langage, facturée à l'usage. Fourchette basse pour un volume PME classique, sans engagement de durée."
+  prix: pricing.agentIA.runningCost,
+  detail: "Hébergement en Suisse chez Infomaniak, payé directement à l'hébergeur. Sans engagement de durée."
 };
 
 // ============================================
@@ -347,8 +348,7 @@ const liens = [
         <p class="co-eyebrow" data-animate>03 — L'offre</p>
         <h2 class="hm-h2" data-animate data-delay="0.1">Des <span class="co-ser">prix affichés</span>, en CHF.</h2>
         <p class="co-mut hm-lead" data-animate data-delay="0.15">
-          Pas de devis-mystère à réclamer par e-mail. Tu vois les fourchettes, le format de cadrage
-          et le délai avant de me contacter.
+          Tu vois le prix de départ et le coût mensuel avant de me contacter.
         </p>
       </div>
 

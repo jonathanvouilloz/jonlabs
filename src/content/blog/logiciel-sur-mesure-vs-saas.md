@@ -188,7 +188,7 @@ OUI : continue à Q4.
 OUI sans risque légal : reste sur le SaaS si le reste est OK.
 NON ou INCERTAIN : le risque LPD s'ajoute à l'argument sur-mesure.
 
-**Si Q2 et Q3 sont tous les deux OUI** : une étude sur-mesure est recommandée. C'est exactement ce que je propose via le [développement d'applications métier sur mesure](/services/developpement-mvp), une analyse de faisabilité avant tout engagement.
+**Si Q2 et Q3 sont tous les deux OUI** : une étude sur-mesure est recommandée. C'est exactement ce que je propose via le [développement d'applications métier sur mesure](/services/developpement-application-mobile), une analyse de faisabilité avant tout engagement.
 
 <!-- TODO:image schema/diagram — Arbre de décision SaaS vs logiciel sur mesure en 4 questions — brief: src/content/blog/.briefs/logiciel-sur-mesure-vs-saas.md#image-4 -->
 

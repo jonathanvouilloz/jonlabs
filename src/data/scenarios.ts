@@ -25,7 +25,7 @@ export const scenarios: Scenario[] = [
     title: 'Site obsolète',
     subtitle: 'Design 2015, pas responsive',
     pillar: 'web',
-    scrollTo: 'web-outils',
+    scrollTo: 'site-web',
     color: 'rgba(0, 217, 163,0.15)',
     messages: [
       { speaker: 'client', text: 'Mon site date de 2015, il est moche, pas responsive... mais refaire un site ça coûte une blinde non ?' },
@@ -48,7 +48,7 @@ export const scenarios: Scenario[] = [
     title: 'Pas de présence en ligne',
     subtitle: 'Tout passe par le bouche-à-oreille',
     pillar: 'web',
-    scrollTo: 'web-outils',
+    scrollTo: 'site-web',
     color: 'rgba(0, 217, 163,0.15)',
     messages: [
       { speaker: 'client', text: 'Je n\'ai pas de site, tout passe par le bouche-à-oreille... mais est-ce que j\'en ai vraiment besoin ?' },
@@ -73,7 +73,7 @@ export const scenarios: Scenario[] = [
     title: 'Outils désynchronisés',
     subtitle: 'Notion, Sheets, CRM... rien ne se parle',
     pillar: 'auto',
-    scrollTo: 'web-outils',
+    scrollTo: 'ia',
     color: 'rgba(0, 217, 163, 0.15)',
     messages: [
       { speaker: 'client', text: 'J\'ai Notion, Google Sheets, mon CRM, ma compta... rien ne se parle et je perds un temps fou.' },
@@ -96,7 +96,7 @@ export const scenarios: Scenario[] = [
     title: 'Tâches chronophages',
     subtitle: 'Relances, rapports, copier-coller...',
     pillar: 'auto',
-    scrollTo: 'web-outils',
+    scrollTo: 'ia',
     color: 'rgba(0, 217, 163, 0.15)',
     messages: [
       { speaker: 'client', text: 'Je passe des heures chaque semaine sur des trucs bêtes : relances, rapports, copier-coller...' },
@@ -112,47 +112,39 @@ export const scenarios: Scenario[] = [
     ]
   },
 
-  // Pilier 3: Validation
+  // Pilier 3: Visibilité & app
   {
-    id: 'idea-validation',
-    emoji: '💡',
-    title: 'Idée à valider',
-    subtitle: 'Pas sûr que les gens vont payer',
-    pillar: 'validation',
-    scrollTo: 'web-outils',
+    id: 'invisible-google',
+    emoji: '',
+    title: 'Invisible sur Google',
+    subtitle: 'Les clients trouvent mes concurrents',
+    pillar: 'web',
+    scrollTo: 'seo-local',
     color: 'rgba(0, 168, 125,0.15)',
     messages: [
-      { speaker: 'client', text: 'J\'ai une idée de produit/service mais je sais pas si les gens vont payer pour ça.' },
-      { speaker: 'jon', text: 'Bonne question à se poser AVANT de développer. Pas après 6 mois de travail.' },
-      { speaker: 'client', text: 'Donc faut que je construise un prototype ?' },
-      { speaker: 'jon', text: 'Non. Faut que tu testes l\'intérêt avant de construire quoi que ce soit. Une landing page qui explique ton offre + un peu de pub ciblée. Tu vois si les gens cliquent, s\'inscrivent, demandent plus d\'infos.' },
-      { speaker: 'client', text: 'Mais j\'ai rien à montrer...' },
-      { speaker: 'jon', text: 'T\'as pas besoin d\'un produit fini. Tu vends la promesse, tu mesures l\'intérêt. Si personne ne clique, t\'as économisé des mois de dev. Si ça mord, tu construis en confiance.' },
-      { speaker: 'client', text: 'C\'est pas un peu de la triche ?' },
-      { speaker: 'jon', text: 'C\'est du lean startup. Toutes les boîtes qui réussissent font ça. Valider avant d\'investir.' },
-      { speaker: 'client', text: 'Délai et budget ?' },
-      { speaker: 'jon', text: '1 semaine pour la landing page. Budget pub à définir ensemble (quelques centaines de francs suffisent pour un premier test).' }
+      { speaker: 'client', text: 'Quand on cherche mon métier dans ma ville, je n\'apparais pas. Mes concurrents, si.' },
+      { speaker: 'jon', text: 'Dans 9 cas sur 10, ça se joue sur deux choses : ta fiche Google et quelques pages de ton site.' },
+      { speaker: 'client', text: 'Et ça coûte combien ?' },
+      { speaker: 'jon', text: 'CHF 390 pour tout remettre d\'aplomb, puis CHF 199 par mois pour le suivi. Sans engagement.' },
+      { speaker: 'client', text: 'Ça prend combien de temps ?' },
+      { speaker: 'jon', text: 'Les premiers effets se voient souvent en quelques semaines sur Google Maps. Le site suit en 2-3 mois.' }
     ]
   },
   {
-    id: 'mvp-urgent',
-    emoji: '🚀',
-    title: 'MVP urgent',
-    subtitle: '3 semaines pour montrer quelque chose',
+    id: 'app-idea',
+    emoji: '',
+    title: 'Une idée d\'app',
+    subtitle: 'Je ne sais pas par où commencer',
     pillar: 'validation',
-    scrollTo: 'web-outils',
+    scrollTo: 'app-mobile',
     color: 'rgba(0, 168, 125,0.15)',
     messages: [
-      { speaker: 'client', text: 'J\'ai 3 semaines pour montrer quelque chose à des investisseurs / partenaires / premiers clients.' },
-      { speaker: 'jon', text: 'Faisable. Mais faut être clair sur ce qu\'on livre : un prototype fonctionnel qui prouve le concept, pas un produit fini.' },
-      { speaker: 'client', text: 'Ça va être bancal...' },
-      { speaker: 'jon', text: 'Non, ça va être ciblé. On identifie LA fonctionnalité clé qui démontre ta valeur. Le reste, c\'est du décor pour plus tard.' },
-      { speaker: 'client', text: 'Et si on me demande des features qui sont pas là ?' },
-      { speaker: 'jon', text: 'Tu réponds "c\'est prévu dans la roadmap." Tout le monde sait qu\'un MVP c\'est une V1. Ce qu\'on veut voir, c\'est que le cœur fonctionne.' },
-      { speaker: 'client', text: 'C\'est quoi le process ?' },
-      { speaker: 'jon', text: 'Semaine 1 : on définit le scope minimal ensemble. Semaine 2-3 : je développe, tu testes au fur et à mesure. À la fin t\'as un truc que tu peux montrer et utiliser.' },
-      { speaker: 'client', text: 'Et après le MVP ?' },
-      { speaker: 'jon', text: 'Soit on continue ensemble pour la vraie V1, soit tu repars avec une base solide et documentée. Pas de dépendance forcée.' }
+      { speaker: 'client', text: 'J\'ai une idée d\'application pour mes clients, mais je n\'y connais rien en technique.' },
+      { speaker: 'jon', text: 'C\'est normal, c\'est mon travail. Toi, tu connais ton métier et tes clients.' },
+      { speaker: 'client', text: 'Il faut tout prévoir dès le départ ?' },
+      { speaker: 'jon', text: 'Non. On garde l\'essentiel pour une première version, on la met entre les mains de vrais utilisateurs, puis on ajoute.' },
+      { speaker: 'client', text: 'Et le budget ?' },
+      { speaker: 'jon', text: 'Ça dépend vraiment de l\'app. On en parle 30 minutes et je te fais un devis clair.' }
     ]
   }
 ];
@@ -177,20 +169,18 @@ export interface ServiceSection {
 
 export const serviceSections: ServiceSection[] = [
   {
-    id: 'web-outils',
-    title: 'Sites Web & Applications Sur-Mesure',
-    accroche: `Sites vitrines, MVP et outils internes. Du one-page qui convertit à l'application métier pour les PME suisses.`,
+    id: 'site-web',
+    title: 'Développement de site web',
+    accroche: `Un site rapide, clair et trouvable sur Google. Dès CHF 750, devis sur demande.`,
     subServices: [
       {
         id: 'creation-site',
         title: 'Création de site',
-        description: 'Un site vitrine optimisé SEO qui travaille pour toi 24/7. Hébergement en Suisse ou optimisé mondial.',
+        description: 'Un site vitrine qui explique ce que tu fais et donne envie de te contacter.',
         features: [
-          'Structure claire : qui tu es, ce que tu fais, comment te contacter',
-          'Optimisé pour Google dès le jour 1',
-          'Référencement local pour capter les clients près de chez toi',
-          'Pas de maintenance complexe, tu te concentres sur ton métier',
-          'Évolutif : blog, portfolio, pages supplémentaires si besoin'
+          'Design sur mesure, lisible sur mobile',
+          'Optimisé pour Google dès la mise en ligne',
+          'Tu modifies tes textes toi-même'
         ],
         ctaText: 'En savoir plus',
         link: '/services/creation-site-web'
@@ -198,106 +188,113 @@ export const serviceSections: ServiceSection[] = [
       {
         id: 'developpeur-webflow',
         title: 'Développeur Webflow',
-        description: 'Création, refonte et e-commerce sur Webflow. Un site que tu peux éditer toi-même, sans dépendre de personne.',
+        description: 'Création ou reprise de site Webflow, que ton équipe gère en autonomie.',
         features: [
-          'Site Webflow sur-mesure, pas un template recyclé',
-          'E-commerce Webflow : conseil honnête sur ce qui tient la route',
-          'SEO et performance intégrés dès le build',
-          'Formation à l\'éditeur Webflow incluse'
+          'Site Webflow propre et rapide',
+          'Formation à l\'éditeur incluse',
+          'Reprise d\'un site Webflow existant'
         ],
         ctaText: 'En savoir plus',
         link: '/services/developpeur-webflow'
-      },
-      {
-        id: 'developpeur-wordpress',
-        title: 'Freelance WordPress',
-        description: 'Création de site WordPress propre, refonte de site lent, ou migration vers une stack moderne.',
-        features: [
-          'Création : thème léger sur-mesure, pas d\'usine à gaz',
-          'Refonte : ton site WordPress qui rame redevient rapide',
-          'Migration : vers une stack moderne sans perdre ton référencement',
-          'Maintenance optionnelle, sans dépendance forcée'
-        ],
-        ctaText: 'En savoir plus',
-        link: '/services/developpeur-wordpress'
-      },
-      {
-        id: 'mvp-rapide',
-        title: 'Développement MVP',
-        description: 'Une première version fonctionnelle de ton app pour convaincre investisseurs ou premiers clients.',
-        features: [
-          'Focus sur LA fonctionnalité clé qui prouve ta valeur',
-          'Itérations rapides basées sur les retours terrain',
-          'Livrable démontrable à des investisseurs/partenaires/clients',
-          'Base solide pour continuer le développement'
-        ],
-        ctaText: 'En savoir plus',
-        link: '/services/developpement-mvp'
-      },
+      }
+    ],
+    ctaText: 'Parler de mon site'
+  },
+  {
+    id: 'app-mobile',
+    title: 'Application mobile',
+    accroche: `Une app iPhone et Android pour tes clients ou ton équipe. Sur devis.`,
+    subServices: [
       {
         id: 'application-mobile',
         title: 'Application mobile',
-        description: 'Applications iOS et Android pour PME et startups romandes. Natif, Flutter, React Native ou PWA selon ton besoin réel.',
+        description: 'De l\'idée à la publication sur l\'App Store et Google Play.',
         features: [
-          'Le bon choix technique selon ton usage, pas selon la mode',
-          'Pas de tunnel de 6 mois : on livre par itérations',
-          'En direct avec le dev, sans chef de projet intermédiaire',
-          'Devis clair en CHF, à partir de 10 000–15 000 pour une app simple'
+          'On commence par l\'essentiel, on ajoute ensuite',
+          'Un seul interlocuteur, du début à la fin',
+          'Publication sur les stores comprise'
         ],
         ctaText: 'En savoir plus',
         link: '/services/developpement-application-mobile'
-      },
-      {
-        id: 'outils-mesure',
-        title: 'Outils sur mesure',
-        description: 'Applications et tableaux de bord adaptés à tes besoins spécifiques.',
-        features: [
-          'Tableau de bord centralisé : toutes tes données business en un coup d\'œil',
-          'Outils internes : gestion de projets, suivi clients, processus métier',
-          'Interface simple pensée pour toi et ton équipe',
-          'Connexion à tes outils existants (CRM, compta, emails...)'
-        ],
-        ctaText: 'En savoir plus',
-        link: '/services/outils-sur-mesure'
       }
     ],
-    ctaText: 'Lancer mon projet web'
+    ctaText: 'Parler de mon app'
   },
   {
     id: 'seo-local',
-    title: 'Référencement local & Fiche Google',
-    accroche: `Sois visible quand on te cherche à Genève. Référencement local pour le site et gestion de la fiche Google Business Profile.`,
+    title: 'Référencement local',
+    accroche: `Être trouvé quand on te cherche près de chez toi : ton site et ta fiche Google. CHF 390 de mise en place, puis CHF 199/mois.`,
     subServices: [
       {
         id: 'referencement-local',
         title: 'Référencement local',
-        description: 'Passe d\'invisible à #1 sur Google. Stratégie de référencement local pour PME à Genève.',
+        description: 'Ton site optimisé pour remonter sur les recherches de ta ville.',
         features: [
-          'Audit de référencement complet + plan d\'action',
-          'Optimisation technique (Lighthouse 90+)',
-          'Contenu localisé qui attire tes clients',
-          'Google Business Profile optimisé',
-          'Rapports mensuels clairs'
+          'Audit et corrections techniques',
+          'Pages et contenus pensés pour ta zone',
+          'Suivi mensuel, sans engagement'
         ],
         ctaText: 'En savoir plus',
         link: '/services/referencement-local'
       },
       {
         id: 'gestion-fiche-google',
-        title: 'Gestion fiche Google',
-        description: 'Confie-moi la gestion de ta fiche Google Business Profile : création, optimisation, posts hebdomadaires, gestion des avis.',
+        title: 'Fiche Google',
+        description: 'Ta fiche Google Business Profile complète, à jour et active.',
         features: [
-          'Création ou reprise de ta fiche existante',
-          'Optimisation complète (catégories, attributs, photos)',
-          'Posts hebdomadaires pour rester visible',
-          'Gestion des avis clients',
-          'Forfait unique CHF 300/mois, sans engagement'
+          'Optimisation complète de la fiche',
+          'Publications et réponses aux avis',
+          'Compris dans le suivi à CHF 199/mois'
         ],
         ctaText: 'En savoir plus',
         link: '/services/gestion-fiche-google'
       }
     ],
     ctaText: 'Booster ma visibilité locale'
+  },
+  {
+    id: 'ia',
+    title: 'IA pour votre entreprise',
+    accroche: `Moins de tâches répétitives, plus de temps pour le vrai travail. Agents IA dès CHF 1'500, formation sur devis.`,
+    subServices: [
+      {
+        id: 'agent-hermes',
+        title: 'Agent IA Hermès',
+        description: 'Un assistant IA branché sur tes outils : e-mails, relances, documents.',
+        features: [
+          'Dès CHF 1\'500',
+          'Hébergé en Suisse chez Infomaniak',
+          'Tu valides avant chaque envoi'
+        ],
+        ctaText: 'En savoir plus',
+        link: '/hermes'
+      },
+      {
+        id: 'consultant-ia',
+        title: 'Automatisation & intégration',
+        description: 'On relie tes outils entre eux et on automatise ce qui te fait perdre du temps.',
+        features: [
+          'On part de ta tâche la plus pénible',
+          'Tes outils actuels, pas de changement forcé',
+          'Sur devis'
+        ],
+        ctaText: 'En savoir plus',
+        link: '/consultant-ia'
+      },
+      {
+        id: 'formation-ia',
+        title: 'Formation IA',
+        description: 'Pour une équipe ou en individuel : utiliser l\'IA au quotidien, sans risque.',
+        features: [
+          'Adaptée à ton métier',
+          'Entreprise ou particulier',
+          'Devis sur mesure'
+        ],
+        ctaText: 'En savoir plus',
+        link: '/services/formation-ia-equipe'
+      }
+    ],
+    ctaText: 'Parler de mon projet IA'
   }
 ];
 

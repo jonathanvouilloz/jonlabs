@@ -42,7 +42,6 @@ export const mainNav: NavSection[] = [
           { label: 'Création de site', href: '/services/creation-site-web', icon: 'ri-layout-line' },
           { label: 'Refonte de site', href: '/services/refonte-site-web', icon: 'ri-magic-line' },
           { label: 'Développeur Webflow', href: '/services/developpeur-webflow', icon: 'ri-pencil-ruler-2-line' },
-          { label: 'Freelance WordPress', href: '/services/developpeur-wordpress', icon: 'ri-wordpress-line' },
         ],
       },
       {
@@ -50,16 +49,13 @@ export const mainNav: NavSection[] = [
         items: [
           { label: 'Référencement local', href: '/services/referencement-local', icon: 'ri-map-pin-line' },
           { label: 'Gestion fiche Google', href: '/services/gestion-fiche-google', icon: 'ri-store-2-line' },
-          { label: 'Site + SEO dès 1\'490 CHF', href: '/tarifs', icon: 'ri-price-tag-3-line' },
+          { label: 'Tarifs', href: '/tarifs', icon: 'ri-price-tag-3-line' },
         ],
       },
       {
-        title: 'Apps & sur-mesure',
+        title: 'Applications',
         items: [
           { label: 'Application mobile', href: '/services/developpement-application-mobile', icon: 'ri-smartphone-line' },
-          { label: 'Développement MVP', href: '/services/developpement-mvp', icon: 'ri-rocket-line' },
-          { label: 'Validation d\'idée', href: '/services/validation-idee', icon: 'ri-lightbulb-flash-line' },
-          { label: 'Outils sur mesure', href: '/services/outils-sur-mesure', icon: 'ri-tools-line' },
         ],
       },
     ],

@@ -6,7 +6,7 @@
 //
 // HARD-PRESERVE : Schema.org (serviceSchemas/breadcrumb/FAQ), câblage Web3Forms
 // (#creation-form, access_key + hidden inputs, tous les name=, honeypot, JS submit),
-// prix exacts (950 / 1'650 / Sur devis), maillage géo (villesFrontalieres +
+// prix via src/data/pricing.ts (dès 750 / Sur devis), maillage géo (villesFrontalieres +
 // developpeur-web-freelance-geneve), tous les liens SEO internes (cluster/ressources).
 
 import '../../styles/global.css';
@@ -23,6 +23,7 @@ import { getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
 
 // Maillage géo (source de vérité unique des villes)
 import { villesFrontalieres } from '../../data/villes-frontalieres';
+import { pricing, chf } from "../../data/pricing";
 
 // SEO Data
 const seoData = {
@@ -168,48 +169,33 @@ const techStack = [
     { name: "Site sur-mesure", description: "Performance maximale et contrôle total. Pour les besoins spécifiques.", icon: "ri-code-s-slash-line", idealFor: "E-commerce, applications web, besoins techniques spécifiques" }
 ];
 
-// Pricing plans
+// Pricing plans — prix : src/data/pricing.ts
 const pricingPlans = [
     {
-        name: "Site Vitrine",
-        price: "950",
+        name: "Site vitrine",
+        price: chf(pricing.siteWeb.from),
         priceLabel: "À partir de",
         features: [
-            "1 à 5 pages",
-            "Design sur-mesure",
-            "Responsive (mobile + desktop)",
-            "Optimisation Google de base",
+            "Design sur mesure, adapté au mobile",
+            "Optimisé pour Google",
             "Formulaire de contact",
-            "Hébergement 1ère année inclus"
+            "Blog ou pages en plus si besoin",
+            "Devis ferme après un premier appel"
         ],
-        ideal: "Artisans, indépendants, consultants qui veulent une présence en ligne simple et efficace.",
-        highlighted: false
-    },
-    {
-        name: "Site Vitrine + Blog",
-        price: "1'650",
-        priceLabel: "À partir de",
-        features: [
-            "Tout ce qui est inclus dans Site Vitrine",
-            "Section blog intégrée",
-            "Système de publication simple",
-            "Optimisation SEO avancée",
-            "Formation à la rédaction web"
-        ],
-        ideal: "Coachs, thérapeutes, experts qui veulent démontrer leur expertise et améliorer leur référencement.",
+        ideal: "Indépendants, artisans et PME qui veulent un site pro, simple et efficace.",
         highlighted: true
     },
     {
-        name: "E-commerce & Applications",
+        name: "E-commerce & sur mesure",
         price: "Sur devis",
         priceLabel: "",
         features: [
             "Boutique en ligne",
             "Paiement sécurisé (Stripe, TWINT)",
-            "Gestion des stocks",
-            "Fonctionnalités sur-mesure"
+            "Réservation, espace client…",
+            "Fonctionnalités sur mesure"
         ],
-        ideal: "Commerçants, créateurs, entreprises avec des besoins spécifiques.",
+        ideal: "Commerçants et entreprises avec des besoins spécifiques.",
         highlighted: false
     }
 ];
@@ -447,7 +433,7 @@ const budgetOptions = [
             <div class="cr-tiers" data-animate-stagger>
                 {pricingPlans.map((plan) => (
                     <div class={`cr-tier ${plan.highlighted ? 'cr-tier--reco' : ''}`} data-animate-item>
-                        {plan.highlighted && <span class="co-badge co-badge--solid cr-tier-reco">Populaire</span>}
+                        {plan.highlighted && <span class="co-badge co-badge--solid cr-tier-reco">Le plus demandé</span>}
                         <h3 class="cr-tier-name">{plan.name}</h3>
                         <div class="cr-tier-price">
                             {plan.priceLabel && <span class="cr-tier-pricelabel">{plan.priceLabel}</span>}
@@ -477,7 +463,7 @@ const budgetOptions = [
                         <li>Délai souhaité (option express disponible)</li>
                     </ul>
                 </div>
-                <p class="cr-pricenote-pay"><i class="ri-bank-card-line"></i> <strong>Facilités de paiement :</strong> paiement en 2-3 fois possible selon le montant.</p>
+                <p class="cr-pricenote-pay"><i class="ri-bank-card-line"></i> <strong>Paiement :</strong> 50 % à la commande, 50 % à la livraison.</p>
                 <p class="cr-note-inline"><strong>Pas sûr de la formule ?</strong> On en discute ensemble. Premier échange gratuit et sans engagement.</p>
                 <p class="cr-note-inline">
                     <strong>À lire avant de te décider :</strong>
@@ -787,7 +773,7 @@ const budgetOptions = [
     .co-root .cr-quote figcaption { margin-top: 16px; font-size: 14px; color: var(--muted); }
 
     /* ── Tarifs ── */
-    .cr-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; margin-top: 36px; }
+    .cr-tiers { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; align-items: start; margin-top: 36px; }
     .cr-tier { position: relative; display: flex; flex-direction: column; gap: 18px; padding: 30px 26px; background: var(--surface); border: 1px solid var(--line-2); }
     .cr-tier--reco { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
     .cr-tier-reco { position: absolute; top: -12px; left: 26px; z-index: 4; }

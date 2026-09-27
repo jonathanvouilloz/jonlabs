@@ -6,7 +6,7 @@
 //
 // HARD-PRESERVE : Schema.org (serviceSchemas/breadcrumb/FAQ + ordre), câblage
 // Web3Forms (#gmb-form, access_key + hidden inputs, tous les name=, honeypot, JS submit
-// + validation situation), prix exacts (CHF 590 setup / CHF 300 mensuel), tous les
+// + validation situation), prix via src/data/pricing.ts (CHF 390 setup / CHF 199 mensuel), tous les
 // liens SEO internes (cluster blog GMB, /services/referencement-local).
 
 import '../../styles/global.css';
@@ -17,10 +17,11 @@ import Footer from '../../components/Footer.astro';
 // Schema.org
 import { serviceSchemas, SITE_URL, localBusinessData } from '../../data/schema';
 import { getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
+import { pricing, chf } from "../../data/pricing";
 
 const seoData = {
     title: "Gestion de fiche Google Business à Genève",
-    description: "Gérez votre fiche Google Business à Genève : optimisation, posts, avis. Forfait tout inclus CHF 300/mois, sans engagement. 📩 Devis gratuit"
+    description: "Gérez votre fiche Google Business à Genève : optimisation, posts, avis. Setup CHF 390, puis CHF 199/mois sans engagement. 📩 Devis gratuit"
 };
 
 const breadcrumb = getBreadcrumbSchema([
@@ -201,7 +202,7 @@ const faqs = [
     },
     {
         question: "Et si j'ai plusieurs établissements ?",
-        answer: "Le forfait à CHF 300/mois couvre 1 fiche. Pour 2-5 établissements, on passe à un forfait multi-locations dégressif. Pour 6+, on bascule sur Google Business Profile API pour automatiser une partie (devis sur mesure)."
+        answer: "Le suivi à CHF 199/mois couvre 1 fiche. Pour 2-5 établissements, on passe à un forfait multi-locations dégressif. Pour 6+, on bascule sur Google Business Profile API pour automatiser une partie (devis sur mesure)."
     },
     {
         question: "Vous travaillez avec quels secteurs ?",
@@ -495,7 +496,7 @@ const clusterGroups = [
                     <h3 class="gm-tier-name"><i class="ri-tools-line"></i> Setup unique</h3>
                     <p class="gm-tier-sub">Le travail de fond — fait une seule fois, propre.</p>
                     <div class="gm-tier-price">
-                        <b>CHF 590</b>
+                        <b>CHF {chf(pricing.seoLocal.setup)}</b>
                         <span class="gm-tier-cur">Une fois, en début de mission</span>
                     </div>
                     <ul class="co-list co-list--check gm-tier-features">
@@ -514,7 +515,7 @@ const clusterGroups = [
                     <h3 class="gm-tier-name"><i class="ri-loop-left-line"></i> Mensuel tout inclus</h3>
                     <p class="gm-tier-sub">La cadence qui transforme une fiche en actif.</p>
                     <div class="gm-tier-price">
-                        <b>CHF 300<span class="gm-tier-per">/mois</span></b>
+                        <b>CHF {chf(pricing.seoLocal.monthly)}<span class="gm-tier-per">/mois</span></b>
                         <span class="gm-tier-cur">Sans engagement, 1 mois de préavis</span>
                     </div>
                     <ul class="co-list co-list--check gm-tier-features">
@@ -534,7 +535,7 @@ const clusterGroups = [
                 </p>
                 <p class="gm-pricenote-line">
                     <i class="ri-information-line"></i>
-                    <span><strong>Pour aller plus loin :</strong> ce service couvre la fiche et son écosystème direct. Pour du <a href="/services/referencement-local" class="gm-inline">SEO local complet</a> (contenu blog, citations, netlinking), c'est un autre périmètre.</span>
+                    <span><strong>Votre site compris :</strong> le même forfait couvre aussi l'optimisation locale de votre site. Détails sur la page <a href="/services/referencement-local" class="gm-inline">référencement local</a>.</span>
                 </p>
             </div>
         </section>

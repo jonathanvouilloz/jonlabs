@@ -22,12 +22,13 @@ import illuFreelance from "../assets/illustrations/freelance-geneve.webp";
 import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from "../lib/seo";
 import { SITE_URL, localBusinessData } from "../data/schema";
 import { proofLecureux } from "../data/proof-lecureux";
+import { pricing, chf } from "../data/pricing";
 
 // ============================================
 // SEO META
 // ============================================
 const pageTitle = "Développeur web freelance à Genève";
-const pageDescription = "Développeur web freelance à Genève : sites sur mesure, MVP, refonte. 8 ans d'expérience, code propre, devis transparent pour PME romandes. ☎️ 078 944 77 07";
+const pageDescription = "Développeur web freelance à Genève : sites sur mesure, apps mobiles, SEO local. 8 ans d'expérience, code propre, devis transparent pour PME romandes. ☎️ 078 944 77 07";
 const pageUrl = `${SITE_URL}/developpeur-web-freelance-geneve`;
 
 // ============================================
@@ -64,7 +65,7 @@ const freelanceVsAgency = [
     type: "freelance",
     icon: "ri-rocket-2-line",
     title: "Agilité",
-    description: "Décisions rapides, adaptations en cours de route, MVP en 2-3 semaines. Pas de comité à convaincre."
+    description: "Décisions rapides, adaptations en cours de route. Pas de comité à convaincre."
   },
   {
     type: "freelance",
@@ -99,43 +100,36 @@ const freelanceVsAgency = [
 ];
 
 // ============================================
-// SERVICES (5 cards)
+// SERVICES (4 cards) — prix : src/data/pricing.ts
 // ============================================
 const services = [
   {
     icon: "ri-window-line",
     title: "Création de site web",
-    description: "Site vitrine sur-mesure pour indépendants et PME. Design unique, performance Google, livré en 3-4 semaines.",
-    price: "Dès CHF 1'490",
+    description: "Site vitrine sur mesure pour indépendants et PME. Rapide, clair, trouvable sur Google.",
+    price: pricing.siteWeb.display,
     href: "/services/creation-site-web"
   },
   {
-    icon: "ri-refresh-line",
-    title: "Refonte de site web",
-    description: "Modernisation d'un site existant. Migration depuis WordPress, Wix ou Squarespace vers une stack rapide et maintenable.",
-    price: "Dès CHF 2'500",
-    href: "/services/refonte-site-web"
-  },
-  {
-    icon: "ri-rocket-line",
-    title: "Développement MVP",
-    description: "Prototype fonctionnel en 2-3 semaines pour tester ton idée auprès de vrais utilisateurs avant de t'engager plus loin.",
-    price: "Dès CHF 4'500",
-    href: "/services/developpement-mvp"
-  },
-  {
-    icon: "ri-tools-line",
-    title: "Outils sur mesure",
-    description: "Applications internes, tableaux de bord, portails clients. Pour automatiser ce qu'Excel ne sait plus faire seul.",
-    price: "Sur devis",
-    href: "/services/outils-sur-mesure"
+    icon: "ri-smartphone-line",
+    title: "Application mobile",
+    description: "Une app iPhone et Android pour tes clients ou ton équipe, de l'idée aux stores.",
+    price: pricing.appMobile.display,
+    href: "/services/developpement-application-mobile"
   },
   {
     icon: "ri-map-pin-2-line",
     title: "Référencement local",
-    description: "SEO local pour exister sur Google quand un Genevois cherche ton métier. Audit, GMB, contenu, technique.",
-    price: "Dès CHF 800/mois",
+    description: "Ton site et ta fiche Google remontent quand un Genevois cherche ton métier.",
+    price: pricing.seoLocal.display,
     href: "/services/referencement-local"
+  },
+  {
+    icon: "ri-robot-2-line",
+    title: "IA en entreprise",
+    description: "Un agent IA qui prend en charge les tâches répétitives : e-mails, relances, documents.",
+    price: pricing.agentIA.display,
+    href: "/consultant-ia"
   }
 ];
 
@@ -235,27 +229,30 @@ const caseStudyStats = proofLecureux.stats;
 // ============================================
 const pricingPlans = [
   {
-    name: "Site vitrine",
-    price: "1'490",
-    priceLabel: "CHF dès",
-    description: "Pour indépendants et artisans qui veulent une présence en ligne propre.",
-    features: ["1 à 5 pages", "Design sur-mesure", "Responsive", "SEO de base", "Hébergement 1 an"],
+    name: "Site web",
+    price: chf(pricing.siteWeb.from),
+    priceLabel: "Dès",
+    unit: "CHF",
+    description: "Pour indépendants et PME qui veulent un site pro, clair et rapide.",
+    features: ["Design sur mesure", "Adapté au mobile", "Optimisé pour Google", "Devis sur demande"],
     highlighted: false
   },
   {
-    name: "Site sur-mesure",
-    price: "4'000",
-    priceLabel: "CHF dès",
-    description: "Pour PME romandes avec contenu, blog, intégrations spécifiques.",
-    features: ["Pages illimitées", "CMS / blog", "SEO avancé", "Intégrations (Stripe, GMB...)", "Formation incluse"],
+    name: "Référencement local",
+    price: chf(pricing.seoLocal.setup),
+    priceLabel: "Setup",
+    unit: `CHF + ${pricing.seoLocal.monthly}/mois`,
+    description: "Pour être trouvé sur Google quand on cherche ton métier à Genève.",
+    features: ["Site optimisé", "Fiche Google suivie", "Réponses aux avis", "Sans engagement"],
     highlighted: true
   },
   {
-    name: "Application web",
-    price: "8'000",
-    priceLabel: "CHF dès",
-    description: "Pour outils internes, MVP, plateformes avec authentification et données.",
-    features: ["Backend custom", "Base de données", "Authentification", "API tiers", "Maintenance évolutive"],
+    name: "App mobile & IA",
+    price: "Sur devis",
+    priceLabel: "",
+    unit: "",
+    description: "Application mobile ou agent IA (dès CHF 1'500) : chiffré selon ton projet.",
+    features: ["Premier appel gratuit", "Devis ferme en CHF", "Un seul interlocuteur"],
     highlighted: false
   }
 ];
@@ -294,7 +291,7 @@ const faqs = [
   },
   {
     question: "Quel est le tarif d'un développeur web freelance à Genève ?",
-    answer: "À Genève, le tarif horaire d'un freelance senior se situe entre CHF 90 et CHF 150 selon l'expérience et la spécialisation. Pour Jon Labs, un site vitrine démarre à CHF 1'490, un site sur-mesure à CHF 4'000, une application web à CHF 8'000. Le devis est toujours forfaitaire (pas au temps passé) pour que tu connaisses le coût total avant de signer."
+    answer: "Chez Jon Labs, un site web démarre à CHF 750, le référencement local coûte CHF 390 de mise en place puis CHF 199 par mois, et un agent IA démarre à CHF 1'500. Les applications mobiles sont chiffrées sur devis. Le devis est forfaitaire : tu connais le coût total avant de signer."
   },
   {
     question: "Combien de temps pour créer un site web ?",
@@ -317,8 +314,8 @@ const faqs = [
     answer: "Pas par défaut. WordPress reste pertinent pour certains cas (gros blog éditorial, équipe habituée), mais sur la plupart des projets de PME romandes, c'est une mauvaise réponse en 2026 : performance Google médiocre, mises à jour permanentes, vulnérabilités, plugins qui se cassent. Je propose des stacks plus rapides et plus sûres dès que c'est possible. Si tu as un site WordPress existant, je peux faire la migration."
   },
   {
-    question: "Comment se passe le paiement (CHF, EUR) ?",
-    answer: "Facturation en CHF par défaut pour les clients suisses, en EUR pour les clients de la zone frontalière française qui le préfèrent. Paiement par virement bancaire ou TWINT. Le calendrier standard : 30% à la signature, 30% à la validation de la maquette, 40% à la mise en ligne. Pour des projets supérieurs à CHF 10'000, on peut découper en plus de tranches."
+    question: "Comment se passe le paiement ?",
+    answer: "Facturation en CHF, par virement bancaire ou TWINT. 50 % à la signature du devis, 50 % à la mise en ligne. Le suivi mensuel du référencement est facturé chaque mois, sans engagement."
   }
 ];
 
@@ -348,7 +345,7 @@ const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
         </h1>
 
         <p class="dfg-hero-lead" data-animate data-delay="0.2">
-          Sites sur-mesure, MVP et refonte pour <strong>PME et indépendants romands</strong>.
+          Sites web, apps mobiles et référencement local pour <strong>PME et indépendants romands</strong>.
           Devis transparent, code propre, performance Google.
         </p>
 
@@ -423,10 +420,10 @@ const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
       <p class="co-eyebrow">02 — Services</p>
       <h2 style="margin-top:var(--space-eyebrow);">Mes services</h2>
       <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-        Du site vitrine au MVP en passant par les outils internes — un <strong>spécialiste développement web Suisse</strong> qui couvre toute la chaîne.
+        Du site vitrine à l'app mobile, en passant par Google et l'IA : un <strong>spécialiste développement web Suisse</strong> qui couvre toute la chaîne.
       </p>
 
-      <div class="dfg-cards" data-animate-stagger>
+      <div class="dfg-cards dfg-cards--2" data-animate-stagger>
         {services.map((service) => (
           <a href={service.href} class="dfg-card co-frame co-frame--reveal" data-animate-item>
             <i class={`${service.icon} dfg-card-icon`} aria-hidden="true"></i>
@@ -490,7 +487,7 @@ const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
         <span class="co-x bl"></span><span class="co-x br"></span>
         <h3 class="dfg-note-title"><i class="ri-question-line"></i> Pourquoi pas WordPress par défaut ?</h3>
         <p class="dfg-note-text">
-          WordPress reste pertinent pour certains cas (gros blog éditorial, équipe déjà formée) — je le propose d'ailleurs en <a href="/services/developpeur-wordpress" class="dfg-inline">création, refonte ou migration WordPress</a> quand c'est justifié. Mais sur la plupart des projets de PME romandes en 2026, une stack moderne (<strong>Astro, Next.js, Svelte</strong>) donne un site plus rapide, plus sûr et moins cher à maintenir sur 3 ans. Pour les CMS visuels, je travaille aussi comme <a href="/services/developpeur-webflow" class="dfg-inline">développeur Webflow</a>.
+          WordPress reste pertinent pour certains cas (gros blog éditorial, équipe déjà formée) — je le propose d'ailleurs en <a href="/services/creation-site-web" class="dfg-inline">création, refonte ou migration WordPress</a> quand c'est justifié. Mais sur la plupart des projets de PME romandes en 2026, une stack moderne (<strong>Astro, Next.js, Svelte</strong>) donne un site plus rapide, plus sûr et moins cher à maintenir sur 3 ans. Pour les CMS visuels, je travaille aussi comme <a href="/services/developpeur-webflow" class="dfg-inline">développeur Webflow</a>.
         </p>
       </div>
     </section>
@@ -530,13 +527,13 @@ const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
           ))}
         </div>
         <p class="co-mut dfg-zone-note">
-          Page dédiée par ville frontalière → tarifs en EUR + spécificités locales
+          Page dédiée par ville frontalière, avec ses spécificités locales
         </p>
       </div>
 
       <p class="co-mut dfg-zone-foot">
         <i class="ri-information-line"></i>
-        Échanges en visio ou en personne selon ta préférence. Facturation en CHF (Suisse) ou EUR (France).
+        Échanges en visio ou en personne selon ta préférence. Facturation en CHF.
       </p>
     </section>
 
@@ -610,7 +607,7 @@ const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
       <p class="co-eyebrow">07 — Tarifs</p>
       <h2 style="margin-top:var(--space-eyebrow);">Combien ça <span class="co-ser">coûte ?</span></h2>
       <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-        Trois fourchettes en CHF pour situer ton projet. Devis personnalisé après notre premier échange.
+        Des prix en CHF pour situer ton projet. Devis ferme après un premier échange gratuit.
       </p>
 
       <div class="dfg-tiers" data-animate-stagger>
@@ -621,7 +618,7 @@ const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
             <p class="dfg-card-text">{plan.description}</p>
             <div class="dfg-tier-price">
               <span class="dfg-tier-pricelabel">{plan.priceLabel}</span>
-              <b>{plan.price}<span class="dfg-tier-cur"> CHF</span></b>
+              <b>{plan.price}{plan.unit && <span class="dfg-tier-cur"> {plan.unit}</span>}</b>
             </div>
             <ul class="co-list co-list--check dfg-tier-features">
               {plan.features.map((feature) => (
@@ -777,6 +774,7 @@ const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
 
   /* ── Grilles de cartes (services / blog) ── */
   .dfg-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: var(--space-block); }
+  .dfg-cards--2 { grid-template-columns: repeat(2, 1fr); }
   .dfg-card {
     position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
     background: var(--surface); border: 1px solid var(--line-2);

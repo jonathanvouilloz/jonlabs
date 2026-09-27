@@ -50,7 +50,7 @@ Avant de comparer les avantages, mettons les chiffres sur la table. Parce que ou
 |E-commerce|CHF 5'000 – 10'000|
 |Taux horaire moyen|CHF 120 – 150/h|
 
-Ces fourchettes valent aussi pour les projets sur CMS : un [freelance WordPress à Genève](/services/developpeur-wordpress) facture la création dès CHF 1'490 et la refonte dès CHF 2'490 — bien en dessous des grilles d'agence pour le même périmètre.
+Ces fourchettes valent aussi pour les projets sur CMS : chez moi, une [création de site web](/services/creation-site-web) démarre à CHF 750, bien en dessous des grilles d'agence pour le même périmètre.
 
 ### Côté agence
 
@@ -185,7 +185,7 @@ Et si ton projet est une **application mobile** plutôt qu'un site web, les arbi
 
 C'est normal. Chaque projet est unique, et parfois il faut en discuter pour y voir clair.
 
-**Tu as une idée mais tu n'es pas sûr qu'elle vaille un site complet ?** Avant d'investir dans un site, tu peux [tester ton concept](/services/validation-idee) avec une landing page et une campagne ciblée. Réponse en 2 semaines.
+**Tu as une idée mais tu n'es pas sûr qu'elle vaille un site complet ?** Avant d'investir dans un site, tu peux [tester ton concept](/services) avec une landing page et une campagne ciblée. Réponse en 2 semaines.
 
 **Ton projet est clair et tu veux passer à l'action ?** La page [création de site web](/services/creation-site-web) détaille comment je travaille en freelance : méthode, délais, formules et tarifs transparents.
 

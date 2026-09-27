@@ -17,7 +17,7 @@ faqs:
   - question: "Combien de temps prend une mise en place complète ?"
     answer: "Compte 1 à 2 semaines de cartographie, 30 jours pour le pilote, puis 8 semaines pour le rollout complet si le pilote est concluant. Soit 3 à 4 mois pour une première automatisation généralisée à l'équipe."
   - question: "Combien ça coûte en francs suisses ?"
-    answer: "Un agent simple cadré se situe généralement entre CHF 2'500 et 4'000. Un agent métier intégré à plusieurs systèmes monte à CHF 6'000-15'000, hors coûts récurrents d'hébergement et de maintenance."
+    answer: "Chez Jon Labs, un agent simple démarre à CHF 1'500. Un agent intégré à plusieurs systèmes est chiffré sur devis. S'y ajoute l'hébergement, environ CHF 10 à 40 par mois en Suisse."
   - question: "Faut-il une équipe technique en interne ?"
     answer: "Non. Un référent qui consacre 10 à 20% de son temps suffit dans une structure de 1 à 15 personnes. Pas besoin d'un service informatique dédié ni d'une DSI."
   - question: "Quels sont les principaux risques d'une mise en place mal cadrée ?"
@@ -68,7 +68,7 @@ En **1985**, une PME suisse passait en moyenne **369 heures par an** sur l'admin
 
 Se lancer sans mesurer, c'est le meilleur moyen de généraliser une automatisation qui ne rapporte rien. La formule de base : (gains moins coût) divisé par coût, avec un coût horaire suisse réaliste entre **60 et 120 CHF/h** selon le profil. Ce chiffre rend le ROI structurellement plus élevé qu'en France, où le coût horaire chargé est nettement plus bas.
 
-Un point d'honnêteté qui manque à la plupart des discours commerciaux : viser une réduction de **70 à 85%** du temps passé, pas 100%. Une automatisation garde toujours une part de supervision, d'exceptions et d'ajustements. Prends un exemple simple : des relances de factures qui prenaient 3 heures par semaine avant automatisation, ramenées à 30 minutes après. Sur une année, à un coût horaire de CHF 70, ça représente un gain qui dépasse largement le coût d'un agent simple à CHF 2'500-4'000, généralement dès les premiers mois. La méthode de calcul complète, avec l'exemple chiffré détaillé, est dans [calculer le gain de temps réel d'une automatisation](/blog/calculer-gain-temps-automatisation).
+Un point d'honnêteté qui manque à la plupart des discours commerciaux : viser une réduction de **70 à 85%** du temps passé, pas 100%. Une automatisation garde toujours une part de supervision, d'exceptions et d'ajustements. Prends un exemple simple : des relances de factures qui prenaient 3 heures par semaine avant automatisation, ramenées à 30 minutes après. Sur une année, à un coût horaire de CHF 70, ça représente un gain qui dépasse largement le coût d'un agent simple (dès CHF 1'500), généralement dès les premiers mois. La méthode de calcul complète, avec l'exemple chiffré détaillé, est dans [calculer le gain de temps réel d'une automatisation](/blog/calculer-gain-temps-automatisation).
 
 Pour voir ce que ça donne en pratique, l'article [ce qu'une PME romande récupère vraiment](/blog/avant-apres-automatisation-pme-romande) présente un cas concret, tableau avant/après en heures et en francs suisses à l'appui. Et si la question qui te bloque est plutôt "combien ça coûte", [le prix réel d'un agent IA en CHF](/blog/prix-agent-ia-automatisation-suisse) donne les fourchettes complètes, cadrage compris.
 
@@ -102,7 +102,7 @@ Compte 1 à 2 semaines de cartographie, 30 jours pour le pilote, puis 8 semaines
 
 ### Combien ça coûte en francs suisses ?
 
-Un agent simple cadré se situe généralement entre **CHF 2'500 et 4'000**. Un agent métier intégré à plusieurs systèmes monte à **CHF 6'000-15'000**. Détail complet dans [le prix réel d'un agent IA en CHF](/blog/prix-agent-ia-automatisation-suisse).
+Chez Jon Labs, un agent simple démarre à **CHF 1'500**. Un agent intégré à plusieurs systèmes est chiffré **sur devis**. Détail complet dans [le prix réel d'un agent IA en CHF](/blog/prix-agent-ia-automatisation-suisse).
 
 ### Faut-il une équipe technique en interne ?
 
