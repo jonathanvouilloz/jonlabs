@@ -157,7 +157,7 @@ Le forfait fixe pour une première expérience : périmètre défini, prix verro
 
 ## Conclusion
 
-Le prix d'un agent IA n'est pas un mystère : CHF 2'500 à 4'000 pour un agent simple, CHF 6'000 à 15'000 pour un agent métier intégré, plus CHF 50 à 150 par mois de coûts récurrents. Ces fourchettes couvrent l'essentiel des projets pour une PME romande qui se lance.
+Le prix d'un agent IA n'est pas un mystère : CHF 2'500 à 4'000 pour un agent simple, CHF 6'000 à 15'000 pour un agent métier intégré, plus CHF 50 à 150 par mois de coûts récurrents. Ces fourchettes couvrent l'essentiel du marché pour une PME romande qui se lance. Chez Jon Labs, un agent [Hermès](/hermes) démarre à CHF 1'500, hébergé en Suisse chez Infomaniak pour environ CHF 10 à 40 par mois.
 
 Si ton projet sort de ces deux profils types, le chiffrage exact dépend des quatre facteurs détaillés plus haut, identifiables en une seule discussion avec un [accompagnement IA pour ta PME](/consultant-ia).
 

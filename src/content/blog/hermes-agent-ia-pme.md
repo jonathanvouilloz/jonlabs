@@ -214,7 +214,7 @@ Hermes Agent est un **agent IA autonome** avec mémoire persistante, produit par
 
 L'outil est jeune, ses arêtes sont encore vives. Mais il est déjà utilisable si tu as les conditions techniques pour le déployer correctement. Si tu hésites, il vaut mieux faire valider ton cas spécifique avant d'investir.
 
-Tu préfères ne pas le déployer toi-même ? Je conçois et j'installe des [agents IA sur mesure pour PME romandes](/hermes) : cadrage, intégration à tes outils, garde-fous et prise en main, avec les prix en CHF affichés.
+Tu préfères ne pas le déployer toi-même ? Je conçois et j'installe des [agents IA sur mesure pour PME romandes](/hermes) : cadrage, intégration à tes outils, garde-fous et prise en main, dès CHF 1'500, hébergés en Suisse chez Infomaniak.
 
 [**Réserver un appel découverte**](/contact?utm_source=blog&utm_medium=article&utm_campaign=hermes-agent-ia-pme)
 

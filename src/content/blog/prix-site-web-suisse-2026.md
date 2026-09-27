@@ -15,7 +15,7 @@ faqs:
   - question: "Combien coûte un site internet en Suisse en 2026 ?"
     answer: "Compte CHF 750 à 1'500 pour un site vitrine freelance sur-mesure (5 à 10 pages), CHF 1'500 à 8'000 pour un e-commerce simple, et CHF 8'000+ pour une application web ou un projet agence. Un template WordPress basique tombe entre CHF 500 et 1'500. Les écarts s'expliquent par la complexité technique, le design custom et la quantité de contenu fourni au départ."
   - question: "Quel est le tarif d'un freelance pour créer un site web en Suisse romande ?"
-    answer: "Un freelance en Suisse romande facture en moyenne CHF 750 à 4'000 pour un site vitrine sur-mesure, contre CHF 5'000 à 15'000 en agence. Chez Jon Labs, je me positionne volontairement bas dans la fourchette : CHF 750 à 1'500 pour un site vitrine livré en 1 semaine. Le tarif horaire moyen d'un freelance suisse en dev web tourne autour de CHF 80 à 120."
+    answer: "Un freelance en Suisse romande facture en moyenne CHF 750 à 4'000 pour un site vitrine sur-mesure, contre CHF 5'000 à 15'000 en agence. Chez Jon Labs, je me positionne volontairement bas dans la fourchette : un site vitrine démarre à CHF 750, avec un devis ferme selon le projet. Le tarif horaire moyen d'un freelance suisse en dev web tourne autour de CHF 80 à 120."
   - question: "Pourquoi les prix varient autant entre freelance et agence web ?"
     answer: "Une agence porte des frais de structure (locaux, chefs de projet, account managers, marges) qu'un freelance n'a pas. Pour un site vitrine identique, l'écart de prix peut aller de 1 à 5. La contrepartie : l'agence offre plus de bras et un process plus formalisé. Le freelance offre du contact direct, de la rapidité et un meilleur rapport qualité/prix sur les projets de moins de CHF 10'000."
   - question: "Combien coûte un site WordPress vs un site sur-mesure ?"
@@ -51,7 +51,7 @@ Réponse longue, avec des fourchettes par type de projet :
 - E-commerce sur-mesure : **CHF 8'000 à 25'000+**
 - Application web ou MVP : **CHF 2'000 à 30'000+**
 
-Chez Jon Labs, je me positionne volontairement bas dans la fourchette freelance : **CHF 750 à 1'500 pour un site vitrine livré en 1 semaine**. Pas parce que je bâcle, mais parce que j'ai éliminé les 80% de bullshit qui font exploser les budgets ailleurs.
+Chez Jon Labs, je me positionne volontairement bas dans la fourchette freelance : **un site vitrine démarre à CHF 750**, avec un devis ferme selon le projet. Pas parce que je bâcle, mais parce que j'ai éliminé les 80% de bullshit qui font exploser les budgets ailleurs.
 
 Avant d'aller plus loin, il faut clarifier un truc.
 
@@ -121,7 +121,7 @@ Pour un site vitrine de 5-10 pages bien fait, compte 30 à 60 heures de travail.
 
 Chez Jon Labs, je casse cette logique. Je facture au **forfait projet**, pas à l'heure. Pourquoi ? Parce que tu dois savoir combien ça va te coûter avant de signer, pas après.
 
-Mes packs vitrine démarrent à **CHF 750** et plafonnent rarement au-dessus de **CHF 1'500**. La différence avec un freelance qui facture CHF 100/h sur 40h (= CHF 4'000), c'est que j'ai construit des process et des templates de base qui me font gagner du temps. Tu profites de ce gain.
+Mes sites vitrines démarrent à **CHF 750**, sur devis selon le nombre de pages et les fonctionnalités. La différence avec un freelance qui facture CHF 100/h sur 40h (= CHF 4'000), c'est que j'ai construit des process et des templates de base qui me font gagner du temps. Tu profites de ce gain.
 
 Si tu hésites entre freelance et agence pour ton projet, j'ai détaillé les vrais critères de décision dans cet article sur [comment choisir entre freelance et agence web](/blog/freelance-ou-agence-web).
 
@@ -186,11 +186,11 @@ Et devine quoi ? Plus c'est long, plus ça coûte.
 
 Bon, assez de théorie marché. Tu veux mes chiffres à moi. Les voici.
 
-**Important :** Les tarifs ci-dessous sont **mes tarifs chez Jon Labs**. Je me positionne volontairement accessible pour rendre le web de qualité disponible au plus grand nombre. Pour une vue détaillée par pack, va voir la [page tarifs](/tarifs) ou la fiche [création de site web](/services/creation-site-web).
+**Important :** Les tarifs ci-dessous sont **mes tarifs chez Jon Labs**. Je me positionne volontairement accessible pour rendre le web de qualité disponible au plus grand nombre. Pour le détail, va voir la [page tarifs](/tarifs) ou la fiche [création de site web](/services/creation-site-web).
 
 ### Site vitrine simple (5-10 pages)
 
-**CHF 750 - 1'500** (la plupart de mes projets vitrines)
+**Dès CHF 750** (devis ferme selon ton projet)
 
 **Ce que tu obtiens :**
 - 5-10 pages statiques (Accueil, Services, À propos, Contact, etc.)
@@ -208,17 +208,17 @@ Indépendants, artisans, petites structures qui veulent juste **exister en ligne
 
 ### Refonte d'un site existant
 
-**CHF 1'200 - 3'000**
+**Sur devis**
 
 Tu as déjà un site mais il est lent, moche sur mobile, ou simplement vieillissant ? La refonte coûte généralement un peu plus qu'un site from scratch parce qu'il faut auditer l'existant, migrer le contenu, et préserver le SEO.
 
-J'en parle plus en détail sur la fiche [refonte de site web](/services/refonte-site-web).
+Le devis part d'un audit de ton site actuel : on en parle sur la fiche [création de site web](/services/creation-site-web).
 
 ---
 
 ### Site e-commerce
 
-**CHF 1'500+** (et ça peut monter selon tes besoins)
+**Sur devis** (selon ton catalogue et tes besoins)
 
 **Ce que tu obtiens :**
 - Catalogue produits
@@ -388,7 +388,7 @@ D'ailleurs, j'ai audité 50 sites d'indépendants romands et la majorité ramait
 
 ## Ce qu'il faut retenir
 
-1. **Un site vitrine pro coûte entre CHF 750 et 1'500** chez Jon Labs (moins cher que la moyenne suisse)
+1. **Un site vitrine pro démarre à CHF 750** chez Jon Labs (moins cher que la moyenne suisse)
 2. **Le marché suisse romand pour un freelance** se situe entre CHF 1'500 et 8'000 pour un vitrine, CHF 5'000 à 15'000 en agence
 3. **Le facteur #1 qui fait exploser les coûts, c'est le manque de contenu** au départ : prépare tes textes et images AVANT
 4. **Fuis les devis à CHF 300** : c'est soit une arnaque, soit du travail bâclé

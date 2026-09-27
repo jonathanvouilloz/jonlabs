@@ -158,7 +158,7 @@ Ce qui l'a rendu possible :
 
 Ce qui n'a pas été compressé, et ne peut pas l'être : le contenu. Trente-six situations écrites et illustrées pour le lancement, deux cent quatorze de plus en réserve. Sur un produit éditorial, la technologie n'est jamais le chemin critique.
 
-Sur un projet client, avec une phase de découverte, des validations, un backend et des intégrations, la fourchette reste celle que je donne toujours : **trois à six mois**, et [2 000 à 15 000 CHF](/blog/prix-application-mobile-suisse) selon la complexité. Le [budget d'un MVP mobile](/blog/budget-mvp-application-mobile) répond à la même question sous l'angle du périmètre minimum.
+Sur un projet client, avec une phase de découverte, des validations, un backend et des intégrations, la fourchette reste la même : **trois à six mois**, et un budget sur devis selon la complexité (les [repères de prix du marché](/blog/prix-application-mobile-suisse) donnent 2 000 à 15 000 CHF). Le [budget d'un MVP mobile](/blog/budget-mvp-application-mobile) répond à la même question sous l'angle du périmètre minimum.
 
 ---
 

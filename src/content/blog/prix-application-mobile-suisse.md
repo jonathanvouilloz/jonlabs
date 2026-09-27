@@ -92,7 +92,7 @@ Je chiffre au forfait, pas au temps passé. Tu connais le prix avant de signer, 
 
 ### Pourquoi mes prix passent sous ceux d'une agence
 
-Une agence suisse facture une app métier 25 000 à 50 000 CHF, là où je la livre entre 5 000 et 10 000 CHF. L'écart ne vient pas d'une qualité moindre, il vient de la structure de coûts :
+Une agence suisse facture une app métier 25 000 à 50 000 CHF, là où un freelance solo se situe plutôt entre 5 000 et 10 000 CHF. L'écart ne vient pas d'une qualité moindre, il vient de la structure de coûts :
 
 - **Pas de marge commerciale ni de chef de projet à financer.** Tu paies du développement, pas une couche de coordination interne.
 - **Pas de junior qui apprend sur ton projet.** C'est moi qui conçois, code et livre.
@@ -186,7 +186,7 @@ Un MVP simple : 2 à 4 semaines. Une app métier complète : 4 à 8 semaines. Un
 
 ## Conclusion
 
-Le marché suisse du développement mobile manque de transparence sur les prix. Mes forfaits (de 2 000 à 15 000 CHF et plus selon le type d'app) sont les chiffres réels du terrain en 2026, tirés vers le bas par un workflow solo accéléré à l'IA plutôt que par une structure d'agence.
+Le marché suisse du développement mobile manque de transparence sur les prix. Les fourchettes de cet article (de 2 000 à 15 000 CHF et plus selon le type d'app) sont les chiffres réels du terrain en 2026. Chez moi, chaque app est chiffrée sur devis, avec un prix ferme après un premier appel gratuit.
 
 Tu as maintenant de quoi estimer ton budget avant de décrocher un téléphone. Si tu veux valider ton périmètre, discuter d'un MVP ou d'une app métier sur devis fixe, je suis disponible pour un appel de 30 minutes sans engagement.
 

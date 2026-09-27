@@ -221,6 +221,8 @@ Audit complet de ta visibilité locale, optimisation de ta fiche **Google Busine
 
 Gestion des avis (réponses sous 7 jours), 1 à 2 contenus locaux par mois, ajustements de la fiche GBP, suivi des positions sur les requêtes cibles, ajout progressif de citations sectorielles. Le tarif varie selon le volume d'avis à gérer, le nombre de zones et la densité concurrentielle de ton métier à Lausanne.
 
+Chez moi, c'est dans le bas de ces fourchettes : **CHF 390 de mise en place, puis CHF 199/mois** sans engagement, site et fiche Google compris ([détail de l'offre](/services/referencement-local)).
+
 **DIY viable si tu as 4 à 6 heures par mois**
 
 La fiche Google Business Profile prend environ 1h par semaine à entretenir sérieusement. Les avis, 20 à 30 minutes. Un article de blog géolocalisé, 2h si tu écris régulièrement. La partie technique (schema, NAP) se fait une fois et reste en place.

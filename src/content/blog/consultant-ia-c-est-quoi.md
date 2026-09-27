@@ -83,7 +83,7 @@ Le contre-signal honnête : si aucun processus n'est encore stable dans ton entr
 
 ## Combien coûte un consultant IA pour une PME
 
-Combien coûte un consultant IA pour une PME dépend surtout du périmètre du premier projet, mais un cadrage suivi d'un premier agent IA simple se situe entre **CHF 2'500 et 4'000**. Cette fourchette d'entrée couvre l'atelier de cadrage, le développement du cas d'usage, les tests et la mise en production.
+Combien coûte un consultant IA pour une PME dépend surtout du périmètre du premier projet, mais un cadrage suivi d'un premier agent IA simple se situe entre **CHF 2'500 et 4'000**. Cette fourchette d'entrée couvre l'atelier de cadrage, le développement du cas d'usage, les tests et la mise en production. C'est la fourchette du marché romand ; chez Jon Labs, un premier agent démarre à CHF 1'500.
 
 Le prix varie ensuite selon la complexité du besoin, le nombre d'outils à connecter, et le niveau de sensibilité des données traitées. Le détail complet des paliers de prix, y compris les projets intégrés à plusieurs systèmes et les coûts récurrents mensuels, est traité dans l'article dédié : [le prix d'un agent IA et d'une automatisation en Suisse](/blog/prix-agent-ia-automatisation-suisse). Ne t'arrête pas à un devis flou sur ce sujet : un consultant IA sérieux donne une fourchette avant le premier rendez-vous, pas après.
 

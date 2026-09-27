@@ -64,7 +64,7 @@ Avant de budgéter, pose-toi aussi la question de savoir si [un logiciel sur mes
 
 <!-- TODO:image schema/diagram — Tableau comparatif des 3 profils PME avec prix, délai et complexité — brief: src/content/blog/.briefs/prix-logiciel-sur-mesure-pme.md#image-2 -->
 
-Voici la grille issue de mes projets en Suisse romande. Ce sont des prix freelance senior (130–180 CHF/h). Une agence ajoute 20 à 40 % sur ces fourchettes.
+Voici les fourchettes observées en Suisse romande, aux tarifs d'un freelance senior (130–180 CHF/h). Une agence ajoute 20 à 40 % sur ces fourchettes.
 
 Jette un œil aux [5 cas concrets d'applications métier livrées](/blog/application-metier-pme-sur-mesure) pour voir comment ces chiffres se traduisent dans des projets réels.
 

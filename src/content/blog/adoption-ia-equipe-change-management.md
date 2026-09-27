@@ -81,7 +81,7 @@ Former une équipe à l'IA n'exige pas un budget formation conséquent : une ses
 Trois formats tiennent sans budget lourd :
 
 - Une session groupée d'une heure, sur les dossiers réels de l'équipe, animée par le champion interne et le dirigeant.
-- Un accompagnement structuré comme le [service de formation IA pour équipes de PME](/services/formation-ia-equipe), pensé pour des structures de 1 à 15 personnes, dès **CHF 1'200**.
+- Un accompagnement structuré comme le [service de formation IA pour équipes de PME](/services/formation-ia-equipe), pensé pour des structures de 1 à 15 personnes (et ouvert aux particuliers), sur devis.
 - Un suivi léger sur quelques semaines : le champion répond aux questions au fil de l'eau, sans reformation complète.
 
 Le référent ou champion interne n'a pas besoin d'y consacrer un temps plein : **10 à 20% de son temps** suffit généralement dans une petite structure, en complément de son poste habituel.
