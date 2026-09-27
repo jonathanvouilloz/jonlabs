@@ -21,7 +21,7 @@ import { getBreadcrumbSchema } from '../../lib/seo';
 // SEO Data
 const seoData = {
     title: "Développement d'application mobile en Suisse romande",
-    description: "Développement d'application mobile à Genève, Lausanne et en Suisse romande — l'alternative à l'agence : iOS, Android, Flutter, React Native. Devis en CHF."
+    description: "Développement d'application mobile à Genève, Lausanne et en Suisse romande, l'alternative à l'agence : app iPhone et Android, publiée sur les stores. Sur devis, en CHF."
 };
 
 // Schema.org data
@@ -37,22 +37,22 @@ const painPoints = [
     {
         icon: "ri-user-voice-line",
         title: "Tes clients réclament une app",
-        description: "Tes utilisateurs te demandent une application — pour réserver, suivre une commande, recevoir une notification. Un site responsive ne suffit plus, mais tu ne sais pas par où commencer ni ce que ça implique vraiment."
+        description: "Pour réserver, suivre une commande ou recevoir une notification. Un site ne suffit plus."
     },
     {
         icon: "ri-price-tag-3-line",
         title: "Le devis d'agence t'a refroidi",
-        description: "Tu as demandé un devis pour une app mobile et le chiffre t'a fait reculer. 60 000 CHF, 8 mois, trois interlocuteurs et un chef de projet entre toi et le code. Il y a forcément un moyen plus direct et plus raisonnable."
+        description: "60 000 CHF, 8 mois et trois interlocuteurs. Il y a forcément plus simple."
     },
     {
         icon: "ri-git-branch-line",
-        title: "Tu hésites entre app et site",
-        description: "Application native, application hybride, PWA, site mobile… On t'a vendu plein de termes, mais personne ne t'a dit honnêtement ce dont TON projet a besoin. Tu veux un avis franc avant de dépenser un franc."
+        title: "Tu ne sais pas ce qu'il te faut",
+        description: "App, site mobile, application installable… Tu veux un avis franc avant de dépenser."
     },
     {
         icon: "ri-error-warning-line",
-        title: "Ton app dort, personne ne la maintient",
-        description: "Tu as déjà une application, mais elle plante, elle n'est plus à jour sur les stores, et le prestataire qui l'a faite a disparu. Tu as besoin de quelqu'un qui reprenne les choses en main proprement."
+        title: "Ton app est à l'abandon",
+        description: "Elle plante, elle n'est plus à jour, et ton prestataire a disparu."
     }
 ];
 
@@ -60,79 +60,66 @@ const painPoints = [
 const methodSteps = [
     {
         step: "1",
-        title: "Cadrage",
-        description: "On définit ensemble ce que ton app doit vraiment faire — et sur quelles plateformes (iOS, Android, ou les deux). On tranche la question technique : natif, hybride ou PWA, selon ton usage réel et ton budget. Pas de feature inutile, pas de jargon.",
-        duration: "1-2h appel + échanges async"
+        title: "On cadre",
+        description: "On définit ce que ton app doit vraiment faire, et ce qu'elle ne fera pas (encore). Je te dis quelle solution colle à ton besoin et à ton budget.",
+        duration: "Un appel + quelques échanges"
     },
     {
         step: "2",
-        title: "Construction",
-        description: "Je développe ton app avec des technologies modernes et durables — Flutter ou React Native pour couvrir iOS et Android avec un seul code. Tu vois des versions testables sur ton téléphone à chaque itération. Tu n'as pas besoin de comprendre le code, juste de me dire ce qui va ou pas.",
-        duration: "Quelques semaines selon le périmètre"
+        title: "Je construis",
+        description: "Tu testes l'app sur ton téléphone au fur et à mesure. Pas besoin de comprendre le code : tu me dis ce qui va et ce qui ne va pas.",
+        duration: "Quelques semaines selon le projet"
     },
     {
         step: "3",
-        title: "Lancement",
-        description: "Je m'occupe de la publication sur l'App Store et le Google Play Store — comptes développeurs, fiches, captures, validation. Tu repars avec ton app en ligne, une documentation claire, et la possibilité de la faire évoluer sans dépendre de moi.",
+        title: "On publie",
+        description: "Je m'occupe de la mise en ligne sur l'App Store et Google Play. L'app est à ton nom, et tu peux la faire évoluer quand tu veux.",
         duration: "Publication + passation"
     }
 ];
 
 // Differentiators
 const differentiators = [
-    {
-        icon: "ri-user-line",
-        text: "Un seul interlocuteur : tu parles à celui qui code, pas à un chef de projet"
-    },
-    {
-        icon: "ri-smartphone-line",
-        text: "iOS et Android d'un seul code (Flutter / React Native) : tu ne paies pas deux fois"
-    },
-    {
-        icon: "ri-shield-check-line",
-        text: "Qualité suisse, flexibilité freelance : réactivité et rigueur, données conformes nLPD"
-    },
-    {
-        icon: "ri-door-open-line",
-        text: "Pas de lock-in : tu repars avec un code propre, documenté et publié à ton nom"
-    }
+    { icon: "ri-user-line", text: "Un seul interlocuteur : tu parles à celui qui fait l'app" },
+    { icon: "ri-smartphone-line", text: "iPhone et Android en même temps : tu ne paies pas deux fois" },
+    { icon: "ri-shield-check-line", text: "Données protégées selon la loi suisse (nLPD)" },
+    { icon: "ri-door-open-line", text: "L'app est à toi : publiée à ton nom, sans dépendance" }
 ];
 
 // Results
 const results = [
     {
         icon: "ri-store-2-line",
-        title: "Une app publiée sur les stores",
-        description: "Pas une maquette cliquable. Une vraie application téléchargeable sur l'App Store et le Play Store, que tes utilisateurs peuvent installer et utiliser."
+        title: "Une vraie app sur les stores",
+        description: "Pas une maquette : une app que tes clients téléchargent et utilisent."
     },
     {
         icon: "ri-smartphone-line",
-        title: "iOS + Android sans doubler le budget",
-        description: "Grâce à Flutter ou React Native, ton app tourne sur les deux plateformes à partir d'un seul code. Tu couvres tout le marché sans payer deux développements."
+        title: "iPhone et Android",
+        description: "Les deux, sans payer deux développements."
     },
     {
         icon: "ri-links-line",
-        title: "Une app connectée à tes outils",
-        description: "Ton application peut parler à ton CRM, ton agenda, ta facturation ou tes automatisations. Une app isolée perd l'essentiel de sa valeur — la tienne sera branchée."
+        title: "Branchée sur tes outils",
+        description: "Agenda, facturation, fichier clients : l'app parle à ce que tu utilises déjà."
     },
     {
         icon: "ri-stack-line",
-        title: "Une base solide pour la suite",
-        description: "Code propre, documenté, sans dette technique cachée. Tu peux itérer dessus, ajouter des fonctionnalités, ou confier la suite à quelqu'un d'autre. Aucun verrou."
+        title: "Prête à grandir",
+        description: "On ajoute des fonctionnalités quand tes utilisateurs en redemandent."
     },
     {
         icon: "ri-shake-hands-line",
-        title: "Un avis honnête, dès le départ",
-        description: "Si une PWA ou un site suffit pour ton cas, je te le dis. Tu investis dans une app mobile seulement si elle apporte vraiment quelque chose à ton business."
+        title: "Un avis honnête",
+        description: "Si un site ou une app plus simple suffit, je te le dis."
     }
 ];
 
 // Price factors
 const priceFactors = [
-    "La complexité et le nombre de fonctionnalités",
-    "Le choix technique : natif, hybride ou PWA",
-    "Le nombre de plateformes (iOS, Android, ou les deux)",
-    "Le besoin d'un backend, d'une API ou d'intégrations métier"
+    "Le nombre d'écrans et de fonctionnalités",
+    "Les comptes utilisateurs, paiements ou notifications",
+    "Les connexions à tes outils existants"
 ];
 
 // Cluster articles — maillage interne vers le contenu éditorial du cluster mobile
@@ -189,32 +176,28 @@ const geoPages = [
 // FAQs
 const faqs = [
     {
-        question: "Combien coûte le développement d'une application mobile en Suisse ?",
-        answer: "Ça dépend beaucoup du périmètre, c'est donc sur devis : le prix dépend des écrans, des comptes utilisateurs, des connexions à tes outils et du design. En passant par un freelance plutôt qu'une agence, tu évites les coûts de structure. Je te détaille tout dans un devis clair, sans surprise. Pour comprendre ce qui fait varier le prix, j'ai écrit un guide complet sur le prix d'une application mobile en Suisse."
+        question: "Combien coûte une application mobile ?",
+        answer: "C'est sur devis, parce que tout dépend de ce que l'app doit faire. Après un premier appel gratuit, tu reçois un prix ferme en CHF. Pour te faire une idée, j'ai écrit un guide sur le prix d'une application mobile en Suisse."
     },
     {
-        question: "Combien de temps faut-il pour développer une app ?",
-        answer: "Pour un MVP ciblé sur les fonctionnalités essentielles, quelques semaines suffisent. Une application plus complète avec backend, comptes utilisateurs et intégrations prend évidemment plus de temps. On avance par itérations courtes : tu testes des versions sur ton téléphone tout au long, pas seulement à la fin."
+        question: "Combien de temps pour la développer ?",
+        answer: "Une première version avec l'essentiel se fait en quelques semaines. Tu la testes sur ton téléphone tout au long du projet, pas seulement à la fin."
     },
     {
-        question: "Application native ou hybride : laquelle choisir ?",
-        answer: "Le natif offre les meilleures performances pour des apps très poussées (jeux, accès matériel intensif). L'hybride — via Flutter ou React Native — couvre iOS et Android avec un seul code, pour un coût et un délai réduits : c'est le meilleur choix pour la grande majorité des projets PME. On tranche ensemble selon ton usage réel."
+        question: "iPhone, Android : faut-il choisir ?",
+        answer: "Non. Je développe les deux en même temps, sans doubler le prix, et je m'occupe de la publication sur les deux stores."
     },
     {
-        question: "Faut-il publier sur l'App Store ET le Play Store ?",
-        answer: "Dans la plupart des cas oui, pour toucher à la fois les utilisateurs iPhone et Android. Avec une techno hybride, ça ne double pas le coût de développement. Je m'occupe de la mise en ligne sur les deux stores : comptes développeurs, fiches, captures et validation."
+        question: "Ai-je vraiment besoin d'une app ?",
+        answer: "Pas toujours. Parfois une application web installable (PWA) ou un bon site suffit, pour moins cher. Je te le dis avant que tu investisses."
     },
     {
-        question: "Et la maintenance une fois l'app lancée ?",
-        answer: "Une app n'est jamais \"finie\" : les systèmes iOS et Android évoluent, et les stores demandent des mises à jour régulières. On peut prévoir un suivi léger après le lancement. Et si tu as déjà une app abandonnée, je peux la reprendre et la remettre à niveau."
+        question: "Et après le lancement ?",
+        answer: "Les téléphones et les stores évoluent : on peut prévoir un suivi léger. Et si tu as déjà une app abandonnée, je peux la reprendre."
     },
     {
-        question: "App mobile ou PWA : comment savoir ce qu'il me faut ?",
-        answer: "Une PWA (application web installable) coûte moins cher et se déploie sans passer par les stores, mais elle a des limites — notamment sur iOS et l'accès au matériel. Pour beaucoup de PME, c'est largement suffisant. Mon rôle, c'est de te le dire honnêtement avant que tu investisses. J'ai détaillé les critères de choix dans un article dédié."
-    },
-    {
-        question: "Pourquoi un freelance à Genève plutôt qu'une agence ou un dev offshore ?",
-        answer: "La proximité : on se voit, on parle la même langue, on comprend le contexte suisse. La réactivité : pas de chef de projet intermédiaire, tu parles directement à celui qui code. La confiance : tes données restent en Suisse, conformes à la nLPD, et tu sais exactement qui travaille sur ton app."
+        question: "Pourquoi un freelance plutôt qu'une agence ?",
+        answer: "Tu parles directement à celui qui fait l'app, sans chef de projet entre nous. Je suis à Genève, et tes données restent protégées selon la loi suisse."
     }
 ];
 schemas.push(getFAQPageSchema(faqs));
@@ -240,16 +223,9 @@ const zones = [
                     <h1 class="am-hero-title" data-animate data-delay="0.1">
                         Ton application mobile iOS &amp; Android, <span class="co-ser">sans passer par une agence.</span>
                     </h1>
-                    <p class="am-hero-sub" data-animate data-delay="0.15">
-                        La solidité d'une agence, sans le tunnel à trois couches.
-                    </p>
                     <p class="am-hero-lead" data-animate data-delay="0.2">
-                        PME, startup ou indépendant : tu n'as pas besoin d'un tunnel de 6 mois à 60 000 CHF.
-                        Tu as besoin de quelqu'un qui tranche honnêtement entre <strong>natif et hybride</strong>,
-                        code ton <strong>application iOS et Android</strong> en <strong>Flutter ou React Native</strong>,
-                        la publie sur les stores et te dit la vérité sur ce qu'il te faut vraiment.
-                        Basé à <strong>Genève</strong>, je travaille avec des entreprises de
-                        <strong>Lausanne, Fribourg et toute la Suisse romande</strong>.
+                        Une <strong>app iPhone et Android</strong> pour tes clients ou ton équipe, de l'idée à la
+                        publication sur les stores. Un seul interlocuteur, basé à <strong>Genève</strong>.
                     </p>
                     <div class="am-hero-btns" data-animate data-delay="0.3">
                         <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="co-btn"><i class="ri-smartphone-line"></i> Discuter de mon app</a>
@@ -264,22 +240,22 @@ const zones = [
                     <div class="am-panel co-frame">
                         <span class="co-x tl"></span><span class="co-x tr"></span>
                         <span class="co-x bl"></span><span class="co-x br"></span>
-                        <p class="co-eyebrow">Un seul code · deux stores</p>
+                        <p class="co-eyebrow">iPhone · Android</p>
                         <div class="am-panel-plats">
                             <div class="am-plat"><i class="ri-apple-line" aria-hidden="true"></i><span>iOS · App Store</span></div>
                             <div class="am-plat"><i class="ri-android-line" aria-hidden="true"></i><span>Android · Play Store</span></div>
                         </div>
                         <ul class="co-list co-list--check am-panel-list">
-                            <li><i class="ri-check-line"></i><span>Flutter / React Native</span></li>
+                            <li><i class="ri-check-line"></i><span>iPhone et Android en même temps</span></li>
                             <li><i class="ri-check-line"></i><span>Publication sur les stores incluse</span></li>
-                            <li><i class="ri-check-line"></i><span>Code propre, sans lock-in</span></li>
-                            <li><i class="ri-check-line"></i><span>Données conformes nLPD</span></li>
+                            <li><i class="ri-check-line"></i><span>L'app est à ton nom</span></li>
+                            <li><i class="ri-check-line"></i><span>Données protégées (nLPD)</span></li>
                         </ul>
                     </div>
                     <div class="am-badge am-badge--stores">
                         <b>2</b><span>stores</span>
                     </div>
-                    <div class="am-badge am-badge--code">1 code</div>
+                    <div class="am-badge am-badge--code">1 projet</div>
                 </div>
             </div>
         </section>
@@ -288,10 +264,6 @@ const zones = [
         <section id="problemes" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">01 — Situations</p>
             <h2 style="margin-top:var(--space-eyebrow);">Tu te <span class="co-ser">reconnais ?</span></h2>
-            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:56ch;line-height:1.6;">
-                Ces moments où une app devient une vraie question.
-            </p>
-
             <div class="am-grid am-grid--2" data-animate-stagger>
                 {painPoints.map((point) => (
                     <div class="am-card co-frame co-frame--reveal" data-animate-item>
@@ -305,21 +277,11 @@ const zones = [
             <div class="am-story co-frame" data-animate>
                 <span class="co-x tl"></span><span class="co-x tr"></span>
                 <span class="co-x bl"></span><span class="co-x br"></span>
-                <h3 class="am-story-title">Une app, ce n'est pas un site avec des coins arrondis.</h3>
+                <h3 class="am-story-title">On commence petit, on grandit ensuite.</h3>
                 <p class="am-story-text">
-                    La plupart des projets mobiles qui dérapent partent du même endroit :
-                    <strong>on construit trop, trop tôt, sans avoir validé que les gens utiliseront vraiment l'app.</strong>
-                    Quinze écrans, des fonctionnalités que personne n'ouvrira, et une facture qui gonfle.
-                </p>
-                <p class="am-story-text">
-                    Mon approche est l'inverse : on identifie le cœur de ton app, on le sort vite et bien sur
-                    iOS et Android, et on enrichit ensuite — seulement si tes utilisateurs suivent.
-                </p>
-                <p class="am-story-text">
-                    Et parfois la bonne réponse n'est pas une app du tout : j'ai comparé
-                    <a href="/blog/application-mobile-ou-pwa" class="am-inline">application mobile et PWA</a>
-                    et détaillé <a href="/blog/application-mobile-pme-suisse" class="am-inline">ce qu'une app apporte vraiment à une PME</a>.
-                    Lis-les avant de signer quoi que ce soit.
+                    Les projets qui dérapent construisent trop, trop tôt. Moi, on sort d'abord le cœur de ton app,
+                    puis on ajoute seulement si tes utilisateurs suivent. Et parfois la bonne réponse n'est pas une app :
+                    voir <a href="/blog/application-mobile-ou-pwa" class="am-inline">application mobile ou PWA</a>.
                 </p>
                 <div class="am-story-accent">
                     <p>Une bonne app mobile, c'est d'abord une bonne décision : quoi construire, et surtout quoi ne pas construire.</p>
@@ -332,10 +294,7 @@ const zones = [
             <p class="co-eyebrow">02 — Méthode</p>
             <h2 style="margin-top:var(--space-eyebrow);">Comment ça se passe ?</h2>
             <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-                Pas de tunnel de développement. Tu testes ton app sur ton téléphone <strong>à chaque étape</strong>.
-                On tranche d'abord la technique — <a href="/blog/application-native-vs-hybride" class="am-inline">natif ou hybride</a>,
-                puis <a href="/blog/flutter-vs-react-native-pme" class="am-inline">Flutter ou React Native</a> —
-                avant d'écrire la première ligne de code.
+                Tu testes ton app sur ton téléphone <strong>à chaque étape</strong>.
             </p>
 
             <div class="am-steps" data-animate-stagger>
@@ -385,17 +344,11 @@ const zones = [
                 <i class="ri-apps-2-line"></i>
                 <p>
                     <strong>Un exemple ?</strong> Découvre
-                    <a href="/portfolio/isla-plomo" class="am-inline">Isla Plomo</a>,
-                    une application web mobile (PWA) installable que j'ai conçue de A à Z, ou l'ensemble de mes
-                    <a href="/portfolio" class="am-inline">réalisations</a>.
+                    <a href="/portfolio/isla-plomo" class="am-inline">Isla Plomo</a>
+                    ou l'ensemble de mes <a href="/portfolio" class="am-inline">réalisations</a>.
                 </p>
             </div>
 
-            <p class="am-note-inline">
-                Une app qui ne parle à rien reste un gadget. J'ai montré comment
-                <a href="/blog/application-mobile-automatisation-pme" class="am-inline">brancher une application mobile sur les automatisations d'une PME</a>
-                — agenda, facturation, CRM.
-            </p>
         </section>
 
         <!-- ══ 04 · INVESTISSEMENT ══ -->
@@ -403,25 +356,20 @@ const zones = [
             <p class="co-eyebrow">04 — Investissement</p>
             <h2 style="margin-top:var(--space-eyebrow);">Un devis <span class="co-ser">clair.</span></h2>
             <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
-                Chaque app est différente. Une PWA pour tester un usage, ce n'est pas la même chose qu'une
-                application native connectée à ton système métier.
+                Chaque app est différente : c'est sur devis, avec un prix ferme avant de commencer.
             </p>
 
             <div class="am-pricenote co-frame" data-animate>
                 <span class="co-x tl"></span><span class="co-x tr"></span>
                 <span class="co-x bl"></span><span class="co-x br"></span>
-                <p class="am-pricenote-lead">On en discute, je te fais un devis clair avec un périmètre précis.</p>
-                <p class="am-pricenote-sub co-mut">Pas de coûts cachés, pas de surprise en cours de route.</p>
+                <p class="am-pricenote-lead">Premier appel gratuit, puis un devis clair en CHF.</p>
 
                 <h3 class="am-pricenote-title"><i class="ri-information-line"></i> Ce qui influence le prix</h3>
                 <ul class="co-list am-pricenote-list">
                     {priceFactors.map((factor) => (<li>{factor}</li>))}
                 </ul>
                 <p class="am-note-inline">
-                    Pour te faire une idée des fourchettes, lis mon guide sur le
-                    <a href="/blog/prix-application-mobile-suisse" class="am-inline">prix d'une application mobile en Suisse</a>.
-                    Si tu démarres par une première version, j'ai chiffré à part
-                    <a href="/blog/budget-mvp-application-mobile" class="am-inline">le budget d'un MVP mobile</a>.
+                    Pour te faire une idée : <a href="/blog/prix-application-mobile-suisse" class="am-inline">prix d'une application mobile en Suisse</a>.
                 </p>
             </div>
 
@@ -435,8 +383,7 @@ const zones = [
             <p class="co-eyebrow">05 — Ressources</p>
             <h2 style="margin-top:var(--space-eyebrow);">Tout comprendre avant de te lancer</h2>
             <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:64ch;line-height:1.6;">
-                Avant de demander un devis, fais-toi ton propre avis. J'ai écrit un dossier complet sur le
-                développement d'applications mobiles pour les PME romandes — commence par le
+                Pour te faire ton avis avant un devis, commence par le
                 <a href="/blog/developper-application-mobile-suisse" class="am-inline">guide complet</a>.
             </p>
 
@@ -492,11 +439,8 @@ const zones = [
             <div class="am-about co-frame" data-animate>
                 <span class="co-x tl"></span><span class="co-x tr"></span>
                 <span class="co-x bl"></span><span class="co-x br"></span>
-                <p class="am-about-text">Je suis <strong>Jonathan</strong>, développeur et créateur de solutions digitales basé à Genève.</p>
-                <p class="am-about-text">Tu retrouves ce qu'une bonne agence apporte — cadrage, méthode, publication sur les stores, suivi — mais sans les commerciaux ni les juniors entre toi et le code. Je suis <strong>ton partenaire technique direct</strong> : celui qui code ton application, la publie, et t'aide à trancher quand il faut faire des choix.</p>
-                <p class="am-about-text">Tu hésites encore sur le format ? J'ai posé les critères dans mon comparatif <a href="/blog/freelance-ou-agence-application-mobile" class="am-inline">freelance ou agence pour une application mobile</a>.</p>
-                <p class="am-about-text">Mon approche : <strong>action plutôt que perfection</strong>. Une app utile entre les mains de tes utilisateurs vaut mieux qu'une roadmap parfaite qui ne sort jamais.</p>
-                <p class="am-about-text">J'ai accompagné des entrepreneurs romands, des startups en phase d'amorçage et des PME suisses qui avaient besoin d'outiller leur activité — sans exploser leur budget.</p>
+                <p class="am-about-text">Je suis <strong>Jonathan</strong>, développeur basé à Genève. Je fais ton app moi-même, je la publie, et je t'aide à trancher quand il faut faire des choix.</p>
+                <p class="am-about-text">Mon approche : une app utile entre les mains de tes utilisateurs vaut mieux qu'un projet parfait qui ne sort jamais. Encore un doute ? <a href="/blog/freelance-ou-agence-application-mobile" class="am-inline">Freelance ou agence pour une application mobile</a>.</p>
                 <a href="/about" class="am-about-link">
                     <i class="ri-user-line"></i> En savoir plus sur mon parcours <i class="ri-arrow-right-line"></i>
                 </a>
@@ -511,16 +455,8 @@ const zones = [
             <div class="am-local-grid">
                 <div data-animate="fade-left">
                     <p class="am-local-text">
-                        Le développement d'une application mobile se fait très bien à distance — échanges, suivi,
-                        démos et tests sur ton téléphone, tout peut se gérer en visio. C'est souvent plus efficace.
-                    </p>
-                    <p class="am-local-text">
-                        Mais si tu préfères un échange en personne pour le cadrage ou les points d'étape, je suis
-                        disponible sur Genève et ses environs.
-                    </p>
-                    <p class="am-local-text">
-                        Je connais le contexte suisse romand — les attentes des utilisateurs d'ici, la nLPD pour la
-                        protection des données, et les réalités d'une PME locale.
+                        Tout peut se faire à distance : échanges, démos et tests sur ton téléphone. Si tu préfères
+                        te voir pour le cadrage, je suis disponible à Genève et environs.
                     </p>
                 </div>
 
@@ -544,10 +480,6 @@ const zones = [
             </div>
 
             <h3 class="am-local-h3" style="margin-top:40px;">Pages locales</h3>
-            <p class="co-mut" style="max-width:60ch;line-height:1.6;font-size:14.5px;">
-                Le contexte n'est pas le même d'une ville à l'autre. Deux pages détaillent le service là où
-                la demande est la plus forte.
-            </p>
             <div class="am-grid am-grid--2" data-animate-stagger>
                 {geoPages.map((geo) => (
                     <a href={geo.href} class="am-card co-frame co-frame--reveal" data-animate-item>
@@ -566,8 +498,7 @@ const zones = [
             <div class="co-cta-inner">
                 <h2 class="co-cta-title">Arrête de <span class="co-ser">tourner en rond.</span></h2>
                 <p class="co-cta-lead">
-                    En 30 minutes, on regarde ton projet ensemble et je te dis honnêtement ce qu'il te faut —
-                    app native, hybride ou PWA — et ce que ça coûterait pour le sortir.
+                    En 30 minutes, on regarde ton projet et je te dis honnêtement ce qu'il te faut, et combien ça coûterait.
                 </p>
                 <div class="co-cta-btns">
                     <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="co-btn co-cta-btn">Réserver un appel découverte <i class="ri-arrow-right-line"></i></a>

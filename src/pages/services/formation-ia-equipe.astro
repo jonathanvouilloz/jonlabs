@@ -33,139 +33,51 @@ const schemas: any[] = [getServiceItemSchema("formation-ia-equipe"), breadcrumb]
 
 // Pain points (4 items)
 const painPoints = [
-    {
-        icon: "ri-bank-card-line",
-        title: "\"On paie des outils IA que personne n'utilise\"",
-        description: "ChatGPT, Copilot, un abonnement par-ci, une licence par-là. Les factures tombent chaque mois, mais dans les faits, deux ou trois curieux testent et le reste de l'équipe n'y touche pas. Vous payez pour une adoption qui n'a jamais eu lieu."
-    },
-    {
-        icon: "ri-emotion-unhappy-line",
-        title: "\"Mon équipe se méfie de l'IA\"",
-        description: "Peur de mal faire, peur d'être remplacé, impression que c'est réservé aux geeks. Sans un cadre rassurant et des cas concrets, la curiosité reste bloquée par la méfiance. Et un outil qu'on n'ose pas utiliser ne sert à rien."
-    },
-    {
-        icon: "ri-shield-cross-line",
-        title: "\"Chacun bricole dans son coin\"",
-        description: "Des données clients copiées-collées dans ChatGPT, des prompts partagés sous le manteau, des usages improvisés sans aucun contrôle. Ça avance, mais n'importe comment — et parfois avec des informations sensibles qui n'auraient jamais dû sortir."
-    },
-    {
-        icon: "ri-question-line",
-        title: "\"On n'a ni cadre ni bonnes pratiques\"",
-        description: "Personne ne sait ce qu'on a le droit de mettre dans une IA, ce qui est fiable, ce qui ne l'est pas. Pas de règles, pas de repères, pas de playbook. Résultat : l'IA reste un sujet flou que tout le monde évite d'aborder sérieusement."
-    }
+    { icon: "ri-bank-card-line", title: "\"On paie des outils IA que personne n'utilise\"", description: "Deux ou trois curieux testent, le reste de l'équipe n'y touche pas." },
+    { icon: "ri-emotion-unhappy-line", title: "\"Mon équipe se méfie de l'IA\"", description: "Peur de mal faire ou d'être remplacé : la curiosité reste bloquée." },
+    { icon: "ri-shield-cross-line", title: "\"Chacun bricole dans son coin\"", description: "Des données clients collées dans ChatGPT, sans aucun contrôle." },
+    { icon: "ri-question-line", title: "\"On n'a pas de règles\"", description: "Personne ne sait ce qu'on a le droit de mettre dans une IA." }
 ];
 
 // Method steps / programme (4 items)
 const methodSteps = [
-    {
-        step: "1",
-        title: "Audit des usages réels",
-        description: "Avant de parler d'IA, on regarde votre quotidien. Quelles tâches vous prennent du temps, où sont les répétitions, ce que votre équipe fait déjà (ou aimerait faire). Je repère les cas où l'IA gagne vraiment du temps — pas les gadgets.",
-        duration: "1-2 heures en amont"
-    },
-    {
-        step: "2",
-        title: "Atelier pratique sur VOS cas",
-        description: "Pas de slides génériques ni de théorie fumeuse. On ouvre vos vrais outils, vos vrais dossiers, et on construit ensemble des usages qui tiennent la route. Chaque personne repart avec des prompts et des réflexes qui marchent sur son métier.",
-        duration: "½ journée à 2 jours"
-    },
-    {
-        step: "3",
-        title: "Garde-fous & nLPD",
-        description: "Ce qu'on met dans une IA, ce qu'on n'y met jamais. Données clients, dossiers RH, informations confidentielles : on pose des règles simples et compréhensibles, alignées sur la nLPD suisse. Votre équipe utilise l'IA sans exposer votre entreprise.",
-        duration: "Inclus dans l'atelier"
-    },
-    {
-        step: "4",
-        title: "Autonomie : playbook + suivi",
-        description: "Vous repartez avec un playbook interne : les usages validés, les prompts qui marchent, les règles à respecter. Et je reste disponible après la formation pour répondre aux questions et ajuster au fur et à mesure que les usages s'installent.",
-        duration: "Après la session"
-    }
+    { step: "1", title: "On part de votre quotidien", description: "Je repère les tâches où l'IA vous fait vraiment gagner du temps.", duration: "1-2 heures en amont" },
+    { step: "2", title: "Atelier sur vos cas", description: "Pas de slides génériques : on travaille sur vos vrais outils et dossiers.", duration: "½ journée à 2 jours" },
+    { step: "3", title: "Les règles du jeu", description: "Ce qu'on met dans une IA, et ce qu'on n'y met jamais (nLPD).", duration: "Inclus dans l'atelier" },
+    { step: "4", title: "Un guide pour la suite", description: "Vous gardez un guide interne, et je reste disponible pour vos questions.", duration: "Après la session" }
 ];
 
 // Differentiators
 const differentiators = [
-    {
-        icon: "ri-briefcase-4-line",
-        title: "Sur VOS cas, pas de théorie",
-        description: "On travaille sur vos outils et vos tâches réelles. Votre équipe repart avec des usages concrets, pas des concepts."
-    },
-    {
-        icon: "ri-shield-check-line",
-        title: "Angle nLPD maîtrisé",
-        description: "Données suisses, conformité nLPD, confidentialité : le cadre légal fait partie de la formation, pas d'un vague disclaimer."
-    },
-    {
-        icon: "ri-terminal-box-line",
-        title: "Un formateur qui construit",
-        description: "Je conçois aussi les agents IA que je déploie chez mes clients. Vous formez avec quelqu'un qui met les mains dans le cambouis, pas un consultant slides."
-    }
+    { icon: "ri-briefcase-4-line", title: "Sur vos cas", description: "Des usages concrets, pas de la théorie." },
+    { icon: "ri-shield-check-line", title: "Données protégées", description: "Le cadre nLPD fait partie de la formation." },
+    { icon: "ri-terminal-box-line", title: "Un formateur qui construit", description: "Je déploie aussi des agents IA chez mes clients." }
 ];
 
 // Results (6 items)
 const results = [
-    {
-        icon: "ri-team-line",
-        title: "Une équipe qui utilise l'IA au quotidien",
-        description: "L'IA passe du gadget testé une fois à un réflexe de travail, intégré dans les tâches de chacun"
-    },
-    {
-        icon: "ri-timer-flash-line",
-        title: "Un gain de temps mesurable",
-        description: "Comptes rendus, réponses clients, rédaction : des heures récupérées chaque semaine sur des tâches répétitives"
-    },
-    {
-        icon: "ri-shield-check-line",
-        title: "Des usages conformes",
-        description: "Chacun sait ce qu'il peut mettre (ou pas) dans une IA. Fini les données sensibles copiées-collées n'importe où"
-    },
-    {
-        icon: "ri-book-open-line",
-        title: "Un playbook interne",
-        description: "Les usages validés, les prompts qui marchent et les règles maison, réunis dans un document que l'équipe garde"
-    },
-    {
-        icon: "ri-emotion-happy-line",
-        title: "La fin de la peur de l'outil",
-        description: "L'IA n'est plus un sujet anxiogène réservé à quelques-uns, mais un outil que toute l'équipe s'approprie"
-    },
-    {
-        icon: "ri-wallet-3-line",
-        title: "Des abonnements rentabilisés",
-        description: "Les licences IA que vous payez déjà sont enfin utilisées, au lieu de dormir dans un tableau de dépenses"
-    }
+    { icon: "ri-team-line", title: "L'IA au quotidien", description: "Un réflexe de travail, plus un gadget testé une fois." },
+    { icon: "ri-timer-flash-line", title: "Du temps gagné", description: "Comptes rendus, réponses clients, rédaction : des heures récupérées chaque semaine." },
+    { icon: "ri-shield-check-line", title: "Des usages sûrs", description: "Chacun sait ce qu'il peut mettre dans une IA, ou pas." },
+    { icon: "ri-book-open-line", title: "Un guide interne", description: "Les bons usages et les règles maison, dans un document que vous gardez." },
+    { icon: "ri-emotion-happy-line", title: "Plus de peur", description: "Toute l'équipe s'approprie l'outil." },
+    { icon: "ri-wallet-3-line", title: "Des abonnements rentabilisés", description: "Les licences que vous payez servent enfin." }
 ];
 
 // Concrete example
 const concreteExample = {
     title: "Une PME de 12 personnes qui payait dans le vide",
-    before: "Une PME romande payait ChatGPT, Copilot et deux autres abonnements IA. Dans les faits : deux ou trois curieux qui testaient de temps en temps, le reste de l'équipe qui n'y touchait pas. Des factures mensuelles pour zéro résultat concret.",
-    after: "Après la formation, chaque pôle a 2-3 usages ancrés dans son quotidien — comptes rendus de réunion, réponses clients, rédaction d'offres — avec des règles claires sur ce qu'on met (ou pas) dans une IA.",
-    result: "Plusieurs heures récupérées chaque semaine, des abonnements enfin rentabilisés, et une équipe qui n'a plus peur de l'outil."
+    before: "ChatGPT, Copilot et deux autres abonnements, utilisés par deux ou trois curieux.",
+    after: "Chaque pôle a 2-3 usages ancrés (comptes rendus, réponses clients, offres) et des règles claires.",
+    result: "Plusieurs heures récupérées chaque semaine, et des abonnements enfin utiles."
 };
 
 // Formats & modalités
 const formats = [
-    {
-        name: "Présentiel à Genève",
-        description: "Je me déplace dans vos locaux. Rien ne remplace un atelier en salle, avec vos écrans, vos dossiers et toute l'équipe autour de la table.",
-        icon: "ri-map-pin-2-line"
-    },
-    {
-        name: "Distanciel (visio)",
-        description: "Pour les équipes réparties ou à distance : même contenu, même approche pratique, en visioconférence. Partout en Suisse romande.",
-        icon: "ri-vidicon-line"
-    },
-    {
-        name: "Atelier découverte (½ journée)",
-        description: "Un premier format court pour lever les blocages, montrer 3-4 usages concrets et donner envie. Idéal pour tester avant d'aller plus loin.",
-        icon: "ri-compass-3-line"
-    },
-    {
-        name: "Programme sur 1 à 2 jours",
-        description: "Pour ancrer durablement les usages : audit, atelier approfondi par pôle, garde-fous nLPD et playbook interne. Le format qui change vraiment la donne.",
-        icon: "ri-calendar-2-line"
-    }
+    { name: "Présentiel à Genève", description: "Dans vos locaux, avec toute l'équipe autour de la table.", icon: "ri-map-pin-2-line" },
+    { name: "À distance", description: "Même approche pratique, en visio, partout en Suisse romande.", icon: "ri-vidicon-line" },
+    { name: "Atelier découverte (½ journée)", description: "Pour lever les blocages et montrer 3-4 usages concrets.", icon: "ri-compass-3-line" },
+    { name: "Programme sur 1 à 2 jours", description: "Pour ancrer les usages par pôle, avec le guide interne.", icon: "ri-calendar-2-line" }
 ];
 
 // Pricing factors
@@ -181,36 +93,18 @@ const pricingInclusions = [
     "Audit préalable des usages",
     "Atelier pratique sur vos cas",
     "Garde-fous & cadre nLPD",
-    "Playbook interne remis à l'équipe",
+    "Guide interne remis à l'équipe",
     "Suivi post-formation"
 ];
 
-// FAQs (6 items)
+// FAQs
 const faqs = [
-    {
-        question: "La formation se fait en présentiel ou à distance ?",
-        answer: "Les deux. Je me déplace en présentiel à Genève et dans toute la Suisse romande, ou j'anime la formation en distanciel par visioconférence pour les équipes réparties. Le contenu et l'approche pratique restent les mêmes — on choisit le format le plus adapté à votre organisation."
-    },
-    {
-        question: "Combien de temps dure une formation ?",
-        answer: "De la demi-journée découverte à un programme sur deux jours. Une demi-journée suffit pour lever les blocages et installer quelques usages. Pour ancrer durablement l'IA dans plusieurs pôles, avec audit et playbook, on part plutôt sur un à deux jours. On cale la durée ensemble selon vos objectifs."
-    },
-    {
-        question: "Combien ça coûte ?",
-        answer: "C'est sur devis, pour une équipe comme pour un particulier. Le prix dépend du nombre de personnes, de la durée et du format (présentiel ou distanciel). Je vous envoie un devis clair après un premier échange gratuit — pas de surprise, pas de coût caché."
-    },
-    {
-        question: "Mon équipe n'y connaît rien, c'est un problème ?",
-        answer: "Pas du tout. Aucun niveau technique n'est requis. La formation part de zéro et s'appuie sur des cas concrets de votre métier. L'objectif, c'est justement de rendre l'IA accessible à tout le monde — y compris à ceux qui s'en méfient ou qui pensent que ce n'est pas pour eux."
-    },
-    {
-        question: "C'est une formation catalogue ou sur-mesure ?",
-        answer: "Entièrement sur-mesure. Je ne déroule pas des slides génériques : je construis la formation autour de vos outils, vos tâches et vos cas réels. C'est ce qui fait la différence entre une équipe qui a « vu une démo IA » et une équipe qui utilise vraiment l'IA au quotidien."
-    },
-    {
-        question: "Et après la formation, on est livrés à nous-mêmes ?",
-        answer: "Non. Vous repartez avec un playbook interne (usages validés, prompts qui marchent, règles nLPD) et je reste disponible pour répondre aux questions et ajuster à mesure que les usages s'installent. La formation est un point de départ, pas un one-shot qu'on oublie la semaine d'après."
-    }
+    { question: "Combien ça coûte ?", answer: "C'est sur devis, pour une équipe comme pour un particulier. Le prix dépend du nombre de personnes, de la durée et du format. Premier échange gratuit." },
+    { question: "Vous formez aussi les particuliers ?", answer: "Oui. Même approche : on part de ce que vous faites au quotidien, et vous repartez avec des usages concrets." },
+    { question: "En présentiel ou à distance ?", answer: "Les deux : dans vos locaux à Genève et en Suisse romande, ou en visio." },
+    { question: "Combien de temps dure une formation ?", answer: "D'une demi-journée découverte à un programme de deux jours. On cale la durée selon vos objectifs." },
+    { question: "Mon équipe n'y connaît rien, c'est un problème ?", answer: "Pas du tout. Aucun niveau technique n'est requis : on part de zéro, sur vos cas concrets." },
+    { question: "Et après la formation ?", answer: "Vous gardez un guide interne (bons usages, règles nLPD), et je reste disponible pour vos questions." }
 ];
 schemas.push(getFAQPageSchema(faqs));
 
@@ -245,9 +139,8 @@ const sessionTypes = [
                     Formation IA pour vos <span class="co-ser">équipes.</span>
                 </h1>
                 <p class="fo-hero-lead" data-animate data-delay="0.2">
-                    Vos équipes ont accès à l'IA, mais ne savent pas quoi en faire concrètement. On transforme
-                    la curiosité en usages qui font gagner du temps — sur vos vrais outils, avec les bons garde-fous.
-                    <strong>Fini les abonnements IA payés que personne n'utilise.</strong>
+                    Utiliser l'IA au quotidien, sur vos vrais outils, sans risque pour vos données.
+                    <strong>Pour une équipe ou en individuel.</strong>
                 </p>
                 <div class="fo-hero-btns" data-animate data-delay="0.3">
                     <a href="#contact" class="co-btn"><i class="ri-chat-3-line"></i> Discuter d'une formation</a>
@@ -259,48 +152,10 @@ const sessionTypes = [
             </div>
         </section>
 
-        <!-- ══ 01 · CONTEXTE ══ -->
-        <section id="contexte" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">01 — Contexte</p>
-            <h2 style="margin-top:var(--space-eyebrow);">L'IA ne manque pas à vos équipes. <span class="co-ser">Le mode d'emploi, si.</span></h2>
-
-            <div class="fo-prose" data-animate>
-                <p>
-                    En Suisse romande, la plupart des PME ont déjà mis un pied dans l'IA : un abonnement ChatGPT,
-                    une licence Copilot, quelques outils testés ici ou là. <strong>L'accès n'est pas le problème.</strong>
-                </p>
-                <p>
-                    Le problème, c'est l'écart entre <strong>avoir accès à l'IA</strong> et
-                    <strong>savoir quoi en faire au quotidien</strong>. Sans cadre ni prise en main, l'outil reste
-                    un gadget que deux ou trois personnes testent, pendant que le reste de l'équipe attend.
-                </p>
-            </div>
-
-            <div class="fo-note fo-note--accent" data-animate>
-                <i class="ri-money-euro-circle-line"></i>
-                <p>
-                    <strong>Un abonnement IA payé mais pas utilisé,</strong> c'est de l'argent qui part chaque mois —
-                    et un gain de temps jamais encaissé. Le vrai coût n'est pas l'abonnement : c'est le temps qu'on
-                    continue de perdre à côté.
-                </p>
-            </div>
-
-            <div class="fo-note" data-animate>
-                <p>
-                    Une bonne formation ne parle pas d'IA en général. Elle part de <strong>vos tâches réelles</strong>
-                    et transforme la curiosité en usages concrets, adoptés par toute l'équipe — avec les garde-fous
-                    qui protègent vos données.
-                </p>
-            </div>
-        </section>
-
         <!-- ══ 02 · PROBLÈMES ══ -->
         <section id="problemes" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">02 — Problèmes</p>
+            <p class="co-eyebrow">01 — Problèmes</p>
             <h2 style="margin-top:var(--space-eyebrow);">Ça vous <span class="co-ser">parle ?</span></h2>
-            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-                Vous n'êtes pas seul. La plupart des équipes de PME romandes bloquent au même endroit avec l'IA.
-            </p>
 
             <div class="fo-grid fo-grid--2" data-animate-stagger>
                 {painPoints.map((point) => (
@@ -314,16 +169,16 @@ const sessionTypes = [
 
             <div class="fo-note fo-note--accent" data-animate>
                 <i class="ri-lightbulb-line"></i>
-                <p><strong>Le problème n'est pas l'IA.</strong> C'est qu'on l'a mise entre les mains de vos équipes sans mode d'emploi ni cadre. Et ça, ça se forme.</p>
+                <p><strong>Le problème n'est pas l'IA,</strong> c'est l'absence de mode d'emploi. Et ça, ça se forme.</p>
             </div>
         </section>
 
         <!-- ══ 03 · PROGRAMME ══ -->
         <section id="programme" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">03 — Programme</p>
+            <p class="co-eyebrow">02 — Programme</p>
             <h2 style="margin-top:var(--space-eyebrow);">Comment se passe la formation ?</h2>
             <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-                Quatre étapes, un objectif : une équipe autonome qui utilise l'IA sans risque.
+                Objectif : utiliser l'IA seul, sans risque.
             </p>
 
             <div class="fo-steps" data-animate-stagger>
@@ -357,7 +212,7 @@ const sessionTypes = [
 
         <!-- ══ 04 · RÉSULTATS ══ -->
         <section id="resultats" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">04 — Résultats</p>
+            <p class="co-eyebrow">03 — Résultats</p>
             <h2 style="margin-top:var(--space-eyebrow);">Ce que votre équipe <span class="co-ser">obtient.</span></h2>
 
             <div class="fo-grid fo-grid--3" data-animate-stagger>
@@ -390,10 +245,10 @@ const sessionTypes = [
 
         <!-- ══ 05 · FORMATS ══ -->
         <section id="formats" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">05 — Formats</p>
+            <p class="co-eyebrow">04 — Formats</p>
             <h2 style="margin-top:var(--space-eyebrow);">Des formats adaptés à <span class="co-ser">votre équipe.</span></h2>
             <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-                Présentiel ou distanciel, découverte ou programme complet — on cale selon vos objectifs.
+                On cale le format selon vos objectifs.
             </p>
 
             <div class="fo-grid fo-grid--2" data-animate-stagger>
@@ -406,15 +261,11 @@ const sessionTypes = [
                 ))}
             </div>
 
-            <div class="fo-note" data-animate>
-                <i class="ri-information-line"></i>
-                <p><strong>Chaque formation est construite sur-mesure.</strong> Le format n'est qu'un point de départ — on l'ajuste à votre équipe, vos outils et le temps que vous pouvez y consacrer. L'objectif reste le même : des usages qui s'ancrent vraiment, pas une démo qu'on oublie.</p>
-            </div>
         </section>
 
         <!-- ══ 06 · LOCAL (SEO géo) ══ -->
         <section id="local" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">06 — Local</p>
+            <p class="co-eyebrow">05 — Local</p>
             <h2 style="margin-top:var(--space-eyebrow);">Un formateur IA basé à <span class="co-ser">Genève.</span></h2>
             <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 Sur place ou à distance, dans toute la Suisse romande.
@@ -424,12 +275,8 @@ const sessionTypes = [
                 <div class="fo-local-why co-frame" data-animate="fade-left">
                     <h3 class="fo-local-h3">Pourquoi un formateur local ?</h3>
                     <p>
-                        Je suis basé à Genève et je connais le contexte des PME romandes : les outils utilisés ici,
-                        les exigences de la nLPD, la réalité de petites équipes qui n'ont pas de service informatique dédié.
-                    </p>
-                    <p>
-                        Pour une formation, ça change tout : je viens dans vos locaux, je parle votre langage, et je
-                        reste joignable après pour accompagner l'adoption sur la durée.
+                        Je connais les outils des PME romandes et la nLPD. Je viens dans vos locaux, et je reste
+                        joignable après la formation.
                     </p>
                 </div>
 
@@ -452,7 +299,7 @@ const sessionTypes = [
 
         <!-- ══ 07 · INVESTISSEMENT ══ -->
         <section id="prix" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">07 — Investissement</p>
+            <p class="co-eyebrow">06 — Tarifs</p>
             <h2 style="margin-top:var(--space-eyebrow);">Combien ça <span class="co-ser">coûte ?</span></h2>
             <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:52ch;">Un devis clair, adapté à votre équipe ou à vous seul.</p>
 
@@ -501,7 +348,7 @@ const sessionTypes = [
 
         <!-- ══ 08 · FAQ (accordéon natif <details>, zéro JS) ══ -->
         <section id="faq" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">08 — FAQ</p>
+            <p class="co-eyebrow">07 — FAQ</p>
             <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes</h2>
 
             <div class="fo-faq" style="margin-top:var(--space-block);">
@@ -523,7 +370,7 @@ const sessionTypes = [
 
         <!-- ══ 09 · CONTACT (formulaire Web3Forms — HARD-PRESERVE câblage) ══ -->
         <section id="contact" class="co-sec co-pad" style="padding:64px var(--sec-pad-x);">
-            <p class="co-eyebrow">09 — Contact</p>
+            <p class="co-eyebrow">08 — Contact</p>
             <h2 style="margin-top:var(--space-eyebrow);">Votre équipe est prête à passer à <span class="co-ser">l'IA ?</span></h2>
             <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
                 Premier échange gratuit. On regarde ensemble où en est votre équipe — que vous ayez déjà des
@@ -638,9 +485,6 @@ const sessionTypes = [
     .fo-hero-loc i { color: var(--accent); }
 
     /* ── Prose (contexte) ── */
-    .fo-prose { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; max-width: 68ch; }
-    .co-root .fo-prose p { font-size: 15px; line-height: 1.65; color: var(--muted); }
-    .fo-prose strong { color: var(--ink); font-weight: 600; }
 
     /* ── Cartes génériques (problèmes / résultats / formats) ── */
     .fo-grid { display: grid; gap: 16px; margin-top: var(--space-block); }

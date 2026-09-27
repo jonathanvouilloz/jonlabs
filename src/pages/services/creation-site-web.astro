@@ -64,60 +64,19 @@ const clusterGroups = [
 
 // Pain points data (4 items)
 const painPoints = [
-    {
-        icon: "ri-search-line",
-        title: "Invisible sur Google",
-        description: "Vos concurrents apparaissent en premier quand quelqu'un cherche votre métier à Genève. Vous, non. Les clients potentiels ne savent même pas que vous existez."
-    },
-    {
-        icon: "ri-chat-voice-line",
-        title: "Dépendant du bouche-à-oreille",
-        description: "Votre réseau actuel vous amène des clients, mais c'est limité. Vous aimeriez que des gens vous trouvent sans avoir besoin de vous connaître."
-    },
-    {
-        icon: "ri-image-line",
-        title: "Une image qui ne vous ressemble pas",
-        description: "Votre seule vitrine, c'est une page Facebook ou un profil LinkedIn. Ça fait le job, mais ça ne reflète pas vraiment qui vous êtes ni le sérieux de votre travail."
-    },
-    {
-        icon: "ri-settings-3-line",
-        title: "Peur de la complexité technique",
-        description: "Vous avez déjà regardé WordPress, Wix, Squarespace... et vous avez abandonné. Trop compliqué, trop de temps, trop de choix. Vous voulez juste un truc qui marche."
-    }
+    { icon: "ri-search-line", title: "Invisible sur Google", description: "Quand on cherche votre métier à Genève, ce sont vos concurrents qui sortent." },
+    { icon: "ri-chat-voice-line", title: "Tout passe par le bouche-à-oreille", description: "Ça marche, mais c'est limité. Vous voulez aussi être trouvé par des inconnus." },
+    { icon: "ri-image-line", title: "Une image qui ne vous ressemble pas", description: "Une page Facebook ou LinkedIn ne montre pas le sérieux de votre travail." },
+    { icon: "ri-settings-3-line", title: "Trop compliqué à faire seul", description: "Vous avez essayé Wix ou WordPress, puis abandonné. Vous voulez juste un site qui marche." }
 ];
 
 // Methodology steps (5 étapes)
 const methodSteps = [
-    {
-        step: "1",
-        title: "Échange",
-        description: "Je discute avec vous de votre activité, vos objectifs, vos clients. Qu'est-ce que vous voulez que les visiteurs comprennent en 10 secondes ? C'est la base de tout.",
-        duration: "30-45 min (gratuit, sans engagement)"
-    },
-    {
-        step: "2",
-        title: "Contenu",
-        description: "Vous me fournissez l'essentiel : textes, photos, logo si vous en avez un. Pas besoin d'être parfait — j'affine avec vous. Je structure le tout pour que ce soit clair et efficace.",
-        duration: "1 semaine (à votre rythme)"
-    },
-    {
-        step: "3",
-        title: "Maquette",
-        description: "Je crée une maquette visuelle de votre site. Vous voyez exactement à quoi ça ressemblera avant que je code quoi que ce soit. J'ajuste jusqu'à ce que ça vous plaise.",
-        duration: "3-5 jours"
-    },
-    {
-        step: "4",
-        title: "Développement",
-        description: "Je code votre site. Pas de template générique qui rame, pas d'usine à gaz. Un site sur-mesure, rapide, optimisé pour Google dès le départ.",
-        duration: "1-2 semaines"
-    },
-    {
-        step: "5",
-        title: "Lancement",
-        description: "Mise en ligne, vérifications techniques, et une formation rapide pour que vous puissiez faire les modifications simples vous-même si besoin.",
-        duration: "1 jour"
-    }
+    { step: "1", title: "Échange", description: "On parle de votre activité et de vos clients. Gratuit, sans engagement.", duration: "30-45 min" },
+    { step: "2", title: "Contenu", description: "Vous m'envoyez textes, photos et logo, même bruts. Je les mets en forme.", duration: "À votre rythme" },
+    { step: "3", title: "Maquette", description: "Vous voyez le site avant qu'il soit construit, et on ajuste.", duration: "3-5 jours" },
+    { step: "4", title: "Construction", description: "Un site sur mesure, rapide et optimisé pour Google.", duration: "1-2 semaines" },
+    { step: "5", title: "Mise en ligne", description: "Je publie le site et je vous montre comment modifier vos textes.", duration: "1 jour" }
 ];
 
 // Differentiators (encart)
@@ -130,43 +89,12 @@ const differentiators = [
 
 // Results (6 items)
 const results = [
-    {
-        icon: "ri-smartphone-line",
-        title: "Un site responsive (mobile + ordinateur)",
-        description: "Vos visiteurs restent et naviguent confortablement, peu importe leur appareil. Plus de 60% des visites viennent du mobile."
-    },
-    {
-        icon: "ri-search-eye-line",
-        title: "Optimisé pour Google (référencement inclus)",
-        description: "Votre site est construit pour remonter dans les recherches locales. Quelqu'un cherche \"[votre métier] Genève\" ? Vous avez une chance d'apparaître."
-    },
-    {
-        icon: "ri-speed-line",
-        title: "Chargement ultra-rapide (score 90+)",
-        description: "Un site lent fait fuir les visiteurs. Le vôtre charge en moins de 2 secondes. Google adore, vos clients aussi."
-    },
-    {
-        icon: "ri-palette-line",
-        title: "Design sur-mesure, pas un template",
-        description: "Votre site ne ressemble à aucun autre. Il reflète votre identité, pas celle d'un modèle utilisé par 10'000 autres entreprises."
-    },
-    {
-        icon: "ri-pencil-line",
-        title: "Autonomie pour les modifications simples",
-        description: "Changer un texte, ajouter une photo, mettre à jour vos horaires : vous pouvez le faire vous-même. Formation incluse."
-    },
-    {
-        icon: "ri-shield-check-line",
-        title: "Hébergement sécurisé et performant",
-        description: "Votre site est en ligne 99.9% du temps, avec certificat SSL (le petit cadenas). Vos visiteurs sont en confiance."
-    }
-];
-
-// Tech stack
-const techStack = [
-    { name: "Framer", description: "Idéal pour les sites vitrines élégants. Modifications faciles, animations fluides.", icon: "ri-layout-line", idealFor: "Indépendants, consultants, portfolios créatifs" },
-    { name: "Webflow", description: "Pour les projets plus ambitieux. CMS intégré, interactions avancées.", icon: "ri-grid-line", idealFor: "PME, agences, sites avec beaucoup de contenu" },
-    { name: "Site sur-mesure", description: "Performance maximale et contrôle total. Pour les besoins spécifiques.", icon: "ri-code-s-slash-line", idealFor: "E-commerce, applications web, besoins techniques spécifiques" }
+    { icon: "ri-smartphone-line", title: "Parfait sur mobile", description: "Plus de 60 % des visites viennent d'un téléphone." },
+    { icon: "ri-search-eye-line", title: "Optimisé pour Google", description: "Construit pour sortir sur « votre métier + Genève »." },
+    { icon: "ri-speed-line", title: "Rapide", description: "Moins de 2 secondes de chargement. Google et vos clients adorent." },
+    { icon: "ri-palette-line", title: "Sur mesure", description: "Pas un modèle utilisé par 10'000 autres entreprises." },
+    { icon: "ri-pencil-line", title: "Vous gardez la main", description: "Textes, photos, horaires : vous les changez vous-même." },
+    { icon: "ri-shield-check-line", title: "Sécurisé", description: "Hébergement fiable et cadenas HTTPS inclus." }
 ];
 
 // Pricing plans — prix : src/data/pricing.ts
@@ -200,25 +128,23 @@ const pricingPlans = [
     }
 ];
 
-// FAQs (8 questions)
+// FAQs
 const faqs = [
-    { question: "Combien de temps pour avoir mon site ?", answer: "Entre 3 et 4 semaines pour un site vitrine standard. Si vous avez une urgence (événement, lancement), j'ai une option express. On en parle lors du premier échange." },
-    { question: "Qu'est-ce que je dois fournir ?", answer: "Vos textes (même bruts, on les retravaille ensemble), vos photos, votre logo si vous en avez un. Pas de panique si vous n'avez pas tout : je peux vous guider ou vous recommander des professionnels." },
-    { question: "Je n'y connais rien en technique, c'est un problème ?", answer: "Pas du tout. C'est même la majorité de mes clients. Je m'occupe de toute la partie technique, vous vous concentrez sur votre métier. Et je vous explique tout en termes simples." },
-    { question: "Et si j'ai besoin de modifications après ?", answer: "Les petites modifications (textes, photos), vous pouvez les faire vous-même — je vous montre comment. Pour des évolutions plus importantes, on en discute et je vous fais un devis." },
-    { question: "Pourquoi pas WordPress comme tout le monde ?", answer: "WordPress se justifie pour certains usages — blog très actif, plugins métier — et je le propose aussi quand c'est le bon choix. Mais pour un site vitrine, ma stack vous donne un site plus rapide, plus sécurisé, et sans mises à jour constantes ni maintenance pénible." },
-    { question: "C'est quoi la différence avec Wix ou Squarespace ?", answer: "Ces outils sont pratiques pour démarrer seul, mais vous êtes limité par leurs templates et leur système. Avec moi, vous avez un site vraiment sur-mesure, optimisé pour Google, et vous n'êtes pas enfermé dans une plateforme." },
-    { question: "Et si le résultat ne me plaît pas ?", answer: "On valide ensemble à chaque étape (maquette, puis développement). Vous ne découvrez pas le site à la fin — vous participez à sa création. Si quelque chose ne va pas, on ajuste avant de continuer." },
-    { question: "Est-ce que je serai visible sur Google tout de suite ?", answer: "Le référencement prend du temps (quelques semaines à quelques mois selon la concurrence). Mais votre site sera techniquement optimisé dès le jour 1. C'est la fondation. Ensuite, si vous voulez aller plus loin, on peut travailler sur une stratégie SEO plus poussée." }
+    { question: "Combien coûte un site ?", answer: "Un site vitrine démarre à CHF 750. Après un premier appel gratuit, vous recevez un devis ferme selon le nombre de pages et les fonctionnalités. Paiement : 50 % à la commande, 50 % à la livraison." },
+    { question: "Combien de temps pour avoir mon site ?", answer: "3 à 4 semaines pour un site vitrine. Une urgence ? On peut accélérer, on en parle au premier échange." },
+    { question: "Qu'est-ce que je dois fournir ?", answer: "Vos textes (même bruts), vos photos et votre logo si vous en avez un. S'il manque quelque chose, je vous guide." },
+    { question: "Je n'y connais rien en technique, c'est un problème ?", answer: "Pas du tout, c'est le cas de la plupart de mes clients. Je m'occupe de la technique et je vous explique tout simplement." },
+    { question: "Et si j'ai besoin de modifications après ?", answer: "Les petites modifications, vous les faites vous-même. Pour une évolution plus importante, je vous fais un devis." },
+    { question: "Serai-je visible sur Google tout de suite ?", answer: "Le site est optimisé dès le premier jour, mais Google prend quelques semaines à quelques mois. Pour accélérer, il y a le référencement local." }
 ];
 schemas.push(getFAQPageSchema(faqs));
 
 // Local advantages
 const localAdvantages = [
-    { icon: "ri-user-voice-line", title: "Des échanges facilités", description: "On peut se voir en personne si besoin. Un café pour discuter du projet, un atelier pour affiner les détails." },
-    { icon: "ri-bar-chart-line", title: "La même réalité business", description: "Je connais le marché suisse, les attentes des clients locaux, les spécificités légales (LPD, facturation)." },
-    { icon: "ri-time-line", title: "Réactivité", description: "Même fuseau horaire, même rythme. Une question urgente ? Vous avez une réponse dans la journée." },
-    { icon: "ri-group-line", title: "Un réseau local", description: "Besoin d'un photographe professionnel ? D'un rédacteur ? Je peux vous recommander des personnes de confiance dans la région." }
+    { icon: "ri-user-voice-line", title: "On peut se voir", description: "Un café pour lancer le projet, si vous préférez." },
+    { icon: "ri-bar-chart-line", title: "Le marché suisse", description: "Je connais les attentes des clients d'ici et la loi sur les données (nLPD)." },
+    { icon: "ri-time-line", title: "Réactivité", description: "Une question ? Réponse dans la journée." },
+    { icon: "ri-group-line", title: "Un réseau local", description: "Photographe, rédacteur : je peux vous recommander des gens de confiance." }
 ];
 
 // Project type options for form
@@ -232,9 +158,8 @@ const projectTypes = [
 // Budget options for form
 const budgetOptions = [
     { value: "moins-1000", label: "< 1'000 CHF" },
-    { value: "1000-2000", label: "1'000 - 2'000 CHF" },
-    { value: "2000-5000", label: "2'000 - 5'000 CHF" },
-    { value: "plus-5000", label: "> 5'000 CHF" },
+    { value: "1000-2500", label: "1'000 - 2'500 CHF" },
+    { value: "plus-2500", label: "> 2'500 CHF" },
     { value: "ne-sait-pas", label: "Je ne sais pas" }
 ];
 ---
@@ -252,9 +177,8 @@ const budgetOptions = [
                         Création de site web à <span class="co-ser">Genève.</span>
                     </h1>
                     <p class="cr-hero-lead" data-animate data-delay="0.2">
-                        Un site qui travaille pour vous, même quand vous dormez. Vous n'avez pas de site
-                        ou juste une page Facebook ? <strong>Lancez votre présence en ligne en 3-4 semaines</strong> —
-                        un site simple, efficace, qui vous ramène des clients sans vous prendre la tête.
+                        Un site simple et efficace qui vous ramène des clients. <strong>En ligne en 3-4 semaines,
+                        dès CHF 750.</strong>
                     </p>
                     <div class="cr-hero-btns" data-animate data-delay="0.3">
                         <a href="#contact" class="co-btn"><i class="ri-chat-3-line"></i> Discuter de mon projet</a>
@@ -289,10 +213,6 @@ const budgetOptions = [
         <section id="problemes" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
             <p class="co-eyebrow">01 — Problèmes</p>
             <h2 style="margin-top:var(--space-eyebrow);">Vous vous <span class="co-ser">reconnaissez ?</span></h2>
-            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:56ch;line-height:1.6;">
-                Ce sont les situations que rencontrent la plupart de mes clients avant de travailler ensemble.
-            </p>
-
             <div class="cr-grid cr-grid--2" data-animate-stagger>
                 {painPoints.map((point) => (
                     <div class="cr-card co-frame co-frame--reveal" data-animate-item>
@@ -305,16 +225,13 @@ const budgetOptions = [
 
             <div class="cr-note cr-note--accent" data-animate>
                 <i class="ri-lightbulb-line"></i>
-                <p><strong>La bonne nouvelle ?</strong> Avoir un site professionnel ne demande ni des mois de travail, ni un budget démesuré.</p>
+                <p><strong>La bonne nouvelle :</strong> un site pro ne demande ni des mois, ni un gros budget.</p>
             </div>
 
             <div class="cr-note" data-animate>
                 <p>
-                    <strong>Pour aller plus loin :</strong> j'ai analysé
-                    <a href="/blog/audit-50-sites-indeps-romands" class="cr-inline">50 sites d'indépendants romands</a>
-                    pour identifier ce qui marche (et ce qui ne marche pas), et cette
-                    <a href="/blog/15-signes-site-web-dort" class="cr-inline">checklist en 4 minutes</a>
-                    te dit si ton site actuel travaille pour toi ou s'il dort.
+                    Votre site actuel travaille-t-il pour vous ? <a href="/blog/15-signes-site-web-dort" class="cr-inline">La checklist en 4 minutes</a>
+                    (et <a href="/blog/audit-50-sites-indeps-romands" class="cr-inline">l'audit de 50 sites romands</a>).
                 </p>
             </div>
         </section>
@@ -324,8 +241,7 @@ const budgetOptions = [
             <p class="co-eyebrow">02 — Méthode</p>
             <h2 style="margin-top:var(--space-eyebrow);">Comment ça se passe ?</h2>
             <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-                Pas de tunnel de développement interminable. Un processus clair, des validations régulières,
-                un site en ligne en <strong>3-4 semaines</strong>.
+                Vous validez chaque étape. Site en ligne en <strong>3-4 semaines</strong>.
             </p>
 
             <div class="cr-steps" data-animate-stagger>
@@ -379,56 +295,22 @@ const budgetOptions = [
                 <figcaption>— Solène Derbal, cheffe d'orchestre</figcaption>
             </figure>
 
-            <div class="cr-note cr-note--accent" data-animate>
-                <p>
-                    <strong>Et après ?</strong> Avoir un beau site ne suffit pas — encore faut-il le rendre visible.
-                    J'ai écrit un guide complet sur
-                    <a href="/blog/visibilite-site-internet-2026" class="cr-inline">comment rendre ton site visible sur internet en 2026</a>
-                    (Google + IA), avec les leviers concrets à activer dès le lancement.
-                </p>
-            </div>
-
             <div class="cr-note" data-animate>
                 <p>
-                    <strong>Des exemples ?</strong> Voyez mes études de cas
-                    <a href="/portfolio/physio-pommier" class="cr-inline">Physio Pommier</a> (site vitrine santé) et
-                    <a href="/portfolio/ugo-mighali-coutelier" class="cr-inline">Ugo Mighali Coutelier</a> (vitrine d'artisan),
-                    ou l'ensemble de mes <a href="/portfolio" class="cr-inline">réalisations</a>.
+                    <strong>Des exemples ?</strong>
+                    <a href="/portfolio/physio-pommier" class="cr-inline">Physio Pommier</a>,
+                    <a href="/portfolio/ugo-mighali-coutelier" class="cr-inline">Ugo Mighali Coutelier</a>
+                    ou toutes mes <a href="/portfolio" class="cr-inline">réalisations</a>.
+                    Et pour être visible une fois en ligne : <a href="/blog/visibilite-site-internet-2026" class="cr-inline">rendre son site visible en 2026</a>.
                 </p>
-            </div>
-        </section>
-
-        <!-- ══ 04 · TECHNOLOGIE ══ -->
-        <section id="technologie" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">04 — Sous le capot</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Technologie moderne</h2>
-            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-                Pas de solution unique pour tous. <strong>Je choisis l'outil adapté à votre projet</strong> —
-                simplicité, flexibilité ou performance.
-            </p>
-
-            <div class="cr-grid cr-grid--3" data-animate-stagger="scale">
-                {techStack.map((tech) => (
-                    <div class="cr-card co-frame co-frame--reveal" data-animate-item>
-                        <i class={`${tech.icon} cr-card-icon`} aria-hidden="true"></i>
-                        <h3 class="cr-card-title">{tech.name}</h3>
-                        <p class="cr-card-text">{tech.description}</p>
-                        <p class="cr-card-tag"><i class="ri-user-star-line"></i> {tech.idealFor}</p>
-                    </div>
-                ))}
-            </div>
-
-            <div class="cr-note" data-animate>
-                <i class="ri-information-line"></i>
-                <p><strong>Dans tous les cas :</strong> un site rapide, sécurisé, et que vous pouvez faire évoluer. On choisit ensemble l'option qui vous convient.</p>
             </div>
         </section>
 
         <!-- ══ 05 · PRIX ══ -->
         <section id="prix" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">05 — Investissement</p>
+            <p class="co-eyebrow">04 — Tarifs</p>
             <h2 style="margin-top:var(--space-eyebrow);">Des tarifs <span class="co-ser">clairs.</span></h2>
-            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:52ch;">Adaptés à la taille de votre projet. Pas de mauvaise surprise.</p>
+            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:52ch;">Un devis ferme avant de commencer.</p>
 
             <div class="cr-tiers" data-animate-stagger>
                 {pricingPlans.map((plan) => (
@@ -452,30 +334,27 @@ const budgetOptions = [
             <div class="cr-pricenote co-frame" data-animate>
                 <span class="co-x tl"></span><span class="co-x tr"></span>
                 <span class="co-x bl"></span><span class="co-x br"></span>
-                <h3 class="cr-pricenote-title"><i class="ri-information-line"></i> Ce qui influence le prix</h3>
+                <h3 class="cr-pricenote-title"><i class="ri-information-line"></i> Ce qui fait varier le prix</h3>
                 <div class="cr-pricenote-grid">
                     <ul class="co-list">
                         <li>Nombre de pages</li>
-                        <li>Complexité du design</li>
+                        <li>Fonctionnalités (réservation, multilingue…)</li>
                     </ul>
                     <ul class="co-list">
-                        <li>Fonctionnalités spécifiques (réservation, multilingue...)</li>
-                        <li>Délai souhaité (option express disponible)</li>
+                        <li>Délai souhaité</li>
+                        <li>Paiement : 50 % à la commande, 50 % à la livraison</li>
                     </ul>
                 </div>
-                <p class="cr-pricenote-pay"><i class="ri-bank-card-line"></i> <strong>Paiement :</strong> 50 % à la commande, 50 % à la livraison.</p>
-                <p class="cr-note-inline"><strong>Pas sûr de la formule ?</strong> On en discute ensemble. Premier échange gratuit et sans engagement.</p>
                 <p class="cr-note-inline">
-                    <strong>À lire avant de te décider :</strong>
-                    <a href="/blog/prix-site-web-suisse-2026" class="cr-inline">Combien coûte vraiment un site web en Suisse en 2026 ?</a>
-                    — un guide transparent des fourchettes en CHF, par profil de prestataire.
+                    Vous préférez Webflow ? Voir <a href="/services/developpeur-webflow" class="cr-inline">développeur Webflow</a>.
+                    Pour comparer : <a href="/blog/prix-site-web-suisse-2026" class="cr-inline">combien coûte un site web en Suisse</a>.
                 </p>
             </div>
         </section>
 
         <!-- ══ 06 · FAQ (accordéon natif <details>, zéro JS) ══ -->
         <section id="faq" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">06 — FAQ</p>
+            <p class="co-eyebrow">05 — FAQ</p>
             <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes</h2>
 
             <div class="cr-faq" style="margin-top:var(--space-block);">
@@ -497,7 +376,7 @@ const budgetOptions = [
 
         <!-- ══ 07 · LOCAL (SEO géo) ══ -->
         <section id="local" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">07 — Local</p>
+            <p class="co-eyebrow">06 — Local</p>
             <h2 style="margin-top:var(--space-eyebrow);">Un prestataire à <span class="co-ser">Genève</span>, ça change quoi ?</h2>
 
             <div class="cr-local-grid">
@@ -553,14 +432,10 @@ const budgetOptions = [
 
         <!-- ══ 08 · RESSOURCES ══ -->
         <section id="ressources" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">08 — Ressources</p>
+            <p class="co-eyebrow">07 — Ressources</p>
             <h2 style="margin-top:var(--space-eyebrow);">Tout comprendre avant de lancer ton site</h2>
             <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
-                Avant de demander un devis, fais-toi ton propre avis. J'ai écrit des guides détaillés sur la
-                création de site web en Suisse romande — commence par
-                <a href="/blog/prix-site-web-suisse-2026" class="cr-inline">combien coûte vraiment un site web</a>.
-                Vous avez déjà un site qui ne performe plus ? Pensez plutôt à une
-                <a href="/services/refonte-site-web" class="cr-inline">refonte de site web</a>.
+                Des guides pour vous faire votre avis avant de demander un devis.
             </p>
 
             <div class="cr-grid cr-grid--2" data-animate-stagger>
@@ -587,7 +462,7 @@ const budgetOptions = [
 
         <!-- ══ 09 · CONTACT (formulaire Web3Forms — HARD-PRESERVE câblage) ══ -->
         <section id="contact" class="co-sec co-pad" style="padding:64px var(--sec-pad-x);">
-            <p class="co-eyebrow">09 — Contact</p>
+            <p class="co-eyebrow">08 — Contact</p>
             <h2 style="margin-top:var(--space-eyebrow);">Prêt à lancer votre <span class="co-ser">site ?</span></h2>
             <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
                 Premier échange gratuit et sans engagement. Je discute de votre projet avec vous, je vous donne
@@ -737,7 +612,6 @@ const budgetOptions = [
     .cr-card-icon { font-size: 24px; color: var(--accent); line-height: 1; }
     .cr-card-title { font-size: 1.1rem; }
     .cr-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
-    .cr-card-tag { margin-top: auto; padding-top: 4px; font-size: 12.5px; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 5px; }
 
     /* ── Notes / callouts ── */
     .cr-note { display: flex; align-items: flex-start; gap: 12px; margin-top: 20px; padding: 18px 22px; border: 1px solid var(--line-2); background: var(--surface); }
@@ -792,8 +666,6 @@ const budgetOptions = [
     .cr-pricenote-title i { color: var(--accent); }
     .cr-pricenote-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 40px; margin-top: 18px; }
     .cr-pricenote-grid li { font-size: 14px; }
-    .co-root .cr-pricenote-pay { margin-top: 18px; font-size: 14px; color: var(--muted); display: flex; align-items: center; gap: 8px; }
-    .cr-pricenote-pay i { color: var(--accent); }
 
     /* ── FAQ (accordéon natif <details> — smooth via ::details-content, zéro JS) ── */
     .cr-faq { border-top: 1px solid var(--line); }
