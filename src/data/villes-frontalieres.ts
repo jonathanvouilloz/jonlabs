@@ -214,9 +214,9 @@ export const villesFrontalieres: VilleData[] = [
     angleHero: "Sites optimisés pour la clientèle franco-suisse, à 5 minutes de la douane de Moillesulaz.",
     voisines: ['annemasse', 'ville-la-grand', 'saint-julien-en-genevois'],
 
-    metaTitle: 'Site web et e-commerce à Gaillard, sans agence | Jonlabs',
+    metaTitle: 'Développement web et site internet à Gaillard | Jonlabs',
     metaDescription:
-      "En direct avec le développeur, sans agence entre nous : site vitrine, boutique en ligne et refonte à Gaillard, à 5 km de Genève. Devis en EUR ou en CHF.",
+      "Le travail d'une agence de développement web, en direct avec le développeur : site vitrine, boutique en ligne et refonte à Gaillard. Devis EUR ou CHF.",
     h1Lead: 'Développement web et boutique en ligne à',
     ecommerce: {
       intro:
@@ -292,7 +292,7 @@ export const villesFrontalieres: VilleData[] = [
 
     metaTitle: 'Création de site internet à Ville-la-Grand | Jonlabs',
     metaDescription:
-      "Sans intermédiaire ni agence : création de site internet, site corporate B2B et vente en ligne pour les PME des zones Mont Blanc et Borly, à Ville-la-Grand.",
+      "Le travail d'une agence web, sans intermédiaire : création de site internet, site B2B et vente en ligne pour les PME de Ville-la-Grand, Mont Blanc et Borly.",
     h1Lead: 'Création de site internet à',
     ecommerce: {
       intro:
@@ -368,7 +368,7 @@ export const villesFrontalieres: VilleData[] = [
 
     metaTitle: 'Création site internet et e-commerce Saint-Julien | Jonlabs',
     metaDescription:
-      "Freelance, pas une agence : création de site internet, boutique en ligne et référencement local à Saint-Julien-en-Genevois, à 11 km de Genève. CHF ou EUR.",
+      "Le travail d'une agence web, en direct avec le développeur : création de site internet, e-commerce et référencement local à Saint-Julien. Devis EUR ou CHF.",
     h1Lead: 'Création de site internet et e-commerce à',
     ecommerce: {
       intro:
@@ -444,7 +444,7 @@ export const villesFrontalieres: VilleData[] = [
 
     metaTitle: 'Développement web freelance à La Roche-sur-Foron | Jonlabs',
     metaDescription:
-      "Un développeur en direct plutôt qu'une agence : refonte de site, développement web et boutique en ligne pour les PME du Faucigny, à 25 km de Genève.",
+      "Le travail d'une agence de développement web, en direct avec le développeur : refonte, site sur mesure et boutique en ligne pour les PME du Faucigny.",
     h1Lead: 'Développement web et refonte de site à',
     ecommerce: {
       intro:

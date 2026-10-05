@@ -118,6 +118,8 @@ L'option **Claude d'Anthropic** est recommandée comme moteur de raisonnement po
 
 Une configuration locale sur ton MacBook coûte moins cher au départ, mais une instance sur VPS (CHF 5 à 15 par mois) te donne un accès 24h/24 sans dépendre de l'état de ta machine. **Résultat attendu x5** sur la disponibilité par rapport à une installation purement locale.
 
+Tu préfères qu'on le mette en place pour toi ? Je conçois et déploie des [agents IA sur mesure pour PME romandes](/hermes) : cadrage, intégration à tes outils et garde-fous, hébergés en Suisse chez Infomaniak.
+
 Pour voir les limites et les risques à anticiper avant de te lancer, lis le [bilan avantages et limites de l'automatisation pour une PME](/blog/avantages-limites-automatisation-pme).
 
 Si tu veux savoir si ton cas spécifique justifie cet investissement, [réserve un appel découverte](https://cal.com/jonathan-vouilloz/appel-de-bienvenue). 30 minutes pour évaluer ensemble.

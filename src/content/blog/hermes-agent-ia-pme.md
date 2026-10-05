@@ -84,7 +84,7 @@ L'équipe a des antécédents techniques solides, le financement est conséquent
 
 ## Ce que Hermes Agent peut faire pour une PME : cas d'usage concrets
 
-Hermes Agent ne fait pas tout mieux que tous les autres outils. Voici les cas d'usage où il apporte une vraie valeur pour une **PME de 5 à 15 personnes**, avec une évaluation honnête de ce qui marche et ce qui demande encore du recul.
+Hermes Agent ne fait pas tout mieux que tous les autres outils. Voici les cas d'usage où il apporte une vraie valeur pour une **PME de 5 à 15 personnes**, avec une évaluation honnête de ce qui marche et ce qui demande encore du recul. Pour des exemples qui dépassent Hermes, j'ai rassemblé [10 cas d'usage d'agent IA en entreprise](/blog/agent-ia-entreprise-cas-usage), secteur par secteur.
 
 ### Veille concurrentielle continue
 
@@ -146,7 +146,7 @@ Ces chiffres valent pour Hermes Agent en particulier. Pour comparer avec les aut
 
 Ce chiffre inclut le setup initial, l'hébergement et l'API LLM sur douze mois. À comparer avec le gain en temps sur tes tâches récurrentes.
 
-Recommandation directe : si tu n'as pas de développeur en interne et que tu veux utiliser Hermes Agent sérieusement, ne te lance pas seul. Mieux vaut [te faire accompagner par un consultant IA](/consultant-ia) qui connaît le terrain romand. Le temps de configuration autonome peut dépasser le bénéfice attendu sur les six premiers mois. [Réserve un appel découverte](https://cal.com/jonathan-vouilloz/appel-de-bienvenue) pour valider si l'investissement a du sens pour ton cas spécifique.
+Recommandation directe : si tu n'as pas de développeur en interne et que tu veux utiliser Hermes Agent sérieusement, ne te lance pas seul. Mieux vaut [te faire accompagner par un consultant IA](/consultant-ia) qui connaît le terrain romand. C'est ce que je fais : je [déploie des agents IA sur mesure pour PME](/hermes), hébergés en Suisse. Le temps de configuration autonome peut dépasser le bénéfice attendu sur les six premiers mois. [Réserve un appel découverte](https://cal.com/jonathan-vouilloz/appel-de-bienvenue) pour valider si l'investissement a du sens pour ton cas spécifique.
 
 ---
 
@@ -178,7 +178,7 @@ Pour aller plus loin sur le second outil, consulte le [guide complet sur OpenCla
 
 ## Les limites à connaître avant de se lancer
 
-Un outil à trois mois de vie. La documentation est incomplète par endroits, des bugs ne sont pas encore résolus, certaines fonctionnalités sont en cours de développement. C'est inhérent à un projet open source récent en forte croissance. Ne pas déployer en production critique sans tests solides au préalable.
+Un outil lancé en février 2026, encore jeune. La documentation est incomplète par endroits, des bugs ne sont pas encore résolus, certaines fonctionnalités sont en cours de développement. C'est inhérent à un projet open source récent en forte croissance. Ne pas déployer en production critique sans tests solides au préalable.
 
 La configuration n'est pas no-code. Hermes Agent n'est pas un SaaS avec interface clé en main. C'est un outil open source qui demande un minimum de compétence technique pour l'installation. Si tu n'as pas de développeur en interne, prévoir un prestataire. Le temps de configuration autonome peut décourager avant le premier résultat. Lire aussi [le bilan avantages et limites de l'automatisation pour les PME](/blog/avantages-limites-automatisation-pme) pour calibrer les attentes.
 
