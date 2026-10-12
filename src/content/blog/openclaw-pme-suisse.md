@@ -13,7 +13,7 @@ draft: false
 readingTime: 9
 faqs:
   - question: "OpenClaw est-il vraiment gratuit ?"
-    answer: "Open source signifie gratuit à télécharger et à utiliser. Mais le coût total inclut l'API LLM (CHF 10 à 60 par mois pour Claude ou OpenAI), l'hébergement optionnel sur VPS (CHF 5 à 15 par mois) et la configuration initiale (CHF 200 à 800 avec un prestataire). Budget réaliste première année pour une PME : CHF 500 à 1 200."
+    answer: "Open source signifie gratuit à télécharger et à utiliser. Mais le coût total inclut l'API LLM (CHF 10 à 60 par mois pour Claude ou OpenAI), l'hébergement optionnel sur VPS (environ CHF 7 à 20 par mois) et la configuration initiale (CHF 200 à 800 avec un prestataire). Budget réaliste première année pour une PME : CHF 500 à 1 200."
   - question: "Comment installer OpenClaw sur Mac ?"
     answer: "Téléchargement depuis le dépôt GitHub officiel, configuration du modèle de langage (Claude ou OpenAI recommandés), puis intégration WhatsApp optionnelle via les paramètres du canal. Pour un dirigeant non-technique, une configuration sérieuse prend 2 à 8 heures. Recommande de passer par un prestataire pour éviter les demi-configurations qui ne fonctionnent pas."
   - question: "OpenClaw vs Hermes Agent : lequel choisir ?"
@@ -106,7 +106,7 @@ OpenClaw lui-même est gratuit. Mais le coût total d'utilisation sérieuse mér
 |---|---|
 | OpenClaw (logiciel) | Gratuit (open source) |
 | Hébergement local (ta machine) | CHF 0 (si machine allumée en permanence) |
-| VPS cloud dédié (optionnel) | CHF 5 à 15 par mois |
+| VPS cloud dédié (optionnel) | environ CHF 7 à 20 par mois |
 | API Claude (Anthropic) | CHF 10 à 60 par mois selon usage |
 | API OpenAI (alternative) | CHF 10 à 50 par mois selon usage |
 | Configuration initiale avec prestataire | CHF 200 à 800 (2 à 8 h au taux suisse) |
@@ -116,7 +116,7 @@ OpenClaw lui-même est gratuit. Mais le coût total d'utilisation sérieuse mér
 
 L'option **Claude d'Anthropic** est recommandée comme moteur de raisonnement pour la qualité sur les tâches de rédaction et d'analyse. OpenAI GPT est une alternative valable si tu utilises déjà l'écosystème OpenAI.
 
-Une configuration locale sur ton MacBook coûte moins cher au départ, mais une instance sur VPS (CHF 5 à 15 par mois) te donne un accès 24h/24 sans dépendre de l'état de ta machine. **Résultat attendu x5** sur la disponibilité par rapport à une installation purement locale.
+Une configuration locale sur ton MacBook coûte moins cher au départ, mais une instance sur VPS (environ CHF 7 à 20 par mois, [comparatif des hébergeurs](/blog/meilleurs-vps-hermes-agent-suisse)) te donne un accès 24h/24 sans dépendre de l'état de ta machine. **Résultat attendu x5** sur la disponibilité par rapport à une installation purement locale.
 
 Tu préfères qu'on le mette en place pour toi ? Je conçois et déploie des [agents IA sur mesure pour PME romandes](/hermes) : cadrage, intégration à tes outils et garde-fous, hébergés en Suisse chez Infomaniak.
 
@@ -176,7 +176,7 @@ C'est le seul agent IA open source avec accès multicanal natif (WhatsApp, Teleg
 
 ### OpenClaw est-il vraiment gratuit ?
 
-Open source signifie gratuit à télécharger et à utiliser. Mais le coût total inclut l'API LLM (CHF 10 à 60 par mois pour Claude ou OpenAI), l'hébergement optionnel sur VPS (CHF 5 à 15 par mois) et la configuration initiale (CHF 200 à 800 avec un prestataire). Budget réaliste première année pour une PME : CHF 500 à 1 200.
+Open source signifie gratuit à télécharger et à utiliser. Mais le coût total inclut l'API LLM (CHF 10 à 60 par mois pour Claude ou OpenAI), l'hébergement optionnel sur VPS (environ CHF 7 à 20 par mois) et la configuration initiale (CHF 200 à 800 avec un prestataire). Budget réaliste première année pour une PME : CHF 500 à 1 200.
 
 ### Comment installer OpenClaw sur Mac ?
 

@@ -91,7 +91,7 @@ Quatrième action : intégrer le principe de "privacy by design" dès le cadrage
 
 ## L'IA souveraine, une alternative concrète pour les PME qui veulent tout garder en interne
 
-Un **agent IA souverain** auto-hébergé, comme Hermes Agent, donne un contrôle total sur la localisation des données, sans dépendre d'une API tierce à l'étranger. C'est l'option pour une PME qui préfère garder la main sur l'hébergement de bout en bout plutôt que de faire confiance à un fournisseur externe.
+Un **agent IA souverain** auto-hébergé, comme Hermes Agent sur un serveur en Suisse, donne la main sur la localisation des données. Attention : si l'agent appelle un modèle hébergé aux États-Unis, le contenu traité sort quand même de Suisse. Le choix de l'hébergeur et celui du modèle vont ensemble (voir [les VPS qui stockent les données en Suisse](/blog/meilleurs-vps-hermes-agent-suisse)). C'est l'option pour une PME qui préfère garder la main sur l'hébergement de bout en bout plutôt que de faire confiance à un fournisseur externe.
 
 Dans les faits, une **IA souveraine pour une PME** tourne sur un serveur choisi par l'entreprise, en Suisse ou chez un hébergeur de confiance, avec un modèle open source déployé localement. Aucune donnée ne transite par une API tierce à l'étranger, ce qui simplifie mécaniquement la question du transfert au sens de la nLPD.
 

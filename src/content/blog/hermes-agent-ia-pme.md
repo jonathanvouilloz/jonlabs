@@ -14,7 +14,7 @@ draft: false
 readingTime: 11
 faqs:
   - question: "Comment installer Hermes Agent ?"
-    answer: "Hermes Agent nécessite un serveur ou un VPS cloud (Hetzner ou DigitalOcean, CHF 5 à 15 par mois). L'installation se fait en ligne de commande depuis le dépôt GitHub officiel de Nous Research. Pour une PME non-technique, ne pas le faire seul : prévoir 4 à 12 heures de prestataire technique pour une mise en place stable et sécurisée."
+    answer: "Hermes Agent nécessite un serveur ou un VPS cloud (environ CHF 7 à 20 par mois pour 4 à 8 Go de RAM, en Suisse chez Infomaniak ou hosttech, ou hors Suisse chez Hostinger). L'installation se fait en ligne de commande depuis le dépôt GitHub officiel de Nous Research. Pour une PME non-technique, ne pas le faire seul : prévoir 4 à 12 heures de prestataire technique pour une mise en place stable et sécurisée."
   - question: "Quelle différence entre Hermes Agent et OpenClaw ?"
     answer: "Hermes Agent est conçu pour des workflows d'équipe multi-agents, hébergé sur serveur, plus puissant pour les processus d'entreprise. OpenClaw tourne en local sur ta machine, s'intègre à WhatsApp et Telegram, et convient mieux à un usage individuel quotidien. Les deux ont la mémoire persistante. Le choix dépend de ton profil : PME avec prestataire, prendre Hermes Agent. Dirigeant solo, prendre OpenClaw. Les deux peuvent être utilisés de façon complémentaire."
   - question: "Hermes Agent est-il vraiment gratuit ?"
@@ -132,7 +132,7 @@ Décomposition complète pour une PME suisse avec prestataire.
 
 Hermes Agent en lui-même : CHF 0. Le code est open source, téléchargeable gratuitement depuis GitHub. Aucun abonnement, aucune licence.
 
-Hébergement : compter CHF 5 à 80 par mois selon le volume. Hermes Agent doit tourner quelque part. Sur ta propre machine, le coût est nul, mais ça implique une machine allumée en permanence, peu pratique. Un VPS cloud chez Hetzner ou DigitalOcean coûte CHF 5 à 15/mois, c'est la solution recommandée pour une PME. Un serveur dédié si le volume est élevé monte à CHF 30 à 80/mois.
+Hébergement : compter CHF 5 à 80 par mois selon le volume. Hermes Agent doit tourner quelque part. Sur ta propre machine, le coût est nul, mais ça implique une machine allumée en permanence, peu pratique. Un VPS cloud de 4 à 8 Go coûte environ CHF 7 à 20/mois, c'est la solution recommandée pour une PME. Hetzner, longtemps la référence à petit prix, a augmenté ses tarifs en 2026 et ses petites offres étaient indisponibles en octobre : le détail par hébergeur est dans [le top 10 des VPS pour Hermes Agent en Suisse](/blog/meilleurs-vps-hermes-agent-suisse). Un serveur dédié si le volume est élevé monte à CHF 30 à 80/mois.
 
 API LLM : entre CHF 10 et 60 par mois selon l'usage. Hermes Agent a besoin d'un modèle de langage pour raisonner. **OpenAI API** (GPT-4o) ou **Anthropic Claude API** facturent au volume. Un modèle local via Ollama est possible, mais ça demande un prestataire technique pour la mise en place. Le coût varie fortement selon le volume. Une PME avec 20 à 30 tâches quotidiennes sera dans la fourchette basse.
 
@@ -192,7 +192,7 @@ La confiance dans les actions autonomes. Un agent qui "décide seul" peut prendr
 
 ### Comment installer Hermes Agent ?
 
-Hermes Agent nécessite un serveur ou un **VPS cloud CHF 5 à 15/mois** (Hetzner ou DigitalOcean). L'installation se fait en ligne de commande depuis le dépôt GitHub officiel de Nous Research. Pour une PME non-technique, ne pas le faire seul : prévoir 4 à 12 heures de prestataire technique pour une mise en place stable et sécurisée.
+Hermes Agent nécessite un serveur ou un **VPS cloud, environ CHF 7 à 20/mois** (voir [quel VPS choisir pour Hermes Agent](/blog/meilleurs-vps-hermes-agent-suisse)). L'installation se fait en ligne de commande depuis le dépôt GitHub officiel de Nous Research. Pour une PME non-technique, ne pas le faire seul : prévoir 4 à 12 heures de prestataire technique pour une mise en place stable et sécurisée.
 
 ### Quelle différence entre Hermes Agent et OpenClaw ?
 

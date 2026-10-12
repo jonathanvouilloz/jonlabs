@@ -143,7 +143,7 @@ Voici les vrais chiffres, coûts cachés inclus.
 
 | Outil | Coût mensuel CHF | Remarques |
 |---|---|---|
-| **n8n** self-hosted | CHF 0 | Hébergement VPS nécessaire (~CHF 5-10/mois) |
+| **n8n** self-hosted | CHF 0 | Hébergement VPS nécessaire (~CHF 7-20/mois, [quel VPS choisir](/blog/meilleurs-vps-hermes-agent-suisse)) |
 | **n8n** cloud | ~CHF 20 | Plan Starter |
 | **Make** free tier | CHF 0 | Limité (1 000 opérations/mois) |
 | **Make** plan Core | dès CHF 10 | Raisonnable pour une PME standard |

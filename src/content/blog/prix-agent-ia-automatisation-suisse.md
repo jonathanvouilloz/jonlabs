@@ -91,7 +91,7 @@ Récapitulatif des deux paliers :
 
 Au-delà du **coût d'hébergement d'un agent IA** et du développement initial, un agent en production génère trois lignes de dépense mensuelle que la plupart des devis passent sous silence.
 
-L'hébergement d'abord. Un agent métier connecté à plusieurs systèmes tourne en continu sur un serveur ou un VPS, ce qui coûte généralement CHF 15 à 40 par mois selon le volume de requêtes traité, une fourchette un peu plus élevée que celle d'un agent open source auto-déployé sur une infrastructure légère.
+L'hébergement d'abord. Un agent métier connecté à plusieurs systèmes tourne en continu sur un serveur ou un VPS, ce qui coûte généralement CHF 15 à 40 par mois selon le volume de requêtes traité, une fourchette un peu plus élevée que celle d'un agent open source auto-déployé sur une infrastructure légère (prix par hébergeur dans [notre comparatif des VPS pour agent IA en Suisse](/blog/meilleurs-vps-hermes-agent-suisse)).
 
 L'API du modèle de langage ensuite. Chaque action de l'agent (lire, raisonner, répondre, déclencher une mise à jour) consomme des tokens facturés par le fournisseur LLM. Pour un agent métier actif chargé en usage quotidien, compte CHF 25 à 80 par mois selon le volume de requêtes traitées, davantage qu'un simple agent open source à usage personnel.
 
