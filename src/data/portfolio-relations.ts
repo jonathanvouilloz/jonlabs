@@ -9,6 +9,7 @@ export interface ServiceLink {
 }
 
 export const portfolioServiceLinks: Record<string, ServiceLink> = {
+  'swiss-dental-care': { label: 'Refonte de site web', href: '/services/refonte-site-web' },
   'leo-lecureux-seo': { label: 'Référencement local', href: '/services/referencement-local' },
   'physio-pommier': { label: 'Création de site web', href: '/services/creation-site-web' },
   'barber-concept': { label: 'Développeur Webflow', href: '/services/developpeur-webflow' },

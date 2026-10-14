@@ -306,6 +306,12 @@
 
 ## Notes
 
+### Portfolio — Swiss Dental Care (14 octobre 2026)
+
+- [x] Préparer le cas client et ses visuels à partir du dépôt et de l’interview de Jonathan.
+- [x] Intégrer la fiche et la carte portfolio ; vérifier la compilation et le rendu desktop/mobile.
+- État : version validée par Jonathan, publication production autorisée le 14 octobre 2026 ; accompagnement client en cours. Détail et sources : [cas-client-swiss-dental-care.md](features/cas-client-swiss-dental-care.md).
+
 ### Pièges à éviter
 
 - Commencer à coder sans contenu finalisé

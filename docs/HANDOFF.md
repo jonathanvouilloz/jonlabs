@@ -3,6 +3,7 @@
 ## Features actives
 | Feature | Fichier | Statut |
 |---------|---------|--------|
+| Cas client Swiss Dental Care | docs/features/cas-client-swiss-dental-care.md | VALIDÉ — publication production autorisée le 14.10.2026 |
 | Canonical non-www, cannibalisation, dispersion | docs/features/canonical-cannibalisation.md | **EN COURS** — lots A+B livrés, C/D gelés jusqu'à S+3 |
 | Silo mobile « agence application mobile » | docs/features/silo-mobile-agence.md | S+4 MESURÉ 08.09 — CTR toujours nul |
 | Villes frontalières — CTR + e-commerce | docs/features/villes-frontalieres-ctr.md | S+4 MESURÉ 08.09 — cause identifiée, cf. canonical-cannibalisation |

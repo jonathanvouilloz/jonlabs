@@ -62,18 +62,23 @@ const {
   client,
   project,
   results,
+  resultsTitle,
   context,
   approach,
   entryType,
   successFactors,
+  successFactorsTitle,
   learnings,
   testimonial,
   resultImages,
+  galleryTitle,
+  status,
   liveUrl,
   tags,
 } = entry.data;
 
 const isSideProject = entryType === 'side-project';
+const statusLabels = { live: 'En ligne', 'en-cours': 'Accompagnement en cours', archive: 'Archivé' };
 const pageTitle = `${title} | Portfolio`;
 const pageDescription = description;
 
@@ -87,7 +92,7 @@ const formattedDate = new Date(entry.data.date).toLocaleDateString('fr-CH', {
 const tocItems: { id: string; label: string }[] = [];
 tocItems.push({ id: 'fiche-projet', label: 'Fiche projet' });
 if (results && results.length > 0) {
-  tocItems.push({ id: 'resultats', label: 'Résultats' });
+  tocItems.push({ id: 'resultats', label: resultsTitle });
 }
 if (context) {
   tocItems.push({ id: 'contexte', label: 'Contexte' });
@@ -96,10 +101,10 @@ if (approach && approach.length > 0) {
   tocItems.push({ id: 'approche', label: 'Approche' });
 }
 if (resultImages && resultImages.length > 0) {
-  tocItems.push({ id: 'captures', label: 'Captures' });
+  tocItems.push({ id: 'captures', label: galleryTitle });
 }
 if (successFactors && successFactors.length > 0) {
-  tocItems.push({ id: 'facteurs-succes', label: 'Facteurs de succès' });
+  tocItems.push({ id: 'facteurs-succes', label: successFactorsTitle });
 }
 if (learnings && (learnings.limitations?.length || learnings.insights?.length)) {
   tocItems.push({ id: 'apprentissages', label: 'Apprentissages' });
@@ -142,6 +147,7 @@ const schemas = [caseStudySchema];
 <Layout
   title={pageTitle}
   description={pageDescription}
+  ogImage={heroImage?.url}
   schemas={schemas}
 >
   <Header />
@@ -246,6 +252,7 @@ const schemas = [caseStudySchema];
           )}
           <div class="co-spec-row"><dt>Durée</dt><dd>{project.duration}</dd></div>
           <div class="co-spec-row"><dt>Période</dt><dd>{project.period}</dd></div>
+          {status && <div class="co-spec-row"><dt>Statut</dt><dd>{statusLabels[status]}</dd></div>}
           {project.measurementPeriod && (
             <div class="co-spec-row"><dt>Mesure</dt><dd>{project.measurementPeriod}</dd></div>
           )}
@@ -262,7 +269,7 @@ const schemas = [caseStudySchema];
       <!-- Résultats -->
       {results && results.length > 0 && (
         <section id="resultats" class="psl-sec">
-          <h2 class="psl-h2">Résultats</h2>
+          <h2 class="psl-h2">{resultsTitle}</h2>
           <div class="psl-results">
             {results.map(result => (
               <div class="psl-result">
@@ -317,6 +324,14 @@ const schemas = [caseStudySchema];
                       {phase.tasks.map(task => <li set:html={inlineLinks(task)} />)}
                     </ul>
                   )}
+                  {phase.image && (
+                    <figure class="psl-fig psl-step-image">
+                      <button type="button" class="psl-image-button" aria-label={`Agrandir : ${phase.image.alt}`}>
+                        <img src={phase.image.url} alt={phase.image.alt} class="gallery-img" loading="lazy" decoding="async" />
+                      </button>
+                      {phase.image.caption && <figcaption>{phase.image.caption}</figcaption>}
+                    </figure>
+                  )}
                 </div>
               </div>
             ))}
@@ -327,11 +342,13 @@ const schemas = [caseStudySchema];
       <!-- Captures -->
       {resultImages && resultImages.length > 0 && (
         <section id="captures" class="psl-sec">
-          <h2 class="psl-h2">Captures</h2>
+          <h2 class="psl-h2">{galleryTitle}</h2>
           <div class="psl-gallery">
             {resultImages.map(image => (
               <figure class="psl-fig">
-                <img src={image.url} alt={image.alt} class="gallery-img" />
+                <button type="button" class="psl-image-button" aria-label={`Agrandir : ${image.alt}`}>
+                  <img src={image.url} alt={image.alt} class="gallery-img" loading="lazy" decoding="async" />
+                </button>
                 {image.caption && <figcaption>{image.caption}</figcaption>}
               </figure>
             ))}
@@ -342,7 +359,7 @@ const schemas = [caseStudySchema];
       <!-- Facteurs de succès -->
       {successFactors && successFactors.length > 0 && (
         <section id="facteurs-succes" class="psl-sec">
-          <h2 class="psl-h2">Facteurs de succès</h2>
+          <h2 class="psl-h2">{successFactorsTitle}</h2>
           <ul class="psl-success">
             {successFactors.map(factor => (
               <li class="psl-success-item">
@@ -555,10 +572,15 @@ const schemas = [caseStudySchema];
   .psl-step-tasks { display: flex; flex-direction: column; gap: 6px; }
   .psl-step-tasks li { position: relative; padding-left: 20px; font-size: 0.92rem; color: var(--muted); line-height: 1.5; }
   .psl-step-tasks li::before { content: ""; position: absolute; left: 2px; top: 0.66em; width: 6px; height: 6px; border-radius: 999px; background: var(--accent); }
+  .psl-step-body { min-width: 0; }
+  .psl-step .psl-step-image { margin-top: 24px; }
+  .psl-step-image img { display: block; width: 100%; height: auto; border: 1px solid var(--line-2); }
 
   /* Captures — galerie */
   .psl-gallery { display: flex; flex-direction: column; gap: 24px; margin-top: 4px; }
   .psl-fig { margin: 0; }
+  .psl-image-button { display: block; width: 100%; padding: 0; border: 0; background: transparent; }
+  .psl-image-button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
   .psl-fig .gallery-img { display: block; width: 100%; height: auto; cursor: zoom-in; border: 1px solid var(--line-2); transition: opacity .18s ease-out; }
   .psl-fig .gallery-img:hover { opacity: 0.92; }
   .psl-fig figcaption { font-size: 13px; color: var(--muted); text-align: center; margin-top: var(--space-eyebrow); }
@@ -738,7 +760,7 @@ const schemas = [caseStudySchema];
   }
 
   // Event listeners
-  images.forEach((img, i) => img.addEventListener('click', () => openLightbox(i)));
+  images.forEach((img, i) => (img.closest('button') || img).addEventListener('click', () => openLightbox(i)));
 
   const closeBtn = document.querySelector('.lightbox-close');
   const prevBtn = document.querySelector('.lightbox-prev');

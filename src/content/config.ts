@@ -99,6 +99,7 @@ const portfolioCollection = defineCollection({
       detail: z.string().optional(),
       icon: z.string().optional(),
     })).default([]),
+    resultsTitle: z.string().default('Résultats'),
 
     // Contexte (optionnel pour side-projects)
     context: z.object({
@@ -126,6 +127,7 @@ const portfolioCollection = defineCollection({
       description: z.string(),
       icon: z.string().optional(),
     })).optional(),
+    successFactorsTitle: z.string().default('Facteurs de succès'),
 
     // Limites & apprentissages
     learnings: z.object({
@@ -147,6 +149,7 @@ const portfolioCollection = defineCollection({
       alt: z.string(),
       caption: z.string().optional(),
     })).optional(),
+    galleryTitle: z.string().default('Captures'),
 
     // Liens
     tags: z.array(z.string()).default([]),
