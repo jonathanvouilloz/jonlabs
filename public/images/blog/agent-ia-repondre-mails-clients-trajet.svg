@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 620" font-family="'Inter Tight', Inter, system-ui, sans-serif" role="img" aria-labelledby="t d">
+  <title id="t">Le trajet d'un mail client</title>
+  <desc id="d">Le client écrit, le programme relève la boîte, une IA sans outil écrit le brouillon en JSON, une carte arrive dans Telegram, un valideur clique sur Envoyer et le mail part dans le fil d'origine. À côté, l'agent Jerry et le wiki aident l'équipe, sans outil d'envoi.</desc>
+  <defs>
+    <marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#14161A"/>
+    </marker>
+  </defs>
+  <rect width="960" height="620" fill="#F5F4F0"/>
+
+  <!-- Zone 1 : texte d'inconnu -->
+  <rect x="20" y="20" width="920" height="210" rx="14" fill="#ECEBE6" stroke="#D8DCD8"/>
+  <text x="44" y="54" font-size="17" fill="#5A5E63" letter-spacing=".5">L'IA LIT LE MAIL D'UN INCONNU, SANS AUCUN OUTIL</text>
+
+  <!-- Zone 2 : équipe -->
+  <rect x="20" y="260" width="920" height="340" rx="14" fill="none" stroke="#D8DCD8" stroke-dasharray="6 6"/>
+  <text x="44" y="294" font-size="17" fill="#5A5E63" letter-spacing=".5">L'ÉQUIPE DÉCIDE OU PARLE À JERRY</text>
+
+  <g font-size="22" fill="#14161A">
+    <!-- Ligne 1 -->
+    <rect x="50" y="75" width="260" height="120" rx="12" fill="#F5F4F0" stroke="#14161A" stroke-width="1.2"/>
+    <text x="72" y="118" font-weight="600">1. Le client écrit</text>
+    <text x="72" y="150" font-size="17" fill="#5A5E63">formulaire ou adresse</text>
+    <text x="72" y="174" font-size="17" fill="#5A5E63">du domaine</text>
+
+    <rect x="350" y="75" width="260" height="120" rx="12" fill="#F5F4F0" stroke="#14161A" stroke-width="1.2"/>
+    <text x="372" y="118" font-weight="600">2. Relève de la boîte</text>
+    <text x="372" y="150" font-size="17" fill="#5A5E63">le programme, chaque minute,</text>
+    <text x="372" y="174" font-size="17" fill="#5A5E63">pré-tri par règles</text>
+
+    <rect x="650" y="75" width="260" height="120" rx="12" fill="#F5F4F0" stroke="#14161A" stroke-width="1.2"/>
+    <text x="672" y="118" font-weight="600">3. IA sans outil</text>
+    <text x="672" y="150" font-size="17" fill="#5A5E63">écrit le brouillon,</text>
+    <text x="672" y="174" font-size="17" fill="#5A5E63">rend du JSON vérifié</text>
+
+    <!-- Ligne 2 (sens retour) -->
+    <rect x="650" y="315" width="260" height="120" rx="12" fill="#F5F4F0" stroke="#14161A" stroke-width="1.2"/>
+    <text x="672" y="358" font-weight="600">4. Carte Telegram</text>
+    <text x="672" y="390" font-size="17" fill="#5A5E63">résumé, à vérifier,</text>
+    <text x="672" y="414" font-size="17" fill="#5A5E63">mail d'origine, brouillon</text>
+
+    <rect x="350" y="315" width="260" height="120" rx="12" fill="#D6F7EE" stroke="#00B386" stroke-width="2"/>
+    <text x="372" y="358" font-weight="600">5. Clic sur Envoyer</text>
+    <text x="372" y="390" font-size="17" fill="#3D4146">ou Corriger, ou</text>
+    <text x="372" y="414" font-size="17" fill="#3D4146">Répondu ailleurs</text>
+
+    <rect x="50" y="315" width="260" height="120" rx="12" fill="#F5F4F0" stroke="#14161A" stroke-width="1.2"/>
+    <text x="72" y="358" font-weight="600">6. Le mail part</text>
+    <text x="72" y="390" font-size="17" fill="#5A5E63">une seule fois, dans</text>
+    <text x="72" y="414" font-size="17" fill="#5A5E63">le fil d'origine</text>
+
+    <!-- Jerry + wiki -->
+    <rect x="350" y="470" width="560" height="104" rx="12" fill="#ECEBE6" stroke="#D8DCD8"/>
+    <text x="372" y="510" font-weight="600">Jerry (agent Hermes) ↔ wiki</text>
+    <text x="372" y="542" font-size="17" fill="#5A5E63">refait un brouillon, retient une règle, apprend.</text>
+    <text x="372" y="564" font-size="17" fill="#5A5E63">Aucun outil d'envoi, aucun droit sur la boîte.</text>
+  </g>
+
+  <g stroke="#14161A" stroke-width="1.6" fill="none" marker-end="url(#a)">
+    <path d="M310 135H346"/>
+    <path d="M610 135H646"/>
+    <path d="M780 195V311"/>
+    <path d="M650 375H614"/>
+    <path d="M350 375H314"/>
+  </g>
+  <path d="M780 435V466" stroke="#14161A" stroke-width="1.4" stroke-dasharray="4 4" fill="none" marker-start="url(#a)" marker-end="url(#a)"/>
+</svg>
