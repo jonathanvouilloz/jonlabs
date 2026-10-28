@@ -13,6 +13,7 @@
 | Chantier SEO IA (consultant IA) | docs/planSEOIA.md | EN ATTENTE — Phase 3 |
 | Devis Cabinet Grange-Canal | docs/features/devis-cabinet-grange-canal.md | CODE FINI — attend le call |
 | Refonte blueprint (design/typo) | docs/features/refonte-blueprint.md | BOUCLÉE — reste `/epic-recap` |
+| Repositionnement IA + nouvelle DA (home portfolio + bento, refs personal-starter.thebcms.com / kirako.ai) | à cadrer après l'interview de marque — `atelier/docs/HANDOFF.md` | EN ATTENTE — blocs 3-4 de l'interview ; ordre : architecture/GSC → DA → home → cas IA (Wildcat, CSSM) → articles lentille + `logiciel-sur-mesure-vs-saas` |
 | Refresh piliers IA (kirako) | mergé dans main (`1cca170`) | **EN LIGNE 21.09** — mesurer vs baseline 428 imp / 0 clic |
 
 ## Reprendre ici
