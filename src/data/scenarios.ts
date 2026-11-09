@@ -114,20 +114,18 @@ export const scenarios: Scenario[] = [
 
   // Pilier 3: Visibilité & app
   {
-    id: 'invisible-google',
+    id: 'custom-tool',
     emoji: '',
-    title: 'Invisible sur Google',
-    subtitle: 'Les clients trouvent mes concurrents',
-    pillar: 'web',
-    scrollTo: 'seo-local',
+    title: 'Aucun logiciel ne colle',
+    subtitle: 'On bricole avec Excel et trois outils',
+    pillar: 'auto',
+    scrollTo: 'ia',
     color: 'rgba(0, 168, 125,0.15)',
     messages: [
-      { speaker: 'client', text: 'Quand on cherche mon métier dans ma ville, je n\'apparais pas. Mes concurrents, si.' },
-      { speaker: 'jon', text: 'Dans 9 cas sur 10, ça se joue sur deux choses : ta fiche Google et quelques pages de ton site.' },
-      { speaker: 'client', text: 'Et ça coûte combien ?' },
-      { speaker: 'jon', text: 'CHF 390 pour tout remettre d\'aplomb, puis CHF 199 par mois pour le suivi. Sans engagement.' },
-      { speaker: 'client', text: 'Ça prend combien de temps ?' },
-      { speaker: 'jon', text: 'Les premiers effets se voient souvent en quelques semaines sur Google Maps. Le site suit en 2-3 mois.' }
+      { speaker: 'client', text: 'On a essayé trois logiciels, aucun ne colle à notre façon de travailler. Au final, tout finit dans Excel.' },
+      { speaker: 'jon', text: 'Alors on part de ton process, pas du logiciel. Je construis l\'outil qui fait exactement ce dont ton équipe a besoin, branché sur ce que tu utilises déjà.' },
+      { speaker: 'client', text: 'Ça ne va pas coûter une fortune ?' },
+      { speaker: 'jon', text: 'On commence petit : une première version sur la tâche qui te coûte le plus de temps. Devis ferme en CHF avant de démarrer.' }
     ]
   },
   {
@@ -219,26 +217,6 @@ export const serviceSections: ServiceSection[] = [
       }
     ],
     ctaText: 'Parler de mon app'
-  },
-  {
-    id: 'seo-local',
-    title: 'Référencement local',
-    accroche: `Être trouvé quand on te cherche près de chez toi : ton site et ta fiche Google. CHF 390 de mise en place, puis CHF 199/mois.`,
-    subServices: [
-      {
-        id: 'referencement-local',
-        title: 'Référencement local',
-        description: 'Ton site optimisé pour remonter sur les recherches de ta ville.',
-        features: [
-          'Audit et corrections techniques',
-          'Pages et contenus pensés pour ta zone',
-          'Suivi des positions et rapport mensuel'
-        ],
-        ctaText: 'En savoir plus',
-        link: '/services/referencement-local'
-      }
-    ],
-    ctaText: 'Booster ma visibilité locale'
   },
   {
     id: 'ia',

@@ -42,18 +42,6 @@ const offerCatalog = {
     },
     {
       "@type": "Offer",
-      "name": `${pricing.seoLocal.label} — setup`,
-      "priceSpecification": { "@type": "PriceSpecification", "price": String(pricing.seoLocal.setup), "priceCurrency": "CHF" },
-      "url": `${SITE_URL}/services/referencement-local`
-    },
-    {
-      "@type": "Offer",
-      "name": `${pricing.seoLocal.label} — suivi mensuel`,
-      "priceSpecification": { "@type": "UnitPriceSpecification", "price": String(pricing.seoLocal.monthly), "priceCurrency": "CHF", "unitCode": "MON" },
-      "url": `${SITE_URL}/services/referencement-local`
-    },
-    {
-      "@type": "Offer",
       "name": pricing.agentIA.label,
       "priceSpecification": { "@type": "PriceSpecification", "minPrice": String(pricing.agentIA.from), "priceCurrency": "CHF" },
       "url": `${SITE_URL}/hermes`
@@ -120,28 +108,13 @@ const offers = [
     cta: "Demander un devis",
   },
   {
-    name: "Référencement local",
-    subtitle: "Site + fiche Google",
-    prefix: "",
-    price: chf(pricing.seoLocal.setup),
-    unit: "CHF",
-    after: `puis CHF ${chf(pricing.seoLocal.monthly)}/mois, résiliable d'un mois à l'autre`,
-    highlighted: true,
-    features: [
-      "Audit, corrections du site et fiche Google optimisée",
-      ...pricing.seoLocal.monthlyIncludes.filter((f) => f !== "Ajustements du site et du contenu local"),
-    ],
-    href: "/services/referencement-local",
-    cta: "Être trouvé sur Google",
-  },
-  {
     name: "IA en entreprise",
     subtitle: "Agent IA Hermès, automatisation",
     prefix: "Dès",
     price: chf(pricing.agentIA.from),
     unit: "CHF",
     after: `Fonctionnement ${pricing.agentIA.runningCost}, hébergé en Suisse`,
-    highlighted: false,
+    highlighted: true,
     features: [
       "Un agent branché sur vos outils",
       "Vous validez avant chaque envoi",
@@ -317,7 +290,7 @@ const offers = [
   /* ══ TARIFS — styles .tr-* (namespace scopé, corps .co-root) ══ */
 
   /* ── Packages ── */
-  .tr-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; align-items: stretch; margin-top: 40px; }
+  .tr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; margin-top: 40px; }
   .tr-tier {
     position: relative; display: flex; flex-direction: column; gap: 20px;
     padding: 32px 28px; background: var(--surface); border: 1px solid var(--line-2);

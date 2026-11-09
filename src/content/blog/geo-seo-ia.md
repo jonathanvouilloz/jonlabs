@@ -159,7 +159,7 @@ Les prix bougent vite et la plupart offrent un essai gratuit : teste avant de t'
 
 **3. Les outils que tu as déjà.** Google Search Console remonte les clics venant des AI Overviews (filtre *search appearance*), et les outils SEO classiques (Ahrefs, Semrush) ajoutent progressivement des modules de suivi IA. Avant de payer un abonnement de plus, regarde ce que tes outils actuels couvrent déjà.
 
-Le suivi n'est pas une fin en soi : il sert à voir quelles actions de fond — schema, contenu, présence locale — font bouger l'aiguille. Si tu veux qu'on mette ce suivi en place et qu'on agisse sur les résultats, c'est exactement le cœur de notre [accompagnement en référencement local](/services/referencement-local).
+Le suivi n'est pas une fin en soi : il sert à voir quelles actions de fond — schema, contenu, présence locale — font bouger l'aiguille.
 
 ---
 
@@ -183,7 +183,7 @@ Ce plan part du principe que tu as déjà un site et une activité visible.
 **Semaine 3 — Créer un article pilier + une page locale**
 
 - 1 article ciblé sur une question précise que tes clients posent ("combien coûte X pour un Y à Z"). Structure pyramide inversée : réponse directe en première phrase sous chaque H2.
-- 1 page locale optimisée si tu vises une ville ou un canton précis (par exemple [référencement local Genève](/services/referencement-local)).
+- 1 page locale optimisée si tu vises une ville ou un canton précis.
 
 **Semaine 4 — Présence multi-source**
 
@@ -206,7 +206,7 @@ Les agences qui te vendent du "GEO premium à CHF 5'000 par mois" sans avoir d'a
 
 **Option agence full-service.** CHF 3'000 à 8'000+ par mois. Souvent surdimensionné pour une PME romande ou un freelance. À envisager seulement si tu as un budget marketing structuré et un secteur très concurrentiel.
 
-Pour les détails par profil, voir [nos services référencement local](/services/referencement-local) et [la page tarifs Jon Labs](/tarifs).
+Pour les prix de nos prestations, voir [la page tarifs Jon Labs](/tarifs).
 
 Le ROI dépend de ton secteur, mais une seule citation IA récurrente sur une requête à intention forte ("meilleur consultant X à Y") peut générer plusieurs leads qualifiés par mois. Le calcul devient vite favorable.
 
@@ -273,7 +273,6 @@ Tu veux savoir où tu en es concrètement ? On analyse ta présence sur les crit
 **Articles complémentaires :**
 
 - [Spécialiste développement web en Suisse](/blog/specialiste-developpement-web-suisse)
-- [Référencement local en Suisse romande](/services/referencement-local)
 - [Tarifs et packages SEO Jon Labs](/tarifs)
 
 ---

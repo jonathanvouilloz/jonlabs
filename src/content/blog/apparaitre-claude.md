@@ -162,7 +162,7 @@ Pour toi, ça signifie que le contenu dense, les explications approfondies, les 
 
 **Vérifier ta présence dans l'index Brave.** Tape `site:tondomaine.com` dans Brave Search et vois combien de pages sont indexées. Si tu n'es pas dans Brave, tu n'es pas dans Claude. Si peu de pages sont indexées, soumets ton sitemap directement via Brave Search Webmaster (disponible sur search.brave.com/webmaster).
 
-**Reformuler tes titres et H2 pour les requêtes professionnelles.** Claude reformule les questions en requêtes Brave précises. Tes titres doivent correspondre à ces formulations. "Services" devient "Développement web pour PME à Genève". "À propos" devient "Consultant automatisation, Jonathan Vouilloz, Genève". Ce n'est pas du keyword stuffing, c'est de la précision qui aide l'IA à comprendre qui tu es. C'est exactement ce type de travail qu'on fait dans le cadre d'un [référencement local](/services/referencement-local).
+**Reformuler tes titres et H2 pour les requêtes professionnelles.** Claude reformule les questions en requêtes Brave précises. Tes titres doivent correspondre à ces formulations. "Services" devient "Développement web pour PME à Genève". "À propos" devient "Consultant automatisation, Jonathan Vouilloz, Genève". Ce n'est pas du keyword stuffing, c'est de la précision qui aide l'IA à comprendre qui tu es.
 
 **Ajouter de la densité factuelle.** Sur chaque page de service, intègre au moins : un résultat concret que tu as obtenu pour un client (avec chiffres), la durée typique d'une prestation, et une comparaison ou mise en contexte qui aide à comprendre la valeur. Ces éléments sont exactement ce que Claude cherche à extraire pour construire une réponse informative.
 

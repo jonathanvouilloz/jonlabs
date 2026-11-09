@@ -24,21 +24,6 @@ export const pricing = {
     display: "Sur devis",
     note: "Devis sur demande",
   },
-  seoLocal: {
-    label: "Référencement local (site + fiche Google)",
-    setup: 390,
-    monthly: 199,
-    display: "CHF 390 + 199/mois",
-    note: "Setup initial CHF 390, puis suivi CHF 199/mois, sans engagement",
-    // Contenu du suivi mensuel (affiché sur /tarifs, /services/referencement-local, hub /services)
-    monthlyIncludes: [
-      "Suivi des positions SEO",
-      "Publication automatisée de posts sur la fiche Google",
-      "Réponses aux avis",
-      "Ajustements du site et du contenu local",
-      "Rapport mensuel des évolutions",
-    ],
-  },
   agentIA: {
     label: "Agent IA Hermès pour entreprise",
     from: 1500,

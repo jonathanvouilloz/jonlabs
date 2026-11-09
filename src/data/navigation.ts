@@ -45,9 +45,8 @@ export const mainNav: NavSection[] = [
         ],
       },
       {
-        title: 'Référencement',
+        title: 'Tarifs',
         items: [
-          { label: 'Référencement local', href: '/services/referencement-local', icon: 'ri-map-pin-line' },
           { label: 'Tarifs', href: '/tarifs', icon: 'ri-price-tag-3-line' },
         ],
       },

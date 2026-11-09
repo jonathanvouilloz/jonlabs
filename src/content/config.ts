@@ -15,7 +15,7 @@ const blogCollection = defineCollection({
       url: z.string(),
       alt: z.string(),
     }),
-    category: z.enum(['mobile', 'automatisation', 'seo-local', 'web', 'geo']),
+    category: z.enum(['mobile', 'automatisation', 'web', 'geo']),
     tags: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
     draft: z.boolean().default(false),

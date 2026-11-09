@@ -36,13 +36,6 @@ const services = [
         link: '/services/developpement-application-mobile'
     },
     {
-        id: 'seo-local',
-        title: 'Référencement local',
-        description: 'Votre site et votre fiche Google remontent quand on vous cherche près de chez vous.',
-        icon: 'ri-map-pin-line',
-        link: '/services/referencement-local'
-    },
-    {
         id: 'ia',
         title: 'IA pour votre entreprise',
         description: 'Des agents IA qui prennent en charge les tâches répétitives, et une formation pour votre équipe.',

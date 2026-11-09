@@ -3,7 +3,6 @@
 export const categories = {
   mobile: { name: 'Applications mobiles', slug: 'applications-mobiles', color: 'var(--color-accent)' },
   automatisation: { name: 'Automatisation & IA', slug: 'automatisation-ia', color: 'var(--color-accent-strong)' },
-  'seo-local': { name: 'Référencement local', slug: 'referencement-local', color: 'var(--color-accent-strong)' },
   web: { name: 'Sites web', slug: 'sites-web', color: 'var(--color-accent)' },
   geo: { name: 'Visibilité IA', slug: 'visibilite-ia', color: 'var(--color-accent)' },
 } as const;

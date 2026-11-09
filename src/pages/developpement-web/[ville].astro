@@ -114,13 +114,6 @@ const services = [
     description: "Une app iPhone et Android pour tes clients ou ton équipe, de l'idée aux stores.",
     price: pricing.appMobile.display,
     href: "/services/developpement-application-mobile"
-  },
-  {
-    icon: "ri-map-pin-2-line",
-    title: "Référencement local",
-    description: `Ton site et ta fiche Google remontent quand un habitant de ${ville.nom} ou un Genevois cherche ton métier.`,
-    price: pricing.seoLocal.display,
-    href: "/services/referencement-local"
   }
 ];
 
@@ -136,15 +129,6 @@ const pricingPlans = [
     description: `Pour indépendants et PME de ${ville.nom} qui veulent un site pro, clair et rapide.`,
     features: ["Design sur mesure", "Adapté au mobile", "Optimisé pour Google", "Devis sur demande"],
     highlighted: false
-  },
-  {
-    name: "Référencement local",
-    pricePrefix: "Mise en place",
-    price: chf(pricing.seoLocal.setup),
-    unit: `CHF + ${pricing.seoLocal.monthly}/mois`,
-    description: `Pour être trouvé sur Google quand on cherche ton métier à ${ville.nom}.`,
-    features: ["Site optimisé", "Fiche Google suivie", "Réponses aux avis", "Sans engagement"],
-    highlighted: true
   },
   {
     name: "Boutique ou application",
