@@ -3,6 +3,7 @@
 ## Features actives
 | Feature | Fichier | Statut |
 |---------|---------|--------|
+| Tri contenu « focus IA » (09.11) | commits `bbb2d47`, `8027e2c` + refresh CTR `application-mobile-pme-suisse` / `openclaw-pme-suisse` | **EN LIGNE 09.11 — bilan prévu 23.11 → 09.12.** 33 articles + offre SEO local + 7 pages retirés (301). Baseline : `.seo-data/gsc-pages-baseline-2026-11-09.json` (6 mois : 58 262 imp / 285 clics) + `.seo-data/index-jonlabs-2026-11-09.json` (74/125 indexées). À mesurer : taux d'indexation, clics des 2 articles refresh (0 clic, 461 et 274 imp), et ensuite fusionner les 13 articles IA morts dans le guide IA |
 | Cas client Swiss Dental Care | docs/features/cas-client-swiss-dental-care.md | VALIDÉ — publication production autorisée le 14.10.2026 |
 | Canonical non-www, cannibalisation, dispersion | docs/features/canonical-cannibalisation.md | **EN COURS** — lots A+B livrés, C/D gelés jusqu'à S+3 |
 | Silo mobile « agence application mobile » | docs/features/silo-mobile-agence.md | S+4 MESURÉ 08.09 — CTR toujours nul |

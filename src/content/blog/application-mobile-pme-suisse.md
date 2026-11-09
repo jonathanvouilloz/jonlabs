@@ -1,8 +1,9 @@
 ---
-title: "Application mobile d'entreprise en Suisse : utile ou pas ?"
-h1: "Application mobile pour PME : vaut-il vraiment le coup d'investir ?"
-description: "Une application mobile en entreprise en Suisse coûte cher et ne sert pas toujours. Les cas où elle se justifie, ceux où une PWA suffit, chiffrés en CHF."
+title: "Application mobile d'entreprise en Suisse : prix et délais"
+h1: "Application mobile pour ton entreprise en Suisse : faut-il vraiment investir ?"
+description: "App mobile d'entreprise en Suisse : 3 500 à 10 000 CHF, 3 à 5 mois pour une app métier simple. Et quand une PWA 4 à 8 fois moins chère suffit."
 pubDate: 2026-07-06
+updatedDate: 2026-11-09
 author: "Jon"
 image:
   url: "/images/blog/application-mobile-pme-suisse.webp"
@@ -26,9 +27,9 @@ faqs:
     answer: "Non. L'App Store d'Apple et le Google Play Store sont des plateformes mondiales. Il n'existe pas de store suisse spécifique. Les contraintes réglementaires suisses (nLPD) s'appliquent indépendamment du store de distribution."
 ---
 
-Tu envisages de commander une application mobile pour ta PME. Avant de signer un devis, la question honnête à se poser : est-ce que tu en as vraiment besoin ? La réponse directe : **80 % des PME qui commandent une app auraient pu se contenter d'un site responsive ou d'une PWA**. Mais les 20 % qui ont un vrai besoin d'une app pour leur PME, et qui n'en ont pas, perdent concrètement de l'argent chaque semaine.
+Une application mobile pour une entreprise en Suisse coûte **entre 3 500 et 10 000 CHF** en native iOS + Android, et une app métier simple demande **3 à 5 mois** de développement. Elle se justifie pour les équipes terrain, les outils ouverts plusieurs fois par semaine et les process qui ont besoin du mode offline, de la caméra ou du GPS. Pour le reste, une PWA ou un site responsive fait le travail pour 4 à 8 fois moins cher : c'est le cas de **80 % des PME qui commandent une app**.
 
-Cet article ne cherche pas à te vendre une app. Il t'aide à décider honnêtement.
+Les 20 % qui ont un vrai besoin d'app, et qui n'en ont pas, perdent de l'argent chaque semaine. La suite t'aide à savoir dans quel camp tu es avant de signer un devis. Si ton besoin est déjà clair, la page [développement d'application mobile sur mesure](/services/developpement-application-mobile) explique comment je cadre et livre ce type de projet.
 
 > **L'essentiel en bref**
 >
@@ -40,7 +41,7 @@ Cet article ne cherche pas à te vendre une app. Il t'aide à décider honnêtem
 
 ---
 
-## Les 4 questions à se poser avant de commander une app mobile
+## Application mobile d'entreprise en Suisse : les 4 questions avant de commander
 
 Quatre critères permettent de trancher dans 90 % des cas. Si tu réponds "non" à trois d'entre eux, une app native n'est probablement pas la bonne réponse.
 
