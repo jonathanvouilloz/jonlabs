@@ -1,8 +1,8 @@
 # Topical Map : C1 — Développement sur-mesure & Automatisation IA
 
 > Généré le 2026-06-25. Cluster de 18 articles + 2 piliers service : 18 existants (les 4 spokes Build créés le 2026-06-25, commit 80f524e), 0 à créer.
-> Marché : Suisse romande (PME/indépendants 30-55 ans). Source de vérité : ce fichier + `docs/restructuration-clusters.md` (section C1).
-> Brand : Jon Labs (app sur-mesure + automatisation + SEO local).
+> Marché : Suisse romande (PME/indépendants 30-55 ans). Source de vérité : ce fichier. (Le plan maître `restructuration-clusters.md` a été supprimé le 09.11.2026.)
+> Brand : Jon Labs (app sur-mesure + automatisation + IA en entreprise ; SEO local abandonné le 09.11.2026).
 
 ## ⚠️ Décision structurante : C1 = deux silos frères, pas un cluster plat
 
@@ -32,7 +32,7 @@ Keyword pilier : *développement application / logiciel sur-mesure PME* | Intent
 - `no-code-vs-developpement-sur-mesure` — No-code (Bubble/Webflow) ou vrai développement · **✅ Créé** (80f524e)
 
 #### A2 : Validation amont (top-of-funnel) — Outer
-- `valide-idee-business-suisse` — Valider ton idée sans créer de Sàrl · Existant
+- `valide-idee-business-suisse` — Valider ton idée sans créer de Sàrl · Existant ⛔ _supprimé 09.11.2026 (tri focus IA)_
 - `cahier-des-charges-application-metier` — Rédiger le cahier des charges de ton app métier · **✅ Créé** (80f524e)
 
 ### SILO B — Automate : `/services/automatisation` → à finaliser (retirer noindex)
@@ -49,8 +49,8 @@ Hub blog informationnel : `automatisation-pme-suisse-guide-complet` | Intent pil
 - `openclaw-pme-suisse` — OpenClaw pour PME (guide + CHF) · Existant 🟢 ⚡
 
 #### B3 : Cas d'usage (preuve terrain) — Outer
-- `automatisation-club-sportif` — Club sportif : Excel ne suffit plus · Existant (persona secondaire) — **KEEP-demote**
-- `no-show-rendez-vous-2026` — No-shows : sécuriser les RDV · Existant — **KEEP-demote**
+- `automatisation-club-sportif` — Club sportif : Excel ne suffit plus · Existant (persona secondaire) — **KEEP-demote** ⛔ _supprimé 09.11.2026 (tri focus IA)_
+- `no-show-rendez-vous-2026` — No-shows : sécuriser les RDV · Existant — **KEEP-demote** ⛔ _supprimé 09.11.2026 (tri focus IA)_
 
 #### ⛔ À fusionner (301) — ne pas garder en l'état
 - `ia-pragmatique-pme-suisse` → 301 vers le guide automatisation (thin + redondant)
@@ -235,6 +235,7 @@ Périmètre = 14 spokes blog (hors 2 piliers service transactionnels).
 
 ## Décisions C1 tranchées (verdicts)
 
+> Pivot 09.11.2026 : `valide-idee-business-suisse`, `automatisation-club-sportif` et `no-show-rendez-vous-2026` ont été supprimés (301) ; les verdicts KEEP ci-dessous les concernant sont caducs.
 > Rien n'est supprimé sans OK explicite de Jonathan. Verdicts proposés ci-dessous.
 
 | Page | Verdict proposé | Raison |

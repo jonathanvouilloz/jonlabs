@@ -1,5 +1,7 @@
 # Chantier SEO Refactor — 2026-05
 
+> Note 09.11.2026 : le snapshot `2026-05-20-brief-pivot-referencement-local.md` cité dans ce log a été supprimé (pivot focus IA) ; il reste dans l'historique git.
+
 > **Suivi maître du gros chantier de refonte SEO multi-sessions.**
 > Démarré le 2026-05-20. À mettre à jour à chaque session.
 >

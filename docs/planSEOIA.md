@@ -118,7 +118,7 @@ LA MARQUE — Jon Labs (Genève)
     ├── hermes-agent-ia-pme · openclaw-pme-suisse · workflows-vs-agents-ia-pme
     ├── comment-choisir-quoi-automatiser-pme · avantages-limites-automatisation-pme
     ├── ia-pragmatique-pme-suisse · temps-perdu-pme-automatisation · notebooklm-…
-    ├── application-mobile-automatisation-pme · automatisation-club-sportif
+    ├── application-mobile-automatisation-pme · ~~automatisation-club-sportif~~ (supprimé 09.11)
     └── + 6 nouveaux articles (cluster G du topical map)
 ```
 

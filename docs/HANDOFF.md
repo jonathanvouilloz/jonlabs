@@ -1,36 +1,23 @@
-# HANDOFF — 2026-09-20
+# HANDOFF — 2026-11-09
 
 ## Features actives
 | Feature | Fichier | Statut |
 |---------|---------|--------|
-| Tri contenu « focus IA » (09.11) | commits `bbb2d47`, `8027e2c` + refresh CTR `application-mobile-pme-suisse` / `openclaw-pme-suisse` | **EN LIGNE 09.11 — bilan prévu 23.11 → 09.12.** 33 articles + offre SEO local + 7 pages retirés (301). Baseline : `.seo-data/gsc-pages-baseline-2026-11-09.json` (6 mois : 58 262 imp / 285 clics) + `.seo-data/index-jonlabs-2026-11-09.json` (74/125 indexées). À mesurer : taux d'indexation, clics des 2 articles refresh (0 clic, 461 et 274 imp), et ensuite fusionner les 13 articles IA morts dans le guide IA |
+| Tri contenu « focus IA » | docs/features/tri-contenu-focus-ia.md | **EN COURS** — en ligne 09.11, bilan 23.11 → 09.12 |
 | Cas client Swiss Dental Care | docs/features/cas-client-swiss-dental-care.md | VALIDÉ — publication production autorisée le 14.10.2026 |
-| Canonical non-www, cannibalisation, dispersion | docs/features/canonical-cannibalisation.md | **EN COURS** — lots A+B livrés, C/D gelés jusqu'à S+3 |
-| Silo mobile « agence application mobile » | docs/features/silo-mobile-agence.md | S+4 MESURÉ 08.09 — CTR toujours nul |
-| Villes frontalières — CTR + e-commerce | docs/features/villes-frontalieres-ctr.md | S+4 MESURÉ 08.09 — cause identifiée, cf. canonical-cannibalisation |
+| Canonical non-www, cannibalisation, dispersion | docs/features/canonical-cannibalisation.md | **EN COURS** — lots A+B livrés, C/D gelés jusqu'à S+3. Les 3 villes retirées le 09.11 (`ville-la-grand`, `saint-julien-en-genevois`, `la-roche-sur-foron`) sortent du périmètre ; le fichier `villes-frontalieres-ctr.md` est supprimé (cause couverte ici) |
+| Silo mobile « agence application mobile » | docs/features/silo-mobile-agence.md | S+4 MESURÉ 08.09 — CTR toujours nul. Offre app mobile conservée dans le pivot IA |
 | Refonte piliers micro-intentions / AIO | docs/features/refonte-piliers-micro-intentions.md | EN COURS — Lots A & B poussés, reste CTR blog + C + D/E/F |
 | Polish global & design system | docs/features/polish-design-system.md | EN COURS |
-| Refonte SEO / clusters | docs/features/refonte-seo-clusters.md | EN ATTENTE — `/seo-index-diagnose` mi-sept. vs baseline 50/88 |
-| Chantier SEO IA (consultant IA) | docs/planSEOIA.md | EN ATTENTE — Phase 3 |
+| Refonte SEO / clusters | docs/features/refonte-seo-clusters.md | EN ATTENTE — plan 3 clusters en partie caduc après le pivot focus IA du 09.11 (SEO local/GMB/GEO abandonnés ; plan maître `restructuration-clusters.md` supprimé). Garde la carte du code `/developpement-web`. Mesure : nouvelle baseline 09.11 |
+| Chantier SEO IA (consultant IA) | docs/planSEOIA.md | EN ATTENTE — Phase 3 ; devient le cœur du pivot focus IA (09.11) |
 | Devis Cabinet Grange-Canal | docs/features/devis-cabinet-grange-canal.md | CODE FINI — attend le call |
 | Refonte blueprint (design/typo) | docs/features/refonte-blueprint.md | BOUCLÉE — reste `/epic-recap` |
 | Repositionnement IA + nouvelle DA (home portfolio + bento, refs personal-starter.thebcms.com / kirako.ai) | à cadrer après l'interview de marque — `atelier/docs/HANDOFF.md` | EN ATTENTE — blocs 3-4 de l'interview ; ordre : architecture/GSC → DA → home → cas IA (Wildcat, CSSM) → articles lentille + `logiciel-sur-mesure-vs-saas` |
 | Refresh piliers IA (kirako) | mergé dans main (`1cca170`) | **EN LIGNE 21.09** — mesurer vs baseline 428 imp / 0 clic |
 
 ## Reprendre ici
-**Refresh piliers IA** — mergé dans main et poussé le 21.09 (`1cca170`). Née d'une veille sur kirako.ai (concurrent direct : même positionnement, même arborescence `/consultant-ia` · `/metiers/*` · `/hermes`).
-
-Ce qui a changé :
-1. Bug de spécificité du reset blueprint — l'échelle `--space-*` posée sur les Hn était muette partout. Passage en `:where()`, ce qui réveille ~12 règles mortes.
-2. Respiration des 27 heros sortie du style inline → tokens `--hero-pad-*`.
-3. `/hermes` repositionné sur « agent IA sur mesure » : il faisait 88 imp / 0 clic en se battant contre son propre article de blog sur « hermes agent ».
-4. `/services/automatisation` et `/services/integration-outils` (noindex + hors sitemap) absorbés en sections ancrées de `/consultant-ia`, 301 dans `vercel.json`.
-5. Services IA en deux familles « Sur mesure » / « Clé en main », rangée de pills orpheline retirée.
-6. `src/components/FlowDiagram.astro` (promotion de `.rd-flow`) : schéma de flux dans le hero Hermès et dans le bento de cas d'usage.
-
-**À surveiller après mise en ligne** : `/consultant-ia`, `/metiers/*` et `/hermes` faisaient ensemble 428 impressions et **zéro clic**. C'est la baseline contre laquelle mesurer ce refresh.
-
-**Canonical & cannibalisation** — attendre la mesure S+3 (~29.09) avant de toucher aux lots C/D : modifier maintenant rend le gain illisible. Point prévu avec Jonathan vers le 22.09.
-Commit : `8165924` fix(seo): éradique l'hôte non-www et sort le maillage géo de la home
+Tri contenu « focus IA » — bilan entre le 23.11 et le 09.12 : GSC + indexation vs baseline du 09.11, puis fusion des 13 articles IA morts dans le guide IA (détail dans le fichier feature).
+Commit : [18dd79a] content(blog): snippet et intention des 2 articles IA à impressions sans clic
 
 > Décisions structurantes → `docs/DECISIONS.md`. Tâches côté Jonathan → `cerveau/10-Projets/jonlabs/jonlabs-human.md`.

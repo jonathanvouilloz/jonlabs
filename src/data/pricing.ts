@@ -1,6 +1,6 @@
 // Grille tarifaire — SEULE source de vérité des prix affichés sur le site.
 // Toute page, carte, FAQ ou schema JSON-LD qui cite un prix lit ce fichier.
-// Grille du 27.09.2026 : quatre services (site web, app mobile, SEO local, IA).
+// Grille du 27.09.2026, amendée le 09.11 : trois services (site web, app mobile, IA). Offre SEO local fermée.
 // Site web statique (Astro) dès 850, site Webflow dès 950.
 // Pas de taux horaire affiché, pas de prix en EUR (pages villes frontalières : devis en CHF).
 

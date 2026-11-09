@@ -1,5 +1,7 @@
 # Jon Labs - Roadmap
 
+> **Pivot 09.11.2026** : positionnement recentré sur l'IA en entreprise, les applications sur mesure et l'automatisation ; SEO local / fiches Google / GEO abandonnés, offre référencement local fermée (cf. `DECISIONS.md`). Les phases 1-6 ci-dessous sont l'historique du lancement ; la suite est pilotée par `HANDOFF.md`. Les mentions « SEO local » / « [service] Genève » plus bas sont historiques.
+
 ## Vue d'ensemble
 
 **Objectif** : Lancer un MVP fonctionnel et itérer continuellement.
@@ -147,7 +149,7 @@
   - [x] Section Technologie (3 options + garanties)
   - [x] Section Prix (timeline + budget transparent)
   - [x] Section FAQ (accordion avec 10 questions)
-  - [x] Section Local SEO (zones intervention Genève/Suisse romande)
+  - [x] Section Local SEO (zones intervention Genève/Suisse romande) — _historique, offre locale fermée le 09.11.2026_
   - [x] Formulaire contact Web3Forms intégré
   - [x] Responsive mobile/desktop
 
@@ -267,6 +269,8 @@
 
 ### Mois 1-2
 
+> Depuis le 09.11.2026 : bilan du tri de contenu entre le 23.11 et le 09.12 (indexation, clics des 2 articles refresh), puis fusion des 13 articles IA morts dans le guide IA ; voir `HANDOFF.md`.
+
 - [ ] Ajouts basés sur feedback
 - [ ] Nouveaux articles blog
 - [ ] Pages SEO détaillées (optionnel)
@@ -290,7 +294,7 @@
 | Visiteurs uniques/mois | 100+ |
 | Demandes de contact qualifiées | 5-10 |
 | Position Google "Jon Labs" | Page 1 |
-| Position Google "[service] Genève" | Page 1-2 |
+| Position Google "[service] Genève" | Page 1-2 _(historique ; depuis le 09.11 : requêtes IA / sur mesure / app)_ |
 | Score Lighthouse | > 90 |
 
 ### KPIs à tracker

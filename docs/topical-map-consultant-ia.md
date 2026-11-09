@@ -53,13 +53,13 @@ Keyword : automatisation PME suisse | Intent : Informationnel | Statut : **Exist
 - `temps-perdu-pme-automatisation` — 654 h/an perdues en admin **Existant** ⚡
 - `comment-choisir-quoi-automatiser-pme` — Quoi automatiser en premier + ROI **Existant**
 - `avantages-limites-automatisation-pme` — Avantages réels & coûts cachés **Existant**
-- `automatisation-club-sportif` — Club sportif : au-delà d'Excel **Existant** (Outer secondaire)
+- `automatisation-club-sportif` — Club sportif : au-delà d'Excel **Existant** (Outer secondaire) ⛔ _supprimé 09.11.2026 (tri focus IA)_
 
 #### Cluster F — Agents IA & outils — **Core/Outer (existant)**
 - `workflows-vs-agents-ia-pme` — Workflow ou agent IA : lequel choisir **Existant**
 - `hermes-agent-ia-pme` — Hermès Agent guide + prix CHF **Existant**
 - `openclaw-pme-suisse` — OpenClaw guide + CHF **Existant**
-- `notebooklm-guide-complet-2026` — NotebookLM : analyser ses docs **Existant**
+- `notebooklm-guide-complet-2026` — NotebookLM : analyser ses docs **Existant** ⛔ _supprimé 09.11.2026 (tri focus IA)_
 - `application-mobile-automatisation-pme` — App mobile + automatisation **Existant (programmé 2026-07-27)**
 
 #### Cluster G — Nouveaux articles informationnels (gaps) — **Core/Outer**

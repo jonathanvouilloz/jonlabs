@@ -1,17 +1,17 @@
 ---
 extends: identity
-expertise: Astro/Tailwind/Node.js, automatisation Make/Zapier/n8n, SEO local Suisse romande, applications sur-mesure
+expertise: Astro/Tailwind/Node.js, automatisation Make/Zapier/n8n, IA en entreprise, applications sur-mesure
 location: Genève, Suisse — service Suisse romande
-eeat_proof: Audit terrain de 50 sites d'indépendants romands réalisé et publié (2026) ; projets clients livrés pour TPE/PME ; site jonlabs.ch en production ; expérience terrain en automatisation et intégration API
+eeat_proof: projets clients livrés pour TPE/PME ; site jonlabs.ch en production ; expérience terrain en automatisation et intégration API
 goals:
-  cluster: Construire la visibilité organique sur les requêtes "développeur web Genève", "site web suisse romande", "automatisation PME suisse" — asseoir l'expertise E-E-A-T locale
-  transactional: Générer des leads qualifiés vers /services/refonte-site-web ou /contact — lecteur qui reconnaît son problème et veut passer à l'action
-  local: Apparaître pour les recherches géolocalisées romandes — "freelance web Genève", "développeur web Lausanne", "automatisation PME suisse"
+  cluster: Construire la visibilité organique sur les requêtes IA en entreprise ("consultant IA Genève", "agent IA PME"), développement d'application sur mesure / mobile et "automatisation PME suisse" — asseoir l'expertise E-E-A-T
+  transactional: Générer des leads qualifiés vers /consultant-ia ou /contact — lecteur qui reconnaît son problème et veut passer à l'action
+  local: Pages géo IA conservées (`/consultant-ia/{ville}`) ; SEO local générique et fiches Google abandonnés le 09.11.2026
   evergreen: Nurturing — amener le lecteur vers le prochain article du cluster ou vers le CTA email
 cta_map:
   hot:
-    url: /services/refonte-site-web
-    anchor: "Obtenir un audit gratuit"
+    url: /consultant-ia
+    anchor: "Discuter de votre projet IA"
   warm:
     url: /contact
     anchor: "Discuter de votre projet"
@@ -23,6 +23,8 @@ cta_map:
 ---
 
 # SEO Context — Jon Labs
+
+> **Pivot 09.11.2026 — focus IA.** Cibles SEO : IA en entreprise, développement d'applications sur mesure (dont mobile), automatisation des processus métiers. **Abandonnés** : SEO local, fiches Google (GMB/GBP), GEO « apparaître sur {IA} » (seul `apparaitre-claude` reste, ainsi que `geo-seo-ia`, non tranchés). Offre référencement local fermée ; clusters `gmb` et `site-actif` supprimés. Les rubriques SEO local / GMB citées plus bas (concurrents, gaps) sont de l'analyse concurrentielle historique. Détail → `DECISIONS.md` (2026-11-09). Baseline de mesure : `.seo-data/gsc-pages-baseline-2026-11-09.json`.
 
 > Extension d'`identity.md`. Personas détaillés, CTA map, objectifs business par type de contenu, concurrents.
 > `tone`, `register`, `banned_words` sont dans `identity.md`.
@@ -139,7 +141,7 @@ cta_map:
 
 ### Synthèse des gaps à exploiter
 
-- Aucun acteur local ne publie sur les 3 piliers simultanément : dev sur mesure + SEO local suisse + automatisation IA pour PME
+- Aucun acteur local ne publie sur les 3 piliers simultanément : dev sur mesure + IA appliquée + automatisation pour PME (le volet SEO local est abandonné depuis le 09.11.2026)
 - Le blog est le principal avantage compétitif en Suisse romande : les acteurs locaux n'ont pas de stratégie de contenu
 - Paul Vengeons tente de capter le marché suisse depuis Paris → opportunité de le détrôner avec un ancrage terrain réel
 - Louis Descamps est la référence de cadence à atteindre (~1 article/mois) dans un premier temps

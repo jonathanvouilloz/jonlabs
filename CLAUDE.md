@@ -93,7 +93,7 @@ Voir `docs/README.md` pour l'index complet (4 zones : sources de vérité, stand
 | `docs/styleguide.md` | Design system (⚠️ en cours de resync sur le blueprint) |
 | `docs/schema-guide.md` | Schema.org implementation guide |
 | `docs/identity.md` · `voice.md` | Brand/tone/banned_words · auteur/phrasé (consommés par les skills) |
-| `docs/seo-context.md` · `gmb-context.md` | Contexte SEO · locations GBP (pipeline contenu) |
+| `docs/seo-context.md` | Contexte SEO (pipeline contenu, recentré IA depuis le 09.11) |
 | `.claude/checklist.md` | Pre-commit checklist and starter prompts |
 
 ## Workflow

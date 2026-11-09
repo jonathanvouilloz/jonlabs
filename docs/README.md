@@ -12,29 +12,26 @@ Lues automatiquement par CLAUDE.md, `.claude/commands/*` et les skills d'init.
 | `project-context.md` | Identité, positionnement, philosophie | CLAUDE.md, `.claude/checklist.md` |
 | `roadmap.md` | Phases de dev (1→7) | CLAUDE.md |
 | `identity.md` | Brand, audience, tone, banned_words | tous les skills d'init |
-| `voice.md` | Auteur, phrasé, exemples | `/seo-write`, `/linkedin-weekly-posts`, `/gmb-post` |
-| `seo-context.md` | Personas, CTA map, concurrents | `/seo-brief`, `/seo-write` |
-| `gmb-context.md` | Locations GBP, art direction GMB | `/gmb-*` |
+| `voice.md` | Auteur, phrasé, exemples | `/seo-write`, `/linkedin-weekly-posts` |
+| `seo-context.md` | Personas, CTA map, concurrents (focus IA / sur mesure / app) | `/seo-brief`, `/seo-write` |
 | `moodboard.md` | ADN visuel | `/generate-images`, `/generate-cover` |
 | `guidelines.md` | Standards code, conventions, blog | CLAUDE.md, `/blog` |
-| `styleguide.md` | Design system (⚠️ en cours de resync sur le blueprint — cf. `src/styles/global.css`) | CLAUDE.md, `/new-page`, `gmb/config.json` |
+| `styleguide.md` | Design system (⚠️ en cours de resync sur le blueprint — cf. `src/styles/global.css`) | CLAUDE.md, `/new-page` |
 | `schema-guide.md` | Mode d'emploi Schema.org pour nouvelles pages | `/new-page`, `/schema` |
 | `generate-image-blog.md` | Workflow 3 phases covers blog | `/blog` |
-| `seo-todo.md` | TODO SEO vivant (P2 restants) | référence audit |
-| `checklist-commerce-google.md` | Asset éditorial article | `.briefs/15-signes-site-web-dort.md` |
 
 ## Racine — Planification SEO / clusters (sources de vérité contenu)
+
+> **Pivot 09.11.2026** : focus IA en entreprise, sur mesure, automatisation. SEO local / GMB / GEO abandonnés ; leurs docs (clusters `gmb` et `site-actif`, recherches, topical map C3, plan maître `restructuration-clusters`) sont supprimés. Voir `DECISIONS.md`.
 
 Docs vivantes de pilotage éditorial, consommées par les feature files (`docs/features/*`) et seedées dans les briefs (`src/content/blog/.briefs/*` : ligne « Contexte chargé depuis: … »).
 
 | Fichier | Rôle |
 |---|---|
-| `restructuration-clusters.md` | Plan maître du chantier SEO (3 clusters, verdict par page, liste KILL, feuille de route) |
-| `planSEOIA.md` | Roadmap globale cluster « consultant IA » (epic EN COURS) |
+| `planSEOIA.md` | Roadmap globale cluster « consultant IA » (cœur du pivot focus IA) |
 | `topical-map-consultant-ia.md` | Topical map cluster IA (2 piliers, scoring, mini-briefs) |
-| `topical-map-c1-sur-mesure-automatisation.md` | Topical map C1 (Build / Automate) |
-| `topical-map-c3-web-referencement.md` | Topical map C3 (web / SEO local / GEO / GMB) |
-| `chantier-cluster-plateformes.md` | Session 8 — cluster Webflow/WordPress (EN ATTENTE, prochain epic candidat) |
+| `topical-map-c1-sur-mesure-automatisation.md` | Topical map C1 (Build / Automate) — 3 articles supprimés le 09.11 |
+| `chantier-cluster-plateformes.md` | Session 8 — cluster Webflow/WordPress (EN ATTENTE, non tranché depuis le pivot 09.11) |
 
 > Clusters terminés archivés dans `archive/` : « Mettre l'IA en place » (`plan-mise-en-place-ia.md`, `archive/clusters/topical-map-mise-en-place-ia.md`) et « Application mobile » (`archive/cluster-application-mobile.md`, `archive/clusters/topical-map-application-mobile.md`).
 
@@ -46,33 +43,21 @@ Un fichier par epic, index léger dans `HANDOFF.md`. Contient la « Carte du cod
 
 Le dashboard Reddit (`dashboard.py`, `reddit_scraper.py`, `dashboard.html` + guide) vit dans `public/tools/reddit-dashboard/` (servi au public). L'ancien doublon `docs/tools/` a été supprimé.
 
-## `clusters/` — Clusters de contenu actifs
+## `research/` — Recherche
 
-Un sous-dossier par cluster. Chaque cluster contient sa source de vérité (`cluster.md` ou équivalent) + les briefs/sources spécifiques.
+| Dossier | Contenu |
+|---|---|
+| `research/vps-hermes/` | Comparatif VPS pour l'agent Hermès (12.10.2026) |
 
-| Cluster | Statut | Description |
-|---|---|---|
-| `clusters/gmb/` | 🟡 En cours (M1.01 → 2026-05-04) | Cluster Fiche Google My Business : 24 articles sur 3 mois |
-| `clusters/site-actif/` | 🟡 Sprint 1-2 publiés, S3+ à venir | Cluster "Site qui dort vs site qui travaille" |
+> Bibliothèques de recherche GMB / avis / SEO local / GEO supprimées le 09.11.2026 (pivot focus IA, cf. `DECISIONS.md`).
 
-Convention : `clusters/{slug}/cluster.md` ou `CALENDRIER-EDITORIAL.md` = source de vérité ; `clusters/{slug}/sources/` = matière éditoriale brute (PDFs, exports, articles externes).
+## `audits/` — Audits
 
-## `research/` — Bibliothèque de recherche éditoriale
+| Fichier | Contenu |
+|---|---|
+| `audits/gsc-2026-09-16.md` | Audit GSC du 16.09.2026 |
 
-Notes thématiques (style Obsidian) consultées par les clusters comme matière première. Pas de skills attachés ; lecture humaine + référence depuis les briefs.
-
-| Dossier | Sujet | Volume |
-|---|---|---|
-| `research/gmb-optimisation/` | Optimisation fiche GMB (catégorie, description, photos, attributs, horaires…) | 21 notes |
-| `research/gmb-avis/` | Avis & réputation Google (collecte, réponses, modération) | 12 notes |
-| `research/gmb-site-web/` | SEO local on-site (NAP, schema, page contact, CTA, mobile) | 11 notes |
-| `research/geo-seo/` | GEO / IA search (apparaître sur ChatGPT, Perplexity, Gemini, Copilot, Grok, Claude) | 7 notes |
-
-## `audits/` — Snapshots data brute
-
-| Dossier | Contenu | Date |
-|---|---|---|
-| `audits/gsc-2026-04-25/` | Export Google Search Console (requêtes, pages, pays, appareils, apparence) | 2026-04-25 |
+> Export GSC du 25.04.2026 supprimé le 09.11.2026. Baseline courante : `.seo-data/gsc-pages-baseline-2026-11-09.json`.
 
 ## `archive/` — Historique projet
 

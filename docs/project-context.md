@@ -1,19 +1,22 @@
 # Jon Labs — Contexte projet (surface jonlabs.ch)
 
 > **Identité, voix, positionnement, histoire, valeurs, preuves → canon `noyau/brand/`.** jonlabs.ch, c'est Jon lui-même : on ne redéfinit pas son identité ici.
-> Ce fichier = la fiche **surface** du site (offre, stack, infra, archi). Mis à jour 2026-07-08.
+> Ce fichier = la fiche **surface** du site (offre, stack, infra, archi). Mis à jour 2026-11-09.
 
 ## Positionnement
 
 Défini dans le canon → `docs/identity.md` (frontmatter **généré** depuis `noyau/brand/`, ne pas éditer) et le canon `noyau/brand/identity.md`. Ne pas le redéfinir ici pour éviter la dérive.
 
-## Offre réelle (taxonomie des pages services live)
+## Offre réelle (pivot « focus IA » du 09.11.2026)
 
-- **Visibilité / SEO (la porte)** : `referencement-local`, `refonte-site-web`, `gestion-fiche-google`.
-- **Dev web & produits** : `creation-site-web`, `developpement-mvp`, `developpement-application-mobile`, `outils-sur-mesure`, `developpeur-webflow`, `developpeur-wordpress`.
-- **Automatisation & IA** : `automatisation`, `integration-outils`, `formation-ia-equipe`, `validation-idee`.
-- **SEO programmatique** (acquisition) : `developpement-web/[ville]`, `consultant-ia/[ville]`, `metiers/[metier]`.
-- **Aimants à leads / liste email** : `outils/*` (checklists « 15 signes », « commerce Google », reddit-dashboard), `guides/*`, `merci-checklist*`.
+Positionnement : **IA en entreprise, développement d'applications sur mesure, automatisation des processus métiers**. Le SEO local, les fiches Google et le GEO ne sont plus poussés (décision → `DECISIONS.md`, 2026-11-09).
+
+`/tarifs` : **3 offres** (source unique `src/data/pricing.ts`) : site web, **IA en entreprise (mise en avant)**, application mobile.
+
+- **IA & automatisation (cœur)** : `/consultant-ia` (+ `consultant-ia/[ville]`), `/metiers/[metier]`, `/hermes`, `/services/formation-ia-equipe`.
+- **Application mobile / sur mesure** : `/services/developpement-application-mobile`.
+- **Site web (maintenu, devenir non tranché)** : `/services/creation-site-web`, `/services/refonte-site-web`, `/services/developpeur-webflow`, `/developpement-web` + `[ville]` (2 villes : `annemasse`, `gaillard`), `/developpeur-web-freelance-geneve`.
+- **Fermé le 09.11.2026** : `/services/referencement-local`, `/services/gestion-fiche-google`, checklists `/outils` (reste `reddit-dashboard`), `merci-checklist*`.
 
 Public cible, audience et registre : voir `identity.md` (frontmatter généré) + le canon `noyau/brand/`.
 
@@ -26,7 +29,7 @@ Public cible, audience et registre : voir `identity.md` (frontmatter généré) 
 
 ## Architecture
 
-La source de vérité de l'architecture, c'est **`src/pages/`** (ne pas maintenir de copie manuelle ici — elle dériverait). Sections principales : home, `/services` (+ ~13 pages service), `/blog`, `/guides`, `/portfolio`, `/outils`, `/tarifs`, `/contact`, `/about`, `/cv`, pages SEO programmatiques par ville/métier. Conventions de dev, SEO technique et schema : voir `guidelines.md`.
+La source de vérité de l'architecture, c'est **`src/pages/`** (ne pas maintenir de copie manuelle ici — elle dériverait). Sections principales : home, `/services` (+ pages service), `/blog`, `/guides`, `/portfolio`, `/tarifs`, `/contact`, `/about`, `/cv`, pages SEO programmatiques par ville/métier. Conventions de dev, SEO technique et schema : voir `guidelines.md`.
 
 ## Palette & visuel
 
