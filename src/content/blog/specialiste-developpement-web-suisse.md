@@ -55,7 +55,7 @@ La plupart des développeurs web te diront "je fais du sur-mesure, du WordPress,
 
 Un généraliste met en ligne n'importe quel type de site. Un spécialiste peut te dire pourquoi **Astro + Supabase** convient mieux à ton cas qu'un WordPress avec 47 plugins, et t'expliquer en quoi ça change tes coûts de maintenance sur 3 ans. C'est une question de profondeur, pas de prétention. Le même raisonnement vaut par plateforme : un [développeur Webflow](/services/developpeur-webflow) qui connaît les limites de l'outil, ou un [freelance WordPress](/services/creation-site-web) qui sait quand refondre et quand migrer, te rendra toujours un meilleur service qu'un touche-à-tout.
 
-Quand tu confies ton projet à quelqu'un qui maîtrise vraiment sa stack, tu obtiens un produit qui ne casse pas six mois après le lancement. Si tu n'es pas sûr de l'état actuel de ton site, [15 signes que ton site web dort](/blog/15-signes-site-web-dort) te donne une checklist concrète pour faire le diagnostic toi-même.
+Quand tu confies ton projet à quelqu'un qui maîtrise vraiment sa stack, tu obtiens un produit qui ne casse pas six mois après le lancement.
 
 ### Les spécificités du marché suisse que peu de prestataires connaissent
 
@@ -80,7 +80,7 @@ Si la réponse est "WordPress parce que tout le monde connaît", pose-en une deu
 
 Un prestataire ancré en **Suisse romande** voit des réalités que les agences de l'étranger ne voient pas : les budgets réels des PME locales (3'500 à 15'000 CHF pour une vitrine de qualité), les délais, la disponibilité pour une rencontre en personne à **Lausanne** ou à Genève, et surtout les SERP locaux de ton secteur. Ce que font tes concurrents directs en Suisse romande sur Google, pas en France ou en Belgique.
 
-C'est [ce que ça change d'avoir un site actif](/blog/visibilite-site-internet-2026) sur un marché local : quelqu'un qui connaît ces SERP de l'intérieur te donne un diagnostic différent de quelqu'un qui raisonne sur des moyennes européennes. L'[audit terrain de 50 sites d'indépendants romands](/blog/audit-50-sites-indeps-romands) que j'ai mené en avril 2026 illustre ces écarts avec des chiffres concrets.
+C'est ce que ça change d'avoir un site actif sur un marché local : quelqu'un qui connaît ces SERP de l'intérieur te donne un diagnostic différent de quelqu'un qui raisonne sur des moyennes européennes. L'audit terrain de 50 sites d'indépendants romands que j'ai mené en avril 2026 l'a montré avec des chiffres concrets.
 
 ### 3. Une vision stratégique avant la technique
 
@@ -119,8 +119,6 @@ Une agence a du sens quand :
 - Le budget dépasse 80'000 CHF et nécessite une SLA formelle
 - Tu as besoin d'une structure juridique plus solide pour un contrat corporate
 
-Pour aller plus loin sur ce choix, avec les vrais critères à évaluer selon ton cas précis, l'article [freelance ou agence web](/blog/freelance-ou-agence-web) couvre ça sans langue de bois.
-
 ---
 
 ## Jonathan Vouilloz, spécialiste en développement web en Suisse romande
@@ -137,7 +135,7 @@ Stack : **Astro, React, Tailwind CSS, Node.js, TypeScript, Supabase, PostgreSQL*
 
 ## Pour aller plus loin
 
-Si tu cherches plus spécifiquement un **développeur web freelance basé à Genève**, j'ai détaillé mon offre, ma méthode et mes tarifs sur la page [développeur web freelance Genève](/developpeur-web-freelance-geneve). Si ton besoin est plus large — un site complet pensé pour Google dès le départ — la page [création de site web](/services/creation-site-web) détaille la méthode, les délais et les formules. Pour comprendre les fourchettes de prix réelles du marché suisse, l'article [prix site web suisse 2026](/blog/prix-site-web-suisse-2026) compare les budgets typiques par type de projet. Et si tu veux d'abord vérifier l'état de ton site actuel avant d'engager un nouveau prestataire, [15 signes que ton site web dort](/blog/15-signes-site-web-dort) te donne une checklist en 5 minutes.
+Si tu cherches plus spécifiquement un **développeur web freelance basé à Genève**, j'ai détaillé mon offre, ma méthode et mes tarifs sur la page [développeur web freelance Genève](/developpeur-web-freelance-geneve). Si ton besoin est plus large — un site complet pensé pour Google dès le départ — la page [création de site web](/services/creation-site-web) détaille la méthode, les délais et les formules. Pour comprendre les fourchettes de prix réelles du marché suisse, l'article [prix site web suisse 2026](/blog/prix-site-web-suisse-2026) compare les budgets typiques par type de projet. Et si tu veux d'abord vérifier l'état de ton site actuel avant d'engager un nouveau prestataire, 15 signes que ton site web dort te donne une checklist en 5 minutes.
 
 ---
 

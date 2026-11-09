@@ -54,7 +54,7 @@ Le RAG (**retrieval-augmented generation**) permet d'interroger ses documents av
 
 Le fonctionnement tient en trois temps. La question posée par l'utilisateur déclenche une recherche dans la base documentaire de l'entreprise. Le passage pertinent trouvé sert de matière première à la réponse. La réponse finale s'accompagne d'une référence au document source, contrat, facture ou dossier client dont elle est tirée.
 
-Cette approche ressemble sur le principe à ce que fait **NotebookLM**, l'outil pour [analyser un document sans halluciner](/blog/notebooklm-guide-complet-2026), mais l'usage change d'échelle : NotebookLM répond bien à un usage individuel sur un ou quelques documents ponctuels, alors qu'une **base documentaire interne partagée** (contrats, factures, dossiers clients de toute une équipe) demande un RAG d'entreprise pensé pour l'accès multi-utilisateurs et la mise à jour continue.
+Cette approche ressemble sur le principe à ce que fait **NotebookLM**, l'outil de Google pour interroger ses documents, mais l'usage change d'échelle : NotebookLM répond bien à un usage individuel sur un ou quelques documents ponctuels, alors qu'une **base documentaire interne partagée** (contrats, factures, dossiers clients de toute une équipe) demande un RAG d'entreprise pensé pour l'accès multi-utilisateurs et la mise à jour continue.
 
 <!-- TODO:image schema, schéma en 3 étapes du fonctionnement du RAG (question posée → recherche dans la base documentaire → réponse sourcée avec référence au document), brief: src/content/blog/.briefs/automatiser-emails-documents-ia.md#image-2 -->
 
@@ -113,6 +113,5 @@ Si ta boîte mail et tes dossiers documentaires te font perdre plusieurs heures 
 ## Sources et Références
 
 - [Guide complet pour mettre l'IA en place dans ton entreprise](/guides/mettre-en-place-ia-entreprise-guide)
-- [NotebookLM : analyser ses documents sans halluciner](/blog/notebooklm-guide-complet-2026)
 - [IA et nLPD : ce que la conformité suisse change](/blog/ia-nlpd-conformite-suisse)
 - Pratique terrain Jon Labs sur des déploiements d'agents IA de tri d'emails et de RAG documentaire en PME romande

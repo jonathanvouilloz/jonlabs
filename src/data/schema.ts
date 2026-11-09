@@ -189,7 +189,7 @@ export const servicesListData = {
   "name": "Services Jon Labs",
   "description": "Sites web, applications mobiles, référencement local et intelligence artificielle pour PME et indépendants en Suisse romande",
   "url": `${SITE_URL}/services`,
-  "numberOfItems": 9,
+  "numberOfItems": 8,
   "itemListElement": [
     {
       "@type": "ListItem",
@@ -241,22 +241,13 @@ export const servicesListData = {
       "position": 6,
       "item": {
         "@type": "Service",
-        "name": "Gestion fiche Google My Business",
-        "url": `${SITE_URL}/services/gestion-fiche-google`
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 7,
-      "item": {
-        "@type": "Service",
         "name": "Consultant IA et agents IA",
         "url": `${SITE_URL}/consultant-ia`
       }
     },
     {
       "@type": "ListItem",
-      "position": 8,
+      "position": 7,
       "item": {
         "@type": "Service",
         "name": "Agent IA Hermès",
@@ -265,7 +256,7 @@ export const servicesListData = {
     },
     {
       "@type": "ListItem",
-      "position": 9,
+      "position": 8,
       "item": {
         "@type": "Service",
         "name": "Formation IA",
@@ -372,41 +363,6 @@ export const serviceSchemas = {
     "provider": { "@id": `${SITE_URL}/#organization` },
     "areaServed": ["Genève", "Vaud", "Suisse Romande"],
     "serviceType": "Référencement local",
-    "offers": [
-      {
-        "@type": "Offer",
-        "name": "Setup initial",
-        "priceSpecification": {
-          "@type": "PriceSpecification",
-          "price": "390",
-          "priceCurrency": "CHF"
-        },
-        "description": "Optimisation du site et de la fiche Google Business Profile"
-      },
-      {
-        "@type": "Offer",
-        "name": "Suivi mensuel",
-        "priceSpecification": {
-          "@type": "UnitPriceSpecification",
-          "price": "199",
-          "priceCurrency": "CHF",
-          "billingIncrement": 1,
-          "unitCode": "MON"
-        },
-        "description": "Suivi du référencement local et de la fiche Google, sans engagement"
-      }
-    ]
-  },
-  "gestion-fiche-google": {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${SITE_URL}/services/gestion-fiche-google/#service`,
-    "name": "Gestion de fiche Google My Business",
-    "url": `${SITE_URL}/services/gestion-fiche-google`,
-    "description": "Création, optimisation et gestion mensuelle de votre fiche Google Business Profile : posts hebdomadaires, gestion illimitée des avis, suivi positions. Setup CHF 390 puis suivi CHF 199/mois, sans engagement.",
-    "provider": { "@id": `${SITE_URL}/#organization` },
-    "areaServed": ["Genève", "Vaud", "Suisse Romande", "Francophonie"],
-    "serviceType": "Gestion Google Business Profile",
     "offers": [
       {
         "@type": "Offer",

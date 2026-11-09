@@ -236,18 +236,6 @@ export const serviceSections: ServiceSection[] = [
         ],
         ctaText: 'En savoir plus',
         link: '/services/referencement-local'
-      },
-      {
-        id: 'gestion-fiche-google',
-        title: 'Fiche Google',
-        description: 'Ta fiche Google Business Profile complète, à jour et active.',
-        features: [
-          'Optimisation complète de la fiche',
-          'Publication automatisée de posts et réponses aux avis',
-          'Compris dans le suivi à CHF 199/mois'
-        ],
-        ctaText: 'En savoir plus',
-        link: '/services/gestion-fiche-google'
       }
     ],
     ctaText: 'Booster ma visibilité locale'

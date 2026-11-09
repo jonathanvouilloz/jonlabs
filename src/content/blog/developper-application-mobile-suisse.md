@@ -154,8 +154,6 @@ Pour le détail des tarifs pratiqués en Suisse et comment les comparer d'un dev
 
 **Un studio mobile spécialisé** a une expertise forte sur les technologies mobiles spécifiques. Rare en Suisse romande, et coûteux. À considérer pour des apps avec des exigences très particulières (AR/VR, traitement d'image temps réel, jeux).
 
-Sur la question freelance vs agence dans le contexte digital romand, l'article [la différence entre travailler avec un freelance et une agence web](/blog/freelance-ou-agence-web) donne un éclairage complémentaire utile.
-
 Pour les projets d'applications mobiles spécifiquement : [freelance ou agence pour développer votre application mobile](/blog/freelance-ou-agence-application-mobile).
 
 **Quatre questions à poser à tout prestataire avant de signer :**

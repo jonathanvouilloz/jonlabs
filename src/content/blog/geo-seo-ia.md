@@ -57,7 +57,7 @@ Cet article est le **pillar hub** du cluster GEO de Jon Labs. Il chapeaute 6 gui
 
 Le SEO classique optimise pour apparaître dans une liste de 10 liens bleus. Le GEO optimise pour que **l'IA te cite directement dans sa réponse** — sans que l'utilisateur ait à cliquer sur une liste.
 
-Concrètement, quand quelqu'un tape "meilleur consultant automation à Genève" dans ChatGPT, il n'obtient pas une liste de sites. Il obtient une réponse directe avec deux ou trois noms cités. Si ton nom n'y est pas, tu n'existes pas pour cet utilisateur, même si tu es premier sur Google. Et si tu n'as pas encore de [site qui travaille pour ta visibilité](/blog/visibilite-site-internet-2026), le problème est encore plus profond.
+Concrètement, quand quelqu'un tape "meilleur consultant automation à Genève" dans ChatGPT, il n'obtient pas une liste de sites. Il obtient une réponse directe avec deux ou trois noms cités. Si ton nom n'y est pas, tu n'existes pas pour cet utilisateur, même si tu es premier sur Google. Et si tu n'as pas encore de site qui travaille pour ta visibilité, le problème est encore plus profond.
 
 Deux chiffres pour cadrer l'enjeu. Les **AI Overviews** de Google (réponses générées par Gemini directement dans les résultats) apparaissent sur 30% des recherches services en 2026. Le taux de clic sur les résultats organiques sous un AI Overview a chuté de 34,5%. Pendant ce temps, **93% des sessions de recherche IA se terminent sans clic** vers un site web. La visibilité sans trafic — être mentionné dans une réponse sans être cliqué — devient un objectif en soi, parce que c'est là que les décisions se prennent.
 
@@ -72,11 +72,11 @@ C'est la pièce maîtresse de ce pillar. Chaque moteur IA a sa propre source d'i
 | Moteur | Source principale | Taux / volume citations | Levier #1 | Article complet |
 |---|---|---|---|---|
 | **Claude** (Anthropic) | Brave Search | 86,7% corrélation Brave | Soumettre sitemap sur Brave Webmaster | [Lire le guide](/blog/apparaitre-claude) |
-| **ChatGPT** (OpenAI) | Bing + entraînement | 0,59% (Superlines) | E-E-A-T fort + Google Business | [Lire le guide](/blog/apparaitre-chatgpt-geneve) |
-| **Perplexity** | Index propre (200B URLs) | Cite par défaut, 2,6× plus si structuré | Structure H2/H3 + 3 chiffres / 500 mots | [Lire le guide](/blog/apparaitre-perplexity) |
-| **Gemini** (Google) | Google + Knowledge Graph | AI Overviews sur 30% recherches | Schema FAQPage + Google Business | [Lire le guide](/blog/apparaitre-gemini) |
-| **Copilot** (Microsoft) | Bing | 3,13 liens/réponse | Bing Places + IndexNow + LinkedIn | [Lire le guide](/blog/apparaitre-copilot) |
-| **Grok** (xAI) | X/Twitter temps réel | 27% (vs 0,59% ChatGPT, soit 46×) | Profil X actif + threads thématiques | [Lire le guide](/blog/apparaitre-grok) |
+| **ChatGPT** (OpenAI) | Bing + entraînement | 0,59% (Superlines) | E-E-A-T fort + Google Business | — |
+| **Perplexity** | Index propre (200B URLs) | Cite par défaut, 2,6× plus si structuré | Structure H2/H3 + 3 chiffres / 500 mots | — |
+| **Gemini** (Google) | Google + Knowledge Graph | AI Overviews sur 30% recherches | Schema FAQPage + Google Business | — |
+| **Copilot** (Microsoft) | Bing | 3,13 liens/réponse | Bing Places + IndexNow + LinkedIn | — |
+| **Grok** (xAI) | X/Twitter temps réel | 27% (vs 0,59% ChatGPT, soit 46×) | Profil X actif + threads thématiques | — |
 
 Lecture rapide de ce tableau : "faire du GEO" ne peut pas être une approche unique. Gemini et Copilot partagent Bing comme base commune via Microsoft, mais leurs leviers locaux divergent. Claude et Perplexity lisent tous deux le web ouvert, mais avec des critères de sélection différents. Grok est dans une catégorie à part avec son accès temps réel à X.
 
@@ -116,31 +116,26 @@ Claude interroge **Brave Search**, pas Google ni Bing. Corrélation de 86,7% ent
 
 ChatGPT s'appuie sur Bing en mode recherche et sur son entraînement pour le reste. Le taux de citation est faible (0,59%), donc chaque mention compte. Levier principal : E-E-A-T fort, mots-clés à intention forte ("meilleur", "recommandé", "pour PME"), Google Business Profile complet.
 
-[Lire le guide complet sur ChatGPT](/blog/apparaitre-chatgpt-geneve)
 
 ### Apparaître sur Perplexity
 
 Perplexity cite ses sources par défaut avec des notes de bas de page numérotées — quand tu y es, le client voit le lien cliquable. Pages structurées citées 2,6× plus, contenu chiffré 4,1× plus. Index propre de 200 milliards d'URLs crawlées par PerplexityBot. Action #1 : structure H2/H3 + données chiffrées.
 
-[Lire le guide complet sur Perplexity](/blog/apparaitre-perplexity)
 
 ### Apparaître sur Gemini
 
 Gemini *est* Google. Câblé directement dans Search, Knowledge Graph, Maps, GBP, YouTube. Les **AI Overviews** apparaissent sur 30% des recherches services et font chuter le CTR organique de 34,5%. Levier principal : schema FAQPage, Google Business Profile structuré, YouTube comme source sous-exploitée en français.
 
-[Lire le guide complet sur Gemini](/blog/apparaitre-gemini)
 
 ### Apparaître sur Copilot
 
 Copilot fonctionne en RAG sur l'index **Bing**. Il ne cite que **3,13 liens par réponse** en moyenne, donc les places sont chères. Mais 33 millions d'utilisateurs y accèdent via Windows 11, Edge, Teams, Microsoft 365 sans l'avoir choisi. Levier principal : Bing Places + IndexNow + un article LinkedIn par trimestre (LinkedIn appartient à Microsoft).
 
-[Lire le guide complet sur Copilot](/blog/apparaitre-copilot)
 
 ### Apparaître sur Grok
 
 Grok cite **27% des sources testées** contre 0,59% pour ChatGPT — soit 46× plus. Seul moteur IA avec accès temps réel au flux X (100M+ posts/jour). Si tu n'es pas sur X, c'est la plateforme GEO la plus sous-exploitée du moment. Levier principal : profil X optimisé (bio avec mots-clés métier + ville) et un thread thématique par mois.
 
-[Lire le guide complet sur Grok](/blog/apparaitre-grok)
 
 ---
 
@@ -170,7 +165,7 @@ Le suivi n'est pas une fin en soi : il sert à voir quelles actions de fond — 
 
 ## Comment commencer concrètement (plan d'action 30 jours)
 
-Ce plan part du principe que tu as déjà un site et une activité visible. Si tu pars de zéro, regarde plutôt le guide [créer un site vitrine pensé pour les IA](/blog/creer-site-vitrine-ia-visibilite-google) en parallèle.
+Ce plan part du principe que tu as déjà un site et une activité visible.
 
 **Semaine 1 — Audit + fondations locales**
 
@@ -274,16 +269,9 @@ Tu veux savoir où tu en es concrètement ? On analyse ta présence sur les crit
 **Les 6 guides du cluster IA :**
 
 - [Apparaître sur Claude (Brave Search)](/blog/apparaitre-claude)
-- [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve)
-- [Apparaître sur Perplexity](/blog/apparaitre-perplexity)
-- [Apparaître sur Gemini](/blog/apparaitre-gemini)
-- [Apparaître sur Copilot](/blog/apparaitre-copilot)
-- [Apparaître sur Grok](/blog/apparaitre-grok)
 
 **Articles complémentaires :**
 
-- [Visibilité site internet en 2026](/blog/visibilite-site-internet-2026)
-- [Audit de 50 sites indépendants romands](/blog/audit-50-sites-indeps-romands)
 - [Spécialiste développement web en Suisse](/blog/specialiste-developpement-web-suisse)
 - [Référencement local en Suisse romande](/services/referencement-local)
 - [Tarifs et packages SEO Jon Labs](/tarifs)

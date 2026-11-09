@@ -123,8 +123,6 @@ Chez Jon Labs, je casse cette logique. Je facture au **forfait projet**, pas à 
 
 Mes sites vitrines démarrent à **CHF 850** (CHF 950 sur Webflow), sur devis selon le nombre de pages et les fonctionnalités. La différence avec un freelance qui facture CHF 100/h sur 40h (= CHF 4'000), c'est que j'ai construit des process et des templates de base qui me font gagner du temps. Tu profites de ce gain.
 
-Si tu hésites entre freelance et agence pour ton projet, j'ai détaillé les vrais critères de décision dans cet article sur [comment choisir entre freelance et agence web](/blog/freelance-ou-agence-web).
-
 ---
 
 ## Création de site internet Suisse : ce qui fait varier le prix
@@ -319,7 +317,7 @@ Parce qu'un site en ligne, même imparfait, **tu peux le tester, l'améliorer, a
 
 Un site parfait dans ta tête ? Ça ne sert à rien.
 
-Une mise en garde toutefois : même un site en ligne rapide ne vaut rien si personne ne le trouve. C'est le piège de nombreux sites créés avec des outils IA : ils existent techniquement, mais restent invisibles sur Google. J'explique pourquoi et comment y remédier dans cet article sur les [sites vitrines créés par IA et la visibilité Google](/blog/creer-site-vitrine-ia-visibilite-google).
+Une mise en garde toutefois : même un site en ligne rapide ne vaut rien si personne ne le trouve. C'est le piège de nombreux sites créés avec des outils IA : ils existent techniquement, mais restent invisibles sur Google.
 
 ---
 
@@ -382,7 +380,7 @@ Pourquoi ?
 
 Parce que c'est plus dur de designer pour un petit écran. Si ça marche sur mobile, ça marchera sur desktop. L'inverse n'est pas vrai.
 
-D'ailleurs, j'ai audité 50 sites d'indépendants romands et la majorité ramait sur mobile : voir [l'audit complet](/blog/audit-50-sites-indeps-romands) si tu veux du concret.
+D'ailleurs, j'ai audité 50 sites d'indépendants romands et la majorité ramait sur mobile.
 
 ---
 
@@ -405,8 +403,6 @@ Quelques ressources pour creuser le sujet :
 - [Page tarifs Jon Labs](/tarifs) : packs détaillés, ce qui est inclus, ce qui ne l'est pas
 - [Service création de site web](/services/creation-site-web) : process, livrables, exemples
 - [Service refonte de site web](/services/refonte-site-web) : pour rénover un site existant
-- [Freelance ou agence web ?](/blog/freelance-ou-agence-web) : les vrais critères pour choisir
-- [Audit de 50 sites indépendants romands](/blog/audit-50-sites-indeps-romands) : ce qui pèche sur le marché
 - [Spécialiste développement web Suisse](/blog/specialiste-developpement-web-suisse) : comment choisir un dev sérieux
 
 ---

@@ -99,21 +99,19 @@ Gérer ma **fiche d'entreprise sur Google** n'est pas un événement ponctuel. C
 
 C'est la fondation. Avant tout le reste, ta fiche doit exister et être vérifiée. Sans vérification, Google ne l'affiche pas publiquement.
 
-Les étapes sont plus critiques qu'elles n'y paraissent : le choix de la catégorie principale à la création détermine 80% de tes opportunités de ranking. Une mauvaise catégorie, et tout le reste devient moins efficace. Guide complet si tu pars de zéro : [créer ta fiche Google My Business étape par étape](/blog/creer-fiche-google-my-business-etape-par-etape).
+Les étapes sont plus critiques qu'elles n'y paraissent : le choix de la catégorie principale à la création détermine 80% de tes opportunités de ranking. Une mauvaise catégorie, et tout le reste devient moins efficace.
 
 ### Optimiser
 
 Une fois la fiche créée et vérifiée, il faut la remplir complètement. Catégories secondaires, description 750 caractères, services, produits, attributs d'accessibilité, horaires exceptionnels, photos. Chaque champ renseigné est une occasion supplémentaire d'être une réponse pertinente, et un signal de sérieux.
 
-La [checklist complète pour optimiser ta fiche](/blog/optimiser-fiche-google-my-business-checklist-2026) couvre les 25 points classés par impact, avec le "pourquoi chiffré" derrière chaque action.
-
 ### Animer
 
 Une fiche statique perd progressivement en visibilité. Google observe la fraîcheur : posts réguliers, nouveaux avis, réponses aux avis, photos récentes. C'est ce qui distingue une fiche "active" d'une fiche "abandonnée" aux yeux de l'algorithme.
 
-- **Posts** : minimum 1 par semaine. Guide complet sur [comment publier des Google Posts qui convertissent](/blog/google-post-business-profile-conversion).
-- **Avis** : mettre en place un système de collecte régulier. Le levier le plus rapide : un QR code sur tes supports physiques. Voir [obtenir plus d'avis avec un QR code](/blog/qr-code-avis-google-collecte-pme).
-- **Réponses** : répondre à 100% des avis, positifs et négatifs. Des modèles prêts : [répondre à tes avis Google](/blog/repondre-avis-google-modeles-2026).
+- **Posts** : minimum 1 par semaine.
+- **Avis** : mettre en place un système de collecte régulier. Le levier le plus rapide : un QR code sur tes supports physiques.
+- **Réponses** : répondre à 100% des avis, positifs et négatifs.
 
 ### Mesurer
 
@@ -153,7 +151,7 @@ Pour creuser, le rapport annuel de Whitespark (Local Search Ranking Factors) res
 
 Google documente les trois piliers de son classement local : la **pertinence** (à quel point ta fiche correspond à la recherche), la **distance** (entre toi et la personne qui cherche) et la **notoriété** (à quel point tu es connu).
 
-Note bien que la distance se mesure **entre toi et le chercheur**, pas entre toi et le centre-ville. C'est le seul des trois que tu ne contrôles pas, et si ton commerce est en périphérie, il joue contre toi sur une partie des recherches. Ça ne se compense pas, ça se contourne : j'ai détaillé la stratégie dans [SEO local quand ton commerce est loin du centre](/blog/seo-local-commerce-excentre).
+Note bien que la distance se mesure **entre toi et le chercheur**, pas entre toi et le centre-ville. C'est le seul des trois que tu ne contrôles pas, et si ton commerce est en périphérie, il joue contre toi sur une partie des recherches. Ça ne se compense pas, ça se contourne : pages locales, avis qui citent le quartier, catégories précises.
 
 Il s'arrête là. **Aucune pondération, aucun pourcentage, aucune proportion entre les trois.** Il publie les ingrédients, jamais les quantités. Retiens ça, on y revient juste après, parce que c'est ce qui explique la moitié des bêtises qui circulent sur le sujet.
 
@@ -197,8 +195,6 @@ Le plus troublant est arrivé pendant la vérification : en interrogeant les mot
 
 Le geste qui protège, et il vaut bien au-delà du SEO local : **un résumé, un article de blog ou une réponse d'IA ne sont pas des sources, ce sont des pointeurs vers des sources.** Tant que tu n'as pas suivi le pointeur, tu n'as rien vérifié. C'est exactement le geste que l'IA te promet d'éviter, et c'est précisément celui qu'il ne faut pas lâcher.
 
-Pour passer à l'action sur chacun de ces points : la [checklist complète pour optimiser ta fiche](/blog/optimiser-fiche-google-my-business-checklist-2026) les couvre dans l'ordre d'impact.
-
 ---
 
 ## Les erreurs qui plombent une fiche (et comment les diagnostiquer)
@@ -219,7 +215,7 @@ Symptôme : ta fiche n'apparaît pas malgré qu'elle existe dans le dashboard GB
 
 **Erreur 4 : Fiche suspendue sans le savoir**
 
-Symptôme : tu n'apparais plus du tout sur Maps, même quand quelqu'un cherche exactement ton nom. Cause : Google a suspendu ta fiche (nom commercial avec mots-clés rajoutés, adresse non éligible, fausse catégorie, violations des guidelines). Fix : vérifier dans le dashboard GBP si un avertissement de suspension existe. Procédure de réclamation complète : [que faire si ta fiche est suspendue](/blog/fiche-google-my-business-suspendue-recours).
+Symptôme : tu n'apparais plus du tout sur Maps, même quand quelqu'un cherche exactement ton nom. Cause : Google a suspendu ta fiche (nom commercial avec mots-clés rajoutés, adresse non éligible, fausse catégorie, violations des guidelines). Fix : vérifier dans le dashboard GBP si un avertissement de suspension existe.
 
 **Erreur 5 : Aucun post depuis plus de 90 jours**
 
@@ -309,24 +305,16 @@ Ce guide est le point d'entrée. Pour creuser chaque phase du cycle de vie, voic
 
 **Créer & optimiser ta fiche**
 
-- [Comment apparaître sur Google Maps quand on débute](/blog/comment-apparaitre-google-maps-pme-debutant) — le point de départ si tu pars de zéro.
-- [Créer ta fiche Google My Business étape par étape](/blog/creer-fiche-google-my-business-etape-par-etape) — la procédure complète de création et de vérification.
 - [Choisir la bonne catégorie Google Business Profile](/blog/choisir-categorie-google-business-profile) — le choix qui détermine 80% de tes opportunités de ranking.
-- [Optimiser ta fiche : la checklist en 25 points](/blog/optimiser-fiche-google-my-business-checklist-2026) — chaque champ classé par impact.
 - [Entrer dans le top 3 de Google Maps](/blog/entrer-top-3-google-maps) — les 3 facteurs de classement et comment agir dessus.
 
 **Avis & animation**
 
-- [Obtenir plus d'avis Google](/blog/obtenir-plus-avis-google) — le process pour collecter des avis de façon systématique.
-- [Répondre à tes avis Google (modèles 2026)](/blog/repondre-avis-google-modeles-2026) — des modèles prêts pour répondre à 100% des avis.
-- [Collecter des avis avec un QR code](/blog/qr-code-avis-google-collecte-pme) — le levier le plus rapide sur tes supports physiques.
-- [Publier des Google Posts qui convertissent](/blog/google-post-business-profile-conversion) — animer ta fiche pour le signal de fraîcheur.
 
 **Incident**
 
-- [Fiche Google suspendue : les recours](/blog/fiche-google-my-business-suspendue-recours) — diagnostiquer la cause et faire débloquer ta fiche.
 
-[**Confier la gestion de ma fiche →**](/services/gestion-fiche-google?utm_source=blog&utm_medium=article&utm_campaign=fiche-google-my-business-guide-complet-2026)
+[**Confier la gestion de ma fiche →**](/services/referencement-local?utm_source=blog&utm_medium=article&utm_campaign=fiche-google-my-business-guide-complet-2026)
 
 ---
 

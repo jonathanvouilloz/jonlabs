@@ -101,7 +101,7 @@ J'ai rédigé la [méthode complète pour prioriser et calculer le ROI en CHF](/
 
 Ce qu'il ne faut PAS automatiser en premier : tout processus que tu ne peux pas décrire en 5 étapes précises. Un processus flou automatisé tourne en boucle et amplifie les erreurs.
 
-Pour les praticiens et indépendants, la prise de rendez-vous mérite un traitement spécifique : j'ai détaillé [comment construire un système anti no-show qui sécurise les revenus](/blog/no-show-rendez-vous-2026) avec rappels SMS/WhatsApp et acomptes TWINT. Et pour les associations et clubs sportifs (un cas d'usage souvent oublié), [voici comment j'ai sorti des clubs de l'enfer Excel](/blog/automatisation-club-sportif) sur cotisations et gestion des membres.
+Pour les praticiens et indépendants, la prise de rendez-vous mérite un traitement spécifique : un système anti no-show avec rappels SMS/WhatsApp et acomptes TWINT sécurise directement les revenus. Les associations et clubs sportifs (un cas d'usage souvent oublié) gagnent autant à sortir d'Excel pour les cotisations et la gestion des membres.
 
 Et si une partie de ton activité se passe sur le terrain, l'automatisation peut aussi passer par une application mobile connectée à tes outils : j'explique [comment connecter une app mobile à ton CRM, ton agenda et ta facturation](/blog/application-mobile-automatisation-pme) pour éliminer la double saisie.
 
@@ -125,7 +125,7 @@ Hermes Agent ou OpenClaw. Ces agents IA vont au-delà des règles fixes : ils d�
 
 ### Tu veux d'abord apprivoiser l'IA sur tes propres documents avant d'automatiser
 
-Avant de te lancer dans n'importe quel workflow, **NotebookLM** de Google est un point d'entrée pragmatique : tu lui donnes tes PDFs, contrats, procédures, et il les rend interrogeables sans halluciner. Aucune config, gratuit, pédagogique. J'ai détaillé [comment l'utiliser concrètement dans une PME](/blog/notebooklm-guide-complet-2026) avec des cas d'usage qui font gagner 5-10h/semaine sans toucher à la moindre ligne de code.
+Avant de te lancer dans n'importe quel workflow, **NotebookLM** de Google est un point d'entrée pragmatique : tu lui donnes tes PDFs, contrats, procédures, et il les rend interrogeables sans halluciner. Aucune config, gratuit, pédagogique.
 
 ## Hermes Agent et OpenClaw, les agents IA autonomes à connaître en 2026
 

@@ -117,7 +117,7 @@ Ce que ça implique concrètement :
 
 Vérifie que tu n'as pas bloqué ClaudeBot involontairement dans ton robots.txt. Si tu as ajouté des règles génériques de blocage des crawlers IA, vérifie lesquels sont bloqués. Pour Jon Labs par exemple, la règle `User-agent: ClaudeBot` ne doit pas être suivie d'un `Disallow: /` si tu veux que Claude puisse lire ton site.
 
-Assure-toi aussi que tes pages importantes sont accessibles sans JavaScript côté serveur, car les crawlers IA lisent généralement le HTML brut. Si tes pages de service ou de blog nécessitent JavaScript pour s'afficher, ClaudeBot et les autres crawlers IA peuvent ne pas voir ton contenu. C'est d'ailleurs l'un des avantages d'un [site vitrine bien construit](/blog/creer-site-vitrine-ia-visibilite-google), un HTML propre, lisible par tous les crawlers.
+Assure-toi aussi que tes pages importantes sont accessibles sans JavaScript côté serveur, car les crawlers IA lisent généralement le HTML brut. Si tes pages de service ou de blog nécessitent JavaScript pour s'afficher, ClaudeBot et les autres crawlers IA peuvent ne pas voir ton contenu. C'est d'ailleurs l'un des avantages d'un site vitrine bien construit, un HTML propre, lisible par tous les crawlers.
 
 ---
 
@@ -166,7 +166,7 @@ Pour toi, ça signifie que le contenu dense, les explications approfondies, les 
 
 **Ajouter de la densité factuelle.** Sur chaque page de service, intègre au moins : un résultat concret que tu as obtenu pour un client (avec chiffres), la durée typique d'une prestation, et une comparaison ou mise en contexte qui aide à comprendre la valeur. Ces éléments sont exactement ce que Claude cherche à extraire pour construire une réponse informative.
 
-**Créer du contenu frais avec des signaux temporels.** Pour les requêtes locales et sectorielles que Claude va chercher sur le web, la date compte. Un article sur "comment choisir son consultant automation en Suisse en 2026" avec la date visible et des données récentes sera privilégié par rapport au même article sans date ou avec une date ancienne. On a détaillé cette stratégie appliquée à ChatGPT dans notre [guide pour apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve), et les principes de fraîcheur sont similaires.
+**Créer du contenu frais avec des signaux temporels.** Pour les requêtes locales et sectorielles que Claude va chercher sur le web, la date compte. Un article sur "comment choisir son consultant automation en Suisse en 2026" avec la date visible et des données récentes sera privilégié par rapport au même article sans date ou avec une date ancienne.
 
 **Construire des mentions sur des sources externes.** Claude valide ton autorité en croisant plusieurs sources. Un profil LinkedIn complet avec tes spécialités claires, une mention dans un article de blog d'un partenaire, une fiche dans un annuaire professionnel reconnu en Suisse, chaque mention externe sur une source que Brave indexe renforce ton autorité aux yeux de Claude.
 
@@ -176,7 +176,6 @@ Il y a quelque chose d'assez logique dans le fait qu'une IA conçue pour être h
 
 Tu veux savoir si ton site est prêt pour les IA ?
 
-[Vérifier avec la checklist GEO gratuite →](/outils/checklist-commerce-google)
 
 Ou si tu préfères discuter de ta stratégie GEO directement :
 
@@ -194,4 +193,4 @@ Ou si tu préfères discuter de ta stratégie GEO directement :
 - **Brave Search** : Architecture indépendante de l'index Brave, différences avec Google et Bing : [brave.com/search](https://brave.com/search)
 - **Données sur le comportement utilisateur Claude (2025)** : 57% d'utilisation en mode augmentation (vérification active des sources) : recherche comportementale sur les plateformes IA
 
-*Cet article fait partie du [cluster GEO de Jon Labs](/blog/geo-seo-ia). Autres articles du cluster : [Apparaître sur ChatGPT à Genève](/blog/apparaitre-chatgpt-geneve) · [Apparaître sur Gemini](/blog/apparaitre-gemini) · [Apparaître sur Perplexity](/blog/apparaitre-perplexity) · [Apparaître sur Copilot](/blog/apparaitre-copilot) · [Apparaître sur Grok](/blog/apparaitre-grok)*
+*Cet article fait partie du [cluster GEO de Jon Labs](/blog/geo-seo-ia).*

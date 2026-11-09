@@ -31,7 +31,7 @@ faqs:
 > - Un **freelance spécialisé en développement d'application mobile** travaille au forfait : 2 000–10 000 CHF pour la plupart des apps PME (dès 15 000 CHF pour du complexe), prix fixé d'avance et accès direct au développeur.
 > - Une agence mobile facture 150–250 CHF/h avec une équipe pluridisciplinaire, ce qui est pertinent pour les apps complexes ou avec SLA contractuel — compte plutôt 25 000–50 000 CHF pour une app métier.
 > - Le mobile impose des contraintes absentes du web : validation App Store (1–3 jours), maintenance OS obligatoire, tests multi-devices.
-> - Ce guide concerne uniquement les applications mobiles. Pour un projet de site web, consulte le guide [freelance ou agence web](/blog/freelance-ou-agence-web).
+> - Ce guide concerne uniquement les applications mobiles.
 > - Le tableau de décision à mi-article te donne la réponse en 30 secondes selon ton budget et ta situation.
 
 ---
@@ -40,7 +40,7 @@ Tu cherches quelqu'un pour développer ton **application mobile**, une vraie app
 
 Une app mobile mal maintenue peut être retirée des stores par Apple ou Google sans préavis. Une violation de leurs guidelines suffit. Choisir ton prestataire mobile, c'est choisir quelqu'un qui suivra ces évolutions sur le long terme, pas seulement quelqu'un qui livre le code et disparaît.
 
-> **Note** : si ton projet est un site web (pas une app), cet article ne s'applique pas. Le comparatif pour le web est là : [freelance ou agence web](/blog/freelance-ou-agence-web). Les enjeux, budgets et critères de choix sont différents.
+> **Note** : si ton projet est un site web (pas une app), cet article ne s'applique pas. Les enjeux, budgets et critères de choix sont différents.
 
 ---
 
@@ -182,4 +182,3 @@ Si tu lis ce guide, c'est probablement que ton projet est dans la zone où la qu
 - [App Store Review Guidelines](https://developer.apple.com/app-store/review/guidelines/) (Apple Developer)
 - [Google Play Developer Policy Center](https://play.google.com/about/developer-content-policy/)
 - [Guide développement application mobile en Suisse](/blog/developper-application-mobile-suisse)
-- [Freelance ou agence web](/blog/freelance-ou-agence-web)

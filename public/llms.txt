@@ -20,13 +20,11 @@ Jonathan Vouilloz — développeur et créateur de solutions digitales, basé à
 - https://www.jonlabs.ch/services/creation-site-web — Création de site web sur mesure pour PME romandes
 - https://www.jonlabs.ch/services/developpement-application-mobile — Développement d'applications mobiles iOS et Android pour PME suisses
 - https://www.jonlabs.ch/services/referencement-local — SEO local pour entreprises de Suisse romande
-- https://www.jonlabs.ch/services/gestion-fiche-google — Gestion et optimisation de fiche Google Business Profile
 
 ### Articles de référence
 - https://www.jonlabs.ch/blog/developper-application-mobile-suisse — Guide complet du développement d'application mobile en Suisse
 - https://www.jonlabs.ch/blog/prix-application-mobile-suisse — Prix réels d'une application mobile en Suisse en 2026 (en CHF)
 - https://www.jonlabs.ch/blog/automatisation-pme-suisse-guide-complet — Guide complet de l'automatisation pour PME suisses
-- https://www.jonlabs.ch/blog/audit-50-sites-indeps-romands — Audit terrain de 50 sites d'indépendants romands
 - https://www.jonlabs.ch/blog/fiche-google-my-business-guide-complet-2026 — Guide complet de la fiche Google My Business
 - https://www.jonlabs.ch/blog/geo-seo-ia — Apparaître dans les IA en 2026 : 6 moteurs et outils GEO
 - https://www.jonlabs.ch/blog/prix-site-web-suisse-2026 — Combien coûte vraiment un site web en Suisse en 2026

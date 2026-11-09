@@ -46,7 +46,7 @@ Les avantages ci-dessous sont réels, à condition d'avoir choisi le bon process
 
 Une **tâche répétitive** bien définie et automatisée récupère entre 80 et 95 % du temps de traitement. Exemple concret : facturation manuelle à 4 h par semaine, migrée sur n8n, réduite à 15 min de vérification. Gain réel : **3 h 45 par semaine**, soit CHF 750 à 1 100 par mois au coût horaire chargé en Suisse romande (**CHF 60 à 90/h**).
 
-Et pour les indépendants qui facturent à l'heure, le gain ne se limite pas au temps administratif. Un système anti no-show bien conçu protège directement le chiffre d'affaires : à CHF 150 de l'heure et deux absences par semaine, [c'est CHF 14 000 par an que la plupart des praticiens ne récupèrent jamais](/blog/no-show-rendez-vous-2026) faute d'avoir mis en place rappels SMS et acomptes TWINT.
+Et pour les indépendants qui facturent à l'heure, le gain ne se limite pas au temps administratif. Un système anti no-show bien conçu protège directement le chiffre d'affaires : à CHF 150 de l'heure et deux absences par semaine, c'est CHF 14 000 par an que la plupart des praticiens ne récupèrent jamais faute d'avoir mis en place rappels SMS et acomptes TWINT.
 
 **2. Réduction des erreurs humaines**
 

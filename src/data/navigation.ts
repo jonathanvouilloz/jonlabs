@@ -48,7 +48,6 @@ export const mainNav: NavSection[] = [
         title: 'Référencement',
         items: [
           { label: 'Référencement local', href: '/services/referencement-local', icon: 'ri-map-pin-line' },
-          { label: 'Gestion fiche Google', href: '/services/gestion-fiche-google', icon: 'ri-store-2-line' },
           { label: 'Tarifs', href: '/tarifs', icon: 'ri-price-tag-3-line' },
         ],
       },
@@ -130,7 +129,6 @@ export const mainNav: NavSection[] = [
         items: [
           { label: 'Apparaître dans les IA 2026', href: '/blog/geo-seo-ia', icon: 'ri-fire-fill', badge: 'featured' },
           { label: 'Prix site web Suisse 2026', href: '/blog/prix-site-web-suisse-2026', icon: 'ri-price-tag-3-line' },
-          { label: '15 signes site web dort', href: '/blog/15-signes-site-web-dort', icon: 'ri-pulse-line' },
         ],
       },
       {
@@ -147,9 +145,6 @@ export const mainNav: NavSection[] = [
         title: 'Outils gratuits',
         items: [
           { label: 'Reddit Dashboard', href: '/outils/reddit-dashboard', icon: 'ri-reddit-line', badge: 'new' },
-          { label: 'Checklist 15 signes site dort', href: '/outils/checklist-15-signes-site-dort', icon: 'ri-checkbox-line' },
-          { label: 'Checklist commerce Google', href: '/outils/checklist-commerce-google', icon: 'ri-checkbox-line' },
-          { label: 'Calculateur coût site dormant', href: '/blog/cout-site-web-dormant-calculateur', icon: 'ri-calculator-line' },
         ],
       },
     ],
@@ -191,9 +186,6 @@ export const ctaContact: NavItem = {
 export const footerZonesWeb: NavItem[] = [
   { label: 'Développeur web Annemasse', href: '/developpement-web/annemasse' },
   { label: 'Développeur web Gaillard', href: '/developpement-web/gaillard' },
-  { label: 'Développeur web Ville-la-Grand', href: '/developpement-web/ville-la-grand' },
-  { label: 'Développeur web Saint-Julien', href: '/developpement-web/saint-julien-en-genevois' },
-  { label: 'Développeur web La Roche-sur-Foron', href: '/developpement-web/la-roche-sur-foron' },
 ];
 
 export const footerRegionsIA: NavItem[] = [

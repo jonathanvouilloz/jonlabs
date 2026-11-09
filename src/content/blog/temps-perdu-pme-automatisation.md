@@ -84,7 +84,7 @@ Une étude de l'Office fédéral du développement économique estime le coût a
 
 Et le plus frustrant ? **Seulement 9% des PME suisses utilisent l'automatisation de manière systématique.**
 
-91% laissent de l'argent sur la table. Ou plutôt, du temps. Et le temps, dans une PME, c'est de l'argent. Ce n'est pas un problème réservé aux entreprises : même les clubs sportifs et associations vivent exactement cette situation (j'en parle dans cet article sur [pourquoi Excel ne suffit plus pour gérer un club](/blog/automatisation-club-sportif)).
+91% laissent de l'argent sur la table. Ou plutôt, du temps. Et le temps, dans une PME, c'est de l'argent. Ce n'est pas un problème réservé aux entreprises : même les clubs sportifs et associations vivent exactement cette situation.
 
 ---
 

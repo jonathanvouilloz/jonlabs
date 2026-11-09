@@ -126,8 +126,6 @@ Tu as commencé comme graphiste, tu fais maintenant principalement du design UX.
 
 "Restaurant" en principale + "Restaurant" en secondaire : aucun bénéfice, une ligne gaspillée. Chaque catégorie secondaire doit être différente de la principale et apporter un service distinct.
 
-Pour un audit complet de ta fiche, [la checklist d'optimisation en 25 points](/blog/optimiser-fiche-google-my-business-checklist-2026) couvre chaque paramètre, catégories comprises.
-
 ---
 
 ## Comment changer la catégorie de ta fiche (et à quelle fréquence)
@@ -154,8 +152,6 @@ Si tu n'as jamais choisi la bonne catégorie, le gain à long terme justifie lar
 ### À quelle fréquence modifier ta catégorie
 
 Une seule bonne raison de changer de catégorie principale : ton activité cœur a changé. Pas pour "tester" ou "optimiser" chaque trimestre. La stabilité de ta fiche est aussi un signal de confiance pour Google.
-
-Tu démarres de zéro ? Lis d'abord comment [créer ta fiche étape par étape](/blog/creer-fiche-google-my-business-etape-par-etape) avant de travailler les catégories.
 
 ---
 
@@ -191,7 +187,7 @@ Une fois la catégorie bien posée, reste à l'articuler avec les autres leviers
 
 Si tu veux un regard externe sur ta fiche (catégories, cohérence, signaux manquants), je fais des audits GBP concrets pour les indépendants et TPE romands.
 
-[**Faire auditer ta fiche Google →**](/services/gestion-fiche-google?utm_source=blog&utm_medium=article&utm_campaign=choisir-categorie-google-business-profile)
+[**Faire auditer ta fiche Google →**](/services/referencement-local?utm_source=blog&utm_medium=article&utm_campaign=choisir-categorie-google-business-profile)
 
 ---
 

@@ -50,7 +50,7 @@ Quand quelqu'un tape "plombier Genève" ou "ostéopathe Lausanne" sur son télé
 
 Ta fiche peut exister depuis 5 ans, avoir une adresse vérifiée, afficher tes horaires correctement, et ne jamais apparaître dans ce bloc. C'est le cas de la plupart des PME que j'observe lors de mes audits en Suisse romande : elles sont *sur* Maps mais jamais *dans* le pack local.
 
-Si tu n'as pas encore de fiche du tout, commence par [créer ta fiche étape par étape](/blog/creer-fiche-google-my-business-etape-par-etape) avant de revenir ici. Cet article s'adresse à ceux qui ont une fiche mais qui ne sortent pas dans le top 3.
+Si tu n'as pas encore de fiche du tout, commence par la créer et la faire vérifier avant de revenir ici. Cet article s'adresse à ceux qui ont une fiche mais qui ne sortent pas dans le top 3.
 
 Pour tout ce qui touche à la gestion complète de ta présence Google, [le guide complet de ta fiche Google Business Profile](/blog/fiche-google-my-business-guide-complet-2026) pose les bases.
 
@@ -116,8 +116,6 @@ Google propose des centaines de catégories. L'article dédié sur [comment choi
 
 Les points à vérifier : adresse identique avec même formatage et même ponctuation, numéro de téléphone identique (sans variante +41 vs 0041 vs 041), nom d'entreprise identique (sans "SARL" sur l'un et pas sur l'autre), schema LocalBusiness sur ton site avec les mêmes données.
 
-Pour l'ensemble de ces points, la [checklist d'optimisation en 25 points](/blog/optimiser-fiche-google-my-business-checklist-2026) couvre tout dans l'ordre.
-
 ---
 
 ## Agir sur la notoriété : avis, citations NAP et backlinks locaux
@@ -132,7 +130,7 @@ Ce que Google observe sur les avis :
 - **Fraîcheur** : des avis anciens comptent moins que des avis récents. 5 avis par mois pèsent plus qu'un pic de 50 avis suivi d'une longue période de silence.
 - **Réponses du propriétaire** : répondre à chaque avis est un signal d'activité que Google mesure. C'est aussi du contenu indexé : placer ton service et ta ville dans chaque réponse renforce la pertinence de ta fiche.
 
-Pour [collecter des avis avec un QR code](/blog/qr-code-avis-google-collecte-pme), la méthode la plus efficace pour les commerces physiques est de l'imprimer sur un support à la caisse ou en fin de prestation. Pour [répondre systématiquement à tes avis Google](/blog/repondre-avis-google-modeles-2026), il existe un framework en 4 blocs avec 12 modèles prêts à copier.
+Pour collecter des avis, la méthode la plus efficace pour les commerces physiques est de l'imprimer sur un support à la caisse ou en fin de prestation.
 
 ### Citations NAP dans les annuaires romands
 
@@ -165,7 +163,7 @@ Un concurrent qui a son bureau à 200 mètres du chercheur te battra sur la prox
 
 Mais il y a trois façons de compenser. La première : définir précisément ta zone de service dans Google Business Profile. Si tu travailles dans un rayon de 30 km, dis-le. Google utilisera cette information pour te faire apparaître sur des recherches au-delà de ta commune. La deuxième : renforcer pertinence et notoriété. Un concurrent mieux placé géographiquement mais avec une fiche incomplète et 5 avis peut être battu par une fiche bien optimisée avec 80 avis récents et des réponses régulières. La troisième : créer des pages locales par ville desservie. Si tu couvres Genève, Nyon et Morges, avoir une page sur ton site pour chaque zone renforce les signaux locaux pour chaque ville. Ce n'est pas de la duplication, c'est du contenu adapté à chaque marché.
 
-Pour comprendre le jeu des [**7 leviers du référencement local**](/services/referencement-local) et comment les combiner sur un marché comme Genève, l'article dédié va plus loin. Le même raisonnement s'applique au [référencement local Lausanne](/blog/referencement-local-lausanne) (en cours de publication) : les dynamiques sont similaires mais les seuils de compétition diffèrent selon les secteurs.
+Pour comprendre le jeu des [**7 leviers du référencement local**](/services/referencement-local) et comment les combiner sur un marché comme Genève, la page dédiée va plus loin.
 
 ---
 
@@ -211,7 +209,7 @@ L'objectif est d'ancrer ta notoriété avec des signaux externes et de mesurer l
 
 Si tu veux savoir ce que coûte un accompagnement structuré plutôt que de tout faire seul, [le détail des packages SEO local par profil](/services/referencement-local) liste les livrables à chaque niveau. Et si tu veux aller plus vite ou ne pas te tromper dans la priorisation, je propose un audit de ta visibilité locale qui identifie exactement où tu perds des points face à tes concurrents.
 
-[**Obtenir un audit gratuit de ma visibilité locale →**](/services/gestion-fiche-google?utm_source=blog&utm_medium=article&utm_campaign=entrer-top-3-google-maps)
+[**Obtenir un audit gratuit de ma visibilité locale →**](/services/referencement-local?utm_source=blog&utm_medium=article&utm_campaign=entrer-top-3-google-maps)
 
 ---
 
@@ -245,7 +243,7 @@ Le **référencement local sur Google Maps** n'est pas une boîte noire. C'est t
 
 Si tu veux savoir exactement où tu perds des points face à tes concurrents dans les 3 premières positions, un audit de 30 minutes suffit pour identifier les actions prioritaires.
 
-[**Discuter de ta stratégie de visibilité Google →**](/services/gestion-fiche-google?utm_source=blog&utm_medium=article&utm_campaign=entrer-top-3-google-maps)
+[**Discuter de ta stratégie de visibilité Google →**](/services/referencement-local?utm_source=blog&utm_medium=article&utm_campaign=entrer-top-3-google-maps)
 
 ---
 
