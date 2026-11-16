@@ -43,6 +43,8 @@ const lastmodByUrl = buildLastmodMap();
 // https://astro.build/config
 export default defineConfig({
   site: 'https://www.jonlabs.ch',
+  // Barre d'outils dev masquée : elle recouvre le bas du viewport (indicateur de scroll, dock).
+  devToolbar: { enabled: false },
   redirects: {
     // Revert 2026-05-20 : retour aux slugs sans année (le jus SEO est resté sur les URLs sans -2026)
     '/blog/apparaitre-copilot-2026': '/blog/geo-seo-ia',

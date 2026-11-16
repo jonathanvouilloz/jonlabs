@@ -10,6 +10,8 @@ Format : `[date] | [décision] | [contexte] | [alternatives considérées]`
 
 ## 2026
 
+**2026-11-16** (branche `rebrand-v2`) | **Nouvelle DA « freelance systèmes IA » : grille à la Sakib (filets pleine largeur, container rempli), Funnel Display + Inter Tight + Fragment Mono, fond blanc, rayon max 5px, figures isométriques Hairline.** | Site jugé trop banal et trop chargé ; repositionnement vers les systèmes IA. Refs : sakib.design, luzia, nuance, atraen. Système figé dans `docs/design-v2.md`, spike sur `/v2`. | Recoleta en titres (licence commerciale payante, écartée) ; Funnel Sans en texte (remplacée par Inter Tight à la demande de Jonathan) ; fond animé en halos CSS (jugé triste, remplacé par le réseau iso en canvas).
+
 **2026-11-16** (`9a7c311`) | **Les citations d'article passent en Fragment Mono, l'en-tête « L'essentiel en bref » en casse normale.** | Instrument Serif italique jugé illisible dans le corps d'article ; capitales espacées jugées trop chargées. Instrument Serif reste pour `.co-ser` hors articles. | Inter Tight pour les citations (moins de contraste visuel avec le texte).
 
 **2026-11-16** (`ea97143`) | **Les comparatifs interactifs sont data-driven et rendus côté serveur (composant Astro + script vanilla, pas d'îlot React).** | Comparatif browser agents : tableau, comparateur et matrice lisent `src/data/browser-agents.ts`. Contenu indexable sans JS, une seule source à mettre à jour. | Îlot React (dépendance et JS inutiles) ; tableaux Markdown (pas de filtres, illisibles sur mobile).

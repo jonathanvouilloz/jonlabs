@@ -1,0 +1,593 @@
+---
+// SPIKE rebrand (branche rebrand-v2) : squelette de la future home. Copy = placeholders, noindex.
+// Grille « à la Sakib » : filets horizontaux pleine largeur (.r), container bordé (.w), cellules qui le remplissent.
+import { getCollection } from 'astro:content';
+import Layout from '../layouts/Layout.astro';
+import { author } from '../sample';
+import { videos, tweets, linkedinPost } from '../data/hub';
+
+const WHATSAPP = '41789447707';
+
+const cases = (await getCollection('portfolio', (p) => !p.data.draft && p.data.featured))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .slice(0, 3);
+
+const posts = (await getCollection('blog', (p) => !p.data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 1);
+
+const strip = [
+  ...(await getCollection('portfolio')).map((p) => p.data.heroImage.url),
+  ...videos.map((v) => `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`),
+];
+
+const nav = [
+  { label: 'Systèmes IA', href: '/services' },
+  { label: 'Réalisations', href: '/portfolio' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'À propos', href: '/about' },
+];
+
+const steps = ['Appel découverte', 'Cartographie des tâches', 'Prototype', 'Construction', 'Mise en production', 'Suivi'];
+
+const promises = [
+  { iso: 'relay', title: 'Ce que je fais pour vous', items: ['Choisir les tâches à confier à l\'IA', 'Construire agents et apps sur mesure', 'Les brancher sur vos outils', 'Former votre équipe'] },
+  { iso: 'patch', title: 'Les outils que j\'utilise', tools: ['Claude', 'OpenAI', 'Hermes', 'Supabase', 'PostgreSQL', 'Python', 'Astro', 'Vercel'] },
+  { iso: 'padlock', title: 'Ce que vous pouvez attendre', items: ['Un pilote en production en quelques semaines', 'Vos données sous contrôle', 'Un code qui vous appartient'] },
+];
+
+const builds = [
+  { iso: 'terminal', title: 'Agents IA', text: 'Ils lisent, trient, répondent. Vous validez.', big: true },
+  { iso: 'laptop', title: 'Applications IA', text: 'Un outil métier taillé pour votre équipe.' },
+  { iso: 'slow', title: 'Automatisations', text: 'Les tâches répétitives disparaissent.' },
+  { iso: 'plug', title: 'Branché sur vos outils', text: 'Gmail, CRM, Notion, votre ERP.' },
+];
+
+const faqs = [
+  { q: 'Combien coûte un système IA ?', a: 'Dès CHF X. Le prix exact sort de l\'appel de cadrage.' },
+  { q: 'Combien de temps pour un premier système ?', a: 'Un pilote tourne en 2 à 4 semaines.' },
+  { q: 'Mes données restent-elles en Suisse ?', a: 'Hébergement suisse possible, conforme nLPD.' },
+  { q: 'Et si je n\'ai aucune compétence technique ?', a: 'C\'est le cas de la plupart de mes clients.' },
+  { q: 'Que se passe-t-il après la mise en production ?', a: 'Je reste disponible pour ajuster et faire évoluer le système.' },
+];
+
+const socials = [
+  { k: 'Me suivre', icon: 'ri-linkedin-box-fill', l: 'LinkedIn', href: author.linkedin },
+  { k: 'Me suivre', icon: 'ri-twitter-x-line', l: 'X / Twitter', href: 'https://x.com/jonvolio' },
+  { k: 'Mes vidéos', icon: 'ri-youtube-fill', l: 'YouTube', href: author.youtube },
+  { k: 'Mes essais', icon: 'ri-quill-pen-line', l: 'Substack', href: author.substack },
+];
+---
+
+<Layout title="Systèmes IA sur mesure — essai v2" robots="noindex, nofollow">
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" />
+  </Fragment>
+
+  <div class="v2">
+    <!-- NAV HAUT -->
+    <header class="v2-top r" data-top>
+      <div class="w v2-top-in">
+        <a href="/v2" class="v2-logo">jonlabs<span>.</span></a>
+        <nav class="v2-top-links">{nav.map((n) => <a href={n.href}>{n.label}</a>)}</nav>
+        <a href="#agenda" class="v2-btn v2-btn-sm">Réserver un appel <i class="ri-arrow-right-line"></i></a>
+      </div>
+    </header>
+
+    <!-- DOCK BAS -->
+    <nav class="v2-dock" data-dock aria-label="Navigation">
+      <img src="/images/jonathan-vouilloz.webp" alt="Jonathan Vouilloz" class="v2-dock-avatar" width="36" height="36" />
+      {nav.map((n) => <a href={n.href}>{n.label}</a>)}
+      <a href="#agenda" class="v2-dock-cta" aria-label="Réserver un appel"><i class="ri-calendar-line"></i></a>
+    </nav>
+
+    <!-- 1. HERO -->
+    <section class="r">
+      <div class="w v2-hero">
+        <canvas class="v2-hero-canvas" data-iso-bg aria-hidden="true"></canvas>
+        <div class="v2-hero-in">
+          <p class="v2-tags"><span>Freelance</span><i></i><span>IA</span><i></i><span>B2B</span></p>
+          <h1 class="v2-h1">Des agents et des apps IA<br />qui font le vrai travail.</h1>
+          <p class="v2-lead">Je conçois et je construis les systèmes IA de votre entreprise, de l'idée à la mise en production.</p>
+          <div class="v2-ctas">
+            <a href="#agenda" class="v2-btn"><i class="ri-calendar-line"></i> Réserver un appel</a>
+            <a href={`https://wa.me/${WHATSAPP}`} class="v2-wa" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i></a>
+          </div>
+        </div>
+        <a href="#realisations" class="v2-scroll" aria-label="Défiler vers les réalisations"><span></span></a>
+      </div>
+    </section>
+
+    <!-- 2. BANDE -->
+    <div class="r v2-strip" aria-hidden="true">
+      <div class="v2-strip-track">{[...strip, ...strip].map((src) => <img src={src} alt="" loading="lazy" />)}</div>
+    </div>
+
+    <!-- 3. RÉALISATIONS -->
+    <section class="r" id="realisations">
+      <div class="w v2-head v2-head-c"><h2 class="v2-h2">Des solutions qui résolvent<br />de vrais problèmes.</h2></div>
+    </section>
+    {cases.map((c) => (
+      <section class="r">
+        <a href={`/portfolio/${c.slug}`} class="w v2-case">
+          <div class="v2-case-img"><img src={c.data.heroImage.url} alt={c.data.heroImage.alt} loading="lazy" /></div>
+          <div class="v2-case-body">
+            <div>
+              <h3>{c.data.title}</h3>
+              <p class="v2-mut">{c.data.description}</p>
+              <p class="v2-meta">
+                {c.data.client?.sector && <span>{c.data.client.sector}</span>}
+                <span>{c.data.project.duration}</span>
+                {c.data.results[0] && <span class="v2-meta-hl">{c.data.results[0].value} {c.data.results[0].label}</span>}
+              </p>
+            </div>
+            <span class="v2-btn v2-btn-sm">Voir l'étude de cas</span>
+          </div>
+        </a>
+      </section>
+    ))}
+    <section class="r">
+      <div class="w v2-more"><a href="/portfolio" class="v2-btn">Toutes les réalisations</a></div>
+    </section>
+
+    <!-- 4. COMMENT JE TRAVAILLE -->
+    <section class="r">
+      <div class="w v2-head v2-head-2">
+        <h2 class="v2-h2">Comment je travaille ?<br /><span class="v2-dim">Simple et sans surprise.</span></h2>
+        <p class="v2-head-p">Une méthode courte qui part de vos tâches réelles et finit avec un système en production.</p>
+      </div>
+    </section>
+    <section class="r">
+      <ol class="w v2-steps">{steps.map((s) => <li><span>{s}</span></li>)}</ol>
+    </section>
+    <section class="r">
+      <div class="w v2-cols3">
+        {promises.map((p) => (
+          <div class="v2-col">
+            <div class="v2-iso v2-iso-sm" data-iso={p.iso} data-theme="light"></div>
+            <h3>{p.title}</h3>
+            {p.items && <ul>{p.items.map((i) => <li><i class="ri-arrow-right-s-line"></i>{i}</li>)}</ul>}
+            {p.tools && <p class="v2-tools">{p.tools.map((t) => <span>{t}</span>)}</p>}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 5. CE QUE JE CONSTRUIS -->
+    <section class="r">
+      <div class="w v2-head"><h2 class="v2-h2">Ce que je construis.</h2></div>
+    </section>
+    <section class="r">
+      <div class="w v2-bento">
+        {builds.map((b) => (
+          <div class:list={['v2-cell', { 'v2-cell-big': b.big }]}>
+            <div class="v2-iso" data-iso={b.iso} data-theme="light"></div>
+            <h3>{b.title}</h3>
+            <p class="v2-mut">{b.text}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- 6. HUB (sombre) -->
+    <div class="v2-dark">
+      <section class="r">
+        <div class="w v2-head"><h2 class="v2-h2">Ce sur quoi<br /><span class="v2-dim">je travaille en ce moment.</span></h2></div>
+      </section>
+      <section class="r">
+        <div class="w v2-hub">
+          <a href={`https://www.youtube.com/watch?v=${videos[0].id}`} class="v2-hub-video" target="_blank" rel="noopener">
+            <img src={`https://i.ytimg.com/vi/${videos[0].id}/maxresdefault.jpg`} alt="" loading="lazy" />
+            <span class="v2-play"><i class="ri-play-fill"></i></span>
+            <span class="v2-hub-cap"><i class="ri-youtube-fill"></i> {videos[0].title}</span>
+          </a>
+          {tweets.map((t) => (
+            <a href={t.url} class="v2-hub-card" target="_blank" rel="noopener">
+              <span class="v2-meta"><i class="ri-twitter-x-line"></i> @jonvolio</span>
+              <p>{t.text}</p>
+            </a>
+          ))}
+          {posts.map((p) => (
+            <a href={`/blog/${p.slug}`} class="v2-hub-card">
+              <span class="v2-meta"><i class="ri-article-line"></i> Article · {p.data.readingTime ?? 8} min</span>
+              <p>{p.data.h1 ?? p.data.title}</p>
+            </a>
+          ))}
+          <a href={linkedinPost.url} class="v2-hub-card" target="_blank" rel="noopener">
+            <span class="v2-meta"><i class="ri-linkedin-box-line"></i> LinkedIn</span>
+            <p>{linkedinPost.text}</p>
+          </a>
+        </div>
+      </section>
+    </div>
+
+    <!-- 7. À PROPOS -->
+    <section class="r">
+      <div class="w v2-head v2-about">
+        <h2 class="v2-h2">C'est moi.</h2>
+        <p class="v2-reveal" data-reveal>
+          Je m'appelle Jonathan. Je construis des systèmes IA pour des entreprises qui n'ont pas d'équipe tech,
+          et j'en partage une partie en public. Je préfère un outil simple qui tourne tous les jours à une démo impressionnante qui casse.
+        </p>
+      </div>
+    </section>
+    <section class="r">
+      <div class="w v2-photos">
+        <img src="/images/jonathan-vouilloz.webp" alt="Jonathan Vouilloz" loading="lazy" />
+        <div class="v2-photo-ph">Photo 2</div>
+        <div class="v2-photo-ph">Photo 3</div>
+      </div>
+    </section>
+
+    <!-- 8. PAS TOUT EST PUBLIC (section contrastée) -->
+    <section class="r">
+      <div class="w v2-private">
+        <div>
+          <h2 class="v2-h2">Tout ce que je construis<br />n'est pas public.</h2>
+          <p class="v2-mut">Les systèmes de mes clients restent chez mes clients. En appel, je vous montre ce qui peut l'être.</p>
+        </div>
+        <div class="v2-private-ctas">
+          <a href="#agenda" class="v2-btn v2-btn-lg"><i class="ri-lock-line"></i> Voir le travail non public</a>
+          <a href={`https://wa.me/${WHATSAPP}`} class="v2-btn v2-btn-lg v2-btn-wa" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i> Écrire sur WhatsApp</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. FAQ -->
+    <section class="r">
+      <div class="w v2-faq">
+        <div class="v2-faq-list">
+          {faqs.map((f) => (
+            <details>
+              <summary><span>{f.q}</span><i class="ri-add-line"></i></summary>
+              <p class="v2-mut">{f.a}</p>
+            </details>
+          ))}
+        </div>
+        <h2 class="v2-h2 v2-faq-title">Les questions<br />qu'on me pose.</h2>
+      </div>
+    </section>
+
+    <!-- 10. CONTACT -->
+    <section class="r" id="appel">
+      <div class="w v2-contact">
+        <div class="v2-contact-main">
+          <div>
+            <h2 class="v2-h2">Jonathan Vouilloz</h2>
+            <p class="v2-mut">Je construis des systèmes IA qui tournent tous les jours.</p>
+          </div>
+          <div>
+            <p class="v2-mut">Écrivez-moi</p>
+            <a href="mailto:contact@jonlabs.ch" class="v2-mail">contact@jonlabs.ch</a>
+            <div class="v2-ctas v2-ctas-left">
+              <a href="#agenda" class="v2-btn"><i class="ri-calendar-line"></i> Réserver un appel</a>
+              <a href={`https://wa.me/${WHATSAPP}`} class="v2-btn v2-btn-ghost" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i> WhatsApp</a>
+            </div>
+          </div>
+        </div>
+        {socials.map((c) => (
+          <a href={c.href} class="v2-contact-card" target="_blank" rel="noopener">
+            <span class="v2-mut">{c.k}</span>
+            <span><i class={c.icon}></i><b>{c.l}</b></span>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- 11. AGENDA -->
+    <section class="r" id="agenda">
+      <div class="w v2-agenda"><div class="v2-cal" id="cal-inline" data-cal></div></div>
+    </section>
+
+    <footer class="r">
+      <div class="w v2-foot">
+        <div>
+          <a href="/v2" class="v2-logo">jonlabs<span>.</span></a>
+          <p class="v2-mut">Systèmes IA sur mesure · Genève, Suisse romande</p>
+        </div>
+        <nav>{nav.map((n) => <a href={n.href}>{n.label}</a>)}</nav>
+        <nav><a href={author.youtube}>YouTube</a><a href="https://x.com/jonvolio">X</a><a href={author.linkedin}>LinkedIn</a></nav>
+        <nav><a href="/services/creation-site-web" class="v2-mut">Sites & SEO</a><a href="/mentions-legales" class="v2-mut">Mentions légales</a></nav>
+      </div>
+    </footer>
+  </div>
+</Layout>
+
+<script>
+  import { terminal, laptop, slow, plug, relay, patch, padlock } from '@lucasmarkes/hairline';
+  import { isoNetwork } from '../scripts/iso-network';
+
+  // Fond animé du hero
+  const bg = document.querySelector<HTMLCanvasElement>('[data-iso-bg]');
+  if (bg) isoNetwork(bg);
+
+  // Figures isométriques Hairline
+  const figures = { terminal, laptop, slow, plug, relay, patch, padlock } as const;
+  document.querySelectorAll<HTMLElement>('[data-iso]').forEach((el) => {
+    figures[el.dataset.iso as keyof typeof figures]?.(el, { theme: el.dataset.theme as 'light' | 'dark', play: true, label: '' });
+  });
+
+  // Nav : haut au départ, dock en bas une fois la nav haute sortie.
+  const top = document.querySelector<HTMLElement>('[data-top]')!;
+  const dock = document.querySelector<HTMLElement>('[data-dock]')!;
+  const onScroll = () => {
+    const past = window.scrollY > 240;
+    top.classList.toggle('is-hidden', past);
+    dock.classList.toggle('is-shown', past);
+  };
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Texte qui passe du gris au noir au fil du scroll.
+  const el = document.querySelector<HTMLElement>('[data-reveal]');
+  if (el) {
+    const words = el.textContent!.trim().split(/\s+/);
+    el.innerHTML = words.map((w) => `<span>${w}</span>`).join(' ');
+    const spans = [...el.querySelectorAll('span')];
+    const paint = () => {
+      const r = el.getBoundingClientRect();
+      const p = Math.min(1, Math.max(0, (innerHeight * 0.85 - r.top) / (r.height + innerHeight * 0.35)));
+      const n = Math.round(p * spans.length);
+      spans.forEach((s, i) => s.classList.toggle('on', i < n));
+    };
+    window.addEventListener('scroll', paint, { passive: true });
+    paint();
+  }
+
+  // Cal.com inline, chargé à l'approche de la section.
+  const calEl = document.querySelector('[data-cal]');
+  if (calEl) {
+    new IntersectionObserver((entries, obs) => {
+      if (!entries[0].isIntersecting) return;
+      obs.disconnect();
+      const w = window as any;
+      (function (C: any, A: string, L: string) {
+        const p = (a: any, ar: any) => a.q.push(ar);
+        const d = C.document;
+        C.Cal = C.Cal || function (...ar: any[]) {
+          const cal = C.Cal;
+          if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; }
+          if (ar[0] === L) {
+            const api: any = function (...a: any[]) { p(api, a); };
+            const ns = ar[1]; api.q = api.q || [];
+            if (typeof ns === 'string') { cal.ns[ns] = cal.ns[ns] || api; p(cal.ns[ns], ar); p(cal, ['initNamespace', ns]); } else p(cal, ar);
+            return;
+          }
+          p(cal, ar);
+        };
+      })(w, 'https://app.cal.com/embed/embed.js', 'init');
+      w.Cal('init', 'rdv', { origin: 'https://cal.com' });
+      w.Cal.ns.rdv('inline', { elementOrSelector: '#cal-inline', calLink: 'jonathan-vouilloz/appel-de-bienvenue', layout: 'month_view' });
+      w.Cal.ns.rdv('ui', { theme: 'light', hideEventTypeDetails: false });
+    }, { rootMargin: '400px' }).observe(calEl);
+  }
+</script>
+
+<style>
+  .v2 {
+    --bg: #FFFFFF; --soft: #F4F4F2; --ink: #14161A; --mut: #686C70; --line: #E3E4E1; --accent: #00D9A3; --accent-strong: #00A87D;
+    --dark: #111214; --dark-line: #26282C;
+    --r: 5px; --pad: clamp(20px, 4vw, 48px);
+    --display: 'Funnel Display', system-ui, sans-serif;
+    --sans: 'Inter Tight', system-ui, sans-serif;
+    --mono: 'Fragment Mono', ui-monospace, monospace;
+    background: var(--bg); color: var(--ink); font-family: var(--sans);
+    font-size: 16px; line-height: 1.55; overflow-x: clip; interpolate-size: allow-keywords;
+  }
+  .v2 *, .v2 *::before, .v2 *::after { box-sizing: border-box; }
+  .v2 a { color: inherit; text-decoration: none; }
+  .v2 h3, .v2 p, .v2 ul, .v2 ol { margin: 0; }
+
+  /* Grille : .r = rangée avec filet pleine largeur ; .w = container bordé */
+  .r { border-bottom: 1px solid var(--line); }
+  .w { max-width: 1180px; margin: 0 auto; border-left: 1px solid var(--line); border-right: 1px solid var(--line); }
+  .v2-head { padding: clamp(48px, 7vw, 88px) var(--pad); }
+  .v2-head-c { text-align: center; }
+  .v2-head-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: end; }
+  .v2-head-p { font-family: var(--display); font-size: clamp(1.3rem, 2.4vw, 1.9rem); line-height: 1.15; letter-spacing: -0.04em; }
+  .v2-mut { color: var(--mut); }
+  .v2-dim { color: #9A9D9F; }
+
+  /* Typo */
+  .v2-h1, .v2-h2, .v2 h3, .v2-logo { font-family: var(--display); letter-spacing: -0.035em; }
+  .v2-h1 { font-size: clamp(2.6rem, 6.6vw, 5.4rem); line-height: 0.96; font-weight: 500; letter-spacing: -0.055em; margin: 0; }
+  .v2-h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); line-height: 1; font-weight: 500; letter-spacing: -0.055em; margin: 0; }
+  .v2 h3 { font-size: 1.4rem; font-weight: 500; margin-bottom: 6px; }
+  .v2-meta { font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.02em; color: var(--mut); display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
+  .v2-meta-hl { color: var(--accent-strong); }
+
+  /* Boutons (seuls éléments arrondis en pilule) */
+  .v2-btn { display: inline-flex; align-items: center; gap: 8px; background: var(--ink); color: #fff !important; border-radius: 999px; padding: 14px 24px; font-weight: 500; white-space: nowrap; transition: transform .2s cubic-bezier(.2,.8,.2,1), background .2s; }
+  .v2-btn:hover { transform: translateY(-1px); background: #000; }
+  .v2-btn:active { transform: scale(.97); }
+  .v2-btn-sm { padding: 9px 16px; font-size: .9rem; }
+  .v2-btn-lg { padding: 18px 30px; font-size: 1.1rem; justify-content: center; }
+  .v2-btn-wa { background: #1FAF55; }
+  .v2-btn-wa:hover { background: #179447; }
+  .v2-btn-ghost { background: transparent; color: var(--ink) !important; border: 1px solid var(--line); }
+  .v2-btn-ghost:hover { background: var(--soft); border-color: var(--ink); }
+  .v2-wa { width: 50px; height: 50px; border-radius: 50%; background: #1FAF55; color: #fff !important; display: grid; place-items: center; font-size: 1.5rem; transition: transform .2s; }
+  .v2-wa:hover { transform: translateY(-1px); }
+
+  /* Nav haute */
+  .v2-top { position: sticky; top: 0; z-index: 40; background: rgba(255,255,255,.88); backdrop-filter: blur(8px); transition: transform .35s cubic-bezier(.2,.8,.2,1), opacity .35s; }
+  .v2-top.is-hidden { transform: translateY(-100%); opacity: 0; }
+  .v2-top-in { display: flex; align-items: center; justify-content: space-between; height: 64px; padding: 0 var(--pad); }
+  .v2-logo { font-size: 1.4rem; font-weight: 600; }
+  .v2-logo span { color: var(--accent); }
+  .v2-top-links { display: flex; gap: 28px; font-size: .95rem; }
+  .v2-top-links a:hover { color: var(--accent-strong); }
+
+  /* Dock bas */
+  .v2-dock { position: fixed; left: 50%; bottom: 20px; z-index: 50; display: flex; align-items: center; gap: 4px; padding: 6px; background: rgba(255,255,255,.92); backdrop-filter: blur(12px); border: 1px solid var(--line); border-radius: 999px; box-shadow: 0 8px 30px rgba(20,22,26,.12); transform: translate(-50%, 140%); transition: transform .45s cubic-bezier(.2,.8,.2,1); font-size: .9rem; }
+  .v2-dock.is-shown { transform: translate(-50%, 0); }
+  .v2-dock > a { padding: 8px 14px; border-radius: 999px; white-space: nowrap; }
+  .v2-dock > a:hover { background: var(--soft); }
+  .v2-dock-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
+  .v2-dock .v2-dock-cta { background: var(--ink); color: #fff; width: 38px; height: 38px; padding: 0; display: grid; place-items: center; }
+
+  /* Hero : exactement la hauteur visible sous la nav, contenu centré */
+  .v2-hero { position: relative; height: calc(100svh - 65px); min-height: 520px; display: grid; place-items: center; overflow: hidden; isolation: isolate; text-align: center; padding: 0 var(--pad); }
+  .v2-hero-canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: -1;
+    mask-image: radial-gradient(ellipse 52% 46% at 50% 50%, rgba(0,0,0,.06) 0%, rgba(0,0,0,.06) 45%, #000 90%); }
+  .v2 .v2-tags { display: flex; align-items: center; gap: 14px; font-size: 1.05rem; margin: 0 0 22px; }
+  .v2-tags i { width: 10px; height: 10px; background: var(--accent-strong); clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); }
+  .v2-hero-in { display: flex; flex-direction: column; align-items: center; padding-bottom: 24px; }
+  .v2 .v2-lead { max-width: 30rem; color: var(--mut); font-size: 1.1rem; margin: 24px 0 32px; }
+  .v2-ctas { display: flex; gap: 10px; align-items: center; }
+  .v2-scroll { position: absolute; bottom: 28px; left: 50%; translate: -50% 0; width: 24px; height: 38px; border: 1.5px solid var(--ink); border-radius: 999px; opacity: .5; }
+  .v2-scroll span { position: absolute; top: 7px; left: 50%; width: 3px; height: 7px; margin-left: -1.5px; border-radius: 2px; background: var(--ink); animation: v2-wheel 1.8s cubic-bezier(.4,0,.2,1) infinite; }
+  @keyframes v2-wheel { 0% { transform: translateY(0); opacity: 1; } 70% { transform: translateY(12px); opacity: 0; } 100% { opacity: 0; } }
+
+  /* Bande */
+  .v2-strip { padding: 16px 0; overflow: hidden; }
+  .v2-strip-track { display: flex; gap: 16px; width: max-content; animation: v2-marquee 70s linear infinite; }
+  .v2-strip img { height: 220px; width: auto; aspect-ratio: 16/10; object-fit: cover; border-radius: var(--r); border: 1px solid var(--line); }
+  @keyframes v2-marquee { to { transform: translateX(-50%); } }
+
+  /* Cas : image pleine largeur du container */
+  .v2-case { display: block; }
+  .v2-case-img { aspect-ratio: 16/8; overflow: hidden; background: var(--soft); border-bottom: 1px solid var(--line); }
+  .v2-case-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s cubic-bezier(.2,.8,.2,1); }
+  .v2-case:hover .v2-case-img img { transform: scale(1.015); }
+  .v2-case-body { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; padding: 24px var(--pad); }
+  .v2-case-body .v2-mut { margin-bottom: 12px; max-width: 40rem; }
+  .v2-more { display: flex; justify-content: center; padding: 32px var(--pad); }
+
+  /* Étapes : cercles pointillés qui se chevauchent */
+  .v2 .v2-steps { list-style: none; display: grid; grid-template-columns: repeat(6, 1fr); padding: 40px calc(var(--pad) + 3%); margin: 0 auto; }
+  .v2-steps li { aspect-ratio: 1; scale: 1.12; border: 1px dashed #C9CBC8; border-radius: 50%; display: grid; place-items: center; text-align: center; padding: 12%; font-family: var(--display); font-size: clamp(.95rem, 1.5vw, 1.3rem); line-height: 1.05; letter-spacing: -0.04em; background: transparent; transition: background .3s, border-color .3s; }
+  .v2-steps li:hover { border-color: var(--accent-strong); border-style: solid; background: rgba(0,217,163,.05); }
+
+  /* 3 colonnes */
+  .v2-cols3 { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .v2-col { padding: 32px var(--pad) 40px; }
+  .v2-col + .v2-col { border-left: 1px solid var(--line); }
+  .v2-col ul { list-style: none; padding: 0; margin-top: 12px; display: grid; gap: 6px; color: var(--mut); }
+  .v2-col li { display: flex; gap: 4px; align-items: baseline; }
+  .v2-col li i { color: var(--accent-strong); }
+  .v2-tools { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 14px !important; }
+  .v2-tools span { font-family: var(--mono); font-size: .75rem; border: 1px solid var(--line); border-radius: var(--r); padding: 4px 8px; }
+
+  /* Figures Hairline */
+  .v2-iso { height: 170px; margin-bottom: auto; }
+  .v2-iso-sm { height: 120px; width: 160px; margin: 0 0 16px -16px; }
+  .v2-cell-big .v2-iso { height: 300px; }
+
+  /* Bento : cellules qui touchent le container */
+  .v2-bento { display: grid; grid-template-columns: repeat(3, 1fr); }
+  .v2-cell { padding: 32px var(--pad); min-height: 260px; display: flex; flex-direction: column; justify-content: flex-end; border-left: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .v2-cell:last-child { border-bottom: 0; }
+  .v2-cell-big { grid-row: span 2; background: var(--soft); border-left: 0; border-bottom: 0; }
+  .v2-cell:last-child { grid-column: span 2; }
+  .v2-cell-big h3 { font-size: 2rem; }
+
+  /* Hub sombre */
+  .v2-dark { background: var(--dark); color: #F5F4F0; }
+  .v2-dark .r { border-color: var(--dark-line); }
+  .v2-dark .w { border-color: var(--dark-line); }
+  .v2-dark .v2-dim { color: #6B6F72; }
+  .v2-hub { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .v2-hub > * { border-left: 1px solid var(--dark-line); border-bottom: 1px solid var(--dark-line); }
+  .v2-hub > :first-child { border-left: 0; }
+  .v2-hub > :nth-child(n+4) { border-bottom: 0; }
+  .v2-hub-video { grid-column: span 2; grid-row: span 2; position: relative; overflow: hidden; min-height: 360px; }
+  .v2-hub-video img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .75; transition: opacity .3s; }
+  .v2-hub-video:hover img { opacity: .92; }
+  .v2-play { position: absolute; top: 50%; left: 50%; translate: -50% -50%; width: 64px; height: 64px; border-radius: 50%; background: #fff; color: var(--ink); display: grid; place-items: center; font-size: 1.8rem; }
+  .v2-hub-cap { position: absolute; left: 20px; right: 20px; bottom: 20px; font-weight: 500; text-shadow: 0 1px 8px rgba(0,0,0,.6); }
+  .v2-hub-cap i { color: #FF3B30; }
+  .v2-hub-card { padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 20px; transition: background .2s; }
+  .v2-hub-card:hover { background: #1A1B1E; }
+  .v2-hub-card p { font-size: 1.05rem; line-height: 1.4; }
+  .v2-hub-card .v2-meta { color: #8A8E92; }
+
+  /* À propos */
+  .v2-about { display: grid; grid-template-columns: 1fr 2fr; gap: 32px; }
+  .v2-reveal { font-family: var(--display); font-size: clamp(1.4rem, 2.8vw, 2.1rem); line-height: 1.18; letter-spacing: -0.035em; }
+  .v2-reveal :global(span) { color: #CDD0CE; transition: color .25s; }
+  .v2-reveal :global(span.on) { color: var(--ink); }
+  .v2-photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; padding: 12px; }
+  .v2-photos > * { aspect-ratio: 4/5; width: 100%; height: 100%; object-fit: cover; display: block; border-radius: var(--r); }
+  .v2-photo-ph { background: var(--soft); display: grid; place-items: center; color: var(--mut); font-family: var(--mono); font-size: .8rem; }
+
+  /* Section contrastée */
+  .v2-private { background: var(--soft); padding: clamp(48px, 7vw, 88px) var(--pad); display: grid; grid-template-columns: 1.4fr 1fr; gap: 32px; align-items: end; min-height: 440px; }
+  .v2-private .v2-mut { margin-top: 16px; max-width: 26rem; }
+  .v2-private-ctas { display: grid; gap: 12px; }
+
+  /* FAQ : questions en pilules à gauche, titre à droite */
+  .v2-faq { display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; padding: clamp(48px, 7vw, 88px) var(--pad); align-items: start; }
+  .v2-faq-title { text-align: right; }
+  .v2-faq-list { display: grid; gap: 10px; justify-items: start; }
+  .v2-faq-list details { max-width: 100%; }
+  .v2-faq-list summary { list-style: none; cursor: pointer; display: inline-flex; align-items: center; gap: 12px; }
+  .v2-faq-list summary::-webkit-details-marker { display: none; }
+  .v2-faq-list summary span { background: var(--ink); color: #fff; border-radius: 999px; padding: 12px 20px; font-weight: 500; }
+  .v2-faq-list summary i { width: 28px; height: 28px; border: 1.5px solid var(--ink); border-radius: 50%; display: grid; place-items: center; transition: rotate .2s; }
+  .v2-faq-list details[open] summary i { rotate: 45deg; }
+  .v2-faq-list details p { padding: 10px 20px 4px; max-width: 32rem; }
+  .v2-faq-list details::details-content { block-size: 0; overflow: hidden; opacity: 0; transition: block-size .35s cubic-bezier(.2,.8,.2,1), opacity .3s, content-visibility .35s allow-discrete; }
+  .v2-faq-list details[open]::details-content { block-size: auto; opacity: 1; }
+  .v2-faq-list summary span { transition: background .2s; }
+  .v2-faq-list summary:hover span { background: #000; }
+
+  /* Contact : bento qui touche le container */
+  .v2-contact { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: auto auto; }
+  .v2-contact-main { grid-row: span 2; padding: 40px var(--pad); display: flex; flex-direction: column; justify-content: space-between; gap: 40px; }
+  .v2-contact-main .v2-h2 { margin-bottom: 8px; font-size: clamp(1.8rem, 3.2vw, 2.5rem); }
+  .v2-mail { display: block; font-family: var(--display); font-size: clamp(1.4rem, 2.8vw, 2rem); letter-spacing: -0.045em; margin: 2px 0 24px; }
+  .v2-mail:hover { color: var(--accent-strong); }
+  .v2-ctas-left { justify-content: flex-start; flex-wrap: wrap; }
+  .v2-contact-card { padding: 24px; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; border-left: 1px solid var(--line); transition: background .2s; }
+  .v2-contact-card:nth-child(-n+3) { border-bottom: 1px solid var(--line); }
+  .v2-contact-card:hover { background: var(--soft); }
+  .v2-contact-card i { display: block; font-size: 1.4rem; margin-bottom: 6px; }
+  .v2-contact-card b { font-family: var(--display); font-weight: 500; font-size: 1.35rem; letter-spacing: -0.045em; }
+
+  /* Agenda */
+  .v2-agenda { padding: 40px var(--pad); }
+  .v2-cal { min-height: 640px; }
+
+  /* Footer */
+  .v2-foot { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 24px; padding: 40px var(--pad) 120px; font-size: .9rem; }
+  .v2-foot nav { display: flex; flex-direction: column; gap: 8px; }
+
+  @media (max-width: 900px) {
+    .v2-top-links { display: none; }
+    .v2-dock > a:not(.v2-dock-cta) { padding: 8px 9px; font-size: .8rem; }
+    .v2-head-2, .v2-about, .v2-private, .v2-faq { grid-template-columns: 1fr; }
+    .v2-faq-title { text-align: left; order: -1; }
+    .v2-case-body { flex-direction: column; align-items: flex-start; }
+    .v2-steps { grid-template-columns: repeat(3, 1fr); row-gap: 0; }
+    .v2-cols3 { grid-template-columns: 1fr; }
+    .v2-col + .v2-col { border-left: 0; border-top: 1px solid var(--line); }
+    .v2-bento { grid-template-columns: 1fr; }
+    .v2-cell, .v2-cell:nth-child(n+3) { border-left: 0; border-bottom: 1px solid var(--line); }
+    .v2-cell-big { grid-row: auto; }
+    .v2-cell:last-child { grid-column: auto; border-bottom: 0; }
+    .v2-hub { grid-template-columns: 1fr 1fr; }
+    .v2-hub > * { border-left: 1px solid var(--dark-line); border-bottom: 1px solid var(--dark-line); }
+    .v2-hub-video { grid-column: span 2; grid-row: auto; min-height: 240px; border-left: 0; }
+    .v2-contact { grid-template-columns: 1fr 1fr; }
+    .v2-contact-main { grid-column: span 2; grid-row: auto; border-bottom: 1px solid var(--line); }
+    .v2-contact-card { border-bottom: 1px solid var(--line); }
+    .v2-contact-card:nth-child(even) { border-left: 0; }
+    .v2-foot { grid-template-columns: 1fr 1fr; }
+    .v2-strip img { height: 150px; }
+  }
+  @media (max-width: 520px) {
+    .v2-dock-avatar { display: none; }
+    .v2-hub { grid-template-columns: 1fr; }
+    .v2-hub > * { border-left: 0; }
+    .v2-hub-video { grid-column: auto; }
+    .v2-photos { grid-template-columns: 1fr 1fr; }
+    .v2-photos > :last-child { display: none; }
+    .v2-steps { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .v2-strip-track, .v2-scroll span { animation: none; }
+    .v2-reveal :global(span) { color: var(--ink); }
+  }
+</style>
