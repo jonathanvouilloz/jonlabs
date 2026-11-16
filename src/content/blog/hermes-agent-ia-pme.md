@@ -57,7 +57,7 @@ Quelques différences concrètes avec ce que tu utilises peut-être déjà :
 
 - Versus ChatGPT ou Claude : mémoire persistante, capacité d'action (pas seulement de réponse), architecture qui peut déléguer.
 - Versus Make ou n8n : Hermes Agent décide lui-même des étapes à suivre pour atteindre un objectif. Tu lui donnes une cible, pas une recette. Pour comprendre en détail [la différence entre un workflow et un agent IA autonome](/blog/workflows-vs-agents-ia-pme), consulte ce guide dédié.
-- Versus un assistant IA classique : il peut appeler des outils externes, modifier des fichiers, envoyer des emails, avec tes autorisations.
+- Versus un assistant IA classique : il peut appeler des outils externes, modifier des fichiers, envoyer des emails, avec tes autorisations. Pour qu'il lise et utilise le web, il lui faut un outil dédié : j'en compare onze dans mon [comparatif des navigateurs pour agents IA](/blog/comparatif-browser-agents-ia).
 
 Ce n'est pas de la magie. C'est une architecture logicielle qui combine mémoire, raisonnement et accès à des outils. Mais pour un dirigeant de PME non-technique, l'effet pratique est réel : des tâches récurrentes qui tournent sans que tu y penses.
 

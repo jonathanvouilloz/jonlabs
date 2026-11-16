@@ -56,6 +56,8 @@ Selon FindStack et ServerPoint (deux sources tierces, pas officielles), les rep�
 - **4 Go** : le confort pour un usage régulier ;
 - **8 Go et plus** : nécessaire si tu veux faire tourner un modèle local.
 
+Un navigateur pour l'agent pèse aussi dans la balance : Chrome est gourmand, des moteurs légers comme Obscura ou Lightpanda le sont beaucoup moins. Je compare leurs besoins en mémoire dans mon [comparatif des outils web pour agents IA](/blog/comparatif-browser-agents-ia).
+
 Pour **installer Hermes Agent sur un VPS**, l'installation passe par une seule commande officielle. La doc précise aussi que les installations first-party utilisent Python 3.14.
 
 Mon propre cas : je fais tourner sur le même serveur Hermes, n8n, un système de mailing et une base de données. C'est pour ça que je suis monté à 8 Go plutôt que 4. Pour comprendre pourquoi n8n et Hermes cohabitent, lis ma comparaison [workflow ou agent IA](/blog/workflows-vs-agents-ia-pme). Si tu découvres Hermes, commence par [Hermes Agent pour PME](/blog/hermes-agent-ia-pme), et si tu hésites avec un autre agent, regarde [OpenClaw pour PME](/blog/openclaw-pme-suisse).

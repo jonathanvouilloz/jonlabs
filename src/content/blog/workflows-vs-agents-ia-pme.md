@@ -125,7 +125,7 @@ Cas d'usage pour les agents IA (Hermes, OpenClaw) :
 - Rédaction de propositions commerciales personnalisées selon le profil du prospect
 - Tri et réponse intelligente aux emails entrants complexes (pas juste du routage)
 - Analyse de documents non structurés (contrats en PDF, tableaux Excel mal formatés)
-- Veille concurrentielle : scraper, synthétiser, produire un briefing hebdo
+- Veille concurrentielle : scraper, synthétiser, produire un briefing hebdo (voir [les outils de scraping pour agents IA](/blog/comparatif-browser-agents-ia))
 
 Deux profils, deux recommandations :
 

@@ -309,7 +309,7 @@ html.js-anim .co-root [data-animate-stagger] [data-animate-item] { opacity: 0; }
 /* A14 · Corps d'article (prose) — corps rédactionnel des pages blog/guides.
    Remplace le .prose global brutaliste. Liens inline SOULIGNÉS teal (ré-autorisés
    ici : .co-prose a en (0,1,1) bat le reset .co-root :where(a)). Coins nets, filets
-   fins, blockquote en Instrument Serif, tableaux/​code sobres. À utiliser sur le
+   fins, blockquote en Fragment Mono, tableaux/​code sobres. À utiliser sur le
    conteneur du <Content /> dans .co-root. */
 .co-prose { max-width: 72ch; font-size: 1.075rem; line-height: 1.75; color: var(--ink); }
 .co-prose > :first-child { margin-top: 0; }
@@ -329,7 +329,7 @@ html.js-anim .co-root [data-animate-stagger] [data-animate-item] { opacity: 0; }
 .co-prose ol > li::before { content: counter(co-ol); position: absolute; left: 0; top: 0; font-variant-numeric: tabular-nums; font-weight: 600; font-size: 0.85em; color: var(--accent); }
 .co-prose li ul, .co-prose li ol { margin: 0.5em 0 0; }
 .co-prose li ul > li::before { background: transparent; border: 1px solid var(--accent); }
-.co-prose blockquote { margin: 1.6em 0; padding: 4px 0 4px 20px; border-left: 2px solid var(--accent); font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: 1.35rem; line-height: 1.4; color: var(--ink); }
+.co-prose blockquote { margin: 1.6em 0; padding: 4px 0 4px 20px; border-left: 2px solid var(--accent); font-family: "Fragment Mono", ui-monospace, "SF Mono", Menlo, monospace; font-size: 0.95rem; line-height: 1.65; color: var(--ink); }
 .co-prose blockquote p { margin-bottom: 0.4em; }
 
 /* Callout « L'essentiel en bref » — généré depuis un blockquote par remark-tldr.
@@ -337,7 +337,7 @@ html.js-anim .co-root [data-animate-stagger] [data-animate-item] { opacity: 0; }
    icône teal, puces en checklist. */
 .co-prose .co-tldr { margin: 2em 0; padding: 22px 26px 20px 24px; background: var(--surface); border: 1px solid var(--line-2); box-shadow: inset 3px 0 0 var(--accent); }
 .co-prose .co-tldr > :last-child { margin-bottom: 0; }
-.co-prose .co-tldr-head { display: flex; align-items: center; gap: 9px; margin: 0 0 14px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.13em; text-transform: uppercase; color: var(--muted); }
+.co-prose .co-tldr-head { display: flex; align-items: center; gap: 9px; margin: 0 0 14px; font-size: 1rem; font-weight: 650; color: var(--ink); }
 .co-prose .co-tldr-head strong { font-weight: 700; }
 .co-tldr-ic { color: var(--accent); font-size: 1.05rem; }
 .co-prose .co-tldr-list { margin: 0; gap: 0.6em; }

@@ -52,7 +52,7 @@ OpenClaw est un **agent IA autonome** qui vit sur ta machine (Mac, PC ou serveur
 
 La différence fondamentale avec ChatGPT ou Claude : OpenClaw mémorise tout. Chaque conversation, chaque tâche, chaque contexte projet. Quand tu reviens trois semaines plus tard, il sait où tu en étais.
 
-Il peut aussi prendre des actions autonomes : rechercher des informations, rédiger, envoyer des messages, gérer des tâches. Pas seulement répondre à des questions.
+Il peut aussi prendre des actions autonomes : rechercher des informations, rédiger, envoyer des messages, gérer des tâches. Pas seulement répondre à des questions. Pour la recherche sur le web, le choix de l'outil compte : voici [quel browser donner à ton agent IA](/blog/comparatif-browser-agents-ia).
 
 Imagine un **assistant de direction omnicanal** qui t'accompagne sur tous tes appareils, se souvient de tout, et peut agir à ta place sur des tâches bien définies. Ce n'est pas un chatbot. C'est un agent.
 

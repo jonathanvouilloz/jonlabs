@@ -70,6 +70,8 @@ Le **Model Context Protocol** (MCP) est un protocole ouvert, publié par Anthrop
 
 L'intérêt principal : un connecteur MCP construit une fois se réutilise ensuite sur plusieurs agents ou plusieurs cas d'usage, contrairement à un scénario no-code qui reste généralement propre à son propre workflow. C'est un vrai gain de temps dès que l'entreprise prévoit plusieurs agents IA à moyen terme, pas un seul projet isolé. Le [protocole MCP](https://modelcontextprotocol.io) reste toutefois un standard encore jeune : tous les outils métier suisses n'ont pas encore de serveur MCP officiel, ce qui demande parfois d'en développer un sur mesure, une étape qui se rapproche alors du développement API classique.
 
+Le MCP sert aussi à donner le web à un agent : plusieurs navigateurs et outils de scraping ont leur serveur MCP. Je les compare dans [mon guide des browser agents avec MCP](/blog/comparatif-browser-agents-ia).
+
 **Notre verdict :** vise le MCP quand plusieurs agents IA sont prévus sur la durée, ou quand l'entreprise veut un socle réutilisable plutôt qu'un branchement ponctuel.
 
 ### API sur mesure : flexibilité maximale, coût et délai plus élevés
