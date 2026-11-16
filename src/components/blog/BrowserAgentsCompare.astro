@@ -1,0 +1,227 @@
+---
+// Comparatif interactif des outils web pour agents IA. Rendu complet côté serveur
+// (lisible sans JS et par les moteurs) ; le script ajoute filtres, tri et comparaison.
+// part="tableau" : tableau filtrable + comparateur · part="matrice" : matrice des fonctionnalités.
+import { tools, features, CATEGORY_LABEL, STATUS_LABEL, VERIFIED_AT } from '../../data/browser-agents';
+
+interface Props { part: 'tableau' | 'matrice' }
+const { part } = Astro.props;
+
+const fields: { label: string; get: (t: (typeof tools)[number]) => string }[] = [
+  { label: 'Rôle', get: (t) => t.role },
+  { label: 'Catégorie', get: (t) => CATEGORY_LABEL[t.category] },
+  { label: 'Note', get: (t) => `${t.note}/5` },
+  { label: 'Licence', get: (t) => t.license },
+  { label: 'Self-hosting', get: (t) => t.selfHost },
+  { label: 'Gratuit', get: (t) => t.free },
+  { label: 'Payant', get: (t) => t.price },
+  { label: 'Intégration', get: (t) => t.integrations.join(', ') },
+  { label: 'Langages', get: (t) => t.languages.join(', ') },
+  { label: 'Ressources', get: (t) => t.resources },
+  { label: 'Pour', get: (t) => t.usage },
+  { label: 'Limite', get: (t) => t.limit },
+];
+const integrations = ['API', 'SDK', 'CLI', 'MCP', 'CDP'];
+const languages = ['Python', 'JS/TS', 'Go', 'CLI'];
+---
+
+{part === 'tableau' && (
+  <div class="bac" data-bac>
+    <div class="bac-controls" role="search">
+      <input type="search" class="bac-input bac-search" placeholder="Rechercher un outil" aria-label="Rechercher un outil" data-f="q" />
+      <select class="bac-input" aria-label="Catégorie" data-f="category">
+        <option value="">Toutes les catégories</option>
+        {Object.entries(CATEGORY_LABEL).map(([v, l]) => <option value={v}>{l}</option>)}
+      </select>
+      <select class="bac-input" aria-label="Intégration" data-f="integration">
+        <option value="">Toutes les intégrations</option>
+        {integrations.map((v) => <option value={v}>{v}</option>)}
+      </select>
+      <select class="bac-input" aria-label="Langage" data-f="language">
+        <option value="">Tous les langages</option>
+        {languages.map((v) => <option value={v}>{v}</option>)}
+      </select>
+      <select class="bac-input" aria-label="Trier par" data-f="sort">
+        <option value="">Ordre de l’article</option>
+        <option value="note">Note</option>
+        <option value="name">Nom</option>
+      </select>
+      <div class="bac-checks">
+        <label><input type="checkbox" data-f="free" /> Gratuit</label>
+        <label><input type="checkbox" data-f="oss" /> Open source</label>
+        <label><input type="checkbox" data-f="self" /> Self-hostable</label>
+      </div>
+    </div>
+    <p class="bac-meta"><span data-count aria-live="polite">{tools.length} outils</span> · coche 2 ou 3 outils pour les comparer · vérifié le {VERIFIED_AT}</p>
+
+    <table class="bac-table">
+      <thead>
+        <tr><th scope="col"><span class="sr-only">Comparer</span></th><th scope="col">Outil</th><th scope="col">Note</th><th scope="col">Licence</th><th scope="col">Gratuit</th><th scope="col">Payant</th><th scope="col">Intégration</th></tr>
+      </thead>
+      <tbody>
+        {tools.map((t, i) => (
+          <tr data-row={t.id} data-i={i} data-name={t.name.toLowerCase()} data-category={t.category} data-note={t.note}
+            data-integration={t.integrations.join(' ')} data-language={t.languages.join(' ')}
+            data-free={String(t.hasFree)} data-oss={String(t.openSource)} data-self={String(t.selfHost !== 'Non')}>
+            <td class="bac-pick"><input type="checkbox" value={t.id} aria-label={`Comparer ${t.name}`} data-pick /></td>
+            <td class="bac-name"><a href={`#fiche-${t.id}`}>{t.name}</a><span>{t.role}</span><span class="bac-cat">{CATEGORY_LABEL[t.category]}</span></td>
+            <td data-label="Note">{t.note}/5</td>
+            <td data-label="Licence">{t.license}</td>
+            <td data-label="Gratuit">{t.free}</td>
+            <td data-label="Payant">{t.price}</td>
+            <td data-label="Intégration">{t.integrations.join(', ')}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+    <p class="bac-empty" data-empty hidden>Aucun outil ne correspond à ces filtres.</p>
+
+    <div class="bac-compare" data-compare hidden>
+      <div class="bac-compare-head">
+        <strong>Comparaison</strong>
+        <button type="button" class="bac-btn" data-copy>Copier le lien</button>
+        <button type="button" class="bac-btn" data-clear>Effacer</button>
+      </div>
+      <div class="bac-scroll">
+        <table class="bac-grid">
+          <thead><tr><th scope="col"><span class="sr-only">Critère</span></th>{tools.map((t) => <th scope="col" data-col={t.id}>{t.name}</th>)}</tr></thead>
+          <tbody>
+            {fields.map((f) => <tr><th scope="row">{f.label}</th>{tools.map((t) => <td data-col={t.id}>{f.get(t)}</td>)}</tr>)}
+            {features.map((f) => <tr><th scope="row">{f.label}</th>{tools.map((t) => <td data-col={t.id}><span class={`bac-s bac-s-${f.values[t.id]}`}>{STATUS_LABEL[f.values[t.id]]}</span></td>)}</tr>)}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+)}
+
+{part === 'matrice' && (
+  <div class="bac-scroll">
+    <table class="bac-grid bac-matrix">
+      <thead><tr><th scope="col">Fonctionnalité</th>{tools.map((t) => <th scope="col">{t.name}</th>)}</tr></thead>
+      <tbody>
+        {features.map((f) => <tr><th scope="row">{f.label}</th>{tools.map((t) => <td><span class={`bac-s bac-s-${f.values[t.id]}`}>{STATUS_LABEL[f.values[t.id]]}</span></td>)}</tr>)}
+      </tbody>
+    </table>
+  </div>
+)}
+
+<style>
+  .bac { margin: 1.6em 0 2.4em; }
+  .bac-controls { display: flex; flex-wrap: wrap; gap: 8px; }
+  .bac-input { font: inherit; font-size: 0.9rem; padding: 8px 10px; background: var(--surface); border: 1px solid var(--line-2); color: var(--ink); min-width: 0; }
+  .bac-search { flex: 1 1 220px; }
+  .bac-input:focus-visible, .bac-btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 1px; }
+  .bac-checks { display: flex; flex-wrap: wrap; gap: 14px; align-items: center; font-size: 0.9rem; padding: 4px 2px; }
+  .bac-checks label { display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
+  .bac-meta { font-size: 0.85rem; color: var(--muted); margin: 10px 0 0 !important; }
+  .bac input[type='checkbox'] { accent-color: var(--accent); width: 16px; height: 16px; }
+
+  :global(.co-prose) .bac-table { font-size: 0.88rem; margin-top: 12px; white-space: normal; }
+  :global(.co-prose) .bac-table td, :global(.co-prose) .bac-table th { padding: 9px 10px; vertical-align: top; }
+  .bac-name a { font-weight: 650; }
+  .bac-cat { text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.7rem !important; }
+  .bac-name span { display: block; color: var(--muted); font-size: 0.82rem; line-height: 1.35; margin-top: 2px; }
+  .bac-pick { width: 32px; }
+  .bac-empty { color: var(--muted); }
+
+  .bac-compare { margin-top: 18px; padding: 16px; border: 1px solid var(--line-2); background: var(--surface); }
+  .bac-compare-head { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 10px; }
+  .bac-compare-head strong { margin-right: auto; }
+  .bac-btn { font: inherit; font-size: 0.85rem; padding: 6px 12px; border: 1px solid var(--line-2); background: var(--bg); color: var(--ink); cursor: pointer; }
+  .bac-btn:hover { border-color: var(--accent); }
+
+  .bac-scroll { overflow-x: auto; margin: 1.2em 0; }
+  :global(.co-prose) .bac-grid { display: table; white-space: normal; margin: 0; font-size: 0.82rem; }
+  :global(.co-prose) .bac-grid th, :global(.co-prose) .bac-grid td { padding: 7px 9px; vertical-align: top; }
+  :global(.co-prose) .bac-grid tbody th { font-weight: 600; position: sticky; left: 0; background: var(--surface); min-width: 130px; }
+  .bac-matrix td { white-space: nowrap; }
+  .bac-grid [data-col].is-off { display: none; }
+
+  .bac-s { font-weight: 600; }
+  .bac-s-oui { color: var(--accent); }
+  .bac-s-part { color: var(--ink); }
+  .bac-s-non { color: var(--muted); font-weight: 500; }
+  .bac-s-nv { color: var(--muted); font-weight: 400; font-style: italic; }
+
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+  /* Mobile : chaque ligne devient une carte compacte. */
+  @media (max-width: 720px) {
+    :global(.co-prose) .bac-table, .bac-table tbody, .bac-table tr, .bac-table td { display: block; }
+    .bac-table thead { display: none; }
+    :global(.co-prose) .bac-table { border: 0; background: none; box-shadow: none; }
+    .bac-table tr { position: relative; border: 1px solid var(--line-2); background: var(--surface); padding: 10px 12px; margin-bottom: 10px; }
+    :global(.co-prose) .bac-table td { border: 0; padding: 2px 0; background: none !important; }
+    .bac-table td[data-label]::before { content: attr(data-label) ' : '; color: var(--muted); }
+    .bac-pick { position: absolute; top: 10px; right: 12px; }
+    .bac-name { padding-right: 32px !important; margin-bottom: 4px; }
+  }
+</style>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-bac]');
+  if (root) {
+    const rows = [...root.querySelectorAll<HTMLTableRowElement>('[data-row]')];
+    const tbody = rows[0].parentElement!;
+    const picks = [...root.querySelectorAll<HTMLInputElement>('[data-pick]')];
+    const ctl = (k: string) => root.querySelector<HTMLInputElement & HTMLSelectElement>(`[data-f="${k}"]`)!;
+    const compare = root.querySelector<HTMLElement>('[data-compare]')!;
+    const MAX = 3;
+
+    function filter() {
+      const q = ctl('q').value.trim().toLowerCase();
+      const cat = ctl('category').value, int = ctl('integration').value, lang = ctl('language').value;
+      let n = 0;
+      for (const r of rows) {
+        const d = r.dataset;
+        const ok = (!q || d.name!.includes(q))
+          && (!cat || d.category === cat)
+          && (!int || d.integration!.split(' ').includes(int))
+          && (!lang || d.language!.split(' ').includes(lang))
+          && (!ctl('free').checked || d.free === 'true')
+          && (!ctl('oss').checked || d.oss === 'true')
+          && (!ctl('self').checked || d.self === 'true');
+        r.hidden = !ok;
+        if (ok) n++;
+      }
+      const sort = ctl('sort').value;
+      const sorted = [...rows].sort((a, b) =>
+        sort === 'note' ? Number(b.dataset.note) - Number(a.dataset.note) || Number(a.dataset.i) - Number(b.dataset.i)
+        : sort === 'name' ? a.dataset.name!.localeCompare(b.dataset.name!)
+        : Number(a.dataset.i) - Number(b.dataset.i));
+      tbody.append(...sorted);
+      root!.querySelector('[data-count]')!.textContent = `${n} outil${n > 1 ? 's' : ''}`;
+      root!.querySelector<HTMLElement>('[data-empty]')!.hidden = n > 0;
+    }
+
+    function syncCompare(updateUrl = true) {
+      const sel = picks.filter((p) => p.checked).map((p) => p.value);
+      for (const p of picks) p.disabled = !p.checked && sel.length >= MAX;
+      compare.hidden = sel.length < 2;
+      for (const c of compare.querySelectorAll<HTMLElement>('[data-col]')) c.classList.toggle('is-off', !sel.includes(c.dataset.col!));
+      if (updateUrl) {
+        const url = new URL(location.href);
+        url.searchParams.delete('comparer');
+        const qs = url.searchParams.toString();
+        const params = [qs, sel.length ? `comparer=${sel.join(',')}` : ''].filter(Boolean).join('&');
+        history.replaceState(null, '', url.pathname + (params ? `?${params}` : '') + url.hash);
+      }
+    }
+
+    root.querySelectorAll('[data-f]').forEach((el) => el.addEventListener('input', filter));
+    picks.forEach((p) => p.addEventListener('change', () => syncCompare()));
+    root.querySelector('[data-clear]')!.addEventListener('click', () => { picks.forEach((p) => (p.checked = false)); syncCompare(); });
+    root.querySelector('[data-copy]')!.addEventListener('click', async (e) => {
+      const btn = e.currentTarget as HTMLButtonElement;
+      try { await navigator.clipboard.writeText(location.href); btn.textContent = 'Lien copié'; }
+      catch { btn.textContent = 'Copie impossible'; }
+      setTimeout(() => (btn.textContent = 'Copier le lien'), 2000);
+    });
+
+    // Comparaison partagée : ?comparer=obscura,lightpanda
+    const wanted = (new URL(location.href).searchParams.get('comparer') ?? '').split(',').slice(0, MAX);
+    picks.forEach((p) => (p.checked = wanted.includes(p.value)));
+    syncCompare(false);
+  }
+</script>

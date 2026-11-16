@@ -1,0 +1,811 @@
+---
+title: "Browser IA : 11 outils comparés (2026)"
+h1: "Les 11 meilleurs outils pour connecter tes agents IA au web : comparatif 2026"
+description: "Obscura, Kitesurf, Tavily, Browser Use, Firecrawl... Compare 11 outils web pour agents IA : prix, open source, performances et cas d'usage."
+pubDate: 2026-11-16
+image:
+  url: "/images/blog/comparatif-browser-agents-ia.webp"
+  alt: "Illustration éditoriale : une statue antique pensive choisit le tiroir du bas d'un meuble à trois étages, une loupe pour chercher, sous une page extraite et une fenêtre web avec un curseur"
+category: "automatisation"
+tags: ["agent-ia", "browser-automation", "navigateur-headless", "scraping", "mcp", "claude-code", "hermes-agent", "comparatif"]
+featured: false
+draft: false
+readingTime: 26
+faqs:
+  - question: "Quel est le meilleur navigateur pour un agent IA ?"
+    answer: "Ça dépend de la tâche. Pour chercher une info, Tavily suffit. Pour lire des pages, Crawl4AI ou Firecrawl. Pour cliquer et se connecter, agent-browser avec Chrome. Les moteurs légers comme Obscura ou Lightpanda servent quand le volume rend Chrome trop gourmand."
+  - question: "Quelle différence entre Browser Use et agent-browser ?"
+    answer: "agent-browser est une CLI : ton agent envoie une commande à la fois et garde la main. Browser Use est un agent complet : tu lui donnes une consigne et son propre modèle décide des actions jusqu'au résultat."
+  - question: "Peut-on remplacer Chromium par Obscura ?"
+    answer: "Pour une partie des sites, oui : Obscura parle CDP et marche avec Puppeteer et Playwright. Mais c'est un moteur indépendant, le CSS rare et certaines Web API peuvent casser. Garde Chrome en repli."
+  - question: "Obscura ou Lightpanda : lequel choisir ?"
+    answer: "Lightpanda est plus compatible (80 % des sous-tests WPT contre 30 %, selon un benchmark publié par Lightpanda) mais il est sous AGPL et ne fait pas de vraies captures. Obscura est sous Apache-2.0, fait captures et PDF."
+  - question: "Kitesurf peut-il fonctionner gratuitement ?"
+    answer: "Oui via Browser Run de Cloudflare, gratuit pendant la bêta avec des limites par compte, et en local avec wrangler. Pour le déployer sur ton compte, il faut le plan Workers Paid (5 $ minimum par mois)."
+  - question: "Tavily est-il un véritable navigateur ?"
+    answer: "Non. C'est une API de recherche et d'extraction. Elle ne clique pas, ne remplit pas de formulaire et ne garde pas de session."
+  - question: "Quel est le meilleur outil de scraping open source ?"
+    answer: "Crawl4AI pour la plupart des projets : Apache-2.0, Docker protégé par token, extraction CSS sans LLM, crawl profond. Firecrawl est sous AGPL et sa version self-hosted n'a ni anti-bot, ni captures, ni actions."
+  - question: "Firecrawl ou Crawl4AI ?"
+    answer: "Firecrawl pour une API managée complète sans rien héberger. Crawl4AI pour héberger toi-même, ou pour payer moins en cloud sur des pages simples (0,1 crédit par page contre 1)."
+  - question: "Quel outil choisir pour Claude Code ?"
+    answer: "agent-browser, avec son skill officiel et son serveur MCP. Ajoute Tavily et Crawl4AI Cloud en MCP pour chercher et lire des pages."
+  - question: "Quel outil choisir pour un agent Hermes ?"
+    answer: "Le même trio que pour Claude Code. Browser Use et Skyvern citent Hermes parmi les agents compatibles, et un plugin communautaire relie Hermes à Obscura."
+  - question: "Comment réduire la consommation de tokens ?"
+    answer: "Envoie au modèle un snapshot d'accessibilité ou du Markdown filtré, pas du HTML brut. Code les étapes stables, garde le LLM pour celles qui changent, et active le cache quand il existe."
+  - question: "Quels outils fonctionnent sur un petit VPS ?"
+    answer: "Obscura et Lightpanda (30 à 40 Mo par instance selon les mesures publiées), agent-browser branché sur l'un des deux, et Crawl4AI en Docker. Steel et Skyvern embarquent Chrome : prévois 8 Go."
+  - question: "Peut-on automatiser un site avec authentification ?"
+    answer: "Oui, avec des profils persistants (agent-browser, Browser Use, Stagehand, Crawl4AI) ou un coffre d'identifiants avec 2FA (Skyvern). Utilise un compte dédié aux droits minimaux."
+  - question: "Un agent navigateur peut-il éviter tous les CAPTCHA ?"
+    answer: "Non. Les offres cloud en résolvent une partie, souvent contre paiement. Aucun outil ne garantit de tout passer, et contourner une protection peut violer les conditions du site."
+  - question: "Quel est le coût réel d'un navigateur IA ?"
+    answer: "Le service, l'hébergement, les tokens du modèle et ton temps de maintenance. Sur 1 000 sessions de 10 actions, le navigateur coûte quelques dollars ; les tokens et les actions facturées pèsent bien plus."
+---
+
+import BrowserAgentsCompare from '../../components/blog/BrowserAgentsCompare.astro';
+
+Ton agent doit trouver un prix, lire une doc ou remplir un formulaire. Le réflexe, c'est de lui donner un Chrome. Dans la plupart des cas, c'est comme prendre un camion pour aller chercher le pain.
+
+Un agent a besoin du web pour trois choses :
+
+1. **Chercher** : trouver les bonnes pages à partir d'une question.
+2. **Extraire** : lire une page connue et la rendre propre (Markdown, JSON).
+3. **Naviguer** : cliquer, se connecter, remplir des formulaires.
+
+Chaque étape coûte plus cher que la précédente. Une recherche, c'est un appel d'API. Une extraction, souvent un simple téléchargement. La navigation, elle, demande un vrai moteur de rendu, avec son JavaScript, sa mémoire et ses plantages.
+
+```
+Question → Recherche web → Extraction du contenu → Navigation (si nécessaire)
+           (Tavily)        (Crawl4AI, Firecrawl)    (agent-browser, Stagehand)
+```
+
+Les 11 outils de ce comparatif ne jouent donc pas au même étage. Le meilleur browser pour un agent IA, c'est le premier étage qui suffit.
+
+> **Vérifié le 16.11.2026.** Prix, licences, versions et fonctionnalités relevés sur les dépôts GitHub et les sites des éditeurs. Ça bouge vite : revérifie avant de t'engager.
+>
+> **Pas de benchmark maison.** Les chiffres de performance viennent des éditeurs, ou d'un concurrent (je le dis à chaque fois). Je n'ai pas encore lancé le protocole de test décrit plus bas, et je ne vais pas inventer de résultats.
+
+> **L'essentiel en bref**
+>
+> - **Chercher** : Tavily, 1 000 crédits gratuits par mois.
+> - **Extraire chez toi** : Crawl4AI (Apache-2.0). **Sans serveur** : Firecrawl ou Crawl4AI Cloud.
+> - **Naviguer depuis Claude Code ou Hermes** : agent-browser.
+> - **Moteurs légers** : Obscura et Lightpanda remplacent Chrome sur une partie des sites, pas tous. Kitesurf est encore expérimental.
+> - **Workflows métier** : Stagehand pour mêler code et IA, Steel pour les sessions, Skyvern pour automatiser un processus entier.
+
+## Tableau comparatif des 11 outils
+
+Filtre, trie, et coche 2 ou 3 outils pour les voir côte à côte. Le lien de la comparaison se partage.
+
+La note sur 5 dit à quel point l'outil fait bien **son usage principal**. C'est mon jugement à partir de la documentation, pas une mesure. Un 3/5 veut dire « jeune ou exigeant », pas « mauvais ».
+
+<BrowserAgentsCompare part="tableau" />
+
+## Les trois catégories
+
+### Les moteurs légers : Obscura, Kitesurf, Lightpanda
+
+Chromium sait tout faire : GPU, vidéo, extensions, synchronisation. Ton agent n'a besoin de presque rien de tout ça. Les moteurs légers repartent de zéro et ne gardent que ce qu'il faut à un robot.
+
+- **Obscura** (Rust) embarque V8, le moteur JavaScript de Chrome, et son propre moteur de rendu.
+- **Lightpanda** (Zig) embarque aussi V8, sans vrai moteur graphique.
+- **Kitesurf** (Rust en WebAssembly) tourne dans les isolats de Cloudflare Workers.
+
+Les éditeurs annoncent 4 à 16 fois moins de mémoire que Chrome. Sur un VPS de 4 Go, c'est la différence entre 5 et 50 pages ouvertes en même temps.
+
+En échange, tu perds en compatibilité. Le web empile vingt ans de standards, et un moteur neuf n'implémente pas tout. Les [Web Platform Tests](https://web-platform-tests.org/) le mesurent : Chrome passe environ 98 % des sous-tests, Lightpanda 80 %, Obscura 30 % (chiffres publiés par Lightpanda). Un site React classique passe souvent. Une app avec WebGL, de la vidéo ou du CSS exotique casse.
+
+### Les outils de navigation : agent-browser, Browser Use, Stagehand, Steel, Skyvern
+
+Ceux-là ne remplacent pas le moteur. Ils pilotent un Chrome (ou un moteur léger) et rendent ce pilotage digeste pour une IA. Ce qui les sépare, c'est **qui décide de l'action suivante**.
+
+| Outil | Qui décide ? | Part de code fixe possible |
+|---|---|---|
+| agent-browser | Ton agent (Claude Code, Hermes…) | Totale : chaque commande est explicite |
+| Stagehand | Ton code, l'IA seulement dans `act`, `observe`, `extract` | Forte |
+| Skyvern | Le LLM et la vision, ou ton code Playwright avec l'IA en repli | Moyenne |
+| Browser Use | Le modèle de Browser Use, du début à la fin | Faible |
+| Steel | Personne : c'est l'infrastructure | Totale |
+
+Plus l'IA décide, mieux l'outil gère un site inconnu. Plus le code décide, plus le résultat est reproductible et bon marché.
+
+### Recherche et extraction : Tavily, Firecrawl, Crawl4AI
+
+Ici, on ne clique pas. On veut de l'information.
+
+- **Chercher** : une question en entrée, des URL classées en sortie. Le métier de Tavily.
+- **Extraire** : une URL en entrée, du Markdown ou du JSON en sortie.
+- **Crawler** : un site en entrée, toutes ses pages extraites en sortie.
+
+> **Quel outil pour quelle tâche ?**
+>
+> Une question sans URL : **Tavily**. Une URL dont tu veux le contenu : **Crawl4AI** ou **Firecrawl**. Un site entier : **Crawl4AI** chez toi, **Firecrawl** en managé. Un clic ou un login : **agent-browser** si ton agent pilote, **Stagehand** pour un workflow codé, **Browser Use** pour une tâche floue. Du volume : ajoute **Steel** ou un moteur léger.
+
+## Les 11 fiches détaillées
+
+Même structure pour chaque outil. « Non vérifié » veut dire que la doc officielle ne dit rien, pas que la fonction manque.
+
+<a id="fiche-obscura"></a>
+### Obscura : le navigateur léger en Rust
+
+[Site](https://obscura.sh) · [GitHub](https://github.com/h4ckf0r0day/obscura) · v0.2.7 du 13.11.2026 · **4/5**
+
+Un navigateur headless qui exécute le JavaScript avec V8 et se pilote comme Chrome. Il ajoute un serveur MCP, du scraping en parallèle et un mode furtif.
+
+- **Ce qu'il fait** : `fetch` (HTML, texte, liens, Markdown), `scrape` en parallèle, serveur CDP, serveur MCP (navigation, clics, formulaires, onglets, captures, extraction). Recherche web en option via une API tierce (Keenable).
+- **Sites JavaScript** : oui. Les grosses SPA peuvent demander d'allonger le délai d'exécution (30 s par défaut).
+- **Interfaces** : CLI, CDP (Puppeteer, Playwright), MCP.
+- **Sessions** : `--storage-dir` garde cookies et localStorage, tu te connectes une fois et tu réutilises.
+- **Captures et PDF** : oui, avec son propre moteur de rendu.
+- **Self-hosting** : un binaire sans dépendance, ou une image Docker de 57 Mo.
+- **Licence** : Apache-2.0, usage commercial libre.
+- **Prix** : gratuit. Le site annonce un cloud managé, le README parle encore de liste d'attente, sans prix publié.
+- **Ressources (éditeur)** : 30 Mo de RAM, 51 à 84 ms par page contre 500 à 800 ms pour Chrome.
+- **Installation** : facile.
+
+**Points forts** : licence permissive · remplace Chrome sans changer ton script Puppeteer · protection SSRF et token CDP activés par défaut.
+
+**Limites** : 30 % des sous-tests WPT selon Lightpanda (67,6 % sur un sous-ensemble selon Obscura) · projet né en avril 2026, encore en 0.x · le mode furtif sert à échapper à la détection, à utiliser dans le respect des sites.
+
+**Choisis-le si** tu scrapes beaucoup sur un petit VPS. **Évite-le si** tes cibles sont des applis web lourdes et que tu n'as pas de repli. **Alternatives** : Lightpanda, Chrome headless.
+
+```bash
+curl -LO https://github.com/h4ckf0r0day/obscura/releases/latest/download/obscura-x86_64-linux.tar.gz
+tar xzf obscura-x86_64-linux.tar.gz && ./obscura fetch https://example.com --dump markdown
+```
+
+<a id="fiche-kitesurf"></a>
+### Kitesurf : le moteur expérimental de Cloudflare
+
+[Annonce](https://blog.cloudflare.com/kitesurf/) · [GitHub](https://github.com/cloudflare/kitesurf) · aucune release publiée · **3/5**
+
+Un moteur qui tourne entièrement sur Cloudflare Workers, une page par isolat. Il parle CDP, donc Puppeteer et Playwright s'y branchent.
+
+- **Ce qu'il fait** : captures, PDF, extraction HTML, et les actions rapides de Browser Run (Markdown, JSON) avec `browser=kitesurf`. DevTools se branche sur le moteur. Cloudflare dit être parti d'un portage d'Obscura.
+- **Sites JavaScript** : partiel. TodoMVC (React, Vue, Angular), Wikipedia et Hacker News passent selon Cloudflare.
+- **Interfaces** : CDP, MCP via `chrome-devtools-mcp`.
+- **Sessions** : Cloudflare le déconseille pour l'instant sur les longues sessions connectées.
+- **Self-hosting** : uniquement sur ton compte Cloudflare.
+- **Licence** : Apache-2.0.
+- **Prix** : gratuit en bêta via Browser Run. Sur ton compte : plan Workers Paid (5 $ par mois minimum), 1 000 Dynamic Workers inclus, puis 0,002 $ par worker et par jour.
+- **Ressources (Cloudflare)** : 39 Mio par extraction contre 274 Mio pour Chromium, 3,8 fois moins de CPU, mais 1,7 fois plus lent.
+- **Installation** : exigeante (Bazel, Node 22, pnpm, Rust).
+
+**Points forts** : aucun serveur à gérer · très peu de mémoire et de CPU par tâche · chaque page isolée.
+
+**Limites** : aucune authentification, n'importe qui avec l'URL utilise ton compte si tu oublies Cloudflare Access · pas encore adapté à la vidéo, au WebGL ni aux protections anti-bot · plus lent que Chromium.
+
+**Choisis-le si** tu es déjà sur Cloudflare et fais des captures en volume. **Évite-le si** tu veux un VPS ou du login. **Alternatives** : Browser Run (Chromium chez Cloudflare), Obscura.
+
+<a id="fiche-lightpanda"></a>
+### Lightpanda : le navigateur headless en Zig
+
+[Site](https://lightpanda.io) · [GitHub](https://github.com/lightpanda-io/browser) · 1.0.4 du 13.11.2026 · **4/5**
+
+Un navigateur construit de zéro pour les agents, avec CDP, WebDriver BiDi, un serveur MCP et son propre mode agent.
+
+- **Ce qu'il fait** : `fetch` (HTML, Markdown, JSON-LD et OpenGraph), serveur CDP, `lightpanda agent` en langage naturel, recherche web via une API tierce (Brave, Tavily, Exa…). Une session s'exporte en **PandaScript**, un script rejouable sans LLM.
+- **Sites JavaScript** : oui, 80 % des sous-tests WPT.
+- **Interfaces** : CLI, CDP, BiDi, MCP (stdio ou HTTP, une session isolée par agent).
+- **Sessions** : `--cookie-jar` sauvegarde les cookies, et un login reste valable d'un script à l'autre dans la même session.
+- **Captures et PDF** : en « rendu texte » seulement, pas de vraie image de la page.
+- **Self-hosting** : binaire Linux et macOS, image Docker. Pas de binaire Windows (passe par WSL).
+- **Licence** : AGPL-3.0. Si tu modifies le moteur et l'exposes en service, tu publies tes modifications. Pour un produit commercial, demande à un juriste.
+- **Prix** : gratuit en self-hosted. Cloud : 10 h gratuites par mois, puis 19 $ pour 300 h et 0,08 $ l'heure au-delà.
+- **Ressources (éditeur)** : 123 Mo contre 2 Go pour Chrome sur 100 pages, 5 s contre 46 s.
+- **Installation** : facile.
+
+**Points forts** : meilleure compatibilité des moteurs légers · PandaScript, tu prototypes avec l'IA et tu rejoues sans tokens · plusieurs agents sur un seul processus.
+
+**Limites** : AGPL · télémétrie activée par défaut (`LIGHTPANDA_DISABLE_TELEMETRY=true`) · pas de vraies captures.
+
+**Choisis-le si** tu crawles beaucoup de pages JavaScript. **Évite-le si** tu as besoin de captures fidèles ou si l'AGPL bloque ton produit. **Alternatives** : Obscura, Chrome headless.
+
+```bash
+docker run -d --name lightpanda -p 127.0.0.1:9222:9222 lightpanda/browser:latest
+```
+
+<a id="fiche-agent-browser"></a>
+### agent-browser : la CLI de navigation pour agents
+
+[Site](https://agent-browser.dev) · [GitHub](https://github.com/vercel-labs/agent-browser) · v0.43.0 du 12.11.2026 · **5/5**
+
+Une CLI en Rust, publiée par Vercel Labs, qui donne à ton agent un navigateur pilotable commande par commande. La page arrive sous forme de liste d'éléments, chacun avec une référence (`@e1`).
+
+- **Ce qu'il fait** : `open`, `snapshot`, `click`, `fill`, captures, PDF, vidéo, diff de page, traces, profiler.
+- **Moteur** : Chrome for Testing par défaut, ou Lightpanda, Obscura, un Chrome déjà ouvert, le simulateur iOS, un navigateur cloud.
+- **Interfaces** : CLI, MCP, skills livrés avec chaque version.
+- **Sessions** : sessions isolées, profils, coffre d'identifiants, domaines autorisés, commandes `confirm` et `deny` pour les actions sensibles.
+- **Captures et PDF** : oui.
+- **Self-hosting** : outil local, rien à héberger.
+- **Licence** : Apache-2.0.
+- **Prix** : gratuit. Tu paies les tokens de ton agent.
+- **Ressources** : celles du moteur choisi.
+- **Installation** : `npm install -g agent-browser && agent-browser install`.
+
+**Points forts** : ton agent lit une liste courte au lieu de 300 Ko de HTML · un clic sur un élément caché échoue franchement au lieu de faire semblant · tu changes de moteur sans changer tes commandes.
+
+**Limites** : chaque étape fait un aller-retour avec ton LLM · les références expirent quand la page change, il faut reprendre un snapshot · proxies oui (`--proxy`), mais pas d'anti-bot intégré, les CAPTCHA passent par des plugins.
+
+**Choisis-le si** tu travailles avec Claude Code, Codex, Hermes ou [OpenClaw](/blog/openclaw-pme-suisse). **Évite-le si** tu lances 1 000 fois la même tâche sans agent : un script coûtera moins. **Alternatives** : Playwright MCP, la CLI `browse` de Stagehand, la CLI Browser Use.
+
+```bash
+npm install -g agent-browser && agent-browser install
+npx skills add vercel-labs/agent-browser
+```
+
+<a id="fiche-browser-use"></a>
+### Browser Use : l'agent web autonome
+
+[Site](https://browser-use.com) · [GitHub](https://github.com/browser-use/browser-use) · 1.0.6 du 16.11.2026 · **4/5**
+
+Une bibliothèque Python qui transforme une consigne en actions dans un vrai navigateur. Depuis la 1.0, le modèle écrit lui-même du Python qui pilote Chrome, jusqu'au résultat.
+
+- **Ce qu'il fait** : sorties typées, uploads et téléchargements, secrets masqués, domaines autorisés, outils maison, recherche web en option. Un « juge » vérifie le résultat à la fin.
+- **Sites JavaScript** : oui (Chrome).
+- **Interfaces** : Python, CLI pour agents existants, MCP, API cloud.
+- **Sessions** : ton Chrome avec tes logins, une copie de profil, ou des profils cloud.
+- **Captures** : oui, le modèle s'en sert. PDF non vérifié.
+- **Self-hosting** : la bibliothèque tourne chez toi avec ton modèle, un Dockerfile est fourni. Les proxies ne marchent qu'en cloud pour l'instant.
+- **Licence** : MIT.
+- **Prix** : bibliothèque gratuite. Cloud : 1 $ offert, 0,06 $ l'heure de navigateur, proxy résidentiel à 5 $ le Go, CAPTCHA inclus. L'agent `bu-ultrafast` coûte 0,006 $ par tâche (médiane).
+- **Ressources** : Chrome, plus les tokens.
+- **Installation** : `uv add 'browser-use==1.0.6'`. Épingle la version exacte, l'éditeur insiste.
+
+**Points forts** : gère des tâches floues sur des sites jamais vus · le modèle tape un mot de passe sans en voir la valeur · même clé pour la bibliothèque, la CLI et le cloud.
+
+**Limites** : le chemin change d'une exécution à l'autre · selon la doc, le masquage des secrets « n'est pas un bac à sable » · par défaut, navigateur et modèle tournent dans le cloud de Browser Use, à changer si tes données doivent rester chez toi.
+
+**Choisis-le si** la tâche change à chaque fois. **Évite-le si** le processus est stable et critique. **Alternatives** : Skyvern, Stagehand, agent-browser.
+
+<a id="fiche-stagehand"></a>
+### Stagehand : le mélange code et IA
+
+[Site](https://stagehand.dev) · [GitHub](https://github.com/browserbase/stagehand) · SDK v4, serveur v3.7.7 · **4/5**
+
+Un SDK de Browserbase qui ajoute trois commandes IA (`act`, `observe`, `extract`) à des méthodes classiques façon Playwright. Tu codes ce qui est stable, l'IA gère ce qui bouge.
+
+- **Ce qu'il fait** : `observe` te rend de vrais sélecteurs réutilisables, `act` exécute une action décrite en français et se répare si le site change, `extract` renvoie des données validées par un schéma. Sur Browserbase, `search` et `fetch` ajoutent recherche et lecture de pages.
+- **Sites JavaScript** : oui (Chrome, piloté en CDP).
+- **Interfaces** : SDK TypeScript, Python et Go, CLI `browse`, MCP. La v4 n'utilise plus Playwright : tu ne peux pas lui passer une page Playwright existante.
+- **Sessions** : profils persistants. L'exemple officiel remplit un login sans que le mot de passe passe par le modèle.
+- **Captures** : oui. PDF non vérifié.
+- **Self-hosting** : en local avec Chrome, ou sur Browserbase.
+- **Licence** : MIT.
+- **Prix** : SDK gratuit. Browserbase : 1 h gratuite par mois, 20 $ pour 100 h (puis 0,12 $/h), 99 $ pour 500 h. Les tokens du Model Gateway sont au prix du marché.
+- **Ressources** : Chrome, plus un appel LLM par commande IA.
+- **Installation** : `pnpm add @browserbasehq/stagehand`.
+
+**Points forts** : le meilleur équilibre entre fiabilité et souplesse · les identifiants restent dans ton code · sur Browserbase, le cache évite de repayer les appels identiques.
+
+**Limites** : il faut écrire du code · cache et Model Gateway liés à Browserbase · chaque commande IA reste un appel payant.
+
+**Choisis-le si** un processus métier doit tourner tous les jours. **Évite-le si** tu veux juste un navigateur pour Claude Code. **Alternatives** : Skyvern, Playwright seul.
+
+<a id="fiche-steel"></a>
+### Steel : l'infrastructure de sessions
+
+[Site](https://steel.dev) · [GitHub](https://github.com/steel-dev/steel-browser) · v0.5.5-beta du 31.10.2026 · **4/5**
+
+Une API open source qui gère des sessions Chrome pour tes agents : cookies, stockage, proxies, extensions, nettoyage. Tu t'y branches avec Puppeteer, Playwright ou Selenium.
+
+- **Ce qu'il fait** : API de sessions, actions rapides (Markdown, captures, PDF), commandes (onglets, JavaScript), interface pour regarder et rejouer les sessions.
+- **Sites JavaScript** : oui (Chrome).
+- **Interfaces** : REST, SDK Node et Python, CDP, serveur MCP officiel.
+- **Sessions** : c'est son métier.
+- **Captures et PDF** : oui.
+- **Self-hosting** : Docker. En self-hosted, une session à la fois, sans proxies managés ni CAPTCHA.
+- **Licence** : Apache-2.0.
+- **Prix** : 30 $ offerts, puis 0,10 $ l'heure (10 sessions simultanées, 15 min max). Scale à 250 $ par mois (0,08 $/h, 1 h max).
+- **Ressources** : un Chrome par session.
+- **Installation** : `docker run -p 3000:3000 -p 9223:9223 ghcr.io/steel-dev/steel-browser`.
+
+**Points forts** : tu ne recodes pas la gestion des sessions · rejeu des sessions pour déboguer · même SDK en local et en cloud.
+
+**Limites** : bêta publique · les ports 3000 et 9223 n'ont **aucune authentification** · il faut un agent ou un script au-dessus.
+
+**Choisis-le si** plusieurs agents partagent des navigateurs. **Évite-le si** tu as un seul agent sur ta machine. **Alternatives** : Browserbase, Browser Run, Browserless.
+
+<a id="fiche-skyvern"></a>
+### Skyvern : l'automatisation de processus
+
+[Site](https://www.skyvern.com) · [GitHub](https://github.com/Skyvern-AI/skyvern) · v1.0.58 du 15.11.2026 · **3/5**
+
+Skyvern automatise des processus web avec des LLM et de la vision. Il étend Playwright avec des commandes IA et propose un éditeur de workflows sans code.
+
+- **Ce qu'il fait** : `act`, `extract`, `validate`, connexion avec coffre d'identifiants (Bitwarden, 1Password), 2FA par QR, e-mail ou SMS, téléchargements, recherche web, export PDF, reprises automatiques.
+- **Sites JavaScript** : oui (Chrome via Playwright).
+- **Interfaces** : SDK Python et TypeScript, API, interface web, MCP.
+- **Sessions** : profils réutilisables (cookies, stockage).
+- **Captures et PDF** : oui.
+- **Self-hosting** : pip ou Docker Compose (Postgres et interface).
+- **Licence** : AGPL-3.0, **sauf l'anti-bot**, réservé au cloud.
+- **Prix** : pas d'offre gratuite en cloud, essai de 14 jours. Hobby à 29 $ (30 000 crédits), Pro à 149 $ (150 000). Un crédit vaut 0,001 $ : une action coûte 30 crédits (15 en cache), une heure de navigateur 200.
+- **Ressources** : Chrome, une base de données et des appels LLM avec vision.
+- **Installation** : `pip install "skyvern[server]" && skyvern quickstart`.
+
+**Points forts** : fait pour les vrais processus (login, 2FA, fichiers) · « sélecteur d'abord, IA en repli » · interface pour les équipes qui ne codent pas.
+
+**Limites** : AGPL et anti-bot en cloud seulement · la vision coûte plus de tokens qu'une liste d'éléments · à 0,03 $ l'action, le volume coûte vite cher.
+
+**Choisis-le si** tu automatises des portails fournisseurs ou des formulaires administratifs. **Évite-le si** tu veux juste extraire du contenu. **Alternatives** : Stagehand, Browser Use.
+
+<a id="fiche-tavily"></a>
+### Tavily : la recherche pour agents
+
+[Site](https://www.tavily.com) · [SDK](https://github.com/tavily-ai/tavily-python) · [MCP](https://github.com/tavily-ai/tavily-mcp) · **5/5**
+
+Une API de recherche pensée pour les LLM : des résultats classés et nettoyés, prêts à mettre dans un prompt. Elle fait aussi extraction, cartographie, crawl et recherche approfondie.
+
+- **Ce qu'il fait** : `search`, `extract`, `map`, `crawl`, `research`.
+- **Sites JavaScript** : partiel. La doc conseille l'extraction `advanced` pour les pages rendues en JavaScript, sans réglage du rendu.
+- **Interfaces** : API, SDK Python et JS, MCP officiel (tous MIT).
+- **Sessions** : non. Pas de login, pas de clic.
+- **Captures** : non.
+- **Self-hosting** : non.
+- **Licence** : service propriétaire, SDK sous MIT.
+- **Prix** : 1 000 crédits gratuits par mois, puis 0,008 $ le crédit, ou 30 $ pour 4 000. Recherche basique : 1 crédit, avancée : 2. Cinq extractions réussies : 1 crédit. `research` : de 4 à 250 crédits.
+- **Ressources** : aucune de ton côté.
+- **Installation** : une clé API.
+
+**Points forts** : le plus simple pour donner l'actualité à un agent · grille de crédits claire, échecs non facturés · MCP en une ligne.
+
+**Limites** : ne navigue pas · crédits épuisés, requêtes bloquées jusqu'au mois suivant · tes requêtes passent par un tiers.
+
+**Choisis-le si** ton agent répond à des questions sur des faits récents. **Évite-le si** tu dois extraire 10 000 pages connues. **Alternatives** : recherche de Firecrawl, `/search` de Crawl4AI Cloud.
+
+<a id="fiche-firecrawl"></a>
+### Firecrawl : l'extraction managée
+
+[Site](https://www.firecrawl.dev) · [GitHub](https://github.com/firecrawl/firecrawl) · v2.11.0 · **4/5**
+
+Firecrawl transforme une URL en Markdown, HTML, JSON ou capture, et sait crawler un site entier. En cloud, il gère proxies et JavaScript pour toi.
+
+- **Ce qu'il fait** : `search`, `scrape`, `interact` (cliquer après le scrape), `crawl`, `map`, scrape par lots, agent, lecture de PDF et DOCX, alertes de changement.
+- **Sites JavaScript** : oui. L'éditeur annonce 96 % du web couvert et 3,4 s de latence au 95e percentile.
+- **Interfaces** : API, SDK, CLI, MCP.
+- **Sessions** : cookies par en-têtes, profils persistants en cloud.
+- **Captures et PDF** : oui en cloud. En self-hosted, il faut Fire-engine, non fourni.
+- **Self-hosting** : partiel. Le rendu JavaScript et la recherche marchent, mais sans Fire-engine : ni anti-bot avancé, ni captures, ni actions, ni agent.
+- **Licence** : AGPL-3.0 (SDK sous MIT).
+- **Prix** : 1 000 crédits gratuits. 19 $ pour 5 000, 99 $ pour 100 000. Une page : 1 crédit, +4 en JSON. Recherche : 2 crédits pour 10 résultats.
+- **Ressources** : aucune en cloud.
+- **Installation** : une clé API, ou Docker Compose.
+
+**Points forts** : l'extraction managée la plus complète · rien à héberger · beaucoup d'intégrations.
+
+**Limites** : le JSON multiplie le prix par cinq · version self-hosted amputée · crédits perdus en fin de mois (sauf Scale et Enterprise).
+
+**Choisis-le si** tu veux extraire sans serveur. **Évite-le si** tes données doivent rester chez toi. **Alternatives** : Crawl4AI, Tavily Extract.
+
+<a id="fiche-crawl4ai"></a>
+### Crawl4AI : l'extraction chez toi
+
+[Site](https://crawl4ai.com) · [GitHub](https://github.com/unclecode/crawl4ai) · v0.9.5 du 14.10.2026 · **5/5**
+
+Un crawler Python open source qui produit du Markdown propre pour les LLM et extrait des données, avec ou sans IA. Il existe aussi en cloud.
+
+- **Ce qu'il fait** : « Fit Markdown » sans menus ni pieds de page, extraction CSS ou XPath sans LLM, extraction par LLM, crawl en profondeur avec reprise après crash, découverte d'URL par sitemap.
+- **Sites JavaScript** : oui, avec scroll complet pour le chargement progressif.
+- **Interfaces** : Python, CLI `crwl`, serveur REST, MCP.
+- **Sessions** : profils persistants, cookies, proxies avec rotation.
+- **Captures et PDF** : oui.
+- **Self-hosting** : Docker, chaque endpoint protégé par un token, tableau de bord inclus.
+- **Licence** : Apache-2.0.
+- **Prix** : gratuit chez toi. Cloud : 1 000 crédits gratuits par mois, puis 10 $ pour 10 000. Page simple : 0,1 crédit, avec navigateur : 0,5, site protégé : 2, recherche : 1.
+- **Ressources** : Chromium via Playwright.
+- **Installation** : `pip install -U crawl4ai && crawl4ai-setup`.
+
+**Points forts** : extraction par schéma CSS, rapide et gratuite · licence permissive et serveur protégé par défaut · le cloud le moins cher du comparatif sur les pages simples.
+
+**Limites** : en self-hosted, la maintenance est pour toi · recherche web réservée au cloud · beaucoup d'options, la doc demande du temps.
+
+**Choisis-le si** tu veux posséder ta chaîne d'extraction. **Évite-le si** tu ne veux aucun serveur et que tes cibles sont très protégées. **Alternatives** : Firecrawl, Scrapy avec Playwright.
+
+```bash
+export CRAWL4AI_API_TOKEN="$(openssl rand -hex 32)"
+docker run -d -p 127.0.0.1:11235:11235 --shm-size=1g -e CRAWL4AI_API_TOKEN unclecode/crawl4ai:latest
+```
+
+## Comparaisons directes
+
+### Obscura vs Lightpanda vs Kitesurf
+
+| | Obscura | Lightpanda | Kitesurf |
+|---|---|---|---|
+| Mémoire à 1 onglet | 40 Mo | 37 Mo | 39 à 58 Mio par tâche (Cloudflare) |
+| 940 pages, 25 onglets | 11,5 s, pic à 201 Mo | 4,5 s, pic à 109 Mo | non testé |
+| Sous-tests WPT | 30 % | 80 % | ~69 % de la suite |
+| Vraies captures | oui | non | oui |
+| Sur un VPS | oui | oui | non |
+| Licence | Apache-2.0 | AGPL-3.0 | Apache-2.0 |
+
+Les chiffres de crawl et de WPT viennent du [benchmark publié par Lightpanda](https://lightpanda.io/blog/posts/benchmarking-ai-native-headless-browsers) le 19.10.2026, signé par son CTO. Un concurrent qui mesure les autres : prends-le comme un indice.
+
+- **Le plus sobre** : Lightpanda, sur ce benchmark.
+- **Le plus compatible** : Lightpanda pour les Web API. Obscura si le site dépend de la mise en page, grâce à son vrai moteur de rendu.
+- **Sur un VPS** : Obscura et Lightpanda. Kitesurf ne tourne que chez Cloudflare.
+- **Licence** : Apache-2.0 pour Obscura et Kitesurf. AGPL pour Lightpanda, à surveiller si tu modifies le moteur.
+- **Quand garder Chromium** : vidéo, WebGL, anti-bot, applis internes complexes. Le bon montage : moteur léger d'abord, Chrome en repli.
+
+### agent-browser vs Browser Use vs Stagehand
+
+| | agent-browser | Browser Use | Stagehand |
+|---|---|---|---|
+| Forme | CLI | Agent complet | SDK |
+| Qui appelle le LLM ? | Ton agent, à chaque étape | Browser Use, à chaque étape | Toi, dans `act`, `observe`, `extract` |
+| Reproductible | oui | non | oui sur les étapes codées |
+| Workflow critique | non | non | oui |
+
+agent-browser est un outil que ton agent utilise. Browser Use est un agent à part entière. Stagehand se place entre les deux : tu choisis où l'IA intervient.
+
+Pour les tokens, aucun éditeur ne publie de mesure comparable. En principe, Stagehand avec cache consomme le moins, puis agent-browser, puis Browser Use. Mesure sur ta tâche.
+
+### Tavily vs Firecrawl vs Crawl4AI
+
+Tavily est d'abord un moteur de recherche. Firecrawl et Crawl4AI sont d'abord des extracteurs, avec une recherche en option. Je n'ai trouvé aucun test indépendant sur la qualité des résultats.
+
+Pour le JSON, Firecrawl ajoute 4 crédits par page. Crawl4AI extrait par schéma CSS gratuitement chez toi. Pour crawler des centaines de pages, Firecrawl et Crawl4AI sont faits pour ça.
+
+Coût d'extraction de pages simples en Markdown, offres cloud :
+
+| Pages par mois | Tavily | Firecrawl | Crawl4AI Cloud |
+|---|---|---|---|
+| 100 | 0 $ | 0 $ | 0 $ |
+| 1 000 | 0 $ | 0 $ | 0 $ |
+| 10 000 | 8 $ | 44 $ | 0 $ |
+
+À 10 000 pages, Tavily consomme 2 000 crédits (1 000 gratuits), Firecrawl 10 000 (forfait à 19 $ et cinq recharges de 5 $), Crawl4AI 1 000. Si les pages demandent un vrai navigateur, Crawl4AI passe à 5 000 crédits, couverts par l'offre à 10 $.
+
+Pour le self-hosting : impossible avec Tavily, amputé avec Firecrawl, complet avec Crawl4AI.
+
+### Steel vs Skyvern
+
+Steel te fournit des **navigateurs** : sessions, cookies, proxies. Il s'arrête là.
+
+Skyvern automatise un **processus**. Tu lui dis « connecte-toi au portail fournisseur et télécharge les factures du mois », il le fait, 2FA comprise.
+
+La question à te poser : j'ai déjà la logique et il me manque des navigateurs fiables ? Steel. J'ai un processus et pas de logique ? Skyvern.
+
+## Matrice des fonctionnalités
+
+**Oui** = documenté · **Partiel** = sous conditions · **Non** = absent ou déconseillé par l'éditeur · **Non vérifié** = la doc ne dit rien, ce n'est pas un « non ».
+
+<BrowserAgentsCompare part="matrice" />
+
+Trois précisions :
+
+- **« Partiel » veut souvent dire « en cloud seulement »** : c'est le cas des formulaires, captures et sessions de Firecrawl, ou de la recherche de Browser Use, Stagehand et Crawl4AI.
+- **CAPTCHA « Partiel »** : détection ou résolution d'une partie des challenges, souvent payante. Personne ne garantit 100 %.
+- **Recherche web chez Obscura et Lightpanda** : elle passe par une API tierce que tu branches toi-même.
+
+## Prix et coûts réels
+
+Le prix affiché n'est qu'une ligne de la facture. Le coût total, c'est :
+
+1. la licence, gratuite en open source ;
+2. le quota gratuit du cloud ;
+3. l'usage payant (crédits, heures, Go de proxy) ;
+4. l'abonnement ;
+5. les coûts indirects : serveur, tokens, ton temps.
+
+Open source ne veut pas dire gratuit. Un Crawl4AI chez toi ne coûte rien en licence, mais il lui faut un serveur, et tes soirées quand un site change.
+
+Prix hors taxes en dollars, relevés le 16.11.2026. VPS de référence : 4 Go en Suisse, CHF 7 à 15 par mois ([mon comparatif des VPS](/blog/meilleurs-vps-hermes-agent-suisse)). **Le temps de maintenance est une estimation**, pas une mesure.
+
+### Scénario A : 1 000 recherches par mois
+
+| Option | Service | Maintenance (estimation) | Total |
+|---|---|---|---|
+| Tavily basique | 1 000 crédits, offerts | ~0 h | **0 $** |
+| Tavily avancé | 2 000 crédits, 1 000 offerts | ~0 h | **8 $** |
+| Crawl4AI Cloud | 1 000 crédits, offerts | ~0 h | **0 $** |
+| Firecrawl (10 résultats) | 2 000 crédits, forfait Hobby | ~0 h | **19 $** |
+
+Les tokens de ton agent s'ajoutent dans tous les cas. Firecrawl devient intéressant si tu veux aussi le contenu complet des résultats.
+
+### Scénario B : 10 000 pages extraites par mois
+
+| Option | Service | Hébergement | Maintenance (estimation) | Total |
+|---|---|---|---|---|
+| Crawl4AI chez toi, extraction CSS | 0 $ | CHF 7 à 20 | 1 à 3 h par mois | **CHF 7 à 20 + ton temps** |
+| Crawl4AI Cloud, pages simples | 0 $ | 0 | ~0 h | **0 $** |
+| Crawl4AI Cloud, avec navigateur | 10 $ | 0 | ~0 h | **10 $** |
+| Tavily Extract | 8 $ | 0 | ~0 h | **8 $** |
+| Firecrawl, Markdown | 44 $ | 0 | ~0 h | **44 $** |
+| Firecrawl, JSON | 99 $ | 0 | ~0 h | **99 $** |
+
+Si tu ajoutes une extraction par LLM chez toi, compte un appel de modèle par page. C'est souvent cette ligne qui dépasse toutes les autres.
+
+### Scénario C : 1 000 sessions de 10 actions
+
+Deux estimations à remplacer par tes mesures : **2 minutes par session** (33 heures de navigateur par mois) et **8 000 tokens en entrée, 300 en sortie par étape** confiée à un LLM (10 000 étapes).
+
+| Option | Navigateur | Actions ou LLM | Total |
+|---|---|---|---|
+| agent-browser + Chrome sur VPS | 0 $ | tokens de ton agent | **VPS (CHF 15 à 30) + tokens** |
+| Browser Use Cloud, `bu-ultrafast` | ~2 $ | ~6 $ (0,006 $ par tâche) | **~8 $ + proxies** |
+| Stagehand + Browserbase | 20 $ (100 h incluses) | tokens du modèle choisi | **20 $ + tokens** |
+| Steel | ~3,30 $ (sur les 30 $ offerts) | tokens de ton agent | **~3 $ + tokens** |
+| Browser Run (Cloudflare) | ~7 $ (5 $ + 23 h à 0,09 $) | tokens de ton agent | **~7 $ + tokens** |
+| Skyvern Cloud | 6 600 crédits | 300 000 crédits (30 par action) | **~307 $ de crédits** |
+
+Calcul des tokens avec un modèle à 0,12 $ le million en entrée et 0,60 $ en sortie (tarif « BU Fast » de Browser Use) : 80 millions en entrée font 9,60 $, 3 millions en sortie 1,80 $, soit environ **11 $**. Avec un modèle haut de gamme, multiplie par 10 à 30.
+
+Skyvern coûte plus parce qu'il facture chaque action, LLM et vision compris. 307 000 crédits dépassent son forfait Pro (150 000). Les actions mises en cache coûtent moitié moins.
+
+Ce qu'il faut retenir : **les heures de navigateur ne coûtent presque rien**. Ce qui coûte, ce sont les tokens, les actions facturées et les sessions ratées qu'il faut relancer.
+
+## Performances et benchmarks
+
+### Ce que publient les éditeurs
+
+| Outil | Chiffre publié | Conditions | Source |
+|---|---|---|---|
+| Obscura | 30 Mo, 51 à 84 ms par page | non précisées | [README](https://github.com/h4ckf0r0day/obscura), [benchmark](https://github.com/h4ckf0r0day/obscura-benchmark) |
+| Lightpanda | 123 Mo contre 2 Go, 5 s contre 46 s sur 100 pages | 933 pages réelles, AWS m5.large | [BENCHMARKS.md](https://github.com/lightpanda-io/demo/blob/main/BENCHMARKS.md) |
+| Kitesurf | 39 Mio contre 274 Mio, 1,7 fois plus lent | 14 URL, médiane de 5 passages | [Cloudflare](https://blog.cloudflare.com/kitesurf/) |
+| Firecrawl | 96 % du web, 3,4 s au P95 | non précisées | [README](https://github.com/firecrawl/firecrawl) |
+| Skyvern | 64,4 % sur WebBench, 85,8 % sur WebVoyager | rapports de l'éditeur | [README](https://github.com/Skyvern-AI/skyvern) |
+
+### Ce que publie un concurrent
+
+Le [benchmark de Lightpanda](https://lightpanda.io/blog/posts/benchmarking-ai-native-headless-browsers) compare Lightpanda 1.0.1, Obscura 0.2.5 et Moli sur un site de démo de 940 pages. La machine n'est pas précisée, le nombre de passages non plus, et le taux de réussite n'est pas publié. L'auteur rappelle lui-même que WPT mesure les Web API, pas le comportement sur de vrais sites.
+
+### Le protocole que je vais suivre
+
+Je n'ai trouvé aucun test indépendant sur ces 11 outils, et je n'en ai pas encore fait. Voici le protocole de la prochaine mise à jour.
+
+Huit cibles : une page HTML statique, un site React, une pagination, un formulaire de test, une appli avec un compte de test, des tableaux, un scroll infini, un site lourd en CSS et JavaScript.
+
+Pour chaque outil et chaque cible : 10 passages, versions figées, même VPS (4 vCPU, 8 Go). Je mesure la RAM moyenne et maximale, le CPU, le démarrage, le temps par tâche, les tokens, le comportement à 1, 5 et 25 sessions, et surtout le **taux de réussite** : la donnée attendue est-elle là ?
+
+C'est le chiffre qui manque partout. Un moteur deux fois plus rapide qui rate une fois sur cinq coûte plus cher qu'un Chrome qui réussit toujours.
+
+## Le meilleur browser pour ton agent IA, selon le besoin
+
+| Besoin | Mon choix de départ |
+|---|---|
+| Infos récentes | Tavily |
+| Recherche et synthèse | Tavily + extraction |
+| Extraction simple | Firecrawl |
+| Scraping chez toi | Crawl4AI |
+| Navigateur léger sur VPS | Obscura |
+| Alternative légère à Chromium | Lightpanda |
+| Navigateur sans serveur | Kitesurf |
+| Navigation avec Claude Code | agent-browser |
+| Agent autonome | Browser Use |
+| Workflows répétitifs | Stagehand |
+| Navigateurs partagés | Steel |
+| Formulaires | Skyvern ou Stagehand |
+
+**Infos récentes : Tavily.** Une recherche coûte un crédit, les 1 000 premiers sont gratuits chaque mois, et il n'y a rien à héberger. Change si tes requêtes ne doivent pas sortir de chez toi, ou si tu paies déjà Firecrawl ou Crawl4AI Cloud, qui font aussi de la recherche.
+
+**Recherche et synthèse : Tavily + extraction.** Tavily trouve les sources, un extracteur récupère leur contenu complet. `research` de Tavily fait les deux, mais coûte de 4 à 250 crédits par requête. Si tu fais beaucoup de synthèses, recherche Tavily et extraction Crawl4AI reviennent moins cher, et tu gardes la main sur les sources.
+
+**Extraction simple : Firecrawl.** Une URL, du Markdown propre, rien à installer. Passe à Crawl4AI Cloud si le prix compte (0,1 crédit par page simple contre 1), ou à Crawl4AI chez toi si les données doivent rester chez toi.
+
+**Scraping chez toi : Crawl4AI.** Apache-2.0, Docker protégé, extraction sans LLM, reprise après crash. Change si personne ne peut maintenir le serveur : un service managé te coûtera moins que tes heures.
+
+**Navigateur léger sur VPS : Obscura.** Un binaire, 30 à 40 Mo, vraies captures, MCP, licence permissive. Passe à Lightpanda si tes sites cassent sur Obscura et que l'AGPL ne te gêne pas.
+
+**Alternative légère à Chromium : Lightpanda.** La meilleure compatibilité et les meilleurs chiffres de crawl publiés. PandaScript permet de rejouer sans LLM. Change si tu as besoin de vraies captures ou si ton produit ne peut pas accepter l'AGPL.
+
+**Navigateur sans serveur : Kitesurf.** Rien à gérer, très peu de ressources par tâche. Réserve-le aux captures et à l'extraction HTML. Passe à Browser Run dès qu'il te faut du login, des sessions longues ou de la stabilité.
+
+**Navigation avec Claude Code : agent-browser.** Fait pour les agents de code : liste d'éléments compacte, skill officiel, MCP, moteur au choix. Passe à Browser Use si tu veux déléguer une tâche entière plutôt que piloter chaque clic.
+
+**Agent autonome : Browser Use.** Tu donnes une consigne, il trouve le chemin. Passe à Stagehand dès que la même tâche revient chaque jour : un chemin connu doit devenir du code.
+
+**Workflows répétitifs : Stagehand.** Du code pour ce qui est stable, de l'IA pour ce qui bouge, des données typées en sortie. Passe à Skyvern si l'équipe ne code pas ou si le processus est plein de 2FA.
+
+**Navigateurs partagés : Steel.** Sessions, proxies et nettoyage gérés, rejeu pour déboguer. Passe à Browserbase si tu utilises Stagehand (cache intégré), ou à un simple Chrome si tu n'as qu'un agent.
+
+**Formulaires : Skyvern ou Stagehand.** Skyvern gère login, 2FA et fichiers de bout en bout, mais facture chaque action. Stagehand garde les identifiants hors du prompt et te laisse coder la validation. Dans les deux cas, une personne valide avant tout envoi qui engage : paiement, déclaration, commande.
+
+## Trois architectures prêtes à reproduire
+
+### A. L'agent personnel économique
+
+```
+          ┌───────────────────────────────┐
+          │ Ton agent (Claude Code,       │
+          │ Hermes, OpenClaw…)            │
+          └─────┬──────────┬──────────┬───┘
+       question │      URL │   action │
+                ▼          ▼          ▼
+           Tavily MCP   Crawl4AI   agent-browser
+```
+
+La règle de routage tient en trois lignes dans les instructions de ton agent. Une question sans URL va à Tavily. Une URL connue va à Crawl4AI. Un clic ou un login va à agent-browser. L'agent ne monte d'un étage que si le précédent ne suffit pas.
+
+Pour un usage perso, Tavily et Crawl4AI Cloud restent dans leurs quotas gratuits, et agent-browser est gratuit. Il reste les tokens de ton agent, et le routage les réduit : il n'envoie plus de pages entières au modèle.
+
+```bash
+claude mcp add --transport http crawl4ai https://api.crawl4ai.com/mcp \
+  --header "Authorization: Bearer $CRAWL4AI_KEY"
+npm install -g agent-browser && agent-browser install
+```
+
+### B. Le scraping self-hosted
+
+```
+  File d'URL (Redis) → Workers Crawl4AI → Stockage (Postgres ou fichiers)
+                             │
+                CDP ─────────┼──────────────┐
+                             ▼              ▼
+                     Obscura (par défaut)  Chromium (si échec)
+```
+
+Un worker prend une URL dans la file et essaie avec Obscura. Il vérifie que le champ attendu est là. Sinon, il recommence avec Chromium. Tu plafonnes le nombre de pages par worker, et Obscura redémarre ses processus au-delà d'un seuil de mémoire (`--worker-max-rss`).
+
+```yaml
+# docker-compose.yml (esquisse à adapter)
+services:
+  redis:
+    image: redis:7
+  obscura:
+    image: h4ckf0r0day/obscura
+    environment: [OBSCURA_CDP_TOKEN]
+    command: ["serve", "--port", "9222", "--workers", "4", "--worker-max-rss", "512"]
+  chromium:
+    image: chromedp/headless-shell:latest
+  crawler:
+    image: unclecode/crawl4ai:latest
+    shm_size: 1g
+    environment: [CRAWL4AI_API_TOKEN]
+    ports: ["127.0.0.1:11235:11235"]
+    depends_on: [redis, obscura, chromium]
+```
+
+Aucun port CDP ne sort du réseau Docker. Le repli d'Obscura vers Chromium vit dans le code de ton worker.
+
+### C. L'automatisation métier
+
+```
+  Déclencheur (cron, webhook)
+        │
+        ▼
+  Workflow Stagehand ── étapes codées (login, navigation)
+        │           └── act / extract pour les étapes qui changent
+        ▼
+  Sessions Steel ou Browserbase
+        │
+        ▼
+  Validation humaine ── action sensible ? → notification, puis attente
+        │
+        ▼
+  Logs, traces, reprise (3 essais puis alerte)
+```
+
+Exemple : le relevé mensuel des factures fournisseurs.
+
+1. Le cron lance le workflow le 1er du mois.
+2. Stagehand se connecte au portail avec un compte dédié. Les identifiants restent dans le code.
+3. `extract` récupère les factures du mois dans un format typé.
+4. Le workflow compare avec la compta et repère les montants inhabituels.
+5. S'il faut payer, il s'arrête et attend ton accord.
+6. En cas d'échec, trois essais, puis une alerte avec la capture de l'écran fautif.
+
+## Les erreurs à éviter
+
+**Confondre recherche et navigation.** « Quel est le prix de X » se règle en un appel d'API. Un navigateur pour ça multiplie le coût et les pannes.
+
+**Utiliser un LLM pour ce qu'une ligne de code fait.** Cliquer sur « Se connecter » sur un site que tu connais, c'est une ligne de Playwright.
+
+**Lancer Chromium sans raison.** Beaucoup de pages se lisent avec un téléchargement ou un moteur léger.
+
+**Croire qu'un moteur léger lit tous les sites.** 30 à 80 % des sous-tests WPT, ce n'est pas 98 %. Prévois un repli.
+
+**Prendre les benchmarks d'éditeurs pour des garanties.** Chacun choisit ses pages. Mesure sur les tiennes.
+
+**Oublier le taux de réussite.** Un outil rapide qui rate souvent te coûte des relances et des données manquantes.
+
+**Oublier les tokens.** Dans le scénario C, le navigateur coûte quelques dollars, les tokens dix fois plus.
+
+**Exposer un port CDP sur Internet.** C'est un navigateur pilotable par n'importe qui, avec tes cookies. Steel et Kitesurf n'ont pas d'authentification par défaut. Écoute sur `127.0.0.1` et mets un token devant.
+
+**Donner trop de droits à l'agent.** Un compte dédié, des droits minimaux, une liste de domaines autorisés. Jamais ton compte admin.
+
+**Ignorer les règles des sites.** `robots.txt` (Obscura et Lightpanda ont `--obey-robots`), conditions d'utilisation, limites de débit. Un mode furtif ne rend pas un usage autorisé.
+
+**Laisser passer les actions sensibles.** Paiement, envoi, suppression, publication : [une validation humaine](/blog/garde-fous-ia-validations-audit) avant. agent-browser a des commandes `confirm` et `deny` pour ça.
+
+## FAQ
+
+### Quel est le meilleur navigateur pour un agent IA ?
+
+Ça dépend de la tâche, parce que « navigateur » recouvre trois métiers. Pour chercher une info, Tavily suffit et coûte un crédit par requête. Pour lire des pages connues, Crawl4AI (chez toi) ou Firecrawl (managé) renvoient du Markdown propre. Pour cliquer, se connecter et remplir des formulaires, agent-browser avec Chrome reste le plus sûr si ton agent pilote, et Stagehand si c'est un workflow codé. Obscura et Lightpanda deviennent intéressants quand le volume rend Chrome trop gourmand en mémoire. Le meilleur outil, c'est le premier étage qui suffit.
+
+### Quelle différence entre Browser Use et agent-browser ?
+
+agent-browser est une CLI. Ton agent (Claude Code, Codex, Hermes) envoie une commande à la fois : `open`, `snapshot`, `click @e3`. Il reçoit une liste courte des éléments de la page, décide, et garde la main. Browser Use est un agent complet. Tu lui donnes une consigne en langage naturel, et son propre modèle écrit le code qui pilote le navigateur jusqu'au résultat, puis un juge vérifie. Le premier est plus prévisible et ne dépend que de ton agent. Le second gère mieux les tâches floues, mais refait rarement deux fois le même chemin.
+
+### Peut-on remplacer Chromium par Obscura ?
+
+Pour une partie des sites, oui. Obscura parle le Chrome DevTools Protocol : un script Puppeteer ou Playwright s'y branche en changeant une adresse. Il exécute le JavaScript avec V8 et fait captures et PDF sans Chrome. Mais c'est un moteur indépendant, et sa doc le dit : CSS rare, certaines Web API, vidéo et effets graphiques peuvent différer. Selon le benchmark publié par Lightpanda, il passe environ 30 % des sous-tests WPT. Le bon montage : Obscura par défaut, une vérification du résultat, et Chrome quand ça rate.
+
+### Obscura ou Lightpanda : lequel choisir ?
+
+Lightpanda passe plus de tests de compatibilité (80 % des sous-tests WPT contre 30 %) et affiche de meilleurs temps de crawl, selon un benchmark qu'il a publié lui-même. En face, il est sous AGPL, ses captures sont un rendu texte et sa télémétrie est activée par défaut. Obscura est sous Apache-2.0, fait de vraies captures et des PDF, et a un mode furtif. Pour un produit commercial fermé ou du contrôle visuel, Obscura. Pour crawler beaucoup de pages JavaScript sans contrainte de licence, Lightpanda. Le mieux reste de tester les deux sur tes sites.
+
+### Kitesurf peut-il fonctionner gratuitement ?
+
+Oui, de deux façons. Via Browser Run de Cloudflare, Kitesurf est gratuit pendant la bêta, avec des limites par compte. En local, `pnpm run dev` le lance avec wrangler sans rien payer. Pour le déployer sur ton propre compte, il faut le plan Workers Paid (5 $ minimum par mois), parce que Kitesurf crée un Dynamic Worker par page. Le plan inclut 1 000 Dynamic Workers par mois, puis 0,002 $ par worker et par jour. Attention, le moteur n'a aucune authentification : mets Cloudflare Access devant avant de déployer.
+
+### Tavily est-il un véritable navigateur ?
+
+Non. Tavily est une API de recherche et d'extraction faite pour les LLM. Tu lui envoies une question, elle renvoie des résultats classés et nettoyés. Tu lui envoies des URL, elle renvoie leur contenu. Elle sait aussi cartographier et crawler un site. Par contre, elle ne clique pas, ne remplit pas de formulaire, ne garde pas de session et ne fait pas de capture. Pour un agent, c'est souvent une bonne nouvelle : la plupart des besoins « web » sont en fait des besoins de recherche. Quand il faut vraiment agir sur une page, ajoute agent-browser.
+
+### Quel est le meilleur outil de scraping open source ?
+
+Pour la plupart des projets, Crawl4AI. Il est sous Apache-2.0, son serveur Docker exige un token sur chaque endpoint, il extrait par schéma CSS ou XPath sans LLM, crawle en profondeur avec reprise après crash, et produit un Markdown filtré pour les LLM. Firecrawl est open source aussi, mais sous AGPL, et sa version self-hosted n'a pas Fire-engine : ni anti-bot avancé, ni captures, ni actions. Si tu veux un navigateur plus léger que Chromium derrière, Obscura ou Lightpanda peuvent servir de navigateur distant via CDP.
+
+### Firecrawl ou Crawl4AI ?
+
+Firecrawl si tu veux une API managée complète (recherche, scrape, crawl, cartographie, lecture de PDF) qui gère proxies et JavaScript sans rien héberger. Compte 1 crédit par page, 5 en JSON. Crawl4AI si tu veux héberger toi-même sous licence permissive, ou payer moins en cloud : 0,1 crédit par page simple, 0,5 avec un navigateur. Pour 10 000 pages simples par mois, Crawl4AI Cloud reste dans son quota gratuit, alors que Firecrawl demande un forfait. Firecrawl garde l'avantage sur l'étendue des fonctions et le nombre d'intégrations.
+
+### Quel outil choisir pour Claude Code ?
+
+agent-browser. C'est une CLI faite pour les agents de code, avec un skill officiel qui suit la version installée et un serveur MCP. Ton agent lit une liste courte d'éléments au lieu du HTML brut, ce qui limite les tokens. Ajoute Tavily (MCP officiel) pour la recherche et Crawl4AI Cloud (MCP hébergé, une ligne `claude mcp add`) pour lire des pages. Si tu préfères déléguer des tâches entières plutôt que piloter chaque clic, la CLI Browser Use s'installe aussi comme skill dans Claude Code.
+
+### Quel outil choisir pour un agent Hermes ?
+
+Le même trio que pour Claude Code : Tavily pour chercher, Crawl4AI pour lire, agent-browser pour naviguer. Browser Use et Skyvern citent Hermes parmi les agents compatibles. Il existe aussi un plugin communautaire, non officiel, qui fait tourner les tâches navigateur de Hermes sur Obscura. Sur un petit VPS, c'est un vrai plus : pas de Chrome qui reste en mémoire en permanence. Comme [Hermes](/blog/hermes-agent-ia-pme) tourne souvent sur un serveur toujours allumé, garde le port CDP du navigateur fermé à Internet.
+
+### Comment réduire la consommation de tokens ?
+
+D'abord, n'envoie jamais de HTML brut au modèle. Un snapshot d'accessibilité (agent-browser, Stagehand) ou du Markdown filtré (« Fit Markdown » de Crawl4AI) suffit presque toujours. Ensuite, route les tâches : une recherche ne doit pas lancer de navigateur. Code les étapes stables et garde le LLM pour celles qui changent. Active le cache quand il existe, Stagehand sur Browserbase ne refacture pas les appels identiques. Enfin, une fois qu'un chemin a été trouvé par l'IA, rejoue-le sans elle : c'est l'idée de PandaScript chez Lightpanda.
+
+### Quels outils fonctionnent sur un petit VPS ?
+
+Sur 2 à 4 Go : Obscura et Lightpanda (30 à 40 Mo par instance selon les mesures publiées), agent-browser branché sur l'un des deux, et Crawl4AI en Docker pour des volumes modérés. Tavily, Firecrawl et Crawl4AI Cloud ne consomment rien sur ton serveur puisque ce sont des API. Steel et Skyvern embarquent Chrome, et Skyvern ajoute une base de données : prends 8 Go pour être tranquille. Kitesurf ne tourne pas sur un VPS, seulement chez Cloudflare.
+
+### Peut-on automatiser un site avec authentification ?
+
+Oui. agent-browser, Browser Use, Stagehand et Crawl4AI réutilisent un profil qui garde tes connexions. Skyvern gère un coffre d'identifiants (Bitwarden, 1Password) et la 2FA par QR, e-mail ou SMS. Stagehand montre comment remplir un login sans que le mot de passe passe par le modèle. Trois règles : un compte dédié à l'agent avec des droits minimaux, les identifiants dans un coffre ou des variables d'environnement, jamais dans le prompt, et un œil sur les conditions du site.
+
+### Un agent navigateur peut-il éviter tous les CAPTCHA ?
+
+Non. Les offres cloud de Browser Use, Steel, Skyvern et Firecrawl réduisent la détection ou résolvent une partie des challenges, souvent contre paiement (Steel facture de 1 à 3 $ les 1 000 résolutions). Selon Cloudflare, Kitesurf n'est pas encore prêt pour les challenges anti-bot. Aucun outil ne garantit de tout passer. Et un CAPTCHA est souvent un message clair : le site ne veut pas de robots à cet endroit. Le contourner peut violer ses conditions. Cherche d'abord s'il existe une API officielle.
+
+### Quel est le coût réel d'un navigateur IA ?
+
+Additionne quatre lignes : le service ou la licence, l'hébergement, les tokens du modèle et ton temps de maintenance. Pour 1 000 sessions de 10 actions par mois, les heures de navigateur coûtent entre 2 et 20 $ selon le fournisseur. Les tokens, à 8 000 par étape, coûtent environ 11 $ avec un modèle économique, et dix à trente fois plus avec un modèle haut de gamme. Les services qui facturent chaque action, comme Skyvern, dépassent vite les 300 $. L'open source ne coûte rien en licence, mais demande un serveur et du temps. Mesure tes vraies tâches avant de choisir.
+
+## Conclusion
+
+| Si tu veux… | Prends |
+|---|---|
+| Chercher des infos récentes | Tavily |
+| Extraire sans serveur | Firecrawl ou Crawl4AI Cloud |
+| Extraire chez toi | Crawl4AI |
+| Un navigateur pour Claude Code ou Hermes | agent-browser |
+| Un moteur léger sur VPS | Obscura (Apache) ou Lightpanda (AGPL) |
+| Déléguer une tâche floue | Browser Use |
+| Un workflow métier fiable | Stagehand, avec Steel ou Browserbase |
+| Automatiser un processus avec 2FA | Skyvern |
+
+Le meilleur outil n'est pas le plus puissant. C'est celui qui fait le travail assez souvent, avec le moins de pièces et le coût le plus raisonnable.
+
+En pratique : commence par l'étage le plus bas. Une recherche, puis une extraction, et seulement ensuite un navigateur. Et mesure, parce que les chiffres des éditeurs ne remplacent pas un test sur tes propres sites.
+
+Ton agent lance un Chrome pour quoi faire, aujourd'hui ?
+
+> **Tu veux brancher le web à ton agent sans y passer tes soirées ?** Choix des outils, installation sur ton serveur, garde-fous : c'est le genre de mise en place que je fais pour des entreprises. [Discuter de ton projet d'agent IA →](/contact?utm_source=blog&utm_medium=article&utm_campaign=comparatif-browser-agents-ia)
+
+## Sources
+
+Consultées le 16.11.2026.
+
+- **Dépôts** : [Obscura](https://github.com/h4ckf0r0day/obscura) · [Kitesurf](https://github.com/cloudflare/kitesurf) · [Lightpanda](https://github.com/lightpanda-io/browser) · [agent-browser](https://github.com/vercel-labs/agent-browser) · [Browser Use](https://github.com/browser-use/browser-use) · [Stagehand](https://github.com/browserbase/stagehand) · [Steel](https://github.com/steel-dev/steel-browser) · [Steel MCP](https://github.com/steel-dev/steel-mcp-server) · [Skyvern](https://github.com/Skyvern-AI/skyvern) · [Tavily Python](https://github.com/tavily-ai/tavily-python) · [Tavily MCP](https://github.com/tavily-ai/tavily-mcp) · [Firecrawl](https://github.com/firecrawl/firecrawl) · [Crawl4AI](https://github.com/unclecode/crawl4ai)
+- **Docs** : [Skyvern](https://www.skyvern.com/docs) · [Steel](https://docs.steel.dev) · [agent-browser](https://agent-browser.dev) · [Firecrawl self-hosting](https://docs.firecrawl.dev/contributing/self-host)
+- **Cloudflare** : [annonce Kitesurf](https://blog.cloudflare.com/kitesurf/) · [Dynamic Workers](https://developers.cloudflare.com/dynamic-workers/pricing/) · [Browser Run](https://developers.cloudflare.com/browser-run/pricing/) · [Workers](https://developers.cloudflare.com/workers/platform/pricing/)
+- **Benchmarks** : [Lightpanda, 19.10.2026](https://lightpanda.io/blog/posts/benchmarking-ai-native-headless-browsers) · [Lightpanda BENCHMARKS.md](https://github.com/lightpanda-io/demo/blob/main/BENCHMARKS.md) · [Obscura benchmark](https://github.com/h4ckf0r0day/obscura-benchmark)
+- **Prix** : [Tavily](https://www.tavily.com/pricing) et [ses crédits](https://docs.tavily.com/documentation/api-credits) · [Firecrawl](https://www.firecrawl.dev/pricing) · [Crawl4AI](https://crawl4ai.com/pricing) · [Browser Use](https://browser-use.com/pricing) · [Browserbase](https://www.browserbase.com/pricing) · [Steel](https://steel.dev/pricing) · [Skyvern](https://www.skyvern.com/pricing) et [ses crédits](https://www.skyvern.com/docs/cloud/account) · [Lightpanda](https://lightpanda.io/pricing)
+
+## Changelog
+
+- **16.11.2026** : première version. Matrice vérifiée par outil sur la doc officielle. Benchmark maison à venir.
