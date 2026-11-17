@@ -291,3 +291,11 @@ sitemap tant que la bascule n'est pas faite.
 | Q3 | **Le Reddit dashboard reste-t-il une vitrine ?** | 88 imp / 1 clic, indexé, lié depuis le méga-menu Blog sur toutes les pages v2. Hors positionnement IA. | Le garder (aucun coût, indexé) mais le sortir du méga-menu ; lien depuis `/about` ou un article seulement. |
 | Q4 | **Quel angle pour `/developpeur-web-freelance-geneve` : « développeur web » ou « freelance systèmes IA à Genève » ?** | 1 907 imp / 8 clics, requêtes « développement web genève », « freelance … astro ». | Garder l'URL et « développeur freelance Genève » dans le title (c'est ce qui ramène les clics), réécrire le corps en page identité qui présente les 3 offres, IA en premier. |
 | Q5 | **Un 2ᵉ guide est-il prévu à court terme ?** | `/guides` liste 1 guide, 71 imp / 0 clic ; le plan prévoit de fusionner 13 articles dans le guide existant, pas d'en créer un autre. | Non → 301 `/guides` vers `/blog` maintenant ; recréer le hub le jour où il y aura 3 guides. |
+
+## Arbitrages de Jonathan (2026-11-17)
+
+- **Q1 Webflow** : option de l'offre site web. `/services/developpeur-webflow` → 301 `/services/creation-site-web` ; Webflow reste dans `pricing.ts`.
+- **Q2 Zone frontalière** : plus de sites web à Annemasse/Gaillard, « on aura du service IA à la place ». `/developpement-web/{annemasse,gaillard}` → 301 vers des pages IA de ville `/consultant-ia/{annemasse,gaillard}` (à créer sur le gabarit décliné).
+- **Q3 Reddit dashboard** : gardé, sorti du méga-menu Blog (recommandation appliquée).
+- **Q4 `/developpeur-web-freelance-geneve`** : URL gardée, page « freelance à Genève », IA d'abord puis sites et apps.
+- **Q5 Guides** : 301 `/guides` → `/blog` (recommandation appliquée).
