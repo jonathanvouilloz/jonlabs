@@ -1,28 +1,31 @@
 # Rebrand v2 — nouvelle DA « freelance systèmes IA »
 
-> Branche `rebrand-v2`. Spike de la future home sur `/v2` (noindex), puis redesign de toutes les pages.
-> Système de design figé dans `docs/design-v2.md`. Le fond (copy, offre) attend le repositionnement en cours.
+> Branche `rebrand-v2`. Redesign de toutes les pages, home comprise (basculée sur `/` le 2026-11-17).
+> Système de design figé dans `docs/design-v2.md`.
 
-> **Statut** : EN COURS (toutes les pages sauf la home sont en v2) · **Commits** : `cd59f58..3b33aa5`
+> **Statut** : EN COURS (code fini, reste merge + preview Vercel) · **Commits** : `cd59f58..2370f5f`
 
 ## Ce que ça fait
-Refonte visuelle du site jonlabs.ch sur le système « v2 » (grille à filets, Funnel Display, teal), page par page, sur la branche `rebrand-v2`. Le visiteur voit un site cohérent « freelance systèmes IA » ; seule la home `/` garde l'ancien design, la v2 vivant sur `/v2` (noindex) en attendant la copy.
+Refonte visuelle du site jonlabs.ch sur le système « v2 » (grille à filets, Funnel Display, teal), page par page, sur la branche `rebrand-v2`. Le visiteur voit un site cohérent « freelance systèmes IA », home incluse : `/v2` redirige en 301 vers `/`. Le site vouvoie, le blog tutoie.
 
 ## Comment ça marche
+- Home : `src/pages/index.astro` (copy validée : hero « Des applications où vos équipes et vos agents IA collaborent », méthode en 5 étapes, bento, hub, FAQ 7 questions, contact). Title « Développement IA sur mesure à Genève » ; schémas = organisation, localBusiness, website, webPage.
+- Bouton « Discuter de mon projet » (Hero, Nav, Dock, Contact, home) : `[data-cal-popup]` ouvre Cal.com en fenêtre ; un seul chargeur Cal dans `v2-ui.ts` sert aussi l'agenda inline `#cal-inline` (home, contact).
 - Coquille : `layouts/V2Page.astro` (Layout + Nav + Dock + Footer + `v2.css` + `v2-ui.ts`, prop `current` pour la pastille de nav). `layouts/V2Simple.astro` ajoute en-tête centré + colonne 680px `.co-prose` (cv, mentions, reddit-dashboard).
 - Pages service : `components/v2/ServicePage.astro` reçoit un objet (head, proofs, sections, bento, method, cases, links, testimonials, faq) ; chaque route (`hermes`, `consultant-ia`, formation IA, app mobile, création de site, développeur freelance Genève) ne fait que fournir les données.
 - Pages déclinées (villes, métiers) : `components/v2/declinee/DeclineePage.astro` + contrat `types.ts` (`DcPage`) ; chaque route mappe sa source (`villes-suisse-ia`, `villes-mobile`, `metiers-ia`) vers ce contrat via `shared.ts`.
 - Blog : `PostCells.astro` = grille partagée par `/blog` et `/blog/tag/[tag]` ; `lib/tags.ts` porte les libellés des 33 tags normalisés (anciens 148 → 33, table dans `docs/research/tags-normalisation.md`).
 - Contact : `ContactSteps.astro`, formulaire 3 étapes, POST `fetch` vers `api.web3forms.com/submit` (conservé de l'ancienne page).
-- Portfolio : `/portfolio` en rangées (`data-rise`), `/portfolio/[slug]` = dossier technique + lightbox.
+- Portfolio : `/portfolio` en rangées (`data-rise`), `/portfolio/[slug]` = dossier technique + lightbox. 4 études de cas IA ajoutées (`wildcat-agent-mails`, `barber-hub-automatisation`, `systeme-ia-jonlabs`, `gestion-camps-budget` anonymisée) ; images hero provisoires.
+- Sous-services des pages service : `src/data/service-sections.ts` (remplace `scenarios.ts`, supprimé). Hébergement IA « dès CHF 15 / mois » : `pricing.ts` (`runningCost`).
 - Redirections : fusions et retraits dans `vercel.json` (301), arbitrés dans `docs/research/architecture-pages-v2.md`. `/developpement-web` retiré ; refonte et Webflow absorbées par création de site ; Genève fusionnée dans les piliers.
 - `v2-ui.ts` : `[data-rise]` (enfants directs qui montent en décalé, inactif sous `prefers-reduced-motion`) ; les liens `/contact#agenda` de Nav/Dock deviennent `#agenda` quand la page a son propre agenda (home, contact).
 
 ## Comment débuguer
 - **Par où entrer** : le gabarit concerné (`V2Page`, `ServicePage`, `DeclineePage`), puis `src/styles/v2.css` et `src/scripts/v2-ui.ts`.
-- **Ce qu'on observe** : `npm run build` (118 pages), `/v2/styleguide` pour la référence des composants, `dist/` pour title/schémas.
+- **Ce qu'on observe** : `npm run build` (121 pages), `/v2/styleguide` (non redirigée par la 301 `/v2` exacte, à vérifier en preview) pour la référence des composants, `dist/` pour title/schémas.
 - **Pannes connues** : voir les Pièges du bloc 2026-11-17 (suite) plus bas (marges `.co-prose`, spécificité `.v2 a`, grille d'article).
-- **Pièges** : `data-rise` pose `opacity:0` en JS sur les enfants ; un enfant ajouté après coup reste visible. Un seul `.v2-teal` par page (la cellule teal de `/tarifs` est `<Pricing />`).
+- **Pièges** : l'ouverture Cal en fenêtre dépend du chargeur de `v2-ui.ts` ; sans JS le lien `/contact#agenda` fait office de repli. `data-rise` pose `opacity:0` en JS sur les enfants ; un enfant ajouté après coup reste visible. Un seul `.v2-teal` par page (la cellule teal de `/tarifs` est `<Pricing />`).
 
 ## Configuration
 Clé Web3Forms du formulaire contact (dans `ContactSteps.astro`, publique côté client) ; 301 dans `vercel.json` ; `prebuild` = `scripts/check-canonical-host.mjs`.
@@ -30,15 +33,29 @@ Clé Web3Forms du formulaire contact (dans `ContactSteps.astro`, publique côté
 ## Tests et vérifications
 | Vérif | Commande | Résultat réel |
 |---|---|---|
-| Build complet | `npm run build` | OK, 118 pages, relancé le 2026-11-17 |
+| Build complet | `npm run build` | OK, 121 pages, relancé le 2026-11-17 |
+| Fenêtre Cal.com (`[data-cal-popup]`) | navigateur | **non testé** |
 | 301 (anciens tags encodés, fusions) | déploiement preview Vercel | **non testé** |
 | Envoi réel du formulaire contact | navigateur | **non testé** |
 | Contrôle visuel 1536×808 et 390px | manuel | rapporté, non relancé |
 
 ## Limites et dettes
-- Home `/` encore en ancien design ; `Header.astro`, `Footer.astro` et le CSS blueprint ne sont plus importés que par `src/pages/index.astro` (et `Layout.astro` pour le CSS).
-- Formulaire contact non branché au CRM (tâche Jonathan).
-- Témoignages en lorem ; études de cas IA absentes.
+- Merge dans `main` et déploiement preview Vercel non faits : 301 (dont tags encodés et `/v2`), envoi réel du formulaire contact, visuel des pages service, fenêtre Cal.
+- `src/pages/devis-client/[slug].astro` encore en ancien design (`global.css`, noindex, devis client).
+- `blueprint.css` reste importé par `Layout.astro` : `.co-prose` (corps des articles) en dépend. `Header`/`Footer`/`Hero` anciens et composants de l'ancienne home sont supprimés.
+- Études de cas IA : images provisoires, captures et chiffres réels à fournir (tâche Jonathan) ; l'étude `gestion-camps-budget` porte une date de livraison approximative (dernier commit 13.10.2026).
+- Témoignages en lorem ; formulaire contact non branché au CRM (tâche Jonathan).
+- Mot-clé de la home : volumes et SERP google.ch réelle non obtenus (cf. `docs/research/home-mot-cle.md`), à mesurer en GSC.
+
+## Etat session 2026-11-17 (suite 3)
+
+**Fait :** interview de copy de la home (vouvoiement site / tutoiement blog, hero, méthode 5 étapes, bento, FAQ 7 questions, hébergement IA « dès CHF 15 / mois »), bouton Cal.com en fenêtre, `scenarios.ts` retiré (`service-sections.ts`), mot-clé de la home + `/consultant-ia` recentré + lien footer vers `/developpeur-web-freelance-geneve`, 4 études de cas IA, **bascule `/v2` → `/`** (301 dans `vercel.json`, ancien Header/Footer/Hero et composants de l'ancienne home supprimés). Build : 121 pages.
+
+**Prochain :** merger `rebrand-v2` dans `main`, déployer en preview Vercel, tester 301 / formulaire contact / pages service, puis `/epic-recap`.
+
+**Commit :** [2370f5f] feat(home): bascule de la home v2 sur /
+
+---
 
 ## Etat session 2026-11-17 (suite 2)
 
@@ -118,11 +135,13 @@ Clé Web3Forms du formulaire contact (dans `ContactSteps.astro`, publique côté
 ---
 
 ## Carte du code
-> Mise a jour : 2026-11-17 (suite 2)
+> Mise a jour : 2026-11-17 (suite 3)
 
 | Fichier | Role |
 |---------|------|
-| `src/pages/v2.astro` | Home v2 assemblée avec les composants ; garde le hub, l'à-propos, la section privée et Cal.com |
+| `src/pages/index.astro` | Home (ex-`/v2`) : composants v2 + hub, à-propos, section privée, Cal.com ; `/v2` redirige vers elle |
+| `src/data/service-sections.ts` | Sous-services des pages service (remplace `scenarios.ts`) |
+| `src/content/portfolio/{wildcat-agent-mails,barber-hub-automatisation,systeme-ia-jonlabs,gestion-camps-budget}.md` | 4 études de cas IA |
 | `src/pages/v2/styleguide.astro` | Styleguide v2 : un bloc par composant validé (référence vivante, 21 sections) |
 | `src/pages/blog/[slug].astro` | Page article v2 (magazine centré), chrome v2, corps `.co-prose`, schémas SEO inchangés |
 | `src/components/v2/*.astro` | Nav (+ méga-menu), Dock, Hero, CaseSpec, Proofs, Steps, Bento, Faq, Contact, ProjectForm, PostFeature, Pricing, Testimonials, Footer |
@@ -161,8 +180,8 @@ Clé Web3Forms du formulaire contact (dans `ContactSteps.astro`, publique côté
 - [x] `docs/design-v2.md`
 - [x] Styleguide v2 : 3 essais par élément
 - [x] Choix des essais (Jonathan) puis intégration en composants
-- [ ] Copy de la home (après repositionnement)
-- [ ] Études de cas IA (2-3) pour remplacer les cas web/SEO
+- [x] Copy de la home
+- [x] Études de cas IA (4, images provisoires) ; [ ] vraies captures et chiffres
 - [ ] Contenu réel du hub (tweets, post LinkedIn) + 2 photos
 - [x] Extraire nav / dock / footer en composants
 - [ ] Brancher `ProjectForm` (home) sur un envoi réel
@@ -175,4 +194,6 @@ Clé Web3Forms du formulaire contact (dans `ContactSteps.astro`, publique côté
 - [x] Redesign `/portfolio`, `/portfolio/[slug]`, `/blog`, `/blog/[slug]`, `/about`, `/services`, `/contact`, pages service/déclinées/simples
 - [ ] Tester les 301 sur un preview Vercel
 - [ ] Tester l'envoi réel du formulaire contact, puis le brancher au CRM
-- [ ] Bascule `/v2` → `/` (301 `/v2` → `/`, retrait ancien Header/Footer/blueprint)
+- [x] Bascule `/v2` → `/` (301, ancien Header/Footer supprimés ; `blueprint.css` conservé pour `.co-prose`)
+- [ ] Merger `rebrand-v2` dans `main` + preview Vercel
+- [ ] `devis-client/[slug].astro` en v2
