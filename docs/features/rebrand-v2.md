@@ -3,7 +3,7 @@
 > Branche `rebrand-v2`. Redesign de toutes les pages, home comprise (basculée sur `/` le 2026-11-17).
 > Système de design figé dans `docs/design-v2.md`.
 
-> **Statut** : EN COURS (code fini, reste merge + preview Vercel) · **Commits** : `cd59f58..2370f5f`
+> **Statut** : EN PRODUCTION depuis le 2026-11-17 (`main` = `rebrand-v2`) · **Commits** : `cd59f58..f6d7f27`
 
 ## Ce que ça fait
 Refonte visuelle du site jonlabs.ch sur le système « v2 » (grille à filets, Funnel Display, teal), page par page, sur la branche `rebrand-v2`. Le visiteur voit un site cohérent « freelance systèmes IA », home incluse : `/v2` redirige en 301 vers `/`. Le site vouvoie, le blog tutoie.
@@ -34,18 +34,36 @@ Clé Web3Forms du formulaire contact (dans `ContactSteps.astro`, publique côté
 | Vérif | Commande | Résultat réel |
 |---|---|---|
 | Build complet | `npm run build` | OK, 121 pages, relancé le 2026-11-17 |
-| Fenêtre Cal.com (`[data-cal-popup]`) | navigateur | **non testé** |
-| 301 (anciens tags encodés, fusions) | déploiement preview Vercel | **non testé** |
+| Fenêtre Cal.com (`[data-cal-popup]`) | build local + navigateur headless | OK en local (fenêtre ouverte, page inchangée) ; non retesté en production |
+| 301 (anciens tags encodés, fusions, `/v2`) | `curl` sur www.jonlabs.ch | OK en production (308) ; `/v2/styleguide` reste en 200 |
 | Envoi réel du formulaire contact | navigateur | **non testé** |
 | Contrôle visuel 1536×808 et 390px | manuel | rapporté, non relancé |
 
 ## Limites et dettes
-- Merge dans `main` et déploiement preview Vercel non faits : 301 (dont tags encodés et `/v2`), envoi réel du formulaire contact, visuel des pages service, fenêtre Cal.
+- Non testés en production : envoi réel du formulaire contact, fenêtre Cal.com, dock mobile qui recouvre les boutons du formulaire `/contact`, visuel des pages service.
 - `src/pages/devis-client/[slug].astro` encore en ancien design (`global.css`, noindex, devis client).
 - `blueprint.css` reste importé par `Layout.astro` : `.co-prose` (corps des articles) en dépend. `Header`/`Footer`/`Hero` anciens et composants de l'ancienne home sont supprimés.
 - Études de cas IA : images provisoires, captures et chiffres réels à fournir (tâche Jonathan) ; l'étude `gestion-camps-budget` porte une date de livraison approximative (dernier commit 13.10.2026).
 - Témoignages en lorem ; formulaire contact non branché au CRM (tâche Jonathan).
 - Mot-clé de la home : volumes et SERP google.ch réelle non obtenus (cf. `docs/research/home-mot-cle.md`), à mesurer en GSC.
+
+## Etat session 2026-11-17 (suite 4)
+
+**Fait :**
+- Preview Vercel de `rebrand-v2` (protégée par SSO, non testable sans connexion), puis merge fast-forward dans `main` et mise en production.
+- 301 vérifiées sur www.jonlabs.ch (`/v2`, tags encodés, fusions Webflow/refonte, `/developpement-web/*`, `/guides`, `/outils`, doublons Genève).
+- Correctif : 301 des tags qui ne différaient que par la casse (`PME`, `ROI`, `Flutter`), Vercel étant sensible à la casse.
+
+**Prochain :** Jonathan teste en production l'envoi réel du formulaire `/contact`, la fenêtre Cal.com et le dock mobile sur `/contact` ; dans 6 à 8 semaines, vérifier en GSC que les requêtes « développeur web » sont passées sur `/developpeur-web-freelance-geneve`.
+
+**Pieges :**
+- Le serveur de dev de Jonathan a perdu ses scripts après l'ajout de la figure `phone` (cache Vite) : relancer `npm run dev`.
+- Les redirections Vercel sont sensibles à la casse : une source qui ne diffère que par la casse de sa cible ne boucle pas, il faut la poser.
+- Les previews Vercel du projet sont protégées : tester avec un jeton de contournement ou connecté.
+
+**Commit :** [f6d7f27] fix(seo): 301 des tags qui ne différaient que par la casse (PME, ROI, Flutter)
+
+---
 
 ## Etat session 2026-11-17 (suite 3)
 

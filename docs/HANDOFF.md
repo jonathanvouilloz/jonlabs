@@ -1,4 +1,4 @@
-# HANDOFF — 2026-11-17 (branche rebrand-v2)
+# HANDOFF — 2026-11-17 (main = rebrand-v2, en production)
 
 ## Features actives
 | Feature | Fichier | Statut |
@@ -13,13 +13,13 @@
 | Chantier SEO IA (consultant IA) | docs/planSEOIA.md | EN ATTENTE — Phase 3 ; devient le cœur du pivot focus IA (09.11) |
 | Devis Cabinet Grange-Canal | docs/features/devis-cabinet-grange-canal.md | CODE FINI — attend le call |
 | Refonte blueprint (design/typo) | docs/features/refonte-blueprint.md | BOUCLÉE — reste `/epic-recap` |
-| Rebrand v2 (DA freelance systèmes IA) | docs/features/rebrand-v2.md | **EN COURS** — home basculée sur `/` (copy validée, build OK 121 pages) ; reste merge dans `main` + preview Vercel (301, formulaire contact, visuel pages service) |
+| Rebrand v2 (DA freelance systèmes IA) | docs/features/rebrand-v2.md | **EN PRODUCTION 17.11** — reste tests manuels (formulaire contact, Cal.com, dock mobile) + captures/chiffres des cas IA (tâches Jon) |
 | Comparatif outils web pour agents IA | docs/features/comparatif-browser-agents-ia.md | **EN LIGNE 16.11** — reste indexation GSC + benchmark maison |
 | Refresh piliers IA (kirako) | mergé dans main (`1cca170`) | **EN LIGNE 21.09** — mesurer vs baseline 428 imp / 0 clic |
 
 ## Reprendre ici
-Rebrand v2 (branche `rebrand-v2`) — 1. merger dans `main` ; 2. déployer en preview Vercel et tester les 301 (dont tags encodés et `/v2` → `/`), l'envoi réel du formulaire contact et le visuel des pages service ; 3. lancer `/epic-recap`. Détail dans `docs/features/rebrand-v2.md` (bloc 2026-11-17 suite 3).
+Rebrand v2 — en production ; tester l'envoi réel du formulaire `/contact`, la fenêtre Cal.com et le dock mobile, puis suivi GSC à 6-8 semaines (détail : bloc 2026-11-17 suite 4).
 Tri contenu « focus IA » — bilan entre le 23.11 et le 09.12 (détail dans le fichier feature).
-Commit : [5a40ce9] feat(ui): témoignages v2 direction A (grande citation) validée
+Commit : [f6d7f27] fix(seo): 301 des tags qui ne différaient que par la casse
 
 > Décisions structurantes → `docs/DECISIONS.md`. Tâches côté Jonathan → `cerveau/10-Projets/jonlabs/jonlabs-human.md`.
