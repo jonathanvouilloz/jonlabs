@@ -61,6 +61,14 @@ $$('[data-words]').forEach((el) => {
   inView(el, () => animate(sp.words, { y: ['105%', '0%'], duration: 800, delay: stagger(45), ease: 'out(4)' }));
 });
 
+// Blocs qui montent à l'entrée : chaque enfant direct apparaît en décalé (études de cas, grilles de cartes).
+$$('[data-rise]').forEach((el) => {
+  if (reduce) return;
+  const kids = [...el.children] as HTMLElement[];
+  kids.forEach((k) => { k.style.opacity = '0'; k.style.transform = 'translateY(28px)'; });
+  inView(el, () => animate(kids, { opacity: [0, 1], y: [28, 0], duration: 900, delay: stagger(110), ease: 'out(4)' }), '-10% 0px');
+});
+
 // Paragraphe qui passe du gris au noir au fil du scroll.
 $$('[data-reveal]').forEach((el) => {
   el.innerHTML = (el.textContent ?? '').trim().split(/\s+/).map((w) => `<span>${w}</span>`).join(' ');

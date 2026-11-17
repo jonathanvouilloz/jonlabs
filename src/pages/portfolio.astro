@@ -43,7 +43,10 @@ const year = (d: Date) => d.getFullYear();
         <p class="v2-head-p">Des projets livrés pour de vrais clients, avec le contexte, l'approche et les résultats mesurés.</p>
       </div></header>
 
-      {cases.map((c) => <section class="r"><CaseSpec entry={c} /></section>)}
+      {cases.map((c, i) => <>
+        {i > 0 && <div class="r" aria-hidden="true"><div class="w v2-gap"></div></div>}
+        <section class="r"><CaseSpec entry={c} /></section>
+      </>)}
 
       {sides.length > 0 && (
         <section class="r" aria-labelledby="perso"><div class="w">
@@ -51,7 +54,7 @@ const year = (d: Date) => d.getFullYear();
             <h2 class="v2-h2" id="perso" data-words>Projets perso.<br /><span class="v2-dim">Là où j'essaie avant vous.</span></h2>
             <p class="v2-head-p">Des outils que je construis pour moi, souvent le terrain d'essai de ce que je livre ensuite.</p>
           </div>
-          <div class="v2-art-rel">
+          <div class="v2-art-rel" data-rise>
             {sides.map((p) => (
               <a href={`/portfolio/${p.slug}`}>
                 <img src={p.data.heroImage.url} alt={p.data.heroImage.alt} loading="lazy" width="400" height="225" />

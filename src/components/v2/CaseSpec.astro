@@ -9,7 +9,7 @@ const rows = [
   ['Stack', data.project.platform],
 ].filter(([, v]) => v);
 ---
-<a href={`/portfolio/${slug}`} class="w v2-spec">
+<a href={`/portfolio/${slug}`} class="w v2-spec" data-rise>
   <div class="v2-spec-img"><img src={data.heroImage.url} alt={data.heroImage.alt} loading="lazy" /></div>
   <div class="v2-spec-body">
     <div><h3>{data.title}</h3><p class="v2-mut">{data.description}</p></div>

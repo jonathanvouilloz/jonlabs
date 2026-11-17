@@ -475,3 +475,5 @@
 
 /* Page /portfolio */
 .v2 .v2-port-h1 { margin-top: 18px; }
+/* Rangée vide entre deux blocs (respiration, garde les filets du container) */
+.v2-gap { height: clamp(32px, 5vw, 64px); }
