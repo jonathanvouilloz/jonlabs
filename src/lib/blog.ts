@@ -39,7 +39,7 @@ export function formatDateShort(date: Date): string {
 
 import type { CollectionEntry } from 'astro:content';
 
-export function isPublished(data: CollectionEntry<'blog'>['data']): boolean {
+export function isPublished(data: { draft: boolean; pubDate: Date }): boolean {
   return !data.draft && data.pubDate.getTime() <= Date.now();
 }
 

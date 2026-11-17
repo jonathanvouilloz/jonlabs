@@ -40,8 +40,6 @@ export const mainNav: NavSection[] = [
         title: 'Sites web',
         items: [
           { label: 'Création de site', href: '/services/creation-site-web', icon: 'ri-layout-line' },
-          { label: 'Refonte de site', href: '/services/refonte-site-web', icon: 'ri-magic-line' },
-          { label: 'Développeur Webflow', href: '/services/developpeur-webflow', icon: 'ri-pencil-ruler-2-line' },
         ],
       },
       {
@@ -95,8 +93,7 @@ export const mainNav: NavSection[] = [
       {
         title: 'Guides IA',
         items: [
-          { label: 'Tous les guides', href: '/guides', icon: 'ri-book-open-line', badge: 'featured' },
-          { label: 'Mettre en place l\'IA en entreprise', href: '/guides/mettre-en-place-ia-entreprise-guide', icon: 'ri-compass-3-line' },
+          { label: 'Mettre en place l\'IA en entreprise', href: '/guides/mettre-en-place-ia-entreprise-guide', icon: 'ri-compass-3-line', badge: 'featured' },
           { label: 'Automatisation PME : guide complet', href: '/blog/automatisation-pme-suisse-guide-complet', icon: 'ri-loop-left-line' },
         ],
       },
@@ -140,12 +137,6 @@ export const mainNav: NavSection[] = [
           { label: 'SEO', href: '/blog/tag/seo', icon: 'ri-search-line' },
         ],
       },
-      {
-        title: 'Outils gratuits',
-        items: [
-          { label: 'Reddit Dashboard', href: '/outils/reddit-dashboard', icon: 'ri-reddit-line', badge: 'new' },
-        ],
-      },
     ],
     spotlight: {
       icon: 'ri-article-line',
@@ -165,29 +156,3 @@ export const ctaContact: NavItem = {
   label: 'Démarrer mon projet',
   href: '/contact',
 };
-
-// Silos géographiques — sortis du méga-menu (Phase 4). Exposés un temps dans le fat
-// footer, colonne « Zones & régions » RETIRÉE volontairement le 10.07.2026 (d247cc7) :
-// jugée sans plus-value, et un lien boilerplate répété sitewide pèse peu.
-// Ces exports ne sont plus lus que par styleguide-nav.astro — ce n'est PAS un oubli
-// de câblage, ne pas les rebrancher au footer sans rouvrir la décision.
-// Le maillage réel de ces pages est éditorial : /services, /services/creation-site-web,
-// /developpeur-web-freelance-geneve, le hub /developpement-web et les cross-links voisins
-// → 6 à 9 liens en corps chacune. Régions IA : voir le hub /consultant-ia.
-//
-// ⚠️ La HOME ne maille plus les villes depuis le 08.09.2026 : `GeoZonesStrip` en a été
-// retiré et le composant supprimé. Motif mesuré — la home y portait « Développement web
-// dans la région » + les 5 noms de villes, et sortait à la place des pages ville sur
-// leurs propres requêtes (jusqu'à la position 1,1 sur « agence de développement web
-// ville-la-grand »). Même raison que le retrait du fat footer ci-dessus, un cran plus haut.
-// Ne pas remettre de lien géo sur la home sans rouvrir la décision →
-// docs/features/canonical-cannibalisation.md
-export const footerZonesWeb: NavItem[] = [
-  { label: 'Développeur web Annemasse', href: '/developpement-web/annemasse' },
-  { label: 'Développeur web Gaillard', href: '/developpement-web/gaillard' },
-];
-
-export const footerRegionsIA: NavItem[] = [
-  { label: 'Consultant IA Genève', href: '/consultant-ia/geneve' },
-  { label: 'Consultant IA Lausanne', href: '/consultant-ia/lausanne' },
-];

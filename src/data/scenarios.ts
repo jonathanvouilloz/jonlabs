@@ -193,7 +193,7 @@ export const serviceSections: ServiceSection[] = [
           'Reprise d\'un site Webflow existant'
         ],
         ctaText: 'En savoir plus',
-        link: '/services/developpeur-webflow'
+        link: '/services/creation-site-web'
       }
     ],
     ctaText: 'Parler de mon site'

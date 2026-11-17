@@ -1,21 +1,14 @@
 ---
-// Reddit Dashboard — landing outil gratuit (blueprint).
-// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
-// crosshairs, colonne capée, coins nets, accent teal unique. Namespace scopé .rd-*.
-// Gabarit-or de référence : services/referencement-local.astro.
+// Reddit Dashboard — landing outil gratuit, gabarit v2 « page simple » (colonne de lecture).
 //
 // HARD-PRESERVE : Schema.org (getWebPageSchema / getBreadcrumbSchema /
 // getFAQPageSchema(troubleshooting) + softwareSchema SoftwareApplication custom),
 // tableau `schemas` (ordre : webPage, breadcrumb, software, faq), injection Layout.
 // Data `troubleshooting` (alimente faqSchema ET les <details>), seoData exact,
-// tous les deep-links (/outils, /consultant-ia) et liens de
-// téléchargement (ZIP + fichiers un par un). Import global.css gardé.
-// FAQ.astro & CTASection.astro NE SONT PLUS importés : rendus inline en blueprint.
+// le lien /consultant-ia et les liens de téléchargement (ZIP + fichiers un par un).
+// /outils redirige ici (301) : fil d'Ariane sans niveau « Outils ».
 
-import '../../styles/global.css';
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import V2Simple from '../../layouts/V2Simple.astro';
 
 // Schema.org
 import { SITE_URL } from '../../data/schema';
@@ -150,7 +143,6 @@ const webPageSchema = getWebPageSchema({
 
 const breadcrumb = getBreadcrumbSchema([
     { name: "Accueil", url: SITE_URL },
-    { name: "Outils", url: `${SITE_URL}/outils` },
     { name: "Reddit Dashboard", url: pageUrl }
 ]);
 
@@ -162,409 +154,91 @@ const ZIP = "/tools/reddit-dashboard/reddit-dashboard.zip";
 const BASE = "/tools/reddit-dashboard";
 ---
 
-<Layout
+<V2Simple
     title={seoData.title}
     description={seoData.description}
     schemas={schemas}
+    h1="Reddit Dashboard"
+    lead="Un petit outil local qui scrape les discussions Reddit sur un mot-clé, sans API ni compte, et te les sert dans une interface web propre. Idéal pour nourrir tes prompts SEO avec de la vraie parole d'utilisateurs."
 >
-    <Header />
+    <Fragment slot="head">
+        <div class="v2-simple-acts">
+            <a href={ZIP} download class="v2-btn"><i class="ri-download-2-line" aria-hidden="true"></i> <span data-roll>Télécharger (ZIP)</span></a>
+            <a href="#guide" class="v2-btn v2-btn-ghost"><span data-roll>Voir le guide</span></a>
+        </div>
+        <p class="v2-meta"><span>Python 3 requis</span><span>Windows, macOS &amp; Linux</span><span>Aucune inscription</span></p>
+    </Fragment>
 
-    <main class="co-root">
+    <h2 id="utilite">À quoi ça sert ?</h2>
+    {benefits.map((b) => (
+        <>
+            <h3>{b.title}</h3>
+            <p>{b.text}</p>
+        </>
+    ))}
 
-        <!-- ══ HERO ══ -->
-        <section class="co-sec co-pad co-hero rd-hero">
-            <nav class="rd-crumb" aria-label="Fil d'ariane">
-                <a href="/">Accueil</a>
-                <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
-                <a href="/outils">Outils</a>
-                <i class="ri-arrow-right-s-line" aria-hidden="true"></i>
-                <span class="rd-crumb-cur">Reddit Dashboard</span>
-            </nav>
+    <h2 id="fonctionnement">Comment ça marche</h2>
+    <p>Trois fichiers travaillent ensemble. Tu n'en lances qu'un seul ; le reste est automatique.</p>
+    <p class="v2-meta"><span>Toi (navigateur) · localhost:8765</span><i class="ri-arrow-right-line" aria-hidden="true"></i><span>dashboard.py · le serveur</span><i class="ri-arrow-right-line" aria-hidden="true"></i><span>reddit_scraper.py · Playwright + DuckDuckGo</span></p>
+    <p>Le scraper cherche les threads Reddit, ouvre chaque page sur <code>old.reddit.com</code> avec un navigateur invisible, extrait titres + commentaires, et écrit le tout dans <code>extraction_reddit_&lt;mot-clé&gt;.txt</code>.</p>
+    <table>
+        <tbody>
+            {files.map((f) => <tr><th scope="row"><code>{f.name}</code></th><td>{f.role}</td></tr>)}
+        </tbody>
+    </table>
 
-            <div class="rd-hero-inner">
-                <h1 class="rd-hero-title" data-animate data-delay="0.1">
-                    Reddit <span class="co-ser">Dashboard</span>
-                </h1>
-                <p class="rd-hero-lead" data-animate data-delay="0.2">
-                    Un petit outil <strong>local</strong> qui scrape les discussions Reddit sur un mot-clé —
-                    <strong>sans API ni compte</strong> — et te les sert dans une interface web propre.
-                    Idéal pour nourrir tes prompts SEO avec de la vraie parole d'utilisateurs.
-                </p>
-                <div class="rd-hero-btns" data-animate data-delay="0.3">
-                    <a href={ZIP} download class="co-btn"><i class="ri-download-2-line"></i> Télécharger (ZIP)</a>
-                    <a href="#guide" class="co-btn co-btn--ghost"><i class="ri-book-open-line"></i> Voir le guide</a>
-                </div>
-                <p class="rd-hero-meta co-mut" data-animate data-delay="0.4">
-                    <i class="ri-terminal-box-line" aria-hidden="true"></i>
-                    Python 3 requis · Windows, macOS &amp; Linux · Aucune inscription
-                </p>
-            </div>
-        </section>
+    <h2 id="download">Télécharger l'outil</h2>
+    <p>Un seul fichier ZIP avec tout ce qu'il faut : les scripts, l'interface, le guide et la liste des dépendances. Décompresse, suis les 2 commandes d'installation, c'est parti.</p>
+    <p><a href={ZIP} download class="v2-btn"><i class="ri-download-2-line" aria-hidden="true"></i> <span data-roll>reddit-dashboard.zip</span></a></p>
+    <p>Ou télécharge les fichiers un par un :</p>
+    <ul>
+        <li><a href={`${BASE}/dashboard.py`} download>dashboard.py</a></li>
+        <li><a href={`${BASE}/dashboard.html`} download>dashboard.html</a></li>
+        <li><a href={`${BASE}/reddit_scraper.py`} download>reddit_scraper.py</a></li>
+        <li><a href={`${BASE}/requirements.txt`} download>requirements.txt</a></li>
+        <li><a href={`${BASE}/GUIDE-reddit-dashboard.md`} download>GUIDE.md</a></li>
+    </ul>
 
-        <!-- ══ 01 · UTILITÉ ══ -->
-        <section id="utilite" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">01 — Utilité</p>
-            <h2 style="margin-top:var(--space-eyebrow);">À quoi ça <span class="co-ser">sert ?</span></h2>
+    <h2 id="guide">Installation, à faire une seule fois</h2>
+    <p>Ouvre PowerShell (ou ton terminal) dans le dossier des scripts et lance les deux commandes :</p>
+    <pre><code>pip install -r requirements.txt
+python -m playwright install chromium</code></pre>
+    <ul>
+        <li><code>ddgs</code> → recherche DuckDuckGo</li>
+        <li><code>playwright</code> → pilote un navigateur Chromium invisible</li>
+        <li><code>playwright install chromium</code> → télécharge le navigateur utilisé pour scraper</li>
+    </ul>
 
-            <div class="rd-grid rd-grid--3" data-animate-stagger>
-                {benefits.map((b) => (
-                    <div class="rd-card co-frame co-frame--reveal" data-animate-item>
-                        <i class={`${b.icon} rd-card-icon`} aria-hidden="true"></i>
-                        <h3 class="rd-card-title">{b.title}</h3>
-                        <p class="rd-card-text">{b.text}</p>
-                    </div>
-                ))}
-            </div>
-        </section>
+    <h2 id="utilisation">Utilisation, étape par étape</h2>
+    {steps.map((s) => (
+        <>
+            <h3>{s.n}. {s.title}</h3>
+            <p>{s.text}</p>
+            {s.cmd && <pre><code>{s.cmd}</code></pre>}
+        </>
+    ))}
 
-        <!-- ══ 02 · FONCTIONNEMENT ══ -->
-        <section id="fonctionnement" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">02 — Fonctionnement</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Comment ça marche</h2>
-            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-                Trois fichiers travaillent ensemble. Tu n'en lances qu'un seul ; le reste est automatique.
-            </p>
+    <h2 id="cli">Mode CLI (optionnel)</h2>
+    <p>Tu peux aussi lancer le scraper directement, sans l'interface :</p>
+    <pre><code>python reddit_scraper.py --keyword "chiang mai dtv" --threads 10</code></pre>
+    <table>
+        <thead><tr><th>Option</th><th>Défaut</th><th>Description</th></tr></thead>
+        <tbody>
+            {cliOptions.map((o) => <tr><td><code>{o.opt}</code></td><td>{o.def}</td><td>{o.desc}</td></tr>)}
+        </tbody>
+    </table>
 
-            <!-- Flux -->
-            <div class="rd-flow co-frame" data-animate>
-                <span class="co-x tl"></span><span class="co-x tr"></span>
-                <span class="co-x bl"></span><span class="co-x br"></span>
-                <div class="rd-flow-nodes">
-                    <div class="rd-node">
-                        <i class="ri-global-line" aria-hidden="true"></i>
-                        <span class="rd-node-name">Toi (navigateur)</span>
-                        <span class="rd-node-sub">localhost:8765</span>
-                    </div>
-                    <i class="ri-arrow-right-line rd-flow-arrow rd-flow-arrow--h" aria-hidden="true"></i>
-                    <i class="ri-arrow-down-line rd-flow-arrow rd-flow-arrow--v" aria-hidden="true"></i>
-                    <div class="rd-node">
-                        <i class="ri-server-line" aria-hidden="true"></i>
-                        <span class="rd-node-name">dashboard.py</span>
-                        <span class="rd-node-sub">le serveur</span>
-                    </div>
-                    <i class="ri-arrow-right-line rd-flow-arrow rd-flow-arrow--h" aria-hidden="true"></i>
-                    <i class="ri-arrow-down-line rd-flow-arrow rd-flow-arrow--v" aria-hidden="true"></i>
-                    <div class="rd-node">
-                        <i class="ri-radar-line" aria-hidden="true"></i>
-                        <span class="rd-node-name">reddit_scraper.py</span>
-                        <span class="rd-node-sub">Playwright + DuckDuckGo</span>
-                    </div>
-                </div>
-                <p class="rd-flow-note">
-                    Le scraper cherche les threads Reddit, ouvre chaque page sur <code>old.reddit.com</code>
-                    avec un navigateur invisible, extrait titres + commentaires, et écrit le tout dans
-                    <code>extraction_reddit_&lt;mot-clé&gt;.txt</code>.
-                </p>
-            </div>
+    <h2 id="depannage">Problèmes courants</h2>
+    <p>Les pannes les plus fréquentes et comment les régler.</p>
+    {troubleshooting.map((item) => (
+        <>
+            <h3>{item.question}</h3>
+            <p>{item.answer}</p>
+        </>
+    ))}
 
-            <!-- Les 3 fichiers -->
-            <div class="rd-files" data-animate-stagger>
-                {files.map((f) => (
-                    <div class="rd-file co-frame co-frame--reveal" data-animate-item>
-                        <span class="rd-file-name">{f.name}</span>
-                        <span class="rd-file-role">{f.role}</span>
-                    </div>
-                ))}
-            </div>
-        </section>
+    <h2 id="sur-mesure">Besoin d'un outil sur mesure ?</h2>
+    <p>Ce dashboard est un exemple de ce que j'automatise au quotidien. Si tu as un workflow répétitif à transformer en outil, on en parle.</p>
+    <p><a href="/consultant-ia" class="v2-btn"><span data-roll>Discuter d'un outil sur mesure</span> <i class="ri-arrow-right-line" aria-hidden="true"></i></a></p>
+</V2Simple>
 
-        <!-- ══ 03 · TÉLÉCHARGEMENT ══ -->
-        <section id="download" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">03 — Téléchargement</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Télécharger <span class="co-ser">l'outil</span></h2>
-
-            <div class="rd-download co-frame" data-animate>
-                <span class="co-x tl"></span><span class="co-x tr"></span>
-                <span class="co-x bl"></span><span class="co-x br"></span>
-                <p class="rd-download-desc">
-                    Un seul fichier ZIP avec tout ce qu'il faut : les scripts, l'interface, le guide et la liste des dépendances.
-                    Décompresse, suis les 2 commandes d'installation, c'est parti.
-                </p>
-                <a href={ZIP} download class="co-btn rd-download-btn">
-                    <i class="ri-download-2-line"></i> reddit-dashboard.zip
-                </a>
-
-                <p class="rd-download-alt co-mut">Ou télécharge les fichiers un par un :</p>
-                <div class="rd-download-files">
-                    <a href={`${BASE}/dashboard.py`} download class="rd-chip">dashboard.py</a>
-                    <a href={`${BASE}/dashboard.html`} download class="rd-chip">dashboard.html</a>
-                    <a href={`${BASE}/reddit_scraper.py`} download class="rd-chip">reddit_scraper.py</a>
-                    <a href={`${BASE}/requirements.txt`} download class="rd-chip">requirements.txt</a>
-                    <a href={`${BASE}/GUIDE-reddit-dashboard.md`} download class="rd-chip">GUIDE.md</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- ══ 04 · INSTALLATION ══ -->
-        <section id="guide" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">04 — Installation</p>
-            <h2 style="margin-top:var(--space-eyebrow);">À faire une seule fois</h2>
-            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
-                Ouvre PowerShell (ou ton terminal) dans le dossier des scripts et lance les deux commandes :
-            </p>
-
-            <div class="rd-term" data-animate>
-                <div class="rd-term-line"><span class="rd-term-p">$</span><span>pip install -r requirements.txt</span></div>
-                <div class="rd-term-line"><span class="rd-term-p">$</span><span>python -m playwright install chromium</span></div>
-            </div>
-
-            <ul class="co-list rd-deps">
-                <li><code>ddgs</code> → recherche DuckDuckGo</li>
-                <li><code>playwright</code> → pilote un navigateur Chromium invisible</li>
-                <li><code>playwright install chromium</code> → télécharge le navigateur utilisé pour scraper</li>
-            </ul>
-        </section>
-
-        <!-- ══ 05 · UTILISATION ══ -->
-        <section id="utilisation" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">05 — Utilisation</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Étape par étape</h2>
-
-            <div class="rd-steps" data-animate-stagger>
-                {steps.map((s, index) => (
-                    <div class="rd-step" data-animate-item>
-                        <span class="rd-step-num co-index">0{index + 1}</span>
-                        <div class="rd-step-body">
-                            <h3 class="rd-step-title">{s.title}</h3>
-                            <p class="rd-step-text">{s.text}</p>
-                            {s.cmd && (
-                                <div class="rd-term rd-term--sm">
-                                    <div class="rd-term-line"><span class="rd-term-p">$</span><span>{s.cmd}</span></div>
-                                </div>
-                            )}
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </section>
-
-        <!-- ══ 06 · LIGNE DE COMMANDE ══ -->
-        <section id="cli" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">06 — Ligne de commande</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Mode CLI <span class="co-mut" style="font-weight:400;">(optionnel)</span></h2>
-            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-                Tu peux aussi lancer le scraper directement, sans l'interface :
-            </p>
-
-            <div class="rd-term" data-animate>
-                <div class="rd-term-line"><span class="rd-term-p">$</span><span>python reddit_scraper.py --keyword "chiang mai dtv" --threads 10</span></div>
-            </div>
-
-            <div class="rd-tablewrap" data-animate>
-                <table class="rd-table">
-                    <thead>
-                        <tr>
-                            <th>Option</th>
-                            <th>Défaut</th>
-                            <th>Description</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {cliOptions.map((o) => (
-                            <tr>
-                                <td class="rd-table-opt">{o.opt}</td>
-                                <td class="rd-table-def">{o.def}</td>
-                                <td>{o.desc}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <!-- ══ 07 · DÉPANNAGE (accordéon natif <details>, zéro JS) ══ -->
-        <section id="depannage" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">07 — Dépannage</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Problèmes courants</h2>
-            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-                Les pannes les plus fréquentes et comment les régler.
-            </p>
-
-            <div class="rd-faq" style="margin-top:var(--space-block);">
-                {troubleshooting.map((item, index) => (
-                    <details open={index === 0}>
-                        <summary>
-                            {item.question}
-                            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
-                        </summary>
-                        <p class="rd-faq-answer">{item.answer}</p>
-                    </details>
-                ))}
-            </div>
-        </section>
-
-        <!-- ══ CTA (primitive .co-cta) ══ -->
-        <section class="co-cta">
-            <span class="co-x tl"></span><span class="co-x tr"></span>
-            <div class="co-cta-inner">
-                <h2 class="co-cta-title">Besoin d'un outil <span class="co-ser">sur mesure ?</span></h2>
-                <p class="co-cta-lead">
-                    Ce dashboard est un exemple de ce que j'automatise au quotidien. Si tu as un workflow
-                    répétitif à transformer en outil, on en parle.
-                </p>
-                <div class="co-cta-btns">
-                    <a href="/consultant-ia" class="co-btn co-cta-btn"><i class="ri-tools-line"></i> Discuter d'un outil sur mesure</a>
-                </div>
-                <div class="co-cta-trust">
-                    <span><i class="ri-time-line"></i> Réponse rapide</span>
-                    <span><i class="ri-shield-check-line"></i> Sans engagement</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Retour outils -->
-        <section class="co-sec co-pad" style="padding:32px 40px;text-align:center;">
-            <a href="/outils" class="rd-back">
-                <i class="ri-arrow-left-line" aria-hidden="true"></i> Tous les outils gratuits
-            </a>
-        </section>
-
-    </main>
-
-    <Footer />
-</Layout>
-
-<style is:global>
-    /* ══ REDDIT DASHBOARD — styles .rd-* (namespace scopé, corps .co-root) ══ */
-
-    /* ── Fil d'ariane ── */
-    .rd-crumb { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; font-size: 13px; color: var(--muted); margin-bottom: 28px; }
-    .rd-crumb a { color: var(--muted); transition: color .18s ease-out; }
-    .rd-crumb a:hover { color: var(--accent); }
-    .rd-crumb i { font-size: 15px; opacity: .6; }
-    .rd-crumb-cur { color: var(--ink); font-weight: 500; }
-
-    /* ── Hero ── */
-    .rd-hero-inner { max-width: 640px; }
-    .rd-hero-title { font-size: clamp(2.4rem, 6vw, 3.6rem); margin-top: 20px; }
-    .co-root .rd-hero-lead { margin-top: 18px; max-width: 56ch; font-size: 1.075rem; line-height: 1.65; color: var(--muted); }
-    .rd-hero-lead strong { color: var(--ink); font-weight: 600; }
-    .rd-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-    .rd-hero-btns .co-btn i { transition: transform .18s ease-out; }
-    .rd-hero-btns .co-btn:hover i { transform: translateY(1px); }
-    .co-root .rd-hero-meta { margin-top: 22px; font-size: 13.5px; display: inline-flex; align-items: center; gap: 7px; }
-    .rd-hero-meta i { color: var(--accent); font-size: 16px; }
-
-    /* ── Cartes génériques ── */
-    .rd-grid { display: grid; gap: 16px; margin-top: var(--space-block); }
-    .rd-grid--3 { grid-template-columns: repeat(3, 1fr); }
-    .rd-card {
-        position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
-        background: var(--surface); border: 1px solid var(--line-2);
-        transition: box-shadow .18s ease-out, transform .18s ease-out;
-    }
-    .rd-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
-    .rd-card-icon { font-size: 24px; color: var(--accent); line-height: 1; }
-    .rd-card-title { font-size: 1.1rem; }
-    .rd-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
-
-    /* ── Flux (diagramme 3 nodes) ── */
-    .rd-flow { position: relative; margin-top: var(--space-block); padding: var(--pad-encart); background: var(--surface); border: 1px solid var(--line-2); }
-    .rd-flow-nodes { display: flex; align-items: stretch; gap: 12px; }
-    .rd-node {
-        flex: 1; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px;
-        padding: 18px 14px; background: var(--bg); border: 1px solid var(--line);
-    }
-    .rd-node > i { font-size: 24px; color: var(--accent); }
-    .rd-node-name { font-size: 14px; font-weight: 600; color: var(--ink); }
-    .rd-node-sub { font-size: 11.5px; color: var(--muted); font-variant-numeric: tabular-nums; }
-    .rd-flow-arrow { font-size: 22px; color: var(--muted); align-self: center; flex: none; }
-    .rd-flow-arrow--v { display: none; }
-    .co-root .rd-flow-note { margin-top: 20px; font-size: 13px; line-height: 1.55; color: var(--muted); text-align: center; }
-    .rd-flow-note code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12px; color: var(--ink); background: rgba(20,22,26,.05); border: 1px solid var(--line); padding: 1px 5px; }
-
-    /* ── Les 3 fichiers ── */
-    .rd-files { display: flex; flex-direction: column; gap: 12px; margin-top: 20px; }
-    .rd-file {
-        position: relative; display: flex; align-items: flex-start; gap: 16px; padding: 16px 20px;
-        background: var(--surface); border: 1px solid var(--line-2);
-    }
-    .rd-file-name {
-        flex: none; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13px; font-weight: 600;
-        color: var(--accent); white-space: nowrap;
-    }
-    .rd-file-role { font-size: 14px; line-height: 1.5; color: var(--muted); }
-
-    /* ── Téléchargement ── */
-    .rd-download { position: relative; margin-top: var(--space-block); padding: 40px 32px; background: var(--surface); border: 1px solid var(--line-2); text-align: center; }
-    .co-root .rd-download-desc { max-width: 52ch; margin: 0 auto 24px; font-size: 14.5px; line-height: 1.6; color: var(--muted); }
-    .rd-download-btn { font-size: 16px; padding: 14px 26px; }
-    .co-root .rd-download-alt { margin-top: 28px; margin-bottom: 14px; font-size: 13px; }
-    .rd-download-files { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 8px; }
-    .rd-chip {
-        font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12.5px; color: var(--ink);
-        background: var(--bg); border: 1px solid var(--line-2); padding: 6px 12px;
-        transition: border-color .18s ease-out, color .18s ease-out;
-    }
-    .rd-chip:hover { border-color: var(--accent); color: var(--accent); }
-
-    /* ── Terminal / bloc code ── */
-    .rd-term {
-        margin-top: 24px; padding: 18px 20px; background: #0b0d10; border: 1px solid var(--line-2);
-        overflow-x: auto; font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 13.5px; line-height: 1.7;
-    }
-    .rd-term--sm { margin-top: 14px; padding: 14px 16px; font-size: 13px; }
-    .rd-term-line { display: flex; gap: 12px; color: #f4f3ee; white-space: nowrap; }
-    .rd-term-p { color: var(--accent-bright); user-select: none; flex: none; }
-
-    .rd-deps { margin-top: 18px; }
-    .rd-deps li { font-size: 14px; color: var(--muted); }
-    .rd-deps code { font-family: ui-monospace, "SF Mono", Menlo, monospace; font-size: 12.5px; color: var(--ink); background: rgba(20,22,26,.05); border: 1px solid var(--line); padding: 1px 5px; }
-
-    /* ── Étapes ── */
-    .rd-steps { display: flex; flex-direction: column; margin-top: var(--space-block); border-top: 1px solid var(--line); }
-    .rd-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--line); }
-    .rd-step-num { font-size: 20px; font-weight: 600; }
-    .rd-step-title { font-size: 1.15rem; }
-    .co-root .rd-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
-
-    /* ── Table CLI ── */
-    .rd-tablewrap { margin-top: 28px; overflow-x: auto; border: 1px solid var(--line-2); }
-    .rd-table { width: 100%; border-collapse: collapse; font-size: 14px; }
-    .rd-table thead { background: rgba(20,22,26,.04); }
-    .rd-table th { padding: 12px 16px; text-align: left; font-weight: 600; font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--line); }
-    .rd-table td { padding: 12px 16px; border-bottom: 1px solid var(--line); color: var(--muted); line-height: 1.5; }
-    .rd-table tbody tr:last-child td { border-bottom: 0; }
-    .rd-table-opt { font-family: ui-monospace, "SF Mono", Menlo, monospace; color: var(--accent) !important; font-weight: 600; }
-    .rd-table-def { font-family: ui-monospace, "SF Mono", Menlo, monospace; color: var(--ink) !important; }
-
-    /* ── FAQ (accordéon natif <details> — smooth via ::details-content, zéro JS) ── */
-    .rd-faq { border-top: 1px solid var(--line); }
-    .rd-faq details { border-bottom: 1px solid var(--line); }
-    .rd-faq summary {
-        list-style: none; cursor: pointer; padding: 20px 0;
-        display: flex; justify-content: space-between; align-items: center; gap: 20px;
-        font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
-    }
-    .rd-faq summary::-webkit-details-marker { display: none; }
-    .rd-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
-    .rd-faq details[open] summary i { transform: rotate(180deg); }
-    .co-root .rd-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 68ch; }
-    .rd-faq details::details-content {
-        block-size: 0; overflow: hidden;
-        transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
-    }
-    .rd-faq details[open]::details-content { block-size: auto; }
-
-    /* ── Retour outils ── */
-    .rd-back { display: inline-flex; align-items: center; gap: 8px; font-size: 14px; font-weight: 500; color: var(--muted); transition: color .18s ease-out; }
-    .rd-back:hover { color: var(--accent); }
-    .rd-back i { transition: transform .18s ease-out; }
-    .rd-back:hover i { transform: translateX(-3px); }
-
-    /* ── Anchor scroll offset ── */
-    .co-root section[id] { scroll-margin-top: 100px; }
-
-    /* ── Responsive ── */
-    @media (max-width: 720px) {
-        .rd-grid--3 { grid-template-columns: 1fr; }
-        .rd-flow-nodes { flex-direction: column; }
-        .rd-flow-arrow--h { display: none; }
-        .rd-flow-arrow--v { display: block; }
-        .rd-step { grid-template-columns: 44px 1fr; gap: 14px; }
-        .rd-file { flex-direction: column; gap: 6px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-        .rd-card, .rd-chip, .rd-faq summary i, .rd-hero-btns .co-btn i, .rd-back i, .rd-crumb a { transition: none; }
-    }
-</style>

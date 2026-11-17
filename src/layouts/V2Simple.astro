@@ -1,0 +1,33 @@
+---
+// Gabarit v2 « page simple » (/cv, /mentions-legales, /outils/reddit-dashboard) :
+// en-tête centré de l'article, puis la colonne de lecture 680px (.co-prose).
+import V2Page from './V2Page.astro';
+
+type Props = Parameters<typeof V2Page>[0] & { h1: string; lead?: string };
+const { h1, lead, ...page } = Astro.props;
+---
+
+<V2Page {...page}>
+  <header class="r"><div class="w v2-art-head">
+    <h1 class="v2-h1">{h1}</h1>
+    {lead && <p class="v2-lead v2-simple-lead">{lead}</p>}
+    <slot name="head" />
+  </div></header>
+  <div class="r"><div class="w v2-art">
+    <div class="co-prose v2-art-prose"><slot /></div>
+  </div></div>
+</V2Page>
+
+<style is:global>
+  .v2 .v2-simple-lead { max-width: 36rem; margin: 0 auto; }
+  .v2-simple-acts { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 28px; }
+  .v2 .v2-art-prose a.v2-btn { color: #fff; text-decoration: none; }
+  .v2-simple-acts + .v2-meta { margin-top: 18px; justify-content: center; }
+  /* Tableaux « libellé | valeur » (th scope=row) : empilés sur mobile, sinon la 2e colonne déborde. */
+  @media (max-width: 640px) {
+    .v2-art-prose table:has(th[scope="row"]) { display: table; white-space: normal; }
+    .v2-art-prose table:has(th[scope="row"]) tr { display: grid; }
+    .v2-art-prose table:has(th[scope="row"]) th { border-bottom: 0; padding-bottom: 2px; }
+    .v2-art-prose table:has(th[scope="row"]) td { border-top: 0; padding-top: 2px; }
+  }
+</style>

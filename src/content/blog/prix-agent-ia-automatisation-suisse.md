@@ -131,7 +131,7 @@ Le calcul de rentabilité d'un agent IA tient en une formule simple : temps gagn
 
 Au **coût horaire chargé d'une PME romande**, situé entre CHF 60 et 90 de l'heure, un agent qui économise 3 heures par semaine génère entre CHF 9'360 et 14'040 par an de temps récupéré (3 h × 52 semaines × 60 à 90 CHF/h). Mis en regard d'un coût total première année de CHF 3'000 à 5'000 pour un agent simple (développement + coûts récurrents sur douze mois), le calcul est rapidement positif si le cas d'usage est bien choisi.
 
-Pour des exemples concrets de gains de temps par secteur, les [cas d'usage d'agent IA déjà documentés](/blog/agent-ia-entreprise-cas-usage) détaillent les heures économisées par type de process. Si tu veux faire ce calcul avec tes propres chiffres plutôt qu'avec des moyennes, [cadrer ton projet avec un consultant IA à Genève](/consultant-ia/geneve) permet d'obtenir un chiffrage personnalisé en une séance.
+Pour des exemples concrets de gains de temps par secteur, les [cas d'usage d'agent IA déjà documentés](/blog/agent-ia-entreprise-cas-usage) détaillent les heures économisées par type de process. Si tu veux faire ce calcul avec tes propres chiffres plutôt qu'avec des moyennes, [cadrer ton projet avec un consultant IA à Genève](/consultant-ia) permet d'obtenir un chiffrage personnalisé en une séance.
 
 ---
 

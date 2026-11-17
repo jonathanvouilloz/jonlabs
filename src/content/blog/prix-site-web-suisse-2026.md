@@ -90,7 +90,7 @@ Voici un tableau comparatif honnête des fourchettes du marché suisse romand en
 | E-commerce sur-mesure | 8 000 | 15 000 | 25 000 |
 | Application web ou MVP | 2 000 | 8 000 | 30 000 |
 
-Si ton site actuel est dans la première ligne du tableau et qu'il commence à dater, j'ai une offre dédiée de [refonte et migration WordPress](/services/creation-site-web) — avec un audit gratuit pour savoir si ça vaut le coup. Et pour les sites visuels gérés en autonomie, je travaille aussi comme [développeur Webflow](/services/developpeur-webflow).
+Si ton site actuel est dans la première ligne du tableau et qu'il commence à dater, j'ai une offre dédiée de [refonte et migration WordPress](/services/creation-site-web) — avec un audit gratuit pour savoir si ça vaut le coup. Et pour les sites visuels gérés en autonomie, je travaille aussi comme [développeur Webflow](/services/creation-site-web).
 
 **Comment lire ce tableau ?**
 
@@ -402,7 +402,7 @@ Quelques ressources pour creuser le sujet :
 
 - [Page tarifs Jon Labs](/tarifs) : packs détaillés, ce qui est inclus, ce qui ne l'est pas
 - [Service création de site web](/services/creation-site-web) : process, livrables, exemples
-- [Service refonte de site web](/services/refonte-site-web) : pour rénover un site existant
+- [Service refonte de site web](/services/creation-site-web) : pour rénover un site existant
 - [Spécialiste développement web Suisse](/blog/specialiste-developpement-web-suisse) : comment choisir un dev sérieux
 
 ---

@@ -1,12 +1,9 @@
 ---
-import '../../styles/global.css';
+// Guide pilier (collection `pages`) sur le gabarit article v2 partagé avec /blog/[slug].
 import { getCollection } from 'astro:content';
-import Layout from '../../layouts/Layout.astro';
-import AppHeader from '../../components/Header.astro';
-import AppFooter from '../../components/Footer.astro';
-import AuthorBio from '../../components/blog/AuthorBio.astro';
-import ReadingProgress from '../../components/blog/ReadingProgress.astro';
-import { formatDate, isPublished } from '../../lib/blog';
+import V2Page from '../../layouts/V2Page.astro';
+import Article from '../../components/v2/Article.astro';
+import { isPublished } from '../../lib/blog';
 import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
 import { SITE_URL, personData, organizationData } from '../../data/schema';
 
@@ -19,8 +16,8 @@ export async function getStaticPaths() {
 }
 
 const { page } = Astro.props;
-const { title, h1, description, image, tags, pubDate, readingTime } = page.data;
-const { Content } = await page.render();
+const { title, h1, description, image, pubDate, readingTime } = page.data;
+const { Content, headings } = await page.render();
 
 // Schemas — WebPage (pas BlogPosting) : le pillar est un hub, pas un article.
 const webPageSchema = getWebPageSchema({
@@ -31,7 +28,8 @@ const webPageSchema = getWebPageSchema({
 
 const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'Accueil', url: SITE_URL },
-  { name: 'Guides', url: `${SITE_URL}/guides` },
+  // /guides redirige vers /blog (301) : le fil d'Ariane suit la cible finale.
+  { name: 'Blog', url: `${SITE_URL}/blog` },
   { name: title, url: Astro.url.href },
 ]);
 
@@ -46,109 +44,14 @@ if (page.data.faqs && page.data.faqs.length > 0) {
 }
 ---
 
-<Layout
+<V2Page
   title={title}
   description={description}
   ogImage={image.url}
   ogType="article"
   schemas={schemas}
 >
-  <AppHeader />
-
-  <main class="co-root">
-    <article class="ar-wrap co-pad">
-      <div class="ar-grid">
-        <!-- Content -->
-        <div class="ar-main">
-          <!-- Mobile TOC - visible only below xl -->
-          <div class="ar-mtoc">
-            <button
-              id="mobile-toc-toggle"
-              class="ar-mtoc-btn"
-              aria-expanded="false"
-              aria-controls="mobile-toc-content"
-            >
-              <span class="ar-mtoc-label"><i class="ri-list-unordered"></i> Sommaire</span>
-              <i class="ri-arrow-down-s-line ar-mtoc-caret" id="mobile-toc-icon"></i>
-            </button>
-            <div id="mobile-toc-content" class="ar-mtoc-content hidden">
-              <nav id="mobile-toc-nav" aria-label="Table des matières mobile">
-                <ul id="mobile-toc-list" class="bl-rp-toc"></ul>
-              </nav>
-            </div>
-          </div>
-
-          <!-- Top bar: back + share -->
-          <div class="ar-topbar">
-            <a href="/consultant-ia" class="ar-back">
-              <i class="ri-arrow-left-line"></i>
-              Consultant IA
-            </a>
-            <div class="ar-share">
-              <a
-                href={`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(Astro.url.href)}`}
-                target="_blank" rel="noopener noreferrer" aria-label="Partager sur LinkedIn"
-              ><i class="ri-linkedin-fill"></i></a>
-              <button
-                aria-label="Copier le lien"
-                onclick="navigator.clipboard.writeText(window.location.href); this.innerHTML='<i class=\'ri-check-line\'></i>'; setTimeout(() => this.innerHTML='<i class=\'ri-link\'></i>', 2000)"
-              ><i class="ri-link"></i></button>
-            </div>
-          </div>
-
-          <!-- Title (H1 distinct du title SEO ; fallback sur title si absent) -->
-          <h1 class="ar-title">{h1 ?? title}</h1>
-
-          <!-- Méta : date + mise à jour + temps de lecture (après le H1) -->
-          <div class="ar-meta">
-            <span class="ar-date">{formatDate(pubDate)}</span>
-            {page.data.updatedDate && page.data.updatedDate.getTime() !== pubDate.getTime() && (
-              <span class="ar-updated"><i class="ri-refresh-line"></i> Mis à jour le {formatDate(page.data.updatedDate)}</span>
-            )}
-            {readingTime && (
-              <span class="ar-rt"><i class="ri-time-line"></i> {readingTime} min de lecture</span>
-            )}
-          </div>
-
-          <!-- Tags -->
-          {tags.length > 0 && (
-            <div class="ar-tags">
-              {tags.map((tag) => (
-                <span class="ar-tag">#{tag}</span>
-              ))}
-            </div>
-          )}
-
-          <!-- Content -->
-          <div class="co-prose">
-            <Content />
-          </div>
-
-          <!-- Bottom bar -->
-          <div class="ar-foot">
-            <a href="/blog" class="ar-back">
-              <i class="ri-arrow-left-line"></i>
-              Retour au blog
-            </a>
-            <button
-              class="ar-foot-share"
-              aria-label="Partager"
-              onclick="navigator.share ? navigator.share({title: document.title, url: window.location.href}) : null"
-            ><i class="ri-share-forward-line"></i></button>
-          </div>
-        </div>
-
-        <!-- Sidebar - sticky -->
-        <aside class="ar-side">
-          <div class="ar-side-sticky">
-            <ReadingProgress readingTime={readingTime} />
-          </div>
-        </aside>
-      </div>
-    </article>
-
-    <AuthorBio />
-  </main>
-
-  <AppFooter />
-</Layout>
+  <Article title={title} h1={h1} image={image} pubDate={pubDate} updatedDate={page.data.updatedDate} readingTime={readingTime} headings={headings} back={{ href: '/consultant-ia', label: 'Consultant IA' }}>
+    <Content />
+  </Article>
+</V2Page>
