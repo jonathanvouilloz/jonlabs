@@ -1,7 +1,8 @@
 // src/data/villes-suisse-ia.ts
 // Données structurées pour le silo de conversion IA (programmatic SEO).
-// Villes suisses romandes où Jon Labs propose du conseil et de l'intégration IA
+// Villes romandes (et frontalières françaises depuis le 17.11.2026, arbitrage Q2) où Jon Labs propose du conseil et de l'intégration IA
 // depuis Genève. Chaque entrée alimente /consultant-ia/[ville].
+// Genève retirée le 17.11.2026 (doublon du pilier, 301 /consultant-ia/geneve → /consultant-ia).
 //
 // Garde-fou anti-template : le contenu de chaque ville est réellement local
 // (tissu économique, secteurs, cas d'usage, FAQ). Ce n'est PAS un gabarit au
@@ -26,7 +27,7 @@ export interface VilleIAData {
   nom: string;
   /** nom complet pour SEO, ex. "Genève (canton de Genève)" */
   nomComplet: string;
-  /** canton */
+  /** canton (ou département, pour les villes frontalières françaises) */
   canton: string;
   /** population approximative de l'agglomération (entier) */
   population: number;
@@ -40,8 +41,8 @@ export interface VilleIAData {
   secteursDominants: string[];
   /** cas d'usage IA concrets ancrés dans le tissu local (5-6 items) */
   casUsageIA: CasUsageIA[];
-  /** douleurs opérationnelles fréquentes des PME locales (3-4 items) */
-  pains: string[];
+  /** douleurs opérationnelles fréquentes des PME locales (3-4 items). Absent = section masquée (aucune donnée locale réelle). */
+  pains?: string[];
   /** publics cibles spécifiques */
   publicCible: string[];
   /** FAQ ville-spécifique (5 Q/R uniques) */
@@ -59,99 +60,6 @@ export interface VilleIAData {
 }
 
 export const villesSuisseIA: VilleIAData[] = [
-  {
-    slug: 'geneve',
-    nom: 'Genève',
-    nomComplet: 'Genève (canton de Genève)',
-    canton: 'Genève',
-    population: 500000,
-    populationLabel: 'environ 500 000 (agglomération)',
-    description:
-      "Genève concentre la banque privée, le négoce de matières premières, l'horlogerie de luxe, les organisations internationales et une dense couche de fiduciaires, d'études et d'agences immobilières. C'est un bassin de PME à forte valeur ajoutée, où chaque heure administrative coûte cher.",
-    contexteEconomique:
-      "Le tissu genevois est dominé par les services à haute valeur : banque, négoce, horlogerie, droit, immobilier, santé privée. La plupart de ces PME croulent sous des tâches répétitives à faible valeur (saisie, classement de documents, relances, reporting) alors que leurs collaborateurs sont payés au prix fort. C'est exactement là qu'un agent IA bien cadré dégage du temps. Particularité genevoise : les données sensibles (clients bancaires, dossiers patients, mandats fiduciaires) imposent une rigueur nLPD que les solutions américaines posées à la va-vite ne respectent pas. Je suis basé à Chêne-Bougeries — pas de l'autre côté de la frontière, ici.",
-    secteursDominants: [
-      'banque privée et gestion de fortune',
-      'négoce de matières premières (trading)',
-      'fiduciaires et études (avocats, notaires)',
-      'agences immobilières et régies',
-      'horlogerie et luxe',
-      'santé privée et cabinets',
-    ],
-    casUsageIA: [
-      {
-        secteur: 'Fiduciaire',
-        cas: "Un agent qui lit les justificatifs reçus par e-mail, pré-impute les écritures dans Bexio ou Crésus et signale les pièces manquantes au comptable — la validation reste humaine.",
-      },
-      {
-        secteur: 'Régie immobilière',
-        cas: "Tri et réponse de premier niveau aux demandes locataires (états des lieux, sinistres, préavis), avec escalade automatique vers le gérant pour les cas non standard.",
-      },
-      {
-        secteur: 'Étude d\'avocats',
-        cas: "Recherche dans un fonds documentaire interne (jurisprudence, contrats types, dossiers passés) en langage naturel, avec citation des sources — sans envoyer les pièces sensibles à un service public.",
-      },
-      {
-        secteur: 'Cabinet médical',
-        cas: "Rédaction assistée des courriers de suite et synthèse des comptes-rendus dictés, hébergée sur une infrastructure conforme à la protection des données patients.",
-      },
-      {
-        secteur: 'Négoce / PME B2B',
-        cas: "Veille concurrentielle et préparation de propositions commerciales : l'agent compile les données marché et produit un premier jet que le commercial corrige.",
-      },
-      {
-        secteur: 'Horlogerie / luxe',
-        cas: "Réponses multilingues (FR/EN/DE) au service client et au SAV, avec ton de marque maîtrisé et transfert humain dès qu'un dossier sort du cadre.",
-      },
-    ],
-    pains: [
-      "Des collaborateurs à CHF 120k qui passent un tiers de leur temps sur de la saisie et du classement",
-      "Des données clients sensibles qui interdisent de bricoler avec le premier outil IA américain venu",
-      "Des prestataires IA qui promettent monts et merveilles sans jamais montrer un prix",
-      "Un retard ressenti sur l'IA, mais aucune idée de par où commencer concrètement",
-    ],
-    publicCible: [
-      'fiduciaires et comptables',
-      'régies et agences immobilières',
-      'études d\'avocats et de notaires',
-      'PME de négoce et de services B2B',
-      'cabinets médicaux et santé privée',
-    ],
-    faqs: [
-      {
-        question: "Pourquoi prendre un consultant IA basé à Genève plutôt qu'un freelance transfrontalier ?",
-        answer:
-          "Parce que « basé à Genève » et « je passe la frontière deux fois par semaine » ne sont pas la même chose. Je suis installé à Chêne-Bougeries, je facture en CHF, je connais le contexte nLPD et je peux passer dans vos bureaux le matin sans planifier un passage de douane. Pour des dossiers qui touchent des données clients bancaires, des mandats fiduciaires ou des pièces médicales, l'ancrage suisse réel n'est pas un détail marketing : c'est ce qui détermine où vos données sont hébergées et qui y a accès.",
-      },
-      {
-        question: "Mes données clients sont confidentielles. L'IA, ce n'est pas un risque de fuite ?",
-        answer:
-          "Ça peut l'être si on branche n'importe quel outil grand public sur vos dossiers. C'est justement le point de départ de mon travail : cartographier quelles données peuvent sortir, lesquelles doivent rester chez vous, et choisir l'hébergement en conséquence (Suisse ou UE, jamais un service qui réentraîne ses modèles sur vos pièces). Pour une fiduciaire ou une étude genevoise, on travaille souvent avec des modèles hébergés en Europe ou en local, et une règle simple : aucune donnée sensible ne transite par un service public sans accord explicite.",
-      },
-      {
-        question: "Combien coûte un projet d'agent IA pour une PME genevoise ?",
-        answer:
-          "Tout dépend du périmètre, mais je donne des chiffres au lieu de les cacher. Un agent simple (tri d'e-mails, pré-remplissage de documents) démarre à CHF 1'500. Un agent intégré à plusieurs outils (Bexio, CRM, boîte mail) est chiffré sur devis. Vous recevez un devis chiffré avant de vous engager, pas une fourchette floue après trois réunions.",
-      },
-      {
-        question: "On n'a aucune compétence technique en interne, c'est gérable ?",
-        answer:
-          "Oui, et c'est même le cas le plus fréquent à Genève. Vous n'avez pas à comprendre comment l'agent fonctionne — vous devez comprendre ce qu'il vous enlève comme travail. Je m'occupe de la conception, de l'intégration et des garde-fous, puis je forme votre équipe à l'usage quotidien. L'objectif n'est jamais de vous rendre dépendant : c'est de vous donner un outil qui tourne et que vous pilotez.",
-      },
-      {
-        question: "Vous travaillez avec quels outils déjà installés chez nous ?",
-        answer:
-          "Ceux que les PME romandes utilisent vraiment : Bexio et Crésus pour la compta, Outlook/Gmail pour la messagerie, les principaux CRM, et les logiciels métier verticaux (gérance immobilière, gestion de cabinet). L'idée n'est pas de tout remplacer mais de brancher l'IA sur l'existant. Si un outil ne s'intègre pas proprement, je le dis avant de commencer plutôt qu'après.",
-      },
-    ],
-    metaDescription:
-      "Consultant IA à Genève : agents IA sur-mesure et automatisation pour fiduciaires, régies et PME. Prix en CHF, conformité nLPD, vraiment basé ici.",
-    motCleSEO: 'consultant IA Genève',
-    angleHero:
-      "Conseil et intégration d'agents IA pour les PME genevoises — vraiment basé ici, prix en CHF, conformité nLPD comprise.",
-    preuveLocale: 'Basé à Chêne-Bougeries · facturation CHF · audit de 50 sites romands',
-    voisines: ['lausanne'],
-  },
   {
     slug: 'lausanne',
     nom: 'Lausanne',
@@ -243,7 +151,164 @@ export const villesSuisseIA: VilleIAData[] = [
     angleHero:
       "Automatisations IA pragmatiques pour les PME et startups vaudoises — du concret, pas de la hype de labo, prix en CHF.",
     preuveLocale: 'Déplacements Lausanne · facturation CHF · audit de 50 sites romands',
-    voisines: ['geneve'],
+    voisines: ['annemasse', 'gaillard'],
+  },
+  // ══ Zone frontalière (arbitrage Q2 du 17.11.2026) : plus de sites web à Annemasse/Gaillard,
+  // du service IA à la place. Faits locaux repris tels quels de l'ex-data villes-frontalieres.ts
+  // (géographie, trajets, tissu, facturation). Aucun client local ni chiffre ajouté ; pas de `pains`
+  // (aucune observation locale réelle à citer).
+  {
+    slug: 'annemasse',
+    nom: 'Annemasse',
+    nomComplet: 'Annemasse (Haute-Savoie, 74)',
+    canton: 'Haute-Savoie',
+    population: 36000,
+    populationLabel: 'environ 36 000',
+    description:
+      "Annemasse est la principale agglomération frontalière de Haute-Savoie, deuxième ville du département après Annecy. Elle constitue le cœur économique du Genevois français et accueille des dizaines de milliers de frontaliers.",
+    contexteEconomique:
+      "Le tissu économique d'Annemasse mélange commerces de centre-ville, services, PME industrielles, professions libérales et de nombreux frontaliers travaillant à Genève. Depuis l'arrivée du Léman Express en 2019, Genève Cornavin est à 20 minutes en train, et la clientèle compare naturellement aux standards genevois. Pour un commerce, un cabinet ou une PME, le travail qui se répète reste le même des deux côtés de la frontière : e-mails, relances, devis, documents à préparer. C'est là qu'un agent IA bien cadré rend du temps. Je travaille depuis Genève, à 8 km : je passe dans vos locaux pour le cadrage et la prise en main, le reste se fait en visio.",
+    secteursDominants: [
+      'commerces du centre-ville',
+      'services',
+      'PME industrielles et bâtiment',
+      'professions libérales (médecins, avocats, notaires)',
+      'artisans et indépendants frontaliers',
+    ],
+    casUsageIA: [
+      {
+        secteur: 'Cabinet médical',
+        cas: "Rédaction assistée des courriers de suite et synthèse des comptes-rendus dictés, hébergée sur une infrastructure conforme à la protection des données patients.",
+      },
+      {
+        secteur: 'Étude d\'avocats ou de notaires',
+        cas: "Recherche dans un fonds documentaire interne (contrats types, dossiers passés) en langage naturel, avec citation des sources, sans envoyer les pièces sensibles à un service public.",
+      },
+      {
+        secteur: 'Commerce du centre-ville',
+        cas: "Fiches produits et réponses aux questions clients fréquentes, branchées sur le catalogue existant, avec transfert vers vous dès qu'une demande sort du cadre.",
+      },
+      {
+        secteur: 'PME industrielle ou bâtiment',
+        cas: "Automatisation des relances, du tri d'e-mails et de la préparation de devis : l'agent prépare, vous validez avant chaque envoi.",
+      },
+    ],
+    publicCible: [
+      'commerces locaux du centre-ville',
+      'PME industrielles et bâtiment',
+      'professions libérales (médecins, avocats, notaires)',
+      'artisans et indépendants frontaliers',
+    ],
+    faqs: [
+      {
+        question: "Pourquoi un consultant IA basé à Genève pour une entreprise d'Annemasse ?",
+        answer:
+          "Annemasse est à 8 km de Genève centre, soit 15 minutes en voiture ou 20 minutes en Léman Express. Je peux passer dans vos locaux pour le cadrage et la prise en main, le reste avance en visio. Votre clientèle est souvent déjà en partie suisse (frontaliers, clients du Genevois) : je connais les règles des deux côtés de la frontière, RGPD côté France, nLPD côté Suisse.",
+      },
+      {
+        question: "Combien coûte un agent IA pour une PME d'Annemasse ?",
+        answer:
+          "La mise en place démarre à CHF 1'500 pour un agent sur une tâche précise. Si l'agent doit gérer plusieurs tâches et plusieurs outils, c'est sur devis. Ensuite, l'agent tourne chez Infomaniak, en Suisse, pour environ CHF 10 à 40 par mois, payés directement à l'hébergeur.",
+      },
+      {
+        question: "Vos prix sont en CHF. Je peux travailler avec vous depuis Annemasse ?",
+        answer:
+          "Oui. Les prix sont annoncés en CHF ; la facturation est possible en EUR (virement SEPA) au taux du jour, avec la TVA française appliquée pour les sociétés assujetties. Vous recevez un devis chiffré avant de vous engager.",
+      },
+      {
+        question: "Mes données clients sont confidentielles. Où vont-elles ?",
+        answer:
+          "C'est le point de départ du cadrage : ce qui peut sortir, ce qui doit rester chez vous, et l'hébergement choisi en conséquence (Suisse ou UE, jamais un service qui réentraîne ses modèles sur vos pièces). Aucune donnée sensible ne transite par un service public sans votre accord explicite.",
+      },
+      {
+        question: "Je cherche une agence IA à Annemasse. Vous correspondez ?",
+        answer:
+          "Non, et autant le dire tout de suite : je suis freelance, pas une agence. Ni commercial, ni chef de projet : vous parlez directement à celui qui conçoit et intègre l'agent. Ce que vous perdez : une structure capable d'absorber dix chantiers en parallèle. Ce que vous gagnez : une décision prise dans la journée et un seul interlocuteur du devis à la mise en production.",
+      },
+    ],
+    metaDescription:
+      "Consultant IA à Annemasse : agents IA et automatisations pour commerces, cabinets et PME du Genevois français. À 8 km de Genève, prix en CHF.",
+    motCleSEO: 'consultant IA Annemasse',
+    angleHero:
+      "Agents IA et automatisations pour les commerces, cabinets et PME du Genevois français, à 15 minutes de Genève centre.",
+    preuveLocale: 'À 8 km de Genève · déplacements sur place · facturation CHF ou EUR',
+    voisines: ['gaillard', 'lausanne'],
+  },
+  {
+    slug: 'gaillard',
+    nom: 'Gaillard',
+    nomComplet: 'Gaillard (Haute-Savoie, 74)',
+    canton: 'Haute-Savoie',
+    population: 12000,
+    populationLabel: 'environ 12 000',
+    description:
+      "Gaillard est une commune frontalière directement collée à Genève, séparée par la simple barrière douanière de Moillesulaz. Elle fait partie intégrante de l'agglomération genevoise sans en être suisse.",
+    contexteEconomique:
+      "Tissu économique mixte : commerces de proximité, restauration, PME industrielles dans la zone d'activité de Châteauvieux, et une forte densité d'artisans qui interviennent côté Genève comme côté France. La frontière directe avec Genève fait de Gaillard une porte d'entrée commerciale : beaucoup de Suisses traversent pour faire leurs courses, et beaucoup d'entreprises gaillardes ont une clientèle des deux côtés. Un agent IA qui répond aux clients, prépare les devis ou relance les factures doit donc composer avec deux monnaies et deux cadres de protection des données. Je suis à 12 minutes en voiture : je viens sur place pour le cadrage et la prise en main.",
+    secteursDominants: [
+      'commerces de proximité (épicerie, restauration, garages)',
+      'artisans du bâtiment intervenant à Genève',
+      'PME industrielles de la zone de Châteauvieux',
+      'indépendants frontaliers',
+    ],
+    casUsageIA: [
+      {
+        secteur: 'Commerce de proximité',
+        cas: "Réponses aux questions récurrentes des clients (horaires, prix en CHF, moyens de paiement) par e-mail ou messagerie, avec transfert vers vous dès qu'une demande sort du cadre.",
+      },
+      {
+        secteur: 'Artisan du bâtiment',
+        cas: "Tri des demandes entrantes, préparation des devis et relances des clients des deux côtés de la frontière ; vous validez avant chaque envoi.",
+      },
+      {
+        secteur: 'PME industrielle',
+        cas: "Automatisation des relances, du tri d'e-mails et de la préparation de documents, branchée sur les outils déjà en place.",
+      },
+      {
+        secteur: 'Indépendant frontalier',
+        cas: "Un agent qui trie la boîte mail, prépare les réponses et les relances : vous validez, la décision reste la vôtre.",
+      },
+    ],
+    publicCible: [
+      'commerces de proximité (épicerie, restauration, garages)',
+      'artisans du bâtiment intervenant à Genève',
+      'PME industrielles de la zone Châteauvieux',
+      'indépendants frontaliers',
+    ],
+    faqs: [
+      {
+        question: "Gaillard est collée à Genève. Qu'est-ce que ça change pour un projet IA ?",
+        answer:
+          "Votre clientèle est souvent moitié française, moitié suisse : la douane de Moillesulaz se traverse à pied. Un agent qui répond à vos clients ou prépare vos devis doit donc gérer les deux monnaies et, côté données, les deux cadres : RGPD côté France, nLPD côté Suisse. On le cadre dès le départ, pas à la livraison.",
+      },
+      {
+        question: "Je peux vous rencontrer à Gaillard ou seulement en visio ?",
+        answer:
+          "Les deux. Gaillard est à 12 minutes en voiture de Chêne-Bougeries : je viens sur place pour le brief initial, l'atelier de cadrage ou la prise en main. Pour les itérations en cours de projet (démos, ajustements), on travaille en visio avec partage d'écran : c'est plus efficace, et vous n'avez pas à bloquer une demi-journée.",
+      },
+      {
+        question: "Combien coûte un agent IA pour une entreprise de Gaillard ?",
+        answer:
+          "La mise en place démarre à CHF 1'500 pour un agent sur une tâche précise. Si l'agent doit gérer plusieurs tâches et plusieurs outils, c'est sur devis. Ensuite, l'agent tourne chez Infomaniak, en Suisse, pour environ CHF 10 à 40 par mois, payés directement à l'hébergeur.",
+      },
+      {
+        question: "Vos prix sont en CHF. Comment se passe la facturation pour une société française ?",
+        answer:
+          "Les prix sont annoncés en CHF. La facturation est possible en EUR (virement SEPA) au taux du jour, avec la TVA française appliquée pour les sociétés assujetties. Vous validez un devis chiffré avant de vous engager.",
+      },
+      {
+        question: "Freelance ou agence pour un projet IA à Gaillard ?",
+        answer:
+          "Je ne suis pas une agence : chez moi, il n'y a personne entre vous et celui qui construit l'agent. Pas de commercial pour prendre le brief, pas de chef de projet pour le retransmettre. Une question posée le matin est arbitrée l'après-midi. Si votre projet demande une équipe pluridisciplinaire à plein temps pendant six mois, une agence sera plus adaptée, et je vous le dirai.",
+      },
+    ],
+    metaDescription:
+      "Consultant IA à Gaillard : agents IA et automatisations pour commerces, artisans et PME franco-suisses, à 5 minutes de la douane de Moillesulaz.",
+    motCleSEO: 'consultant IA Gaillard',
+    angleHero:
+      "Agents IA et automatisations pour les commerces, artisans et PME à clientèle franco-suisse, à 5 minutes de la douane de Moillesulaz.",
+    preuveLocale: 'À 12 min de Genève · déplacements sur place · facturation CHF ou EUR',
+    voisines: ['annemasse', 'lausanne'],
   },
 ];
 

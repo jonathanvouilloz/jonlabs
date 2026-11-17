@@ -1,571 +1,93 @@
 ---
-// Métiers IA (silo de conversion) — page programmatique /metiers/[metier] (blueprint).
-// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
-// crosshairs, colonne capée, coins nets, accent teal unique, Inter Tight ×
-// Instrument Serif. Namespace scopé .met-*. Gabarit-or : services/referencement-local.astro.
-//
-// HARD-PRESERVE :
-//   - getStaticPaths() intact + data metiersIA / type MetierIAData (data/metiers-ia),
-//     SITE_URL, localBusinessData (data/schema), lib/seo.
-//   - TOUT le Schema.org : getWebPageSchema / getBreadcrumbSchema / getFAQPageSchema /
-//     getServiceItemSchema, tableau `schemas` (data + ordre identiques), injection ld+json.
-//   - seoData dynamique par métier (pageTitle/pageDescription/pageUrl).
-//   - Tous les bindings dynamiques métier (h1, accroche, fluxRemontent, pains, casUsage,
-//     parcours/parcoursLabel, outils, pourQui/pasPourQui, faqs, preuves, articlesConnexes,
-//     heroBadge, preuveLocale) — rien en dur.
-//   - Constantes template communes : methode, servicesIA, casIcons, preuvesHero.
-//   - Deep-links SEO internes (/consultant-ia, /services/*, /portfolio, /contact, articles).
-//   - Illustration illuMetiers gardée (encadrée .co-frame). Import global.css gardé.
-//
-// Supprimés : Halo (import + balises), IconChip (import + usages → icônes inline Remix
-// mono muted→teal hover). Composants IconChip.astro / Halo.astro NON touchés.
+// Métiers IA — page déclinée v2 (gabarit src/components/v2/declinee/). Données : src/data/metiers-ia.ts.
+// SEO conservé : title / meta / H1 du métier, WebPage + BreadcrumbList + FAQPage + Service + LocalBusiness,
+// maillage pilier IA, autre métier, villes IA, articles connexes.
+import DeclineePage from '../../components/v2/declinee/DeclineePage.astro';
+import { methodeIA, piliersIA, metiersLinks } from '../../components/v2/declinee/shared';
+import type { DcPage } from '../../components/v2/declinee/types';
+import { localBusinessData } from '../../data/schema';
+import { getServiceItemSchema } from '../../lib/seo';
+import { pricing } from '../../data/pricing';
+import { metiersIA, type MetierIAData } from '../../data/metiers-ia';
+import { villesSuisseIA } from '../../data/villes-suisse-ia';
 
-import "../../styles/global.css";
-import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import { Image } from "astro:assets";
-import illuMetiers from "../../assets/illustrations/metiers-ia.webp";
-
-import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema, getServiceItemSchema } from "../../lib/seo";
-import { SITE_URL, localBusinessData } from "../../data/schema";
-import { metiersIA, type MetierIAData } from "../../data/metiers-ia";
-
-// ============================================
-// STATIC PATHS — pages Métiers (silo IA)
-// ============================================
 export async function getStaticPaths() {
-  return metiersIA.map(metier => ({
-    params: { metier: metier.slug },
-    props: { metier }
-  }));
+  return metiersIA.map((metier) => ({ params: { metier: metier.slug }, props: { metier } }));
 }
 
-interface Props {
-  metier: MetierIAData;
-}
-
+interface Props { metier: MetierIAData }
 const { metier } = Astro.props;
 
-// ============================================
-// SEO META
-// ============================================
-const pageUrl = `${SITE_URL}/metiers/${metier.slug}`;
-const pageTitle = metier.title;
-const pageDescription = metier.metaDescription;
-
-// ============================================
-// SCHEMA.ORG
-// ============================================
-const webPageSchema = getWebPageSchema({
-  url: pageUrl,
-  name: pageTitle,
-  description: pageDescription
-});
-
-const breadcrumbSchema = getBreadcrumbSchema([
-  { name: "Accueil", url: SITE_URL },
-  { name: "Consultant IA", url: `${SITE_URL}/consultant-ia` },
-  { name: metier.metier, url: pageUrl }
-]);
-
-const faqSchema = getFAQPageSchema(metier.faqs);
+const path = `/metiers/${metier.slug}`;
+const cut = metier.h1.lastIndexOf(' en ');
 const serviceSchema = getServiceItemSchema(`metiers/${metier.slug}`);
 
-const schemas = [
-  webPageSchema,
-  breadcrumbSchema,
-  faqSchema,
-  ...(serviceSchema ? [serviceSchema] : []),
-  localBusinessData
-];
-
-// ============================================
-// Trust line ("a · b · c")
-// ============================================
-const preuvesHero = metier.preuveLocale.split('·').map((p) => p.trim()).filter(Boolean);
-
-// Icônes cyclées pour les cartes cas d'usage
-const casIcons = [
-  "ri-robot-2-line",
-  "ri-mail-settings-line",
-  "ri-file-text-line",
-  "ri-search-eye-line",
-  "ri-customer-service-2-line",
-  "ri-flow-chart",
-  "ri-file-list-3-line",
-  "ri-dashboard-3-line"
-];
-
-// ============================================
-// MÉTHODE — commune à tous les métiers
-// ============================================
-const methode = [
-  {
-    step: "01",
-    title: "Audit",
-    description: "On regarde vos process réels et on repère les 2-3 tâches qui mangent le plus de temps. Pas de promesse en l'air : je vous dis franchement où l'IA aide et où elle n'apporte rien."
+const page: DcPage = {
+  path, title: metier.title, description: metier.metaDescription,
+  crumbs: [{ name: 'Accueil', path: '/' }, { name: 'Consultant IA', path: '/consultant-ia' }, { name: metier.metier, path }],
+  meta: metier.heroBadge,
+  h1: cut > 0 ? metier.h1.slice(0, cut) : metier.h1,
+  h1Dim: cut > 0 ? metier.h1.slice(cut + 1) : undefined,
+  lead: metier.accroche,
+  trust: metier.preuveLocale.split('·').map((p) => p.trim()).filter(Boolean),
+  price: { label: 'Premier agent', value: pricing.agentIA.display },
+  ctaLabel: 'Cadrer mon projet IA',
+  sections: [
+    {
+      kind: 'prose', id: 'principe', meta: 'Le principe', title: 'Ce qui devrait', dim: 'remonter tout seul.',
+      paras: ["L'idée n'est pas de tout automatiser, mais de faire en sorte que l'essentiel arrive à vous prêt à décider, au lieu d'aller le chercher."],
+      list: metier.fluxRemontent,
+    },
+    {
+      kind: 'cells', id: 'blocages', title: 'Les blocages', dim: 'du métier.',
+      intro: "Si vous vous reconnaissez dans l'un de ces points, il y a probablement du temps à récupérer.",
+      items: metier.pains.map((p, i) => ({ k: String(i + 1).padStart(2, '0'), d: p })),
+    },
+    {
+      kind: 'cells', id: 'cas-usage', title: `${metier.casUsage.length} façons dont l'IA`, dim: 'change le quotidien.',
+      intro: 'Pas de démo de labo. Des agents branchés sur des tâches réelles du métier, avec la validation humaine là où elle compte.',
+      items: metier.casUsage.map((c) => ({ t: c.titre, d: c.description })), cols: 4,
+    },
+    {
+      kind: 'cells', id: 'parcours', title: metier.parcoursLabel,
+      intro: "À chaque étape, l'IA enlève du travail répétitif, pas la décision, qui reste la vôtre.",
+      items: metier.parcours.map((e, i) => ({ k: String(i + 1).padStart(2, '0'), t: e.etape, d: e.description })),
+    },
+    {
+      kind: 'cells', id: 'outils', title: 'On se branche', dim: 'sur vos outils.',
+      intro: "L'idée n'est pas de tout remplacer, mais de brancher l'IA sur les logiciels que vous utilisez déjà.",
+      items: metier.outils.map((o) => ({ t: o.nom, d: o.usage })),
+    },
+    {
+      kind: 'cells', id: 'methode', title: 'Comment on', dim: 'travaille ensemble.',
+      intro: "Une méthode qui part de vos process réels et garde l'humain aux commandes.",
+      items: methodeIA, cols: 4,
+    },
+    {
+      kind: 'cells', id: 'pour-qui', title: 'Pour qui,', dim: 'et pas pour qui.',
+      intro: "Autant le dire tout de suite : l'IA n'est pas la réponse à tout. Voici où elle aide, et où elle n'a rien à faire.",
+      items: [{ k: 'Pour vous si…', list: metier.pourQui }, { k: 'Pas pour vous si…', list: metier.pasPourQui }], cols: 2,
+    },
+    {
+      kind: 'cells', id: 'preuves', title: 'Pourquoi', dim: 'me faire confiance.',
+      intro: 'Pas de storytelling : des faits vérifiables et un ancrage suisse réel.',
+      items: metier.preuves.map((p) => ({ d: p })), cols: 2,
+    },
+  ],
+  faqs: metier.faqs,
+  links: [
+    ...piliersIA,
+    ...metiersLinks(metier.slug),
+    ...villesSuisseIA.map((v) => ({ href: `/consultant-ia/${v.slug}`, k: 'Ville', t: `Consultant IA à ${v.nom}` })),
+    ...metier.articlesConnexes.map((a) => ({ href: a.href, k: 'Article', t: a.title, d: a.description })),
+    { href: '/portfolio', k: 'Réalisations', t: 'Voir mes réalisations' },
+  ],
+  cta: {
+    title: "On regarde ensemble ce que l'IA", dim: 'peut vous enlever.',
+    text: "Premier échange gratuit, sans engagement. On identifie les 2-3 tâches qui vous mangent le plus de temps, et je vous dis franchement si l'IA y répond.",
   },
-  {
-    step: "02",
-    title: "Prototype",
-    description: "Je conçois un agent ciblé sur une tâche précise et je l'intègre à vos outils. Un premier résultat en production en deux à trois semaines, pas un chantier de six mois."
-  },
-  {
-    step: "03",
-    title: "Garde-fous",
-    description: "Validation humaine sur ce qui l'exige, cadrage des données (ce qui sort, ce qui reste chez vous), hébergement conforme. L'agent ne décide pas à votre place."
-  },
-  {
-    step: "04",
-    title: "Prise en main",
-    description: "Je forme votre équipe à l'usage quotidien. L'objectif n'est jamais de vous rendre dépendant : c'est de vous donner un outil qui tourne et que vous pilotez."
-  }
-];
-
-// ============================================
-// SERVICES IA (maillage)
-// ============================================
-const servicesIA = [
-  {
-    icon: "ri-brain-line",
-    title: "Consultant IA (hub)",
-    description: "La page de référence sur le conseil IA pour PME romandes : méthode, types d'agents, conformité et tarifs.",
-    href: "/consultant-ia"
-  },
-  {
-    icon: "ri-loop-left-line",
-    title: "Automatisation & agents IA",
-    description: "Agents qui prennent en charge les tâches répétitives : tri d'e-mails, relances, préparation de documents, reporting.",
-    href: "/consultant-ia#automatisation"
-  }
-];
+  schemas: [...(serviceSchema ? [serviceSchema] : []), localBusinessData],
+};
 ---
 
-<Layout title={pageTitle} description={pageDescription} schemas={schemas}>
-  <Header />
-
-  <main class="co-root">
-
-    <!-- ══ HERO SECTORIEL ══ -->
-    <section class="co-sec co-pad co-hero met-hero">
-
-      <h1 class="met-hero-title" data-animate data-delay="0.1">{metier.h1}</h1>
-
-      <p class="met-hero-lead" data-animate data-delay="0.2">{metier.accroche}</p>
-
-      <div class="met-hero-btns" data-animate data-delay="0.3">
-        <a href="/contact" class="co-btn"><i class="ri-calendar-check-line"></i> Cadrer mon projet IA</a>
-        <a href="/contact" class="co-btn co-btn--ghost">Décrire mon besoin <i class="ri-arrow-right-line"></i></a>
-      </div>
-
-      <div class="met-hero-trust" data-animate data-delay="0.4">
-        {preuvesHero.map((p) => (
-          <span><i class="ri-checkbox-circle-line"></i> {p}</span>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ 01 · LE PRINCIPE (ce qui devrait remonter tout seul) ══ -->
-    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">01 — Le principe</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Ce qui devrait <span class="co-ser">remonter tout seul</span></h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
-        L'idée n'est pas de tout automatiser, mais de faire en sorte que l'essentiel arrive à vous prêt à décider — au lieu d'aller le chercher.
-      </p>
-
-      <div class="met-grid met-grid--2" data-animate-stagger>
-        {metier.fluxRemontent.map((flux, idx) => (
-          <div class="met-flux co-frame co-frame--reveal" data-animate-item>
-            <span class="met-flux-num co-index">{String(idx + 1).padStart(2, '0')}</span>
-            <p class="met-card-text">{flux}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ 02 · CE QUI COINCE (pains opérationnels) ══ -->
-    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">02 — Ce qui coince</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Les <span class="co-ser">blocages</span> du métier</h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
-        Si vous vous reconnaissez dans l'un de ces points, il y a probablement du temps à récupérer.
-      </p>
-
-      <div class="met-grid met-grid--2" data-animate-stagger>
-        {metier.pains.map((pain) => (
-          <div class="met-card met-card--row co-frame co-frame--reveal" data-animate-item>
-            <i class="ri-alert-line met-card-icon" aria-hidden="true"></i>
-            <p class="met-card-text">{pain}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ 03 · CAS D'USAGE (le cœur) ══ -->
-    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">03 — Cas d'usage</p>
-      <h2 style="margin-top:var(--space-eyebrow);">8 façons dont l'<span class="co-ser">IA change le quotidien</span></h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
-        Pas de démo de labo. Des agents branchés sur des tâches réelles du métier, avec la validation humaine là où elle compte.
-      </p>
-
-      <div class="met-grid met-grid--3" data-animate-stagger>
-        {metier.casUsage.map((item, idx) => (
-          <div class="met-card co-frame co-frame--reveal" data-animate-item>
-            <i class={`${casIcons[idx % casIcons.length]} met-card-icon`} aria-hidden="true"></i>
-            <h3 class="met-card-title">{item.titre}</h3>
-            <p class="met-card-text">{item.description}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ 04 · PARCOURS MÉTIER ══ -->
-    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">04 — Parcours</p>
-      <h2 style="margin-top:var(--space-eyebrow);">{metier.parcoursLabel}</h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
-        À chaque étape, l'IA enlève du travail répétitif — pas la décision, qui reste la vôtre.
-      </p>
-
-      <div class="met-steps" data-animate-stagger>
-        {metier.parcours.map((etape, idx) => (
-          <div class="met-step" data-animate-item>
-            <span class="met-step-num co-index">{String(idx + 1).padStart(2, '0')}</span>
-            <div class="met-step-body">
-              <h3 class="met-step-title">{etape.etape}</h3>
-              <p class="met-step-text">{etape.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ 05 · OUTILS MÉTIER COMPATIBLES ══ -->
-    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">05 — Outils</p>
-      <h2 style="margin-top:var(--space-eyebrow);">On se <span class="co-ser">branche sur vos outils</span></h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
-        L'idée n'est pas de tout remplacer, mais de brancher l'IA sur les logiciels que vous utilisez déjà.
-      </p>
-
-      <div class="met-grid met-grid--2" data-animate-stagger>
-        {metier.outils.map((outil) => (
-          <div class="met-card met-card--row co-frame co-frame--reveal" data-animate-item>
-            <i class="ri-plug-line met-card-icon" aria-hidden="true"></i>
-            <div>
-              <h3 class="met-card-title">{outil.nom}</h3>
-              <p class="met-card-text">{outil.usage}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ 06 · MÉTHODE ══ -->
-    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">06 — Méthode</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Comment on <span class="co-ser">travaille ensemble</span></h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
-        Une méthode qui part de vos process réels et garde l'humain aux commandes.
-      </p>
-
-      <div class="met-grid met-grid--4" data-animate-stagger>
-        {methode.map((m) => (
-          <div class="met-card co-frame co-frame--reveal" data-animate-item>
-            <span class="met-method-step co-index">{m.step}</span>
-            <h3 class="met-card-title">{m.title}</h3>
-            <p class="met-card-text">{m.description}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ 07 · POUR QUI / PAS POUR QUI ══ -->
-    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">07 — Honnêteté</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Pour qui — et <span class="co-ser">pas pour qui</span></h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
-        Autant le dire tout de suite : l'IA n'est pas la réponse à tout. Voici où elle aide, et où elle n'a rien à faire.
-      </p>
-
-      <div class="met-split">
-        <div class="met-split-col co-frame" data-animate>
-          <span class="co-x tl"></span><span class="co-x tr"></span>
-          <span class="co-x bl"></span><span class="co-x br"></span>
-          <h3 class="met-split-title"><i class="ri-check-line"></i> Pour vous si…</h3>
-          <ul class="co-list co-list--check">
-            {metier.pourQui.map((item) => (
-              <li><i class="ri-check-line"></i><span>{item}</span></li>
-            ))}
-          </ul>
-        </div>
-
-        <div class="met-split-col co-frame" data-animate data-delay="0.1">
-          <span class="co-x tl"></span><span class="co-x tr"></span>
-          <span class="co-x bl"></span><span class="co-x br"></span>
-          <h3 class="met-split-title met-split-title--mut"><i class="ri-close-line"></i> Pas pour vous si…</h3>
-          <ul class="met-nolist">
-            {metier.pasPourQui.map((item) => (
-              <li><i class="ri-close-line" aria-hidden="true"></i><span>{item}</span></li>
-            ))}
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ 08 · FAQ MÉTIER (accordéon natif <details>, zéro JS) ══ -->
-    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">08 — FAQ</p>
-
-      <div class="met-faq-grid">
-        <!-- Illustration contextuelle (encadrée .co-frame) -->
-        <div class="met-faq-illu" aria-hidden="true">
-          <div class="met-illu co-frame">
-            <span class="co-x tl"></span><span class="co-x tr"></span>
-            <span class="co-x bl"></span><span class="co-x br"></span>
-            <Image src={illuMetiers} alt="" class="met-illu-img" aria-hidden="true" />
-          </div>
-        </div>
-
-        <!-- Colonne FAQ -->
-        <div class="met-faq-col">
-          <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes</h2>
-          <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:56ch;line-height:1.6;">
-            Ce que les professionnels du métier me demandent avant de se lancer.
-          </p>
-
-          <div class="met-faq" style="margin-top:28px;">
-            {metier.faqs.map((faq, index) => (
-              <details open={index === 0}>
-                <summary>
-                  {faq.question}
-                  <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
-                </summary>
-                <p class="met-faq-answer">{faq.answer}</p>
-              </details>
-            ))}
-          </div>
-
-          <p class="co-mut" style="margin-top:24px;">
-            Une autre question ? <a href="/contact" class="met-inline">Écrivez-moi</a>, je réponds sous 24h.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ 09 · PREUVES ══ -->
-    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">09 — Preuves</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Pourquoi <span class="co-ser">me faire confiance</span></h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
-        Pas de storytelling : des faits vérifiables et un ancrage suisse réel.
-      </p>
-
-      <div class="met-grid met-grid--2" data-animate-stagger>
-        {metier.preuves.map((preuve) => (
-          <div class="met-card met-card--row co-frame co-frame--reveal" data-animate-item>
-            <i class="ri-verified-badge-line met-card-icon" aria-hidden="true"></i>
-            <p class="met-card-text">{preuve}</p>
-          </div>
-        ))}
-      </div>
-
-      <p class="met-note-inline" data-animate>
-        <a href="/portfolio" class="met-inline">Voir mes réalisations <i class="ri-arrow-right-line"></i></a>
-      </p>
-    </section>
-
-    <!-- ══ 10 · MAILLAGE (hub + services + articles) ══ -->
-    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">10 — Aller plus loin</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Pour <span class="co-ser">creuser le sujet</span></h2>
-
-      <!-- Services IA -->
-      <div class="met-grid met-grid--2" data-animate-stagger>
-        {servicesIA.map((service) => (
-          <a href={service.href} class="met-linkcard co-frame co-frame--reveal" data-animate-item>
-            <i class={`${service.icon} met-card-icon`} aria-hidden="true"></i>
-            <h3 class="met-card-title">{service.title}</h3>
-            <p class="met-card-text">{service.description}</p>
-            <span class="met-linkcard-cta">Découvrir <i class="ri-arrow-right-line"></i></span>
-          </a>
-        ))}
-      </div>
-
-      <!-- Articles blog -->
-      <h3 class="met-sub-title">À lire avant de vous lancer</h3>
-      <div class="met-grid met-grid--3" data-animate-stagger>
-        {metier.articlesConnexes.map((article) => (
-          <a href={article.href} class="met-linkcard co-frame co-frame--reveal" data-animate-item>
-            <i class={`${article.icon} met-card-icon`} aria-hidden="true"></i>
-            <h3 class="met-card-title met-card-title--sm">{article.title}</h3>
-            <p class="met-card-text">{article.description}</p>
-            <span class="met-linkcard-cta">Lire l'article <i class="ri-arrow-right-line"></i></span>
-          </a>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ CTA FINAL (primitive .co-cta) ══ -->
-    <section class="co-cta">
-      <span class="co-x tl"></span><span class="co-x tr"></span>
-      <span class="co-x bl"></span><span class="co-x br"></span>
-      <div class="co-cta-inner">
-        <h2 class="co-cta-title">On regarde ensemble ce que l'IA peut vous <span class="co-ser">enlever.</span></h2>
-        <p class="co-cta-lead">
-          Premier échange gratuit, sans engagement. On identifie les 2-3 tâches qui vous mangent le plus de temps,
-          et je vous dis franchement si l'IA y répond. Réponse sous 24h.
-        </p>
-        <div class="co-cta-btns">
-          <a href="/contact" class="co-btn co-cta-btn"><i class="ri-calendar-check-line"></i> Cadrer mon projet IA</a>
-          <a href="mailto:hello@jonlabs.ch" class="co-btn co-btn--ghost co-cta-btn co-cta-btn--ghost"><i class="ri-mail-line"></i> hello@jonlabs.ch</a>
-        </div>
-        <div class="co-cta-trust">
-          <span><i class="ri-time-line"></i> Réponse sous 24h</span>
-          <span><i class="ri-calendar-line"></i> Lun-Ven, 9h-18h (CET)</span>
-          <span><i class="ri-money-swiss-franc-circle-line"></i> Facturation en CHF</span>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <Footer />
-</Layout>
-
-<style is:global>
-  /* ══ MÉTIERS IA — styles .met-* (namespace scopé, corps .co-root) ══ */
-
-  /* ── Hero (centré) ── */
-  .met-hero { text-align: center; }
-  .met-hero-title {
-    margin-top: 24px; margin-left: auto; margin-right: auto; max-width: 20ch;
-    font-size: clamp(2.1rem, 5vw, 3.2rem); line-height: 1.06;
-  }
-  .co-root .met-hero-lead {
-    margin-top: 20px; margin-left: auto; margin-right: auto; max-width: 60ch;
-    font-size: 1.1rem; line-height: 1.65; color: var(--muted);
-  }
-  .met-hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 30px; }
-  .met-hero-btns .co-btn i { transition: transform .18s ease-out; }
-  .met-hero-btns .co-btn:hover i { transform: translateX(2px); }
-  .met-hero-trust {
-    display: flex; flex-wrap: wrap; justify-content: center; gap: 12px 26px;
-    margin-top: 26px; font-size: 13.5px; color: var(--muted);
-  }
-  .met-hero-trust span { display: inline-flex; align-items: center; gap: 6px; }
-  .met-hero-trust i { color: var(--accent); }
-
-  /* ── Grilles génériques ── */
-  .met-grid { display: grid; gap: 16px; margin-top: var(--space-block); }
-  .met-grid--2 { grid-template-columns: repeat(2, 1fr); }
-  .met-grid--3 { grid-template-columns: repeat(3, 1fr); }
-  .met-grid--4 { grid-template-columns: repeat(4, 1fr); }
-
-  /* ── Cartes ── */
-  .met-card {
-    position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
-    background: var(--surface); border: 1px solid var(--line-2);
-    transition: box-shadow .18s ease-out, transform .18s ease-out;
-  }
-  .met-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
-  .met-card--row { flex-direction: row; align-items: flex-start; gap: 14px; }
-  .met-card-icon { font-size: 24px; color: var(--muted); line-height: 1; flex: none; transition: color .18s ease-out; }
-  .met-card:hover .met-card-icon { color: var(--accent); }
-  .met-card-title { font-size: 1.1rem; }
-  .met-card-title--sm { font-size: 1rem; line-height: 1.3; }
-  .met-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
-
-  /* ── Flux (cartes numérotées "remonte tout seul") ── */
-  .met-flux {
-    position: relative; display: flex; align-items: flex-start; gap: 16px; padding: 22px 24px;
-    background: var(--surface); border: 1px solid var(--line-2);
-    transition: box-shadow .18s ease-out, transform .18s ease-out;
-  }
-  .met-flux:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
-  .met-flux-num { font-size: 18px; font-weight: 700; flex: none; line-height: 1.4; }
-
-  /* ── Méthode (numéro display) ── */
-  .met-method-step { font-size: 30px; font-weight: 700; color: var(--accent); line-height: 1; }
-
-  /* ── Parcours (étapes empilées) ── */
-  .met-steps { display: flex; flex-direction: column; margin-top: var(--space-block); border-top: 1px solid var(--line); }
-  .met-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
-  .met-step-num { font-size: 20px; font-weight: 600; }
-  .met-step-title { font-size: 1.15rem; }
-  .co-root .met-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 72ch; }
-
-  /* ── Pour qui / pas pour qui ── */
-  .met-split { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: var(--space-block); }
-  .met-split-col { position: relative; padding: var(--pad-encart); background: var(--surface); border: 1px solid var(--line-2); }
-  .met-split-title { display: inline-flex; align-items: center; gap: 8px; font-size: 1.15rem; margin-bottom: 20px; }
-  .met-split-title i { color: var(--accent); }
-  .met-split-title--mut i { color: var(--muted); }
-  .met-nolist { display: flex; flex-direction: column; gap: 8px; padding: 0; list-style: none; }
-  .met-nolist li { display: flex; gap: 9px; line-height: 1.6; font-size: 14.5px; }
-  .met-nolist li i { color: var(--muted); font-size: 15px; flex: none; margin-top: 3px; }
-  .co-root .met-split-col .co-list li,
-  .co-root .met-nolist li { font-size: 14.5px; }
-
-  /* ── FAQ (illustration sticky + accordéon natif) ── */
-  .met-faq-grid { display: grid; grid-template-columns: minmax(0, 320px) 1fr; gap: 48px; align-items: start; margin-top: var(--space-eyebrow); }
-  .met-faq-illu { position: sticky; top: 112px; }
-  .met-illu { position: relative; background: var(--surface); border: 1px solid var(--line-2); }
-  .met-illu-img { display: block; width: 100%; height: auto; }
-
-  .met-faq { border-top: 1px solid var(--line); }
-  .met-faq details { border-bottom: 1px solid var(--line); }
-  .met-faq summary {
-    list-style: none; cursor: pointer; padding: 20px 0;
-    display: flex; justify-content: space-between; align-items: center; gap: 20px;
-    font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
-  }
-  .met-faq summary::-webkit-details-marker { display: none; }
-  .met-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
-  .met-faq details[open] summary i { transform: rotate(180deg); }
-  .co-root .met-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 72ch; }
-  .met-faq details::details-content {
-    block-size: 0; overflow: hidden;
-    transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
-  }
-  .met-faq details[open]::details-content { block-size: auto; }
-
-  /* ── Liens inline ── */
-  .met-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; display: inline-flex; align-items: center; gap: 6px; }
-  .met-inline:hover { color: var(--ink); }
-  .met-inline i { transition: transform .18s ease-out; }
-  .met-inline:hover i { transform: translateX(3px); }
-  .co-root .met-note-inline { margin-top: 24px; font-size: 14px; }
-
-  /* ── Cartes-liens (maillage) ── */
-  .met-linkcard {
-    position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
-    background: var(--surface); border: 1px solid var(--line-2);
-    transition: box-shadow .18s ease-out, transform .18s ease-out;
-  }
-  .met-linkcard:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
-  .met-linkcard-cta { margin-top: auto; padding-top: 14px; font-size: 13.5px; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 6px; }
-  .met-linkcard-cta i { transition: transform .18s ease-out; }
-  .met-linkcard:hover .met-linkcard-cta i { transform: translateX(3px); }
-  .met-sub-title { margin-top: var(--space-subsection); font-size: 13px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-
-  /* ── Anchor scroll offset ── */
-  .co-root section[id] { scroll-margin-top: 100px; }
-
-  /* ── Responsive ── */
-  @media (max-width: 960px) {
-    .met-faq-grid { grid-template-columns: 1fr; gap: 28px; }
-    .met-faq-illu { position: static; max-width: 420px; }
-    .met-grid--4 { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 720px) {
-    .met-grid--2, .met-grid--3, .met-grid--4, .met-split { grid-template-columns: 1fr; }
-    .met-step { grid-template-columns: 44px 1fr; gap: 14px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .met-card, .met-flux, .met-linkcard, .met-card-icon, .met-faq summary i,
-    .met-hero-btns .co-btn i, .met-inline i, .met-linkcard-cta i { transition: none; }
-  }
-</style>
+<DeclineePage page={page} />

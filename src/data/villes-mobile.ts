@@ -2,6 +2,8 @@
 // Données structurées pour le silo géo « application mobile » (programmatic SEO).
 // Villes romandes où Jon Labs développe des applications iOS / Android depuis Genève.
 // Chaque entrée alimente /services/developpement-application-mobile/[ville].
+// Genève retirée le 17.11.2026 (inconnue de Google, 301 vers le pilier qui porte déjà « … genève »).
+// Copy au vouvoiement depuis la migration v2.
 //
 // Garde-fou anti-template : le contenu de chaque ville est réellement local
 // (tissu économique, plateforme dominante, cas d'usage, technos, FAQ). Ce n'est PAS
@@ -106,170 +108,6 @@ export interface VilleMobileData {
 
 export const villesMobile: VilleMobileData[] = [
   // ══════════════════════════════════════════════════════════════════════════
-  // GENÈVE — profil mesuré : Android + React Native tirent le cluster
-  // ══════════════════════════════════════════════════════════════════════════
-  {
-    slug: 'geneve',
-    nom: 'Genève',
-    nomComplet: 'Genève (canton de Genève)',
-    canton: 'Genève',
-
-    metaTitle: 'Application mobile à Genève, sans agence | Jonlabs',
-    metaDescription:
-      "Développement d'application mobile à Genève sans passer par une agence : apps Android et iOS d'un seul code React Native, publiées sur les stores. Devis CHF.",
-    h1: 'Application mobile à',
-    motCleSEO: 'agence application mobile Genève',
-    motsClesSecondaires: [
-      'développement application mobile Genève',
-      'création application mobile Genève',
-      'créer une application Genève',
-      'développement app Android Genève',
-      'agence React Native Genève',
-    ],
-
-    angleHero:
-      "Applications iOS et Android pour les entreprises genevoises, développées et publiées par la personne qui écrit le code. Android traité sérieusement, pas comme un portage de fin de projet.",
-    preuveLocale: 'Basé à Chêne-Bougeries · facturation CHF · publication App Store et Play Store',
-
-    description:
-      "Genève concentre la banque privée, le négoce de matières premières, l'horlogerie de luxe, les organisations internationales et une dense couche de fiduciaires, d'études et de régies. Un bassin de PME à forte valeur ajoutée, multilingue, où une application n'est jamais un gadget marketing mais un outil de travail.",
-    contexteEconomique:
-      "Le tissu genevois est dominé par les services à haute valeur : banque, négoce, horlogerie, droit, immobilier, santé privée, plus l'écosystème des organisations internationales. Deux conséquences très concrètes sur un projet d'app. D'abord, le parc d'appareils est mixte : à côté des iPhone des directions, il y a les flottes Android des équipes terrain, de la logistique et des collaborateurs frontaliers — traiter Android comme une case à cocher en fin de projet, ici, c'est se couper de la moitié des utilisateurs réels. Ensuite, les données manipulées (dossiers clients, mandats, pièces médicales) imposent de décider où elles sont stockées avant d'écrire la première ligne. Je suis installé à Chêne-Bougeries : les ateliers de cadrage se font sur place, pas en visio depuis l'autre côté de la frontière.",
-    secteursDominants: [
-      'négoce de matières premières et PME B2B',
-      'banque privée et gestion de fortune',
-      'horlogerie et luxe',
-      'organisations internationales et ONG',
-      'régies immobilières et fiduciaires',
-      'santé privée et cabinets',
-    ],
-
-    plateforme: {
-      label: 'Android compte autant qu\'iOS',
-      explication:
-        "C'est la particularité genevoise. Les équipes terrain du négoce et de la logistique, les collaborateurs frontaliers, les flottes d'appareils d'entreprise : une grande partie des utilisateurs réels d'une app métier genevoise est sous Android. Sortir une app iOS seule, puis promettre Android « plus tard », c'est livrer un outil que la moitié des équipes ne peut pas installer. On part donc d'un code unique (React Native ou Flutter) qui produit les deux applications, et on teste vraiment sur les deux stores.",
-    },
-
-    casUsageMobile: [
-      {
-        secteur: 'Négoce / logistique',
-        cas: "Application Android pour les équipes terrain : suivi des cargaisons, photos et documents pris sur place, validation d'étapes hors ligne puis synchronisation dès le retour du réseau.",
-      },
-      {
-        secteur: 'Horlogerie et luxe',
-        cas: "Application client multilingue (FR/EN/DE) adossée à la pièce : certificat d'authenticité, historique d'entretien, demande de SAV et notifications de suivi de réparation.",
-      },
-      {
-        secteur: 'Régie immobilière',
-        cas: "Application locataire : déclaration d'un sinistre avec photos, accès aux documents du bail, état des lieux guidé, notifications sur les échéances — moins d'appels au gérant.",
-      },
-      {
-        secteur: 'Banque privée / gestion de fortune',
-        cas: "Application de consultation en lecture seule pour les clients : reporting de portefeuille, documents, messagerie sécurisée, authentification forte, données hébergées en Suisse.",
-      },
-      {
-        secteur: 'Organisation internationale / ONG',
-        cas: "Application de terrain ou d'événement fonctionnant hors connexion, multilingue, publiée sur les deux stores pour être installable partout où les équipes se déplacent.",
-      },
-      {
-        secteur: 'Cabinet et santé privée',
-        cas: "Application de prise de rendez-vous et de rappels, avec formulaires pré-consultation et hébergement des données patients choisi en fonction des exigences de protection des données.",
-      },
-    ],
-
-    technos: [
-      {
-        nom: 'React Native',
-        pourquoi:
-          "Beaucoup de PME genevoises ont déjà un site, un back-office ou un outil interne en React et TypeScript. React Native réutilise ce langage et souvent une partie de la logique : un seul écosystème à maintenir, une seule personne capable d'intervenir sur le web et sur le mobile.",
-      },
-      {
-        nom: 'Flutter',
-        pourquoi:
-          "Quand l'interface doit être identique au pixel près sur iOS et Android — typiquement une app de marque horlogère ou une app produit très dessinée — Flutter donne le contrôle le plus fin sur le rendu, sans repartir de zéro pour chaque plateforme.",
-      },
-      {
-        nom: 'PWA',
-        pourquoi:
-          "Si l'app sert surtout à consulter de l'information et n'a pas besoin des capteurs du téléphone, une application web installable évite la publication sur les stores et les comptes développeurs. Je le dis quand c'est le cas plutôt que de vendre une app native inutile.",
-      },
-    ],
-
-    pains: [
-      "Un devis d'agence à cinq chiffres avec un chef de projet, un commercial et un designer entre toi et la personne qui code",
-      "Une audience réellement partagée entre iPhone et Android, et un budget qui ne permet pas deux développements séparés",
-      "Des données clients sensibles qui interdisent d'expédier le projet chez le premier prestataire venu, sans savoir où elles atterrissent",
-      "Une application déjà livrée, plus mise à jour sur les stores, dont le prestataire d'origine a disparu",
-    ],
-
-    publicCible: [
-      'PME de négoce et de services B2B',
-      'maisons horlogères et marques de luxe',
-      'régies immobilières et fiduciaires',
-      'organisations internationales et ONG',
-      'cabinets et acteurs de la santé privée',
-    ],
-
-    faqs: [
-      {
-        question: "Agence ou freelance pour développer une application mobile à Genève ?",
-        answer:
-          "La vraie différence n'est pas la taille, c'est le nombre de personnes entre toi et le code. Dans une agence genevoise, tu passes par un commercial, un chef de projet et un designer avant qu'une ligne soit écrite — et tu paies cette chaîne. Avec moi, tu parles à celui qui développe et qui publie sur les stores. Ce que tu perds : une structure capable d'absorber dix chantiers en parallèle. Ce que tu gagnes : des décisions prises dans la journée et un devis qui ne finance pas des bureaux.",
-      },
-      {
-        question: "Faut-il sortir sur Android ou sur iOS d'abord à Genève ?",
-        answer:
-          "À Genève, la question se pose différemment d'ailleurs. Si ton application s'adresse à des équipes terrain, à la logistique, au négoce ou à des collaborateurs frontaliers, une bonne partie du parc est sous Android — sortir iOS seul revient à livrer un outil que la moitié des gens ne peut pas installer. Si tu vises une clientèle privée haut de gamme, iPhone domine. Dans les deux cas, on part d'un code unique (React Native ou Flutter) qui produit les deux applications : la question « laquelle d'abord » perd l'essentiel de son enjeu budgétaire.",
-      },
-      {
-        question: "Pourquoi React Native plutôt qu'un développement natif pour une PME genevoise ?",
-        answer:
-          "Parce que la plupart des PME genevoises ont déjà quelque chose en React ou en TypeScript : un site, un back-office, un outil interne. React Native reste dans ce même écosystème, donc la même personne peut intervenir sur le web et sur le mobile, et une partie de la logique métier est mutualisée. Le natif garde tout son sens pour un usage intensif du matériel ou des performances graphiques poussées — dans ce cas je te le dis. Pour une app métier, un portail client ou un outil de terrain, l'écart de performance ne justifie pas de payer deux développements.",
-      },
-      {
-        question: "Nos données clients sont confidentielles. Où sont-elles hébergées ?",
-        answer:
-          "On tranche cette question avant d'écrire la première ligne, pas à la livraison. On liste ce qui doit rester sur les serveurs suisses ou européens, ce qui peut transiter, et ce qui n'a rien à faire dans une application mobile. Pour un cabinet, une régie ou un acteur de la gestion de fortune genevois, l'hébergement et l'authentification sont des contraintes de conception, pas des options ajoutées après coup. Tu repars avec une documentation qui dit précisément où chaque donnée vit.",
-      },
-      {
-        question: "Combien coûte une application mobile à Genève ?",
-        answer:
-          "C'est sur devis, parce que tout dépend du projet : nombre d'écrans, comptes utilisateurs, connexions à tes outils, design sur mesure. En passant par un freelance plutôt que par une agence, tu ne finances pas une structure. Tu reçois un devis chiffré avant de t'engager, et le guide détaillé sur le prix d'une application mobile en Suisse explique ce qui fait vraiment bouger le chiffre.",
-      },
-      {
-        question: "Vous vous déplacez dans nos bureaux à Genève ?",
-        answer:
-          "Oui. Je suis installé à Chêne-Bougeries, donc les ateliers de cadrage et les points d'étape se font sur place quand c'est utile — et en visio quand ça ne l'est pas. Concrètement, ça change surtout le début du projet : voir comment tes équipes travaillent réellement, sur quels appareils, dans quelles conditions de réseau, évite de concevoir une application qui ne tient pas la réalité du terrain.",
-      },
-    ],
-
-    voisines: ['lausanne'],
-    articles: [
-      {
-        title: 'Flutter vs React Native : lequel choisir ?',
-        description:
-          "Les deux technologies qui produisent iOS et Android d'un seul code, comparées du point de vue d'une PME et non d'un benchmark de labo.",
-        href: '/blog/flutter-vs-react-native-pme',
-        icon: 'ri-git-branch-line',
-      },
-      {
-        title: 'Application native ou hybride : les différences',
-        description:
-          "Ce que tu perds vraiment en hybride, ce que tu gagnes, et les cas où le natif reste le bon choix.",
-        href: '/blog/application-native-vs-hybride',
-        icon: 'ri-cpu-line',
-      },
-      {
-        title: "Prix d'une application mobile en Suisse",
-        description:
-          "Les postes qui font monter la facture, et comment cadrer un périmètre pour ne pas payer des fonctionnalités que personne n'utilisera.",
-        href: '/blog/prix-application-mobile-suisse',
-        icon: 'ri-money-cny-circle-line',
-      },
-    ],
-  },
-
-  // ══════════════════════════════════════════════════════════════════════════
   // LAUSANNE — profil mesuré : iOS tire le cluster
   // ══════════════════════════════════════════════════════════════════════════
   {
@@ -291,7 +129,7 @@ export const villesMobile: VilleMobileData[] = [
     ],
 
     angleHero:
-      "Applications iOS et Android pour les startups, la medtech et les PME vaudoises. Un MVP installable sur le téléphone de tes bêta-testeurs, pas une maquette cliquable.",
+      "Applications iOS et Android pour les startups, la medtech et les PME vaudoises. Un MVP installable sur le téléphone de vos bêta-testeurs, pas une maquette cliquable.",
     preuveLocale: 'Déplacements Lausanne · facturation CHF · TestFlight et publication App Store',
 
     description:
@@ -310,13 +148,13 @@ export const villesMobile: VilleMobileData[] = [
     plateforme: {
       label: 'iOS en premier, sans sacrifier Android',
       explication:
-        "À Lausanne, le premier public d'une application est presque toujours sous iPhone : investisseurs, comité de direction, chercheurs, bêta-testeurs recrutés dans l'écosystème EPFL. Commencer par une build iOS distribuée en TestFlight permet de mettre l'app entre leurs mains en amont de toute publication publique. Mais « iOS d'abord » ne doit pas devenir « iOS seulement » : dès que tu ouvres au grand public ou à des utilisateurs hors du campus, Android revient. On construit donc sur un code unique, et Android suit sans repartir de zéro.",
+        "À Lausanne, le premier public d'une application est presque toujours sous iPhone : investisseurs, comité de direction, chercheurs, bêta-testeurs recrutés dans l'écosystème EPFL. Commencer par une build iOS distribuée en TestFlight permet de mettre l'app entre leurs mains en amont de toute publication publique. Mais « iOS d'abord » ne doit pas devenir « iOS seulement » : dès que vous ouvrez au grand public ou à des utilisateurs hors du campus, Android revient. On construit donc sur un code unique, et Android suit sans repartir de zéro.",
     },
 
     casUsageMobile: [
       {
         secteur: 'Spin-off EPFL / startup',
-        cas: "MVP iOS distribué en TestFlight à une cohorte de bêta-testeurs : l'app s'installe sur leur téléphone, tu récoltes de vrais retours d'usage avant de dépenser sur des fonctionnalités que personne ne demande.",
+        cas: "MVP iOS distribué en TestFlight à une cohorte de bêta-testeurs : l'app s'installe sur leur téléphone, vous récoltez de vrais retours d'usage avant de dépenser sur des fonctionnalités que personne ne demande.",
       },
       {
         secteur: 'Medtech et santé numérique',
@@ -328,7 +166,7 @@ export const villesMobile: VilleMobileData[] = [
       },
       {
         secteur: 'Agence digitale ou studio',
-        cas: "Développement mobile en sous-traitance pour un client final : je code, tu gardes la relation client, l'application est publiée sur le compte développeur du client avec une passation documentée.",
+        cas: "Développement mobile en sous-traitance pour un client final : je code, vous gardez la relation client, l'application est publiée sur le compte développeur du client avec une passation documentée.",
       },
       {
         secteur: 'PME de services vaudoise',
@@ -349,12 +187,12 @@ export const villesMobile: VilleMobileData[] = [
       {
         nom: 'Flutter ou React Native',
         pourquoi:
-          "Une spin-off ou une PME vaudoise n'a pas les moyens de financer deux équipes. Un code unique produit les deux applications : tu commences par diffuser la version iOS à ton premier cercle, et Android suit à l'ouverture publique sans redéveloppement.",
+          "Une spin-off ou une PME vaudoise n'a pas les moyens de financer deux équipes. Un code unique produit les deux applications : vous commencez par diffuser la version iOS à votre premier cercle, et Android suit à l'ouverture publique sans redéveloppement.",
       },
       {
         nom: 'Reprise de prototype',
         pourquoi:
-          "Le cas le plus courant autour de l'EPFL : un prototype existe, écrit pendant un projet de semestre ou par un stagiaire, et plus personne ne sait le compiler. On regarde ce qui est récupérable et ce qui coûte moins cher à réécrire — franchement, y compris quand la réponse ne t'arrange pas.",
+          "Le cas le plus courant autour de l'EPFL : un prototype existe, écrit pendant un projet de semestre ou par un stagiaire, et plus personne ne sait le compiler. On regarde ce qui est récupérable et ce qui coûte moins cher à réécrire — franchement, y compris quand la réponse ne vous arrange pas.",
       },
     ],
 
@@ -382,17 +220,17 @@ export const villesMobile: VilleMobileData[] = [
       {
         question: "On veut sortir sur iOS d'abord. C'est un bon choix à Lausanne ?",
         answer:
-          "Pour un premier cercle lausannois, oui — investisseurs, comité, chercheurs, bêta-testeurs recrutés dans l'écosystème EPFL sont massivement sous iPhone, et TestFlight permet de leur envoyer des builds successives sans publication publique. Le piège, c'est de transformer « iOS d'abord » en « iOS seulement » : dès que tu ouvres au grand public, Android revient dans l'équation. C'est pour ça qu'on construit sur un code unique dès le départ — la version Android n'est alors pas un nouveau projet.",
+          "Pour un premier cercle lausannois, oui — investisseurs, comité, chercheurs, bêta-testeurs recrutés dans l'écosystème EPFL sont massivement sous iPhone, et TestFlight permet de leur envoyer des builds successives sans publication publique. Le piège, c'est de transformer « iOS d'abord » en « iOS seulement » : dès que vous ouvrez au grand public, Android revient dans l'équation. C'est pour ça qu'on construit sur un code unique dès le départ — la version Android n'est alors pas un nouveau projet.",
       },
       {
         question: "On est une spin-off EPFL, on doit montrer une app à des investisseurs. Vous faites du MVP ?",
         answer:
-          "Oui, et c'est le format qui a le plus de sens à ce stade. On coupe le périmètre à ce qui démontre la valeur — souvent deux ou trois écrans qui fonctionnent vraiment plutôt que douze écrans à moitié faits — et on distribue via TestFlight à ta cohorte de test. L'objectif n'est pas une application complète : c'est une application installable qui prouve que le concept tient sur un vrai téléphone. L'article sur le budget d'un MVP mobile détaille comment cadrer ce périmètre.",
+          "Oui, et c'est le format qui a le plus de sens à ce stade. On coupe le périmètre à ce qui démontre la valeur — souvent deux ou trois écrans qui fonctionnent vraiment plutôt que douze écrans à moitié faits — et on distribue via TestFlight à votre cohorte de test. L'objectif n'est pas une application complète : c'est une application installable qui prouve que le concept tient sur un vrai téléphone. L'article sur le budget d'un MVP mobile détaille comment cadrer ce périmètre.",
       },
       {
         question: "Qui s'occupe de la publication sur l'App Store et de la revue Apple ?",
         answer:
-          "Moi. Comptes développeurs, fiches, captures d'écran, questionnaire de confidentialité, soumission et allers-retours avec la revue Apple : c'est inclus dans le projet. Un refus de revue n'a rien d'exceptionnel — motif de confidentialité mal renseigné, fonctionnalité jugée trop proche d'un site web, permission demandée sans justification. Ce qui compte, c'est que quelqu'un sache lire le motif et corriger. L'application est publiée sur ton compte, à ton nom, et tu gardes la main dessus.",
+          "Moi. Comptes développeurs, fiches, captures d'écran, questionnaire de confidentialité, soumission et allers-retours avec la revue Apple : c'est inclus dans le projet. Un refus de revue n'a rien d'exceptionnel — motif de confidentialité mal renseigné, fonctionnalité jugée trop proche d'un site web, permission demandée sans justification. Ce qui compte, c'est que quelqu'un sache lire le motif et corriger. L'application est publiée sur votre compte, à votre nom, et vous gardez la main dessus.",
       },
       {
         question: "Nos données de santé sont sensibles. Comment vous gérez ça sur mobile ?",
@@ -406,7 +244,7 @@ export const villesMobile: VilleMobileData[] = [
       },
     ],
 
-    voisines: ['geneve'],
+    voisines: [],
     articles: [
       {
         title: 'MVP application mobile : combien prévoir ?',
@@ -418,7 +256,7 @@ export const villesMobile: VilleMobileData[] = [
       {
         title: 'Application mobile ou PWA : comment choisir ?',
         description:
-          "Les critères concrets pour savoir si ton projet a réellement besoin de passer par les stores.",
+          "Les critères concrets pour savoir si votre projet a réellement besoin de passer par les stores.",
         href: '/blog/application-mobile-ou-pwa',
         icon: 'ri-question-answer-line',
       },

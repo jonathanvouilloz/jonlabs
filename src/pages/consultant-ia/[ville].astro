@@ -1,536 +1,78 @@
 ---
-// Consultant IA à {ville} — page programmatique (silo IA local), design system blueprint.
-// Migrée du brutaliste vers les primitives .co-* : sections cadrées (.co-sec/.co-pad),
-// filets fins, crosshairs, colonne capée, coins nets, accent teal unique,
-// Inter Tight × Instrument Serif. Namespace scopé .civ-*. Halo (blob décoratif) retiré.
-// Gabarit-or de référence : services/referencement-local.astro.
-//
-// HARD-PRESERVE : getStaticPaths() + villesSuisseIA/getVoisinesIA/type VilleIAData intacts,
-// tous les bindings dynamiques de la ville (nom, canton, région, contexte, secteurs, pains,
-// cas d'usage, public cible, FAQ générées, preuveLocale) — rien en dur ; Schema.org
-// (getWebPageSchema/getBreadcrumbSchema/getFAQPageSchema + tableau schemas + ordre) inchangé ;
-// seoData dynamique par ville (pageTitle/pageDescription) ; liens villes voisines (getVoisinesIA,
-// mêmes hrefs) ; tous les deep-links SEO (/consultant-ia, /consultant-ia/*, /metiers/*,
-// /services/*, /blog/*, /portfolio, /contact, mailto). Import global.css gardé. Copie préservée.
+// Consultant IA à {ville} — page déclinée v2 (gabarit src/components/v2/declinee/).
+// Données : src/data/villes-suisse-ia.ts (Lausanne, Annemasse, Gaillard ; Genève fusionnée dans le pilier).
+// SEO conservé : title « Consultant IA à {ville} — … », meta par ville, H1 exact-match,
+// WebPage + BreadcrumbList + FAQPage + LocalBusiness, maillage pilier / voisines / métiers / articles.
+import DeclineePage from '../../components/v2/declinee/DeclineePage.astro';
+import { methodeIA, piliersIA, metiersLinks } from '../../components/v2/declinee/shared';
+import type { DcPage, DcSection } from '../../components/v2/declinee/types';
+import { localBusinessData } from '../../data/schema';
+import { pricing } from '../../data/pricing';
+import { villesSuisseIA, getVoisinesIA, type VilleIAData } from '../../data/villes-suisse-ia';
 
-import "../../styles/global.css";
-import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import { Image } from "astro:assets";
-import illuConsultant from "../../assets/illustrations/consultant-ia.webp";
-
-import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from "../../lib/seo";
-import { SITE_URL, localBusinessData } from "../../data/schema";
-import { villesSuisseIA, getVoisinesIA, type VilleIAData } from "../../data/villes-suisse-ia";
-
-// ============================================
-// STATIC PATHS — programmatic SEO (silo IA)
-// ============================================
 export async function getStaticPaths() {
-  return villesSuisseIA.map(ville => ({
-    params: { ville: ville.slug },
-    props: { ville }
-  }));
+  return villesSuisseIA.map((ville) => ({ params: { ville: ville.slug }, props: { ville } }));
 }
 
-interface Props {
-  ville: VilleIAData;
-}
-
+interface Props { ville: VilleIAData }
 const { ville } = Astro.props;
 
-// ============================================
-// SEO META
-// ============================================
-const pageUrl = `${SITE_URL}/consultant-ia/${ville.slug}`;
-// Title : keyword-led, on raccourcit si > 60 chars
+const path = `/consultant-ia/${ville.slug}`;
 const titleLong = `Consultant IA à ${ville.nom} — agents IA pour PME | Jonlabs`;
-const pageTitle = titleLong.length <= 60
-  ? titleLong
-  : `Consultant IA à ${ville.nom} — agents IA PME | Jonlabs`;
-// Description : meta locale unique par ville (évite les doublons entre villes)
-const pageDescription = ville.metaDescription;
+const title = titleLong.length <= 60 ? titleLong : `Consultant IA à ${ville.nom} — agents IA PME | Jonlabs`;
 
-// ============================================
-// SCHEMA.ORG
-// ============================================
-const webPageSchema = getWebPageSchema({
-  url: pageUrl,
-  name: pageTitle,
-  description: pageDescription
-});
-
-const breadcrumbSchema = getBreadcrumbSchema([
-  { name: "Accueil", url: SITE_URL },
-  { name: "Consultant IA", url: `${SITE_URL}/consultant-ia` },
-  { name: ville.nom, url: pageUrl }
-]);
-
-const faqSchema = getFAQPageSchema(ville.faqs);
-
-const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
-
-// ============================================
-// MAILLAGE — villes voisines
-// ============================================
-const voisines = getVoisinesIA(ville);
-
-// Découpe la preuve locale ("a · b · c") pour la trust line
-const preuves = ville.preuveLocale.split('·').map((p) => p.trim()).filter(Boolean);
-
-// Icônes cyclées pour les cartes cas d'usage
-const casIcons = [
-  "ri-robot-2-line",
-  "ri-mail-settings-line",
-  "ri-search-eye-line",
-  "ri-file-text-line",
-  "ri-customer-service-2-line",
-  "ri-flow-chart"
-];
-
-// ============================================
-// SERVICES IA (maillage)
-// ============================================
-const servicesIA = [
+const sections: DcSection[] = [
   {
-    icon: "ri-magic-line",
-    title: "Automatisation IA",
-    description: "Agents qui prennent en charge les tâches répétitives : tri d'e-mails, relances, préparation de documents, reporting.",
-    href: "/consultant-ia#automatisation"
+    kind: 'prose', id: 'contexte', meta: `Contexte local · ${ville.nomComplet}`,
+    title: 'Pourquoi un consultant IA', dim: `à ${ville.nom} ?`,
+    paras: [ville.description, ville.contexteEconomique],
+    listTitle: `Secteurs dominants à ${ville.nom}`, list: ville.secteursDominants,
   },
   {
-    icon: "ri-plug-line",
-    title: "Intégration outils",
-    description: "Brancher l'IA sur ce que vous utilisez déjà (Bexio, Crésus, CRM, messagerie) plutôt que tout remplacer.",
-    href: "/consultant-ia#integration-outils"
-  }
+    kind: 'cells', id: 'cas-usage', title: "Ce que l'IA change", dim: `à ${ville.nom}.`,
+    intro: `Pas de démo de labo. Des agents IA branchés sur des métiers réels du bassin de ${ville.nom}, secteur par secteur.`,
+    items: ville.casUsageIA.map((c) => ({ k: c.secteur, d: c.cas })),
+    cols: ville.casUsageIA.length % 3 === 0 ? 3 : 2,
+  },
+  ...(ville.pains?.length ? [{
+    kind: 'cells' as const, id: 'blocages', title: 'Les blocages', dim: `que je vois à ${ville.nom}.`,
+    intro: "Si vous vous reconnaissez dans l'un de ces points, il y a probablement du temps à récupérer.",
+    items: ville.pains.map((p, i) => ({ k: String(i + 1).padStart(2, '0'), d: p })), cols: 2 as const,
+  }] : []),
+  {
+    kind: 'cells', id: 'methode', title: 'Comment on', dim: 'travaille ensemble.',
+    intro: "Une méthode qui part de vos process réels et garde l'humain aux commandes.",
+    items: methodeIA, cols: 4,
+  },
+  { kind: 'prose', id: 'pour-qui', title: "À qui je m'adresse", dim: `à ${ville.nom}.`, paras: [], list: ville.publicCible },
 ];
 
-// ============================================
-// ARTICLES BLOG (maillage)
-// ============================================
-const blogArticles = [
-  {
-    title: "Agent IA en entreprise : 10 cas d'usage qui rapportent",
-    description: "Les automatisations IA qui dégagent vraiment du temps dans une PME, avec des exemples concrets par métier.",
-    href: "/blog/agent-ia-entreprise-cas-usage",
-    icon: "ri-robot-2-line"
+const page: DcPage = {
+  path, title, description: ville.metaDescription,
+  crumbs: [{ name: 'Accueil', path: '/' }, { name: 'Consultant IA', path: '/consultant-ia' }, { name: ville.nom, path }],
+  meta: `Consultant IA · ${ville.canton}`,
+  h1: 'Consultant IA', h1Dim: `à ${ville.nom}`,
+  lead: ville.angleHero,
+  trust: ville.preuveLocale.split('·').map((p) => p.trim()).filter(Boolean),
+  price: { label: 'Premier agent', value: pricing.agentIA.display },
+  ctaLabel: 'Discuter de votre projet IA',
+  sections,
+  faqs: ville.faqs,
+  links: [
+    ...piliersIA,
+    ...getVoisinesIA(ville).map((v) => ({ href: `/consultant-ia/${v.slug}`, k: 'Ville', t: `Consultant IA à ${v.nom}`, d: v.angleHero })),
+    ...metiersLinks(),
+    { href: '/consultant-ia#automatisation', k: 'Service', t: 'Automatisation IA', d: "Tri d'e-mails, relances, préparation de documents, reporting." },
+    { href: '/consultant-ia#integration-outils', k: 'Service', t: 'Intégration outils', d: "Brancher l'IA sur Bexio, Crésus, votre CRM ou votre messagerie." },
+    { href: '/blog/agent-ia-entreprise-cas-usage', k: 'Article', t: "Agent IA en entreprise : 10 cas d'usage qui rapportent" },
+    { href: '/blog/prix-agent-ia-automatisation-suisse', k: 'Article', t: "Prix d'un agent IA et d'une automatisation en Suisse" },
+  ],
+  cta: {
+    title: 'Discutons de votre projet IA', dim: `à ${ville.nom}.`,
+    text: "Premier échange gratuit, sans engagement. On regarde ensemble les 2-3 tâches qui vous mangent le plus de temps, et je vous dis franchement si l'IA y répond.",
   },
-  {
-    title: "Prix d'un agent IA et d'une automatisation en Suisse",
-    description: "Les fourchettes réelles en CHF pour un projet IA selon la complexité, sans devis flou ni abonnement caché.",
-    href: "/blog/prix-agent-ia-automatisation-suisse",
-    icon: "ri-money-cny-circle-line"
-  }
-];
+  schemas: [localBusinessData],
+};
 ---
 
-<Layout
-  title={pageTitle}
-  description={pageDescription}
-  schemas={schemas}
->
-  <Header />
-
-  <main class="co-root">
-
-    <!-- ══ HERO LOCAL ══ -->
-    <section class="co-sec co-pad co-hero civ-hero">
-
-      <h1 class="civ-hero-title" data-animate data-delay="0.1">
-        Consultant IA à <span class="co-ser">{ville.nom}</span>
-      </h1>
-
-      <p class="civ-hero-lead" data-animate data-delay="0.2">
-        {ville.angleHero}
-      </p>
-
-      <div class="civ-hero-btns" data-animate data-delay="0.3">
-        <a href="/contact" class="co-btn"><i class="ri-mail-send-line"></i> Discuter de votre projet IA</a>
-        <a href="/portfolio" class="co-btn co-btn--ghost">Voir mes réalisations <i class="ri-arrow-right-line"></i></a>
-      </div>
-
-      <div class="civ-hero-trust" data-animate data-delay="0.4">
-        {preuves.map((p) => (
-          <span><i class="ri-checkbox-circle-line"></i> {p}</span>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ 01 · CONTEXTE LOCAL ══ -->
-    <section id="contexte" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">01 — Contexte local</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Pourquoi un consultant IA à <span class="co-ser">{ville.nom}</span> ?</h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:64ch;line-height:1.6;">
-        {ville.description}
-      </p>
-
-      <!-- Contexte économique -->
-      <div class="civ-context co-frame" data-animate>
-        <span class="co-x tl"></span><span class="co-x tr"></span>
-        <span class="co-x bl"></span><span class="co-x br"></span>
-        <h3 class="civ-context-title"><i class="ri-building-line"></i> Tissu économique de {ville.nomComplet}</h3>
-        <p class="civ-context-text">{ville.contexteEconomique}</p>
-      </div>
-
-      <!-- Secteurs dominants -->
-      <h3 class="civ-sub-label">Secteurs dominants à {ville.nom}</h3>
-      <div class="civ-grid civ-grid--2" data-animate-stagger>
-        {ville.secteursDominants.map((secteur, idx) => (
-          <div class="civ-sector" data-animate-item>
-            <span class="civ-sector-num co-index">{String(idx + 1).padStart(2, '0')}</span>
-            <p class="civ-card-text">{secteur}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ 02 · CAS D'USAGE ══ -->
-    <section id="cas-usage" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">02 — Cas d'usage</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Ce que l'IA change concrètement à <span class="co-ser">{ville.nom}</span></h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
-        Pas de démo de labo. Des agents IA branchés sur des métiers réels du bassin de {ville.nom}, secteur par secteur.
-      </p>
-
-      <div class="civ-grid civ-grid--3" data-animate-stagger>
-        {ville.casUsageIA.map((item, idx) => (
-          <div class="civ-card co-frame co-frame--reveal" data-animate-item>
-            <i class={`${casIcons[idx % casIcons.length]} civ-card-icon`} aria-hidden="true"></i>
-            <h3 class="civ-card-title">{item.secteur}</h3>
-            <p class="civ-card-text">{item.cas}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ 03 · BLOCAGES ══ -->
-    <section id="blocages" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">03 — Blocages</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Les <span class="co-ser">blocages</span> que je vois à {ville.nom}</h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-        Si vous vous reconnaissez dans l'un de ces points, il y a probablement du temps à récupérer.
-      </p>
-
-      <div class="civ-grid civ-grid--2" data-animate-stagger>
-        {ville.pains.map((pain) => (
-          <div class="civ-pain co-frame co-frame--reveal" data-animate-item>
-            <i class="ri-alert-line civ-pain-icon" aria-hidden="true"></i>
-            <p class="civ-card-text">{pain}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ 04 · POUR QUI ══ -->
-    <section id="pour-qui" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">04 — Pour qui</p>
-      <h2 style="margin-top:var(--space-eyebrow);">À qui je m'adresse à {ville.nom}</h2>
-
-      <div class="civ-chips" data-animate>
-        {ville.publicCible.map((p) => (
-          <span class="civ-chip"><i class="ri-check-line"></i> {p}</span>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ 05 · FAQ (accordéon natif <details>, zéro JS) ══ -->
-    <section id="faq" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">05 — FAQ</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes ({ville.nom})</h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
-        Ce que les entreprises de {ville.nom} me demandent avant de se lancer sur l'IA.
-      </p>
-
-      <div class="civ-faq-grid">
-        <!-- Illustration contextuelle (cadrée .co-frame) -->
-        <div class="civ-faq-media" data-animate="fade-left">
-          <div class="civ-illu co-frame">
-            <span class="co-x tl"></span><span class="co-x tr"></span>
-            <span class="co-x bl"></span><span class="co-x br"></span>
-            <Image src={illuConsultant} alt="" class="civ-illu-img" aria-hidden="true" />
-          </div>
-        </div>
-
-        <!-- Colonne FAQ -->
-        <div class="civ-faq">
-          {ville.faqs.map((faq, index) => (
-            <details open={index === 0}>
-              <summary>
-                {faq.question}
-                <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
-              </summary>
-              <p class="civ-faq-answer">{faq.answer}</p>
-            </details>
-          ))}
-
-          <p class="co-mut" style="margin-top:24px;">
-            Une autre question sur l'IA à {ville.nom} ?
-            <a href="/contact" class="civ-inline">Écrivez-moi</a>, je réponds sous 24h.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ 06 · ALLER PLUS LOIN (maillage) ══ -->
-    <section id="aller-plus-loin" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">06 — Aller plus loin</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Pour creuser le sujet</h2>
-
-      <!-- Page pilier / HUB consultant IA -->
-      <div class="civ-pilier co-frame" data-animate>
-        <span class="co-x tl"></span><span class="co-x tr"></span>
-        <span class="co-x bl"></span><span class="co-x br"></span>
-        <div class="civ-pilier-copy">
-          <span class="co-badge co-badge--solid">Page pilier</span>
-          <h3 class="civ-pilier-title">Tout sur le conseil IA pour PME</h3>
-          <p class="civ-card-text">
-            La page de référence sur le <strong>consultant IA en Suisse romande</strong> : méthode, types
-            d'agents, conformité des données et tarifs. Le point de départ avant d'attaquer un projet.
-          </p>
-        </div>
-        <a href="/consultant-ia" class="co-btn civ-pilier-btn">Voir la page pilier <i class="ri-arrow-right-line"></i></a>
-      </div>
-
-      <!-- Villes voisines -->
-      {voisines.length > 0 && (
-        <div class="civ-block">
-          <h3 class="civ-sub-label">Autres villes où j'interviens</h3>
-          <div class="civ-grid civ-grid--2" data-animate-stagger>
-            {voisines.map((v) => (
-              <a href={`/consultant-ia/${v.slug}`} class="civ-link-card co-frame co-frame--reveal" data-animate-item>
-                <div class="civ-link-head">
-                  <i class="ri-map-pin-fill civ-card-icon" aria-hidden="true"></i>
-                  <span class="civ-link-meta">{v.populationLabel} hab.</span>
-                </div>
-                <h3 class="civ-card-title">Consultant IA à {v.nom}</h3>
-                <p class="civ-card-text">{v.angleHero}</p>
-                <span class="civ-link-cta">Voir la page <i class="ri-arrow-right-line"></i></span>
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
-
-      <!-- Pages métiers -->
-      <div class="civ-block">
-        <h3 class="civ-sub-label">L'IA pour votre secteur</h3>
-        <div class="civ-grid civ-grid--2" data-animate-stagger>
-          <a href="/metiers/ia-fiduciaire" class="civ-link-card co-frame co-frame--reveal" data-animate-item>
-            <i class="ri-calculator-line civ-card-icon" aria-hidden="true"></i>
-            <h3 class="civ-card-title">IA pour fiduciaires</h3>
-            <p class="civ-card-text">Tri et pré-imputation des pièces, relances, TVA, veille légale — pensé pour les fiduciaires romandes.</p>
-            <span class="civ-link-cta">Voir la page métier <i class="ri-arrow-right-line"></i></span>
-          </a>
-          <a href="/metiers/ia-agence-immobiliere" class="civ-link-card co-frame co-frame--reveal" data-animate-item>
-            <i class="ri-building-line civ-card-icon" aria-hidden="true"></i>
-            <h3 class="civ-card-title">IA pour agences immobilières</h3>
-            <p class="civ-card-text">Qualification des leads, tri des dossiers, annonces et suivi des échéances pour les régies romandes.</p>
-            <span class="civ-link-cta">Voir la page métier <i class="ri-arrow-right-line"></i></span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Services IA -->
-      <div class="civ-block">
-        <h3 class="civ-sub-label">Les services associés</h3>
-        <div class="civ-grid civ-grid--2" data-animate-stagger>
-          {servicesIA.map((service) => (
-            <a href={service.href} class="civ-link-card co-frame co-frame--reveal" data-animate-item>
-              <i class={`${service.icon} civ-card-icon`} aria-hidden="true"></i>
-              <h3 class="civ-card-title">{service.title}</h3>
-              <p class="civ-card-text">{service.description}</p>
-              <span class="civ-link-cta">Voir le service <i class="ri-arrow-right-line"></i></span>
-            </a>
-          ))}
-        </div>
-      </div>
-
-      <!-- Articles blog -->
-      <div class="civ-block">
-        <h3 class="civ-sub-label">À lire avant de vous lancer</h3>
-        <div class="civ-grid civ-grid--2" data-animate-stagger>
-          {blogArticles.map((article) => (
-            <a href={article.href} class="civ-link-card co-frame co-frame--reveal" data-animate-item>
-              <i class={`${article.icon} civ-card-icon`} aria-hidden="true"></i>
-              <h3 class="civ-card-title">{article.title}</h3>
-              <p class="civ-card-text">{article.description}</p>
-              <span class="civ-link-cta">Lire l'article <i class="ri-arrow-right-line"></i></span>
-            </a>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ CTA FINAL (section sombre — primitive .co-cta) ══ -->
-    <section class="co-cta">
-      <span class="co-x tl"></span><span class="co-x tr"></span>
-      <span class="co-x bl"></span><span class="co-x br"></span>
-      <div class="co-cta-inner">
-        <h2 class="co-cta-title">Discutons de votre projet IA à <span class="co-ser">{ville.nom}</span></h2>
-        <p class="co-cta-lead">
-          Premier échange gratuit, sans engagement. On regarde ensemble les 2-3 tâches qui vous mangent
-          le plus de temps, et je vous dis franchement si l'IA y répond. Réponse sous 24h.
-        </p>
-        <div class="co-cta-btns">
-          <a href="/contact" class="co-btn co-cta-btn"><i class="ri-mail-send-line"></i> Demander un devis IA</a>
-          <a href="mailto:hello@jonlabs.ch" class="co-btn co-cta-btn--ghost"><i class="ri-mail-line"></i> hello@jonlabs.ch</a>
-        </div>
-        <div class="co-cta-trust">
-          <span><i class="ri-time-line"></i> Réponse sous 24h</span>
-          <span><i class="ri-calendar-line"></i> Lun-Ven, 9h-18h (CET)</span>
-          <span><i class="ri-money-cny-circle-line"></i> Facturation en CHF</span>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <Footer />
-</Layout>
-
-<style is:global>
-  /* ══ CONSULTANT IA · [ville] — styles .civ-* (namespace scopé, corps .co-root) ══ */
-
-  /* ── Hero ── */
-  .civ-hero-title { font-size: clamp(2.2rem, 5.4vw, 3.4rem); margin-top: 22px; max-width: 18ch; }
-  .co-root .civ-hero-lead { margin-top: 18px; max-width: 56ch; font-size: 1.1rem; line-height: 1.65; color: var(--muted); }
-  .civ-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-  .civ-hero-btns .co-btn i { transition: transform .18s ease-out; }
-  .civ-hero-btns .co-btn:hover i { transform: translateX(2px); }
-  .civ-hero-trust { display: flex; flex-wrap: wrap; gap: 8px 22px; margin-top: 26px; font-size: 13.5px; color: var(--muted); }
-  .civ-hero-trust span { display: inline-flex; align-items: center; gap: 6px; }
-  .civ-hero-trust i { color: var(--accent); }
-
-  /* ── Sous-titre de bloc ── */
-  .civ-sub-label {
-    margin-top: 40px; margin-bottom: 4px; font-size: 12px; font-weight: 600;
-    letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted);
-  }
-
-  /* ── Grilles ── */
-  .civ-grid { display: grid; gap: 16px; margin-top: 20px; }
-  .civ-grid--2 { grid-template-columns: repeat(2, 1fr); }
-  .civ-grid--3 { grid-template-columns: repeat(3, 1fr); }
-
-  /* ── Cartes génériques ── */
-  .civ-card {
-    position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
-    background: var(--surface); border: 1px solid var(--line-2);
-    transition: box-shadow .18s ease-out, transform .18s ease-out;
-  }
-  .civ-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
-  .civ-card-icon { font-size: 24px; color: var(--accent); line-height: 1; }
-  .civ-card-title { font-size: 1.1rem; }
-  .civ-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
-  .civ-card-text strong { color: var(--ink); font-weight: 600; }
-
-  /* ── Secteurs dominants (carte numérotée) ── */
-  .civ-sector {
-    display: grid; grid-template-columns: 40px 1fr; align-items: center; gap: 16px;
-    padding: 18px 20px; background: var(--surface); border: 1px solid var(--line-2);
-  }
-  .civ-sector-num {
-    display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px;
-    border: 1px solid var(--accent); color: var(--accent); font-size: 14px; font-weight: 700;
-  }
-
-  /* ── Contexte économique (encart) ── */
-  .civ-context { position: relative; margin-top: 28px; padding: var(--pad-encart); background: var(--surface); border: 1px solid var(--line-2); }
-  .civ-context-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
-  .civ-context-title i { color: var(--accent); }
-  .co-root .civ-context-text { margin-top: 14px; font-size: 14.5px; line-height: 1.65; color: var(--muted); max-width: 74ch; }
-
-  /* ── Blocages (pains) ── */
-  .civ-pain {
-    position: relative; display: flex; align-items: flex-start; gap: 14px; padding: 22px 24px;
-    background: var(--surface); border: 1px solid var(--line-2);
-    transition: box-shadow .18s ease-out, transform .18s ease-out;
-  }
-  .civ-pain:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
-  .civ-pain-icon { font-size: 22px; color: var(--accent); flex: none; margin-top: 1px; }
-
-  /* ── Chips public cible ── */
-  .civ-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
-  .civ-chip {
-    display: inline-flex; align-items: center; gap: 7px; padding: 10px 16px; font-size: 14px;
-    background: var(--surface); border: 1px solid var(--line-2); color: var(--ink);
-  }
-  .civ-chip i { color: var(--accent); }
-
-  /* ── FAQ (2 col : illustration + accordéon) ── */
-  .civ-faq-grid { display: grid; grid-template-columns: minmax(0, 320px) 1fr; gap: 48px; margin-top: var(--space-block); align-items: start; }
-  .civ-faq-media { position: sticky; top: 100px; }
-  .civ-illu { position: relative; background: var(--surface); border: 1px solid var(--line-2); }
-  .civ-illu-img { display: block; width: 100%; height: auto; }
-
-  /* ── FAQ (accordéon natif <details> — smooth via ::details-content, zéro JS) ── */
-  .civ-faq { border-top: 1px solid var(--line); }
-  .civ-faq details { border-bottom: 1px solid var(--line); }
-  .civ-faq summary {
-    list-style: none; cursor: pointer; padding: 20px 0;
-    display: flex; justify-content: space-between; align-items: center; gap: 20px;
-    font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
-  }
-  .civ-faq summary::-webkit-details-marker { display: none; }
-  .civ-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
-  .civ-faq details[open] summary i { transform: rotate(180deg); }
-  .co-root .civ-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 68ch; }
-  .civ-faq details::details-content {
-    block-size: 0; overflow: hidden;
-    transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
-  }
-  .civ-faq details[open]::details-content { block-size: auto; }
-
-  .civ-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
-  .civ-inline:hover { color: var(--ink); }
-
-  /* ── Maillage ── */
-  .civ-block { margin-top: 12px; }
-  .civ-pilier {
-    position: relative; display: flex; align-items: center; justify-content: space-between;
-    gap: 28px; margin-top: 28px; padding: 32px 36px;
-    background: var(--surface); border: 1px solid var(--accent); box-shadow: 0 0 0 1px var(--accent);
-  }
-  .civ-pilier-copy { display: flex; flex-direction: column; gap: 12px; max-width: 62ch; }
-  .civ-pilier-title { font-size: 1.4rem; }
-  .civ-pilier-btn { flex: none; white-space: nowrap; }
-  .civ-pilier-btn i { transition: transform .18s ease-out; }
-  .civ-pilier-btn:hover i { transform: translateX(3px); }
-
-  .civ-link-card {
-    position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
-    background: var(--surface); border: 1px solid var(--line-2);
-    transition: box-shadow .18s ease-out, transform .18s ease-out;
-  }
-  .civ-link-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
-  .civ-link-head { display: flex; align-items: center; justify-content: space-between; }
-  .civ-link-meta { font-size: 12px; color: var(--muted); font-variant-numeric: tabular-nums; }
-  .civ-link-cta {
-    margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line);
-    font-size: 13.5px; font-weight: 600; color: var(--accent);
-    display: inline-flex; align-items: center; gap: 6px;
-  }
-  .civ-link-cta i { transition: transform .18s ease-out; }
-  .civ-link-card:hover .civ-link-cta i { transform: translateX(3px); }
-
-  /* ── Anchor scroll offset ── */
-  .co-root section[id] { scroll-margin-top: 100px; }
-
-  /* ── Responsive ── */
-  @media (max-width: 960px) {
-    .civ-grid--3 { grid-template-columns: repeat(2, 1fr); }
-    .civ-faq-grid { grid-template-columns: 1fr; gap: 32px; }
-    .civ-faq-media { position: static; max-width: 420px; }
-  }
-  @media (max-width: 720px) {
-    .civ-grid--2, .civ-grid--3 { grid-template-columns: 1fr; }
-    .civ-pilier { flex-direction: column; align-items: flex-start; gap: 20px; padding: 26px 22px; }
-    .civ-pilier-btn { width: 100%; justify-content: center; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .civ-card, .civ-pain, .civ-link-card, .civ-faq summary i,
-    .civ-hero-btns .co-btn i, .civ-pilier-btn i, .civ-link-cta i { transition: none; }
-  }
-</style>
+<DeclineePage page={page} />

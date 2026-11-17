@@ -1,0 +1,181 @@
+---
+// Gabarit v2 « page déclinée » (ville ou métier) : fil d'Ariane, en-tête H1, sections de contexte /
+// cas d'usage / méthode, FAQ, maillage (pilier, voisines, métiers, articles), CTA (la cellule teal de la page).
+// Schémas WebPage + BreadcrumbList + FAQPage construits ici depuis les mêmes données que l'affichage.
+// Styles préfixés dc-, sous .v2 (v2.css n'est pas modifié).
+import Layout from '../../../layouts/Layout.astro';
+import Nav from '../Nav.astro';
+import Dock from '../Dock.astro';
+import Faq from '../Faq.astro';
+import Footer from '../Footer.astro';
+import '../../../styles/v2.css';
+import { SITE_URL } from '../../../data/schema';
+import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../../lib/seo';
+import type { DcPage } from './types';
+
+interface Props { page: DcPage }
+const { page } = Astro.props;
+
+const schemas = [
+  getWebPageSchema({ url: `${SITE_URL}${page.path}`, name: page.title, description: page.description }),
+  getBreadcrumbSchema(page.crumbs.map((c) => ({ name: c.name, url: `${SITE_URL}${c.path}` }))),
+  getFAQPageSchema(page.faqs),
+  ...page.schemas,
+];
+const pad = (i: number) => String(i + 1).padStart(2, '0');
+---
+
+<Layout title={page.title} description={page.description} schemas={schemas}>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" />
+  </Fragment>
+
+  <div class="v2">
+    <Nav current="/services" />
+    <Dock current="/services" />
+
+    <main>
+      <nav class="r" aria-label="Fil d'Ariane"><div class="w">
+        <ol class="v2-meta dc-crumbs">
+          {page.crumbs.map((c, i) => (
+            <li>{i < page.crumbs.length - 1 ? <a href={c.path} class="v2-a">{c.name}</a> : <span aria-current="page">{c.name}</span>}</li>
+          ))}
+        </ol>
+      </div></nav>
+
+      <header class="r"><div class="w v2-head v2-head-2 dc-head">
+        <div>
+          <p class="v2-meta">{page.meta}</p>
+          <h1 class="v2-h1 dc-h1" data-words>{page.h1}{page.h1Dim && <>{' '}<br /><span class="v2-dim">{page.h1Dim}</span></>}</h1>
+        </div>
+        <div class="dc-intro">
+          <p class="dc-lead">{page.lead}</p>
+          {page.price && <p class="dc-price"><small class="v2-meta">{page.price.label}</small>{page.price.value}</p>}
+          <div class="v2-ctas v2-ctas-left">
+            <a href="/contact" class="v2-btn"><i class="ri-calendar-line"></i> <span data-roll>{page.ctaLabel}</span></a>
+          </div>
+          <p class="v2-meta">{page.trust.map((t) => <span>{t}</span>)}</p>
+        </div>
+      </div></header>
+
+      {page.sections.map((s) => s.kind === 'prose' ? (
+        <section class="r" id={s.id} aria-label={s.title}><div class="w dc-prose">
+          <div class="dc-side">
+            {s.meta && <p class="v2-meta">{s.meta}</p>}
+            <h2 class="v2-h2" data-words>{s.title}{s.dim && <>{' '}<span class="v2-dim">{s.dim}</span></>}</h2>
+          </div>
+          <div class="dc-body">
+            {s.paras.map((p) => <p class="v2-mut">{p}</p>)}
+            {s.list && (
+              <div class="dc-list">
+                {s.listTitle && <h3 class="v2-meta">{s.listTitle}</h3>}
+                <ul class="v2-price-list">{s.list.map((li) => <li>{li}</li>)}</ul>
+              </div>
+            )}
+          </div>
+        </div></section>
+      ) : (
+        <section class="r" id={s.id} aria-label={s.title}><div class="w">
+          <div class="v2-head v2-head-2">
+            <h2 class="v2-h2" data-words>{s.title}{s.dim && <>{' '}<br /><span class="v2-dim">{s.dim}</span></>}</h2>
+            {s.intro && <p class="v2-mut dc-sec-intro">{s.intro}</p>}
+          </div>
+          <div class:list={['dc-grid', `dc-c${s.cols ?? 3}`]}>
+            {s.items.map((it) => (
+              <div class="dc-cell">
+                {it.k && <span class="v2-meta">{it.k}</span>}
+                {it.t && <h3>{it.t}</h3>}
+                {it.d && <p class="v2-mut">{it.d}</p>}
+                {it.list && <ul class="v2-price-list">{it.list.map((li) => <li>{li}</li>)}</ul>}
+              </div>
+            ))}
+          </div>
+        </div></section>
+      ))}
+
+      <section class="r" id="faq"><Faq items={page.faqs.map((f) => ({ q: f.question, a: f.answer }))} /></section>
+
+      <section class="r" aria-labelledby="dc-links"><div class="w">
+        <div class="v2-head v2-head-2">
+          <h2 class="v2-h2" id="dc-links" data-words>Aller plus loin.</h2>
+          <p class="v2-mut dc-sec-intro">La page pilier, les autres pages où j'interviens et quelques articles à lire avant de vous lancer.</p>
+        </div>
+        <div class="dc-grid dc-c4">
+          {page.links.map((l) => (
+            <a href={l.href} class="dc-cell dc-link">
+              <span class="v2-meta">{l.k}</span>
+              <strong>{l.t}</strong>
+              {l.d && <span class="v2-mut">{l.d}</span>}
+            </a>
+          ))}
+        </div>
+      </div></section>
+
+      <section class="r"><div class="w v2-head v2-head-2 v2-teal v2-dots" data-spot>
+        <i class="v2-dots-glow" aria-hidden="true"></i>
+        <h2 class="v2-h2" data-words>{page.cta.title}{page.cta.dim && <>{' '}<br /><span class="v2-dim">{page.cta.dim}</span></>}</h2>
+        <div class="dc-cta">
+          <p>{page.cta.text}</p>
+          <div class="v2-ctas v2-ctas-left">
+            <a href="/contact" class="v2-btn"><i class="ri-calendar-line"></i> <span data-roll>Prendre rendez-vous</span></a>
+            <a href="mailto:contact@jonlabs.ch" class="v2-btn v2-btn-ghost"><span data-roll>contact@jonlabs.ch</span></a>
+          </div>
+          <p class="v2-meta">Réponse sous 24 h · Premier appel gratuit · Facturation en CHF</p>
+        </div>
+      </div></section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
+
+<style is:global>
+  .v2 .dc-crumbs { list-style: none; margin: 0; padding: 14px var(--pad); gap: 6px 10px; }
+  .v2 .dc-crumbs li { display: inline-flex; gap: 10px; align-items: center; }
+  .v2 .dc-crumbs li + li::before { content: '/'; color: var(--line); }
+  .v2 .dc-crumbs [aria-current] { color: var(--ink); }
+  .v2 .dc-head { align-items: start; }
+  .v2 .dc-h1 { font-size: clamp(2.3rem, 5vw, 4.2rem); line-height: 1; margin-top: 18px; }
+  .v2 .dc-intro { display: grid; gap: 22px; justify-items: start; }
+  .v2 .dc-lead { font-size: 1.15rem; line-height: 1.5; max-width: 34rem; }
+  .v2 .dc-price { display: grid; gap: 4px; font-family: var(--display); font-size: clamp(1.6rem, 2.6vw, 2.1rem); letter-spacing: -0.05em; line-height: 1; }
+  .v2 .dc-prose { display: grid; grid-template-columns: 1fr 1.25fr; }
+  .v2 .dc-side { padding: clamp(40px, 6vw, 72px) var(--pad); border-right: 1px solid var(--line); display: grid; gap: 14px; align-content: start; }
+  .v2 .dc-body { padding: clamp(40px, 6vw, 72px) var(--pad); display: grid; gap: 18px; align-content: start; }
+  .v2 .dc-body > .v2-mut { max-width: 40rem; }
+  .v2 .dc-list { display: grid; gap: 12px; margin-top: 8px; }
+  .v2 .dc-list h3 { font-family: var(--mono); font-size: .75rem; font-weight: 400; letter-spacing: 0.02em; }
+  .v2 .dc-sec-intro { max-width: 30rem; }
+  .v2 .dc-grid { display: grid; border-top: 1px solid var(--line); overflow: hidden; }
+  .v2 .dc-c2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .v2 .dc-c3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .v2 .dc-c4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .v2 .dc-cell { display: grid; gap: 10px; align-content: start; padding: 28px var(--pad) 36px; box-shadow: 1px 0 0 var(--line), 0 1px 0 var(--line); min-width: 0; }
+  .v2 .dc-cell h3 { font-size: 1.25rem; font-weight: 500; line-height: 1.15; }
+  .v2 .dc-cell .v2-mut { font-size: .95rem; }
+  .v2 .dc-cell .v2-price-list { margin-top: 4px; }
+  .v2 .dc-link { transition: background .2s; }
+  .v2 .dc-link:hover { background: var(--soft); }
+  .v2 .dc-link strong { font-family: var(--display); font-weight: 500; font-size: 1.2rem; letter-spacing: -0.03em; line-height: 1.15; }
+  .v2 .dc-cta { display: grid; gap: 18px; }
+  .v2 .dc-cta > p:first-child { max-width: 30rem; }
+  .v2 .v2-teal .v2-btn-ghost { border-color: var(--ink); }
+  @media (max-width: 1000px) {
+    .v2 .dc-c3, .v2 .dc-c4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 900px) {
+    .v2 .dc-prose { grid-template-columns: 1fr; }
+    .v2 .dc-side { border-right: 0; border-bottom: 1px solid var(--line); padding-bottom: 28px; }
+    .v2 .dc-body { padding-top: 28px; }
+  }
+  @media (max-width: 640px) {
+    .v2 .dc-c2, .v2 .dc-c3, .v2 .dc-c4 { grid-template-columns: 1fr; }
+    .v2 .dc-cta .v2-ctas { flex-direction: column; align-items: stretch; }
+    .v2 .dc-cta .v2-btn { justify-content: center; }
+  }
+</style>
+
+<script>
+  import '../../../scripts/v2-ui';
+</script>
