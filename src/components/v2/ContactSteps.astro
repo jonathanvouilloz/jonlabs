@@ -1,0 +1,284 @@
+---
+// Formulaire de contact en 3 étapes (page /contact) : besoin → projet (questions selon le besoin) → coordonnées.
+// Envoi Web3Forms : même access_key, champs cachés, honeypot et `name` existants (name, email, project_type, message, consent)
+// que l'ancien ContactForm.astro ; les champs ajoutés ont des `name` en français pour que l'e-mail reçu se lise tel quel.
+// Pas de prix ici : seule source = src/data/pricing.ts.
+type Group = { legend: string; name: string; multi?: boolean; opts: string[] };
+type Kind = { id: string; icon: string; label: string; desc: string; groups: Group[]; msg: string; ph: string; extra?: { label: string; name: string; ph: string } };
+
+const tools = ['Gmail / Google Workspace', 'Outlook / Microsoft 365', 'Un CRM', 'Excel / Sheets', 'WhatsApp', 'Un logiciel métier'];
+const kinds: Kind[] = [
+  {
+    id: 'agent', icon: 'ri-robot-2-line', label: 'Un agent IA', desc: 'Un assistant qui traite vos demandes, e-mails ou dossiers à votre place.',
+    groups: [
+      { legend: 'Quelles tâches lui confier ?', name: 'Tâches à confier', multi: true, opts: ['Répondre aux e-mails', 'Trier les demandes', 'Préparer des devis', 'Chercher dans mes documents', 'Rédiger des contenus', 'Autre'] },
+      { legend: 'Vos outils actuels', name: 'Outils actuels', multi: true, opts: tools },
+    ],
+    msg: 'Ce que l\'agent ferait pour vous', ph: 'Ex. lire les demandes de devis qui arrivent par e-mail et préparer une réponse que je valide.',
+  },
+  {
+    id: 'app', icon: 'ri-layout-4-line', label: 'Une app', desc: 'Un outil web ou mobile pour vos clients ou votre équipe.',
+    groups: [
+      { legend: 'Sur quelles plateformes ?', name: 'Plateformes', multi: true, opts: ['Web', 'iPhone', 'Android', 'Outil interne'] },
+      { legend: 'Ce qui existe déjà', name: 'Existant', opts: ['Rien encore', 'Une idée sur papier', 'Une maquette', 'Une app à refaire'] },
+    ],
+    msg: 'Ce que l\'app doit permettre', ph: 'Ex. mes clients réservent et paient leurs cours, je vois le planning en temps réel.',
+  },
+  {
+    id: 'auto', icon: 'ri-loop-right-line', label: 'Une automatisation', desc: 'Des tâches répétitives qui tournent seules, entre vos outils.',
+    groups: [
+      { legend: 'Quel processus automatiser ?', name: 'Processus à automatiser', multi: true, opts: ['Facturation', 'Relances clients', 'Saisie de données', 'Rapports', 'Synchroniser des outils', 'Autre'] },
+      { legend: 'Vos outils actuels', name: 'Outils actuels', multi: true, opts: tools },
+    ],
+    msg: 'Comment ça se passe aujourd\'hui', ph: 'Ex. chaque vendredi, je copie les commandes du site dans Excel puis j\'envoie les factures à la main.',
+  },
+  {
+    id: 'unsure', icon: 'ri-question-line', label: 'Je ne sais pas encore', desc: 'Vous sentez que l\'IA peut aider, on cherche ensemble par où commencer.',
+    groups: [],
+    extra: { label: 'Votre activité', name: 'Activité', ph: 'Ex. fiduciaire, 6 personnes' },
+    msg: 'Décrivez votre situation', ph: 'Ce qui vous prend du temps, ce qui coince, ce que vous aimeriez ne plus faire.',
+  },
+];
+const delays = ['Dès que possible', 'Dans 1 à 3 mois', 'Pas d\'urgence'];
+const contact = [['E-mail', 'ri-mail-line'], ['WhatsApp', 'ri-whatsapp-line'], ['Appel', 'ri-phone-line']];
+const steps = ['Votre besoin', 'Votre projet', 'Vos coordonnées'];
+---
+<form class="v2-form cs" id="contact-form" novalidate data-steps>
+  <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467" />
+  <input type="hidden" name="subject" value="Nouveau message - Jon Labs" />
+  <input type="hidden" name="from_name" value="Jon Labs Contact" />
+  <input type="checkbox" name="botcheck" class="cs-hp" tabindex="-1" autocomplete="off" aria-hidden="true" />
+  <input type="hidden" name="project_type" value="" />
+
+  <div class="cs-prog" aria-hidden="true">
+    <span class="v2-meta" data-cur>Étape 1/3</span>
+    <ol>{steps.map((s, i) => <li class:list={{ on: i === 0 }}><span>{s}</span></li>)}</ol>
+  </div>
+
+  <section class="cs-step" data-step="1" aria-labelledby="cs-t1">
+    <h2 class="cs-title" id="cs-t1" tabindex="-1">Vous voulez construire…</h2>
+    <div class="cs-kinds">
+      {kinds.map((k) => (
+        <button type="button" class="cs-kind" data-kind={k.id} data-value={k.label} aria-pressed="false">
+          <i class={k.icon} aria-hidden="true"></i>
+          <b>{k.label}</b>
+          <span>{k.desc}</span>
+          <i class="ri-arrow-right-line cs-go" aria-hidden="true"></i>
+        </button>
+      ))}
+    </div>
+  </section>
+
+  <section class="cs-step" data-step="2" aria-labelledby="cs-t2" hidden>
+    <h2 class="cs-title" id="cs-t2" tabindex="-1">Votre projet<span class="v2-dim" data-kind-label></span></h2>
+    {kinds.map((k) => (
+      <fieldset class="cs-kind-q" data-for={k.id} disabled hidden>
+        {k.groups.map((g) => (
+          <fieldset class="cs-group">
+            <legend>{g.legend} <span class="v2-mut">{g.multi ? 'plusieurs choix possibles' : 'un choix'}</span></legend>
+            <div class="cs-pills">
+              {g.opts.map((o) => <label><input type={g.multi ? 'checkbox' : 'radio'} name={g.name} value={o} /><span>{o}</span></label>)}
+            </div>
+          </fieldset>
+        ))}
+        {k.extra && <label class="v2-field">{k.extra.label} <input type="text" name={k.extra.name} placeholder={k.extra.ph} /></label>}
+        <label class="v2-field"><span>{k.msg} <span class="cs-req" aria-hidden="true">*</span></span><textarea name="message" rows="4" placeholder={k.ph} required></textarea></label>
+      </fieldset>
+    ))}
+    <fieldset class="cs-group">
+      <legend>Quand voulez-vous démarrer ? <span class="v2-mut">facultatif</span></legend>
+      <div class="cs-pills">
+        {delays.map((d) => <label><input type="radio" name="Délai" value={d} /><span>{d}</span></label>)}
+      </div>
+    </fieldset>
+  </section>
+
+  <section class="cs-step" data-step="3" aria-labelledby="cs-t3" hidden>
+    <h2 class="cs-title" id="cs-t3" tabindex="-1">Comment je vous recontacte&nbsp;?</h2>
+    <div class="cs-two">
+      <label class="v2-field"><span>Nom <span class="cs-req" aria-hidden="true">*</span></span><input type="text" name="name" autocomplete="name" placeholder="Marie Dupont" required /></label>
+      <label class="v2-field"><span>E-mail <span class="cs-req" aria-hidden="true">*</span></span><input type="email" name="email" autocomplete="email" placeholder="marie@entreprise.ch" required /></label>
+    </div>
+    <fieldset class="cs-group">
+      <legend>Je préfère être recontacté par</legend>
+      <div class="cs-pills cs-pills-lg">
+        {contact.map(([c, ic], i) => <label><input type="radio" name="Canal préféré" value={c} checked={i === 0} /><span><i class={ic} aria-hidden="true"></i> {c}</span></label>)}
+      </div>
+    </fieldset>
+    <label class="v2-field" data-phone hidden><span>Téléphone <span class="cs-req" aria-hidden="true">*</span></span><input type="tel" name="Téléphone" autocomplete="tel" placeholder="+41 79 000 00 00" disabled required /></label>
+    <label class="cs-consent"><input type="checkbox" name="consent" required /> <span>J'accepte d'être recontacté au sujet de ma demande. <span class="cs-req" aria-hidden="true">*</span></span></label>
+  </section>
+
+  <div class="cs-nav">
+    <button type="button" class="v2-btn v2-btn-ghost" data-back hidden><i class="ri-arrow-left-line" aria-hidden="true"></i> Retour</button>
+    <button type="submit" class="v2-btn" data-next hidden><span>Continuer</span> <i class="ri-arrow-right-line" aria-hidden="true"></i></button>
+  </div>
+
+  <div class="cs-done" hidden>
+    <i class="ri-check-line" aria-hidden="true"></i>
+    <h2 class="cs-title" tabindex="-1">Message envoyé.</h2>
+  </div>
+  <p class="cs-status" role="status" aria-live="polite"></p>
+</form>
+
+<style is:global>
+  .v2 .cs { padding: 32px var(--pad) 48px; gap: 28px; }
+  .v2 .cs-hp, .v2 .cs [hidden] { display: none !important; }
+  .v2 .cs-prog { display: grid; gap: 12px; }
+  .v2 .cs-prog ol { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; list-style: none; padding: 0; }
+  .v2 .cs-prog li { border-top: 3px solid var(--line); padding-top: 8px; font-size: .82rem; color: var(--mut); transition: border-color .3s var(--ease), color .3s; }
+  .v2 .cs-prog li.on { border-color: var(--ink); color: var(--ink); }
+  .v2 .cs-step { display: grid; gap: 22px; }
+  .v2 .cs-step:not([hidden]) { animation: csIn .4s var(--ease); }
+  @keyframes csIn { from { opacity: 0; translate: 0 10px; } }
+  .v2 .cs-title { font-family: var(--display); font-weight: 500; font-size: clamp(1.7rem, 3vw, 2.4rem); letter-spacing: -0.05em; line-height: 1.02; outline: none; }
+  .v2 .cs-title .v2-dim::before { content: ' · '; }
+  .v2 .cs-title .v2-dim:empty { display: none; }
+
+  .v2 .cs-kinds { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .v2 .cs-kind { position: relative; display: grid; align-content: start; gap: 8px; min-height: 190px; padding: 22px 22px 24px; text-align: left; font: inherit; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: var(--r); cursor: pointer; transition: border-color .2s, background .2s, transform .16s ease-out; }
+  .v2 .cs-kind > i:first-child { font-size: 1.7rem; color: var(--mut); margin-bottom: auto; padding-bottom: 28px; transition: color .2s; }
+  .v2 .cs-kind b { font-family: var(--display); font-weight: 500; font-size: clamp(1.45rem, 2.3vw, 1.9rem); letter-spacing: -0.045em; line-height: 1; }
+  .v2 .cs-kind span { color: var(--mut); font-size: .92rem; line-height: 1.4; max-width: 26ch; }
+  .v2 .cs-go { position: absolute; top: 22px; right: 22px; font-size: 1.2rem; color: var(--mut); transition: translate .25s var(--ease), color .2s; }
+  .v2 .cs-kind:hover { border-color: var(--ink); }
+  .v2 .cs-kind:hover > i:first-child, .v2 .cs-kind[aria-pressed="true"] > i:first-child { color: var(--accent-strong); }
+  .v2 .cs-kind:hover .cs-go { translate: 3px 0; color: var(--ink); }
+  .v2 .cs-kind:active { transform: scale(.98); }
+  .v2 .cs-kind[aria-pressed="true"] { border-color: var(--ink); background: var(--soft); }
+  .v2 .cs-kind:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 2px; }
+
+  .v2 .cs-kind-q { display: grid; gap: 22px; border: 0; padding: 0; margin: 0; min-width: 0; }
+  .v2 .cs-group { display: grid; gap: 0; min-width: 0; }
+  .v2 .cs-group legend { font-size: .88rem; font-weight: 500; margin-bottom: 10px; }
+  .v2 .cs-group legend .v2-mut { font-weight: 400; margin-left: 6px; }
+  .v2 .cs-pills { display: flex; flex-wrap: wrap; gap: 8px; }
+  .v2 .cs-pills label { position: relative; cursor: pointer; }
+  .v2 .cs-pills input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+  .v2 .cs-pills span { display: inline-flex; align-items: center; gap: 6px; padding: 9px 14px; border: 1px solid var(--line); border-radius: var(--r); font-size: .92rem; transition: border-color .2s, background .2s, color .2s; }
+  .v2 .cs-pills label:hover span { border-color: #C9CBC8; }
+  .v2 .cs-pills input:checked + span { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .v2 .cs-pills input:focus-visible + span { outline: 2px solid var(--accent-strong); outline-offset: 2px; }
+  .v2 .cs-pills-lg span { padding: 12px 18px; font-size: 1rem; }
+  .v2 .cs-req { color: var(--accent-strong); }
+  .v2 .cs-two { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .v2 .cs .v2-field textarea { min-height: 112px; }
+  .v2 .cs [aria-invalid="true"] { border-color: #C2410C; }
+  .v2 .cs-group[aria-invalid="true"] legend, .v2 .cs-consent[aria-invalid="true"] { color: #C2410C; }
+  .v2 .cs-consent { display: flex; gap: 10px; align-items: flex-start; font-size: .88rem; color: var(--mut); cursor: pointer; }
+  .v2 .cs-consent input { margin-top: 3px; accent-color: var(--ink); }
+
+  .v2 .cs-nav { display: flex; flex-wrap: wrap; gap: 10px 12px; align-items: center; padding-top: 22px; border-top: 1px solid var(--line); }
+  .v2 .cs-nav .v2-btn { margin-top: 0; }
+  .v2 .cs-nav .v2-btn:disabled { opacity: .6; cursor: progress; }
+  .v2 .cs-status { font-size: .95rem; color: var(--mut); margin-top: -12px; }
+  .v2 .cs-status:empty { display: none; }
+  .v2 .cs-status.err { color: #C2410C; }
+  .v2 .cs-done { display: grid; gap: 20px; padding-top: 16px; animation: csIn .4s var(--ease); }
+  .v2 .cs-done > i { width: 48px; height: 48px; display: grid; place-items: center; border: 1px solid var(--ink); border-radius: 50%; font-size: 1.4rem; color: var(--accent-strong); }
+
+  @media (max-width: 600px) {
+    .v2 .cs-kinds, .v2 .cs-two { grid-template-columns: 1fr; }
+    .v2 .cs-kind { min-height: 0; grid-template-columns: auto 1fr; column-gap: 14px; padding: 18px 44px 18px 18px; }
+    .v2 .cs-kind > i:first-child { grid-row: span 2; padding: 0; margin: 0; }
+    .v2 .cs-go { top: 50%; right: 18px; translate: 0 -50%; }
+    .v2 .cs-kind:hover .cs-go { translate: 3px -50%; }
+    .v2 .cs-prog li span { display: none; }
+    .v2 .cs-pills-lg span { padding: 9px 14px; font-size: .92rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .v2 .cs-step:not([hidden]), .v2 .cs-done { animation: none; }
+    .v2 .cs-kind, .v2 .cs-go, .v2 .cs-prog li { transition: none; }
+  }
+</style>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('[data-steps]');
+  if (form) {
+    const $ = <T extends Element = HTMLElement>(s: string) => form.querySelector<T>(s)!;
+    const $$ = <T extends Element = HTMLElement>(s: string) => [...form.querySelectorAll<T>(s)];
+    const stepEls = $$('.cs-step');
+    const back = $<HTMLButtonElement>('[data-back]');
+    const next = $<HTMLButtonElement>('[data-next]');
+    const status = $('.cs-status');
+    const type = $<HTMLInputElement>('input[name="project_type"]');
+    const phone = $<HTMLElement>('[data-phone]');
+    const phoneInput = phone.querySelector('input')!;
+    let cur = 1;
+
+    const say = (msg: string, err = false) => { status.textContent = msg; status.classList.toggle('err', err); };
+
+    const go = (n: number) => {
+      cur = n;
+      stepEls.forEach((s) => (s.hidden = s.dataset.step !== String(n)));
+      $$('.cs-prog li').forEach((li, i) => li.classList.toggle('on', i < n));
+      $('[data-cur]').textContent = `Étape ${n}/3`;
+      back.hidden = n === 1;
+      next.hidden = n === 1;
+      next.querySelector('span')!.textContent = n === 3 ? 'Envoyer' : 'Continuer';
+      say('');
+      stepEls[n - 1].querySelector<HTMLElement>('.cs-title')!.focus();
+    };
+
+    // Étape 1 : un clic choisit le besoin et passe à l'étape 2 (le panneau de questions correspondant est seul actif, donc seul envoyé).
+    $$<HTMLButtonElement>('.cs-kind').forEach((b) => b.addEventListener('click', () => {
+      $$('.cs-kind').forEach((o) => o.setAttribute('aria-pressed', String(o === b)));
+      type.value = b.dataset.value!;
+      $$<HTMLFieldSetElement>('.cs-kind-q').forEach((f) => { const on = f.dataset.for === b.dataset.kind; f.disabled = !on; f.hidden = !on; });
+      $('[data-kind-label]').textContent = b.dataset.value!;
+      go(2);
+    }));
+
+    // Téléphone demandé seulement pour WhatsApp ou un appel.
+    $$<HTMLInputElement>('input[name="Canal préféré"]').forEach((r) => r.addEventListener('change', () => {
+      const need = r.value !== 'E-mail';
+      phone.hidden = !need; phoneInput.disabled = !need;
+    }));
+
+    form.addEventListener('input', (e) => {
+      const t = e.target as HTMLElement;
+      t.removeAttribute('aria-invalid');
+      t.closest('[aria-invalid]')?.removeAttribute('aria-invalid');
+    });
+
+    // Valide les champs actifs de l'étape courante ; focus sur le premier manquant.
+    const valid = () => {
+      const bad = $$<HTMLInputElement>(`.cs-step[data-step="${cur}"] :is(input, textarea)`).filter((el) => !el.disabled && !el.checkValidity());
+      bad.forEach((el) => (el.type === 'checkbox' ? el.closest('label')! : el).setAttribute('aria-invalid', 'true'));
+      if (!bad.length) return true;
+      const el = bad[0];
+      say(el.type === 'checkbox' ? 'Merci de cocher le consentement pour continuer.' : el.validity.typeMismatch ? 'Cette adresse e-mail ne semble pas valide.' : 'Il manque un champ obligatoire.', true);
+      el.focus();
+      return false;
+    };
+
+    back.addEventListener('click', () => go(cur - 1));
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!valid()) return;
+      if (cur < 3) return go(cur + 1);
+      // Les choix multiples partagent un name : on les joint pour qu'ils arrivent sur une ligne dans l'e-mail.
+      const raw = new FormData(form);
+      const data = new FormData();
+      for (const k of new Set(raw.keys())) data.set(k, raw.getAll(k).join(', '));
+      next.disabled = back.disabled = true;
+      say('Envoi en cours…');
+      try {
+        const res = await fetch('https://api.web3forms.com/submit', { method: 'POST', body: data });
+        const out = await res.json();
+        if (!out.success) throw new Error();
+        stepEls.forEach((s) => (s.hidden = true));
+        $$('.cs-prog, .cs-nav').forEach((el) => (el.hidden = true));
+        const done = $('.cs-done');
+        done.hidden = false;
+        done.querySelector<HTMLElement>('.cs-title')!.focus();
+        say('Merci. Je vous réponds sous 24 h avec une première piste.');
+      } catch {
+        say("L'envoi a échoué. Écrivez-moi directement à contact@jonlabs.ch.", true);
+      } finally {
+        next.disabled = back.disabled = false;
+      }
+    });
+  }
+</script>
