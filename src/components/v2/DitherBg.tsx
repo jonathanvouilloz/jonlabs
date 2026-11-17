@@ -2,7 +2,8 @@
 import { Dithering } from '@paper-design/shaders-react';
 
 export default function DitherBg() {
-  const reduce = typeof window !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Image figée sur mobile (pointeur tactile) : le shader en boucle chauffe et vide la batterie.
+  const reduce = typeof window !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce), (pointer: coarse)').matches;
   return (
     <Dithering
       style={{ position: 'absolute', inset: 0, width: '100%', height: '100%' }}

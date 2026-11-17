@@ -73,13 +73,21 @@ $$('[data-rise]').forEach((el) => {
 $$('[data-reveal]').forEach((el) => {
   el.innerHTML = (el.textContent ?? '').trim().split(/\s+/).map((w) => `<span>${w}</span>`).join(' ');
   const spans = $$('span', el);
+  let raf = 0;
   const paint = () => {
+    raf = 0;
     const r = el.getBoundingClientRect();
     const p = Math.min(1, Math.max(0, (innerHeight * 0.85 - r.top) / (r.height + innerHeight * 0.35)));
     const n = Math.round(p * spans.length);
     spans.forEach((s, i) => s.classList.toggle('on', i < n));
   };
-  addEventListener('scroll', paint, { passive: true }); paint();
+  // N'écoute le scroll que pendant que le bloc est à l'écran, une peinture par frame.
+  const onScroll = () => { if (!raf) raf = requestAnimationFrame(paint); };
+  new IntersectionObserver(([e]) => {
+    if (e.isIntersecting) addEventListener('scroll', onScroll, { passive: true });
+    else removeEventListener('scroll', onScroll);
+    onScroll();
+  }).observe(el);
 });
 
 // Fond en trame de points : le pointeur l'allume.
@@ -154,7 +162,19 @@ if (calInline) new IntersectionObserver(([e], o) => {
   cal()('inline', { elementOrSelector: '#cal-inline', calLink: CAL_LINK, layout: 'month_view' });
 }, { rootMargin: '400px' }).observe(calInline);
 // Le lien garde /contact#agenda en repli (sans JS) ; avec JS, l'agenda s'ouvre en fenêtre sur place.
-$$<HTMLAnchorElement>('[data-cal-popup]').forEach((a) => a.addEventListener('click', (ev) => {
-  ev.preventDefault();
-  cal()('modal', { calLink: CAL_LINK, config: { layout: 'month_view' } });
-}));
+// Préchargement dès l'intention (survol, toucher) : embed.js et la page de réservation sont prêts avant le clic.
+let calWarm = false;
+const warmCal = () => { if (calWarm) return; calWarm = true; cal()('preload', { calLink: CAL_LINK }); };
+const menu = document.getElementById('v2-menu');
+$$<HTMLAnchorElement>('[data-cal-popup]').forEach((a) => {
+  a.addEventListener('pointerenter', warmCal, { once: true });
+  a.addEventListener('touchstart', warmCal, { once: true, passive: true });
+  a.addEventListener('focus', warmCal, { once: true });
+  a.addEventListener('click', (ev) => {
+    ev.preventDefault();
+    cal()('modal', { calLink: CAL_LINK, config: { layout: 'month_view' } });
+  });
+});
+
+// Menu mobile : un lien suivi ferme le panneau (sinon il reste au-dessus d'une ancre de la même page).
+menu?.addEventListener('click', (e) => { if ((e.target as Element).closest('a')) menu.hidePopover(); });

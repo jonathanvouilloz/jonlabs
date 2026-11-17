@@ -8,5 +8,6 @@ const { current, floating = true } = Astro.props;
   <img src="/images/jonathan-vouilloz.webp" alt="Jonathan Vouilloz" class="v2-dock-avatar" width="36" height="36" />
   {nav.map((n) => <a href={n.href} aria-current={n.href === current ? 'page' : undefined}>{n.label}</a>)}
   <i data-pill-bg aria-hidden="true"></i>
+  <button type="button" class="v2-dock-menu" popovertarget="v2-menu" aria-label="Menu"><i class="ri-menu-line" aria-hidden="true"></i></button>
   <a href="/contact#agenda" class="v2-dock-cta" aria-label="Discuter de mon projet" data-cal-popup><i class="ri-calendar-line"></i></a>
 </nav>

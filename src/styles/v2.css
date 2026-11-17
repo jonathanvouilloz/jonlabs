@@ -62,9 +62,9 @@
 .v2-top-links a:hover { color: var(--accent-strong); }
 
 /* Dock bas */
-.v2-dock { position: fixed; left: 50%; bottom: 20px; z-index: 50; display: flex; align-items: center; gap: 4px; padding: 6px; background: rgba(255,255,255,.92); backdrop-filter: blur(12px); border: 1px solid var(--line); border-radius: 999px; box-shadow: 0 8px 30px rgba(20,22,26,.12); transform: translate(-50%, 140%); transition: transform .45s cubic-bezier(.2,.8,.2,1); font-size: .9rem; }
+.v2-dock { position: fixed; left: 50%; bottom: calc(20px + env(safe-area-inset-bottom)); z-index: 50; display: flex; align-items: center; gap: 4px; padding: 6px; background: rgba(255,255,255,.92); backdrop-filter: blur(12px); border: 1px solid var(--line); border-radius: 999px; box-shadow: 0 8px 30px rgba(20,22,26,.12); transform: translate(-50%, 140%); transition: transform .45s cubic-bezier(.2,.8,.2,1); font-size: .9rem; }
 .v2-dock.is-shown { transform: translate(-50%, 0); }
-.v2-dock > a { padding: 8px 14px; border-radius: 999px; white-space: nowrap; }
+.v2-dock > a { padding: 8px 14px; border-radius: 999px; white-space: nowrap; min-height: 40px; display: inline-flex; align-items: center; }
 .v2-dock > a:hover { background: var(--soft); }
 .v2-dock-avatar { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
 .v2-dock .v2-dock-cta { background: var(--ink); color: #fff; width: 38px; height: 38px; padding: 0; display: grid; place-items: center; }
@@ -202,12 +202,14 @@
   .v2 .v2-steps { grid-template-columns: repeat(3, 1fr); row-gap: 0; }
   .v2-cols3 { grid-template-columns: 1fr; }
   .v2-col + .v2-col { border-left: 0; border-top: 1px solid var(--line); }
-  .v2-bento { grid-template-columns: 1fr; }
+  .v2-bento { grid-template-columns: minmax(0, 1fr); }
   .v2-cell, .v2-cell:nth-child(n+3) { border-left: 0; border-bottom: 1px solid var(--line); }
   .v2-cell-big { grid-row: auto; }
   .v2-cell:last-child { grid-column: auto; border-bottom: 0; }
   .v2-hub { grid-template-columns: 1fr 1fr; }
-  .v2-hub > * { border-left: 1px solid var(--dark-line); border-bottom: 1px solid var(--dark-line); }
+  .v2-hub > *, .v2-hub > :nth-child(n+4) { border-left: 1px solid var(--dark-line); border-bottom: 1px solid var(--dark-line); }
+  .v2-hub > :nth-child(even), .v2-hub-video { border-left: 0; }
+  .v2-hub > :last-child { border-bottom: 0; }
   .v2-hub-video { grid-column: span 2; grid-row: auto; min-height: 240px; border-left: 0; }
   .v2-contact { grid-template-columns: 1fr 1fr; }
   .v2-contact-main { grid-column: span 2; grid-row: auto; border-bottom: 1px solid var(--line); }
@@ -222,7 +224,7 @@
   .v2-hub > * { border-left: 0; }
   .v2-hub-video { grid-column: auto; }
   .v2-photos { grid-template-columns: 1fr 1fr; }
-  .v2-photos > :last-child { display: none; }
+  .v2-photos > :nth-child(3) { display: none; }
   .v2 .v2-steps { grid-template-columns: repeat(2, 1fr); }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -287,7 +289,7 @@
 /* Tableau clé : valeur (fiche technique) */
 .v2-kv { margin: 0; display: grid; border-top: 1px solid var(--line); width: 100%; }
 .v2-kv > div { display: grid; grid-template-columns: 120px 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: .9rem; }
-.v2-kv dt { font-family: var(--mono); font-size: .7rem; text-transform: uppercase; color: var(--mut); padding-top: 3px; }
+.v2-kv dt { font-family: var(--mono); font-size: .75rem; text-transform: uppercase; color: var(--mut); padding-top: 3px; }
 .v2-kv dd { margin: 0; }
 
 /* Étude de cas B : fiche technique (image bord à bord + spécifications). */
@@ -342,11 +344,10 @@
 .v2-posts li b { font-family: var(--display); font-weight: 500; font-size: 1.25rem; letter-spacing: -0.035em; line-height: 1.2; }
 
 /* Footer C : colonnes + barre d'état (heure de Genève, mise à jour, haut de page). */
-.v2-status { justify-content: space-between; padding: 14px var(--pad); border-top: 1px solid var(--line); font-size: .7rem; }
+.v2-status { justify-content: space-between; padding: 14px var(--pad); border-top: 1px solid var(--line); font-size: .75rem; }
 .v2-status a:hover { color: var(--ink); }
 
 @media (max-width: 900px) {
-  .v2-pill { display: none; }
   .v2-spec, .v2-posts { grid-template-columns: 1fr; }
   .v2-spec-img { min-height: 240px; border-right: 0; border-bottom: 1px solid var(--line); }
   .v2-posts-main { border-right: 0; border-bottom: 1px solid var(--line); }
@@ -379,7 +380,7 @@
 .v2 .v2-price-cell > .v2-price-shader { position: absolute; inset: 0; z-index: 0; overflow: hidden;
   -webkit-mask: linear-gradient(160deg, rgba(0,0,0,.35) 20%, #000 75%); mask: linear-gradient(160deg, rgba(0,0,0,.35) 20%, #000 75%); }
 .v2 .v2-price-cell h3 { margin: 0; font-family: var(--mono); font-size: .75rem; font-weight: 400; letter-spacing: .02em; }
-.v2-price-reco { margin-left: 10px; padding: 2px 8px; border-radius: 999px; background: var(--ink); color: #fff; font-size: .62rem; }
+.v2-price-reco { margin-left: 10px; padding: 2px 8px; border-radius: 999px; background: var(--ink); color: #fff; font-size: .75rem; }
 .v2 .v2-price-amount { display: flex; align-items: baseline; gap: 8px; margin: 18px 0 6px; font-family: var(--display); }
 .v2-price-amount b { font-weight: 500; font-size: clamp(2.4rem, 4vw, 3.4rem); letter-spacing: -0.055em; line-height: 1; }
 .v2-price-big .v2-price-amount b { font-size: clamp(3rem, 6vw, 5rem); }
@@ -531,3 +532,83 @@
 .v2 .svc-grid .v2-mut { font-size: .95rem; }
 .v2 .v2-teal .v2-dim { color: rgba(20,22,26,.45); }
 .v2 .sv-n-price .v2-mut { font-family: var(--sans); font-size: .95rem; letter-spacing: 0; line-height: 1.4; }
+
+/* ===== Mobile (audit 2026-11-18) ===== */
+/* Menu mobile : burger (nav haute + dock) qui ouvre un popover plein écran. */
+.v2-top-act { display: flex; align-items: center; gap: 6px; }
+.v2-top-cta i { display: none; }
+.v2-burger, .v2-dock-menu { all: unset; box-sizing: border-box; width: 44px; height: 44px; display: none; place-items: center; border-radius: 50%; font-size: 1.35rem; cursor: pointer; color: var(--ink); }
+.v2-burger:hover, .v2-dock-menu:hover { background: var(--soft); }
+.v2-burger:focus-visible, .v2-dock-menu:focus-visible, .v2-menu summary:focus-visible, .v2-menu a:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 2px; }
+.v2-menu { position: fixed; inset: 0; width: 100%; height: 100dvh; max-width: none; max-height: none; margin: 0; border: 0; padding: 0 var(--pad) calc(24px + env(safe-area-inset-bottom)); background: var(--bg); color: var(--ink); overflow-y: auto; overscroll-behavior: contain; flex-direction: column; gap: 28px; }
+.v2-menu:popover-open { display: flex; }
+.v2-menu-head { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.v2-menu-head .v2-burger { display: grid; }
+.v2-menu nav { display: flex; flex-direction: column; }
+.v2-menu nav > a, .v2-menu summary { display: flex; align-items: center; justify-content: space-between; min-height: 56px; border-bottom: 1px solid var(--line); font-family: var(--display); font-size: 1.6rem; letter-spacing: -0.045em; cursor: pointer; }
+.v2-menu nav > a[aria-current="page"] { color: var(--accent-strong); }
+.v2-menu summary { list-style: none; }
+.v2-menu summary::-webkit-details-marker { display: none; }
+.v2-menu summary i { font-size: 1.3rem; transition: rotate .2s var(--ease); }
+.v2-menu details[open] summary i { rotate: 45deg; }
+.v2-menu details > div { display: grid; padding: 6px 0 12px; border-bottom: 1px solid var(--line); }
+.v2-menu details a { display: flex; align-items: center; min-height: 44px; padding-left: 12px; color: var(--mut); }
+.v2-menu details a:hover { color: var(--ink); }
+.v2-menu > .v2-btn { margin-top: auto; }
+@media (max-width: 1024px), (hover: none) {
+  .v2-pill { display: none; }
+  .v2-burger { display: grid; }
+  .v2-dock-menu { display: grid; width: 40px; height: 40px; }
+}
+@media (max-width: 1180px) {
+  /* Le premier méga-menu, centré sous son lien, sortait de l'écran à gauche. */
+  .v2-mega-item:first-child > .v2-mega { left: 0; translate: 0 6px; }
+  .v2-mega-item:first-child:is(:hover, :focus-within) > .v2-mega { translate: 0 0; }
+}
+
+/* Titres sans mot orphelin */
+.v2-h1, .v2-h2, .v2-head-p { text-wrap: balance; }
+.v2-mut, .v2 .v2-lead { text-wrap: pretty; }
+
+/* Grilles : une piste peut descendre sous la largeur de son contenu (figures iso, boutons). */
+.v2-hero { grid-template-columns: minmax(0, 1fr); }
+.v2-cell { min-width: 0; }
+.v2-iso > * { max-width: 100%; }
+.v2-faq-list summary i { flex: none; }
+.v2-art-foot { flex-wrap: wrap; }
+.v2-art-foot .v2-meta :is(a, button) { min-width: 44px; min-height: 44px; display: inline-grid; place-items: center; }
+.v2-art-foot button:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 2px; }
+
+@media (max-width: 900px) {
+  /* Le dock fixe ne doit pas masquer le bas de l'agenda */
+  .v2-agenda { padding-bottom: 96px; }
+}
+@media (max-width: 520px) {
+  /* Nav haute : logo + CTA en icône + burger */
+  .v2-top-cta [data-roll] { display: none; }
+  .v2-top-cta i { display: block; font-size: 1.15rem; }
+  .v2-top-cta { width: 44px; height: 44px; padding: 0; justify-content: center; }
+  /* Dock : 2 liens + menu + agenda */
+  .v2-dock > a:nth-of-type(n+3):not(.v2-dock-cta) { display: none; }
+  /* Hero : hauteur libre, boutons empilés */
+  .v2-hero { height: auto; min-height: calc(100svh - 65px); padding-block: 40px 56px; }
+  .v2-scroll { display: none; }
+  .v2-ctas:not(.v2-ctas-left) { flex-direction: column; align-items: stretch; width: 100%; }
+  .v2-ctas .v2-btn { justify-content: center; }
+  .v2-btn-lg { padding: 16px 20px; font-size: 1rem; }
+  /* Bento plus court */
+  .v2-cell { min-height: 0; }
+  .v2-iso { height: 140px; }
+  .v2-cell-big .v2-iso { height: 200px; }
+  /* Étapes : la 5e centrée */
+  .v2 .v2-steps li:last-child:nth-child(odd) { grid-column: 1 / -1; width: 50%; justify-self: center; }
+  /* FAQ sur plusieurs lignes : pastille arrondie, pas un stade */
+  .v2-faq-list summary span { border-radius: 22px; padding: 12px 16px; }
+  .v2-proofs b { white-space: normal; font-size: clamp(1.5rem, 7vw, 1.9rem); }
+  /* Cibles tactiles */
+  .v2-foot nav { gap: 0; }
+  .v2-foot nav a { padding-block: 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .v2 *, .v2 *::before, .v2 *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+}

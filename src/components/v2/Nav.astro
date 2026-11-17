@@ -55,6 +55,34 @@ const ext = (external?: boolean) => (external ? { target: '_blank', rel: 'noopen
       })}
       <i data-pill-bg aria-hidden="true"></i>
     </nav>
-    <a href="/contact#agenda" class="v2-btn v2-btn-sm" data-cal-popup><span data-roll>Discuter de mon projet</span></a>
+    <div class="v2-top-act">
+      <a href="/contact#agenda" class="v2-btn v2-btn-sm v2-top-cta" aria-label="Discuter de mon projet" data-cal-popup><i class="ri-calendar-line" aria-hidden="true"></i><span data-roll>Discuter de mon projet</span></a>
+      <button type="button" class="v2-burger" popovertarget="v2-menu" aria-label="Menu"><i class="ri-menu-line" aria-hidden="true"></i></button>
+    </div>
   </div>
 </header>
+{/* Menu mobile (≤1024 px ou écran tactile) : popover natif, mêmes données que le méga-menu. Un seul <Nav> par page (id unique). */}
+<div id="v2-menu" popover class="v2-menu">
+  <div class="v2-menu-head">
+    <a href={HOME} class="v2-logo">jonlabs<span>.</span></a>
+    <button type="button" class="v2-burger" popovertarget="v2-menu" popovertargetaction="hide" aria-label="Fermer le menu"><i class="ri-close-line" aria-hidden="true"></i></button>
+  </div>
+  <nav aria-label="Menu">
+    {nav.map((n) => {
+      const s = section(n.mega);
+      if (!s) return <a href={n.href} aria-current={n.href === current ? 'page' : undefined}>{n.label}</a>;
+      return (
+        <details>
+          <summary>{n.label}<i class="ri-add-line" aria-hidden="true"></i></summary>
+          <div>
+            <a href={n.href}>Vue d'ensemble</a>
+            {s.columns!.flatMap((c) => c.items).map((it) => <a href={it.href} {...ext(it.external)}>{it.label}</a>)}
+          </div>
+        </details>
+      );
+    })}
+    <a href="/tarifs" aria-current={current === '/tarifs' ? 'page' : undefined}>Tarifs</a>
+    <a href="/contact" aria-current={current === '/contact' ? 'page' : undefined}>Contact</a>
+  </nav>
+  <a href="/contact#agenda" class="v2-btn v2-btn-lg" data-cal-popup><i class="ri-calendar-line" aria-hidden="true"></i> Discuter de mon projet</a>
+</div>

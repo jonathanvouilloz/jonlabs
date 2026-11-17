@@ -356,7 +356,8 @@ html.js-anim .co-root [data-animate-stagger] [data-animate-item] { opacity: 0; }
 .co-prose tbody tr:hover td { background: rgba(0,168,125,.06); }
 @media (max-width: 640px) {
   .co-prose { font-size: 1.02rem; }
-  .co-prose table { display: block; overflow-x: auto; white-space: nowrap; }
+  .co-prose table { display: block; overflow-x: auto; }
+  .co-prose :is(th, td) { min-width: 9rem; }
 }
 
 /* A15 · Shell de page article/guide — .ar-* (partagé blog/[slug] + guides/[slug]).

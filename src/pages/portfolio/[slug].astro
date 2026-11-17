@@ -354,6 +354,7 @@ const schemas = [caseStudySchema];
   .cas-c-title { padding: clamp(48px, 7vw, 88px) var(--pad) clamp(40px, 5vw, 64px); display: grid; gap: 28px; align-content: end; border-right: 1px solid var(--line); min-width: 0; }
   .v2 .cas-c-title .v2-h1 { font-size: clamp(2.6rem, 7.4vw, 6.4rem); line-height: .92; overflow-wrap: break-word; }
   .v2 .cas-c-back:hover { color: var(--ink); }
+  .v2 .cas-c-back { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; }
   .v2 .cas-c-lead { max-width: 36rem; color: var(--mut); font-size: 1.1rem; }
   .v2 .cas-c-tags { gap: 6px; }
   .cas-c-tags span { border: 1px solid var(--line); border-radius: var(--r); padding: 3px 8px; }
@@ -420,7 +421,7 @@ const schemas = [caseStudySchema];
 
   /* Pellicule : défilement horizontal interne (la page ne déborde pas) */
   .cas-c-film-nav { display: flex; gap: 6px; }
-  .cas-c-film-nav button { all: unset; cursor: pointer; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; display: grid; place-items: center; transition: background .2s, border-color .2s; }
+  .cas-c-film-nav button { all: unset; cursor: pointer; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 50%; display: grid; place-items: center; transition: background .2s, border-color .2s; }
   .cas-c-film-nav button:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
   .cas-c-film-nav button:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 2px; }
   .cas-c-film { display: grid; grid-auto-flow: column; grid-auto-columns: 74%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--line) transparent; overscroll-behavior-x: contain; }

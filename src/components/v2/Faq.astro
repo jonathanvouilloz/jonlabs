@@ -9,7 +9,7 @@ const { items = faqs } = Astro.props;
   <div class="v2-faq-list">
     {items.map((f) => (
       <details name="v2-faq">
-        <summary><span>{f.q}</span><i class="ri-add-line"></i></summary>
+        <summary><span>{f.q.replace(/ ([?!:;])/g, ' $1')}</span><i class="ri-add-line"></i></summary>
         <p class="v2-mut">{f.a}</p>
       </details>
     ))}
