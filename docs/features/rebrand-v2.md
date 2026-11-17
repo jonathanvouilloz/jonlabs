@@ -66,7 +66,7 @@
 - Grille « à la Sakib » : chaque section remplit le container, cellules séparées par filets 1px, pas de `gap` (sauf photos).
 - Rayon max 5px ; 0 quand l'élément touche le cadre ; seuls les boutons sont en pilule.
 - Figures isométriques via `@lucasmarkes/hairline` (API vanilla, pas d'îlot React).
-- URLs existantes conservées (`/services`, `/portfolio`, `/blog`, `/about`) ; pages SEO hors menu, lien « Sites & SEO » en footer ; page Tarifs à retirer.
+- URLs existantes conservées (`/services`, `/portfolio`, `/blog`, `/about`) ; pages SEO hors menu, lien « Sites & SEO » en footer ; page `/tarifs` **gardée** (Jonathan, 2026-11-17 : bonne page SEO potentielle), refaite en v2 avec `<Pricing />`.
 
 ## Taches
 
@@ -82,7 +82,8 @@
 - [ ] Brancher `ProjectForm` sur un envoi réel
 - [x] Méga-menu v2 (direction C · Carte flottante, Systèmes IA + Blog)
 - [x] Page article de blog v2 (direction B · Magazine centré)
-- [ ] Pricing cards (à confirmer)
+- [x] Cartes tarifs `<Pricing />` (direction C · Bento mis en avant)
+- [ ] Page `/tarifs` en v2 (avec `<Pricing />`)
 - [ ] Composant témoignages (vrais témoignages à collecter)
 - [ ] Redesign `/portfolio`, `/portfolio/[slug]`, `/blog`, `/blog/[slug]`, `/about`, `/services`
-- [ ] Bascule `/v2` → `/` + retrait de `/tarifs` (redirection)
+- [ ] Bascule `/v2` → `/`

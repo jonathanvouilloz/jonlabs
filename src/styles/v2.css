@@ -366,6 +366,37 @@
 .v2-teal { background: var(--accent); --line: rgba(20,22,26,.16); --soft: #00C997; --mut: #0F3D31; }
 .v2-teal.v2-dots, .v2-teal .v2-dots { --dot: rgba(20,22,26,.26); --dot-on: var(--ink); }
 
+/* Cartes tarifs C · Bento mis en avant (<Pricing />) : grande cellule teal sur 2 rangées, petites cellules, notes dessous. */
+.v2-price { display: grid; grid-template-columns: 1.3fr 1fr 1fr; }
+.v2-price-cell { position: relative; display: flex; flex-direction: column; gap: 16px; padding: 32px var(--pad); min-width: 0; }
+.v2-price-cell > * { position: relative; z-index: 1; }
+.v2-price-cell:nth-child(3) { border-left: 1px solid var(--line); }
+.v2-price-big { grid-row: span 2; justify-content: space-between; border-right: 1px solid var(--line); }
+.v2 .v2-price-cell h3 { margin: 0; font-family: var(--mono); font-size: .75rem; font-weight: 400; letter-spacing: .02em; }
+.v2-price-reco { margin-left: 10px; padding: 2px 8px; border-radius: 999px; background: var(--ink); color: #fff; font-size: .62rem; }
+.v2 .v2-price-amount { display: flex; align-items: baseline; gap: 8px; margin: 18px 0 6px; font-family: var(--display); }
+.v2-price-amount b { font-weight: 500; font-size: clamp(2.4rem, 4vw, 3.4rem); letter-spacing: -0.055em; line-height: 1; }
+.v2-price-big .v2-price-amount b { font-size: clamp(3rem, 6vw, 5rem); }
+.v2-price-amount small { font-family: var(--mono); font-size: .75rem; text-transform: uppercase; color: var(--mut); }
+.v2-price-sub { font-size: .95rem; color: var(--mut); }
+.v2-price-big .v2-meta, .v2-price-big .v2-price-sub, .v2-price-big .v2-price-amount small { color: var(--ink); }
+.v2 .v2-price-list { list-style: none; padding: 0; display: grid; gap: 10px; font-size: .95rem; }
+.v2-price-list li { display: grid; grid-template-columns: 18px 1fr; align-items: baseline; }
+.v2-price-list li::before { content: ''; width: 9px; height: 9px; background: var(--accent-strong); clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); }
+.v2-price-big .v2-price-list li::before { background: var(--ink); }
+.v2-price-cta { display: grid; gap: 10px; justify-items: start; margin-top: auto; }
+.v2 .v2-price-more { font-size: .9rem; color: var(--mut); }
+.v2 .v2-price-big .v2-price-more { color: var(--ink); }
+.v2-price-notes { grid-column: 2 / 4; border-top: 1px solid var(--line); padding: 28px var(--pad); }
+.v2 .v2-price-notes .v2-price-list { margin-top: 12px; }
+@media (max-width: 900px) {
+  .v2-price { grid-template-columns: 1fr; }
+  .v2-price-big { grid-row: auto; border-right: 0; }
+  .v2-price-cell:nth-child(3) { border-left: 0; }
+  .v2-price-cell + .v2-price-cell, .v2-price-notes { border-top: 1px solid var(--line); }
+  .v2-price-notes { grid-column: auto; }
+}
+
 /* Page article B · Magazine centré. Le corps garde .co-prose (blueprint.css) : alias de ses tokens + titres v2. */
 .v2-art-head { padding: clamp(56px, 8vw, 104px) var(--pad); text-align: center; display: grid; justify-items: center; }
 .v2-art-head .v2-h1 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1; margin: 0 0 22px; max-width: 18ch; }

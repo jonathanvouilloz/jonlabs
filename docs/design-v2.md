@@ -92,6 +92,7 @@ Composants Astro dans `src/components/v2/`, comportements dans `src/scripts/v2-u
 | Formulaire | C · Tuiles | `<ProjectForm action? />` | Tuiles à cocher (agent, app, automatisation, je ne sais pas) puis champs bordés. **Pas de backend** : passer `action` avant usage |
 | Liste d'articles | C · À la une | `<PostFeature count? />` | Le dernier en grand (image 16/9), les suivants en lignes à droite |
 | Footer | C · Barre d'état | `<Footer />` | Colonnes + barre mono : heure de Genève en direct, date du dernier build, ©, haut de page |
+| Cartes tarifs | C · Bento mis en avant | `<Pricing />` | Offre `highlighted` en grande cellule teal sur 2 rangées (c'est **la** cellule teal de la page), Site web et App en petites cellules, « Bon à savoir » dessous. Données : `offers` + `terms` de `data/pricing.ts`, seule source des prix |
 | Page article | B · Magazine centré | `src/pages/blog/[slug].astro` · `.v2-art*` | Tags + titre + auteur/date centrés, image 21/9 bord à bord, colonne 680px, sommaire repliable (> 2 parties), lettrine. Le corps garde `.co-prose` (TL;DR, tableaux, code, widgets MDX) ; `.v2-art` aliase `--muted` / `--surface` / `--line-2`. Fin : partage, auteur, « À lire ensuite » (3 cellules) |
 | Hub | — | inline dans `v2.astro` | Vidéo 2×2 + cartes (tweet, article, LinkedIn), section sombre |
 | Section contrastée | — | `.v2-private` | Fond `--soft`, titre à gauche, 2 gros boutons empilés à droite |
@@ -128,7 +129,7 @@ Icônes : Remix Icon, monochromes. Jamais d'emoji dans l'UI.
 3. Pages de liste (réalisations, blog) : une rangée par élément, image bord à bord, ligne de métadonnées mono.
 4. Pages de détail (étude de cas, article) : colonne de lecture dans le container, filets entre blocs,
    pas de cartes arrondies ; les images touchent le cadre.
-5. Garder les URL existantes (`/services`, `/portfolio`, `/blog`, `/about`) ; les pages SEO sortent du menu
+5. Garder les URL existantes (`/services`, `/portfolio`, `/blog`, `/about`, `/tarifs` : gardée le 2026-11-17, page SEO potentielle) ; les pages SEO sortent du menu
    (lien discret « Sites & SEO » dans le footer).
 6. Avant d'intégrer : vérifier à 1536×808 (laptop 14–15") et 390px (mobile), pas de scroll horizontal.
 
