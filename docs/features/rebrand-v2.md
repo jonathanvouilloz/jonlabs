@@ -5,24 +5,25 @@
 
 ## Etat session 2026-11-17
 
-**Fait :** page `/v2/styleguide` (noindex) : 18 éléments × 3 essais (A/B/C) + fondations. Jonathan coche un essai par élément,
-le récap se copie (choix gardés en localStorage). Styles et données de `/v2` extraits (`src/styles/v2.css`, `src/data/v2.ts`).
-Libs testées : Anime.js 4.5 (texte découpé, décodage, compteurs), Zag 1.48 vanilla (onglets, accordéon, sans React),
-shader Paper `Dithering` (îlot React, hero B).
+**Fait :**
+- `/v2/styleguide` : 18 éléments × 3 essais, choix de Jonathan (grille B, boutons B, liens A, nav B, dock B, hero B, fond A, titres A, tags A, cas B, bento A, process A, FAQ A, chiffres A, contact A, formulaire C, articles C, footer C). Essais écartés archivés dans `c16aaa5`.
+- 12 composants dans `src/components/v2/`, comportements par attribut dans `src/scripts/v2-ui.ts` (Anime.js 4.5), `/v2` reconstruit dessus (+ rangée de compteurs après les cas) ; le styleguide est devenu la référence vivante des composants validés.
+- Retouches Jonathan : hero en pleine largeur (seule section hors container), cellule de titre « Ce que je construis » en teal dans le container, descendantes (g) plus coupées par le masque des mots.
+- Zag et le réseau iso du hero retirés (ne servaient qu'aux essais écartés). `docs/design-v2.md` § 2, 4, 5, 6 à jour.
 
-**Choix de Jonathan (le même jour) :** grille B, boutons B, liens A, nav B, dock B, hero B, fond A, titres A, tags A,
-cas B, bento A, process A, FAQ A, chiffres A, contact A, formulaire C, articles C, footer C.
-**Intégré :** 12 composants dans `src/components/v2/`, comportements dans `src/scripts/v2-ui.ts`, `/v2` reconstruit
-dessus (+ rangée de compteurs après les cas), styleguide devenu la référence des composants validés, essais purgés
-(Zag retiré : il ne servait qu'aux essais écartés ; réseau iso du hero supprimé). `docs/design-v2.md` § 5 à jour.
-
-**Prochain :** copy de `/v2` après le repositionnement ; `/portfolio`, `/blog`, `/about`, `/services` avec ces composants ;
-brancher `ProjectForm` sur un vrai envoi avant de l'utiliser.
+**Prochain :** session neuve. Dans l'ordre : (1) méga-menu v2 — partir du méga-menu existant de `src/components/Header.astro` (`mainNav`, sections `type: 'mega'`) et l'intégrer à `src/components/v2/Nav.astro` ; (2) page article de blog v2 (`src/pages/blog/[slug].astro` → colonne de lecture dans le container, § 8 de `design-v2.md`) ; (3) pricing cards (à confirmer avec Jonathan, la page Tarifs doit sortir) ; (4) composant témoignages, à créer (aucune donnée de témoignage dans les collections : demander de vrais témoignages, ne rien inventer). Pour chaque nouveau composant : 3 essais sur `/v2/styleguide` (skill `design-variants`), choix, intégration.
 
 **Pieges :**
-- Zag (si on y revient) : `spreadProps` réécrit `data-part` (`trigger` → `item-trigger`), cibler ses propres attributs.
-- `.sg button` (reset) écrasait `.v2-btn` sur les `<button>` : reset en `:where(.sg button)`.
-- Capture pleine page Chrome tronquée au-delà de ~16 000 px : capturer section par section.
+- `::before` / `::after` d'un `.w` sont pris par les repères en croix (`.r > .w`) : tout effet décoratif passe par un élément enfant (cas `.v2-dots-glow`).
+- Variables locales d'un composant (`--dot` sur `.v2-dots`) écrasent celles héritées d'un parent : redéfinir sur le sélecteur composé (`.v2-teal.v2-dots`).
+- `splitText` avec `wrap: 'clip'` coupe les descendantes sous un interligne < 1 : `roomForDescenders` dans `v2-ui.ts` ajoute `.14em` en bas.
+- `.v2 .v2-steps` (0,2,0) écrasait la règle mobile `.v2-steps` : les cercles ne passaient jamais à 3 colonnes ; corrigé, garder le préfixe `.v2` dans les media queries.
+- `ProjectForm` n'a aucun backend : passer `action` avant tout usage en production.
+- Captures Playwright : pleine page Chrome tronquée au-delà de ~16 000 px, capturer par section ; `networkidle` n'arrive jamais en dev (HMR + shader), attendre `load` + délai.
+
+**Commit :** [dc6afe4] style(v2): hero pleine largeur, titre « Ce que je construis » sur teal, descendantes non coupées
+
+---
 
 ## Etat session 2026-11-16
 
@@ -79,5 +80,9 @@ brancher `ProjectForm` sur un vrai envoi avant de l'utiliser.
 - [ ] Contenu réel du hub (tweets, post LinkedIn) + 2 photos
 - [x] Extraire nav / dock / footer en composants
 - [ ] Brancher `ProjectForm` sur un envoi réel
+- [ ] Méga-menu v2 (repartir de `Header.astro`)
+- [ ] Page article de blog v2
+- [ ] Pricing cards (à confirmer)
+- [ ] Composant témoignages (vrais témoignages à collecter)
 - [ ] Redesign `/portfolio`, `/portfolio/[slug]`, `/blog`, `/blog/[slug]`, `/about`, `/services`
 - [ ] Bascule `/v2` → `/` + retrait de `/tarifs` (redirection)

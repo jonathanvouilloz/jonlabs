@@ -1,4 +1,4 @@
-# HANDOFF — 2026-11-16 (branche rebrand-v2)
+# HANDOFF — 2026-11-17 (branche rebrand-v2)
 
 ## Features actives
 | Feature | Fichier | Statut |
@@ -13,13 +13,13 @@
 | Chantier SEO IA (consultant IA) | docs/planSEOIA.md | EN ATTENTE — Phase 3 ; devient le cœur du pivot focus IA (09.11) |
 | Devis Cabinet Grange-Canal | docs/features/devis-cabinet-grange-canal.md | CODE FINI — attend le call |
 | Refonte blueprint (design/typo) | docs/features/refonte-blueprint.md | BOUCLÉE — reste `/epic-recap` |
-| Rebrand v2 (DA freelance systèmes IA) | docs/features/rebrand-v2.md | **EN COURS** — branche `rebrand-v2`, spike `/v2` + `docs/design-v2.md` faits ; copy en attente du repositionnement |
+| Rebrand v2 (DA freelance systèmes IA) | docs/features/rebrand-v2.md | **EN COURS** — branche `rebrand-v2` : composants v2 validés (`/v2/styleguide`) ; reste méga-menu, article de blog, pricing, témoignages, copy |
 | Comparatif outils web pour agents IA | docs/features/comparatif-browser-agents-ia.md | **EN LIGNE 16.11** — reste indexation GSC + benchmark maison |
 | Refresh piliers IA (kirako) | mergé dans main (`1cca170`) | **EN LIGNE 21.09** — mesurer vs baseline 428 imp / 0 clic |
 
 ## Reprendre ici
-Rebrand v2 (branche `rebrand-v2`) — copy de `/v2` une fois le repositionnement figé, puis redesign des autres pages selon `docs/design-v2.md`.
-Tri contenu « focus IA » — bilan entre le 23.11 et le 09.12 : GSC + indexation vs baseline du 09.11, puis fusion des 13 articles IA morts dans le guide IA (détail dans le fichier feature).
-Commit : [9a7c311] style(blog): citations en Fragment Mono, TL;DR sans capitales + maillage du comparatif
+Rebrand v2 (branche `rebrand-v2`) — méga-menu v2 puis page article de blog, pricing cards, témoignages : ordre et détail dans `docs/features/rebrand-v2.md` (bloc 2026-11-17).
+Tri contenu « focus IA » — bilan entre le 23.11 et le 09.12 (détail dans le fichier feature).
+Commit : [dc6afe4] style(v2): hero pleine largeur, titre « Ce que je construis » sur teal, descendantes non coupées
 
 > Décisions structurantes → `docs/DECISIONS.md`. Tâches côté Jonathan → `cerveau/10-Projets/jonlabs/jonlabs-human.md`.

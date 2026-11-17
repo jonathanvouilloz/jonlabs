@@ -10,6 +10,8 @@ Format : `[date] | [décision] | [contexte] | [alternatives considérées]`
 
 ## 2026
 
+**2026-11-17** (`0506211`, `dc6afe4`) | **Design v2 : une direction par élément, choisie sur un styleguide à 3 essais ; le teal peut passer en fond, une seule cellule de titre par page.** | Rebrand « systèmes IA » : Jonathan voulait plus tech et un peu plus de couleur sans feu d'artifice. | Zag (headless, state machines) testé puis retiré : `<details>` natif suffit pour la FAQ retenue. Anime.js gardé pour le texte et les compteurs ; GSAP reste disponible pour un futur scrub/pin. Teal en fond de section entière ou pleine largeur écarté (trop fort).
+
 **2026-11-16** (branche `rebrand-v2`) | **Nouvelle DA « freelance systèmes IA » : grille à la Sakib (filets pleine largeur, container rempli), Funnel Display + Inter Tight + Fragment Mono, fond blanc, rayon max 5px, figures isométriques Hairline.** | Site jugé trop banal et trop chargé ; repositionnement vers les systèmes IA. Refs : sakib.design, luzia, nuance, atraen. Système figé dans `docs/design-v2.md`, spike sur `/v2`. | Recoleta en titres (licence commerciale payante, écartée) ; Funnel Sans en texte (remplacée par Inter Tight à la demande de Jonathan) ; fond animé en halos CSS (jugé triste, remplacé par le réseau iso en canvas).
 
 **2026-11-16** (`9a7c311`) | **Les citations d'article passent en Fragment Mono, l'en-tête « L'essentiel en bref » en casse normale.** | Instrument Serif italique jugé illisible dans le corps d'article ; capitales espacées jugées trop chargées. Instrument Serif reste pour `.co-ser` hors articles. | Inter Tight pour les citations (moins de contraste visuel avec le texte).
