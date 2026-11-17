@@ -250,6 +250,27 @@
 .v2-dock > a:not(.v2-dock-cta) { position: relative; z-index: 1; }
 .v2-dock[data-pill] > a:not(.v2-dock-cta):hover { background: transparent; }
 
+/* Méga-menu C · Carte flottante : carte bordée sous le lien, ouverte au survol ou au focus clavier. */
+.v2-mega-item { position: relative; display: flex; }
+.v2-mega-item > a { position: relative; z-index: 1; padding: 7px 14px; border-radius: 999px; display: inline-flex; align-items: center; gap: 2px; }
+.v2-mega-item > a i { font-size: 1rem; transition: transform .25s var(--ease); }
+.v2-mega { position: absolute; top: 100%; left: 50%; z-index: 50; width: 760px; padding-top: 14px; translate: -50% 6px; opacity: 0; visibility: hidden; transition: opacity .2s var(--ease), translate .25s var(--ease), visibility .2s; }
+.v2-mega-item:hover > .v2-mega, .v2-mega-item:focus-within > .v2-mega { opacity: 1; visibility: visible; translate: -50% 0; }
+.v2-mega-item:hover > a i, .v2-mega-item:focus-within > a i { transform: rotate(180deg); }
+.v2-mega-card { background: var(--bg); border: 1px solid var(--line); border-radius: var(--r); display: grid; grid-template-columns: 1fr 260px; }
+.v2-mega-links { padding: 22px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px 24px; align-content: start; }
+.v2 .v2-mega-links .v2-meta { margin-bottom: 6px; }
+.v2-mega-a { display: flex; gap: 10px; align-items: center; padding: 6px 8px; margin: 0 -8px; border-radius: var(--r); font-size: .93rem; transition: background .2s; }
+.v2-mega-a:hover, .v2-mega-a:focus-visible { background: var(--soft); }
+.v2-mega-a i { color: var(--accent-strong); }
+.v2-mega-a .v2-mega-ext { color: var(--mut); margin-left: auto; font-size: .85rem; }
+.v2-mega-spot { border-left: 1px solid var(--line); padding: 18px 20px; display: grid; align-content: start; gap: 8px; font-size: .9rem; }
+.v2-mega-spot strong { font-family: var(--display); font-weight: 500; font-size: 1.15rem; letter-spacing: -0.03em; line-height: 1.15; }
+.v2-mega-iso { height: 120px; background: var(--soft); border-radius: var(--r); }
+.v2-mega-foot { grid-column: 1 / -1; border-top: 1px solid var(--line); padding: 12px 24px; display: flex; flex-wrap: wrap; gap: 6px 20px; align-items: center; font-size: .9rem; }
+.v2-mega-foot a:hover { color: var(--accent-strong); }
+@media (prefers-reduced-motion: reduce) { .v2-mega, .v2-mega-item > a i { transition: none; } }
+
 /* Fond A : trame de points, le pointeur l'allume en teal ([data-spot] pose --mx/--my). */
 .v2-dots { --mx: -999px; --my: -999px; --dot: #D3D6D3; --dot-on: var(--accent-strong); position: relative; isolation: isolate; background: radial-gradient(circle at center, var(--dot) 1px, transparent 1.4px) 0 0 / 18px 18px; }
 /* Lueur sur un élément dédié : ::before/::after des .w sont pris par les repères en croix. */

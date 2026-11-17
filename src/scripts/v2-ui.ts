@@ -20,11 +20,12 @@ if (!reduce) $$('[data-roll]').forEach((el) => {
 $$('[data-pill]').forEach((wrap) => {
   const bg = wrap.querySelector<HTMLElement>('[data-pill-bg]');
   if (!bg) return;
-  const links = $$<HTMLAnchorElement>(':scope > a:not(.v2-dock-cta)', wrap);
+  const links = $$<HTMLAnchorElement>(':scope > a:not(.v2-dock-cta), :scope > .v2-mega-item > a', wrap);
   const current = links.find((a) => a.hasAttribute('aria-current'));
   const move = (a?: HTMLElement) => {
     if (!a) { bg.style.opacity = '0'; return; }
-    bg.style.width = `${a.offsetWidth}px`; bg.style.transform = `translateX(${a.offsetLeft}px)`; bg.style.opacity = '1';
+    // Rect plutôt qu'offsetLeft : un lien de méga-menu est dans un parent positionné.
+    bg.style.width = `${a.offsetWidth}px`; bg.style.transform = `translateX(${a.getBoundingClientRect().left - wrap.getBoundingClientRect().left - wrap.clientLeft}px)`; bg.style.opacity = '1';
   };
   links.forEach((a) => a.addEventListener('pointerenter', () => move(a)));
   wrap.addEventListener('pointerleave', () => move(current));

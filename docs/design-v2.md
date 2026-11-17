@@ -77,6 +77,7 @@ Composants Astro dans `src/components/v2/`, comportements dans `src/scripts/v2-u
 | Bouton rond WhatsApp | — | `.v2-wa` | 50px, à côté du CTA principal |
 | Lien texte | A · Trait qui se trace | `.v2-a` (nav, footer) · `.v2-prose a` (texte) | Trait 1px qui entre par la gauche, sort par la droite. Dans un texte, un filet `--line` reste visible |
 | Nav haute | B · Pastille glissante | `<Nav current? sticky? />` | Logo / 4 liens / CTA. Une pastille `--soft` suit le lien survolé, revient sur la page courante (`aria-current`). Disparaît après 240px |
+| Méga-menu | C · Carte flottante | dans `<Nav />` (`mega` + `iso` sur un lien de `nav`, `data/v2.ts`) | Sur Systèmes IA et Blog. Carte bordée 760px centrée sous le lien, ouverte au survol ou au focus clavier. Contenu = section de `mainNav` (`data/navigation.ts`) : colonnes en grille 2 col., dernière colonne en barre du bas, spotlight en encart avec figure Hairline. Desktop seulement (sur mobile, le dock) |
 | Dock bas | B · Pastille glissante | `<Dock current? floating? />` | Avatar + 4 liens + agenda, même pastille. Apparaît quand la nav haute part |
 | Hero | B · Trame | `<Hero />` | **Seule section pleine largeur** (hors `.w`). Shader Paper `Dithering` (warp, teal `#CDF3E7`) masqué au centre ; titre qui monte lettre à lettre |
 | Fond de section | A · Points + projecteur | `.w.v2-head.v2-dots.v2-teal` + `data-spot` + `<i class="v2-dots-glow">` | Cellule de titre en teal, dans le container (pas pleine largeur). Trame de points 18px, le pointeur les allume en encre (rayon 180px). Une par page au plus |

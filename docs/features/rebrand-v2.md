@@ -80,7 +80,7 @@
 - [ ] Contenu réel du hub (tweets, post LinkedIn) + 2 photos
 - [x] Extraire nav / dock / footer en composants
 - [ ] Brancher `ProjectForm` sur un envoi réel
-- [ ] Méga-menu v2 (repartir de `Header.astro`)
+- [x] Méga-menu v2 (direction C · Carte flottante, Systèmes IA + Blog)
 - [ ] Page article de blog v2
 - [ ] Pricing cards (à confirmer)
 - [ ] Composant témoignages (vrais témoignages à collecter)

@@ -16,8 +16,6 @@ import ProjectForm from '../../components/v2/ProjectForm.astro';
 import PostFeature from '../../components/v2/PostFeature.astro';
 import Footer from '../../components/v2/Footer.astro';
 import { nav, promises } from '../../data/v2';
-import { mainNav } from '../../data/navigation';
-const mega = mainNav.find((s) => s.label === 'IA & Automatisation')!; // proto méga-menu
 import '../../styles/v2.css';
 import '../../styles/v2-styleguide.css';
 
@@ -32,7 +30,7 @@ const sections = [
   ['grille', 'Cadre de grille', 'B · Repères en croix', '.r > .w'],
   ['boutons', 'Boutons', 'B · Roulement', '.v2-btn + [data-roll]'],
   ['liens', 'Liens texte', 'A · Trait qui se trace', '.v2-a · .v2-prose'],
-  ['nav', 'Navigation haute', 'B · Pastille glissante', '<Nav />'],
+  ['nav', 'Navigation haute', 'B · Pastille glissante + méga-menu C · Carte flottante (survole Systèmes IA, Blog)', '<Nav />'],
   ['dock', 'Dock bas', 'B · Pastille glissante', '<Dock />'],
   ['hero', 'Hero', 'B · Trame', '<Hero />'],
   ['fonds', 'Fond de section', 'A · Points + projecteur, sur teal', '.w.v2-teal.v2-dots [data-spot]'],
@@ -137,127 +135,6 @@ const S = Object.fromEntries(sections.map(([id, t, d, k], i) => [id, { t, d, k, 
     <!-- 05 Nav -->
     <section class="r sg-sec" id="nav"><div class="w sg-head"><span class="sg-n">{S.nav.n}</span><h2>{S.nav.t}</h2><p class="v2-mut">{S.nav.d} <code>{S.nav.k}</code></p></div></section>
     <Nav sticky={false} current="/services" />
-
-    <!-- EXPLORATION méga-menu (jetable, purgé après choix) — contenu réel : mainNav « IA & Automatisation » -->
-    <section class="r sg-sec" id="mega"><div class="w sg-head"><span class="sg-n">05b</span><h2>Exploration — Méga-menu</h2><p class="v2-mut">3 directions, panneau ouvert sur « Systèmes IA ». Même contenu : <code>mainNav</code> IA &amp; Automatisation</p></div></section>
-
-    {[['A', 'Grille à filets'], ['B', 'Index éditorial'], ['C', 'Carte flottante']].map(([k, label]) => (
-      <>
-        <section class="r"><div class="w sg-demo mx-label"><span class="sg-n">{k}</span> <strong>{label}</strong></div></section>
-        <div class={`mx mx-${k}`}>
-          <header class="v2-top v2-top-static r">
-            <div class="w v2-top-in">
-              <a href="#" class="v2-logo">jonlabs<span>.</span></a>
-              <nav class="v2-pill mx-pill" aria-label="Exploration">
-                {nav.map((n, i) => i === 0
-                  ? <button class="mx-trig" aria-expanded="true">{n.label}<i class="ri-arrow-down-s-line" aria-hidden="true"></i></button>
-                  : <a href="#">{n.label}</a>)}
-              </nav>
-              <a href="#" class="v2-btn v2-btn-sm"><span>Réserver un appel</span></a>
-            </div>
-          </header>
-
-          {k === 'A' && (
-            <div class="r"><div class="w mxA">
-              {mega.columns!.map((col) => (
-                <div class="mxA-col">
-                  <p class="v2-meta">{col.title}</p>
-                  <ul>{col.items.map((it) => <li><a href={it.href}><i class={it.icon} aria-hidden="true"></i><span class="v2-a">{it.label}</span></a></li>)}</ul>
-                </div>
-              ))}
-              <a href={mega.spotlight!.href} class="mxA-spot">
-                <p class="v2-meta">À la une</p>
-                <strong>{mega.spotlight!.title}</strong>
-                <span class="v2-mut">{mega.spotlight!.description}</span>
-                <i class="ri-arrow-right-line" aria-hidden="true"></i>
-              </a>
-            </div></div>
-          )}
-
-          {k === 'B' && (
-            <div class="r"><div class="w mxB">
-              <div class="mxB-lead">
-                <p class="v2-h2">Systèmes IA<br /><span class="v2-dim">pour PME romandes.</span></p>
-                <a href={mega.spotlight!.href} class="v2-btn v2-btn-ghost v2-btn-sm"><span>{mega.spotlight!.title}</span></a>
-              </div>
-              <div class="mxB-list">
-                {mega.columns!.map((col) => (
-                  <div class="mxB-grp">
-                    <p class="v2-meta">{col.title}</p>
-                    {col.items.map((it) => <a href={it.href} class="mxB-row"><span>{it.label}</span><i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>)}
-                  </div>
-                ))}
-              </div>
-            </div></div>
-          )}
-
-          {k === 'C' && (
-            <div class="mxC-stage">
-              <div class="mxC">
-                <div class="mxC-links">
-                  {mega.columns!.slice(0, 3).map((col) => (
-                    <div>
-                      <p class="v2-meta">{col.title}</p>
-                      {col.items.map((it) => <a href={it.href} class="mxC-a"><i class={it.icon} aria-hidden="true"></i>{it.label}</a>)}
-                    </div>
-                  ))}
-                </div>
-                <a href={mega.spotlight!.href} class="mxC-spot">
-                  <div class="v2-iso mxC-iso" data-iso="terminal" data-theme="light"></div>
-                  <strong>{mega.spotlight!.title}</strong>
-                  <span class="v2-mut">{mega.spotlight!.description}</span>
-                </a>
-                <a href="/guides" class="mxC-foot"><span class="v2-meta">Guides IA</span><span>Tous les guides</span><i class="ri-arrow-right-line" aria-hidden="true"></i></a>
-              </div>
-            </div>
-          )}
-        </div>
-      </>
-    ))}
-
-    <style>
-      .mx-label { padding-top: 22px; padding-bottom: 22px; display: flex; gap: 12px; align-items: baseline; }
-      .mx .mx-pill { align-items: center; }
-      .mx-trig { all: unset; cursor: pointer; display: inline-flex; align-items: center; gap: 4px; padding: 7px 10px 7px 14px; border-radius: 999px; background: var(--soft); font-size: .95rem; }
-      .mx-trig i { font-size: 1rem; transform: rotate(180deg); }
-      /* A · Grille à filets */
-      .mxA { display: grid; grid-template-columns: repeat(4, 1fr) 1.3fr; }
-      .mxA > * { padding: 28px var(--pad) 34px; min-width: 0; }
-      .mxA > * + * { border-left: 1px solid var(--line); }
-      .mxA ul { list-style: none; padding: 0; margin: 16px 0 0; display: grid; gap: 12px; font-size: .95rem; }
-      .mxA li a { display: flex; gap: 10px; align-items: baseline; }
-      .mxA li i { color: var(--accent-strong); }
-      .mxA-spot { background: var(--soft); display: grid; align-content: start; gap: 10px; position: relative; }
-      .mxA-spot strong { font-family: var(--display); font-weight: 500; font-size: 1.35rem; letter-spacing: -0.035em; line-height: 1.1; }
-      .mxA-spot > i { position: absolute; right: var(--pad); bottom: 28px; font-size: 1.2rem; transition: transform .3s var(--ease); }
-      .mxA-spot:hover > i { transform: translateX(4px); }
-      /* B · Index éditorial */
-      .mxB { display: grid; grid-template-columns: 1fr 1.4fr; }
-      .mxB-lead { padding: 40px var(--pad); display: grid; align-content: space-between; gap: 32px; border-right: 1px solid var(--line); }
-      .mxB-lead .v2-btn { justify-self: start; }
-      .mxB-list { display: grid; grid-template-columns: 1fr 1fr; }
-      .mxB-grp { padding: 24px var(--pad); border-bottom: 1px solid var(--line); }
-      .mxB-grp:nth-child(odd) { border-right: 1px solid var(--line); }
-      .mxB-grp:nth-last-child(-n+2) { border-bottom: 0; }
-      .mxB-grp .v2-meta { margin-bottom: 8px; }
-      .mxB-row { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 7px 0; font-family: var(--display); font-size: 1.15rem; letter-spacing: -0.03em; }
-      .mxB-row i { color: var(--dim, #9A9D9F); transition: color .2s, transform .3s var(--ease); }
-      .mxB-row:hover i { color: var(--accent-strong); transform: translate(2px, -2px); }
-      /* C · Carte flottante */
-      .mxC-stage { max-width: 1180px; margin: 0 auto; padding: 10px var(--pad) 48px; background: var(--soft); border-left: 1px solid var(--line); border-right: 1px solid var(--line); }
-      .mxC { margin-left: 140px; width: min(760px, 100%); background: var(--bg); border: 1px solid var(--line); border-radius: var(--r); display: grid; grid-template-columns: 1fr 260px; }
-      .mxC-links { padding: 22px 24px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px 24px; }
-      .mxC-links .v2-meta { margin-bottom: 6px; }
-      .mxC-a { display: flex; gap: 10px; align-items: center; padding: 6px 8px; margin: 0 -8px; border-radius: var(--r); font-size: .93rem; transition: background .2s; }
-      .mxC-a:hover { background: var(--soft); }
-      .mxC-a i { color: var(--accent-strong); }
-      .mxC-spot { border-left: 1px solid var(--line); padding: 18px 20px; display: grid; align-content: start; gap: 8px; font-size: .9rem; }
-      .mxC-spot strong { font-family: var(--display); font-weight: 500; font-size: 1.15rem; letter-spacing: -0.03em; }
-      .mxC-iso { height: 120px; background: var(--soft); border-radius: var(--r); }
-      .mxC-foot { grid-column: 1 / -1; border-top: 1px solid var(--line); padding: 12px 24px; display: flex; gap: 14px; align-items: center; font-size: .9rem; }
-      .mxC-foot i { margin-left: auto; }
-      @media (max-width: 900px) { .mxA, .mxB, .mxB-list, .mxC, .mxC-links { grid-template-columns: 1fr; } .mxA > * + *, .mxB-lead { border-left: 0; border-right: 0; border-top: 1px solid var(--line); } .mxC { margin-left: 0; } .mxC-spot { border-left: 0; border-top: 1px solid var(--line); } }
-    </style>
 
     <!-- 06 Dock -->
     <section class="r sg-sec" id="dock"><div class="w sg-head"><span class="sg-n">{S.dock.n}</span><h2>{S.dock.t}</h2><p class="v2-mut">{S.dock.d} <code>{S.dock.k}</code></p></div></section>

@@ -1,14 +1,58 @@
 ---
 // Nav haute v2 (direction B) : pastille glissante sous le lien survolé. Disparaît au scroll au profit du Dock.
+// Méga-menu (direction C · Carte flottante) sur les liens qui portent `mega` dans data/v2 : contenu = mainNav.
+// Dernière colonne de la section → barre du bas ; les autres → grille 2 colonnes ; spotlight → encart avec figure iso.
 import { nav, HOME } from '../../data/v2';
+import { mainNav } from '../../data/navigation';
 interface Props { current?: string; sticky?: boolean }
 const { current, sticky = true } = Astro.props;
+const section = (label?: string) => mainNav.find((s) => s.label === label && s.columns?.length);
+const ext = (external?: boolean) => (external ? { target: '_blank', rel: 'noopener noreferrer' } : {});
 ---
 <header class:list={['v2-top r', { 'v2-top-static': !sticky }]} data-top={sticky ? '' : undefined}>
   <div class="w v2-top-in">
     <a href={HOME} class="v2-logo">jonlabs<span>.</span></a>
     <nav class="v2-pill" data-pill aria-label="Navigation principale">
-      {nav.map((n) => <a href={n.href} aria-current={n.href === current ? 'page' : undefined}>{n.label}</a>)}
+      {nav.map((n) => {
+        const aria = n.href === current ? 'page' : undefined;
+        const s = section(n.mega);
+        if (!s) return <a href={n.href} aria-current={aria}>{n.label}</a>;
+        const cols = s.columns!.slice(0, -1);
+        const foot = s.columns!.at(-1)!;
+        return (
+          <div class="v2-mega-item">
+            <a href={n.href} aria-current={aria}>{n.label}<i class="ri-arrow-down-s-line" aria-hidden="true"></i></a>
+            <div class="v2-mega" role="region" aria-label={n.label}>
+              <div class="v2-mega-card">
+                <div class="v2-mega-links">
+                  {cols.map((col) => (
+                    <div>
+                      <p class="v2-meta">{col.title}</p>
+                      {col.items.map((it) => (
+                        <a href={it.href} class="v2-mega-a" {...ext(it.external)}>
+                          {it.icon && <i class={it.icon} aria-hidden="true"></i>}{it.label}
+                          {it.external && <i class="ri-external-link-line v2-mega-ext" aria-hidden="true"></i>}
+                        </a>
+                      ))}
+                    </div>
+                  ))}
+                </div>
+                {s.spotlight && (
+                  <a href={s.spotlight.href} class="v2-mega-spot">
+                    {n.iso && <div class="v2-iso v2-mega-iso" data-iso={n.iso} data-theme="light"></div>}
+                    <strong>{s.spotlight.title}</strong>
+                    <span class="v2-mut">{s.spotlight.description}</span>
+                  </a>
+                )}
+                <div class="v2-mega-foot">
+                  <span class="v2-meta">{foot.title}</span>
+                  {foot.items.map((it) => <a href={it.href} {...ext(it.external)}>{it.label}</a>)}
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      })}
       <i data-pill-bg aria-hidden="true"></i>
     </nav>
     <a href="#agenda" class="v2-btn v2-btn-sm"><span data-roll>Réserver un appel</span></a>

@@ -3,10 +3,11 @@ import { author } from '../sample';
 
 export const WHATSAPP = '41789447707';
 
-export const nav = [
-  { label: 'Systèmes IA', href: '/services' },
+export const nav: { label: string; href: string; mega?: string; iso?: string }[] = [
+  // mega = section de mainNav (data/navigation.ts) affichée en carte flottante ; iso = figure Hairline de l'encart.
+  { label: 'Systèmes IA', href: '/services', mega: 'IA & Automatisation', iso: 'terminal' },
   { label: 'Réalisations', href: '/portfolio' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Blog', href: '/blog', mega: 'Articles', iso: 'laptop' },
   { label: 'À propos', href: '/about' },
 ];
 
