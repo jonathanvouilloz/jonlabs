@@ -1,0 +1,24 @@
+---
+// Témoignages v2 (direction A · Grande citation, validée le 2026-11-17) : une citation en grand, la liste des clients à droite.
+// Choisir un client affiche sa citation (script v2-ui, [data-testi]). Données : testimonials (data/v2.ts) — encore du lorem.
+import { testimonials } from '../../data/v2';
+const pad = (n: number) => String(n + 1).padStart(2, '0');
+---
+<div class="w v2-testi" data-testi>
+  <div class="v2-testi-main" aria-live="polite">
+    <p class="v2-testi-mark" aria-hidden="true">“</p>
+    {testimonials.map((t, i) => (
+      <figure class="v2-testi-fig" id={`testi-${i}`} hidden={i > 0}>
+        <blockquote class="v2-head-p">{t.quote}</blockquote>
+        <figcaption class="v2-meta"><strong>{t.name}</strong><span>{t.role}, {t.company}</span></figcaption>
+      </figure>
+    ))}
+  </div>
+  <div class="v2-testi-list" role="group" aria-label="Choisir un témoignage">
+    {testimonials.map((t, i) => (
+      <button type="button" aria-controls={`testi-${i}`} aria-pressed={i === 0 ? 'true' : 'false'}>
+        <span class="v2-testi-n">{pad(i)}</span><span>{t.company}</span><span class="v2-meta">{t.result}</span>
+      </button>
+    ))}
+  </div>
+</div>

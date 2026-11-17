@@ -84,6 +84,7 @@
 - [x] Page article de blog v2 (direction B · Magazine centré)
 - [x] Cartes tarifs `<Pricing />` (direction C · Bento mis en avant)
 - [ ] Page `/tarifs` en v2 (avec `<Pricing />`)
-- [ ] Composant témoignages (vrais témoignages à collecter)
+- [x] Composant témoignages `<Testimonials />` (direction A · Grande citation)
+- [ ] Vrais témoignages à la place du lorem (`testimonials`, `data/v2.ts`)
 - [ ] Redesign `/portfolio`, `/portfolio/[slug]`, `/blog`, `/blog/[slug]`, `/about`, `/services`
 - [ ] Bascule `/v2` → `/`

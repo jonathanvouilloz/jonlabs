@@ -397,6 +397,23 @@
   .v2-price-notes { grid-column: auto; }
 }
 
+/* Témoignages A · Grande citation (<Testimonials />) : citation à gauche, liste des clients à droite (boutons). */
+.v2-testi { display: grid; grid-template-columns: 1.7fr 1fr; }
+.v2-testi-main { padding: clamp(40px, 6vw, 72px) var(--pad); border-right: 1px solid var(--line); }
+.v2 .v2-testi-mark { font-family: var(--display); font-size: 6rem; line-height: .6; color: var(--accent-strong); margin: 0 0 8px; }
+.v2-testi-fig { margin: 0; animation: v2-testi-in .45s var(--ease); }
+.v2-testi-fig blockquote { margin: 0 0 28px; font-size: clamp(1.5rem, 2.8vw, 2.3rem); }
+.v2-testi-fig strong { color: var(--ink); font-weight: 400; }
+@keyframes v2-testi-in { from { opacity: 0; translate: 0 8px; } }
+.v2-testi-list { display: grid; align-content: start; }
+.v2-testi-list button { all: unset; box-sizing: border-box; cursor: pointer; display: grid; grid-template-columns: 36px 1fr auto; gap: 12px; align-items: baseline; padding: 22px var(--pad); color: var(--mut); transition: background .2s, color .2s; }
+.v2-testi-list button + button { border-top: 1px solid var(--line); }
+.v2-testi-list button:hover, .v2-testi-list button[aria-pressed="true"] { background: var(--soft); color: var(--ink); }
+.v2-testi-list button:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: -2px; }
+.v2-testi-n { font-family: var(--mono); font-size: .8rem; color: var(--accent-strong); }
+@media (prefers-reduced-motion: reduce) { .v2-testi-fig { animation: none; } }
+@media (max-width: 900px) { .v2-testi { grid-template-columns: 1fr; } .v2-testi-main { border-right: 0; border-bottom: 1px solid var(--line); } }
+
 /* Page article B · Magazine centré. Le corps garde .co-prose (blueprint.css) : alias de ses tokens + titres v2. */
 .v2-art-head { padding: clamp(56px, 8vw, 104px) var(--pad); text-align: center; display: grid; justify-items: center; }
 .v2-art-head .v2-h1 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1; margin: 0 0 22px; max-width: 18ch; }

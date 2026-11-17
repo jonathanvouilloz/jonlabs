@@ -15,8 +15,9 @@ import Contact from '../../components/v2/Contact.astro';
 import ProjectForm from '../../components/v2/ProjectForm.astro';
 import PostFeature from '../../components/v2/PostFeature.astro';
 import Pricing from '../../components/v2/Pricing.astro';
+import Testimonials from '../../components/v2/Testimonials.astro';
 import Footer from '../../components/v2/Footer.astro';
-import { nav, promises, testimonials } from '../../data/v2';
+import { nav, promises } from '../../data/v2';
 import '../../styles/v2.css';
 import '../../styles/v2-styleguide.css';
 
@@ -46,6 +47,7 @@ const sections = [
   ['form', 'Formulaire', 'C · Tuiles', '<ProjectForm />'],
   ['blog', 'Liste d\'articles', 'C · À la une', '<PostFeature />'],
   ['tarifs', 'Cartes tarifs', 'C · Bento mis en avant', '<Pricing />'],
+  ['temoignages', 'Témoignages', 'A · Grande citation (contenu lorem)', '<Testimonials />'],
   ['footer', 'Footer', 'C · Barre d\'état', '<Footer />'],
 ] as const;
 const S = Object.fromEntries(sections.map(([id, t, d, k], i) => [id, { t, d, k, n: pad(i + 1) }]));
@@ -200,87 +202,11 @@ const S = Object.fromEntries(sections.map(([id, t, d, k], i) => [id, { t, d, k, 
     <section class="r sg-sec" id="tarifs"><div class="w sg-head"><span class="sg-n">{S.tarifs.n}</span><h2>{S.tarifs.t}</h2><p class="v2-mut">{S.tarifs.d} <code>{S.tarifs.k}</code></p></div></section>
     <section class="r"><Pricing /></section>
 
-    <!-- EXPLORATION témoignages (jetable, purgé après choix) — contenu PLACEHOLDER : testimonials (data/v2.ts) -->
-    <section class="r sg-sec" id="temoignages"><div class="w sg-head"><span class="sg-n">19b</span><h2>Exploration — Témoignages</h2><p class="v2-mut">3 directions, contenu lorem en attendant les vrais : <code>testimonials</code></p></div></section>
+    <!-- 20 Témoignages -->
+    <section class="r sg-sec" id="temoignages"><div class="w sg-head"><span class="sg-n">{S.temoignages.n}</span><h2>{S.temoignages.t}</h2><p class="v2-mut">{S.temoignages.d} <code>{S.temoignages.k}</code></p></div></section>
+    <section class="r"><Testimonials /></section>
 
-    <!-- A · Grande citation -->
-    <section class="r"><div class="w sg-demo mx-label"><span class="sg-n">A</span> <strong>Grande citation</strong></div></section>
-    <section class="r"><div class="w txA">
-      <div class="txA-main">
-        <p class="txA-mark" aria-hidden="true">“</p>
-        <blockquote class="v2-head-p txA-q">{testimonials[0].quote}</blockquote>
-        <p class="v2-meta"><strong class="txA-name">{testimonials[0].name}</strong><span>{testimonials[0].role}, {testimonials[0].company}</span></p>
-      </div>
-      <ol class="txA-list">
-        {testimonials.map((t, i) => (
-          <li class:list={{ 'is-on': i === 0 }}><span class="sg-n">{String(i + 1).padStart(2, '0')}</span><span>{t.company}</span><span class="v2-meta">{t.result}</span></li>
-        ))}
-      </ol>
-    </div></section>
-
-    <!-- B · Mur à filets -->
-    <section class="r"><div class="w sg-demo mx-label"><span class="sg-n">B</span> <strong>Mur à filets</strong></div></section>
-    <section class="r"><div class="w txB">
-      {testimonials.map((t, i) => (
-        <figure class:list={['txB-cell', { 'txB-wide': i === 0 }]}>
-          <p class="v2-meta txB-res">{t.result}</p>
-          <blockquote>{t.quote}</blockquote>
-          <figcaption><span class="txB-av" aria-hidden="true">{t.company.slice(-1)}</span><span><strong>{t.name}</strong><span class="v2-meta">{t.role} · {t.company}</span></span></figcaption>
-        </figure>
-      ))}
-    </div></section>
-
-    <!-- C · Bande défilante -->
-    <section class="r"><div class="w sg-demo mx-label"><span class="sg-n">C</span> <strong>Bande défilante</strong></div></section>
-    <section class="r txC">
-      {[0, 1].map((row) => (
-        <div class:list={['txC-track', { 'txC-rev': row === 1 }]}>
-          {[...testimonials, ...testimonials].map((t) => (
-            <figure class="txC-card">
-              <blockquote>{t.quote}</blockquote>
-              <figcaption class="v2-meta"><span>{t.name}</span><span>{t.company}</span></figcaption>
-            </figure>
-          ))}
-        </div>
-      ))}
-    </section>
-
-    <style>
-      .mx-label { padding-top: 22px; padding-bottom: 22px; display: flex; gap: 12px; align-items: baseline; }
-      blockquote { margin: 0; }
-      /* A */
-      .txA { display: grid; grid-template-columns: 1.7fr 1fr; }
-      .txA-main { padding: clamp(40px, 6vw, 72px) var(--pad); border-right: 1px solid var(--line); }
-      .txA-mark { font-family: var(--display); font-size: 6rem; line-height: .6; color: var(--accent-strong); margin: 0 0 8px; }
-      .txA-q { font-size: clamp(1.5rem, 2.8vw, 2.3rem); margin-bottom: 28px; }
-      .txA-name { color: var(--ink); font-weight: 400; }
-      .txA-list { list-style: none; margin: 0; padding: 0; display: grid; }
-      .txA-list li { display: grid; grid-template-columns: 36px 1fr auto; gap: 12px; align-items: baseline; padding: 22px var(--pad); color: var(--mut); cursor: pointer; transition: background .2s, color .2s; }
-      .txA-list li + li { border-top: 1px solid var(--line); }
-      .txA-list li.is-on, .txA-list li:hover { background: var(--soft); color: var(--ink); }
-      /* B */
-      .txB { display: grid; grid-template-columns: repeat(3, 1fr); }
-      .txB-cell { margin: 0; padding: 32px var(--pad); display: flex; flex-direction: column; gap: 18px; border-left: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-      .txB-cell:nth-child(1), .txB-cell:nth-child(3) { border-left: 0; }
-      .txB-cell:nth-last-child(-n+2) { border-bottom: 0; }
-      .txB-wide { grid-column: span 2; background: var(--soft); }
-      .txB-wide blockquote { font-family: var(--display); font-size: clamp(1.4rem, 2.4vw, 1.9rem); letter-spacing: -0.04em; line-height: 1.15; }
-      .txB-res { color: var(--accent-strong); }
-      .txB-cell figcaption { margin-top: auto; display: flex; gap: 12px; align-items: center; }
-      .txB-cell figcaption > span:last-child { display: grid; }
-      .txB-av { width: 40px; height: 40px; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; font-family: var(--display); }
-      /* C */
-      .txC { overflow: hidden; padding: 16px 0; display: grid; gap: 16px; }
-      .txC-track { display: flex; gap: 16px; width: max-content; animation: v2-marquee 60s linear infinite; }
-      .txC-rev { animation-direction: reverse; }
-      .txC:hover .txC-track { animation-play-state: paused; }
-      .txC-card { margin: 0; width: 380px; padding: 22px 24px; border: 1px solid var(--line); border-radius: var(--r); display: grid; gap: 16px; background: var(--bg); }
-      .txC-card figcaption { gap: 10px; }
-      @media (prefers-reduced-motion: reduce) { .txC-track { animation: none; } }
-      @media (max-width: 900px) { .txA, .txB { grid-template-columns: 1fr; } .txA-main { border-right: 0; border-bottom: 1px solid var(--line); } .txB-wide { grid-column: auto; } .txB-cell { border-left: 0; border-bottom: 1px solid var(--line); } .txC-card { width: 300px; } }
-    </style>
-
-    <!-- 20 Footer -->
+    <!-- 21 Footer -->
     <section class="r sg-sec" id="footer"><div class="w sg-head"><span class="sg-n">{S.footer.n}</span><h2>{S.footer.t}</h2><p class="v2-mut">{S.footer.d} <code>{S.footer.k}</code></p></div></section>
     <Footer />
   </div>

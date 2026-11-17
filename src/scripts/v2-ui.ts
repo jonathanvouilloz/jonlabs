@@ -98,6 +98,16 @@ const tick = () => { const t = new Date().toLocaleTimeString('fr-CH', { timeZone
 if (clocks.length) { tick(); setInterval(tick, 15000); }
 $$('[data-top-link]').forEach((a) => a.addEventListener('click', (e) => { e.preventDefault(); scrollTo({ top: 0, behavior: reduce ? 'auto' : 'smooth' }); }));
 
+// Témoignages : un bouton de la liste affiche sa citation.
+$$('[data-testi]').forEach((wrap) => {
+  const btns = $$<HTMLButtonElement>('button[aria-controls]', wrap);
+  btns.forEach((b) => b.addEventListener('click', () => btns.forEach((o) => {
+    const on = o === b;
+    o.setAttribute('aria-pressed', String(on));
+    document.getElementById(o.getAttribute('aria-controls')!)!.hidden = !on;
+  })));
+});
+
 // Figures isométriques Hairline.
 const figures = { terminal, laptop, slow, plug, relay, patch, padlock } as const;
 $$('[data-iso]').forEach((el) => {
