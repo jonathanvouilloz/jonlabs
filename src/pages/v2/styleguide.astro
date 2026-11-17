@@ -16,6 +16,12 @@ import ProjectForm from '../../components/v2/ProjectForm.astro';
 import PostFeature from '../../components/v2/PostFeature.astro';
 import Footer from '../../components/v2/Footer.astro';
 import { nav, promises } from '../../data/v2';
+// proto page article
+import { isPublished, formatDate as fmt } from '../../lib/blog';
+import { author } from '../../sample';
+const ap = (await getCollection('blog', ({ data }) => isPublished(data))).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())[0];
+const { Content: APContent, headings } = await ap.render();
+const toc = headings.filter((h) => h.depth === 2);
 import '../../styles/v2.css';
 import '../../styles/v2-styleguide.css';
 
@@ -193,6 +199,113 @@ const S = Object.fromEntries(sections.map(([id, t, d, k], i) => [id, { t, d, k, 
     <!-- 18 Blog -->
     <section class="r sg-sec" id="blog"><div class="w sg-head"><span class="sg-n">{S.blog.n}</span><h2>{S.blog.t}</h2><p class="v2-mut">{S.blog.d} <code>{S.blog.k}</code></p></div></section>
     <section class="r"><PostFeature /></section>
+
+    <!-- EXPLORATION page article (jetable, purgé après choix) — contenu réel : dernier article publié -->
+    <section class="r sg-sec" id="article"><div class="w sg-head"><span class="sg-n">18b</span><h2>Exploration — Page article</h2><p class="v2-mut">3 directions, même article : <code>{ap.slug}</code>. Corps coupé à ~1100px.</p></div></section>
+
+    <!-- A · Colonne + sommaire -->
+    <section class="r"><div class="w sg-demo mx-label"><span class="sg-n">A</span> <strong>Colonne + sommaire</strong></div></section>
+    <section class="r"><div class="w axA-head">
+      <p class="v2-meta"><a href="/blog" class="v2-a">Blog</a><span>{ap.data.category}</span><span>{fmt(ap.data.pubDate)}</span>{ap.data.readingTime && <span>{ap.data.readingTime} min</span>}</p>
+      <h1 class="v2-h1 ax-h1">{ap.data.h1 ?? ap.data.title}</h1>
+      <p class="v2-head-p v2-mut">{ap.data.description}</p>
+    </div></section>
+    <section class="r"><div class="w axA">
+      <aside class="axA-side"><div class="axA-sticky">
+        <p class="v2-meta">Sommaire</p>
+        <ol class="axA-toc">{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol>
+        <div class="axA-bar"><i></i></div>
+        <p class="v2-meta axA-share"><span>Partager</span><a href="#" aria-label="X"><i class="ri-twitter-x-line"></i></a><a href="#" aria-label="LinkedIn"><i class="ri-linkedin-fill"></i></a><a href="#" aria-label="Copier le lien"><i class="ri-link"></i></a></p>
+      </div></aside>
+      <div class="ax-clip"><div class="ax-prose"><APContent /></div></div>
+    </div></section>
+
+    <!-- B · Magazine centré -->
+    <section class="r"><div class="w sg-demo mx-label"><span class="sg-n">B</span> <strong>Magazine centré</strong></div></section>
+    <section class="r"><div class="w axB-head">
+      <p class="v2-tags axB-tags">{ap.data.tags.slice(0, 3).map((t) => <span>{t}</span>)}</p>
+      <h1 class="v2-h1 ax-h1">{ap.data.h1 ?? ap.data.title}</h1>
+      <p class="v2-meta axB-meta"><span>{author.name}</span><span>{fmt(ap.data.pubDate)}</span>{ap.data.readingTime && <span>{ap.data.readingTime} min de lecture</span>}</p>
+    </div></section>
+    <section class="r"><div class="w axB-img"><img src={ap.data.image.url} alt={ap.data.image.alt ?? ''} loading="lazy" /></div></section>
+    <section class="r"><div class="w axB">
+      <details class="axB-toc"><summary class="v2-meta">Sommaire · {toc.length} parties</summary><ol>{toc.map((h) => <li><a href={`#${h.slug}`}>{h.text}</a></li>)}</ol></details>
+      <div class="ax-clip"><div class="ax-prose axB-prose"><APContent /></div></div>
+    </div></section>
+
+    <!-- C · Fiche + sections à filets -->
+    <section class="r"><div class="w sg-demo mx-label"><span class="sg-n">C</span> <strong>Fiche + sections à filets</strong></div></section>
+    <section class="r"><div class="w axC-head">
+      <div class="axC-img"><img src={ap.data.image.url} alt={ap.data.image.alt ?? ''} loading="lazy" /></div>
+      <div class="axC-info">
+        <h1 class="v2-h2 axC-h1">{ap.data.h1 ?? ap.data.title}</h1>
+        <p class="v2-mut">{ap.data.description}</p>
+        <dl class="v2-kv">
+          <div><dt>Catégorie</dt><dd>{ap.data.category}</dd></div>
+          <div><dt>Publié</dt><dd>{fmt(ap.data.pubDate)}</dd></div>
+          {ap.data.updatedDate && <div><dt>Mis à jour</dt><dd>{fmt(ap.data.updatedDate)}</dd></div>}
+          {ap.data.readingTime && <div><dt>Lecture</dt><dd>{ap.data.readingTime} min</dd></div>}
+          <div><dt>Auteur</dt><dd>{author.name}</dd></div>
+        </dl>
+      </div>
+    </div></section>
+    <section class="r"><div class="w ax-clip"><div class="ax-prose axC-prose"><APContent /></div></div></section>
+
+    <style>
+      .mx-label { padding-top: 22px; padding-bottom: 22px; display: flex; gap: 12px; align-items: baseline; }
+      .ax-h1 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1; margin: 18px 0; max-width: 16ch; }
+      .ax-clip { max-height: 1100px; overflow: hidden; position: relative; min-width: 0; }
+      .ax-clip::after { content: ''; position: absolute; inset: auto 0 0; height: 160px; background: linear-gradient(transparent, var(--bg)); }
+      /* prose commune (proto) */
+      .ax-prose { font-size: 1.06rem; line-height: 1.7; }
+      .ax-prose :global(> * + *) { margin-top: 1.1em; }
+      .ax-prose :global(h2) { font-family: var(--display); font-weight: 500; font-size: clamp(1.6rem, 2.6vw, 2.1rem); letter-spacing: -0.045em; line-height: 1.05; margin-top: 2.2em; }
+      .ax-prose :global(h3) { font-size: 1.3rem; margin-top: 1.8em; }
+      .ax-prose :global(a) { background: linear-gradient(var(--line), var(--line)) 0 100% / 100% 1px no-repeat; }
+      .ax-prose :global(ul), .ax-prose :global(ol) { padding-left: 1.2em; }
+      .ax-prose :global(li + li) { margin-top: .4em; }
+      .ax-prose :global(strong) { font-weight: 600; }
+      .ax-prose :global(img) { max-width: 100%; border-radius: var(--r); }
+      .ax-prose :global(blockquote) { margin-left: 0; padding-left: 20px; border-left: 2px solid var(--accent); }
+      .ax-prose :global(table) { width: 100%; border-collapse: collapse; font-size: .92rem; }
+      .ax-prose :global(th), .ax-prose :global(td) { border-bottom: 1px solid var(--line); padding: 8px 10px 8px 0; text-align: left; }
+      /* A */
+      .axA-head { padding: clamp(48px, 7vw, 88px) var(--pad) 48px; }
+      .axA { display: grid; grid-template-columns: 280px 1fr; }
+      .axA-side { border-right: 1px solid var(--line); padding: 32px 24px; }
+      .axA-sticky { position: sticky; top: 80px; display: grid; gap: 14px; }
+      .axA-toc { list-style: none; padding: 0; margin: 0; counter-reset: t; display: grid; gap: 8px; font-size: .88rem; }
+      .axA-toc li { counter-increment: t; display: grid; grid-template-columns: 26px 1fr; color: var(--mut); }
+      .axA-toc li::before { content: counter(t, decimal-leading-zero); font-family: var(--mono); font-size: .7rem; color: var(--accent-strong); padding-top: 3px; }
+      .axA-toc li:first-child { color: var(--ink); }
+      .axA-bar { height: 2px; background: var(--line); } .axA-bar i { display: block; width: 22%; height: 100%; background: var(--ink); }
+      .axA-share { gap: 12px; } .axA-share a { font-size: 1rem; color: var(--ink); }
+      .axA .ax-clip { padding: 40px clamp(24px, 5vw, 72px); } .axA .ax-prose { max-width: 680px; }
+      /* B */
+      .axB-head { padding: clamp(56px, 8vw, 104px) var(--pad); text-align: center; display: grid; justify-items: center; }
+      .axB-head .ax-h1 { max-width: 18ch; }
+      .axB-meta { justify-content: center; }
+      .axB-img img { display: block; width: 100%; aspect-ratio: 21 / 9; object-fit: cover; }
+      .axB { padding: 48px var(--pad) 0; display: grid; justify-items: center; }
+      .axB-toc { width: min(680px, 100%); border: 1px solid var(--line); border-radius: var(--r); padding: 12px 16px; margin-bottom: 32px; font-size: .9rem; }
+      .axB-toc summary { cursor: pointer; } .axB-toc ol { margin: 12px 0 0; padding-left: 1.2em; display: grid; gap: 6px; }
+      .axB .ax-clip { width: min(680px, 100%); }
+      .axB-prose > :global(p:first-child)::first-letter { font-family: var(--display); font-size: 3.4em; float: left; line-height: .85; margin: .05em .08em 0 0; }
+      /* C */
+      .axC-head { display: grid; grid-template-columns: 1.35fr 1fr; }
+      .axC-img { border-right: 1px solid var(--line); } .axC-img img { display: block; width: 100%; height: 100%; object-fit: cover; min-height: 420px; }
+      .axC-info { padding: 40px var(--pad); display: grid; gap: 18px; align-content: start; }
+      .axC-h1 { font-size: clamp(1.9rem, 3.4vw, 2.8rem); margin: 0; }
+      .axC-prose { counter-reset: s; padding: 0 0 40px; }
+      .axC-prose > :global(*:not(h2)) { max-width: 680px; margin-left: calc(280px + clamp(24px, 5vw, 72px)); margin-right: var(--pad); }
+      .axC-prose > :global(h2) { counter-increment: s; display: grid; grid-template-columns: 280px 1fr; align-items: baseline; border-top: 1px solid var(--line); margin: 56px 0 24px; padding: 28px clamp(24px, 5vw, 72px) 0 0; }
+      .axC-prose > :global(h2)::before { content: '§ ' counter(s, decimal-leading-zero); font-family: var(--mono); font-size: .75rem; letter-spacing: 0; color: var(--accent-strong); padding-left: var(--pad); }
+      .axC-prose > :global(p:first-child) { margin-top: 40px; }
+      @media (max-width: 900px) {
+        .axA, .axC-head { grid-template-columns: 1fr; } .axA-side { border-right: 0; border-bottom: 1px solid var(--line); }
+        .axC-img { border-right: 0; } .axC-prose > :global(*:not(h2)) { margin-left: var(--pad); } .axC-prose > :global(h2) { grid-template-columns: 1fr; padding-left: var(--pad); } .axC-prose > :global(h2)::before { padding-left: 0; }
+      }
+    </style>
 
     <!-- 19 Footer -->
     <section class="r sg-sec" id="footer"><div class="w sg-head"><span class="sg-n">{S.footer.n}</span><h2>{S.footer.t}</h2><p class="v2-mut">{S.footer.d} <code>{S.footer.k}</code></p></div></section>
