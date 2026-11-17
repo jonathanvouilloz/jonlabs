@@ -53,3 +53,11 @@ export const stepDetails = [
 
 // Accueil du rebrand tant que la v2 vit sur /v2 (passera à '/' à la bascule).
 export const HOME = '/v2';
+
+// ⚠️ PLACEHOLDER (lorem) : aucun vrai témoignage collecté. À remplacer avant toute mise en production, ne rien inventer.
+export const testimonials = [
+  { quote: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', name: 'Prénom Nom', role: 'Directrice', company: 'Entreprise A', result: '−12 h / semaine' },
+  { quote: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.', name: 'Prénom Nom', role: 'Fondateur', company: 'Entreprise B', result: 'Pilote en 3 semaines' },
+  { quote: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.', name: 'Prénom Nom', role: 'Responsable admin', company: 'Entreprise C', result: '0 mail oublié' },
+  { quote: 'Sunt in culpa qui officia deserunt mollit anim id est laborum. Curabitur pretium tincidunt lacus.', name: 'Prénom Nom', role: 'Associé', company: 'Entreprise D', result: '×3 devis traités' },
+];
