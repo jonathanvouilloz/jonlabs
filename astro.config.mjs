@@ -68,6 +68,7 @@ export default defineConfig({
         !page.includes('/devis-client/') &&
         !page.includes('/blog/tag/') &&
         !page.includes('/styleguide') &&
+        !/\/v2(\/|$)/.test(page) &&
         !page.includes('/mentions-legales'),
       serialize(item) {
         const lastmod = lastmodByUrl.get(item.url.replace(/\/$/, ''));
