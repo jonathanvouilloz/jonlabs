@@ -3,6 +3,31 @@
 > Branche `rebrand-v2`. Spike de la future home sur `/v2` (noindex), puis redesign de toutes les pages.
 > Système de design figé dans `docs/design-v2.md`. Le fond (copy, offre) attend le repositionnement en cours.
 
+## Etat session 2026-11-17 (suite)
+
+**Fait :**
+- Méga-menu v2 (C · Carte flottante) dans `Nav.astro` sur Systèmes IA et Blog, contenu tiré de `mainNav` ; la pastille suit aussi ces liens.
+- Page article `/blog/[slug]` passée en v2 (B · Magazine centré) : titre centré, image 21/9, colonne 680px, sommaire repliable, « À lire ensuite » ; le corps garde `.co-prose`.
+- `<Pricing />` (C · Bento mis en avant) ; les 3 offres de `/tarifs` déplacées dans `data/pricing.ts`. `/tarifs` **gardée** (décision Jonathan).
+- `<Testimonials />` (A · Grande citation), sur du **lorem** (`testimonials`, `data/v2.ts`) en attendant les vrais.
+- Styleguide : sections Tarifs (19) et Témoignages (20) ajoutées ; essais écartés dans git (`34b921c`, `8f021b3`, `3a58c6c`, `4aea0cd`).
+
+**Prochain :** redesign des pages en v2, en commençant par `/tarifs` (`src/pages/tarifs.astro` : chrome v2 + `<Pricing />` + FAQ `<Faq />`, garder les schémas SEO), puis `/portfolio`, `/about`, `/services`, `/blog` selon `docs/design-v2.md` § 8.
+
+**Pieges :**
+- `.v2 p/ul/ol { margin: 0 }` (0,1,1) écrase `.co-prose` : la page article redonne les marges via `.v2 .v2-art-prose …`. Même réflexe pour tout contenu blueprint posé dans `.v2`.
+- `.v2 a { color: inherit }` bat une classe simple sur un lien : préfixer `.v2 .classe`.
+- `.co-prose` dans `.v2` a besoin des alias `--muted` / `--surface` / `--line-2` (posés sur `.v2-art`) ; le widget MDX `BrowserAgentsCompare` en dépend.
+- Pastille nav : position calculée par `getBoundingClientRect` (un lien de méga-menu est dans un parent positionné, `offsetLeft` serait faux).
+- Grille d'article : `grid-template-columns: minmax(0, 1fr)` obligatoire, sinon un tableau large pousse la colonne hors écran en mobile.
+- Méga-menu : desktop seulement (Échap non géré) ; carte 760px, à vérifier vers 1024px.
+- Trame de points invisible sur `.v2-teal.v2-dots` (le fond teal écrase la trame) : défaut antérieur, question posée à Jonathan, non tranchée.
+- Captures headless de `/v2/styleguide` : `Page.captureScreenshot` expire maintenant (page longue + animations) ; capturer une page plus courte ou vérifier en live.
+
+**Commit :** [5a40ce9] feat(ui): témoignages v2 direction A (grande citation) validée
+
+---
+
 ## Etat session 2026-11-17
 
 **Fait :**
@@ -52,13 +77,15 @@
 | Fichier | Role |
 |---------|------|
 | `src/pages/v2.astro` | Home v2 assemblée avec les composants ; garde le hub, l'à-propos, la section privée et Cal.com |
-| `src/data/hub.ts` | Contenu du hub (vidéos YouTube, tweets et post LinkedIn en placeholder) |
-| `src/layouts/Layout.astro` | Ajout d'un slot `head` pour charger une police par page |
-| `src/pages/v2/styleguide.astro` | Styleguide v2 : un bloc par composant validé (référence vivante) |
-| `src/components/v2/*.astro` | Nav, Dock, Hero, CaseSpec, Proofs, Steps, Bento, Faq, Contact, ProjectForm, PostFeature, Footer |
+| `src/pages/v2/styleguide.astro` | Styleguide v2 : un bloc par composant validé (référence vivante, 21 sections) |
+| `src/pages/blog/[slug].astro` | Page article v2 (magazine centré), chrome v2, corps `.co-prose`, schémas SEO inchangés |
+| `src/components/v2/*.astro` | Nav (+ méga-menu), Dock, Hero, CaseSpec, Proofs, Steps, Bento, Faq, Contact, ProjectForm, PostFeature, Pricing, Testimonials, Footer |
 | `src/components/v2/DitherBg.tsx` | Fond tramé du hero (shader Paper, îlot React) |
-| `src/scripts/v2-ui.ts` | Comportements par attribut : roulement, pastille, nav/dock, lettres/mots, gris→noir, projecteur, compteurs, heure, Hairline |
-| `src/styles/v2.css` · `src/data/v2.ts` | Styles et données partagés |
+| `src/scripts/v2-ui.ts` | Comportements par attribut : roulement, pastille, nav/dock, lettres/mots, gris→noir, projecteur, compteurs, heure, témoignages, Hairline |
+| `src/styles/v2.css` | Styles v2 partagés, dont méga-menu, page article (`.v2-art*`), tarifs (`.v2-price*`), témoignages (`.v2-testi*`) |
+| `src/data/v2.ts` | Nav v2 (`mega` + `iso`), contenus de la home, `testimonials` (lorem) |
+| `src/data/pricing.ts` | Seule source des prix + les 3 `offers` lues par `/tarifs` et `<Pricing />` |
+| `src/data/hub.ts` | Contenu du hub (vidéos YouTube, tweets et post LinkedIn en placeholder) |
 | `src/styles/v2-styleguide.css` | Cadre de la page styleguide (`.sg-*`) |
 | `docs/design-v2.md` | Système de design v2 : tokens, typo, grille, composants, motion, règles pour les autres pages |
 
@@ -67,6 +94,9 @@
 - Rayon max 5px ; 0 quand l'élément touche le cadre ; seuls les boutons sont en pilule.
 - Figures isométriques via `@lucasmarkes/hairline` (API vanilla, pas d'îlot React).
 - URLs existantes conservées (`/services`, `/portfolio`, `/blog`, `/about`) ; pages SEO hors menu, lien « Sites & SEO » en footer ; page `/tarifs` **gardée** (Jonathan, 2026-11-17 : bonne page SEO potentielle), refaite en v2 avec `<Pricing />`.
+- Le méga-menu lit `mainNav` (`data/navigation.ts`) : une seule source pour l'ancien header et la v2.
+- Les articles gardent `.co-prose` (TL;DR, tableaux, code, widgets MDX) plutôt qu'une prose v2 réécrite.
+- `<Pricing />` occupe la cellule teal de la page : pas d'autre `.v2-teal` sur `/tarifs`.
 
 ## Taches
 
