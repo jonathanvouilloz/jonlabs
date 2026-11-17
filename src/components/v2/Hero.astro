@@ -1,12 +1,13 @@
 ---
 // Hero v2 (direction B) : trame animée (shader Paper) très pâle, titre qui monte lettre à lettre.
+// Seule section en pleine largeur (hors container .w) : le fond couvre tout le viewport.
 import DitherBg from './DitherBg.tsx';
 import { WHATSAPP } from '../../data/v2';
 interface Props { heading?: 'h1' | 'h2' }
 const { heading: H = 'h1' } = Astro.props;
 ---
 <section class="r">
-  <div class="w v2-hero">
+  <div class="v2-hero">
     <div class="v2-hero-shader" aria-hidden="true"><DitherBg client:visible /></div>
     <div class="v2-hero-in">
       <p class="v2-tags"><span>Freelance</span><i></i><span>IA</span><i></i><span>B2B</span></p>

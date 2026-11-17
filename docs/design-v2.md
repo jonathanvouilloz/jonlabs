@@ -27,7 +27,7 @@ pills partout, texte long en home, SEO mis en avant.
 | `--mut` | `#686C70` | Texte secondaire |
 | `--dim` | `#9A9D9F` | 2e ligne grisée des titres (`.v2-dim`) |
 | `--line` | `#E3E4E1` | Tous les filets |
-| `--accent` | `#00D9A3` | Signal (point du logo, impulsions, focus) — jamais en fond |
+| `--accent` | `#00D9A3` | Signal (point du logo, focus) ; en fond seulement pour **une** cellule de titre par page (`.v2-teal`, texte `--ink`) |
 | `--accent-strong` | `#00A87D` | Teal lisible sur blanc (métadonnées, puces, hover) |
 | `--dark` / `--dark-line` | `#111214` / `#26282C` | Section sombre (hub) |
 | WhatsApp | `#1FAF55` | Boutons WhatsApp uniquement |
@@ -60,7 +60,8 @@ Grille « à la Sakib » :
 - Chaque section = une ou plusieurs rangées `.r > .w`. Pas de marge entre sections : le filet suffit.
 - Le contenu **remplit le container** : images bord à bord, bentos dont les cellules se touchent,
   séparées par des filets 1px (`border-left` / `border-bottom`), jamais par des `gap`.
-- Exception assumée : les photos de l'à-propos ont `gap: 12px` + `padding: 12px`.
+- Exceptions assumées : les photos de l'à-propos ont `gap: 12px` + `padding: 12px` ; le hero est en pleine largeur.
+- `::before` / `::after` d'un `.w` sont réservés aux repères en croix : un effet décoratif passe par un élément enfant.
 - **Repères en croix** : chaque `.r > .w` porte une croix de 11px aux deux coins bas (intersection filet de rangée / filets verticaux),
   couleur `--cross` (`--ink`, gris en section sombre). Automatique, rien à ajouter au markup. Masquée sur la nav haute.
 - Une cellule qui touche le cadre a `border-radius: 0`. Le rayon 5px ne s'applique qu'aux éléments posés dedans.
@@ -77,8 +78,8 @@ Composants Astro dans `src/components/v2/`, comportements dans `src/scripts/v2-u
 | Lien texte | A · Trait qui se trace | `.v2-a` (nav, footer) · `.v2-prose a` (texte) | Trait 1px qui entre par la gauche, sort par la droite. Dans un texte, un filet `--line` reste visible |
 | Nav haute | B · Pastille glissante | `<Nav current? sticky? />` | Logo / 4 liens / CTA. Une pastille `--soft` suit le lien survolé, revient sur la page courante (`aria-current`). Disparaît après 240px |
 | Dock bas | B · Pastille glissante | `<Dock current? floating? />` | Avatar + 4 liens + agenda, même pastille. Apparaît quand la nav haute part |
-| Hero | B · Trame | `<Hero />` | Shader Paper `Dithering` (warp, teal `#CDF3E7`) masqué au centre ; titre qui monte lettre à lettre |
-| Fond de section | A · Points + projecteur | `.v2-dots` + `data-spot` | Trame de points 18px ; le pointeur allume les points en teal (rayon 180px). Une section par page au plus |
+| Hero | B · Trame | `<Hero />` | **Seule section pleine largeur** (hors `.w`). Shader Paper `Dithering` (warp, teal `#CDF3E7`) masqué au centre ; titre qui monte lettre à lettre |
+| Fond de section | A · Points + projecteur | `.w.v2-head.v2-dots.v2-teal` + `data-spot` + `<i class="v2-dots-glow">` | Cellule de titre en teal, dans le container (pas pleine largeur). Trame de points 18px, le pointeur les allume en encre (rayon 180px). Une par page au plus |
 | Titre de section | A · Mots qui montent | `data-words` sur le `h2` | Mots masqués qui montent à l'entrée dans l'écran (45ms d'écart, 800ms) |
 | Tags / métadonnées | A · Étoiles | `.v2-tags` · `.v2-meta` · `.v2-tools` | 3 mots séparés par une étoile 4 branches teal ; ligne mono pour secteur, durée, résultat |
 | Étude de cas | B · Fiche technique | `<CaseSpec entry />` | Image bord à bord (1.35fr) + titre, description, tableau `.v2-kv` (secteur, durée, stack, 2 résultats en teal) |
@@ -102,7 +103,8 @@ Icônes : Remix Icon, monochromes. Jamais d'emoji dans l'UI.
   tramé 4×4 très pâle, masque radial pour garder le centre lisible, vitesse 0 sous `prefers-reduced-motion`.
   (L'ancien réseau iso en canvas a été écarté le 2026-11-17 ; il reste dans git.)
 - **Texte** : Anime.js 4 (`splitText` + `animate`) pour le titre du hero (lettres), les titres de section (mots)
-  et les compteurs. Rien d'autre : les survols restent en CSS.
+  et les compteurs. Rien d'autre : les survols restent en CSS. Le masque d'un mot reçoit `.14em` de marge basse,
+  sinon l'interligne serré coupe les descendantes (g, p, q).
 - **Figures isométriques** : `@lucasmarkes/hairline` (API vanilla, `theme: 'light'`, `play: true`).
   Une figure = une idée (terminal = agents, laptop = apps, slow = automatisations, plug = intégration,
   relay / patch / padlock pour les 3 colonnes). Pour une figure sur mesure : skill `ai-iso-skill`.

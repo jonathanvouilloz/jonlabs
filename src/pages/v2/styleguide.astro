@@ -33,7 +33,7 @@ const sections = [
   ['nav', 'Navigation haute', 'B · Pastille glissante', '<Nav />'],
   ['dock', 'Dock bas', 'B · Pastille glissante', '<Dock />'],
   ['hero', 'Hero', 'B · Trame', '<Hero />'],
-  ['fonds', 'Fond de section', 'A · Points + projecteur', '.v2-dots [data-spot]'],
+  ['fonds', 'Fond de section', 'A · Points + projecteur, sur teal', '.w.v2-teal.v2-dots [data-spot]'],
   ['titres', 'Titres animés', 'A · Mots qui montent', '[data-words]'],
   ['tags', 'Tags et métadonnées', 'A · Étoiles', '.v2-tags · .v2-meta'],
   ['cas', 'Étude de cas', 'B · Fiche technique', '<CaseSpec />'],
@@ -146,7 +146,7 @@ const S = Object.fromEntries(sections.map(([id, t, d, k], i) => [id, { t, d, k, 
 
     <!-- 08 Fonds -->
     <section class="r sg-sec" id="fonds"><div class="w sg-head"><span class="sg-n">{S.fonds.n}</span><h2>{S.fonds.t}</h2><p class="v2-mut">{S.fonds.d} <code>{S.fonds.k}</code></p></div></section>
-    <section class="r"><div class="w v2-head v2-dots" data-spot><h2 class="v2-h2">Ce que je construis.</h2></div></section>
+    <section class="r"><div class="w v2-head v2-dots v2-teal" data-spot><i class="v2-dots-glow" aria-hidden="true"></i><h2 class="v2-h2">Ce que je construis.</h2></div></section>
 
     <!-- 09 Titres -->
     <section class="r sg-sec" id="titres"><div class="w sg-head"><span class="sg-n">{S.titres.n}</span><h2>{S.titres.t}</h2><p class="v2-mut">{S.titres.d} <code>{S.titres.k}</code></p></div></section>

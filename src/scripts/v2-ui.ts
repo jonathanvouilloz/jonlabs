@@ -39,10 +39,14 @@ if (top && dock) {
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
 }
 
+// Le masque d'un mot (overflow: clip) coupe les descendantes avec un interligne < 1 : on l'agrandit vers le bas sans décaler la ligne.
+const roomForDescenders = (words: HTMLElement[]) => words.forEach((w) => { const m = w.parentElement!; m.style.paddingBottom = '.14em'; m.style.marginBottom = '-.14em'; });
+
 // Titre du hero : lettres qui montent.
 $$('[data-chars]').forEach((el) => {
   if (reduce) return;
   const sp = splitText(el, { words: { wrap: 'clip' }, chars: true });
+  roomForDescenders(sp.words);
   sp.chars.forEach((c: HTMLElement) => (c.style.opacity = '0'));
   inView(el, () => animate(sp.chars, { y: ['110%', '0%'], opacity: [0, 1], duration: 700, delay: stagger(18), ease: 'out(4)' }), '0px');
 });
@@ -51,6 +55,7 @@ $$('[data-chars]').forEach((el) => {
 $$('[data-words]').forEach((el) => {
   if (reduce) return;
   const sp = splitText(el, { words: { wrap: 'clip' } });
+  roomForDescenders(sp.words);
   sp.words.forEach((w: HTMLElement) => (w.style.transform = 'translateY(105%)'));
   inView(el, () => animate(sp.words, { y: ['105%', '0%'], duration: 800, delay: stagger(45), ease: 'out(4)' }));
 });
