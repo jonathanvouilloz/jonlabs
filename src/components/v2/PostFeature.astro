@@ -1,0 +1,31 @@
+---
+// Liste d'articles v2 (direction C) : le dernier à la une, les suivants en lignes à côté.
+import { getCollection } from 'astro:content';
+interface Props { count?: number }
+const { count = 3 } = Astro.props;
+const posts = (await getCollection('blog', (p) => !p.data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, count);
+const fmt = (d: Date) => d.toLocaleDateString('fr-CH', { day: '2-digit', month: '2-digit', year: 'numeric' });
+const [first, ...rest] = posts;
+---
+{first && (
+  <div class="w v2-posts">
+    <a href={`/blog/${first.slug}`} class="v2-posts-main">
+      <div class="v2-posts-img"><img src={first.data.image.url} alt={first.data.image.alt} loading="lazy" /></div>
+      <div>
+        <p class="v2-meta"><span>À la une</span><time datetime={first.data.pubDate.toISOString()}>{fmt(first.data.pubDate)}</time></p>
+        <h3>{first.data.h1 ?? first.data.title}</h3>
+        <p class="v2-mut">{first.data.description}</p>
+      </div>
+    </a>
+    <ul>
+      {rest.map((p) => (
+        <li><a href={`/blog/${p.slug}`}>
+          <p class="v2-meta"><time datetime={p.data.pubDate.toISOString()}>{fmt(p.data.pubDate)}</time><span>{p.data.readingTime ?? 8} min</span></p>
+          <b>{p.data.h1 ?? p.data.title}</b>
+        </a></li>
+      ))}
+    </ul>
+  </div>
+)}

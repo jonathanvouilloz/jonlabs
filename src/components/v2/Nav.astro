@@ -1,0 +1,16 @@
+---
+// Nav haute v2 (direction B) : pastille glissante sous le lien survolé. Disparaît au scroll au profit du Dock.
+import { nav, HOME } from '../../data/v2';
+interface Props { current?: string; sticky?: boolean }
+const { current, sticky = true } = Astro.props;
+---
+<header class:list={['v2-top r', { 'v2-top-static': !sticky }]} data-top={sticky ? '' : undefined}>
+  <div class="w v2-top-in">
+    <a href={HOME} class="v2-logo">jonlabs<span>.</span></a>
+    <nav class="v2-pill" data-pill aria-label="Navigation principale">
+      {nav.map((n) => <a href={n.href} aria-current={n.href === current ? 'page' : undefined}>{n.label}</a>)}
+      <i data-pill-bg aria-hidden="true"></i>
+    </nav>
+    <a href="#agenda" class="v2-btn v2-btn-sm"><span data-roll>Réserver un appel</span></a>
+  </div>
+</header>

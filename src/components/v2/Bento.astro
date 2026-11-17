@@ -1,0 +1,13 @@
+---
+// Bento services v2 (direction A) : figures isométriques Hairline (initialisées par v2-ui).
+import { builds } from '../../data/v2';
+---
+<div class="w v2-bento">
+  {builds.map((b) => (
+    <div class:list={['v2-cell', { 'v2-cell-big': b.big }]}>
+      <div class="v2-iso" data-iso={b.iso} data-theme="light"></div>
+      <h3>{b.title}</h3>
+      <p class="v2-mut">{b.text}</p>
+    </div>
+  ))}
+</div>

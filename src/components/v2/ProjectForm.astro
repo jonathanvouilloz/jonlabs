@@ -1,0 +1,18 @@
+---
+// Formulaire de demande v2 (direction C) : on choisit avant d'écrire.
+// shortcut: aucun backend branché ; passer `action` (endpoint ou service de formulaires) avant de l'utiliser en production.
+interface Props { action?: string }
+const { action } = Astro.props;
+const kinds = [['ri-robot-2-line', 'Un agent'], ['ri-layout-4-line', 'Une app'], ['ri-loop-right-line', 'Une automatisation'], ['ri-question-line', 'Je ne sais pas encore']];
+---
+<form class="v2-form" method="post" action={action}>
+  <fieldset>
+    <legend>Vous voulez construire</legend>
+    <div class="v2-tiles">
+      {kinds.map(([ic, l]) => <label><input type="checkbox" name="type" value={l} /><i class={ic}></i><span>{l}</span></label>)}
+    </div>
+  </fieldset>
+  <label class="v2-field">Ce que vous voulez confier à l'IA<textarea name="message" rows="3" placeholder="Trier les demandes de devis qui arrivent par e-mail"></textarea></label>
+  <label class="v2-field">E-mail<input type="email" name="email" autocomplete="email" placeholder="marie@entreprise.ch" required /></label>
+  <button class="v2-btn"><span data-roll>Envoyer</span> <i class="ri-arrow-right-line"></i></button>
+</form>

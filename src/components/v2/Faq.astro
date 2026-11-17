@@ -1,0 +1,15 @@
+---
+// FAQ v2 (direction A) : questions en pilules, titre à droite. Une seule réponse ouverte à la fois (name partagé).
+import { faqs } from '../../data/v2';
+---
+<div class="w v2-faq">
+  <div class="v2-faq-list">
+    {faqs.map((f) => (
+      <details name="v2-faq">
+        <summary><span>{f.q}</span><i class="ri-add-line"></i></summary>
+        <p class="v2-mut">{f.a}</p>
+      </details>
+    ))}
+  </div>
+  <h2 class="v2-h2 v2-faq-title">Les questions<br />qu'on me pose.</h2>
+</div>

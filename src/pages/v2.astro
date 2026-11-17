@@ -3,9 +3,18 @@
 // Grille « à la Sakib » : filets horizontaux pleine largeur (.r), container bordé (.w), cellules qui le remplissent.
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
-import { author } from '../sample';
 import { videos, tweets, linkedinPost } from '../data/hub';
-import { WHATSAPP, nav, steps, promises, builds, faqs, socials } from '../data/v2';
+import { WHATSAPP, promises } from '../data/v2';
+import Nav from '../components/v2/Nav.astro';
+import Dock from '../components/v2/Dock.astro';
+import Hero from '../components/v2/Hero.astro';
+import CaseSpec from '../components/v2/CaseSpec.astro';
+import Proofs from '../components/v2/Proofs.astro';
+import Steps from '../components/v2/Steps.astro';
+import Bento from '../components/v2/Bento.astro';
+import Faq from '../components/v2/Faq.astro';
+import Contact from '../components/v2/Contact.astro';
+import Footer from '../components/v2/Footer.astro';
 import '../styles/v2.css';
 
 const cases = (await getCollection('portfolio', (p) => !p.data.draft && p.data.featured))
@@ -30,38 +39,11 @@ const strip = [
   </Fragment>
 
   <div class="v2">
-    <!-- NAV HAUT -->
-    <header class="v2-top r" data-top>
-      <div class="w v2-top-in">
-        <a href="/v2" class="v2-logo">jonlabs<span>.</span></a>
-        <nav class="v2-top-links">{nav.map((n) => <a href={n.href}>{n.label}</a>)}</nav>
-        <a href="#agenda" class="v2-btn v2-btn-sm">Réserver un appel <i class="ri-arrow-right-line"></i></a>
-      </div>
-    </header>
-
-    <!-- DOCK BAS -->
-    <nav class="v2-dock" data-dock aria-label="Navigation">
-      <img src="/images/jonathan-vouilloz.webp" alt="Jonathan Vouilloz" class="v2-dock-avatar" width="36" height="36" />
-      {nav.map((n) => <a href={n.href}>{n.label}</a>)}
-      <a href="#agenda" class="v2-dock-cta" aria-label="Réserver un appel"><i class="ri-calendar-line"></i></a>
-    </nav>
+    <Nav />
+    <Dock />
 
     <!-- 1. HERO -->
-    <section class="r">
-      <div class="w v2-hero">
-        <canvas class="v2-hero-canvas" data-iso-bg aria-hidden="true"></canvas>
-        <div class="v2-hero-in">
-          <p class="v2-tags"><span>Freelance</span><i></i><span>IA</span><i></i><span>B2B</span></p>
-          <h1 class="v2-h1">Des agents et des apps IA<br />qui font le vrai travail.</h1>
-          <p class="v2-lead">Je conçois et je construis les systèmes IA de votre entreprise, de l'idée à la mise en production.</p>
-          <div class="v2-ctas">
-            <a href="#agenda" class="v2-btn"><i class="ri-calendar-line"></i> Réserver un appel</a>
-            <a href={`https://wa.me/${WHATSAPP}`} class="v2-wa" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i></a>
-          </div>
-        </div>
-        <a href="#realisations" class="v2-scroll" aria-label="Défiler vers les réalisations"><span></span></a>
-      </div>
-    </section>
+    <Hero />
 
     <!-- 2. BANDE -->
     <div class="r v2-strip" aria-hidden="true">
@@ -70,41 +52,22 @@ const strip = [
 
     <!-- 3. RÉALISATIONS -->
     <section class="r" id="realisations">
-      <div class="w v2-head v2-head-c"><h2 class="v2-h2">Des solutions qui résolvent<br />de vrais problèmes.</h2></div>
+      <div class="w v2-head v2-head-c"><h2 class="v2-h2" data-words>Des solutions qui résolvent<br />de vrais problèmes.</h2></div>
     </section>
-    {cases.map((c) => (
-      <section class="r">
-        <a href={`/portfolio/${c.slug}`} class="w v2-case">
-          <div class="v2-case-img"><img src={c.data.heroImage.url} alt={c.data.heroImage.alt} loading="lazy" /></div>
-          <div class="v2-case-body">
-            <div>
-              <h3>{c.data.title}</h3>
-              <p class="v2-mut">{c.data.description}</p>
-              <p class="v2-meta">
-                {c.data.client?.sector && <span>{c.data.client.sector}</span>}
-                <span>{c.data.project.duration}</span>
-                {c.data.results[0] && <span class="v2-meta-hl">{c.data.results[0].value} {c.data.results[0].label}</span>}
-              </p>
-            </div>
-            <span class="v2-btn v2-btn-sm">Voir l'étude de cas</span>
-          </div>
-        </a>
-      </section>
-    ))}
+    {cases.map((c) => <section class="r"><CaseSpec entry={c} /></section>)}
+    <section class="r"><Proofs /></section>
     <section class="r">
-      <div class="w v2-more"><a href="/portfolio" class="v2-btn">Toutes les réalisations</a></div>
+      <div class="w v2-more"><a href="/portfolio" class="v2-btn"><span data-roll>Toutes les réalisations</span></a></div>
     </section>
 
     <!-- 4. COMMENT JE TRAVAILLE -->
     <section class="r">
       <div class="w v2-head v2-head-2">
-        <h2 class="v2-h2">Comment je travaille ?<br /><span class="v2-dim">Simple et sans surprise.</span></h2>
+        <h2 class="v2-h2" data-words>Comment je travaille ?<br /><span class="v2-dim">Simple et sans surprise.</span></h2>
         <p class="v2-head-p">Une méthode courte qui part de vos tâches réelles et finit avec un système en production.</p>
       </div>
     </section>
-    <section class="r">
-      <ol class="w v2-steps">{steps.map((s) => <li><span>{s}</span></li>)}</ol>
-    </section>
+    <section class="r"><Steps /></section>
     <section class="r">
       <div class="w v2-cols3">
         {promises.map((p) => (
@@ -120,24 +83,14 @@ const strip = [
 
     <!-- 5. CE QUE JE CONSTRUIS -->
     <section class="r">
-      <div class="w v2-head"><h2 class="v2-h2">Ce que je construis.</h2></div>
+      <div class="w v2-head v2-dots" data-spot><h2 class="v2-h2" data-words>Ce que je construis.</h2></div>
     </section>
-    <section class="r">
-      <div class="w v2-bento">
-        {builds.map((b) => (
-          <div class:list={['v2-cell', { 'v2-cell-big': b.big }]}>
-            <div class="v2-iso" data-iso={b.iso} data-theme="light"></div>
-            <h3>{b.title}</h3>
-            <p class="v2-mut">{b.text}</p>
-          </div>
-        ))}
-      </div>
-    </section>
+    <section class="r"><Bento /></section>
 
     <!-- 6. HUB (sombre) -->
     <div class="v2-dark">
       <section class="r">
-        <div class="w v2-head"><h2 class="v2-h2">Ce sur quoi<br /><span class="v2-dim">je travaille en ce moment.</span></h2></div>
+        <div class="w v2-head"><h2 class="v2-h2" data-words>Ce sur quoi<br /><span class="v2-dim">je travaille en ce moment.</span></h2></div>
       </section>
       <section class="r">
         <div class="w v2-hub">
@@ -192,112 +145,29 @@ const strip = [
           <p class="v2-mut">Les systèmes de mes clients restent chez mes clients. En appel, je vous montre ce qui peut l'être.</p>
         </div>
         <div class="v2-private-ctas">
-          <a href="#agenda" class="v2-btn v2-btn-lg"><i class="ri-lock-line"></i> Voir le travail non public</a>
-          <a href={`https://wa.me/${WHATSAPP}`} class="v2-btn v2-btn-lg v2-btn-wa" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i> Écrire sur WhatsApp</a>
+          <a href="#agenda" class="v2-btn v2-btn-lg"><i class="ri-lock-line"></i> <span data-roll>Voir le travail non public</span></a>
+          <a href={`https://wa.me/${WHATSAPP}`} class="v2-btn v2-btn-lg v2-btn-wa" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i> <span data-roll>Écrire sur WhatsApp</span></a>
         </div>
       </div>
     </section>
 
     <!-- 9. FAQ -->
-    <section class="r">
-      <div class="w v2-faq">
-        <div class="v2-faq-list">
-          {faqs.map((f) => (
-            <details>
-              <summary><span>{f.q}</span><i class="ri-add-line"></i></summary>
-              <p class="v2-mut">{f.a}</p>
-            </details>
-          ))}
-        </div>
-        <h2 class="v2-h2 v2-faq-title">Les questions<br />qu'on me pose.</h2>
-      </div>
-    </section>
+    <section class="r"><Faq /></section>
 
     <!-- 10. CONTACT -->
-    <section class="r" id="appel">
-      <div class="w v2-contact">
-        <div class="v2-contact-main">
-          <div>
-            <h2 class="v2-h2">Jonathan Vouilloz</h2>
-            <p class="v2-mut">Je construis des systèmes IA qui tournent tous les jours.</p>
-          </div>
-          <div>
-            <p class="v2-mut">Écrivez-moi</p>
-            <a href="mailto:contact@jonlabs.ch" class="v2-mail">contact@jonlabs.ch</a>
-            <div class="v2-ctas v2-ctas-left">
-              <a href="#agenda" class="v2-btn"><i class="ri-calendar-line"></i> Réserver un appel</a>
-              <a href={`https://wa.me/${WHATSAPP}`} class="v2-btn v2-btn-ghost" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i> WhatsApp</a>
-            </div>
-          </div>
-        </div>
-        {socials.map((c) => (
-          <a href={c.href} class="v2-contact-card" target="_blank" rel="noopener">
-            <span class="v2-mut">{c.k}</span>
-            <span><i class={c.icon}></i><b>{c.l}</b></span>
-          </a>
-        ))}
-      </div>
-    </section>
+    <section class="r" id="appel"><Contact /></section>
 
     <!-- 11. AGENDA -->
     <section class="r" id="agenda">
       <div class="w v2-agenda"><div class="v2-cal" id="cal-inline" data-cal></div></div>
     </section>
 
-    <footer class="r">
-      <div class="w v2-foot">
-        <div>
-          <a href="/v2" class="v2-logo">jonlabs<span>.</span></a>
-          <p class="v2-mut">Systèmes IA sur mesure · Genève, Suisse romande</p>
-        </div>
-        <nav>{nav.map((n) => <a href={n.href}>{n.label}</a>)}</nav>
-        <nav><a href={author.youtube}>YouTube</a><a href="https://x.com/jonvolio">X</a><a href={author.linkedin}>LinkedIn</a></nav>
-        <nav><a href="/services/creation-site-web" class="v2-mut">Sites & SEO</a><a href="/mentions-legales" class="v2-mut">Mentions légales</a></nav>
-      </div>
-    </footer>
+    <Footer />
   </div>
 </Layout>
 
 <script>
-  import { terminal, laptop, slow, plug, relay, patch, padlock } from '@lucasmarkes/hairline';
-  import { isoNetwork } from '../scripts/iso-network';
-
-  // Fond animé du hero
-  const bg = document.querySelector<HTMLCanvasElement>('[data-iso-bg]');
-  if (bg) isoNetwork(bg);
-
-  // Figures isométriques Hairline
-  const figures = { terminal, laptop, slow, plug, relay, patch, padlock } as const;
-  document.querySelectorAll<HTMLElement>('[data-iso]').forEach((el) => {
-    figures[el.dataset.iso as keyof typeof figures]?.(el, { theme: el.dataset.theme as 'light' | 'dark', play: true, label: '' });
-  });
-
-  // Nav : haut au départ, dock en bas une fois la nav haute sortie.
-  const top = document.querySelector<HTMLElement>('[data-top]')!;
-  const dock = document.querySelector<HTMLElement>('[data-dock]')!;
-  const onScroll = () => {
-    const past = window.scrollY > 240;
-    top.classList.toggle('is-hidden', past);
-    dock.classList.toggle('is-shown', past);
-  };
-  window.addEventListener('scroll', onScroll, { passive: true });
-  onScroll();
-
-  // Texte qui passe du gris au noir au fil du scroll.
-  const el = document.querySelector<HTMLElement>('[data-reveal]');
-  if (el) {
-    const words = el.textContent!.trim().split(/\s+/);
-    el.innerHTML = words.map((w) => `<span>${w}</span>`).join(' ');
-    const spans = [...el.querySelectorAll('span')];
-    const paint = () => {
-      const r = el.getBoundingClientRect();
-      const p = Math.min(1, Math.max(0, (innerHeight * 0.85 - r.top) / (r.height + innerHeight * 0.35)));
-      const n = Math.round(p * spans.length);
-      spans.forEach((s, i) => s.classList.toggle('on', i < n));
-    };
-    window.addEventListener('scroll', paint, { passive: true });
-    paint();
-  }
+  import '../scripts/v2-ui';
 
   // Cal.com inline, chargé à l'approche de la section.
   const calEl = document.querySelector('[data-cal]');

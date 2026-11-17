@@ -1,7 +1,8 @@
 # Design v2 — système du rebrand « systèmes IA »
 
 > Source de vérité visuelle pour refaire toutes les pages du site après la home.
-> Référence vivante : `src/pages/v2.astro` (noindex, branche `rebrand-v2`).
+> Référence vivante : `src/pages/v2.astro` et `/v2/styleguide` (noindex, branche `rebrand-v2`).
+> Directions validées par Jonathan le 2026-11-17 sur le styleguide (3 essais par élément ; les essais écartés : commit `c16aaa5`).
 > Remplace `docs/styleguide.md` (blueprint) une fois la v2 en production.
 > Le **fond** (copy, offre, positionnement) attend le repositionnement en cours : ici, seulement la **forme**.
 
@@ -60,35 +61,48 @@ Grille « à la Sakib » :
 - Le contenu **remplit le container** : images bord à bord, bentos dont les cellules se touchent,
   séparées par des filets 1px (`border-left` / `border-bottom`), jamais par des `gap`.
 - Exception assumée : les photos de l'à-propos ont `gap: 12px` + `padding: 12px`.
+- **Repères en croix** : chaque `.r > .w` porte une croix de 11px aux deux coins bas (intersection filet de rangée / filets verticaux),
+  couleur `--cross` (`--ink`, gris en section sombre). Automatique, rien à ajouter au markup. Masquée sur la nav haute.
 - Une cellule qui touche le cadre a `border-radius: 0`. Le rayon 5px ne s'applique qu'aux éléments posés dedans.
 - En-tête de section : `.v2-head` (padding `clamp(48px, 7vw, 88px) var(--pad)`), variante `.v2-head-2` (titre | phrase).
 
 ## 5. Composants
 
-| Composant | Classe | Règle |
-|---|---|---|
-| Bouton primaire | `.v2-btn` | Pilule noire (seule forme pilule du site), hover -1px, active scale .97 |
-| Variantes | `-sm` / `-lg` / `-ghost` / `-wa` | ghost = contour `--line` ; wa = vert WhatsApp |
-| Bouton rond WhatsApp | `.v2-wa` | 50px, à côté du CTA principal |
-| Nav haute | `.v2-top` | Sticky, logo / 4 liens / CTA. Disparaît après 240px de scroll |
-| Dock bas | `.v2-dock` | Flottant centré : avatar + 4 liens + bouton agenda. Apparaît quand la nav haute part |
-| Tags hero | `.v2-tags` | 3 mots séparés par une étoile 4 branches teal (clip-path) |
-| Carte étude de cas | `.v2-case` | Image 16/8 bord à bord → titre, description, ligne mono (secteur · durée · résultat teal), bouton à droite |
-| Bento | `.v2-bento` | 3 colonnes, case principale sur 2 rangées en `--soft`, figure Hairline en haut de chaque case |
-| Étapes | `.v2-steps` | Cercles pointillés qui se chevauchent (`scale: 1.12`), hover = trait teal plein |
-| Hub | `.v2-hub` (dans `.v2-dark`) | Vidéo 2×2 + cartes (tweet, article, LinkedIn) séparées par filets sombres |
-| Section contrastée | `.v2-private` | Fond `--soft`, titre à gauche, 2 gros boutons empilés à droite |
-| FAQ | `.v2-faq` | Questions en pilules noires + rond « + » à gauche, titre aligné à droite |
-| Contact | `.v2-contact` | Grande carte (nom, phrase, email en display, 2 boutons) + 4 cartes réseaux |
-| Agenda | `.v2-agenda` | Cal.com inline pleine largeur, 3 colonnes, chargé à l'approche (IntersectionObserver) |
+Composants Astro dans `src/components/v2/`, comportements dans `src/scripts/v2-ui.ts` (branchés par attribut), styles dans `src/styles/v2.css`.
+
+| Élément | Direction | Composant / classe | Règle |
+|---|---|---|---|
+| Bouton | B · Roulement | `.v2-btn` + `<span data-roll>` | Pilule (seule forme pilule du site). Survol : les lettres roulent (14ms d'écart). Pression `scale(.97)` 160ms ease-out. Variantes `-sm` / `-lg` / `-ghost` / `-wa` |
+| Bouton rond WhatsApp | — | `.v2-wa` | 50px, à côté du CTA principal |
+| Lien texte | A · Trait qui se trace | `.v2-a` (nav, footer) · `.v2-prose a` (texte) | Trait 1px qui entre par la gauche, sort par la droite. Dans un texte, un filet `--line` reste visible |
+| Nav haute | B · Pastille glissante | `<Nav current? sticky? />` | Logo / 4 liens / CTA. Une pastille `--soft` suit le lien survolé, revient sur la page courante (`aria-current`). Disparaît après 240px |
+| Dock bas | B · Pastille glissante | `<Dock current? floating? />` | Avatar + 4 liens + agenda, même pastille. Apparaît quand la nav haute part |
+| Hero | B · Trame | `<Hero />` | Shader Paper `Dithering` (warp, teal `#CDF3E7`) masqué au centre ; titre qui monte lettre à lettre |
+| Fond de section | A · Points + projecteur | `.v2-dots` + `data-spot` | Trame de points 18px ; le pointeur allume les points en teal (rayon 180px). Une section par page au plus |
+| Titre de section | A · Mots qui montent | `data-words` sur le `h2` | Mots masqués qui montent à l'entrée dans l'écran (45ms d'écart, 800ms) |
+| Tags / métadonnées | A · Étoiles | `.v2-tags` · `.v2-meta` · `.v2-tools` | 3 mots séparés par une étoile 4 branches teal ; ligne mono pour secteur, durée, résultat |
+| Étude de cas | B · Fiche technique | `<CaseSpec entry />` | Image bord à bord (1.35fr) + titre, description, tableau `.v2-kv` (secteur, durée, stack, 2 résultats en teal) |
+| Bento services | A · Figures iso | `<Bento />` | 3 colonnes, case principale sur 2 rangées en `--soft`, figure Hairline en haut de chaque case |
+| Process | A · Cercles | `<Steps />` | Cercles pointillés qui se chevauchent, hover = trait teal plein |
+| FAQ | A · Pilules | `<Faq />` | Questions en pilules noires + rond « + », titre aligné à droite ; une réponse ouverte à la fois |
+| Repères chiffrés | A · Compteurs | `<Proofs />` | 1er résultat des 4 études de cas les plus récentes ; seule la partie numérique défile |
+| Contact | A · Bento | `<Contact />` | Grande carte (nom, phrase, e-mail en display, 2 boutons) + 4 cartes réseaux |
+| Formulaire | C · Tuiles | `<ProjectForm action? />` | Tuiles à cocher (agent, app, automatisation, je ne sais pas) puis champs bordés. **Pas de backend** : passer `action` avant usage |
+| Liste d'articles | C · À la une | `<PostFeature count? />` | Le dernier en grand (image 16/9), les suivants en lignes à droite |
+| Footer | C · Barre d'état | `<Footer />` | Colonnes + barre mono : heure de Genève en direct, date du dernier build, ©, haut de page |
+| Hub | — | inline dans `v2.astro` | Vidéo 2×2 + cartes (tweet, article, LinkedIn), section sombre |
+| Section contrastée | — | `.v2-private` | Fond `--soft`, titre à gauche, 2 gros boutons empilés à droite |
+| Agenda | — | `.v2-agenda` | Cal.com inline pleine largeur, chargé à l'approche |
 
 Icônes : Remix Icon, monochromes. Jamais d'emoji dans l'UI.
 
 ## 6. Illustration et motion
 
-- **Fond du hero** : `src/scripts/iso-network.ts` — grille isométrique en canvas, impulsions teal
-  qui circulent de nœud en nœud et allument des cubes, lueur sous le pointeur. Masque radial pour
-  garder le centre lisible. Pause hors écran, statique si `prefers-reduced-motion`.
+- **Fond du hero** : shader Paper `Dithering` (`src/components/v2/DitherBg.tsx`, îlot React `client:visible`),
+  tramé 4×4 très pâle, masque radial pour garder le centre lisible, vitesse 0 sous `prefers-reduced-motion`.
+  (L'ancien réseau iso en canvas a été écarté le 2026-11-17 ; il reste dans git.)
+- **Texte** : Anime.js 4 (`splitText` + `animate`) pour le titre du hero (lettres), les titres de section (mots)
+  et les compteurs. Rien d'autre : les survols restent en CSS.
 - **Figures isométriques** : `@lucasmarkes/hairline` (API vanilla, `theme: 'light'`, `play: true`).
   Une figure = une idée (terminal = agents, laptop = apps, slow = automatisations, plug = intégration,
   relay / patch / padlock pour les 3 colonnes). Pour une figure sur mesure : skill `ai-iso-skill`.

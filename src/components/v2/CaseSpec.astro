@@ -1,0 +1,22 @@
+---
+// Étude de cas v2 (direction B) : image bord à bord + fiche technique. Les lignes vides sont omises.
+import type { CollectionEntry } from 'astro:content';
+interface Props { entry: CollectionEntry<'portfolio'> }
+const { data, slug } = Astro.props.entry;
+const rows = [
+  ['Secteur', data.client?.sector],
+  ['Durée', data.project.duration?.split('·')[0].trim()],
+  ['Stack', data.project.platform],
+].filter(([, v]) => v);
+---
+<a href={`/portfolio/${slug}`} class="w v2-spec">
+  <div class="v2-spec-img"><img src={data.heroImage.url} alt={data.heroImage.alt} loading="lazy" /></div>
+  <div class="v2-spec-body">
+    <div><h3>{data.title}</h3><p class="v2-mut">{data.description}</p></div>
+    <dl class="v2-kv">
+      {rows.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+      {data.results.slice(0, 2).map((r) => <div><dt>{r.label}</dt><dd class="v2-meta-hl">{r.value}</dd></div>)}
+    </dl>
+    <span class="v2-btn v2-btn-sm"><span data-roll>Voir l'étude de cas</span></span>
+  </div>
+</a>

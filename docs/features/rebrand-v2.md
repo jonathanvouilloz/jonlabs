@@ -10,11 +10,17 @@ le récap se copie (choix gardés en localStorage). Styles et données de `/v2` 
 Libs testées : Anime.js 4.5 (texte découpé, décodage, compteurs), Zag 1.48 vanilla (onglets, accordéon, sans React),
 shader Paper `Dithering` (îlot React, hero B).
 
-**Prochain :** checkpoint des choix → intégrer les gagnants en composants (`src/components/v2/`), purger les essais,
-reporter dans `docs/design-v2.md`.
+**Choix de Jonathan (le même jour) :** grille B, boutons B, liens A, nav B, dock B, hero B, fond A, titres A, tags A,
+cas B, bento A, process A, FAQ A, chiffres A, contact A, formulaire C, articles C, footer C.
+**Intégré :** 12 composants dans `src/components/v2/`, comportements dans `src/scripts/v2-ui.ts`, `/v2` reconstruit
+dessus (+ rangée de compteurs après les cas), styleguide devenu la référence des composants validés, essais purgés
+(Zag retiré : il ne servait qu'aux essais écartés ; réseau iso du hero supprimé). `docs/design-v2.md` § 5 à jour.
+
+**Prochain :** copy de `/v2` après le repositionnement ; `/portfolio`, `/blog`, `/about`, `/services` avec ces composants ;
+brancher `ProjectForm` sur un vrai envoi avant de l'utiliser.
 
 **Pieges :**
-- Zag `spreadProps` réécrit `data-part` (`trigger` → `item-trigger`) : cibler ses propres attributs (`data-tab`, `data-acc`).
+- Zag (si on y revient) : `spreadProps` réécrit `data-part` (`trigger` → `item-trigger`), cibler ses propres attributs.
 - `.sg button` (reset) écrasait `.v2-btn` sur les `<button>` : reset en `:where(.sg button)`.
 - Capture pleine page Chrome tronquée au-delà de ~16 000 px : capturer section par section.
 
@@ -44,14 +50,15 @@ reporter dans `docs/design-v2.md`.
 
 | Fichier | Role |
 |---------|------|
-| `src/pages/v2.astro` | Home v2 complète (markup, scripts nav/dock, reveal, Hairline, Cal.com) — référence vivante du design |
-| `src/scripts/iso-network.ts` | Fond animé du hero : grille iso en canvas, impulsions + cubes, lueur pointeur, pause hors écran |
+| `src/pages/v2.astro` | Home v2 assemblée avec les composants ; garde le hub, l'à-propos, la section privée et Cal.com |
 | `src/data/hub.ts` | Contenu du hub (vidéos YouTube, tweets et post LinkedIn en placeholder) |
 | `src/layouts/Layout.astro` | Ajout d'un slot `head` pour charger une police par page |
-| `src/pages/v2/styleguide.astro` | Styleguide v2 : 3 essais par élément + récap des choix (exploration, jetable) |
-| `src/styles/v2.css` · `src/data/v2.ts` | Styles et données partagés par `/v2` et le styleguide |
-| `src/styles/v2-styleguide.css` · `src/scripts/v2-styleguide.ts` | Cadre du styleguide (`.sg-*`) et essais (`.x*-`), interactions |
-| `src/components/v2/DitherBg.tsx` | Fond tramé (shader Paper) de l'essai hero B |
+| `src/pages/v2/styleguide.astro` | Styleguide v2 : un bloc par composant validé (référence vivante) |
+| `src/components/v2/*.astro` | Nav, Dock, Hero, CaseSpec, Proofs, Steps, Bento, Faq, Contact, ProjectForm, PostFeature, Footer |
+| `src/components/v2/DitherBg.tsx` | Fond tramé du hero (shader Paper, îlot React) |
+| `src/scripts/v2-ui.ts` | Comportements par attribut : roulement, pastille, nav/dock, lettres/mots, gris→noir, projecteur, compteurs, heure, Hairline |
+| `src/styles/v2.css` · `src/data/v2.ts` | Styles et données partagés |
+| `src/styles/v2-styleguide.css` | Cadre de la page styleguide (`.sg-*`) |
 | `docs/design-v2.md` | Système de design v2 : tokens, typo, grille, composants, motion, règles pour les autres pages |
 
 ### Decisions cles
@@ -66,10 +73,11 @@ reporter dans `docs/design-v2.md`.
 - [x] Spike `/v2` (forme)
 - [x] `docs/design-v2.md`
 - [x] Styleguide v2 : 3 essais par élément
-- [ ] Choix des essais (Jonathan) puis intégration en composants
+- [x] Choix des essais (Jonathan) puis intégration en composants
 - [ ] Copy de la home (après repositionnement)
 - [ ] Études de cas IA (2-3) pour remplacer les cas web/SEO
 - [ ] Contenu réel du hub (tweets, post LinkedIn) + 2 photos
-- [ ] Extraire nav / dock / footer en composants, tokens dans `global.css`
+- [x] Extraire nav / dock / footer en composants
+- [ ] Brancher `ProjectForm` sur un envoi réel
 - [ ] Redesign `/portfolio`, `/portfolio/[slug]`, `/blog`, `/blog/[slug]`, `/about`, `/services`
 - [ ] Bascule `/v2` → `/` + retrait de `/tarifs` (redirection)

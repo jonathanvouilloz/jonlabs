@@ -1,0 +1,25 @@
+---
+// Footer v2 (direction C) : colonnes + barre d'état (heure de Genève, date du dernier build, haut de page).
+import { author } from '../../sample';
+import { nav, HOME } from '../../data/v2';
+const built = new Date().toLocaleDateString('fr-CH', { day: '2-digit', month: '2-digit', year: 'numeric' });
+---
+<footer class="r">
+  <div class="w">
+    <div class="v2-foot">
+      <div>
+        <a href={HOME} class="v2-logo">jonlabs<span>.</span></a>
+        <p class="v2-mut">Systèmes IA sur mesure · Genève, Suisse romande</p>
+      </div>
+      <nav>{nav.map((n) => <a href={n.href}><span class="v2-a">{n.label}</span></a>)}</nav>
+      <nav><a href={author.youtube}><span class="v2-a">YouTube</span></a><a href="https://x.com/jonvolio"><span class="v2-a">X</span></a><a href={author.linkedin}><span class="v2-a">LinkedIn</span></a></nav>
+      <nav><a href="/services/creation-site-web" class="v2-mut"><span class="v2-a">Sites & SEO</span></a><a href="/mentions-legales" class="v2-mut"><span class="v2-a">Mentions légales</span></a></nav>
+    </div>
+    <div class="v2-status v2-meta">
+      <span><i class="v2-live"></i> Genève · <time data-clock>--:--</time></span>
+      <span>Mis à jour le {built}</span>
+      <span>© {new Date().getFullYear()} Jon Labs</span>
+      <a href="#" data-top-link>Haut de page <i class="ri-arrow-up-line"></i></a>
+    </div>
+  </div>
+</footer>

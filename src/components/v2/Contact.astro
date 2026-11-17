@@ -1,0 +1,26 @@
+---
+// Contact v2 (direction A) : grande carte + 4 cartes réseaux, en bento.
+import { WHATSAPP, socials } from '../../data/v2';
+---
+<div class="w v2-contact">
+  <div class="v2-contact-main">
+    <div>
+      <h2 class="v2-h2">Jonathan Vouilloz</h2>
+      <p class="v2-mut">Je construis des systèmes IA qui tournent tous les jours.</p>
+    </div>
+    <div>
+      <p class="v2-mut">Écrivez-moi</p>
+      <a href="mailto:contact@jonlabs.ch" class="v2-mail">contact@jonlabs.ch</a>
+      <div class="v2-ctas v2-ctas-left">
+        <a href="#agenda" class="v2-btn"><i class="ri-calendar-line"></i> <span data-roll>Réserver un appel</span></a>
+        <a href={`https://wa.me/${WHATSAPP}`} class="v2-btn v2-btn-ghost" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i> <span data-roll>WhatsApp</span></a>
+      </div>
+    </div>
+  </div>
+  {socials.map((c) => (
+    <a href={c.href} class="v2-contact-card" target="_blank" rel="noopener">
+      <span class="v2-mut">{c.k}</span>
+      <span><i class={c.icon}></i><b>{c.l}</b></span>
+    </a>
+  ))}
+</div>

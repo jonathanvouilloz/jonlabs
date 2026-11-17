@@ -1,115 +1,81 @@
 ---
-// STYLEGUIDE v2 (branche rebrand-v2, noindex). Exploration : chaque élément du site en 3 essais (A/B/C).
-// Jonathan coche un essai par élément ; le récap en bas se copie. Les essais écartés ne survivront que dans git.
-// Base commune : src/styles/v2.css (tokens + composants de /v2). Ici : .sg-* (cadre du styleguide) et .x-* (essais).
+// STYLEGUIDE v2 (branche rebrand-v2, noindex) : référence vivante des composants validés le 2026-11-17.
+// Les essais écartés (3 par élément) sont dans git : commit c16aaa5. Doc → docs/design-v2.md.
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import DitherBg from '../../components/v2/DitherBg.tsx';
-import { author } from '../../sample';
-import { WHATSAPP, nav, steps, stepDetails, promises, builds, faqs, socials } from '../../data/v2';
+import Nav from '../../components/v2/Nav.astro';
+import Dock from '../../components/v2/Dock.astro';
+import Hero from '../../components/v2/Hero.astro';
+import CaseSpec from '../../components/v2/CaseSpec.astro';
+import Proofs from '../../components/v2/Proofs.astro';
+import Steps from '../../components/v2/Steps.astro';
+import Bento from '../../components/v2/Bento.astro';
+import Faq from '../../components/v2/Faq.astro';
+import Contact from '../../components/v2/Contact.astro';
+import ProjectForm from '../../components/v2/ProjectForm.astro';
+import PostFeature from '../../components/v2/PostFeature.astro';
+import Footer from '../../components/v2/Footer.astro';
+import { nav, promises } from '../../data/v2';
 import '../../styles/v2.css';
 import '../../styles/v2-styleguide.css';
 
-const allCases = (await getCollection('portfolio', (p) => !p.data.draft))
-  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
-const cases = allCases.filter((p) => p.data.featured).slice(0, 3);
-const c0 = cases.find((c) => c.data.client?.sector) ?? cases[0];
+const c0 = (await getCollection('portfolio', (p) => !p.data.draft && p.data.featured))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
+  .find((c) => c.data.client?.sector)!;
 
-const posts = (await getCollection('blog', (p) => !p.data.draft))
-  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 3);
-
-// Repères réels tirés des études de cas (1 par cas).
-const proofs = allCases
-  .filter((c) => c.data.results?.[0])
-  .slice(0, 4)
-  .map((c) => ({ value: c.data.results[0].value, label: c.data.results[0].label, client: c.data.title }));
-
-const fmt = (d: Date) => d.toLocaleDateString('fr-CH', { day: '2-digit', month: '2-digit', year: 'numeric' });
-const built = fmt(new Date());
 const pad = (n: number) => String(n).padStart(2, '0');
-
-// Sommaire : id, titre, rôle. L'ordre fait la numérotation.
+// [id, élément, direction retenue, composant ou classe]
 const sections = [
-  ['fondations', 'Fondations', 'Couleurs, typo, rayons, easing. La référence, sans essais.'],
-  ['grille', 'Cadre de grille', 'Ce qui fait la signature « tech » de chaque section.'],
-  ['boutons', 'Boutons', 'Primaire, secondaire, petit, WhatsApp.'],
-  ['liens', 'Liens texte', 'Dans un paragraphe et dans une liste.'],
-  ['nav', 'Navigation haute', 'Logo, 4 liens, appel à l\'action.'],
-  ['dock', 'Dock bas', 'Remplace la nav haute après 240px de scroll.'],
-  ['hero', 'Hero', 'Le premier écran. Une phrase, une preuve d\'ambiance, un bouton.'],
-  ['fonds', 'Fonds de section', 'Mouvement discret derrière un en-tête.'],
-  ['titres', 'Titres animés', 'Entrée d\'un titre de section.'],
-  ['tags', 'Tags et métadonnées', 'Mots du hero, ligne mono des cas.'],
-  ['cas', 'Étude de cas', 'Carte de réalisation, home et liste.'],
-  ['bento', 'Bento services', 'Ce que je construis, en 4 cases.'],
-  ['process', 'Process', 'Comment je travaille, en 6 étapes.'],
-  ['faq', 'FAQ', 'Les questions qu\'on me pose.'],
-  ['preuves', 'Repères chiffrés', 'Des chiffres réels tirés des études de cas.'],
-  ['contact', 'Contact', 'Le dernier écran avant l\'agenda.'],
-  ['form', 'Formulaire', 'Demande de projet (devis sur mesure).'],
-  ['blog', 'Liste d\'articles', 'Home, hub et page blog.'],
-  ['footer', 'Footer', 'Fin de page.'],
+  ['fondations', 'Fondations', 'Couleurs, typo, rayons, mouvement', 'tokens · v2.css'],
+  ['grille', 'Cadre de grille', 'B · Repères en croix', '.r > .w'],
+  ['boutons', 'Boutons', 'B · Roulement', '.v2-btn + [data-roll]'],
+  ['liens', 'Liens texte', 'A · Trait qui se trace', '.v2-a · .v2-prose'],
+  ['nav', 'Navigation haute', 'B · Pastille glissante', '<Nav />'],
+  ['dock', 'Dock bas', 'B · Pastille glissante', '<Dock />'],
+  ['hero', 'Hero', 'B · Trame', '<Hero />'],
+  ['fonds', 'Fond de section', 'A · Points + projecteur', '.v2-dots [data-spot]'],
+  ['titres', 'Titres animés', 'A · Mots qui montent', '[data-words]'],
+  ['tags', 'Tags et métadonnées', 'A · Étoiles', '.v2-tags · .v2-meta'],
+  ['cas', 'Étude de cas', 'B · Fiche technique', '<CaseSpec />'],
+  ['bento', 'Bento services', 'A · Figures iso', '<Bento />'],
+  ['process', 'Process', 'A · Cercles', '<Steps />'],
+  ['faq', 'FAQ', 'A · Pilules', '<Faq />'],
+  ['preuves', 'Repères chiffrés', 'A · Compteurs', '<Proofs />'],
+  ['contact', 'Contact', 'A · Bento', '<Contact />'],
+  ['form', 'Formulaire', 'C · Tuiles', '<ProjectForm />'],
+  ['blog', 'Liste d\'articles', 'C · À la une', '<PostFeature />'],
+  ['footer', 'Footer', 'C · Barre d\'état', '<Footer />'],
 ] as const;
-const S = Object.fromEntries(sections.map(([id, t, d], i) => [id, { id, t, d, n: pad(i + 1) }]));
-
-// Partis pris par essai : [lettre, nom, compromis]. Sert aux en-têtes ET au récap.
-const V: Record<string, [string, string, string][]> = {
-  grille: [['A', 'Filets seuls', 'Le plus calme. Peu de « tech ».'], ['B', 'Repères en croix', 'Plan d\'architecte. Lisible, signature forte.'], ['C', 'Règle graduée', 'Le plus technique. À doser : un seul endroit.']],
-  boutons: [['A', 'Pilule nette', 'L\'actuel, poli : flèche qui glisse, pression à .97.'], ['B', 'Roulement', 'Les lettres roulent au survol. Vivant, reste sobre.'], ['C', 'Signal', 'Le point teal se répand en fond. Le plus marqué.']],
-  liens: [['A', 'Trait qui se trace', 'Classique, entre par la gauche, sort par la droite.'], ['B', 'Crochets', 'Mono entre crochets. Très « code ».'], ['C', 'Brouillage', 'Le mot se décode au survol. Pour la nav seulement.']],
-  nav: [['A', 'Actuelle', 'Simple, déjà validée.'], ['B', 'Pastille glissante', 'Un fond suit le lien survolé.'], ['C', 'Barre d\'état', 'Heure de Genève et statut en mono.']],
-  dock: [['A', 'Actuel', 'Avatar, liens, agenda.'], ['B', 'Pastille glissante', 'Même geste que la nav B.'], ['C', 'Progression', 'Un anneau autour du bouton suit la lecture.']],
-  hero: [['A', 'Réseau iso', 'L\'actuel : impulsions sur grille isométrique.'], ['B', 'Trame', 'Shader tramé teal très pâle, titre lettre à lettre.'], ['C', 'Console d\'agent', 'Le titre à gauche, un agent qui travaille à droite.']],
-  fonds: [['A', 'Points + projecteur', 'Le pointeur allume la trame.'], ['B', 'Flux', 'Des paquets circulent sur des pistes.'], ['C', 'Balayage', 'Une ligne de scan traverse la grille.']],
-  titres: [['A', 'Mots qui montent', 'Entrée classique, la plus lisible.'], ['B', 'Décodage', 'La 2e ligne se décode. Signature IA.'], ['C', 'Gris vers noir', 'Lié au scroll. Pour les paragraphes longs.']],
-  tags: [['A', 'Étoiles', 'L\'actuel. Doux.'], ['B', 'Crochets', 'Mono, slash, crochets.'], ['C', 'Puces d\'état', 'Clé : valeur, point qui pulse.']],
-  cas: [['A', 'Bord à bord', 'L\'actuel : grande image, ligne mono.'], ['B', 'Fiche technique', 'Image + tableau de spécifications.'], ['C', 'Index', 'Une ligne par projet, l\'image suit le curseur.']],
-  bento: [['A', 'Figures iso', 'L\'actuel, figures Hairline animées.'], ['B', 'Projecteur', 'La lumière suit le pointeur de case en case.'], ['C', 'Fiche', 'Numéros, la stack apparaît au survol.']],
-  process: [['A', 'Cercles', 'L\'actuel. Graphique, peu d\'info.'], ['B', 'Frise', 'La ligne se trace au scroll.'], ['C', 'Onglets', 'Une étape à la fois, avec son détail (Zag).']],
-  faq: [['A', 'Pilules', 'L\'actuel. Fort visuellement.'], ['B', 'Lignes', 'Accordéon pleine largeur (Zag).'], ['C', 'Index + panneau', 'Questions à gauche, réponse à droite.']],
-  preuves: [['A', 'Compteurs', 'Les chiffres défilent à l\'entrée.'], ['B', 'Tableau', 'Sobre, se lit comme un relevé.'], ['C', 'Affichage unique', 'Un repère à la fois, qui se décode.']],
-  contact: [['A', 'Bento', 'L\'actuel.'], ['B', 'Adresse géante', 'Un clic copie l\'adresse.'], ['C', 'Canaux', 'Trois façons de me parler, en lignes.']],
-  form: [['A', 'Champs bordés', 'Le plus clair.'], ['B', 'Soulignés', 'Étiquette flottante, plus éditorial.'], ['C', 'Tuiles', 'On choisit avant d\'écrire.']],
-  blog: [['A', 'Lignes', 'Date, titre, durée. Rapide à scanner.'], ['B', 'Cartes', 'Avec image.'], ['C', 'À la une', 'Le dernier en grand, les autres à côté.']],
-  footer: [['A', 'Actuel', 'Colonnes.'], ['B', 'Signature géante', 'Le logo occupe toute la largeur.'], ['C', 'Barre d\'état', 'Heure, mise à jour, retour en haut.']],
-};
-const recap = sections.filter(([id]) => V[id]).map(([id, t]) => ({ id, t, n: S[id].n, opts: V[id] }));
+const S = Object.fromEntries(sections.map(([id, t, d, k], i) => [id, { t, d, k, n: pad(i + 1) }]));
 ---
 
-<Layout title="Styleguide v2 — essais" robots="noindex, nofollow">
+<Layout title="Styleguide v2" robots="noindex, nofollow">
   <Fragment slot="head">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" />
   </Fragment>
 
   <div class="v2 sg">
-    <!-- Barre du styleguide : sommaire + compteur de choix -->
     <header class="sg-bar r">
       <div class="w sg-bar-in">
         <a href="/v2" class="v2-logo">jonlabs<span>.</span></a>
-        <nav class="sg-toc" aria-label="Sommaire">
-          {sections.map(([id, t], i) => <a href={`#${id}`} data-toc={id} title={t}>{pad(i + 1)}</a>)}
-        </nav>
-        <a href="#recap" class="v2-btn v2-btn-sm"><span data-count>0</span>/{recap.length} choisis</a>
+        <nav class="sg-toc" aria-label="Sommaire">{sections.map(([id, t], i) => <a href={`#${id}`} data-toc={id} title={t}>{pad(i + 1)}</a>)}</nav>
+        <a href="/v2" class="v2-btn v2-btn-sm"><span data-roll>Voir la home</span></a>
       </div>
     </header>
 
-    <!-- Intro -->
     <section class="r">
       <div class="w v2-head v2-head-2 sg-intro">
-        <h1 class="v2-h1">Styleguide v2<br /><span class="v2-dim">trois essais par élément.</span></h1>
+        <h1 class="v2-h1">Styleguide v2<br /><span class="v2-dim">les composants validés.</span></h1>
         <div>
-          <p class="v2-head-p">Coche un essai par élément. Le récap en bas se copie et me revient.</p>
-          <p class="v2-meta sg-intro-meta"><span>{recap.length} éléments</span><span>{recap.length * 3} essais</span><span>Anime.js 4.5</span><span>Zag 1.48</span><span>Paper shaders</span></p>
+          <p class="v2-head-p">Un élément, une direction. Chaque bloc est le vrai composant, celui de la home.</p>
+          <p class="v2-meta sg-intro-meta"><span>Validé le 17.11.2026</span><span>Anime.js 4.5</span><span>Paper shaders</span><span>Hairline</span></p>
         </div>
       </div>
     </section>
 
-    <!-- ============ 01 FONDATIONS ============ -->
-    <section class="r sg-sec" id="fondations">
-      <div class="w sg-head"><span class="sg-n">{S.fondations.n}</span><h2>{S.fondations.t}</h2><p class="v2-mut">{S.fondations.d}</p></div>
-    </section>
+    <!-- 01 Fondations -->
+    <section class="r sg-sec" id="fondations"><div class="w sg-head"><span class="sg-n">{S.fondations.n}</span><h2>{S.fondations.t}</h2><p class="v2-mut">{S.fondations.d} <code>{S.fondations.k}</code></p></div></section>
     <section class="r">
       <div class="w sg-found">
         <div class="sg-cell">
@@ -134,655 +100,116 @@ const recap = sections.filter(([id]) => V[id]).map(([id, t]) => ({ id, t, n: S[i
               <div class="sg-track" style={`--e:${c};--d:${d}`}><i></i><span class="v2-meta">{k} · {d}</span><span class="v2-mut">{u}</span></div>
             ))}
           </div>
-          <p class="sg-k" style="margin-top:28px">Rayons</p>
+          <p class="sg-k sg-k-gap">Rayons</p>
           <div class="sg-radii"><span style="border-radius:0">0 · cadre</span><span style="border-radius:5px">5px · max</span><span style="border-radius:999px">pilule · boutons</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ============ 02 GRILLE ============ -->
-    <section class="r sg-sec" id="grille">
-      <div class="w sg-head"><span class="sg-n">{S.grille.n}</span><h2>{S.grille.t}</h2><p class="v2-mut">{S.grille.d}</p></div>
-    </section>
+    <!-- 02 Grille -->
+    <section class="r sg-sec" id="grille"><div class="w sg-head"><span class="sg-n">{S.grille.n}</span><h2>{S.grille.t}</h2><p class="v2-mut">{S.grille.d} <code>{S.grille.k}</code></p></div></section>
+    <section class="r"><div class="w sg-demo"><p class="v2-mut">Chaque rangée porte une croix aux deux coins bas du container, là où le filet horizontal croise les filets verticaux. Rien à ajouter dans le markup : toute rangée <code>.r &gt; .w</code> l'a.</p></div></section>
+
+    <!-- 03 Boutons -->
+    <section class="r sg-sec" id="boutons"><div class="w sg-head"><span class="sg-n">{S.boutons.n}</span><h2>{S.boutons.t}</h2><p class="v2-mut">{S.boutons.d} <code>{S.boutons.k}</code></p></div></section>
     <section class="r">
-      <div class="w sg-vars sg-vars-3">
-        {V.grille.map(([L, name, note], i) => (
-          <article class="sg-var">
-            <header class="sg-var-h"><span class="sg-letter">{L}</span><div><b>{name}</b><span>{note}</span></div><label class="sg-pick"><input type="radio" name="grille" value={L} /><span>Je prends</span></label></header>
-            <div class="sg-stage sg-stage-pad">
-              <div class:list={['x-frame', `x-frame-${L.toLowerCase()}`]}>
-                {['Agents IA', 'Applications', 'Automatisations', 'Intégrations'].map((t, k) => <div><span class="x-coord">{['A1', 'A2', 'B1', 'B2'][k]}</span>{t}</div>)}
-              </div>
-            </div>
-          </article>
-        ))}
+      <div class="w sg-demo sg-row">
+        <a href="#" class="v2-btn"><span data-roll>Réserver un appel</span></a>
+        <a href="#" class="v2-btn v2-btn-ghost"><span data-roll>Voir les réalisations</span></a>
+        <a href="#" class="v2-btn v2-btn-sm"><span data-roll>Étude de cas</span></a>
+        <a href="#" class="v2-btn v2-btn-lg"><i class="ri-lock-line"></i> <span data-roll>Grand bouton</span></a>
+        <a href="#" class="v2-btn v2-btn-wa"><i class="ri-whatsapp-line"></i> <span data-roll>WhatsApp</span></a>
+        <a href="#" class="v2-wa" aria-label="WhatsApp"><i class="ri-whatsapp-line"></i></a>
       </div>
     </section>
 
-    <!-- ============ 03 BOUTONS ============ -->
-    <section class="r sg-sec" id="boutons">
-      <div class="w sg-head"><span class="sg-n">{S.boutons.n}</span><h2>{S.boutons.t}</h2><p class="v2-mut">{S.boutons.d}</p></div>
-    </section>
+    <!-- 04 Liens -->
+    <section class="r sg-sec" id="liens"><div class="w sg-head"><span class="sg-n">{S.liens.n}</span><h2>{S.liens.t}</h2><p class="v2-mut">{S.liens.d} <code>{S.liens.k}</code></p></div></section>
     <section class="r">
-      <div class="w sg-vars sg-vars-3">
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">A</span><div><b>{V.boutons[0][1]}</b><span>{V.boutons[0][2]}</span></div><label class="sg-pick"><input type="radio" name="boutons" value="A" /><span>Je prends</span></label></header>
-          <div class="sg-stage sg-stage-pad sg-btns">
-            <a href="#" class="v2-btn xa-btn">Réserver un appel <i class="ri-arrow-right-line"></i></a>
-            <a href="#" class="v2-btn v2-btn-ghost xa-btn">Voir les réalisations <i class="ri-arrow-right-line"></i></a>
-            <div class="v2-ctas"><a href="#" class="v2-btn v2-btn-sm xa-btn">Étude de cas <i class="ri-arrow-right-line"></i></a><a href="#" class="v2-wa xa-btn" aria-label="WhatsApp"><i class="ri-whatsapp-line"></i></a></div>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">B</span><div><b>{V.boutons[1][1]}</b><span>{V.boutons[1][2]}</span></div><label class="sg-pick"><input type="radio" name="boutons" value="B" /><span>Je prends</span></label></header>
-          <div class="sg-stage sg-stage-pad sg-btns">
-            <a href="#" class="v2-btn xb-btn"><span data-roll>Réserver un appel</span></a>
-            <a href="#" class="v2-btn v2-btn-ghost xb-btn"><span data-roll>Voir les réalisations</span></a>
-            <div class="v2-ctas"><a href="#" class="v2-btn v2-btn-sm xb-btn"><span data-roll>Étude de cas</span></a><a href="#" class="v2-wa xb-wa" aria-label="WhatsApp"><i class="ri-whatsapp-line"></i></a></div>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">C</span><div><b>{V.boutons[2][1]}</b><span>{V.boutons[2][2]}</span></div><label class="sg-pick"><input type="radio" name="boutons" value="C" /><span>Je prends</span></label></header>
-          <div class="sg-stage sg-stage-pad sg-btns">
-            <a href="#" class="xc-btn is-solid"><i class="xc-dot"></i><span>Réserver un appel</span></a>
-            <a href="#" class="xc-btn"><i class="xc-dot"></i><span>Voir les réalisations</span></a>
-            <div class="v2-ctas"><a href="#" class="xc-btn xc-sm"><i class="xc-dot"></i><span>Étude de cas</span></a><a href="#" class="v2-wa xc-wa" aria-label="WhatsApp"><i class="ri-whatsapp-line"></i></a></div>
-          </div>
-        </article>
+      <div class="w sg-demo sg-cols2">
+        <p class="v2-prose sg-para">Je construis des <a href="#">agents IA</a> pour des entreprises sans équipe tech. Les détails sont dans <a href="#">mes études de cas</a>.</p>
+        <nav class="sg-linklist">{nav.map((n) => <a href="#"><span class="v2-a">{n.label}</span></a>)}</nav>
       </div>
     </section>
 
-    <!-- ============ 04 LIENS ============ -->
-    <section class="r sg-sec" id="liens">
-      <div class="w sg-head"><span class="sg-n">{S.liens.n}</span><h2>{S.liens.t}</h2><p class="v2-mut">{S.liens.d}</p></div>
-    </section>
+    <!-- 05 Nav -->
+    <section class="r sg-sec" id="nav"><div class="w sg-head"><span class="sg-n">{S.nav.n}</span><h2>{S.nav.t}</h2><p class="v2-mut">{S.nav.d} <code>{S.nav.k}</code></p></div></section>
+    <Nav sticky={false} current="/services" />
+
+    <!-- 06 Dock -->
+    <section class="r sg-sec" id="dock"><div class="w sg-head"><span class="sg-n">{S.dock.n}</span><h2>{S.dock.t}</h2><p class="v2-mut">{S.dock.d} <code>{S.dock.k}</code></p></div></section>
+    <section class="r"><div class="w sg-demo sg-soft sg-center"><Dock floating={false} /></div></section>
+
+    <!-- 07 Hero -->
+    <section class="r sg-sec" id="hero"><div class="w sg-head"><span class="sg-n">{S.hero.n}</span><h2>{S.hero.t}</h2><p class="v2-mut">{S.hero.d} <code>{S.hero.k}</code></p></div></section>
+    <div class="sg-hero"><Hero heading="h2" /></div>
+
+    <!-- 08 Fonds -->
+    <section class="r sg-sec" id="fonds"><div class="w sg-head"><span class="sg-n">{S.fonds.n}</span><h2>{S.fonds.t}</h2><p class="v2-mut">{S.fonds.d} <code>{S.fonds.k}</code></p></div></section>
+    <section class="r"><div class="w v2-head v2-dots" data-spot><h2 class="v2-h2">Ce que je construis.</h2></div></section>
+
+    <!-- 09 Titres -->
+    <section class="r sg-sec" id="titres"><div class="w sg-head"><span class="sg-n">{S.titres.n}</span><h2>{S.titres.t}</h2><p class="v2-mut">{S.titres.d} <code>{S.titres.k}</code></p></div></section>
+    <section class="r"><div class="w v2-head"><h2 class="v2-h2" data-words>Comment je travaille ?<br /><span class="v2-dim">Simple et sans surprise.</span></h2></div></section>
+
+    <!-- 10 Tags -->
+    <section class="r sg-sec" id="tags"><div class="w sg-head"><span class="sg-n">{S.tags.n}</span><h2>{S.tags.t}</h2><p class="v2-mut">{S.tags.d} <code>{S.tags.k}</code></p></div></section>
     <section class="r">
-      <div class="w sg-vars sg-vars-3">
-        {V.liens.map(([L, name, note]) => (
-          <article class="sg-var">
-            <header class="sg-var-h"><span class="sg-letter">{L}</span><div><b>{name}</b><span>{note}</span></div><label class="sg-pick"><input type="radio" name="liens" value={L} /><span>Je prends</span></label></header>
-            <div class:list={['sg-stage sg-stage-pad', `xl-${L.toLowerCase()}`]}>
-              <p class="sg-para">Je construis des <a href="#">agents IA</a> pour des entreprises sans équipe tech. Les détails sont dans <a href="#">mes études de cas</a>.</p>
-              <nav class="sg-linklist">{nav.map((n) => <a href="#" data-scramble={L === 'C' ? '' : undefined}>{n.label}</a>)}</nav>
-            </div>
-          </article>
-        ))}
+      <div class="w sg-demo sg-stack">
+        <p class="v2-tags"><span>Freelance</span><i></i><span>IA</span><i></i><span>B2B</span></p>
+        <p class="v2-meta"><span>{c0.data.client?.sector}</span><span>{c0.data.project.duration.split('·')[0]}</span>{c0.data.results[0] && <span class="v2-meta-hl">{c0.data.results[0].value} {c0.data.results[0].label}</span>}</p>
+        <p class="v2-tools">{promises[1].tools!.map((t) => <span>{t}</span>)}</p>
       </div>
     </section>
 
-    <!-- ============ 05 NAV ============ -->
-    <section class="r sg-sec" id="nav">
-      <div class="w sg-head"><span class="sg-n">{S.nav.n}</span><h2>{S.nav.t}</h2><p class="v2-mut">{S.nav.d}</p></div>
-    </section>
-    <section class="r">
-      <div class="w sg-vars sg-vars-1">
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">A</span><div><b>{V.nav[0][1]}</b><span>{V.nav[0][2]}</span></div><label class="sg-pick"><input type="radio" name="nav" value="A" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="v2-top-in xn-bar"><a href="#" class="v2-logo">jonlabs<span>.</span></a><nav class="v2-top-links">{nav.map((n) => <a href="#">{n.label}</a>)}</nav><a href="#" class="v2-btn v2-btn-sm">Réserver un appel <i class="ri-arrow-right-line"></i></a></div>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">B</span><div><b>{V.nav[1][1]}</b><span>{V.nav[1][2]}</span></div><label class="sg-pick"><input type="radio" name="nav" value="B" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="v2-top-in xn-bar"><a href="#" class="v2-logo">jonlabs<span>.</span></a><nav class="xn-pill" data-pill>{nav.map((n, i) => <a href="#" aria-current={i === 0 ? 'page' : undefined}>{n.label}</a>)}<i data-pill-bg></i></nav><a href="#" class="v2-btn v2-btn-sm">Réserver un appel <i class="ri-arrow-right-line"></i></a></div>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">C</span><div><b>{V.nav[2][1]}</b><span>{V.nav[2][2]}</span></div><label class="sg-pick"><input type="radio" name="nav" value="C" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="xn-status v2-meta"><span><i class="xn-live"></i> Genève · <time data-clock>--:--</time></span><span>Agents · Apps · Automatisations</span><span>Ouvert aux projets</span></div>
-            <div class="v2-top-in xn-bar"><a href="#" class="v2-logo">jonlabs<span>.</span></a><nav class="v2-top-links xn-idx">{nav.map((n, i) => <a href="#"><sup>{pad(i + 1)}</sup>{n.label}</a>)}</nav><a href="#" class="v2-btn v2-btn-sm">Réserver un appel <i class="ri-arrow-right-line"></i></a></div>
-          </div>
-        </article>
-      </div>
-    </section>
+    <!-- 11 Cas -->
+    <section class="r sg-sec" id="cas"><div class="w sg-head"><span class="sg-n">{S.cas.n}</span><h2>{S.cas.t}</h2><p class="v2-mut">{S.cas.d} <code>{S.cas.k}</code></p></div></section>
+    <section class="r"><CaseSpec entry={c0} /></section>
 
-    <!-- ============ 06 DOCK ============ -->
-    <section class="r sg-sec" id="dock">
-      <div class="w sg-head"><span class="sg-n">{S.dock.n}</span><h2>{S.dock.t}</h2><p class="v2-mut">{S.dock.d}</p></div>
-    </section>
-    <section class="r">
-      <div class="w sg-vars sg-vars-1">
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">A</span><div><b>{V.dock[0][1]}</b><span>{V.dock[0][2]}</span></div><label class="sg-pick"><input type="radio" name="dock" value="A" /><span>Je prends</span></label></header>
-          <div class="sg-stage sg-stage-soft xd-stage">
-            <nav class="v2-dock xd-static"><img src="/images/jonathan-vouilloz.webp" alt="" class="v2-dock-avatar" width="36" height="36" />{nav.map((n) => <a href="#">{n.label}</a>)}<a href="#" class="v2-dock-cta" aria-label="Réserver un appel"><i class="ri-calendar-line"></i></a></nav>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">B</span><div><b>{V.dock[1][1]}</b><span>{V.dock[1][2]}</span></div><label class="sg-pick"><input type="radio" name="dock" value="B" /><span>Je prends</span></label></header>
-          <div class="sg-stage sg-stage-soft xd-stage">
-            <nav class="v2-dock xd-static xd-b" data-pill><img src="/images/jonathan-vouilloz.webp" alt="" class="v2-dock-avatar" width="36" height="36" />{nav.map((n) => <a href="#">{n.label}</a>)}<i data-pill-bg></i><a href="#" class="v2-dock-cta" aria-label="Réserver un appel"><i class="ri-calendar-line"></i></a></nav>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">C</span><div><b>{V.dock[2][1]}</b><span>{V.dock[2][2]}</span></div><label class="sg-pick"><input type="radio" name="dock" value="C" /><span>Je prends</span></label></header>
-          <div class="sg-stage sg-stage-soft xd-stage">
-            <nav class="v2-dock xd-static"><img src="/images/jonathan-vouilloz.webp" alt="" class="v2-dock-avatar" width="36" height="36" />{nav.map((n) => <a href="#">{n.label}</a>)}<a href="#" class="xd-ring" aria-label="Réserver un appel" data-progress><i class="ri-calendar-line"></i></a></nav>
-            <p class="v2-meta xd-hint">L'anneau suit ta lecture de cette page</p>
-          </div>
-        </article>
-      </div>
-    </section>
+    <!-- 12 Bento -->
+    <section class="r sg-sec" id="bento"><div class="w sg-head"><span class="sg-n">{S.bento.n}</span><h2>{S.bento.t}</h2><p class="v2-mut">{S.bento.d} <code>{S.bento.k}</code></p></div></section>
+    <section class="r"><Bento /></section>
 
-    <!-- ============ 07 HERO ============ -->
-    <section class="r sg-sec" id="hero">
-      <div class="w sg-head"><span class="sg-n">{S.hero.n}</span><h2>{S.hero.t}</h2><p class="v2-mut">{S.hero.d}</p></div>
-    </section>
-    <section class="r">
-      <div class="w sg-vars sg-vars-1">
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">A</span><div><b>{V.hero[0][1]}</b><span>{V.hero[0][2]}</span></div><label class="sg-pick"><input type="radio" name="hero" value="A" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="v2-hero xh">
-              <canvas class="v2-hero-canvas" data-iso-bg aria-hidden="true"></canvas>
-              <div class="v2-hero-in">
-                <p class="v2-tags"><span>Freelance</span><i></i><span>IA</span><i></i><span>B2B</span></p>
-                <h2 class="v2-h1">Des agents et des apps IA<br />qui font le vrai travail.</h2>
-                <p class="v2-lead">Je conçois et je construis les systèmes IA de votre entreprise, de l'idée à la mise en production.</p>
-                <div class="v2-ctas"><a href="#" class="v2-btn"><i class="ri-calendar-line"></i> Réserver un appel</a><a href="#" class="v2-wa" aria-label="WhatsApp"><i class="ri-whatsapp-line"></i></a></div>
-              </div>
-            </div>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">B</span><div><b>{V.hero[1][1]}</b><span>{V.hero[1][2]}</span></div><label class="sg-pick"><input type="radio" name="hero" value="B" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="v2-hero xh xh-b">
-              <div class="xh-shader" aria-hidden="true"><DitherBg client:visible /></div>
-              <div class="v2-hero-in">
-                <p class="v2-tags"><span>Freelance</span><i></i><span>IA</span><i></i><span>B2B</span></p>
-                <h2 class="v2-h1" data-chars>Des agents et des apps IA<br />qui font le vrai travail.</h2>
-                <p class="v2-lead">Je conçois et je construis les systèmes IA de votre entreprise, de l'idée à la mise en production.</p>
-                <div class="v2-ctas"><a href="#" class="v2-btn"><i class="ri-calendar-line"></i> Réserver un appel</a><a href="#" class="v2-wa" aria-label="WhatsApp"><i class="ri-whatsapp-line"></i></a></div>
-              </div>
-            </div>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">C</span><div><b>{V.hero[2][1]}</b><span>{V.hero[2][2]}</span></div><label class="sg-pick"><input type="radio" name="hero" value="C" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="xh-c">
-              <div class="xh-c-txt">
-                <p class="v2-tags"><span>Freelance</span><i></i><span>IA</span><i></i><span>B2B</span></p>
-                <h2 class="v2-h1">Des agents IA<br /><span class="v2-dim">qui font le vrai travail.</span></h2>
-                <p class="v2-lead">Je conçois et je construis les systèmes IA de votre entreprise, de l'idée à la mise en production.</p>
-                <div class="v2-ctas"><a href="#" class="v2-btn"><i class="ri-calendar-line"></i> Réserver un appel</a><a href="#" class="v2-wa" aria-label="WhatsApp"><i class="ri-whatsapp-line"></i></a></div>
-              </div>
-              <div class="xh-console" data-console aria-label="Exemple : un agent qui trie une boîte mail">
-                <div class="xh-console-h v2-meta"><span><i class="xn-live"></i> agent · tri des e-mails</span><span>exemple</span></div>
-                <ol data-console-lines>
-                  <li data-k="lit">Nouveaux messages dans contact@</li>
-                  <li data-k="classe">Devis · Support · Facture · À ignorer</li>
-                  <li data-k="cherche">Historique du client dans le CRM</li>
-                  <li data-k="rédige">Brouillon de réponse, dans votre ton</li>
-                  <li data-k="attend" class="is-wait">Votre validation avant tout envoi</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
+    <!-- 13 Process -->
+    <section class="r sg-sec" id="process"><div class="w sg-head"><span class="sg-n">{S.process.n}</span><h2>{S.process.t}</h2><p class="v2-mut">{S.process.d} <code>{S.process.k}</code></p></div></section>
+    <section class="r"><Steps /></section>
 
-    <!-- ============ 08 FONDS ============ -->
-    <section class="r sg-sec" id="fonds">
-      <div class="w sg-head"><span class="sg-n">{S.fonds.n}</span><h2>{S.fonds.t}</h2><p class="v2-mut">{S.fonds.d}</p></div>
-    </section>
-    <section class="r">
-      <div class="w sg-vars sg-vars-3">
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">A</span><div><b>{V.fonds[0][1]}</b><span>{V.fonds[0][2]}</span></div><label class="sg-pick"><input type="radio" name="fonds" value="A" /><span>Je prends</span></label></header>
-          <div class="sg-stage xf xf-a" data-spot><h3>Ce que je construis.</h3></div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">B</span><div><b>{V.fonds[1][1]}</b><span>{V.fonds[1][2]}</span></div><label class="sg-pick"><input type="radio" name="fonds" value="B" /><span>Je prends</span></label></header>
-          <div class="sg-stage xf xf-b">
-            <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-              {['M-10 60 H120 V140 H260 V60 H410', 'M-10 230 H90 V180 H310 V250 H410', 'M200 -10 V100 H330 V310', 'M60 310 V200 H150 V-10'].map((d, i) => (
-                <g><path d={d} class="xf-track" /><path d={d} class="xf-packet" pathLength="1000" style={`animation-delay:${-i * 1.7}s;animation-duration:${6 + i}s`} /></g>
-              ))}
-              {[[120, 140], [260, 60], [310, 180], [150, 200], [200, 100]].map(([x, y]) => <rect x={x - 4} y={y - 4} width="8" height="8" class="xf-node" />)}
-            </svg>
-            <h3>Ce que je construis.</h3>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">C</span><div><b>{V.fonds[2][1]}</b><span>{V.fonds[2][2]}</span></div><label class="sg-pick"><input type="radio" name="fonds" value="C" /><span>Je prends</span></label></header>
-          <div class="sg-stage xf xf-c"><i class="xf-scan"></i><h3>Ce que je construis.</h3></div>
-        </article>
-      </div>
-    </section>
+    <!-- 14 FAQ -->
+    <section class="r sg-sec" id="faq"><div class="w sg-head"><span class="sg-n">{S.faq.n}</span><h2>{S.faq.t}</h2><p class="v2-mut">{S.faq.d} <code>{S.faq.k}</code></p></div></section>
+    <section class="r"><Faq /></section>
 
-    <!-- ============ 09 TITRES ============ -->
-    <section class="r sg-sec" id="titres">
-      <div class="w sg-head"><span class="sg-n">{S.titres.n}</span><h2>{S.titres.t}</h2><p class="v2-mut">{S.titres.d}</p></div>
-    </section>
-    <section class="r">
-      <div class="w sg-vars sg-vars-3">
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">A</span><div><b>{V.titres[0][1]}</b><span>{V.titres[0][2]}</span></div><label class="sg-pick"><input type="radio" name="titres" value="A" /><span>Je prends</span></label></header>
-          <div class="sg-stage sg-stage-pad xt"><h3 class="v2-h2" data-words>Comment je travaille ? <span class="v2-dim">Simple et sans surprise.</span></h3><button class="sg-replay" data-replay="words"><i class="ri-replay-line"></i> Rejouer</button></div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">B</span><div><b>{V.titres[1][1]}</b><span>{V.titres[1][2]}</span></div><label class="sg-pick"><input type="radio" name="titres" value="B" /><span>Je prends</span></label></header>
-          <div class="sg-stage sg-stage-pad xt"><h3 class="v2-h2">Comment je travaille ?<br /><span class="v2-dim" data-decode>Simple et sans surprise.</span></h3><button class="sg-replay" data-replay="decode"><i class="ri-replay-line"></i> Rejouer</button></div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">C</span><div><b>{V.titres[2][1]}</b><span>{V.titres[2][2]}</span></div><label class="sg-pick"><input type="radio" name="titres" value="C" /><span>Je prends</span></label></header>
-          <div class="sg-stage sg-stage-pad xt"><p class="v2-reveal" data-reveal>Je préfère un outil simple qui tourne tous les jours à une démo impressionnante qui casse.</p><p class="v2-meta">Fait défiler la page</p></div>
-        </article>
-      </div>
-    </section>
+    <!-- 15 Preuves -->
+    <section class="r sg-sec" id="preuves"><div class="w sg-head"><span class="sg-n">{S.preuves.n}</span><h2>{S.preuves.t}</h2><p class="v2-mut">{S.preuves.d} <code>{S.preuves.k}</code></p></div></section>
+    <section class="r"><Proofs /></section>
 
-    <!-- ============ 10 TAGS ============ -->
-    <section class="r sg-sec" id="tags">
-      <div class="w sg-head"><span class="sg-n">{S.tags.n}</span><h2>{S.tags.t}</h2><p class="v2-mut">{S.tags.d}</p></div>
-    </section>
-    <section class="r">
-      <div class="w sg-vars sg-vars-3">
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">A</span><div><b>{V.tags[0][1]}</b><span>{V.tags[0][2]}</span></div><label class="sg-pick"><input type="radio" name="tags" value="A" /><span>Je prends</span></label></header>
-          <div class="sg-stage sg-stage-pad sg-stack">
-            <p class="v2-tags"><span>Freelance</span><i></i><span>IA</span><i></i><span>B2B</span></p>
-            <p class="v2-meta"><span>{c0.data.client?.sector}</span><span>{c0.data.project.duration.split('·')[0]}</span><span class="v2-meta-hl">{c0.data.results[0]?.value} {c0.data.results[0]?.label}</span></p>
-            <p class="v2-tools">{promises[1].tools!.slice(0, 5).map((t) => <span>{t}</span>)}</p>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">B</span><div><b>{V.tags[1][1]}</b><span>{V.tags[1][2]}</span></div><label class="sg-pick"><input type="radio" name="tags" value="B" /><span>Je prends</span></label></header>
-          <div class="sg-stage sg-stage-pad sg-stack">
-            <p class="xg-br"><span>Freelance</span><span>IA</span><span>B2B</span></p>
-            <p class="v2-meta xg-slash"><span>{c0.data.client?.sector}</span><span>{c0.data.project.duration.split('·')[0]}</span><span class="v2-meta-hl">{c0.data.results[0]?.value} {c0.data.results[0]?.label}</span></p>
-            <p class="xg-code">{promises[1].tools!.slice(0, 5).map((t) => <span>{t.toLowerCase()}</span>)}</p>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">C</span><div><b>{V.tags[2][1]}</b><span>{V.tags[2][2]}</span></div><label class="sg-pick"><input type="radio" name="tags" value="C" /><span>Je prends</span></label></header>
-          <div class="sg-stage sg-stage-pad sg-stack">
-            <p class="xg-chips"><span><i class="xn-live"></i>Freelance</span><span>IA</span><span>B2B</span></p>
-            <dl class="xg-kv"><div><dt>Secteur</dt><dd>{c0.data.client?.sector}</dd></div><div><dt>Durée</dt><dd>{c0.data.project.duration.split('·')[0]}</dd></div><div><dt>Repère</dt><dd class="v2-meta-hl">{c0.data.results[0]?.value} {c0.data.results[0]?.label}</dd></div></dl>
-          </div>
-        </article>
-      </div>
-    </section>
+    <!-- 16 Contact -->
+    <section class="r sg-sec" id="contact"><div class="w sg-head"><span class="sg-n">{S.contact.n}</span><h2>{S.contact.t}</h2><p class="v2-mut">{S.contact.d} <code>{S.contact.k}</code></p></div></section>
+    <section class="r"><Contact /></section>
 
-    <!-- ============ 11 CAS ============ -->
-    <section class="r sg-sec" id="cas">
-      <div class="w sg-head"><span class="sg-n">{S.cas.n}</span><h2>{S.cas.t}</h2><p class="v2-mut">{S.cas.d}</p></div>
-    </section>
-    <section class="r">
-      <div class="w sg-vars sg-vars-1">
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">A</span><div><b>{V.cas[0][1]}</b><span>{V.cas[0][2]}</span></div><label class="sg-pick"><input type="radio" name="cas" value="A" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <a href={`/portfolio/${c0.slug}`} class="v2-case">
-              <div class="v2-case-img"><img src={c0.data.heroImage.url} alt={c0.data.heroImage.alt} loading="lazy" /></div>
-              <div class="v2-case-body">
-                <div><h3>{c0.data.title}</h3><p class="v2-mut">{c0.data.description}</p>
-                  <p class="v2-meta"><span>{c0.data.client?.sector}</span><span>{c0.data.project.duration}</span>{c0.data.results[0] && <span class="v2-meta-hl">{c0.data.results[0].value} {c0.data.results[0].label}</span>}</p></div>
-                <span class="v2-btn v2-btn-sm">Voir l'étude de cas</span>
-              </div>
-            </a>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">B</span><div><b>{V.cas[1][1]}</b><span>{V.cas[1][2]}</span></div><label class="sg-pick"><input type="radio" name="cas" value="B" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <a href={`/portfolio/${c0.slug}`} class="xc-spec">
-              <div class="xc-spec-img"><img src={c0.data.heroImage.url} alt={c0.data.heroImage.alt} loading="lazy" /></div>
-              <div class="xc-spec-body">
-                <div><h3>{c0.data.title}</h3><p class="v2-mut">{c0.data.description}</p></div>
-                <dl class="xg-kv">
-                  <div><dt>Secteur</dt><dd>{c0.data.client?.sector}</dd></div>
-                  <div><dt>Durée</dt><dd>{c0.data.project.duration.split('·')[0]}</dd></div>
-                  <div><dt>Stack</dt><dd>{c0.data.project.platform}</dd></div>
-                  {c0.data.results.slice(0, 2).map((r) => <div><dt>{r.label}</dt><dd class="v2-meta-hl">{r.value}</dd></div>)}
-                </dl>
-                <span class="v2-btn v2-btn-sm xa-btn">Voir l'étude de cas <i class="ri-arrow-right-line"></i></span>
-              </div>
-            </a>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">C</span><div><b>{V.cas[2][1]}</b><span>{V.cas[2][2]}</span></div><label class="sg-pick"><input type="radio" name="cas" value="C" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <ul class="xc-index" data-follow>
-              {allCases.slice(0, 6).map((c, i) => (
-                <li><a href={`/portfolio/${c.slug}`} data-img={c.data.heroImage.url}>
-                  <span class="v2-meta">{pad(i + 1)}</span>
-                  <b>{c.data.title}</b>
-                  <span class="v2-meta xc-index-sec">{c.data.client?.sector}</span>
-                  <span class="v2-meta">{c.data.date.getFullYear()}</span>
-                  <i class="ri-arrow-right-up-line"></i>
-                </a></li>
-              ))}
-              <img class="xc-follow" alt="" aria-hidden="true" data-follow-img />
-            </ul>
-          </div>
-        </article>
-      </div>
-    </section>
+    <!-- 17 Formulaire -->
+    <section class="r sg-sec" id="form"><div class="w sg-head"><span class="sg-n">{S.form.n}</span><h2>{S.form.t}</h2><p class="v2-mut">{S.form.d} <code>{S.form.k}</code></p></div></section>
+    <section class="r"><div class="w sg-demo sg-form"><ProjectForm /><p class="v2-mut">Aucun envoi tant que <code>action</code> n'est pas branché.</p></div></section>
 
-    <!-- ============ 12 BENTO ============ -->
-    <section class="r sg-sec" id="bento">
-      <div class="w sg-head"><span class="sg-n">{S.bento.n}</span><h2>{S.bento.t}</h2><p class="v2-mut">{S.bento.d}</p></div>
-    </section>
-    <section class="r">
-      <div class="w sg-vars sg-vars-1">
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">A</span><div><b>{V.bento[0][1]}</b><span>{V.bento[0][2]}</span></div><label class="sg-pick"><input type="radio" name="bento" value="A" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="v2-bento">{builds.map((b) => (<div class:list={['v2-cell', { 'v2-cell-big': b.big }]}><div class="v2-iso" data-iso={b.iso} data-theme="light"></div><h3>{b.title}</h3><p class="v2-mut">{b.text}</p></div>))}</div>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">B</span><div><b>{V.bento[1][1]}</b><span>{V.bento[1][2]}</span></div><label class="sg-pick"><input type="radio" name="bento" value="B" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="v2-bento xb-spot" data-spotlight>
-              {builds.map((b, i) => (<div class:list={['v2-cell', { 'v2-cell-big': b.big }]}><i class:list={['xb-ico', ['ri-robot-2-line', 'ri-layout-4-line', 'ri-loop-right-line', 'ri-plug-line'][i]]}></i><h3>{b.title}</h3><p class="v2-mut">{b.text}</p></div>))}
-            </div>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">C</span><div><b>{V.bento[2][1]}</b><span>{V.bento[2][2]}</span></div><label class="sg-pick"><input type="radio" name="bento" value="C" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="xb-sheet">
-              {builds.map((b, i) => (
-                <div class="xb-sheet-cell">
-                  <p class="v2-meta"><span>{pad(i + 1)} / {pad(builds.length)}</span><i class="xn-live"></i></p>
-                  <div><h3>{b.title}</h3><p class="v2-mut">{b.text}</p></div>
-                  <p class="xb-sheet-stack v2-tools">{[['Claude', 'Hermes', 'Gmail'], ['Astro', 'Supabase', 'Vercel'], ['Python', 'Cron', 'API'], ['CRM', 'Notion', 'Webhooks']][i].map((t) => <span>{t}</span>)}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
+    <!-- 18 Blog -->
+    <section class="r sg-sec" id="blog"><div class="w sg-head"><span class="sg-n">{S.blog.n}</span><h2>{S.blog.t}</h2><p class="v2-mut">{S.blog.d} <code>{S.blog.k}</code></p></div></section>
+    <section class="r"><PostFeature /></section>
 
-    <!-- ============ 13 PROCESS ============ -->
-    <section class="r sg-sec" id="process">
-      <div class="w sg-head"><span class="sg-n">{S.process.n}</span><h2>{S.process.t}</h2><p class="v2-mut">{S.process.d}</p></div>
-    </section>
-    <section class="r">
-      <div class="w sg-vars sg-vars-1">
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">A</span><div><b>{V.process[0][1]}</b><span>{V.process[0][2]}</span></div><label class="sg-pick"><input type="radio" name="process" value="A" /><span>Je prends</span></label></header>
-          <div class="sg-stage"><ol class="v2-steps">{steps.map((s) => <li><span>{s}</span></li>)}</ol></div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">B</span><div><b>{V.process[1][1]}</b><span>{V.process[1][2]}</span></div><label class="sg-pick"><input type="radio" name="process" value="B" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <ol class="xp-line" data-timeline style={`--n:${steps.length}`}>
-              <i class="xp-rail"><i data-timeline-fill></i></i>
-              {steps.map((s, i) => <li><i class="xp-dot"></i><span class="v2-meta">{pad(i + 1)}</span><b>{s}</b></li>)}
-            </ol>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">C</span><div><b>{V.process[2][1]}</b><span>{V.process[2][2]}</span></div><label class="sg-pick"><input type="radio" name="process" value="C" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="xp-tabs" data-zag-tabs>
-              <div class="xp-tabs-list" data-tab="list">
-                {steps.map((s, i) => <button data-tab="trigger" data-value={`s${i}`}><span class="v2-meta">{pad(i + 1)}</span>{s}</button>)}
-              </div>
-              {steps.map((s, i) => (
-                <div class="xp-tabs-panel" data-tab="content" data-value={`s${i}`}>
-                  <p class="v2-meta">Étape {pad(i + 1)} / {pad(steps.length)}</p>
-                  <h3 class="v2-h2">{s}</h3>
-                  <p class="v2-head-p v2-mut">{stepDetails[i]}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ 14 FAQ ============ -->
-    <section class="r sg-sec" id="faq">
-      <div class="w sg-head"><span class="sg-n">{S.faq.n}</span><h2>{S.faq.t}</h2><p class="v2-mut">{S.faq.d}</p></div>
-    </section>
-    <section class="r">
-      <div class="w sg-vars sg-vars-1">
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">A</span><div><b>{V.faq[0][1]}</b><span>{V.faq[0][2]}</span></div><label class="sg-pick"><input type="radio" name="faq" value="A" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="v2-faq"><div class="v2-faq-list">{faqs.map((f) => (<details name="faq-a"><summary><span>{f.q}</span><i class="ri-add-line"></i></summary><p class="v2-mut">{f.a}</p></details>))}</div><h2 class="v2-h2 v2-faq-title">Les questions<br />qu'on me pose.</h2></div>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">B</span><div><b>{V.faq[1][1]}</b><span>{V.faq[1][2]}</span></div><label class="sg-pick"><input type="radio" name="faq" value="B" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="xq-rows">
-              <h2 class="v2-h2">Les questions<br /><span class="v2-dim">qu'on me pose.</span></h2>
-              <div data-zag-accordion>
-                {faqs.map((f, i) => (
-                  <div class="xq-item" data-acc="item" data-value={`q${i}`}>
-                    <button class="xq-trigger" data-acc="trigger" data-value={`q${i}`}><span class="v2-meta">{pad(i + 1)}</span><b>{f.q}</b><i class="ri-add-line"></i></button>
-                    <div class="xq-content" data-acc="content" data-value={`q${i}`}><div><p class="v2-mut">{f.a}</p></div></div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">C</span><div><b>{V.faq[2][1]}</b><span>{V.faq[2][2]}</span></div><label class="sg-pick"><input type="radio" name="faq" value="C" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="xq-index" data-qindex>
-              <ul role="tablist" aria-label="Questions">
-                {faqs.map((f, i) => <li><button role="tab" aria-selected={i === 0 ? 'true' : 'false'} data-q={i}><span class="v2-meta">{pad(i + 1)}</span>{f.q}</button></li>)}
-              </ul>
-              <div class="xq-panel" role="tabpanel" aria-live="polite">
-                <p class="v2-meta" data-q-n>Question 01</p>
-                <p class="xq-answer" data-q-a>{faqs[0].a}</p>
-                <a href="#" class="v2-btn v2-btn-sm xa-btn">Poser la mienne <i class="ri-arrow-right-line"></i></a>
-              </div>
-              <script type="application/json" data-q-data set:html={JSON.stringify(faqs)} />
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ 15 PREUVES ============ -->
-    <section class="r sg-sec" id="preuves">
-      <div class="w sg-head"><span class="sg-n">{S.preuves.n}</span><h2>{S.preuves.t}</h2><p class="v2-mut">{S.preuves.d}</p></div>
-    </section>
-    <section class="r">
-      <div class="w sg-vars sg-vars-1">
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">A</span><div><b>{V.preuves[0][1]}</b><span>{V.preuves[0][2]}</span></div><label class="sg-pick"><input type="radio" name="preuves" value="A" /><span>Je prends</span></label></header>
-          <div class="sg-stage"><div class="xs-count">{proofs.map((p) => (<div><b data-count-to={p.value}>{p.value}</b><span>{p.label}</span><span class="v2-meta">{p.client}</span></div>))}</div></div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">B</span><div><b>{V.preuves[1][1]}</b><span>{V.preuves[1][2]}</span></div><label class="sg-pick"><input type="radio" name="preuves" value="B" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <table class="xs-table"><thead><tr><th>Projet</th><th>Repère</th><th>Valeur</th></tr></thead>
-              <tbody>{proofs.map((p) => <tr><td>{p.client}</td><td>{p.label}</td><td>{p.value}</td></tr>)}</tbody></table>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">C</span><div><b>{V.preuves[2][1]}</b><span>{V.preuves[2][2]}</span></div><label class="sg-pick"><input type="radio" name="preuves" value="C" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="xs-flap" data-flap>
-              <script type="application/json" data-flap-data set:html={JSON.stringify(proofs)} />
-              <p class="v2-meta" data-flap-client>{proofs[0]?.client}</p>
-              <b class="xs-flap-v" data-flap-v>{proofs[0]?.value}</b>
-              <p class="v2-head-p" data-flap-l>{proofs[0]?.label}</p>
-              <div class="xs-flap-dots">{proofs.map((_, i) => <i class:list={{ on: i === 0 }}></i>)}</div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ 16 CONTACT ============ -->
-    <section class="r sg-sec" id="contact">
-      <div class="w sg-head"><span class="sg-n">{S.contact.n}</span><h2>{S.contact.t}</h2><p class="v2-mut">{S.contact.d}</p></div>
-    </section>
-    <section class="r">
-      <div class="w sg-vars sg-vars-1">
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">A</span><div><b>{V.contact[0][1]}</b><span>{V.contact[0][2]}</span></div><label class="sg-pick"><input type="radio" name="contact" value="A" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="v2-contact">
-              <div class="v2-contact-main"><div><h2 class="v2-h2">Jonathan Vouilloz</h2><p class="v2-mut">Je construis des systèmes IA qui tournent tous les jours.</p></div>
-                <div><p class="v2-mut">Écrivez-moi</p><a href="mailto:contact@jonlabs.ch" class="v2-mail">contact@jonlabs.ch</a><div class="v2-ctas v2-ctas-left"><a href="#" class="v2-btn"><i class="ri-calendar-line"></i> Réserver un appel</a><a href={`https://wa.me/${WHATSAPP}`} class="v2-btn v2-btn-ghost"><i class="ri-whatsapp-line"></i> WhatsApp</a></div></div></div>
-              {socials.map((c) => (<a href={c.href} class="v2-contact-card" target="_blank" rel="noopener"><span class="v2-mut">{c.k}</span><span><i class={c.icon}></i><b>{c.l}</b></span></a>))}
-            </div>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">B</span><div><b>{V.contact[1][1]}</b><span>{V.contact[1][2]}</span></div><label class="sg-pick"><input type="radio" name="contact" value="B" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="xk-big">
-              <p class="v2-meta">Le plus simple : un e-mail</p>
-              <button class="xk-mail" data-copy="contact@jonlabs.ch"><span>contact@jonlabs.ch</span><span class="xk-copy v2-meta"><i class="ri-file-copy-line"></i> <em data-copy-label>Copier</em></span></button>
-              <div class="v2-ctas"><a href="#" class="v2-btn"><i class="ri-calendar-line"></i> Réserver un appel</a><a href={`https://wa.me/${WHATSAPP}`} class="v2-btn v2-btn-ghost"><i class="ri-whatsapp-line"></i> WhatsApp</a></div>
-            </div>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">C</span><div><b>{V.contact[2][1]}</b><span>{V.contact[2][2]}</span></div><label class="sg-pick"><input type="radio" name="contact" value="C" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="xk-ch">
-              <div><h2 class="v2-h2">Parlons de<br /><span class="v2-dim">votre système.</span></h2><p class="v2-mut">Choisissez le canal qui vous va. Je réponds moi-même.</p></div>
-              <ul>
-                {[['ri-calendar-line', 'Un appel visio', 'Cal.com · réserver un créneau', '#'], ['ri-whatsapp-line', 'Un message WhatsApp', '+41 78 944 77 07', `https://wa.me/${WHATSAPP}`], ['ri-mail-line', 'Un e-mail', 'contact@jonlabs.ch', 'mailto:contact@jonlabs.ch']].map(([ic, l, h, href]) => (
-                  <li><a href={href}><i class={ic}></i><b>{l}</b><span class="v2-meta">{h}</span><i class="ri-arrow-right-line xk-arrow"></i></a></li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ 17 FORMULAIRE ============ -->
-    <section class="r sg-sec" id="form">
-      <div class="w sg-head"><span class="sg-n">{S.form.n}</span><h2>{S.form.t}</h2><p class="v2-mut">{S.form.d}</p></div>
-    </section>
-    <section class="r">
-      <div class="w sg-vars sg-vars-3">
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">A</span><div><b>{V.form[0][1]}</b><span>{V.form[0][2]}</span></div><label class="sg-pick"><input type="radio" name="form" value="A" /><span>Je prends</span></label></header>
-          <form class="sg-stage sg-stage-pad xi xi-a" data-demo-form>
-            <label>Nom<input name="n" autocomplete="name" placeholder="Marie Dupont" /></label>
-            <label>E-mail<input type="email" name="e" autocomplete="email" placeholder="marie@entreprise.ch" required /></label>
-            <label>Ce que vous voulez confier à l'IA<textarea name="m" rows="3" placeholder="Trier les demandes de devis qui arrivent par e-mail"></textarea></label>
-            <button class="v2-btn xa-btn">Envoyer <i class="ri-arrow-right-line"></i></button>
-          </form>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">B</span><div><b>{V.form[1][1]}</b><span>{V.form[1][2]}</span></div><label class="sg-pick"><input type="radio" name="form" value="B" /><span>Je prends</span></label></header>
-          <form class="sg-stage sg-stage-pad xi xi-b" data-demo-form>
-            <label><input name="n" autocomplete="name" placeholder=" " /><span>Nom</span></label>
-            <label><input type="email" name="e" autocomplete="email" placeholder=" " required /><span>E-mail</span></label>
-            <label><textarea name="m" rows="3" placeholder=" "></textarea><span>Ce que vous voulez confier à l'IA</span></label>
-            <button class="v2-btn xa-btn">Envoyer <i class="ri-arrow-right-line"></i></button>
-          </form>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">C</span><div><b>{V.form[2][1]}</b><span>{V.form[2][2]}</span></div><label class="sg-pick"><input type="radio" name="form" value="C" /><span>Je prends</span></label></header>
-          <form class="sg-stage sg-stage-pad xi xi-c" data-demo-form>
-            <fieldset><legend>Vous voulez construire</legend>
-              <div class="xi-tiles">{[['ri-robot-2-line', 'Un agent'], ['ri-layout-4-line', 'Une app'], ['ri-loop-right-line', 'Une automatisation'], ['ri-question-line', 'Je ne sais pas encore']].map(([ic, l]) => <label><input type="checkbox" name="t" value={l} /><i class={ic}></i><span>{l}</span></label>)}</div>
-            </fieldset>
-            <label class="xi-plain">E-mail<input type="email" name="e" autocomplete="email" placeholder="marie@entreprise.ch" required /></label>
-            <button class="v2-btn xa-btn">Envoyer <i class="ri-arrow-right-line"></i></button>
-          </form>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ 18 BLOG ============ -->
-    <section class="r sg-sec" id="blog">
-      <div class="w sg-head"><span class="sg-n">{S.blog.n}</span><h2>{S.blog.t}</h2><p class="v2-mut">{S.blog.d}</p></div>
-    </section>
-    <section class="r">
-      <div class="w sg-vars sg-vars-1">
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">A</span><div><b>{V.blog[0][1]}</b><span>{V.blog[0][2]}</span></div><label class="sg-pick"><input type="radio" name="blog" value="A" /><span>Je prends</span></label></header>
-          <div class="sg-stage"><ul class="xw-rows">{posts.map((p) => (<li><a href={`/blog/${p.slug}`}><time class="v2-meta">{fmt(p.data.pubDate)}</time><b>{p.data.h1 ?? p.data.title}</b><span class="v2-meta">{p.data.readingTime ?? 8} min</span><i class="ri-arrow-right-line"></i></a></li>))}</ul></div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">B</span><div><b>{V.blog[1][1]}</b><span>{V.blog[1][2]}</span></div><label class="sg-pick"><input type="radio" name="blog" value="B" /><span>Je prends</span></label></header>
-          <div class="sg-stage"><div class="xw-cards">{posts.map((p) => (<a href={`/blog/${p.slug}`}><div class="xw-img"><img src={p.data.image.url} alt={p.data.image.alt} loading="lazy" /></div><p class="v2-meta"><span>{fmt(p.data.pubDate)}</span><span>{p.data.readingTime ?? 8} min</span></p><b>{p.data.h1 ?? p.data.title}</b></a>))}</div></div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">C</span><div><b>{V.blog[2][1]}</b><span>{V.blog[2][2]}</span></div><label class="sg-pick"><input type="radio" name="blog" value="C" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="xw-feat">
-              {posts[0] && <a href={`/blog/${posts[0].slug}`} class="xw-feat-main"><div class="xw-img"><img src={posts[0].data.image.url} alt={posts[0].data.image.alt} loading="lazy" /></div><div><p class="v2-meta"><span>À la une</span><span>{fmt(posts[0].data.pubDate)}</span></p><h3>{posts[0].data.h1 ?? posts[0].data.title}</h3><p class="v2-mut">{posts[0].data.description}</p></div></a>}
-              <ul>{posts.slice(1).map((p) => <li><a href={`/blog/${p.slug}`}><p class="v2-meta"><span>{fmt(p.data.pubDate)}</span><span>{p.data.readingTime ?? 8} min</span></p><b>{p.data.h1 ?? p.data.title}</b></a></li>)}</ul>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ 19 FOOTER ============ -->
-    <section class="r sg-sec" id="footer">
-      <div class="w sg-head"><span class="sg-n">{S.footer.n}</span><h2>{S.footer.t}</h2><p class="v2-mut">{S.footer.d}</p></div>
-    </section>
-    <section class="r">
-      <div class="w sg-vars sg-vars-1">
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">A</span><div><b>{V.footer[0][1]}</b><span>{V.footer[0][2]}</span></div><label class="sg-pick"><input type="radio" name="footer" value="A" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="v2-foot xo-a"><div><a href="#" class="v2-logo">jonlabs<span>.</span></a><p class="v2-mut">Systèmes IA sur mesure · Genève, Suisse romande</p></div><nav>{nav.map((n) => <a href={n.href}>{n.label}</a>)}</nav><nav><a href={author.youtube}>YouTube</a><a href="https://x.com/jonvolio">X</a><a href={author.linkedin}>LinkedIn</a></nav><nav><a href="/services/creation-site-web" class="v2-mut">Sites & SEO</a><a href="/mentions-legales" class="v2-mut">Mentions légales</a></nav></div>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">B</span><div><b>{V.footer[1][1]}</b><span>{V.footer[1][2]}</span></div><label class="sg-pick"><input type="radio" name="footer" value="B" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="xo-b">
-              <div class="xo-b-cols"><p class="v2-mut">Systèmes IA sur mesure · Genève</p><nav>{nav.map((n) => <a href={n.href}>{n.label}</a>)}</nav><nav><a href={author.youtube}>YouTube</a><a href="https://x.com/jonvolio">X</a><a href={author.linkedin}>LinkedIn</a></nav></div>
-              <p class="xo-word" data-word aria-hidden="true">jonlabs<span>.</span></p>
-            </div>
-          </div>
-        </article>
-        <article class="sg-var">
-          <header class="sg-var-h"><span class="sg-letter">C</span><div><b>{V.footer[2][1]}</b><span>{V.footer[2][2]}</span></div><label class="sg-pick"><input type="radio" name="footer" value="C" /><span>Je prends</span></label></header>
-          <div class="sg-stage">
-            <div class="xo-c">
-              <div class="v2-foot"><div><a href="#" class="v2-logo">jonlabs<span>.</span></a><p class="v2-mut">Systèmes IA sur mesure · Genève, Suisse romande</p></div><nav>{nav.map((n) => <a href={n.href}>{n.label}</a>)}</nav><nav><a href={author.youtube}>YouTube</a><a href="https://x.com/jonvolio">X</a><a href={author.linkedin}>LinkedIn</a></nav><nav><a href="/services/creation-site-web" class="v2-mut">Sites & SEO</a><a href="/mentions-legales" class="v2-mut">Mentions légales</a></nav></div>
-              <div class="xo-c-bar v2-meta"><span><i class="xn-live"></i> Genève · <time data-clock>--:--</time></span><span>Mis à jour le {built}</span><span>© {new Date().getFullYear()} Jon Labs</span><a href="#" data-top-link>Haut de page <i class="ri-arrow-up-line"></i></a></div>
-            </div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <!-- ============ RÉCAP ============ -->
-    <section class="r sg-sec" id="recap">
-      <div class="w v2-head v2-head-2">
-        <h2 class="v2-h2">Tes choix.<br /><span class="v2-dim">Copie, colle-les-moi.</span></h2>
-        <p class="v2-mut">Les choix restent dans ce navigateur. Ajoute un mot si tu veux un hybride (« le B avec la typo du C »).</p>
-      </div>
-    </section>
-    <section class="r">
-      <div class="w sg-recap">
-        <ol class="sg-recap-list">
-          {recap.map((r) => <li data-recap={r.id}><span class="v2-meta">{r.n}</span><b>{r.t}</b><span class="sg-recap-v" data-recap-v>—</span></li>)}
-        </ol>
-        <div class="sg-recap-side">
-          <label class="sg-k" for="sg-notes">Notes</label>
-          <textarea id="sg-notes" rows="8" data-notes placeholder="Ex. Hero C mais avec le fond A. FAQ B sans les numéros."></textarea>
-          <div class="v2-ctas v2-ctas-left"><button class="v2-btn xa-btn" data-copy-recap>Copier mes choix <i class="ri-file-copy-line"></i></button><button class="v2-btn v2-btn-ghost" data-reset>Tout effacer</button></div>
-        </div>
-      </div>
-    </section>
-    <script type="application/json" id="sg-recap-data" set:html={JSON.stringify(recap)} />
-
-    <div class="sg-toast" role="status" aria-live="polite" data-toast></div>
+    <!-- 19 Footer -->
+    <section class="r sg-sec" id="footer"><div class="w sg-head"><span class="sg-n">{S.footer.n}</span><h2>{S.footer.t}</h2><p class="v2-mut">{S.footer.d} <code>{S.footer.k}</code></p></div></section>
+    <Footer />
   </div>
 </Layout>
 
 <script>
-  import '../../scripts/v2-styleguide';
+  import '../../scripts/v2-ui';
+
+  // Sommaire : section courante surlignée.
+  const obs = new IntersectionObserver((entries) => {
+    for (const e of entries) if (e.isIntersecting) document.querySelectorAll<HTMLElement>('[data-toc]').forEach((a) => a.classList.toggle('is-on', a.dataset.toc === e.target.id));
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  document.querySelectorAll('.sg-sec').forEach((s) => obs.observe(s));
+  document.querySelectorAll<HTMLElement>('.sg-track').forEach((t) => t.style.setProperty('--tw', `${t.clientWidth - 52}px`));
+  // Démo : les liens « # » et le formulaire ne partent nulle part.
+  document.querySelectorAll('.sg a[href="#"]:not([data-top-link])').forEach((a) => a.addEventListener('click', (e) => e.preventDefault()));
+  document.querySelector('.sg-form form')?.addEventListener('submit', (e) => e.preventDefault());
 </script>

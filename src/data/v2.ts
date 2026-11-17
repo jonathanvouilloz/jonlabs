@@ -49,3 +49,6 @@ export const stepDetails = [
   'Mise en service, accès, documentation et prise en main par l\'équipe.',
   'Ajustements, nouvelles tâches, et un point régulier sur ce qui tourne.',
 ];
+
+// Accueil du rebrand tant que la v2 vit sur /v2 (passera à '/' à la bascule).
+export const HOME = '/v2';
