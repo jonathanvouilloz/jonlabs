@@ -555,6 +555,15 @@
 .v2-menu details a { display: flex; align-items: center; min-height: 44px; padding-left: 12px; color: var(--mut); }
 .v2-menu details a:hover { color: var(--ink); }
 .v2-menu > .v2-btn { margin-top: auto; }
+.v2-menu { opacity: 0; translate: 0 -10px; transition: opacity .3s var(--ease), translate .4s var(--ease), display .4s allow-discrete, overlay .4s allow-discrete; }
+.v2-menu:popover-open { opacity: 1; translate: 0 0; }
+@starting-style { .v2-menu:popover-open { opacity: 0; translate: 0 -10px; } }
+.v2-menu:popover-open nav > * { animation: v2-menu-in .5s var(--ease) both; }
+.v2-menu nav > :nth-child(2) { animation-delay: 40ms; } .v2-menu nav > :nth-child(3) { animation-delay: 80ms; }
+.v2-menu nav > :nth-child(4) { animation-delay: 120ms; } .v2-menu nav > :nth-child(5) { animation-delay: 160ms; } .v2-menu nav > :nth-child(n+6) { animation-delay: 200ms; }
+@keyframes v2-menu-in { from { opacity: 0; translate: 0 14px; } }
+.v2-menu details::details-content { block-size: 0; overflow: hidden; opacity: 0; transition: block-size .35s var(--ease), opacity .3s, content-visibility .35s allow-discrete; }
+.v2-menu details[open]::details-content { block-size: auto; opacity: 1; }
 @media (max-width: 1024px), (hover: none) {
   .v2-pill { display: none; }
   .v2-burger { display: grid; }
@@ -565,6 +574,9 @@
   .v2-mega-item:first-child > .v2-mega { left: 0; translate: 0 6px; }
   .v2-mega-item:first-child:is(:hover, :focus-within) > .v2-mega { translate: 0 0; }
 }
+
+/* Mot mis en avant dans un titre (teal ; le script le balaie de l'encre au teal à l'entrée) */
+.v2-hl { color: var(--accent-strong); }
 
 /* Titres sans mot orphelin */
 .v2-h1, .v2-h2, .v2-head-p { text-wrap: balance; }
@@ -591,6 +603,8 @@
   /* Dock : 2 liens + menu + agenda */
   .v2-dock > a:nth-of-type(n+3):not(.v2-dock-cta) { display: none; }
   /* Hero : hauteur libre, boutons empilés */
+  .v2 .v2-tags { font-size: .85rem; gap: 10px; margin-bottom: 18px; }
+  .v2-hero .v2-h1 { font-size: clamp(2.6rem, 13vw, 3.6rem); }
   .v2-hero { height: auto; min-height: calc(100svh - 65px); padding-block: 40px 56px; }
   .v2-scroll { display: none; }
   .v2-ctas:not(.v2-ctas-left) { flex-direction: column; align-items: stretch; width: 100%; }

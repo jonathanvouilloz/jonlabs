@@ -49,7 +49,15 @@ $$('[data-chars]').forEach((el) => {
   const sp = splitText(el, { words: { wrap: 'clip' }, chars: true });
   roomForDescenders(sp.words);
   sp.chars.forEach((c: HTMLElement) => (c.style.opacity = '0'));
-  inView(el, () => animate(sp.chars, { y: ['110%', '0%'], opacity: [0, 1], duration: 700, delay: stagger(18), ease: 'out(4)' }), '0px');
+  // Mot mis en avant (.v2-hl) : part en encre, balayé en teal une fois les lettres posées.
+  const hl = sp.chars.filter((c: HTMLElement) => c.closest('.v2-hl'));
+  const css = getComputedStyle(el);
+  const ink = css.getPropertyValue('--ink').trim(), teal = css.getPropertyValue('--accent-strong').trim();
+  hl.forEach((c: HTMLElement) => (c.style.color = ink));
+  inView(el, () => {
+    animate(sp.chars, { y: ['110%', '0%'], opacity: [0, 1], duration: 700, delay: stagger(18), ease: 'out(4)' });
+    if (hl.length) animate(hl, { color: [ink, teal], duration: 450, delay: stagger(40, { start: sp.chars.length * 18 + 350 }), ease: 'out(3)' });
+  }, '0px');
 });
 
 // Titres de section : mots qui montent à l'entrée.
@@ -61,8 +69,8 @@ $$('[data-words]').forEach((el) => {
   inView(el, () => animate(sp.words, { y: ['105%', '0%'], duration: 800, delay: stagger(45), ease: 'out(4)' }));
 });
 
-// Blocs qui montent à l'entrée : chaque enfant direct apparaît en décalé (études de cas, grilles de cartes).
-$$('[data-rise]').forEach((el) => {
+// Blocs qui montent à l'entrée : chaque enfant direct apparaît en décalé (études de cas, grilles de cartes, sections v2).
+$$('[data-rise], .v2-hero-in, .v2-proofs, .v2-steps, .v2-cols3, .v2-bento, .v2-hub, .v2-photos, .v2-private, .v2-faq-list, .v2-contact, .v2-price, .v2-testi-list, .sv-n-res, .svc-grid').forEach((el) => {
   if (reduce) return;
   const kids = [...el.children] as HTMLElement[];
   kids.forEach((k) => { k.style.opacity = '0'; k.style.transform = 'translateY(28px)'; });
