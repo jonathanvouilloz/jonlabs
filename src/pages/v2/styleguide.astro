@@ -17,7 +17,7 @@ import PostFeature from '../../components/v2/PostFeature.astro';
 import Pricing from '../../components/v2/Pricing.astro';
 import Testimonials from '../../components/v2/Testimonials.astro';
 import Footer from '../../components/v2/Footer.astro';
-import { nav, promises } from '../../data/v2';
+import { nav } from '../../data/v2';
 import '../../styles/v2.css';
 import '../../styles/v2-styleguide.css';
 
@@ -162,7 +162,7 @@ const S = Object.fromEntries(sections.map(([id, t, d, k], i) => [id, { t, d, k, 
       <div class="w sg-demo sg-stack">
         <p class="v2-tags"><span>Freelance</span><i></i><span>IA</span><i></i><span>B2B</span></p>
         <p class="v2-meta"><span>{c0.data.client?.sector}</span><span>{c0.data.project.duration.split('·')[0]}</span>{c0.data.results[0] && <span class="v2-meta-hl">{c0.data.results[0].value} {c0.data.results[0].label}</span>}</p>
-        <p class="v2-tools">{promises[1].tools!.map((t) => <span>{t}</span>)}</p>
+        <p class="v2-tools">{['Claude', 'OpenAI', 'Hermes', 'Supabase'].map((t) => <span>{t}</span>)}</p>
       </div>
     </section>
 

@@ -2,7 +2,6 @@
 // Hero v2 (direction B) : trame animée (shader Paper) très pâle, titre qui monte lettre à lettre.
 // Seule section en pleine largeur (hors container .w) : le fond couvre tout le viewport.
 import DitherBg from './DitherBg.tsx';
-import { WHATSAPP } from '../../data/v2';
 interface Props { heading?: 'h1' | 'h2' }
 const { heading: H = 'h1' } = Astro.props;
 ---
@@ -11,11 +10,11 @@ const { heading: H = 'h1' } = Astro.props;
     <div class="v2-hero-shader" aria-hidden="true"><DitherBg client:visible /></div>
     <div class="v2-hero-in">
       <p class="v2-tags"><span>Freelance</span><i></i><span>IA</span><i></i><span>B2B</span></p>
-      <H class="v2-h1" data-chars>Des agents et des apps IA<br />qui font le vrai travail.</H>
-      <p class="v2-lead">Je conçois et je construis les systèmes IA de votre entreprise, de l'idée à la mise en production.</p>
+      <H class="v2-h1" data-chars>Des applications où vos équipes<br />et vos agents IA collaborent.</H>
+      <p class="v2-lead">Les agents prennent le répétitif, vos équipes gardent le travail à valeur ajoutée. Je conçois et je construis les systèmes IA de votre entreprise, de l'idée à la mise en production.</p>
       <div class="v2-ctas">
-        <a href="#agenda" class="v2-btn"><i class="ri-calendar-line"></i> <span data-roll>Réserver un appel</span></a>
-        <a href={`https://wa.me/${WHATSAPP}`} class="v2-wa" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i></a>
+        <a href="/contact#agenda" class="v2-btn" data-cal-popup><i class="ri-calendar-line"></i> <span data-roll>Discuter de mon projet</span></a>
+        <a href="#realisations" class="v2-btn v2-btn-ghost"><span data-roll>Découvrir mon travail</span></a>
       </div>
     </div>
     <a href="#realisations" class="v2-scroll" aria-label="Défiler vers les réalisations"><span></span></a>

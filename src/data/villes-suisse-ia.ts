@@ -208,7 +208,7 @@ export const villesSuisseIA: VilleIAData[] = [
       {
         question: "Combien coûte un agent IA pour une PME d'Annemasse ?",
         answer:
-          "La mise en place démarre à CHF 1'500 pour un agent sur une tâche précise. Si l'agent doit gérer plusieurs tâches et plusieurs outils, c'est sur devis. Ensuite, l'agent tourne chez Infomaniak, en Suisse, pour environ CHF 10 à 40 par mois, payés directement à l'hébergeur.",
+          "La mise en place démarre à CHF 1'500 pour un agent sur une tâche précise. Si l'agent doit gérer plusieurs tâches et plusieurs outils, c'est sur devis. Ensuite, l'agent tourne chez Infomaniak, en Suisse, dès CHF 15 par mois selon les fonctionnalités, payés directement à l'hébergeur.",
       },
       {
         question: "Vos prix sont en CHF. Je peux travailler avec vous depuis Annemasse ?",
@@ -289,7 +289,7 @@ export const villesSuisseIA: VilleIAData[] = [
       {
         question: "Combien coûte un agent IA pour une entreprise de Gaillard ?",
         answer:
-          "La mise en place démarre à CHF 1'500 pour un agent sur une tâche précise. Si l'agent doit gérer plusieurs tâches et plusieurs outils, c'est sur devis. Ensuite, l'agent tourne chez Infomaniak, en Suisse, pour environ CHF 10 à 40 par mois, payés directement à l'hébergeur.",
+          "La mise en place démarre à CHF 1'500 pour un agent sur une tâche précise. Si l'agent doit gérer plusieurs tâches et plusieurs outils, c'est sur devis. Ensuite, l'agent tourne chez Infomaniak, en Suisse, dès CHF 15 par mois selon les fonctionnalités, payés directement à l'hébergeur.",
       },
       {
         question: "Vos prix sont en CHF. Comment se passe la facturation pour une société française ?",

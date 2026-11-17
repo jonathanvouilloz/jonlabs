@@ -4,4 +4,4 @@ import { steps } from '../../data/v2';
 interface Props { items?: string[] }
 const { items = steps } = Astro.props;
 ---
-<ol class="w v2-steps" style={items === steps ? undefined : `--n:${items.length}`}>{items.map((s) => <li><span>{s}</span></li>)}</ol>
+<ol class="w v2-steps" style={`--n:${items.length}`}>{items.map((s) => <li><span>{s}</span></li>)}</ol>

@@ -7,14 +7,11 @@ export const videos = [
   { id: 'Z2R60BWDBlY', title: 'Hack Google Discover, seo/aso mobile app, on discute' },
 ];
 
-// PLACEHOLDER : textes à remplacer par de vrais tweets choisis par Jon.
+// Tweets choisis par Jonathan (2026-11-17) : accroche seulement, la case renvoie au tweet complet.
 export const tweets = [
-  { text: '[Tweet à choisir] Un agent qui répond aux emails, c\'est 20% de prompt et 80% de garde-fous.', url: 'https://x.com/jonvolio' },
-  { text: '[Tweet à choisir] Ce que j\'ai shippé cette semaine, en une capture.', url: 'https://x.com/jonvolio' },
+  { text: 'Le plus gros gaspillage de tokens quand on dev avec l\'IA, c\'est rarement le code généré. C\'est le temps que ton IA passe à comprendre le code qu\'elle a écrit 2 jours plus tôt.', url: 'https://x.com/jonvolio/status/2118995969408647257' },
+  { text: 'On se complique beaucoup trop la vie quand on veut intégrer de l\'IA dans nos apps. Parfois, 5 bonnes fonctions valent mieux qu\'un agent avec 50 outils.', url: 'https://x.com/jonvolio/status/2118690309383029139' },
 ];
 
-// PLACEHOLDER : post LinkedIn à choisir.
-export const linkedinPost = {
-  text: '[Post à choisir] Le retour d\'expérience d\'un client sur son premier agent IA en production.',
-  url: 'https://www.linkedin.com/in/jonathan-vouilloz-3b5741139/',
-};
+// Pas de post LinkedIn pour l'instant : la home affiche un 2e article du blog. Ajouter ici { text, url } quand il y en a un.
+export const linkedinPost: { text: string; url: string } | null = null;

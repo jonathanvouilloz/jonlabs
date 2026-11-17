@@ -117,31 +117,4 @@ const schemas = [
 <script>
   import '../scripts/v2-ui';
 
-  // Cal.com inline (même embed que la home), chargé à l'approche de la section.
-  const calEl = document.querySelector('[data-cal]');
-  if (calEl) {
-    new IntersectionObserver((entries, obs) => {
-      if (!entries[0].isIntersecting) return;
-      obs.disconnect();
-      const w = window as any;
-      (function (C: any, A: string, L: string) {
-        const p = (a: any, ar: any) => a.q.push(ar);
-        const d = C.document;
-        C.Cal = C.Cal || function (...ar: any[]) {
-          const cal = C.Cal;
-          if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; }
-          if (ar[0] === L) {
-            const api: any = function (...a: any[]) { p(api, a); };
-            const ns = ar[1]; api.q = api.q || [];
-            if (typeof ns === 'string') { cal.ns[ns] = cal.ns[ns] || api; p(cal.ns[ns], ar); p(cal, ['initNamespace', ns]); } else p(cal, ar);
-            return;
-          }
-          p(cal, ar);
-        };
-      })(w, 'https://app.cal.com/embed/embed.js', 'init');
-      w.Cal('init', 'rdv', { origin: 'https://cal.com' });
-      w.Cal.ns.rdv('inline', { elementOrSelector: '#cal-inline', calLink: 'jonathan-vouilloz/appel-de-bienvenue', layout: 'month_view' });
-      w.Cal.ns.rdv('ui', { theme: 'light', hideEventTypeDetails: false });
-    }, { rootMargin: '400px' }).observe(calEl);
-  }
 </script>

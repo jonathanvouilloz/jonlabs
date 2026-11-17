@@ -17,7 +17,7 @@ faqs:
   - question: "Combien de temps prend une mise en place complète ?"
     answer: "Compte 1 à 2 semaines de cartographie, 30 jours pour le pilote, puis 8 semaines pour le rollout complet si le pilote est concluant. Soit 3 à 4 mois pour une première automatisation généralisée à l'équipe."
   - question: "Combien ça coûte en francs suisses ?"
-    answer: "Chez Jon Labs, un agent simple démarre à CHF 1'500. Un agent intégré à plusieurs systèmes est chiffré sur devis. S'y ajoute l'hébergement, environ CHF 10 à 40 par mois en Suisse."
+    answer: "Chez Jon Labs, un agent simple démarre à CHF 1'500. Un agent intégré à plusieurs systèmes est chiffré sur devis. S'y ajoute l'hébergement en Suisse, dès CHF 15 par mois selon les fonctionnalités."
   - question: "Faut-il une équipe technique en interne ?"
     answer: "Non. Un référent qui consacre 10 à 20% de son temps suffit dans une structure de 1 à 15 personnes. Pas besoin d'un service informatique dédié ni d'une DSI."
   - question: "Quels sont les principaux risques d'une mise en place mal cadrée ?"

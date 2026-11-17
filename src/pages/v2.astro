@@ -23,7 +23,15 @@ const cases = (await getCollection('portfolio', (p) => !p.data.draft && p.data.f
 
 const posts = (await getCollection('blog', (p) => !p.data.draft))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
-  .slice(0, 1);
+  .slice(0, linkedinPost ? 1 : 2);
+
+// Chiffres déclarés par Jonathan le 2026-11-17 (interview home).
+const proofs = [
+  { value: '1000+', label: 'avis Google traités et répondus automatiquement', client: 'Barber Concept' },
+  { value: '200+', label: 'mails traités : candidatures, demandes de stage…', client: 'Barber Concept' },
+  { value: '100+', label: 'demandes de réservation de séances traitées', client: 'Wildcat Muay Thai' },
+  { value: '4 h', label: 'gagnées par semaine sur la gestion admin', client: 'Barber Concept' },
+];
 
 const strip = [
   ...(await getCollection('portfolio')).map((p) => p.data.heroImage.url),
@@ -55,7 +63,7 @@ const strip = [
       <div class="w v2-head v2-head-c"><h2 class="v2-h2" data-words>Des solutions qui résolvent<br />de vrais problèmes.</h2></div>
     </section>
     {cases.map((c) => <section class="r"><CaseSpec entry={c} /></section>)}
-    <section class="r"><Proofs /></section>
+    <section class="r"><Proofs items={proofs} /></section>
     <section class="r">
       <div class="w v2-more"><a href="/portfolio" class="v2-btn"><span data-roll>Toutes les réalisations</span></a></div>
     </section>
@@ -63,7 +71,7 @@ const strip = [
     <!-- 4. COMMENT JE TRAVAILLE -->
     <section class="r">
       <div class="w v2-head v2-head-2">
-        <h2 class="v2-h2" data-words>Comment je travaille ?<br /><span class="v2-dim">Simple et sans surprise.</span></h2>
+        <h2 class="v2-h2" data-words>Comment je travaille ?</h2>
         <p class="v2-head-p">Une méthode courte qui part de vos tâches réelles et finit avec un système en production.</p>
       </div>
     </section>
@@ -74,8 +82,7 @@ const strip = [
           <div class="v2-col">
             <div class="v2-iso v2-iso-sm" data-iso={p.iso} data-theme="light"></div>
             <h3>{p.title}</h3>
-            {p.items && <ul>{p.items.map((i) => <li><i class="ri-arrow-right-s-line"></i>{i}</li>)}</ul>}
-            {p.tools && <p class="v2-tools">{p.tools.map((t) => <span>{t}</span>)}</p>}
+            <ul>{p.items.map((i) => <li><i class="ri-arrow-right-s-line"></i>{i}</li>)}</ul>
           </div>
         ))}
       </div>
@@ -111,10 +118,12 @@ const strip = [
               <p>{p.data.h1 ?? p.data.title}</p>
             </a>
           ))}
-          <a href={linkedinPost.url} class="v2-hub-card" target="_blank" rel="noopener">
-            <span class="v2-meta"><i class="ri-linkedin-box-line"></i> LinkedIn</span>
-            <p>{linkedinPost.text}</p>
-          </a>
+          {linkedinPost && (
+            <a href={linkedinPost.url} class="v2-hub-card" target="_blank" rel="noopener">
+              <span class="v2-meta"><i class="ri-linkedin-box-line"></i> LinkedIn</span>
+              <p>{linkedinPost.text}</p>
+            </a>
+          )}
         </div>
       </section>
     </div>
@@ -124,28 +133,27 @@ const strip = [
       <div class="w v2-head v2-about">
         <h2 class="v2-h2">C'est moi.</h2>
         <p class="v2-reveal" data-reveal>
-          Je m'appelle Jonathan. Je construis des systèmes IA pour des entreprises qui n'ont pas d'équipe tech,
-          et j'en partage une partie en public. Je préfère un outil simple qui tourne tous les jours à une démo impressionnante qui casse.
+          Je m'appelle Jonathan. Je construis des systèmes IA pour des entreprises qui n'ont pas d'équipe tech :
+          les agents prennent le répétitif, vos équipes gardent ce qui compte. Je préfère un outil simple qui tourne tous les jours à une démo impressionnante qui casse.
         </p>
       </div>
     </section>
     <section class="r">
       <div class="w v2-photos">
         <img src="/images/jonathan-vouilloz.webp" alt="Jonathan Vouilloz" loading="lazy" />
-        <div class="v2-photo-ph">Photo 2</div>
-        <div class="v2-photo-ph">Photo 3</div>
+        <img src="/images/jonathan-vouilloz-event.webp" alt="Jonathan Vouilloz lors d'un événement" loading="lazy" width="600" height="750" />
       </div>
     </section>
 
-    <!-- 8. PAS TOUT EST PUBLIC (section contrastée) -->
+    <!-- 8. UNE QUESTION AVANT DE VOUS LANCER (section contrastée) -->
     <section class="r">
       <div class="w v2-private">
         <div>
-          <h2 class="v2-h2">Tout ce que je construis<br />n'est pas public.</h2>
-          <p class="v2-mut">Les systèmes de mes clients restent chez mes clients. En appel, je vous montre ce qui peut l'être.</p>
+          <h2 class="v2-h2">Une question avant<br />de vous lancer ?</h2>
+          <p class="v2-mut">Pas besoin d'un projet ficelé. Décrivez-moi votre situation en deux lignes, je vous dis si l'IA peut aider.</p>
         </div>
         <div class="v2-private-ctas">
-          <a href="#agenda" class="v2-btn v2-btn-lg"><i class="ri-lock-line"></i> <span data-roll>Voir le travail non public</span></a>
+          <a href="/contact#agenda" class="v2-btn v2-btn-lg" data-cal-popup><i class="ri-calendar-line"></i> <span data-roll>Discuter de mon projet</span></a>
           <a href={`https://wa.me/${WHATSAPP}`} class="v2-btn v2-btn-lg v2-btn-wa" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i> <span data-roll>Écrire sur WhatsApp</span></a>
         </div>
       </div>
@@ -169,31 +177,4 @@ const strip = [
 <script>
   import '../scripts/v2-ui';
 
-  // Cal.com inline, chargé à l'approche de la section.
-  const calEl = document.querySelector('[data-cal]');
-  if (calEl) {
-    new IntersectionObserver((entries, obs) => {
-      if (!entries[0].isIntersecting) return;
-      obs.disconnect();
-      const w = window as any;
-      (function (C: any, A: string, L: string) {
-        const p = (a: any, ar: any) => a.q.push(ar);
-        const d = C.document;
-        C.Cal = C.Cal || function (...ar: any[]) {
-          const cal = C.Cal;
-          if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; }
-          if (ar[0] === L) {
-            const api: any = function (...a: any[]) { p(api, a); };
-            const ns = ar[1]; api.q = api.q || [];
-            if (typeof ns === 'string') { cal.ns[ns] = cal.ns[ns] || api; p(cal.ns[ns], ar); p(cal, ['initNamespace', ns]); } else p(cal, ar);
-            return;
-          }
-          p(cal, ar);
-        };
-      })(w, 'https://app.cal.com/embed/embed.js', 'init');
-      w.Cal('init', 'rdv', { origin: 'https://cal.com' });
-      w.Cal.ns.rdv('inline', { elementOrSelector: '#cal-inline', calLink: 'jonathan-vouilloz/appel-de-bienvenue', layout: 'month_view' });
-      w.Cal.ns.rdv('ui', { theme: 'light', hideEventTypeDetails: false });
-    }, { rootMargin: '400px' }).observe(calEl);
-  }
 </script>

@@ -1,16 +1,13 @@
 // Comportements partagés du design v2, branchés par attribut (aucun effet si l'attribut est absent).
 // Directions validées au styleguide le 2026-11-17. Tout se coupe sous prefers-reduced-motion.
 import { animate, stagger, splitText } from 'animejs';
-import { terminal, laptop, slow, plug, relay, patch, padlock } from '@lucasmarkes/hairline';
+import { terminal, laptop, slow, plug, relay, patch, padlock, phone } from '@lucasmarkes/hairline';
 
 const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const $$ = <T extends Element = HTMLElement>(s: string, r: ParentNode = document) => [...r.querySelectorAll<T>(s)];
 // Joue fn une fois quand el entre dans l'écran.
 const inView = (el: Element, fn: () => void, margin = '-15% 0px') =>
   new IntersectionObserver(([e], o) => { if (e.isIntersecting) { o.disconnect(); fn(); } }, { rootMargin: margin }).observe(el);
-
-// Nav et dock visent /contact#agenda ; sur une page qui a son propre agenda (home, contact), on reste sur place.
-if (document.getElementById('agenda')) $$<HTMLAnchorElement>('a[href="/contact#agenda"]').forEach((a) => a.setAttribute('href', '#agenda'));
 
 // Boutons : lettres qui roulent au survol. Le libellé reste lisible par les lecteurs d'écran.
 if (!reduce) $$('[data-roll]').forEach((el) => {
@@ -120,7 +117,44 @@ $$('[data-testi]').forEach((wrap) => {
 });
 
 // Figures isométriques Hairline.
-const figures = { terminal, laptop, slow, plug, relay, patch, padlock } as const;
+const figures = { terminal, laptop, slow, plug, relay, patch, padlock, phone } as const;
 $$('[data-iso]').forEach((el) => {
   figures[el.dataset.iso as keyof typeof figures]?.(el, { theme: (el.dataset.theme as 'light' | 'dark') ?? 'light', play: !reduce, label: '' });
 });
+
+// Cal.com : un seul chargeur pour l'agenda inline (#cal-inline) et la fenêtre « Discuter de mon projet » ([data-cal-popup]).
+const CAL_LINK = 'jonathan-vouilloz/appel-de-bienvenue';
+function cal() {
+  const w = window as any;
+  if (!w.Cal) {
+    (function (C: any, A: string, L: string) {
+      const p = (a: any, ar: any) => a.q.push(ar);
+      const d = C.document;
+      C.Cal = C.Cal || function (...ar: any[]) {
+        const c = C.Cal;
+        if (!c.loaded) { c.ns = {}; c.q = c.q || []; d.head.appendChild(d.createElement('script')).src = A; c.loaded = true; }
+        if (ar[0] === L) {
+          const api: any = function (...a: any[]) { p(api, a); };
+          const ns = ar[1]; api.q = api.q || [];
+          if (typeof ns === 'string') { c.ns[ns] = c.ns[ns] || api; p(c.ns[ns], ar); p(c, ['initNamespace', ns]); } else p(c, ar);
+          return;
+        }
+        p(c, ar);
+      };
+    })(w, 'https://app.cal.com/embed/embed.js', 'init');
+    w.Cal('init', 'rdv', { origin: 'https://cal.com' });
+    w.Cal.ns.rdv('ui', { theme: 'light', hideEventTypeDetails: false });
+  }
+  return w.Cal.ns.rdv;
+}
+const calInline = document.getElementById('cal-inline');
+if (calInline) new IntersectionObserver(([e], o) => {
+  if (!e.isIntersecting) return;
+  o.disconnect();
+  cal()('inline', { elementOrSelector: '#cal-inline', calLink: CAL_LINK, layout: 'month_view' });
+}, { rootMargin: '400px' }).observe(calInline);
+// Le lien garde /contact#agenda en repli (sans JS) ; avec JS, l'agenda s'ouvre en fenêtre sur place.
+$$<HTMLAnchorElement>('[data-cal-popup]').forEach((a) => a.addEventListener('click', (ev) => {
+  ev.preventDefault();
+  cal()('modal', { calLink: CAL_LINK, config: { layout: 'month_view' } });
+}));

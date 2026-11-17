@@ -30,7 +30,7 @@ export const pricing = {
     display: "Dès CHF 1'500",
     note: "Sur devis",
     // Coût de fonctionnement payé directement par le client (hébergement Infomaniak + API du modèle)
-    runningCost: "CHF 10 – 40 / mois",
+    runningCost: "dès CHF 15 / mois",
   },
   formationIA: {
     label: "Formation IA (entreprise ou particulier)",

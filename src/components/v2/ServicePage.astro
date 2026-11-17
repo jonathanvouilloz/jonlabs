@@ -152,7 +152,7 @@ const ext = (l: Link) => (l.external ? { target: '_blank', rel: 'noopener norefe
 
       {faq && <section class="r" id="faq" aria-label="Questions fréquentes"><Faq items={faq.map((f) => ({ q: f.question, a: f.answer }))} /></section>}
 
-      <section class="r" id="contact"><Contact text={contact} call="/contact" /></section>
+      <section class="r" id="contact"><Contact text={contact} /></section>
     </main>
 
     <Footer />
