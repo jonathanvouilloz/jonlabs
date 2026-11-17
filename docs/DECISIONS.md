@@ -10,6 +10,10 @@ Format : `[date] | [décision] | [contexte] | [alternatives considérées]`
 
 ## 2026
 
+**2026-11-17** (`9efaff3`, `6d1080d`, `e3c0eab`) | **Architecture v2 des pages hors menu : une seule page web (`/services/creation-site-web` absorbe refonte et Webflow, Webflow devient une option), Annemasse et Gaillard passent en pages IA (`/consultant-ia/{ville}`), les doublons Genève fusionnent dans leurs piliers, `/developpement-web`, `/guides` et `/outils` redirigés (301).** | Pivot focus IA + données GSC 12 mois : les pages gardées pèsent 18 666 impressions / 58 clics, les redirigées 1 001 / 2. Détail : `docs/research/architecture-pages-v2.md`. | Garder les pages web frontalières jusqu'au bilan du 09.12 (écarté par Jonathan : plus de sites web en zone frontalière) ; garder `/services/developpeur-webflow` à part (1 clic en 12 mois, position 40).
+
+**2026-11-17** (`cc81b27`) | **Tags du blog réduits de 148 à 33 slugs kebab-case avec libellés dans `src/lib/tags.ts` ; anciennes URL de tags en 301.** | Doublons de casse et d'écriture inutilisables comme filtre ; pages tag en noindex. | Garder les tags et filtrer à l'affichage (ne règle pas les URLs à espaces).
+
 **2026-11-17** (`0506211`, `dc6afe4`) | **Design v2 : une direction par élément, choisie sur un styleguide à 3 essais ; le teal peut passer en fond, une seule cellule de titre par page.** | Rebrand « systèmes IA » : Jonathan voulait plus tech et un peu plus de couleur sans feu d'artifice. | Zag (headless, state machines) testé puis retiré : `<details>` natif suffit pour la FAQ retenue. Anime.js gardé pour le texte et les compteurs ; GSAP reste disponible pour un futur scrub/pin. Teal en fond de section entière ou pleine largeur écarté (trop fort).
 
 **2026-11-17** | **La page `/tarifs` est gardée dans le rebrand v2 (elle devait être retirée à la bascule).** | Jonathan : bonne page SEO potentielle. Elle sera refaite en v2 avec `<Pricing />` ; les 3 offres vivent désormais dans `src/data/pricing.ts` (source unique des prix). | Retirer `/tarifs` + redirection à la bascule — écarté.
