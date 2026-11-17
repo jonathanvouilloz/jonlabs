@@ -3,6 +3,21 @@
 > Branche `rebrand-v2`. Spike de la future home sur `/v2` (noindex), puis redesign de toutes les pages.
 > Système de design figé dans `docs/design-v2.md`. Le fond (copy, offre) attend le repositionnement en cours.
 
+## Etat session 2026-11-17
+
+**Fait :** page `/v2/styleguide` (noindex) : 18 éléments × 3 essais (A/B/C) + fondations. Jonathan coche un essai par élément,
+le récap se copie (choix gardés en localStorage). Styles et données de `/v2` extraits (`src/styles/v2.css`, `src/data/v2.ts`).
+Libs testées : Anime.js 4.5 (texte découpé, décodage, compteurs), Zag 1.48 vanilla (onglets, accordéon, sans React),
+shader Paper `Dithering` (îlot React, hero B).
+
+**Prochain :** checkpoint des choix → intégrer les gagnants en composants (`src/components/v2/`), purger les essais,
+reporter dans `docs/design-v2.md`.
+
+**Pieges :**
+- Zag `spreadProps` réécrit `data-part` (`trigger` → `item-trigger`) : cibler ses propres attributs (`data-tab`, `data-acc`).
+- `.sg button` (reset) écrasait `.v2-btn` sur les `<button>` : reset en `:where(.sg button)`.
+- Capture pleine page Chrome tronquée au-delà de ~16 000 px : capturer section par section.
+
 ## Etat session 2026-11-16
 
 **Fait :**
@@ -25,14 +40,18 @@
 ---
 
 ## Carte du code
-> Mise a jour : 2026-11-16
+> Mise a jour : 2026-11-17
 
 | Fichier | Role |
 |---------|------|
-| `src/pages/v2.astro` | Home v2 complète (markup, styles scoped `.v2-*`, scripts nav/dock, reveal, Hairline, Cal.com) — référence vivante du design |
+| `src/pages/v2.astro` | Home v2 complète (markup, scripts nav/dock, reveal, Hairline, Cal.com) — référence vivante du design |
 | `src/scripts/iso-network.ts` | Fond animé du hero : grille iso en canvas, impulsions + cubes, lueur pointeur, pause hors écran |
 | `src/data/hub.ts` | Contenu du hub (vidéos YouTube, tweets et post LinkedIn en placeholder) |
 | `src/layouts/Layout.astro` | Ajout d'un slot `head` pour charger une police par page |
+| `src/pages/v2/styleguide.astro` | Styleguide v2 : 3 essais par élément + récap des choix (exploration, jetable) |
+| `src/styles/v2.css` · `src/data/v2.ts` | Styles et données partagés par `/v2` et le styleguide |
+| `src/styles/v2-styleguide.css` · `src/scripts/v2-styleguide.ts` | Cadre du styleguide (`.sg-*`) et essais (`.x*-`), interactions |
+| `src/components/v2/DitherBg.tsx` | Fond tramé (shader Paper) de l'essai hero B |
 | `docs/design-v2.md` | Système de design v2 : tokens, typo, grille, composants, motion, règles pour les autres pages |
 
 ### Decisions cles
@@ -46,6 +65,8 @@
 - [x] Analyse des références et squelette de home
 - [x] Spike `/v2` (forme)
 - [x] `docs/design-v2.md`
+- [x] Styleguide v2 : 3 essais par élément
+- [ ] Choix des essais (Jonathan) puis intégration en composants
 - [ ] Copy de la home (après repositionnement)
 - [ ] Études de cas IA (2-3) pour remplacer les cas web/SEO
 - [ ] Contenu réel du hub (tweets, post LinkedIn) + 2 photos
