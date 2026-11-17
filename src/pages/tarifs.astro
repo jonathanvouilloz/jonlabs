@@ -9,7 +9,7 @@ import Footer from "../components/Footer.astro";
 
 import { SITE_URL } from '../data/schema';
 import { getWebPageSchema, getBreadcrumbSchema } from '../lib/seo';
-import { pricing, chf, terms } from '../data/pricing';
+import { pricing, chf, terms, offers } from '../data/pricing';
 
 const pageTitle = "Tarifs freelance Genève : site web, app, SEO local, IA";
 const pageDescription = "Tarifs clairs en CHF : site web dès 850, référencement local 390 puis 199/mois, agent IA dès 1'500, application mobile sur devis. Freelance à Genève, sans contrat de durée.";
@@ -90,56 +90,6 @@ const faqSchema = {
 const schemas = [webPageSchema, breadcrumbSchema, offerCatalog, faqSchema];
 
 // Cartes tarifs
-const offers = [
-  {
-    name: "Site web",
-    subtitle: "Un site clair, rapide, trouvable",
-    prefix: "Dès",
-    price: chf(pricing.siteWeb.from),
-    unit: "CHF",
-    after: "Devis sur demande",
-    highlighted: false,
-    features: [
-      "Site statique sur mesure, très rapide",
-      "Optimisé pour Google dès la mise en ligne",
-      `Site Webflow (géré par vous) : dès CHF ${chf(pricing.webflow.from)}`,
-    ],
-    href: "/services/creation-site-web",
-    cta: "Demander un devis",
-  },
-  {
-    name: "IA en entreprise",
-    subtitle: "Agent IA Hermès, automatisation",
-    prefix: "Dès",
-    price: chf(pricing.agentIA.from),
-    unit: "CHF",
-    after: `Fonctionnement ${pricing.agentIA.runningCost}, hébergé en Suisse`,
-    highlighted: true,
-    features: [
-      "Un agent branché sur vos outils",
-      "Vous validez avant chaque envoi",
-      "Formation IA équipe ou individuelle : sur devis",
-    ],
-    href: "/hermes",
-    cta: "Parler de mon projet IA",
-  },
-  {
-    name: "Application mobile",
-    subtitle: "iPhone et Android",
-    prefix: "",
-    price: "Sur devis",
-    unit: "",
-    after: "Selon votre projet",
-    highlighted: false,
-    features: [
-      "De l'idée à la publication sur les stores",
-      "Une première version simple, puis on ajoute",
-      "Un seul interlocuteur",
-    ],
-    href: "/services/developpement-application-mobile",
-    cta: "Parler de mon app",
-  },
-];
 ---
 
 <Layout

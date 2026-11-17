@@ -50,3 +50,55 @@ export const terms = {
 export function chf(n: number): string {
   return n.toLocaleString("de-CH").replace(/’/g, "'");
 }
+
+// Les 3 offres affichées en cartes (page /tarifs, cartes v2).
+export const offers = [
+  {
+    name: "Site web",
+    subtitle: "Un site clair, rapide, trouvable",
+    prefix: "Dès",
+    price: chf(pricing.siteWeb.from),
+    unit: "CHF",
+    after: "Devis sur demande",
+    highlighted: false,
+    features: [
+      "Site statique sur mesure, très rapide",
+      "Optimisé pour Google dès la mise en ligne",
+      `Site Webflow (géré par vous) : dès CHF ${chf(pricing.webflow.from)}`,
+    ],
+    href: "/services/creation-site-web",
+    cta: "Demander un devis",
+  },
+  {
+    name: "IA en entreprise",
+    subtitle: "Agent IA Hermès, automatisation",
+    prefix: "Dès",
+    price: chf(pricing.agentIA.from),
+    unit: "CHF",
+    after: `Fonctionnement ${pricing.agentIA.runningCost}, hébergé en Suisse`,
+    highlighted: true,
+    features: [
+      "Un agent branché sur vos outils",
+      "Vous validez avant chaque envoi",
+      "Formation IA équipe ou individuelle : sur devis",
+    ],
+    href: "/hermes",
+    cta: "Parler de mon projet IA",
+  },
+  {
+    name: "Application mobile",
+    subtitle: "iPhone et Android",
+    prefix: "",
+    price: "Sur devis",
+    unit: "",
+    after: "Selon votre projet",
+    highlighted: false,
+    features: [
+      "De l'idée à la publication sur les stores",
+      "Une première version simple, puis on ajoute",
+      "Un seul interlocuteur",
+    ],
+    href: "/services/developpement-application-mobile",
+    cta: "Parler de mon app",
+  },
+];

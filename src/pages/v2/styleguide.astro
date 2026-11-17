@@ -16,6 +16,7 @@ import ProjectForm from '../../components/v2/ProjectForm.astro';
 import PostFeature from '../../components/v2/PostFeature.astro';
 import Footer from '../../components/v2/Footer.astro';
 import { nav, promises } from '../../data/v2';
+import { offers, terms } from '../../data/pricing'; // proto cartes tarifs
 import '../../styles/v2.css';
 import '../../styles/v2-styleguide.css';
 
@@ -193,6 +194,106 @@ const S = Object.fromEntries(sections.map(([id, t, d, k], i) => [id, { t, d, k, 
     <!-- 18 Blog -->
     <section class="r sg-sec" id="blog"><div class="w sg-head"><span class="sg-n">{S.blog.n}</span><h2>{S.blog.t}</h2><p class="v2-mut">{S.blog.d} <code>{S.blog.k}</code></p></div></section>
     <section class="r"><PostFeature /></section>
+
+    <!-- EXPLORATION cartes tarifs (jetable, purgé après choix) — données réelles : offers + terms (data/pricing.ts) -->
+    <section class="r sg-sec" id="tarifs"><div class="w sg-head"><span class="sg-n">18c</span><h2>Exploration — Cartes tarifs</h2><p class="v2-mut">3 directions, mêmes données : <code>offers</code> · <code>terms</code></p></div></section>
+
+    <!-- A · Colonnes à filets -->
+    <section class="r"><div class="w sg-demo mx-label"><span class="sg-n">A</span> <strong>Colonnes à filets</strong></div></section>
+    <section class="r"><div class="w pxA">
+      {offers.map((o) => (
+        <div class:list={['pxA-col', { 'is-reco': o.highlighted }]}>
+          <p class="v2-meta">{o.name}{o.highlighted && <span class="px-reco">Le plus demandé</span>}</p>
+          <p class="v2-mut">{o.subtitle}</p>
+          <p class="px-price">{o.prefix && <small>{o.prefix}</small>}{o.unit && <small>{o.unit}</small>}<b>{o.price}</b></p>
+          <p class="v2-meta px-after">{o.after}</p>
+          <ul class="px-feat">{o.features.map((f) => <li>{f}</li>)}</ul>
+          <a href="/contact" class:list={['v2-btn', { 'v2-btn-ghost': !o.highlighted }]}><span>{o.cta}</span></a>
+          <a href={o.href} class="v2-a px-more">Voir le service</a>
+        </div>
+      ))}
+    </div></section>
+    <section class="r"><div class="w v2-meta px-terms"><span>Paiement {terms.payment}</span><span>{terms.commitment}</span><span>Appel découverte gratuit</span></div></section>
+
+    <!-- B · Lignes fiche technique -->
+    <section class="r"><div class="w sg-demo mx-label"><span class="sg-n">B</span> <strong>Lignes fiche technique</strong></div></section>
+    <section class="r"><div class="w pxB">
+      {offers.map((o, i) => (
+        <div class:list={['pxB-row', { 'is-reco': o.highlighted }]}>
+          <span class="sg-n">{String(i + 1).padStart(2, '0')}</span>
+          <div><h3 class="pxB-name">{o.name}</h3><p class="v2-mut">{o.subtitle}</p>{o.highlighted && <p class="v2-meta px-reco-t">Le plus demandé</p>}</div>
+          <div><p class="px-price">{o.prefix && <small>{o.prefix}</small>}{o.unit && <small>{o.unit}</small>}<b>{o.price}</b></p><p class="v2-meta px-after">{o.after}</p></div>
+          <ul class="px-feat">{o.features.map((f) => <li>{f}</li>)}</ul>
+          <div class="pxB-cta"><a href="/contact" class:list={['v2-btn', 'v2-btn-sm', { 'v2-btn-ghost': !o.highlighted }]}><span>{o.cta}</span></a><a href={o.href} class="v2-a px-more">Voir le service</a></div>
+        </div>
+      ))}
+    </div></section>
+    <section class="r"><div class="w v2-meta px-terms"><span>Paiement {terms.payment}</span><span>{terms.commitment}</span><span>Appel découverte gratuit</span></div></section>
+
+    <!-- C · Bento mis en avant -->
+    <section class="r"><div class="w sg-demo mx-label"><span class="sg-n">C</span> <strong>Bento mis en avant</strong></div></section>
+    <section class="r"><div class="w pxC">
+      {[...offers].sort((a, b) => Number(b.highlighted) - Number(a.highlighted)).map((o) => (
+        <div class:list={['pxC-cell', { 'pxC-big v2-teal v2-dots': o.highlighted }]} data-spot={o.highlighted ? '' : undefined}>
+          {o.highlighted && <i class="v2-dots-glow" aria-hidden="true"></i>}
+          <div class="pxC-top">
+            <p class="v2-meta">{o.name}{o.highlighted && <span class="px-reco">Le plus demandé</span>}</p>
+            <p class="px-price">{o.prefix && <small>{o.prefix}</small>}{o.unit && <small>{o.unit}</small>}<b>{o.price}</b></p>
+            <p class="px-sub">{o.subtitle} · {o.after}</p>
+          </div>
+          {o.highlighted && <ul class="px-feat">{o.features.map((f) => <li>{f}</li>)}</ul>}
+          <div class="pxB-cta"><a href="/contact" class:list={['v2-btn', 'v2-btn-sm', { 'v2-btn-ghost': !o.highlighted }]}><span>{o.cta}</span></a><a href={o.href} class="v2-a px-more">Voir le service</a></div>
+        </div>
+      ))}
+      <div class="pxC-terms"><p class="v2-meta">Bon à savoir</p><ul class="px-feat"><li>Paiement {terms.payment}</li><li>{terms.commitment}</li><li>Appel découverte gratuit</li></ul></div>
+    </div></section>
+
+    <style>
+      .mx-label { padding-top: 22px; padding-bottom: 22px; display: flex; gap: 12px; align-items: baseline; }
+      .px-price { display: flex; align-items: baseline; gap: 8px; font-family: var(--display); margin: 18px 0 4px; }
+      .px-price b { font-weight: 500; font-size: clamp(2.4rem, 4vw, 3.4rem); letter-spacing: -0.055em; line-height: 1; }
+      .px-price small { font-family: var(--mono); font-size: .75rem; text-transform: uppercase; color: var(--mut); }
+      .px-after { margin-bottom: 20px; }
+      .px-feat { list-style: none; padding: 0; margin: 0 0 24px; display: grid; gap: 10px; font-size: .95rem; }
+      .px-feat li { display: grid; grid-template-columns: 18px 1fr; align-items: baseline; }
+      .px-feat li::before { content: ''; width: 9px; height: 9px; background: var(--accent-strong); clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%); }
+      .px-reco { margin-left: 10px; padding: 2px 8px; border-radius: 999px; background: var(--ink); color: #fff; font-size: .62rem; }
+      .px-more { font-size: .9rem; color: var(--mut); }
+      .px-terms { padding: 16px var(--pad); gap: 8px 28px; }
+      /* A */
+      .pxA { display: grid; grid-template-columns: repeat(3, 1fr); }
+      .pxA-col { padding: 36px var(--pad) 40px; display: flex; flex-direction: column; align-items: flex-start; }
+      .pxA-col + .pxA-col { border-left: 1px solid var(--line); }
+      .pxA-col.is-reco { background: var(--soft); }
+      .pxA-col .px-feat { flex: 1; }
+      .pxA-col .v2-btn { margin-bottom: 14px; }
+      /* B */
+      .pxB-row { display: grid; grid-template-columns: 48px 1.1fr 1fr 1.5fr auto; gap: 24px; align-items: start; padding: 32px var(--pad); }
+      .pxB-row + .pxB-row { border-top: 1px solid var(--line); }
+      .pxB-row.is-reco { background: var(--soft); }
+      .pxB-name { font-size: 1.5rem; letter-spacing: -0.035em; margin: 0 0 4px; }
+      .pxB-row .px-price { margin-top: 0; } .pxB-row .px-price b { font-size: 2.2rem; }
+      .pxB-row .px-feat { margin: 0; }
+      .px-reco-t { margin-top: 10px; color: var(--accent-strong); }
+      .pxB-cta { display: grid; gap: 10px; justify-items: start; }
+      /* C */
+      .pxC { display: grid; grid-template-columns: 1.3fr 1fr 1fr; grid-template-rows: auto auto; }
+      .pxC-cell { padding: 32px var(--pad); display: flex; flex-direction: column; gap: 16px; position: relative; min-width: 0; }
+      .pxC-big { grid-row: span 2; justify-content: space-between; border-right: 1px solid var(--line); }
+      .pxC-big .px-price b { font-size: clamp(3rem, 6vw, 5rem); }
+      .pxC-big .v2-meta, .pxC-big .px-sub, .pxC-big .px-price small { color: var(--ink); }
+      .pxC-big .px-feat li::before { background: var(--ink); }
+      .pxC-cell:nth-child(3) { border-left: 1px solid var(--line); }
+      .pxC-terms { grid-column: 2 / 4; border-top: 1px solid var(--line); padding: 28px var(--pad); }
+      .pxC-terms .px-feat { margin: 12px 0 0; }
+      .pxC-cell:not(.pxC-big) { border-bottom: 0; }
+      .px-sub { font-size: .95rem; color: var(--mut); }
+      .pxC .pxC-top > * { position: relative; z-index: 1; } .pxC-big > * { position: relative; z-index: 1; }
+      @media (max-width: 900px) {
+        .pxA, .pxC { grid-template-columns: 1fr; } .pxA-col + .pxA-col { border-left: 0; border-top: 1px solid var(--line); }
+        .pxB-row { grid-template-columns: 1fr; } .pxC-big { grid-row: auto; border-right: 0; } .pxC-terms { grid-column: auto; } .pxC-cell:nth-child(3) { border-left: 0; border-top: 1px solid var(--line); }
+      }
+    </style>
 
     <!-- 19 Footer -->
     <section class="r sg-sec" id="footer"><div class="w sg-head"><span class="sg-n">{S.footer.n}</span><h2>{S.footer.t}</h2><p class="v2-mut">{S.footer.d} <code>{S.footer.k}</code></p></div></section>
