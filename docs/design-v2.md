@@ -95,6 +95,12 @@ Composants Astro dans `src/components/v2/`, comportements dans `src/scripts/v2-u
 | Cartes tarifs | C · Bento mis en avant | `<Pricing />` | Offre `highlighted` en grande cellule teal sur 2 rangées (c'est **la** cellule teal de la page), Site web et App en petites cellules, « Bon à savoir » dessous. Données : `offers` + `terms` de `data/pricing.ts`, seule source des prix |
 | Témoignages | A · Grande citation | `<Testimonials />` | Citation en grand (Funnel, guillemet teal) à gauche, liste numérotée des clients + résultat à droite ; un bouton (`aria-pressed`) affiche sa citation (`[data-testi]`, v2-ui). **Contenu lorem** (`testimonials`, `data/v2.ts`) à remplacer par de vrais témoignages |
 | Page article | B · Magazine centré | `src/pages/blog/[slug].astro` · `.v2-art*` | Tags + titre + auteur/date centrés, image 21/9 bord à bord, colonne 680px, sommaire repliable (> 2 parties), lettrine. Le corps garde `.co-prose` (TL;DR, tableaux, code, widgets MDX) ; `.v2-art` aliase `--muted` / `--surface` / `--line-2`. Fin : partage, auteur, « À lire ensuite » (3 cellules) |
+| Gabarit page service | — | `<ServicePage />` (`components/v2/ServicePage.astro`) | Objet de données : head, repères, sections, bento, méthode, cas, liens, témoignages, FAQ. Utilisé par hermes, consultant IA, formation, app mobile, création de site, développeur Genève |
+| Gabarit page déclinée | — | `declinee/DeclineePage.astro` + `DcPage` (`types.ts`) | Villes et métiers : sections `prose` (titre collant + texte) et `cells` (grille bord à bord) ; la route mappe sa source de données |
+| Page simple | — | `layouts/V2Simple.astro` | En-tête centré + colonne 680px `.co-prose` (cv, mentions, reddit-dashboard) |
+| Grille d'articles | — | `<PostCells />` | Partagée par `/blog` et `/blog/tag/[tag]` |
+| Formulaire contact | — | `<ContactSteps />` | 3 étapes, envoi Web3Forms |
+| Apparition au scroll | — | `data-rise` (v2-ui) · `.v2-gap` | Les enfants directs montent en décalé ; `.v2-gap` = respiration entre cellules |
 | Hub | — | inline dans `v2.astro` | Vidéo 2×2 + cartes (tweet, article, LinkedIn), section sombre |
 | Section contrastée | — | `.v2-private` | Fond `--soft`, titre à gauche, 2 gros boutons empilés à droite |
 | Agenda | — | `.v2-agenda` | Cal.com inline pleine largeur, chargé à l'approche |
@@ -125,7 +131,7 @@ Icônes : Remix Icon, monochromes. Jamais d'emoji dans l'UI.
 
 ## 8. Appliquer aux autres pages
 
-1. Reprendre le chrome : nav haute + dock + footer de `v2.astro` (à extraire en composants au moment du chantier).
+1. Reprendre le chrome via `layouts/V2Page.astro` (Nav + Dock + Footer + comportements).
 2. Construire chaque page en rangées `.r > .w`, en-tête `.v2-head`, puis des cellules qui remplissent.
 3. Pages de liste (réalisations, blog) : une rangée par élément, image bord à bord, ligne de métadonnées mono.
 4. Pages de détail (étude de cas, article) : colonne de lecture dans le container, filets entre blocs,

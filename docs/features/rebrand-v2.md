@@ -3,6 +3,52 @@
 > Branche `rebrand-v2`. Spike de la future home sur `/v2` (noindex), puis redesign de toutes les pages.
 > Système de design figé dans `docs/design-v2.md`. Le fond (copy, offre) attend le repositionnement en cours.
 
+> **Statut** : EN COURS (toutes les pages sauf la home sont en v2) · **Commits** : `cd59f58..3b33aa5`
+
+## Ce que ça fait
+Refonte visuelle du site jonlabs.ch sur le système « v2 » (grille à filets, Funnel Display, teal), page par page, sur la branche `rebrand-v2`. Le visiteur voit un site cohérent « freelance systèmes IA » ; seule la home `/` garde l'ancien design, la v2 vivant sur `/v2` (noindex) en attendant la copy.
+
+## Comment ça marche
+- Coquille : `layouts/V2Page.astro` (Layout + Nav + Dock + Footer + `v2.css` + `v2-ui.ts`, prop `current` pour la pastille de nav). `layouts/V2Simple.astro` ajoute en-tête centré + colonne 680px `.co-prose` (cv, mentions, reddit-dashboard).
+- Pages service : `components/v2/ServicePage.astro` reçoit un objet (head, proofs, sections, bento, method, cases, links, testimonials, faq) ; chaque route (`hermes`, `consultant-ia`, formation IA, app mobile, création de site, développeur freelance Genève) ne fait que fournir les données.
+- Pages déclinées (villes, métiers) : `components/v2/declinee/DeclineePage.astro` + contrat `types.ts` (`DcPage`) ; chaque route mappe sa source (`villes-suisse-ia`, `villes-mobile`, `metiers-ia`) vers ce contrat via `shared.ts`.
+- Blog : `PostCells.astro` = grille partagée par `/blog` et `/blog/tag/[tag]` ; `lib/tags.ts` porte les libellés des 33 tags normalisés (anciens 148 → 33, table dans `docs/research/tags-normalisation.md`).
+- Contact : `ContactSteps.astro`, formulaire 3 étapes, POST `fetch` vers `api.web3forms.com/submit` (conservé de l'ancienne page).
+- Portfolio : `/portfolio` en rangées (`data-rise`), `/portfolio/[slug]` = dossier technique + lightbox.
+- Redirections : fusions et retraits dans `vercel.json` (301), arbitrés dans `docs/research/architecture-pages-v2.md`. `/developpement-web` retiré ; refonte et Webflow absorbées par création de site ; Genève fusionnée dans les piliers.
+- `v2-ui.ts` : `[data-rise]` (enfants directs qui montent en décalé, inactif sous `prefers-reduced-motion`) ; les liens `/contact#agenda` de Nav/Dock deviennent `#agenda` quand la page a son propre agenda (home, contact).
+
+## Comment débuguer
+- **Par où entrer** : le gabarit concerné (`V2Page`, `ServicePage`, `DeclineePage`), puis `src/styles/v2.css` et `src/scripts/v2-ui.ts`.
+- **Ce qu'on observe** : `npm run build` (118 pages), `/v2/styleguide` pour la référence des composants, `dist/` pour title/schémas.
+- **Pannes connues** : voir les Pièges du bloc 2026-11-17 (suite) plus bas (marges `.co-prose`, spécificité `.v2 a`, grille d'article).
+- **Pièges** : `data-rise` pose `opacity:0` en JS sur les enfants ; un enfant ajouté après coup reste visible. Un seul `.v2-teal` par page (la cellule teal de `/tarifs` est `<Pricing />`).
+
+## Configuration
+Clé Web3Forms du formulaire contact (dans `ContactSteps.astro`, publique côté client) ; 301 dans `vercel.json` ; `prebuild` = `scripts/check-canonical-host.mjs`.
+
+## Tests et vérifications
+| Vérif | Commande | Résultat réel |
+|---|---|---|
+| Build complet | `npm run build` | OK, 118 pages, relancé le 2026-11-17 |
+| 301 (anciens tags encodés, fusions) | déploiement preview Vercel | **non testé** |
+| Envoi réel du formulaire contact | navigateur | **non testé** |
+| Contrôle visuel 1536×808 et 390px | manuel | rapporté, non relancé |
+
+## Limites et dettes
+- Home `/` encore en ancien design ; `Header.astro`, `Footer.astro` et le CSS blueprint ne sont plus importés que par `src/pages/index.astro` (et `Layout.astro` pour le CSS).
+- Formulaire contact non branché au CRM (tâche Jonathan).
+- Témoignages en lorem ; études de cas IA absentes.
+
+## Etat session 2026-11-17 (suite 2)
+
+**Fait :** toutes les pages hors home passées en v2 (tarifs, portfolio + détail, about, services, blog + tags, contact, pages service, déclinées, simples, guide), tags normalisés avec 301, audit SEO et arbitrages (`docs/research/architecture-pages-v2.md`), `data-rise`, `.v2-gap`, offre `<Pricing />` sur la trame `DitherBg`, Nav/Dock « Réserver un appel » vers `/contact#agenda`. Beaucoup de composants de l'ancien design supprimés (-22k lignes).
+
+**Prochain :**
+1. Bascule `/v2` → `/` quand la copy de Jonathan arrive : poser la 301 `/v2` → `/`, supprimer l'ancien `Header`/`Footer`/CSS blueprint (seul `index.astro` les importe).
+2. Tester les 301 sur un déploiement preview Vercel (URLs encodées des anciens tags).
+3. Tester l'envoi réel du formulaire contact ; le brancher sur le CRM (tâche Jonathan).
+
 ## Etat session 2026-11-17 (suite)
 
 **Fait :**
@@ -72,7 +118,7 @@
 ---
 
 ## Carte du code
-> Mise a jour : 2026-11-17
+> Mise a jour : 2026-11-17 (suite 2)
 
 | Fichier | Role |
 |---------|------|
@@ -83,6 +129,13 @@
 | `src/components/v2/DitherBg.tsx` | Fond tramé du hero (shader Paper, îlot React) |
 | `src/scripts/v2-ui.ts` | Comportements par attribut : roulement, pastille, nav/dock, lettres/mots, gris→noir, projecteur, compteurs, heure, témoignages, Hairline |
 | `src/styles/v2.css` | Styles v2 partagés, dont méga-menu, page article (`.v2-art*`), tarifs (`.v2-price*`), témoignages (`.v2-testi*`) |
+| `src/layouts/V2Page.astro` · `V2Simple.astro` | Coquille v2 des pages hors home ; variante page simple (en-tête + colonne de lecture) |
+| `src/components/v2/ServicePage.astro` | Gabarit des pages service, piloté par un objet de données |
+| `src/components/v2/declinee/*` | Gabarit des pages villes/métiers (`DeclineePage`, contrat `types.ts`, `shared.ts`) |
+| `src/components/v2/PostCells.astro` · `Article.astro` · `ContactSteps.astro` | Grille d'articles partagée blog/tags ; article du guide ; formulaire contact 3 étapes |
+| `src/lib/tags.ts` | Libellés des 33 tags normalisés du blog |
+| `vercel.json` | 301 des pages fusionnées/retirées et des anciens tags |
+| `docs/research/architecture-pages-v2.md` · `tags-normalisation.md` | Audit SEO, arbitrages, table de correspondance des tags |
 | `src/data/v2.ts` | Nav v2 (`mega` + `iso`), contenus de la home, `testimonials` (lorem) |
 | `src/data/pricing.ts` | Seule source des prix + les 3 `offers` lues par `/tarifs` et `<Pricing />` |
 | `src/data/hub.ts` | Contenu du hub (vidéos YouTube, tweets et post LinkedIn en placeholder) |
@@ -96,6 +149,9 @@
 - URLs existantes conservées (`/services`, `/portfolio`, `/blog`, `/about`) ; pages SEO hors menu, lien « Sites & SEO » en footer ; page `/tarifs` **gardée** (Jonathan, 2026-11-17 : bonne page SEO potentielle), refaite en v2 avec `<Pricing />`.
 - Le méga-menu lit `mainNav` (`data/navigation.ts`) : une seule source pour l'ancien header et la v2.
 - Les articles gardent `.co-prose` (TL;DR, tableaux, code, widgets MDX) plutôt qu'une prose v2 réécrite.
+- Pages service et déclinées = gabarits pilotés par données (une route ne fournit que du contenu) ; les schémas SEO restent dans les routes.
+- Fusions arbitrées par Jonathan : création de site absorbe refonte + Webflow, `/developpement-web` retiré, Genève fusionnée dans les piliers (301 dans `vercel.json`).
+- Tags du blog 148 → 33, anciens tags en 301.
 - `<Pricing />` occupe la cellule teal de la page : pas d'autre `.v2-teal` sur `/tarifs`.
 
 ## Taches
@@ -109,12 +165,14 @@
 - [ ] Études de cas IA (2-3) pour remplacer les cas web/SEO
 - [ ] Contenu réel du hub (tweets, post LinkedIn) + 2 photos
 - [x] Extraire nav / dock / footer en composants
-- [ ] Brancher `ProjectForm` sur un envoi réel
+- [ ] Brancher `ProjectForm` (home) sur un envoi réel
 - [x] Méga-menu v2 (direction C · Carte flottante, Systèmes IA + Blog)
 - [x] Page article de blog v2 (direction B · Magazine centré)
 - [x] Cartes tarifs `<Pricing />` (direction C · Bento mis en avant)
-- [ ] Page `/tarifs` en v2 (avec `<Pricing />`)
+- [x] Page `/tarifs` en v2 (avec `<Pricing />`)
 - [x] Composant témoignages `<Testimonials />` (direction A · Grande citation)
 - [ ] Vrais témoignages à la place du lorem (`testimonials`, `data/v2.ts`)
-- [ ] Redesign `/portfolio`, `/portfolio/[slug]`, `/blog`, `/blog/[slug]`, `/about`, `/services`
-- [ ] Bascule `/v2` → `/`
+- [x] Redesign `/portfolio`, `/portfolio/[slug]`, `/blog`, `/blog/[slug]`, `/about`, `/services`, `/contact`, pages service/déclinées/simples
+- [ ] Tester les 301 sur un preview Vercel
+- [ ] Tester l'envoi réel du formulaire contact, puis le brancher au CRM
+- [ ] Bascule `/v2` → `/` (301 `/v2` → `/`, retrait ancien Header/Footer/blueprint)

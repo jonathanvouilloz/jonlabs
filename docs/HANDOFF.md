@@ -13,12 +13,12 @@
 | Chantier SEO IA (consultant IA) | docs/planSEOIA.md | EN ATTENTE — Phase 3 ; devient le cœur du pivot focus IA (09.11) |
 | Devis Cabinet Grange-Canal | docs/features/devis-cabinet-grange-canal.md | CODE FINI — attend le call |
 | Refonte blueprint (design/typo) | docs/features/refonte-blueprint.md | BOUCLÉE — reste `/epic-recap` |
-| Rebrand v2 (DA freelance systèmes IA) | docs/features/rebrand-v2.md | **EN COURS** — branche `rebrand-v2` : composants v2 complets (méga-menu, article, tarifs, témoignages lorem) ; reste le redesign des pages + copy |
+| Rebrand v2 (DA freelance systèmes IA) | docs/features/rebrand-v2.md | **EN COURS** — toutes les pages hors home en v2 (build OK, 118 pages) ; reste la bascule de la home (copy), tests des 301 en preview, envoi réel du formulaire contact |
 | Comparatif outils web pour agents IA | docs/features/comparatif-browser-agents-ia.md | **EN LIGNE 16.11** — reste indexation GSC + benchmark maison |
 | Refresh piliers IA (kirako) | mergé dans main (`1cca170`) | **EN LIGNE 21.09** — mesurer vs baseline 428 imp / 0 clic |
 
 ## Reprendre ici
-Rebrand v2 (branche `rebrand-v2`) — redesign des pages en v2, d'abord `/tarifs` avec `<Pricing />` : détail dans `docs/features/rebrand-v2.md` (bloc 2026-11-17 suite).
+Rebrand v2 (branche `rebrand-v2`) — attente de la copy de la home pour la bascule `/v2` → `/` (301 + suppression ancien Header/Footer/blueprint) ; tester les 301 en preview Vercel ; détail dans `docs/features/rebrand-v2.md` (bloc 2026-11-17 suite 2).
 Tri contenu « focus IA » — bilan entre le 23.11 et le 09.12 (détail dans le fichier feature).
 Commit : [5a40ce9] feat(ui): témoignages v2 direction A (grande citation) validée
 
