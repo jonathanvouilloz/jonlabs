@@ -201,7 +201,7 @@ const S = Object.fromEntries(sections.map(([id, t, d, k], i) => [id, { t, d, k, 
     <section class="r"><PostFeature /></section>
 
     <!-- EXPLORATION page article (jetable, purgé après choix) — contenu réel : dernier article publié -->
-    <section class="r sg-sec" id="article"><div class="w sg-head"><span class="sg-n">18b</span><h2>Exploration — Page article</h2><p class="v2-mut">3 directions, même article : <code>{ap.slug}</code>. Corps coupé à ~1100px.</p></div></section>
+    <section class="r sg-sec" id="article"><div class="w sg-head"><span class="sg-n">18b</span><h2>Exploration — Page article</h2><p class="v2-mut">3 directions, même article : <code>{ap.slug}</code>. Corps coupé à ~2200px.</p></div></section>
 
     <!-- A · Colonne + sommaire -->
     <section class="r"><div class="w sg-demo mx-label"><span class="sg-n">A</span> <strong>Colonne + sommaire</strong></div></section>
@@ -254,7 +254,7 @@ const S = Object.fromEntries(sections.map(([id, t, d, k], i) => [id, { t, d, k, 
     <style>
       .mx-label { padding-top: 22px; padding-bottom: 22px; display: flex; gap: 12px; align-items: baseline; }
       .ax-h1 { font-size: clamp(2.2rem, 5vw, 4rem); line-height: 1; margin: 18px 0; max-width: 16ch; }
-      .ax-clip { max-height: 1100px; overflow: hidden; position: relative; min-width: 0; }
+      .ax-clip { max-height: 2200px; overflow: hidden; position: relative; min-width: 0; }
       .ax-clip::after { content: ''; position: absolute; inset: auto 0 0; height: 160px; background: linear-gradient(transparent, var(--bg)); }
       /* prose commune (proto) */
       .ax-prose { font-size: 1.06rem; line-height: 1.7; }
