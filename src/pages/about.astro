@@ -1,379 +1,106 @@
 ---
-// Page À propos — Jon Labs (blueprint)
-// Migrée du brutaliste vers le design blueprint : chrome global .co-chrome,
-// corps .co-root, primitives .co-*, styles scopés .ab-*.
+// Page À propos — Jon Labs (v2, direction « minimal » : une colonne de lecture, un seul portrait)
+import { Image } from 'astro:assets';
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/v2/Nav.astro';
+import Dock from '../components/v2/Dock.astro';
+import Footer from '../components/v2/Footer.astro';
+import imgJonathan from '../assets/jonathan-vouilloz.webp';
+import '../styles/v2.css';
 
-import '../styles/global.css'
-import { Image } from 'astro:assets'
-import Layout from "../layouts/Layout.astro"
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
-
-import imgJonathan from '../assets/jonathan-vouilloz.webp'
-import illuAbout from '../assets/illustrations/about.webp'
-
-// Schema.org
 import { personData, SITE_URL } from '../data/schema';
-import { proofLecureux } from '../data/proof-lecureux';
-import { getAboutPageSchema } from '../lib/seo';
+import { getAboutPageSchema, getBreadcrumbSchema } from '../lib/seo';
 
-const pageTitle = "À propos — Jonathan Vouilloz, développeur web à Genève";
-const pageDescription = "Développeur web freelance à Genève — 8+ ans d'expérience en création de sites, automatisation et stratégie digitale pour PME en Suisse romande. Mon parcours, ma vision, mes références.";
+const pageTitle = "Jonathan Vouilloz : systèmes IA sur mesure, Genève";
+const pageDescription = "Je construis des systèmes IA pour des entreprises qui n'ont pas d'équipe tech. Mon parcours, de l'ESIG et la HEG à Jon Labs, à Genève.";
 
-const aboutPageSchema = getAboutPageSchema({
-  url: `${SITE_URL}/about`,
-  name: pageTitle,
-  description: pageDescription
-});
-
-const schemas = [personData, aboutPageSchema];
+const schemas = [
+  personData,
+  getAboutPageSchema({ url: `${SITE_URL}/about`, name: pageTitle, description: pageDescription }),
+  getBreadcrumbSchema([
+    { name: "Accueil", url: SITE_URL },
+    { name: "À propos", url: `${SITE_URL}/about` }
+  ]),
+];
 
 const timeline = [
-  { year: "2025", label: "Lancement de Jon Labs", detail: "Freelance · développement web, automatisation, conseil digital", current: true },
-  { year: "2021", label: "Co-fondateur Kusari Sàrl", detail: "Exploration blockchain/Web3, développement de prototypes" },
-  { year: "2020", label: "Freelance Barber Concept", detail: "App de réservation utilisée par 19'000 personnes dans 6 salons" },
-  { year: "2017", label: "Bachelor HES Informatique de Gestion", detail: "Haute École de Gestion (HEG), Genève" },
-  { year: "2015", label: "CFC Informaticien de Gestion", detail: "ESIG, Genève" },
+  { year: '2025', label: 'Lancement de Jon Labs' },
+  { year: '2021', label: 'Co-fondateur Kusari Sàrl' },
+  { year: '2020', label: 'Freelance Barber Concept' },
+  { year: '2017', label: 'Bachelor HES, HEG Genève' },
+  { year: '2015', label: 'CFC Informaticien de gestion, ESIG' },
 ];
 ---
 
-<Layout
-  title={pageTitle}
-  description={pageDescription}
-  schemas={schemas}
->
-  <Header />
+<Layout title={pageTitle} description={pageDescription} schemas={schemas}>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" />
+  </Fragment>
 
-  <main class="co-root">
+  <div class="v2">
+    <Nav current="/about" />
+    <Dock current="/about" />
 
-    <!-- ══ HERO — texte + portrait cadré ══ -->
-    <section class="co-sec co-pad ab-hero">
-      <div class="co-guides"></div>
-      <div class="ab-hero-grid">
-        <!-- Texte -->
-        <div class="ab-hero-body">
-          <h1 class="ab-hero-title" data-animate data-delay="0.1">
-            Jonathan Vouilloz, <span class="co-ser">développeur web</span> à Genève
-          </h1>
-          <p class="co-mut ab-hero-lead" data-animate data-delay="0.2">
-            Développeur web freelance basé à Genève. J'accompagne des entrepreneurs et PME dans toute la Suisse romande : Genève, Lausanne, Neuchâtel, Valais. Si tu te demandes <a href="/blog/specialiste-developpement-web-suisse" class="ab-inline">comment choisir un spécialiste en développement web en Suisse</a>, j'ai écrit un guide qui couvre les 5 critères concrets.
-          </p>
-        </div>
+    <main>
+      <header class="r"><div class="w ab-m-col ab-m-hero">
+        <div><Image src={imgJonathan} alt="Jonathan Vouilloz" width={160} height={200} quality={85} loading="eager" class="ab-m-face" /></div>
+        <h1 class="v2-h1" data-words>Jonathan Vouilloz.<br /><span class="v2-dim">Genève.</span></h1>
+      </div></header>
 
-        <!-- Portrait cadré -->
-        <div class="ab-hero-media" data-animate="fade-left" data-delay="0.2">
-          <figure class="ab-hero-frame co-frame">
-            <span class="co-x tl"></span><span class="co-x tr"></span>
-            <span class="co-x bl"></span><span class="co-x br"></span>
-            <Image
-              src={imgJonathan}
-              alt="Jonathan Vouilloz — développeur web freelance à Genève"
-              width={400}
-              height={500}
-              quality={85}
-              loading="eager"
-              class="ab-hero-photo"
-            />
-            <figcaption class="co-badge ab-hero-badge">Genève, Suisse</figcaption>
-          </figure>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ NARRATIF — intro ══ -->
-    <section class="co-sec co-pad ab-sec">
-      <div class="ab-narrow">
-        <h2 class="ab-h2" data-animate>
-          Je ne savais pas vraiment ce que je voulais faire.
-        </h2>
-        <div class="ab-prose" data-animate data-delay="0.1">
-          <p>
-            Et honnêtement, je pense que c'est ce qui m'a le mieux servi.
-          </p>
-          <p>
-            Je m'appelle Jonathan Vouilloz, j'ai grandi à Genève, et j'ai passé mes études à tourner autour de l'informatique sans jamais me spécialiser dans un seul truc.
-          </p>
-          <p>
-            <strong>L'ESIG, puis la HEG</strong>, pas parce que j'avais un plan précis, mais parce que j'étais curieux de comprendre comment les choses fonctionnent. Les systèmes, les entreprises, les gens.
-          </p>
-          <p>
-            Juste après mes études, je me suis lancé directement dans une startup avec des amis. Pas de passage en entreprise, pas de "période de transition".
-            <br><br>
-            On a construit <strong>GetTime</strong> (un outil de prise de rendez-vous), puis on a tout pivoté vers le <strong>Web3</strong> quand le monde de la crypto a explosé en 2021.
-          </p>
-          <p>
-            Cette période m'a appris des trucs que je n'aurais jamais appris autrement : comment fonctionne l'économie monétaire, ce que ça veut dire de vraiment dépendre de ses coéquipiers, et surtout que <strong>l'argent ne m'a jamais vraiment motivé</strong>.
-            <br><br>
-            Ce qui me faisait lever le matin, c'était la technologie elle-même. Ce qu'on pouvait construire avec. Ce qu'on pouvait changer.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ CE QUE J'AI COMPRIS SUR MOI ══ -->
-    <section class="co-sec co-pad ab-sec">
-      <div class="ab-narrow">
-        <h2 class="ab-h2" data-animate>
-          Ce que j'ai compris sur moi
-        </h2>
-        <p class="ab-lead-p" data-animate data-delay="0.1">
-          Je suis quelqu'un qui a besoin de deux choses pour avancer :
+      <section class="r"><div class="w ab-m-col">
+        <p class="v2-reveal" data-reveal>
+          Je construis des systèmes IA pour des entreprises qui n'ont pas d'équipe tech. Je préfère un outil simple
+          qui tourne tous les jours à une démo impressionnante qui casse.
         </p>
+      </div></section>
 
-        <div class="ab-cards" data-animate-stagger>
-          <article class="ab-card co-frame" data-animate-item>
-            <div class="ab-card-head">
-              <span class="ab-card-icon"><i class="ri-fire-line" aria-hidden="true"></i></span>
-              <h3 class="ab-card-title">Faire des trucs que j'aime vraiment.</h3>
-            </div>
-            <p class="ab-card-text">
-              Pas à moitié. Quand je suis dans un projet qui m'allume, je ne vois pas les heures passer.
-              <br><br>
-              C'est une forme d'état que je cherche en permanence, ce moment où je suis tellement dedans que tout le reste disparaît.
-            </p>
-          </article>
+      <section class="r"><div class="w ab-m-col ab-m-text" data-rise>
+        <p class="ab-m-lead">Je ne savais pas vraiment ce que je voulais faire. Honnêtement, c'est ce qui m'a le mieux servi.</p>
+        <p>L'ESIG, puis la HEG, par curiosité plus que par plan : comprendre comment fonctionnent les systèmes, les entreprises, les gens.
+          Juste après, une startup avec des amis : GetTime, un outil de prise de rendez-vous, puis un pivot vers le Web3 en 2021.</p>
+        <p>J'y ai appris que l'argent ne m'a jamais vraiment motivé. Ce qui me fait lever le matin, c'est ce qu'on peut construire.</p>
+        <p class="ab-m-lead">Deux choses me font avancer : faire ce que j'aime vraiment, et voir que ça sert à quelqu'un.</p>
+      </div></section>
 
-          <article class="ab-card co-frame" data-animate-item>
-            <div class="ab-card-head">
-              <span class="ab-card-icon"><i class="ri-heart-pulse-line" aria-hidden="true"></i></span>
-              <h3 class="ab-card-title">Voir que ça sert à quelqu'un.</h3>
-            </div>
-            <p class="ab-card-text">
-              L'été dernier, j'ai développé une application pour gérer la comptabilité des camps de vacances où je suis moniteur depuis 10 ans. Je l'ai testée sur le terrain. L'organisme a adoré.
-              <br><br>
-              On est maintenant en train de construire quelque chose de plus complet ensemble.
-              <br><br>
-              Ce genre de moment (voir que ce que tu as fait résout vraiment un problème pour de vraies personnes), c'est ma vraie récompense.
-            </p>
-          </article>
-        </div>
-
-        <p class="ab-lead-p" data-animate>
-          Ces deux critères guident tout ce que je choisis de faire. Toujours.
-        </p>
-      </div>
-    </section>
-
-    <!-- ══ PARCOURS — timeline blueprint (filets fins) ══ -->
-    <section class="co-sec co-pad ab-sec">
-      <div class="ab-narrow">
-        <h2 class="ab-h2" data-animate>
-          Parcours
-        </h2>
-
-        <ol class="ab-timeline" data-animate-stagger>
-          {timeline.map((item) => (
-            <li class="ab-tl-row" data-animate-item>
-              <span class="co-index ab-tl-year">{item.year}</span>
-              <span class="ab-tl-body">
-                <span class="ab-tl-label">
-                  {item.label}
-                  {item.current && <span class="co-badge co-badge--solid ab-tl-now">Actuel</span>}
-                </span>
-                <span class="co-mut ab-tl-detail">{item.detail}</span>
-              </span>
-            </li>
-          ))}
+      <section class="r"><div class="w ab-m-col ab-m-path">
+        <ol class="ab-m-tl" data-rise>
+          {timeline.map((t) => <li><span class="v2-meta">{t.year}</span>{t.label}</li>)}
         </ol>
-
-        <a href="/cv" class="ab-textlink" data-animate>
-          Voir le CV complet <i class="ri-arrow-right-line" aria-hidden="true"></i>
-        </a>
-      </div>
-    </section>
-
-    <!-- ══ CE QUE JE FAIS CONCRÈTEMENT — texte + illustration cadrée ══ -->
-    <section class="co-sec co-pad ab-sec">
-      <div class="ab-do-grid">
-        <div class="ab-do-body">
-          <h2 class="ab-h2" data-animate>
-            Ce que je fais concrètement
-          </h2>
-
-          <div class="ab-prose" data-animate data-delay="0.1">
-            <p>
-              J'aide les petites et moyennes entreprises à <strong>développer leur présence digitale</strong> et à <strong>automatiser ce qui leur fait perdre du temps</strong>.
-            </p>
-            <p>
-              Ça peut vouloir dire créer un site qui les rend vraiment visibles.
-              <br><br>
-              J'ai travaillé le référencement local d'un {proofLecureux.metier} : <span class="ab-proof">{proofLecureux.businessResult} en {proofLecureux.duration}, {proofLecureux.rankClaim}</span> (<a href={proofLecureux.portfolioUrl} class="ab-inline">voir l'étude de cas</a>).
-              <br><br>
-              Ça peut vouloir dire repenser des processus internes qui ralentissent tout le monde. Ou construire un outil sur-mesure qui n'existe pas encore et dont quelqu'un a vraiment besoin.
-            </p>
-            <p>
-              Ce qui me distingue d'une agence classique, ce n'est pas juste le prix. Tu as affaire à un <strong>expert développement web suisse qui voit l'ensemble du tableau</strong>.
-              <br><br>
-              Pas un commercial qui te vend, un chef de projet qui coordonne, et un dev qui code sans comprendre ton métier. Juste quelqu'un qui a touché au design, au développement, au copywriting, au SEO, à l'automatisation, et qui peut te dire franchement ce qui va vraiment t'aider.
-            </p>
-            <p>
-              Je ne suis pas un exécutant. Je suis là pour <strong>challenger ce que tu veux faire</strong>, t'aider à voir ce que tu ne vois plus, et construire avec toi quelque chose qui a du sens.
-            </p>
-            <a href="/portfolio" class="ab-textlink">
-              Voir mes réalisations <i class="ri-arrow-right-line" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- Illustration cadrée (remplace le Halo brutaliste) -->
-        <aside class="ab-illu" data-animate="fade-left" data-delay="0.2">
-          <figure class="ab-illu-frame co-frame">
-            <span class="co-x tl"></span><span class="co-x tr"></span>
-            <span class="co-x bl"></span><span class="co-x br"></span>
-            <Image
-              src={illuAbout}
-              alt=""
-              class="ab-illu-img"
-              aria-hidden="true"
-            />
-          </figure>
-        </aside>
-      </div>
-    </section>
-
-    <!-- ══ EN DEHORS DU BOULOT ══ -->
-    <section class="co-sec co-pad ab-sec">
-      <div class="ab-narrow">
-        <h2 class="ab-h2" data-animate>
-          En dehors du boulot
-        </h2>
-        <div class="ab-prose" data-animate data-delay="0.1">
-          <p>
-            Je joue au <strong>badminton</strong> depuis des années, c'est ma façon de sortir la tête du code.
-            <br><br>
-            Je prends des <strong>photos</strong>. Je suis passionné par les <strong>jeux de société</strong> (au point d'avoir un projet qui tourne autour de ça). Et la <strong>crypto</strong> reste un domaine que je suis de près, même si je la regarde maintenant avec un peu plus de recul qu'en 2021.
-          </p>
-          <p>
-            Ces centres d'intérêt m'ont appris des choses que je n'aurais pas trouvées ailleurs.
-            <br><br>
-            Le badminton m'a appris la discipline et la régularité. Les jeux de société m'ont appris à penser systèmes et mécanique. La crypto m'a ouvert l'économie et la politique monétaire d'une façon que l'école ne m'avait jamais offerte.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ CTA FINAL (primitive .co-cta) ══ -->
-    <section class="co-cta">
-      <span class="co-x tl"></span><span class="co-x tr"></span>
-      <div class="co-cta-inner">
-        <h2 class="co-cta-title">Si tu veux <span class="co-ser">travailler avec moi</span></h2>
-        <p class="co-cta-lead">
-          Je suis flexible, disponible, et je m'adapte vite. Ce que je demande en retour, c'est d'avoir de vraies conversations, pas juste un brief par email. J'ai besoin de comprendre ton contexte pour t'aider correctement.
+        <p class="ab-m-links">
+          <a href="/cv"><span>Voir le CV complet</span> <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
+          <a href="/portfolio"><span>Voir mes réalisations</span> <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
         </p>
-        <p class="co-cta-lead">
-          Si tu as un projet qui te trotte dans la tête, parle-m'en. Même si tu ne sais pas encore exactement ce que tu cherches. On part de là.
-        </p>
-        <div class="co-cta-btns">
-          <a href="/contact" class="co-btn co-cta-btn">Parler de mon projet <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
-        </div>
-      </div>
-    </section>
+      </div></section>
 
-  </main>
+      <section class="r"><div class="w ab-m-col ab-m-end">
+        <h2 class="v2-h2" data-words>Un projet en tête&nbsp;?<br /><span class="v2-dim">On part de là.</span></h2>
+        <div><a href="/contact" class="v2-btn"><span data-roll>Parlons-en</span> <i class="ri-arrow-right-line"></i></a></div>
+      </div></section>
+    </main>
 
-  <Footer />
+    <Footer />
+  </div>
 </Layout>
 
-<style>
-  /* ══ À PROPOS — styles scopés .ab-* ══ */
-
-  /* Rythme vertical des sections narratives via flex+gap (jamais margin seul). */
-  .ab-sec { padding: 64px var(--sec-pad-x); }
-  .ab-narrow {
-    display: flex; flex-direction: column; gap: 28px;
-    max-width: 720px; margin: 0 auto;
-  }
-  .ab-h2 { font-size: clamp(1.6rem, 3.4vw, 2.2rem); }
-
-  /* Prose narrative — colonne flex, espacement par gap. */
-  .ab-prose { display: flex; flex-direction: column; gap: 24px; font-size: 1.0625rem; line-height: 1.8; color: var(--muted); }
-  .ab-prose strong { color: var(--ink); font-weight: 600; }
-  .ab-lead-p { font-size: 1.0625rem; line-height: 1.7; color: var(--muted); }
-
-  /* Liens inline (l'underline UA est reset par le blueprint → on la ré-autorise). */
-  .ab-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
-  .ab-inline:hover { color: var(--ink); }
-
-  /* Lien texte type "Voir le CV" — filet fin sous le libellé. */
-  .ab-textlink {
-    display: inline-flex; align-items: center; gap: 8px; align-self: flex-start;
-    font-size: 14px; font-weight: 600; color: var(--ink);
-    padding-bottom: 3px; border-bottom: 1px solid var(--line-2);
-    transition: color .18s ease-out, border-color .18s ease-out;
-  }
-  .ab-textlink i { transition: transform .18s ease-out; }
-  .ab-textlink:hover { color: var(--accent); border-color: var(--accent); }
-  .ab-textlink:hover i { transform: translateX(3px); }
-
-  /* ── Hero ── */
-  .ab-hero { position: relative; overflow: hidden; }
-  .ab-hero-grid {
-    position: relative;
-    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 56px; align-items: center;
-    padding: 72px 40px 64px;
-  }
-  .ab-hero-body { display: flex; flex-direction: column; align-items: flex-start; gap: 20px; }
-  .ab-hero-title { font-size: clamp(2.3rem, 5.2vw, 3.6rem); }
-  .ab-hero-lead { font-size: 1.05rem; line-height: 1.65; max-width: 46ch; }
-
-  .ab-hero-media { display: flex; justify-content: center; }
-  .ab-hero-frame { position: relative; width: 100%; max-width: 340px; }
-  .ab-hero-photo { display: block; width: 100%; height: auto; object-fit: cover; }
-  .ab-hero-badge {
-    position: absolute; left: 16px; bottom: 16px; z-index: 4;
-    background: var(--surface);
-  }
-
-  /* ── Ce que j'ai compris : cartes cadrées ── */
-  .ab-cards { display: flex; flex-direction: column; gap: 16px; }
-  .ab-card {
-    position: relative; display: flex; flex-direction: column; gap: 14px;
-    padding: 26px 28px; background: var(--surface); border: 1px solid var(--line-2);
-  }
-  .ab-card-head { display: flex; align-items: center; gap: 14px; }
-  .ab-card-icon {
-    flex: none; width: 42px; height: 42px; display: grid; place-items: center;
-    border: 1px solid var(--line-2); color: var(--accent); font-size: 20px;
-  }
-  .ab-card-title { font-size: 1.15rem; }
-  .ab-card-text { font-size: 1rem; line-height: 1.75; color: var(--muted); }
-
-  /* ── Timeline blueprint (filets fins, année tabulaire) ── */
-  .ab-timeline {
-    display: flex; flex-direction: column;
-    border-top: 1px solid var(--line);
-  }
-  .ab-tl-row {
-    display: grid; grid-template-columns: 76px 1fr; gap: 24px; align-items: baseline;
-    padding: 18px 0; border-bottom: 1px solid var(--line);
-  }
-  .ab-tl-year { font-size: 15px; font-weight: 600; color: var(--ink); }
-  .ab-tl-body { display: flex; flex-direction: column; gap: 4px; }
-  .ab-tl-label { display: inline-flex; align-items: center; gap: 10px; flex-wrap: wrap; font-size: 1.05rem; font-weight: 600; color: var(--ink); }
-  .ab-tl-now { font-size: 10px; }
-  .ab-tl-detail { font-size: 14px; line-height: 1.5; }
-
-  /* ── Ce que je fais : grille texte + illustration ── */
-  .ab-do-grid { display: grid; grid-template-columns: 1fr minmax(0, 360px); gap: 56px; align-items: start; }
-  .ab-do-body { display: flex; flex-direction: column; gap: 28px; }
-  .ab-illu { position: sticky; top: 112px; }
-  .ab-illu-frame { position: relative; }
-  .ab-illu-img { display: block; width: 100%; height: auto; }
-
-  /* ── Bloc preuve dynamique (highlight teal léger, coins nets) ── */
-  .ab-proof { background: rgba(0, 168, 125, 0.10); color: var(--ink); font-weight: 500; padding: 1px 5px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
-
-  /* ── Responsive ── */
-  @media (max-width: 900px) {
-    .ab-hero-grid { grid-template-columns: 1fr; gap: 40px; padding: var(--sec-pad-y) var(--sec-pad-x); }
-    .ab-hero-media { order: -1; }
-    .ab-hero-frame { max-width: 300px; }
-    .ab-do-grid { grid-template-columns: 1fr; gap: 40px; }
-    .ab-illu { display: none; }
-  }
-  @media (max-width: 720px) {
-    .ab-sec { padding: 56px 20px; }
-    .ab-hero-grid { padding: 48px 20px; }
-    .ab-tl-row { grid-template-columns: 60px 1fr; gap: 16px; }
-  }
+<style is:global>
+  .v2 .ab-m-col { padding: clamp(64px, 11vw, 140px) var(--pad); max-width: 1180px; }
+  .v2 .ab-m-col > * { width: min(100%, 680px); margin-inline: auto; }
+  .v2 .ab-m-hero { display: grid; gap: 40px; }
+  .v2 .ab-m-hero .ab-m-face { width: 88px; height: 110px; object-fit: cover; border-radius: var(--r); display: block; }
+  .v2 .ab-m-text { display: grid; gap: 28px; font-size: 1.1rem; line-height: 1.7; color: var(--mut); }
+  .v2 .ab-m-text .ab-m-lead { font-family: var(--display); color: var(--ink); font-size: clamp(1.3rem, 2.2vw, 1.6rem); line-height: 1.25; letter-spacing: -0.03em; }
+  .v2 .ab-m-path { display: grid; gap: 28px; }
+  .v2 .ab-m-tl { list-style: none; padding: 0; display: grid; }
+  .v2 .ab-m-tl li { display: grid; grid-template-columns: 72px 1fr; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 1.05rem; }
+  .v2 .ab-m-tl li:first-child { border-top: 1px solid var(--line); }
+  .v2 .ab-m-links { display: flex; flex-wrap: wrap; gap: 12px 28px; }
+  .v2 .ab-m-links a { display: inline-flex; align-items: center; gap: 6px; color: var(--mut); }
+  .v2 .ab-m-links span { text-decoration: underline; text-underline-offset: 4px; }
+  .v2 .ab-m-links a:hover { color: var(--ink); }
+  .v2 .ab-m-end { display: grid; gap: 32px; }
 </style>
+
+<script>
+  import '../scripts/v2-ui';
+</script>
