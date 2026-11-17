@@ -81,7 +81,7 @@
 - [x] Extraire nav / dock / footer en composants
 - [ ] Brancher `ProjectForm` sur un envoi réel
 - [x] Méga-menu v2 (direction C · Carte flottante, Systèmes IA + Blog)
-- [ ] Page article de blog v2
+- [x] Page article de blog v2 (direction B · Magazine centré)
 - [ ] Pricing cards (à confirmer)
 - [ ] Composant témoignages (vrais témoignages à collecter)
 - [ ] Redesign `/portfolio`, `/portfolio/[slug]`, `/blog`, `/blog/[slug]`, `/about`, `/services`

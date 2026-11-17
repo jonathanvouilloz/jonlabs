@@ -92,6 +92,7 @@ Composants Astro dans `src/components/v2/`, comportements dans `src/scripts/v2-u
 | Formulaire | C · Tuiles | `<ProjectForm action? />` | Tuiles à cocher (agent, app, automatisation, je ne sais pas) puis champs bordés. **Pas de backend** : passer `action` avant usage |
 | Liste d'articles | C · À la une | `<PostFeature count? />` | Le dernier en grand (image 16/9), les suivants en lignes à droite |
 | Footer | C · Barre d'état | `<Footer />` | Colonnes + barre mono : heure de Genève en direct, date du dernier build, ©, haut de page |
+| Page article | B · Magazine centré | `src/pages/blog/[slug].astro` · `.v2-art*` | Tags + titre + auteur/date centrés, image 21/9 bord à bord, colonne 680px, sommaire repliable (> 2 parties), lettrine. Le corps garde `.co-prose` (TL;DR, tableaux, code, widgets MDX) ; `.v2-art` aliase `--muted` / `--surface` / `--line-2`. Fin : partage, auteur, « À lire ensuite » (3 cellules) |
 | Hub | — | inline dans `v2.astro` | Vidéo 2×2 + cartes (tweet, article, LinkedIn), section sombre |
 | Section contrastée | — | `.v2-private` | Fond `--soft`, titre à gauche, 2 gros boutons empilés à droite |
 | Agenda | — | `.v2-agenda` | Cal.com inline pleine largeur, chargé à l'approche |
