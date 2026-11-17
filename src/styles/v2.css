@@ -466,3 +466,7 @@
   .v2-art-rel > a + a { border-left: 0; border-top: 1px solid var(--line); padding-top: 0; }
   .v2-art-img img { aspect-ratio: 16 / 9; }
 }
+
+/* Liste de liens sans image (ressources de /tarifs) */
+.v2-art-rel-txt > a { padding-top: 28px; }
+.v2-art-rel-txt .v2-mut { padding: 0 var(--pad); font-size: .95rem; }

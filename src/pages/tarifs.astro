@@ -1,15 +1,18 @@
 ---
-// Page Tarifs - Jon Labs
-// Grille des 4 services — prix lus dans src/data/pricing.ts
+// Page Tarifs - Jon Labs (v2)
+// Grille des offres — prix lus dans src/data/pricing.ts
 
-import "../styles/global.css";
 import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
+import Nav from "../components/v2/Nav.astro";
+import Dock from "../components/v2/Dock.astro";
+import Pricing from "../components/v2/Pricing.astro";
+import Faq from "../components/v2/Faq.astro";
+import Footer from "../components/v2/Footer.astro";
+import "../styles/v2.css";
 
 import { SITE_URL } from '../data/schema';
 import { getWebPageSchema, getBreadcrumbSchema } from '../lib/seo';
-import { pricing, chf, terms, offers } from '../data/pricing';
+import { pricing } from '../data/pricing';
 
 const pageTitle = "Tarifs freelance Genève : site web, app, SEO local, IA";
 const pageDescription = "Tarifs clairs en CHF : site web dès 850, référencement local 390 puis 199/mois, agent IA dès 1'500, application mobile sur devis. Freelance à Genève, sans contrat de durée.";
@@ -89,232 +92,60 @@ const faqSchema = {
 
 const schemas = [webPageSchema, breadcrumbSchema, offerCatalog, faqSchema];
 
-// Cartes tarifs
+const resources = [
+  { href: "/blog/prix-site-web-suisse-2026", title: "Combien coûte vraiment un site web en Suisse en 2026 ?", teaser: "Un guide transparent des fourchettes en CHF, par type de projet et par profil de prestataire." },
+  { href: "/blog/specialiste-developpement-web-suisse", title: "Spécialiste développement web Suisse : comment bien choisir", teaser: "Freelance vs agence, 5 critères concrets pour choisir le bon prestataire en Suisse romande." },
+  { href: "/blog/prix-agent-ia-automatisation-suisse", title: "Combien coûte un agent IA en Suisse ?", teaser: "Les fourchettes en CHF d'un agent IA ou d'une automatisation : mise en place et fonctionnement." },
+];
 ---
 
-<Layout
-  title={pageTitle}
-  description={pageDescription}
-  schemas={schemas}
->
-  <Header />
+<Layout title={pageTitle} description={pageDescription} schemas={schemas}>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" />
+  </Fragment>
 
-  <main class="co-root">
+  <div class="v2">
+    <Nav current="/tarifs" />
+    <Dock current="/tarifs" />
 
-    <!-- ══ INTRO ══ -->
-    <section class="co-sec co-pad co-hero">
-      <h1 style="font-size:clamp(2.2rem,5.5vw,3.5rem);margin-top:14px;" data-animate data-delay="0.1">
-        Tarifs <span class="co-ser">clairs.</span>
-      </h1>
-      <p class="co-mut" style="margin-top:16px;max-width:60ch;line-height:1.65;font-size:1.05rem;" data-animate data-delay="0.2">
-        Quatre services, des prix en CHF, aucun contrat de durée.
-        L'appel découverte est gratuit.
-      </p>
-      <div style="margin-top:26px;" data-animate data-delay="0.3">
-        <a href="#packages" class="co-btn co-btn--ghost">Voir les tarifs <i class="ri-arrow-down-line"></i></a>
-      </div>
-    </section>
+    <main>
+      <header class="r"><div class="w v2-head v2-head-2">
+        <h1 class="v2-h1" data-words>Tarifs clairs.</h1>
+        <p class="v2-head-p">Des prix en CHF, aucun contrat de durée. L'appel découverte est gratuit.</p>
+      </div></header>
 
-    <!-- ══ 01 · TARIFS ══ -->
-    <section id="packages" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);scroll-margin-top:80px;">
-      <p class="co-eyebrow">01 — Offre</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Ce que ça coûte</h2>
+      <section class="r" id="packages" aria-label="Offres"><Pricing /></section>
 
-      <div class="tr-grid" data-animate-stagger>
-        {offers.map((plan) => (
-          <div class={`tr-tier co-frame${plan.highlighted ? " tr-tier--reco" : ""}`} data-animate-item>
-            {plan.highlighted && <span class="co-badge co-badge--solid tr-reco">Le plus demandé</span>}
-            <div class="tr-tier-head">
-              <p class="co-eyebrow tr-tier-name">{plan.name}</p>
-              <p class="co-mut tr-tier-sub">{plan.subtitle}</p>
-            </div>
-            <div class="tr-price">
-              {plan.prefix && <span>{plan.prefix}</span>}
-              <b>{plan.price}</b>
-              {plan.unit && <span>{plan.unit}</span>}
-            </div>
-            <p class="co-mut tr-after">{plan.after}</p>
-            <ul class="tr-features co-list co-list--check">
-              {plan.features.map((feature) => (
-                <li><i class="ri-check-line" aria-hidden="true"></i><span>{feature}</span></li>
-              ))}
-            </ul>
-            <div class="tr-tier-actions">
-              <a href="/contact" class={`co-btn tr-tier-cta${plan.highlighted ? "" : " co-btn--ghost"}`}>
-                {plan.cta}
-                <i class="ri-arrow-right-line"></i>
-              </a>
-              <a href={plan.href} class="tr-inline tr-more">Voir le service</a>
-            </div>
-          </div>
-        ))}
-      </div>
+      <section class="r"><Faq items={faqs.map((f) => ({ q: f.question, a: f.answer }))} /></section>
 
-      <!-- Bon à savoir -->
-      <div class="tr-notes co-frame" data-animate>
-        <span class="co-x tl"></span><span class="co-x tr"></span>
-        <span class="co-x bl"></span><span class="co-x br"></span>
-        <p class="co-eyebrow tr-notes-title">Bon à savoir</p>
-        <div class="tr-notes-grid">
-          <ul class="co-list">
-            <li>Paiement : {terms.payment}</li>
-            <li>{terms.commitment}</li>
-          </ul>
-          <ul class="co-list">
-            <li>Appel découverte gratuit</li>
-            <li>Prix en CHF, hors TVA (exonéré)</li>
-          </ul>
+      <section class="r" aria-labelledby="ressources"><div class="w">
+        <div class="v2-head v2-head-2">
+          <h2 class="v2-h2" id="ressources" data-words>Aller plus loin.</h2>
+          <p class="v2-head-p">Quelques articles pour creuser le sujet avant de vous décider.</p>
         </div>
-      </div>
-    </section>
-
-    <!-- ══ 02 · FAQ (accordéon natif, zéro JS) ══ -->
-    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">02 — FAQ</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes</h2>
-
-      <div class="tr-faq" style="margin-top:var(--space-block);">
-        {faqs.map((item, i) => (
-          <details open={i === 0}>
-            <summary>
-              {item.question}
-              <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
-            </summary>
-            <p class="tr-faq-answer">{item.answer}</p>
-          </details>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ 03 · RESSOURCES ══ -->
-    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x) 64px;">
-      <p class="co-eyebrow">03 — Ressources</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Aller <span class="co-ser">plus loin.</span></h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:56ch;line-height:1.6;">
-        Quelques articles pour creuser le sujet avant de te décider.
-      </p>
-
-      <div class="tr-res-grid" data-animate-stagger>
-        <a href="/blog/prix-site-web-suisse-2026" class="tr-res-card co-frame co-frame--reveal" data-animate-item>
-          <h3 class="tr-res-title">Combien coûte vraiment un site web en Suisse en 2026 ?</h3>
-          <p class="tr-res-teaser">Un guide transparent des fourchettes en CHF, par type de projet et par profil de prestataire.</p>
-          <span class="tr-res-cta">Lire l'article <i class="ri-arrow-right-line"></i></span>
-        </a>
-
-        <a href="/blog/specialiste-developpement-web-suisse" class="tr-res-card co-frame co-frame--reveal" data-animate-item>
-          <h3 class="tr-res-title">Spécialiste développement web Suisse : comment bien choisir</h3>
-          <p class="tr-res-teaser">Freelance vs agence, 5 critères concrets pour choisir le bon prestataire en Suisse romande.</p>
-          <span class="tr-res-cta">Lire l'article <i class="ri-arrow-right-line"></i></span>
-        </a>
-
-        <a href="/blog/prix-agent-ia-automatisation-suisse" class="tr-res-card co-frame co-frame--reveal" data-animate-item>
-          <h3 class="tr-res-title">Combien coûte un agent IA en Suisse ?</h3>
-          <p class="tr-res-teaser">Les fourchettes en CHF d'un agent IA ou d'une automatisation : mise en place et fonctionnement.</p>
-          <span class="tr-res-cta">Lire l'article <i class="ri-arrow-right-line"></i></span>
-        </a>
-      </div>
-    </section>
-
-    <!-- ══ 05 · CTA FINAL (primitive .co-cta) ══ -->
-    <section class="co-cta">
-      <span class="co-x tl"></span><span class="co-x tr"></span>
-      <div class="co-cta-inner">
-        <h2 class="co-cta-title">Prêt à lancer votre <span class="co-ser">projet ?</span></h2>
-        <p class="co-cta-lead">Discutons de votre besoin. Premier appel découverte gratuit et sans engagement.</p>
-        <div class="co-cta-btns">
-          <a href="/contact" class="co-btn co-cta-btn">Prendre rendez-vous <i class="ri-calendar-line"></i></a>
+        <div class="v2-art-rel v2-art-rel-txt">
+          {resources.map((r) => (
+            <a href={r.href}>
+              <strong>{r.title}</strong>
+              <span class="v2-mut">{r.teaser}</span>
+            </a>
+          ))}
         </div>
-        <div class="co-cta-trust">
-          <span><i class="ri-time-line"></i> Réponse sous 48 h</span>
-          <span><i class="ri-file-list-3-line"></i> Devis gratuit</span>
+      </div></section>
+
+      <section class="r"><div class="w v2-head v2-head-2">
+        <h2 class="v2-h2" data-words>Prêt à lancer<br /><span class="v2-dim">votre projet ?</span></h2>
+        <div class="v2-ctas v2-ctas-left">
+          <a href="/contact" class="v2-btn"><i class="ri-calendar-line"></i> <span data-roll>Prendre rendez-vous</span></a>
         </div>
-      </div>
-    </section>
+      </div></section>
+    </main>
 
-  </main>
-
-  <Footer />
+    <Footer />
+  </div>
 </Layout>
 
-<style is:global>
-  /* ══ TARIFS — styles .tr-* (namespace scopé, corps .co-root) ══ */
-
-  /* ── Packages ── */
-  .tr-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; align-items: stretch; margin-top: 40px; }
-  .tr-tier {
-    position: relative; display: flex; flex-direction: column; gap: 20px;
-    padding: 32px 28px; background: var(--surface); border: 1px solid var(--line-2);
-  }
-  .tr-tier--reco { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
-  .tr-reco { position: absolute; top: -12px; left: 28px; z-index: 4; }
-  .tr-tier-name { color: var(--ink); }
-  .co-root .tr-tier-sub { margin-top: 6px; font-size: 14px; }
-  .tr-price { display: flex; align-items: baseline; gap: 6px; }
-  .tr-price b { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
-  .tr-price span { font-size: 14px; color: var(--muted); }
-  .tr-after { margin-top: 8px; font-size: 14px; }
-  .tr-tier-actions { margin-top: auto; display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-  .tr-more { font-size: 14px; }
-  .tr-features { gap: 11px; }
-  .tr-features li { font-size: 14px; line-height: 1.45; }
-  .tr-tier-cta { justify-content: center; }
-  .tr-tier-cta i { transition: transform .18s ease-out; }
-  .tr-tier-cta:hover i { transform: translateX(3px); }
-
-  /* ── Bon à savoir ── */
-  .tr-notes { position: relative; margin-top: 40px; padding: 32px; background: var(--surface); border: 1px solid var(--line-2); }
-  .co-root .tr-notes-title { color: var(--ink); }
-  .tr-notes-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px 40px; margin-top: 18px; }
-  .tr-notes-grid .co-list li { font-size: 14px; }
-  .tr-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
-  .tr-inline:hover { color: var(--ink); }
-
-  /* ── Table comparatif ── */
-
-  /* ── FAQ (accordéon natif <details> — smooth via ::details-content, zéro JS) ── */
-  .tr-faq { border-top: 1px solid var(--line); }
-  .tr-faq details { border-bottom: 1px solid var(--line); }
-  .tr-faq summary {
-    list-style: none; cursor: pointer; padding: 20px 0;
-    display: flex; justify-content: space-between; align-items: center; gap: 20px;
-    font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
-  }
-  .tr-faq summary::-webkit-details-marker { display: none; }
-  .tr-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
-  .tr-faq details[open] summary i { transform: rotate(180deg); }
-  .co-root .tr-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 62ch; }
-  /* Ouverture smooth (ease-out) via ::details-content — progressive enhancement,
-     dégrade proprement en instantané là où c'est non supporté ; reste zéro-JS. */
-  .tr-faq details::details-content {
-    block-size: 0; overflow: hidden;
-    transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
-  }
-  .tr-faq details[open]::details-content { block-size: auto; }
-
-  /* ── Ressources ── */
-  .tr-res-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: var(--space-block); }
-  .tr-res-card {
-    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 22px;
-    background: var(--surface); border: 1px solid var(--line-2);
-    transition: box-shadow .18s ease-out, transform .18s ease-out;
-  }
-  .tr-res-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20, 22, 26, .07); }
-  .tr-res-title { font-size: 1.05rem; line-height: 1.3; }
-  .tr-res-teaser { font-size: 13.5px; line-height: 1.5; color: var(--muted); flex: 1; }
-  .tr-res-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--accent); margin-top: auto; }
-  .tr-res-cta i { transition: transform .18s ease-out; }
-  .tr-res-card:hover .tr-res-cta i { transform: translateX(3px); }
-
-  /* ── Responsive ── */
-  @media (max-width: 900px) {
-    .tr-grid { grid-template-columns: 1fr; }
-    .tr-res-grid { grid-template-columns: 1fr; }
-  }
-  @media (max-width: 720px) {
-    .tr-notes-grid { grid-template-columns: 1fr; }
-    .tr-notes { padding: 24px 20px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .tr-res-card, .tr-res-cta i, .tr-faq summary i, .tr-tier-cta i { transition: none; }
-  }
-</style>
+<script>
+  import '../scripts/v2-ui';
+</script>
