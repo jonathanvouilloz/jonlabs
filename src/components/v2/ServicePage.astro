@@ -1,0 +1,164 @@
+---
+// Gabarit « page service » v2 (docs/research/architecture-pages-v2.md § 4, gabarit 1).
+// Ordre : Nav · en-tête (cellule teal, la seule de la page) · Proofs · blocs service (titre collant | sous-services,
+// prix lu dans pricing.ts par la page) · Bento · méthode (Steps + détail) · études de cas · liens · Testimonials · Faq ·
+// Contact · Footer + Dock. Tout est optionnel sauf l'en-tête. Les schémas JSON-LD restent construits par la page.
+// Les champs `text` / `lead` acceptent du HTML (liens internes) : contenu maison uniquement, jamais une saisie.
+import { getEntry } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import Nav from './Nav.astro';
+import Dock from './Dock.astro';
+import Proofs from './Proofs.astro';
+import Bento from './Bento.astro';
+import Steps from './Steps.astro';
+import CaseSpec from './CaseSpec.astro';
+import Testimonials from './Testimonials.astro';
+import Faq from './Faq.astro';
+import Contact from './Contact.astro';
+import Footer from './Footer.astro';
+import '../../styles/v2.css';
+
+type Link = { href: string; label: string; external?: boolean };
+type Title = { title: string; dim?: string; text?: string };
+export type Sub = { id?: string; title: string; meta?: string; text?: string; features?: string[]; tools?: string[]; link?: Link };
+export type Section = Title & { id: string; kicker: string; price?: { value: string; note?: string }; cta?: Link; subs: Sub[] };
+
+interface Props {
+  title: string;
+  description: string;
+  schemas: any[];
+  head: { kicker: string; h1: string; dim?: string; lead: string; cta: Link; cta2?: Link };
+  proofs?: { slugs?: string[]; items?: { value: string; label: string; client: string }[] };
+  sections?: Section[];
+  bento?: Title & { items?: { iso: string; title: string; text: string; big?: boolean }[] };
+  method?: Title & { id?: string; steps: { title: string; text: string; meta?: string }[] };
+  cases?: Title & { slugs: string[] };
+  links?: (Title & { items: { href: string; k?: string; label: string; text?: string }[] })[];
+  testimonials?: { quote: string; name: string; role: string; company?: string; result?: string }[];
+  faq?: { question: string; answer: string }[];
+  contact?: string;
+}
+const { title, description, schemas, head, proofs, sections = [], bento, method, cases, links = [], testimonials, faq, contact } = Astro.props;
+const caseEntries = cases ? (await Promise.all(cases.slugs.map((s) => getEntry('portfolio', s)))).filter((e) => !!e) : [];
+const ext = (l: Link) => (l.external ? { target: '_blank', rel: 'noopener noreferrer' } : {});
+---
+
+<Layout title={title} description={description} schemas={schemas}>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" />
+  </Fragment>
+
+  <div class="v2">
+    <Nav />
+    <Dock />
+
+    <main>
+      <header class="r"><div class="w v2-head v2-head-2 v2-teal v2-dots" data-spot>
+        <i class="v2-dots-glow" aria-hidden="true"></i>
+        <div>
+          <p class="v2-meta">{head.kicker}</p>
+          <h1 class="v2-h1 svc-h1">{head.h1}{head.dim && <><br /><span class="v2-dim">{head.dim}</span></>}</h1>
+        </div>
+        <div class="svc-intro">
+          <p class="v2-head-p" set:html={head.lead} />
+          <div class="v2-ctas v2-ctas-left">
+            <a href={head.cta.href} class="v2-btn" {...ext(head.cta)}><i class="ri-calendar-line"></i> <span data-roll>{head.cta.label}</span></a>
+            {head.cta2 && <a href={head.cta2.href} class="v2-btn v2-btn-ghost" {...ext(head.cta2)}><span data-roll>{head.cta2.label}</span></a>}
+          </div>
+        </div>
+      </div></header>
+
+      {proofs && <section class="r" aria-label="Repères chiffrés"><Proofs {...proofs} /></section>}
+
+      {sections.map((s) => (
+        <section class="r" id={s.id} aria-labelledby={`svc-${s.id}`}><div class="w sv-n-svc">
+          <div class="sv-n-side">
+            <div class="sv-n-sticky">
+              <p class="v2-meta">{s.kicker}</p>
+              <h2 class="v2-h2" id={`svc-${s.id}`} data-words>{s.title}{s.dim && <><br /><span class="v2-dim">{s.dim}</span></>}</h2>
+              {s.text && <p class="v2-mut sv-n-acc v2-prose" set:html={s.text} />}
+              {s.price && <p class="sv-n-price"><small class="v2-meta">Tarif</small>{s.price.value}{s.price.note && <small class="v2-mut">{s.price.note}</small>}</p>}
+              {s.cta && <a href={s.cta.href} class="v2-btn v2-btn-sm" {...ext(s.cta)}><span data-roll>{s.cta.label}</span></a>}
+            </div>
+          </div>
+          <div class="sv-n-subs" data-rise>
+            {s.subs.map((sub) => (
+              <article class="sv-n-sub" id={sub.id}>
+                {sub.meta && <p class="v2-meta">{sub.meta}</p>}
+                <h3>{sub.title}</h3>
+                {sub.text && <p class="v2-mut v2-prose" set:html={sub.text} />}
+                {sub.features && <ul class="v2-price-list">{sub.features.map((f) => <li>{f}</li>)}</ul>}
+                {sub.tools && <p class="v2-tools">{sub.tools.map((t) => <span>{t}</span>)}</p>}
+                {sub.link && <a href={sub.link.href} class="v2-a sv-n-more" {...ext(sub.link)}>{sub.link.label} <i class="ri-arrow-right-line" aria-hidden="true"></i></a>}
+              </article>
+            ))}
+          </div>
+        </div></section>
+      ))}
+
+      {bento && (<>
+        <section class="r" aria-labelledby="svc-bento"><div class="w v2-head v2-head-2">
+          <h2 class="v2-h2" id="svc-bento" data-words>{bento.title}{bento.dim && <><br /><span class="v2-dim">{bento.dim}</span></>}</h2>
+          {bento.text && <p class="v2-head-p">{bento.text}</p>}
+        </div></section>
+        <section class="r" aria-label={bento.title}><Bento items={bento.items} /></section>
+      </>)}
+
+      {method && (<>
+        <section class="r" id={method.id} aria-labelledby="svc-method"><div class="w v2-head v2-head-2">
+          <h2 class="v2-h2" id="svc-method" data-words>{method.title}{method.dim && <><br /><span class="v2-dim">{method.dim}</span></>}</h2>
+          {method.text && <p class="v2-head-p">{method.text}</p>}
+        </div></section>
+        <section class="r" aria-label="Étapes"><Steps items={method.steps.map((s) => s.title)} /></section>
+        <section class="r"><div class="w svc-grid svc-grid-flush">
+          {method.steps.map((s, i) => (
+            <div>
+              <span class="v2-meta">{String(i + 1).padStart(2, '0')}{s.meta && ` · ${s.meta}`}</span>
+              <strong>{s.title}</strong>
+              <span class="v2-mut">{s.text}</span>
+            </div>
+          ))}
+        </div></section>
+      </>)}
+
+      {caseEntries.length > 0 && (<>
+        <section class="r" aria-labelledby="svc-cases"><div class="w v2-head v2-head-2">
+          <h2 class="v2-h2" id="svc-cases" data-words>{cases!.title}{cases!.dim && <><br /><span class="v2-dim">{cases!.dim}</span></>}</h2>
+          {cases!.text && <p class="v2-head-p v2-prose" set:html={cases!.text} />}
+        </div></section>
+        {caseEntries.map((c) => <section class="r"><CaseSpec entry={c!} /></section>)}
+      </>)}
+
+      {links.map((g, i) => (
+        <section class="r" aria-labelledby={`svc-links-${i}`}><div class="w">
+          <div class="v2-head v2-head-2">
+            <h2 class="v2-h2" id={`svc-links-${i}`} data-words>{g.title}{g.dim && <><br /><span class="v2-dim">{g.dim}</span></>}</h2>
+            {g.text && <p class="v2-head-p v2-prose" set:html={g.text} />}
+          </div>
+          <div class="svc-grid">
+            {g.items.map((l) => (
+              <a href={l.href}>
+                {l.k && <span class="v2-meta">{l.k}</span>}
+                <strong>{l.label}</strong>
+                {l.text && <span class="v2-mut">{l.text}</span>}
+              </a>
+            ))}
+          </div>
+        </div></section>
+      ))}
+
+      {testimonials && <section class="r" aria-label="Témoignages"><Testimonials items={testimonials} /></section>}
+
+      {faq && <section class="r" id="faq" aria-label="Questions fréquentes"><Faq items={faq.map((f) => ({ q: f.question, a: f.answer }))} /></section>}
+
+      <section class="r" id="contact"><Contact text={contact} call="/contact" /></section>
+    </main>
+
+    <Footer />
+  </div>
+</Layout>
+
+<script>
+  import '../../scripts/v2-ui';
+</script>

@@ -118,7 +118,7 @@ const resources = [
           <p class="v2-meta">{villes.map((v) => <span>{v}</span>)}</p>
           <div class="sv-n-geo">
             <p class="v2-meta">Pages dédiées · zone frontalière</p>
-            <div>{villesFrontalieres.map((v) => <a href={`/developpement-web/${v.slug}`} class="v2-a">{v.nom}</a>)}</div>
+            <div>{villesFrontalieres.map((v) => <a href={`/consultant-ia/${v.slug}`} class="v2-a">{v.nom}</a>)}</div>
           </div>
           <a href="/developpeur-web-freelance-geneve" class="v2-btn v2-btn-ghost v2-btn-sm"><span data-roll>Développeur web freelance à Genève</span></a>
         </div>
@@ -161,40 +161,15 @@ const resources = [
   .v2 .sv-n-h1 { margin-top: 18px; }
   .v2 .sv-n-intro { display: grid; gap: 24px; }
   .v2 .sv-n-jump { gap: 6px 20px; }
-  .v2 .sv-n-svc { display: grid; grid-template-columns: 1fr 1.25fr; }
-  .v2 .sv-n-side { border-right: 1px solid var(--line); }
-  .v2 .sv-n-sticky { position: sticky; top: 24px; padding: 40px var(--pad) 48px; display: grid; gap: 18px; justify-items: start; }
-  .v2 .sv-n-acc { max-width: 28rem; }
-  .v2 .sv-n-price { display: grid; gap: 4px; font-family: var(--display); font-size: clamp(1.8rem, 3vw, 2.4rem); letter-spacing: -0.05em; line-height: 1; margin: 8px 0; }
-  .v2 .sv-n-sub { padding: 36px var(--pad); display: grid; gap: 14px; justify-items: start; }
-  .v2 .sv-n-sub + .sv-n-sub { border-top: 1px solid var(--line); }
-  .v2 .sv-n-sub h3 { margin: 0; }
-  .v2 .sv-n-sub .v2-price-list { margin-top: 4px; }
-  .v2 .sv-n-more { display: inline-flex; gap: 6px; align-items: center; margin-top: 6px; font-weight: 500; }
-  .v2 .sv-n-metiers { background: var(--soft); gap: 8px; }
   .v2 .sv-n-zone { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding: clamp(48px, 7vw, 88px) var(--pad); }
   .v2 .sv-n-zone-body { display: grid; gap: 22px; justify-items: start; align-content: start; }
   .v2 .sv-n-geo { display: grid; gap: 8px; }
   .v2 .sv-n-geo > div { display: flex; flex-wrap: wrap; gap: 6px 18px; }
-  .v2 .sv-n-res { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
-  .v2 .sv-n-res > a { display: grid; gap: 10px; align-content: start; padding: 28px var(--pad) 36px; transition: background .2s; }
-  .v2 .sv-n-res > a + a { border-left: 1px solid var(--line); }
-  .v2 .sv-n-res > a:hover { background: var(--soft); }
-  .v2 .sv-n-res strong { font-family: var(--display); font-weight: 500; font-size: 1.25rem; letter-spacing: -0.03em; line-height: 1.15; }
-  .v2 .sv-n-res .v2-mut { font-size: .95rem; }
   .v2 .sv-n-cta { display: grid; gap: 18px; }
-  .v2 .v2-teal .v2-btn-ghost { border-color: var(--ink); }
   @media (max-width: 900px) {
-    .v2 .sv-n-svc, .v2 .sv-n-zone { grid-template-columns: 1fr; }
-    .v2 .sv-n-side { border-right: 0; border-bottom: 1px solid var(--line); }
-    .v2 .sv-n-sticky { position: static; }
-    .v2 .sv-n-res { grid-template-columns: 1fr 1fr; }
-    .v2 .sv-n-res > a:nth-child(3) { border-left: 0; }
-    .v2 .sv-n-res > a:nth-child(n+3) { border-top: 1px solid var(--line); }
+    .v2 .sv-n-zone { grid-template-columns: 1fr; }
   }
   @media (max-width: 520px) {
-    .v2 .sv-n-res { grid-template-columns: 1fr; }
-    .v2 .sv-n-res > a + a { border-left: 0; border-top: 1px solid var(--line); }
     .v2 .sv-n-cta .v2-ctas { flex-direction: column; align-items: stretch; }
   }
 </style>

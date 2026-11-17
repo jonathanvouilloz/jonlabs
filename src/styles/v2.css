@@ -92,7 +92,7 @@
 .v2-more { display: flex; justify-content: center; padding: 32px var(--pad); }
 
 /* Étapes : cercles pointillés qui se chevauchent */
-.v2 .v2-steps { list-style: none; display: grid; grid-template-columns: repeat(6, 1fr); padding: 40px calc(var(--pad) + 3%); margin: 0 auto; }
+.v2 .v2-steps { list-style: none; display: grid; grid-template-columns: repeat(var(--n, 6), 1fr); padding: 40px calc(var(--pad) + 3%); margin: 0 auto; }
 .v2-steps li { aspect-ratio: 1; scale: 1.12; border: 1px dashed #C9CBC8; border-radius: 50%; display: grid; place-items: center; text-align: center; padding: 12%; font-family: var(--display); font-size: clamp(.95rem, 1.5vw, 1.3rem); line-height: 1.05; letter-spacing: -0.04em; background: transparent; transition: background .3s, border-color .3s; }
 .v2-steps li:hover { border-color: var(--accent-strong); border-style: solid; background: rgba(0,217,163,.05); }
 
@@ -296,7 +296,7 @@
 .v2-spec-body .v2-mut { font-size: .95rem; }
 
 /* Repères chiffrés A : compteurs ([data-count-to]). */
-.v2-proofs { display: grid; grid-template-columns: repeat(4, 1fr); }
+.v2-proofs { display: grid; grid-template-columns: repeat(var(--n, 4), 1fr); }
 .v2-proofs > div { padding: 36px var(--pad); display: flex; flex-direction: column; gap: 6px; }
 .v2-proofs > div + div { border-left: 1px solid var(--line); }
 .v2-proofs b { font-family: var(--display); font-weight: 500; font-size: clamp(1.9rem, 3vw, 2.6rem); letter-spacing: -0.05em; line-height: 1; font-variant-numeric: tabular-nums; margin-bottom: 10px; white-space: nowrap; }
@@ -477,3 +477,54 @@
 .v2 .v2-port-h1 { margin-top: 18px; }
 /* Rangée vide entre deux blocs (respiration, garde les filets du container) */
 .v2-gap { height: clamp(32px, 5vw, 64px); }
+
+/* ===== Blocs service (sv-n-*) : /services et gabarit ServicePage ===== */
+/* Bloc service : titre collant à gauche | sous-services à droite. */
+.v2 .sv-n-svc { display: grid; grid-template-columns: 1fr 1.25fr; }
+.v2 .sv-n-side { border-right: 1px solid var(--line); }
+.v2 .sv-n-sticky { position: sticky; top: 24px; padding: 40px var(--pad) 48px; display: grid; gap: 18px; justify-items: start; }
+.v2 .sv-n-acc { max-width: 28rem; }
+.v2 .sv-n-price { display: grid; gap: 4px; font-family: var(--display); font-size: clamp(1.8rem, 3vw, 2.4rem); letter-spacing: -0.05em; line-height: 1; margin: 8px 0; }
+.v2 .sv-n-sub { padding: 36px var(--pad); display: grid; gap: 14px; justify-items: start; }
+.v2 .sv-n-sub + .sv-n-sub { border-top: 1px solid var(--line); }
+.v2 .sv-n-sub h3 { margin: 0; }
+.v2 .sv-n-sub .v2-price-list { margin-top: 4px; }
+.v2 .sv-n-more { display: inline-flex; gap: 6px; align-items: center; margin-top: 6px; font-weight: 500; }
+.v2 .sv-n-metiers { background: var(--soft); gap: 8px; }
+/* Ressources : 4 cellules liées. */
+.v2 .sv-n-res { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+.v2 .sv-n-res > a { display: grid; gap: 10px; align-content: start; padding: 28px var(--pad) 36px; transition: background .2s; }
+.v2 .sv-n-res > a + a { border-left: 1px solid var(--line); }
+.v2 .sv-n-res > a:hover { background: var(--soft); }
+.v2 .sv-n-res strong { font-family: var(--display); font-weight: 500; font-size: 1.25rem; letter-spacing: -0.03em; line-height: 1.15; }
+.v2 .sv-n-res .v2-mut { font-size: .95rem; }
+.v2 .v2-teal .v2-btn-ghost { border-color: var(--ink); }
+@media (max-width: 900px) {
+  .v2 .sv-n-svc { grid-template-columns: 1fr; }
+  .v2 .sv-n-side { border-right: 0; border-bottom: 1px solid var(--line); }
+  .v2 .sv-n-sticky { position: static; }
+  .v2 .sv-n-res { grid-template-columns: 1fr 1fr; }
+  .v2 .sv-n-res > a:nth-child(3) { border-left: 0; }
+  .v2 .sv-n-res > a:nth-child(n+3) { border-top: 1px solid var(--line); }
+}
+@media (max-width: 520px) {
+  .v2 .sv-n-res { grid-template-columns: 1fr; }
+  .v2 .sv-n-res > a + a { border-left: 0; border-top: 1px solid var(--line); }
+}
+
+/* ===== Gabarit page service (ServicePage.astro) ===== */
+.v2 .svc-h1 { margin-top: 18px; font-size: clamp(2.3rem, 4.8vw, 4rem); }
+.v2 .svc-intro { display: grid; gap: 24px; align-content: end; justify-items: start; }
+.v2 .svc-intro .v2-ctas { margin: 0; }
+.v2 .sv-n-sub .v2-meta { color: var(--accent-strong); }
+.v2 .sv-n-sub .v2-tools { margin: 0 !important; }
+/* Grille de cellules liées, nombre libre : filets par bordure + marge -1px, le cadre rogne les bords extérieurs. */
+.v2 .svc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); overflow: hidden; border-top: 1px solid var(--line); }
+.v2 .svc-grid-flush { border-top: 0; }
+.v2 .svc-grid > * { margin: 0 0 -1px -1px; border-left: 1px solid var(--line); border-bottom: 1px solid var(--line); padding: 28px var(--pad) 36px; display: grid; gap: 10px; align-content: start; }
+.v2 .svc-grid > a { transition: background .2s; }
+.v2 .svc-grid > a:hover { background: var(--soft); }
+.v2 .svc-grid strong { font-family: var(--display); font-weight: 500; font-size: 1.25rem; letter-spacing: -0.03em; line-height: 1.15; }
+.v2 .svc-grid .v2-mut { font-size: .95rem; }
+.v2 .v2-teal .v2-dim { color: rgba(20,22,26,.45); }
+.v2 .sv-n-price .v2-mut { font-family: var(--sans); font-size: .95rem; letter-spacing: 0; line-height: 1.4; }

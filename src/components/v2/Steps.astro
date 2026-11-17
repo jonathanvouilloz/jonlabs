@@ -1,5 +1,7 @@
 ---
-// Process v2 (direction A) : cercles pointillés qui se chevauchent.
+// Process v2 (direction A) : cercles pointillés qui se chevauchent. `items` remplace les étapes de la home.
 import { steps } from '../../data/v2';
+interface Props { items?: string[] }
+const { items = steps } = Astro.props;
 ---
-<ol class="w v2-steps">{steps.map((s) => <li><span>{s}</span></li>)}</ol>
+<ol class="w v2-steps" style={items === steps ? undefined : `--n:${items.length}`}>{items.map((s) => <li><span>{s}</span></li>)}</ol>

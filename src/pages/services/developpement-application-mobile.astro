@@ -1,673 +1,130 @@
 ---
-// Développement d'application mobile — sous-page service (blueprint).
-// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
-// accent teal unique, Inter Tight × Instrument Serif. Namespace .am-*.
-//
-// Pas de formulaire embarqué : les CTA pointent vers cal.com (appel découverte) et
-// /contact. HARD-PRESERVE : Schema.org (serviceSchemas/breadcrumb/FAQ), tous les
-// liens SEO internes (cluster /blog/*, /portfolio/*, /services/*, /about, /contact),
-// copywriting réel.
-
-import '../../styles/global.css';
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-
-// Schema.org
+// Développement d'application mobile — pilier mobile (v2, gabarit ServicePage).
+// Garde l'angle « agence + ville » (décision 02.09). Prix : src/data/pricing.ts (sur devis).
+// /services/developpement-application-mobile/geneve est fusionnée ici (301) : seule Lausanne reste en déclinaison.
+import ServicePage from '../../components/v2/ServicePage.astro';
 import { serviceSchemas, SITE_URL, localBusinessData } from '../../data/schema';
-import { getFAQPageSchema } from '../../lib/seo';
-import { getBreadcrumbSchema } from '../../lib/seo';
+import { getFAQPageSchema, getBreadcrumbSchema } from '../../lib/seo';
+import { pricing } from '../../data/pricing';
 
-// SEO Data
 const seoData = {
     title: "Développement d'application mobile en Suisse romande",
     description: "Développement d'application mobile à Genève, Lausanne et en Suisse romande, l'alternative à l'agence : app iPhone et Android, publiée sur les stores. Sur devis, en CHF."
 };
 
-// Schema.org data
-const breadcrumb = getBreadcrumbSchema([
-    { name: "Accueil", url: SITE_URL },
-    { name: "Services", url: `${SITE_URL}/services` },
-    { name: "Développement application mobile", url: `${SITE_URL}/services/developpement-application-mobile` }
-]);
-const schemas: any[] = [serviceSchemas["developpement-application-mobile"], breadcrumb, localBusinessData];
-
-// Pain points data
-const painPoints = [
-    {
-        icon: "ri-user-voice-line",
-        title: "Tes clients réclament une app",
-        description: "Pour réserver, suivre une commande ou recevoir une notification. Un site ne suffit plus."
-    },
-    {
-        icon: "ri-price-tag-3-line",
-        title: "Le devis d'agence t'a refroidi",
-        description: "60 000 CHF, 8 mois et trois interlocuteurs. Il y a forcément plus simple."
-    },
-    {
-        icon: "ri-git-branch-line",
-        title: "Tu ne sais pas ce qu'il te faut",
-        description: "App, site mobile, application installable… Tu veux un avis franc avant de dépenser."
-    },
-    {
-        icon: "ri-error-warning-line",
-        title: "Ton app est à l'abandon",
-        description: "Elle plante, elle n'est plus à jour, et ton prestataire a disparu."
-    }
-];
-
-// Method steps
-const methodSteps = [
-    {
-        step: "1",
-        title: "On cadre",
-        description: "On définit ce que ton app doit vraiment faire, et ce qu'elle ne fera pas (encore). Je te dis quelle solution colle à ton besoin et à ton budget.",
-        duration: "Un appel + quelques échanges"
-    },
-    {
-        step: "2",
-        title: "Je construis",
-        description: "Tu testes l'app sur ton téléphone au fur et à mesure. Pas besoin de comprendre le code : tu me dis ce qui va et ce qui ne va pas.",
-        duration: "Quelques semaines selon le projet"
-    },
-    {
-        step: "3",
-        title: "On publie",
-        description: "Je m'occupe de la mise en ligne sur l'App Store et Google Play. L'app est à ton nom, et tu peux la faire évoluer quand tu veux.",
-        duration: "Publication + passation"
-    }
-];
-
-// Differentiators
-const differentiators = [
-    { icon: "ri-user-line", text: "Un seul interlocuteur : tu parles à celui qui fait l'app" },
-    { icon: "ri-smartphone-line", text: "iPhone et Android en même temps : tu ne paies pas deux fois" },
-    { icon: "ri-shield-check-line", text: "Données protégées selon la loi suisse (nLPD)" },
-    { icon: "ri-door-open-line", text: "L'app est à toi : publiée à ton nom, sans dépendance" }
-];
-
-// Results
-const results = [
-    {
-        icon: "ri-store-2-line",
-        title: "Une vraie app sur les stores",
-        description: "Pas une maquette : une app que tes clients téléchargent et utilisent."
-    },
-    {
-        icon: "ri-smartphone-line",
-        title: "iPhone et Android",
-        description: "Les deux, sans payer deux développements."
-    },
-    {
-        icon: "ri-links-line",
-        title: "Branchée sur tes outils",
-        description: "Agenda, facturation, fichier clients : l'app parle à ce que tu utilises déjà."
-    },
-    {
-        icon: "ri-stack-line",
-        title: "Prête à grandir",
-        description: "On ajoute des fonctionnalités quand tes utilisateurs en redemandent."
-    },
-    {
-        icon: "ri-shake-hands-line",
-        title: "Un avis honnête",
-        description: "Si un site ou une app plus simple suffit, je te le dis."
-    }
-];
-
-// Price factors
-const priceFactors = [
-    "Le nombre d'écrans et de fonctionnalités",
-    "Les comptes utilisateurs, paiements ou notifications",
-    "Les connexions à tes outils existants"
-];
-
-// Cluster articles — maillage interne vers le contenu éditorial du cluster mobile
-const clusterGroups = [
-    {
-        label: "Décider",
-        icon: "ri-question-answer-line",
-        articles: [
-            { title: "App mobile pour PME : vaut-il le coup ?", href: "/blog/application-mobile-pme-suisse" },
-            { title: "Application mobile ou PWA : comment choisir ?", href: "/blog/application-mobile-ou-pwa" },
-            { title: "Freelance ou agence pour votre app mobile ?", href: "/blog/freelance-ou-agence-application-mobile" }
-        ]
-    },
-    {
-        label: "Choisir la techno",
-        icon: "ri-cpu-line",
-        articles: [
-            { title: "Flutter vs React Native : lequel choisir ?", href: "/blog/flutter-vs-react-native-pme" },
-            { title: "Application native vs hybride : les différences", href: "/blog/application-native-vs-hybride" }
-        ]
-    },
-    {
-        label: "Budgéter",
-        icon: "ri-coins-line",
-        articles: [
-            { title: "Prix d'une application mobile en Suisse 2026", href: "/blog/prix-application-mobile-suisse" },
-            { title: "MVP application mobile : combien prévoir ?", href: "/blog/budget-mvp-application-mobile" }
-        ]
-    },
-    {
-        label: "S'inspirer",
-        icon: "ri-lightbulb-line",
-        articles: [
-            { title: "Application métier sur mesure : 5 cas concrets", href: "/blog/application-metier-pme-sur-mesure" },
-            { title: "App mobile + automatisation : connecter son app", href: "/blog/application-mobile-automatisation-pme" }
-        ]
-    }
-];
-
-// Pages géo — déclinaisons locales du pilier (pattern hub → géo)
-const geoPages = [
-    {
-        nom: "Application mobile à Genève",
-        description: "La page locale Genève : PME, startups et indépendants du canton, cadrage sur place et publication sur les stores.",
-        href: "/services/developpement-application-mobile/geneve"
-    },
-    {
-        nom: "Application mobile à Lausanne",
-        description: "Développement d'applications iOS et Android pour les entreprises de la région lausannoise et du canton de Vaud.",
-        href: "/services/developpement-application-mobile/lausanne"
-    }
-];
-
-// FAQs
 const faqs = [
-    {
-        question: "Combien coûte une application mobile ?",
-        answer: "C'est sur devis, parce que tout dépend de ce que l'app doit faire. Après un premier appel gratuit, tu reçois un prix ferme en CHF. Pour te faire une idée, j'ai écrit un guide sur le prix d'une application mobile en Suisse."
-    },
-    {
-        question: "Combien de temps pour la développer ?",
-        answer: "Une première version avec l'essentiel se fait en quelques semaines. Tu la testes sur ton téléphone tout au long du projet, pas seulement à la fin."
-    },
-    {
-        question: "iPhone, Android : faut-il choisir ?",
-        answer: "Non. Je développe les deux en même temps, sans doubler le prix, et je m'occupe de la publication sur les deux stores."
-    },
-    {
-        question: "Ai-je vraiment besoin d'une app ?",
-        answer: "Pas toujours. Parfois une application web installable (PWA) ou un bon site suffit, pour moins cher. Je te le dis avant que tu investisses."
-    },
-    {
-        question: "Et après le lancement ?",
-        answer: "Les téléphones et les stores évoluent : on peut prévoir un suivi léger. Et si tu as déjà une app abandonnée, je peux la reprendre."
-    },
-    {
-        question: "Pourquoi un freelance plutôt qu'une agence ?",
-        answer: "Tu parles directement à celui qui fait l'app, sans chef de projet entre nous. Je suis à Genève, et tes données restent protégées selon la loi suisse."
-    }
+    { question: "Combien coûte une application mobile ?", answer: "C'est sur devis, parce que tout dépend de ce que l'app doit faire. Après un premier appel gratuit, vous recevez un prix ferme en CHF. Pour vous faire une idée, j'ai écrit un guide sur le prix d'une application mobile en Suisse." },
+    { question: "Combien de temps pour la développer ?", answer: "Une première version avec l'essentiel se fait en quelques semaines. Vous la testez sur votre téléphone tout au long du projet, pas seulement à la fin." },
+    { question: "iPhone, Android : faut-il choisir ?", answer: "Non. Je développe les deux en même temps, sans doubler le prix, et je m'occupe de la publication sur les deux stores." },
+    { question: "Ai-je vraiment besoin d'une app ?", answer: "Pas toujours. Parfois une application web installable (PWA) ou un bon site suffit, pour moins cher. Je vous le dis avant que vous investissiez." },
+    { question: "Et après le lancement ?", answer: "Les téléphones et les stores évoluent : on peut prévoir un suivi léger. Et si vous avez déjà une app abandonnée, je peux la reprendre." },
+    { question: "Pourquoi un freelance plutôt qu'une agence ?", answer: "Vous parlez directement à celui qui fait l'app, sans chef de projet entre nous. Je suis à Genève, et vos données restent protégées selon la loi suisse." }
 ];
-schemas.push(getFAQPageSchema(faqs));
 
-// Local zones
-const zones = [
-    { name: "Genève", type: "primary", icon: "ri-map-pin-fill" },
-    { name: "Lausanne", type: "secondary", icon: "ri-map-pin-line" },
-    { name: "Vaud", type: "secondary", icon: "ri-map-pin-line" },
-    { name: "Toute Suisse romande", type: "tertiary", icon: "ri-global-line" }
+const schemas: any[] = [
+    serviceSchemas["developpement-application-mobile"],
+    getBreadcrumbSchema([
+        { name: "Accueil", url: SITE_URL },
+        { name: "Services", url: `${SITE_URL}/services` },
+        { name: "Développement application mobile", url: `${SITE_URL}/services/developpement-application-mobile` }
+    ]),
+    localBusinessData,
+    getFAQPageSchema(faqs),
 ];
+
+const cal = { href: "https://cal.com/jonathan-vouilloz/appel-de-bienvenue", label: "Discuter de mon app", external: true };
 ---
 
-<Layout title={seoData.title} description={seoData.description} schemas={schemas}>
-    <Header />
-
-    <main class="co-root">
-
-        <!-- ══ HERO ══ -->
-        <section class="co-sec co-pad co-hero am-hero">
-            <div class="am-hero-grid">
-                <div class="am-hero-copy">
-                    <h1 class="am-hero-title" data-animate data-delay="0.1">
-                        Ton application mobile iOS &amp; Android, <span class="co-ser">sans passer par une agence.</span>
-                    </h1>
-                    <p class="am-hero-lead" data-animate data-delay="0.2">
-                        Une <strong>app iPhone et Android</strong> pour tes clients ou ton équipe, de l'idée à la
-                        publication sur les stores. Un seul interlocuteur, basé à <strong>Genève</strong>.
-                    </p>
-                    <div class="am-hero-btns" data-animate data-delay="0.3">
-                        <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="co-btn"><i class="ri-smartphone-line"></i> Discuter de mon app</a>
-                        <a href="#methode" class="co-btn co-btn--ghost">Voir comment ça fonctionne <i class="ri-arrow-down-line"></i></a>
-                    </div>
-                    <p class="am-hero-loc co-mut" data-animate data-delay="0.4">
-                        <i class="ri-map-pin-fill"></i> Basé à Genève · Service en Suisse romande
-                    </p>
-                </div>
-
-                <div class="am-hero-media" data-animate="scale" data-delay="0.3">
-                    <div class="am-panel co-frame">
-                        <span class="co-x tl"></span><span class="co-x tr"></span>
-                        <span class="co-x bl"></span><span class="co-x br"></span>
-                        <p class="co-eyebrow">iPhone · Android</p>
-                        <div class="am-panel-plats">
-                            <div class="am-plat"><i class="ri-apple-line" aria-hidden="true"></i><span>iOS · App Store</span></div>
-                            <div class="am-plat"><i class="ri-android-line" aria-hidden="true"></i><span>Android · Play Store</span></div>
-                        </div>
-                        <ul class="co-list co-list--check am-panel-list">
-                            <li><i class="ri-check-line"></i><span>iPhone et Android en même temps</span></li>
-                            <li><i class="ri-check-line"></i><span>Publication sur les stores incluse</span></li>
-                            <li><i class="ri-check-line"></i><span>L'app est à ton nom</span></li>
-                            <li><i class="ri-check-line"></i><span>Données protégées (nLPD)</span></li>
-                        </ul>
-                    </div>
-                    <div class="am-badge am-badge--stores">
-                        <b>2</b><span>stores</span>
-                    </div>
-                    <div class="am-badge am-badge--code">1 projet</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ══ 01 · SITUATIONS ══ -->
-        <section id="problemes" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">01 — Situations</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Tu te <span class="co-ser">reconnais ?</span></h2>
-            <div class="am-grid am-grid--2" data-animate-stagger>
-                {painPoints.map((point) => (
-                    <div class="am-card co-frame co-frame--reveal" data-animate-item>
-                        <i class={`${point.icon} am-card-icon`} aria-hidden="true"></i>
-                        <h3 class="am-card-title">{point.title}</h3>
-                        <p class="am-card-text">{point.description}</p>
-                    </div>
-                ))}
-            </div>
-
-            <div class="am-story co-frame" data-animate>
-                <span class="co-x tl"></span><span class="co-x tr"></span>
-                <span class="co-x bl"></span><span class="co-x br"></span>
-                <h3 class="am-story-title">On commence petit, on grandit ensuite.</h3>
-                <p class="am-story-text">
-                    Les projets qui dérapent construisent trop, trop tôt. Moi, on sort d'abord le cœur de ton app,
-                    puis on ajoute seulement si tes utilisateurs suivent. Et parfois la bonne réponse n'est pas une app :
-                    voir <a href="/blog/application-mobile-ou-pwa" class="am-inline">application mobile ou PWA</a>.
-                </p>
-                <div class="am-story-accent">
-                    <p>Une bonne app mobile, c'est d'abord une bonne décision : quoi construire, et surtout quoi ne pas construire.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ══ 02 · MÉTHODE ══ -->
-        <section id="methode" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">02 — Méthode</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Comment ça se passe ?</h2>
-            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-                Tu testes ton app sur ton téléphone <strong>à chaque étape</strong>.
-            </p>
-
-            <div class="am-steps" data-animate-stagger>
-                {methodSteps.map((step, index) => (
-                    <div class="am-step" data-animate-item>
-                        <span class="am-step-num co-index">0{index + 1}</span>
-                        <div class="am-step-body">
-                            <h3 class="am-step-title">{step.title}</h3>
-                            <p class="am-step-text">{step.description}</p>
-                            <p class="am-step-dur"><i class="ri-time-line"></i> {step.duration}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            <div class="am-diff co-frame" data-animate>
-                <span class="co-x tl"></span><span class="co-x tr"></span>
-                <span class="co-x bl"></span><span class="co-x br"></span>
-                <h3 class="am-diff-title">Ce qui change avec Jon Labs</h3>
-                <div class="am-diff-grid">
-                    {differentiators.map((diff) => (
-                        <div class="am-diff-item">
-                            <i class={`${diff.icon} am-diff-icon`} aria-hidden="true"></i>
-                            <p class="am-diff-text">{diff.text}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-
-        <!-- ══ 03 · RÉSULTATS ══ -->
-        <section id="resultats" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">03 — Résultats</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Ce que tu <span class="co-ser">obtiens.</span></h2>
-
-            <div class="am-grid am-grid--3" data-animate-stagger>
-                {results.map((result) => (
-                    <div class="am-card co-frame co-frame--reveal" data-animate-item>
-                        <i class={`${result.icon} am-card-icon`} aria-hidden="true"></i>
-                        <h3 class="am-card-title">{result.title}</h3>
-                        <p class="am-card-text">{result.description}</p>
-                    </div>
-                ))}
-            </div>
-
-            <div class="am-note" data-animate>
-                <i class="ri-apps-2-line"></i>
-                <p>
-                    <strong>Un exemple ?</strong> Découvre
-                    <a href="/portfolio/isla-plomo" class="am-inline">Isla Plomo</a>
-                    ou l'ensemble de mes <a href="/portfolio" class="am-inline">réalisations</a>.
-                </p>
-            </div>
-
-        </section>
-
-        <!-- ══ 04 · INVESTISSEMENT ══ -->
-        <section id="prix" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">04 — Investissement</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Un devis <span class="co-ser">clair.</span></h2>
-            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
-                Chaque app est différente : c'est sur devis, avec un prix ferme avant de commencer.
-            </p>
-
-            <div class="am-pricenote co-frame" data-animate>
-                <span class="co-x tl"></span><span class="co-x tr"></span>
-                <span class="co-x bl"></span><span class="co-x br"></span>
-                <p class="am-pricenote-lead">Appel découverte gratuit, devis clair en CHF.</p>
-
-                <h3 class="am-pricenote-title"><i class="ri-information-line"></i> Ce qui influence le prix</h3>
-                <ul class="co-list am-pricenote-list">
-                    {priceFactors.map((factor) => (<li>{factor}</li>))}
-                </ul>
-                <p class="am-note-inline">
-                    Pour te faire une idée : <a href="/blog/prix-application-mobile-suisse" class="am-inline">prix d'une application mobile en Suisse</a>.
-                </p>
-            </div>
-
-            <div class="am-cta-row" data-animate>
-                <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="co-btn"><i class="ri-file-list-3-line"></i> Demander un devis</a>
-            </div>
-        </section>
-
-        <!-- ══ 05 · RESSOURCES ══ -->
-        <section id="ressources" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">05 — Ressources</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Tout comprendre avant de te lancer</h2>
-            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:64ch;line-height:1.6;">
-                Pour te faire ton avis avant un devis, commence par le
-                <a href="/blog/developper-application-mobile-suisse" class="am-inline">guide complet</a>.
-            </p>
-
-            <div class="am-grid am-grid--2" data-animate-stagger>
-                {clusterGroups.map((group) => (
-                    <div class="am-res co-frame" data-animate-item>
-                        <div class="am-res-head">
-                            <i class={`${group.icon} am-res-icon`} aria-hidden="true"></i>
-                            <h3 class="am-res-label">{group.label}</h3>
-                        </div>
-                        <ul class="am-res-list">
-                            {group.articles.map((article) => (
-                                <li>
-                                    <a href={article.href} class="am-res-link">
-                                        <i class="ri-arrow-right-s-line"></i>
-                                        <span>{article.title}</span>
-                                    </a>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                ))}
-            </div>
-        </section>
-
-        <!-- ══ 06 · FAQ (accordéon natif <details>, zéro JS) ══ -->
-        <section id="faq" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">06 — FAQ</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes</h2>
-
-            <div class="am-faq" style="margin-top:var(--space-block);">
-                {faqs.map((faq, index) => (
-                    <details open={index === 0}>
-                        <summary>
-                            {faq.question}
-                            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
-                        </summary>
-                        <p class="am-faq-answer">{faq.answer}</p>
-                    </details>
-                ))}
-            </div>
-
-            <p class="co-mut" style="margin-top:24px;text-align:center;">
-                Autre question ? <a href="/contact" class="am-inline">Contacte-moi directement</a>, je réponds sous 24h.
-            </p>
-        </section>
-
-        <!-- ══ 07 · À PROPOS ══ -->
-        <section id="about" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">07 — À propos</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Qui est derrière <span class="co-ser">Jon Labs ?</span></h2>
-
-            <div class="am-about co-frame" data-animate>
-                <span class="co-x tl"></span><span class="co-x tr"></span>
-                <span class="co-x bl"></span><span class="co-x br"></span>
-                <p class="am-about-text">Je suis <strong>Jonathan</strong>, développeur basé à Genève. Je fais ton app moi-même, je la publie, et je t'aide à trancher quand il faut faire des choix.</p>
-                <p class="am-about-text">Mon approche : une app utile entre les mains de tes utilisateurs vaut mieux qu'un projet parfait qui ne sort jamais. Encore un doute ? <a href="/blog/freelance-ou-agence-application-mobile" class="am-inline">Freelance ou agence pour une application mobile</a>.</p>
-                <a href="/about" class="am-about-link">
-                    <i class="ri-user-line"></i> En savoir plus sur mon parcours <i class="ri-arrow-right-line"></i>
-                </a>
-            </div>
-        </section>
-
-        <!-- ══ 08 · LOCAL ══ -->
-        <section id="local" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">08 — Local</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Basé à <span class="co-ser">Genève</span>, disponible partout en Suisse romande</h2>
-
-            <div class="am-local-grid">
-                <div data-animate="fade-left">
-                    <p class="am-local-text">
-                        Tout peut se faire à distance : échanges, démos et tests sur ton téléphone. Si tu préfères
-                        te voir pour le cadrage, je suis disponible à Genève et environs.
-                    </p>
-                </div>
-
-                <div data-animate="fade-left" data-delay="0.1">
-                    <h3 class="am-local-h3">Zones couvertes</h3>
-                    <div class="am-zones">
-                        {zones.map((zone) => (
-                            <div class={`am-zone ${zone.type === 'primary' ? 'am-zone--primary' : ''}`}>
-                                <i class={zone.icon}></i>
-                                <span>
-                                    <strong>{zone.name}</strong>
-                                    {zone.type === 'primary' && <span class="co-mut"> (basé sur place)</span>}
-                                </span>
-                            </div>
-                        ))}
-                    </div>
-                    <p class="co-mut" style="margin-top:16px;font-size:13.5px;">
-                        <i class="ri-information-line"></i> Les échanges se font en personne ou en visio selon tes préférences.
-                    </p>
-                </div>
-            </div>
-
-            <h3 class="am-local-h3" style="margin-top:40px;">Pages locales</h3>
-            <div class="am-grid am-grid--2" data-animate-stagger>
-                {geoPages.map((geo) => (
-                    <a href={geo.href} class="am-card co-frame co-frame--reveal" data-animate-item>
-                        <i class="ri-map-pin-fill am-card-icon" aria-hidden="true"></i>
-                        <h4 class="am-card-title">{geo.nom}</h4>
-                        <p class="am-card-text">{geo.description}</p>
-                        <span class="am-geo-more">Voir la page <i class="ri-arrow-right-line"></i></span>
-                    </a>
-                ))}
-            </div>
-        </section>
-
-        <!-- ══ 09 · CTA FINAL (primitive .co-cta) ══ -->
-        <section class="co-cta">
-            <span class="co-x tl"></span><span class="co-x tr"></span>
-            <div class="co-cta-inner">
-                <h2 class="co-cta-title">Arrête de <span class="co-ser">tourner en rond.</span></h2>
-                <p class="co-cta-lead">
-                    En 30 minutes, on regarde ton projet et je te dis honnêtement ce qu'il te faut, et combien ça coûterait.
-                </p>
-                <div class="co-cta-btns">
-                    <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="co-btn co-cta-btn">Réserver un appel découverte <i class="ri-arrow-right-line"></i></a>
-                    <a href="/portfolio" class="co-btn co-btn--ghost co-cta-btn co-cta-btn--ghost"><i class="ri-apps-2-line"></i> Voir mes réalisations</a>
-                </div>
-                <div class="co-cta-trust">
-                    <span><i class="ri-chat-check-line"></i> Avis honnête, sans engagement</span>
-                    <span><i class="ri-phone-line"></i> Premier appel gratuit</span>
-                    <span><i class="ri-time-line"></i> Réponse sous 24 h</span>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <Footer />
-</Layout>
-
-<style is:global>
-    /* ══ DÉVELOPPEMENT APP MOBILE — styles .am-* (namespace scopé, corps .co-root) ══ */
-
-    /* ── Hero ── */
-    .am-hero-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: center; }
-    .am-hero-title { font-size: clamp(2.2rem, 5vw, 3.4rem); }
-    .co-root .am-hero-sub { margin-top: 14px; font-size: 1.15rem; font-weight: 600; color: var(--ink); }
-    .co-root .am-hero-lead { margin-top: 14px; max-width: 54ch; font-size: 1.05rem; line-height: 1.65; color: var(--muted); }
-    .am-hero-lead strong { color: var(--ink); font-weight: 600; }
-    .am-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-    .am-hero-btns .co-btn i { transition: transform .18s ease-out; }
-    .am-hero-btns .co-btn:hover i { transform: translateY(2px); }
-    .co-root .am-hero-loc { margin-top: 22px; font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px; }
-    .am-hero-loc i { color: var(--accent); }
-
-    /* hero media — panneau spec blueprint */
-    .am-hero-media { position: relative; }
-    .am-panel { position: relative; display: flex; flex-direction: column; gap: 18px; padding: 30px 28px; background: var(--surface); border: 1px solid var(--line-2); }
-    .am-panel-plats { display: flex; flex-direction: column; gap: 10px; }
-    .am-plat { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--bg); border: 1px solid var(--line-2); font-size: 15px; font-weight: 600; color: var(--ink); }
-    .am-plat i { font-size: 22px; color: var(--accent); flex: none; }
-    .am-panel-list { gap: 10px; }
-    .am-panel-list li { font-size: 14px; line-height: 1.45; }
-    .am-badge { position: absolute; z-index: 4; background: var(--surface); border: 1px solid var(--line-2); padding: var(--pad-pill); font-size: 12px; font-weight: 600; }
-    .am-badge--stores { top: -16px; left: -14px; display: flex; flex-direction: column; line-height: 1.1; }
-    .am-badge--stores b { color: var(--accent); font-size: 15px; }
-    .am-badge--stores span { color: var(--muted); font-size: 10px; text-transform: uppercase; letter-spacing: 0.08em; }
-    .am-badge--code { bottom: -16px; right: -14px; background: var(--accent); border-color: var(--accent); color: #fff; }
-
-    /* ── Cartes génériques (situations / résultats) ── */
-    .am-grid { display: grid; gap: 16px; margin-top: var(--space-block); }
-    .am-grid--2 { grid-template-columns: repeat(2, 1fr); }
-    .am-grid--3 { grid-template-columns: repeat(3, 1fr); }
-    .am-card {
-        position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
-        background: var(--surface); border: 1px solid var(--line-2);
-        transition: box-shadow .18s ease-out, transform .18s ease-out;
-    }
-    .am-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
-    .am-card-icon { font-size: 24px; color: var(--accent); line-height: 1; }
-    .am-card-title { font-size: 1.1rem; }
-    .am-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
-
-    /* ── Notes / callouts ── */
-    .am-note { display: flex; align-items: flex-start; gap: 12px; margin-top: 24px; padding: 18px 22px; border: 1px solid var(--line-2); background: var(--surface); }
-    .am-note i { color: var(--accent); font-size: 20px; flex: none; margin-top: 1px; }
-    .co-root .am-note p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
-    .am-note-inline { margin-top: 16px; font-size: 14px; line-height: 1.6; color: var(--muted); }
-    .am-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
-    .am-inline:hover { color: var(--ink); }
-    .am-note strong, .am-note-inline strong { color: var(--ink); font-weight: 600; }
-
-    /* ── Story callout ── */
-    .am-story { position: relative; display: flex; flex-direction: column; gap: 14px; margin-top: 28px; padding: 34px 36px; background: var(--surface); border: 1px solid var(--line-2); }
-    .am-story-title { font-size: 1.2rem; }
-    .co-root .am-story-text { font-size: 15px; line-height: 1.65; color: var(--muted); max-width: 72ch; }
-    .am-story-text strong { color: var(--ink); font-weight: 600; }
-    .am-story-accent { margin-top: 6px; padding: 16px 20px; border-left: 2px solid var(--accent); background: rgba(0,168,125,0.05); }
-    .co-root .am-story-accent p { font-size: 15px; font-weight: 600; line-height: 1.5; color: var(--ink); }
-
-    /* ── Étapes méthode ── */
-    .am-steps { display: flex; flex-direction: column; margin-top: var(--space-block); border-top: 1px solid var(--line); }
-    .am-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
-    .am-step-num { font-size: 20px; font-weight: 600; }
-    .am-step-title { font-size: 1.15rem; }
-    .co-root .am-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 72ch; }
-    .co-root .am-step-dur { margin-top: var(--space-title-lead); font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
-    .am-step-dur i { color: var(--accent); }
-
-    /* ── Encart différenciateurs ── */
-    .am-diff { position: relative; margin-top: var(--space-block); padding: var(--pad-panel); background: var(--surface); border: 1px solid var(--line-2); }
-    .am-diff-title { text-align: center; font-size: 1.25rem; }
-    .am-diff-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 22px 32px; margin-top: 28px; }
-    .am-diff-item { display: flex; align-items: flex-start; gap: 12px; }
-    .am-diff-icon { font-size: 22px; color: var(--accent); flex: none; margin-top: 1px; }
-    .co-root .am-diff-text { font-size: 14px; line-height: 1.5; color: var(--muted); }
-
-    /* ── Investissement ── */
-    .am-pricenote { position: relative; display: flex; flex-direction: column; gap: 6px; margin-top: var(--space-block); padding: 32px 34px; background: var(--surface); border: 1px solid var(--line-2); }
-    .am-pricenote-lead { font-size: 1.2rem; font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
-    .am-pricenote-sub { font-size: 14.5px; }
-    .am-pricenote-title { margin-top: 20px; font-size: 1.05rem; display: inline-flex; align-items: center; gap: 8px; }
-    .am-pricenote-title i { color: var(--accent); }
-    .am-pricenote-list { margin-top: 14px; gap: 8px; }
-    .am-pricenote-list li { font-size: 14px; }
-    .am-cta-row { display: flex; justify-content: center; margin-top: 28px; }
-
-    /* ── Ressources ── */
-    .am-res { position: relative; padding: var(--pad-card); background: var(--surface); border: 1px solid var(--line-2); }
-    .am-res-head { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
-    .am-res-icon { font-size: 22px; color: var(--accent); flex: none; }
-    .am-res-label { font-size: 1.05rem; }
-    .am-res-list { display: flex; flex-direction: column; gap: 8px; }
-    .am-res-link { display: flex; align-items: flex-start; gap: 8px; font-size: 14px; color: var(--muted); transition: color .18s ease-out; }
-    .am-res-link i { color: var(--accent); margin-top: 2px; transition: transform .18s ease-out; }
-    .am-res-link:hover { color: var(--ink); }
-    .am-res-link:hover i { transform: translateX(3px); }
-
-    /* ── FAQ (accordéon natif <details> — smooth via ::details-content, zéro JS) ── */
-    .am-faq { border-top: 1px solid var(--line); }
-    .am-faq details { border-bottom: 1px solid var(--line); }
-    .am-faq summary {
-        list-style: none; cursor: pointer; padding: 20px 0;
-        display: flex; justify-content: space-between; align-items: center; gap: 20px;
-        font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
-    }
-    .am-faq summary::-webkit-details-marker { display: none; }
-    .am-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
-    .am-faq details[open] summary i { transform: rotate(180deg); }
-    .co-root .am-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 72ch; }
-    .am-faq details::details-content {
-        block-size: 0; overflow: hidden;
-        transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
-    }
-    .am-faq details[open]::details-content { block-size: auto; }
-
-    /* ── À propos ── */
-    .am-about { position: relative; display: flex; flex-direction: column; gap: 14px; margin-top: var(--space-block); padding: 34px 36px; background: var(--surface); border: 1px solid var(--line-2); }
-    .co-root .am-about-text { font-size: 15px; line-height: 1.65; color: var(--muted); max-width: 74ch; }
-    .am-about-text strong { color: var(--ink); font-weight: 600; }
-    .am-about-link { margin-top: var(--space-eyebrow); display: inline-flex; align-items: center; gap: 8px; font-size: 14.5px; font-weight: 600; color: var(--accent); }
-    .am-about-link:hover { color: var(--ink); }
-    .am-about-link i:last-child { transition: transform .18s ease-out; }
-    .am-about-link:hover i:last-child { transform: translateX(3px); }
-
-    /* ── Local ── */
-    .am-local-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 44px; margin-top: var(--space-block); }
-    .co-root .am-local-text { font-size: 15px; line-height: 1.65; color: var(--muted); }
-    .co-root .am-local-text + .am-local-text { margin-top: 14px; }
-    .am-local-h3 { font-size: 1.15rem; margin-bottom: 16px; }
-    .am-zones { display: flex; flex-direction: column; gap: 10px; }
-    .am-zone { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line-2); font-size: 14px; }
-    .am-zone i { color: var(--muted); font-size: 18px; }
-    .am-zone--primary { border-color: var(--accent); background: rgba(0,168,125,0.05); }
-    .am-zone--primary i { color: var(--accent); }
-    .am-geo-more { margin-top: auto; padding-top: 4px; display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--accent); }
-    .am-geo-more i { transition: transform .18s ease-out; }
-    .am-card:hover .am-geo-more i { transform: translateX(3px); }
-
-    /* ── Responsive ── */
-    @media (max-width: 960px) {
-        .am-hero-grid { grid-template-columns: 1fr; gap: 40px; }
-        .am-hero-media { max-width: 480px; }
-        .am-local-grid { grid-template-columns: 1fr; gap: 32px; }
-    }
-    @media (max-width: 720px) {
-        .am-grid--2, .am-grid--3 { grid-template-columns: 1fr; }
-        .am-diff-grid { grid-template-columns: 1fr; }
-        .am-step { grid-template-columns: 44px 1fr; gap: 14px; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-        .am-card, .am-res-link, .am-res-link i, .am-faq summary i, .am-hero-btns .co-btn i, .am-about-link i:last-child, .am-geo-more i { transition: none; }
-    }
-</style>
+<ServicePage
+    title={seoData.title}
+    description={seoData.description}
+    schemas={schemas}
+    head={{
+        kicker: "App mobile · basé à Genève, service en Suisse romande",
+        h1: "Votre application mobile iOS & Android,",
+        dim: "sans passer par une agence.",
+        lead: "Une app iPhone et Android pour vos clients ou votre équipe, de l'idée à la publication sur les stores. Un seul interlocuteur, basé à Genève.",
+        cta: cal,
+        cta2: { href: "#methode", label: "Voir comment ça fonctionne" },
+    }}
+    sections={[
+        {
+            id: "problemes", kicker: "01 · Situations", title: "Vous vous", dim: "reconnaissez ?",
+            text: "Une bonne app mobile, c'est d'abord une bonne décision : quoi construire, et surtout quoi ne pas construire.",
+            subs: [
+                { title: "Vos clients réclament une app", text: "Pour réserver, suivre une commande ou recevoir une notification. Un site ne suffit plus." },
+                { title: "Le devis d'agence vous a refroidi", text: "60 000 CHF, 8 mois et trois interlocuteurs. Il y a forcément plus simple." },
+                { title: "Vous ne savez pas ce qu'il vous faut", text: "App, site mobile, application installable… Vous voulez un avis franc avant de dépenser." },
+                { title: "Votre app est à l'abandon", text: "Elle plante, elle n'est plus à jour, et votre prestataire a disparu." },
+                { meta: "L'approche", title: "On commence petit, on grandit ensuite.", text: "Les projets qui dérapent construisent trop, trop tôt. Ici, on sort d'abord le cœur de votre app, puis on ajoute seulement si vos utilisateurs suivent. Et parfois la bonne réponse n'est pas une app : voir <a href=\"/blog/application-mobile-ou-pwa\">application mobile ou PWA</a>." },
+            ],
+        },
+        {
+            id: "resultats", kicker: "02 · Résultats", title: "Ce que vous", dim: "obtenez.",
+            subs: [
+                { title: "Une vraie app sur les stores", text: "Pas une maquette : une app que vos clients téléchargent et utilisent." },
+                { title: "iPhone et Android", text: "Les deux, sans payer deux développements." },
+                { title: "Branchée sur vos outils", text: "Agenda, facturation, fichier clients : l'app parle à ce que vous utilisez déjà." },
+                { title: "Prête à grandir", text: "On ajoute des fonctionnalités quand vos utilisateurs en redemandent." },
+                { title: "Un avis honnête", text: "Si un site ou une app plus simple suffit, je vous le dis." },
+                { meta: "Ce qui change avec Jon Labs", title: "Un seul interlocuteur, une app à vous", features: ["Un seul interlocuteur : vous parlez à celui qui fait l'app", "iPhone et Android en même temps : vous ne payez pas deux fois", "Données protégées selon la loi suisse (nLPD)", "L'app est à vous : publiée à votre nom, sans dépendance"] },
+            ],
+        },
+        {
+            id: "prix", kicker: "03 · Investissement", title: "Un devis", dim: "clair.",
+            text: "Chaque app est différente : c'est sur devis, avec un prix ferme avant de commencer.",
+            price: { value: pricing.appMobile.display, note: "Appel découverte gratuit, devis clair en CHF." },
+            cta: { ...cal, label: "Demander un devis" },
+            subs: [
+                { title: "Ce qui influence le prix", features: ["Le nombre d'écrans et de fonctionnalités", "Les comptes utilisateurs, paiements ou notifications", "Les connexions à vos outils existants"], text: "Pour vous faire une idée : <a href=\"/blog/prix-application-mobile-suisse\">prix d'une application mobile en Suisse</a>." },
+            ],
+        },
+        {
+            id: "about", kicker: "04 · À propos", title: "Qui est derrière", dim: "Jon Labs ?",
+            subs: [
+                { title: "Jonathan, développeur basé à Genève", text: "Je fais votre app moi-même, je la publie, et je vous aide à trancher quand il faut faire des choix. Mon approche : une app utile entre les mains de vos utilisateurs vaut mieux qu'un projet parfait qui ne sort jamais. Encore un doute ? <a href=\"/blog/freelance-ou-agence-application-mobile\">Freelance ou agence pour une application mobile</a>.", link: { href: "/about", label: "En savoir plus sur mon parcours" } },
+                { meta: "Local", title: "Basé à Genève, disponible partout en Suisse romande", text: "Tout peut se faire à distance : échanges, démos et tests sur votre téléphone. Si vous préférez vous voir pour le cadrage, je suis disponible à Genève et environs.", features: ["Genève (basé sur place)", "Lausanne", "Vaud", "Toute la Suisse romande"] },
+            ],
+        },
+    ]}
+    method={{
+        id: "methode",
+        title: "Comment", dim: "ça se passe ?",
+        text: "Vous testez votre app sur votre téléphone à chaque étape.",
+        steps: [
+            { title: "On cadre", text: "On définit ce que votre app doit vraiment faire, et ce qu'elle ne fera pas (encore). Je vous dis quelle solution colle à votre besoin et à votre budget.", meta: "Un appel + quelques échanges" },
+            { title: "Je construis", text: "Vous testez l'app sur votre téléphone au fur et à mesure. Pas besoin de comprendre le code : vous me dites ce qui va et ce qui ne va pas.", meta: "Quelques semaines" },
+            { title: "On publie", text: "Je m'occupe de la mise en ligne sur l'App Store et Google Play. L'app est à votre nom, et vous pouvez la faire évoluer quand vous voulez.", meta: "Publication + passation" },
+        ],
+    }}
+    cases={{
+        title: "Des apps", dim: "déjà publiées.",
+        text: "Ou l'ensemble de mes <a href=\"/portfolio\">réalisations</a>.",
+        slugs: ["nooria", "isla-plomo"],
+    }}
+    links={[
+        {
+            title: "Pages", dim: "locales.",
+            items: [
+                { href: "/services/developpement-application-mobile/lausanne", k: "Lausanne", label: "Application mobile à Lausanne", text: "Développement d'applications iOS et Android pour les entreprises de la région lausannoise et du canton de Vaud." },
+            ],
+        },
+        {
+            title: "Tout comprendre", dim: "avant de vous lancer.",
+            text: "Pour vous faire votre avis avant un devis, commencez par le <a href=\"/blog/developper-application-mobile-suisse\">guide complet</a>.",
+            items: [
+                { href: "/blog/application-mobile-pme-suisse", k: "Décider", label: "App mobile pour PME : vaut-il le coup ?" },
+                { href: "/blog/application-mobile-ou-pwa", k: "Décider", label: "Application mobile ou PWA : comment choisir ?" },
+                { href: "/blog/freelance-ou-agence-application-mobile", k: "Décider", label: "Freelance ou agence pour votre app mobile ?" },
+                { href: "/blog/flutter-vs-react-native-pme", k: "Choisir la techno", label: "Flutter vs React Native : lequel choisir ?" },
+                { href: "/blog/application-native-vs-hybride", k: "Choisir la techno", label: "Application native vs hybride : les différences" },
+                { href: "/blog/prix-application-mobile-suisse", k: "Budgéter", label: "Prix d'une application mobile en Suisse 2026" },
+                { href: "/blog/budget-mvp-application-mobile", k: "Budgéter", label: "MVP application mobile : combien prévoir ?" },
+                { href: "/blog/application-metier-pme-sur-mesure", k: "S'inspirer", label: "Application métier sur mesure : 5 cas concrets" },
+                { href: "/blog/application-mobile-automatisation-pme", k: "S'inspirer", label: "App mobile + automatisation : connecter son app" },
+            ],
+        },
+    ]}
+    faq={faqs}
+    contact="En 30 minutes, on regarde votre projet et je vous dis honnêtement ce qu'il vous faut, et combien ça coûterait."
+/>

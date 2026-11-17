@@ -1,907 +1,136 @@
 ---
-// Développeur web freelance à Genève — landing SEO phare (blueprint).
-// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
-// crosshairs, colonne capée, coins nets, accent teal unique, Inter Tight × Instrument
-// Serif. Namespace scopé .dfg-*. Gabarit-or de référence : services/referencement-local.astro.
-//
-// HARD-PRESERVE : tout le Schema.org (getWebPageSchema / getBreadcrumbSchema /
-// getFAQPageSchema, tableau `schemas`, injection via <Layout schemas>) + data + ordre.
-// Data proof-lecureux (source unique GSC — AUCUN chiffre en dur, tout via proofLecureux),
-// SITE_URL, localBusinessData, lib/seo. pageTitle/pageDescription exacts. Tous les
-// deep-links SEO internes (/services/*, /portfolio/*, /blog/*, /developpement-web/*,
-// /tarifs, /contact, /about). Import global.css gardé. Copie éditoriale préservée.
-// Halo supprimé (blueprint = illustration cadrée .co-frame, pas de halo brutaliste).
-
-import "../styles/global.css";
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { Image } from "astro:assets";
-import illuFreelance from "../assets/illustrations/freelance-geneve.webp";
-
+// Développeur freelance à Genève — page identité locale (v2, gabarit ServicePage).
+// Arbitrage Q4 (17.11) : URL et « développeur web freelance à Genève » gardés dans le title et le H1,
+// corps réécrit en page « freelance à Genève » qui présente les 3 offres, IA d'abord.
+// Preuve Lécureux : uniquement via data/proof-lecureux (aucun chiffre en dur). Prix : src/data/pricing.ts.
+import ServicePage from "../components/v2/ServicePage.astro";
 import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from "../lib/seo";
 import { SITE_URL, localBusinessData } from "../data/schema";
 import { proofLecureux } from "../data/proof-lecureux";
-import { pricing, chf } from "../data/pricing";
+import { pricing, terms, chf } from "../data/pricing";
 
-// ============================================
-// SEO META
-// ============================================
-const pageTitle = "Développeur web freelance à Genève";
-const pageDescription = "Développeur web freelance à Genève : sites sur mesure, apps mobiles, SEO local. 8 ans d'expérience, code propre, devis transparent pour PME romandes. ☎️ 078 944 77 07";
+const pageTitle = "Développeur web freelance à Genève : IA, sites et apps";
+const pageDescription = "Développeur freelance à Genève : systèmes IA sur mesure, sites web et applications mobiles pour les PME romandes. 8 ans d'expérience, devis transparent en CHF.";
 const pageUrl = `${SITE_URL}/developpeur-web-freelance-geneve`;
 
-// ============================================
-// SCHEMA.ORG
-// ============================================
-const webPageSchema = getWebPageSchema({
-  url: pageUrl,
-  name: pageTitle,
-  description: pageDescription
-});
-
-const breadcrumbSchema = getBreadcrumbSchema([
-  { name: "Accueil", url: SITE_URL },
-  { name: "Développeur web freelance Genève", url: pageUrl },
-]);
-
-// ============================================
-// COMPARAISON FREELANCE VS AGENCE
-// ============================================
-const freelanceVsAgency = [
-  {
-    type: "freelance",
-    icon: "ri-user-star-line",
-    title: "Interlocuteur unique",
-    description: "Tu parles à la personne qui code. Pas de chef de projet entre toi et le clavier, pas de téléphone arabe."
-  },
-  {
-    type: "freelance",
-    icon: "ri-price-tag-3-line",
-    title: "Prix transparent",
-    description: "Devis détaillé, tarif horaire affiché, zéro marge cachée. Tu sais exactement ce que tu paies."
-  },
-  {
-    type: "freelance",
-    icon: "ri-rocket-2-line",
-    title: "Agilité",
-    description: "Décisions rapides, adaptations en cours de route. Pas de comité à convaincre."
-  },
-  {
-    type: "freelance",
-    icon: "ri-code-s-slash-line",
-    title: "Code propre, pas de WordPress par défaut",
-    description: "Astro, Next.js, Tailwind. Stack moderne, performance Google native, zéro plugin qui rame."
-  },
-  {
-    type: "agency",
-    icon: "ri-team-line",
-    title: "Équipe dédiée (mais cloisonnée)",
-    description: "Account manager, chef de projet, designer, dev, QA. Pratique sur de gros projets, lourd sur des sites de PME."
-  },
-  {
-    type: "agency",
-    icon: "ri-stack-line",
-    title: "Process en plusieurs strates",
-    description: "Brief → présentations → validations → cycles. Plus de structure, mais plus de délais (3 à 6 mois en moyenne)."
-  },
-  {
-    type: "agency",
-    icon: "ri-money-dollar-circle-line",
-    title: "Marge cachée 30-50%",
-    description: "Le tarif horaire affiché finance les locaux, le commercial et les fonctions support. Normal, mais ça coûte plus cher."
-  },
-  {
-    type: "agency",
-    icon: "ri-tools-line",
-    title: "Stack souvent verrouillée",
-    description: "Beaucoup d'agences romandes restent sur WordPress par habitude. Maintenance, sécurité, performance — tu paies l'addition."
-  }
-];
-
-// ============================================
-// SERVICES (4 cards) — prix : src/data/pricing.ts
-// ============================================
-const services = [
-  {
-    icon: "ri-window-line",
-    title: "Création de site web",
-    description: "Site vitrine sur mesure pour indépendants et PME. Rapide, clair, trouvable sur Google.",
-    price: pricing.siteWeb.display,
-    href: "/services/creation-site-web"
-  },
-  {
-    icon: "ri-smartphone-line",
-    title: "Application mobile",
-    description: "Une app iPhone et Android pour tes clients ou ton équipe, de l'idée aux stores.",
-    price: pricing.appMobile.display,
-    href: "/services/developpement-application-mobile"
-  },
-  {
-    icon: "ri-robot-2-line",
-    title: "IA en entreprise",
-    description: "Un agent IA qui prend en charge les tâches répétitives : e-mails, relances, documents.",
-    price: pricing.agentIA.display,
-    href: "/consultant-ia"
-  }
-];
-
-// ============================================
-// MÉTHODOLOGIE (4 étapes)
-// ============================================
-const methodSteps = [
-  {
-    step: "01",
-    title: "Brief",
-    description: "Échange gratuit de 30-45 minutes. Tu m'expliques ton activité, tes objectifs, ce que tu attends concrètement.",
-    duration: "Sous 48h"
-  },
-  {
-    step: "02",
-    title: "Devis",
-    description: "Proposition écrite : périmètre, livrables, planning, montant en CHF. Pas de surprise, pas d'option cachée.",
-    duration: "3-5 jours"
-  },
-  {
-    step: "03",
-    title: "Sprint",
-    description: "Maquette validée puis développement. Démos régulières, accès staging, ajustements en continu.",
-    duration: "2-4 semaines"
-  },
-  {
-    step: "04",
-    title: "Livraison",
-    description: "Mise en ligne, transfert des accès, formation rapide. Ton site t'appartient — code, hébergement, domaine.",
-    duration: "1 jour"
-  }
-];
-
-// ============================================
-// STACK TECHNIQUE
-// ============================================
-const techStack = [
-  "Astro", "Next.js", "React", "Svelte", "TypeScript",
-  "Tailwind CSS", "Supabase", "Vercel", "Cloudflare",
-  "Stripe", "TWINT", "Webflow", "Framer"
-];
-
-// ============================================
-// ZONES D'INTERVENTION
-// ============================================
-const cities = [
-  { name: "Genève", primary: true },
-  { name: "Lausanne", primary: false },
-  { name: "Vevey", primary: false },
-  { name: "Montreux", primary: false },
-  { name: "Sion", primary: false },
-  { name: "Sierre", primary: false },
-  { name: "Nyon", primary: false },
-  { name: "Morges", primary: false }
-];
-
-const frontierCities = [
-  { name: "Annemasse", slug: "annemasse" },
-  { name: "Gaillard", slug: "gaillard" },
-];
-
-// ============================================
-// RÉALISATIONS
-// ============================================
-const projects = [
-  {
-    title: proofLecureux.company,
-    sector: "Juriste — Genève",
-    description: `Site ${proofLecureux.platform} + SEO local : ${proofLecureux.accrocheShort}. ${proofLecureux.businessResult}.`,
-    href: proofLecureux.portfolioUrl,
-    tag: "SEO local"
-  },
-  {
-    title: "Ugo Mighali",
-    sector: "Coutelier d'art — Genève",
-    description: "Portfolio minimaliste pour un jeune artisan formé à Genève. Design épuré, narration visuelle.",
-    href: "/portfolio/ugo-mighali-coutelier",
-    tag: "Site vitrine"
-  },
-  {
-    title: "Barber Concept",
-    sector: "Chaîne de salons — Romandie",
-    description: "Site Webflow multi-salon avec CMS, page franchise et système de recrutement intégré.",
-    href: "/portfolio/barber-concept",
-    tag: "Site multi-pages"
-  }
-];
-
-// Preuve chiffrée — dérivée de la source unique proof-lecureux (aucun chiffre en dur)
-const caseStudyStats = proofLecureux.stats;
-
-// ============================================
-// TARIFS
-// ============================================
-const pricingPlans = [
-  {
-    name: "Site web",
-    price: chf(pricing.siteWeb.from),
-    priceLabel: "Dès",
-    unit: "CHF",
-    description: "Pour indépendants et PME qui veulent un site pro, clair et rapide.",
-    features: ["Design sur mesure", "Adapté au mobile", "Optimisé pour Google", "Devis sur demande"],
-    highlighted: false
-  },
-  {
-    name: "App mobile & IA",
-    price: "Sur devis",
-    priceLabel: "",
-    unit: "",
-    description: "Application mobile ou agent IA (dès CHF 1'500) : chiffré selon ton projet.",
-    features: ["Premier appel gratuit", "Devis ferme en CHF", "Un seul interlocuteur"],
-    highlighted: false
-  }
-];
-
-// ============================================
-// ARTICLES BLOG
-// ============================================
-const blogArticles = [
-  {
-    title: "Combien coûte vraiment un site web en Suisse en 2026 ?",
-    description: "Fourchettes en CHF par profil de prestataire (freelance, agence, no-code) et par type de projet.",
-    href: "/blog/prix-site-web-suisse-2026",
-    icon: "ri-money-cny-circle-line"
-  },
-  {
-    title: "Spécialiste dev web Suisse : comment bien choisir",
-    description: "Les 7 critères pour différencier un bon développeur d'un copieur de templates en 2026.",
-    href: "/blog/specialiste-developpement-web-suisse",
-    icon: "ri-user-search-line"
-  }
-];
-
-// ============================================
-// FAQ LOCALE (8 questions)
-// ============================================
 const faqs = [
-  {
-    question: "Pourquoi choisir un freelance plutôt qu'une agence à Genève ?",
-    answer: "Avec un freelance, tu parles directement à la personne qui code, sans chef de projet intermédiaire. Le tarif horaire est en général 30 à 50% inférieur à une agence pour un travail équivalent, parce qu'il n'y a pas de locaux, de commerciaux ni de fonctions support à financer. L'agilité est aussi supérieure : décisions rapides, ajustements en cours de route, MVP livré en 2-3 semaines. L'agence reste pertinente pour des projets très volumineux qui demandent plusieurs profils en parallèle (design, dev, marketing, ops)."
-  },
-  {
-    question: "Quel est le tarif d'un développeur web freelance à Genève ?",
-    answer: "Chez Jon Labs, un site web démarre à CHF 850 (CHF 950 sur Webflow), le référencement local coûte CHF 390 de mise en place puis CHF 199 par mois, et un agent IA démarre à CHF 1'500. Les applications mobiles sont chiffrées sur devis. Le devis est forfaitaire : tu connais le coût total avant de signer."
-  },
-  {
-    question: "Combien de temps pour créer un site web ?",
-    answer: "Un site vitrine est livré en 3 à 4 semaines, un site sur-mesure avec blog et intégrations en 6 à 8 semaines, une application web en 2 à 3 mois selon la complexité. Le délai dépend surtout de la rapidité avec laquelle tu peux fournir tes contenus (textes, photos, accès) et valider les étapes intermédiaires."
-  },
-  {
-    question: "Travaillez-vous avec des clients hors Genève ?",
-    answer: "Oui. Je travaille régulièrement avec des clients de Lausanne, Vevey, Montreux, Sion, Sierre, Nyon et Morges, ainsi qu'avec des entreprises basées en zone frontalière française (Annemasse, Gaillard, Saint-Julien). La plupart des échanges se font en visio, avec des rendez-vous en personne quand tu es de passage à Genève ou quand le projet le justifie."
-  },
-  {
-    question: "Faut-il être à Genève pour vous engager ?",
-    answer: "Non. Toute la collaboration peut se faire à distance : visio, partage d'écran, accès staging, démos vidéo. Être basé à Genève apporte simplement deux avantages aux clients romands : possibilité de se voir en personne pour le brief ou les ateliers, et bonne connaissance du marché local (LPD, facturation CHF, attentes des clients suisses)."
-  },
-  {
-    question: "Quelles technologies utilisez-vous ?",
-    answer: "Stack moderne : Astro et Next.js pour les sites web, Svelte ou React pour les applications, TypeScript et Tailwind CSS partout, Supabase pour la base de données, Vercel et Cloudflare pour l'hébergement. Pour les sites vitrines avec CMS visuel, j'utilise aussi Webflow et Framer selon le profil du client. Le choix se fait toujours en fonction du projet, pas d'un dogme technique."
-  },
-  {
-    question: "Vous faites du WordPress ?",
-    answer: "Pas par défaut. WordPress reste pertinent pour certains cas (gros blog éditorial, équipe habituée), mais sur la plupart des projets de PME romandes, c'est une mauvaise réponse en 2026 : performance Google médiocre, mises à jour permanentes, vulnérabilités, plugins qui se cassent. Je propose des stacks plus rapides et plus sûres dès que c'est possible. Si tu as un site WordPress existant, je peux faire la migration."
-  },
-  {
-    question: "Comment se passe le paiement ?",
-    answer: "Facturation en CHF, par virement bancaire ou TWINT. 20 % à la signature du devis, 80 % à la mise en ligne. Le suivi mensuel du référencement est facturé chaque mois, sans engagement."
-  }
+  { question: "Pourquoi choisir un freelance plutôt qu'une agence à Genève ?", answer: "Avec un freelance, vous parlez directement à la personne qui code, sans chef de projet intermédiaire. Le tarif est en général 30 à 50% inférieur à une agence pour un travail équivalent, parce qu'il n'y a pas de locaux, de commerciaux ni de fonctions support à financer. L'agilité est aussi supérieure : décisions rapides, ajustements en cours de route, première version livrée en 2-3 semaines. L'agence reste pertinente pour des projets très volumineux qui demandent plusieurs profils en parallèle (design, dev, marketing, ops)." },
+  { question: "Quel est le tarif d'un développeur freelance à Genève ?", answer: `Chez Jon Labs, un agent IA démarre à CHF ${chf(pricing.agentIA.from)}, un site web à CHF ${chf(pricing.siteWeb.from)} (CHF ${chf(pricing.webflow.from)} sur Webflow). Les applications mobiles et les formations IA sont chiffrées sur devis. Le devis est forfaitaire : vous connaissez le coût total avant de signer.` },
+  { question: "Combien de temps pour créer un site web ?", answer: "Un site vitrine est livré en 3 à 4 semaines, un site sur-mesure avec blog et intégrations en 6 à 8 semaines, une application web en 2 à 3 mois selon la complexité. Le délai dépend surtout de la rapidité avec laquelle vous pouvez fournir vos contenus (textes, photos, accès) et valider les étapes intermédiaires." },
+  { question: "Travaillez-vous avec des clients hors Genève ?", answer: "Oui. Je travaille régulièrement avec des clients de Lausanne, Vevey, Montreux, Sion, Sierre, Nyon et Morges, ainsi qu'avec des entreprises basées en zone frontalière française (Annemasse, Gaillard, Saint-Julien). La plupart des échanges se font en visio, avec des rendez-vous en personne quand vous êtes de passage à Genève ou quand le projet le justifie." },
+  { question: "Faut-il être à Genève pour vous engager ?", answer: "Non. Toute la collaboration peut se faire à distance : visio, partage d'écran, accès staging, démos vidéo. Être basé à Genève apporte simplement deux avantages aux clients romands : possibilité de se voir en personne pour le brief ou les ateliers, et bonne connaissance du marché local (LPD, facturation CHF, attentes des clients suisses)." },
+  { question: "Quelles technologies utilisez-vous ?", answer: "Stack moderne : Astro et Next.js pour les sites web, Svelte ou React pour les applications, TypeScript et Tailwind CSS partout, Supabase pour la base de données, Vercel et Cloudflare pour l'hébergement. Pour les sites vitrines avec CMS visuel, j'utilise aussi Webflow et Framer selon le profil du client. Le choix se fait toujours en fonction du projet, pas d'un dogme technique." },
+  { question: "Vous faites du WordPress ?", answer: "Pas par défaut. WordPress reste pertinent pour certains cas (gros blog éditorial, équipe habituée), mais sur la plupart des projets de PME romandes, c'est une mauvaise réponse en 2026 : performance Google médiocre, mises à jour permanentes, vulnérabilités, plugins qui se cassent. Je propose des stacks plus rapides et plus sûres dès que c'est possible. Si vous avez un site WordPress existant, je peux faire la migration." },
+  { question: "Comment se passe le paiement ?", answer: `Facturation en CHF, par virement bancaire ou TWINT. ${terms.payment.charAt(0).toUpperCase() + terms.payment.slice(1)}. Aucun contrat de durée.` },
 ];
 
-const faqSchema = getFAQPageSchema(faqs);
+const schemas = [
+  getWebPageSchema({ url: pageUrl, name: pageTitle, description: pageDescription }),
+  getBreadcrumbSchema([
+    { name: "Accueil", url: SITE_URL },
+    { name: "Développeur web freelance Genève", url: pageUrl },
+  ]),
+  getFAQPageSchema(faqs),
+  localBusinessData,
+];
 
-// ============================================
-// SCHEMAS (assemblage final)
-// ============================================
-const schemas = [webPageSchema, breadcrumbSchema, faqSchema, localBusinessData];
+const stat = (label: string) => proofLecureux.stats.find((s) => s.label === label)!;
 ---
 
-<Layout
+<ServicePage
   title={pageTitle}
   description={pageDescription}
   schemas={schemas}
->
-  <Header />
-
-  <main class="co-root">
-
-    <!-- ══ HERO LOCAL ══ -->
-    <section class="co-sec co-pad co-hero dfg-hero">
-      <div class="dfg-hero-inner">
-
-        <h1 class="dfg-hero-title" data-animate data-delay="0.1">
-          Développeur web freelance à <span class="co-ser">Genève</span>
-        </h1>
-
-        <p class="dfg-hero-lead" data-animate data-delay="0.2">
-          Sites web, apps mobiles et référencement local pour <strong>PME et indépendants romands</strong>.
-          Devis transparent, code propre, performance Google.
-        </p>
-
-        <div class="dfg-hero-btns" data-animate data-delay="0.3">
-          <a href="/contact" class="co-btn"><i class="ri-mail-send-line"></i> Demander un devis</a>
-          <a href="/portfolio" class="co-btn co-btn--ghost">Voir mes réalisations <i class="ri-arrow-right-line"></i></a>
-        </div>
-
-        <div class="dfg-hero-trust" data-animate data-delay="0.4">
-          <span><i class="ri-time-line"></i> 8 ans d'expérience</span>
-          <span><i class="ri-stack-line"></i> 50+ sites livrés</span>
-          <span><i class="ri-map-pin-line"></i> Clients romands</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ 01 · COMPARAISON — FREELANCE VS AGENCE ══ -->
-    <section id="comparaison" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">01 — Comparaison</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Pourquoi un freelance plutôt qu'une <span class="co-ser">agence ?</span></h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-        Les deux options sont valides selon le contexte. Voilà ce qui change concrètement quand tu choisis un <strong>freelance web à Genève</strong>.
-      </p>
-
-      <div class="dfg-vs-grid">
-        <!-- Freelance -->
-        <div class="dfg-vs-col">
-          <div class="dfg-vs-head">
-            <span class="co-badge co-badge--solid"><i class="ri-user-star-line"></i> Freelance</span>
-          </div>
-          <div class="dfg-vs-list" data-animate-stagger>
-            {freelanceVsAgency.filter(c => c.type === "freelance").map((card) => (
-              <div class="dfg-vs-card co-frame co-frame--reveal" data-animate-item>
-                <i class={`${card.icon} dfg-vs-icon`} aria-hidden="true"></i>
-                <div>
-                  <h3 class="dfg-card-title">{card.title}</h3>
-                  <p class="dfg-card-text">{card.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <!-- Agence -->
-        <div class="dfg-vs-col">
-          <div class="dfg-vs-head">
-            <span class="co-badge"><i class="ri-building-line"></i> Agence</span>
-          </div>
-          <div class="dfg-vs-list" data-animate-stagger>
-            {freelanceVsAgency.filter(c => c.type === "agency").map((card) => (
-              <div class="dfg-vs-card co-frame co-frame--reveal" data-animate-item>
-                <i class={`${card.icon} dfg-vs-icon dfg-vs-icon--mut`} aria-hidden="true"></i>
-                <div>
-                  <h3 class="dfg-card-title">{card.title}</h3>
-                  <p class="dfg-card-text">{card.description}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
-
-    </section>
-
-    <!-- ══ 02 · SERVICES ══ -->
-    <section id="services" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">02 — Services</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Mes services</h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-        Du site vitrine à l'app mobile, en passant par Google et l'IA : un <strong>spécialiste développement web Suisse</strong> qui couvre toute la chaîne.
-      </p>
-
-      <div class="dfg-cards dfg-cards--2" data-animate-stagger>
-        {services.map((service) => (
-          <a href={service.href} class="dfg-card co-frame co-frame--reveal" data-animate-item>
-            <i class={`${service.icon} dfg-card-icon`} aria-hidden="true"></i>
-            <h3 class="dfg-card-title">{service.title}</h3>
-            <p class="dfg-card-text">{service.description}</p>
-            <div class="dfg-card-foot">
-              <span class="dfg-card-price">{service.price}</span>
-              <i class="ri-arrow-right-line dfg-card-arrow"></i>
-            </div>
-          </a>
-        ))}
-
-        <a href="/services" class="dfg-card dfg-card--accent co-frame co-frame--reveal" data-animate-item>
-          <i class="ri-arrow-right-up-line dfg-card-icon"></i>
-          <h3 class="dfg-card-title">Voir tous les services</h3>
-          <p class="dfg-card-text">Automatisation, validation d'idée, intégrations…</p>
-          <div class="dfg-card-foot">
-            <span class="dfg-card-price">Explorer</span>
-            <i class="ri-arrow-right-line dfg-card-arrow"></i>
-          </div>
-        </a>
-      </div>
-    </section>
-
-    <!-- ══ 03 · MÉTHODE ══ -->
-    <section id="methode" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">03 — Méthode</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Comment on travaille <span class="co-ser">ensemble</span></h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-        Quatre étapes claires, des validations à chaque jalon, aucune zone de flou.
-      </p>
-
-      <div class="dfg-steps" data-animate-stagger>
-        {methodSteps.map((step) => (
-          <div class="dfg-step co-frame co-frame--reveal" data-animate-item>
-            <span class="dfg-step-num co-index">{step.step}</span>
-            <h3 class="dfg-step-title">{step.title}</h3>
-            <p class="dfg-card-text">{step.description}</p>
-            <p class="dfg-step-dur"><i class="ri-time-line"></i> {step.duration}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ 04 · STACK TECHNIQUE ══ -->
-    <section id="stack" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">04 — Stack</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Stack technique</h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-        Outils modernes, performants et durables. Pas de WordPress par défaut — sauf si ton projet le justifie vraiment.
-      </p>
-
-      <div class="dfg-tags" data-animate-stagger>
-        {techStack.map((tech) => (
-          <span class="dfg-tag" data-animate-item>{tech}</span>
-        ))}
-      </div>
-
-      <div class="dfg-note co-frame" data-animate>
-        <span class="co-x tl"></span><span class="co-x tr"></span>
-        <span class="co-x bl"></span><span class="co-x br"></span>
-        <h3 class="dfg-note-title"><i class="ri-question-line"></i> Pourquoi pas WordPress par défaut ?</h3>
-        <p class="dfg-note-text">
-          WordPress reste pertinent pour certains cas (gros blog éditorial, équipe déjà formée) — je le propose d'ailleurs en <a href="/services/creation-site-web" class="dfg-inline">création, refonte ou migration WordPress</a> quand c'est justifié. Mais sur la plupart des projets de PME romandes en 2026, une stack moderne (<strong>Astro, Next.js, Svelte</strong>) donne un site plus rapide, plus sûr et moins cher à maintenir sur 3 ans. Pour les CMS visuels, je travaille aussi comme <a href="/services/developpeur-webflow" class="dfg-inline">développeur Webflow</a>.
-        </p>
-      </div>
-    </section>
-
-    <!-- ══ 05 · ZONES D'INTERVENTION ══ -->
-    <section id="zones" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">05 — Zones</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Où <span class="co-ser">j'interviens</span></h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
-        Basé à Genève, je travaille avec des clients de toute la <strong>Suisse romande</strong> (Vaud, Valais, Neuchâtel, Fribourg) et de la <strong>zone frontalière française</strong>.
-      </p>
-
-      <div class="dfg-zone-block">
-        <p class="co-eyebrow dfg-zone-label">Suisse romande</p>
-        <div class="dfg-cities" data-animate-stagger>
-          {cities.map((city) => (
-            <div class={`dfg-city ${city.primary ? 'dfg-city--primary' : ''}`} data-animate-item>
-              <i class={`${city.primary ? 'ri-map-pin-fill' : 'ri-map-pin-line'}`}></i>
-              <span>
-                {city.name}
-                {city.primary && <span class="co-mut dfg-city-base"> (base)</span>}
-              </span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div class="dfg-zone-block">
-        <p class="co-eyebrow dfg-zone-label">Zone frontalière France</p>
-        <div class="dfg-frontier" data-animate-stagger>
-          {frontierCities.map((city) => (
-            <a href={`/developpement-web/${city.slug}`} class="dfg-frontier-link" data-animate-item>
-              <i class="ri-map-pin-line"></i>
-              {city.name}
-              <i class="ri-arrow-right-line dfg-frontier-arrow"></i>
-            </a>
-          ))}
-        </div>
-        <p class="co-mut dfg-zone-note">
-          Page dédiée par ville frontalière, avec ses spécificités locales
-        </p>
-      </div>
-
-      <p class="co-mut dfg-zone-foot">
-        <i class="ri-information-line"></i>
-        Échanges en visio ou en personne selon ta préférence. Facturation en CHF.
-      </p>
-    </section>
-
-    <!-- ══ 06 · RÉALISATIONS (preuve Lécureux — stats dynamiques proof-lecureux) ══ -->
-    <section id="realisations" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">06 — Réalisations</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Réalisations <span class="co-ser">récentes</span></h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-        Quelques projets livrés pour des clients romands ces 18 derniers mois.
-      </p>
-
-      <!-- Cas vedette : preuve chiffrée dérivée de proof-lecureux (aucun chiffre en dur) -->
-      <div class="dfg-proof co-frame" data-animate>
-        <span class="co-x tl"></span><span class="co-x tr"></span>
-        <span class="co-x bl"></span><span class="co-x br"></span>
-        <div class="dfg-proof-head">
-          <div>
-            <p class="co-eyebrow">Cas vedette</p>
-            <h3 class="dfg-proof-title">{proofLecureux.company}</h3>
-            <p class="dfg-card-text">{proofLecureux.metier} — {proofLecureux.accrocheShort}.</p>
-          </div>
-          <a href={proofLecureux.portfolioUrl} class="dfg-inline dfg-proof-link">
-            Voir l'étude de cas <i class="ri-arrow-right-line"></i>
-          </a>
-        </div>
-
-        <div class="dfg-stats" data-animate-stagger>
-          {caseStudyStats.map((stat) => (
-            <div class="dfg-stat" data-animate-item>
-              <i class={`${stat.icon} dfg-stat-icon`} aria-hidden="true"></i>
-              <div class="dfg-stat-value">{stat.value}</div>
-              <div class="dfg-stat-label">{stat.label}</div>
-            </div>
-          ))}
-        </div>
-
-        {proofLecureux.testimonial && (
-          <blockquote class="dfg-quote">
-            <p class="co-ser">« {proofLecureux.testimonial.quote.split("\n")[0]} »</p>
-            <cite>{proofLecureux.testimonial.author} — {proofLecureux.testimonial.role}</cite>
-          </blockquote>
-        )}
-      </div>
-
-      <div class="dfg-projects" data-animate-stagger>
-        {projects.map((project) => (
-          <a href={project.href} class="dfg-project co-frame co-frame--reveal" data-animate-item>
-            <div class="dfg-project-top">
-              <span class="co-badge">{project.tag}</span>
-              <i class="ri-external-link-line dfg-project-ext"></i>
-            </div>
-            <h3 class="dfg-card-title">{project.title}</h3>
-            <p class="dfg-project-sector">{project.sector}</p>
-            <p class="dfg-card-text">{project.description}</p>
-            <span class="dfg-project-link">
-              Voir le projet <i class="ri-arrow-right-line"></i>
-            </span>
-          </a>
-        ))}
-      </div>
-
-      <div class="dfg-center" data-animate>
-        <a href="/portfolio" class="co-btn">
-          Voir tout le portfolio <i class="ri-arrow-right-line"></i>
-        </a>
-      </div>
-    </section>
-
-    <!-- ══ 07 · TARIFS ══ -->
-    <section id="tarifs" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">07 — Tarifs</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Combien ça <span class="co-ser">coûte ?</span></h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-        Des prix en CHF pour situer ton projet. Devis ferme après un premier échange gratuit.
-      </p>
-
-      <div class="dfg-tiers" data-animate-stagger>
-        {pricingPlans.map((plan) => (
-          <div class={`dfg-tier ${plan.highlighted ? 'dfg-tier--reco' : ''}`} data-animate-item>
-            {plan.highlighted && <span class="co-badge co-badge--solid dfg-tier-reco">Le plus demandé</span>}
-            <h3 class="dfg-tier-name">{plan.name}</h3>
-            <p class="dfg-card-text">{plan.description}</p>
-            <div class="dfg-tier-price">
-              <span class="dfg-tier-pricelabel">{plan.priceLabel}</span>
-              <b>{plan.price}{plan.unit && <span class="dfg-tier-cur"> {plan.unit}</span>}</b>
-            </div>
-            <ul class="co-list co-list--check dfg-tier-features">
-              {plan.features.map((feature) => (
-                <li><i class="ri-check-line"></i><span>{feature}</span></li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-
-      <div class="dfg-center" data-animate>
-        <a href="/tarifs" class="co-btn co-btn--ghost">
-          <i class="ri-price-tag-3-line"></i> Voir tous les tarifs <i class="ri-arrow-right-line"></i>
-        </a>
-      </div>
-    </section>
-
-    <!-- ══ 08 · RESSOURCES — À LIRE AVANT DE TE DÉCIDER ══ -->
-    <section id="ressources" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">08 — Ressources</p>
-      <h2 style="margin-top:var(--space-eyebrow);">À lire avant de te <span class="co-ser">décider</span></h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
-        Trois articles pour cadrer ton projet de <strong>création site web Genève</strong> avant même d'envoyer un mail.
-      </p>
-
-      <div class="dfg-cards dfg-cards--3" data-animate-stagger>
-        {blogArticles.map((article) => (
-          <a href={article.href} class="dfg-card co-frame co-frame--reveal" data-animate-item>
-            <i class={`${article.icon} dfg-card-icon`} aria-hidden="true"></i>
-            <h3 class="dfg-card-title">{article.title}</h3>
-            <p class="dfg-card-text">{article.description}</p>
-            <div class="dfg-card-foot">
-              <span class="dfg-card-price">Lire l'article</span>
-              <i class="ri-arrow-right-line dfg-card-arrow"></i>
-            </div>
-          </a>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ 09 · FAQ LOCALE (accordéon natif <details>, zéro JS) ══ -->
-    <section id="faq" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <div class="dfg-faq-grid">
-        <!-- Illustration contextuelle (cadrée blueprint, Halo supprimé) -->
-        <div class="dfg-illu-col">
-          <div class="dfg-illu co-frame">
-            <span class="co-x tl"></span><span class="co-x tr"></span>
-            <span class="co-x bl"></span><span class="co-x br"></span>
-            <Image
-              src={illuFreelance}
-              alt=""
-              class="dfg-illu-img"
-              aria-hidden="true"
-            />
-          </div>
-        </div>
-
-        <!-- Colonne FAQ -->
-        <div>
-          <p class="co-eyebrow">09 — FAQ</p>
-          <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes</h2>
-          <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:58ch;line-height:1.6;">
-            Tout ce que les clients romands me demandent avant de signer.
-          </p>
-
-          <div class="dfg-faq" style="margin-top:28px;">
-            {faqs.map((faq, index) => (
-              <details open={index === 0}>
-                <summary>
-                  <span class="dfg-faq-q">
-                    <span class="co-index dfg-faq-num">{String(index + 1).padStart(2, '0')}</span>
-                    {faq.question}
-                  </span>
-                  <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
-                </summary>
-                <p class="dfg-faq-answer">{faq.answer}</p>
-              </details>
-            ))}
-          </div>
-
-          <p class="co-mut dfg-faq-foot">
-            Une autre question ? <a href="/contact" class="dfg-inline">Écris-moi</a>, je réponds sous 24h. Tu peux aussi en savoir plus <a href="/about" class="dfg-inline">sur moi</a>.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ CTA FINAL (primitive .co-cta — fond sombre, bouton clair) ══ -->
-    <section class="co-cta">
-      <span class="co-x tl"></span><span class="co-x tr"></span>
-      <span class="co-x bl"></span><span class="co-x br"></span>
-      <div class="co-cta-inner">
-        <h2 class="co-cta-title">Discutons de <span class="co-ser">ton projet</span></h2>
-        <p class="co-cta-lead">
-          Premier échange gratuit, sans engagement. Je te dis franchement si je suis le bon profil pour toi — et sinon, je t'oriente vers quelqu'un de mieux placé.
-        </p>
-        <div class="co-cta-btns">
-          <a href="/contact" class="co-cta-btn"><i class="ri-mail-send-line"></i> Demander un devis</a>
-          <a href="mailto:hello@jonlabs.ch" class="co-cta-btn co-cta-btn--ghost"><i class="ri-mail-line"></i> hello@jonlabs.ch</a>
-        </div>
-        <div class="co-cta-trust">
-          <span><i class="ri-time-line"></i> Réponse sous 24h · Lun-Ven, 9h-18h (CET)</span>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <Footer />
-</Layout>
-
-<style is:global>
-  /* ══ DÉVELOPPEUR WEB FREELANCE GENÈVE — styles .dfg-* (namespace scopé, corps .co-root) ══ */
-
-  /* ── Hero ── */
-  .dfg-hero-inner { max-width: 760px; margin: 0 auto; text-align: center; display: flex; flex-direction: column; align-items: center; }
-  .co-root .dfg-hero-title { margin-top: 22px; font-size: clamp(2.2rem, 5.4vw, 3.4rem); }
-  .co-root .dfg-hero-lead { margin-top: 18px; max-width: 54ch; font-size: 1.075rem; line-height: 1.65; color: var(--muted); }
-  .dfg-hero-lead strong { color: var(--ink); font-weight: 600; }
-  .dfg-hero-btns { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-top: 28px; }
-  .dfg-hero-btns .co-btn i { transition: transform .18s ease-out; }
-  .dfg-hero-btns .co-btn:hover i { transform: translateX(2px); }
-  .dfg-hero-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 22px; margin-top: 26px; font-size: 13.5px; color: var(--muted); }
-  .dfg-hero-trust span { display: inline-flex; align-items: center; gap: 6px; }
-  .dfg-hero-trust i { color: var(--accent); }
-
-  /* ── Centrage CTA sous sections ── */
-  .dfg-center { display: flex; justify-content: center; margin-top: var(--space-block); }
-  .dfg-center .co-btn i { transition: transform .18s ease-out; }
-  .dfg-center .co-btn:hover i:last-child { transform: translateX(3px); }
-
-  /* ── Inline links teal ── */
-  .dfg-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
-  .dfg-inline:hover { color: var(--ink); }
-
-  /* ── Cartes génériques (titre/texte partagés) ── */
-  .dfg-card-title { font-size: 1.1rem; }
-  .co-root .dfg-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
-
-  /* ── Comparaison freelance vs agence ── */
-  .dfg-vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 36px; }
-  .dfg-vs-head { margin-bottom: 18px; }
-  .dfg-vs-list { display: flex; flex-direction: column; gap: 14px; }
-  .dfg-vs-card {
-    position: relative; display: flex; align-items: flex-start; gap: 14px; padding: 20px;
-    background: var(--surface); border: 1px solid var(--line-2);
-    transition: box-shadow .18s ease-out, transform .18s ease-out;
-  }
-  .dfg-vs-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
-  .dfg-vs-icon { font-size: 22px; color: var(--accent); line-height: 1; flex: none; margin-top: 2px; }
-  .dfg-vs-icon--mut { color: var(--muted); }
-  .co-root .dfg-vs-card .dfg-card-text { margin-top: 4px; }
-
-  /* ── Grilles de cartes (services / blog) ── */
-  .dfg-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: var(--space-block); }
-  .dfg-cards--2 { grid-template-columns: repeat(2, 1fr); }
-  .dfg-card {
-    position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
-    background: var(--surface); border: 1px solid var(--line-2);
-    transition: box-shadow .18s ease-out, transform .18s ease-out;
-  }
-  .dfg-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
-  .dfg-card--accent { background: rgba(0,168,125,0.05); border-color: var(--accent); }
-  .dfg-card-icon { font-size: 26px; color: var(--accent); line-height: 1; }
-  .dfg-card-foot { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; }
-  .dfg-card-price { font-size: 13.5px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; }
-  .dfg-card-arrow { color: var(--muted); font-size: 18px; transition: transform .18s ease-out, color .18s ease-out; }
-  .dfg-card:hover .dfg-card-arrow { transform: translateX(3px); color: var(--accent); }
-
-  /* ── Méthode (étapes) ── */
-  .dfg-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: var(--space-block); }
-  .dfg-step {
-    position: relative; display: flex; flex-direction: column; gap: 8px; padding: var(--pad-card);
-    background: var(--surface); border: 1px solid var(--line-2);
-    transition: box-shadow .18s ease-out, transform .18s ease-out;
-  }
-  .dfg-step:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
-  .dfg-step-num { font-size: 22px; font-weight: 700; }
-  .dfg-step-title { font-size: 1.15rem; }
-  .co-root .dfg-step-dur { margin-top: auto; padding-top: 12px; font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
-  .dfg-step-dur i { color: var(--accent); }
-
-  /* ── Stack (tags + note) ── */
-  .dfg-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: var(--space-block); }
-  .dfg-tag {
-    font-size: 13.5px; font-weight: 500; padding: 8px 14px;
-    background: var(--surface); border: 1px solid var(--line-2); color: var(--ink);
-    transition: border-color .18s ease-out, color .18s ease-out;
-  }
-  .dfg-tag:hover { border-color: var(--accent); color: var(--accent); }
-
-  .dfg-note { position: relative; margin-top: 28px; padding: var(--pad-encart); background: var(--surface); border: 1px solid var(--line-2); max-width: 760px; }
-  .dfg-note-title { font-size: 1.1rem; display: inline-flex; align-items: center; gap: 8px; }
-  .dfg-note-title i { color: var(--accent); }
-  .co-root .dfg-note-text { margin-top: var(--space-title-lead); font-size: 14.5px; line-height: 1.6; color: var(--muted); }
-  .dfg-note-text strong { color: var(--ink); font-weight: 600; }
-
-  /* ── Zones ── */
-  .dfg-zone-block { margin-top: var(--space-block); }
-  .dfg-zone-label { display: block; margin-bottom: 16px; }
-  .dfg-cities { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-  .dfg-city { display: flex; align-items: center; gap: 8px; padding: 13px 16px; background: var(--surface); border: 1px solid var(--line-2); font-size: 14px; }
-  .dfg-city i { color: var(--muted); font-size: 16px; flex: none; }
-  .dfg-city--primary { border-color: var(--accent); background: rgba(0,168,125,0.05); font-weight: 600; }
-  .dfg-city--primary i { color: var(--accent); }
-  .dfg-city-base { font-weight: 400; font-size: 12px; }
-  .dfg-frontier { display: flex; flex-wrap: wrap; gap: 10px; }
-  .dfg-frontier-link {
-    display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; font-size: 14px;
-    background: var(--surface); border: 1px solid var(--line-2);
-    transition: border-color .18s ease-out, transform .18s ease-out;
-  }
-  .dfg-frontier-link:hover { border-color: var(--accent); transform: translateY(-2px); }
-  .dfg-frontier-link > i:first-child { color: var(--muted); }
-  .dfg-frontier-arrow { font-size: 12px; color: var(--muted); }
-  .dfg-frontier-link:hover .dfg-frontier-arrow { color: var(--accent); }
-  .co-root .dfg-zone-note { margin-top: 14px; font-size: 12.5px; }
-  .co-root .dfg-zone-foot { margin-top: var(--space-block); font-size: 13.5px; display: inline-flex; align-items: center; gap: 8px; }
-  .dfg-zone-foot i { color: var(--accent); }
-
-  /* ── Preuve (cas vedette Lécureux) + stats ── */
-  .dfg-proof { position: relative; margin-top: var(--space-block); padding: 32px; background: var(--surface); border: 1px solid var(--line-2); }
-  .dfg-proof-head { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-  .dfg-proof-title { font-size: 1.4rem; margin-top: 6px; }
-  .co-root .dfg-proof-head .dfg-card-text { margin-top: var(--space-eyebrow); max-width: 52ch; }
-  .dfg-proof-link { display: inline-flex; align-items: center; gap: 6px; white-space: nowrap; }
-  .dfg-proof-link i { transition: transform .18s ease-out; }
-  .dfg-proof-link:hover i { transform: translateX(3px); }
-  .dfg-stats { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; margin-top: 28px; }
-  .dfg-stat { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 6px; padding: 20px 12px; background: var(--bg); border: 1px solid var(--line-2); transition: transform .18s ease-out; }
-  .dfg-stat:hover { transform: translateY(-2px); }
-  .dfg-stat-icon { font-size: 18px; color: var(--accent); }
-  .dfg-stat-value { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
-  .dfg-stat-label { font-size: 11.5px; color: var(--muted); }
-  .dfg-quote { margin-top: 28px; padding: 4px 0 4px 20px; border-left: 2px solid var(--accent); }
-  .co-root .dfg-quote p { font-size: 1.25rem; line-height: 1.4; color: var(--ink); }
-  .dfg-quote cite { display: block; margin-top: var(--space-title-lead); font-size: 13px; font-style: normal; color: var(--muted); }
-
-  /* ── Projets ── */
-  .dfg-projects { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 24px; }
-  .dfg-project {
-    position: relative; display: flex; flex-direction: column; gap: 8px; padding: var(--pad-card);
-    background: var(--surface); border: 1px solid var(--line-2);
-    transition: box-shadow .18s ease-out, transform .18s ease-out;
-  }
-  .dfg-project:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
-  .dfg-project-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px; }
-  .dfg-project-ext { color: var(--muted); font-size: 16px; transition: color .18s ease-out; }
-  .dfg-project:hover .dfg-project-ext { color: var(--accent); }
-  .co-root .dfg-project-sector { font-size: 12px; color: var(--muted); }
-  .dfg-project-link { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); font-size: 13.5px; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 6px; }
-  .dfg-project-link i { transition: transform .18s ease-out; }
-  .dfg-project:hover .dfg-project-link i { transform: translateX(3px); }
-
-  /* ── Tarifs ── */
-  .dfg-tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; align-items: start; margin-top: 36px; }
-  .dfg-tier { position: relative; display: flex; flex-direction: column; gap: 14px; padding: 30px 26px; background: var(--surface); border: 1px solid var(--line-2); }
-  .dfg-tier--reco { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
-  .dfg-tier-reco { position: absolute; top: -12px; left: 26px; z-index: 4; }
-  .dfg-tier-name { font-size: 1.15rem; }
-  .dfg-tier-price { display: flex; align-items: baseline; gap: 6px; flex-wrap: wrap; }
-  .dfg-tier-pricelabel { font-size: 13px; color: var(--muted); width: 100%; }
-  .dfg-tier-price b { font-size: 2.3rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
-  .dfg-tier-cur { font-size: 15px; color: var(--muted); font-weight: 500; }
-  .dfg-tier-features { gap: 10px; margin-top: 4px; }
-  .dfg-tier-features li { font-size: 14px; line-height: 1.45; }
-
-  /* ── FAQ (illustration + accordéon natif <details>, zéro JS) ── */
-  .dfg-faq-grid { display: grid; grid-template-columns: minmax(0, 320px) 1fr; gap: 48px; align-items: start; }
-  .dfg-illu-col { position: sticky; top: 96px; }
-  .dfg-illu { position: relative; border: 1px solid var(--line-2); background: var(--surface); }
-  .dfg-illu-img { display: block; width: 100%; height: auto; }
-  .dfg-faq { border-top: 1px solid var(--line); }
-  .dfg-faq details { border-bottom: 1px solid var(--line); }
-  .dfg-faq summary {
-    list-style: none; cursor: pointer; padding: 20px 0;
-    display: flex; justify-content: space-between; align-items: center; gap: 20px;
-    font-size: 1.05rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
-  }
-  .dfg-faq summary::-webkit-details-marker { display: none; }
-  .dfg-faq-q { display: flex; align-items: baseline; gap: 12px; }
-  .dfg-faq-num { font-size: 13px; flex: none; }
-  .dfg-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
-  .dfg-faq details[open] summary i { transform: rotate(180deg); }
-  .co-root .dfg-faq-answer { padding: 0 0 22px 30px; color: var(--muted); line-height: 1.6; max-width: 66ch; }
-  .dfg-faq details::details-content {
-    block-size: 0; overflow: hidden;
-    transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
-  }
-  .dfg-faq details[open]::details-content { block-size: auto; }
-  .co-root .dfg-faq-foot { margin-top: 28px; font-size: 14px; }
-
-  /* ── Anchor scroll offset ── */
-  .co-root section[id] { scroll-margin-top: 100px; }
-
-  /* ── Responsive ── */
-  @media (max-width: 960px) {
-    .dfg-vs-grid { grid-template-columns: 1fr; gap: 28px; }
-    .dfg-cards, .dfg-cards--3, .dfg-projects { grid-template-columns: repeat(2, 1fr); }
-    .dfg-steps { grid-template-columns: repeat(2, 1fr); }
-    .dfg-tiers { grid-template-columns: 1fr; }
-    .dfg-stats { grid-template-columns: repeat(3, 1fr); }
-    .dfg-cities { grid-template-columns: repeat(3, 1fr); }
-    .dfg-faq-grid { grid-template-columns: 1fr; gap: 32px; }
-    .dfg-illu-col { display: none; }
-  }
-  @media (max-width: 720px) {
-    .dfg-cards, .dfg-cards--3, .dfg-projects, .dfg-steps { grid-template-columns: 1fr; }
-    .dfg-stats { grid-template-columns: repeat(2, 1fr); }
-    .dfg-cities { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .dfg-card, .dfg-vs-card, .dfg-step, .dfg-stat, .dfg-project, .dfg-frontier-link,
-    .dfg-card-arrow, .dfg-faq summary i, .dfg-hero-btns .co-btn i, .dfg-proof-link i { transition: none; }
-  }
-</style>
+  head={{
+    kicker: "Freelance · Genève et Suisse romande",
+    h1: "Développeur web freelance",
+    dim: "à Genève.",
+    lead: "Systèmes IA sur mesure, sites web et applications mobiles pour les PME et indépendants romands. Un seul interlocuteur, un devis transparent, du code propre.",
+    cta: { href: "/contact", label: "Demander un devis" },
+    cta2: { href: "/portfolio", label: "Voir mes réalisations" },
+  }}
+  proofs={{ items: [
+    { value: "8", label: "ans d'expérience", client: "Développeur freelance" },
+    { value: "50+", label: "sites et projets livrés", client: "Clients romands" },
+    { value: stat("Sur sa niche").value, label: "sur sa niche", client: proofLecureux.company },
+    { value: stat("Leads qualifiés").value, label: "leads qualifiés", client: proofLecureux.company },
+  ] }}
+  sections={[
+    {
+      id: "services", kicker: "01 · Services", title: "Trois offres,", dim: "l'IA d'abord.",
+      text: "De l'agent IA à l'app mobile, en passant par le site web : un spécialiste du développement web en Suisse qui couvre toute la chaîne.",
+      cta: { href: "/services", label: "Voir tous les services" },
+      subs: [
+        { meta: pricing.agentIA.display, title: "IA en entreprise", text: "Des agents IA et des automatisations qui prennent en charge les tâches répétitives : e-mails, relances, documents. Branchés sur vos outils, avec validation humaine.", link: { href: "/consultant-ia", label: "Systèmes IA sur mesure" } },
+        { meta: pricing.siteWeb.display, title: "Création de site web", text: "Site vitrine sur mesure pour indépendants et PME, ou site Webflow que vous gérez vous-même. Rapide, clair, trouvable sur Google.", link: { href: "/services/creation-site-web", label: "Création de site web" } },
+        { meta: pricing.appMobile.display, title: "Application mobile", text: "Une app iPhone et Android pour vos clients ou votre équipe, de l'idée aux stores.", link: { href: "/services/developpement-application-mobile", label: "Développement d'application mobile" } },
+      ],
+    },
+    {
+      id: "comparaison", kicker: "02 · Freelance ou agence", title: "Pourquoi un freelance", dim: "plutôt qu'une agence ?",
+      text: "Les deux options sont valides selon le contexte. Voilà ce qui change concrètement quand vous choisissez un freelance à Genève.",
+      subs: [
+        { title: "Interlocuteur unique", text: "Vous parlez à la personne qui code. Pas de chef de projet entre vous et le clavier, pas de téléphone arabe." },
+        { title: "Prix transparent", text: "Devis détaillé, zéro marge cachée. Vous savez exactement ce que vous payez." },
+        { title: "Agilité", text: "Décisions rapides, adaptations en cours de route. Pas de comité à convaincre." },
+        { title: "Code propre, pas de WordPress par défaut", text: "Astro, Next.js, Tailwind. Stack moderne, performance Google native, zéro plugin qui rame." },
+        { meta: "Côté agence", title: "Plus de structure, plus de couches", features: ["Équipe dédiée (mais cloisonnée) : account manager, chef de projet, designer, dev, QA. Pratique sur de gros projets, lourd sur des sites de PME.", "Process en plusieurs strates : plus de structure, mais plus de délais (3 à 6 mois en moyenne).", "Marge cachée 30-50 % : le tarif finance les locaux, le commercial et les fonctions support.", "Stack souvent verrouillée : beaucoup d'agences romandes restent sur WordPress par habitude."] },
+      ],
+    },
+    {
+      id: "stack", kicker: "03 · Stack", title: "Stack", dim: "technique.",
+      text: "Outils modernes, performants et durables. Pas de WordPress par défaut, sauf si votre projet le justifie vraiment.",
+      subs: [
+        { title: "Les outils", tools: ["Claude", "OpenAI", "Python", "Astro", "Next.js", "React", "Svelte", "TypeScript", "Tailwind CSS", "Supabase", "Vercel", "Cloudflare", "Stripe", "TWINT", "Webflow", "Framer"] },
+        { title: "Pourquoi pas WordPress par défaut ?", text: "WordPress reste pertinent pour certains cas (gros blog éditorial, équipe déjà formée) : je le propose en <a href=\"/services/creation-site-web#refonte\">refonte ou migration</a> quand c'est justifié. Mais sur la plupart des projets de PME romandes, une stack moderne (Astro, Next.js, Svelte) donne un site plus rapide, plus sûr et moins cher à maintenir sur 3 ans. Pour un CMS visuel, je propose aussi <a href=\"/services/creation-site-web#webflow\">Webflow</a>." },
+      ],
+    },
+    {
+      id: "zones", kicker: "04 · Zones", title: "Où", dim: "j'interviens.",
+      text: "Basé à Genève, je travaille avec des clients de toute la Suisse romande (Vaud, Valais, Neuchâtel, Fribourg) et de la zone frontalière française.",
+      subs: [
+        { title: "Suisse romande", features: ["Genève (base)", "Lausanne", "Vevey", "Montreux", "Sion", "Sierre", "Nyon", "Morges"], text: "Échanges en visio ou en personne selon votre préférence. Facturation en CHF.", link: { href: "/consultant-ia/lausanne", label: "Consultant IA à Lausanne" } },
+      ],
+    },
+    {
+      id: "tarifs", kicker: "05 · Tarifs", title: "Combien ça", dim: "coûte ?",
+      text: "Des prix en CHF pour situer votre projet. Devis ferme après un premier échange gratuit.",
+      cta: { href: "/tarifs", label: "Voir tous les tarifs" },
+      subs: [
+        { meta: pricing.agentIA.display, title: "Agent IA", text: `Puis ${pricing.agentIA.runningCost} de fonctionnement, hébergé en Suisse.` },
+        { meta: pricing.siteWeb.display, title: "Site web", text: `Site Webflow : ${pricing.webflow.display.replace('Dès', 'dès')}.`, features: ["Design sur mesure", "Adapté au mobile", "Optimisé pour Google"] },
+        { meta: pricing.appMobile.display, title: "Application mobile", text: "Chiffrée selon votre projet." },
+        { meta: pricing.formationIA.display, title: "Formation IA", text: "Pour une équipe ou en individuel.", link: { href: "/services/formation-ia-equipe", label: "Formation IA équipe" } },
+      ],
+    },
+  ]}
+  method={{
+    title: "Comment on travaille", dim: "ensemble.",
+    text: "Quatre étapes claires, des validations à chaque jalon, aucune zone de flou.",
+    steps: [
+      { title: "Brief", text: "Échange gratuit de 30-45 minutes. Vous m'expliquez votre activité, vos objectifs, ce que vous attendez concrètement.", meta: "Sous 48h" },
+      { title: "Devis", text: "Proposition écrite : périmètre, livrables, planning, montant en CHF. Pas de surprise, pas d'option cachée.", meta: "3-5 jours" },
+      { title: "Sprint", text: "Maquette validée puis développement. Démos régulières, accès staging, ajustements en continu.", meta: "2-4 semaines" },
+      { title: "Livraison", text: "Mise en ligne, transfert des accès, formation rapide. Votre projet vous appartient : code, hébergement, domaine.", meta: "1 jour" },
+    ],
+  }}
+  cases={{
+    title: "Réalisations", dim: "récentes.",
+    text: "Quelques projets livrés pour des clients romands. Tout le <a href=\"/portfolio\">portfolio</a>.",
+    slugs: ["leo-lecureux-seo", "barber-concept"],
+  }}
+  links={[{
+    title: "À lire avant", dim: "de vous décider.",
+    items: [
+      { href: "/blog/prix-site-web-suisse-2026", k: "Article", label: "Combien coûte vraiment un site web en Suisse en 2026 ?", text: "Fourchettes en CHF par profil de prestataire (freelance, agence, no-code) et par type de projet." },
+      { href: "/blog/specialiste-developpement-web-suisse", k: "Article", label: "Spécialiste dev web Suisse : comment bien choisir", text: "Les 7 critères pour différencier un bon développeur d'un copieur de templates." },
+      { href: "/portfolio/ugo-mighali-coutelier", k: "Réalisation", label: "Ugo Mighali, coutelier d'art", text: "Portfolio minimaliste pour un jeune artisan formé à Genève." },
+      { href: "/about", k: "À propos", label: "Qui est derrière Jon Labs", text: "Mon parcours, ma façon de travailler." },
+    ],
+  }]}
+  testimonials={[
+    { quote: proofLecureux.testimonial!.quote.split("\n")[0], name: proofLecureux.testimonial!.author, role: proofLecureux.metierShort, company: proofLecureux.company, result: proofLecureux.businessResult },
+  ]}
+  faq={faqs}
+  contact="Premier échange gratuit, sans engagement. Je vous dis franchement si je suis le bon profil pour vous, et sinon, je vous oriente vers quelqu'un de mieux placé."
+/>

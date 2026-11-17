@@ -1,18 +1,21 @@
 ---
 // Contact v2 (direction A) : grande carte + 4 cartes réseaux, en bento.
+// `text` remplace la phrase de la home ; `call` = cible du bouton d'appel (#agenda sur la home, /contact ailleurs).
 import { WHATSAPP, socials } from '../../data/v2';
+interface Props { text?: string; call?: string }
+const { text = 'Je construis des systèmes IA qui tournent tous les jours.', call = '#agenda' } = Astro.props;
 ---
 <div class="w v2-contact">
   <div class="v2-contact-main">
     <div>
       <h2 class="v2-h2">Jonathan Vouilloz</h2>
-      <p class="v2-mut">Je construis des systèmes IA qui tournent tous les jours.</p>
+      <p class="v2-mut">{text}</p>
     </div>
     <div>
       <p class="v2-mut">Écrivez-moi</p>
       <a href="mailto:contact@jonlabs.ch" class="v2-mail">contact@jonlabs.ch</a>
       <div class="v2-ctas v2-ctas-left">
-        <a href="#agenda" class="v2-btn"><i class="ri-calendar-line"></i> <span data-roll>Réserver un appel</span></a>
+        <a href={call} class="v2-btn"><i class="ri-calendar-line"></i> <span data-roll>Réserver un appel</span></a>
         <a href={`https://wa.me/${WHATSAPP}`} class="v2-btn v2-btn-ghost" target="_blank" rel="noopener"><i class="ri-whatsapp-line"></i> <span data-roll>WhatsApp</span></a>
       </div>
     </div>

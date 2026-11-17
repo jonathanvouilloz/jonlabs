@@ -205,31 +205,13 @@ export const servicesListData = {
       "position": 2,
       "item": {
         "@type": "Service",
-        "name": "Développeur Webflow",
-        "url": `${SITE_URL}/services/developpeur-webflow`
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 3,
-      "item": {
-        "@type": "Service",
-        "name": "Refonte de site web",
-        "url": `${SITE_URL}/services/refonte-site-web`
-      }
-    },
-    {
-      "@type": "ListItem",
-      "position": 4,
-      "item": {
-        "@type": "Service",
         "name": "Développement d'application mobile",
         "url": `${SITE_URL}/services/developpement-application-mobile`
       }
     },
     {
       "@type": "ListItem",
-      "position": 5,
+      "position": 3,
       "item": {
         "@type": "Service",
         "name": "Consultant IA et agents IA",
@@ -238,7 +220,7 @@ export const servicesListData = {
     },
     {
       "@type": "ListItem",
-      "position": 6,
+      "position": 4,
       "item": {
         "@type": "Service",
         "name": "Agent IA Hermès",
@@ -247,7 +229,7 @@ export const servicesListData = {
     },
     {
       "@type": "ListItem",
-      "position": 7,
+      "position": 5,
       "item": {
         "@type": "Service",
         "name": "Formation IA",
@@ -300,38 +282,6 @@ export const serviceSchemas = {
       },
       "description": "À partir de CHF 850, devis sur demande"
     }
-  },
-  "developpeur-webflow": {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${SITE_URL}/services/developpeur-webflow/#service`,
-    "name": "Développeur Webflow freelance à Genève",
-    "url": `${SITE_URL}/services/developpeur-webflow`,
-    "description": "Création, refonte et e-commerce Webflow pour PME et indépendants en Suisse romande. Sites rapides, gérables en autonomie, optimisés pour Google.",
-    "provider": { "@id": `${SITE_URL}/#organization` },
-    "areaServed": ["Genève", "Vaud", "Suisse Romande"],
-    "serviceType": "Développement Webflow",
-    "offers": {
-      "@type": "Offer",
-      "priceSpecification": {
-        "@type": "PriceSpecification",
-        "price": "950",
-        "priceCurrency": "CHF",
-        "minPrice": "950"
-      },
-      "description": "À partir de CHF 950, devis sur demande"
-    }
-  },
-  "refonte-site-web": {
-    "@context": "https://schema.org",
-    "@type": "Service",
-    "@id": `${SITE_URL}/services/refonte-site-web/#service`,
-    "name": "Refonte de site web à Genève",
-    "url": `${SITE_URL}/services/refonte-site-web`,
-    "description": "Modernisation de votre site web existant. Design responsive, performances optimisées, référencement Google intégré.",
-    "provider": { "@id": `${SITE_URL}/#organization` },
-    "areaServed": ["Genève", "Vaud", "Suisse Romande"],
-    "serviceType": "Refonte Web"
   },
   "developpement-application-mobile": {
     "@context": "https://schema.org",

@@ -1,103 +1,15 @@
 ---
-// Formation IA pour équipes — sous-page service (blueprint).
-// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
-// accent teal unique, Inter Tight × Instrument Serif. Calque le gabarit-or
-// /services/creation-site-web.astro (namespace scopé .fo-*).
-//
-// HARD-PRESERVE : Schema.org (getServiceItemSchema/breadcrumb/FAQ), câblage Web3Forms
-// (#formation-form, access_key + hidden inputs, tous les name=, honeypot, JS submit),
-// prix : sur devis (src/data/pricing.ts), liens SEO internes (/consultant-ia, /consultant-ia#automatisation).
-
-import '../../styles/global.css';
-import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
-
-// Schema.org
+// Formation IA pour équipes (v2, gabarit ServicePage). Prix : src/data/pricing.ts (sur devis).
+import ServicePage from '../../components/v2/ServicePage.astro';
 import { SITE_URL } from '../../data/schema';
 import { getServiceItemSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
+import { pricing } from '../../data/pricing';
 
-// SEO Data
 const seoData = {
     title: "Formation IA pour équipes en Suisse romande",
     description: "Formation IA sur-mesure pour les équipes de PME romandes : cadrage des usages, outils, garde-fous nLPD. Entreprise ou particulier, à Genève ou à distance. Devis sur mesure."
 };
 
-// Schema.org data
-const breadcrumb = getBreadcrumbSchema([
-    { name: "Accueil", url: SITE_URL },
-    { name: "Services", url: `${SITE_URL}/services` },
-    { name: "Formation IA équipe", url: `${SITE_URL}/services/formation-ia-equipe` }
-]);
-const schemas: any[] = [getServiceItemSchema("formation-ia-equipe"), breadcrumb];
-
-// Pain points (4 items)
-const painPoints = [
-    { icon: "ri-bank-card-line", title: "\"On paie des outils IA que personne n'utilise\"", description: "Deux ou trois curieux testent, le reste de l'équipe n'y touche pas." },
-    { icon: "ri-emotion-unhappy-line", title: "\"Mon équipe se méfie de l'IA\"", description: "Peur de mal faire ou d'être remplacé : la curiosité reste bloquée." },
-    { icon: "ri-shield-cross-line", title: "\"Chacun bricole dans son coin\"", description: "Des données clients collées dans ChatGPT, sans aucun contrôle." },
-    { icon: "ri-question-line", title: "\"On n'a pas de règles\"", description: "Personne ne sait ce qu'on a le droit de mettre dans une IA." }
-];
-
-// Method steps / programme (4 items)
-const methodSteps = [
-    { step: "1", title: "On part de votre quotidien", description: "Je repère les tâches où l'IA vous fait vraiment gagner du temps.", duration: "1-2 heures en amont" },
-    { step: "2", title: "Atelier sur vos cas", description: "Pas de slides génériques : on travaille sur vos vrais outils et dossiers.", duration: "½ journée à 2 jours" },
-    { step: "3", title: "Les règles du jeu", description: "Ce qu'on met dans une IA, et ce qu'on n'y met jamais (nLPD).", duration: "Inclus dans l'atelier" },
-    { step: "4", title: "Un guide pour la suite", description: "Vous gardez un guide interne, et je reste disponible pour vos questions.", duration: "Après la session" }
-];
-
-// Differentiators
-const differentiators = [
-    { icon: "ri-briefcase-4-line", title: "Sur vos cas", description: "Des usages concrets, pas de la théorie." },
-    { icon: "ri-shield-check-line", title: "Données protégées", description: "Le cadre nLPD fait partie de la formation." },
-    { icon: "ri-terminal-box-line", title: "Un formateur qui construit", description: "Je déploie aussi des agents IA chez mes clients." }
-];
-
-// Results (6 items)
-const results = [
-    { icon: "ri-team-line", title: "L'IA au quotidien", description: "Un réflexe de travail, plus un gadget testé une fois." },
-    { icon: "ri-timer-flash-line", title: "Du temps gagné", description: "Comptes rendus, réponses clients, rédaction : des heures récupérées chaque semaine." },
-    { icon: "ri-shield-check-line", title: "Des usages sûrs", description: "Chacun sait ce qu'il peut mettre dans une IA, ou pas." },
-    { icon: "ri-book-open-line", title: "Un guide interne", description: "Les bons usages et les règles maison, dans un document que vous gardez." },
-    { icon: "ri-emotion-happy-line", title: "Plus de peur", description: "Toute l'équipe s'approprie l'outil." },
-    { icon: "ri-wallet-3-line", title: "Des abonnements rentabilisés", description: "Les licences que vous payez servent enfin." }
-];
-
-// Concrete example
-const concreteExample = {
-    title: "Une PME de 12 personnes qui payait dans le vide",
-    before: "ChatGPT, Copilot et deux autres abonnements, utilisés par deux ou trois curieux.",
-    after: "Chaque pôle a 2-3 usages ancrés (comptes rendus, réponses clients, offres) et des règles claires.",
-    result: "Plusieurs heures récupérées chaque semaine, et des abonnements enfin utiles."
-};
-
-// Formats & modalités
-const formats = [
-    { name: "Présentiel à Genève", description: "Dans vos locaux, avec toute l'équipe autour de la table.", icon: "ri-map-pin-2-line" },
-    { name: "À distance", description: "Même approche pratique, en visio, partout en Suisse romande.", icon: "ri-vidicon-line" },
-    { name: "Atelier découverte (½ journée)", description: "Pour lever les blocages et montrer 3-4 usages concrets.", icon: "ri-compass-3-line" },
-    { name: "Programme sur 1 à 2 jours", description: "Pour ancrer les usages par pôle, avec le guide interne.", icon: "ri-calendar-2-line" }
-];
-
-// Pricing factors
-const pricingFactors = [
-    "La taille de votre équipe",
-    "La durée (½ journée à 2 jours)",
-    "Le format (présentiel ou distanciel)",
-    "Le niveau de personnalisation des cas"
-];
-
-// Pricing inclusions
-const pricingInclusions = [
-    "Audit préalable des usages",
-    "Atelier pratique sur vos cas",
-    "Garde-fous & cadre nLPD",
-    "Guide interne remis à l'équipe",
-    "Suivi post-formation"
-];
-
-// FAQs
 const faqs = [
     { question: "Combien ça coûte ?", answer: "C'est sur devis, pour une équipe comme pour un particulier. Le prix dépend du nombre de personnes, de la durée et du format. Premier échange gratuit." },
     { question: "Vous formez aussi les particuliers ?", answer: "Oui. Même approche : on part de ce que vous faites au quotidien, et vous repartez avec des usages concrets." },
@@ -106,581 +18,113 @@ const faqs = [
     { question: "Mon équipe n'y connaît rien, c'est un problème ?", answer: "Pas du tout. Aucun niveau technique n'est requis : on part de zéro, sur vos cas concrets." },
     { question: "Et après la formation ?", answer: "Vous gardez un guide interne (bons usages, règles nLPD), et je reste disponible pour vos questions." }
 ];
-schemas.push(getFAQPageSchema(faqs));
 
-// Local zones
-const zones = [
-    { name: "Genève", type: "primary", icon: "ri-map-pin-fill", note: "(présentiel)" },
-    { name: "Vaud", type: "secondary", icon: "ri-map-pin-line", note: "" },
-    { name: "Valais", type: "secondary", icon: "ri-map-pin-line", note: "" },
-    { name: "Neuchâtel", type: "secondary", icon: "ri-map-pin-line", note: "" },
-    { name: "Fribourg", type: "secondary", icon: "ri-map-pin-line", note: "" },
-    { name: "Toute la Suisse romande", type: "tertiary", icon: "ri-global-line", note: "(distanciel)" }
+const schemas: any[] = [
+    getServiceItemSchema("formation-ia-equipe"),
+    getBreadcrumbSchema([
+        { name: "Accueil", url: SITE_URL },
+        { name: "Services", url: `${SITE_URL}/services` },
+        { name: "Formation IA équipe", url: `${SITE_URL}/services/formation-ia-equipe` }
+    ]),
+    getFAQPageSchema(faqs),
 ];
 
-// Session type options for form
-const sessionTypes = [
-    { value: "atelier-decouverte", label: "Atelier découverte (½ journée)" },
-    { value: "formation-equipe", label: "Formation équipe (1-2 jours)" },
-    { value: "garde-fous-nlpd", label: "Garde-fous & nLPD" },
-    { value: "autre", label: "Autre / Je ne sais pas" }
-];
+const cta = { href: "/contact", label: "Discuter d'une formation" };
 ---
 
-<Layout title={seoData.title} description={seoData.description} schemas={schemas} robots="index, follow">
-    <Header />
-
-    <main class="co-root">
-
-        <!-- ══ HERO ══ -->
-        <section class="co-sec co-pad co-hero fo-hero">
-            <div class="fo-hero-copy">
-                <h1 class="fo-hero-title" data-animate data-delay="0.1">
-                    Formation IA pour vos <span class="co-ser">équipes.</span>
-                </h1>
-                <p class="fo-hero-lead" data-animate data-delay="0.2">
-                    Utiliser l'IA au quotidien, sur vos vrais outils, sans risque pour vos données.
-                    <strong>Pour une équipe ou en individuel.</strong>
-                </p>
-                <div class="fo-hero-btns" data-animate data-delay="0.3">
-                    <a href="#contact" class="co-btn"><i class="ri-chat-3-line"></i> Discuter d'une formation</a>
-                    <a href="#programme" class="co-btn co-btn--ghost">Voir le programme <i class="ri-arrow-down-line"></i></a>
-                </div>
-                <p class="fo-hero-loc co-mut" data-animate data-delay="0.4">
-                    <i class="ri-map-pin-fill"></i> Présentiel à Genève · Distanciel en Suisse romande
-                </p>
-            </div>
-        </section>
-
-        <!-- ══ 02 · PROBLÈMES ══ -->
-        <section id="problemes" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">01 — Problèmes</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Ça vous <span class="co-ser">parle ?</span></h2>
-
-            <div class="fo-grid fo-grid--2" data-animate-stagger>
-                {painPoints.map((point) => (
-                    <div class="fo-card co-frame co-frame--reveal" data-animate-item>
-                        <i class={`${point.icon} fo-card-icon`} aria-hidden="true"></i>
-                        <h3 class="fo-card-title">{point.title}</h3>
-                        <p class="fo-card-text">{point.description}</p>
-                    </div>
-                ))}
-            </div>
-
-            <div class="fo-note fo-note--accent" data-animate>
-                <i class="ri-lightbulb-line"></i>
-                <p><strong>Le problème n'est pas l'IA,</strong> c'est l'absence de mode d'emploi. Et ça, ça se forme.</p>
-            </div>
-        </section>
-
-        <!-- ══ 03 · PROGRAMME ══ -->
-        <section id="programme" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">02 — Programme</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Comment se passe la formation ?</h2>
-            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-                Objectif : utiliser l'IA seul, sans risque.
-            </p>
-
-            <div class="fo-steps" data-animate-stagger>
-                {methodSteps.map((step, index) => (
-                    <div class="fo-step" data-animate-item>
-                        <span class="fo-step-num co-index">0{index + 1}</span>
-                        <div class="fo-step-body">
-                            <h3 class="fo-step-title">{step.title}</h3>
-                            <p class="fo-step-text">{step.description}</p>
-                            <p class="fo-step-dur"><i class="ri-time-line"></i> {step.duration}</p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-
-            <div class="fo-diff co-frame" data-animate>
-                <span class="co-x tl"></span><span class="co-x tr"></span>
-                <span class="co-x bl"></span><span class="co-x br"></span>
-                <h3 class="fo-diff-title">Ce qui change avec Jon Labs</h3>
-                <div class="fo-diff-grid">
-                    {differentiators.map((diff) => (
-                        <div class="fo-diff-item">
-                            <i class={`${diff.icon} fo-diff-icon`} aria-hidden="true"></i>
-                            <h4 class="fo-diff-name">{diff.title}</h4>
-                            <p class="fo-diff-desc">{diff.description}</p>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
-
-        <!-- ══ 04 · RÉSULTATS ══ -->
-        <section id="resultats" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">03 — Résultats</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Ce que votre équipe <span class="co-ser">obtient.</span></h2>
-
-            <div class="fo-grid fo-grid--3" data-animate-stagger>
-                {results.map((result) => (
-                    <div class="fo-card co-frame co-frame--reveal" data-animate-item>
-                        <i class={`${result.icon} fo-card-icon`} aria-hidden="true"></i>
-                        <h3 class="fo-card-title">{result.title}</h3>
-                        <p class="fo-card-text">{result.description}</p>
-                    </div>
-                ))}
-            </div>
-
-            <div class="fo-example co-frame" data-animate>
-                <span class="co-x tl"></span><span class="co-x tr"></span>
-                <span class="co-x bl"></span><span class="co-x br"></span>
-                <h3 class="fo-example-title"><i class="ri-flashlight-line"></i> Exemple concret : {concreteExample.title}</h3>
-                <div class="fo-example-grid">
-                    <div class="fo-example-col">
-                        <span class="co-badge fo-example-tag"><i class="ri-close-circle-line"></i> Avant</span>
-                        <p>{concreteExample.before}</p>
-                    </div>
-                    <div class="fo-example-col fo-example-col--after">
-                        <span class="co-badge co-badge--solid fo-example-tag"><i class="ri-check-line"></i> Maintenant</span>
-                        <p>{concreteExample.after}</p>
-                    </div>
-                </div>
-                <p class="fo-example-result">{concreteExample.result}</p>
-            </div>
-        </section>
-
-        <!-- ══ 05 · FORMATS ══ -->
-        <section id="formats" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">04 — Formats</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Des formats adaptés à <span class="co-ser">votre équipe.</span></h2>
-            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-                On cale le format selon vos objectifs.
-            </p>
-
-            <div class="fo-grid fo-grid--2" data-animate-stagger>
-                {formats.map((format) => (
-                    <div class="fo-card co-frame co-frame--reveal" data-animate-item>
-                        <i class={`${format.icon} fo-card-icon`} aria-hidden="true"></i>
-                        <h3 class="fo-card-title">{format.name}</h3>
-                        <p class="fo-card-text">{format.description}</p>
-                    </div>
-                ))}
-            </div>
-
-        </section>
-
-        <!-- ══ 06 · LOCAL (SEO géo) ══ -->
-        <section id="local" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">05 — Local</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Un formateur IA basé à <span class="co-ser">Genève.</span></h2>
-            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-                Sur place ou à distance, dans toute la Suisse romande.
-            </p>
-
-            <div class="fo-local-grid">
-                <div class="fo-local-why co-frame" data-animate="fade-left">
-                    <h3 class="fo-local-h3">Pourquoi un formateur local ?</h3>
-                    <p>
-                        Je connais les outils des PME romandes et la nLPD. Je viens dans vos locaux, et je reste
-                        joignable après la formation.
-                    </p>
-                </div>
-
-                <div data-animate="fade-left" data-delay="0.1">
-                    <h3 class="fo-local-h3">Zones couvertes</h3>
-                    <div class="fo-zones">
-                        {zones.map((zone) => (
-                            <div class={`fo-zone ${zone.type === 'primary' ? 'fo-zone--primary' : ''}`}>
-                                <i class={zone.icon}></i>
-                                <span><strong>{zone.name}</strong> {zone.note && <span class="co-mut">{zone.note}</span>}</span>
-                            </div>
-                        ))}
-                    </div>
-                    <p class="co-mut" style="margin-top:16px;font-size:13.5px;">
-                        <i class="ri-information-line"></i> Les échanges se font en personne ou en visio selon vos préférences.
-                    </p>
-                </div>
-            </div>
-        </section>
-
-        <!-- ══ 07 · INVESTISSEMENT ══ -->
-        <section id="prix" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">06 — Tarifs</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Combien ça <span class="co-ser">coûte ?</span></h2>
-            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:52ch;">Un devis clair, adapté à votre équipe ou à vous seul.</p>
-
-            <div class="fo-price-hero co-frame" data-animate>
-                <span class="co-x tl"></span><span class="co-x tr"></span>
-                <span class="co-x bl"></span><span class="co-x br"></span>
-                <p class="fo-price-label">Entreprise ou particulier</p>
-                <p class="fo-price-amount"><b>Sur devis</b></p>
-                <p class="co-mut">Selon le nombre de personnes, la durée et le format. Premier échange gratuit.</p>
-            </div>
-
-            <div class="fo-price-cols" data-animate-stagger>
-                <div class="fo-price-card co-frame" data-animate-item>
-                    <h3 class="fo-price-card-title"><i class="ri-calculator-line"></i> Ce qui influence le prix</h3>
-                    <ul class="co-list">
-                        {pricingFactors.map((factor) => (<li>{factor}</li>))}
-                    </ul>
-                </div>
-                <div class="fo-price-card co-frame" data-animate-item>
-                    <h3 class="fo-price-card-title"><i class="ri-checkbox-circle-line"></i> Ce qui est toujours inclus</h3>
-                    <ul class="co-list co-list--check">
-                        {pricingInclusions.map((inc) => (<li><i class="ri-check-line"></i><span>{inc}</span></li>))}
-                    </ul>
-                </div>
-            </div>
-
-            <div class="fo-durations co-frame" data-animate>
-                <div class="fo-duration">
-                    <b>½ journée</b>
-                    <span class="co-mut">Atelier découverte</span>
-                </div>
-                <div class="fo-duration-sep"></div>
-                <div class="fo-duration">
-                    <b>1 à 2 jours</b>
-                    <span class="co-mut">Formation complète</span>
-                </div>
-            </div>
-
-            <div class="fo-price-cta" data-animate>
-                <a href="#contact" class="co-btn"><i class="ri-calculator-line"></i> Demander un devis</a>
-                <p class="co-mut" style="margin-top:12px;font-size:13.5px;">
-                    Premier échange gratuit et sans engagement. On regarde ensemble ce dont votre équipe a besoin.
-                </p>
-            </div>
-        </section>
-
-        <!-- ══ 08 · FAQ (accordéon natif <details>, zéro JS) ══ -->
-        <section id="faq" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-            <p class="co-eyebrow">07 — FAQ</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes</h2>
-
-            <div class="fo-faq" style="margin-top:var(--space-block);">
-                {faqs.map((faq, index) => (
-                    <details open={index === 0}>
-                        <summary>
-                            {faq.question}
-                            <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
-                        </summary>
-                        <p class="fo-faq-answer">{faq.answer}</p>
-                    </details>
-                ))}
-            </div>
-
-            <p class="co-mut" style="margin-top:24px;text-align:center;">
-                Une autre question ? <a href="#contact" class="fo-inline">Contactez-moi directement</a>, je réponds sous 24h.
-            </p>
-        </section>
-
-        <!-- ══ 09 · CONTACT (formulaire Web3Forms — HARD-PRESERVE câblage) ══ -->
-        <section id="contact" class="co-sec co-pad" style="padding:64px var(--sec-pad-x);">
-            <p class="co-eyebrow">08 — Contact</p>
-            <h2 style="margin-top:var(--space-eyebrow);">Votre équipe est prête à passer à <span class="co-ser">l'IA ?</span></h2>
-            <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
-                Premier échange gratuit. On regarde ensemble où en est votre équipe — que vous ayez déjà des
-                abonnements IA que personne n'utilise, ou que vous partiez de zéro. Si une formation fait sens,
-                je vous propose un format et un devis clairs. Sinon, je vous le dis honnêtement.
-            </p>
-
-            <form class="fo-form co-frame" id="formation-form" data-animate>
-                <span class="co-x tl"></span><span class="co-x tr"></span>
-                <span class="co-x bl"></span><span class="co-x br"></span>
-
-                <!-- Hidden fields for Web3Forms (HARD-PRESERVE) -->
-                <input type="hidden" name="access_key" value="3f64c7a1-46b9-4524-8e78-47524896d467">
-                <input type="hidden" name="subject" value="Demande formation IA équipe - Jon Labs">
-                <input type="hidden" name="from_name" value="Jon Labs - Formation IA équipe">
-                <input type="checkbox" name="botcheck" class="fo-honeypot" style="display: none;">
-
-                <h3 class="fo-form-title">Parlons de votre équipe</h3>
-
-                <div class="fo-form-grid">
-                    <div class="fo-field">
-                        <label for="name" class="fo-label"><span class="co-index">01</span> Nom / Prénom <span class="fo-req">*</span></label>
-                        <input type="text" id="name" name="name" required placeholder="Jean Dupont" class="fo-input" />
-                    </div>
-
-                    <div class="fo-field">
-                        <label for="email" class="fo-label"><span class="co-index">02</span> Email <span class="fo-req">*</span></label>
-                        <input type="email" id="email" name="email" required placeholder="vous@exemple.ch" class="fo-input" />
-                    </div>
-
-                    <div class="fo-field">
-                        <label for="company" class="fo-label"><span class="co-index">03</span> Entreprise (optionnel)</label>
-                        <input type="text" id="company" name="company" placeholder="Votre entreprise" class="fo-input" />
-                    </div>
-
-                    <div class="fo-field">
-                        <label for="team-size" class="fo-label"><span class="co-index">04</span> Taille de l'équipe (optionnel)</label>
-                        <input type="text" id="team-size" name="team_size" placeholder="Ex : 8 personnes" class="fo-input" />
-                    </div>
-
-                    <div class="fo-field fo-field--full">
-                        <label for="session-type" class="fo-label"><span class="co-index">05</span> Format envisagé <span class="fo-req">*</span></label>
-                        <div class="fo-select-wrap">
-                            <select id="session-type" name="session_type" required class="fo-select">
-                                <option value="" disabled selected>Choisir...</option>
-                                {sessionTypes.map((type) => (<option value={type.value}>{type.label}</option>))}
-                            </select>
-                            <i class="ri-arrow-down-s-line fo-select-caret" aria-hidden="true"></i>
-                        </div>
-                    </div>
-
-                    <div class="fo-field fo-field--full">
-                        <label for="message" class="fo-label"><span class="co-index">06</span> Décrivez votre situation <span class="fo-req">*</span></label>
-                        <textarea id="message" name="message" rows="4" required placeholder="Où en est votre équipe avec l'IA ? Quels outils avez-vous déjà ? Qu'aimeriez-vous que vos équipes sachent faire ?" class="fo-textarea"></textarea>
-                    </div>
-
-                    <div class="fo-field fo-field--full">
-                        <label class="fo-consent">
-                            <input type="checkbox" name="consent" required class="fo-checkbox" />
-                            <span>Vos données sont utilisées uniquement pour répondre à votre demande. Pas de spam, promis. <span class="fo-req">*</span></span>
-                        </label>
-                    </div>
-
-                    <div class="fo-field fo-field--full">
-                        <button type="submit" class="co-btn submit-btn fo-submit">
-                            <span>Envoyer ma demande</span>
-                            <i class="ri-send-plane-line"></i>
-                        </button>
-                    </div>
-                </div>
-            </form>
-
-            <div class="fo-form-after" data-animate>
-                <div class="fo-trust">
-                    <span><i class="ri-time-line"></i> Réponse sous 24h</span>
-                    <span><i class="ri-gift-line"></i> Premier échange gratuit</span>
-                    <span><i class="ri-file-list-3-line"></i> Devis clair</span>
-                </div>
-                <div class="fo-alt">
-                    <p class="co-mut">Vous préférez réserver un créneau directement ?</p>
-                    <a href="https://cal.com/jonathan-vouilloz/appel-de-bienvenue" target="_blank" rel="noopener noreferrer" class="fo-inline"><i class="ri-calendar-line"></i> Réserver un appel découverte</a>
-                </div>
-                <div class="fo-alt">
-                    <p class="co-mut">Besoin d'une réponse rapide ?</p>
-                    <a href="mailto:contact@jonlabs.ch" class="fo-inline">contact@jonlabs.ch</a>
-                </div>
-                <p class="fo-note-inline" style="text-align:center;">
-                    <strong>Pas encore prêt ?</strong> Découvrez tout l'accompagnement
-                    <a href="/consultant-ia" class="fo-inline">Consultant IA à Genève</a>, ou comment
-                    <a href="/consultant-ia#automatisation" class="fo-inline">automatiser vos tâches répétitives</a>.
-                </p>
-            </div>
-        </section>
-
-    </main>
-
-    <Footer />
-</Layout>
-
-<style is:global>
-    /* ══ FORMATION IA ÉQUIPE — styles .fo-* (namespace scopé, corps .co-root) ══ */
-
-    /* ── Hero ── */
-    .fo-hero-copy { max-width: 760px; }
-    .fo-hero-title { font-size: clamp(2.2rem, 5vw, 3.4rem); }
-    .co-root .fo-hero-lead { margin-top: 18px; max-width: 58ch; font-size: 1.075rem; line-height: 1.65; color: var(--muted); }
-    .fo-hero-lead strong { color: var(--ink); font-weight: 600; }
-    .fo-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-    .fo-hero-btns .co-btn i { transition: transform .18s ease-out; }
-    .fo-hero-btns .co-btn:hover i { transform: translateY(2px); }
-    .co-root .fo-hero-loc { margin-top: 22px; font-size: 13.5px; display: inline-flex; align-items: center; gap: 6px; }
-    .fo-hero-loc i { color: var(--accent); }
-
-    /* ── Prose (contexte) ── */
-
-    /* ── Cartes génériques (problèmes / résultats / formats) ── */
-    .fo-grid { display: grid; gap: 16px; margin-top: var(--space-block); }
-    .fo-grid--2 { grid-template-columns: repeat(2, 1fr); }
-    .fo-grid--3 { grid-template-columns: repeat(3, 1fr); }
-    .fo-card {
-        position: relative; display: flex; flex-direction: column; gap: 10px; padding: var(--pad-card);
-        background: var(--surface); border: 1px solid var(--line-2);
-        transition: box-shadow .18s ease-out, transform .18s ease-out;
-    }
-    .fo-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
-    .fo-card-icon { font-size: 24px; color: var(--accent); line-height: 1; }
-    .fo-card-title { font-size: 1.1rem; }
-    .fo-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
-
-    /* ── Notes / callouts ── */
-    .fo-note { display: flex; align-items: flex-start; gap: 12px; margin-top: 20px; padding: 18px 22px; border: 1px solid var(--line-2); background: var(--surface); }
-    .fo-note i { color: var(--accent); font-size: 20px; flex: none; margin-top: 1px; }
-    .co-root .fo-note p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
-    .fo-note--accent { border-color: var(--accent); background: rgba(0,168,125,0.05); }
-    .fo-note-inline { margin-top: 14px !important; font-size: 14px; line-height: 1.6; color: var(--muted); }
-    .fo-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; }
-    .fo-inline:hover { color: var(--ink); }
-    .fo-note strong, .fo-note-inline strong { color: var(--ink); font-weight: 600; }
-
-    /* ── Étapes programme ── */
-    .fo-steps { display: flex; flex-direction: column; margin-top: var(--space-block); border-top: 1px solid var(--line); }
-    .fo-step { display: grid; grid-template-columns: 56px 1fr; gap: 20px; padding: 22px 0; border-bottom: 1px solid var(--line); }
-    .fo-step-num { font-size: 20px; font-weight: 600; }
-    .fo-step-title { font-size: 1.15rem; }
-    .co-root .fo-step-text { margin-top: 6px; font-size: 14.5px; line-height: 1.55; color: var(--muted); max-width: 68ch; }
-    .co-root .fo-step-dur { margin-top: var(--space-title-lead); font-size: 13px; color: var(--muted); display: inline-flex; align-items: center; gap: 6px; }
-    .fo-step-dur i { color: var(--accent); }
-
-    /* ── Encart différenciateurs ── */
-    .fo-diff { position: relative; margin-top: var(--space-block); padding: var(--pad-panel); background: var(--surface); border: 1px solid var(--line-2); }
-    .fo-diff-title { text-align: center; font-size: 1.25rem; }
-    .fo-diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 28px; }
-    .fo-diff-item { text-align: center; }
-    .fo-diff-icon { font-size: 26px; color: var(--accent); }
-    .fo-diff-name { margin-top: var(--space-title-lead); font-size: 15px; font-weight: 600; }
-    .co-root .fo-diff-desc { margin-top: 4px; font-size: 13px; line-height: 1.5; color: var(--muted); }
-
-    /* ── Exemple concret (avant / maintenant) ── */
-    .fo-example { position: relative; margin-top: 28px; padding: 32px 34px; background: var(--surface); border: 1px solid var(--line-2); }
-    .fo-example-title { font-size: 1.15rem; display: flex; align-items: center; gap: 8px; }
-    .fo-example-title i { color: var(--accent); }
-    .fo-example-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px; }
-    .fo-example-col { display: flex; flex-direction: column; gap: 12px; padding: 20px; border: 1px solid var(--line-2); background: var(--bg); }
-    .fo-example-col--after { border-color: var(--accent); }
-    .fo-example-tag { align-self: flex-start; display: inline-flex; align-items: center; gap: 5px; }
-    .co-root .fo-example-col p { font-size: 14px; line-height: 1.55; color: var(--muted); }
-    .co-root .fo-example-col--after p { color: var(--ink); }
-    .fo-example-result { margin-top: 22px; padding-top: 20px; border-top: 1px solid var(--line); text-align: center; font-size: 1.05rem; font-weight: 600; color: var(--ink); }
-
-    /* ── Local ── */
-    .fo-local-grid { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 40px; margin-top: var(--space-block); align-items: start; }
-    .fo-local-h3 { font-size: 1.15rem; margin-bottom: 16px; }
-    .fo-local-why { position: relative; padding: 26px; background: var(--surface); border: 1px solid var(--line-2); display: flex; flex-direction: column; gap: 12px; }
-    .co-root .fo-local-why p { font-size: 14.5px; line-height: 1.6; color: var(--muted); }
-    .fo-zones { display: flex; flex-direction: column; gap: 10px; }
-    .fo-zone { display: flex; align-items: center; gap: 12px; padding: 14px 16px; background: var(--surface); border: 1px solid var(--line-2); font-size: 14px; }
-    .fo-zone i { color: var(--muted); font-size: 18px; }
-    .fo-zone--primary { border-color: var(--accent); background: rgba(0,168,125,0.05); }
-    .fo-zone--primary i { color: var(--accent); }
-
-    /* ── Investissement ── */
-    .fo-price-hero { position: relative; margin-top: var(--space-block); padding: 34px; text-align: center; background: var(--surface); border: 1px solid var(--line-2); }
-    .co-root .fo-price-label { font-size: 12px; text-transform: uppercase; letter-spacing: 0.14em; color: var(--muted); }
-    .fo-price-amount { margin-top: var(--space-eyebrow); }
-    .fo-price-amount b { font-size: clamp(2.2rem, 5vw, 3rem); font-weight: 700; letter-spacing: -0.03em; }
-    .fo-price-amount span { font-size: 16px; color: var(--muted); font-weight: 500; }
-    .co-root .fo-price-hero .co-mut { margin-top: var(--space-title-lead); font-size: 14px; }
-    .fo-price-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
-    .fo-price-card { position: relative; padding: 26px; background: var(--surface); border: 1px solid var(--line-2); }
-    .fo-price-card-title { font-size: 1.05rem; display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
-    .fo-price-card-title i { color: var(--accent); }
-    .fo-durations { display: flex; align-items: center; justify-content: center; gap: 40px; margin-top: 20px; padding: 26px; background: var(--surface); border: 1px solid var(--line-2); flex-wrap: wrap; }
-    .fo-duration { display: flex; flex-direction: column; gap: 4px; text-align: center; }
-    .fo-duration b { font-size: 1.5rem; color: var(--accent); font-weight: 700; }
-    .fo-duration span { font-size: 13px; }
-    .fo-duration-sep { width: 1px; height: 44px; background: var(--line); }
-    .fo-price-cta { margin-top: 28px; text-align: center; display: flex; flex-direction: column; align-items: center; }
-
-    /* ── FAQ (accordéon natif <details> — smooth via ::details-content, zéro JS) ── */
-    .fo-faq { border-top: 1px solid var(--line); }
-    .fo-faq details { border-bottom: 1px solid var(--line); }
-    .fo-faq summary {
-        list-style: none; cursor: pointer; padding: 20px 0;
-        display: flex; justify-content: space-between; align-items: center; gap: 20px;
-        font-size: 1.1rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
-    }
-    .fo-faq summary::-webkit-details-marker { display: none; }
-    .fo-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
-    .fo-faq details[open] summary i { transform: rotate(180deg); }
-    .co-root .fo-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 68ch; }
-    .fo-faq details::details-content {
-        block-size: 0; overflow: hidden;
-        transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
-    }
-    .fo-faq details[open]::details-content { block-size: auto; }
-
-    /* ── Formulaire (Web3Forms restylé, câblage préservé) ── */
-    .fo-form { position: relative; margin-top: var(--space-block); padding: 34px; background: var(--surface); border: 1px solid var(--line-2); }
-    .fo-form-title { font-size: 1.25rem; text-align: left; margin-bottom: 22px; }
-    .fo-form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    .fo-field { display: flex; flex-direction: column; gap: 8px; }
-    .fo-field--full { grid-column: 1 / -1; }
-    .fo-label { display: flex; align-items: baseline; gap: 8px; font-size: 13px; font-weight: 600; color: var(--ink); }
-    .fo-label .co-index { font-size: 11px; }
-    .fo-req { color: var(--accent); }
-    .fo-input, .fo-select, .fo-textarea {
-        width: 100%; font-family: "Inter Tight", ui-sans-serif, sans-serif; font-size: 15px; color: var(--ink);
-        background: var(--bg); border: 1px solid var(--line-2); padding: var(--pad-chip);
-        transition: border-color .18s ease-out, box-shadow .18s ease-out;
-    }
-    .fo-input::placeholder, .fo-textarea::placeholder { color: var(--muted); opacity: .7; }
-    .fo-input:focus, .fo-select:focus, .fo-textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,168,125,.15); }
-    .fo-textarea { resize: vertical; min-height: 120px; line-height: 1.5; }
-    .fo-select-wrap { position: relative; }
-    .fo-select { appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 40px; }
-    .fo-select-caret { position: absolute; right: 14px; top: 50%; transform: translateY(-50%); font-size: 18px; color: var(--muted); pointer-events: none; }
-    .fo-consent { display: flex; align-items: flex-start; gap: 10px; font-size: 13px; line-height: 1.5; color: var(--muted); cursor: pointer; }
-    .fo-consent:hover { color: var(--ink); }
-    .fo-checkbox { margin-top: 2px; width: 16px; height: 16px; flex: none; accent-color: var(--accent); cursor: pointer; }
-    .fo-submit { width: 100%; justify-content: center; padding: 14px 20px; font-size: 16px; }
-    .submit-btn.loading { pointer-events: none; opacity: 0.7; }
-    .submit-btn.loading i { animation: foSpin 1s linear infinite; }
-    @keyframes foSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-
-    /* ── Après-formulaire ── */
-    .fo-form-after { margin-top: 28px; display: flex; flex-direction: column; gap: 18px; align-items: center; text-align: center; }
-    .fo-trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; font-size: 13.5px; color: var(--muted); }
-    .fo-trust i { color: var(--accent); margin-right: 4px; }
-    .fo-alt { display: flex; flex-direction: column; gap: 4px; }
-    .fo-alt .fo-inline { display: inline-flex; align-items: center; gap: 6px; justify-content: center; }
-
-    /* ── Responsive ── */
-    @media (max-width: 960px) {
-        .fo-local-grid { grid-template-columns: 1fr; gap: 32px; }
-        .fo-diff-grid { grid-template-columns: repeat(3, 1fr); }
-    }
-    @media (max-width: 720px) {
-        .fo-grid--2, .fo-grid--3, .fo-form-grid, .fo-price-cols, .fo-example-grid { grid-template-columns: 1fr; }
-        .fo-diff-grid { grid-template-columns: 1fr; }
-        .fo-step { grid-template-columns: 44px 1fr; gap: 14px; }
-        .fo-durations { gap: 24px; }
-        .fo-duration-sep { display: none; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-        .fo-card, .fo-inline, .fo-faq summary i, .fo-hero-btns .co-btn i { transition: none; }
-        .submit-btn.loading i { animation: none; }
-    }
-</style>
-
-<script>
-    // Form submission — HARD-PRESERVE (câblage Web3Forms inchangé)
-    const form = document.getElementById('formation-form') as HTMLFormElement;
-    const submitBtn = form?.querySelector('.submit-btn') as HTMLButtonElement;
-    const btnText = submitBtn?.querySelector('span');
-    const btnIcon = submitBtn?.querySelector('i');
-
-    form?.addEventListener('submit', async (e) => {
-        e.preventDefault();
-
-        if (submitBtn) {
-            submitBtn.classList.add('loading');
-            submitBtn.disabled = true;
-            if (btnText) btnText.textContent = 'Envoi en cours...';
-            if (btnIcon) btnIcon.className = 'ri-loader-4-line';
-        }
-
-        try {
-            const formData = new FormData(form);
-            const response = await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                body: formData
-            });
-
-            const result = await response.json();
-
-            if (result.success) {
-                alert('Merci ! Votre demande a bien été envoyée. Je vous réponds sous 24h.');
-                form.reset();
-            } else {
-                alert('Erreur lors de l\'envoi. Veuillez réessayer ou m\'écrire directement à contact@jonlabs.ch');
-            }
-        } catch (error) {
-            alert('Erreur de connexion. Veuillez réessayer.');
-        } finally {
-            if (submitBtn) {
-                submitBtn.classList.remove('loading');
-                submitBtn.disabled = false;
-                if (btnText) btnText.textContent = 'Envoyer ma demande';
-                if (btnIcon) btnIcon.className = 'ri-send-plane-line';
-            }
-        }
-    });
-</script>
+<ServicePage
+    title={seoData.title}
+    description={seoData.description}
+    schemas={schemas}
+    head={{
+        kicker: "Formation IA · présentiel à Genève, distanciel en Suisse romande",
+        h1: "Formation IA",
+        dim: "pour vos équipes.",
+        lead: "Utiliser l'IA au quotidien, sur vos vrais outils, sans risque pour vos données. Pour une équipe ou en individuel.",
+        cta,
+        cta2: { href: "#programme", label: "Voir le programme" },
+    }}
+    sections={[
+        {
+            id: "problemes", kicker: "01 · Problèmes", title: "Ça vous", dim: "parle ?",
+            text: "Le problème n'est pas l'IA, c'est l'absence de mode d'emploi. Et ça, ça se forme.",
+            subs: [
+                { title: "« On paie des outils IA que personne n'utilise »", text: "Deux ou trois curieux testent, le reste de l'équipe n'y touche pas." },
+                { title: "« Mon équipe se méfie de l'IA »", text: "Peur de mal faire ou d'être remplacé : la curiosité reste bloquée." },
+                { title: "« Chacun bricole dans son coin »", text: "Des données clients collées dans ChatGPT, sans aucun contrôle." },
+                { title: "« On n'a pas de règles »", text: "Personne ne sait ce qu'on a le droit de mettre dans une IA." },
+            ],
+        },
+        {
+            id: "resultats", kicker: "02 · Résultats", title: "Ce que votre équipe", dim: "obtient.",
+            subs: [
+                { title: "L'IA au quotidien", text: "Un réflexe de travail, plus un gadget testé une fois." },
+                { title: "Du temps gagné", text: "Comptes rendus, réponses clients, rédaction : des heures récupérées chaque semaine." },
+                { title: "Des usages sûrs", text: "Chacun sait ce qu'il peut mettre dans une IA, ou pas." },
+                { title: "Un guide interne", text: "Les bons usages et les règles maison, dans un document que vous gardez." },
+                { title: "Plus de peur", text: "Toute l'équipe s'approprie l'outil." },
+                { title: "Des abonnements rentabilisés", text: "Les licences que vous payez servent enfin." },
+                { meta: "Exemple concret", title: "Une PME de 12 personnes qui payait dans le vide", features: ["Avant : ChatGPT, Copilot et deux autres abonnements, utilisés par deux ou trois curieux.", "Maintenant : chaque pôle a 2-3 usages ancrés (comptes rendus, réponses clients, offres) et des règles claires.", "Plusieurs heures récupérées chaque semaine, et des abonnements enfin utiles."] },
+            ],
+        },
+        {
+            id: "formats", kicker: "03 · Formats", title: "Des formats adaptés", dim: "à votre équipe.",
+            text: "On cale le format selon vos objectifs.",
+            subs: [
+                { title: "Présentiel à Genève", text: "Dans vos locaux, avec toute l'équipe autour de la table." },
+                { title: "À distance", text: "Même approche pratique, en visio, partout en Suisse romande." },
+                { title: "Atelier découverte (½ journée)", text: "Pour lever les blocages et montrer 3-4 usages concrets." },
+                { title: "Programme sur 1 à 2 jours", text: "Pour ancrer les usages par pôle, avec le guide interne." },
+            ],
+        },
+        {
+            id: "difference", kicker: "04 · Approche", title: "Ce qui change", dim: "avec Jon Labs.",
+            subs: [
+                { title: "Sur vos cas", text: "Des usages concrets, pas de la théorie." },
+                { title: "Données protégées", text: "Le cadre nLPD fait partie de la formation." },
+                { title: "Un formateur qui construit", text: "Je déploie aussi des agents IA chez mes clients.", link: { href: "/hermes", label: "Voir l'agent Hermès" } },
+            ],
+        },
+        {
+            id: "local", kicker: "05 · Local", title: "Un formateur IA", dim: "basé à Genève.",
+            text: "Sur place ou à distance, dans toute la Suisse romande.",
+            subs: [
+                { title: "Pourquoi un formateur local ?", text: "Je connais les outils des PME romandes et la nLPD. Je viens dans vos locaux, et je reste joignable après la formation." },
+                { title: "Zones couvertes", features: ["Genève (présentiel)", "Vaud", "Valais", "Neuchâtel", "Fribourg", "Toute la Suisse romande (distanciel)"], text: "Les échanges se font en personne ou en visio selon vos préférences." },
+            ],
+        },
+        {
+            id: "prix", kicker: "06 · Tarifs", title: "Combien ça", dim: "coûte ?",
+            text: "Un devis clair, adapté à votre équipe ou à vous seul. Premier échange gratuit et sans engagement.",
+            price: { value: pricing.formationIA.display, note: "Entreprise ou particulier, selon le nombre de personnes, la durée et le format." },
+            cta: { href: "/contact", label: "Demander un devis" },
+            subs: [
+                { title: "Ce qui influence le prix", features: ["La taille de votre équipe", "La durée (½ journée à 2 jours)", "Le format (présentiel ou distanciel)", "Le niveau de personnalisation des cas"] },
+                { title: "Ce qui est toujours inclus", features: ["Audit préalable des usages", "Atelier pratique sur vos cas", "Garde-fous & cadre nLPD", "Guide interne remis à l'équipe", "Suivi post-formation"] },
+                { title: "Deux durées", features: ["½ journée : atelier découverte", "1 à 2 jours : formation complète"] },
+            ],
+        },
+    ]}
+    method={{
+        id: "programme",
+        title: "Comment se passe", dim: "la formation ?",
+        text: "Objectif : utiliser l'IA seul, sans risque.",
+        steps: [
+            { title: "Votre quotidien", text: "Je repère les tâches où l'IA vous fait vraiment gagner du temps.", meta: "1-2 h en amont" },
+            { title: "Atelier sur vos cas", text: "Pas de slides génériques : on travaille sur vos vrais outils et dossiers.", meta: "½ journée à 2 jours" },
+            { title: "Les règles du jeu", text: "Ce qu'on met dans une IA, et ce qu'on n'y met jamais (nLPD).", meta: "Inclus dans l'atelier" },
+            { title: "Un guide pour la suite", text: "Vous gardez un guide interne, et je reste disponible pour vos questions.", meta: "Après la session" },
+        ],
+    }}
+    links={[{
+        title: "Pas encore prêt ?",
+        text: "Découvrez tout l'accompagnement IA, ou comment automatiser vos tâches répétitives.",
+        items: [
+            { href: "/consultant-ia", k: "Systèmes IA", label: "Consultant IA à Genève", text: "Agents IA, automatisations et intégration à vos outils, pour les PME romandes." },
+            { href: "/consultant-ia#automatisation", k: "Automatisation", label: "Automatiser vos tâches répétitives", text: "Relances, rapports, saisies : ce qu'on automatise le plus souvent." },
+            { href: "/hermes", k: "Offre", label: "L'agent IA Hermès", text: "Un agent déjà éprouvé, branché sur vos outils, avec validation humaine." },
+        ],
+    }]}
+    faq={faqs}
+    contact="Premier échange gratuit. On regarde ensemble où en est votre équipe. Si une formation fait sens, je vous propose un format et un devis clairs. Sinon, je vous le dis honnêtement."
+/>

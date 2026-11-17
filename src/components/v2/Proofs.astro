@@ -1,11 +1,15 @@
 ---
-// Repères chiffrés v2 (direction A) : compteurs. Chiffres réels = 1er résultat des 4 études de cas les plus récentes.
+// Repères chiffrés v2 (direction A) : compteurs. Par défaut : 1er résultat des 4 études de cas les plus récentes.
+// `slugs` restreint aux études de cas citées ; `items` passe des chiffres déjà sourcés (page, pricing.ts).
 import { getCollection } from 'astro:content';
-const proofs = (await getCollection('portfolio', (p) => !p.data.draft && !!p.data.results?.[0]))
+type Proof = { value: string; label: string; client: string };
+interface Props { slugs?: string[]; items?: Proof[] }
+const { slugs, items } = Astro.props;
+const proofs: Proof[] = items ?? (await getCollection('portfolio', (p) => !p.data.draft && !!p.data.results?.[0] && (!slugs || slugs.includes(p.slug))))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 4)
   .map((c) => ({ ...c.data.results[0], client: c.data.title }));
 ---
-<div class="w v2-proofs">
+<div class="w v2-proofs" style={items || slugs ? `--n:${proofs.length}` : undefined}>
   {proofs.map((p) => <div><b data-count-to={p.value}>{p.value}</b><span>{p.label}</span><span class="v2-meta">{p.client}</span></div>)}
 </div>

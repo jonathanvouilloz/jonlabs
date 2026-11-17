@@ -1,917 +1,153 @@
 ---
-// Consultant IA pour PME romandes — landing pilier (blueprint).
-// Migrée du brutaliste vers le design system .co-* : sections cadrées, filets fins,
-// crosshairs, accent teal unique, Inter Tight × Instrument Serif. Namespace scopé .cii-*.
-// Halo (blob décoratif) retiré ; illustration encadrée .co-frame. IconChip retiré →
-// icônes Remix mono inline (muted → teal au hover sur les cartes interactives).
-// Gabarit-or de référence : services/referencement-local.astro.
-//
-// HARD-PRESERVE : tout le Schema.org (getServiceItemSchema / getWebPageSchema /
-// getBreadcrumbSchema / getFAQPageSchema, tableau `schemas` + localBusinessData,
-// injection via schemas={} du Layout) — même data, même ordre ; data imports
-// (SITE_URL, localBusinessData, lib/seo) ; pageTitle + pageDescription exacts ;
-// chaque lien SEO interne (/services/*, /consultant-ia/*, /metiers/*, /portfolio,
-// /hermes, /blog/*, /contact, mailto) ; toute la copie éditoriale FR.
-
-import "../../styles/global.css";
-import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import FlowDiagram from "../../components/FlowDiagram.astro";
-import { Image } from "astro:assets";
-import illuConsultant from "../../assets/illustrations/consultant-ia.webp";
-
+// Consultant IA — pilier IA (v2, gabarit ServicePage). Angle réécrit « systèmes IA sur mesure » (audit v2) ;
+// garde l'URL et les ancres #automatisation, #integration-outils, #agents-sur-mesure (cibles de 301 et du méga-menu).
+// /consultant-ia/geneve est fusionnée ici (301) : seule Lausanne reste en déclinaison ville.
+import ServicePage from "../../components/v2/ServicePage.astro";
 import { getServiceItemSchema, getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from "../../lib/seo";
 import { SITE_URL, localBusinessData } from "../../data/schema";
-import { pricing } from "../../data/pricing";
+import { pricing, chf } from "../../data/pricing";
 
-// ============================================
-// SEO META
-// ============================================
 const pageUrl = `${SITE_URL}/consultant-ia`;
-const pageTitle = "Consultant IA pour PME romandes — agents IA";
-const pageDescription = "Consultant IA pour PME en Suisse romande : agents IA sur-mesure, automatisation et conseil. Prix CHF transparents, conformité nLPD. Freelance basé à Genève.";
+const pageTitle = "Consultant IA pour PME romandes — systèmes IA sur mesure";
+const pageDescription = "Consultant IA à Genève : je conçois des systèmes IA sur mesure pour les PME romandes (agents IA, automatisations, intégration à vos outils). Prix en CHF, conformité nLPD.";
 
-// ============================================
-// DIFFÉRENCIANTS SUISSES (4 cartes)
-// ============================================
-const differenciants = [
-  {
-    icon: "ri-map-pin-2-line",
-    title: "Vraiment basé à Genève",
-    description: "Atelier installé à Chêne-Bougeries, pas un prestataire transfrontalier qui facture depuis l'autre côté de la frontière. On se voit pour un café si le projet le mérite, et je connais le terrain romand."
-  },
-  {
-    icon: "ri-price-tag-3-line",
-    title: "Prix en CHF, affichés",
-    description: "Un agent IA démarre à CHF 1'500, avec un devis ferme après un premier échange gratuit. Pas de prix caché jusqu'au dernier rendez-vous."
-  },
-  {
-    icon: "ri-bar-chart-box-line",
-    title: "Des preuves chiffrées",
-    description: "50 sites romands audités, un système de réponse aux avis Google qui tourne en autonomie (cas barbershop), 50+ sites livrés. Des résultats vérifiables, pas des promesses de plaquette."
-  },
-  {
-    icon: "ri-stack-line",
-    title: "Un seul prestataire full-stack",
-    description: "IA, site web, SEO/GEO et application mobile sous le même toit. Vous arrêtez de jongler entre trois agences qui se renvoient la balle quand ça coince."
-  }
-];
-
-// ============================================
-// SERVICES — famille « sur mesure » (cartes)
-// ============================================
-const services = [
-  {
-    icon: "ri-robot-2-line",
-    title: "Agents IA sur-mesure",
-    description: "Conception d'agents autonomes capables d'agir sur vos outils, avec mémoire et validation humaine. Pour les tâches pointues que les workflows génériques ne couvrent pas.",
-    price: pricing.agentIA.display,
-    href: "#agents-sur-mesure"
-  },
-  {
-    icon: "ri-flow-chart",
-    title: "Automatisation de tâches",
-    description: "Relances, rapports, saisies répétitives qui se déclenchent toutes seules. On supprime les corvées du lundi matin avant même de parler d'IA avancée.",
-    price: "Sur devis",
-    href: "#automatisation"
-  },
-  {
-    icon: "ri-links-line",
-    title: "Intégration d'outils",
-    description: "On fait parler vos applications entre elles : Bexio, CRM, Google Workspace, votre facturation. L'info saisie une fois, partout, sans recopie.",
-    price: "Sur devis",
-    href: "#integration-outils"
-  },
-  {
-    icon: "ri-team-line",
-    title: "Formation IA pour votre équipe",
-    description: "Vos collaborateurs apprennent à utiliser l'IA au quotidien sans se mettre en danger côté données. Cas concrets de votre métier, pas une démo générique.",
-    price: pricing.formationIA.display,
-    href: "/services/formation-ia-equipe"
-  }
-];
-
-// ============================================
-// OFFRE CLÉ EN MAIN (bloc à part, pas une 7e carte)
-// ============================================
-const cleEnMain = {
-  nom: "Hermès",
-  accroche: "L'agent que je déploie chez vous",
-  description: "Un agent IA déjà éprouvé sur des tâches concrètes de PME — tri d'e-mails, relances, préparation de documents. On part de cette base, on le branche sur vos outils, on pose les garde-fous. Vous ne payez pas six mois de R&D.",
-  price: pricing.agentIA.display,
-  delai: "En production en 2 à 3 semaines",
-  href: "/hermes"
-};
-
-// ============================================
-// AUTOMATISATION & INTÉGRATION
-// Contenu repris des ex-pages /consultant-ia#automatisation et
-// /consultant-ia#integration-outils, condensé et redirigé ici.
-// ============================================
-const automatisationCas = [
-  {
-    icon: "ri-money-euro-circle-line",
-    title: "Relances de paiement",
-    text: "J+7 rappel courtois, J+15 relance avec la facture en pièce jointe, J+30 notification pour que tu reprennes la main. Tu n'interviens que sur les cas qui le méritent."
-  },
-  {
-    icon: "ri-bar-chart-grouped-line",
-    title: "Rapports hebdomadaires",
-    text: "Les données sont agrégées depuis tes outils (Bexio, CRM, tableurs) et le rapport arrive formaté dans ta boîte chaque lundi à 8h. La visibilité sans le travail."
-  },
-  {
-    icon: "ri-user-add-line",
-    title: "Onboarding client",
-    text: "Le client signe, et tout s'enchaîne : e-mail de bienvenue, fiche CRM créée, documents envoyés, tâche de suivi posée à deux semaines. Même niveau de service à chaque fois."
-  },
-  {
-    icon: "ri-checkbox-multiple-line",
-    title: "Validations",
-    text: "Une demande arrive, le validateur reçoit une notification avec deux boutons, sa réponse met le système à jour et le demandeur est prévenu. Plus personne ne relance à la main."
-  }
-];
-
-const integrationFrictions = [
-  {
-    icon: "ri-file-copy-2-line",
-    title: "Tu ressaisis les mêmes infos partout",
-    text: "Un nouveau client : dans le CRM, puis dans la facturation, puis dans le fichier de suivi. Trois saisies, trois risques d'erreur, zéro valeur ajoutée."
-  },
-  {
-    icon: "ri-stack-line",
-    title: "Tes outils fonctionnent en silos",
-    text: "Le formulaire ne parle pas au CRM, le CRM ne parle pas à la comptabilité. Tu es le seul pont entre eux — et des infos se perdent en route."
-  },
-  {
-    icon: "ri-apps-2-line",
-    title: "Tu as empilé des outils au fil du temps",
-    text: "Notion, Trello, Bexio, Mailchimp et cinq autres. Chacun fait son job, mais ensemble c'est le chaos, et tu n'as pas le temps de démêler ça."
-  }
-];
-
-// ============================================
-// AGENT SUR-MESURE — tâches enlevées
-// ============================================
-const agentProcess = [
-  {
-    step: "1",
-    title: "Audit du besoin",
-    description: "On identifie la tâche précise à confier à l'agent et on vérifie qu'elle est rentable à automatiser. Si elle ne l'est pas, je vous le dis."
-  },
-  {
-    step: "2",
-    title: "Prototype",
-    description: "Je construis une première version de l'agent sur un périmètre réduit. Vous le voyez fonctionner sur vos cas réels avant tout engagement lourd."
-  },
-  {
-    step: "3",
-    title: "Garde-fous",
-    description: "On cadre ce que l'agent peut faire seul et ce qui passe par une validation humaine. Vos données restent conformes nLPD, les actions sensibles sont sous contrôle."
-  },
-  {
-    step: "4",
-    title: "Prise en main",
-    description: "Documentation claire, formation de votre équipe et support pour les premières semaines. Pas de boîte noire : vous comprenez ce qui tourne."
-  }
-];
-
-// ============================================
-// CAS D'USAGE PME (5-6)
-// ============================================
-// Les deux cas principaux : montrés, pas listés.
-const casMontres = [
-  {
-    gain: "3 à 5 h/sem",
-    title: "Tri et routage des demandes",
-    description: "Chaque message entrant est lu, classé et transmis à la bonne personne avec un résumé. Vous ne triez plus, vous traitez.",
-    flow: [
-      [{ icon: "ri-inbox-archive-line", label: "Boîte de réception", sub: "e-mails, formulaires" }],
-      [{ icon: "ri-robot-2-line", label: "L'agent lit et classe", sub: "objet, urgence, destinataire" }],
-      [
-        { icon: "ri-user-follow-line", label: "Bonne personne" },
-        { icon: "ri-sticky-note-line", label: "Résumé joint" }
-      ]
-    ],
-    gate: null
-  },
-  {
-    gain: "2 à 4 h/sem",
-    title: "Documents préparés",
-    description: "Devis, contrats et comptes-rendus montés à partir de vos données existantes. Vous relisez au lieu de tout retaper.",
-    flow: [
-      [{ icon: "ri-database-2-line", label: "Vos outils", sub: "CRM, facturation, notes" }],
-      [{ icon: "ri-robot-2-line", label: "L'agent assemble", sub: "modèle + données du dossier" }],
-      [{ icon: "ri-file-text-line", label: "Brouillon prêt à relire" }]
-    ],
-    gate: { afterStep: 2, label: "Vous validez avant l'envoi" }
-  }
-];
-
-// Les cas secondaires restent en texte : les montrer tous diluerait les deux
-// premiers, et ce sont eux qui portent la demonstration.
-const casListes = [
-  {
-    icon: "ri-mail-send-line",
-    title: "Relances automatiques",
-    description: "Factures impayées, devis sans réponse, rendez-vous à confirmer : les relances partent au bon moment.",
-    gain: "2 à 3 h/sem"
-  },
-  {
-    icon: "ri-eye-2-line",
-    title: "Veille ciblée",
-    description: "Appels d'offres, actualité réglementaire, concurrents : un digest filtré arrive chez vous, sans le bruit. Vous lisez ce qui compte.",
-    gain: "2 à 4 h/sem"
-  },
-  {
-    icon: "ri-translate-2",
-    title: "Support multilingue",
-    description: "Vos clients écrivent en français, allemand ou anglais, l'agent comprend et répond dans la bonne langue au premier niveau.",
-    gain: "3 à 6 h/sem"
-  },
-  {
-    icon: "ri-bar-chart-box-line",
-    title: "Reporting automatisé",
-    description: "Les chiffres sont agrégés depuis vos outils et le tableau de bord arrive chaque lundi dans votre boîte mail. Sans Excel à la main.",
-    gain: "2 à 3 h/sem"
-  }
-];
-
-// ============================================
-// MAILLAGE — pages géo, services, articles
-// ============================================
-const geoPages = [
-  {
-    nom: "Consultant IA à Genève",
-    description: "La page locale Genève : contexte, secteurs et exemples d'agents IA pour les PME du canton.",
-    href: "/consultant-ia/geneve"
-  },
-  {
-    nom: "Consultant IA à Lausanne",
-    description: "Conseil et agents IA pour les entreprises de la région lausannoise et du canton de Vaud.",
-    href: "/consultant-ia/lausanne"
-  }
-];
-
-const blogArticles = [
-  {
-    title: "Automatisation PME en Suisse : le guide complet",
-    description: "Par où commencer, combien ça coûte et quelles tâches automatiser en premier quand on dirige une PME romande.",
-    href: "/blog/automatisation-pme-suisse-guide-complet",
-    icon: "ri-guide-line"
-  },
-  {
-    title: "Hermès : un agent IA conçu pour une PME",
-    description: "Le cas concret d'un agent métier déployé chez un client, de l'audit à la mise en production.",
-    href: "/blog/hermes-agent-ia-pme",
-    icon: "ri-robot-2-line"
-  },
-  {
-    title: "Workflows ou agents IA : que choisir ?",
-    description: "La différence entre automatiser un workflow et déployer un agent autonome, et comment ne pas se tromper.",
-    href: "/blog/workflows-vs-agents-ia-pme",
-    icon: "ri-git-branch-line"
-  },
-  {
-    title: "Agent IA en entreprise : 10 cas d'usage qui rapportent",
-    description: "Fiduciaire, régie immobilière, négoce, cabinet, e-commerce : les automatisations IA qui dégagent vraiment du temps, secteur par secteur.",
-    href: "/blog/agent-ia-entreprise-cas-usage",
-    icon: "ri-briefcase-4-line"
-  },
-  {
-    title: "Prix d'un agent IA et d'une automatisation en Suisse",
-    description: "Les fourchettes réelles en CHF pour un projet IA selon la complexité, sans devis flou ni abonnement caché.",
-    href: "/blog/prix-agent-ia-automatisation-suisse",
-    icon: "ri-money-cny-circle-line"
-  }
-];
-
-// ============================================
-// FAQ (6 questions, vouvoiement)
-// ============================================
 const faqs = [
-  {
-    question: "C'est quoi, concrètement, un consultant IA ?",
-    answer: "Quelqu'un qui vous aide à utiliser l'intelligence artificielle pour des résultats concrets, pas pour la mode. Dans mon cas : j'identifie les tâches où l'IA vous fait gagner du temps, je conçois les agents IA et les automatisations correspondants, je les intègre à vos outils, et je forme votre équipe. Vous avez un seul interlocuteur du diagnostic à la mise en production, sans jargon."
-  },
-  {
-    question: "Combien coûte un projet IA pour une PME ?",
-    answer: "Un agent IA démarre à CHF 1'500. Le prix final dépend du nombre de tâches et d'outils à connecter : vous recevez un devis ferme après un premier échange gratuit. Une fois en place, l'agent tourne sur un hébergement suisse pour environ CHF 10 à 40 par mois. Si le retour sur investissement n'est pas là, je vous le dis."
-  },
-  {
-    question: "Mes données sont-elles protégées ? Et la nLPD ?",
-    answer: "C'est une partie centrale du cadrage, pas une option. On définit où vivent vos données, quels modèles y ont accès et quelles actions passent par une validation humaine. Je travaille avec des outils hébergés en Europe quand c'est nécessaire et je conçois les agents pour rester conformes à la nLPD suisse. Vos informations clients ne partent pas dans la nature."
-  },
-  {
-    question: "Faut-il des compétences techniques de notre côté ?",
-    answer: "Non. Vous m'expliquez votre métier et les tâches qui vous pèsent, je m'occupe de la technique. À la livraison, votre équipe sait utiliser l'agent au quotidien et vous comprenez ce qui tourne sous le capot — sans avoir à devenir développeur."
-  },
-  {
-    question: "En combien de temps voit-on des résultats ?",
-    answer: "Un prototype d'agent IA sur un périmètre réduit est généralement prêt en 1 à 3 semaines. Une automatisation simple peut tourner en quelques jours. Vous voyez le système fonctionner sur vos cas réels très tôt, avant de l'étendre à toute votre activité."
-  },
-  {
-    question: "Quelle différence avec une agence IA ?",
-    answer: "Vous parlez directement à la personne qui conçoit et code, pas à un commercial puis à un sous-traitant. Je suis basé à Genève, pas transfrontalier, mes prix sont en CHF et affichés, et je couvre toute la chaîne : IA, site web, SEO et mobile. Une agence vous facture des couches d'intermédiaires ; ici, c'est un seul prestataire responsable du résultat."
-  }
+  { question: "C'est quoi, concrètement, un consultant IA ?", answer: "Quelqu'un qui vous aide à utiliser l'intelligence artificielle pour des résultats concrets, pas pour la mode. Dans mon cas : j'identifie les tâches où l'IA vous fait gagner du temps, je conçois les agents IA et les automatisations correspondants, je les intègre à vos outils, et je forme votre équipe. Vous avez un seul interlocuteur du diagnostic à la mise en production, sans jargon." },
+  { question: "Combien coûte un projet IA pour une PME ?", answer: `Un agent IA démarre à CHF ${chf(pricing.agentIA.from)}. Le prix final dépend du nombre de tâches et d'outils à connecter : vous recevez un devis ferme après un premier échange gratuit. Une fois en place, l'agent tourne sur un hébergement suisse pour environ ${pricing.agentIA.runningCost.replace(' / mois', '')} par mois. Si le retour sur investissement n'est pas là, je vous le dis.` },
+  { question: "Mes données sont-elles protégées ? Et la nLPD ?", answer: "C'est une partie centrale du cadrage, pas une option. On définit où vivent vos données, quels modèles y ont accès et quelles actions passent par une validation humaine. Je travaille avec des outils hébergés en Europe quand c'est nécessaire et je conçois les agents pour rester conformes à la nLPD suisse. Vos informations clients ne partent pas dans la nature." },
+  { question: "Faut-il des compétences techniques de notre côté ?", answer: "Non. Vous m'expliquez votre métier et les tâches qui vous pèsent, je m'occupe de la technique. À la livraison, votre équipe sait utiliser l'agent au quotidien et vous comprenez ce qui tourne sous le capot, sans avoir à devenir développeur." },
+  { question: "En combien de temps voit-on des résultats ?", answer: "Un prototype d'agent IA sur un périmètre réduit est généralement prêt en 1 à 3 semaines. Une automatisation simple peut tourner en quelques jours. Vous voyez le système fonctionner sur vos cas réels très tôt, avant de l'étendre à toute votre activité." },
+  { question: "Quelle différence avec une agence IA ?", answer: "Vous parlez directement à la personne qui conçoit et code, pas à un commercial puis à un sous-traitant. Je suis basé à Genève, pas transfrontalier, mes prix sont en CHF et affichés, et je couvre toute la chaîne : IA, site web et application mobile. Une agence vous facture des couches d'intermédiaires ; ici, c'est un seul prestataire responsable du résultat." },
 ];
 
-// ============================================
-// SCHEMA.ORG
-// ============================================
-const serviceSchema = getServiceItemSchema("consultant-ia");
+const schemas = [
+  getServiceItemSchema("consultant-ia"),
+  getWebPageSchema({ url: pageUrl, name: pageTitle, description: pageDescription }),
+  getBreadcrumbSchema([
+    { name: "Accueil", url: SITE_URL },
+    { name: "Consultant IA", url: pageUrl },
+  ]),
+  getFAQPageSchema(faqs),
+  localBusinessData,
+].filter(Boolean);
 
-const webPageSchema = getWebPageSchema({
-  url: pageUrl,
-  name: pageTitle,
-  description: pageDescription
-});
-
-const breadcrumbSchema = getBreadcrumbSchema([
-  { name: "Accueil", url: SITE_URL },
-  { name: "Consultant IA", url: pageUrl }
-]);
-
-const faqSchema = getFAQPageSchema(faqs);
-
-const schemas = [serviceSchema, webPageSchema, breadcrumbSchema, faqSchema, localBusinessData].filter(Boolean);
+const cta = { href: "/contact", label: "Cadrer mon projet IA" };
 ---
 
-<Layout
+<ServicePage
   title={pageTitle}
   description={pageDescription}
   schemas={schemas}
->
-  <Header />
-
-  <main class="co-root">
-
-    <!-- ══ HERO ══ -->
-    <section class="co-sec co-pad co-hero cii-hero">
-      <div class="cii-hero-inner">
-
-        <h1 class="cii-hero-title" data-animate data-delay="0.1">
-          Consultant IA à Genève, pour les PME <span class="co-ser">romandes.</span>
-        </h1>
-
-        <p class="cii-hero-lead" data-animate data-delay="0.2">
-          Des <strong>agents IA</strong> et des <strong>automatisations</strong> qui enlèvent les tâches
-          répétitives de votre quotidien. Prix en <strong>CHF</strong>, conformité <strong>nLPD</strong>,
-          un seul interlocuteur du diagnostic à la mise en production.
-        </p>
-
-        <div class="cii-hero-btns" data-animate data-delay="0.3">
-          <a href="/contact" class="co-btn"><i class="ri-compass-3-line"></i> Cadrer mon projet IA</a>
-          <a href="#services" class="co-btn co-btn--ghost">Voir les services <i class="ri-arrow-down-line"></i></a>
-        </div>
-
-        <div class="cii-hero-trust" data-animate data-delay="0.4">
-          <span><i class="ri-currency-line"></i> Prix CHF transparents</span>
-          <span><i class="ri-stack-line"></i> 50+ projets livrés</span>
-          <span><i class="ri-shield-check-line"></i> Conformité nLPD</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ 01 · DIFFÉRENCIANTS SUISSES ══ -->
-    <section id="differenciants" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">01 — Pourquoi moi</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Un <span class="co-ser">consultant IA</span> vraiment suisse</h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-        Quatre choses que les freelances IA transfrontaliers ne vous offrent pas. Concrètes, vérifiables, sans plaquette.
-      </p>
-
-      <div class="cii-grid cii-grid--4" data-animate-stagger>
-        {differenciants.map((item) => (
-          <div class="cii-card co-frame co-frame--reveal" data-animate-item>
-            <i class={`${item.icon} cii-card-icon`} aria-hidden="true"></i>
-            <h3 class="cii-card-title">{item.title}</h3>
-            <p class="cii-card-text">{item.description}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ 02 · SERVICES ══ -->
-    <section id="services" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">02 — Services</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Ce que je fais pour vous</h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:58ch;line-height:1.6;">
-        De l'<strong>automatisation</strong> simple à l'<strong>agent IA</strong> métier — toute la chaîne, un seul prestataire.
-      </p>
-
-      <p class="co-eyebrow cii-fam-label">Sur mesure — on construit pour vous</p>
-      <div class="cii-grid cii-grid--2" data-animate-stagger>
-        {services.map((service) => (
-          <a href={service.href} class="cii-svc co-frame co-frame--reveal" data-animate-item>
-            <i class={`${service.icon} cii-svc-icon`} aria-hidden="true"></i>
-            <h3 class="cii-card-title">{service.title}</h3>
-            <p class="cii-card-text">{service.description}</p>
-            <div class="cii-svc-foot">
-              <span class="cii-svc-price">{service.price}</span>
-              <i class="ri-arrow-right-line cii-svc-arrow" aria-hidden="true"></i>
-            </div>
-          </a>
-        ))}
-      </div>
-
-      <p class="co-eyebrow cii-fam-label">Clé en main — déjà éprouvé, à brancher</p>
-      <a href={cleEnMain.href} class="cii-keyturn" data-animate>
-        <div class="cii-keyturn-body">
-          <p class="cii-keyturn-kicker">{cleEnMain.accroche}</p>
-          <h3 class="cii-keyturn-title">{cleEnMain.nom}</h3>
-          <p class="cii-keyturn-text">{cleEnMain.description}</p>
-        </div>
-        <div class="cii-keyturn-side">
-          <span class="cii-keyturn-price">{cleEnMain.price}</span>
-          <span class="cii-keyturn-delai">{cleEnMain.delai}</span>
-          <span class="cii-keyturn-cta">Voir l'offre <i class="ri-arrow-right-line" aria-hidden="true"></i></span>
-        </div>
-      </a>
-    </section>
-
-    <!-- ══ 03 · AUTOMATISATION & INTÉGRATION ══ -->
-    <section id="automatisation" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">03 — Automatisation &amp; intégration</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Avant l'agent, <span class="co-ser">les corvées.</span></h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:60ch;line-height:1.6;">
-        Une bonne part du temps perdu ne demande aucune IA : juste des tâches qui se déclenchent
-        toutes seules, et des outils qui se parlent. C'est souvent par là qu'on commence.
-      </p>
-
-      <h3 class="cii-sub-title">Ce qu'on automatise le plus souvent</h3>
-      <div class="cii-grid cii-grid--2" data-animate-stagger>
-        {automatisationCas.map((cas) => (
-          <div class="cii-card co-frame co-frame--reveal" data-animate-item>
-            <i class={`${cas.icon} cii-card-icon`} aria-hidden="true"></i>
-            <h4 class="cii-card-title">{cas.title}</h4>
-            <p class="cii-card-text">{cas.text}</p>
-          </div>
-        ))}
-      </div>
-
-      <h3 class="cii-sub-title" id="integration-outils">Quand ce sont les outils qui bloquent</h3>
-      <p class="co-mut cii-sub-lead">
-        Bexio, votre CRM, Google Workspace, votre facturation : l'information est saisie une fois,
-        puis elle circule. Sans recopie, sans fichier qui diverge.
-      </p>
-      <div class="cii-grid cii-grid--3" data-animate-stagger>
-        {integrationFrictions.map((f) => (
-          <div class="cii-card co-frame co-frame--reveal" data-animate-item>
-            <i class={`${f.icon} cii-card-icon`} aria-hidden="true"></i>
-            <h4 class="cii-card-title">{f.title}</h4>
-            <p class="cii-card-text">{f.text}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ 04 · AGENTS IA SUR-MESURE ══ -->
-    <section id="agents-sur-mesure" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">04 — Agents sur-mesure</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Un <span class="co-ser">agent IA sur-mesure</span>, c'est quoi ?</h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:64ch;line-height:1.6;">
-        Pas un chatbot générique. Un assistant conçu pour votre métier, qui se souvient du contexte,
-        agit sur vos outils, et passe la main quand un humain doit valider.
-      </p>
-
-      <!-- 3 caractéristiques -->
-      <div class="cii-grid cii-grid--3" data-animate-stagger>
-        <div class="cii-card co-frame co-frame--reveal" data-animate-item>
-          <i class="ri-brain-line cii-card-icon" aria-hidden="true"></i>
-          <h3 class="cii-card-title">Une mémoire</h3>
-          <p class="cii-card-text">Il garde le contexte d'un client, d'un dossier, d'une conversation. Vous ne répétez pas trois fois la même information.</p>
-        </div>
-        <div class="cii-card co-frame co-frame--reveal" data-animate-item>
-          <i class="ri-cursor-line cii-card-icon" aria-hidden="true"></i>
-          <h3 class="cii-card-title">Une capacité d'action</h3>
-          <p class="cii-card-text">Il ne se contente pas de répondre : il crée une fiche, envoie un e-mail, met à jour un statut dans vos outils.</p>
-        </div>
-        <div class="cii-card co-frame co-frame--reveal" data-animate-item>
-          <i class="ri-user-follow-line cii-card-icon" aria-hidden="true"></i>
-          <h3 class="cii-card-title">Une validation humaine</h3>
-          <p class="cii-card-text">Les actions sensibles passent par vous. L'agent prépare, vous décidez. Rien ne part dans la nature sans contrôle.</p>
-        </div>
-      </div>
-
-      <!-- Distinction avec automatisation -->
-      <div class="cii-split co-frame" data-animate>
-        <span class="co-x tl"></span><span class="co-x tr"></span>
-        <span class="co-x bl"></span><span class="co-x br"></span>
-        <h3 class="cii-split-title"><i class="ri-git-merge-line"></i> Agent sur-mesure ou automatisation ?</h3>
-        <div class="cii-split-grid">
-          <div>
-            <p class="cii-split-lead">L'automatisation de tâches</p>
-            <p class="cii-card-text">Couvre les workflows larges et prévisibles : « quand X arrive, fais Y ». Idéale pour les relances, les rapports, les saisies récurrentes. <a href="#automatisation" class="cii-inline">Voir ce qu'on automatise <i class="ri-arrow-right-line"></i></a></p>
-          </div>
-          <div>
-            <p class="cii-split-lead">L'agent IA sur-mesure</p>
-            <p class="cii-card-text">Conçoit un assistant autonome pour une tâche pointue qui demande du jugement, du contexte et plusieurs étapes. C'est de la conception, pas du branchement d'outils.</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Process -->
-      <h3 class="cii-sub-title">Comment on construit votre agent</h3>
-      <div class="cii-grid cii-grid--4" data-animate-stagger>
-        {agentProcess.map((etape) => (
-          <div class="cii-proc" data-animate-item>
-            <span class="cii-proc-num co-index">0{etape.step}</span>
-            <h4 class="cii-proc-title">{etape.title}</h4>
-            <p class="cii-card-text">{etape.description}</p>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ 04 · CAS D'USAGE PME ══ -->
-    <section id="cas-usage" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">05 — Cas d'usage</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Où l'IA peut vous <span class="co-ser">enlever du travail</span></h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:62ch;line-height:1.6;">
-        Deux cas détaillés de bout en bout, quatre autres en clair. Valables pour la plupart des
-        <strong>PME de Suisse romande</strong> — les heures gagnées sont des estimations réalistes,
-        pas des promesses.
-      </p>
-
-      <div class="co-grid-cells cii-bento">
-        {casMontres.map((cas) => (
-          <div class="cii-bento-cell cii-bento-cell--wide" data-animate>
-            <FlowDiagram steps={cas.flow} highlight={1} gate={cas.gate ?? undefined} compact
-              label={`${cas.title} : ${cas.description}`} />
-            <div class="cii-bento-body">
-              <div class="cii-bento-head">
-                <h3 class="cii-card-title">{cas.title}</h3>
-                <span class="co-badge cii-uc-gain">{cas.gain}</span>
-              </div>
-              <p class="cii-card-text">{cas.description}</p>
-            </div>
-          </div>
-        ))}
-        {casListes.map((uc) => (
-          <div class="cii-bento-cell" data-animate>
-            <div class="cii-bento-body">
-              <div class="cii-uc-head">
-                <i class={`${uc.icon} cii-card-icon`} aria-hidden="true"></i>
-                <span class="co-badge cii-uc-gain">{uc.gain}</span>
-              </div>
-              <h3 class="cii-card-title">{uc.title}</h3>
-              <p class="cii-card-text">{uc.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ 05 · PREUVES ══ -->
-    <section id="preuves" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">06 — Preuves</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Des résultats, <span class="co-ser">pas des promesses</span></h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:58ch;line-height:1.6;">
-        La plupart des freelances IA vous demandent de leur faire confiance sur parole. Voici plutôt des chiffres.
-      </p>
-
-      <div class="cii-stats" data-animate-stagger>
-        <div class="cii-stat co-frame" data-animate-item>
-          <div class="cii-stat-value">50</div>
-          <div class="cii-stat-label">sites romands audités</div>
-          <p class="cii-card-text">Trois semaines à éplucher les sites d'indépendants romands. Je sais ce qui cloche sur le terrain.</p>
-        </div>
-        <div class="cii-stat co-frame" data-animate-item>
-          <div class="cii-stat-value">24/7</div>
-          <div class="cii-stat-label">avis Google en autonomie</div>
-          <p class="cii-card-text">Système de réponse automatique aux avis d'un barbershop, fidèle à son tone of voice, avec rapport mensuel pour les dirigeants. Tourne sans intervention.</p>
-        </div>
-        <div class="cii-stat co-frame" data-animate-item>
-          <div class="cii-stat-value">50+</div>
-          <div class="cii-stat-label">sites &amp; projets livrés</div>
-          <p class="cii-card-text">IA, web, SEO et mobile sous le même toit. Un seul prestataire pour toute la chaîne.</p>
-        </div>
-      </div>
-
-      <div class="cii-proof-cta" data-animate>
-        <a href="/portfolio" class="co-btn co-btn--ghost"><i class="ri-stack-line"></i> Voir les réalisations <i class="ri-arrow-right-line"></i></a>
-      </div>
-    </section>
-
-    <!-- ══ 06 · MAILLAGE / ALLER PLUS LOIN ══ -->
-    <section id="aller-plus-loin" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">07 — Aller plus loin</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Explorer le sujet</h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:58ch;line-height:1.6;">
-        Pages locales, services détaillés et articles pour creuser avant d'en parler.
-      </p>
-
-      <!-- Pages géo -->
-      <div class="cii-grid cii-grid--2" data-animate-stagger>
-        {geoPages.map((geo) => (
-          <a href={geo.href} class="cii-link co-frame co-frame--reveal" data-animate-item>
-            <i class="ri-map-pin-fill cii-svc-icon" aria-hidden="true"></i>
-            <h3 class="cii-card-title">{geo.nom}</h3>
-            <p class="cii-card-text">{geo.description}</p>
-            <span class="cii-link-more">Voir la page <i class="ri-arrow-right-line"></i></span>
-          </a>
-        ))}
-      </div>
-
-      <!-- Pages métiers -->
-      <h3 class="cii-mini-title">L'IA pour votre secteur</h3>
-      <div class="cii-grid cii-grid--2" data-animate-stagger>
-        <a href="/metiers/ia-fiduciaire" class="cii-link co-frame co-frame--reveal" data-animate-item>
-          <i class="ri-calculator-line cii-svc-icon" aria-hidden="true"></i>
-          <h4 class="cii-card-title">IA pour fiduciaires</h4>
-          <p class="cii-card-text">Tri et pré-imputation des pièces (Bexio, Crésus), relances, TVA, veille légale — la validation reste humaine.</p>
-          <span class="cii-link-more">Voir la page métier <i class="ri-arrow-right-line"></i></span>
-        </a>
-        <a href="/metiers/ia-agence-immobiliere" class="cii-link co-frame co-frame--reveal" data-animate-item>
-          <i class="ri-building-line cii-svc-icon" aria-hidden="true"></i>
-          <h4 class="cii-card-title">IA pour agences immobilières</h4>
-          <p class="cii-card-text">Qualification des leads, tri des dossiers locataires, rédaction d'annonces, relances et suivi des échéances.</p>
-          <span class="cii-link-more">Voir la page métier <i class="ri-arrow-right-line"></i></span>
-        </a>
-      </div>
-
-      <!-- Articles blog -->
-      <h3 class="cii-mini-title">À lire sur l'IA en PME</h3>
-      <div class="cii-grid cii-grid--3" data-animate-stagger>
-        {blogArticles.map((article) => (
-          <a href={article.href} class="cii-link co-frame co-frame--reveal" data-animate-item>
-            <i class={`${article.icon} cii-svc-icon`} aria-hidden="true"></i>
-            <h4 class="cii-card-title">{article.title}</h4>
-            <p class="cii-card-text">{article.description}</p>
-            <span class="cii-link-more">Lire l'article <i class="ri-arrow-right-line"></i></span>
-          </a>
-        ))}
-      </div>
-    </section>
-
-    <!-- ══ 07 · FAQ (accordéon natif <details>, zéro JS) + illustration cadrée ══ -->
-    <section id="faq" class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <div class="cii-faq-grid">
-        <!-- Illustration cadrée (remplace le Halo brutaliste) -->
-        <aside class="cii-faq-illu" data-animate="fade-left" data-delay="0.1">
-          <figure class="cii-faq-frame co-frame">
-            <span class="co-x tl"></span><span class="co-x tr"></span>
-            <span class="co-x bl"></span><span class="co-x br"></span>
-            <Image
-              src={illuConsultant}
-              alt=""
-              class="cii-faq-img"
-              aria-hidden="true"
-            />
-          </figure>
-        </aside>
-
-        <div class="cii-faq-col">
-          <p class="co-eyebrow">08 — FAQ</p>
-          <h2 style="margin-top:var(--space-eyebrow);">Questions fréquentes</h2>
-          <p class="co-mut" style="margin-top:var(--space-title-lead);line-height:1.6;">
-            Ce que les dirigeants de PME romandes me demandent avant de se lancer.
-          </p>
-
-          <div class="cii-faq" style="margin-top:28px;">
-            {faqs.map((faq, index) => (
-              <details open={index === 0}>
-                <summary>
-                  {faq.question}
-                  <i class="ri-arrow-down-s-line" aria-hidden="true"></i>
-                </summary>
-                <p class="cii-faq-answer">{faq.answer}</p>
-              </details>
-            ))}
-          </div>
-
-          <p class="co-mut" style="margin-top:24px;">
-            Une autre question ? <a href="/contact" class="cii-inline">Écrivez-moi</a>, je réponds sous 24h.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ 08 · CTA FINAL (primitive .co-cta) ══ -->
-    <section class="co-cta">
-      <span class="co-x tl"></span><span class="co-x tr"></span>
-      <span class="co-x bl"></span><span class="co-x br"></span>
-      <div class="co-cta-inner">
-        <h2 class="co-cta-title">Cadrer votre <span class="co-ser">projet IA.</span></h2>
-        <p class="co-cta-lead">
-          Premier échange gratuit, sans engagement. On identifie la tâche à confier à l'IA, on chiffre en CHF,
-          et si le retour sur investissement n'est pas là, je vous le dis. Réponse sous 24h.
-        </p>
-        <div class="co-cta-btns">
-          <a href="/contact" class="co-btn co-cta-btn"><i class="ri-compass-3-line"></i> Cadrer mon projet IA</a>
-          <a href="mailto:hello@jonlabs.ch" class="co-btn co-btn--ghost co-cta-btn co-cta-btn--ghost"><i class="ri-mail-line"></i> hello@jonlabs.ch</a>
-        </div>
-        <div class="co-cta-trust">
-          <span><i class="ri-time-line"></i> Réponse sous 24h</span>
-          <span><i class="ri-map-pin-line"></i> Basé à Chêne-Bougeries (Genève)</span>
-          <span><i class="ri-currency-line"></i> Facturation CHF</span>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <Footer />
-</Layout>
-
-<style is:global>
-  /* ══ CONSULTANT IA — styles .cii-* (namespace scopé, corps .co-root) ══ */
-
-  /* ── Hero ── */
-  .cii-hero-inner { display: flex; flex-direction: column; align-items: flex-start; max-width: 760px; }
-  .cii-hero-title { font-size: clamp(2.1rem, 4.8vw, 3.2rem); margin-top: 22px; }
-  .co-root .cii-hero-lead { margin-top: 18px; max-width: 60ch; font-size: 1.075rem; line-height: 1.65; color: var(--muted); }
-  .cii-hero-lead strong { color: var(--ink); font-weight: 600; }
-  .cii-hero-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
-  .cii-hero-btns .co-btn i { transition: transform .18s ease-out; }
-  .cii-hero-btns .co-btn:hover i:last-child { transform: translateY(2px); }
-  .cii-hero-trust { display: flex; flex-wrap: wrap; gap: 22px; margin-top: 26px; font-size: 13.5px; color: var(--muted); }
-  .cii-hero-trust span { display: inline-flex; align-items: center; gap: 6px; }
-  .cii-hero-trust i { color: var(--accent); }
-
-  /* ── Grilles génériques ── */
-  .cii-grid { display: grid; gap: 16px; margin-top: var(--space-block); }
-  .cii-grid--2 { grid-template-columns: repeat(2, 1fr); }
-  .cii-grid--3 { grid-template-columns: repeat(3, 1fr); }
-  .cii-grid--4 { grid-template-columns: repeat(4, 1fr); }
-
-  /* ── Cartes de contenu ── */
-  .cii-card {
-    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
-    background: var(--surface); border: 1px solid var(--line-2);
-    transition: box-shadow .18s ease-out, transform .18s ease-out;
-  }
-  .cii-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
-  .cii-card-icon { font-size: 24px; color: var(--accent); line-height: 1; }
-  .cii-card-title { font-size: 1.1rem; }
-  .cii-card-text { font-size: 14px; line-height: 1.55; color: var(--muted); }
-
-  /* ── Sous-titres de bloc ── */
-  .cii-sub-title { font-size: 1.4rem; margin-top: var(--space-subsection); }
-  .co-root .cii-sub-lead { margin-top: 10px; max-width: 58ch; font-size: 14px; line-height: 1.6; }
-
-  /* ── Bento cas d'usage : 2 cellules montrées + 4 listées ── */
-  .cii-bento {
-    grid-template-columns: repeat(4, 1fr);
-    margin-top: var(--space-block);
-  }
-  .cii-bento-cell {
-    display: flex; flex-direction: column; gap: 18px; padding: 24px;
-    background: var(--surface);
-    transition: background .18s ease-out;
-  }
-  .cii-bento-cell:hover { background: var(--bg); }
-  .cii-bento-cell--wide { grid-column: span 2; }
-  .cii-bento-body { display: flex; flex-direction: column; gap: 8px; margin-top: auto; }
-  /* le gain est une etiquette fonctionnelle A COTE du titre : `.co-badge` ne
-     sert jamais d'eyebrow au-dessus d'un titre (blueprint.css:198-206) */
-  .cii-bento-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-  .cii-bento-head .cii-uc-gain { flex: none; }
-
-  /* ── Familles de services (étiquettes de groupe) ── */
-  .co-root .cii-fam-label { margin-top: var(--space-subsection); margin-bottom: 14px; }
-  .co-root .cii-fam-label:first-of-type { margin-top: var(--space-block); }
-
-  /* ── Offre clé en main : une seule, donc pleine largeur et sombre plutôt
-     qu'une carte orpheline dans une grille à 3 colonnes ── */
-  .cii-keyturn {
-    position: relative; display: grid; grid-template-columns: 1fr minmax(0, 260px);
-    gap: 32px; align-items: center; padding: 36px 40px;
-    background: #0E1116; color: #F5F4F0;  /* --dark n'est pas exposé sous .co-root */
-    border: 1px solid rgba(255, 255, 255, 0.10);
-    transition: border-color .18s ease-out, transform .18s ease-out;
-  }
-  .cii-keyturn:hover { transform: translateY(-2px); border-color: rgba(0, 217, 163, 0.45); }
-  .co-root .cii-keyturn-kicker {
-    font-size: 11px; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase;
-    color: var(--accent-bright);
-  }
-  .co-root .cii-keyturn-title { margin-top: 10px; font-size: 1.9rem; letter-spacing: -0.02em; }
-  .co-root .cii-keyturn-text {
-    margin-top: 12px; max-width: 58ch; font-size: 14.5px; line-height: 1.6;
-    color: rgba(245, 244, 240, 0.72);
-  }
-  .cii-keyturn-side {
-    display: flex; flex-direction: column; align-items: flex-start; gap: 6px;
-    padding-left: 32px; border-left: 1px solid rgba(255, 255, 255, 0.12);
-  }
-  .cii-keyturn-price {
-    font-size: 1.35rem; font-weight: 700; letter-spacing: -0.02em;
-    font-variant-numeric: tabular-nums; color: var(--accent-bright);
-  }
-  .cii-keyturn-delai { font-size: 13px; color: rgba(245, 244, 240, 0.60); }
-  .cii-keyturn-cta {
-    display: inline-flex; align-items: center; gap: 7px; margin-top: 12px;
-    font-size: 14px; font-weight: 600;
-  }
-  .cii-keyturn-cta i { transition: transform .18s ease-out; }
-  .cii-keyturn:hover .cii-keyturn-cta i { transform: translateX(3px); }
-  .cii-mini-title { font-size: 12px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); margin-top: var(--space-subsection); }
-
-  /* ── Services (cartes-liens avec prix) ── */
-  .cii-svc {
-    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
-    background: var(--surface); border: 1px solid var(--line-2);
-    transition: box-shadow .18s ease-out, transform .18s ease-out;
-  }
-  .cii-svc:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
-  .cii-svc-icon { font-size: 24px; color: var(--muted); line-height: 1; transition: color .18s ease-out; }
-  .cii-svc:hover .cii-svc-icon, .cii-link:hover .cii-svc-icon { color: var(--accent); }
-  .cii-svc-foot { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; }
-  .cii-svc-price { font-size: 13px; font-weight: 600; color: var(--accent); font-variant-numeric: tabular-nums; }
-  .cii-svc-arrow { font-size: 18px; color: var(--muted); transition: transform .18s ease-out; }
-  .cii-svc:hover .cii-svc-arrow { transform: translateX(3px); color: var(--accent); }
-
-  /* ── Encart split (agent vs automatisation) ── */
-  .cii-split { position: relative; margin-top: var(--space-block); padding: 32px; background: var(--surface); border: 1px solid var(--line-2); }
-  .cii-split-title { font-size: 1.2rem; display: inline-flex; align-items: center; gap: 8px; }
-  .cii-split-title i { color: var(--accent); }
-  .cii-split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 22px; }
-  .cii-split-lead { font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
-
-  /* ── Process (étapes numérotées) ── */
-  .cii-proc { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 24px; background: var(--surface); border: 1px solid var(--line-2); }
-  .cii-proc-num { font-size: 20px; font-weight: 700; }
-  .cii-proc-title { font-size: 1.05rem; font-weight: 600; }
-
-  /* ── Cas d'usage : en-tête + étiquette de gain (le reste est porté par
-     `.cii-bento-*` depuis la fusion des deux grilles) ── */
-  .cii-uc-head { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
-  .cii-uc-gain { flex: none; }
-
-  /* ── Stats (preuves) ── */
-  .cii-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: var(--space-block); }
-  .cii-stat { position: relative; display: flex; flex-direction: column; gap: 8px; padding: 30px 26px; background: var(--surface); border: 1px solid var(--line-2); text-align: center; align-items: center; }
-  .cii-stat-value { font-size: 3rem; font-weight: 700; letter-spacing: -0.04em; line-height: 1; color: var(--accent); }
-  .cii-stat-label { font-size: 15px; font-weight: 600; color: var(--ink); }
-  .cii-proof-cta { margin-top: 28px; display: flex; justify-content: center; }
-  .cii-proof-cta .co-btn i:last-child { transition: transform .18s ease-out; }
-  .cii-proof-cta .co-btn:hover i:last-child { transform: translateX(3px); }
-
-  /* ── Cartes-liens (géo / métiers / blog) ── */
-  .cii-link {
-    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 24px;
-    background: var(--surface); border: 1px solid var(--line-2);
-    transition: box-shadow .18s ease-out, transform .18s ease-out;
-  }
-  .cii-link:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
-  .cii-link-more { margin-top: auto; padding-top: 16px; border-top: 1px solid var(--line); font-size: 13.5px; font-weight: 600; color: var(--accent); display: inline-flex; align-items: center; gap: 6px; }
-  .cii-link-more i { transition: transform .18s ease-out; }
-  .cii-link:hover .cii-link-more i { transform: translateX(3px); }
-
-
-  /* ── Lien inline teal ── */
-  .cii-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; font-weight: 500; display: inline-flex; align-items: center; gap: 5px; }
-  .cii-inline:hover { color: var(--ink); }
-
-  /* ── FAQ + illustration ── */
-  .cii-faq-grid { display: grid; grid-template-columns: minmax(0, 320px) 1fr; gap: 48px; align-items: start; }
-  .cii-faq-illu { position: sticky; top: 112px; }
-  .cii-faq-frame { position: relative; }
-  .cii-faq-img { display: block; width: 100%; height: auto; }
-
-  .cii-faq { border-top: 1px solid var(--line); }
-  .cii-faq details { border-bottom: 1px solid var(--line); }
-  .cii-faq summary {
-    list-style: none; cursor: pointer; padding: 20px 0;
-    display: flex; justify-content: space-between; align-items: center; gap: 20px;
-    font-size: 1.075rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink);
-  }
-  .cii-faq summary::-webkit-details-marker { display: none; }
-  .cii-faq summary i { transition: transform .2s ease-out; color: var(--muted); font-size: 22px; flex: none; }
-  .cii-faq details[open] summary i { transform: rotate(180deg); }
-  .co-root .cii-faq-answer { padding: 0 0 22px; color: var(--muted); line-height: 1.6; max-width: 70ch; }
-  .cii-faq details::details-content {
-    block-size: 0; overflow: hidden;
-    transition: block-size .28s ease-out, content-visibility .28s ease-out allow-discrete;
-  }
-  .cii-faq details[open]::details-content { block-size: auto; }
-
-  /* ── Anchor scroll offset ── */
-  /* `[id]` et pas seulement `section[id]` : #integration-outils est porté par
-     un H3 à l'intérieur de la section #automatisation. */
-  .co-root section[id], .co-root h3[id] { scroll-margin-top: 100px; }
-
-  /* ── Responsive ── */
-  @media (max-width: 960px) {
-    .cii-grid--4 { grid-template-columns: repeat(2, 1fr); }
-    .cii-bento { grid-template-columns: repeat(2, 1fr); }
-    .cii-faq-grid { grid-template-columns: 1fr; gap: 32px; }
-    .cii-faq-illu { display: none; }
-  }
-  @media (max-width: 960px) {
-    .cii-keyturn { grid-template-columns: 1fr; gap: 24px; padding: 30px 28px; }
-    .cii-keyturn-side { padding-left: 0; padding-top: 22px; border-left: 0; border-top: 1px solid rgba(255,255,255,0.12); }
-  }
-  @media (max-width: 720px) {
-    .cii-grid--2, .cii-grid--3, .cii-grid--4, .cii-stats, .cii-split-grid { grid-template-columns: 1fr; }
-    .cii-bento { grid-template-columns: 1fr; }
-    .cii-bento-cell--wide { grid-column: auto; }
-    .cii-keyturn { padding: 26px 20px; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .cii-card, .cii-svc, .cii-bento-cell, .cii-link,
-    .cii-svc-icon, .cii-svc-arrow, .cii-faq summary i, .cii-hero-btns .co-btn i, .cii-link-more i { transition: none; }
-  }
-</style>
+  head={{
+    kicker: "Consultant IA · Genève et Suisse romande",
+    h1: "Consultant IA à Genève :",
+    dim: "des systèmes IA sur mesure pour les PME romandes.",
+    lead: "Je conçois et je construis les systèmes IA de votre entreprise : des agents IA et des automatisations qui enlèvent les tâches répétitives de votre quotidien. Prix en CHF, conformité nLPD, un seul interlocuteur du diagnostic à la mise en production.",
+    cta,
+    cta2: { href: "#services", label: "Voir les services" },
+  }}
+  proofs={{ items: [
+    { value: "50", label: "sites romands audités", client: "Le terrain romand" },
+    { value: "24/7", label: "avis Google traités en autonomie", client: "Cas barbershop" },
+    { value: "50+", label: "sites et projets livrés", client: "IA, web et mobile" },
+  ] }}
+  sections={[
+    {
+      id: "services", kicker: "01 · Services", title: "Des systèmes IA", dim: "sur mesure.",
+      text: "De l'automatisation simple à l'agent IA métier : toute la chaîne, un seul prestataire.",
+      price: { value: pricing.agentIA.display, note: "Agent IA, devis ferme après un premier échange gratuit." },
+      cta,
+      subs: [
+        { meta: pricing.agentIA.display, title: "Agents IA sur mesure", text: "Conception d'agents autonomes capables d'agir sur vos outils, avec mémoire et validation humaine. Pour les tâches pointues que les workflows génériques ne couvrent pas.", link: { href: "#agents-sur-mesure", label: "Ce qu'est un agent sur mesure" } },
+        { meta: "Sur devis", title: "Automatisation de tâches", text: "Relances, rapports, saisies répétitives qui se déclenchent toutes seules. On supprime les corvées du lundi matin avant même de parler d'IA avancée.", link: { href: "#automatisation", label: "Ce qu'on automatise" } },
+        { meta: "Sur devis", title: "Intégration d'outils", text: "On fait parler vos applications entre elles : Bexio, CRM, Google Workspace, votre facturation. L'info saisie une fois, partout, sans recopie.", link: { href: "#integration-outils", label: "Quand les outils bloquent" } },
+        { meta: pricing.formationIA.display, title: "Formation IA pour votre équipe", text: "Vos collaborateurs apprennent à utiliser l'IA au quotidien sans se mettre en danger côté données. Cas concrets de votre métier, pas une démo générique.", link: { href: "/services/formation-ia-equipe", label: "Voir la formation" } },
+        { meta: `Clé en main · ${pricing.agentIA.display} · en production en 2 à 3 semaines`, title: "Hermès, l'agent que je déploie chez vous", text: "Un agent IA déjà éprouvé sur des tâches concrètes de PME : tri d'e-mails, relances, préparation de documents. On part de cette base, on le branche sur vos outils, on pose les garde-fous. Vous ne payez pas six mois de R&D.", link: { href: "/hermes", label: "Voir l'offre" } },
+      ],
+    },
+    {
+      id: "automatisation", kicker: "02 · Automatisation", title: "Avant l'agent,", dim: "les corvées.",
+      text: "Une bonne part du temps perdu ne demande aucune IA : juste des tâches qui se déclenchent toutes seules, et des outils qui se parlent. C'est souvent par là qu'on commence.",
+      subs: [
+        { title: "Relances de paiement", text: "J+7 rappel courtois, J+15 relance avec la facture en pièce jointe, J+30 notification pour que vous repreniez la main. Vous n'intervenez que sur les cas qui le méritent." },
+        { title: "Rapports hebdomadaires", text: "Les données sont agrégées depuis vos outils (Bexio, CRM, tableurs) et le rapport arrive formaté dans votre boîte chaque lundi à 8h. La visibilité sans le travail." },
+        { title: "Onboarding client", text: "Le client signe, et tout s'enchaîne : e-mail de bienvenue, fiche CRM créée, documents envoyés, tâche de suivi posée à deux semaines. Même niveau de service à chaque fois." },
+        { title: "Validations", text: "Une demande arrive, le validateur reçoit une notification avec deux boutons, sa réponse met le système à jour et le demandeur est prévenu. Plus personne ne relance à la main." },
+      ],
+    },
+    {
+      id: "integration-outils", kicker: "03 · Intégration", title: "Quand ce sont", dim: "les outils qui bloquent.",
+      text: "Bexio, votre CRM, Google Workspace, votre facturation : l'information est saisie une fois, puis elle circule. Sans recopie, sans fichier qui diverge.",
+      subs: [
+        { title: "Vous ressaisissez les mêmes infos partout", text: "Un nouveau client : dans le CRM, puis dans la facturation, puis dans le fichier de suivi. Trois saisies, trois risques d'erreur, zéro valeur ajoutée." },
+        { title: "Vos outils fonctionnent en silos", text: "Le formulaire ne parle pas au CRM, le CRM ne parle pas à la comptabilité. Vous êtes le seul pont entre eux, et des infos se perdent en route." },
+        { title: "Vous avez empilé des outils au fil du temps", text: "Notion, Trello, Bexio, Mailchimp et cinq autres. Chacun fait son job, mais ensemble c'est le chaos, et vous n'avez pas le temps de démêler ça." },
+      ],
+    },
+    {
+      id: "agents-sur-mesure", kicker: "04 · Agents sur mesure", title: "Un agent IA sur mesure,", dim: "c'est quoi ?",
+      text: "Pas un chatbot générique. Un assistant conçu pour votre métier, qui se souvient du contexte, agit sur vos outils, et passe la main quand un humain doit valider.",
+      subs: [
+        { title: "Une mémoire", text: "Il garde le contexte d'un client, d'un dossier, d'une conversation. Vous ne répétez pas trois fois la même information." },
+        { title: "Une capacité d'action", text: "Il ne se contente pas de répondre : il crée une fiche, envoie un e-mail, met à jour un statut dans vos outils." },
+        { title: "Une validation humaine", text: "Les actions sensibles passent par vous. L'agent prépare, vous décidez. Rien ne part dans la nature sans contrôle." },
+        { meta: "Agent sur mesure ou automatisation ?", title: "Deux réponses à deux problèmes", features: ["L'automatisation couvre les workflows larges et prévisibles : « quand X arrive, fais Y ». Idéale pour les relances, les rapports, les saisies récurrentes.", "L'agent IA sur mesure est un assistant autonome pour une tâche pointue qui demande du jugement, du contexte et plusieurs étapes. C'est de la conception, pas du branchement d'outils."] },
+      ],
+    },
+    {
+      id: "cas-usage", kicker: "05 · Cas d'usage", title: "Où l'IA peut vous", dim: "enlever du travail.",
+      text: "Six cas valables pour la plupart des PME de Suisse romande. Les heures gagnées sont des estimations réalistes, pas des promesses.",
+      subs: [
+        { meta: "3 à 5 h/sem", title: "Tri et routage des demandes", text: "Chaque message entrant est lu, classé et transmis à la bonne personne avec un résumé. Vous ne triez plus, vous traitez." },
+        { meta: "2 à 4 h/sem", title: "Documents préparés", text: "Devis, contrats et comptes-rendus montés à partir de vos données existantes. Vous relisez au lieu de tout retaper, et vous validez avant l'envoi." },
+        { meta: "2 à 3 h/sem", title: "Relances automatiques", text: "Factures impayées, devis sans réponse, rendez-vous à confirmer : les relances partent au bon moment." },
+        { meta: "2 à 4 h/sem", title: "Veille ciblée", text: "Appels d'offres, actualité réglementaire, concurrents : un digest filtré arrive chez vous, sans le bruit. Vous lisez ce qui compte." },
+        { meta: "3 à 6 h/sem", title: "Support multilingue", text: "Vos clients écrivent en français, allemand ou anglais, l'agent comprend et répond dans la bonne langue au premier niveau." },
+        { meta: "2 à 3 h/sem", title: "Reporting automatisé", text: "Les chiffres sont agrégés depuis vos outils et le tableau de bord arrive chaque lundi dans votre boîte mail. Sans Excel à la main." },
+      ],
+    },
+    {
+      id: "differenciants", kicker: "06 · Pourquoi moi", title: "Un consultant IA", dim: "vraiment suisse.",
+      text: "Quatre choses que les freelances IA transfrontaliers ne vous offrent pas. Concrètes, vérifiables, sans plaquette.",
+      subs: [
+        { title: "Vraiment basé à Genève", text: "Atelier installé à Chêne-Bougeries, pas un prestataire transfrontalier qui facture depuis l'autre côté de la frontière. On se voit pour un café si le projet le mérite, et je connais le terrain romand." },
+        { title: "Prix en CHF, affichés", text: `Un agent IA démarre à CHF ${chf(pricing.agentIA.from)}, avec un devis ferme après un premier échange gratuit. Pas de prix caché jusqu'au dernier rendez-vous.` },
+        { title: "Des preuves chiffrées", text: "50 sites romands audités, un système de réponse aux avis Google qui tourne en autonomie (cas barbershop), 50+ sites livrés. Des résultats vérifiables, pas des promesses de plaquette.", link: { href: "/portfolio", label: "Voir les réalisations" } },
+        { title: "Un seul prestataire", text: "IA, site web et application mobile sous le même toit. Vous arrêtez de jongler entre plusieurs agences qui se renvoient la balle quand ça coince." },
+      ],
+    },
+  ]}
+  bento={{ title: "Ce que", dim: "je construis.", text: "Des agents, des apps et des automatisations branchés sur vos outils." }}
+  method={{
+    title: "Comment on construit", dim: "votre agent.",
+    text: "Une méthode courte qui part de vos tâches réelles et finit avec un système en production.",
+    steps: [
+      { title: "Audit du besoin", text: "On identifie la tâche précise à confier à l'agent et on vérifie qu'elle est rentable à automatiser. Si elle ne l'est pas, je vous le dis." },
+      { title: "Prototype", text: "Je construis une première version de l'agent sur un périmètre réduit. Vous le voyez fonctionner sur vos cas réels avant tout engagement lourd." },
+      { title: "Garde-fous", text: "On cadre ce que l'agent peut faire seul et ce qui passe par une validation humaine. Vos données restent conformes nLPD, les actions sensibles sont sous contrôle." },
+      { title: "Prise en main", text: "Documentation claire, formation de votre équipe et support pour les premières semaines. Pas de boîte noire : vous comprenez ce qui tourne." },
+    ],
+  }}
+  links={[
+    {
+      title: "L'IA près de chez vous", dim: "et dans votre métier.",
+      items: [
+        { href: "/consultant-ia/lausanne", k: "Lausanne", label: "Consultant IA à Lausanne", text: "Conseil et agents IA pour les entreprises de la région lausannoise et du canton de Vaud." },
+        { href: "/metiers/ia-fiduciaire", k: "Métier", label: "IA pour fiduciaires", text: "Tri et pré-imputation des pièces (Bexio, Crésus), relances, TVA, veille légale. La validation reste humaine." },
+        { href: "/metiers/ia-agence-immobiliere", k: "Métier", label: "IA pour agences immobilières", text: "Qualification des leads, tri des dossiers locataires, rédaction d'annonces, relances et suivi des échéances." },
+      ],
+    },
+    {
+      title: "À lire sur", dim: "l'IA en PME.",
+      items: [
+        { href: "/blog/automatisation-pme-suisse-guide-complet", k: "Guide", label: "Automatisation PME en Suisse : le guide complet", text: "Par où commencer, combien ça coûte et quelles tâches automatiser en premier." },
+        { href: "/blog/hermes-agent-ia-pme", k: "Article", label: "Hermès : un agent IA conçu pour une PME", text: "Le cas concret d'un agent métier, de l'audit à la mise en production." },
+        { href: "/blog/workflows-vs-agents-ia-pme", k: "Article", label: "Workflows ou agents IA : que choisir ?", text: "Automatiser un workflow ou déployer un agent autonome : comment ne pas se tromper." },
+        { href: "/blog/agent-ia-entreprise-cas-usage", k: "Article", label: "Agent IA en entreprise : 10 cas d'usage qui rapportent", text: "Fiduciaire, régie immobilière, négoce, cabinet, e-commerce : secteur par secteur." },
+        { href: "/blog/prix-agent-ia-automatisation-suisse", k: "Article", label: "Prix d'un agent IA et d'une automatisation en Suisse", text: "Les fourchettes réelles en CHF selon la complexité, sans devis flou." },
+      ],
+    },
+  ]}
+  faq={faqs}
+  contact="Premier échange gratuit, sans engagement. On identifie la tâche à confier à l'IA, on chiffre en CHF, et si le retour sur investissement n'est pas là, je vous le dis."
+/>
