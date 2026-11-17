@@ -7,7 +7,7 @@ image:
   url: "/images/blog/integrer-agent-ia-outils-existants.webp"
   alt: "Comparatif no-code, MCP et API pour intégrer un agent IA à ses outils existants"
 category: "automatisation"
-tags: ["integration-ia", "agent-ia", "no-code", "mcp", "automatisation", "pme", "suisse-romande"]
+tags: ["integrations", "agent-ia", "no-code", "automatisation", "pme", "suisse-romande"]
 featured: false
 draft: false
 readingTime: 10

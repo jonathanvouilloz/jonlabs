@@ -7,7 +7,7 @@ image:
   url: "/images/blog/prix-site-web-suisse-2026.webp"
   alt: "Illustration éditoriale : maquette de site web en couches transparentes soulevée par une main de statue antique révélant sa structure, accent vert, direction artistique jonlabs"
 category: "web"
-tags: ["prix", "site-web", "suisse", "freelance", "tarifs", "geneve"]
+tags: ["prix", "site-web", "suisse-romande", "freelance"]
 featured: false
 draft: false
 readingTime: 10

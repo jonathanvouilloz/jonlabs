@@ -7,7 +7,7 @@ image:
   url: "/images/blog/meilleurs-vps-hermes-agent-suisse.webp"
   alt: "Illustration éditoriale : buste de statue antique devant une baie de serveurs, croix suisse stylisée, accent vert, direction artistique jonlabs"
 category: "automatisation"
-tags: ["hermes-agent", "vps", "hebergement-suisse", "agent-ia", "nlpd", "infomaniak", "hostinger", "comparatif"]
+tags: ["hermes-agent", "nlpd", "agent-ia", "comparatif"]
 featured: false
 draft: false
 readingTime: 18

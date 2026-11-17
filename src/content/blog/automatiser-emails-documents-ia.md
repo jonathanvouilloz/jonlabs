@@ -7,7 +7,7 @@ image:
   url: "/images/blog/automatiser-emails-documents-ia.webp"
   alt: "Automatiser le tri d'emails et de documents en entreprise avec l'IA"
 category: "automatisation"
-tags: ["tri-emails", "rag", "documents-pme", "agent-ia", "automatisation", "suisse-romande"]
+tags: ["emails-documents", "agent-ia", "automatisation", "suisse-romande"]
 featured: false
 draft: false
 readingTime: 7

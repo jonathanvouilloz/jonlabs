@@ -8,7 +8,7 @@ image:
   url: "/images/blog/flutter-vs-react-native-pme.webp"
   alt: "Illustration éditoriale : deux smartphones comparés, chacun animé par un moteur de construction différent, connecteur vert, main de statue antique, DA jonlabs"
 category: "mobile"
-tags: ["flutter", "react native", "application mobile", "PME", "suisse", "développement mobile"]
+tags: ["flutter", "react-native", "application-mobile", "pme", "suisse-romande"]
 featured: false
 draft: false
 readingTime: 8

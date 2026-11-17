@@ -8,7 +8,7 @@ image:
   url: "/images/blog/developper-application-mobile-suisse.webp"
   alt: "Illustration éditoriale : smartphone assemblé à partir de briques modulaires, une brique verte posée par une main de statue antique, DA jonlabs"
 category: "mobile"
-tags: ["application mobile", "développement mobile", "suisse", "PME", "flutter", "react native"]
+tags: ["application-mobile", "suisse-romande", "pme", "flutter", "react-native"]
 featured: false
 draft: false
 readingTime: 10

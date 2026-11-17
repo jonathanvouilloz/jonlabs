@@ -8,7 +8,7 @@ image:
   url: "/images/blog/no-code-vs-developpement-sur-mesure.webp"
   alt: "Comparatif no-code versus développement sur-mesure pour PME avec framework en 3 phases"
 category: "web"
-tags: ["no-code", "développement sur mesure", "PME", "Bubble", "Webflow", "LPD", "vendor lock-in", "suisse romande"]
+tags: ["no-code", "logiciel-sur-mesure", "pme", "nlpd", "suisse-romande"]
 featured: false
 draft: false
 readingTime: 8

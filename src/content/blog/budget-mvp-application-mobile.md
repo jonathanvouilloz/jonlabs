@@ -8,7 +8,7 @@ image:
   url: "/images/blog/budget-mvp-application-mobile.webp"
   alt: "Illustration éditoriale : buste de statue antique tenant un smartphone réduit à une seule fonction essentielle verte, fonctionnalités supplémentaires mises de côté, DA jonlabs"
 category: "mobile"
-tags: ["MVP", "application mobile", "budget", "suisse", "développement mobile", "PME"]
+tags: ["application-mobile", "prix", "suisse-romande", "pme"]
 featured: false
 draft: false
 readingTime: 7

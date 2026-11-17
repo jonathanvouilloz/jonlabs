@@ -8,7 +8,7 @@ image:
   url: "/images/blog/agent-ia-repondre-mails-clients.webp"
   alt: "Illustration : un mail client transformé en brouillon de réponse, validé d'un clic sur un téléphone"
 category: "automatisation"
-tags: ["agent IA", "Hermes Agent", "email", "Telegram", "automatisation", "prompt"]
+tags: ["agent-ia", "hermes-agent", "emails-documents", "outils-ia", "automatisation"]
 featured: false
 draft: false
 readingTime: 13

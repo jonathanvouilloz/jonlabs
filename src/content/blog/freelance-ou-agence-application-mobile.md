@@ -8,7 +8,7 @@ image:
   url: "/images/blog/freelance-ou-agence-application-mobile.webp"
   alt: "Illustration éditoriale : smartphone en construction entre une main de statue antique (freelance) et un groupe de mains (agence), option directe soulignée en vert, DA jonlabs"
 category: "mobile"
-tags: ["application mobile", "freelance", "agence", "suisse", "développement mobile", "flutter"]
+tags: ["application-mobile", "freelance", "suisse-romande", "flutter"]
 featured: false
 draft: false
 readingTime: 7

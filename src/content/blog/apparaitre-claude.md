@@ -7,7 +7,7 @@ image:
   url: "/images/blog/apparaitre-claude-2026.webp"
   alt: "Illustration éditoriale : buste de statue antique consultant une réponse d'IA avec une citation verte renvoyant à une fiche d'entreprise, DA jonlabs"
 category: "geo"
-tags: ["claude", "anthropic", "brave-search", "geo", "seo", "ia", "visibilité"]
+tags: ["geo", "seo", "ia"]
 featured: false
 draft: false
 readingTime: 8

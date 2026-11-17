@@ -8,7 +8,7 @@ image:
   url: "/images/blog/hermes-agent-ia-pme.webp"
   alt: "Illustration éditoriale : buste de statue antique devant un ordinateur portable affichant l'interface d'un agent IA autonome, accent vert, direction artistique jonlabs"
 category: "automatisation"
-tags: ["hermes-agent", "agent-ia", "automatisation", "pme", "suisse-romande", "nous-research", "open-source", "llm"]
+tags: ["hermes-agent", "agent-ia", "automatisation", "pme", "suisse-romande", "open-source"]
 featured: false
 draft: false
 readingTime: 11

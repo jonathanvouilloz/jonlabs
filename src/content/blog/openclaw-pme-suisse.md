@@ -8,7 +8,7 @@ image:
   url: "/images/blog/openclaw-pme-suisse.webp"
   alt: "Illustration editoriale : main de statue antique tenant un smartphone avec une messagerie d assistant IA (bulle verte) connectee a des outils, DA jonlabs"
 category: "automatisation"
-tags: ["openclaw", "agent-ia", "automatisation", "pme", "tpe", "suisse-romande", "whatsapp", "open-source", "peter-steinberger"]
+tags: ["open-source", "agent-ia", "automatisation", "pme", "suisse-romande", "outils-ia"]
 featured: false
 draft: false
 readingTime: 9

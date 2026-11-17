@@ -7,7 +7,7 @@ image:
   url: "/images/blog/consultant-ia-c-est-quoi.webp"
   alt: "Étapes d'une mission de consultant IA pour une PME : audit, cadrage, déploiement, formation"
 category: "automatisation"
-tags: ["consultant-ia", "automatisation", "pme", "suisse-romande", "freelance", "intelligence-artificielle"]
+tags: ["freelance", "automatisation", "pme", "suisse-romande", "ia"]
 featured: false
 draft: false
 readingTime: 8

@@ -7,7 +7,7 @@ image:
   url: "/images/blog/ia-nlpd-conformite-suisse.webp"
   alt: "Schéma de conformité nLPD pour un agent IA en entreprise suisse : hébergement des données et sous-traitance"
 category: "automatisation"
-tags: ["nlpd", "conformite-donnees", "agent-ia", "automatisation", "suisse-romande", "protection-donnees"]
+tags: ["nlpd", "agent-ia", "automatisation", "suisse-romande"]
 featured: false
 draft: false
 readingTime: 11

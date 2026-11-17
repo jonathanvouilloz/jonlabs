@@ -7,7 +7,7 @@ image:
   url: "/images/blog/avant-apres-automatisation-pme-romande.webp"
   alt: "Avant/après du temps gagné par une PME romande grâce à l'automatisation IA"
 category: "automatisation"
-tags: ["automatisation", "PME", "suisse-romande", "roi", "ia"]
+tags: ["automatisation", "pme", "suisse-romande", "roi", "ia"]
 featured: false
 draft: false
 readingTime: 8

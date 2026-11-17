@@ -8,7 +8,7 @@ image:
   url: "/images/blog/specialiste-developpement-web-suisse.webp"
   alt: "Illustration éditoriale : buste de statue antique construisant un site web à partir de blocs sur un ordinateur portable, un bloc actif en vert, DA jonlabs"
 category: "web"
-tags: ["developpement-web", "suisse-romande", "freelance", "agence-web", "geneve", "choix-prestataire", "tarifs-web"]
+tags: ["site-web", "suisse-romande", "freelance", "prix"]
 featured: false
 draft: false
 readingTime: 9

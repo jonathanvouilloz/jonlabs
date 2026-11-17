@@ -7,7 +7,7 @@ image:
   url: "/images/blog/automatiser-rh-onboarding-ia.webp"
   alt: "Automatiser l'onboarding et les RH d'une PME avec l'IA"
 category: "automatisation"
-tags: ["onboarding", "contrats-travail", "attestations-rh", "agent-ia", "automatisation", "nlpd"]
+tags: ["administratif", "agent-ia", "automatisation", "nlpd"]
 featured: false
 draft: false
 readingTime: 8

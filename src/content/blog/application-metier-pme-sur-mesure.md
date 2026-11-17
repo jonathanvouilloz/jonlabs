@@ -8,7 +8,7 @@ image:
   url: "/images/blog/application-metier-pme-sur-mesure.webp"
   alt: "Écran d'application métier sur mesure affichant un rapport de chantier pour une PME suisse romande"
 category: "web"
-tags: ["application métier", "PME", "sur mesure", "suisse romande", "ROI", "flutter", "webapp"]
+tags: ["logiciel-sur-mesure", "pme", "suisse-romande", "roi", "flutter"]
 featured: false
 draft: false
 readingTime: 10

@@ -8,7 +8,7 @@ image:
   url: "/images/blog/automatisation-pme-suisse-guide-complet.webp"
   alt: "Illustration éditoriale : pile de documents désordonnée transformée en flux automatisé de tâches validées via une chaîne de workflow, accent vert, direction artistique jonlabs"
 category: "automatisation"
-tags: ["automatisation", "pme", "suisse-romande", "n8n", "make", "zapier", "agents-ia", "workflows", "roi"]
+tags: ["automatisation", "pme", "suisse-romande", "no-code", "agent-ia", "roi"]
 featured: true
 draft: false
 readingTime: 11

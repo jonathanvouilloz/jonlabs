@@ -7,7 +7,7 @@ image:
   url: "/images/blog/comment-choisir-quoi-automatiser-pme.webp"
   alt: "Illustration editoriale : main de statue antique triant des taches dans un entonnoir, les taches retenues ressortent en vert, DA jonlabs"
 category: "automatisation"
-tags: ["automatisation", "pme", "suisse-romande", "roi", "workflow", "make", "n8n"]
+tags: ["automatisation", "pme", "suisse-romande", "roi", "no-code"]
 featured: false
 draft: false
 readingTime: 13

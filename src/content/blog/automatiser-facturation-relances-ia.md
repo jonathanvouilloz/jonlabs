@@ -7,7 +7,7 @@ image:
   url: "/images/blog/automatiser-facturation-relances-ia.webp"
   alt: "Automatiser la facturation et les relances clients avec un agent IA en Suisse"
 category: "automatisation"
-tags: ["facturation", "relances-clients", "agent-ia", "automatisation", "comptabilite-pme", "suisse-romande"]
+tags: ["administratif", "agent-ia", "automatisation", "suisse-romande"]
 featured: false
 draft: false
 readingTime: 9

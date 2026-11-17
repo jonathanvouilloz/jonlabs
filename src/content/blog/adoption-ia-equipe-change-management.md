@@ -7,7 +7,7 @@ image:
   url: "/images/blog/adoption-ia-equipe-change-management.webp"
   alt: "Faire adopter l'IA à une équipe de PME sans résistance"
 category: "automatisation"
-tags: ["ia", "automatisation", "adoption-ia", "conduite-du-changement", "pme-suisse", "champion-interne"]
+tags: ["ia", "automatisation", "adoption-ia", "pme"]
 featured: false
 draft: false
 readingTime: 9

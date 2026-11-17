@@ -7,7 +7,7 @@ image:
   url: "/images/blog/garde-fous-ia-validations-audit.webp"
   alt: "Garde-fous IA en entreprise : niveaux de validation selon le risque"
 category: "automatisation"
-tags: ["garde-fous-ia", "fiabilite-agent-ia", "human-in-the-loop", "audit-ia", "automatisation", "pme-suisse"]
+tags: ["garde-fous-ia", "agent-ia", "automatisation", "pme"]
 featured: false
 draft: false
 readingTime: 8

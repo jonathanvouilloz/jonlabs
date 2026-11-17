@@ -7,7 +7,7 @@ image:
   url: "/images/blog/projet-pilote-ia-30-jours.webp"
   alt: "Cycle d'un projet pilote IA en 30 jours pour PME sans DSI"
 category: "automatisation"
-tags: ["projet-pilote-ia", "poc-ia", "kpi-ia", "automatisation", "pme", "suisse-romande"]
+tags: ["deploiement-ia", "automatisation", "pme", "suisse-romande"]
 featured: false
 draft: false
 readingTime: 9

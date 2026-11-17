@@ -8,7 +8,7 @@ image:
   url: "/images/blog/sortir-application-mobile-app-store.webp"
   alt: "Illustration éditoriale : une main de statue antique tend un smartphone devant une checklist de soumission et un tampon de validation teal, DA jonlabs"
 category: "mobile"
-tags: ["application mobile", "app store", "expo", "react native", "revenuecat", "publication"]
+tags: ["application-mobile", "app-store", "react-native"]
 featured: false
 draft: false
 readingTime: 11

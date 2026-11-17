@@ -7,7 +7,7 @@ image:
   url: "/images/blog/automatiser-prospection-crm-ia.webp"
   alt: "Automatiser la prospection et le suivi CRM avec l'IA : cycle commercial"
 category: "automatisation"
-tags: ["prospection-commerciale", "crm-ia", "scoring-leads", "agent-ia", "automatisation", "suisse-romande"]
+tags: ["prospection-crm", "agent-ia", "automatisation", "suisse-romande"]
 featured: false
 draft: false
 readingTime: 8

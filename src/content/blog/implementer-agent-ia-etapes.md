@@ -7,7 +7,7 @@ image:
   url: "/images/blog/implementer-agent-ia-etapes.webp"
   alt: "Feuille de route de déploiement d'un agent IA en 8 semaines pour une PME"
 category: "automatisation"
-tags: ["agent-ia", "deploiement-ia", "feuille-de-route", "automatisation", "pme", "suisse-romande", "referent-ia"]
+tags: ["agent-ia", "deploiement-ia", "automatisation", "pme", "suisse-romande", "adoption-ia"]
 featured: false
 draft: false
 readingTime: 9

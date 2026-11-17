@@ -8,7 +8,7 @@ image:
   url: "/images/blog/application-native-vs-hybride.webp"
   alt: "Illustration éditoriale : smartphone coupé entre une construction native pleine et des couches hybrides empilées, accent vert, main de statue antique, DA jonlabs"
 category: "mobile"
-tags: ["application native", "application hybride", "Flutter", "React Native", "PME", "développement mobile", "suisse"]
+tags: ["application-mobile", "flutter", "react-native", "pme", "suisse-romande"]
 featured: false
 draft: false
 readingTime: 9

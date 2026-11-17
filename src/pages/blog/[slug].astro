@@ -11,6 +11,7 @@ import imgJonathan from '../../assets/jonathan-vouilloz.webp';
 import '../../styles/v2.css';
 import VideoEmbed from '../../components/blog/VideoEmbed.astro';
 import { formatDate, getRelatedPosts, isPublished } from '../../lib/blog';
+import { tagLabel } from '../../lib/tags';
 import { author } from '../../sample';
 import { getBlogPostingSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
 import { SITE_URL, personData, organizationData } from '../../data/schema';
@@ -90,7 +91,7 @@ if (post.data.faqs && post.data.faqs.length > 0) {
       <article>
         <header class="r"><div class="w v2-art-head">
           {tags.length > 0 && (
-            <p class="v2-tags">{tags.slice(0, 3).map((t, i) => <>{i > 0 && <i></i>}<a href={`/blog/tag/${t}`}>{t}</a></>)}</p>
+            <p class="v2-tags">{tags.slice(0, 3).map((t, i) => <>{i > 0 && <i></i>}<a href={`/blog/tag/${t}`}>{tagLabel(t)}</a></>)}</p>
           )}
           <h1 class="v2-h1">{h1 ?? title}</h1>
           <p class="v2-meta">

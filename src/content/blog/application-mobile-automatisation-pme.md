@@ -8,7 +8,7 @@ image:
   url: "/images/blog/application-mobile-automatisation-pme.webp"
   alt: "Schéma d'intégration entre une app mobile et les outils métiers PME : CRM, facturation Bexio, agenda, Slack, automatisation Make et Zapier"
 category: "mobile"
-tags: ["application mobile", "automatisation", "PME", "make", "zapier", "n8n", "crm", "intégration", "suisse-romande"]
+tags: ["application-mobile", "automatisation", "pme", "no-code", "prospection-crm", "integrations"]
 featured: false
 draft: false
 readingTime: 8

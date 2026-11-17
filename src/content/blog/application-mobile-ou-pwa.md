@@ -8,7 +8,7 @@ image:
   url: "/images/blog/application-mobile-ou-pwa.webp"
   alt: "Illustration éditoriale : un smartphone partagé entre une application installée et un navigateur web, aiguillage vert, main de statue antique, DA jonlabs"
 category: "mobile"
-tags: ["PWA", "application mobile", "suisse", "PME", "développement mobile", "budget"]
+tags: ["application-mobile", "suisse-romande", "pme", "prix"]
 featured: false
 draft: false
 readingTime: 8

@@ -8,7 +8,7 @@ image:
   url: "/images/blog/recevoir-leads-formulaire-telegram-resend.webp"
   alt: "Schéma d'un lead routé d'une boîte mail vers une notification Telegram en temps réel"
 category: "automatisation"
-tags: ["formulaire de contact", "Telegram", "Resend", "Mistral", "leads", "automatisation", "serverless"]
+tags: ["prospection-crm", "outils-ia", "automatisation"]
 featured: false
 draft: false
 readingTime: 11

@@ -7,7 +7,7 @@ image:
   url: "/images/blog/workflows-vs-agents-ia-pme.webp"
   alt: "Illustration editoriale : a gauche une chaine lineaire de blocs (workflow), a droite un noeud vert autonome qui s auto-organise (agent), main de statue antique, DA jonlabs"
 category: "automatisation"
-tags: ["automatisation", "agent-ia", "workflow", "n8n", "make", "zapier", "pme", "suisse-romande"]
+tags: ["automatisation", "agent-ia", "no-code", "pme", "suisse-romande"]
 featured: false
 draft: false
 readingTime: 11

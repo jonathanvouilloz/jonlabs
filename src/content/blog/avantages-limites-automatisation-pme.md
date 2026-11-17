@@ -7,7 +7,7 @@ image:
   url: "/images/blog/avantages-limites-automatisation-pme.webp"
   alt: "Illustration editoriale : buste de philosophe antique tenant une balance qui pese les benefices (workflow vert) contre les limites (poids gris) de l automatisation, DA jonlabs"
 category: "automatisation"
-tags: ["automatisation", "pme", "suisse-romande", "roi", "n8n", "make", "zapier", "limites", "couts-caches"]
+tags: ["automatisation", "pme", "suisse-romande", "roi", "no-code"]
 featured: false
 draft: false
 readingTime: 10

@@ -7,7 +7,7 @@ image:
   url: "/images/blog/agent-ia-entreprise-cas-usage.webp"
   alt: "Interface d'agent IA exécutant des tâches automatisées sur un laptop dans un bureau de PME romande"
 category: "automatisation"
-tags: ["agent-ia", "automatisation", "pme", "suisse-romande", "cas-usage", "ia-entreprise"]
+tags: ["agent-ia", "automatisation", "pme", "suisse-romande", "cas-usage", "ia"]
 featured: false
 draft: false
 readingTime: 9

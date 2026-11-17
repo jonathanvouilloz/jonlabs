@@ -9,7 +9,7 @@ image:
   url: "/images/blog/application-mobile-pme-suisse.webp"
   alt: "Illustration éditoriale : main de statue antique tenant un smartphone avec une application métier de PME, devanture de commerce en arrière-plan, accent vert, DA jonlabs"
 category: "mobile"
-tags: ["application mobile", "PME", "suisse", "budget", "PWA", "décision"]
+tags: ["application-mobile", "pme", "suisse-romande", "prix", "comparatif"]
 featured: false
 draft: false
 readingTime: 7

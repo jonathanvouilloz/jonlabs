@@ -8,7 +8,7 @@ image:
   url: "/images/blog/prix-application-mobile-suisse.webp"
   alt: "Illustration éditoriale : smartphone éclaté en couches révélant de quoi se compose une application mobile, main de statue antique, accent vert, DA jonlabs"
 category: "mobile"
-tags: ["application mobile", "prix", "budget", "suisse", "mvp", "flutter", "freelance", "pme"]
+tags: ["application-mobile", "prix", "suisse-romande", "flutter", "freelance", "pme"]
 featured: false
 draft: false
 readingTime: 10

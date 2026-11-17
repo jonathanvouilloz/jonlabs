@@ -7,7 +7,7 @@ image:
   url: "/images/blog/temps-perdu-pme-automatisation.webp"
   alt: "Illustration editoriale : sablier au sable vert et chaine de workflow recuperant le temps perdu sur la paperasse, main de statue antique, DA jonlabs"
 category: "automatisation"
-tags: ["automatisation", "PME", "productivite", "suisse-romande", "admin"]
+tags: ["automatisation", "pme", "productivite", "suisse-romande", "administratif"]
 featured: false
 draft: false
 readingTime: 8

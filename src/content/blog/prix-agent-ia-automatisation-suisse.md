@@ -7,7 +7,7 @@ image:
   url: "/images/blog/prix-agent-ia-automatisation-suisse.webp"
   alt: "Grille de prix transparente en CHF pour un agent IA d'entreprise, cadrage et agent métier intégré"
 category: "automatisation"
-tags: ["prix-agent-ia", "agent-ia", "automatisation", "pme", "suisse-romande", "tarifs", "roi"]
+tags: ["prix", "agent-ia", "automatisation", "pme", "suisse-romande", "roi"]
 featured: false
 draft: false
 readingTime: 9

@@ -7,7 +7,7 @@ image:
   url: "/images/blog/cartographier-processus-avant-automatiser.webp"
   alt: "Cartographier les processus d'une PME avant d'automatiser avec l'IA"
 category: "automatisation"
-tags: ["cartographie-processus", "automatisation-pme", "mapping-processus", "audit-processus", "suisse-romande"]
+tags: ["cadrage-projet", "automatisation", "suisse-romande"]
 featured: false
 draft: false
 readingTime: 7

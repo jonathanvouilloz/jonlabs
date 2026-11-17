@@ -7,7 +7,7 @@ image:
   url: "/images/blog/calculer-gain-temps-automatisation.webp"
   alt: "Formule pour calculer le gain de temps réel et le ROI d'une automatisation en CHF"
 category: "automatisation"
-tags: ["roi-automatisation", "automatisation", "pme", "suisse-romande", "calcul-roi", "cout-horaire"]
+tags: ["roi", "automatisation", "pme", "suisse-romande"]
 featured: false
 draft: false
 readingTime: 6

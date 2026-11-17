@@ -7,7 +7,7 @@ image:
   url: "/images/blog/automatiser-support-client-ia.webp"
   alt: "Comparatif chatbot scripté et agent IA pour automatiser le support client"
 category: "automatisation"
-tags: ["support-client", "chatbot", "agent-ia", "automatisation", "escalade-humaine", "suisse-romande"]
+tags: ["support-client", "agent-ia", "automatisation", "garde-fous-ia", "suisse-romande"]
 featured: false
 draft: false
 readingTime: 9
