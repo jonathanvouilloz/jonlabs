@@ -11,6 +11,7 @@
     }
   ],
   "redirects": [
+    { "source": "/v2", "destination": "/", "permanent": true },
     { "source": "/blog/astro-vs-next", "destination": "/blog", "permanent": true },
     { "source": "/blog/astro-vs-next/", "destination": "/blog", "permanent": true },
     { "source": "/blog/automatisation-workflows", "destination": "/blog", "permanent": true },

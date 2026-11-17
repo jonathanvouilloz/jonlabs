@@ -51,8 +51,8 @@ export const stepDetails = [
   'Ajustements, nouvelles tâches à confier, et un point régulier sur ce qui tourne.',
 ];
 
-// Accueil du rebrand tant que la v2 vit sur /v2 (passera à '/' à la bascule).
-export const HOME = '/v2';
+// Accueil du site (la home v2 a remplacé l'ancienne le 2026-11-17 ; /v2 → / en 301).
+export const HOME = '/';
 
 // ⚠️ PLACEHOLDER (lorem) : aucun vrai témoignage collecté. À remplacer avant toute mise en production, ne rien inventer.
 export const testimonials = [

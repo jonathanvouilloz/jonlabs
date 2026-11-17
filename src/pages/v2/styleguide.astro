@@ -62,9 +62,9 @@ const S = Object.fromEntries(sections.map(([id, t, d, k], i) => [id, { t, d, k, 
   <div class="v2 sg">
     <header class="sg-bar r">
       <div class="w sg-bar-in">
-        <a href="/v2" class="v2-logo">jonlabs<span>.</span></a>
+        <a href="/" class="v2-logo">jonlabs<span>.</span></a>
         <nav class="sg-toc" aria-label="Sommaire">{sections.map(([id, t], i) => <a href={`#${id}`} data-toc={id} title={t}>{pad(i + 1)}</a>)}</nav>
-        <a href="/v2" class="v2-btn v2-btn-sm"><span data-roll>Voir la home</span></a>
+        <a href="/" class="v2-btn v2-btn-sm"><span data-roll>Voir la home</span></a>
       </div>
     </header>
 
