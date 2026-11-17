@@ -9,6 +9,9 @@ const $$ = <T extends Element = HTMLElement>(s: string, r: ParentNode = document
 const inView = (el: Element, fn: () => void, margin = '-15% 0px') =>
   new IntersectionObserver(([e], o) => { if (e.isIntersecting) { o.disconnect(); fn(); } }, { rootMargin: margin }).observe(el);
 
+// Nav et dock visent /contact#agenda ; sur une page qui a son propre agenda (home, contact), on reste sur place.
+if (document.getElementById('agenda')) $$<HTMLAnchorElement>('a[href="/contact#agenda"]').forEach((a) => a.setAttribute('href', '#agenda'));
+
 // Boutons : lettres qui roulent au survol. Le libellé reste lisible par les lecteurs d'écran.
 if (!reduce) $$('[data-roll]').forEach((el) => {
   const txt = el.textContent ?? '';
