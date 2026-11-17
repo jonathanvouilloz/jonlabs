@@ -1,780 +1,523 @@
 ---
-// Détail d'étude de cas / side-project — page programmatique portfolio (blueprint).
-// Migrée du brutaliste vers le design system .co-* : colonne de lecture cadrée filets,
-// accent teal unique, Inter Tight × Instrument Serif. Namespace scopé .psl-*.
-// Le corps markdown rendu (<Content />) est enveloppé dans la primitive .co-prose.
-//
-// HARD-PRESERVE :
-//  - getStaticPaths() intact + getCollection('portfolio', ({data}) => !data.draft)
-//    (signature + filtre draft + tri fallback « projets similaires » inchangés).
-//  - Rendu du corps markdown (entry.render() → <Content />) — juste wrappé .co-prose.
-//  - Schema.org caseStudySchema (branche about via client Organization), tableau schemas,
-//    injection Layout schemas={schemas} — data + logique + ordre.
-//  - Tous les bindings dynamiques de l'entrée (titre, client, projet, résultats, contexte,
-//    approche, images, tags, testimonial, learnings, liveUrl…) — rien en dur.
-//  - seoData dynamique (pageTitle/pageDescription), deep-links internes (/portfolio,
-//    serviceLink, related), liens externes du projet (liveUrl, client.website).
-//  - inlineLinks() sur les champs éditoriaux, lightbox (JS + classes .gallery-img/.lightbox).
-//  - Import global.css gardé. CTASection remplacé par .co-cta inline (composant non touché).
-
-import '../../styles/global.css';
+// Étude de cas / side-project v2 · « dossier technique » (proto créatif validé le 2026-11-17).
+// En-tête en bento (titre + chiffre clé en cellule teal + bandeau de fiche), tableau des résultats en chiffres
+// géants, défi révélé au scroll, approche en chapitres, captures en pellicule horizontale + lightbox,
+// choix en section sombre. Les sections sans données (side-projects : ni client ni résultats) sont omises.
 import { getCollection } from 'astro:content';
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import Nav from '../../components/v2/Nav.astro';
+import Dock from '../../components/v2/Dock.astro';
+import Footer from '../../components/v2/Footer.astro';
+import '../../styles/v2.css';
 import { SITE_URL } from '../../data/schema';
+import type { JSONLDSchema } from '../../lib/seo';
 import { inlineLinks } from '../../lib/markdown';
 import { portfolioServiceLinks } from '../../data/portfolio-relations';
 
 export async function getStaticPaths() {
-  const portfolioEntries = await getCollection('portfolio', ({ data }) => !data.draft);
-  // Tri par date décroissante : sert de fallback pour « Projets similaires »
-  const sorted = [...portfolioEntries].sort(
-    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
-  );
-
-  return portfolioEntries.map(entry => {
-    const others = sorted.filter(e => e.slug !== entry.slug);
-    // Priorité : même project.category ; complété par les plus récents si < 2
-    const sameCategory = others.filter(
-      e => e.data.project?.category === entry.data.project?.category
-    );
-    const relatedEntries = [
-      ...sameCategory,
-      ...others.filter(e => !sameCategory.includes(e)),
-    ].slice(0, 2);
-
+  const entries = await getCollection('portfolio', ({ data }) => !data.draft);
+  // Tri par date décroissante : fallback des « autres dossiers » (même catégorie d'abord).
+  const sorted = [...entries].sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+  return entries.map((entry) => {
+    const others = sorted.filter((e) => e.slug !== entry.slug);
+    const same = others.filter((e) => e.data.project.category === entry.data.project.category);
     return {
       params: { slug: entry.slug },
-      props: { entry, relatedEntries },
+      props: { entry, related: [...same, ...others.filter((e) => !same.includes(e))].slice(0, 3) },
     };
   });
 }
 
-const { entry, relatedEntries } = Astro.props;
-const serviceLink = portfolioServiceLinks[entry.slug];
+const { entry, related } = Astro.props;
 const { Content } = await entry.render();
-
-const {
-  title,
-  description,
-  heroImage,
-  client,
-  project,
-  results,
-  resultsTitle,
-  context,
-  approach,
-  entryType,
-  successFactors,
-  successFactorsTitle,
-  learnings,
-  testimonial,
-  resultImages,
-  galleryTitle,
-  status,
-  liveUrl,
-  tags,
-} = entry.data;
-
-const isSideProject = entryType === 'side-project';
+const d = entry.data;
+const service = portfolioServiceLinks[entry.slug];
+const isSide = d.entryType === 'side-project';
 const statusLabels = { live: 'En ligne', 'en-cours': 'Accompagnement en cours', archive: 'Archivé' };
-const pageTitle = `${title} | Portfolio`;
-const pageDescription = description;
-
-// Format date
-const formattedDate = new Date(entry.data.date).toLocaleDateString('fr-CH', {
-  year: 'numeric',
-  month: 'long'
-});
-
-// Build TOC items dynamically
-const tocItems: { id: string; label: string }[] = [];
-tocItems.push({ id: 'fiche-projet', label: 'Fiche projet' });
-if (results && results.length > 0) {
-  tocItems.push({ id: 'resultats', label: resultsTitle });
-}
-if (context) {
-  tocItems.push({ id: 'contexte', label: 'Contexte' });
-}
-if (approach && approach.length > 0) {
-  tocItems.push({ id: 'approche', label: 'Approche' });
-}
-if (resultImages && resultImages.length > 0) {
-  tocItems.push({ id: 'captures', label: galleryTitle });
-}
-if (successFactors && successFactors.length > 0) {
-  tocItems.push({ id: 'facteurs-succes', label: successFactorsTitle });
-}
-if (learnings && (learnings.limitations?.length || learnings.insights?.length)) {
-  tocItems.push({ id: 'apprentissages', label: 'Apprentissages' });
-}
-if (testimonial) {
-  tocItems.push({ id: 'temoignage', label: 'Témoignage' });
-}
-
-// Schema.org for case study / side-project
-const caseStudySchema: Record<string, any> = {
-  "@context": "https://schema.org",
-  "@type": "Article",
-  "headline": title,
-  "description": description,
-  "image": heroImage.url.startsWith('http') ? heroImage.url : `${SITE_URL}${heroImage.url}`,
-  "author": {
-    "@type": "Person",
-    "name": "Jonathan Vouilloz",
-    "url": SITE_URL
-  },
-  "publisher": {
-    "@type": "Organization",
-    "name": "Jon Labs",
-    "url": SITE_URL
-  },
-  "mainEntityOfPage": `${SITE_URL}/portfolio/${entry.slug}`,
+const categoryLabels = { 'site-vitrine': 'Site vitrine', 'e-commerce': 'E-commerce', seo: 'SEO', automatisation: 'Automatisation', application: 'Application', 'side-project': 'Side-project' };
+const date = d.date.toLocaleDateString('fr-CH', { year: 'numeric', month: 'long' });
+const [key] = d.results;
+const band = [
+  ['Client', d.client?.name ?? 'Projet personnel'],
+  ['Secteur', d.client?.sector],
+  ['Durée', d.project.duration],
+  ['Période', d.project.period],
+  ['Mesure', d.project.measurementPeriod],
+  ['Plateforme', d.project.platform],
+].filter(([, v]) => v);
+const side = [
+  ['Le client', d.context?.clientDescription],
+  ['Pourquoi ce projet', d.context?.whyThisProject],
+].filter(([, v]) => v) as [string, string][];
+const insights = d.learnings?.insights ?? [];
+const limits = d.learnings?.limitations ?? [];
+const factors = d.successFactors ?? [];
+const shots = d.resultImages ?? [];
+const hasBody = entry.body.trim().length > 0;
+const pad = (i: number) => String(i).padStart(2, '0');
+// Le compteur de v2-ui lit « préfixe + nombre + suffixe » et réécrit la virgule en point :
+// on ne l'active que si la valeur finale reste identique (pas « 1,74 M », « 15'400 », « 6,6 »).
+const countable = (v: string) => {
+  const m = v.match(/^(\D*)(\d+(?:[.,]\d+)?)(.*)$/);
+  return !!m && !/^['’]\d/.test(m[3]) && !/,|\.\d{2}/.test(m[2]);
 };
 
-if (client) {
-  caseStudySchema["about"] = {
-    "@type": "Organization",
-    "name": client.name,
-    "url": client.website
-  };
-}
+const toc = [
+  d.results.length > 1 && ['resultats', d.resultsTitle],
+  d.context && ['contexte', 'Contexte'],
+  d.approach.length > 0 && ['approche', 'Approche'],
+  shots.length > 0 && ['captures', d.galleryTitle],
+  factors.length > 0 && ['facteurs-succes', d.successFactorsTitle],
+  (insights.length > 0 || limits.length > 0) && ['apprentissages', 'Apprentissages'],
+  d.testimonial && ['temoignage', 'Témoignage'],
+  hasBody && ['recit', 'Le récit'],
+].filter(Boolean) as [string, string][];
 
+// Schema.org : étude de cas en Article, client en « about ».
+const caseStudySchema: JSONLDSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: d.title,
+  description: d.description,
+  image: d.heroImage.url.startsWith('http') ? d.heroImage.url : `${SITE_URL}${d.heroImage.url}`,
+  author: { '@type': 'Person', name: 'Jonathan Vouilloz', url: SITE_URL },
+  publisher: { '@type': 'Organization', name: 'Jon Labs', url: SITE_URL },
+  mainEntityOfPage: `${SITE_URL}/portfolio/${entry.slug}`,
+};
+if (d.client) caseStudySchema.about = { '@type': 'Organization', name: d.client.name, url: d.client.website };
 const schemas = [caseStudySchema];
 ---
 
-<Layout
-  title={pageTitle}
-  description={pageDescription}
-  ogImage={heroImage?.url}
-  schemas={schemas}
->
-  <Header />
+<Layout title={`${d.title} | Portfolio`} description={d.description} ogImage={d.heroImage.url} schemas={schemas}>
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" />
+  </Fragment>
 
-  <main class="co-root">
+  <div class="v2">
+    <Nav current="/portfolio" />
+    <Dock current="/portfolio" />
 
-    <!-- ══ ARTICLE — étude de cas ══ -->
-    <article class="psl-wrap">
-
-      <!-- Retour -->
-      <a href="/portfolio" class="psl-back">
-        <i class="ri-arrow-left-line"></i> Retour au portfolio
-      </a>
-
-      <!-- Hero image cadrée filets -->
-      {heroImage && (
-        <div class="psl-hero-media co-frame">
-          <span class="co-x tl"></span><span class="co-x tr"></span>
-          <span class="co-x bl"></span><span class="co-x br"></span>
-          <img src={heroImage.url} alt={heroImage.alt} />
-        </div>
-      )}
-
-      <!-- En-tête -->
-      <header class="psl-header">
-        <div class="psl-meta">
-          <span class="co-cat">{isSideProject ? 'side-project' : project.category}</span>
-          {client && (
-            <>
-              <span class="psl-dot" aria-hidden="true">·</span>
-              <span>{client.sector}</span>
-            </>
-          )}
-          <span class="psl-dot" aria-hidden="true">·</span>
-          <span>{formattedDate}</span>
-        </div>
-
-        <h1 class="psl-title">{title}</h1>
-        <p class="psl-lead">{description}</p>
-
-        {tags && tags.length > 0 && (
-          <div class="psl-tags">
-            {tags.map(tag => (
-              <span class="psl-tag">{tag}</span>
-            ))}
+    <main>
+      <article>
+        <header class="r" id="fiche-projet"><div class="w cas-c-hero">
+          <div class="cas-c-title">
+            <p class="v2-meta">
+              <a href="/portfolio" class="cas-c-back"><i class="ri-arrow-left-line" aria-hidden="true"></i> Réalisations</a>
+              <span>{isSide ? 'Side-project' : categoryLabels[d.project.category]}</span><span>{date}</span>
+            </p>
+            <h1 class="v2-h1" data-chars>{d.title}</h1>
+            <p class="cas-c-lead">{d.description}</p>
+            {d.tags.length > 0 && <p class="v2-meta cas-c-tags">{d.tags.map((t) => <span>{t}</span>)}</p>}
           </div>
-        )}
-
-        <div class="psl-btns">
-          {liveUrl && (
-            <a href={liveUrl} target="_blank" rel="noopener noreferrer" class="co-btn">
-              <i class="ri-external-link-line"></i> Voir le projet
-            </a>
-          )}
-          {client?.website && client.website !== liveUrl && (
-            <a href={client.website} target="_blank" rel="noopener noreferrer" class="co-btn co-btn--ghost">
-              <i class="ri-global-line"></i> Site client
-            </a>
-          )}
-        </div>
-      </header>
-
-      <!-- TLDR -->
-      <div class="psl-tldr co-frame">
-        <span class="co-x tl"></span><span class="co-x tr"></span>
-        <span class="co-x bl"></span><span class="co-x br"></span>
-        <p class="psl-tldr-title"><i class="ri-flashlight-line"></i> En bref</p>
-        <p class="psl-tldr-text">{description}</p>
-        {results && results.length > 0 && (
-          <div class="psl-tldr-metrics">
-            {results.slice(0, 4).map(result => (
-              <div class="psl-tldr-metric">
-                <span class="psl-tldr-value">{result.value}</span>
-                <span class="psl-tldr-label">{result.label}</span>
+          <div class="cas-c-key v2-dots v2-teal" data-spot>
+            <i class="v2-dots-glow" aria-hidden="true"></i>
+            {d.status && <p class="v2-meta"><span><i class="v2-live"></i>{statusLabels[d.status]}</span></p>}
+            {key ? (
+              <div>
+                <b data-count-to={countable(key.value) ? key.value : undefined}>{key.value}</b>
+                <p>{key.label}</p>
               </div>
-            ))}
+            ) : (
+              <div><b>{d.project.duration}</b><p>Durée du projet</p></div>
+            )}
+            {(d.liveUrl || d.client?.website) && (
+              <div class="cas-c-links">
+                {d.liveUrl && <a href={d.liveUrl} target="_blank" rel="noopener noreferrer" class="v2-btn v2-btn-sm"><span data-roll>Voir le projet en ligne</span> <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>}
+                {d.client?.website && d.client.website !== d.liveUrl && <a href={d.client.website} target="_blank" rel="noopener noreferrer" class="v2-btn v2-btn-sm v2-btn-ghost"><span data-roll>Site client</span> <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>}
+              </div>
+            )}
           </div>
-        )}
-      </div>
+          <dl class="cas-c-band">
+            {band.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
+          </dl>
+          {toc.length > 1 && (
+            <nav class="cas-c-toc" aria-label="Sommaire">
+              <ol class="v2-meta">{toc.map(([id, label], i) => <li><a href={`#${id}`}><span>{pad(i + 1)}</span> {label}</a></li>)}</ol>
+            </nav>
+          )}
+        </div></header>
 
-      <!-- Sommaire -->
-      <nav class="psl-toc" aria-label="Sommaire">
-        <p class="psl-toc-title">Sommaire</p>
-        <ol class="psl-toc-list">
-          {tocItems.map((item) => (
-            <li><a href={`#${item.id}`} class="psl-toc-link">{item.label}</a></li>
+        <div class="r"><div class="w cas-c-img"><img src={d.heroImage.url} alt={d.heroImage.alt} width="1180" height="664" /></div></div>
+
+        {d.results.length > 1 && (
+          <section class="r" id="resultats" aria-labelledby="t-res"><div class="w">
+            <div class="cas-c-label"><h2 id="t-res" class="v2-meta">{d.resultsTitle}</h2><span class="v2-meta">{pad(d.results.length)} repères</span></div>
+            <ol class="cas-c-board">
+              {d.results.map((r, i) => (
+                <li>
+                  <span class="v2-meta">{pad(i + 1)}</span>
+                  <b data-count-to={countable(r.value) ? r.value : undefined}>{r.value}</b>
+                  <span class="cas-c-board-txt"><strong>{r.label}</strong>{r.detail && <span class="v2-mut">{r.detail}</span>}</span>
+                </li>
+              ))}
+            </ol>
+          </div></section>
+        )}
+
+        {d.context && (
+          <section class="r" id="contexte" aria-labelledby="t-ctx"><div class="w">
+            <div class="cas-c-label"><h2 id="t-ctx" class="v2-meta">{d.context.challenge ? 'Contexte · le défi' : 'Contexte'}</h2></div>
+            {d.context.challenge && <p class="v2-reveal cas-c-reveal" data-reveal>{d.context.challenge}</p>}
+            {side.length > 0 && (
+              <div class="cas-c-side" style={`--cols:${side.length}`}>
+                {side.map(([k, v]) => <div><p class="v2-meta">{k}</p><p class="v2-prose" set:html={inlineLinks(v)} /></div>)}
+              </div>
+            )}
+          </div></section>
+        )}
+
+        {d.approach.length > 0 && <>
+          <div class="r" id="approche"><div class="w cas-c-label cas-c-label-solo"><h2 class="v2-meta">Approche</h2><span class="v2-meta">{pad(d.approach.length)} chapitres</span></div></div>
+          {d.approach.map((p) => (
+            <section class="r"><div class="w cas-c-ch">
+              <div class="cas-c-ch-num"><span aria-hidden="true">{pad(p.phase)}</span></div>
+              <div class="cas-c-ch-body">
+                <p class="v2-meta">Chapitre {pad(p.phase)}</p>
+                <h3 data-words>{p.title}</h3>
+                <p class="v2-prose" set:html={inlineLinks(p.description)} />
+                {p.tasks && p.tasks.length > 0 && <ul>{p.tasks.map((t) => <li set:html={inlineLinks(t)} />)}</ul>}
+                {p.image && (
+                  <figure>
+                    <button type="button" class="cas-c-zoom" data-lb aria-label={`Agrandir : ${p.image.alt}`}>
+                      <img src={p.image.url} alt={p.image.alt} loading="lazy" decoding="async" />
+                    </button>
+                    {p.image.caption && <figcaption class="v2-mut">{p.image.caption}</figcaption>}
+                  </figure>
+                )}
+              </div>
+            </div></section>
           ))}
-        </ol>
-      </nav>
+        </>}
 
-      <!-- Fiche projet -->
-      <section id="fiche-projet" class="psl-sec">
-        <h2 class="psl-h2">Fiche projet</h2>
-        <dl class="co-spec psl-spec">
-          {client ? (
-            <>
-              <div class="co-spec-row"><dt>Client</dt><dd>{client.name}</dd></div>
-              <div class="co-spec-row"><dt>Secteur</dt><dd>{client.sector}</dd></div>
-            </>
-          ) : (
-            <div class="co-spec-row"><dt>Type</dt><dd>Projet personnel</dd></div>
-          )}
-          <div class="co-spec-row"><dt>Durée</dt><dd>{project.duration}</dd></div>
-          <div class="co-spec-row"><dt>Période</dt><dd>{project.period}</dd></div>
-          {status && <div class="co-spec-row"><dt>Statut</dt><dd>{statusLabels[status]}</dd></div>}
-          {project.measurementPeriod && (
-            <div class="co-spec-row"><dt>Mesure</dt><dd>{project.measurementPeriod}</dd></div>
-          )}
-          <div class="co-spec-row"><dt>Plateforme</dt><dd>{project.platform}</dd></div>
-          {liveUrl && (
-            <div class="co-spec-row">
-              <dt>URL</dt>
-              <dd><a href={liveUrl} target="_blank" rel="noopener noreferrer">{liveUrl.replace('https://', '')}</a></dd>
+        {shots.length > 0 && (
+          <section class="r" id="captures" aria-labelledby="t-gal"><div class="w">
+            <div class="cas-c-label">
+              <h2 id="t-gal" class="v2-meta">{d.galleryTitle}</h2>
+              {shots.length > 1 && (
+                <span class="cas-c-film-nav">
+                  <button type="button" data-film="-1" aria-label="Capture précédente"><i class="ri-arrow-left-line" aria-hidden="true"></i></button>
+                  <button type="button" data-film="1" aria-label="Capture suivante"><i class="ri-arrow-right-line" aria-hidden="true"></i></button>
+                </span>
+              )}
             </div>
-          )}
-        </dl>
-      </section>
+            <div class={`cas-c-film${shots.length === 1 ? ' cas-c-film-1' : ''}`} data-film-track tabindex="0" aria-label="Captures, défilement horizontal">
+              {shots.map((img, i) => (
+                <figure>
+                  <button type="button" class="cas-c-zoom" data-lb aria-label={`Agrandir : ${img.alt}`}>
+                    <img src={img.url} alt={img.alt} loading="lazy" decoding="async" />
+                  </button>
+                  <figcaption><span class="v2-meta">Fig. {pad(i + 1)} / {pad(shots.length)}</span><span>{img.caption ?? img.alt}</span></figcaption>
+                </figure>
+              ))}
+            </div>
+          </div></section>
+        )}
 
-      <!-- Résultats -->
-      {results && results.length > 0 && (
-        <section id="resultats" class="psl-sec">
-          <h2 class="psl-h2">{resultsTitle}</h2>
-          <div class="psl-results">
-            {results.map(result => (
-              <div class="psl-result">
-                <i class={`${result.icon} psl-result-icon`} aria-hidden="true"></i>
-                <span class="psl-result-value">{result.value}</span>
-                <span class="psl-result-label">{result.label}</span>
-                {result.detail && <span class="psl-result-detail">{result.detail}</span>}
+        {factors.length > 0 && (
+          <div class="v2-dark">
+            <section class="r" id="facteurs-succes" aria-labelledby="t-fac"><div class="w">
+              <div class="v2-head"><h2 class="v2-h2" id="t-fac" data-words>{d.successFactorsTitle}</h2></div>
+              <div class="cas-c-fac" style={`--cols:${Math.min(factors.length, 4)}`} data-rise>
+                {factors.map((f) => (
+                  <div>
+                    {f.icon && <i class={f.icon} aria-hidden="true"></i>}
+                    <h3>{f.title}</h3>
+                    <p class="v2-prose" set:html={inlineLinks(f.description)} />
+                  </div>
+                ))}
               </div>
-            ))}
+            </div></section>
           </div>
-        </section>
-      )}
+        )}
 
-      <!-- Contexte -->
-      {context && (
-        <section id="contexte" class="psl-sec">
-          <h2 class="psl-h2">Contexte</h2>
-          {context.clientDescription && (
-            <>
-              <h3 class="psl-h3">Le client</h3>
-              <p class="psl-text" set:html={inlineLinks(context.clientDescription)} />
-            </>
-          )}
-          {context.challenge && (
-            <>
-              <h3 class="psl-h3">Le défi</h3>
-              <p class="psl-text" set:html={inlineLinks(context.challenge)} />
-            </>
-          )}
-          {context.whyThisProject && (
-            <>
-              <h3 class="psl-h3">Pourquoi ce projet</h3>
-              <p class="psl-text" set:html={inlineLinks(context.whyThisProject)} />
-            </>
-          )}
-        </section>
-      )}
+        {(insights.length > 0 || limits.length > 0) && (
+          <section class="r" id="apprentissages" aria-labelledby="t-learn"><div class="w">
+            <div class="cas-c-label"><h2 id="t-learn" class="v2-meta">Apprentissages</h2></div>
+            <div class="cas-c-learn">
+              {insights.length > 0 && (
+                <div><span class="cas-c-sign" aria-hidden="true">+</span><p class="v2-meta">Ce que j'ai appris</p>
+                  <ul>{insights.map((t) => <li class="v2-prose" set:html={inlineLinks(t)} />)}</ul></div>
+              )}
+              {limits.length > 0 && (
+                <div><span class="cas-c-sign" aria-hidden="true">−</span><p class="v2-meta">Limites &amp; améliorations</p>
+                  <ul>{limits.map((t) => <li class="v2-prose" set:html={inlineLinks(t)} />)}</ul></div>
+              )}
+            </div>
+          </div></section>
+        )}
 
-      <!-- Approche -->
-      {approach && approach.length > 0 && (
-        <section id="approche" class="psl-sec">
-          <h2 class="psl-h2">Approche</h2>
-          <div class="psl-steps">
-            {approach.map((phase) => (
-              <div class="psl-step">
-                <span class="psl-step-num co-index">{String(phase.phase).padStart(2, '0')}</span>
-                <div class="psl-step-body">
-                  <h3 class="psl-step-title">{phase.title}</h3>
-                  <p class="psl-step-desc" set:html={inlineLinks(phase.description)} />
-                  {phase.tasks && phase.tasks.length > 0 && (
-                    <ul class="psl-step-tasks">
-                      {phase.tasks.map(task => <li set:html={inlineLinks(task)} />)}
-                    </ul>
-                  )}
-                  {phase.image && (
-                    <figure class="psl-fig psl-step-image">
-                      <button type="button" class="psl-image-button" aria-label={`Agrandir : ${phase.image.alt}`}>
-                        <img src={phase.image.url} alt={phase.image.alt} class="gallery-img" loading="lazy" decoding="async" />
-                      </button>
-                      {phase.image.caption && <figcaption>{phase.image.caption}</figcaption>}
-                    </figure>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        </section>
-      )}
+        {d.testimonial && (
+          <section class="r" id="temoignage" aria-label="Témoignage"><div class="w v2-testi-main cas-c-testi">
+            <p class="v2-testi-mark" aria-hidden="true">“</p>
+            <figure class="v2-testi-fig"><blockquote class="v2-h2">{d.testimonial.quote}</blockquote>
+              <figcaption class="v2-meta"><strong>{d.testimonial.author}</strong>{d.testimonial.role && <span>{d.testimonial.role}</span>}</figcaption></figure>
+          </div></section>
+        )}
 
-      <!-- Captures -->
-      {resultImages && resultImages.length > 0 && (
-        <section id="captures" class="psl-sec">
-          <h2 class="psl-h2">{galleryTitle}</h2>
-          <div class="psl-gallery">
-            {resultImages.map(image => (
-              <figure class="psl-fig">
-                <button type="button" class="psl-image-button" aria-label={`Agrandir : ${image.alt}`}>
-                  <img src={image.url} alt={image.alt} class="gallery-img" loading="lazy" decoding="async" />
-                </button>
-                {image.caption && <figcaption>{image.caption}</figcaption>}
-              </figure>
-            ))}
-          </div>
-        </section>
-      )}
+        {hasBody && (
+          <section class="r" id="recit" aria-labelledby="t-recit"><div class="w">
+            <div class="cas-c-label"><h2 id="t-recit" class="v2-meta">Le récit</h2></div>
+            <div class="cas-c-recit"><div class="co-prose v2-art-prose cas-c-prose"><Content /></div></div>
+          </div></section>
+        )}
+      </article>
 
-      <!-- Facteurs de succès -->
-      {successFactors && successFactors.length > 0 && (
-        <section id="facteurs-succes" class="psl-sec">
-          <h2 class="psl-h2">{successFactorsTitle}</h2>
-          <ul class="psl-success">
-            {successFactors.map(factor => (
-              <li class="psl-success-item">
-                <i class={`${factor.icon} psl-success-icon`} aria-hidden="true"></i>
-                <div>
-                  <strong>{factor.title}</strong>
-                  <span class="psl-success-desc" set:html={inlineLinks(factor.description)} />
-                </div>
-              </li>
+      <section class="r" aria-labelledby="t-next"><div class="w">
+        <div class="cas-c-label">
+          <h2 id="t-next" class="v2-meta">Autres dossiers</h2>
+          <span class="cas-c-label-links">
+            {service && <a href={service.href} class="v2-meta cas-c-service"><span class="v2-a">Service lié : {service.label}</span><i class="ri-arrow-right-line" aria-hidden="true"></i></a>}
+            <a href="/portfolio" class="v2-meta cas-c-service"><span class="v2-a">Tous les projets</span><i class="ri-arrow-right-line" aria-hidden="true"></i></a>
+          </span>
+        </div>
+        {related.length > 0 && (
+          <ul class="cas-c-next">
+            {related.map((p) => (
+              <li><a href={`/portfolio/${p.slug}`}>
+                <img src={p.data.heroImage.url} alt="" loading="lazy" />
+                <strong>{p.data.title}</strong>
+                <span class="v2-meta"><span>{p.data.client?.sector ?? 'Projet personnel'}</span><span>{p.data.date.getFullYear()}</span></span>
+                <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
+              </a></li>
             ))}
           </ul>
-        </section>
-      )}
+        )}
+      </div></section>
 
-      <!-- Apprentissages -->
-      {learnings && (learnings.limitations?.length || learnings.insights?.length) && (
-        <section id="apprentissages" class="psl-sec">
-          <h2 class="psl-h2">Apprentissages</h2>
-          {learnings.insights && learnings.insights.length > 0 && (
-            <>
-              <h3 class="psl-h3">Ce que j'ai appris</h3>
-              <ul class="co-list">
-                {learnings.insights.map(insight => (
-                  <li set:html={inlineLinks(insight)} />
-                ))}
-              </ul>
-            </>
-          )}
-          {learnings.limitations && learnings.limitations.length > 0 && (
-            <>
-              <h3 class="psl-h3">Limites &amp; améliorations</h3>
-              <ul class="co-list">
-                {learnings.limitations.map(limitation => (
-                  <li set:html={inlineLinks(limitation)} />
-                ))}
-              </ul>
-            </>
-          )}
-        </section>
-      )}
-
-      <!-- Témoignage -->
-      {testimonial && (
-        <section id="temoignage" class="psl-sec">
-          <h2 class="psl-h2">Témoignage</h2>
-          <blockquote class="psl-quote">
-            <p>« {testimonial.quote} »</p>
-            <footer>
-              <strong>{testimonial.author}</strong>{testimonial.role && <span>, {testimonial.role}</span>}
-            </footer>
-          </blockquote>
-        </section>
-      )}
-
-      <!-- Corps markdown additionnel (primitive .co-prose) -->
-      <div class="co-prose psl-content">
-        <Content />
-      </div>
-
-      <!-- Retour bas de page -->
-      <div class="psl-foot">
-        <a href="/portfolio" class="psl-back">
-          <i class="ri-arrow-left-line"></i> Voir tous les projets
-        </a>
-      </div>
-    </article>
-
-    <!-- ══ MAILLAGE — service lié + projets similaires ══ -->
-    <section class="psl-maillage">
-      {serviceLink && (
-        <div class="psl-service-block">
-          <p class="psl-maillage-label">Service lié</p>
-          <a href={serviceLink.href} class="psl-service">
-            <span class="psl-service-text">
-              Ce projet illustre mon offre <b>{serviceLink.label}</b>
-            </span>
-            <i class="ri-arrow-right-line" aria-hidden="true"></i>
-          </a>
+      <section class="r"><div class="w v2-head v2-head-2">
+        <h2 class="v2-h2" data-words>Votre projet,<br /><span class="v2-dim">la prochaine étude de cas.</span></h2>
+        <div class="v2-ctas v2-ctas-left">
+          <a href="/contact" class="v2-btn"><i class="ri-calendar-line"></i> <span data-roll>Parlons de votre projet</span></a>
+          <a href="mailto:contact@jonlabs.ch" class="v2-btn v2-btn-ghost"><span data-roll>contact@jonlabs.ch</span></a>
         </div>
-      )}
+      </div></section>
+    </main>
 
-      {relatedEntries && relatedEntries.length > 0 && (
-        <div>
-          <p class="psl-maillage-label">Projets similaires</p>
-          <div class="psl-related">
-            {relatedEntries.map((related) => (
-              <a href={`/portfolio/${related.slug}`} class="psl-related-card">
-                {related.data.tags?.[0] && (
-                  <span class="co-cat">{related.data.tags[0]}</span>
-                )}
-                <h3 class="psl-related-title">{related.data.title}</h3>
-                <span class="psl-related-cta">
-                  Voir le projet <i class="ri-arrow-right-line" aria-hidden="true"></i>
-                </span>
-              </a>
-            ))}
-          </div>
-        </div>
-      )}
-    </section>
+    <Footer />
 
-    <!-- ══ CTA FINAL (primitive .co-cta — remplace CTASection) ══ -->
-    <section class="co-cta">
-      <span class="co-x tl"></span><span class="co-x tr"></span>
-      <div class="co-cta-inner">
-        <h2 class="co-cta-title">Le vôtre mérite le même <span class="co-ser">soin.</span></h2>
-        <p class="co-cta-lead">Je travaille avec des indépendants et PME locales qui veulent développer leur visibilité en ligne.</p>
-        <div class="co-cta-btns">
-          <a href="/contact" class="co-btn co-cta-btn"><i class="ri-chat-3-line"></i> Discuter de votre projet</a>
-        </div>
-        <div class="co-cta-trust">
-          <span><i class="ri-time-line"></i> Réponse sous 48h</span>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <Footer />
-
-  <!-- Lightbox -->
-  <div id="lightbox" class="lightbox" role="dialog" aria-modal="true" aria-hidden="true">
-    <button class="lightbox-close" aria-label="Fermer">
-      <i class="ri-close-line"></i>
-    </button>
-    <button class="lightbox-prev" aria-label="Image précédente">
-      <i class="ri-arrow-left-s-line"></i>
-    </button>
-    <button class="lightbox-next" aria-label="Image suivante">
-      <i class="ri-arrow-right-s-line"></i>
-    </button>
-    <figure class="lightbox-content">
-      <img id="lightbox-img" src="" alt="" />
-      <figcaption id="lightbox-caption"></figcaption>
-    </figure>
-    <span id="lightbox-counter"></span>
+    <dialog class="cas-c-lb" aria-label="Capture agrandie">
+      <button type="button" class="cas-c-lb-close" data-lb-close aria-label="Fermer"><i class="ri-close-line" aria-hidden="true"></i></button>
+      <button type="button" class="cas-c-lb-prev" data-lb-step="-1" aria-label="Image précédente"><i class="ri-arrow-left-s-line" aria-hidden="true"></i></button>
+      <button type="button" class="cas-c-lb-next" data-lb-step="1" aria-label="Image suivante"><i class="ri-arrow-right-s-line" aria-hidden="true"></i></button>
+      <figure>
+        <img alt="" />
+        <figcaption><span class="v2-meta" data-lb-count></span><span data-lb-cap></span></figcaption>
+      </figure>
+    </dialog>
   </div>
 </Layout>
 
-<style is:global>
-  /* ══ PORTFOLIO DÉTAIL — styles scopés .psl-* (blueprint) ══ */
+<script>
+  import '../../scripts/v2-ui';
 
-  /* Colonne de lecture cadrée */
-  .psl-wrap { max-width: 780px; margin: 0 auto; padding: 40px 40px 8px; }
+  // Pellicule : les flèches avancent d'une capture.
+  const track = document.querySelector<HTMLElement>('[data-film-track]');
+  const filmTo = (fig: HTMLElement) => track?.scrollTo({ left: fig.offsetLeft - track.offsetLeft, behavior: 'smooth' });
+  document.querySelectorAll<HTMLButtonElement>('[data-film]').forEach((b) => b.addEventListener('click', () => {
+    const fig = track?.querySelector('figure');
+    if (track && fig) track.scrollBy({ left: Number(b.dataset.film) * (fig.clientWidth + 1), behavior: 'smooth' });
+  }));
 
-  /* Liens retour / bas de page */
-  .co-root .psl-back { display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; font-weight: 500; color: var(--muted); transition: color .16s ease-out; }
-  .co-root .psl-back:hover { color: var(--accent); }
-
-  /* Hero image */
-  .psl-hero-media { position: relative; margin: 24px 0 30px; overflow: hidden; }
-  .psl-hero-media img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; background: var(--bg); }
-
-  /* En-tête */
-  .psl-header { display: flex; flex-direction: column; align-items: flex-start; }
-  .psl-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; font-size: 13px; color: var(--muted); margin-bottom: 16px; }
-  .psl-meta .psl-dot { color: var(--line-2); }
-  .co-root .psl-title { font-size: clamp(1.9rem, 4.4vw, 2.8rem); line-height: 1.08; letter-spacing: -0.03em; margin: 0 0 16px; }
-  .co-root .psl-lead { font-size: 1.15rem; line-height: 1.6; color: var(--muted); margin: 0 0 22px; max-width: 60ch; }
-  .psl-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; }
-  .psl-tag { font-size: 0.8rem; color: var(--muted); padding: 4px 11px; border: 1px solid var(--line-2); border-radius: 999px; }
-  .psl-btns { display: flex; flex-wrap: wrap; gap: 12px; }
-
-  /* Titres de section */
-  .psl-sec { margin-top: 52px; }
-  .co-root .psl-h2 { font-size: clamp(1.4rem, 2.6vw, 1.7rem); line-height: 1.2; letter-spacing: -0.02em; margin: 0 0 20px; padding-bottom: 12px; border-bottom: 1px solid var(--line); }
-  .co-root .psl-h3 { font-size: 1.15rem; font-weight: 600; margin: 26px 0 8px; }
-  .co-root .psl-text { color: var(--ink); line-height: 1.7; margin: 0 0 14px; }
-  .psl-text a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 1px; text-underline-offset: 3px; transition: text-decoration-thickness .16s ease-out; }
-  .psl-text a:hover { text-decoration-thickness: 2px; }
-
-  /* TLDR — callout cadré */
-  .psl-tldr { position: relative; background: var(--surface); border: 1px solid var(--line-2); padding: 22px 24px; margin-top: 30px; }
-  .co-root .psl-tldr-title { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
-  .co-root .psl-tldr-title i { color: var(--accent); }
-  .co-root .psl-tldr-text { line-height: 1.6; margin: 0; }
-  .psl-tldr-metrics { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 18px; padding-top: 18px; border-top: 1px solid var(--line); }
-  .psl-tldr-metric { display: flex; flex-direction: column; gap: 3px; }
-  .psl-tldr-value { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
-  .psl-tldr-label { font-size: 12px; color: var(--muted); }
-  @media (min-width: 640px) { .psl-tldr-metrics { grid-template-columns: repeat(4, 1fr); } }
-
-  /* Sommaire */
-  .psl-toc { background: var(--surface); border: 1px solid var(--line-2); padding: 18px 22px; margin-top: 24px; }
-  .co-root .psl-toc-title { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
-  .psl-toc-list { display: flex; flex-direction: column; gap: 8px; counter-reset: psl-toc; }
-  .psl-toc-list li { counter-increment: psl-toc; }
-  .co-root .psl-toc-link { display: inline-flex; align-items: baseline; gap: 10px; font-size: 0.95rem; color: var(--ink); transition: color .16s ease-out; }
-  .psl-toc-link::before { content: counter(psl-toc, decimal-leading-zero); color: var(--accent); font-variant-numeric: tabular-nums; font-weight: 600; font-size: 0.82em; }
-  .co-root .psl-toc-link:hover { color: var(--accent); }
-
-  /* Fiche projet (primitive .co-spec) */
-  .psl-spec { margin-top: 4px; }
-  .psl-spec dd a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-underline-offset: 3px; }
-
-  /* Résultats — tuiles */
-  .psl-results { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 4px; }
-  @media (min-width: 640px) { .psl-results { grid-template-columns: repeat(3, 1fr); } }
-  .psl-result { display: flex; flex-direction: column; gap: 4px; padding: 18px 20px; background: var(--surface); border: 1px solid var(--line-2); }
-  .psl-result-icon { font-size: 17px; color: var(--accent); line-height: 1; }
-  .psl-result-value { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1.15; }
-  .psl-result-label { font-size: 13px; font-weight: 500; }
-  .psl-result-detail { font-size: 12px; color: var(--muted); font-style: italic; }
-
-  /* Approche — étapes */
-  .psl-steps { display: flex; flex-direction: column; gap: 16px; margin-top: 4px; }
-  .psl-step { display: grid; grid-template-columns: auto 1fr; gap: 20px; padding: 22px 24px; background: var(--surface); border: 1px solid var(--line-2); }
-  .psl-step-num { font-size: 1.6rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
-  .co-root .psl-step-title { font-size: 1.1rem; font-weight: 600; margin: 0 0 8px; }
-  .co-root .psl-step-desc { color: var(--muted); line-height: 1.6; margin: 0 0 12px; }
-  .psl-step-tasks { display: flex; flex-direction: column; gap: 6px; }
-  .psl-step-tasks li { position: relative; padding-left: 20px; font-size: 0.92rem; color: var(--muted); line-height: 1.5; }
-  .psl-step-tasks li::before { content: ""; position: absolute; left: 2px; top: 0.66em; width: 6px; height: 6px; border-radius: 999px; background: var(--accent); }
-  .psl-step-body { min-width: 0; }
-  .psl-step .psl-step-image { margin-top: 24px; }
-  .psl-step-image img { display: block; width: 100%; height: auto; border: 1px solid var(--line-2); }
-
-  /* Captures — galerie */
-  .psl-gallery { display: flex; flex-direction: column; gap: 24px; margin-top: 4px; }
-  .psl-fig { margin: 0; }
-  .psl-image-button { display: block; width: 100%; padding: 0; border: 0; background: transparent; }
-  .psl-image-button:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
-  .psl-fig .gallery-img { display: block; width: 100%; height: auto; cursor: zoom-in; border: 1px solid var(--line-2); transition: opacity .18s ease-out; }
-  .psl-fig .gallery-img:hover { opacity: 0.92; }
-  .psl-fig figcaption { font-size: 13px; color: var(--muted); text-align: center; margin-top: var(--space-eyebrow); }
-
-  /* Facteurs de succès */
-  .psl-success { display: flex; flex-direction: column; gap: 16px; margin-top: 4px; }
-  .psl-success-item { display: flex; gap: 12px; }
-  .psl-success-icon { font-size: 18px; color: var(--accent); flex: none; margin-top: 2px; }
-  .co-root .psl-success-item strong { display: block; margin-bottom: 2px; font-weight: 650; }
-  .psl-success-desc { display: block; font-size: 0.95rem; color: var(--muted); line-height: 1.6; }
-
-  /* Témoignage */
-  .psl-quote { margin-top: 4px; padding: 4px 0 4px 22px; border-left: 2px solid var(--accent); }
-  .co-root .psl-quote p { font-family: "Instrument Serif", Georgia, serif; font-style: italic; font-size: 1.35rem; line-height: 1.4; margin: 0 0 10px; }
-  .psl-quote footer { font-size: 0.9rem; color: var(--muted); }
-  .psl-quote footer strong { color: var(--ink); font-weight: 650; }
-
-  /* Corps markdown (.co-prose) — espacement */
-  .psl-content { margin-top: var(--space-subsection); }
-
-  /* Retour bas de page */
-  .psl-foot { margin-top: var(--space-subsection); padding-top: 24px; border-top: 1px solid var(--line); }
-
-  /* Maillage interne */
-  .psl-maillage { max-width: 780px; margin: 0 auto; padding: 24px 40px 64px; }
-  .co-root .psl-maillage-label { font-size: 12px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin: 0 0 12px; }
-  .psl-service-block { margin-bottom: 40px; }
-  .psl-service { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 24px; background: var(--surface); border: 1px solid var(--line-2); transition: box-shadow .18s ease-out, transform .18s ease-out; }
-  .psl-service:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(20, 22, 26, .08); }
-  .psl-service-text { font-size: 1.05rem; font-weight: 600; line-height: 1.35; }
-  .psl-service-text b { color: var(--accent); font-weight: 700; }
-  .psl-service > i { font-size: 1.4rem; color: var(--accent); flex: none; transition: transform .18s ease-out; }
-  .psl-service:hover > i { transform: translateX(4px); }
-
-  .psl-related { display: grid; gap: 14px; }
-  @media (min-width: 640px) { .psl-related { grid-template-columns: repeat(2, 1fr); } }
-  .psl-related-card { display: flex; flex-direction: column; align-items: flex-start; gap: 9px; padding: 18px 20px; background: var(--surface); border: 1px solid var(--line-2); transition: box-shadow .18s ease-out, transform .18s ease-out; }
-  .psl-related-card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(20, 22, 26, .08); }
-  .co-root .psl-related-title { font-size: 1.05rem; line-height: 1.25; font-weight: 650; }
-  .psl-related-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 0.9rem; font-weight: 500; color: var(--accent); margin-top: auto; }
-  .psl-related-cta i { transition: transform .18s ease-out; }
-  .psl-related-card:hover .psl-related-cta i { transform: translateX(3px); }
-
-  /* Responsive */
-  @media (max-width: 720px) {
-    .psl-wrap, .psl-maillage { padding-left: 20px; padding-right: 20px; }
-    .psl-step { grid-template-columns: 1fr; gap: 10px; }
-    .psl-results { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .co-root .psl-back, .psl-service, .psl-service > i, .psl-related-card,
-    .psl-related-cta i, .psl-fig .gallery-img, .co-root .psl-toc-link, .psl-text a { transition: none; }
-  }
-
-  /* ══ Lightbox (préservée — overlay sombre neutre) ══ */
-  .lightbox {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.95);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
-    z-index: 9999;
-  }
-
-  .lightbox.active {
-    opacity: 1;
-    visibility: visible;
-  }
-
-  .lightbox-content {
-    text-align: center;
-    margin: 0;
-  }
-
-  .lightbox-content img {
-    max-width: 90vw;
-    max-height: 80vh;
-    object-fit: contain;
-  }
-
-  .lightbox-close,
-  .lightbox-prev,
-  .lightbox-next {
-    position: absolute;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 2rem;
-    cursor: pointer;
-    padding: 1rem;
-    opacity: 0.7;
-    transition: opacity 0.2s ease-out;
-  }
-
-  .lightbox-close:hover,
-  .lightbox-prev:hover,
-  .lightbox-next:hover {
-    opacity: 1;
-  }
-
-  .lightbox-close {
-    top: 1rem;
-    right: 1rem;
-  }
-
-  .lightbox-prev {
-    left: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .lightbox-next {
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-
-  .lightbox-caption {
-    color: rgba(255, 255, 255, 0.7);
-    margin-top: 1rem;
-    font-size: 0.9rem;
-  }
-
-  .lightbox-counter {
-    position: absolute;
-    top: 1.5rem;
-    left: 50%;
-    transform: translateX(-50%);
-    color: rgba(255, 255, 255, 0.5);
-    font-size: 0.85rem;
-  }
-</style>
-
-<script is:inline>
-  const lightbox = document.getElementById('lightbox');
-  const lbImg = document.getElementById('lightbox-img');
-  const lbCaption = document.getElementById('lightbox-caption');
-  const lbCounter = document.getElementById('lightbox-counter');
-
-  const images = Array.from(document.querySelectorAll('.gallery-img'));
+  // Lightbox : chapitres + pellicule. À la fermeture, la pellicule se cale sur la dernière capture vue.
+  const lb = document.querySelector<HTMLDialogElement>('.cas-c-lb')!;
+  const lbImg = lb.querySelector('img')!;
+  const zooms = [...document.querySelectorAll<HTMLButtonElement>('[data-lb]')];
   let current = 0;
-
-  function openLightbox(i) {
-    current = i;
-    updateLightbox();
-    lightbox.classList.add('active');
-    lightbox.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closeLightbox() {
-    lightbox.classList.remove('active');
-    lightbox.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-  }
-
-  function updateLightbox() {
-    const img = images[current];
-    lbImg.src = img.src;
+  const show = (i: number) => {
+    current = (i + zooms.length) % zooms.length;
+    const img = zooms[current].querySelector('img')!;
+    const cap = zooms[current].closest('figure')?.querySelector('figcaption span:last-child, figcaption:not(:has(span))');
+    lbImg.src = img.currentSrc || img.src;
     lbImg.alt = img.alt;
-    lbCaption.textContent = img.alt;
-    lbCounter.textContent = `${current + 1} / ${images.length}`;
-  }
-
-  function nextImage() {
-    current = (current + 1) % images.length;
-    updateLightbox();
-  }
-
-  function prevImage() {
-    current = (current - 1 + images.length) % images.length;
-    updateLightbox();
-  }
-
-  // Event listeners
-  images.forEach((img, i) => (img.closest('button') || img).addEventListener('click', () => openLightbox(i)));
-
-  const closeBtn = document.querySelector('.lightbox-close');
-  const prevBtn = document.querySelector('.lightbox-prev');
-  const nextBtn = document.querySelector('.lightbox-next');
-
-  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
-  if (prevBtn) prevBtn.addEventListener('click', prevImage);
-  if (nextBtn) nextBtn.addEventListener('click', nextImage);
-  if (lightbox) lightbox.addEventListener('click', (e) => { if (e.target === lightbox) closeLightbox(); });
-
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox || !lightbox.classList.contains('active')) return;
-    if (e.key === 'Escape') closeLightbox();
-    if (e.key === 'ArrowRight') nextImage();
-    if (e.key === 'ArrowLeft') prevImage();
+    lb.querySelector('[data-lb-cap]')!.textContent = cap?.textContent ?? img.alt;
+    lb.querySelector('[data-lb-count]')!.textContent = `${current + 1} / ${zooms.length}`;
+  };
+  zooms.forEach((z, i) => z.addEventListener('click', () => { show(i); lb.showModal(); document.documentElement.style.overflow = 'hidden'; }));
+  lb.classList.toggle('cas-c-lb-1', zooms.length < 2);
+  lb.querySelectorAll<HTMLButtonElement>('[data-lb-step]').forEach((b) => b.addEventListener('click', () => show(current + Number(b.dataset.lbStep))));
+  lb.querySelector('[data-lb-close]')!.addEventListener('click', () => lb.close());
+  lb.addEventListener('click', (e) => { if (e.target === lb) lb.close(); });
+  lb.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') show(current + 1);
+    if (e.key === 'ArrowLeft') show(current - 1);
+  });
+  lb.addEventListener('close', () => {
+    document.documentElement.style.overflow = '';
+    const fig = zooms[current]?.closest<HTMLElement>('[data-film-track] figure');
+    if (fig) filmTo(fig);
   });
 </script>
+
+<style is:global>
+  .cas-c-hero { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
+  .cas-c-title { padding: clamp(48px, 7vw, 88px) var(--pad) clamp(40px, 5vw, 64px); display: grid; gap: 28px; align-content: end; border-right: 1px solid var(--line); min-width: 0; }
+  .v2 .cas-c-title .v2-h1 { font-size: clamp(2.6rem, 7.4vw, 6.4rem); line-height: .92; overflow-wrap: break-word; }
+  .v2 .cas-c-back:hover { color: var(--ink); }
+  .v2 .cas-c-lead { max-width: 36rem; color: var(--mut); font-size: 1.1rem; }
+  .v2 .cas-c-tags { gap: 6px; }
+  .cas-c-tags span { border: 1px solid var(--line); border-radius: var(--r); padding: 3px 8px; }
+  .cas-c-key { position: relative; padding: 32px var(--pad); display: flex; flex-direction: column; justify-content: space-between; gap: 32px; min-width: 0; }
+  .cas-c-key > * { position: relative; }
+  .cas-c-key b { display: block; font-family: var(--display); font-weight: 500; font-size: clamp(2.8rem, 5.6vw, 5.4rem); letter-spacing: -0.06em; line-height: .9; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+  .v2 .cas-c-key b + p { margin-top: 10px; font-size: 1.05rem; }
+  .v2 .cas-c-key .v2-meta { color: var(--ink); }
+  .cas-c-links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .cas-c-band { grid-column: 1 / -1; margin: 0; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); border-top: 1px solid var(--line); }
+  .cas-c-band > div { padding: 16px var(--pad) 18px; display: grid; gap: 6px; align-content: start; font-size: .88rem; line-height: 1.4; }
+  .cas-c-band > div + div { border-left: 1px solid var(--line); }
+  .cas-c-band dt { font-family: var(--mono); font-size: .7rem; text-transform: uppercase; color: var(--mut); }
+  .cas-c-band dd { margin: 0; }
+  .cas-c-toc { grid-column: 1 / -1; border-top: 1px solid var(--line); padding: 14px var(--pad); }
+  .v2 .cas-c-toc ol { list-style: none; padding: 0; gap: 8px 22px; }
+  .cas-c-toc a span { color: var(--accent-strong); }
+  .v2 .cas-c-toc a:hover { color: var(--ink); }
+  .cas-c-img img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+
+  /* Étiquette de section : barre mono pleine largeur */
+  .cas-c-label { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px var(--pad); border-bottom: 1px solid var(--line); }
+  .cas-c-label-solo { border-bottom: 0; }
+  .v2 .cas-c-label h2 { margin: 0; font-weight: 400; color: var(--ink); }
+  .cas-c-label-links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
+
+  /* Tableau d'affichage */
+  .v2 .cas-c-board { list-style: none; padding: 0; margin: 0; }
+  .cas-c-board li { display: grid; grid-template-columns: 56px minmax(0, 1.25fr) minmax(0, 1fr); gap: 24px; align-items: center; padding: 18px var(--pad); transition: background .25s; }
+  .cas-c-board li + li { border-top: 1px solid var(--line); }
+  .cas-c-board li:hover { background: var(--soft); }
+  .cas-c-board b { font-family: var(--display); font-weight: 500; font-size: clamp(2.6rem, 7vw, 6.4rem); letter-spacing: -0.06em; line-height: .95; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+  .cas-c-board-txt { display: grid; gap: 4px; font-size: .95rem; }
+  .cas-c-board-txt strong { font-family: var(--display); font-weight: 500; font-size: 1.3rem; letter-spacing: -0.03em; }
+
+  /* Défi qui se révèle */
+  .v2 .cas-c-reveal { padding: clamp(48px, 7vw, 96px) var(--pad); font-size: clamp(1.6rem, 3.6vw, 2.9rem); line-height: 1.1; letter-spacing: -0.045em; max-width: 30em; }
+  .cas-c-side { display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); border-top: 1px solid var(--line); }
+  .cas-c-label + .cas-c-side { border-top: 0; }
+  .cas-c-side > div { padding: 32px var(--pad) 40px; display: grid; gap: 12px; align-content: start; line-height: 1.65; }
+  .cas-c-side > div + div { border-left: 1px solid var(--line); }
+
+  /* Chapitres : numéro géant collant à gauche */
+  .cas-c-ch { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+  .cas-c-ch-num { background: var(--soft); border-right: 1px solid var(--line); }
+  .cas-c-ch-num span { position: sticky; top: 24px; display: block; padding: 8px var(--pad) 24px; font-family: var(--display); font-weight: 500; font-size: clamp(6rem, 17vw, 15rem); letter-spacing: -0.07em; line-height: .85; color: #D9DAD6; }
+  .cas-c-ch:hover .cas-c-ch-num span { color: var(--ink); transition: color .4s var(--ease); }
+  .cas-c-ch-body { padding: clamp(36px, 5vw, 64px) var(--pad); display: grid; grid-template-columns: minmax(0, 1fr); gap: 14px; align-content: start; }
+  .v2 .cas-c-ch-body h3 { font-size: clamp(1.6rem, 2.8vw, 2.3rem); letter-spacing: -0.045em; line-height: 1.05; margin: 0 0 4px; }
+  .cas-c-ch-body > p { line-height: 1.7; }
+  .v2 .cas-c-ch-body ul { list-style: none; padding: 0; display: grid; border-top: 1px solid var(--line); margin-top: 6px; }
+  .cas-c-ch-body li { padding: 9px 0; border-bottom: 1px solid var(--line); font-size: .95rem; display: grid; grid-template-columns: 22px minmax(0, 1fr); }
+  .cas-c-ch-body li::before { content: '→'; color: var(--accent-strong); }
+  .cas-c-ch-body figure { margin: 12px 0 0; }
+  .cas-c-ch-body figure img { display: block; width: 100%; height: auto; border-radius: var(--r); border: 1px solid var(--line); }
+  .cas-c-ch-body figcaption { font-size: .85rem; margin-top: 10px; }
+  .v2 .cas-c-prose a, .v2 .cas-c-ch-body .v2-prose a, .v2 .cas-c-side a, .v2 .cas-c-learn a, .v2 .cas-c-fac a { text-decoration: underline; text-decoration-color: var(--line); text-underline-offset: 3px; }
+
+  /* Bouton d'agrandissement (lightbox) */
+  .cas-c-zoom { all: unset; display: block; width: 100%; cursor: zoom-in; }
+  .cas-c-zoom:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 2px; }
+  .cas-c-zoom img { transition: opacity .18s ease-out; }
+  .cas-c-zoom:hover img { opacity: .9; }
+
+  /* Pellicule : défilement horizontal interne (la page ne déborde pas) */
+  .cas-c-film-nav { display: flex; gap: 6px; }
+  .cas-c-film-nav button { all: unset; cursor: pointer; width: 34px; height: 34px; border: 1px solid var(--line); border-radius: 50%; display: grid; place-items: center; transition: background .2s, border-color .2s; }
+  .cas-c-film-nav button:hover { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .cas-c-film-nav button:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 2px; }
+  .cas-c-film { display: grid; grid-auto-flow: column; grid-auto-columns: 74%; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: var(--line) transparent; overscroll-behavior-x: contain; }
+  .cas-c-film.cas-c-film-1 { grid-auto-columns: 100%; }
+  .cas-c-film:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: -2px; }
+  .cas-c-film figure { margin: 0; scroll-snap-align: start; border-right: 1px solid var(--line); display: grid; grid-template-rows: 1fr auto; min-width: 0; }
+  .cas-c-film-1 figure { border-right: 0; }
+  .cas-c-film img { display: block; width: 100%; height: clamp(240px, 42vw, 520px); object-fit: cover; object-position: top left; background: var(--soft); }
+  .cas-c-film figcaption { display: grid; gap: 6px; padding: 14px var(--pad) 22px; border-top: 1px solid var(--line); font-size: .92rem; }
+
+  /* Lightbox */
+  .cas-c-lb { border: 0; padding: 0; margin: 0; width: 100vw; height: 100dvh; max-width: none; max-height: none; background: rgba(17, 18, 20, .96); color: #F5F4F0; }
+  .cas-c-lb[open] { display: grid; place-items: center; animation: cas-c-lb-in .2s ease-out; }
+  .cas-c-lb::backdrop { background: transparent; }
+  .cas-c-lb figure { margin: 0; display: grid; justify-items: center; gap: 14px; padding: 64px 16px 24px; pointer-events: none; }
+  .cas-c-lb img { max-width: min(92vw, 1400px); max-height: 78dvh; object-fit: contain; border-radius: var(--r); pointer-events: auto; }
+  .cas-c-lb figcaption { display: grid; justify-items: center; gap: 6px; text-align: center; font-size: .92rem; color: #A4A8AB; max-width: 60ch; }
+  .cas-c-lb button { all: unset; position: absolute; cursor: pointer; width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid var(--dark-line); border-radius: 50%; font-size: 1.5rem; color: #F5F4F0; transition: background .2s; }
+  .cas-c-lb button:hover { background: var(--dark-line); }
+  .cas-c-lb button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .cas-c-lb .cas-c-lb-close { top: 16px; right: 16px; }
+  .cas-c-lb .cas-c-lb-prev, .cas-c-lb .cas-c-lb-next { top: 50%; translate: 0 -50%; }
+  .cas-c-lb .cas-c-lb-prev { left: 16px; }
+  .cas-c-lb .cas-c-lb-next { right: 16px; }
+  .cas-c-lb-1 .cas-c-lb-prev, .cas-c-lb-1 .cas-c-lb-next { display: none; }
+  @keyframes cas-c-lb-in { from { opacity: 0; } }
+
+  /* Choix en section sombre */
+  .cas-c-fac { display: grid; grid-template-columns: repeat(var(--cols), minmax(0, 1fr)); border-top: 1px solid var(--dark-line); }
+  .cas-c-fac > div { padding: 32px var(--pad) 40px; display: grid; gap: 12px; align-content: start; }
+  .cas-c-fac > div + div { border-left: 1px solid var(--dark-line); }
+  .cas-c-fac i { font-size: 1.5rem; color: var(--accent); margin-bottom: 18px; }
+  .v2 .cas-c-fac h3 { margin: 0; font-size: 1.25rem; line-height: 1.15; }
+  .v2 .cas-c-fac p { color: #A4A8AB; font-size: .95rem; line-height: 1.6; }
+
+  /* Apprentissages + / − */
+  .cas-c-learn { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); }
+  .cas-c-learn > div { padding: 32px var(--pad) 44px; display: grid; gap: 14px; align-content: start; }
+  .cas-c-learn > div + div { border-left: 1px solid var(--line); }
+  .cas-c-sign { font-family: var(--display); font-size: 5rem; line-height: .7; color: var(--accent-strong); }
+  .v2 .cas-c-learn ul { list-style: none; padding: 0; display: grid; gap: 14px; line-height: 1.6; }
+  .cas-c-learn li { padding-top: 14px; border-top: 1px solid var(--line); }
+
+  .v2 .cas-c-testi { border-right: 0; }
+
+  .cas-c-recit { display: grid; grid-template-columns: minmax(0, 1fr); justify-items: center; padding: clamp(40px, 6vw, 72px) var(--pad); }
+  .v2 .cas-c-prose { --muted: var(--mut); --surface: var(--soft); --line-2: #D5D6D2; width: min(680px, 100%); min-width: 0; }
+  .v2 .cas-c-prose > p:first-child::first-letter { all: unset; }
+  .v2 .cas-c-prose > :first-child { margin-top: 0; }
+
+  /* Autres dossiers : grandes lignes, vignette au survol */
+  .v2 .cas-c-service { text-transform: none; display: inline-flex; gap: 6px; color: var(--ink); }
+  .v2 .cas-c-next { list-style: none; padding: 0; margin: 0; }
+  .cas-c-next li + li { border-top: 1px solid var(--line); }
+  .cas-c-next a { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 24px; align-items: center; padding: 26px var(--pad); transition: background .25s; }
+  .cas-c-next a:hover { background: var(--soft); }
+  .cas-c-next strong { font-family: var(--display); font-weight: 500; font-size: clamp(1.8rem, 4.4vw, 3.4rem); letter-spacing: -0.055em; line-height: 1; }
+  .cas-c-next a > i { font-size: 1.6rem; transition: rotate .3s var(--ease); }
+  .cas-c-next a:hover > i { rotate: 45deg; }
+  .cas-c-next img { position: absolute; right: 22%; top: 50%; width: 220px; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--r); opacity: 0; translate: 0 -40%; rotate: -3deg; pointer-events: none; transition: opacity .3s var(--ease), translate .4s var(--ease); z-index: 2; }
+  .cas-c-next a:hover img { opacity: 1; translate: 0 -50%; }
+
+  @media (max-width: 900px) {
+    .cas-c-hero { grid-template-columns: minmax(0, 1fr); }
+    .cas-c-title { border-right: 0; border-bottom: 1px solid var(--line); }
+    .cas-c-band { grid-auto-flow: row; grid-template-columns: 1fr 1fr; }
+    .cas-c-band > div + div { border-left: 0; }
+    .cas-c-band > div { border-bottom: 1px solid var(--line); }
+    .cas-c-band > div:nth-child(even) { border-left: 1px solid var(--line); }
+    .cas-c-band > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .cas-c-hero > :last-child { margin-bottom: -1px; }
+    .cas-c-toc { border-top: 0; border-bottom: 1px solid var(--line); }
+    .cas-c-board li { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+    .cas-c-side { grid-template-columns: minmax(0, 1fr); }
+    .cas-c-side > div + div, .cas-c-learn > div + div { border-left: 0; border-top: 1px solid var(--line); }
+    .cas-c-ch { grid-template-columns: minmax(0, 1fr); }
+    .cas-c-ch-num { border-right: 0; border-bottom: 1px solid var(--line); }
+    .cas-c-ch-num span { position: static; font-size: 5.5rem; padding-top: 16px; padding-bottom: 12px; }
+    .cas-c-film { grid-auto-columns: 86%; }
+    .cas-c-fac { grid-template-columns: 1fr 1fr; }
+    .cas-c-fac > div:nth-child(odd) { border-left: 0; }
+    .cas-c-fac > div:nth-child(n+3) { border-top: 1px solid var(--dark-line); }
+    .cas-c-fac > div:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .cas-c-next a { grid-template-columns: minmax(0, 1fr) auto; }
+    .cas-c-next .v2-meta { grid-column: 1; grid-row: 2; }
+    .cas-c-next img { display: none; }
+    .cas-c-lb .cas-c-lb-prev, .cas-c-lb .cas-c-lb-next { top: auto; bottom: 16px; translate: none; }
+  }
+  @media (max-width: 520px) {
+    .cas-c-band { grid-template-columns: minmax(0, 1fr); }
+    .cas-c-band > div:nth-child(even) { border-left: 0; }
+    .cas-c-fac { grid-template-columns: minmax(0, 1fr); }
+    .cas-c-fac > div + div { border-left: 0; border-top: 1px solid var(--dark-line); }
+    .cas-c-label { flex-wrap: wrap; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cas-c-next img, .cas-c-next a > i, .cas-c-ch-num span, .cas-c-zoom img { transition: none; }
+    .cas-c-lb[open] { animation: none; }
+  }
+</style>
