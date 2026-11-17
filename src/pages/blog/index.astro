@@ -66,7 +66,7 @@ const schemas = [blogSchema];
         <h2 class="sr-only" id="all">Tous les articles</h2>
         <div class="bl-n-bar">
           <div class="bl-n-tabs" role="group" aria-label="Filtrer par catégorie">
-            <button type="button" data-f="all" aria-pressed="true">Tous <span>{rest.length}</span></button>
+            <button type="button" data-f="all" aria-pressed="true">Tous</button>
             {cats.map((c) => <button type="button" data-f={c.k} aria-pressed="false">{getCategoryName(c.k)} <span>{c.n}</span></button>)}
           </div>
           <label class="bl-n-search">

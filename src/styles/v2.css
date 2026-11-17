@@ -612,3 +612,5 @@
 @media (prefers-reduced-motion: reduce) {
   .v2 *, .v2 *::before, .v2 *::after { transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
 }
+/* Fenêtre Cal.com ouverte : la nav et le dock s'effacent (la croix tombait sur le CTA du header). */
+body:has(> cal-modal-box:not([state="closed"])) :is(.v2-top, .v2-dock) { visibility: hidden; }

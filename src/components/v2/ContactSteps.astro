@@ -136,7 +136,8 @@ const steps = ['Votre besoin', 'Votre projet', 'Vos coordonnées'];
   .v2 .cs-title .v2-dim:empty { display: none; }
 
   .v2 .cs-kinds { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
-  .v2 .cs-kind { position: relative; display: grid; align-content: start; gap: 8px; min-height: 190px; padding: 22px 22px 24px; text-align: left; font: inherit; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: var(--r); cursor: pointer; transition: border-color .2s, background .2s, transform .16s ease-out; }
+  /* .v2-form button (justify-self: start, margin-top) visait le bouton d'envoi, pas les cartes */
+  .v2 .cs-kind { justify-self: stretch; margin-top: 0; position: relative; display: grid; align-content: start; gap: 8px; min-height: 190px; padding: 22px 22px 24px; text-align: left; font: inherit; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: var(--r); cursor: pointer; transition: border-color .2s, background .2s, transform .16s ease-out; }
   .v2 .cs-kind > i:first-child { font-size: 1.7rem; color: var(--mut); margin-bottom: auto; padding-bottom: 28px; transition: color .2s; }
   .v2 .cs-kind b { font-family: var(--display); font-weight: 500; font-size: clamp(1.45rem, 2.3vw, 1.9rem); letter-spacing: -0.045em; line-height: 1; }
   .v2 .cs-kind span { color: var(--mut); font-size: .92rem; line-height: 1.4; max-width: 26ch; }
