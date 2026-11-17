@@ -16,4 +16,8 @@ export const portfolioServiceLinks: Record<string, ServiceLink> = {
   'ugo-mighali-coutelier': { label: 'Création de site web', href: '/services/creation-site-web' },
   'isla-plomo': { label: 'Application mobile', href: '/services/developpement-application-mobile' },
   'wisp': { label: 'Application mobile', href: '/services/developpement-application-mobile' },
+  'wildcat-agent-mails': { label: 'Agent IA sur mesure', href: '/hermes' },
+  'barber-hub-automatisation': { label: 'Agent IA sur mesure', href: '/hermes' },
+  'systeme-ia-jonlabs': { label: 'Consultant IA', href: '/consultant-ia' },
+  'gestion-camps-budget': { label: 'Application mobile', href: '/services/developpement-application-mobile' },
 };
