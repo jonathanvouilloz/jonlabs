@@ -11,6 +11,9 @@
     }
   ],
   "redirects": [
+    { "source": "/blog/tag/PME", "destination": "/blog/tag/pme", "permanent": true },
+    { "source": "/blog/tag/ROI", "destination": "/blog/tag/roi", "permanent": true },
+    { "source": "/blog/tag/Flutter", "destination": "/blog/tag/flutter", "permanent": true },
     { "source": "/v2", "destination": "/", "permanent": true },
     { "source": "/blog/astro-vs-next", "destination": "/blog", "permanent": true },
     { "source": "/blog/astro-vs-next/", "destination": "/blog", "permanent": true },
