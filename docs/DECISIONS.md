@@ -47,3 +47,9 @@ Format : `[date] | [décision] | [contexte] | [alternatives considérées]`
 **2026-07-10** (`d247cc7`) | **Les pages géo ne sont pas câblées au méga-menu ni au fat footer.** | Colonne « Zones & régions » jugée sans plus-value ; un lien boilerplate répété sitewide pèse peu. | Maillage éditorial en corps de page (6 à 9 liens par page géo) — retenu. Les exports `footerZonesWeb` / `footerRegionsIA` ne sont plus lus que par `styleguide-nav.astro` : ce n'est pas un oubli de câblage, ne pas les rebrancher sans rouvrir la décision.
 
 **2026-06-25** | **Les pages géo/métiers sont data-driven (1 route dynamique + N entrées), avec garde-fou anti-template.** | Scalabilité des silos IA, web et mobile. | Le garde-fou : chaque entrée porte du contenu réellement local (tissu économique, secteurs, cas d'usage, FAQ propres). Interdit de générer une ville sans légitimité réelle — c'est ce qui bloque Bulle et Fribourg sur le silo mobile. Cf. `/programmatic-seo`.
+
+**2026-11-18** | **Menu mobile en popover HTML natif (`#v2-menu`), alimenté par les données du méga-menu, avec burger sous 1024 px et sur `(hover: none)`.** | Le méga-menu au survol est inutilisable au doigt ; le popover donne Échap, focus et clic extérieur sans JS. | Drawer/composant JS (plus de code, focus à gérer à la main) ; second jeu de liens dédié mobile (divergerait du méga-menu).
+
+**2026-11-18** | **Cal.com préchargé à l'intention (`pointerenter`/`touchstart`/`focus`) + `preconnect`, pas au chargement de page.** | Ouverture de la fenêtre « Discuter de mon projet » lente sur mobile. | Preload au chargement (coût réseau pour tous les visiteurs).
+
+**2026-11-18** | **Shader `DitherBg` figé sur `(pointer: coarse)`.** | La boucle de rendu chauffe et vide la batterie sur mobile. | Garder l'animation en la ralentissant.
