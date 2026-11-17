@@ -1,18 +1,20 @@
 ---
-// Page Services — Jon Labs (blueprint)
-// Constellation « clique ta situation » + sections d'offre + zone locale + ressources.
-// Migrée du lab (styleguide-services) : chrome blueprint solide, corps .co-root.
-
-import "../styles/global.css";
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { scenarios, serviceSections } from "../data/scenarios";
-import { villesFrontalieres } from "../data/villes-frontalieres";
-
-// Schema.org
+// Page Services — Jon Labs (v2)
+// Aperçu (Bento), un bloc par service (titre collant | sous-services), process, zone, ressources, CTA. Classes sv-n-*.
+// Prix lus dans src/data/pricing.ts.
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/v2/Nav.astro';
+import Dock from '../components/v2/Dock.astro';
+import Bento from '../components/v2/Bento.astro';
+import Steps from '../components/v2/Steps.astro';
+import Footer from '../components/v2/Footer.astro';
+import '../styles/v2.css';
+import { serviceSections } from '../data/scenarios';
+import { pricing } from '../data/pricing';
+import { mainNav } from '../data/navigation';
+import { villesFrontalieres } from '../data/villes-frontalieres';
 import { servicesListData, SITE_URL } from '../data/schema';
-import { getWebPageSchema } from '../lib/seo';
+import { getWebPageSchema, getBreadcrumbSchema } from '../lib/seo';
 
 const pageTitle = "Services de développement web à Genève — Jon Labs";
 const pageDescription = "Développeur web freelance à Genève : sites web, applications mobiles, référencement local et IA pour entrepreneurs et PME en Suisse romande. Devis gratuit, réponse sous 24h.";
@@ -22,503 +24,182 @@ const webPageSchema = getWebPageSchema({
   name: pageTitle,
   description: pageDescription
 });
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: "Accueil", url: SITE_URL },
+  { name: "Services", url: `${SITE_URL}/services` }
+]);
+const schemas = [servicesListData, webPageSchema, breadcrumbSchema];
 
-const schemas = [servicesListData, webPageSchema];
-
-// Icônes Remix monochromes par scénario (règle projet : 0 emoji). Clé = scenario.id.
-const nodeIcons: Record<string, string> = {
-  "website-old": "ri-palette-line",
-  "no-presence": "ri-global-line",
-  "tools-sync": "ri-links-line",
-  "time-lack": "ri-time-line",
-  "custom-tool": "ri-tools-line",
-  "app-idea": "ri-smartphone-line",
-};
-
-// Positions statiques des 6 nodes (2 colonnes × 3), ordre = ordre de scenarios[]
-const positions = [
-  "top:4%;left:15%",
-  "top:4%;right:15%",
-  "top:39%;left:2%",
-  "top:39%;right:2%",
-  "bottom:4%;left:15%",
-  "bottom:4%;right:15%",
+const order = ['ia', 'site-web', 'app-mobile'];
+const sections = order.map((id) => serviceSections.find((s) => s.id === id)!);
+const price: Record<string, string> = { ia: pricing.agentIA.display, 'site-web': pricing.siteWeb.display, 'app-mobile': pricing.appMobile.display };
+const label: Record<string, string> = { ia: 'Systèmes IA', 'site-web': 'Sites web', 'app-mobile': 'Apps mobiles' };
+// Liens « Par métier » du méga-menu Systèmes IA (data/navigation.ts).
+const metiers = mainNav.find((s) => s.label === 'IA & Automatisation')?.columns?.find((c) => c.title === 'Par métier')?.items ?? [];
+const villes = ['Genève', 'Lausanne', 'Vevey', 'Montreux', 'Sion', 'Nyon', 'Morges', 'Annemasse', 'Saint-Julien'];
+const resources = [
+  { href: '/guides/mettre-en-place-ia-entreprise-guide', k: 'Guide', title: "Mettre en place l'IA en entreprise", teaser: 'Par où commencer, quoi automatiser, comment garder la main : le guide complet pour une PME.' },
+  { href: '/blog/logiciel-sur-mesure-vs-saas', k: 'Article', title: 'Logiciel sur mesure ou SaaS ?', teaser: 'Quand un outil du marché suffit, et quand développer le tien devient rentable.' },
+  { href: '/blog/geo-seo-ia', k: 'Guide', title: 'Apparaître dans les IA en 2026', teaser: 'Le guide complet pour exister dans ChatGPT, Claude, Perplexity, Gemini, Copilot et Grok.' },
+  { href: '/blog/prix-site-web-suisse-2026', k: 'Article', title: 'Combien coûte un site web en Suisse ?', teaser: 'Un guide transparent des fourchettes en CHF, sans bullshit ni clauses cachées.' },
 ];
 ---
 
 <Layout title={pageTitle} description={pageDescription} schemas={schemas}>
-  <Header />
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" />
+  </Fragment>
 
-  <main class="co-root">
+  <div class="v2">
+    <Nav current="/services" />
+    <Dock current="/services" />
 
-    <!-- ══ INTRO ══ -->
-    <section class="co-sec co-pad co-hero">
-      <h1 style="font-size:clamp(2.2rem,5.5vw,3.5rem);margin-top:14px;" data-animate data-delay="0.1">
-        Développeur web &amp; automatisation à <span class="co-ser">Genève.</span>
-      </h1>
-      <p class="co-mut" style="margin-top:16px;max-width:60ch;line-height:1.65;font-size:1.05rem;" data-animate data-delay="0.2">
-        Sites web, applications mobiles, référencement local et IA.
-        Clique la situation qui te ressemble, je te dis comment la régler.
-      </p>
-    </section>
-
-    <!-- ══ 01 · CONSTELLATION ══ -->
-    <section class="co-sec co-pad" style="padding:48px 40px 64px;">
-      <p class="co-eyebrow">01 — Situation</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Dans quelle situation es-tu ?</h2>
-      <p class="co-mut" style="margin-top:var(--space-eyebrow);max-width:52ch;">Choisis le scénario qui te ressemble le plus.</p>
-
-      <div class="svc-constellation co-dots" id="svc-constellation">
-        <p class="svc-mobilehead co-eyebrow">Clique ta situation</p>
-
-        <svg id="svc-lines" aria-hidden="true"></svg>
-
-        <div class="svc-hub co-frame" id="svc-hub" aria-hidden="true">
-          <span class="svc-hub-logo">jonlabs<span style="color:var(--accent);">.</span></span>
+    <main>
+      <header class="r"><div class="w v2-head v2-head-2">
+        <div>
+          <p class="v2-meta">Services · Genève et Suisse romande</p>
+          <h1 class="v2-h1 sv-n-h1" data-words>Systèmes IA,<br /><span class="v2-dim">sites et apps.</span></h1>
         </div>
+        <div class="sv-n-intro">
+          <p class="v2-head-p">Un premier appel gratuit pour cadrer, un devis clair, une réponse sous 24&nbsp;h.</p>
+          <nav class="v2-meta sv-n-jump" aria-label="Sur cette page">
+            {sections.map((s, i) => <a href={`#${s.id}`} class="v2-a">0{i + 1} {label[s.id]}</a>)}
+          </nav>
+        </div>
+      </div></header>
 
-        {scenarios.map((s, i) => (
-          <button class="svc-node co-frame co-frame--reveal" data-scenario-id={s.id} data-i={i} style={positions[i]} data-pillar={s.pillar}>
-            <i class={`${nodeIcons[s.id] ?? "ri-focus-3-line"} svc-node-icon`} aria-hidden="true"></i>
-            <span class="svc-node-text">
-              <strong>{s.title}</strong>
-              <span class="co-mut">{s.subtitle}</span>
-            </span>
-            <i class="ri-arrow-right-up-line svc-node-arrow" aria-hidden="true"></i>
-          </button>
-        ))}
-      </div>
-    </section>
+      <section class="r" aria-label="Ce que je construis"><Bento /></section>
 
-    <!-- ══ 02 · SECTIONS DE SERVICES ══ -->
-    <section class="co-sec co-pad" id="svc-sections" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">02 — Offre</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Sections de services</h2>
-
-      {serviceSections.map((section) => (
-        <div class="svc-section" id={section.id}>
-          <div class="svc-section-head">
-            <h3 class="svc-section-title">{section.title}</h3>
-            <p class="co-mut svc-section-accroche">{section.accroche}</p>
+      {sections.map((s, i) => (
+        <section class="r" id={s.id} aria-labelledby={`sv-n-${s.id}`}><div class="w sv-n-svc">
+          <div class="sv-n-side">
+            <div class="sv-n-sticky">
+              <p class="v2-meta">0{i + 1} · {label[s.id]}</p>
+              <h2 class="v2-h2" id={`sv-n-${s.id}`} data-words>{s.title}</h2>
+              <p class="v2-mut sv-n-acc">{s.accroche.split('. ')[0].replace(/\.?$/, '.')}</p>
+              <p class="sv-n-price"><small class="v2-meta">Tarif</small>{price[s.id]}</p>
+              <a href="/contact" class="v2-btn v2-btn-sm"><span data-roll>{s.ctaText}</span></a>
+            </div>
           </div>
-          <div class="svc-grid">
-            {section.subServices.map((sub) => (
-              <article class="svc-card" id={sub.id}>
-                <h4 class="svc-card-title">{sub.title}</h4>
-                <p class="svc-card-desc">{sub.description}</p>
-                <ul class="svc-card-features co-list co-list--check">
-                  {sub.features.map((f) => (
-                    <li><i class="ri-check-line" aria-hidden="true"></i><span>{f}</span></li>
-                  ))}
-                </ul>
-                <a href={sub.link ?? "#"} class="svc-card-cta">{sub.ctaText} <i class="ri-arrow-right-line"></i></a>
+          <div class="sv-n-subs" data-rise>
+            {s.subServices.map((sub) => (
+              <article class="sv-n-sub" id={sub.id}>
+                <h3>{sub.title}</h3>
+                <p class="v2-mut">{sub.description}</p>
+                <ul class="v2-price-list">{sub.features.map((f) => <li>{f}</li>)}</ul>
+                <a href={sub.link ?? '/contact'} class="v2-a sv-n-more">{sub.ctaText} <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
               </article>
             ))}
+            {s.id === 'ia' && metiers.length > 0 && (
+              <div class="sv-n-sub sv-n-metiers">
+                <p class="v2-meta">Par métier</p>
+                {metiers.map((m) => <a href={m.href} class="v2-a">{m.label}</a>)}
+              </div>
+            )}
           </div>
-          <a href="/contact" class="co-btn svc-section-cta">{section.ctaText} <i class="ri-arrow-right-line"></i></a>
-        </div>
+        </div></section>
       ))}
-    </section>
 
-    <!-- ══ 03 · ZONE LOCALE (SEO géo) ══ -->
-    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x);">
-      <p class="co-eyebrow">03 — Zone d'intervention</p>
-      <div class="loc-card co-frame" data-animate>
-        <span class="co-x tl"></span><span class="co-x tr"></span>
-        <span class="co-x bl"></span><span class="co-x br"></span>
-        <h2 class="loc-title"><span class="co-ser">Genève</span>, Suisse romande et zone frontalière</h2>
-        <p class="loc-text">
-          Basé à Genève, je travaille comme <strong>développeur web freelance</strong>
-          avec des clients de toute la Suisse romande (Vaud, Valais, Fribourg,
-          Neuchâtel, Jura) et de la zone frontalière française (Haute-Savoie,
-          Pays de Gex). Échanges en visio, déplacements ponctuels possibles à
-          Genève et Lausanne.
-        </p>
-        <div class="loc-chips">
-          {["Genève","Lausanne","Vevey","Montreux","Sion","Nyon","Morges","Annemasse","Saint-Julien"].map((ville) => (
-            <span class="loc-chip">{ville}</span>
-          ))}
+      <section class="r" aria-labelledby="sv-n-process"><div class="w">
+        <div class="v2-head v2-head-2">
+          <h2 class="v2-h2" id="sv-n-process" data-words>Comment<br /><span class="v2-dim">ça se passe.</span></h2>
+          <p class="v2-head-p">De l'appel découverte au suivi, un seul interlocuteur.</p>
         </div>
-        <p class="co-eyebrow loc-geo-label">Pages dédiées — zone frontalière française</p>
-        <div class="loc-geo-links">
-          {villesFrontalieres.map((ville) => (
-            <a href={`/developpement-web/${ville.slug}`} class="loc-geo-link">
-              <i class="ri-map-pin-line" aria-hidden="true"></i>
-              {ville.nom}
+      </div></section>
+      <section class="r" aria-label="Étapes"><Steps /></section>
+
+      <section class="r" aria-labelledby="sv-n-zone"><div class="w sv-n-zone">
+        <div>
+          <h2 class="v2-h2" id="sv-n-zone" data-words>Genève,<br /><span class="v2-dim">Suisse romande et zone frontalière.</span></h2>
+        </div>
+        <div class="sv-n-zone-body">
+          <p class="v2-mut">Basé à Genève, je travaille avec des clients de toute la Suisse romande (Vaud, Valais, Fribourg, Neuchâtel, Jura) et de la zone frontalière française (Haute-Savoie, Pays de Gex). Échanges en visio, déplacements ponctuels possibles à Genève et Lausanne.</p>
+          <p class="v2-meta">{villes.map((v) => <span>{v}</span>)}</p>
+          <div class="sv-n-geo">
+            <p class="v2-meta">Pages dédiées · zone frontalière</p>
+            <div>{villesFrontalieres.map((v) => <a href={`/developpement-web/${v.slug}`} class="v2-a">{v.nom}</a>)}</div>
+          </div>
+          <a href="/developpeur-web-freelance-geneve" class="v2-btn v2-btn-ghost v2-btn-sm"><span data-roll>Développeur web freelance à Genève</span></a>
+        </div>
+      </div></section>
+
+      <section class="r" aria-labelledby="sv-n-res"><div class="w">
+        <div class="v2-head v2-head-2">
+          <h2 class="v2-h2" id="sv-n-res" data-words>Aller plus loin.</h2>
+          <p class="v2-head-p v2-prose">Articles et guides pour cadrer votre projet, et <a href="/blog/specialiste-developpement-web-suisse">choisir un spécialiste web en Suisse</a>.</p>
+        </div>
+        <div class="sv-n-res">
+          {resources.map((r) => (
+            <a href={r.href}>
+              <span class="v2-meta">{r.k}</span>
+              <strong>{r.title}</strong>
+              <span class="v2-mut">{r.teaser}</span>
             </a>
           ))}
         </div>
-        <a href="/developpeur-web-freelance-geneve" class="co-btn loc-cta">
-          Page développeur web freelance à Genève <i class="ri-arrow-right-line"></i>
-        </a>
-      </div>
-    </section>
+      </div></section>
 
-    <!-- ══ 04 · RESSOURCES ══ -->
-    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x) 64px;">
-      <p class="co-eyebrow">04 — Ressources</p>
-      <h2 style="margin-top:var(--space-eyebrow);">Pour aller <span class="co-ser">plus loin.</span></h2>
-      <p class="co-mut" style="margin-top:var(--space-title-lead);max-width:56ch;line-height:1.6;">
-        Articles et guides pour cadrer ton projet — y compris
-        <a href="/blog/specialiste-developpement-web-suisse" class="res-inline">comment choisir un spécialiste en développement web en Suisse</a>.
-      </p>
-
-      <div class="res-grid" data-animate-stagger>
-        <a href="/guides/mettre-en-place-ia-entreprise-guide" class="res-card co-frame co-frame--reveal" data-animate-item>
-          <span class="res-eyebrow co-eyebrow">Guide</span>
-          <h3 class="res-title">Mettre en place l'IA en entreprise</h3>
-          <p class="res-teaser">Par où commencer, quoi automatiser, comment garder la main : le guide complet pour une PME.</p>
-          <span class="res-cta">Lire l'article <i class="ri-arrow-right-line"></i></span>
-        </a>
-
-        <a href="/blog/logiciel-sur-mesure-vs-saas" class="res-card co-frame co-frame--reveal" data-animate-item>
-          <span class="res-eyebrow co-eyebrow">Article blog</span>
-          <h3 class="res-title">Logiciel sur mesure ou SaaS ?</h3>
-          <p class="res-teaser">Quand un outil du marché suffit, et quand développer le tien devient rentable.</p>
-          <span class="res-cta">Lire l'article <i class="ri-arrow-right-line"></i></span>
-        </a>
-
-        <a href="/blog/geo-seo-ia" class="res-card co-frame co-frame--reveal" data-animate-item>
-          <span class="res-eyebrow co-eyebrow">Guide</span>
-          <h3 class="res-title">Apparaître dans les IA en 2026</h3>
-          <p class="res-teaser">Le guide complet pour exister dans ChatGPT, Claude, Perplexity, Gemini, Copilot et Grok.</p>
-          <span class="res-cta">Lire l'article <i class="ri-arrow-right-line"></i></span>
-        </a>
-
-        <a href="/blog/prix-site-web-suisse-2026" class="res-card co-frame co-frame--reveal" data-animate-item>
-          <span class="res-eyebrow co-eyebrow">Article blog</span>
-          <h3 class="res-title">Combien coûte un site web en Suisse ?</h3>
-          <p class="res-teaser">Un guide transparent des fourchettes en CHF, sans bullshit ni clauses cachées.</p>
-          <span class="res-cta">Lire l'article <i class="ri-arrow-right-line"></i></span>
-        </a>
-      </div>
-    </section>
-
-    <!-- ══ 05 · CTA FINAL (primitive .co-cta) ══ -->
-    <section class="co-cta">
-      <span class="co-x tl"></span><span class="co-x tr"></span>
-      <div class="co-cta-inner">
-        <h2 class="co-cta-title">Ton projet mérite mieux qu'un <span class="co-ser">devis à rallonge.</span></h2>
-        <p class="co-cta-lead">Un premier appel gratuit pour cadrer, un devis clair, une réponse sous 24&nbsp;h.</p>
-        <div class="co-cta-btns">
-          <a href="/contact" class="co-btn co-cta-btn">Discutons de ton projet <i class="ri-arrow-right-line"></i></a>
-          <a href="mailto:contact@jonlabs.ch" class="co-btn co-btn--ghost co-cta-btn co-cta-btn--ghost">contact@jonlabs.ch</a>
-        </div>
-        <div class="co-cta-trust">
-          <span><i class="ri-time-line"></i> Réponse sous 24 h</span>
-          <span><i class="ri-phone-line"></i> Premier appel gratuit</span>
-          <span><i class="ri-file-list-3-line"></i> Devis clair et détaillé</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- ══ MODALE CONVERSATION ══ -->
-    <div id="svc-modal" class="svc-modal hidden" role="dialog" aria-modal="true" aria-label="Conversation avec Jonathan">
-      <div class="svc-modal-backdrop" data-svc-close></div>
-      <div class="svc-modal-win co-frame">
-        <div class="svc-modal-head">
-          <div class="svc-modal-id">
-            <span class="svc-modal-avatar" aria-hidden="true">JV</span>
-            <span class="svc-modal-idtext">
-              <strong>Jonathan V.</strong>
-              <span class="svc-modal-status"><i></i> en ligne</span>
-            </span>
+      <section class="r"><div class="w v2-head v2-head-2 v2-teal v2-dots" data-spot>
+        <i class="v2-dots-glow" aria-hidden="true"></i>
+        <h2 class="v2-h2" data-words>Votre projet mérite mieux<br /><span class="v2-dim">qu'un devis à rallonge.</span></h2>
+        <div class="sv-n-cta">
+          <div class="v2-ctas v2-ctas-left">
+            <a href="/contact" class="v2-btn"><i class="ri-calendar-line"></i> <span data-roll>Prendre rendez-vous</span></a>
+            <a href="mailto:contact@jonlabs.ch" class="v2-btn v2-btn-ghost"><span data-roll>contact@jonlabs.ch</span></a>
           </div>
-          <button class="svc-modal-close" data-svc-close aria-label="Fermer la conversation"><i class="ri-close-line"></i></button>
+          <p class="v2-meta">Réponse sous 24 h · Premier appel gratuit · Devis clair et détaillé</p>
         </div>
-        <div class="svc-modal-msgs" id="svc-modal-msgs">
-          <div class="svc-typing" id="svc-typing" aria-hidden="true"><span></span><span></span><span></span></div>
-        </div>
-        <div class="svc-modal-foot">
-          <a href="/contact" class="co-btn co-btn--sm">Démarrer mon projet →</a>
-          <a href="#svc-sections" class="co-btn co-btn--ghost co-btn--sm" data-svc-close>Voir les services</a>
-        </div>
-      </div>
-    </div>
+      </div></section>
+    </main>
 
-  </main>
-
-  <Footer />
+    <Footer />
+  </div>
 </Layout>
 
 <style is:global>
-  /* ══ SERVICES — styles .svc-* / .loc-* / .res-* ══ */
-
-  /* ── Constellation ── */
-  .svc-constellation {
-    position: relative; height: 600px; margin-top: var(--space-block);
-    border: 1px solid var(--line); background-color: var(--surface);
-  }
-  .svc-mobilehead { display: none; }
-  #svc-lines { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1; overflow: visible; }
-  #svc-lines line { stroke: var(--line-2); stroke-width: 1; stroke-dasharray: 4 4; transition: stroke .18s ease-out, stroke-width .18s ease-out; }
-  #svc-lines line.is-hot { stroke: var(--accent); stroke-width: 1.5; stroke-dasharray: none; }
-
-  .svc-hub {
-    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-    width: 148px; height: 148px; z-index: 3;
-    border: 1px solid var(--line-2); background: var(--bg);
-    display: grid; place-items: center;
-  }
-  .svc-hub-logo { font-size: 19px; font-weight: 700; letter-spacing: -0.03em; }
-
-  .svc-node {
-    position: absolute; z-index: 2; width: 236px;
-    display: flex; align-items: center; gap: 12px; text-align: left;
-    padding: 14px 16px; cursor: pointer;
-    background: var(--bg); border: 1px solid var(--line-2); font-family: inherit;
-    transition: transform .18s ease-out, box-shadow .18s ease-out, border-color .18s ease-out;
-  }
-  .svc-node:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.08); border-color: var(--accent); }
-  .svc-node-icon { font-size: 22px; flex: none; line-height: 1; color: var(--muted); transition: color .18s ease-out; }
-  .svc-node:hover .svc-node-icon { color: var(--accent); }
-  .svc-node-text { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
-  .svc-node-text strong { font-size: 15px; font-weight: 600; line-height: 1.15; }
-  .svc-node-text .co-mut { font-size: 12.5px; line-height: 1.3; }
-  .svc-node-arrow { margin-left: auto; font-size: 17px; color: var(--muted); flex: none; transition: color .18s ease-out, transform .18s ease-out; }
-  .svc-node:hover .svc-node-arrow { color: var(--accent); transform: translate(2px, -2px); }
-
-  /* ── Sections services ── */
-  .svc-section { margin-top: var(--space-subsection); scroll-margin-top: 100px; }
-  .svc-section:first-of-type { margin-top: var(--space-block); }
-  .svc-section-head { max-width: 60ch; }
-  .svc-section-title { font-size: 1.5rem; }
-  .co-root .svc-section-accroche { margin-top: var(--space-eyebrow); line-height: 1.55; }
-  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin: 24px 0; }
-  .svc-card {
-    display: flex; flex-direction: column; gap: 10px; padding: 22px;
-    background: var(--surface); border: 1px solid var(--line-2); scroll-margin-top: 120px;
-    transition: box-shadow .18s ease-out;
-  }
-  .svc-card:hover { box-shadow: 0 8px 24px rgba(20,22,26,.07); }
-  .svc-card-title { font-size: 1.12rem; }
-  .svc-card-desc { font-size: 14px; line-height: 1.55; color: var(--muted); }
-  .svc-card-features { margin-top: 4px; gap: 7px; }
-  .svc-card-features li { font-size: 13.5px; line-height: 1.4; }
-  .svc-card-cta { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; padding-top: 6px; font-size: 14px; font-weight: 600; color: var(--accent); }
-  .svc-card-cta i { transition: transform .18s ease-out; }
-  .svc-card-cta:hover i { transform: translateX(3px); }
-  .svc-section-cta { margin-top: 6px; }
-  .svc-section-cta i { transition: transform .18s ease-out; }
-  .svc-section-cta:hover i { transform: translateX(3px); }
-
-  /* ── Zone locale ── */
-  .loc-card { position: relative; margin-top: 24px; padding: 40px; background: var(--surface); border: 1px solid var(--line-2); }
-  .loc-title { font-size: clamp(1.5rem, 3.5vw, 2rem); }
-  .co-root .loc-text { margin-top: 18px; max-width: 66ch; font-size: 1.0625rem; line-height: 1.65; color: var(--muted); }
-  .loc-text strong { color: var(--ink); font-weight: 600; }
-  .loc-chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 22px; }
-  .loc-chip {
-    font-size: 13px; font-weight: 500; padding: 5px 12px;
-    border: 1px solid var(--line-2); background: var(--bg); color: var(--ink);
-  }
-  .co-root .loc-geo-label { margin-top: 26px; }
-  .loc-geo-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
-  .loc-geo-link {
-    display: inline-flex; align-items: center; gap: 6px;
-    font-size: 13.5px; font-weight: 500; padding: 7px 13px;
-    border: 1px solid var(--line-2); background: var(--bg); color: var(--ink);
-    transition: border-color .18s ease-out, color .18s ease-out;
-  }
-  .loc-geo-link i { color: var(--muted); font-size: 15px; transition: color .18s ease-out; }
-  .loc-geo-link:hover { border-color: var(--accent); color: var(--accent); }
-  .loc-geo-link:hover i { color: var(--accent); }
-  .loc-cta { margin-top: 30px; }
-  .loc-cta i { transition: transform .18s ease-out; }
-  .loc-cta:hover i { transform: translateX(3px); }
-
-  /* ── Ressources ── */
-  .res-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
-  .res-inline:hover { color: var(--ink); }
-  .res-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: var(--space-block); }
-  .res-card {
-    position: relative; display: flex; flex-direction: column; gap: 10px; padding: 22px;
-    background: var(--surface); border: 1px solid var(--line-2);
-    transition: box-shadow .18s ease-out, transform .18s ease-out;
-  }
-  .res-card:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(20,22,26,.07); }
-  .res-eyebrow { color: var(--muted); }
-  .res-title { font-size: 1.05rem; line-height: 1.3; }
-  .res-teaser { font-size: 13.5px; line-height: 1.5; color: var(--muted); flex: 1; }
-  .res-cta { display: inline-flex; align-items: center; gap: 6px; font-size: 14px; font-weight: 600; color: var(--accent); margin-top: auto; }
-  .res-cta i { transition: transform .18s ease-out; }
-  .res-card:hover .res-cta i { transform: translateX(3px); }
-
-  /* ── Modale ── */
-  .svc-modal { position: fixed; inset: 0; z-index: 1000; display: flex; align-items: center; justify-content: center; }
-  .svc-modal.hidden { display: none; }
-  .svc-modal-backdrop { position: absolute; inset: 0; background: rgba(20,22,26,0.5); backdrop-filter: blur(2px); }
-  .svc-modal-win {
-    position: relative; z-index: 1; width: min(94vw, 440px); height: min(80vh, 560px);
-    background: var(--bg); border: 1px solid var(--line-2); display: flex; flex-direction: column;
-    box-shadow: 0 24px 60px rgba(20,22,26,.25); animation: svcModalIn .24s ease-out;
-  }
-  @keyframes svcModalIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
-  .svc-modal-head { display: flex; align-items: center; justify-content: space-between; padding: 14px 16px; border-bottom: 1px solid var(--line); }
-  .svc-modal-id { display: flex; align-items: center; gap: 10px; }
-  .svc-modal-avatar { width: 38px; height: 38px; border-radius: 999px; background: var(--accent); color: #fff; display: grid; place-items: center; font-weight: 700; font-size: 14px; }
-  .svc-modal-idtext { display: flex; flex-direction: column; }
-  .svc-modal-idtext strong { font-size: 15px; }
-  .svc-modal-status { font-size: 12px; color: var(--muted); display: flex; align-items: center; gap: 5px; }
-  .svc-modal-status i { width: 7px; height: 7px; border-radius: 999px; background: var(--accent); display: inline-block; }
-  .svc-modal-close { background: none; border: 0; cursor: pointer; color: var(--muted); font-size: 22px; display: inline-flex; }
-  .svc-modal-close:hover { color: var(--ink); }
-  .svc-modal-msgs { flex: 1; overflow-y: auto; padding: 18px 16px; display: flex; flex-direction: column; gap: 10px; }
-  .svc-msg { display: flex; max-width: 82%; }
-  .svc-msg.client { align-self: flex-start; }
-  .svc-msg.jon { align-self: flex-end; }
-  .svc-bubble { padding: 10px 14px; font-size: 14px; line-height: 1.45; }
-  .svc-msg.client .svc-bubble { background: var(--surface); border: 1px solid var(--line); color: var(--ink); }
-  .svc-msg.jon .svc-bubble { background: var(--accent); color: #fff; }
-  .svc-typing { display: none; align-self: flex-start; gap: 4px; padding: var(--pad-chip); background: var(--surface); border: 1px solid var(--line); }
-  .svc-typing.is-on { display: flex; }
-  .svc-typing span { width: 6px; height: 6px; border-radius: 999px; background: var(--muted); animation: svcTyping 1s infinite; }
-  .svc-typing span:nth-child(2) { animation-delay: .15s; }
-  .svc-typing span:nth-child(3) { animation-delay: .3s; }
-  @keyframes svcTyping { 0%, 60%, 100% { opacity: .3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-3px); } }
-  .svc-modal-foot { display: flex; gap: 10px; padding: 14px 16px; border-top: 1px solid var(--line); }
-
-  /* ── Responsive ── */
-  @media (max-width: 980px) {
-    .svc-grid { grid-template-columns: repeat(2, 1fr); }
-    .res-grid { grid-template-columns: repeat(2, 1fr); }
-  }
+  .v2 .sv-n-h1 { margin-top: 18px; }
+  .v2 .sv-n-intro { display: grid; gap: 24px; }
+  .v2 .sv-n-jump { gap: 6px 20px; }
+  .v2 .sv-n-svc { display: grid; grid-template-columns: 1fr 1.25fr; }
+  .v2 .sv-n-side { border-right: 1px solid var(--line); }
+  .v2 .sv-n-sticky { position: sticky; top: 24px; padding: 40px var(--pad) 48px; display: grid; gap: 18px; justify-items: start; }
+  .v2 .sv-n-acc { max-width: 28rem; }
+  .v2 .sv-n-price { display: grid; gap: 4px; font-family: var(--display); font-size: clamp(1.8rem, 3vw, 2.4rem); letter-spacing: -0.05em; line-height: 1; margin: 8px 0; }
+  .v2 .sv-n-sub { padding: 36px var(--pad); display: grid; gap: 14px; justify-items: start; }
+  .v2 .sv-n-sub + .sv-n-sub { border-top: 1px solid var(--line); }
+  .v2 .sv-n-sub h3 { margin: 0; }
+  .v2 .sv-n-sub .v2-price-list { margin-top: 4px; }
+  .v2 .sv-n-more { display: inline-flex; gap: 6px; align-items: center; margin-top: 6px; font-weight: 500; }
+  .v2 .sv-n-metiers { background: var(--soft); gap: 8px; }
+  .v2 .sv-n-zone { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding: clamp(48px, 7vw, 88px) var(--pad); }
+  .v2 .sv-n-zone-body { display: grid; gap: 22px; justify-items: start; align-content: start; }
+  .v2 .sv-n-geo { display: grid; gap: 8px; }
+  .v2 .sv-n-geo > div { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+  .v2 .sv-n-res { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--line); }
+  .v2 .sv-n-res > a { display: grid; gap: 10px; align-content: start; padding: 28px var(--pad) 36px; transition: background .2s; }
+  .v2 .sv-n-res > a + a { border-left: 1px solid var(--line); }
+  .v2 .sv-n-res > a:hover { background: var(--soft); }
+  .v2 .sv-n-res strong { font-family: var(--display); font-weight: 500; font-size: 1.25rem; letter-spacing: -0.03em; line-height: 1.15; }
+  .v2 .sv-n-res .v2-mut { font-size: .95rem; }
+  .v2 .sv-n-nb { white-space: nowrap; }
+  .v2 .sv-n-cta { display: grid; gap: 18px; }
+  .v2 .v2-teal .v2-btn-ghost { border-color: var(--ink); }
   @media (max-width: 900px) {
-    .svc-constellation { height: auto; display: flex; flex-direction: column; gap: 12px; padding: var(--pad-card); background: transparent; border: 0; }
-    .svc-mobilehead { display: block; }
-    .svc-hub, #svc-lines { display: none; }
-    .svc-node { position: static !important; width: 100%; }
-    .loc-card { padding: 28px 22px; }
+    .v2 .sv-n-svc, .v2 .sv-n-zone { grid-template-columns: 1fr; }
+    .v2 .sv-n-side { border-right: 0; border-bottom: 1px solid var(--line); }
+    .v2 .sv-n-sticky { position: static; }
+    .v2 .sv-n-res { grid-template-columns: 1fr 1fr; }
+    .v2 .sv-n-res > a:nth-child(3) { border-left: 0; }
+    .v2 .sv-n-res > a:nth-child(n+3) { border-top: 1px solid var(--line); }
   }
-  @media (max-width: 720px) {
-    .svc-grid { grid-template-columns: 1fr; }
-    .res-grid { grid-template-columns: 1fr; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .svc-node, .svc-node-arrow, .svc-card, .svc-card-cta i, #svc-lines line { transition: none; }
-    .svc-modal-win { animation: none; }
-    .svc-typing span { animation: none; }
+  @media (max-width: 520px) {
+    .v2 .sv-n-res { grid-template-columns: 1fr; }
+    .v2 .sv-n-res > a + a { border-left: 0; border-top: 1px solid var(--line); }
+    .v2 .sv-n-cta .v2-ctas { flex-direction: column; align-items: stretch; }
   }
 </style>
 
-<script is:inline define:vars={{ scenariosData: scenarios }}>
-  window.__svcScenarios = scenariosData;
-</script>
-
 <script>
-  // ══ Lignes de la constellation (hub-bord → node-bord), calculées au load + resize ══
-  const container = document.getElementById("svc-constellation");
-  const svg = document.getElementById("svc-lines");
-  const hub = document.getElementById("svc-hub");
-  const nodes = Array.from(document.querySelectorAll<HTMLElement>(".svc-node"));
-  const SVG_NS = "http://www.w3.org/2000/svg";
-  const lines: SVGLineElement[] = [];
-
-  if (container && svg && hub) {
-    nodes.forEach(() => {
-      const l = document.createElementNS(SVG_NS, "line");
-      svg.appendChild(l);
-      lines.push(l);
-    });
-
-    const box = (el: Element) => {
-      const r = el.getBoundingClientRect();
-      return { cx: r.left + r.width / 2, cy: r.top + r.height / 2, hw: r.width / 2, hh: r.height / 2 };
-    };
-    const edge = (c: { cx: number; cy: number; hw: number; hh: number }, tx: number, ty: number) => {
-      const dx = tx - c.cx, dy = ty - c.cy;
-      const t = Math.min(c.hw / (Math.abs(dx) || 1e-3), c.hh / (Math.abs(dy) || 1e-3));
-      return { x: c.cx + dx * t, y: c.cy + dy * t };
-    };
-
-    function updateLines() {
-      const cont = container!.getBoundingClientRect();
-      const h = box(hub!);
-      h.hw *= 0.78; h.hh *= 0.78; // s'arrêter un peu avant le cadre du hub
-      nodes.forEach((node, i) => {
-        const n = box(node);
-        const p1 = edge(h, n.cx, n.cy);
-        const p2 = edge(n, h.cx, h.cy);
-        const line = lines[i];
-        line.setAttribute("x1", String(p1.x - cont.left));
-        line.setAttribute("y1", String(p1.y - cont.top));
-        line.setAttribute("x2", String(p2.x - cont.left));
-        line.setAttribute("y2", String(p2.y - cont.top));
-      });
-    }
-
-    const isDesktop = () => window.matchMedia("(min-width: 901px)").matches;
-    function refresh() {
-      if (isDesktop()) { svg!.style.display = ""; updateLines(); }
-    }
-    // deux passes (fonts/layout) puis resize
-    requestAnimationFrame(refresh);
-    window.addEventListener("load", refresh);
-    window.addEventListener("resize", refresh);
-
-    // hover node ↔ ligne
-    nodes.forEach((node, i) => {
-      node.addEventListener("mouseenter", () => lines[i]?.classList.add("is-hot"));
-      node.addEventListener("mouseleave", () => lines[i]?.classList.remove("is-hot"));
-    });
-  }
-
-  // ══ Modale conversation (rejoue scenario.messages en typing) ══
-  const modal = document.getElementById("svc-modal");
-  const msgsEl = document.getElementById("svc-modal-msgs");
-  const typing = document.getElementById("svc-typing");
-  let timers: number[] = [];
-
-  function clearTimers() { timers.forEach((t) => window.clearTimeout(t)); timers = []; }
-
-  function openModal(id: string) {
-    const data = (window as any).__svcScenarios as Array<{ id: string; messages: { speaker: string; text: string }[] }>;
-    const scenario = data?.find((s) => s.id === id);
-    if (!scenario || !modal || !msgsEl || !typing) return;
-    clearTimers();
-    // vide les anciennes bulles, garde le typing
-    msgsEl.querySelectorAll(".svc-msg").forEach((n) => n.remove());
-    modal.classList.remove("hidden");
-    document.body.style.overflow = "hidden";
-
-    let delay = 350;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    scenario.messages.forEach((msg, idx) => {
-      const last = idx === scenario.messages.length - 1;
-      timers.push(window.setTimeout(() => {
-        typing.classList.add("is-on");
-        msgsEl.scrollTop = msgsEl.scrollHeight;
-      }, delay));
-      const typeTime = reduce ? 120 : 700 + Math.min(msg.text.length * 16, 850);
-      delay += typeTime;
-      timers.push(window.setTimeout(() => {
-        const el = document.createElement("div");
-        el.className = `svc-msg ${msg.speaker === "jon" ? "jon" : "client"}`;
-        el.innerHTML = `<div class="svc-bubble"></div>`;
-        el.querySelector(".svc-bubble")!.textContent = msg.text;
-        msgsEl.insertBefore(el, typing);
-        if (last) typing.classList.remove("is-on");
-        msgsEl.scrollTop = msgsEl.scrollHeight;
-      }, delay));
-      delay += 260;
-    });
-  }
-
-  function closeModal() {
-    if (!modal) return;
-    clearTimers();
-    typing?.classList.remove("is-on");
-    modal.classList.add("hidden");
-    document.body.style.overflow = "";
-  }
-
-  document.querySelectorAll<HTMLElement>("[data-scenario-id]").forEach((btn) => {
-    btn.addEventListener("click", () => openModal(btn.dataset.scenarioId!));
-  });
-  document.querySelectorAll<HTMLElement>("[data-svc-close]").forEach((el) => {
-    el.addEventListener("click", closeModal);
-  });
-  document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape" && modal && !modal.classList.contains("hidden")) closeModal();
-  });
+  import '../scripts/v2-ui';
 </script>
