@@ -472,3 +472,6 @@
 /* Liste de liens sans image (ressources de /tarifs) */
 .v2-art-rel-txt > a { padding-top: 28px; }
 .v2-art-rel-txt .v2-mut { padding: 0 var(--pad); font-size: .95rem; }
+
+/* Page /portfolio */
+.v2 .v2-port-h1 { margin-top: 18px; }

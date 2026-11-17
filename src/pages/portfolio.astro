@@ -1,328 +1,81 @@
 ---
-// Page Portfolio — Jon Labs (blueprint)
-// Migrée du lab (styleguide-portfolio) : cas vedette Lécureux cadré filets +
-// grille filtrable de cartes à coins nets. Corps .co-root, chrome blueprint.
-import '../styles/global.css'
+// Page Portfolio — Jon Labs (v2)
+// Études de cas clients en rangées <CaseSpec /> (image bord à bord + fiche), projets perso en grille de 3.
 import { getCollection } from 'astro:content';
-import Layout from "../layouts/Layout.astro"
-import Header from '../components/Header.astro'
-import Footer from '../components/Footer.astro'
-import PortfolioCardEditorial from '../components/portfolio/PortfolioCardEditorial.astro';
-import { proofLecureux } from '../data/proof-lecureux';
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/v2/Nav.astro';
+import Dock from '../components/v2/Dock.astro';
+import CaseSpec from '../components/v2/CaseSpec.astro';
+import Footer from '../components/v2/Footer.astro';
+import '../styles/v2.css';
 
-// Schema.org
 import { SITE_URL } from '../data/schema';
 import { getCollectionPageSchema } from '../lib/seo';
 
 const pageTitle = "Réalisations Web & Études de Cas";
 const pageDescription = "Sites web, SEO local et automatisations : découvrez mes réalisations détaillées pour des clients suisses. Résultats mesurables à l'appui.";
 
-const portfolioSchema = getCollectionPageSchema({
-  url: `${SITE_URL}/portfolio`,
-  name: pageTitle,
-  description: pageDescription
-});
+const schemas = [getCollectionPageSchema({ url: `${SITE_URL}/portfolio`, name: pageTitle, description: pageDescription })];
 
-const schemas = [portfolioSchema];
-
-// Catégorie d'affichage/filtre (mêmes labels que la carte)
-const categoryLabels: Record<string, string> = {
-  'site-vitrine': 'Site vitrine',
-  'e-commerce': 'E-commerce',
-  'application': 'Application',
-  'seo': 'SEO',
-  'automatisation': 'Automatisation',
-  'side-project': 'Projet perso',
-};
-
-const getCategoryKey = (project: { data: { entryType: string; project: { category: string } } }) =>
-  project.data.entryType === 'side-project' ? 'side-project' : project.data.project.category;
-
-// Collection portfolio. Lécureux (featured) est sorti en cas vedette → exclu de la grille.
-const portfolioEntries = await getCollection('portfolio', ({ data }) => !data.draft);
-const grid = portfolioEntries
-  .filter((p) => p.slug !== 'leo-lecureux-seo')
-  .sort((a, b) => {
-    // Featured d'abord
-    if (a.data.featured && !b.data.featured) return -1;
-    if (!a.data.featured && b.data.featured) return 1;
-    // Puis par date (récent → ancien)
-    return new Date(b.data.date).getTime() - new Date(a.data.date).getTime();
-  });
-
-// Chips : "Tous" + catégories réellement présentes (ordre d'apparition)
-const presentCategories = [...new Set(grid.map(getCategoryKey))];
-const filters = [
-  { slug: 'all', name: 'Tous' },
-  ...presentCategories.map((slug) => ({ slug, name: categoryLabels[slug] || slug })),
-];
-
-// Méta du cas vedette (dérivées de proof-lecureux.ts — source unique de vérité)
-const featuredMeta = [
-  { k: "Client", v: proofLecureux.name },
-  { k: "Métier", v: proofLecureux.metierShort },
-  { k: "Plateforme", v: proofLecureux.platform },
-  { k: "Fenêtre", v: proofLecureux.duration },
-  { k: "Année", v: proofLecureux.year },
-];
+const entries = (await getCollection('portfolio', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+const cases = entries.filter((p) => p.data.entryType === 'case-study');
+const sides = entries.filter((p) => p.data.entryType === 'side-project');
+const year = (d: Date) => d.getFullYear();
 ---
 
 <Layout title={pageTitle} description={pageDescription} schemas={schemas}>
-  <Header />
+  <Fragment slot="head">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" />
+  </Fragment>
 
-  <main class="co-root">
+  <div class="v2">
+    <Nav current="/portfolio" />
+    <Dock current="/portfolio" />
 
-    <!-- ══ INTRO ══ -->
-    <section class="co-sec co-pad co-hero">
-      <h1 style="font-size:clamp(2.2rem,5.5vw,3.4rem);margin-top:14px;" data-animate data-delay="0.1">
-        Réalisations web &amp; <span class="co-ser">études de cas.</span>
-      </h1>
-      <p class="co-mut" style="margin-top:14px;max-width:60ch;line-height:1.6;" data-animate data-delay="0.2">
-        Projets détaillés avec contexte, approche et résultats mesurables. Basé à Genève,
-        j'accompagne indépendants et PME en tant que
-        <a href="/developpeur-web-freelance-geneve" class="po-inline">développeur web freelance</a>.
-      </p>
-    </section>
-
-    <!-- ══ 01 · CAS VEDETTE (Lécureux) ══ -->
-    <section class="co-sec co-pad" style="padding:48px 40px 64px;">
-      <p class="co-eyebrow" data-animate>01 — Cas vedette</p>
-      <h2 style="margin-top:var(--space-eyebrow);" data-animate data-delay="0.1">Étude de cas</h2>
-
-      <article class="po-feature co-frame" data-animate data-delay="0.15">
-        <!-- Image cadrée filets -->
-        <a href={proofLecureux.portfolioUrl} class="po-feature-media" aria-label={`Voir l'étude de cas : ${proofLecureux.company}`}>
-          <img src="/images/portfolio/leo-lecureux/featured.webp" alt={`Site ${proofLecureux.company} — ${proofLecureux.metierShort}`} loading="lazy" />
-        </a>
-
-        <!-- Corps -->
-        <div class="po-feature-body">
-          <span class="co-cat">seo-local</span>
-          <h3 class="po-feature-title">
-            De zéro au <span class="co-ser">#1 sur sa niche.</span>
-          </h3>
-          <p class="po-feature-lead">{proofLecureux.accrocheLong}.</p>
-
-          <dl class="co-spec po-meta">
-            {featuredMeta.map((m) => (
-              <div class="co-spec-row">
-                <dt>{m.k}</dt>
-                <dd>{m.v}</dd>
-              </div>
-            ))}
-          </dl>
-
-          <a href={proofLecureux.portfolioUrl} class="co-btn po-feature-cta">
-            Voir l'étude de cas <i class="ri-arrow-right-line"></i>
-          </a>
+    <main>
+      <header class="r"><div class="w v2-head v2-head-2">
+        <div>
+          <p class="v2-meta">{cases.length} études de cas · {sides.length} projets perso</p>
+          <h1 class="v2-h1 v2-port-h1" data-words>Réalisations.</h1>
         </div>
+        <p class="v2-head-p">Des projets livrés pour de vrais clients, avec le contexte, l'approche et les résultats mesurés.</p>
+      </div></header>
 
-        <!-- Grille de preuve (6 tuiles, data GSC réelle) -->
-        <div class="po-stats">
-          {proofLecureux.stats.map((s) => (
-            <div class="po-stat">
-              <i class={`${s.icon} po-stat-icon`} aria-hidden="true"></i>
-              <span class="po-stat-value">{s.value}</span>
-              <span class="po-stat-label co-mut">{s.label}</span>
-            </div>
-          ))}
-        </div>
-        <p class="po-stats-note co-mut">
-          Data Google Search Console · fenêtre {proofLecureux.duration} (sept.&nbsp;2025 → janv.&nbsp;2026).
-        </p>
-      </article>
-    </section>
+      {cases.map((c) => <section class="r"><CaseSpec entry={c} /></section>)}
 
-    <!-- ══ 02 · GRILLE FILTRABLE ══ -->
-    <section class="co-sec co-pad" style="padding:var(--sec-pad-y) var(--sec-pad-x) 72px;">
-      <p class="co-eyebrow" data-animate>02 — Toutes les réalisations</p>
-      <h2 style="margin-top:var(--space-eyebrow);" data-animate data-delay="0.1">La grille</h2>
-      <p class="co-mut" style="margin-top:var(--space-eyebrow);max-width:52ch;" data-animate data-delay="0.15">Filtre par type de projet.</p>
-
-      {grid.length > 0 ? (
-        <>
-          <div class="po-filters" id="po-filters" data-animate data-delay="0.2">
-            {filters.map((f, i) => (
-              <button
-                type="button"
-                class:list={["po-chip", i === 0 && "is-active"]}
-                data-category={f.slug}
-              >{f.name}</button>
+      {sides.length > 0 && (
+        <section class="r" aria-labelledby="perso"><div class="w">
+          <div class="v2-head v2-head-2">
+            <h2 class="v2-h2" id="perso" data-words>Projets perso.<br /><span class="v2-dim">Là où j'essaie avant vous.</span></h2>
+            <p class="v2-head-p">Des outils que je construis pour moi, souvent le terrain d'essai de ce que je livre ensuite.</p>
+          </div>
+          <div class="v2-art-rel">
+            {sides.map((p) => (
+              <a href={`/portfolio/${p.slug}`}>
+                <img src={p.data.heroImage.url} alt={p.data.heroImage.alt} loading="lazy" width="400" height="225" />
+                <span class="v2-meta"><span>{year(p.data.date)}</span>{p.data.project.platform && <span>{p.data.project.platform}</span>}</span>
+                <strong>{p.data.title}</strong>
+              </a>
             ))}
           </div>
-
-          <div class="po-grid" id="po-grid" data-animate-stagger>
-            {grid.map((p) => (
-              <PortfolioCardEditorial project={p} />
-            ))}
-          </div>
-        </>
-      ) : (
-        <div class="po-empty" data-animate>
-          <i class="ri-folder-open-line" aria-hidden="true"></i>
-          <p class="co-mut">Études de cas à venir…</p>
-        </div>
+        </div></section>
       )}
-    </section>
 
-    <!-- ══ 03 · CTA FINAL (primitive .co-cta) ══ -->
-    <section class="co-cta">
-      <span class="co-x tl"></span><span class="co-x tr"></span>
-      <div class="co-cta-inner">
-        <h2 class="co-cta-title">Le prochain cas vedette, c'est <span class="co-ser">le vôtre.</span></h2>
-        <p class="co-cta-lead">Un premier appel gratuit pour cadrer, un devis clair, une réponse sous 24&nbsp;h.</p>
-        <div class="co-cta-btns">
-          <a href="/contact" class="co-btn co-cta-btn">Parlons de votre projet <i class="ri-arrow-right-line"></i></a>
-          <a href="mailto:contact@jonlabs.ch" class="co-btn co-btn--ghost co-cta-btn co-cta-btn--ghost">contact@jonlabs.ch</a>
+      <section class="r"><div class="w v2-head v2-head-2">
+        <h2 class="v2-h2" data-words>Votre projet,<br /><span class="v2-dim">la prochaine étude de cas.</span></h2>
+        <div class="v2-ctas v2-ctas-left">
+          <a href="/contact" class="v2-btn"><i class="ri-calendar-line"></i> <span data-roll>Parlons de votre projet</span></a>
+          <a href="mailto:contact@jonlabs.ch" class="v2-btn v2-btn-ghost"><span data-roll>contact@jonlabs.ch</span></a>
         </div>
-      </div>
-    </section>
+      </div></section>
+    </main>
 
-  </main>
-
-  <Footer />
+    <Footer />
+  </div>
 </Layout>
 
-<style is:global>
-  /* ══ PORTFOLIO — styles .po-* ══ */
-
-  /* Lien inline dans le corps clair (autorisé : underline accent) */
-  .co-root .po-inline { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
-  .co-root .po-inline:hover { color: var(--ink); }
-
-  /* ── Cas vedette ── */
-  .po-feature {
-    position: relative; margin-top: var(--space-block);
-    display: grid; grid-template-columns: 1.15fr 1fr; grid-template-rows: auto auto;
-    gap: 0;
-    border: 1px solid var(--line-2); background: var(--surface);
-  }
-  .po-feature-media {
-    position: relative; display: block; overflow: hidden;
-    grid-row: 1 / span 2; min-height: 340px; /* s'étire sur la hauteur de la colonne droite */
-    border-right: 1px solid var(--line);
-    background: #eaeef6; /* = bord bas de featured.webp : remplit le bas du slot sans raccord visible */
-  }
-  .po-feature-media img {
-    width: 100%; height: auto; display: block; /* carré affiché à sa taille naturelle en haut, 0 crop ; le fond lavande remplit dessous */
-    transition: transform .6s ease-out;
-  }
-  .po-feature:hover .po-feature-media img { transform: scale(1.03); }
-  /* Flex+gap : l'espacement s'applique vraiment (le reset .co-root h/p { margin:0 } neutraliserait les margin-top sur h3/p) */
-  .po-feature-body { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; padding: 32px; border-bottom: 1px solid var(--line); }
-  .po-feature-title { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.08; }
-  .po-feature-lead { line-height: 1.6; color: var(--muted); max-width: 44ch; }
-
-  /* Fiche technique = primitive .co-spec (kit) ; ici juste le placement dans le corps. */
-  .po-meta { align-self: stretch; margin-top: 6px; }
-
-  .po-feature-cta { margin-top: var(--space-title-lead); }
-  .po-feature-cta i { transition: transform .18s ease-out; }
-  .po-feature-cta:hover i { transform: translateX(3px); }
-
-  /* Grille de preuve — 6 tuiles */
-  .po-stats {
-    grid-column: 2; grid-row: 2;
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    border-top: 1px solid var(--line); border-left: 1px solid var(--line);
-  }
-  .po-stat {
-    display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
-    padding: 18px 20px;
-    border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
-  }
-  .po-stat:nth-child(3n) { border-right: 0; }
-  .po-stat:nth-child(n+4) { border-bottom: 0; }
-  .po-stat-icon { font-size: 17px; color: var(--accent); line-height: 1; }
-  .po-stat-value { font-size: 1.5rem; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
-  .po-stat-label { font-size: 12px; line-height: 1.25; }
-  .po-stats-note { grid-column: 1 / -1; padding: 12px 32px; font-size: 12px; border-top: 1px solid var(--line); }
-
-
-  /* ── Filtres ── */
-  .po-filters { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 24px; }
-  .po-chip {
-    font-family: inherit; font-size: 14px; font-weight: 500; cursor: pointer;
-    padding: 8px 16px; background: var(--surface); color: var(--muted);
-    border: 1px solid var(--line-2); border-radius: 999px;
-    transition: color .18s ease-out, border-color .18s ease-out, background .18s ease-out;
-  }
-  .po-chip:hover { color: var(--ink); border-color: var(--ink); }
-  .po-chip.is-active { background: var(--ink); color: #fff; border-color: var(--ink); }
-
-  /* ── Grille de cartes ── */
-  .po-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  .po-card {
-    position: relative; display: flex; flex-direction: column;
-    background: var(--surface); border: 1px solid var(--line-2); color: var(--ink);
-    transition: box-shadow .18s ease-out, transform .18s ease-out;
-  }
-  .po-card:hover { transform: translateY(-2px); box-shadow: 0 10px 28px rgba(20,22,26,.08); }
-  .po-card-media { aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1px solid var(--line); background: var(--bg); }
-  .po-card-media img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .5s ease-out; }
-  .po-card:hover .po-card-media img { transform: scale(1.04); }
-  .po-card-ph { width: 100%; height: 100%; display: grid; place-items: center; color: var(--muted); font-size: 2rem; }
-  .po-card-body { display: flex; flex-direction: column; gap: 9px; padding: 18px 20px 20px; flex: 1; }
-  .po-card-meta { display: flex; align-items: center; gap: 10px; font-size: 12.5px; }
-  .co-root .po-card-title { font-size: 1.12rem; line-height: 1.2; margin-top: 2px; }
-  .po-card-desc { font-size: 13.5px; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-  .co-root .po-card-result { font-size: 13.5px; margin-top: auto; padding-top: 4px; }
-  .po-card-result strong { font-weight: 700; color: var(--accent); }
-  .po-card-arrow {
-    position: absolute; top: 14px; right: 14px; z-index: 2;
-    width: 30px; height: 30px; display: grid; place-items: center;
-    background: var(--bg); border: 1px solid var(--line-2); color: var(--muted);
-    opacity: 0; transform: translate(-4px, 4px);
-    transition: opacity .18s ease-out, transform .18s ease-out, color .18s ease-out;
-  }
-  .po-card:hover .po-card-arrow { opacity: 1; transform: none; color: var(--accent); }
-
-  /* ── État vide ── */
-  .po-empty { display: flex; flex-direction: column; align-items: center; gap: 12px; padding: 64px 0; text-align: center; }
-  .po-empty i { font-size: 2.5rem; color: var(--line-2); }
-
-  /* CTA final = primitive .co-cta (blueprint.css) */
-
-  /* ── Responsive ── */
-  @media (max-width: 980px) {
-    .po-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 900px) {
-    .po-feature { grid-template-columns: 1fr; }
-    .po-feature-media { grid-row: auto; min-height: 0; aspect-ratio: 1 / 1; border-right: 0; border-bottom: 1px solid var(--line); }
-    .po-stats { grid-column: 1; grid-row: auto; border-left: 0; }
-  }
-  @media (max-width: 720px) {
-    .po-grid { grid-template-columns: 1fr; }
-    .po-feature-body { padding: 24px 20px; }
-    .po-stat { padding: 14px 16px; }
-    .po-stat-value { font-size: 1.3rem; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .po-feature-media img, .po-card, .po-card-media img, .po-card-arrow,
-    .po-chip, .po-feature-cta i { transition: none; }
-  }
-</style>
-
 <script>
-  // ── Filtres de la grille ──
-  function initPortfolioFilters() {
-    const chips = Array.from(document.querySelectorAll<HTMLButtonElement>("#po-filters .po-chip"));
-    const grid = document.getElementById("po-grid");
-    if (!chips.length || !grid) return;
-    const cards = Array.from(grid.querySelectorAll<HTMLElement>("[data-category]"));
-
-    chips.forEach((chip) => {
-      chip.addEventListener("click", () => {
-        const cat = chip.dataset.category || "all";
-        chips.forEach((c) => c.classList.toggle("is-active", c === chip));
-        cards.forEach((card) => {
-          const match = cat === "all" || card.dataset.category === cat;
-          card.style.display = match ? "" : "none";
-        });
-      });
-    });
-  }
-  initPortfolioFilters();
-  document.addEventListener("astro:page-load", initPortfolioFilters);
+  import '../scripts/v2-ui';
 </script>
