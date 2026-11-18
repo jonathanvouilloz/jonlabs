@@ -33,7 +33,6 @@ const schemas = [servicesListData, webPageSchema, breadcrumbSchema];
 
 const order = ['ia', 'site-web', 'app-mobile'];
 const sections = order.map((id) => serviceSections.find((s) => s.id === id)!);
-const price: Record<string, string> = { ia: pricing.agentIA.display, 'site-web': pricing.siteWeb.display, 'app-mobile': pricing.appMobile.display };
 const label: Record<string, string> = { ia: 'Systèmes IA', 'site-web': 'Sites web', 'app-mobile': 'Apps mobiles' };
 // Liens « Par métier » du méga-menu Systèmes IA (data/navigation.ts).
 const metiers = mainNav.find((s) => s.label === 'IA & Automatisation')?.columns?.find((c) => c.title === 'Par métier')?.items ?? [];
@@ -67,7 +66,7 @@ const resources = [
           <h1 class="v2-h1 sv-n-h1" data-words>Systèmes IA, sites web<br /><span class="v2-dim">et apps mobiles à Genève.</span></h1>
         </div>
         <div class="sv-n-intro">
-          <p class="v2-head-p">Un premier appel gratuit pour cadrer, un devis clair, une réponse sous 24&nbsp;h.</p>
+          <p class="v2-head-p">Un premier appel gratuit pour cadrer, une réponse sous 24&nbsp;h.</p>
           <nav class="v2-meta sv-n-jump" aria-label="Sur cette page">
             {sections.map((s, i) => <a href={`#${s.id}`} class="v2-a">0{i + 1} {label[s.id]}</a>)}
           </nav>
@@ -89,7 +88,6 @@ const resources = [
               <p class="v2-meta">0{i + 1} · {label[s.id]}</p>
               <h2 class="v2-h2" id={`sv-n-${s.id}`} data-words>{s.title}</h2>
               <p class="v2-mut sv-n-acc">{s.accroche.split('. ')[0].replace(/\.?$/, '.')}</p>
-              <p class="sv-n-price"><small class="v2-meta">Tarif</small>{price[s.id]}</p>
               <a href="/contact" class="v2-btn v2-btn-sm"><span data-roll>{s.ctaText}</span></a>
             </div>
           </div>
@@ -159,7 +157,7 @@ const resources = [
             <a href="/contact" class="v2-btn"><i class="ri-calendar-line"></i> <span data-roll>Prendre rendez-vous</span></a>
             <a href="mailto:contact@jonlabs.ch" class="v2-btn v2-btn-ghost"><span data-roll>contact@jonlabs.ch</span></a>
           </div>
-          <p class="v2-meta">Réponse sous 24 h · Premier appel gratuit · Devis clair et détaillé</p>
+          <p class="v2-meta">Réponse sous 24 h · Premier appel gratuit</p>
         </div>
       </div></section>
     </main>

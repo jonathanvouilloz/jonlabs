@@ -22,7 +22,7 @@ export const serviceSections: ServiceSection[] = [
   {
     id: 'site-web',
     title: 'Développement de site web',
-    accroche: `Un site rapide, clair et trouvable sur Google. Dès CHF 850, devis sur demande.`,
+    accroche: `Un site rapide, clair et trouvable sur Google.`,
     subServices: [
       {
         id: 'creation-site',
@@ -41,7 +41,7 @@ export const serviceSections: ServiceSection[] = [
         title: 'Développeur Webflow',
         description: 'Création ou reprise de site Webflow, que votre équipe gère en autonomie.',
         features: [
-          'Site Webflow propre et rapide, dès CHF 950',
+          'Site Webflow propre et rapide',
           'Formation à l\'éditeur incluse',
           'Reprise d\'un site Webflow existant'
         ]
@@ -52,7 +52,7 @@ export const serviceSections: ServiceSection[] = [
   {
     id: 'app-mobile',
     title: 'Application mobile',
-    accroche: `Une app iPhone et Android pour vos clients ou votre équipe. Sur devis.`,
+    accroche: `Une app iPhone et Android pour vos clients ou votre équipe.`,
     subServices: [
       {
         id: 'application-mobile',
@@ -72,8 +72,7 @@ export const serviceSections: ServiceSection[] = [
         description: 'Espace client, outil de gestion, tableau de bord ou réservation : un logiciel métier qui suit votre façon de travailler.',
         features: [
           'On commence petit, on grandit ensuite',
-          'Branchée sur vos outils actuels',
-          'Sur devis'
+          'Branchée sur vos outils actuels'
         ],
         ctaText: 'Application sur mesure pour PME',
         link: '/services/application-sur-mesure'
@@ -84,14 +83,13 @@ export const serviceSections: ServiceSection[] = [
   {
     id: 'ia',
     title: 'IA pour votre entreprise',
-    accroche: `Moins de tâches répétitives, plus de temps pour le vrai travail. Agents IA dès CHF 1'500, formation sur devis.`,
+    accroche: `Moins de tâches répétitives, plus de temps pour le vrai travail.`,
     subServices: [
       {
         id: 'agent-hermes',
         title: 'Agent IA Hermès',
         description: 'Un assistant IA branché sur vos outils : e-mails, relances, documents.',
         features: [
-          'Dès CHF 1\'500',
           'Hébergé en Suisse chez Infomaniak',
           'Vous validez avant chaque envoi'
         ],
@@ -104,8 +102,7 @@ export const serviceSections: ServiceSection[] = [
         description: 'On relie vos outils entre eux et on automatise ce qui vous fait perdre du temps.',
         features: [
           'On part de votre tâche la plus pénible',
-          'Vos outils actuels, pas de changement forcé',
-          'Sur devis'
+          'Vos outils actuels, pas de changement forcé'
         ],
         ctaText: 'Consultant IA en Suisse romande',
         link: '/consultant-ia'
@@ -116,8 +113,7 @@ export const serviceSections: ServiceSection[] = [
         description: 'Pour une équipe ou en individuel : utiliser l\'IA au quotidien, sans risque.',
         features: [
           'Adaptée à votre métier',
-          'Entreprise ou particulier',
-          'Devis sur mesure'
+          'Entreprise ou particulier'
         ],
         ctaText: 'Formation IA pour équipes',
         link: '/services/formation-ia-equipe'

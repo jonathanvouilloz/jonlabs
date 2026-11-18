@@ -48,7 +48,7 @@ const cta = { href: "/contact", label: "Discuter de mon projet" };
         kicker: "Sites web · basé à Genève, service en Suisse romande",
         h1: "Création de site web",
         dim: "à Genève.",
-        lead: `Un site simple et efficace qui vous ramène des clients. En ligne en 3-4 semaines, ${pricing.siteWeb.display.replace('Dès', 'dès')}.`,
+        lead: `Un site simple et efficace qui vous ramène des clients. En ligne en 3-4 semaines.`,
         cta,
         cta2: { href: "#methode", label: "Voir comment ça marche" },
     }}
@@ -68,14 +68,12 @@ const cta = { href: "/contact", label: "Discuter de mon projet" };
         {
             id: "offres", kicker: "02 · Les offres", title: "Un site neuf, une refonte", dim: "ou Webflow.",
             text: "Le bon outil selon votre projet : un site statique sur mesure, très rapide, ou un site Webflow que vous gérez vous-même.",
-            price: { value: pricing.siteWeb.display, note: `Site Webflow : ${pricing.webflow.display.replace('Dès', 'dès')}. Devis ferme avant de commencer.` },
-            cta: { href: "/contact", label: "Demander un devis" },
+            cta: { href: "/contact", label: "Parler de mon site" },
             subs: [
-                { id: "site-vitrine", meta: `Le plus demandé · ${pricing.siteWeb.display}`, title: "Site vitrine sur mesure", text: "Indépendants, artisans et PME qui veulent un site pro, simple et efficace.", features: ["Design sur mesure, adapté au mobile", "Optimisé pour Google", "Formulaire de contact", "Blog ou pages en plus si besoin", "Devis ferme après un premier appel"] },
-                { id: "refonte", meta: "Refonte · sur devis", title: "Refonte de site existant", text: "Votre site plafonne : structure brouillonne, pages lentes, SEO inexistant. Je reprends l'existant, je garde ce qui marche, je restructure et je remets les performances à niveau.", features: ["Audit complet de l'existant", "Design adapté au mobile", "Optimisation SEO technique", "Formation à la modification des contenus"] },
-                { id: "webflow", meta: `Option Webflow · ${pricing.webflow.display}`, title: "Site Webflow, géré par vous", text: "Un site Webflow sur mesure, construit depuis vos maquettes Figma ou de zéro. Structure de classes propre, CMS configuré pour que vous publiiez vous-même. Je vous forme à l'éditeur à la livraison : textes, images, articles, produits. S'y ajoute l'abonnement Webflow, qui remplace l'hébergement.", features: ["Pages sur mesure, adaptées au mobile", "Optimisé pour Google", "CMS (blog, portfolio) si besoin", "Formation à l'éditeur Webflow"] },
-                { id: "e-commerce", meta: "Sur devis", title: "E-commerce & sur mesure", text: "Commerçants et entreprises avec des besoins spécifiques. Webflow suffit pour une boutique simple ; au-delà, je propose une <a href=\"/services/application-sur-mesure\">application sur mesure</a>.", features: ["Boutique en ligne", "Paiement sécurisé (Stripe, TWINT)", "Réservation, espace client…", "Intégrations (CRM, newsletter…)"] },
-                { title: "Ce qui fait varier le prix", features: ["Nombre de pages", "Fonctionnalités (réservation, multilingue…)", "Délai souhaité", `Paiement : ${terms.payment}`], text: "Pour comparer : <a href=\"/blog/prix-site-web-suisse-2026\">combien coûte un site web en Suisse</a>." },
+                { id: "site-vitrine", meta: "Le plus demandé", title: "Site vitrine sur mesure", text: "Indépendants, artisans et PME qui veulent un site pro, simple et efficace.", features: ["Design sur mesure, adapté au mobile", "Optimisé pour Google", "Formulaire de contact", "Blog ou pages en plus si besoin", "Devis ferme après un premier appel"] },
+                { id: "refonte", meta: "Refonte", title: "Refonte de site existant", text: "Votre site plafonne : structure brouillonne, pages lentes, SEO inexistant. Je reprends l'existant, je garde ce qui marche, je restructure et je remets les performances à niveau.", features: ["Audit complet de l'existant", "Design adapté au mobile", "Optimisation SEO technique", "Formation à la modification des contenus"] },
+                { id: "webflow", meta: "Option Webflow", title: "Site Webflow, géré par vous", text: "Un site Webflow sur mesure, construit depuis vos maquettes Figma ou de zéro. Structure de classes propre, CMS configuré pour que vous publiiez vous-même. Je vous forme à l'éditeur à la livraison : textes, images, articles, produits. S'y ajoute l'abonnement Webflow, qui remplace l'hébergement.", features: ["Pages sur mesure, adaptées au mobile", "Optimisé pour Google", "CMS (blog, portfolio) si besoin", "Formation à l'éditeur Webflow"] },
+                { id: "e-commerce", title: "E-commerce & sur mesure", text: "Commerçants et entreprises avec des besoins spécifiques. Webflow suffit pour une boutique simple ; au-delà, je propose une <a href=\"/services/application-sur-mesure\">application sur mesure</a>.", features: ["Boutique en ligne", "Paiement sécurisé (Stripe, TWINT)", "Réservation, espace client…", "Intégrations (CRM, newsletter…)"] },
             ],
         },
         {

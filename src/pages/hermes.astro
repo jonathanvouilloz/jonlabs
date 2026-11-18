@@ -47,9 +47,9 @@ const cta = { href: "/contact", label: "Cadrer mon déploiement" };
     cta2: { href: "/blog/hermes-agent-ia-pme", label: "Ce qu'est Hermes Agent" },
   }}
   proofs={{ items: [
-    { value: chf(pricing.agentIA.from), label: "CHF, mise en place", client: "Agent simple" },
+    { value: "1000+", label: "avis Google traités et répondus", client: "Barber Concept" },
     { value: "2 à 3", label: "semaines jusqu'à la production", client: "Une tâche précise" },
-    { value: '15', label: "CHF par mois de fonctionnement, au départ", client: "Hébergé en Suisse" },
+    { value: "500+", label: "mails triés et traités", client: "Barber Concept" },
   ] }}
   sections={[
     {
@@ -75,13 +75,12 @@ const cta = { href: "/contact", label: "Cadrer mon déploiement" };
       ],
     },
     {
-      id: "offre", kicker: "03 · L'offre", title: "Des prix affichés,", dim: "en CHF.",
-      text: `Vous voyez le prix de départ et le coût mensuel avant de me contacter. Fonctionnement ${pricing.agentIA.runningCost}, hébergé en Suisse chez Infomaniak et payé directement à l'hébergeur, sans engagement de durée. Comptez 2 à 3 semaines entre le cadrage et un premier agent en production. Pour comparer : le <a href="/blog/prix-agent-ia-automatisation-suisse">prix d'un agent IA en Suisse</a> et les <a href="/blog/meilleurs-vps-hermes-agent-suisse">meilleurs VPS pour Hermes Agent en Suisse</a>. Pour que toute l'équipe s'en serve, ajoutez une <a href="/services/formation-ia-equipe">formation IA pour votre équipe</a>.`,
-      price: { value: pricing.agentIA.display, note: `Puis ${pricing.agentIA.runningCost} de fonctionnement` },
+      id: "offre", kicker: "03 · L'offre", title: "Deux façons", dim: "de démarrer.",
+      text: "On commence par une tâche précise, ou par un agent branché sur plusieurs outils. Comptez 2 à 3 semaines entre le cadrage et un premier agent en production, hébergé en Suisse.",
       cta,
       subs: [
-        { meta: `Pour démarrer · ${pricing.agentIA.display}`, title: "Agent simple", text: "Une tâche précise qui vous prend du temps chaque semaine.", features: ["Audit de vos process et choix de la tâche à automatiser", "Un agent branché sur un outil (boîte mail ou CRM)", "Garde-fous, validation humaine et prise en main"] },
-        { meta: "Le plus demandé · Sur devis", title: "Agent métier intégré", text: "Plusieurs tâches et plusieurs outils à connecter.", features: ["Agent multi-tâches connecté à vos outils (CRM, mail, facturation)", "Cadrage nLPD et tests en conditions réelles avant production", "Formation et documentation pour piloter en autonomie"] },
+        { meta: "Pour démarrer", title: "Agent simple", text: "Une tâche précise qui vous prend du temps chaque semaine.", features: ["Audit de vos process et choix de la tâche à automatiser", "Un agent branché sur un outil (boîte mail ou CRM)", "Garde-fous, validation humaine et prise en main"] },
+        { meta: "Le plus demandé", title: "Agent métier intégré", text: "Plusieurs tâches et plusieurs outils à connecter.", features: ["Agent multi-tâches connecté à vos outils (CRM, mail, facturation)", "Cadrage nLPD et tests en conditions réelles avant production", "Formation et documentation pour piloter en autonomie"] },
       ],
     },
   ]}

@@ -8,7 +8,6 @@ import DeclineePage from '../../components/v2/declinee/DeclineePage.astro';
 import { methodeIA, piliersIA, metiersLinks } from '../../components/v2/declinee/shared';
 import type { DcPage, DcSection } from '../../components/v2/declinee/types';
 import { SITE_URL, localBusinessData } from '../../data/schema';
-import { pricing } from '../../data/pricing';
 import { villesSuisseIA, getVoisinesIA, type VilleIAData } from '../../data/villes-suisse-ia';
 
 export async function getStaticPaths() {
@@ -73,7 +72,6 @@ const page: DcPage = {
   lead: ville.angleHero,
   pillarLink: [{ text: 'Cette page complète mon offre de ' }, { text: 'consultant IA en Suisse romande', href: '/consultant-ia' }, { text: '.' }],
   trust: ville.preuveLocale.split('·').map((p) => p.trim()).filter(Boolean),
-  price: { label: 'Premier agent', value: pricing.agentIA.display },
   ctaLabel: 'Discuter de votre projet IA',
   sections,
   faqs: ville.faqs,

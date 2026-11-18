@@ -51,7 +51,6 @@ const pad = (i: number) => String(i + 1).padStart(2, '0');
         <div class="dc-intro">
           <p class="dc-lead">{page.lead}</p>
           {page.pillarLink && <p class="v2-mut v2-prose dc-pillar">{page.pillarLink.map((seg) => seg.href ? <a href={seg.href}>{seg.text}</a> : seg.text)}</p>}
-          {page.price && <p class="dc-price"><small class="v2-meta">{page.price.label}</small>{page.price.value}</p>}
           <div class="v2-ctas v2-ctas-left">
             <a href="/contact" class="v2-btn"><i class="ri-calendar-line"></i> <span data-roll>{page.ctaLabel}</span></a>
           </div>
@@ -121,7 +120,7 @@ const pad = (i: number) => String(i + 1).padStart(2, '0');
             <a href="/contact" class="v2-btn"><i class="ri-calendar-line"></i> <span data-roll>Prendre rendez-vous</span></a>
             <a href="mailto:contact@jonlabs.ch" class="v2-btn v2-btn-ghost"><span data-roll>contact@jonlabs.ch</span></a>
           </div>
-          <p class="v2-meta">Réponse sous 24 h · Premier appel gratuit · Facturation en CHF</p>
+          <p class="v2-meta">Réponse sous 24 h · Premier appel gratuit</p>
         </div>
       </div></section>
     </main>

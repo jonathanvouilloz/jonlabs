@@ -493,13 +493,15 @@ const schemas = [caseStudySchema, getBreadcrumbSchema([
   .v2 .cas-c-service { text-transform: none; display: inline-flex; gap: 6px; color: var(--ink); }
   .v2 .cas-c-next { list-style: none; padding: 0; margin: 0; }
   .cas-c-next li + li { border-top: 1px solid var(--line); }
-  .cas-c-next a { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 24px; align-items: center; padding: 26px var(--pad); transition: background .25s; }
+  .cas-c-next a { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) 200px auto auto; gap: 24px; align-items: center; padding: 26px var(--pad); transition: background .25s; }
   .cas-c-next a:hover { background: var(--soft); }
   .cas-c-next strong { font-family: var(--display); font-weight: 500; font-size: clamp(1.8rem, 4.4vw, 3.4rem); letter-spacing: -0.055em; line-height: 1; }
   .cas-c-next a > i { font-size: 1.6rem; transition: rotate .3s var(--ease); }
   .cas-c-next a:hover > i { rotate: 45deg; }
-  .cas-c-next img { position: absolute; right: 22%; top: 50%; width: 220px; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--r); opacity: 0; translate: 0 -40%; rotate: -3deg; pointer-events: none; transition: opacity .3s var(--ease), translate .4s var(--ease); z-index: 2; }
-  .cas-c-next a:hover img { opacity: 1; translate: 0 -50%; }
+  /* Vignette dans sa propre colonne : ne recouvre jamais le titre. height:auto, sinon l'attribut height HTML l'étire. */
+  .cas-c-next img { grid-column: 2; grid-row: 1; width: 200px; height: auto; aspect-ratio: 16 / 10; object-fit: cover; border-radius: var(--r); margin-block: -30px; opacity: 0; translate: 0 10%; rotate: -3deg; pointer-events: none; transition: opacity .3s var(--ease), translate .4s var(--ease); z-index: 2; }
+  .cas-c-next strong { grid-column: 1; grid-row: 1; }
+  .cas-c-next a:hover img { opacity: 1; translate: 0; }
 
   @media (max-width: 900px) {
     .cas-c-sub { grid-template-columns: minmax(0, 1fr); }

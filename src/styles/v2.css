@@ -371,6 +371,10 @@
    Filets et trame de points redéfinis en encre transparente. Le contenu de la section reste sur blanc. */
 .v2-teal { background: var(--accent); --line: rgba(20,22,26,.16); --soft: #00C997; --mut: #0F3D31; }
 .v2-teal.v2-dots, .v2-teal .v2-dots { --dot: rgba(20,22,26,.26); --dot-on: var(--ink); }
+/* Hero et bandeaux à deux colonnes : teal éclairci, sinon le titre atténué et le texte long deviennent illisibles sur l'aplat. */
+.v2-teal.v2-head-2 { background: color-mix(in srgb, var(--accent) 20%, var(--bg)); --soft: color-mix(in srgb, var(--accent) 32%, var(--bg)); --mut: #3F4A47; }
+.v2-teal.v2-head-2.v2-dots { --dot-on: var(--accent-strong); }
+.v2 .v2-teal.v2-head-2 .v2-dim { color: rgba(20,22,26,.55); }
 
 /* Cartes tarifs C · Bento mis en avant (<Pricing />) : grande cellule teal sur 2 rangées, petites cellules, notes dessous. */
 .v2-price { display: grid; grid-template-columns: 1.3fr 1fr 1fr; }

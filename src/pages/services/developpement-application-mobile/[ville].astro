@@ -6,7 +6,6 @@
 import DeclineePage from '../../../components/v2/declinee/DeclineePage.astro';
 import type { DcPage } from '../../../components/v2/declinee/types';
 import { SITE_URL, localBusinessData } from '../../../data/schema';
-import { pricing } from '../../../data/pricing';
 import { villesSuisseIA } from '../../../data/villes-suisse-ia';
 import { villesMobile, getVoisinesMobile, type VilleMobileData } from '../../../data/villes-mobile';
 
@@ -51,7 +50,6 @@ const page: DcPage = {
   lead: ville.angleHero,
   pillarLink: [{ text: 'Méthode et budgets détaillés sur la page ' }, { text: "développement d'application mobile", href: pilier }, { text: '.' }],
   trust: ville.preuveLocale.split('·').map((p) => p.trim()).filter(Boolean),
-  price: { label: 'Tarif', value: pricing.appMobile.display },
   ctaLabel: "Parler de votre projet d'app",
   sections: [
     {

@@ -22,7 +22,7 @@ type Link = { href: string; label: string; external?: boolean };
 type QA = { question: string; answer: string };
 type Title = { title: string; dim?: string; text?: string };
 export type Sub = { id?: string; title: string; meta?: string; text?: string; features?: string[]; tools?: string[]; link?: Link };
-export type Section = Title & { id: string; kicker: string; price?: { value: string; note?: string }; cta?: Link; subs: Sub[] };
+export type Section = Title & { id: string; kicker: string; cta?: Link; subs: Sub[] };
 
 interface Props {
   title: string;
@@ -77,7 +77,6 @@ const ext = (l: Link) => (l.external ? { target: '_blank', rel: 'noopener norefe
               <p class="v2-meta">{s.kicker}</p>
               <h2 class="v2-h2" id={`svc-${s.id}`} data-words>{s.title}{s.dim && <><br /><span class="v2-dim">{s.dim}</span></>}</h2>
               {s.text && <p class="v2-mut sv-n-acc v2-prose" set:html={s.text} />}
-              {s.price && <p class="sv-n-price"><small class="v2-meta">Tarif</small>{s.price.value}{s.price.note && <small class="v2-mut">{s.price.note}</small>}</p>}
               {s.cta && <a href={s.cta.href} class="v2-btn v2-btn-sm" {...ext(s.cta)}><span data-roll>{s.cta.label}</span></a>}
             </div>
           </div>
