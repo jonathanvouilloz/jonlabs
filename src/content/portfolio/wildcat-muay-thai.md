@@ -20,7 +20,7 @@ project:
   category: "seo"
 
 heroImage:
-  url: "/images/portfolio/wildcat/hero.webp"
+  url: "/images/portfolio/wildcat/mockup.webp"
   alt: "Page d'accueil de Wildcat Muay Thai — Come for the fight, stay for the family"
 
 tags:

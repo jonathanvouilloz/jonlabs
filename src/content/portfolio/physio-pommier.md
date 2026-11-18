@@ -19,7 +19,7 @@ project:
   category: "seo"
 
 heroImage:
-  url: "/images/portfolio/physio-pommier/hero.png"
+  url: "/images/portfolio/physio-pommier/mockup.webp"
   alt: "Page d'accueil Physio Pommier — cabinet de physiothérapie au Grand-Saconnex"
 
 resultImages:

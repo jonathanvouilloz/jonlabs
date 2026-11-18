@@ -15,7 +15,7 @@ project:
   category: "side-project"
 
 heroImage:
-  url: "/images/portfolio/wisp/hero.webp"
+  url: "/images/portfolio/wisp/mockup.webp"
   alt: "Wisp - App d'écriture quotidienne"
 
 tags:

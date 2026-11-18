@@ -19,7 +19,7 @@ project:
   category: "seo"
 
 heroImage:
-  url: "/images/portfolio/swiss-dental-care/hero.webp"
+  url: "/images/portfolio/swiss-dental-care/mockup.webp"
   alt: "Le nouveau site du Cabinet dentaire Grange-Canal, présenté sur ordinateur et sur mobile"
 
 resultsTitle: "Le projet en repères"

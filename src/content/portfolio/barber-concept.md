@@ -18,7 +18,7 @@ project:
   category: "seo"
 
 heroImage:
-  url: "/images/portfolio/barber-concept/hero.webp"
+  url: "/images/portfolio/barber-concept/mockup.webp"
   alt: "Site Barber Concept refondu en Astro — page d'accueil, Barber Concept ton barbier préféré depuis 2017"
 
 resultImages:

@@ -15,7 +15,7 @@ project:
   category: "side-project"
 
 heroImage:
-  url: "/images/lab/isla-plomo/thumbnail.webp"
+  url: "/images/lab/isla-plomo/mockup.webp"
   alt: "Isla Plomo - Jeu de rôles cachés PWA"
 
 tags:

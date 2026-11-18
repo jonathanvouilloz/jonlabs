@@ -18,7 +18,7 @@ project:
   category: "seo"
 
 heroImage:
-  url: "/images/portfolio/leo-lecureux/hero.webp"
+  url: "/images/portfolio/leo-lecureux/mockup.webp"
   alt: "Site web Lecureux Conseil - juriste spécialisé restauration Genève"
 
 results:
