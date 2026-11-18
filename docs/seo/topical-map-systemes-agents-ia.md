@@ -82,26 +82,28 @@ Volumes mensuels CH / FR : somme du mot-clé principal et de ses variantes proch
 
 | # | Date | Slug | Mot-clé principal | CH / FR | Int. | Cl. | CTA |
 |---|---|---|---|---|---|---|---|
-| 1 | dim. 22.11 | `hermes-agent-vs-openclaw` | hermes vs openclaw | 20 / 600 | C | A | `/hermes` |
+| 3 | dim. 22.11 | `installer-hermes-agent` | installer hermes agent | — / 320 | T | A | `/hermes` |
 | 2 | mar. 24.11 | `claude-duet-suisse` | claude duet | — / 1 300 | I/C | B | `/consultant-ia` |
-| 3 | jeu. 26.11 | `installer-hermes-agent` | installer hermes agent | — / 320 | T | A | `/hermes` |
-| 4 | sam. 28.11 | `grok-bot-pme-suisse` | grok bot | 1 900 / 5 400 | C | B | `/consultant-ia` |
-| 5 | lun. 30.11 | `euria-infomaniak-avis` | euria avis, euria prix | 12 100 (tête) / 240 | C | B | `/consultant-ia` |
-| 6 | mer. 02.12 | `n8n-vs-make-vs-zapier` | n8n vs make | 40 / 620 | C | A | `/consultant-ia` |
-| 7 | ven. 04.12 | `openclaw-prix` | openclaw prix | 20 / 160 | C | A | `/openclaw` |
-| 8 | dim. 06.12 | `chatbot-ia-entreprise-prix` | chatbot entreprise | 10 / 140 (CPC 37 $) | T | C | `/tarifs` |
-| 9 | mar. 08.12 | `assistant-ia-suisse-comparatif` | ia suisse | 1 000 / 1 600 | C | B | `/consultant-ia` |
-| 10 | jeu. 10.12 | `claude-entreprise-prix` | claude entreprise, claude team | 4 400 (cowork) / 3 160 | C | B | `/services/formation-ia-equipe` |
-| 11 | sam. 12.12 | `openclaw-securite` | openclaw security | 40 / 90 | I/C | A | `/openclaw` |
-| 12 | lun. 14.12 | `agent-vocal-ia-entreprise` | standard téléphonique ia, agent vocal ia | 10 / 520 (CPC 37 $) | T | C | `/consultant-ia` |
-| 13 | mer. 16.12 | `assistant-ia-interne-entreprise` | chatbot interne entreprise | 10 / 100 (CPC 15 $) | T | C | `/services/application-sur-mesure` |
-| 14 | ven. 18.12 | `agence-ia-suisse-romande` | agence ia suisse | 30 / 10 (CPC 15 $) | C | C | `/consultant-ia` |
-| 15 | dim. 20.12 | `agent-ia-bexio` | bexio api | 720 / 20 | T | C | `/metiers/ia-fiduciaire` |
-| 16 | mar. 22.12 | `charte-ia-entreprise-modele` | charte ia entreprise | 10 / 740 | I | D | `/services/formation-ia-equipe` |
-| 17 | jeu. 24.12 | `ia-locale-entreprise` | ia locale, llm local | 20 / 1 200 | I/C | D | `/consultant-ia` |
-| 18 | sam. 26.12 | `creer-agent-ia-ou-faire-faire` | créer un agent ia | 30 / 1 500 (CPC 24 $) | C | C | `/consultant-ia` |
-| 19 | lun. 28.12 | `prestataire-ia-suisse-ou-francais` | prestataire ia suisse | non mesuré | T | C | `/consultant-ia` |
-| 20 | mer. 30.12 | `serveur-mcp-entreprise` | serveur mcp | 3 600 (mcp) / 1 900 | I | A | `/services/application-sur-mesure` |
+| 4 | jeu. 26.11 | `grok-bot-pme-suisse` | grok bot | 1 900 / 5 400 | C | B | `/consultant-ia` |
+| 5 | sam. 28.11 | `euria-infomaniak-avis` | euria avis, euria prix | 12 100 (tête) / 240 | C | B | `/consultant-ia` |
+| 8 | lun. 30.11 | `chatbot-ia-entreprise-prix` | chatbot entreprise | 10 / 140 (CPC 37 $) | T | C | `/tarifs` |
+| 9 | mer. 02.12 | `assistant-ia-suisse-comparatif` | ia suisse | 1 000 / 1 600 | C | B | `/consultant-ia` |
+| 10 | ven. 04.12 | `claude-entreprise-prix` | claude entreprise, claude team | 4 400 (cowork) / 3 160 | C | B | `/services/formation-ia-equipe` |
+| 12 | dim. 06.12 | `agent-vocal-ia-entreprise` | standard téléphonique ia, agent vocal ia | 10 / 520 (CPC 37 $) | T | C | `/consultant-ia` |
+| 13 | mar. 08.12 | `assistant-ia-interne-entreprise` | chatbot interne entreprise | 10 / 100 (CPC 15 $) | T | C | `/services/application-sur-mesure` |
+| 14 | jeu. 10.12 | `agence-ia-suisse-romande` | agence ia suisse | 30 / 10 (CPC 15 $) | C | C | `/consultant-ia` |
+| 15 | sam. 12.12 | `agent-ia-bexio` | bexio api | 720 / 20 | T | C | `/metiers/ia-fiduciaire` |
+| 16 | lun. 14.12 | `charte-ia-entreprise-modele` | charte ia entreprise | 10 / 740 | I | D | `/services/formation-ia-equipe` |
+| 17 | mer. 16.12 | `ia-locale-entreprise` | ia locale, llm local | 20 / 1 200 | I/C | D | `/consultant-ia` |
+| 18 | ven. 18.12 | `creer-agent-ia-ou-faire-faire` | créer un agent ia | 30 / 1 500 (CPC 24 $) | C | C | `/consultant-ia` |
+| 19 | dim. 20.12 | `prestataire-ia-suisse-ou-francais` | prestataire ia suisse | non mesuré | T | C | `/consultant-ia` |
+| 6 | mar. 22.12 | `n8n-vs-make-vs-zapier` | n8n vs make | 40 / 620 | C | A | `/consultant-ia` |
+| 20 | jeu. 24.12 | `serveur-mcp-entreprise` | serveur mcp | 3 600 (mcp) / 1 900 | I | A | `/services/application-sur-mesure` |
+| 1 | sam. 26.12 | `hermes-agent-vs-openclaw` | hermes vs openclaw | 20 / 600 | C | A | `/hermes` |
+| 7 | lun. 28.12 | `openclaw-prix` | openclaw prix | 20 / 160 | C | A | `/openclaw` |
+| 11 | mer. 30.12 | `openclaw-securite` | openclaw security | 40 / 90 | I/C | A | `/openclaw` |
+
+Ordre ajusté le 19.11 (décision de Jonathan) : les articles qui demandent un test de première main sont en fin de calendrier — n8n le 22.12, les trois OpenClaw les 26, 28 et 30.12. Tests à faire avant : `research-2026-11-19/protocole-tests-openclaw-n8n.md`. Les numéros d'articles ne changent pas (ils servent au blueprint de maillage) ; seule la date change. Un lien vers un article pas encore sorti se pose au retour, à sa publication.
 
 Répartition : 13 articles T ou C (65 %), 4 mixtes I/C, 3 informationnels. Les mixtes et les informationnels portent tous un bloc d'offre (installation, audit, formation).
 
