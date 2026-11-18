@@ -1,6 +1,6 @@
 ---
-title: "OpenBot et souveraineté : self-hosted ≠ souverain"
-h1: "OpenBot est-il souverain ? Ce qui reste chez toi, ce qui passe par eux, et la licence"
+title: "Test OpenBot 2026, l'agent IA qui concurrence GrokBot ?"
+h1: "Test du nouvel agent IA OpenBot, concurrent de GrokBot : que vaut-il en 2026 ?"
 description: "Auto-héberger OpenBot ne le rend pas souverain : compte éditeur, relais Signal et licence PolyForm Noncommercial. Comparé à Hermes et OpenClaw."
 pubDate: 2026-11-20
 author: "Jon"
@@ -32,7 +32,7 @@ faqs:
 
 **Faire tourner OpenBot sur ton propre serveur ne le rend pas souverain.** Tes conversations et tes fichiers restent chez toi. Mais le compte, la liste de tes serveurs et le relais qui les relie à ton téléphone passent par les serveurs d'OpenBot, sauf si tu montes toi-même ce service, ce qui est documenté mais lourd. Et la licence, PolyForm Noncommercial, interdit de s'en servir pour des clients sans licence commerciale.
 
-C'est la suite de ma vidéo où j'installe OpenBot de zéro pour une assistante imaginaire, et c'est la question que je me suis posée en direct : qu'est-ce qui reste chez moi, qu'est-ce qui dépend d'eux ? J'ai relu le dépôt, la licence et la documentation de self-hosting pour répondre sans m'appuyer sur un résumé.
+Les agents IA personnels se multiplient : Dots, GrokBot, et maintenant OpenBot, qui se présente comme une alternative qu'on installe soi-même. Cet article est la suite de ma vidéo où j'installe OpenBot de zéro pour une assistante imaginaire, et c'est la question que je me suis posée en direct : qu'est-ce qui reste chez moi, qu'est-ce qui dépend d'eux ? J'ai relu le dépôt, la licence et la documentation de self-hosting pour répondre sans m'appuyer sur un résumé.
 
 > **L'essentiel en bref**
 >
