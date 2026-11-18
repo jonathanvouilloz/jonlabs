@@ -39,6 +39,10 @@ results:
   - label: "demandes de réservation de séances traitées"
     value: "100+"
     icon: "ri-mail-check-line"
+  # Déclaré par Jonathan le 19.11.2026 (site du camp, construit avant l'agent)
+  - label: "visites sur le site en 4 mois, en partant de zéro"
+    value: "20'000+"
+    icon: "ri-line-chart-line"
 
 context:
   clientDescription: "Wildcat est un camp de Muay Thai familial à Chiang Mai, en Thaïlande. Meaw le gère seule. Les élèves écrivent du monde entier, à toute heure, pour un cours, un séjour Stay & Train, un visa DTV ou un scooter."

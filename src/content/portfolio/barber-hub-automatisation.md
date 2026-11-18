@@ -20,11 +20,11 @@ project:
   platform: "Hermes Agent · Cloudflare Workers · Telegram"
   category: "automatisation"
 
-# Placeholder à remplacer par une vraie capture (hub ou carte Telegram, sans nom de client ni d'employé)
+# Capture du site Barber Concept : on voit le client (demande de Jonathan, 19.11.2026)
 heroImage:
-  url: "/images/portfolio/barber-hub-automatisation/hero.webp"
-  width: 1536
-  height: 1024
+  url: "/images/portfolio/barber-concept/hero.webp"
+  width: 1600
+  height: 1000
   alt: "Barber Concept et Barber Media : avis Google, mails et prospection pris en charge par des agents"
 
 tags:

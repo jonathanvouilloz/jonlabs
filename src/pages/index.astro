@@ -10,7 +10,6 @@ import Dock from '../components/v2/Dock.astro';
 import Hero from '../components/v2/Hero.astro';
 import CaseSpec from '../components/v2/CaseSpec.astro';
 import Proofs from '../components/v2/Proofs.astro';
-import Steps from '../components/v2/Steps.astro';
 import Bento from '../components/v2/Bento.astro';
 import Faq from '../components/v2/Faq.astro';
 import Contact from '../components/v2/Contact.astro';
@@ -38,13 +37,16 @@ const proofs = [
 ];
 
 // Dimensions lues sur le fichier au build : width/height réels contre le CLS. hqdefault YouTube = 480×360.
-const strip = [
-  ...(await Promise.all((await getCollection('portfolio')).map(async (p) => {
-    const { width, height } = await sharp(`public${p.data.heroImage.url}`).metadata();
-    return { src: p.data.heroImage.url, width, height };
-  }))),
-  ...videos.map((v) => ({ src: `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`, width: 480, height: 360 })),
-];
+// Moitié miniatures YouTube (un visage), moitié captures de vrais sites clients, en alternance.
+const stripCases = ['barber-concept', 'wildcat-muay-thai', 'wisp', 'nooria'];
+const shots = await Promise.all((await getCollection('portfolio', (p) => stripCases.includes(p.slug))).map(async (p) => {
+  const { width, height } = await sharp(`public${p.data.heroImage.url}`).metadata();
+  return { src: p.data.heroImage.url, width, height };
+}));
+const strip = videos.flatMap((v, i) => [
+  { src: `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`, width: 480, height: 360 },
+  ...(shots[i] ? [shots[i]] : []),
+]);
 
 
 const pageTitle = "Développement IA sur mesure à Genève";
@@ -76,7 +78,7 @@ const schemas = [
 
     <!-- 3. RÉALISATIONS -->
     <section class="r" id="realisations">
-      <div class="w v2-head v2-head-c"><h2 class="v2-h2" data-words>Des solutions qui résolvent<br />de vrais problèmes.</h2></div>
+      <div class="w v2-head v2-head-c"><h2 class="v2-h2" data-words>Ce que ça a changé<br />chez mes clients.</h2></div>
     </section>
     {cases.map((c, i) => <>{i > 0 && <div class="r" aria-hidden="true"><div class="w v2-gap"></div></div>}<section class="r"><CaseSpec entry={c} /></section></>)}
     <section class="r"><Proofs items={proofs} /></section>
@@ -84,14 +86,7 @@ const schemas = [
       <div class="w v2-more"><a href="/portfolio" class="v2-btn"><span data-roll>Toutes les réalisations</span></a></div>
     </section>
 
-    <!-- 4. COMMENT JE TRAVAILLE -->
-    <section class="r">
-      <div class="w v2-head v2-head-2">
-        <h2 class="v2-h2" data-words>Comment je travaille ?</h2>
-        <p class="v2-head-p">Une méthode courte qui part de vos tâches réelles et finit avec un système en production.</p>
-      </div>
-    </section>
-    <section class="r"><Steps /></section>
+    <!-- 4. CE QUE VOUS Y GAGNEZ (la méthode et ses 5 étapes vivent sur /about) -->
     <section class="r">
       <div class="w v2-cols3">
         {promises.map((p) => (
@@ -104,9 +99,9 @@ const schemas = [
       </div>
     </section>
 
-    <!-- 5. CE QUE JE CONSTRUIS (titre en couleur primaire, dans le container) -->
+    <!-- 5. CE QUE VOUS OBTENEZ (titre en couleur primaire, dans le container) -->
     <section class="r">
-      <div class="w v2-head v2-dots v2-teal" data-spot><i class="v2-dots-glow" aria-hidden="true"></i><h2 class="v2-h2" data-words>Ce que je construis.</h2></div>
+      <div class="w v2-head v2-dots v2-teal" data-spot><i class="v2-dots-glow" aria-hidden="true"></i><h2 class="v2-h2" data-words>Ce que vous obtenez.</h2></div>
     </section>
     <section class="r"><Bento /></section>
 

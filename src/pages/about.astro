@@ -5,6 +5,7 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/v2/Nav.astro';
 import Dock from '../components/v2/Dock.astro';
 import Footer from '../components/v2/Footer.astro';
+import Steps from '../components/v2/Steps.astro';
 import imgJonathan from '../assets/jonathan-vouilloz.webp';
 import '../styles/v2.css';
 
@@ -71,6 +72,14 @@ const timeline = [
           <a href="/portfolio"><span>Voir mes réalisations</span> <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
         </p>
       </div></section>
+
+      <section class="r">
+        <div class="w v2-head v2-head-2">
+          <h2 class="v2-h2" data-words>Comment je travaille ?</h2>
+          <p class="v2-head-p">Une méthode courte qui part de vos tâches réelles et finit avec un système en production.</p>
+        </div>
+      </section>
+      <section class="r"><Steps /></section>
 
       <section class="r"><div class="w ab-m-col ab-m-end">
         <p class="v2-h2" data-words>Un projet en tête&nbsp;?<br /><span class="v2-dim">On part de là.</span></p>

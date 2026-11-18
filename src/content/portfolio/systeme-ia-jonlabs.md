@@ -34,8 +34,11 @@ tags:
   - "MCP"
   - "VPS"
 
-# Aucun chiffre de résultat sourcé (temps gagné, relances, audits) : section volontairement vide
-results: []
+# Déclaré par Jonathan le 19.11.2026
+results:
+  - label: "gagnées par semaine grâce à mon assistant IA"
+    value: "10 h"
+    icon: "ri-time-line"
 
 context:
   clientDescription: "Jon Labs, c'est moi : un développeur freelance qui construit des systèmes où des équipes et des agents IA travaillent ensemble. Avant de le proposer à des clients, je le fais tourner sur ma propre activité."

@@ -1,5 +1,5 @@
 ---
-// FAQ v2 (direction A) : questions en pilules, titre à droite. Une seule réponse ouverte à la fois (name partagé).
+// FAQ v2 (direction A) : questions en pilules, titre à droite. Tout est ouvert : pas d'accordéon, personne ne clique.
 // `items` remplace la FAQ de la home (ex. /tarifs, qui garde sa propre FAQ pour le schéma FAQPage).
 // `title` remplace le titre (HTML maison accepté, ex. un <br />). Le titre précède la liste dans le DOM, affiché à droite en desktop.
 import { faqs } from '../../data/v2';
@@ -10,10 +10,10 @@ const { items = faqs, title = "Les questions<br />qu'on me pose." } = Astro.prop
   <h2 class="v2-h2 v2-faq-title" set:html={title} />
   <div class="v2-faq-list">
     {items.map((f) => (
-      <details name="v2-faq">
-        <summary><span>{f.q.replace(/ ([?!:;])/g, ' $1')}</span><i class="ri-add-line"></i></summary>
+      <div>
+        <h3>{f.q.replace(/ ([?!:;])/g, ' $1')}</h3>
         <p class="v2-mut">{f.a}</p>
-      </details>
+      </div>
     ))}
   </div>
 </div>
