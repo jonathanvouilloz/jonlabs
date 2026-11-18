@@ -23,7 +23,7 @@ faqs:
   - question: "OpenBot fonctionne-t-il sans compte OpenBot ?"
     answer: "L'app de bureau peut tourner en local sans compte. Dès que tu veux piloter un serveur à distance, depuis ton PC ou ton téléphone, le compte, la liste de tes serveurs et le relais de connexion passent par OpenBot, sauf si tu héberges toi-même ce service."
   - question: "Combien coûte une licence commerciale OpenBot ?"
-    answer: "Je n'ai pas de prix à te donner. Le dépôt indique deux formules, Starter pour 1 utilisateur et Team pour 2 à 10, achetables dans l'app (Réglages, Facturation), ou une licence à demander à licenses@openbot.run. Regarde le tarif affiché dans l'app avant de t'engager."
+    answer: "La page de prix d'openbot.run affiche la licence Starter (1 utilisateur) à 10 € par mois, avec une gratuité annoncée jusqu'au 1er décembre 2026. La formule Team couvre 2 à 10 utilisateurs, et au-delà il faut une licence à demander à licenses@openbot.run. Ces prix datent du 19 novembre 2026 : vérifie la page avant de t'engager."
   - question: "Que se passe-t-il si OpenBot ferme ou change ses prix ?"
     answer: "Tes conversations et fichiers sont sur ta machine, donc tu ne les perds pas. Ce qui devient fragile, c'est l'accès à distance au serveur, qui passe par leur service de compte. Les agents derrière sont des programmes de leurs éditeurs : à mon avis, tu peux toujours t'y connecter en SSH."
   - question: "Hermes ou OpenClaw sont-ils vraiment souverains ?"
@@ -32,7 +32,7 @@ faqs:
 
 **Faire tourner OpenBot sur ton propre serveur ne le rend pas souverain.** Tes conversations et tes fichiers restent chez toi. Mais le compte, la liste de tes serveurs et le relais qui les relie à ton téléphone passent par les serveurs d'OpenBot, sauf si tu montes toi-même ce service, ce qui est documenté mais lourd. Et la licence, PolyForm Noncommercial, interdit de s'en servir pour des clients sans licence commerciale.
 
-Les agents IA personnels se multiplient : Dots, GrokBot, et maintenant OpenBot, qui se présente comme une alternative qu'on installe soi-même. Cet article est la suite de ma vidéo où j'installe OpenBot de zéro pour une assistante imaginaire, et c'est la question que je me suis posée en direct : qu'est-ce qui reste chez moi, qu'est-ce qui dépend d'eux ? J'ai relu le dépôt, la licence et la documentation de self-hosting pour répondre sans m'appuyer sur un résumé.
+Les agents IA personnels se multiplient : Dots, GrokBot, et maintenant OpenBot, qui se présente comme une alternative qu'on installe soi-même. Je parle ici de l'OpenBot de Synthetify Labs (openbot.run), à ne pas confondre avec le projet du même nom publié par CopilotKit (open.bot), qui est un autre logiciel sous une autre licence. Cet article est la suite de ma vidéo où j'installe OpenBot de zéro pour une assistante imaginaire, et c'est la question que je me suis posée en direct : qu'est-ce qui reste chez moi, qu'est-ce qui dépend d'eux ? J'ai relu le dépôt, la licence et la documentation de self-hosting pour répondre sans m'appuyer sur un résumé.
 
 > **L'essentiel en bref**
 >
@@ -134,7 +134,7 @@ Les usages permis par le texte : tout usage non commercial, l'usage personnel (�
 
 Pour une agence ou un freelance qui **installe OpenBot pour un client**, le point sensible est là. Le serveur est celui du client, mais tu vends un service de mise en place. Ce n'est pas un avis juridique, mais le texte de la licence n'autorise que les usages non commerciaux, et un service payé n'en est pas un. Demande confirmation par écrit à l'éditeur avant de proposer OpenBot dans une offre.
 
-Côté tarifs, le dépôt mentionne une licence commerciale **Starter (1 utilisateur)** ou **Team (2 à 10 utilisateurs)**, qui s'achète dans l'app (Réglages, Facturation), ou une demande à `licenses@openbot.run`. Je n'ai pas de prix vérifié, donc je n'en donne pas. Le titulaire des droits est la société polonaise Synthetify Labs.
+Côté tarifs, le dépôt mentionne une licence commerciale **Starter (1 utilisateur)** ou **Team (2 à 10 utilisateurs)**, qui s'achète dans l'app (Réglages, Facturation), ou une demande à `licenses@openbot.run`. Au 19 novembre 2026, la [page de prix](https://openbot.run/pricing) affiche la Starter à 10 € par mois, gratuite jusqu'au 1er décembre 2026 ; vérifie le tarif Team sur la page, je ne le reprends pas ici. Le titulaire des droits est la société polonaise Synthetify Labs.
 
 ### Le changement de licence d'août 2026
 
