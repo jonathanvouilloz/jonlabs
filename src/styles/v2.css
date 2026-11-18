@@ -168,7 +168,6 @@
 .v2-faq-list { gap: 28px; }
 .v2-faq-list h3 { display: inline-block; background: var(--ink); color: #fff; border-radius: 999px; padding: 12px 20px; font-weight: 500; font-size: 1rem; margin: 0; }
 .v2-faq-list p { padding: 10px 20px 0; max-width: 32rem; }
-.v2-faq-list summary:hover span { background: #000; }
 
 /* Contact : bento qui touche le container */
 .v2-contact { display: grid; grid-template-columns: 2fr 1fr 1fr; grid-template-rows: auto auto; }
