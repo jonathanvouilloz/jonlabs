@@ -60,7 +60,7 @@ Un navigateur pour l'agent pèse aussi dans la balance : Chrome est gourmand, de
 
 Pour **installer Hermes Agent sur un VPS**, l'installation passe par une seule commande officielle. La doc précise aussi que les installations first-party utilisent Python 3.14.
 
-Mon propre cas : je fais tourner sur le même serveur Hermes, n8n, un système de mailing et une base de données. C'est pour ça que je suis monté à 8 Go plutôt que 4. Pour comprendre pourquoi n8n et Hermes cohabitent, lis ma comparaison [workflow ou agent IA](/blog/workflows-vs-agents-ia-pme). Si tu découvres Hermes, commence par [Hermes Agent pour PME](/blog/hermes-agent-ia-pme), et si tu hésites avec un autre agent, regarde [OpenClaw pour PME](/blog/openclaw-pme-suisse).
+Mon propre cas : je fais tourner sur le même serveur Hermes, un système de mailing, un outil de statistiques et leurs bases de données. C'est pour ça que je suis monté à 8 Go plutôt que 4. Pour savoir quand un simple flux automatisé suffit, lis ma comparaison [workflow ou agent IA](/blog/workflows-vs-agents-ia-pme). Si tu découvres Hermes, commence par [Hermes Agent pour PME](/blog/hermes-agent-ia-pme), et si tu hésites avec un autre agent, regarde [OpenClaw pour PME](/blog/openclaw-pme-suisse).
 
 ---
 
@@ -213,7 +213,7 @@ Enfin, quel que soit l'hébergeur, garde un humain dans la boucle pour les actio
 
 ## Mon retour d'usage : Hermes sur un Hostinger KVM 2
 
-J'héberge Hermes Agent sur un **Hostinger KVM 2** : 2 vCPU, 8 Go de RAM, 100 Go de NVMe. Sur ce serveur, il n'y a pas que Hermes : j'y fais aussi tourner n8n, un système de mailing et une base de données. C'est pour cette raison que j'ai pris 8 Go et pas 4.
+J'héberge Hermes Agent sur un **Hostinger KVM 2** : 2 vCPU, 8 Go de RAM, 100 Go de NVMe. Sur ce serveur, il n'y a pas que Hermes : j'y fais aussi tourner un système de mailing, un outil de statistiques et leurs bases de données. C'est pour cette raison que j'ai pris 8 Go et pas 4.
 
 Je ne donne ni le prix payé, ni la durée d'usage, ni de mesure de performance : je ne vais pas en inventer.
 

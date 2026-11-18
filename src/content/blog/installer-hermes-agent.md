@@ -60,7 +60,19 @@ Dernier point, un réflexe de sécurité : n'installe Hermes que depuis les adre
 
 ## Hermes Agent sur un VPS : installation, modèle et service
 
-Sur un VPS, la procédure tient en trois temps : préparer le serveur et lancer la commande officielle, choisir le modèle et la messagerie, puis installer le service. Mon propre serveur est un Hostinger KVM 2 (2 vCPU, 8 Go de RAM) où Hermes cohabite avec n8n et une base de données, comme je l'explique dans le comparatif. Il est hors de Suisse, ce que je dis aussi là-bas.
+Sur un VPS, la procédure tient en trois temps : préparer le serveur et lancer la commande officielle, choisir le modèle et la messagerie, puis installer le service. Mon propre serveur est un Hostinger KVM 2 (2 vCPU, 8 Go de RAM) où Hermes cohabite avec un système de mailing et un outil de statistiques, comme je l'explique dans le comparatif. Il est hors de Suisse, ce que je dis aussi là-bas.
+
+Pour te donner un ordre de grandeur réel, voici ce que j'ai relevé le 19.11.2026 sur ce serveur, qui fait tourner les agents de Barber Concept depuis le 24.09.2026 :
+
+| Mesure | Valeur relevée |
+|---|---|
+| Mémoire de la passerelle Hermes | 400 Mo, sur 1,7 Go utilisés au total |
+| Profils d'agent | 11, un par métier (mails, avis Google, newsletter, marketing…) |
+| Tâches planifiées | 21 |
+| Exécutions journalisées | plus de 2 600, dont 1,5 % en échec |
+| Causes d'échec relevées | limite de débit du modèle, configuration, authentification |
+
+Un serveur à 2 vCPU et 8 Go suffit donc largement pour une PME. Les échecs viennent presque tous de l'extérieur (le fournisseur du modèle, un jeton expiré), pas de Hermes.
 
 ### Préparer le serveur et lancer la commande officielle
 
@@ -161,7 +173,7 @@ Pour une PME suisse, trois questions comptent : où sont les données, que voit 
 | Hermes Agent (licence MIT) | CHF 0 | Dépôt GitHub, 19.11.2026 |
 | Serveur, Infomaniak VPS Lite 4 Go | CHF 86.40 par an HT (7.20 × 12) | Comparatif VPS, relevé du 12.10.2026 |
 | Modèle de langage | de 2 $ par mois (agent de mails mesuré, 100 demandes et 300 messages) à CHF 10 à 60 par mois (fourchette de mon guide de prix) | Articles publiés |
-| Installation par un prestataire | CHF 400 à 1'200 (4 à 12 h estimées) | Guide Hermes Agent pour PME |
+| Installation par un prestataire | dès CHF 1'500 pour un agent sur une tâche précise | [/tarifs](/tarifs) |
 | Maintenance | 1 à 2 h par mois | Guide Hermes Agent pour PME |
 
 En le faisant toi-même, ça fait donc environ CHF 200 à 800 pour la première année (le serveur plus un modèle entre CHF 10 et 60 par mois), sans compter ton temps. Mon comparatif des coûts est dans le [prix réel d'un agent IA en Suisse](/blog/prix-agent-ia-automatisation-suisse).
