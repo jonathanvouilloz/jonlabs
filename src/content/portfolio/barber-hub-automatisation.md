@@ -37,12 +37,12 @@ tags:
 
 resultsTitle: "Les chiffres"
 results:
-  # Les 4 chiffres : déclarés par Jonathan le 17.11.2026
+  # Les 4 chiffres : déclarés par Jonathan le 17.11.2026 ; mails passés de 200+ à 500+ le 19.11.2026
   - label: "avis Google traités et répondus automatiquement"
     value: "1000+"
     icon: "ri-star-line"
   - label: "mails traités"
-    value: "200+"
+    value: "500+"
     detail: "Candidatures, demandes de stage et autres demandes reçues par les salons."
     icon: "ri-mail-check-line"
   - label: "gagnées par semaine sur la gestion admin"

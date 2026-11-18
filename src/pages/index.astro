@@ -31,7 +31,7 @@ const posts = (await getCollection('blog', (p) => isPublished(p.data)))
 // Chiffres déclarés par Jonathan le 2026-11-17 (interview home).
 const proofs = [
   { value: '1000+', label: 'avis Google traités et répondus automatiquement', client: 'Barber Concept' },
-  { value: '200+', label: 'mails traités : candidatures, demandes de stage…', client: 'Barber Concept' },
+  { value: '500+', label: 'mails traités : candidatures, demandes de stage…', client: 'Barber Concept' },
   { value: '100+', label: 'demandes de réservation de séances traitées', client: 'Wildcat Muay Thai' },
   { value: '4 h', label: 'gagnées par semaine sur la gestion admin', client: 'Barber Concept' },
 ];
@@ -50,7 +50,7 @@ const strip = videos.flatMap((v, i) => [
 
 
 const pageTitle = "Développement IA sur mesure à Genève";
-const pageDescription = "Des systèmes IA pour vos équipes : développement IA sur mesure pour PME romandes, dès CHF 1'500.";
+const pageDescription = "Systèmes et agents IA pour vous et vos équipes : développement IA sur mesure pour PME romandes, dès CHF 1'500.";
 const schemas = [
   localBusinessData, websiteData,
   getWebPageSchema({ url: SITE_URL, name: pageTitle, description: pageDescription }),
