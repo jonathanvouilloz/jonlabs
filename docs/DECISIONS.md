@@ -53,3 +53,5 @@ Format : `[date] | [décision] | [contexte] | [alternatives considérées]`
 **2026-11-18** | **Cal.com préchargé à l'intention (`pointerenter`/`touchstart`/`focus`) + `preconnect`, pas au chargement de page.** | Ouverture de la fenêtre « Discuter de mon projet » lente sur mobile. | Preload au chargement (coût réseau pour tous les visiteurs).
 
 **2026-11-18** | **Shader `DitherBg` figé sur `(pointer: coarse)`.** | La boucle de rendu chauffe et vide la batterie sur mobile. | Garder l'animation en la ralentissant.
+
+**2026-11-19** (`1a32983`) | **Home orientée résultat : `CaseSpec` affiche les résultats clients en grand (plus de stack), `Faq` sans accordéon, « Comment je travaille » déplacé sur `/about`.** | Chiffres déclarés par Jonathan (10 h/semaine, 20'000+ visites en 4 mois) ; composants partagés, donc effet sur `/portfolio`, `/tarifs`, pages service, `/contact`. | Garder l'accordéon FAQ — écarté (personne ne clique) ; garder la stack sur la carte — écarté (le visiteur juge sur l'effet).

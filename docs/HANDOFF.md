@@ -13,6 +13,7 @@
 | Chantier SEO IA (consultant IA) | docs/planSEOIA.md | EN ATTENTE — Phase 3 ; devient le cœur du pivot focus IA (09.11) |
 | Devis Cabinet Grange-Canal | docs/features/devis-cabinet-grange-canal.md | CODE FINI — attend le call |
 | Refonte blueprint (design/typo) | docs/features/refonte-blueprint.md | BOUCLÉE — reste `/epic-recap` |
+| Home confiance et résultat client | docs/features/home-trust-roi.md | **CODE FINI 19.11** — reste : aligner la meta description de la home, vérifier le rendu des pages qui utilisent `CaseSpec`/`Faq` |
 | Rebrand v2 (DA freelance systèmes IA) | docs/features/rebrand-v2.md | **EN PRODUCTION 17.11** — reste tests manuels (formulaire contact, Cal.com, dock mobile) + captures/chiffres des cas IA (tâches Jon) |
 | Comparatif outils web pour agents IA | docs/features/comparatif-browser-agents-ia.md | **EN LIGNE 16.11** — reste indexation GSC + benchmark maison |
 | Refresh piliers IA (kirako) | mergé dans main (`1cca170`) | **EN LIGNE 21.09** — mesurer vs baseline 428 imp / 0 clic |
