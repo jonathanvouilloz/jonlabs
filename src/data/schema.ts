@@ -294,6 +294,17 @@ export const serviceSchemas = {
     "areaServed": ["Genève", "Vaud", "Suisse Romande"],
     "serviceType": "Développement application mobile"
   },
+  "application-sur-mesure": {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${SITE_URL}/services/application-sur-mesure/#service`,
+    "name": "Application sur mesure à Genève",
+    "url": `${SITE_URL}/services/application-sur-mesure`,
+    "description": "Applications web et logiciels métier sur mesure pour PME romandes : espace client, outil de gestion, tableau de bord, réservation, avec agents IA intégrés. Freelance à Genève, code qui vous appartient, données selon la nLPD, devis en CHF.",
+    "provider": { "@id": `${SITE_URL}/#organization` },
+    "areaServed": ["Genève", "Vaud", "Suisse Romande"],
+    "serviceType": "Développement d'application sur mesure"
+  },
   "metiers/ia-fiduciaire": {
     "@context": "https://schema.org",
     "@type": "Service",

@@ -68,11 +68,11 @@ export const mainNav: NavSection[] = [
     type: 'mega',
     columns: [
       {
-        title: 'Conseil & agents',
+        title: 'Construire',
         items: [
-          { label: 'Cadrage projet IA', href: '/consultant-ia', icon: 'ri-brain-line' },
           { label: 'Agents IA sur-mesure', href: '/consultant-ia#agents-sur-mesure', icon: 'ri-robot-2-line' },
-          { label: 'Agent Hermès', href: '/hermes', icon: 'ri-message-3-line' },
+          { label: 'Applications sur mesure', href: '/services/application-sur-mesure', icon: 'ri-window-line' },
+          { label: 'Application mobile', href: '/services/developpement-application-mobile', icon: 'ri-smartphone-line' },
         ],
       },
       {
@@ -80,9 +80,17 @@ export const mainNav: NavSection[] = [
         items: [
           { label: 'Automatisation de tâches', href: '/consultant-ia#automatisation', icon: 'ri-loop-left-line' },
           { label: 'Intégration d\'outils', href: '/consultant-ia#integration-outils', icon: 'ri-plug-line' },
+          { label: 'Agent Hermès', href: '/hermes', icon: 'ri-message-3-line' },
+        ],
+      },
+      {
+        title: 'Accompagner',
+        items: [
+          { label: 'Cadrage projet IA', href: '/consultant-ia', icon: 'ri-brain-line' },
           { label: 'Formation IA équipe', href: '/services/formation-ia-equipe', icon: 'ri-presentation-line' },
         ],
       },
+      // Dernière colonne = barre du bas du méga-menu (Nav.astro) ; lue aussi par services.astro.
       {
         title: 'Par métier',
         items: [
@@ -90,18 +98,11 @@ export const mainNav: NavSection[] = [
           { label: 'IA pour agences immobilières', href: '/metiers/ia-agence-immobiliere', icon: 'ri-building-line' },
         ],
       },
-      {
-        title: 'Guides IA',
-        items: [
-          { label: 'Mettre en place l\'IA en entreprise', href: '/guides/mettre-en-place-ia-entreprise-guide', icon: 'ri-compass-3-line', badge: 'featured' },
-          { label: 'Automatisation PME : guide complet', href: '/blog/automatisation-pme-suisse-guide-complet', icon: 'ri-loop-left-line' },
-        ],
-      },
     ],
     spotlight: {
       icon: 'ri-brain-line',
       title: 'Cadrer votre projet IA',
-      description: 'Conseil et intégration d\'agents IA pour PME romandes — basé à Genève, prix CHF',
+      description: 'Conseil et intégration d\'agents IA pour PME romandes. Basé à Genève, prix en CHF.',
       href: '/consultant-ia',
     },
   },
@@ -114,36 +115,6 @@ export const mainNav: NavSection[] = [
     label: 'Tarifs',
     href: '/tarifs',
     type: 'flat',
-  },
-  {
-    label: 'Articles',
-    href: '/blog',
-    type: 'mega',
-    columns: [
-      {
-        title: 'À la une',
-        items: [
-          { label: 'Apparaître dans les IA 2026', href: '/blog/geo-seo-ia', icon: 'ri-fire-fill', badge: 'featured' },
-          { label: 'Prix site web Suisse 2026', href: '/blog/prix-site-web-suisse-2026', icon: 'ri-price-tag-3-line' },
-        ],
-      },
-      {
-        title: 'Catégories',
-        items: [
-          { label: 'IA & GEO', href: '/blog/tag/geo', icon: 'ri-sparkling-2-line' },
-          { label: 'Prix & tarifs', href: '/blog/tag/prix', icon: 'ri-coins-line' },
-          { label: 'Local & Romandie', href: '/blog/tag/suisse-romande', icon: 'ri-map-pin-line' },
-          { label: 'Automatisation', href: '/blog/tag/automatisation', icon: 'ri-loop-left-line' },
-          { label: 'SEO', href: '/blog/tag/seo', icon: 'ri-search-line' },
-        ],
-      },
-    ],
-    spotlight: {
-      icon: 'ri-article-line',
-      title: 'Voir tous les articles',
-      description: 'Guides, retours d\'expérience et analyses sur le web et l\'automatisation',
-      href: '/blog',
-    },
   },
   {
     label: 'À propos',

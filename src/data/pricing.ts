@@ -24,6 +24,12 @@ export const pricing = {
     display: "Sur devis",
     note: "Devis sur demande",
   },
+  appSurMesure: {
+    label: "Application sur mesure",
+    from: null,
+    display: "Sur devis",
+    note: "Devis sur demande",
+  },
   agentIA: {
     label: "Agent IA Hermès pour entreprise",
     from: 1500,

@@ -1,0 +1,122 @@
+---
+// Application sur mesure — pilier application web / logiciel métier (v2, gabarit ServicePage).
+// Mot-clé principal « application sur mesure » ; secondaires « logiciel métier sur mesure », « application web sur mesure Genève ».
+// Prix : src/data/pricing.ts (sur devis).
+import ServicePage from '../../components/v2/ServicePage.astro';
+import { serviceSchemas, SITE_URL, localBusinessData } from '../../data/schema';
+import { getFAQPageSchema, getBreadcrumbSchema } from '../../lib/seo';
+import { pricing } from '../../data/pricing';
+
+const seoData = {
+    title: "Application sur mesure et logiciel métier à Genève",
+    description: "Application sur mesure pour PME à Genève et en Suisse romande : espace client, outil de gestion, tableau de bord, avec agents IA intégrés. Devis en CHF."
+};
+
+const faqs = [
+    { question: "Combien coûte une application sur mesure ?", answer: "C'est sur devis, parce que tout dépend de ce que l'application doit faire. Après un premier appel gratuit, vous recevez un prix ferme en CHF. Pour vous faire une idée, j'ai écrit un guide sur le prix d'un logiciel sur mesure pour une PME en Suisse." },
+    { question: "Combien de temps pour la développer ?", answer: "Une première version avec l'essentiel se fait en quelques semaines. Vous l'utilisez tout au long du projet, pas seulement à la fin, et on ajoute le reste ensuite." },
+    { question: "Sur mesure ou logiciel existant (Odoo, bexio, un SaaS) ?", answer: "Si un logiciel existant couvre votre besoin, prenez-le : c'est souvent moins cher et plus rapide. Le sur mesure devient intéressant quand vous passez votre temps à contourner l'outil, ou quand votre façon de travailler est ce qui vous distingue. Je vous dis honnêtement dans quel cas vous êtes." },
+    { question: "À qui appartient le code ?", answer: "À vous. Le code, les données et les accès vous sont remis. Vous pouvez faire évoluer l'application avec moi ou avec quelqu'un d'autre, sans dépendance." },
+    { question: "Où sont stockées mes données ?", answer: "Vos données restent sous votre contrôle et sont traitées selon la loi suisse sur la protection des données (nLPD). On choisit ensemble l'hébergement, en fonction de la sensibilité de ce que l'application manipule." },
+    { question: "Peut-on intégrer de l'IA dans l'application ?", answer: "Oui, quand ça a du sens. Un agent IA peut trier des demandes, préparer une réponse ou remplir un dossier. Votre équipe relit et valide avant que quoi que ce soit parte." },
+    { question: "Et après le lancement ?", answer: "Je reste disponible pour le suivi : corrections, mises à jour, nouvelles fonctionnalités quand votre équipe en redemande. On décide ensemble du rythme." }
+];
+
+const schemas: any[] = [
+    serviceSchemas["application-sur-mesure"],
+    getBreadcrumbSchema([
+        { name: "Accueil", url: SITE_URL },
+        { name: "Services", url: `${SITE_URL}/services` },
+        { name: "Application sur mesure", url: `${SITE_URL}/services/application-sur-mesure` }
+    ]),
+    localBusinessData,
+    getFAQPageSchema(faqs),
+];
+
+const cal = { href: "https://cal.com/jonathan-vouilloz/appel-de-bienvenue", label: "Discuter de mon application", external: true };
+---
+
+<ServicePage
+    title={seoData.title}
+    description={seoData.description}
+    schemas={schemas}
+    head={{
+        kicker: "Application sur mesure · basé à Genève, service en Suisse romande",
+        h1: "Une application métier taillée pour votre équipe,",
+        dim: "et vos agents IA.",
+        lead: "Une application sur mesure qui suit votre façon de travailler, au lieu de vous plier à un logiciel standard. Je la conçois, je la mets en production et je la suis. Un seul interlocuteur, basé à Genève.",
+        cta: cal,
+        cta2: { href: "#methode", label: "Voir comment ça fonctionne" },
+    }}
+    sections={[
+        {
+            id: "problemes", kicker: "01 · Situations", title: "Vous vous", dim: "reconnaissez ?",
+            text: "Une bonne application commence par une bonne décision : quoi construire, et surtout quoi ne pas construire.",
+            subs: [
+                { title: "L'Excel qui déborde", text: "Le fichier a grandi avec l'entreprise. Plusieurs versions circulent, et une seule personne sait encore le faire tourner." },
+                { title: "Le SaaS qu'on contourne", text: "L'outil fait la moitié du travail. Le reste se fait à côté, dans des mails et des notes." },
+                { title: "L'ERP trop lourd pour ce que vous faites", text: "Vous payez pour des modules que personne n'ouvre, et il manque justement ce dont vous avez besoin." },
+                { title: "Les saisies en double", text: "La même information tapée dans trois outils qui ne se parlent pas. Avec les erreurs qui vont avec." },
+                { meta: "L'approche", title: "On commence petit, on grandit ensuite.", text: "Les projets qui dérapent construisent trop, trop tôt. Ici, on sort d'abord le cœur de votre application, celui qui vous fait gagner du temps tout de suite. On ajoute ensuite, quand votre équipe en redemande. Pour savoir où vous en êtes : <a href=\"/blog/logiciel-sur-mesure-vs-saas\">logiciel sur mesure ou SaaS</a>." },
+            ],
+        },
+        {
+            id: "resultats", kicker: "02 · Résultats", title: "Ce que vous", dim: "obtenez.",
+            subs: [
+                { title: "Un espace client", text: "Vos clients suivent leurs dossiers, déposent leurs documents et retrouvent leurs factures, sans vous appeler." },
+                { title: "Un outil de gestion", text: "Commandes, stocks, interventions ou dossiers : votre logiciel métier sur mesure, au lieu d'un tableur partagé." },
+                { title: "Un tableau de bord", text: "Les chiffres qui comptent pour vous, à jour, au même endroit." },
+                { title: "Un système de réservation", text: "Rendez-vous, salles ou matériel, avec les règles propres à votre activité." },
+                { title: "Des agents IA intégrés", text: "L'IA prépare : elle trie, rédige un brouillon, remplit un dossier. Votre équipe valide. Le répétitif disparaît, la décision reste chez vous." },
+                { title: "Branchée sur vos outils", text: "Comptabilité, agenda, messagerie : l'application parle à ce que vous utilisez déjà." },
+                { meta: "Ce qui change avec Jon Labs", title: "Un seul interlocuteur, une application à vous", features: ["Un seul interlocuteur : vous parlez à celui qui construit l'application", "Le code vous appartient, sans dépendance", "Données protégées selon la loi suisse (nLPD)", "Mise en production et suivi, pas seulement une livraison"] },
+            ],
+        },
+        {
+            id: "prix", kicker: "03 · Investissement", title: "Un devis", dim: "clair.",
+            text: "Chaque application est différente : c'est sur devis, avec un prix ferme avant de commencer.",
+            price: { value: pricing.appSurMesure.display, note: "Appel découverte gratuit, devis clair en CHF." },
+            cta: { ...cal, label: "Demander un devis" },
+            subs: [
+                { title: "Ce qui influence le prix", features: ["Le nombre d'écrans et de fonctionnalités", "Les comptes utilisateurs et les droits d'accès", "Les connexions à vos outils existants"], text: "Pour vous faire une idée : <a href=\"/blog/prix-logiciel-sur-mesure-pme\">prix d'un logiciel sur mesure pour une PME</a>." },
+            ],
+        },
+        {
+            id: "about", kicker: "04 · À propos", title: "Qui est derrière", dim: "Jon Labs ?",
+            subs: [
+                { title: "Jonathan, développeur basé à Genève", text: "Je construis votre application moi-même, je la mets en production, et je vous aide à trancher quand il faut faire des choix. Mon approche : un outil que votre équipe utilise vaut mieux qu'un projet parfait qui ne sort jamais. Exemple : pour un organisateur de camps de vacances, le budget se tient depuis le téléphone, et le rapport comptable est prêt à la fin du camp.", link: { href: "/about", label: "En savoir plus sur mon parcours" } },
+                { meta: "Local", title: "Basé à Genève, disponible partout en Suisse romande", text: "Tout peut se faire à distance : échanges, démos et tests. Si vous préférez vous voir pour le cadrage, je suis disponible à Genève et environs.", features: ["Genève (basé sur place)", "Lausanne", "Vaud", "Toute la Suisse romande"] },
+            ],
+        },
+    ]}
+    method={{
+        id: "methode",
+        title: "Comment", dim: "ça se passe ?",
+        text: "Vous utilisez votre application à chaque étape, pas seulement à la fin.",
+        steps: [
+            { title: "On cadre", text: "On définit ce que l'application doit vraiment faire, et ce qu'elle ne fera pas (encore). Si un logiciel existant suffit, je vous le dis.", meta: "Un appel + quelques échanges" },
+            { title: "Je construis par itérations", text: "Vous testez au fur et à mesure. Pas besoin de comprendre le code : vous me dites ce qui va et ce qui ne va pas, et j'ajuste.", meta: "Quelques semaines" },
+            { title: "On met en production", text: "L'application tourne chez vous, avec vos vraies données. Ensuite, je reste là pour le suivi et les évolutions.", meta: "Mise en production + suivi" },
+        ],
+    }}
+    cases={{
+        title: "Des applications", dim: "déjà en production.",
+        text: "Ou l'ensemble de mes <a href=\"/portfolio\">réalisations</a>.",
+        slugs: ["gestion-camps-budget", "wildcat-agent-mails", "systeme-ia-jonlabs"],
+    }}
+    links={[
+        {
+            title: "Tout comprendre", dim: "avant de vous lancer.",
+            text: "Votre application doit être sur l'App Store ou Google Play ? Voir le <a href=\"/services/developpement-application-mobile\">développement d'application mobile</a>.",
+            items: [
+                { href: "/blog/application-metier-pme-sur-mesure", k: "S'inspirer", label: "App métier sur mesure pour PME : 5 cas concrets" },
+                { href: "/blog/logiciel-sur-mesure-vs-saas", k: "Décider", label: "Logiciel sur mesure ou SaaS : comment trancher" },
+                { href: "/blog/no-code-vs-developpement-sur-mesure", k: "Décider", label: "No-code ou développement sur mesure : comment choisir" },
+                { href: "/blog/cahier-des-charges-application-metier", k: "Préparer", label: "Cahier des charges d'une app métier : guide non technique" },
+                { href: "/blog/prix-logiciel-sur-mesure-pme", k: "Budgéter", label: "Logiciel sur mesure pour PME en Suisse : les prix en CHF" },
+            ],
+        },
+    ]}
+    faq={faqs}
+    contact="En 30 minutes, on regarde votre projet et je vous dis honnêtement ce qu'il vous faut, et combien ça coûterait."
+/>
