@@ -1,0 +1,17 @@
+SYSTÈME VISUEL VERROUILLÉ — DIRECTION ILLUSTRATION jonlabs (collage éditorial conceptuel, SANS texte) :
+- AUCUN TEXTE : pas un seul mot, pas une lettre, pas un chiffre. Image purement illustrative.
+- PALETTE : tout est NEUTRE et monochrome (encre #111315, gris, papier crème warm #F3F3F1 / #F5F5F2). UN SEUL accent coloré = le TEAL #00D9A3 et ses NUANCES uniquement (un teal plus foncé, un teal plus clair, pour la variance de valeur). AUCUNE autre teinte : pas de rouge, orange, jaune, bleu, violet. Si une couleur vive est suggérée (grand cercle, lumière, fils), elle est TEAL.
+- STYLE : illustration éditoriale haut de gamme / collage conceptuel surréaliste. Calme, premium, beaucoup d'espace négatif. JAMAIS d'AI-slop, jamais de grunge brouillon, jamais de look stock-photo corporate.
+- TEXTURE : grain fin / halftone-riso / papier déchiré subtils. Fond crème warm texturé (jamais blanc clinique) OU, pour l'ambiance sombre, fond encre profond texturé.
+- NE DESSINE AUCUN logo, AUCUN wordmark, AUCUN texte « jonlabs ». Laisse les marges propres et vides.
+- ÉCRANS & DOCUMENTS : si l'image montre un écran, une interface, un papier ou une maquette, ils ne portent AUCUN faux texte ni fausse ligne de code lisibles — uniquement des blocs, des formes et des glyphes réduits au strict minimum, non lisibles.
+- À éviter : texte de toute sorte, faux texte / fausses lignes de code / UI avec texte lisible, watermark, légende, surcharge, secondes couleurs vives, rendu sale.
+
+
+TYPOLOGIE illustration éditoriale SEMI-CONCRÈTE, AUCUN texte. Format PAYSAGE horizontal, composition lisible d'un coup d'œil.
+NIVEAU D'ABSTRACTION : semi-concret : on doit DEVINER le sujet au premier coup d'œil.
+SUJET DE L'ARTICLE : un logiciel qui tourne sur TON serveur, mais dont la clé d'accès reste tenue par quelqu'un d'autre : héberger chez soi n'est pas être souverain.
+OBJET CONCRET ANCRE : un petit boîtier serveur posé sur une table (en bas à gauche, léger, quelques voyants), d'où part UN SEUL fil fin teal #00D9A3 qui monte et traverse la scène vers la droite.
+SIGNATURE DE MARQUE : une main de statue antique en plâtre N&B, à droite, qui tient l'extrémité du fil teal entre deux doigts, comme une marionnette. Discrète, pas le sujet unique.
+ACCENT : un seul, TEAL #00D9A3 et ses nuances (le fil, un voyant du boîtier, un grand cercle pâle derrière la main). Tout le reste neutre N&B.
+COMPOSITION : scène décentrée, grand espace négatif, cadrage horizontal paysage, marges propres et vides. Aucun texte, aucun logo, aucun écran avec texte lisible.

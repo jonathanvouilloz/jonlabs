@@ -252,7 +252,7 @@ Trois choses à retenir de ce tableau :
 - **Relever toutes les minutes ne coûte rien.** 16 Mo de mémoire, 0,1 % d'un processeur, et zéro appel à l'IA tant qu'aucun mail n'arrive.
 - **Une automatisation déroule un scénario figé, un assistant apprend.** Make, Zapier et n8n font la première chose. Hermes trie, cherche dans le wiki, refait un brouillon sur demande et retient ce que l'équipe lui dit.
 
-J'ai choisi Hermes parce que mon serveur me sert déjà à d'autres choses : tout est au même endroit. Si tu pars de zéro et que tu veux surtout du visuel, Make reste un bon point d'entrée. Pour une vue plus large, voir comment [automatiser le support client avec l'IA](/blog/automatiser-support-client-ia).
+J'ai choisi Hermes parce que mon serveur me sert déjà à d'autres choses : tout est au même endroit, et aucun compte éditeur ne se met entre mon serveur et moi. Ce n'est pas le cas de tous les agents : j'ai relu ce qui reste chez toi et ce qui passe par l'éditeur dans [OpenBot et la souveraineté](/blog/openbot-souverainete-self-hosted). Si tu pars de zéro et que tu veux surtout du visuel, Make reste un bon point d'entrée. Pour une vue plus large, voir comment [automatiser le support client avec l'IA](/blog/automatiser-support-client-ia).
 
 ## Les autres tâches à confier au même agent Hermes
 

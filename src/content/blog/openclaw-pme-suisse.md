@@ -64,7 +64,7 @@ Pour comprendre la distinction précise entre un workflow automatisé et un agen
 
 OpenClaw n'est pas un side project de hobbyiste. C'est un projet porté par quelqu'un qui a construit et vendu des outils adoptés à grande échelle. Ce contexte compte : une équipe avec une culture de produit solide (documentation, stabilité, expérience utilisateur) derrière un outil open source.
 
-Les chiffres depuis le lancement : 100 000+ étoiles GitHub, 2 millions de visiteurs en une semaine lors de l'annonce, codebase open source avec licence permissive et communauté active.
+Les chiffres depuis le lancement : 100 000+ étoiles GitHub, 2 millions de visiteurs en une semaine lors de l'annonce, codebase open source avec licence permissive et communauté active. Cette licence (MIT) compte quand tu installes l'outil pour des clients : [OpenBot, lui, exige une licence commerciale pour ça](/blog/openbot-souverainete-self-hosted).
 
 Un point à surveiller : open source ne signifie pas "entreprise avec financement institutionnel". OpenClaw vit par sa communauté et la vision de son fondateur, contrairement à Nous Research (les créateurs d'Hermes Agent) qui ont levé 65 millions de dollars. Ce qui a des implications sur la durabilité à long terme, à intégrer dans ta décision.
 

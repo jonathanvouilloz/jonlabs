@@ -78,6 +78,8 @@ Certaines décisions ne devraient jamais être entièrement automatisées, même
 
 Dans ces trois cas, l'agent garde un rôle utile (préparer la réponse, rassembler les éléments, proposer une décision), mais la décision finale reste humaine. Ce n'est pas un aveu d'échec de l'automatisation : c'est reconnaître qu'un référent qui consacre **10 à 20% de son temps** au pilotage de l'agent, comme recommandé pour une structure de 1 à 15 personnes, a précisément pour rôle de trancher ces cas-là. Un agent qui gère 95% des cas standards seuls et transmet les 5% délicats est plus fiable, pas moins, qu'un agent qui prétend tout gérer.
 
+Un autre garde-fou se joue sur les accès : l'agent qui lit les mails d'inconnus ne devrait voir ni l'agenda ni les comptes du client, pour limiter les dégâts d'un mail piégé. Un cas concret de règles « rien ne part sans accord » et de cloisonnement d'agents est détaillé dans [OpenBot et la souveraineté](/blog/openbot-souverainete-self-hosted).
+
 ## FAQ sur les garde-fous IA en entreprise
 
 ### Combien de niveaux de validation faut-il mettre en place ?

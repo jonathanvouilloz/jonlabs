@@ -72,7 +72,7 @@ Nous Research est connue depuis plusieurs années dans la communauté IA pour sa
 Quelques repères factuels sur leur profil :
 
 - 65 millions USD levés, ce qui donne de la visibilité sur la roadmap.
-- MIT License : personne ne peut "rendre l'outil payant" unilatéralement. Si Nous Research pivote ou ferme, la communauté peut forker le projet.
+- MIT License : personne ne peut "rendre l'outil payant" unilatéralement. Si Nous Research pivote ou ferme, la communauté peut forker le projet. Pour le contraste avec un agent dont la licence interdit l'usage commercial, voir [OpenBot et la souveraineté](/blog/openbot-souverainete-self-hosted).
 - 61 000+ étoiles GitHub en trois mois, signal de traction réel dans la communauté développeur.
 - Lancement : février 2026.
 
