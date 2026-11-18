@@ -2,6 +2,7 @@
 // shortcut: liste manuelle, à remplacer par un fetch au build si la mise à jour devient pénible.
 
 export const videos = [
+  { id: 'mYakiXsKi1o', title: "On teste OpenBot, l'agent IA qui révolutionne le game ?" },
   { id: 'tOxjgPTTYeE', title: 'Assistant IA qui réponds à TOUT vos emails et formulaires - Hermes Agent' },
   { id: '6AciFifIfRk', title: 'Arrête de faire ton SEO à la main (voilà mon système agents IA complet)' },
   { id: 'Z2R60BWDBlY', title: 'Hack Google Discover, seo/aso mobile app, on discute' },
