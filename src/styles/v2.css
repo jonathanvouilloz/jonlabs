@@ -34,8 +34,8 @@
 /* Typo */
 .v2-h1, .v2-h2, .v2 h3, .v2-logo { font-family: var(--display); letter-spacing: -0.035em; }
 .v2-h1 { font-size: clamp(2.6rem, 6.6vw, 5.4rem); line-height: 0.96; font-weight: 500; letter-spacing: -0.055em; margin: 0; }
-.v2-h2 { font-size: clamp(2rem, 4.4vw, 3.4rem); line-height: 1; font-weight: 500; letter-spacing: -0.055em; margin: 0; }
-.v2 h3 { font-size: 1.4rem; font-weight: 500; margin-bottom: 6px; }
+.v2-h2 { font-size: clamp(2.1rem, 4.6vw, 3.55rem); line-height: .94; font-weight: 500; letter-spacing: -0.055em; margin: 0; }
+.v2 h3 { font-size: 1.47rem; line-height: 1.15; font-weight: 500; margin-bottom: 6px; }
 .v2-meta { font-family: var(--mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.02em; color: var(--mut); display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; }
 .v2-meta-hl { color: var(--accent-strong); }
 
@@ -295,8 +295,9 @@
 /* Étude de cas B : fiche technique (image bord à bord + spécifications). */
 .v2-spec { display: grid; grid-template-columns: 1.35fr 1fr; }
 /* Visuels 16:9 (mockups avec logo en coin) : affichés entiers, centrés, jamais rognés par la hauteur de la ligne */
-.v2-spec-img { overflow: hidden; background: var(--soft); border-right: 1px solid var(--line); min-height: 420px; display: flex; align-items: center; }
-.v2-spec-img img { width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; display: block; transition: transform .6s var(--ease); }
+/* Visuels 3:2 avec logo et appareils dans une zone sûre (brand/mockup) : ils remplissent la colonne sans bandes. */
+.v2-spec-img { position: relative; overflow: hidden; background: var(--soft); border-right: 1px solid var(--line); min-height: 420px; }
+.v2-spec-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s var(--ease); }
 .v2-spec:hover .v2-spec-img img { transform: scale(1.02); }
 .v2-spec-body { padding: 28px var(--pad); display: flex; flex-direction: column; gap: 22px; justify-content: space-between; align-items: flex-start; }
 .v2-spec-body .v2-mut { font-size: .95rem; }
@@ -350,7 +351,7 @@
 
 @media (max-width: 900px) {
   .v2-spec, .v2-posts { grid-template-columns: 1fr; }
-  .v2-spec-img { min-height: 240px; border-right: 0; border-bottom: 1px solid var(--line); }
+  .v2-spec-img { min-height: 0; aspect-ratio: 3 / 2; border-right: 0; border-bottom: 1px solid var(--line); }
   .v2-posts-main { border-right: 0; border-bottom: 1px solid var(--line); }
   .v2-proofs { grid-template-columns: 1fr 1fr; }
   .v2-proofs > div:nth-child(3) { border-left: 0; }

@@ -8,6 +8,7 @@ import Layout from '../../layouts/Layout.astro';
 import Nav from '../../components/v2/Nav.astro';
 import Dock from '../../components/v2/Dock.astro';
 import Footer from '../../components/v2/Footer.astro';
+import DitherBg from '../../components/v2/DitherBg.tsx';
 import '../../styles/v2.css';
 import { SITE_URL } from '../../data/schema';
 import type { JSONLDSchema } from '../../lib/seo';
@@ -107,26 +108,30 @@ const schemas = [caseStudySchema];
               <span>{isSide ? 'Side-project' : categoryLabels[d.project.category]}</span><span>{date}</span>
             </p>
             <h1 class="v2-h1" data-chars>{d.title}</h1>
-            <p class="cas-c-lead">{d.description}</p>
-            {d.tags.length > 0 && <p class="v2-meta cas-c-tags">{d.tags.map((t) => <span>{t}</span>)}</p>}
+            <div class="cas-c-sub">
+              <p class="cas-c-lead">{d.description}</p>
+              {d.tags.length > 0 && <p class="v2-meta cas-c-tags">{d.tags.map((t) => <span>{t}</span>)}</p>}
+            </div>
           </div>
-          <div class="cas-c-key v2-dots v2-teal" data-spot>
-            <i class="v2-dots-glow" aria-hidden="true"></i>
-            {d.status && <p class="v2-meta"><span><i class="v2-live"></i>{statusLabels[d.status]}</span></p>}
+          <div class="cas-c-key v2-teal">
+            <div class="cas-c-shader" aria-hidden="true"><DitherBg client:visible back="#00D9A3" front="#7FF0CF" /></div>
             {key ? (
-              <div>
+              <div class="cas-c-stat">
                 <b data-count-to={countable(key.value) ? key.value : undefined}>{key.value}</b>
                 <p>{key.label}</p>
               </div>
             ) : (
-              <div><b>{d.project.duration}</b><p>Durée du projet</p></div>
+              <div class="cas-c-stat"><b>{d.project.duration}</b><p>Durée du projet</p></div>
             )}
-            {(d.liveUrl || d.client?.website) && (
-              <div class="cas-c-links">
-                {d.liveUrl && <a href={d.liveUrl} target="_blank" rel="noopener noreferrer" class="v2-btn v2-btn-sm"><span data-roll>Voir le projet en ligne</span> <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>}
-                {d.client?.website && d.client.website !== d.liveUrl && <a href={d.client.website} target="_blank" rel="noopener noreferrer" class="v2-btn v2-btn-sm v2-btn-ghost"><span data-roll>Site client</span> <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>}
-              </div>
-            )}
+            <div class="cas-c-aside">
+              {d.status && <p class="v2-meta"><span><i class="v2-live"></i>{statusLabels[d.status]}</span></p>}
+              {(d.liveUrl || d.client?.website) && (
+                <div class="cas-c-links">
+                  {d.liveUrl && <a href={d.liveUrl} target="_blank" rel="noopener noreferrer" class="v2-btn v2-btn-sm"><span data-roll>Voir le projet en ligne</span> <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>}
+                  {d.client?.website && d.client.website !== d.liveUrl && <a href={d.client.website} target="_blank" rel="noopener noreferrer" class="v2-btn v2-btn-sm v2-btn-ghost"><span data-roll>Site client</span> <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>}
+                </div>
+              )}
+            </div>
           </div>
           <dl class="cas-c-band">
             {band.map(([k, v]) => <div><dt>{k}</dt><dd>{v}</dd></div>)}
@@ -350,19 +355,23 @@ const schemas = [caseStudySchema];
 </script>
 
 <style is:global>
-  .cas-c-hero { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); }
-  .cas-c-title { padding: clamp(48px, 7vw, 88px) var(--pad) clamp(40px, 5vw, 64px); display: grid; gap: 28px; align-content: end; border-right: 1px solid var(--line); min-width: 0; }
-  .v2 .cas-c-title .v2-h1 { font-size: clamp(2.6rem, 7.4vw, 6.4rem); line-height: .92; overflow-wrap: break-word; }
+  /* En-tête : titre pleine largeur, puis bandeau teal animé (chiffre clé + liens), fiche et sommaire. */
+  .cas-c-hero { display: grid; grid-template-columns: minmax(0, 1fr); }
+  .cas-c-title { padding: clamp(44px, 6vw, 80px) var(--pad) clamp(32px, 4vw, 48px); display: grid; gap: 24px; min-width: 0; }
+  .v2 .cas-c-title .v2-h1 { font-size: clamp(2.4rem, 5.4vw, 4.6rem); line-height: .94; max-width: 22ch; overflow-wrap: break-word; }
+  .cas-c-sub { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 16px 48px; align-items: end; }
   .v2 .cas-c-back:hover { color: var(--ink); }
   .v2 .cas-c-back { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; }
   .v2 .cas-c-lead { max-width: 36rem; color: var(--mut); font-size: 1.1rem; }
-  .v2 .cas-c-tags { gap: 6px; }
+  .v2 .cas-c-tags { gap: 6px; justify-content: flex-end; }
   .cas-c-tags span { border: 1px solid var(--line); border-radius: var(--r); padding: 3px 8px; }
-  .cas-c-key { position: relative; padding: 32px var(--pad); display: flex; flex-direction: column; justify-content: space-between; gap: 32px; min-width: 0; }
-  .cas-c-key > * { position: relative; }
-  .cas-c-key b { display: block; font-family: var(--display); font-weight: 500; font-size: clamp(2.8rem, 5.6vw, 5.4rem); letter-spacing: -0.06em; line-height: .9; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
-  .v2 .cas-c-key b + p { margin-top: 10px; font-size: 1.05rem; }
+  .cas-c-key { position: relative; isolation: isolate; overflow: hidden; padding: clamp(28px, 4vw, 44px) var(--pad); display: flex; justify-content: space-between; align-items: flex-end; gap: 24px 48px; flex-wrap: wrap; min-height: 230px; border-top: 1px solid var(--line); }
+  .cas-c-shader { position: absolute; inset: 0; z-index: -1;
+    -webkit-mask: linear-gradient(100deg, rgba(0,0,0,.2) 15%, #000 70%); mask: linear-gradient(100deg, rgba(0,0,0,.2) 15%, #000 70%); }
+  .cas-c-key b { display: block; font-family: var(--display); font-weight: 500; font-size: clamp(3rem, 7vw, 6.4rem); letter-spacing: -0.06em; line-height: .9; overflow-wrap: anywhere; font-variant-numeric: tabular-nums; }
+  .v2 .cas-c-key b + p { margin-top: 10px; font-size: 1.05rem; max-width: 28rem; }
   .v2 .cas-c-key .v2-meta { color: var(--ink); }
+  .cas-c-aside { display: grid; gap: 16px; justify-items: end; }
   .cas-c-links { display: flex; flex-wrap: wrap; gap: 8px; }
   .cas-c-band { grid-column: 1 / -1; margin: 0; display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); border-top: 1px solid var(--line); }
   .cas-c-band > div { padding: 16px var(--pad) 18px; display: grid; gap: 6px; align-content: start; font-size: .88rem; line-height: 1.4; }
@@ -485,8 +494,9 @@ const schemas = [caseStudySchema];
   .cas-c-next a:hover img { opacity: 1; translate: 0 -50%; }
 
   @media (max-width: 900px) {
-    .cas-c-hero { grid-template-columns: minmax(0, 1fr); }
-    .cas-c-title { border-right: 0; border-bottom: 1px solid var(--line); }
+    .cas-c-sub { grid-template-columns: minmax(0, 1fr); }
+    .v2 .cas-c-tags { justify-content: flex-start; }
+    .cas-c-aside { justify-items: start; }
     .cas-c-band { grid-auto-flow: row; grid-template-columns: 1fr 1fr; }
     .cas-c-band > div + div { border-left: 0; }
     .cas-c-band > div { border-bottom: 1px solid var(--line); }
