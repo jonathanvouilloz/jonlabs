@@ -22,4 +22,7 @@ export const portfolioServiceLinks: Record<string, ServiceLink> = {
   'gestion-camps-budget': { label: 'Application sur mesure', href: '/services/application-sur-mesure' },
   'nooria': { label: 'Application mobile', href: '/services/developpement-application-mobile' },
   'wildcat-muay-thai': { label: 'Création de site web', href: '/services/creation-site-web' },
+  'barnaby': { label: 'Application sur mesure', href: '/services/application-sur-mesure' },
+  'inkmesh': { label: 'Application sur mesure', href: '/services/application-sur-mesure' },
+  'quikform': { label: 'Agent IA sur mesure', href: '/hermes' },
 };

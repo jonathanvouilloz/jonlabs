@@ -291,7 +291,7 @@
 
 /* Étude de cas B : fiche technique (image bord à bord + spécifications). */
 /* Fiche de résultats : le chiffre en grand, pas en étiquette */
-.v2-kv-roi > div { grid-template-columns: 96px 1fr; align-items: baseline; }
+.v2-kv-roi > div { grid-template-columns: minmax(96px, auto) 1fr; align-items: baseline; }
 .v2-kv-roi dt { font-family: var(--display); font-size: 1.35rem; letter-spacing: -0.03em; text-transform: none; color: var(--ink); padding: 0; white-space: nowrap; }
 .v2-spec { display: grid; grid-template-columns: 1.35fr 1fr; }
 /* Visuels 16:9 (mockups avec logo en coin) : affichés entiers, centrés, jamais rognés par la hauteur de la ligne */
