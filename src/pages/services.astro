@@ -12,12 +12,13 @@ import '../styles/v2.css';
 import { serviceSections } from '../data/service-sections';
 import { pricing } from '../data/pricing';
 import { mainNav } from '../data/navigation';
-import { villesFrontalieres } from '../data/villes-frontalieres';
+import { villesSuisseIA } from '../data/villes-suisse-ia';
+import { villesMobile } from '../data/villes-mobile';
 import { servicesListData, SITE_URL } from '../data/schema';
 import { getWebPageSchema, getBreadcrumbSchema } from '../lib/seo';
 
-const pageTitle = "Services de développement web à Genève — Jon Labs";
-const pageDescription = "Freelance à Genève : systèmes IA sur mesure, sites web et applications mobiles pour les PME de Suisse romande. Devis gratuit, réponse sous 24h.";
+const pageTitle = "Systèmes IA, sites web et apps mobiles à Genève";
+const pageDescription = "Systèmes IA sur mesure, sites web et apps mobiles pour les PME de Suisse romande. Freelance à Genève, réponse sous 24 h.";
 
 const webPageSchema = getWebPageSchema({
   url: `${SITE_URL}/services`,
@@ -25,7 +26,7 @@ const webPageSchema = getWebPageSchema({
   description: pageDescription
 });
 const breadcrumbSchema = getBreadcrumbSchema([
-  { name: "Accueil", url: SITE_URL },
+  { name: "Accueil", url: `${SITE_URL}/` },
   { name: "Services", url: `${SITE_URL}/services` }
 ]);
 const schemas = [servicesListData, webPageSchema, breadcrumbSchema];
@@ -36,10 +37,15 @@ const price: Record<string, string> = { ia: pricing.agentIA.display, 'site-web':
 const label: Record<string, string> = { ia: 'Systèmes IA', 'site-web': 'Sites web', 'app-mobile': 'Apps mobiles' };
 // Liens « Par métier » du méga-menu Systèmes IA (data/navigation.ts).
 const metiers = mainNav.find((s) => s.label === 'IA & Automatisation')?.columns?.find((c) => c.title === 'Par métier')?.items ?? [];
-const villes = ['Genève', 'Lausanne', 'Vevey', 'Montreux', 'Sion', 'Nyon', 'Morges', 'Annemasse', 'Saint-Julien'];
+// Villes sans page dédiée (texte) ; celles qui en ont une sont liées plus bas avec une ancre mot-clé.
+const villes = ['Genève', 'Vevey', 'Montreux', 'Sion', 'Nyon', 'Morges', 'Saint-Julien'];
+const villeLinks = [
+  ...villesSuisseIA.map((v) => ({ href: `/consultant-ia/${v.slug}`, t: `Consultant IA à ${v.nom}` })),
+  ...villesMobile.map((v) => ({ href: `/services/developpement-application-mobile/${v.slug}`, t: `Application mobile à ${v.nom}` })),
+];
 const resources = [
   { href: '/guides/mettre-en-place-ia-entreprise-guide', k: 'Guide', title: "Mettre en place l'IA en entreprise", teaser: 'Par où commencer, quoi automatiser, comment garder la main : le guide complet pour une PME.' },
-  { href: '/blog/logiciel-sur-mesure-vs-saas', k: 'Article', title: 'Logiciel sur mesure ou SaaS ?', teaser: 'Quand un outil du marché suffit, et quand développer le tien devient rentable.' },
+  { href: '/blog/logiciel-sur-mesure-vs-saas', k: 'Article', title: 'Logiciel sur mesure ou SaaS ?', teaser: 'Quand un outil du marché suffit, et quand développer le vôtre devient rentable.' },
   { href: '/blog/geo-seo-ia', k: 'Guide', title: 'Apparaître dans les IA en 2026', teaser: 'Le guide complet pour exister dans ChatGPT, Claude, Perplexity, Gemini, Copilot et Grok.' },
   { href: '/blog/prix-site-web-suisse-2026', k: 'Article', title: 'Combien coûte un site web en Suisse ?', teaser: 'Un guide transparent des fourchettes en CHF, sans bullshit ni clauses cachées.' },
 ];
@@ -48,7 +54,6 @@ const resources = [
 <Layout title={pageTitle} description={pageDescription} schemas={schemas}>
   <Fragment slot="head">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" />
   </Fragment>
 
   <div class="v2">
@@ -59,7 +64,7 @@ const resources = [
       <header class="r"><div class="w v2-head v2-head-2">
         <div>
           <p class="v2-meta">Services · Genève et Suisse romande</p>
-          <h1 class="v2-h1 sv-n-h1" data-words>Systèmes IA,<br /><span class="v2-dim">sites et apps.</span></h1>
+          <h1 class="v2-h1 sv-n-h1" data-words>Systèmes IA, sites web<br /><span class="v2-dim">et apps mobiles à Genève.</span></h1>
         </div>
         <div class="sv-n-intro">
           <p class="v2-head-p">Un premier appel gratuit pour cadrer, un devis clair, une réponse sous 24&nbsp;h.</p>
@@ -69,7 +74,13 @@ const resources = [
         </div>
       </div></header>
 
-      <section class="r" aria-label="Ce que je construis"><Bento /></section>
+      <section class="r" aria-labelledby="sv-n-build">
+        <div class="w v2-head v2-head-2">
+          <h2 class="v2-h2" id="sv-n-build" data-words>Ce que je construis.</h2>
+          <p class="v2-head-p">Systèmes IA, sites web et applications mobiles : le détail de chaque service plus bas.</p>
+        </div>
+        <Bento />
+      </section>
 
       {sections.map((s, i) => (
         <section class="r" id={s.id} aria-labelledby={`sv-n-${s.id}`}><div class="w sv-n-svc">
@@ -88,7 +99,7 @@ const resources = [
                 <h3>{sub.title}</h3>
                 <p class="v2-mut">{sub.description}</p>
                 <ul class="v2-price-list">{sub.features.map((f) => <li>{f}</li>)}</ul>
-                <a href={sub.link ?? '/contact'} class="v2-a sv-n-more">{sub.ctaText} <i class="ri-arrow-right-line" aria-hidden="true"></i></a>
+                {sub.link && <a href={sub.link} class="v2-a sv-n-more">{sub.ctaText} <i class="ri-arrow-right-line" aria-hidden="true"></i></a>}
               </article>
             ))}
             {s.id === 'ia' && metiers.length > 0 && (
@@ -117,8 +128,8 @@ const resources = [
           <p class="v2-mut">Basé à Genève, je travaille avec des clients de toute la Suisse romande (Vaud, Valais, Fribourg, Neuchâtel, Jura) et de la zone frontalière française (Haute-Savoie, Pays de Gex). Échanges en visio, déplacements ponctuels possibles à Genève et Lausanne.</p>
           <p class="v2-meta">{villes.map((v) => <span>{v}</span>)}</p>
           <div class="sv-n-geo">
-            <p class="v2-meta">Pages dédiées · zone frontalière</p>
-            <div>{villesFrontalieres.map((v) => <a href={`/consultant-ia/${v.slug}`} class="v2-a">{v.nom}</a>)}</div>
+            <p class="v2-meta">Pages dédiées</p>
+            <div>{villeLinks.map((v) => <a href={v.href} class="v2-a">{v.t}</a>)}</div>
           </div>
           <a href="/developpeur-web-freelance-geneve" class="v2-btn v2-btn-ghost v2-btn-sm"><span data-roll>Développeur web freelance à Genève</span></a>
         </div>

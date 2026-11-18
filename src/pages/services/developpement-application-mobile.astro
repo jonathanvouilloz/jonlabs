@@ -4,12 +4,12 @@
 // /services/developpement-application-mobile/geneve est fusionnée ici (301) : seule Lausanne reste en déclinaison.
 import ServicePage from '../../components/v2/ServicePage.astro';
 import { serviceSchemas, SITE_URL, localBusinessData } from '../../data/schema';
-import { getFAQPageSchema, getBreadcrumbSchema } from '../../lib/seo';
+import { getFAQPageSchema, getBreadcrumbSchema, getWebPageSchema } from '../../lib/seo';
 import { pricing } from '../../data/pricing';
 
 const seoData = {
     title: "Développement d'application mobile en Suisse romande",
-    description: "Développement d'application mobile à Genève, Lausanne et en Suisse romande, l'alternative à l'agence : app iPhone et Android, publiée sur les stores. Sur devis, en CHF."
+    description: "Développement d'application mobile iPhone et Android à Genève et en Suisse romande, publiée sur les stores. Devis en CHF."
 };
 
 const faqs = [
@@ -23,6 +23,7 @@ const faqs = [
 
 const schemas: any[] = [
     serviceSchemas["developpement-application-mobile"],
+    getWebPageSchema({ url: `${SITE_URL}/services/developpement-application-mobile`, name: seoData.title, description: seoData.description }),
     getBreadcrumbSchema([
         { name: "Accueil", url: SITE_URL },
         { name: "Services", url: `${SITE_URL}/services` },
@@ -41,7 +42,7 @@ const cal = { href: "https://cal.com/jonathan-vouilloz/appel-de-bienvenue", labe
     schemas={schemas}
     head={{
         kicker: "App mobile · basé à Genève, service en Suisse romande",
-        h1: "Votre application mobile iOS & Android,",
+        h1: "Développement d'application mobile iOS & Android,",
         dim: "sans passer par une agence.",
         lead: "Une app iPhone et Android pour vos clients ou votre équipe, de l'idée à la publication sur les stores. Un seul interlocuteur, basé à Genève.",
         cta: cal,
@@ -50,21 +51,20 @@ const cal = { href: "https://cal.com/jonathan-vouilloz/appel-de-bienvenue", labe
     sections={[
         {
             id: "problemes", kicker: "01 · Situations", title: "Vous vous", dim: "reconnaissez ?",
-            text: "Une bonne app mobile, c'est d'abord une bonne décision : quoi construire, et surtout quoi ne pas construire.",
+            text: "Une bonne app mobile, c'est d'abord une bonne décision : quoi construire, et surtout quoi ne pas construire. <strong>On commence petit, on grandit ensuite.</strong> Les projets qui dérapent construisent trop, trop tôt. Ici, on sort d'abord le cœur de votre app, puis on ajoute seulement si vos utilisateurs suivent. Et parfois la bonne réponse n'est pas une app : voir <a href=\"/blog/application-mobile-ou-pwa\">application mobile ou PWA</a>.",
             subs: [
                 { title: "Vos clients réclament une app", text: "Pour réserver, suivre une commande ou recevoir une notification. Un site ne suffit plus." },
                 { title: "Le devis d'agence vous a refroidi", text: "60 000 CHF, 8 mois et trois interlocuteurs. Il y a forcément plus simple." },
                 { title: "Vous ne savez pas ce qu'il vous faut", text: "App, site mobile, application installable… Vous voulez un avis franc avant de dépenser." },
                 { title: "Votre app est à l'abandon", text: "Elle plante, elle n'est plus à jour, et votre prestataire a disparu." },
-                { meta: "L'approche", title: "On commence petit, on grandit ensuite.", text: "Les projets qui dérapent construisent trop, trop tôt. Ici, on sort d'abord le cœur de votre app, puis on ajoute seulement si vos utilisateurs suivent. Et parfois la bonne réponse n'est pas une app : voir <a href=\"/blog/application-mobile-ou-pwa\">application mobile ou PWA</a>." },
             ],
         },
         {
             id: "resultats", kicker: "02 · Résultats", title: "Ce que vous", dim: "obtenez.",
             subs: [
-                { title: "Une vraie app sur les stores", text: "Pas une maquette : une app que vos clients téléchargent et utilisent." },
+                { title: "Une vraie app sur les stores", text: "Pas une maquette : une app que vos clients téléchargent et utilisent. Le parcours complet : <a href=\"/blog/sortir-application-mobile-app-store\">sortir une application mobile sur l'App Store</a>." },
                 { title: "iPhone et Android", text: "Les deux, sans payer deux développements." },
-                { title: "Branchée sur vos outils", text: "Agenda, facturation, fichier clients : l'app parle à ce que vous utilisez déjà." },
+                { title: "Branchée sur vos outils", text: "Agenda, facturation, fichier clients : l'app parle à ce que vous utilisez déjà. Elle peut aussi s'appuyer sur un <a href=\"/hermes\">agent IA sur mesure</a>." },
                 { title: "Prête à grandir", text: "On ajoute des fonctionnalités quand vos utilisateurs en redemandent." },
                 { title: "Un avis honnête", text: "Si un site ou une app plus simple suffit, je vous le dis." },
                 { meta: "Ce qui change avec Jon Labs", title: "Un seul interlocuteur, une app à vous", features: ["Un seul interlocuteur : vous parlez à celui qui fait l'app", "iPhone et Android en même temps : vous ne payez pas deux fois", "Données protégées selon la loi suisse (nLPD)", "L'app est à vous : publiée à votre nom, sans dépendance"] },
@@ -82,7 +82,7 @@ const cal = { href: "https://cal.com/jonathan-vouilloz/appel-de-bienvenue", labe
         {
             id: "about", kicker: "04 · À propos", title: "Qui est derrière", dim: "Jon Labs ?",
             subs: [
-                { title: "Jonathan, développeur basé à Genève", text: "Je fais votre app moi-même, je la publie, et je vous aide à trancher quand il faut faire des choix. Mon approche : une app utile entre les mains de vos utilisateurs vaut mieux qu'un projet parfait qui ne sort jamais. Encore un doute ? <a href=\"/blog/freelance-ou-agence-application-mobile\">Freelance ou agence pour une application mobile</a>.", link: { href: "/about", label: "En savoir plus sur mon parcours" } },
+                { title: "Jonathan, développeur basé à Genève", text: "Je fais votre app moi-même, je la publie, et je vous aide à trancher quand il faut faire des choix. Mon approche : une app utile entre les mains de vos utilisateurs vaut mieux qu'un projet parfait qui ne sort jamais. Encore un doute ? <a href=\"/blog/freelance-ou-agence-application-mobile\">Freelance ou agence pour une application mobile</a>.", link: { href: "/about", label: "Mon parcours de développeur à Genève" } },
                 { meta: "Local", title: "Basé à Genève, disponible partout en Suisse romande", text: "Tout peut se faire à distance : échanges, démos et tests sur votre téléphone. Si vous préférez vous voir pour le cadrage, je suis disponible à Genève et environs.", features: ["Genève (basé sur place)", "Lausanne", "Vaud", "Toute la Suisse romande"] },
             ],
         },
@@ -99,7 +99,7 @@ const cal = { href: "https://cal.com/jonathan-vouilloz/appel-de-bienvenue", labe
     }}
     cases={{
         title: "Des apps", dim: "déjà publiées.",
-        text: "Ou l'ensemble de mes <a href=\"/portfolio\">réalisations</a>.",
+        text: "Ou l'ensemble de <a href=\"/portfolio\">mes applications publiées</a>.",
         slugs: ["nooria", "isla-plomo"],
     }}
     links={[
@@ -111,7 +111,7 @@ const cal = { href: "https://cal.com/jonathan-vouilloz/appel-de-bienvenue", labe
         },
         {
             title: "Tout comprendre", dim: "avant de vous lancer.",
-            text: "Pour vous faire votre avis avant un devis, commencez par le <a href=\"/blog/developper-application-mobile-suisse\">guide complet</a>.",
+            text: "Pour vous faire votre avis avant un devis, commencez par le <a href=\"/blog/developper-application-mobile-suisse\">guide pour développer une application mobile en Suisse</a>. Pour un outil interne à votre équipe plutôt qu'une app sur les stores, voyez l'<a href=\"/services/application-sur-mesure\">application sur mesure</a>.",
             items: [
                 { href: "/blog/application-mobile-pme-suisse", k: "Décider", label: "App mobile pour PME : vaut-il le coup ?" },
                 { href: "/blog/application-mobile-ou-pwa", k: "Décider", label: "Application mobile ou PWA : comment choisir ?" },
@@ -125,6 +125,6 @@ const cal = { href: "https://cal.com/jonathan-vouilloz/appel-de-bienvenue", labe
             ],
         },
     ]}
-    faq={faqs}
+    faq={{ title: "Questions sur le développement d'application mobile.", items: faqs }}
     contact="En 30 minutes, on regarde votre projet et je vous dis honnêtement ce qu'il vous faut, et combien ça coûterait."
 />

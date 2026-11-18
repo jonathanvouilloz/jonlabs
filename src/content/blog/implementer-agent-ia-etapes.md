@@ -130,7 +130,7 @@ Non. Traiter plusieurs cas d'usage en parallèle dilue l'attention du référent
 
 Déployer un agent IA suit une mécanique simple sur 8 semaines : cadrer un seul cas d'usage, construire et tester sur des données réelles, installer un référent interne à temps partiel, puis généraliser à l'équipe. Le budget associé démarre à CHF 2'500 pour un agent simple et reste lisible du début à la fin.
 
-Si ton entreprise hésite encore entre attendre et se lancer, la feuille de route ci-dessus donne un cadre concret pour trancher sans attendre un hypothétique moment idéal. Un [accompagnement structuré avec un consultant IA](/consultant-ia) permet de caler ce calendrier sur la réalité de ton équipe avant de démarrer la semaine 1.
+Si ton entreprise hésite encore entre attendre et se lancer, la feuille de route ci-dessus donne un cadre concret pour trancher sans attendre un hypothétique moment idéal. Un [accompagnement structuré avec un consultant IA](/consultant-ia) permet de caler ce calendrier sur la réalité de ton équipe avant de démarrer la semaine 1. Et si tu préfères partir d'une base déjà éprouvée, l'[agent IA sur mesure Hermès](/hermes) tourne en 2 à 3 semaines sur une première tâche.
 
 [**Cadrer ton projet d'agent IA →**](/contact?utm_source=blog&utm_medium=article&utm_campaign=implementer-agent-ia-etapes)
 

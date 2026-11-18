@@ -147,7 +147,7 @@ Ensuite, dans l'ordre :
 
 Ce prompt se colle dans Claude Code, sur le serveur, crochets remplis. Il ne recopie pas Wildcat : il décrit ton entreprise, ta boîte et tes sources, et demande à Claude de s'adapter à ce qui tourne déjà sur ta machine.
 
-> **Tu ne veux pas le monter toi-même ?** Serveur, wiki, réglages, deux semaines de rodage : c'est exactement le genre de projet que je mets en place pour des entreprises. [Discuter de votre projet](/contact?utm_source=blog&utm_medium=article&utm_campaign=agent-ia-repondre-mails-clients-prompt)
+> **Tu ne veux pas le monter toi-même ?** Serveur, wiki, réglages, deux semaines de rodage : c'est exactement le genre de projet que je mets en place pour des entreprises, avec mon [agent IA sur mesure Hermès](/hermes). [Discuter de votre projet](/contact?utm_source=blog&utm_medium=article&utm_campaign=agent-ia-repondre-mails-clients-prompt)
 
 ```text
 Objectif : un assistant mail pour [ENTREPRISE], construit sur un agent Hermès qui tourne en continu.

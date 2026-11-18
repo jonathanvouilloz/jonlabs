@@ -34,11 +34,15 @@ export interface DcPage {
   /** suite du H1, en gris sur une 2e ligne (le texte du H1 reste continu) */
   h1Dim?: string;
   lead: string;
+  /** phrase sous le lead, liens à ancre mot-clé vers les piliers : segments de texte, `href` = segment lié */
+  pillarLink?: { text: string; href?: string }[];
   trust: string[];
   price?: { label: string; value: string };
   ctaLabel: string;
   sections: DcSection[];
   faqs: { question: string; answer: string }[];
+  /** titre H2 de la FAQ (sinon celui par défaut du composant Faq) */
+  faqTitle?: string;
   links: DcLink[];
   cta: { title: string; dim?: string; text: string };
   /** schémas en plus de WebPage / BreadcrumbList / FAQPage (Service, LocalBusiness…) */

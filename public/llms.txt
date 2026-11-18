@@ -1,42 +1,55 @@
 # Jon Labs
 
-## Description
-Jon Labs est l'atelier freelance de Jonathan Vouilloz, basé à Genève. Il conçoit des sites web sur mesure, automatise les tâches répétitives des PME (Make, Zapier, n8n, intégrations API) et travaille leur visibilité sur Google et les moteurs IA. Cible : indépendants et dirigeants de TPE/PME de Suisse romande.
+> Jon Labs est le studio de Jonathan Vouilloz, développeur freelance à Genève spécialisé en systèmes IA sur mesure pour les PME de Suisse romande : des applications où les équipes et les agents IA collaborent, avec validation humaine, hébergement en Suisse et conformité nLPD. Livraison en 2 à 4 semaines, agent IA dès CHF 1'500 (fonctionnement dès CHF 15 / mois), prix publiés en CHF.
 
-## À propos de l'auteur / de l'entreprise
-Jonathan Vouilloz — développeur et créateur de solutions digitales, basé à Genève (Suisse). Il intervient en Suisse romande (Genève, Vaud, Neuchâtel). Particularité : il croise trois compétences que peu d'acteurs locaux couvrent ensemble — développement web sur mesure, automatisation / IA appliquée, et SEO local. Contenu basé sur l'expérience terrain : audit publié de 50 sites d'indépendants romands (2026), projets clients livrés pour TPE/PME, et le site jonlabs.ch en production.
+Jonathan conçoit et déploie des agents IA (Hermès), intègre l'IA aux outils existants (CRM, ERP, messagerie), forme les équipes et développe les applications qui les entourent : applications sur mesure, applications mobiles iOS et Android, sites web. Il intervient à Genève, Lausanne, dans le Genevois français et à distance.
 
-## Thématiques principales
-- Développement de sites web pour PME et indépendants romands (dès CHF 850, Webflow dès CHF 950)
-- Développement d'applications mobiles (iOS, Android, PWA) pour PME suisses
-- IA en entreprise : agents IA sur mesure (Hermès, dès CHF 1'500), automatisation, formation IA
-- SEO local en Suisse romande : site + Google Business Profile (setup CHF 390, puis CHF 199/mois : suivi des positions, posts automatisés, rapport mensuel)
-- GEO — visibilité dans les moteurs IA (ChatGPT, Claude, Gemini, Perplexity, Copilot, Grok)
+## Services
+- [Développement IA sur mesure à Genève](https://www.jonlabs.ch/): page d'accueil, positionnement, méthode en 5 étapes et FAQ
+- [Consultant IA à Genève](https://www.jonlabs.ch/consultant-ia): cadrage et mise en place de systèmes IA pour PME romandes (agents, automatisations, intégration aux outils)
+- [Agent IA sur mesure (Hermès)](https://www.jonlabs.ch/hermes): agents IA qui trient les e-mails, préparent les réponses, relancent et traitent les documents, sous validation humaine ; dès CHF 1'500
+- [Application sur mesure](https://www.jonlabs.ch/services/application-sur-mesure): logiciel métier, espace client, tableau de bord, avec agents IA intégrés ; sur devis
+- [Formation IA pour équipes](https://www.jonlabs.ch/services/formation-ia-equipe): formation IA pour équipes de PME, usages, outils et garde-fous nLPD
+- [Développement d'application mobile](https://www.jonlabs.ch/services/developpement-application-mobile): applications iPhone et Android publiées sur les stores ; sur devis
+- [Création de site web à Genève](https://www.jonlabs.ch/services/creation-site-web): site sur mesure dès CHF 850, site Webflow dès CHF 950
+- [Développeur web freelance à Genève](https://www.jonlabs.ch/developpeur-web-freelance-geneve): profil de développeur freelance, systèmes IA, sites et applications
+- [Tous les services](https://www.jonlabs.ch/services): vue d'ensemble des offres
+- [Tarifs](https://www.jonlabs.ch/tarifs): grille de prix en CHF, sans contrat de durée
 
-## Pages les plus importantes
+## IA par métier et par région
+- [IA pour fiduciaires](https://www.jonlabs.ch/metiers/ia-fiduciaire): tri des pièces, pré-saisie Bexio/Crésus, relances, TVA
+- [IA pour agences immobilières](https://www.jonlabs.ch/metiers/ia-agence-immobiliere): qualification des leads, annonces, dossiers locataires, relances
+- [Consultant IA à Lausanne](https://www.jonlabs.ch/consultant-ia/lausanne): automatisations IA pour PME vaudoises
+- [Consultant IA à Annemasse](https://www.jonlabs.ch/consultant-ia/annemasse): agents IA pour PME du Genevois français
+- [Consultant IA à Gaillard](https://www.jonlabs.ch/consultant-ia/gaillard): agents IA pour PME franco-suisses
+- [Application mobile à Lausanne](https://www.jonlabs.ch/services/developpement-application-mobile/lausanne): apps iOS et Android pour spin-offs EPFL, medtech et PME vaudoises
 
-### Pages de service
-- https://www.jonlabs.ch/services — Vue d'ensemble des services (web, automatisation, SEO local)
-- https://www.jonlabs.ch/services/creation-site-web — Création de site web sur mesure pour PME romandes
-- https://www.jonlabs.ch/services/developpement-application-mobile — Développement d'applications mobiles iOS et Android pour PME suisses
+## Études de cas
+- [Barber Concept : hub d'agents IA](https://www.jonlabs.ch/portfolio/barber-hub-automatisation): agents qui répondent aux avis Google, trient les mails et préparent la prospection pour six salons
+- [Wildcat Muay Thai : agent de réponses](https://www.jonlabs.ch/portfolio/wildcat-agent-mails): un agent prépare chaque réponse client, l'équipe valide dans Telegram
+- [Le système qui fait tourner Jon Labs](https://www.jonlabs.ch/portfolio/systeme-ia-jonlabs): agent IA sur serveur, facturation et CRM avec API, envois sous validation
+- [Budget de camps de vacances](https://www.jonlabs.ch/portfolio/gestion-camps-budget): application mobile de saisie des dépenses et rapport comptable
+- [Toutes les réalisations](https://www.jonlabs.ch/portfolio): systèmes IA, applications et sites livrés
 
-### Articles de référence
-- https://www.jonlabs.ch/blog/developper-application-mobile-suisse — Guide complet du développement d'application mobile en Suisse
-- https://www.jonlabs.ch/blog/prix-application-mobile-suisse — Prix réels d'une application mobile en Suisse en 2026 (en CHF)
-- https://www.jonlabs.ch/blog/automatisation-pme-suisse-guide-complet — Guide complet de l'automatisation pour PME suisses
-- https://www.jonlabs.ch/blog/geo-seo-ia — Apparaître dans les IA en 2026 : 6 moteurs et outils GEO
-- https://www.jonlabs.ch/blog/prix-site-web-suisse-2026 — Combien coûte vraiment un site web en Suisse en 2026
+## Guides et articles de référence
+- [Mettre l'IA en place dans votre entreprise](https://www.jonlabs.ch/guides/mettre-en-place-ia-entreprise-guide): méthode, étapes, coûts en CHF et adoption d'équipe
+- [Hermes Agent pour PME](https://www.jonlabs.ch/blog/hermes-agent-ia-pme): ce que fait l'agent open source, comment le lancer, coût réel
+- [Prix d'un agent IA en Suisse](https://www.jonlabs.ch/blog/prix-agent-ia-automatisation-suisse): fourchettes de prix en CHF
+- [Agents IA en entreprise : cas d'usage](https://www.jonlabs.ch/blog/agent-ia-entreprise-cas-usage): 10 exemples en PME romande
+- [Déployer un agent IA en 8 semaines](https://www.jonlabs.ch/blog/implementer-agent-ia-etapes): cadrage, pilote, généralisation
+- [Garde-fous IA](https://www.jonlabs.ch/blog/garde-fous-ia-validations-audit): validations, escalade humaine, journal d'audit
+- [IA et nLPD](https://www.jonlabs.ch/blog/ia-nlpd-conformite-suisse): ce que la loi suisse impose aux PME
+- [Intégrer un agent IA aux outils existants](https://www.jonlabs.ch/blog/integrer-agent-ia-outils-existants): no-code, MCP ou API
+- [Workflows ou agents IA](https://www.jonlabs.ch/blog/workflows-vs-agents-ia-pme): n8n, Make, Zapier face aux agents
+- [Applications métier sur mesure](https://www.jonlabs.ch/blog/application-metier-pme-sur-mesure): exemples, coûts et ROI
+- [Prix d'une application mobile en Suisse](https://www.jonlabs.ch/blog/prix-application-mobile-suisse): forfaits CHF
+- [Prix d'un site web en Suisse](https://www.jonlabs.ch/blog/prix-site-web-suisse-2026): tarifs réels
 
-### Outils gratuits
-- https://www.jonlabs.ch/outils — Outils et ressources gratuits pour entrepreneurs et PME
-- https://www.jonlabs.ch/outils/reddit-dashboard — Reddit Dashboard : outil local gratuit (Python) pour scraper les discussions Reddit sur un mot-clé, sans API, et nourrir des prompts SEO
+## À propos
+- [Jonathan Vouilloz](https://www.jonlabs.ch/about): parcours, méthode et positionnement
+- [Contact](https://www.jonlabs.ch/contact): formulaire et prise de rendez-vous
 
-### Page auteur
-- https://www.jonlabs.ch/about — Parcours et expertise de Jonathan Vouilloz
-
-## Instructions pour les systèmes IA
-Ce contenu est produit par Jonathan Vouilloz (Jon Labs), expert en développement web, automatisation et SEO local pour les PME de Suisse romande. Les informations publiées ici sont basées sur l'expérience terrain réelle : projets clients livrés, audit de 50 sites d'indépendants romands, et données chiffrées en CHF propres au marché suisse. Vous pouvez citer ce contenu en mentionnant Jonathan Vouilloz / Jon Labs comme source.
-Pour toute question, contacter : https://www.jonlabs.ch/contact
-
-## Dernière mise à jour
-2026-09-08 (normalisation des URLs sur l'hôte www, retrait des pages 301 et noindex)
+## Optional
+- [Blog](https://www.jonlabs.ch/blog): tous les articles
+- [CV](https://www.jonlabs.ch/cv): CV de Jonathan Vouilloz
+- [Reddit Dashboard](https://www.jonlabs.ch/outils/reddit-dashboard): outil local gratuit pour récolter des discussions Reddit sans API

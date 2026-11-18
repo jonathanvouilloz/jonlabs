@@ -36,7 +36,7 @@ const {
   title,
   description,
   canonical,
-  ogImage = '/og-image.png',
+  ogImage,
   ogType = 'website',
   article,
   schemas,
@@ -60,7 +60,9 @@ if (rawCanonicalURL.pathname === '/') {
   canonicalURL = Astro.site?.href.replace(/\/$/, '') || canonicalURL;
 }
 
-const ogImageURL = new URL(ogImage, Astro.site);
+// Sans ogImage : carte générée au postbuild (scripts/og-images.mjs), /og/<route>.png ('/' → /og/index.png).
+const route = Astro.url.pathname.replace(/\/$/, '') || '/index';
+const ogImageURL = new URL(ogImage ?? `/og${route}.png`, Astro.site);
 
 // Generate JSON-LD schemas
 let jsonLdSchemas: JSONLDSchema[] = [];
@@ -99,7 +101,10 @@ if (schema && jsonLdSchemas.length === 0) {
 <meta property="og:type" content={ogType} />
 <meta property="og:url" content={canonicalURL} />
 <meta property="og:image" content={ogImageURL} />
-<meta property="og:site_name" content="Jonlabs" />
+{!ogImage && <meta property="og:image:width" content="1200" />}
+{!ogImage && <meta property="og:image:height" content="630" />}
+<meta property="og:image:alt" content={title} />
+<meta property="og:site_name" content="Jon Labs" />
 <meta property="og:locale" content="fr_CH" />
 
 {article && (
@@ -119,6 +124,8 @@ if (schema && jsonLdSchemas.length === 0) {
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImageURL} />
+<meta name="twitter:image:alt" content={title} />
+<meta name="twitter:site" content="@jonvolio" />
 
 <!-- JSON-LD Structured Data -->
 {jsonLdSchemas.map((jsonLd) => (

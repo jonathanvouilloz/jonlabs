@@ -1,5 +1,8 @@
 {
   "trailingSlash": false,
+  "headers": [
+    { "source": "/tools/(.*)", "headers": [{ "key": "X-Robots-Tag", "value": "noindex" }] }
+  ],
   "rewrites": [
     {
       "source": "/jonvolio",
@@ -11,6 +14,14 @@
     }
   ],
   "redirects": [
+    { "source": "/blog/apparaitre-copilot-2026", "destination": "/blog/geo-seo-ia", "permanent": true },
+    { "source": "/blog/apparaitre-perplexity-2026", "destination": "/blog/geo-seo-ia", "permanent": true },
+    { "source": "/blog/apparaitre-gemini-2026", "destination": "/blog/geo-seo-ia", "permanent": true },
+    { "source": "/blog/apparaitre-claude-2026", "destination": "/blog/apparaitre-claude", "permanent": true },
+    { "source": "/blog/apparaitre-chatgpt-geneve-2026", "destination": "/blog/geo-seo-ia", "permanent": true },
+    { "source": "/blog/apparaitre-grok-2026", "destination": "/blog/geo-seo-ia", "permanent": true },
+    { "source": "/blog/geo-seo-ia-2026", "destination": "/blog/geo-seo-ia", "permanent": true },
+    { "source": "/llm.txt", "destination": "/llms.txt", "permanent": true },
     { "source": "/blog/tag/PME", "destination": "/blog/tag/pme", "permanent": true },
     { "source": "/blog/tag/ROI", "destination": "/blog/tag/roi", "permanent": true },
     { "source": "/blog/tag/Flutter", "destination": "/blog/tag/flutter", "permanent": true },

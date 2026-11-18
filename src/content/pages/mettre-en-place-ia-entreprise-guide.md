@@ -1,7 +1,7 @@
 ---
-title: "Mettre l'IA en place dans ton entreprise : le guide"
-h1: "Mettre l'IA en place dans ton entreprise : par où commencer, concrètement"
-description: "Découvre la méthode pour mettre l'IA en place dans ta PME romande : étapes, coûts CHF, outils, adoption d'équipe."
+title: "Mettre l'IA en place dans votre entreprise : le guide"
+h1: "Mettre l'IA en place dans votre entreprise : par où commencer, concrètement"
+description: "Découvrez la méthode pour mettre l'IA en place dans votre PME romande : étapes, coûts en CHF, outils et adoption par l'équipe."
 pubDate: 2026-07-15
 image:
   url: "/images/blog/mettre-en-place-ia-entreprise-guide.webp"
@@ -13,9 +13,9 @@ draft: false
 readingTime: 11
 faqs:
   - question: "Par où commencer concrètement pour mettre l'IA en place ?"
-    answer: "Par la cartographie de tes processus, puis un cas pilote unique testé sur 30 jours avec des KPI définis avant de démarrer. Pas par l'achat d'un outil au hasard."
+    answer: "Par la cartographie de vos processus, puis un cas pilote unique testé sur 30 jours avec des KPI définis avant de démarrer. Pas par l'achat d'un outil au hasard."
   - question: "Combien de temps prend une mise en place complète ?"
-    answer: "Compte 1 à 2 semaines de cartographie, 30 jours pour le pilote, puis 8 semaines pour le rollout complet si le pilote est concluant. Soit 3 à 4 mois pour une première automatisation généralisée à l'équipe."
+    answer: "Comptez 1 à 2 semaines de cartographie, 30 jours pour le pilote, puis 8 semaines pour le rollout complet si le pilote est concluant. Soit 3 à 4 mois pour une première automatisation généralisée à l'équipe."
   - question: "Combien ça coûte en francs suisses ?"
     answer: "Chez Jon Labs, un agent simple démarre à CHF 1'500. Un agent intégré à plusieurs systèmes est chiffré sur devis. S'y ajoute l'hébergement en Suisse, dès CHF 15 par mois selon les fonctionnalités."
   - question: "Faut-il une équipe technique en interne ?"
@@ -23,16 +23,16 @@ faqs:
   - question: "Quels sont les principaux risques d'une mise en place mal cadrée ?"
     answer: "Un cas d'usage trop ambitieux, des données non représentatives, l'absence de KPI définis en amont, et l'absence de garde-fous sur les décisions sensibles."
   - question: "Comment savoir si ça marche vraiment ?"
-    answer: "En mesurant le gain de temps réel avec une formule simple et un coût horaire suisse réaliste, pas en te fiant à une impression."
+    answer: "En mesurant le gain de temps réel avec une formule simple et un coût horaire suisse réaliste, pas en vous fiant à une impression."
   - question: "Faut-il un consultant IA ou peut-on le faire seul ?"
     answer: "Une petite automatisation isolée se cadre parfois seul. Dès que plusieurs processus et systèmes sont concernés, un accompagnement structuré évite les faux départs les plus coûteux."
 ---
 
-Par où commencer quand tu veux **mettre l'IA en place** dans ton entreprise ? Pas par un gros projet. Tu choisis un cas pilote cadré sur 30 jours, tu désignes un référent qui y consacre 10 à 20% de son temps, et tu mesures le gain avant de généraliser. C'est tout. Le reste de ce guide détaille chaque étape, mais la méthode tient en trois phrases.
+Par où commencer quand vous voulez **mettre l'IA en place** dans votre entreprise ? Pas par un gros projet. Vous choisissez un cas pilote cadré sur 30 jours, vous désignez un référent qui y consacre 10 à 20% de son temps, et vous mesurez le gain avant de généraliser. C'est tout. Le reste de ce guide détaille chaque étape, mais la méthode tient en trois phrases.
 
-La majorité des guides que tu trouveras sur **implémenter l'IA dans une PME** viennent de France, et ça se sent. Ils parlent de RGPD, tu es soumis à la nLPD. Ils comptent en euros, tes devis sont en francs suisses. Ils citent des outils que ta fiduciaire n'utilise pas : personne ne te parle de Bexio, de Crésus ou de Sage 50 Suisse. Une méthode pensée pour la France ne se transpose pas telle quelle à une PME de Genève, Lausanne ou Neuchâtel.
+La majorité des guides que vous trouverez sur **implémenter l'IA dans une PME** viennent de France, et ça se sent. Ils parlent de RGPD, vous êtes soumis à la nLPD. Ils comptent en euros, vos devis sont en francs suisses. Ils citent des outils que votre fiduciaire n'utilise pas : personne ne vous parle de Bexio, de Crésus ou de Sage 50 Suisse. Une méthode pensée pour la France ne se transpose pas telle quelle à une PME de Genève, Lausanne ou Neuchâtel.
 
-Ce guide couvre quatre terrains : la méthode de mise en place (cadrer, piloter, déployer), l'automatisation des processus par fonction (facturation, support, emails, prospection, RH), la mesure du gain de temps réel, et l'adoption par l'équipe avec ses garde-fous. Chaque section renvoie vers l'article dédié pour aller plus loin. Si tu veux sauter directement à un accompagnement cadré, la page [consultant IA pour PME romande](/consultant-ia) présente comment on structure ce travail avec toi.
+Ce guide couvre quatre terrains : la méthode de mise en place (cadrer, piloter, déployer), l'automatisation des processus par fonction (facturation, support, emails, prospection, RH), la mesure du gain de temps réel, et l'adoption par l'équipe avec ses garde-fous. Chaque section renvoie vers l'article dédié pour aller plus loin. Si vous voulez sauter directement à un accompagnement cadré, la page [consultant IA pour PME romande](/consultant-ia) présente comment on structure ce travail avec vous.
 
 Ce guide s'adresse à une structure précise : entre **1 et 15 employés**, sans service informatique dédié ni DSI, où le dirigeant tranche lui-même les décisions techniques. Ce profil change tout par rapport aux méthodologies pensées pour de grandes entreprises. Pas de comité de pilotage, pas de budget IT à six chiffres, pas de trimestre entier consacré au cadrage. La méthode qui suit tient compte de cette réalité à chaque étape.
 
@@ -40,9 +40,9 @@ Ce guide s'adresse à une structure précise : entre **1 et 15 employés**, sans
 
 Une mise en place d'IA qui tient la route suit un ordre précis, pas un choix d'outil suivi d'improvisation. Sauter une phase, notamment la cartographie, reste la cause numéro un des projets qui n'aboutissent jamais.
 
-**Phase 1, cartographier.** Avant de choisir quoi que ce soit, tu listes tes processus récurrents (facturation, support, RH, prospection) et tu repères ceux qui ont un volume suffisant, une répétitivité claire et un risque limité en cas d'erreur. Cette étape se fait avec un tableau simple, pas un outil de modélisation type BPMN. Elle prend une heure, pas une semaine, dès que tu sais où regarder. L'article [cartographier ses processus avant d'automatiser](/blog/cartographier-processus-avant-automatiser) détaille la méthode complète.
+**Phase 1, cartographier.** Avant de choisir quoi que ce soit, vous listez vos processus récurrents (facturation, support, RH, prospection) et vous repérez ceux qui ont un volume suffisant, une répétitivité claire et un risque limité en cas d'erreur. Cette étape se fait avec un tableau simple, pas un outil de modélisation type BPMN. Elle prend une heure, pas une semaine, dès que vous savez où regarder. L'article [cartographier ses processus avant d'automatiser](/blog/cartographier-processus-avant-automatiser) détaille la méthode complète.
 
-**Phase 2, piloter.** Tu choisis un seul cas d'usage et tu le testes sur 30 jours, avec 2 à 3 KPI fixés avant de démarrer (temps gagné, taux d'erreur, satisfaction équipe). La majorité des projets pilotes IA n'atteignent jamais la production, faute d'un cas bien choisi ou d'objectifs clairs dès le départ. L'erreur la plus fréquente : viser un cas trop ambitieux pour un premier essai, plutôt qu'un cas modeste mais mesurable. Voir [projet pilote IA : prouver le ROI sur un cas en 30 jours](/blog/projet-pilote-ia-30-jours) pour la méthode anti-échec, pensée pour un dirigeant sans DSI.
+**Phase 2, piloter.** Vous choisissez un seul cas d'usage et vous le testez sur 30 jours, avec 2 à 3 KPI fixés avant de démarrer (temps gagné, taux d'erreur, satisfaction équipe). La majorité des projets pilotes IA n'atteignent jamais la production, faute d'un cas bien choisi ou d'objectifs clairs dès le départ. L'erreur la plus fréquente : viser un cas trop ambitieux pour un premier essai, plutôt qu'un cas modeste mais mesurable. Voir [projet pilote IA : prouver le ROI sur un cas en 30 jours](/blog/projet-pilote-ia-30-jours) pour la méthode anti-échec, pensée pour un dirigeant sans DSI.
 
 **Phase 3, déployer.** Une fois le pilote validé, le rollout complet suit une feuille de route de 8 semaines : semaines 1-2 pour le cadrage, semaines 3-4 pour la construction et les tests en conditions réelles, semaines 5-6 pour installer un référent interne à 10-20% de son temps, semaines 7-8 pour généraliser à toute l'équipe. Le détail semaine par semaine, budget en francs suisses inclus, est dans [déployer un agent IA : la feuille de route semaine par semaine](/blog/implementer-agent-ia-etapes).
 
@@ -58,7 +58,7 @@ L'IA ne s'applique pas de la même façon selon la fonction de l'entreprise qu'e
 
 **Emails et documents.** Trier automatiquement les emails entrants (facture, support, prospection, spam) et router chacun vers la bonne personne, puis interroger sa propre base documentaire sans halluciner grâce au **RAG** (retrieval-augmented generation). L'agent cite toujours le document source ; il n'invente jamais une réponse sur un contrat ou une donnée sensible. Détail dans [trier emails et documents avec l'IA](/blog/automatiser-emails-documents-ia).
 
-**Prospection et CRM.** Enrichissement automatique des leads entrants, scoring selon des critères définis par toi, relances commerciales cadencées avec un arrêt automatique après plusieurs non-réponses. Pas une insistance infinie qui abîme la relation. Connexion possible à des CRM comme HubSpot ou Pipedrive via des outils d'orchestration comme n8n. Voir [automatiser la prospection et le suivi CRM avec l'IA](/blog/automatiser-prospection-crm-ia).
+**Prospection et CRM.** Enrichissement automatique des leads entrants, scoring selon des critères définis par vous, relances commerciales cadencées avec un arrêt automatique après plusieurs non-réponses. Pas une insistance infinie qui abîme la relation. Connexion possible à des CRM comme HubSpot ou Pipedrive via des outils d'orchestration comme n8n. Voir [automatiser la prospection et le suivi CRM avec l'IA](/blog/automatiser-prospection-crm-ia).
 
 **RH et onboarding.** Même sans SIRH, une petite structure peut automatiser les checklists d'onboarding (accès, documents à signer, présentation équipe) et la génération de contrats et attestations à partir de modèles. La règle qui ne bouge pas : relecture humaine systématique avant signature, et traitement renforcé des données RH, particulièrement sensibles au sens de la nLPD. Voir [automatiser RH, onboarding et contrats avec l'IA](/blog/automatiser-rh-onboarding-ia).
 
@@ -68,15 +68,15 @@ En **1985**, une PME suisse passait en moyenne **369 heures par an** sur l'admin
 
 Se lancer sans mesurer, c'est le meilleur moyen de généraliser une automatisation qui ne rapporte rien. La formule de base : (gains moins coût) divisé par coût, avec un coût horaire suisse réaliste entre **60 et 120 CHF/h** selon le profil. Ce chiffre rend le ROI structurellement plus élevé qu'en France, où le coût horaire chargé est nettement plus bas.
 
-Un point d'honnêteté qui manque à la plupart des discours commerciaux : viser une réduction de **70 à 85%** du temps passé, pas 100%. Une automatisation garde toujours une part de supervision, d'exceptions et d'ajustements. Prends un exemple simple : des relances de factures qui prenaient 3 heures par semaine avant automatisation, ramenées à 30 minutes après. Sur une année, à un coût horaire de CHF 70, ça représente un gain qui dépasse largement le coût d'un agent simple (dès CHF 1'500), généralement dès les premiers mois. La méthode de calcul complète, avec l'exemple chiffré détaillé, est dans [calculer le gain de temps réel d'une automatisation](/blog/calculer-gain-temps-automatisation).
+Un point d'honnêteté qui manque à la plupart des discours commerciaux : viser une réduction de **70 à 85%** du temps passé, pas 100%. Une automatisation garde toujours une part de supervision, d'exceptions et d'ajustements. Prenez un exemple simple : des relances de factures qui prenaient 3 heures par semaine avant automatisation, ramenées à 30 minutes après. Sur une année, à un coût horaire de CHF 70, ça représente un gain qui dépasse largement le coût d'un agent simple (dès CHF 1'500), généralement dès les premiers mois. La méthode de calcul complète, avec l'exemple chiffré détaillé, est dans [calculer le gain de temps réel d'une automatisation](/blog/calculer-gain-temps-automatisation).
 
-Pour voir ce que ça donne en pratique, l'article [ce qu'une PME romande récupère vraiment](/blog/avant-apres-automatisation-pme-romande) présente un cas concret, tableau avant/après en heures et en francs suisses à l'appui. Et si la question qui te bloque est plutôt "combien ça coûte", [le prix réel d'un agent IA en CHF](/blog/prix-agent-ia-automatisation-suisse) donne les fourchettes complètes, cadrage compris.
+Pour voir ce que ça donne en pratique, l'article [ce qu'une PME romande récupère vraiment](/blog/avant-apres-automatisation-pme-romande) présente un cas concret, tableau avant/après en heures et en francs suisses à l'appui. Et si la question qui vous bloque est plutôt "combien ça coûte", [le prix réel d'un agent IA en CHF](/blog/prix-agent-ia-automatisation-suisse) donne les fourchettes complètes, cadrage compris.
 
 ## Intégrer, adopter, sécuriser : ce que les guides français sautent
 
 C'est la partie la plus souvent absente des méthodologies génériques, et pourtant la plus déterminante. Deux constats structurent cette section : la majorité des projets IA échouent sur l'adoption, pas sur la technologie, et une large part échouent sur l'intégration au système d'information existant, pas sur le modèle IA lui-même.
 
-**Intégrer aux outils existants.** Connecter un agent à un CRM, un ERP ou une messagerie ne se fait pas de la même façon selon la complexité : no-code (**n8n**, **Make**) pour les connexions simples et rapides à mettre en place, protocole **MCP** pour structurer plusieurs connexions de façon standardisée, développement API sur mesure quand la flexibilité prime sur la vitesse. Le critère de choix se pose dès le premier échange, pas après coup, et les permissions données à l'agent doivent toujours rester minimales et tracées. Comparatif détaillé dans [intégrer un agent IA à ses outils existants](/blog/integrer-agent-ia-outils-existants).
+**Intégrer aux outils existants.** Connecter un agent à un CRM, un ERP ou une messagerie ne se fait pas de la même façon selon la complexité : no-code (**n8n**, **Make**) pour les connexions simples et rapides à mettre en place, protocole **MCP** pour structurer plusieurs connexions de façon standardisée, développement API sur mesure quand la flexibilité prime sur la vitesse. Le critère de choix se pose dès le premier échange, pas après coup, et les permissions données à l'agent doivent toujours rester minimales et tracées. Comparatif détaillé dans [intégrer un agent IA à ses outils existants](/blog/integrer-agent-ia-outils-existants). Si vous hésitez encore entre un simple workflow et un agent, [workflow ou agent IA : lequel choisir pour une PME](/blog/workflows-vs-agents-ia-pme) pose les critères de choix.
 
 **Faire adopter l'IA à son équipe.** L'avantage d'une PME romande sur une grande structure : le dirigeant peut expliquer directement le "pourquoi" à chaque personne concernée, sans plan de communication RH lourd ni cascade hiérarchique. Un champion interne, pas forcément la personne la plus technique de l'équipe mais la plus motivée, convainc généralement mieux ses pairs par la pratique qu'un discours descendant depuis la direction. Méthode complète, avec les indicateurs pour mesurer si l'adoption progresse vraiment, dans [faire adopter l'IA à son équipe sans résistance](/blog/adoption-ia-equipe-change-management).
 
@@ -94,15 +94,15 @@ Pour la vue d'ensemble de l'automatisation en PME suisse, au-delà de la seule I
 
 ### Par où commencer concrètement pour mettre l'IA en place ?
 
-Par la cartographie de tes processus, puis un cas pilote unique testé sur 30 jours avec des KPI définis avant de démarrer. Pas par l'achat d'un outil au hasard.
+Par la cartographie de vos processus, puis un cas pilote unique testé sur 30 jours avec des KPI définis avant de démarrer. Pas par l'achat d'un outil au hasard.
 
 ### Combien de temps prend une mise en place complète ?
 
-Compte 1 à 2 semaines de cartographie, 30 jours pour le pilote, puis 8 semaines pour le rollout complet si le pilote est concluant. Soit 3 à 4 mois pour une première automatisation généralisée à l'équipe.
+Comptez 1 à 2 semaines de cartographie, 30 jours pour le pilote, puis 8 semaines pour le rollout complet si le pilote est concluant. Soit 3 à 4 mois pour une première automatisation généralisée à l'équipe.
 
 ### Combien ça coûte en francs suisses ?
 
-Chez Jon Labs, un agent simple démarre à **CHF 1'500**. Un agent intégré à plusieurs systèmes est chiffré **sur devis**. Détail complet dans [le prix réel d'un agent IA en CHF](/blog/prix-agent-ia-automatisation-suisse).
+Chez Jon Labs, un agent simple démarre à **CHF 1'500**. Un agent intégré à plusieurs systèmes est chiffré **sur devis**. Les fourchettes complètes sont dans l'article sur le prix d'un agent IA cité plus haut.
 
 ### Faut-il une équipe technique en interne ?
 
@@ -110,18 +110,18 @@ Non. Un référent qui consacre 10 à 20% de son temps suffit dans une structure
 
 ### Quels sont les principaux risques d'une mise en place mal cadrée ?
 
-Un cas d'usage trop ambitieux, des données non représentatives, l'absence de KPI définis en amont, et l'absence de garde-fous sur les décisions sensibles. Voir [garde-fous IA : validations, escalades, audit](/blog/garde-fous-ia-validations-audit).
+Un cas d'usage trop ambitieux, des données non représentatives, l'absence de KPI définis en amont, et l'absence de garde-fous sur les décisions sensibles.
 
 ### Comment savoir si ça marche vraiment ?
 
-En mesurant le gain de temps réel avec une formule simple et un coût horaire suisse réaliste, pas en te fiant à une impression. Voir [calculer le gain de temps réel d'une automatisation](/blog/calculer-gain-temps-automatisation).
+En mesurant le gain de temps réel avec une formule simple et un coût horaire suisse réaliste, pas en vous fiant à une impression.
 
 ### Faut-il un consultant IA ou peut-on le faire seul ?
 
-Une petite automatisation isolée se cadre parfois seul. Dès que plusieurs processus et systèmes sont concernés, un accompagnement structuré évite les faux départs les plus coûteux. Voir [l'accompagnement consultant IA pour ta PME](/consultant-ia).
+Une petite automatisation isolée se cadre parfois seul. Dès que plusieurs processus et systèmes sont concernés, un accompagnement structuré évite les faux départs les plus coûteux. Voir [ce que fait concrètement un consultant IA](/blog/consultant-ia-c-est-quoi).
 
-## Cadrer ta mise en place avec un accompagnement structuré
+## Cadrer votre mise en place avec un accompagnement structuré
 
-Ce guide couvre la méthode complète. Si tu préfères ne pas la piloter seul, ou si tu veux un regard extérieur sur ton cas précis avant de te lancer, l'accompagnement se cadre en un échange direct.
+Ce guide couvre la méthode complète. Si vous préférez ne pas la piloter seul, ou si vous voulez un regard extérieur sur votre cas précis avant de vous lancer, l'accompagnement se cadre en un échange direct.
 
-[**Cadrer mon projet avec un consultant IA →**](/consultant-ia)
+[**Cadrer mon projet avec un consultant IA →**](/contact)

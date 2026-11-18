@@ -1,6 +1,6 @@
 ---
-title: "Swiss Dental Care"
-description: "Refonte bilingue du Cabinet dentaire Grange-Canal, CMS pensé pour Malika et accompagnement SEO local sur six mois. Site en ligne, suivi en cours."
+title: "Swiss Dental Care : site bilingue d'un cabinet dentaire"
+description: "Refonte bilingue du cabinet dentaire Grange-Canal, CMS sur mesure et six mois de SEO local. Site en ligne, suivi en cours."
 date: 2026-10-11
 draft: false
 featured: false
@@ -20,6 +20,8 @@ project:
 
 heroImage:
   url: "/images/portfolio/swiss-dental-care/mockup.webp"
+  width: 1536
+  height: 1024
   alt: "Le nouveau site du Cabinet dentaire Grange-Canal, présenté sur ordinateur et sur mobile"
 
 resultsTitle: "Le projet en repères"
@@ -60,6 +62,8 @@ approach:
     description: "J’ai proposé une première direction, puis nous avons itéré plusieurs fois. Une exploration plus sombre a laissé place à un univers plus clair : fonds porcelaine, bleu, photographie lumineuse et titres expressifs. Le symbole cœur-dent garde le lien avec l’identité du cabinet."
     image:
       url: "/images/portfolio/swiss-dental-care/direction-visuelle.webp"
+      width: 1600
+      height: 740
       alt: "Deux pistes photographiques du projet : exploration sombre puis direction lumineuse"
       caption: "Évolution de la direction artistique pendant la refonte. Ces visuels générés représentent des personnes fictives."
   - phase: 3
@@ -67,6 +71,8 @@ approach:
     description: "Le symbole existant a été redessiné en vectoriel et exploré en plusieurs traitements. Les soins disposent d’une famille d’illustrations en céramique claire, avec des détails bleus. L’ensemble donne des repères communs aux différentes pages."
     image:
       url: "/images/portfolio/swiss-dental-care/exploration-logo.webp"
+      width: 1600
+      height: 1040
       alt: "Planche de travail du symbole cœur-dent : dégradé bleu, bicolore et monochrome"
       caption: "Les propositions de travail autour du symbole existant, à distinguer du logo composé visible sur le site final."
   - phase: 4
@@ -116,15 +122,23 @@ learnings:
 galleryTitle: "Identité et site en situation"
 resultImages:
   - url: "/images/portfolio/swiss-dental-care/illustrations-soins.webp"
+    width: 1600
+    height: 860
     alt: "Six illustrations des soins dans un même style céramique : implants, prévention, soins conservateurs, chirurgie, couronnes et aligneurs"
     caption: "Un langage visuel commun pour les différentes familles de soins."
   - url: "/images/portfolio/swiss-dental-care/soins.webp"
+    width: 1425
+    height: 990
     alt: "Capture de la page des soins du cabinet, organisée en cartes avec illustrations"
     caption: "L’entrée par les soins sur le site public — capture du 14 octobre 2026."
   - url: "/images/portfolio/swiss-dental-care/page-soin.webp"
+    width: 1425
+    height: 990
     alt: "Page implants avec introduction, accès au rendez-vous, sommaire et mention de relecture"
     caption: "Un gabarit de soin qui relie explications, informations pratiques et prise de rendez-vous."
   - url: "/images/portfolio/swiss-dental-care/parcours-bilingue.webp"
+    width: 1600
+    height: 760
     alt: "La page implants en français et en anglais, présentée côte à côte"
     caption: "Deux versions éditoriales distinctes, dans une présentation commune."
 

@@ -11,10 +11,10 @@ import { author } from '../sample';
 import '../styles/v2.css';
 
 import { SITE_URL } from '../data/schema';
-import { getContactPageSchema, getFAQPageSchema } from '../lib/seo';
+import { getContactPageSchema, getFAQPageSchema, getBreadcrumbSchema } from '../lib/seo';
 
-const pageTitle = "Me contacter";
-const pageDescription = "Discutons de votre projet digital — développement web, IA, automatisation. Réponse sous 24 h.";
+const pageTitle = "Contact : parlons de votre projet IA";
+const pageDescription = "Parlez-moi de votre projet : agent IA, automatisation ou application sur mesure. Réponse sous 24 h, depuis Genève.";
 
 const channels = [
   { k: 'E-mail', icon: 'ri-mail-line', l: 'contact@jonlabs.ch', href: 'mailto:contact@jonlabs.ch' },
@@ -26,7 +26,7 @@ const links = [...socials, { icon: 'ri-github-fill', l: 'GitHub', href: author.g
 // FAQ : même source pour l'affichage et le schéma FAQPage. Copy orientée « site web », à trancher par Jonathan.
 const faqs = [
   { q: 'Vous travaillez en remote ou sur site ?', a: 'Principalement en remote, mais je peux me déplacer en Suisse romande pour des réunions si nécessaire. La plupart de mes clients préfèrent le remote pour sa flexibilité.' },
-  { q: 'Quels sont vos tarifs ?', a: "Site web dès CHF 850 (Webflow dès CHF 950), référencement local CHF 390 puis CHF 199/mois, agent IA dès CHF 1'500. Les applications mobiles et les formations IA sont sur devis. Tous les détails sur la page tarifs." },
+  { q: 'Quels sont vos tarifs ?', a: "Site web dès CHF 850 (Webflow dès CHF 950), agent IA dès CHF 1'500. Les applications mobiles et les formations IA sont sur devis. Tous les détails sur la page tarifs." },
   { q: 'Vous prenez des petits projets ?', a: 'Absolument ! Les petits projets peuvent avoir un gros impact. Que ce soit une landing page, une automatisation simple ou un prototype, je suis ouvert à discuter.' },
   { q: 'Quels sont les délais typiques ?', a: 'Ça dépend de la complexité : 2-3 semaines pour un site vitrine, 1-2 mois pour une web app, et plusieurs mois pour une application complète. Je vous donnerai une estimation précise après avoir discuté de votre projet.' },
 ];
@@ -34,12 +34,15 @@ const faqs = [
 const schemas = [
   getContactPageSchema({ url: `${SITE_URL}/contact`, name: pageTitle, description: pageDescription }),
   getFAQPageSchema(faqs.map((f) => ({ question: f.q, answer: f.a }))),
+  getBreadcrumbSchema([
+    { name: 'Accueil', url: SITE_URL },
+    { name: 'Contact', url: `${SITE_URL}/contact` },
+  ]),
 ];
 ---
 <Layout title={pageTitle} description={pageDescription} schemas={schemas}>
   <Fragment slot="head">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" />
   </Fragment>
 
   <div class="v2">

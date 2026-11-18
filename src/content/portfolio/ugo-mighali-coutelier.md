@@ -1,6 +1,6 @@
 ---
-title: "Ugo Mighali Coutelier"
-description: "Portfolio pour un coutelier d'art à Genève — design épuré sur Webflow."
+title: "Ugo Mighali : site Webflow d'un coutelier d'art à Genève"
+description: "Site Webflow épuré pour Ugo Mighali, coutelier d'art à Genève : des pièces mises en valeur, sans rien autour."
 date: 2026-02-01
 draft: false
 featured: false
@@ -18,28 +18,44 @@ project:
 
 heroImage:
   url: "/images/portfolio/ugo-mighali/mockup.webp"
+  width: 1536
+  height: 1024
   alt: "Site portfolio Ugo Mighali - coutelier d'art Genève - hero avec portrait et atelier"
 
 resultImages:
   - url: "/images/portfolio/ugo-mighali/portrait-artisan.webp"
+    width: 941
+    height: 941
     alt: "Section portrait - Ugo Mighali, coutelier d'art, bijoutier-joaillier et sertisseur à Genève"
     caption: "Présentation de l'artisan — nom, occupations, localisation"
   - url: "/images/portfolio/ugo-mighali/coutellerie-joaillerie.webp"
+    width: 1817
+    height: 908
     alt: "Section coutellerie et joaillerie - photos de créations et texte sur l'univers artistique d'Ugo"
     caption: "Là où la coutellerie rencontre la joaillerie"
   - url: "/images/portfolio/ugo-mighali/galerie-oeuvres.webp"
+    width: 1872
+    height: 976
     alt: "Galerie des œuvres - couteaux Luky Dragon et Régate sur le Léman"
     caption: "Galerie des créations avec navigation immersive"
   - url: "/images/portfolio/ugo-mighali/luky-dragon-detail.webp"
+    width: 1667
+    height: 985
     alt: "Page détail du couteau Luky Dragon - pièce unique avec dragon gravé et pierres précieuses"
     caption: "Page dédiée au Luky Dragon — coutellerie d'art et joaillerie réunies"
   - url: "/images/portfolio/ugo-mighali/genese-croquis.webp"
+    width: 1111
+    height: 750
     alt: "Section genèse de l'œuvre - croquis préparatoires du couteau Luky Dragon"
     caption: "Genèse de l'œuvre — des croquis à la réalisation"
   - url: "/images/portfolio/ugo-mighali/parcours-histoire.webp"
+    width: 1720
+    height: 950
     alt: "Section parcours - histoire d'Ugo, premier couteau à 13 ans, formation par François Roulin"
     caption: "Le parcours d'Ugo — de son premier couteau à 13 ans à la coutellerie d'art"
   - url: "/images/portfolio/ugo-mighali/evenements-distinctions.webp"
+    width: 1054
+    height: 743
     alt: "Section événements et distinctions - Coutellia, Euro Knife Show, Prix Piaget"
     caption: "Événements et distinctions — Prix Piaget, Coutellia, Gem Genève"
 

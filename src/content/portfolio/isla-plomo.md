@@ -1,5 +1,5 @@
 ---
-title: "Isla Plomo"
+title: "Isla Plomo : jeu mobile PWA hors ligne, conçu avec l'IA"
 description: "Adaptation d'Avalon (The Resistance) en PWA mobile — jouable sur un seul téléphone, hors ligne."
 date: 2025-01-15
 draft: false
@@ -16,6 +16,8 @@ project:
 
 heroImage:
   url: "/images/lab/isla-plomo/mockup.webp"
+  width: 1536
+  height: 1024
   alt: "Isla Plomo - Jeu de rôles cachés PWA"
 
 tags:

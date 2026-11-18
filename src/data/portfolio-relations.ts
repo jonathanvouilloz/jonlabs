@@ -18,6 +18,8 @@ export const portfolioServiceLinks: Record<string, ServiceLink> = {
   'wisp': { label: 'Application mobile', href: '/services/developpement-application-mobile' },
   'wildcat-agent-mails': { label: 'Agent IA sur mesure', href: '/hermes' },
   'barber-hub-automatisation': { label: 'Agent IA sur mesure', href: '/hermes' },
-  'systeme-ia-jonlabs': { label: 'Consultant IA', href: '/consultant-ia' },
-  'gestion-camps-budget': { label: 'Application mobile', href: '/services/developpement-application-mobile' },
+  'systeme-ia-jonlabs': { label: 'Agent IA sur mesure', href: '/hermes' },
+  'gestion-camps-budget': { label: 'Application sur mesure', href: '/services/application-sur-mesure' },
+  'nooria': { label: 'Application mobile', href: '/services/developpement-application-mobile' },
+  'wildcat-muay-thai': { label: 'Création de site web', href: '/services/creation-site-web' },
 };

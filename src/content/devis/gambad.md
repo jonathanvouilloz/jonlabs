@@ -50,7 +50,7 @@ proof:
       - label: "Fois où le site est apparu"
         value: "571 000"
     caption: "Barber Concept, chaîne de six salons en Suisse romande. Site en ligne depuis 2023, jamais travaillé côté référencement : le trafic venait uniquement des gens qui tapaient le nom de la marque. <strong>C'est votre situation, à ceci près que votre marque est encore moins connue que la leur.</strong><br><br>Regardez où la courbe est plate, et où elle change. Elle est plate jusqu'en mai. En mai, le site est refait et le contenu commence à sortir régulièrement. Elle n'est jamais redescendue depuis.<br><br>Une précision qui compte : un secteur n'est pas l'autre, et <strong>je ne vous promets pas ces nombres</strong>. Ce que cette courbe montre, ce n'est pas un total, c'est le moment où ça bascule."
-  - image: "/images/portfolio/leo-lecureux/search-console.png"
+  - image: "/images/portfolio/leo-lecureux/search-console.webp"
     title: "Une niche étroite, prise en cinq mois"
     caseStudy: "/portfolio/leo-lecureux-seo"
     stats:

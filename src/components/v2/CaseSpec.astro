@@ -1,8 +1,9 @@
 ---
 // Étude de cas v2 (direction B) : image bord à bord + fiche technique. Les lignes vides sont omises.
 import type { CollectionEntry } from 'astro:content';
-interface Props { entry: CollectionEntry<'portfolio'> }
-const { data, slug } = Astro.props.entry;
+// eager : seulement pour la première carte au-dessus de la ligne de flottaison (/portfolio).
+interface Props { entry: CollectionEntry<'portfolio'>; eager?: boolean }
+const { entry: { data, slug }, eager = false } = Astro.props;
 const rows = [
   ['Secteur', data.client?.sector],
   ['Durée', data.project.duration?.split('·')[0].trim()],
@@ -10,7 +11,7 @@ const rows = [
 ].filter(([, v]) => v);
 ---
 <a href={`/portfolio/${slug}`} class="w v2-spec" data-rise>
-  <div class="v2-spec-img"><img src={data.heroImage.url} alt={data.heroImage.alt} loading="lazy" /></div>
+  <div class="v2-spec-img"><img src={data.heroImage.url} alt={data.heroImage.alt} width={data.heroImage.width} height={data.heroImage.height} loading={eager ? 'eager' : 'lazy'} decoding="async" /></div>
   <div class="v2-spec-body">
     <div><h3>{data.title}</h3><p class="v2-mut">{data.description}</p></div>
     <dl class="v2-kv">

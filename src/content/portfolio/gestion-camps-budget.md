@@ -1,6 +1,6 @@
 ---
-title: "Le budget d'un camp de vacances, tenu depuis le téléphone"
-description: "Un organisateur de camps de vacances en Suisse romande. Les dépenses et les justificatifs saisis sur place, le rapport comptable prêt à la fin du camp."
+title: "Application budget de camp de vacances sur mobile"
+description: "Camps de vacances en Suisse romande : dépenses et justificatifs saisis sur place, rapport comptable prêt en fin de camp."
 # Pas de date de livraison formelle trouvée : dernier commit le 13.10.2026 (git log cpvBudget) ; app en production (scratchpad/cas-ia-faits.md:180)
 date: 2026-10-13
 draft: false
@@ -22,6 +22,8 @@ project:
 # Placeholder volontaire : les captures du guide (données de démo) affichent le nom du client, non publiables
 heroImage:
   url: "/images/portfolio/gestion-camps-budget/hero.webp"
+  width: 1536
+  height: 1024
   alt: "Application de budget pour camps de vacances : dépenses, justificatifs et rapport comptable"
 
 tags:

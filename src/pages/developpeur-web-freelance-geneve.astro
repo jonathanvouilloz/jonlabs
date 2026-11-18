@@ -10,7 +10,7 @@ import { proofLecureux } from "../data/proof-lecureux";
 import { pricing, terms, chf } from "../data/pricing";
 
 const pageTitle = "Développeur web freelance à Genève : IA, sites et apps";
-const pageDescription = "Développeur freelance à Genève : systèmes IA sur mesure, sites web et applications mobiles pour les PME romandes. 8 ans d'expérience, devis transparent en CHF.";
+const pageDescription = "Développeur web freelance à Genève : systèmes IA, sites web et apps mobiles pour PME romandes. 8 ans d'expérience, prix en CHF.";
 const pageUrl = `${SITE_URL}/developpeur-web-freelance-geneve`;
 
 const faqs = [
@@ -47,7 +47,7 @@ const stat = (label: string) => proofLecureux.stats.find((s) => s.label === labe
     dim: "à Genève.",
     lead: "Systèmes IA sur mesure, sites web et applications mobiles pour les PME et indépendants romands. Un seul interlocuteur, un devis transparent, du code propre.",
     cta: { href: "/contact", label: "Demander un devis" },
-    cta2: { href: "/portfolio", label: "Voir mes réalisations" },
+    cta2: { href: "/portfolio", label: "Les réalisations web et IA" },
   }}
   proofs={{ items: [
     { value: "8", label: "ans d'expérience", client: "Développeur freelance" },
@@ -59,16 +59,16 @@ const stat = (label: string) => proofLecureux.stats.find((s) => s.label === labe
     {
       id: "services", kicker: "01 · Services", title: "Trois offres,", dim: "l'IA d'abord.",
       text: "De l'agent IA à l'app mobile, en passant par le site web : un spécialiste du développement web en Suisse qui couvre toute la chaîne.",
-      cta: { href: "/services", label: "Voir tous les services" },
+      cta: { href: "/services", label: "Tous les services IA, web et mobile" },
       subs: [
-        { meta: pricing.agentIA.display, title: "IA en entreprise", text: "Des agents IA et des automatisations qui prennent en charge les tâches répétitives : e-mails, relances, documents. Branchés sur vos outils, avec validation humaine.", link: { href: "/consultant-ia", label: "Systèmes IA sur mesure" } },
+        { meta: pricing.agentIA.display, title: "IA en entreprise", text: "Des agents IA et des automatisations qui prennent en charge les tâches répétitives : e-mails, relances, documents. Branchés sur vos outils, avec validation humaine. Clé en main : l'<a href=\"/hermes\">agent IA Hermès</a>.", link: { href: "/consultant-ia", label: "Systèmes IA sur mesure" } },
         { meta: pricing.siteWeb.display, title: "Création de site web", text: "Site vitrine sur mesure pour indépendants et PME, ou site Webflow que vous gérez vous-même. Rapide, clair, trouvable sur Google.", link: { href: "/services/creation-site-web", label: "Création de site web" } },
-        { meta: pricing.appMobile.display, title: "Application mobile", text: "Une app iPhone et Android pour vos clients ou votre équipe, de l'idée aux stores.", link: { href: "/services/developpement-application-mobile", label: "Développement d'application mobile" } },
+        { meta: pricing.appMobile.display, title: "Application mobile", text: "Une app iPhone et Android pour vos clients ou votre équipe, de l'idée aux stores. Pour un outil interne sans passer par les stores : une <a href=\"/services/application-sur-mesure\">application sur mesure</a>.", link: { href: "/services/developpement-application-mobile", label: "Développement d'application mobile" } },
       ],
     },
     {
       id: "comparaison", kicker: "02 · Freelance ou agence", title: "Pourquoi un freelance", dim: "plutôt qu'une agence ?",
-      text: "Les deux options sont valides selon le contexte. Voilà ce qui change concrètement quand vous choisissez un freelance à Genève.",
+      text: "Les deux options sont valides selon le contexte. Voilà ce qui change concrètement quand vous choisissez un freelance à Genève. Pour une app mobile : <a href=\"/blog/freelance-ou-agence-application-mobile\">freelance ou agence pour votre application mobile</a>.",
       subs: [
         { title: "Interlocuteur unique", text: "Vous parlez à la personne qui code. Pas de chef de projet entre vous et le clavier, pas de téléphone arabe." },
         { title: "Prix transparent", text: "Devis détaillé, zéro marge cachée. Vous savez exactement ce que vous payez." },
@@ -95,7 +95,7 @@ const stat = (label: string) => proofLecureux.stats.find((s) => s.label === labe
     {
       id: "tarifs", kicker: "05 · Tarifs", title: "Combien ça", dim: "coûte ?",
       text: "Des prix en CHF pour situer votre projet. Devis ferme après un premier échange gratuit.",
-      cta: { href: "/tarifs", label: "Voir tous les tarifs" },
+      cta: { href: "/tarifs", label: "Les tarifs détaillés en CHF" },
       subs: [
         { meta: pricing.agentIA.display, title: "Agent IA", text: `Puis ${pricing.agentIA.runningCost} de fonctionnement, hébergé en Suisse.` },
         { meta: pricing.siteWeb.display, title: "Site web", text: `Site Webflow : ${pricing.webflow.display.replace('Dès', 'dès')}.`, features: ["Design sur mesure", "Adapté au mobile", "Optimisé pour Google"] },
@@ -116,7 +116,7 @@ const stat = (label: string) => proofLecureux.stats.find((s) => s.label === labe
   }}
   cases={{
     title: "Réalisations", dim: "récentes.",
-    text: "Quelques projets livrés pour des clients romands. Tout le <a href=\"/portfolio\">portfolio</a>.",
+    text: "Quelques projets livrés pour des clients romands. Toutes <a href=\"/portfolio\">les réalisations web et IA</a>.",
     slugs: ["leo-lecureux-seo", "barber-concept"],
   }}
   links={[{
@@ -131,6 +131,6 @@ const stat = (label: string) => proofLecureux.stats.find((s) => s.label === labe
   testimonials={[
     { quote: proofLecureux.testimonial!.quote.split("\n")[0], name: proofLecureux.testimonial!.author, role: proofLecureux.metierShort, company: proofLecureux.company, result: proofLecureux.businessResult },
   ]}
-  faq={faqs}
+  faq={{ title: "Questions sur le développeur web freelance à Genève.", items: faqs }}
   contact="Premier échange gratuit, sans engagement. Je vous dis franchement si je suis le bon profil pour vous, et sinon, je vous oriente vers quelqu'un de mieux placé."
 />

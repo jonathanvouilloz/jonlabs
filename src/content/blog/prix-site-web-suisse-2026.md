@@ -51,7 +51,7 @@ Réponse longue, avec des fourchettes par type de projet :
 - E-commerce sur-mesure : **CHF 8'000 à 25'000+**
 - Application web ou MVP : **CHF 2'000 à 30'000+**
 
-Chez Jon Labs, je me positionne volontairement bas dans la fourchette freelance : **un site vitrine démarre à CHF 850**, avec un devis ferme selon le projet. Pas parce que je bâcle, mais parce que j'ai éliminé les 80% de bullshit qui font exploser les budgets ailleurs.
+Chez Jon Labs, je me positionne volontairement bas dans la fourchette freelance : **un site vitrine démarre à CHF 850**, avec un devis ferme selon le projet. Pas parce que je bâcle, mais parce que j'ai éliminé les 80% de bullshit qui font exploser les budgets ailleurs. Mon offre et ma méthode sont détaillées sur la page [développeur web freelance à Genève](/developpeur-web-freelance-geneve).
 
 Avant d'aller plus loin, il faut clarifier un truc.
 

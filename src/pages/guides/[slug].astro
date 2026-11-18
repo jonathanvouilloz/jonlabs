@@ -4,7 +4,8 @@ import { getCollection } from 'astro:content';
 import V2Page from '../../layouts/V2Page.astro';
 import Article from '../../components/v2/Article.astro';
 import { isPublished } from '../../lib/blog';
-import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
+import { getWebPageSchema, getBreadcrumbSchema, getFAQPageSchema, getBlogPostingSchema } from '../../lib/seo';
+import { author } from '../../sample';
 import { SITE_URL, personData, organizationData } from '../../data/schema';
 
 export async function getStaticPaths() {
@@ -16,27 +17,38 @@ export async function getStaticPaths() {
 }
 
 const { page } = Astro.props;
-const { title, h1, description, image, pubDate, readingTime } = page.data;
+const { title, h1, description, image, pubDate, readingTime, tags = [] } = page.data;
 const { Content, headings } = await page.render();
 
-// Schemas — WebPage (pas BlogPosting) : le pillar est un hub, pas un article.
+// Schemas : WebPage (le pillar est un hub) + BlogPosting (contenu éditorial daté, auteur, image).
 const webPageSchema = getWebPageSchema({
   url: Astro.url.href,
   name: title,
   description,
 });
+const articleSchema = getBlogPostingSchema({
+  title: h1 ?? title,
+  description,
+  url: Astro.url.href,
+  image: new URL(image.url, SITE_URL).toString(),
+  datePublished: pubDate,
+  dateModified: page.data.updatedDate || pubDate,
+  author: author.name,
+  category: 'Guide',
+  tags,
+  readingTime,
+});
 
 const breadcrumbSchema = getBreadcrumbSchema([
-  { name: 'Accueil', url: SITE_URL },
+  { name: 'Accueil', url: `${SITE_URL}/` },
   // /guides redirige vers /blog (301) : le fil d'Ariane suit la cible finale.
   { name: 'Blog', url: `${SITE_URL}/blog` },
   { name: title, url: Astro.url.href },
 ]);
 
 const schemas = [
-  personData,
-  organizationData,
   webPageSchema,
+  articleSchema,
   breadcrumbSchema,
 ];
 if (page.data.faqs && page.data.faqs.length > 0) {
@@ -50,6 +62,7 @@ if (page.data.faqs && page.data.faqs.length > 0) {
   ogImage={image.url}
   ogType="article"
   schemas={schemas}
+  article={{ publishedTime: pubDate, modifiedTime: page.data.updatedDate, author: author.name, section: 'Guide', tags }}
 >
   <Article title={title} h1={h1} image={image} pubDate={pubDate} updatedDate={page.data.updatedDate} readingTime={readingTime} headings={headings} back={{ href: '/consultant-ia', label: 'Consultant IA' }}>
     <Content />

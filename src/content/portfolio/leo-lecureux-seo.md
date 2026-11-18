@@ -19,6 +19,8 @@ project:
 
 heroImage:
   url: "/images/portfolio/leo-lecureux/mockup.webp"
+  width: 1536
+  height: 1024
   alt: "Site web Lecureux Conseil - juriste spécialisé restauration Genève"
 
 results:
@@ -111,13 +113,19 @@ learnings:
     - "La patience paie — Les résultats SEO prennent du temps, mais une fois établis, ils persistent sans effort supplémentaire"
 
 resultImages:
-  - url: "/images/portfolio/leo-lecureux/search-console.png"
+  - url: "/images/portfolio/leo-lecureux/search-console.webp"
+    width: 1574
+    height: 581
     alt: "Graphique Google Search Console - évolution des impressions et clics"
     caption: "Évolution des performances SEO sur 5 mois (Sept 2025 - Jan 2026)"
-  - url: "/images/portfolio/leo-lecureux/positions.png"
+  - url: "/images/portfolio/leo-lecureux/positions.webp"
+    width: 1853
+    height: 689
     alt: "Positions Google pour les mots-clés ciblés"
     caption: "Positions atteintes : #1 sur les requêtes stratégiques"
-  - url: "/images/portfolio/leo-lecureux/lighthouse.png"
+  - url: "/images/portfolio/leo-lecureux/lighthouse.webp"
+    width: 1055
+    height: 869
     alt: "Scores Lighthouse du site Lecureux Conseil"
     caption: "Score Lighthouse : 93/91/100/100"
 

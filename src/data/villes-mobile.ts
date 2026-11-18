@@ -101,7 +101,7 @@ export interface VilleMobileData {
   // ── Maillage ─────────────────────────────────────────────────────────────
   /** slugs des villes latérales pour maillage interne */
   voisines: string[];
-  /** articles blog du cluster mobile — 3 par ville, choisis selon le profil local.
+  /** articles blog du cluster mobile : 4 à 6 par ville, choisis selon le profil local.
    *  Les slugs pointent vers des fichiers RÉELS de src/content/blog/. */
   articles: { title: string; description: string; href: string; icon: string }[];
 }
@@ -118,7 +118,7 @@ export const villesMobile: VilleMobileData[] = [
 
     metaTitle: 'Application mobile à Lausanne, sans agence | Jonlabs',
     metaDescription:
-      "Développement d'application mobile à Lausanne sans agence : app iOS et Android pour spin-offs EPFL, medtech et PME vaudoises. TestFlight, stores, devis CHF.",
+      "Développement d'application mobile à Lausanne sans agence : iOS et Android pour spin-offs EPFL, medtech et PME vaudoises. Devis CHF.",
     h1: 'Application mobile à',
     motCleSEO: 'agence application mobile Lausanne',
     motsClesSecondaires: [
@@ -247,6 +247,30 @@ export const villesMobile: VilleMobileData[] = [
     voisines: [],
     articles: [
       {
+        title: 'Freelance ou agence pour une app mobile',
+        description: "Coûts réels, délais et risques des deux options pour une app en Suisse.",
+        href: '/blog/freelance-ou-agence-application-mobile',
+        icon: 'ri-scales-3-line',
+      },
+      {
+        title: "Prix d'une application mobile en Suisse",
+        description: "MVP, app métier, marketplace : les forfaits en CHF par type de projet et les coûts cachés.",
+        href: '/blog/prix-application-mobile-suisse',
+        icon: 'ri-money-cny-circle-line',
+      },
+      {
+        title: 'Flutter ou React Native pour une PME',
+        description: "Coût, délai et rendu comparés pour une PME suisse.",
+        href: '/blog/flutter-vs-react-native-pme',
+        icon: 'ri-code-s-slash-line',
+      },
+      {
+        title: "Publier une app mobile sur l'App Store",
+        description: "Du cadrage à la mise en ligne : ce qu'Apple a rejeté et ce que ça coûte vraiment.",
+        href: '/blog/sortir-application-mobile-app-store',
+        icon: 'ri-apple-line',
+      },
+      {
         title: 'MVP application mobile : combien prévoir ?',
         description:
           "Comment cadrer un premier périmètre qui prouve le concept sans financer des fonctionnalités que personne n'a demandées.",
@@ -259,13 +283,6 @@ export const villesMobile: VilleMobileData[] = [
           "Les critères concrets pour savoir si votre projet a réellement besoin de passer par les stores.",
         href: '/blog/application-mobile-ou-pwa',
         icon: 'ri-question-answer-line',
-      },
-      {
-        title: 'Développer une application mobile en Suisse',
-        description:
-          "Le déroulé complet d'un projet mobile romand, du cadrage à la publication sur les stores.",
-        href: '/blog/developper-application-mobile-suisse',
-        icon: 'ri-road-map-line',
       },
     ],
   },

@@ -1,6 +1,6 @@
 ---
-title: "Wisp"
-description: "Outil de productivité pour ceux qui veulent écrire au quotidien — le texte s'efface si tu t'arrêtes."
+title: "Wisp : application d'écriture quotidienne local-first"
+description: "Application d'écriture quotidienne : le texte s'efface si vous vous arrêtez. Local-first, avec une mascotte."
 date: 2026-01-20
 draft: false
 featured: false
@@ -16,6 +16,8 @@ project:
 
 heroImage:
   url: "/images/portfolio/wisp/mockup.webp"
+  width: 1536
+  height: 1024
   alt: "Wisp - App d'écriture quotidienne"
 
 tags:

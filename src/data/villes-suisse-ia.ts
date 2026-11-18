@@ -146,7 +146,7 @@ export const villesSuisseIA: VilleIAData[] = [
       },
     ],
     metaDescription:
-      "Consultant IA à Lausanne : automatisations IA concrètes pour startups, agences et PME vaudoises. Prix en CHF, du pragmatique, pas de hype de labo.",
+      "Consultant IA à Lausanne : automatisations IA concrètes pour startups, agences et PME vaudoises. Prix en CHF, sans hype.",
     motCleSEO: 'consultant IA Lausanne',
     angleHero:
       "Automatisations IA pragmatiques pour les PME et startups vaudoises — du concret, pas de la hype de labo, prix en CHF.",
@@ -186,11 +186,11 @@ export const villesSuisseIA: VilleIAData[] = [
       },
       {
         secteur: 'Commerce du centre-ville',
-        cas: "Fiches produits et réponses aux questions clients fréquentes, branchées sur le catalogue existant, avec transfert vers vous dès qu'une demande sort du cadre.",
+        cas: "Fiches produits et réponses aux questions clients fréquentes, branchées sur le catalogue existant, pour une clientèle qui compare aux standards genevois. Les demandes hors cadre vous reviennent.",
       },
       {
         secteur: 'PME industrielle ou bâtiment',
-        cas: "Automatisation des relances, du tri d'e-mails et de la préparation de devis : l'agent prépare, vous validez avant chaque envoi.",
+        cas: "Pour les PME industrielles et du bâtiment de l'agglomération annemassienne : relances, tri d'e-mails et devis préparés par l'agent, validés par vous avant chaque envoi.",
       },
     ],
     publicCible: [
@@ -208,12 +208,12 @@ export const villesSuisseIA: VilleIAData[] = [
       {
         question: "Combien coûte un agent IA pour une PME d'Annemasse ?",
         answer:
-          "La mise en place démarre à CHF 1'500 pour un agent sur une tâche précise. Si l'agent doit gérer plusieurs tâches et plusieurs outils, c'est sur devis. Ensuite, l'agent tourne chez Infomaniak, en Suisse, dès CHF 15 par mois selon les fonctionnalités, payés directement à l'hébergeur.",
+          "Comptez CHF 1'500 pour démarrer avec un agent sur une tâche précise, par exemple les relances et devis d'une PME du bâtiment. Un agent qui couvre plusieurs tâches et plusieurs outils se chiffre sur devis. Ensuite, l'agent tourne chez Infomaniak, en Suisse, dès CHF 15 par mois selon les fonctionnalités, payés directement à l'hébergeur.",
       },
       {
         question: "Vos prix sont en CHF. Je peux travailler avec vous depuis Annemasse ?",
         answer:
-          "Oui. Les prix sont annoncés en CHF ; la facturation est possible en EUR (virement SEPA) au taux du jour, avec la TVA française appliquée pour les sociétés assujetties. Vous recevez un devis chiffré avant de vous engager.",
+          "Oui, et c'est fréquent dans le Genevois français. Je chiffre en CHF, puis je peux facturer en EUR (virement SEPA) au taux du jour, TVA française appliquée si votre société y est assujettie. Le devis chiffré arrive avant tout engagement.",
       },
       {
         question: "Mes données clients sont confidentielles. Où vont-elles ?",
@@ -227,11 +227,11 @@ export const villesSuisseIA: VilleIAData[] = [
       },
     ],
     metaDescription:
-      "Consultant IA à Annemasse : agents IA et automatisations pour commerces, cabinets et PME du Genevois français. À 8 km de Genève, prix en CHF.",
+      "Consultant IA à Annemasse : agents IA et automatisations pour les PME du Genevois français, à 8 km de Genève. Prix en CHF.",
     motCleSEO: 'consultant IA Annemasse',
     angleHero:
       "Agents IA et automatisations pour les commerces, cabinets et PME du Genevois français, à 15 minutes de Genève centre.",
-    preuveLocale: 'À 8 km de Genève · déplacements sur place · facturation CHF ou EUR',
+    preuveLocale: 'À 8 km de Genève · 20 min en Léman Express · facturation CHF ou EUR',
     voisines: ['gaillard', 'lausanne'],
   },
   {
@@ -262,7 +262,7 @@ export const villesSuisseIA: VilleIAData[] = [
       },
       {
         secteur: 'PME industrielle',
-        cas: "Automatisation des relances, du tri d'e-mails et de la préparation de documents, branchée sur les outils déjà en place.",
+        cas: "Pour les PME de la zone d'activité de Châteauvieux : relances, tri d'e-mails et préparation de documents, branchés sur les outils déjà en place.",
       },
       {
         secteur: 'Indépendant frontalier',
@@ -289,7 +289,7 @@ export const villesSuisseIA: VilleIAData[] = [
       {
         question: "Combien coûte un agent IA pour une entreprise de Gaillard ?",
         answer:
-          "La mise en place démarre à CHF 1'500 pour un agent sur une tâche précise. Si l'agent doit gérer plusieurs tâches et plusieurs outils, c'est sur devis. Ensuite, l'agent tourne chez Infomaniak, en Suisse, dès CHF 15 par mois selon les fonctionnalités, payés directement à l'hébergeur.",
+          "Un commerce de proximité qui veut un agent pour répondre aux questions récurrentes de ses clients démarre à CHF 1'500. Un artisan ou une PME qui veut aussi le tri des demandes, les devis et les relances sur plusieurs outils passe sur devis. Dans les deux cas, l'agent tourne ensuite chez Infomaniak, en Suisse : dès CHF 15 par mois selon les fonctionnalités, réglés directement à l'hébergeur.",
       },
       {
         question: "Vos prix sont en CHF. Comment se passe la facturation pour une société française ?",
@@ -303,7 +303,7 @@ export const villesSuisseIA: VilleIAData[] = [
       },
     ],
     metaDescription:
-      "Consultant IA à Gaillard : agents IA et automatisations pour commerces, artisans et PME franco-suisses, à 5 minutes de la douane de Moillesulaz.",
+      "Consultant IA à Gaillard : agents IA et automatisations pour commerces et PME franco-suisses, à 5 min de Moillesulaz. Prix en CHF.",
     motCleSEO: 'consultant IA Gaillard',
     angleHero:
       "Agents IA et automatisations pour les commerces, artisans et PME à clientèle franco-suisse, à 5 minutes de la douane de Moillesulaz.",

@@ -1,6 +1,6 @@
 ---
-title: "Physio Pommier"
-description: "Refonte et optimisation SEO local pour un cabinet de physiothérapie à Grand-Saconnex."
+title: "Physio Pommier : site et SEO local d'un cabinet de physio"
+description: "Refonte Astro et SEO local d'un cabinet de physiothérapie au Grand-Saconnex : pages spécialités, fiche Google, performance."
 date: 2026-04-01
 draft: false
 featured: true
@@ -20,16 +20,24 @@ project:
 
 heroImage:
   url: "/images/portfolio/physio-pommier/mockup.webp"
+  width: 1536
+  height: 1024
   alt: "Page d'accueil Physio Pommier — cabinet de physiothérapie au Grand-Saconnex"
 
 resultImages:
-  - url: "/images/portfolio/physio-pommier/pagespeed.png"
+  - url: "/images/portfolio/physio-pommier/pagespeed.webp"
+    width: 1106
+    height: 825
     alt: "Scores PageSpeed Insights : 98 performances, 91 accessibilité, 100 SEO"
     caption: "Scores PageSpeed Insights après optimisation"
-  - url: "/images/portfolio/physio-pommier/prestations.png"
+  - url: "/images/portfolio/physio-pommier/prestations.webp"
+    width: 1920
+    height: 1031
     alt: "Page prestations Physio Pommier avec grille de services"
     caption: "Architecture des prestations en grille"
-  - url: "/images/portfolio/physio-pommier/cours.png"
+  - url: "/images/portfolio/physio-pommier/cours.webp"
+    width: 1920
+    height: 1031
     alt: "Page cours yoga apaisant au Grand-Saconnex"
     caption: "Pages cours individuelles avec sommaire et CTA"
 

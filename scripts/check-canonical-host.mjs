@@ -9,7 +9,7 @@
 //
 // Deux assertions, échec dur (exit 1) :
 //   1. aucune URL non-www dans src/ et public/
-//   2. public/llm.txt et public/llms.txt sont identiques (ils avaient divergé)
+//   (llm.txt supprimé : 301 vers /llms.txt dans vercel.json)
 
 import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
@@ -69,18 +69,5 @@ if (offenders.length > 0) {
   console.error('  Contexte → docs/features/canonical-cannibalisation.md\n');
 }
 
-try {
-  const a = readFileSync(join(ROOT, 'public/llm.txt'), 'utf-8');
-  const b = readFileSync(join(ROOT, 'public/llms.txt'), 'utf-8');
-  if (a !== b) {
-    failed = true;
-    console.error('\n✗ public/llm.txt et public/llms.txt ont divergé.');
-    console.error('  Ils doivent rester identiques : `cp public/llm.txt public/llms.txt`\n');
-  }
-} catch (error) {
-  failed = true;
-  console.error(`\n✗ Lecture de public/llm(s).txt impossible : ${error.message}\n`);
-}
-
 if (failed) process.exit(1);
-console.log('✓ Hôte canonique www — OK · llm.txt ≡ llms.txt');
+console.log('✓ Hôte canonique www — OK');

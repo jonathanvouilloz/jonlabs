@@ -90,7 +90,7 @@ const portfolioCollection = defineCollection({
     }),
 
     // Images
-    heroImage: z.object({ url: z.string(), alt: z.string() }),
+    heroImage: z.object({ url: z.string(), alt: z.string(), width: z.number().optional(), height: z.number().optional() }),
 
     // Résultats clés (optionnel pour side-projects)
     results: z.array(z.object({
@@ -118,6 +118,8 @@ const portfolioCollection = defineCollection({
         url: z.string(),
         alt: z.string(),
         caption: z.string().optional(),
+        width: z.number().optional(),
+        height: z.number().optional(),
       }).optional(),
     })).default([]),
 
@@ -148,6 +150,8 @@ const portfolioCollection = defineCollection({
       url: z.string(),
       alt: z.string(),
       caption: z.string().optional(),
+      width: z.number().optional(),
+      height: z.number().optional(),
     })).optional(),
     galleryTitle: z.string().default('Captures'),
 

@@ -73,6 +73,7 @@ export const offers = [
       `Site Webflow (géré par vous) : dès CHF ${chf(pricing.webflow.from)}`,
     ],
     href: "/services/creation-site-web",
+    hrefLabel: "Création de site web",
     cta: "Demander un devis",
   },
   {
@@ -89,6 +90,7 @@ export const offers = [
       "Formation IA équipe ou individuelle : sur devis",
     ],
     href: "/hermes",
+    hrefLabel: "Agent IA Hermès",
     cta: "Parler de mon projet IA",
   },
   {
@@ -105,6 +107,7 @@ export const offers = [
       "Un seul interlocuteur",
     ],
     href: "/services/developpement-application-mobile",
+    hrefLabel: "Développement d'application mobile",
     cta: "Parler de mon app",
   },
 ];

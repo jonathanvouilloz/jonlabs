@@ -1,5 +1,5 @@
 ---
-title: "Nooria"
+title: "Nooria : application mobile parent-enfant, App Store"
 description: "Application mobile de conversations parent-enfant. Du PRD à l'App Store en deux semaines, en local-first et sans backend."
 date: 2026-09-02
 draft: false
@@ -16,6 +16,8 @@ project:
 
 heroImage:
   url: "/images/portfolio/nooria/hero.webp"
+  width: 1600
+  height: 900
   alt: "Page d'accueil de Nooria : des conversations qui font grandir la réflexion de votre enfant"
 
 tags:
@@ -112,9 +114,13 @@ learnings:
 
 resultImages:
   - url: "/images/portfolio/nooria/captures-1.webp"
+    width: 1600
+    height: 1067
     alt: "Écran d'accueil Nooria et carnet de bord des missions terminées"
     caption: "Reprise d'aventure et carnet de bord, tels que présentés sur l'App Store."
   - url: "/images/portfolio/nooria/captures-2.webp"
+    width: 1600
+    height: 1067
     alt: "Guide de facilitation pour le parent et archipel complet des îles Nooria"
     caption: "Guide de facilitation côté parent, et l'archipel complet des îles."
 ---

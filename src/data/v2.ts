@@ -20,10 +20,10 @@ export const promises = [
 ];
 
 export const builds = [
-  { iso: 'laptop', title: 'Applications sur mesure', text: 'Un outil métier taillé pour votre équipe et vos agents IA.', big: true },
-  { iso: 'terminal', title: 'Agents IA', text: 'Ils lisent, trient, répondent. Vous validez.' },
-  { iso: 'slow', title: 'Automatisations', text: 'Les tâches répétitives disparaissent.' },
-  { iso: 'phone', title: 'Applications mobiles', text: 'iPhone et Android, pour vos clients ou vos équipes.' },
+  { iso: 'laptop', title: 'Applications sur mesure', href: '/services/application-sur-mesure', text: 'Un outil métier taillé pour votre équipe et vos agents IA.', big: true },
+  { iso: 'terminal', title: 'Agents IA', href: '/hermes', text: 'Ils lisent, trient, répondent. Vous validez.' },
+  { iso: 'slow', title: 'Automatisations', href: '/consultant-ia#automatisation', text: 'Les tâches répétitives disparaissent.' },
+  { iso: 'phone', title: 'Applications mobiles', href: '/services/developpement-application-mobile', text: 'iPhone et Android, pour vos clients ou vos équipes.' },
 ];
 
 export const faqs = [

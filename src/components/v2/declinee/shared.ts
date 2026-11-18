@@ -12,6 +12,7 @@ export const methodeIA: DcItem[] = [
 export const piliersIA: DcLink[] = [
   { href: '/consultant-ia', k: 'Page pilier', t: 'Consultant IA en Suisse romande', d: "Méthode, types d'agents, conformité des données et tarifs." },
   { href: '/hermes', k: 'Offre', t: 'Agent IA Hermès', d: "Un agent branché sur vos outils, vous validez avant chaque envoi." },
+  { href: '/guides/mettre-en-place-ia-entreprise-guide', k: 'Guide', t: "Mettre l'IA en place dans votre entreprise", d: 'Étapes, coûts en CHF, outils et adoption par l\'équipe.' },
 ];
 
 export const metiersLinks = (except?: string): DcLink[] =>

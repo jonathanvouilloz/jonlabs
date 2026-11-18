@@ -10,15 +10,26 @@ import Footer from '../components/v2/Footer.astro';
 import '../styles/v2.css';
 
 import { SITE_URL } from '../data/schema';
-import { getCollectionPageSchema } from '../lib/seo';
+import { getCollectionPageSchema, getBreadcrumbSchema } from '../lib/seo';
 
-const pageTitle = "Réalisations Web & Études de Cas";
-const pageDescription = "Sites web, SEO local et automatisations : découvrez mes réalisations détaillées pour des clients suisses. Résultats mesurables à l'appui.";
-
-const schemas = [getCollectionPageSchema({ url: `${SITE_URL}/portfolio`, name: pageTitle, description: pageDescription })];
+const pageTitle = "Réalisations : systèmes IA, applications et sites web";
+const pageDescription = "Systèmes IA, applications et sites web livrés pour des clients suisses : contexte, approche et résultats mesurés, cas par cas.";
 
 const entries = (await getCollection('portfolio', ({ data }) => !data.draft))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const schemas = [
+  getCollectionPageSchema({ url: `${SITE_URL}/portfolio`, name: pageTitle, description: pageDescription }),
+  {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: entries.map((e, i) => ({ '@type': 'ListItem', position: i + 1, url: `${SITE_URL}/portfolio/${e.slug}`, name: e.data.title })),
+  },
+  getBreadcrumbSchema([
+    { name: 'Accueil', url: SITE_URL },
+    { name: 'Réalisations', url: `${SITE_URL}/portfolio` },
+  ]),
+];
 const cases = entries.filter((p) => p.data.entryType === 'case-study');
 const sides = entries.filter((p) => p.data.entryType === 'side-project');
 const year = (d: Date) => d.getFullYear();
@@ -27,7 +38,6 @@ const year = (d: Date) => d.getFullYear();
 <Layout title={pageTitle} description={pageDescription} schemas={schemas}>
   <Fragment slot="head">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" />
   </Fragment>
 
   <div class="v2">
@@ -38,14 +48,15 @@ const year = (d: Date) => d.getFullYear();
       <header class="r"><div class="w v2-head v2-head-2">
         <div>
           <p class="v2-meta">{cases.length} études de cas · {sides.length} projets perso</p>
-          <h1 class="v2-h1 v2-port-h1" data-words>Réalisations.</h1>
+          <h1 class="v2-h1 v2-port-h1" data-words>Réalisations.<br /><span class="v2-dim">Systèmes IA, applications et sites web.</span></h1>
         </div>
         <p class="v2-head-p">Des projets livrés pour de vrais clients, avec le contexte, l'approche et les résultats mesurés.</p>
       </div></header>
 
+      <div class="r"><div class="w v2-port-label"><h2 class="v2-meta">Études de cas clients</h2><span class="v2-meta">{cases.length} dossiers</span></div></div>
       {cases.map((c, i) => <>
         {i > 0 && <div class="r" aria-hidden="true"><div class="w v2-gap"></div></div>}
-        <section class="r"><CaseSpec entry={c} /></section>
+        <section class="r"><CaseSpec entry={c} eager={i === 0} /></section>
       </>)}
 
       {sides.length > 0 && (
@@ -67,7 +78,7 @@ const year = (d: Date) => d.getFullYear();
       )}
 
       <section class="r"><div class="w v2-head v2-head-2">
-        <h2 class="v2-h2" data-words>Votre projet,<br /><span class="v2-dim">la prochaine étude de cas.</span></h2>
+        <p class="v2-h2" data-words>Votre projet,<br /><span class="v2-dim">la prochaine étude de cas.</span></p>
         <div class="v2-ctas v2-ctas-left">
           <a href="/contact" class="v2-btn"><i class="ri-calendar-line"></i> <span data-roll>Parlons de votre projet</span></a>
           <a href="mailto:contact@jonlabs.ch" class="v2-btn v2-btn-ghost"><span data-roll>contact@jonlabs.ch</span></a>
@@ -82,3 +93,8 @@ const year = (d: Date) => d.getFullYear();
 <script>
   import '../scripts/v2-ui';
 </script>
+
+<style>
+  .v2-port-label { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px var(--pad); }
+  .v2-port-label h2 { margin: 0; font-weight: 400; color: var(--ink); }
+</style>

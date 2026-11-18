@@ -5,7 +5,8 @@ export interface SubService {
   title: string;
   description: string;
   features: string[];
-  ctaText: string;
+  /** ancre du lien vers la page dédiée (texte = mot-clé de la page cible) */
+  ctaText?: string;
   link?: string; // Lien vers une page dédiée (optionnel)
 }
 
@@ -26,26 +27,24 @@ export const serviceSections: ServiceSection[] = [
       {
         id: 'creation-site',
         title: 'Création de site',
-        description: 'Un site vitrine qui explique ce que tu fais et donne envie de te contacter.',
+        description: 'Un site vitrine qui explique ce que vous faites et donne envie de vous contacter.',
         features: [
           'Design sur mesure, lisible sur mobile',
           'Optimisé pour Google dès la mise en ligne',
-          'Tu modifies tes textes toi-même'
+          'Vous modifiez vos textes vous-même'
         ],
-        ctaText: 'En savoir plus',
+        ctaText: 'Création de site web',
         link: '/services/creation-site-web'
       },
       {
         id: 'developpeur-webflow',
         title: 'Développeur Webflow',
-        description: 'Création ou reprise de site Webflow, que ton équipe gère en autonomie.',
+        description: 'Création ou reprise de site Webflow, que votre équipe gère en autonomie.',
         features: [
           'Site Webflow propre et rapide, dès CHF 950',
           'Formation à l\'éditeur incluse',
           'Reprise d\'un site Webflow existant'
-        ],
-        ctaText: 'En savoir plus',
-        link: '/services/creation-site-web'
+        ]
       }
     ],
     ctaText: 'Parler de mon site'
@@ -53,7 +52,7 @@ export const serviceSections: ServiceSection[] = [
   {
     id: 'app-mobile',
     title: 'Application mobile',
-    accroche: `Une app iPhone et Android pour tes clients ou ton équipe. Sur devis.`,
+    accroche: `Une app iPhone et Android pour vos clients ou votre équipe. Sur devis.`,
     subServices: [
       {
         id: 'application-mobile',
@@ -64,8 +63,20 @@ export const serviceSections: ServiceSection[] = [
           'Un seul interlocuteur, du début à la fin',
           'Publication sur les stores comprise'
         ],
-        ctaText: 'En savoir plus',
+        ctaText: "Développement d'application mobile",
         link: '/services/developpement-application-mobile'
+      },
+      {
+        id: 'application-sur-mesure',
+        title: 'Application sur mesure',
+        description: 'Espace client, outil de gestion, tableau de bord ou réservation : un logiciel métier qui suit votre façon de travailler.',
+        features: [
+          'On commence petit, on grandit ensuite',
+          'Branchée sur vos outils actuels',
+          'Sur devis'
+        ],
+        ctaText: 'Application sur mesure pour PME',
+        link: '/services/application-sur-mesure'
       }
     ],
     ctaText: 'Parler de mon app'
@@ -78,25 +89,25 @@ export const serviceSections: ServiceSection[] = [
       {
         id: 'agent-hermes',
         title: 'Agent IA Hermès',
-        description: 'Un assistant IA branché sur tes outils : e-mails, relances, documents.',
+        description: 'Un assistant IA branché sur vos outils : e-mails, relances, documents.',
         features: [
           'Dès CHF 1\'500',
           'Hébergé en Suisse chez Infomaniak',
-          'Tu valides avant chaque envoi'
+          'Vous validez avant chaque envoi'
         ],
-        ctaText: 'En savoir plus',
+        ctaText: 'Agent IA Hermès',
         link: '/hermes'
       },
       {
         id: 'consultant-ia',
         title: 'Automatisation & intégration',
-        description: 'On relie tes outils entre eux et on automatise ce qui te fait perdre du temps.',
+        description: 'On relie vos outils entre eux et on automatise ce qui vous fait perdre du temps.',
         features: [
-          'On part de ta tâche la plus pénible',
-          'Tes outils actuels, pas de changement forcé',
+          'On part de votre tâche la plus pénible',
+          'Vos outils actuels, pas de changement forcé',
           'Sur devis'
         ],
-        ctaText: 'En savoir plus',
+        ctaText: 'Consultant IA en Suisse romande',
         link: '/consultant-ia'
       },
       {
@@ -104,11 +115,11 @@ export const serviceSections: ServiceSection[] = [
         title: 'Formation IA',
         description: 'Pour une équipe ou en individuel : utiliser l\'IA au quotidien, sans risque.',
         features: [
-          'Adaptée à ton métier',
+          'Adaptée à votre métier',
           'Entreprise ou particulier',
           'Devis sur mesure'
         ],
-        ctaText: 'En savoir plus',
+        ctaText: 'Formation IA pour équipes',
         link: '/services/formation-ia-equipe'
       }
     ],

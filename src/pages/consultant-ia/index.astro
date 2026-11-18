@@ -9,7 +9,7 @@ import { pricing, chf } from "../../data/pricing";
 
 const pageUrl = `${SITE_URL}/consultant-ia`;
 const pageTitle = "Consultant IA pour PME romandes : stratégie et mise en place";
-const pageDescription = "Consultant IA à Genève : je conçois des systèmes IA sur mesure pour les PME romandes (agents IA, automatisations, intégration à vos outils). Prix en CHF, conformité nLPD.";
+const pageDescription = "Consultant IA à Genève : agents IA, automatisations et intégration à vos outils pour PME romandes. Prix en CHF, nLPD.";
 
 const faqs = [
   { question: "C'est quoi, concrètement, un consultant IA ?", answer: "Quelqu'un qui vous aide à utiliser l'intelligence artificielle pour des résultats concrets, pas pour la mode. Dans mon cas : j'identifie les tâches où l'IA vous fait gagner du temps, je conçois les agents IA et les automatisations correspondants, je les intègre à vos outils, et je forme votre équipe. Vous avez un seul interlocuteur du diagnostic à la mise en production, sans jargon." },
@@ -54,15 +54,15 @@ const cta = { href: "/contact", label: "Cadrer mon projet IA" };
   sections={[
     {
       id: "services", kicker: "01 · Services", title: "Des systèmes IA", dim: "sur mesure.",
-      text: "De l'automatisation simple à l'agent IA métier : toute la chaîne, un seul prestataire.",
+      text: "De l'automatisation simple à l'agent IA métier : toute la chaîne, un seul prestataire. Pour démarrer sans risque, un <a href=\"/blog/projet-pilote-ia-30-jours\">projet pilote IA en 30 jours</a>.",
       price: { value: pricing.agentIA.display, note: "Agent IA, devis ferme après un premier échange gratuit." },
       cta,
       subs: [
         { meta: pricing.agentIA.display, title: "Agents IA sur mesure", text: "Conception d'agents autonomes capables d'agir sur vos outils, avec mémoire et validation humaine. Pour les tâches pointues que les workflows génériques ne couvrent pas.", link: { href: "#agents-sur-mesure", label: "Ce qu'est un agent sur mesure" } },
         { meta: "Sur devis", title: "Automatisation de tâches", text: "Relances, rapports, saisies répétitives qui se déclenchent toutes seules. On supprime les corvées du lundi matin avant même de parler d'IA avancée.", link: { href: "#automatisation", label: "Ce qu'on automatise" } },
         { meta: "Sur devis", title: "Intégration d'outils", text: "On fait parler vos applications entre elles : Bexio, CRM, Google Workspace, votre facturation. L'info saisie une fois, partout, sans recopie.", link: { href: "#integration-outils", label: "Quand les outils bloquent" } },
-        { meta: pricing.formationIA.display, title: "Formation IA pour votre équipe", text: "Vos collaborateurs apprennent à utiliser l'IA au quotidien sans se mettre en danger côté données. Cas concrets de votre métier, pas une démo générique.", link: { href: "/services/formation-ia-equipe", label: "Voir la formation" } },
-        { meta: `Clé en main · ${pricing.agentIA.display} · en production en 2 à 3 semaines`, title: "Hermès, l'agent que je déploie chez vous", text: "Un agent IA déjà éprouvé sur des tâches concrètes de PME : tri d'e-mails, relances, préparation de documents. On part de cette base, on le branche sur vos outils, on pose les garde-fous. Vous ne payez pas six mois de R&D.", link: { href: "/hermes", label: "Voir l'offre" } },
+        { meta: pricing.formationIA.display, title: "Formation IA pour votre équipe", text: "Vos collaborateurs apprennent à utiliser l'IA au quotidien sans se mettre en danger côté données. Cas concrets de votre métier, pas une démo générique.", link: { href: "/services/formation-ia-equipe", label: "Formation IA pour votre équipe" } },
+        { meta: `Clé en main · ${pricing.agentIA.display} · en production en 2 à 3 semaines`, title: "Hermès, l'agent que je déploie chez vous", text: "Un agent IA déjà éprouvé sur des tâches concrètes de PME : tri d'e-mails, relances, préparation de documents. On part de cette base, on le branche sur vos outils, on pose les garde-fous. Vous ne payez pas six mois de R&D.", link: { href: "/hermes", label: "Découvrir l'agent IA Hermès" } },
       ],
     },
     {
@@ -86,7 +86,7 @@ const cta = { href: "/contact", label: "Cadrer mon projet IA" };
     },
     {
       id: "agents-sur-mesure", kicker: "04 · Agents sur mesure", title: "Un agent IA sur mesure,", dim: "c'est quoi ?",
-      text: "Pas un chatbot générique. Un assistant conçu pour votre métier, qui se souvient du contexte, agit sur vos outils, et passe la main quand un humain doit valider.",
+      text: "Pas un chatbot générique. Un assistant conçu pour votre métier, qui se souvient du contexte, agit sur vos outils, et passe la main quand un humain doit valider. Les règles côté données : <a href=\"/blog/ia-nlpd-conformite-suisse\">IA et nLPD en Suisse</a>.",
       subs: [
         { title: "Une mémoire", text: "Il garde le contexte d'un client, d'un dossier, d'une conversation. Vous ne répétez pas trois fois la même information." },
         { title: "Une capacité d'action", text: "Il ne se contente pas de répondre : il crée une fiche, envoie un e-mail, met à jour un statut dans vos outils." },
@@ -112,8 +112,8 @@ const cta = { href: "/contact", label: "Cadrer mon projet IA" };
       subs: [
         { title: "Vraiment basé à Genève", text: "Atelier installé à Chêne-Bougeries, pas un prestataire transfrontalier qui facture depuis l'autre côté de la frontière. On se voit pour un café si le projet le mérite, et je connais le terrain romand." },
         { title: "Prix en CHF, affichés", text: `Un agent IA démarre à CHF ${chf(pricing.agentIA.from)}, avec un devis ferme après un premier échange gratuit. Pas de prix caché jusqu'au dernier rendez-vous.` },
-        { title: "Des preuves chiffrées", text: "50 sites romands audités, un système de réponse aux avis Google qui tourne en autonomie (cas barbershop), 50+ sites livrés. Des résultats vérifiables, pas des promesses de plaquette.", link: { href: "/portfolio", label: "Voir les réalisations" } },
-        { title: "Un seul prestataire", text: "IA, site web et application mobile sous le même toit. Vous arrêtez de jongler entre plusieurs agences qui se renvoient la balle quand ça coince." },
+        { title: "Des preuves chiffrées", text: "50 sites romands audités, un système de réponse aux avis Google qui tourne en autonomie (cas barbershop), 50+ sites livrés. Des résultats vérifiables, pas des promesses de plaquette.", link: { href: "/portfolio", label: "Voir les réalisations IA en production" } },
+        { title: "Un seul prestataire", text: "IA, site web et application mobile sous le même toit : une <a href=\"/services/application-sur-mesure\">application sur mesure</a> pour votre équipe, ou un <a href=\"/services/developpement-application-mobile\">développement d'application mobile</a> pour vos clients. Vous arrêtez de jongler entre plusieurs agences qui se renvoient la balle quand ça coince." },
       ],
     },
   ]}
@@ -132,15 +132,16 @@ const cta = { href: "/contact", label: "Cadrer mon projet IA" };
     {
       title: "L'IA près de chez vous", dim: "et dans votre métier.",
       items: [
-        { href: "/consultant-ia/lausanne", k: "Lausanne", label: "Consultant IA à Lausanne", text: "Conseil et agents IA pour les entreprises de la région lausannoise et du canton de Vaud." },
-        { href: "/consultant-ia/annemasse", k: "Annemasse", label: "Consultant IA à Annemasse", text: "Agents IA et automatisation pour les entreprises du Genevois français, à quelques minutes de Genève." },
-        { href: "/consultant-ia/gaillard", k: "Gaillard", label: "Consultant IA à Gaillard", text: "Agents IA et automatisation pour les entreprises de Gaillard et de la frontière genevoise." },
+        { href: "/consultant-ia/lausanne", k: "Vaud", label: "Consultant IA à Lausanne", text: "Conseil et agents IA pour les entreprises de la région lausannoise et du canton de Vaud." },
+        { href: "/consultant-ia/annemasse", k: "Genevois français", label: "Consultant IA à Annemasse", text: "Agents IA et automatisation pour les entreprises du Genevois français, à quelques minutes de Genève." },
+        { href: "/consultant-ia/gaillard", k: "Frontière genevoise", label: "Consultant IA à Gaillard", text: "Agents IA et automatisation pour les entreprises de Gaillard et de la frontière genevoise." },
         { href: "/metiers/ia-fiduciaire", k: "Métier", label: "IA pour fiduciaires", text: "Tri et pré-imputation des pièces (Bexio, Crésus), relances, TVA, veille légale. La validation reste humaine." },
         { href: "/metiers/ia-agence-immobiliere", k: "Métier", label: "IA pour agences immobilières", text: "Qualification des leads, tri des dossiers locataires, rédaction d'annonces, relances et suivi des échéances." },
       ],
     },
     {
       title: "À lire sur", dim: "l'IA en PME.",
+      text: "Pour commencer, le <a href=\"/guides/mettre-en-place-ia-entreprise-guide\">guide pour mettre l'IA en place dans votre entreprise</a>, puis <a href=\"/blog/consultant-ia-c-est-quoi\">ce que fait un consultant IA</a>.",
       items: [
         { href: "/blog/automatisation-pme-suisse-guide-complet", k: "Guide", label: "Automatisation PME en Suisse : le guide complet", text: "Par où commencer, combien ça coûte et quelles tâches automatiser en premier." },
         { href: "/blog/hermes-agent-ia-pme", k: "Article", label: "Hermès : un agent IA conçu pour une PME", text: "Le cas concret d'un agent métier, de l'audit à la mise en production." },
@@ -150,6 +151,6 @@ const cta = { href: "/contact", label: "Cadrer mon projet IA" };
       ],
     },
   ]}
-  faq={faqs}
+  faq={{ title: "Questions sur le consultant IA à Genève.", items: faqs }}
   contact="Premier échange gratuit, sans engagement. On identifie la tâche à confier à l'IA, on chiffre en CHF, et si le retour sur investissement n'est pas là, je vous le dis."
 />

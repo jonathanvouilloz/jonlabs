@@ -15,7 +15,6 @@ const pageTitle = "Jonathan Vouilloz : systèmes IA sur mesure, Genève";
 const pageDescription = "Je construis des systèmes IA pour des entreprises qui n'ont pas d'équipe tech. Mon parcours, de l'ESIG et la HEG à Jon Labs, à Genève.";
 
 const schemas = [
-  personData,
   getAboutPageSchema({ url: `${SITE_URL}/about`, name: pageTitle, description: pageDescription }),
   getBreadcrumbSchema([
     { name: "Accueil", url: SITE_URL },
@@ -35,7 +34,6 @@ const timeline = [
 <Layout title={pageTitle} description={pageDescription} schemas={schemas}>
   <Fragment slot="head">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" />
   </Fragment>
 
   <div class="v2">
@@ -45,7 +43,7 @@ const timeline = [
     <main>
       <header class="r"><div class="w ab-m-col ab-m-hero">
         <div><Image src={imgJonathan} alt="Jonathan Vouilloz" width={160} height={200} quality={85} loading="eager" class="ab-m-face" /></div>
-        <h1 class="v2-h1" data-words>Jonathan Vouilloz.<br /><span class="v2-dim">Genève.</span></h1>
+        <h1 class="v2-h1" data-words>Jonathan Vouilloz.<br /><span class="v2-dim">Systèmes IA sur mesure, Genève.</span></h1>
       </div></header>
 
       <section class="r"><div class="w ab-m-col">
@@ -63,7 +61,8 @@ const timeline = [
         <p class="ab-m-lead">Deux choses me font avancer : faire ce que j'aime vraiment, et voir que ça sert à quelqu'un.</p>
       </div></section>
 
-      <section class="r"><div class="w ab-m-col ab-m-path">
+      <section class="r" aria-labelledby="parcours"><div class="w ab-m-col ab-m-path">
+        <h2 class="v2-meta ab-m-h2" id="parcours">Mon parcours</h2>
         <ol class="ab-m-tl" data-rise>
           {timeline.map((t) => <li><span class="v2-meta">{t.year}</span>{t.label}</li>)}
         </ol>
@@ -74,7 +73,7 @@ const timeline = [
       </div></section>
 
       <section class="r"><div class="w ab-m-col ab-m-end">
-        <h2 class="v2-h2" data-words>Un projet en tête&nbsp;?<br /><span class="v2-dim">On part de là.</span></h2>
+        <p class="v2-h2" data-words>Un projet en tête&nbsp;?<br /><span class="v2-dim">On part de là.</span></p>
         <div><a href="/contact" class="v2-btn"><span data-roll>Parlons-en</span> <i class="ri-arrow-right-line"></i></a></div>
       </div></section>
     </main>
@@ -91,6 +90,7 @@ const timeline = [
   .v2 .ab-m-text { display: grid; gap: 28px; font-size: 1.1rem; line-height: 1.7; color: var(--mut); }
   .v2 .ab-m-text .ab-m-lead { font-family: var(--display); color: var(--ink); font-size: clamp(1.3rem, 2.2vw, 1.6rem); line-height: 1.25; letter-spacing: -0.03em; }
   .v2 .ab-m-path { display: grid; gap: 28px; }
+  .v2 .ab-m-h2 { margin: 0; font-weight: 400; color: var(--ink); }
   .v2 .ab-m-tl { list-style: none; padding: 0; display: grid; }
   .v2 .ab-m-tl li { display: grid; grid-template-columns: 72px 1fr; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 1.05rem; }
   .v2 .ab-m-tl li:first-child { border-top: 1px solid var(--line); }

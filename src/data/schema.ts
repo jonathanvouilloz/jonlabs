@@ -12,12 +12,12 @@ export const organizationData = {
   "url": SITE_URL,
   "logo": {
     "@type": "ImageObject",
-    "url": `${SITE_URL}/og-image.png`,
+    "url": `${SITE_URL}/favicon/web-app-manifest-512x512.png`,
     "width": 512,
     "height": 512
   },
   "image": `${SITE_URL}/og-image.png`,
-  "description": "Laboratoire créatif de Jonathan Vouilloz. Développement web, automatisation et validation d'idées pour entrepreneurs et PME en Suisse romande.",
+  "description": "Jon Labs conçoit des systèmes IA sur mesure pour les PME romandes : agents IA, automatisations et applications, depuis Genève.",
   "founder": {
     "@type": "Person",
     "@id": `${SITE_URL}/#person`
@@ -76,9 +76,9 @@ export const personData = {
   "image": {
     "@type": "ImageObject",
     "url": `${SITE_URL}/images/jonathan-vouilloz.webp`,
-    "caption": "Jonathan Vouilloz — développeur web freelance à Genève"
+    "caption": "Jonathan Vouilloz, systèmes IA sur mesure à Genève"
   },
-  "jobTitle": "Développeur web freelance",
+  "jobTitle": "Développeur de systèmes IA sur mesure",
   "description": "Développeur web freelance basé à Genève. Plus de 8 ans d'expérience à accompagner des PME romandes sur trois fronts : sites web sur-mesure, automatisation (Make, Zapier, n8n) et SEO local.",
   "email": "contact@jonlabs.ch",
   "telephone": "+41789447707",
@@ -244,7 +244,7 @@ export const serviceSchemas = {
   "consultant-ia": {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${SITE_URL}/consultant-ia/#service`,
+    "@id": `${SITE_URL}/consultant-ia#service`,
     "name": "Consultant IA à Genève — agents IA et automatisation pour PME",
     "url": `${SITE_URL}/consultant-ia`,
     "description": "Conseil, conception et intégration d'agents IA et d'automatisations pour PME et indépendants en Suisse romande. Freelance basé à Genève, prix CHF transparents, conformité nLPD maîtrisée.",
@@ -265,7 +265,7 @@ export const serviceSchemas = {
   "creation-site-web": {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${SITE_URL}/services/creation-site-web/#service`,
+    "@id": `${SITE_URL}/services/creation-site-web#service`,
     "name": "Création de site web à Genève",
     "url": `${SITE_URL}/services/creation-site-web`,
     "description": "Création de sites web professionnels pour entrepreneurs et PME en Suisse romande. Sites vitrines modernes, rapides et optimisés pour Google.",
@@ -286,8 +286,8 @@ export const serviceSchemas = {
   "developpement-application-mobile": {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${SITE_URL}/services/developpement-application-mobile/#service`,
-    "name": "Développeur application mobile à Genève",
+    "@id": `${SITE_URL}/services/developpement-application-mobile#service`,
+    "name": "Développement d'application mobile",
     "url": `${SITE_URL}/services/developpement-application-mobile`,
     "description": "Développement d'applications mobiles iOS et Android pour PME et startups romandes. Freelance à Genève : app native, hybride, Flutter/React Native ou PWA, publication sur les stores, devis clair en CHF.",
     "provider": { "@id": `${SITE_URL}/#organization` },
@@ -297,7 +297,7 @@ export const serviceSchemas = {
   "application-sur-mesure": {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${SITE_URL}/services/application-sur-mesure/#service`,
+    "@id": `${SITE_URL}/services/application-sur-mesure#service`,
     "name": "Application sur mesure à Genève",
     "url": `${SITE_URL}/services/application-sur-mesure`,
     "description": "Applications web et logiciels métier sur mesure pour PME romandes : espace client, outil de gestion, tableau de bord, réservation, avec agents IA intégrés. Freelance à Genève, code qui vous appartient, données selon la nLPD, devis en CHF.",
@@ -308,7 +308,7 @@ export const serviceSchemas = {
   "metiers/ia-fiduciaire": {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${SITE_URL}/metiers/ia-fiduciaire/#service`,
+    "@id": `${SITE_URL}/metiers/ia-fiduciaire#service`,
     "name": "IA pour fiduciaires et experts-comptables en Suisse romande",
     "url": `${SITE_URL}/metiers/ia-fiduciaire`,
     "description": "Agents IA et automatisation pour fiduciaires romandes : tri et pré-imputation des pièces (Bexio, Crésus), relances des justificatifs, décomptes TVA, veille légale. Prix CHF, conformité nLPD, validation humaine.",
@@ -329,7 +329,7 @@ export const serviceSchemas = {
   "metiers/ia-agence-immobiliere": {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${SITE_URL}/metiers/ia-agence-immobiliere/#service`,
+    "@id": `${SITE_URL}/metiers/ia-agence-immobiliere#service`,
     "name": "IA pour agences immobilières et régies en Suisse romande",
     "url": `${SITE_URL}/metiers/ia-agence-immobiliere`,
     "description": "Agents IA et automatisation pour agences immobilières et régies romandes : qualification des leads, tri des dossiers de candidature, rédaction d'annonces, relances et suivi des échéances. Prix CHF, un seul interlocuteur.",
@@ -350,7 +350,7 @@ export const serviceSchemas = {
   "formation-ia-equipe": {
     "@context": "https://schema.org",
     "@type": "Service",
-    "@id": `${SITE_URL}/services/formation-ia-equipe/#service`,
+    "@id": `${SITE_URL}/services/formation-ia-equipe#service`,
     "name": "Formation IA pour équipes en Suisse romande",
     "url": `${SITE_URL}/services/formation-ia-equipe`,
     "description": "Formation IA sur-mesure pour les équipes de PME romandes : cadrage des usages, prise en main des agents et outils IA, garde-fous et bonnes pratiques nLPD. Pour entreprises et particuliers, en présentiel à Genève ou à distance, devis sur mesure.",

@@ -1,6 +1,6 @@
 ---
-title: "Le système qui fait tourner Jon Labs"
-description: "Mon propre outil de travail : un agent IA sur un serveur, un logiciel de facturation et de CRM avec son API, chaque envoi sous ma validation."
+title: "Système IA sur mesure : celui qui fait tourner Jon Labs"
+description: "Mon outil de travail : un agent IA sur serveur, un logiciel de facturation et CRM avec API, chaque envoi sous ma validation."
 # VPS jonlabs en service le 14.11.2026 (cerveau/10-Projets/vps/vps-human.md:36)
 date: 2026-11-14
 draft: false
@@ -22,6 +22,8 @@ project:
 # Placeholder : aucune capture du CRM ni de Hermes n'existe (scratchpad/cas-ia-faits.md:143)
 heroImage:
   url: "/images/portfolio/systeme-ia-jonlabs/hero.webp"
+  width: 1536
+  height: 1024
   alt: "Le système Jon Labs : agents, CRM et serveur"
 
 tags:

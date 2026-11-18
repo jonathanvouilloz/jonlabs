@@ -1,5 +1,5 @@
 ---
-title: "Wildcat Muay Thai"
+title: "Wildcat Muay Thai : site bilingue Astro et silo SEO visa"
 description: "Un camp de Muay Thai à Chiang Mai qui vivait sur WhatsApp. Un site bilingue Astro + Sanity, un silo visa DTV, 26 articles."
 date: 2026-09-08
 draft: false
@@ -21,6 +21,8 @@ project:
 
 heroImage:
   url: "/images/portfolio/wildcat/mockup.webp"
+  width: 1536
+  height: 1024
   alt: "Page d'accueil de Wildcat Muay Thai — Come for the fight, stay for the family"
 
 tags:
@@ -118,18 +120,28 @@ learnings:
 
 resultImages:
   - url: "/images/portfolio/wildcat/classes.webp"
+    width: 1600
+    height: 998
     alt: "Section horaires des cours et présentation du forfait Stay & Train sur le site Wildcat"
     caption: "Les horaires du jour et l'offre de séjour, côte à côte sur l'accueil."
   - url: "/images/portfolio/wildcat/dtv.webp"
+    width: 1600
+    height: 523
     alt: "Section Three steps to your long stay — les trois étapes de la demande de visa DTV"
     caption: "La page pilier du visa : trois étapes, puis le guide complet."
   - url: "/images/portfolio/wildcat/stay-train.webp"
+    width: 1600
+    height: 1009
     alt: "Page Stay & Train — forfait mensuel unique à 28 000 THB avec le détail de ce qui est inclus"
     caption: "Un prix unique publié en clair, avec ce qui est dedans et ce qui ne l'est pas."
   - url: "/images/portfolio/wildcat/blog.webp"
+    width: 1600
+    height: 1333
     alt: "Index du blog Wildcat — recherche, filtres par thème et grille de 23 articles"
     caption: "Le blog anglais : recherche, filtres par thème, 23 articles au moment de la capture."
   - url: "/images/portfolio/wildcat/multilingue.webp"
+    width: 1600
+    height: 1000
     alt: "Version française de la page d'accueil de Wildcat Muay Thai"
     caption: "La même page en français : URLs traduites, pas une simple traduction posée par-dessus."
 ---

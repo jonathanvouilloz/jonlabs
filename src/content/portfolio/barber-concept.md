@@ -1,5 +1,5 @@
 ---
-title: "Barber Concept"
+title: "Barber Concept : refonte Astro et SEO local à Genève"
 description: "Chaîne de barbiers à Genève — site refondu en Astro et activé en SEO en 2026 : 15'400 clics organiques en sept mois."
 date: 2023-09-01
 draft: false
@@ -19,25 +19,39 @@ project:
 
 heroImage:
   url: "/images/portfolio/barber-concept/mockup.webp"
+  width: 1536
+  height: 1024
   alt: "Site Barber Concept refondu en Astro — page d'accueil, Barber Concept ton barbier préféré depuis 2017"
 
 resultImages:
   - url: "/images/portfolio/barber-concept/salons.webp"
+    width: 1600
+    height: 1370
     alt: "Grille des six salons Barber Concept — Cornavin, Eaux-Vives, Jonction, Lausanne, Rive, Sion"
     caption: "Les six salons, chacun avec sa page, ses horaires et son adresse."
   - url: "/images/portfolio/barber-concept/page-geneve.webp"
+    width: 1600
+    height: 1200
     alt: "Page Barbier à Genève — landing locale du site Barber Concept"
     caption: "Une page par ville, écrite pour la recherche locale et non recopiée d'un gabarit."
   - url: "/images/portfolio/barber-concept/services.webp"
+    width: 1600
+    height: 931
     alt: "Section services du site Barber Concept — coupes, barbe, soins, finitions"
     caption: "Les prestations, éclatées en pages de service indexables."
   - url: "/images/portfolio/barber-concept/blog.webp"
+    width: 1600
+    height: 917
     alt: "Section journal du site Barber Concept — trois derniers conseils de barbiers"
     caption: "Le blog, resté vide deux ans, devenu le moteur de la reprise."
   - url: "/images/portfolio/barber-concept/ambassadeurs.webp"
+    width: 1600
+    height: 1167
     alt: "Section ils passent chez Barber Concept — Corentin Tolisso, Kingsley Coman et autres personnalités"
     caption: "La preuve sociale, gardée de la version d'origine."
   - url: "/images/portfolio/barber-concept/app-mobile.webp"
+    width: 1600
+    height: 947
     alt: "Section application mobile Barber Concept — réserver en deux clics"
     caption: "L'app de réservation, toujours mise en avant depuis l'accueil."
 

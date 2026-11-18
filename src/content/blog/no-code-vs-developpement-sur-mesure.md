@@ -78,7 +78,7 @@ J'ai repris un projet pour un distributeur vaudois qui avait construit son outil
 
 Les apps métier que j'ai livrées pour PME romandes en phase 3 se situent entre **15 000 et 40 000 CHF** pour une app simple à périmètre défini, investissement qui s'amortit en 12 à 24 mois si l'outil remplace des heures manuelles. Les [5 cas concrets d'applications métier pour PME romandes](/blog/application-metier-pme-sur-mesure) détaillent les chiffres réels projet par projet.
 
-C'est en phase 3 que le [développement d'applications métier sur mesure](/services/developpement-application-mobile) est la décision économiquement rationnelle.
+C'est en phase 3 que le [développement d'applications métier sur mesure](/services/application-sur-mesure) est la décision économiquement rationnelle.
 
 ## Tableau comparatif : no-code vs sur-mesure sur 6 critères
 

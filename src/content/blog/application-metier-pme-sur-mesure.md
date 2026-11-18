@@ -192,6 +192,8 @@ Pour les PME qui ont des process manuels répétitifs, il y a souvent un angle c
 
 Si tu veux comprendre comment construire ton projet d'outils sur mesure, la [page sur mes outils sur mesure](/consultant-ia) détaille mon approche et les technologies utilisées.
 
+Et si ton besoin est une application web pour ton équipe plutôt qu'une app sur les stores, la page [application sur mesure](/services/application-sur-mesure) montre ce que je construis concrètement : espace client, outil de gestion, tableau de bord.
+
 ---
 
 ## FAQ sur les applications métier sur mesure pour PME

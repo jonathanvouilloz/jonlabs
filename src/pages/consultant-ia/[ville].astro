@@ -1,12 +1,13 @@
 ---
 // Consultant IA à {ville} — page déclinée v2 (gabarit src/components/v2/declinee/).
 // Données : src/data/villes-suisse-ia.ts (Lausanne, Annemasse, Gaillard ; Genève fusionnée dans le pilier).
-// SEO conservé : title « Consultant IA à {ville} — … », meta par ville, H1 exact-match,
-// WebPage + BreadcrumbList + FAQPage + LocalBusiness, maillage pilier / voisines / métiers / articles.
+// SEO : title « Consultant IA à {ville} : … » (sans marque, le Layout l'ajoute), meta par ville, H1 exact-match,
+// WebPage + BreadcrumbList + FAQPage + Service géo (isPartOf = Service du pilier) + LocalBusiness,
+// maillage pilier / voisines / métiers / articles.
 import DeclineePage from '../../components/v2/declinee/DeclineePage.astro';
 import { methodeIA, piliersIA, metiersLinks } from '../../components/v2/declinee/shared';
 import type { DcPage, DcSection } from '../../components/v2/declinee/types';
-import { localBusinessData } from '../../data/schema';
+import { SITE_URL, localBusinessData } from '../../data/schema';
 import { pricing } from '../../data/pricing';
 import { villesSuisseIA, getVoisinesIA, type VilleIAData } from '../../data/villes-suisse-ia';
 
@@ -18,8 +19,25 @@ interface Props { ville: VilleIAData }
 const { ville } = Astro.props;
 
 const path = `/consultant-ia/${ville.slug}`;
-const titleLong = `Consultant IA à ${ville.nom} — agents IA pour PME | Jonlabs`;
-const title = titleLong.length <= 60 ? titleLong : `Consultant IA à ${ville.nom} — agents IA PME | Jonlabs`;
+const title = `Consultant IA à ${ville.nom} : agents IA pour PME`;
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  '@id': `${SITE_URL}${path}#service`,
+  name: `Consultant IA à ${ville.nom}`,
+  url: `${SITE_URL}${path}`,
+  description: ville.metaDescription,
+  provider: { '@id': `${SITE_URL}/#organization` },
+  areaServed: {
+    '@type': 'City',
+    name: ville.nom,
+    // canton suisse ou département français (villes frontalières)
+    containedInPlace: { '@type': 'AdministrativeArea', name: ville.nomComplet.includes('canton') ? `Canton de ${ville.canton}` : ville.canton },
+  },
+  serviceType: 'Conseil et intégration IA',
+  isPartOf: { '@id': `${SITE_URL}/consultant-ia#service` },
+};
 
 const sections: DcSection[] = [
   {
@@ -53,25 +71,28 @@ const page: DcPage = {
   meta: `Consultant IA · ${ville.canton}`,
   h1: 'Consultant IA', h1Dim: `à ${ville.nom}`,
   lead: ville.angleHero,
+  pillarLink: [{ text: 'Cette page complète mon offre de ' }, { text: 'consultant IA en Suisse romande', href: '/consultant-ia' }, { text: '.' }],
   trust: ville.preuveLocale.split('·').map((p) => p.trim()).filter(Boolean),
   price: { label: 'Premier agent', value: pricing.agentIA.display },
   ctaLabel: 'Discuter de votre projet IA',
   sections,
   faqs: ville.faqs,
+  faqTitle: `Questions sur l'IA à ${ville.nom}.`,
   links: [
     ...piliersIA,
     ...getVoisinesIA(ville).map((v) => ({ href: `/consultant-ia/${v.slug}`, k: 'Ville', t: `Consultant IA à ${v.nom}`, d: v.angleHero })),
     ...metiersLinks(),
-    { href: '/consultant-ia#automatisation', k: 'Service', t: 'Automatisation IA', d: "Tri d'e-mails, relances, préparation de documents, reporting." },
-    { href: '/consultant-ia#integration-outils', k: 'Service', t: 'Intégration outils', d: "Brancher l'IA sur Bexio, Crésus, votre CRM ou votre messagerie." },
-    { href: '/blog/agent-ia-entreprise-cas-usage', k: 'Article', t: "Agent IA en entreprise : 10 cas d'usage qui rapportent" },
+    { href: '/blog/consultant-ia-c-est-quoi', k: 'Article', t: 'Consultant IA : à quoi ça sert pour une PME', d: 'Le métier expliqué sans jargon, et quand ça vaut le coup.' },
+    { href: '/blog/comment-choisir-quoi-automatiser-pme', k: 'Article', t: 'Quoi automatiser en premier dans une PME', d: 'Critères concrets, ROI en CHF et les cas où il ne faut pas automatiser.' },
+    { href: '/blog/ia-pragmatique-pme-suisse', k: 'Article', t: 'IA pour PME : 5 usages qui changent la donne', d: 'Des usages concrets pour PME suisses, des outils conformes et un ROI réaliste.' },
+    { href: '/blog/ia-nlpd-conformite-suisse', k: 'Article', t: 'IA et nLPD : automatiser en conformité en Suisse', d: "Où vont vos données avec un agent IA, et ce que la nLPD impose vraiment." },
     { href: '/blog/prix-agent-ia-automatisation-suisse', k: 'Article', t: "Prix d'un agent IA et d'une automatisation en Suisse" },
   ],
   cta: {
     title: 'Discutons de votre projet IA', dim: `à ${ville.nom}.`,
     text: "Premier échange gratuit, sans engagement. On regarde ensemble les 2-3 tâches qui vous mangent le plus de temps, et je vous dis franchement si l'IA y répond.",
   },
-  schemas: [localBusinessData],
+  schemas: [serviceSchema, localBusinessData],
 };
 ---
 

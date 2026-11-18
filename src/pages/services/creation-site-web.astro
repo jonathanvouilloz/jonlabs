@@ -4,13 +4,13 @@
 // la refonte et Webflow deviennent des sous-offres (#refonte, #webflow). Prix : src/data/pricing.ts.
 import ServicePage from '../../components/v2/ServicePage.astro';
 import { serviceSchemas, SITE_URL, localBusinessData } from '../../data/schema';
-import { getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
+import { getBreadcrumbSchema, getFAQPageSchema, getWebPageSchema } from '../../lib/seo';
 import { pricing, terms, chf } from '../../data/pricing';
 import { proofLecureux } from '../../data/proof-lecureux';
 
 const seoData = {
-    title: "Création de site web à Genève — freelance",
-    description: "Création et refonte de site web à Genève : site sur mesure en 3-4 semaines ou site Webflow, rapide et optimisé pour Google. Freelance pour PME et indépendants. Devis gratuit."
+    title: "Création de site web à Genève, freelance",
+    description: "Création de site web à Genève : site sur mesure ou Webflow en 3 à 4 semaines, rapide et visible sur Google. Devis gratuit."
 };
 
 const faqs = [
@@ -27,6 +27,7 @@ const faqs = [
 
 const schemas: any[] = [
     serviceSchemas["creation-site-web"],
+    getWebPageSchema({ url: `${SITE_URL}/services/creation-site-web`, name: seoData.title, description: seoData.description }),
     getBreadcrumbSchema([
         { name: "Accueil", url: SITE_URL },
         { name: "Services", url: `${SITE_URL}/services` },
@@ -73,7 +74,7 @@ const cta = { href: "/contact", label: "Discuter de mon projet" };
                 { id: "site-vitrine", meta: `Le plus demandé · ${pricing.siteWeb.display}`, title: "Site vitrine sur mesure", text: "Indépendants, artisans et PME qui veulent un site pro, simple et efficace.", features: ["Design sur mesure, adapté au mobile", "Optimisé pour Google", "Formulaire de contact", "Blog ou pages en plus si besoin", "Devis ferme après un premier appel"] },
                 { id: "refonte", meta: "Refonte · sur devis", title: "Refonte de site existant", text: "Votre site plafonne : structure brouillonne, pages lentes, SEO inexistant. Je reprends l'existant, je garde ce qui marche, je restructure et je remets les performances à niveau.", features: ["Audit complet de l'existant", "Design adapté au mobile", "Optimisation SEO technique", "Formation à la modification des contenus"] },
                 { id: "webflow", meta: `Option Webflow · ${pricing.webflow.display}`, title: "Site Webflow, géré par vous", text: "Un site Webflow sur mesure, construit depuis vos maquettes Figma ou de zéro. Structure de classes propre, CMS configuré pour que vous publiiez vous-même. Je vous forme à l'éditeur à la livraison : textes, images, articles, produits. S'y ajoute l'abonnement Webflow, qui remplace l'hébergement.", features: ["Pages sur mesure, adaptées au mobile", "Optimisé pour Google", "CMS (blog, portfolio) si besoin", "Formation à l'éditeur Webflow"] },
-                { id: "e-commerce", meta: "Sur devis", title: "E-commerce & sur mesure", text: "Commerçants et entreprises avec des besoins spécifiques. Webflow suffit pour une boutique simple ; au-delà, je propose une solution sur mesure.", features: ["Boutique en ligne", "Paiement sécurisé (Stripe, TWINT)", "Réservation, espace client…", "Intégrations (CRM, newsletter…)"] },
+                { id: "e-commerce", meta: "Sur devis", title: "E-commerce & sur mesure", text: "Commerçants et entreprises avec des besoins spécifiques. Webflow suffit pour une boutique simple ; au-delà, je propose une <a href=\"/services/application-sur-mesure\">application sur mesure</a>.", features: ["Boutique en ligne", "Paiement sécurisé (Stripe, TWINT)", "Réservation, espace client…", "Intégrations (CRM, newsletter…)"] },
                 { title: "Ce qui fait varier le prix", features: ["Nombre de pages", "Fonctionnalités (réservation, multilingue…)", "Délai souhaité", `Paiement : ${terms.payment}`], text: "Pour comparer : <a href=\"/blog/prix-site-web-suisse-2026\">combien coûte un site web en Suisse</a>." },
             ],
         },
@@ -81,7 +82,7 @@ const cta = { href: "/contact", label: "Discuter de mon projet" };
             id: "resultats", kicker: "03 · Résultats", title: "Ce que vous", dim: "obtenez.",
             subs: [
                 { title: "Parfait sur mobile", text: "Plus de 60 % des visites viennent d'un téléphone." },
-                { title: "Optimisé pour Google", text: "Construit pour sortir sur « votre métier + Genève »." },
+                { title: "Optimisé pour Google", text: "Construit pour sortir sur « votre métier + Genève », comme pour <a href=\"/portfolio/leo-lecureux-seo\">le SEO local d'un juriste à Genève</a>. Et pensé pour être cité par les IA : <a href=\"/blog/geo-seo-ia\">apparaître dans les réponses des IA</a>." },
                 { title: "Rapide", text: "Moins de 2 secondes de chargement. Google et vos clients adorent." },
                 { title: "Sur mesure", text: "Pas un modèle utilisé par 10'000 autres entreprises." },
                 { title: "Vous gardez la main", text: "Textes, photos, horaires : vous les changez vous-même." },
@@ -115,7 +116,7 @@ const cta = { href: "/contact", label: "Discuter de mon projet" };
     }}
     cases={{
         title: "Des exemples ?", dim: "Deux sites livrés.",
-        text: "Ou toutes mes <a href=\"/portfolio\">réalisations</a>.",
+        text: "Ou <a href=\"/portfolio\">toutes mes réalisations de sites web</a>.",
         slugs: ["physio-pommier", "ugo-mighali-coutelier"],
     }}
     links={[{
@@ -132,6 +133,6 @@ const cta = { href: "/contact", label: "Discuter de mon projet" };
         { quote: "Jonathan a été super flexible, rapide et a compris exactement ce que je voulais. Il a été très rapide en plus car j'avais un besoin urgent.", name: "Solène Derbal", role: "Cheffe d'orchestre" },
         { quote: proofLecureux.testimonial!.quote.split("\n")[0], name: proofLecureux.testimonial!.author, role: proofLecureux.metierShort, company: proofLecureux.company, result: proofLecureux.businessResult },
     ]}
-    faq={faqs}
+    faq={{ title: "Questions sur la création de site web à Genève.", items: faqs }}
     contact="Premier échange gratuit et sans engagement. Je discute de votre projet avec vous, je vous donne mon avis honnête, vous décidez ensuite."
 />

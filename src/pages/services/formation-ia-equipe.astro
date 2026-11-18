@@ -1,13 +1,13 @@
 ---
 // Formation IA pour équipes (v2, gabarit ServicePage). Prix : src/data/pricing.ts (sur devis).
 import ServicePage from '../../components/v2/ServicePage.astro';
-import { SITE_URL } from '../../data/schema';
-import { getServiceItemSchema, getBreadcrumbSchema, getFAQPageSchema } from '../../lib/seo';
+import { SITE_URL, localBusinessData } from '../../data/schema';
+import { getServiceItemSchema, getBreadcrumbSchema, getFAQPageSchema, getWebPageSchema } from '../../lib/seo';
 import { pricing } from '../../data/pricing';
 
 const seoData = {
     title: "Formation IA pour équipes en Suisse romande",
-    description: "Formation IA sur-mesure pour les équipes de PME romandes : cadrage des usages, outils, garde-fous nLPD. Entreprise ou particulier, à Genève ou à distance. Devis sur mesure."
+    description: "Formation IA pour les équipes de PME romandes : usages concrets, outils, règles nLPD. À Genève ou à distance, sur devis."
 };
 
 const faqs = [
@@ -21,13 +21,15 @@ const faqs = [
 
 const schemas: any[] = [
     getServiceItemSchema("formation-ia-equipe"),
+    getWebPageSchema({ url: `${SITE_URL}/services/formation-ia-equipe`, name: seoData.title, description: seoData.description }),
     getBreadcrumbSchema([
         { name: "Accueil", url: SITE_URL },
         { name: "Services", url: `${SITE_URL}/services` },
         { name: "Formation IA équipe", url: `${SITE_URL}/services/formation-ia-equipe` }
     ]),
     getFAQPageSchema(faqs),
-];
+    localBusinessData,
+].filter(Boolean);
 
 const cta = { href: "/contact", label: "Discuter d'une formation" };
 ---
@@ -57,6 +59,7 @@ const cta = { href: "/contact", label: "Discuter d'une formation" };
         },
         {
             id: "resultats", kicker: "02 · Résultats", title: "Ce que votre équipe", dim: "obtient.",
+            text: "<strong>Exemple concret : une PME de 12 personnes qui payait dans le vide.</strong> Avant : ChatGPT, Copilot et deux autres abonnements, utilisés par deux ou trois curieux. Maintenant : chaque pôle a 2-3 usages ancrés (comptes rendus, réponses clients, offres) et des règles claires. Plusieurs heures récupérées chaque semaine, et des abonnements enfin utiles.",
             subs: [
                 { title: "L'IA au quotidien", text: "Un réflexe de travail, plus un gadget testé une fois." },
                 { title: "Du temps gagné", text: "Comptes rendus, réponses clients, rédaction : des heures récupérées chaque semaine." },
@@ -64,7 +67,6 @@ const cta = { href: "/contact", label: "Discuter d'une formation" };
                 { title: "Un guide interne", text: "Les bons usages et les règles maison, dans un document que vous gardez." },
                 { title: "Plus de peur", text: "Toute l'équipe s'approprie l'outil." },
                 { title: "Des abonnements rentabilisés", text: "Les licences que vous payez servent enfin." },
-                { meta: "Exemple concret", title: "Une PME de 12 personnes qui payait dans le vide", features: ["Avant : ChatGPT, Copilot et deux autres abonnements, utilisés par deux ou trois curieux.", "Maintenant : chaque pôle a 2-3 usages ancrés (comptes rendus, réponses clients, offres) et des règles claires.", "Plusieurs heures récupérées chaque semaine, et des abonnements enfin utiles."] },
             ],
         },
         {
@@ -82,7 +84,7 @@ const cta = { href: "/contact", label: "Discuter d'une formation" };
             subs: [
                 { title: "Sur vos cas", text: "Des usages concrets, pas de la théorie." },
                 { title: "Données protégées", text: "Le cadre nLPD fait partie de la formation." },
-                { title: "Un formateur qui construit", text: "Je déploie aussi des agents IA chez mes clients.", link: { href: "/hermes", label: "Voir l'agent Hermès" } },
+                { title: "Un formateur qui construit", text: "Je déploie aussi des agents IA chez mes clients.", link: { href: "/hermes", label: "L'agent IA Hermès que je déploie" } },
             ],
         },
         {
@@ -123,8 +125,12 @@ const cta = { href: "/contact", label: "Discuter d'une formation" };
             { href: "/consultant-ia", k: "Systèmes IA", label: "Consultant IA à Genève", text: "Agents IA, automatisations et intégration à vos outils, pour les PME romandes." },
             { href: "/consultant-ia#automatisation", k: "Automatisation", label: "Automatiser vos tâches répétitives", text: "Relances, rapports, saisies : ce qu'on automatise le plus souvent." },
             { href: "/hermes", k: "Offre", label: "L'agent IA Hermès", text: "Un agent déjà éprouvé, branché sur vos outils, avec validation humaine." },
+            { href: "/blog/adoption-ia-equipe-change-management", k: "Article", label: "Faire adopter l'IA à votre équipe sans résistance" },
+            { href: "/blog/ia-nlpd-conformite-suisse", k: "Article", label: "IA et nLPD : les règles à connaître en Suisse" },
+            { href: "/blog/garde-fous-ia-validations-audit", k: "Article", label: "Garde-fous IA : validations, escalades et audit" },
+            { href: "/blog/ia-pragmatique-pme-suisse", k: "Article", label: "IA pour PME : 5 usages concrets au quotidien" },
         ],
     }]}
-    faq={faqs}
+    faq={{ title: "Questions sur la formation IA pour équipes.", items: faqs }}
     contact="Premier échange gratuit. On regarde ensemble où en est votre équipe. Si une formation fait sens, je vous propose un format et un devis clairs. Sinon, je vous le dis honnêtement."
 />

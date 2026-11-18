@@ -1,6 +1,6 @@
 ---
-title: "Barber Concept : un hub d'agents pour les avis, les mails et la prospection"
-description: "Six salons, des centaines d'avis Google, trois boîtes mail. Les agents répondent et trient, les responsables valident ce qui demande un jugement."
+title: "Barber Concept : agents IA pour les avis et les mails"
+description: "Six salons, des centaines d'avis Google, trois boîtes mail : des agents IA répondent et trient, les responsables valident."
 # Dernière brique livrée le 16.11.2026 (gh:barbermedia/docs/project/handoff.md:11-12)
 date: 2026-11-16
 draft: false
@@ -23,6 +23,8 @@ project:
 # Placeholder à remplacer par une vraie capture (hub ou carte Telegram, sans nom de client ni d'employé)
 heroImage:
   url: "/images/portfolio/barber-hub-automatisation/hero.webp"
+  width: 1536
+  height: 1024
   alt: "Barber Concept et Barber Media : avis Google, mails et prospection pris en charge par des agents"
 
 tags:

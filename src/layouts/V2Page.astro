@@ -1,5 +1,5 @@
 ---
-// Coquille v2 des pages hors home : police titres, Nav, Dock, Footer et comportements (v2-ui).
+// Coquille v2 des pages hors home (Funnel Display chargée par Layout) : Nav, Dock, Footer et comportements (v2-ui).
 import Layout from './Layout.astro';
 import Nav from '../components/v2/Nav.astro';
 import Dock from '../components/v2/Dock.astro';
@@ -11,11 +11,6 @@ const { current, ...layout } = Astro.props;
 ---
 
 <Layout {...layout}>
-  <Fragment slot="head">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" />
-  </Fragment>
-
   <div class="v2">
     <Nav current={current} />
     <Dock current={current} />

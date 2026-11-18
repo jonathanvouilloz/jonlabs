@@ -19,6 +19,7 @@ import Footer from './Footer.astro';
 import '../../styles/v2.css';
 
 type Link = { href: string; label: string; external?: boolean };
+type QA = { question: string; answer: string };
 type Title = { title: string; dim?: string; text?: string };
 export type Sub = { id?: string; title: string; meta?: string; text?: string; features?: string[]; tools?: string[]; link?: Link };
 export type Section = Title & { id: string; kicker: string; price?: { value: string; note?: string }; cta?: Link; subs: Sub[] };
@@ -30,25 +31,23 @@ interface Props {
   head: { kicker: string; h1: string; dim?: string; lead: string; cta: Link; cta2?: Link };
   proofs?: { slugs?: string[]; items?: { value: string; label: string; client: string }[] };
   sections?: Section[];
-  bento?: Title & { items?: { iso: string; title: string; text: string; big?: boolean }[] };
+  bento?: Title & { items?: { iso: string; title: string; text: string; big?: boolean; href?: string }[] };
   method?: Title & { id?: string; steps: { title: string; text: string; meta?: string }[] };
   cases?: Title & { slugs: string[] };
   links?: (Title & { items: { href: string; k?: string; label: string; text?: string }[] })[];
   testimonials?: { quote: string; name: string; role: string; company?: string; result?: string }[];
-  faq?: { question: string; answer: string }[];
+  // Tableau seul (titre par défaut de <Faq>) ou { title, items } pour un titre propre à la page.
+  faq?: QA[] | { title?: string; items: QA[] };
   contact?: string;
 }
 const { title, description, schemas, head, proofs, sections = [], bento, method, cases, links = [], testimonials, faq, contact } = Astro.props;
 const caseEntries = cases ? (await Promise.all(cases.slugs.map((s) => getEntry('portfolio', s)))).filter((e) => !!e) : [];
+const faqItems = Array.isArray(faq) ? faq : faq?.items;
+const faqTitle = Array.isArray(faq) ? undefined : faq?.title;
 const ext = (l: Link) => (l.external ? { target: '_blank', rel: 'noopener noreferrer' } : {});
 ---
 
 <Layout title={title} description={description} schemas={schemas}>
-  <Fragment slot="head">
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" />
-  </Fragment>
-
   <div class="v2">
     <Nav />
     <Dock />
@@ -150,7 +149,7 @@ const ext = (l: Link) => (l.external ? { target: '_blank', rel: 'noopener norefe
 
       {testimonials && <section class="r" aria-label="Témoignages"><Testimonials items={testimonials} /></section>}
 
-      {faq && <section class="r" id="faq" aria-label="Questions fréquentes"><Faq items={faq.map((f) => ({ q: f.question, a: f.answer }))} /></section>}
+      {faqItems && <section class="r" id="faq" aria-label="Questions fréquentes"><Faq items={faqItems.map((f) => ({ q: f.question, a: f.answer }))} title={faqTitle} /></section>}
 
       <section class="r" id="contact"><Contact text={contact} /></section>
     </main>

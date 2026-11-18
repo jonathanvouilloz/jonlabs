@@ -1,6 +1,6 @@
 ---
-title: "Wildcat Muay Thai : Jerry, l'agent qui prépare les réponses"
-description: "Un camp de Muay Thai à Chiang Mai, une gérante seule face aux demandes. Un agent prépare chaque réponse, l'équipe valide d'un clic dans Telegram."
+title: "Wildcat Muay Thai : un agent IA qui prépare les mails"
+description: "Un camp de Muay Thai à Chiang Mai, une gérante seule face aux mails. Un agent IA prépare les réponses, validées dans Telegram."
 # Livraison : agent les 22-23.10.2026, mini app les 14-16.11.2026 (scratchpad/cas-ia-faits.md:43)
 date: 2026-11-16
 draft: false
@@ -23,6 +23,8 @@ project:
 # Placeholder à remplacer par une vraie capture (carte Telegram ou mini app, sur données synthétiques)
 heroImage:
   url: "/images/portfolio/wildcat-agent-mails/hero.webp"
+  width: 1536
+  height: 1024
   alt: "Wildcat Muay Thai : un agent qui prépare les réponses aux demandes, l'équipe valide"
 
 tags:
@@ -98,6 +100,8 @@ learnings:
 
 resultImages:
   - url: "/images/blog/agent-ia-repondre-mails-clients-trajet.svg"
+    width: 960
+    height: 620
     alt: "Schéma du trajet d'un mail : relève, brouillon par une IA sans outils, validation d'un clic dans Telegram"
     caption: "Le trajet d'une demande : la partie qui lit le mail n'a aucun outil, l'équipe décide dans Telegram."
 galleryTitle: "Schéma"

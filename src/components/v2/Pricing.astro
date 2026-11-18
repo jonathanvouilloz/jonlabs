@@ -12,14 +12,17 @@ const notes = [`Paiement ${terms.payment}`, terms.commitment, 'Appel découverte
     <article class:list={['v2-price-cell', { 'v2-price-big': o.highlighted }]}>
       {o.highlighted && <div class="v2-price-shader" aria-hidden="true"><DitherBg client:visible /></div>}
       <div>
-        <h3 class="v2-meta">{o.name}{o.highlighted && <span class="v2-price-reco">Le plus demandé</span>}</h3>
+        <div class="v2-price-name">
+          <h2 class="v2-meta">{o.name}</h2>
+          {o.highlighted && <span class="v2-price-reco">Le plus demandé</span>}
+        </div>
         <p class="v2-price-amount">{o.prefix && <small>{o.prefix}</small>}{o.unit && <small>{o.unit}</small>}<b>{o.price}</b></p>
         <p class="v2-price-sub">{o.subtitle} · {o.after}</p>
       </div>
       {o.highlighted && <ul class="v2-price-list">{o.features.map((f) => <li>{f}</li>)}</ul>}
       <div class="v2-price-cta">
         <a href="/contact" class:list={['v2-btn', 'v2-btn-sm', { 'v2-btn-ghost': !o.highlighted }]}><span data-roll>{o.cta}</span></a>
-        <a href={o.href} class="v2-a v2-price-more">Voir le service</a>
+        <a href={o.href} class="v2-a v2-price-more">{o.hrefLabel}</a>
       </div>
     </article>
   ))}
@@ -28,3 +31,9 @@ const notes = [`Paiement ${terms.payment}`, terms.commitment, 'Appel découverte
     <ul class="v2-price-list">{notes.map((n) => <li>{n}</li>)}</ul>
   </div>
 </div>
+
+<style is:global>
+  /* nom d'offre = H2 (une offre = une section), rendu comme l'ancien libellé mono ; badge hors du titre */
+  .v2 .v2-price-name { display: flex; align-items: center; flex-wrap: wrap; gap: 6px 0; }
+  .v2 .v2-price-cell h2 { margin: 0; font-family: var(--mono); font-size: .75rem; font-weight: 400; letter-spacing: .02em; }
+</style>

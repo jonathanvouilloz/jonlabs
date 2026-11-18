@@ -28,7 +28,6 @@ const pad = (i: number) => String(i + 1).padStart(2, '0');
 <Layout title={page.title} description={page.description} schemas={schemas}>
   <Fragment slot="head">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" />
   </Fragment>
 
   <div class="v2">
@@ -51,6 +50,7 @@ const pad = (i: number) => String(i + 1).padStart(2, '0');
         </div>
         <div class="dc-intro">
           <p class="dc-lead">{page.lead}</p>
+          {page.pillarLink && <p class="v2-mut v2-prose dc-pillar">{page.pillarLink.map((seg) => seg.href ? <a href={seg.href}>{seg.text}</a> : seg.text)}</p>}
           {page.price && <p class="dc-price"><small class="v2-meta">{page.price.label}</small>{page.price.value}</p>}
           <div class="v2-ctas v2-ctas-left">
             <a href="/contact" class="v2-btn"><i class="ri-calendar-line"></i> <span data-roll>{page.ctaLabel}</span></a>
@@ -69,7 +69,7 @@ const pad = (i: number) => String(i + 1).padStart(2, '0');
             {s.paras.map((p) => <p class="v2-mut">{p}</p>)}
             {s.list && (
               <div class="dc-list">
-                {s.listTitle && <h3 class="v2-meta">{s.listTitle}</h3>}
+                {s.listTitle && <p class="v2-meta">{s.listTitle}</p>}
                 <ul class="v2-price-list">{s.list.map((li) => <li>{li}</li>)}</ul>
               </div>
             )}
@@ -94,7 +94,7 @@ const pad = (i: number) => String(i + 1).padStart(2, '0');
         </div></section>
       ))}
 
-      <section class="r" id="faq"><Faq items={page.faqs.map((f) => ({ q: f.question, a: f.answer }))} /></section>
+      <section class="r" id="faq"><Faq title={page.faqTitle} items={page.faqs.map((f) => ({ q: f.question, a: f.answer }))} /></section>
 
       <section class="r" aria-labelledby="dc-links"><div class="w">
         <div class="v2-head v2-head-2">
@@ -103,11 +103,11 @@ const pad = (i: number) => String(i + 1).padStart(2, '0');
         </div>
         <div class="dc-grid dc-c4">
           {page.links.map((l) => (
-            <a href={l.href} class="dc-cell dc-link">
+            <div class="dc-cell dc-link">
               <span class="v2-meta">{l.k}</span>
-              <strong>{l.t}</strong>
+              <a href={l.href}><strong>{l.t}</strong></a>
               {l.d && <span class="v2-mut">{l.d}</span>}
-            </a>
+            </div>
           ))}
         </div>
       </div></section>
@@ -145,7 +145,7 @@ const pad = (i: number) => String(i + 1).padStart(2, '0');
   .v2 .dc-body { padding: clamp(40px, 6vw, 72px) var(--pad); display: grid; gap: 18px; align-content: start; }
   .v2 .dc-body > .v2-mut { max-width: 40rem; }
   .v2 .dc-list { display: grid; gap: 12px; margin-top: 8px; }
-  .v2 .dc-list h3 { font-family: var(--mono); font-size: .75rem; font-weight: 400; letter-spacing: 0.02em; }
+  .v2 .dc-list > .v2-meta { font-family: var(--mono); font-size: .75rem; font-weight: 400; letter-spacing: 0.02em; }
   .v2 .dc-sec-intro { max-width: 30rem; }
   .v2 .dc-grid { display: grid; border-top: 1px solid var(--line); overflow: hidden; }
   .v2 .dc-c2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -155,7 +155,10 @@ const pad = (i: number) => String(i + 1).padStart(2, '0');
   .v2 .dc-cell h3 { font-size: 1.25rem; font-weight: 500; line-height: 1.15; }
   .v2 .dc-cell .v2-mut { font-size: .95rem; }
   .v2 .dc-cell .v2-price-list { margin-top: 4px; }
-  .v2 .dc-link { transition: background .2s; }
+  .v2 .dc-pillar { max-width: 34rem; }
+  /* l'ancre = le titre seul ; la carte reste cliquable via ::after étendu */
+  .v2 .dc-link { position: relative; transition: background .2s; }
+  .v2 .dc-link > a::after { content: ''; position: absolute; inset: 0; }
   .v2 .dc-link:hover { background: var(--soft); }
   .v2 .dc-link strong { font-family: var(--display); font-weight: 500; font-size: 1.2rem; letter-spacing: -0.03em; line-height: 1.15; }
   .v2 .dc-cta { display: grid; gap: 18px; }

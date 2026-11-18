@@ -45,16 +45,6 @@ export default defineConfig({
   site: 'https://www.jonlabs.ch',
   // Barre d'outils dev masquée : elle recouvre le bas du viewport (indicateur de scroll, dock).
   devToolbar: { enabled: false },
-  redirects: {
-    // Revert 2026-05-20 : retour aux slugs sans année (le jus SEO est resté sur les URLs sans -2026)
-    '/blog/apparaitre-copilot-2026': '/blog/geo-seo-ia',
-    '/blog/apparaitre-perplexity-2026': '/blog/geo-seo-ia',
-    '/blog/apparaitre-gemini-2026': '/blog/geo-seo-ia',
-    '/blog/apparaitre-claude-2026': '/blog/apparaitre-claude',
-    '/blog/apparaitre-chatgpt-geneve-2026': '/blog/geo-seo-ia',
-    '/blog/apparaitre-grok-2026': '/blog/geo-seo-ia',
-    '/blog/geo-seo-ia-2026': '/blog/geo-seo-ia',
-  },
   image: { service: { entrypoint: 'astro/assets/services/noop' } },
   trailingSlash: 'never',
   integrations: [

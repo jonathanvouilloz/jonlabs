@@ -74,7 +74,7 @@ offers:
 advice: "Ne lisez pas ça comme un abonnement marketing. Vous vous occupez de vos patients ; moi je m'occupe de tout ce qui se passe avant qu'ils passent la porte : qu'on vous trouve, et qu'on vous choisisse. Vous n'avez rien à apprendre et rien à surveiller. Et si je vois quelque chose à améliorer chez vous au fil des mois, je vous le dis et je le règle."
 
 proof:
-  - image: "/images/portfolio/physio-pommier/pagespeed.png"
+  - image: "/images/portfolio/physio-pommier/pagespeed.webp"
     title: "Le même problème, déjà résolu à dix minutes de chez vous"
     caseStudy: "/portfolio/physio-pommier"
     stats:

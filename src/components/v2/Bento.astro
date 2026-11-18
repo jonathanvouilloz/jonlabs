@@ -1,15 +1,16 @@
 ---
 // Bento services v2 (direction A) : figures isométriques Hairline (initialisées par v2-ui).
 // `items` remplace le contenu de la home ; la grille est pensée pour 4 cases (la 1re, `big`, sur 2 rangées).
+// `href` optionnel : le titre de la carte devient un lien (ancre = titre).
 import { builds } from '../../data/v2';
-interface Props { items?: { iso: string; title: string; text: string; big?: boolean }[] }
+interface Props { items?: { iso: string; title: string; text: string; big?: boolean; href?: string }[] }
 const { items = builds } = Astro.props;
 ---
 <div class="w v2-bento">
   {items.map((b) => (
     <div class:list={['v2-cell', { 'v2-cell-big': b.big }]}>
       <div class="v2-iso" data-iso={b.iso} data-theme="light"></div>
-      <h3>{b.title}</h3>
+      <h3>{b.href ? <a href={b.href} class="v2-a">{b.title}</a> : b.title}</h3>
       <p class="v2-mut">{b.text}</p>
     </div>
   ))}

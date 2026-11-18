@@ -29,6 +29,7 @@ const page: DcPage = {
   h1: cut > 0 ? metier.h1.slice(0, cut) : metier.h1,
   h1Dim: cut > 0 ? metier.h1.slice(cut + 1) : undefined,
   lead: metier.accroche,
+  pillarLink: [{ text: 'Cette page complète mon offre de ' }, { text: 'consultant IA en Suisse romande', href: '/consultant-ia' }, { text: ' et mon ' }, { text: 'agent IA Hermès', href: '/hermes' }, { text: '.' }],
   trust: metier.preuveLocale.split('·').map((p) => p.trim()).filter(Boolean),
   price: { label: 'Premier agent', value: pricing.agentIA.display },
   ctaLabel: 'Cadrer mon projet IA',
@@ -75,6 +76,7 @@ const page: DcPage = {
     },
   ],
   faqs: metier.faqs,
+  faqTitle: `Questions sur l'IA en ${metier.metier.toLowerCase()}.`,
   links: [
     ...piliersIA,
     ...metiersLinks(metier.slug),

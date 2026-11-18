@@ -135,7 +135,7 @@ Le coût apparent est attractif. Mais il faut l'ajuster : PM local (20 à 40 CHF
 
 Pour une PME romande avec un budget de 20 000 à 80 000 CHF, le **freelance senior local est généralement le meilleur rapport qualité/prix/réactivité**. Au-delà de 80 000 CHF, l'agence vaut l'investissement.
 
-Si tu envisages de [démarrer par un MVP de ton application](/services/developpement-application-mobile), c'est le format le plus adapté au freelance senior : périmètre réduit, livraison rapide, validation terrain avant l'investissement complet.
+Si tu envisages de [démarrer par un MVP de ton application](/services/developpement-application-mobile), c'est le format le plus adapté au freelance senior : périmètre réduit, livraison rapide, validation terrain avant l'investissement complet. Et si ton outil vit dans le navigateur plutôt que sur les stores (espace client, outil de gestion, tableau de bord), c'est une [application sur mesure](/services/application-sur-mesure) : même logique de MVP, même devis ferme en CHF.
 
 ---
 

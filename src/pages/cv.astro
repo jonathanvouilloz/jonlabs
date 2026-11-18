@@ -7,8 +7,8 @@ import { proofLecureux } from '../data/proof-lecureux';
 import { personData, SITE_URL } from '../data/schema';
 import { getProfilePageSchema } from '../lib/seo';
 
-const pageTitle = "CV — Jonathan Vouilloz, développeur web à Genève";
-const pageDescription = "CV de Jonathan Vouilloz, informaticien de gestion et créateur digital à Genève. Développement web, automatisation et applications sur-mesure.";
+const pageTitle = "CV de Jonathan Vouilloz, systèmes IA à Genève";
+const pageDescription = "CV de Jonathan Vouilloz, informaticien de gestion à Genève : systèmes IA, développement web et applications sur mesure. Parcours et projets.";
 
 const profilePageSchema = getProfilePageSchema({
   url: `${SITE_URL}/cv`,
@@ -16,7 +16,7 @@ const profilePageSchema = getProfilePageSchema({
   description: pageDescription
 });
 
-const schemas = [personData, profilePageSchema];
+const schemas = [profilePageSchema];
 
 const formations = [
   { title: "Bachelor HES en Informatique de Gestion", school: "Haute École de Gestion (HEG) - Genève", years: "2017 - 2020" },

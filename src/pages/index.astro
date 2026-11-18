@@ -4,7 +4,7 @@
 import { getCollection } from 'astro:content';
 import Layout from '../layouts/Layout.astro';
 import { videos, tweets, linkedinPost } from '../data/hub';
-import { WHATSAPP, promises } from '../data/v2';
+import { WHATSAPP, promises, faqs } from '../data/v2';
 import Nav from '../components/v2/Nav.astro';
 import Dock from '../components/v2/Dock.astro';
 import Hero from '../components/v2/Hero.astro';
@@ -17,13 +17,15 @@ import Contact from '../components/v2/Contact.astro';
 import Footer from '../components/v2/Footer.astro';
 import '../styles/v2.css';
 import { organizationData, localBusinessData, websiteData, SITE_URL } from '../data/schema';
-import { getWebPageSchema } from '../lib/seo';
+import { getWebPageSchema, getFAQPageSchema } from '../lib/seo';
+import { isPublished } from '../lib/blog';
+import sharp from 'sharp';
 
 const cases = (await getCollection('portfolio', (p) => !p.data.draft && p.data.featured))
   .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf())
   .slice(0, 3);
 
-const posts = (await getCollection('blog', (p) => !p.data.draft))
+const posts = (await getCollection('blog', (p) => isPublished(p.data)))
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, linkedinPost ? 1 : 2);
 
@@ -35,33 +37,41 @@ const proofs = [
   { value: '4 h', label: 'gagnées par semaine sur la gestion admin', client: 'Barber Concept' },
 ];
 
+// Dimensions lues sur le fichier au build : width/height réels contre le CLS. hqdefault YouTube = 480×360.
 const strip = [
-  ...(await getCollection('portfolio')).map((p) => p.data.heroImage.url),
-  ...videos.map((v) => `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`),
+  ...(await Promise.all((await getCollection('portfolio')).map(async (p) => {
+    const { width, height } = await sharp(`public${p.data.heroImage.url}`).metadata();
+    return { src: p.data.heroImage.url, width, height };
+  }))),
+  ...videos.map((v) => ({ src: `https://i.ytimg.com/vi/${v.id}/hqdefault.jpg`, width: 480, height: 360 })),
 ];
 
 
 const pageTitle = "Développement IA sur mesure à Genève";
-const pageDescription = "Des applications où vos équipes et vos agents IA collaborent. Développement IA sur mesure pour PME romandes, livré en 2 à 4 semaines, dès CHF 1'500.";
-const schemas = [organizationData, localBusinessData, websiteData, getWebPageSchema({ url: SITE_URL, name: pageTitle, description: pageDescription })];
+const pageDescription = "Applications où vos équipes et vos agents IA collaborent : développement IA sur mesure pour PME romandes, dès CHF 1'500.";
+const schemas = [
+  localBusinessData, websiteData,
+  getWebPageSchema({ url: SITE_URL, name: pageTitle, description: pageDescription }),
+  getFAQPageSchema(faqs.map((f) => ({ question: f.q, answer: f.a }))),
+];
 ---
 
 <Layout title={pageTitle} description={pageDescription} schemas={schemas}>
   <Fragment slot="head">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" />
   </Fragment>
 
   <div class="v2">
     <Nav />
     <Dock />
 
+    <main>
     <!-- 1. HERO -->
     <Hero />
 
     <!-- 2. BANDE -->
     <div class="r v2-strip" aria-hidden="true">
-      <div class="v2-strip-track">{[...strip, ...strip].map((src) => <img src={src} alt="" loading="lazy" />)}</div>
+      <div class="v2-strip-track">{[...strip, ...strip].map((img, i) => <img src={img.src} alt="" loading="lazy" width={img.width} height={img.height} aria-hidden={i >= strip.length ? 'true' : undefined} />)}</div>
     </div>
 
     <!-- 3. RÉALISATIONS -->
@@ -108,7 +118,7 @@ const schemas = [organizationData, localBusinessData, websiteData, getWebPageSch
       <section class="r">
         <div class="w v2-hub">
           <a href={`https://www.youtube.com/watch?v=${videos[0].id}`} class="v2-hub-video" target="_blank" rel="noopener">
-            <img src={`https://i.ytimg.com/vi/${videos[0].id}/maxresdefault.jpg`} alt="" loading="lazy" />
+            <img src={`https://i.ytimg.com/vi/${videos[0].id}/maxresdefault.jpg`} alt={videos[0].title} loading="lazy" width="1280" height="720" />
             <span class="v2-play"><i class="ri-play-fill"></i></span>
             <span class="v2-hub-cap"><i class="ri-youtube-fill"></i> {videos[0].title}</span>
           </a>
@@ -146,7 +156,7 @@ const schemas = [organizationData, localBusinessData, websiteData, getWebPageSch
     </section>
     <section class="r">
       <div class="w v2-photos">
-        <img src="/images/jonathan-vouilloz.webp" alt="Jonathan Vouilloz" loading="lazy" />
+        <img src="/images/jonathan-vouilloz.webp" alt="Jonathan Vouilloz" loading="lazy" width="768" height="960" />
         <img src="/images/jonathan-vouilloz-event.webp" alt="Jonathan Vouilloz lors d'un événement" loading="lazy" width="600" height="750" />
       </div>
     </section>
@@ -166,7 +176,10 @@ const schemas = [organizationData, localBusinessData, websiteData, getWebPageSch
     </section>
 
     <!-- 9. FAQ -->
-    <section class="r"><Faq /></section>
+    <section class="r"><Faq title="Questions sur le développement IA sur mesure." /></section>
+    <section class="r">
+      <div class="w v2-more"><p class="v2-mut v2-prose">Pour aller plus loin : le <a href="/consultant-ia">consultant IA à Genève</a> pour cadrer votre projet, et le <a href="/blog/prix-agent-ia-automatisation-suisse">prix d'un agent IA en Suisse</a> pour situer votre budget.</p></div>
+    </section>
 
     <!-- 10. CONTACT -->
     <section class="r" id="appel"><Contact /></section>
@@ -175,6 +188,7 @@ const schemas = [organizationData, localBusinessData, websiteData, getWebPageSch
     <section class="r" id="agenda">
       <div class="w v2-agenda"><div class="v2-cal" id="cal-inline" data-cal></div></div>
     </section>
+    </main>
 
     <Footer />
   </div>

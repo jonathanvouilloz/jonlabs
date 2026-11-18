@@ -7,7 +7,7 @@ import { pricing, chf } from "../data/pricing";
 
 const pageUrl = `${SITE_URL}/hermes`;
 const pageTitle = "Agent IA sur mesure pour PME romandes";
-const metaDescription = "Conception et déploiement d'agents IA sur mesure pour PME romandes : tri d'e-mails, relances, documents. Prix CHF affichés, validation humaine, conformité nLPD.";
+const metaDescription = `Agent IA sur mesure pour PME romandes : tri d'e-mails, relances, documents. Validation humaine, nLPD, dès CHF ${chf(pricing.agentIA.from)}.`;
 
 const faqs = [
   { question: "Hermès, c'est un produit fini ou un développement sur mesure ?", answer: "Les deux à la fois. Hermès est un agent IA que j'ai déjà éprouvé sur des tâches concrètes de PME (tri d'e-mails, relances, préparation de documents). On part de cette base éprouvée, puis on le branche sur vos outils et vos process. Vous ne payez pas six mois de R&D : vous récupérez un agent qui tourne, adapté à votre contexte." },
@@ -56,12 +56,12 @@ const cta = { href: "/contact", label: "Cadrer mon déploiement" };
       id: "capacites", kicker: "01 · Capacités", title: "Ce que fait", dim: "Hermès.",
       text: "Pas une démo de labo. Des tâches réelles de PME, avec la validation humaine là où elle compte.",
       subs: [
-        { title: "Tri et priorisation des e-mails", text: "Il lit votre boîte de réception, repère ce qui est prioritaire et prépare des réponses contextualisées en tenant compte de l'historique. Vous gardez la main sur l'envoi." },
+        { title: "Tri et priorisation des e-mails", text: "Il lit votre boîte de réception, repère ce qui est prioritaire et prépare des réponses contextualisées en tenant compte de l'historique. Vous gardez la main sur l'envoi. Voir comment un <a href=\"/blog/agent-ia-repondre-mails-clients\">agent IA répond aux e-mails clients</a>." },
         { title: "Relances clients autonomes", text: "Il suit l'état de vos devis ouverts et génère des relances personnalisées selon le contexte (date de l'offre, montant, historique). Zéro devis oublié." },
         { title: "Préparation de documents", text: "À partir du contexte d'un prospect et de vos offres, il structure une proposition commerciale en quelques minutes. Un premier jet au lieu d'une page blanche." },
         { title: "Réponses de premier niveau", text: "Il traite les demandes récurrentes et les questions simples, et vous fait remonter ce qui demande un vrai jugement. Votre temps va où il compte." },
         { title: "Veille continue", text: "Il surveille l'activité de vos concurrents ou de votre marché et vous envoie un résumé prêt à lire chaque semaine. 2 à 3 heures récupérées sur la veille manuelle." },
-        { title: "Intégration à vos outils", text: "On le branche sur ce que vous utilisez déjà (boîte mail, CRM, facturation) plutôt que de tout remplacer. La mémoire persistante lui évite de repartir de zéro à chaque fois." },
+        { title: "Intégration à vos outils", text: "On le branche sur ce que vous utilisez déjà (boîte mail, CRM, facturation) plutôt que de tout remplacer. La mémoire persistante lui évite de repartir de zéro à chaque fois. Le détail : <a href=\"/blog/integrer-agent-ia-outils-existants\">intégrer un agent IA à vos outils existants</a>. Et s'il vous faut un outil complet autour de l'agent, c'est une <a href=\"/services/application-sur-mesure\">application sur mesure</a>." },
       ],
     },
     {
@@ -76,14 +76,12 @@ const cta = { href: "/contact", label: "Cadrer mon déploiement" };
     },
     {
       id: "offre", kicker: "03 · L'offre", title: "Des prix affichés,", dim: "en CHF.",
-      text: "Vous voyez le prix de départ et le coût mensuel avant de me contacter.",
+      text: `Vous voyez le prix de départ et le coût mensuel avant de me contacter. Fonctionnement ${pricing.agentIA.runningCost}, hébergé en Suisse chez Infomaniak et payé directement à l'hébergeur, sans engagement de durée. Comptez 2 à 3 semaines entre le cadrage et un premier agent en production. Pour comparer : le <a href="/blog/prix-agent-ia-automatisation-suisse">prix d'un agent IA en Suisse</a> et les <a href="/blog/meilleurs-vps-hermes-agent-suisse">meilleurs VPS pour Hermes Agent en Suisse</a>. Pour que toute l'équipe s'en serve, ajoutez une <a href="/services/formation-ia-equipe">formation IA pour votre équipe</a>.`,
       price: { value: pricing.agentIA.display, note: `Puis ${pricing.agentIA.runningCost} de fonctionnement` },
       cta,
       subs: [
         { meta: `Pour démarrer · ${pricing.agentIA.display}`, title: "Agent simple", text: "Une tâche précise qui vous prend du temps chaque semaine.", features: ["Audit de vos process et choix de la tâche à automatiser", "Un agent branché sur un outil (boîte mail ou CRM)", "Garde-fous, validation humaine et prise en main"] },
         { meta: "Le plus demandé · Sur devis", title: "Agent métier intégré", text: "Plusieurs tâches et plusieurs outils à connecter.", features: ["Agent multi-tâches connecté à vos outils (CRM, mail, facturation)", "Cadrage nLPD et tests en conditions réelles avant production", "Formation et documentation pour piloter en autonomie"] },
-        { title: `Fonctionnement : ${pricing.agentIA.runningCost}`, text: "Hébergement en Suisse chez Infomaniak, payé directement à l'hébergeur. Sans engagement de durée." },
-        { title: "Délai de déploiement : 2 à 3 semaines", text: "Entre le cadrage et un premier agent en production sur une tâche précise. On élargit ensuite le périmètre seulement si le gain le justifie." },
       ],
     },
   ]}
@@ -97,6 +95,10 @@ const cta = { href: "/contact", label: "Cadrer mon déploiement" };
       { title: "Prise en main", text: "Je forme votre équipe à l'usage quotidien. L'objectif n'est jamais de vous rendre dépendant : c'est de vous donner un outil qui tourne et que vous pilotez." },
     ],
   }}
+  cases={{
+    title: "Des agents IA", dim: "déjà en production.",
+    slugs: ["wildcat-agent-mails", "barber-hub-automatisation"],
+  }}
   links={[{
     title: "Pour creuser", dim: "le sujet.",
     items: [
@@ -106,6 +108,6 @@ const cta = { href: "/contact", label: "Cadrer mon déploiement" };
       { href: "/blog/workflows-vs-agents-ia-pme", k: "Article", label: "Workflows vs agents IA", text: "Quand un simple automatisme suffit, et quand il faut vraiment un agent qui raisonne." },
     ],
   }]}
-  faq={faqs}
+  faq={{ title: "Questions sur l'agent IA Hermès.", items: faqs }}
   contact="Premier échange gratuit, sans engagement. On identifie les 2-3 tâches qui vous prennent le plus de temps, et je vous dis franchement si Hermès y répond."
 />

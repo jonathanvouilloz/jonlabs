@@ -4,12 +4,12 @@
 // Prix : src/data/pricing.ts (sur devis).
 import ServicePage from '../../components/v2/ServicePage.astro';
 import { serviceSchemas, SITE_URL, localBusinessData } from '../../data/schema';
-import { getFAQPageSchema, getBreadcrumbSchema } from '../../lib/seo';
+import { getFAQPageSchema, getBreadcrumbSchema, getWebPageSchema } from '../../lib/seo';
 import { pricing } from '../../data/pricing';
 
 const seoData = {
     title: "Application sur mesure et logiciel métier à Genève",
-    description: "Application sur mesure pour PME à Genève et en Suisse romande : espace client, outil de gestion, tableau de bord, avec agents IA intégrés. Devis en CHF."
+    description: "Application sur mesure pour PME romandes : espace client, outil de gestion, tableau de bord, agents IA intégrés. Devis CHF."
 };
 
 const faqs = [
@@ -24,6 +24,7 @@ const faqs = [
 
 const schemas: any[] = [
     serviceSchemas["application-sur-mesure"],
+    getWebPageSchema({ url: `${SITE_URL}/services/application-sur-mesure`, name: seoData.title, description: seoData.description }),
     getBreadcrumbSchema([
         { name: "Accueil", url: SITE_URL },
         { name: "Services", url: `${SITE_URL}/services` },
@@ -42,7 +43,7 @@ const cal = { href: "https://cal.com/jonathan-vouilloz/appel-de-bienvenue", labe
     schemas={schemas}
     head={{
         kicker: "Application sur mesure · basé à Genève, service en Suisse romande",
-        h1: "Une application métier taillée pour votre équipe,",
+        h1: "Une application sur mesure pour votre équipe,",
         dim: "et vos agents IA.",
         lead: "Une application sur mesure qui suit votre façon de travailler, au lieu de vous plier à un logiciel standard. Je la conçois, je la mets en production et je la suis. Un seul interlocuteur, basé à Genève.",
         cta: cal,
@@ -51,13 +52,12 @@ const cal = { href: "https://cal.com/jonathan-vouilloz/appel-de-bienvenue", labe
     sections={[
         {
             id: "problemes", kicker: "01 · Situations", title: "Vous vous", dim: "reconnaissez ?",
-            text: "Une bonne application commence par une bonne décision : quoi construire, et surtout quoi ne pas construire.",
+            text: "Une bonne application commence par une bonne décision : quoi construire, et surtout quoi ne pas construire. <strong>On commence petit, on grandit ensuite.</strong> Les projets qui dérapent construisent trop, trop tôt. Ici, on sort d'abord le cœur de votre application, celui qui vous fait gagner du temps tout de suite. On ajoute ensuite, quand votre équipe en redemande. Pour savoir où vous en êtes : <a href=\"/blog/logiciel-sur-mesure-vs-saas\">logiciel sur mesure ou SaaS</a>.",
             subs: [
                 { title: "L'Excel qui déborde", text: "Le fichier a grandi avec l'entreprise. Plusieurs versions circulent, et une seule personne sait encore le faire tourner." },
                 { title: "Le SaaS qu'on contourne", text: "L'outil fait la moitié du travail. Le reste se fait à côté, dans des mails et des notes." },
                 { title: "L'ERP trop lourd pour ce que vous faites", text: "Vous payez pour des modules que personne n'ouvre, et il manque justement ce dont vous avez besoin." },
                 { title: "Les saisies en double", text: "La même information tapée dans trois outils qui ne se parlent pas. Avec les erreurs qui vont avec." },
-                { meta: "L'approche", title: "On commence petit, on grandit ensuite.", text: "Les projets qui dérapent construisent trop, trop tôt. Ici, on sort d'abord le cœur de votre application, celui qui vous fait gagner du temps tout de suite. On ajoute ensuite, quand votre équipe en redemande. Pour savoir où vous en êtes : <a href=\"/blog/logiciel-sur-mesure-vs-saas\">logiciel sur mesure ou SaaS</a>." },
             ],
         },
         {
@@ -67,8 +67,8 @@ const cal = { href: "https://cal.com/jonathan-vouilloz/appel-de-bienvenue", labe
                 { title: "Un outil de gestion", text: "Commandes, stocks, interventions ou dossiers : votre logiciel métier sur mesure, au lieu d'un tableur partagé." },
                 { title: "Un tableau de bord", text: "Les chiffres qui comptent pour vous, à jour, au même endroit." },
                 { title: "Un système de réservation", text: "Rendez-vous, salles ou matériel, avec les règles propres à votre activité." },
-                { title: "Des agents IA intégrés", text: "L'IA prépare : elle trie, rédige un brouillon, remplit un dossier. Votre équipe valide. Le répétitif disparaît, la décision reste chez vous." },
-                { title: "Branchée sur vos outils", text: "Comptabilité, agenda, messagerie : l'application parle à ce que vous utilisez déjà." },
+                { title: "Des agents IA intégrés", text: "L'IA prépare : elle trie, rédige un brouillon, remplit un dossier. Votre équipe valide. Le répétitif disparaît, la décision reste chez vous. C'est le principe de l'<a href=\"/hermes\">agent IA sur mesure</a>, branché dans votre application." },
+                { title: "Branchée sur vos outils", text: "Comptabilité, agenda, messagerie : l'application parle à ce que vous utilisez déjà. Le détail : <a href=\"/blog/integrer-agent-ia-outils-existants\">intégrer un agent IA à vos outils existants</a>." },
                 { meta: "Ce qui change avec Jon Labs", title: "Un seul interlocuteur, une application à vous", features: ["Un seul interlocuteur : vous parlez à celui qui construit l'application", "Le code vous appartient, sans dépendance", "Données protégées selon la loi suisse (nLPD)", "Mise en production et suivi, pas seulement une livraison"] },
             ],
         },
@@ -84,7 +84,7 @@ const cal = { href: "https://cal.com/jonathan-vouilloz/appel-de-bienvenue", labe
         {
             id: "about", kicker: "04 · À propos", title: "Qui est derrière", dim: "Jon Labs ?",
             subs: [
-                { title: "Jonathan, développeur basé à Genève", text: "Je construis votre application moi-même, je la mets en production, et je vous aide à trancher quand il faut faire des choix. Mon approche : un outil que votre équipe utilise vaut mieux qu'un projet parfait qui ne sort jamais. Exemple : pour un organisateur de camps de vacances, le budget se tient depuis le téléphone, et le rapport comptable est prêt à la fin du camp.", link: { href: "/about", label: "En savoir plus sur mon parcours" } },
+                { title: "Jonathan, développeur basé à Genève", text: "Je construis votre application moi-même, je la mets en production, et je vous aide à trancher quand il faut faire des choix. Mon approche : un outil que votre équipe utilise vaut mieux qu'un projet parfait qui ne sort jamais. Exemple : pour un organisateur de camps de vacances, le budget se tient depuis le téléphone, et le rapport comptable est prêt à la fin du camp.", link: { href: "/about", label: "Mon parcours de développeur à Genève" } },
                 { meta: "Local", title: "Basé à Genève, disponible partout en Suisse romande", text: "Tout peut se faire à distance : échanges, démos et tests. Si vous préférez vous voir pour le cadrage, je suis disponible à Genève et environs.", features: ["Genève (basé sur place)", "Lausanne", "Vaud", "Toute la Suisse romande"] },
             ],
         },
@@ -101,13 +101,13 @@ const cal = { href: "https://cal.com/jonathan-vouilloz/appel-de-bienvenue", labe
     }}
     cases={{
         title: "Des applications", dim: "déjà en production.",
-        text: "Ou l'ensemble de mes <a href=\"/portfolio\">réalisations</a>.",
+        text: "Ou l'ensemble de <a href=\"/portfolio\">mes applications en production</a>.",
         slugs: ["gestion-camps-budget", "wildcat-agent-mails", "systeme-ia-jonlabs"],
     }}
     links={[
         {
             title: "Tout comprendre", dim: "avant de vous lancer.",
-            text: "Votre application doit être sur l'App Store ou Google Play ? Voir le <a href=\"/services/developpement-application-mobile\">développement d'application mobile</a>.",
+            text: "Votre application doit être sur l'App Store ou Google Play ? Voir le <a href=\"/services/developpement-application-mobile\">développement d'application mobile</a>. Pour cadrer d'abord la place de l'IA dans votre entreprise : <a href=\"/consultant-ia\">consultant IA à Genève</a>.",
             items: [
                 { href: "/blog/application-metier-pme-sur-mesure", k: "S'inspirer", label: "App métier sur mesure pour PME : 5 cas concrets" },
                 { href: "/blog/logiciel-sur-mesure-vs-saas", k: "Décider", label: "Logiciel sur mesure ou SaaS : comment trancher" },
@@ -117,6 +117,6 @@ const cal = { href: "https://cal.com/jonathan-vouilloz/appel-de-bienvenue", labe
             ],
         },
     ]}
-    faq={faqs}
+    faq={{ title: "Questions sur l'application sur mesure.", items: faqs }}
     contact="En 30 minutes, on regarde votre projet et je vous dis honnêtement ce qu'il vous faut, et combien ça coûterait."
 />

@@ -12,10 +12,10 @@ import "../styles/v2.css";
 
 import { SITE_URL } from '../data/schema';
 import { getWebPageSchema, getBreadcrumbSchema } from '../lib/seo';
-import { pricing } from '../data/pricing';
+import { pricing, chf } from '../data/pricing';
 
-const pageTitle = "Tarifs freelance Genève : site web, app, SEO local, IA";
-const pageDescription = "Tarifs clairs en CHF : site web dès 850, référencement local 390 puis 199/mois, agent IA dès 1'500, application mobile sur devis. Freelance à Genève, sans contrat de durée.";
+const pageTitle = "Tarifs IA, site web et app mobile à Genève";
+const pageDescription = `Tarifs en CHF : agent IA dès ${chf(pricing.agentIA.from)}, site web dès ${chf(pricing.siteWeb.from)}, app mobile sur devis. Freelance à Genève, sans contrat de durée.`;
 
 const webPageSchema = getWebPageSchema({
   url: `${SITE_URL}/tarifs`,
@@ -25,7 +25,7 @@ const webPageSchema = getWebPageSchema({
 
 // Breadcrumb schema
 const breadcrumbSchema = getBreadcrumbSchema([
-  { name: "Accueil", url: SITE_URL },
+  { name: "Accueil", url: `${SITE_URL}/` },
   { name: "Tarifs", url: `${SITE_URL}/tarifs` }
 ]);
 
@@ -48,7 +48,17 @@ const offerCatalog = {
       "name": pricing.agentIA.label,
       "priceSpecification": { "@type": "PriceSpecification", "minPrice": String(pricing.agentIA.from), "priceCurrency": "CHF" },
       "url": `${SITE_URL}/hermes`
-    }
+    },
+    {
+      "@type": "Offer",
+      "name": pricing.webflow.label,
+      "priceSpecification": { "@type": "PriceSpecification", "minPrice": String(pricing.webflow.from), "priceCurrency": "CHF" },
+      "url": `${SITE_URL}/services/creation-site-web`
+    },
+    // Offres sans prix plancher : « sur devis », pas de priceSpecification.
+    { "@type": "Offer", "name": pricing.appMobile.label, "description": pricing.appMobile.display, "url": `${SITE_URL}/services/developpement-application-mobile` },
+    { "@type": "Offer", "name": pricing.appSurMesure.label, "description": pricing.appSurMesure.display, "url": `${SITE_URL}/services/application-sur-mesure` },
+    { "@type": "Offer", "name": pricing.formationIA.label, "description": pricing.formationIA.display, "url": `${SITE_URL}/services/formation-ia-equipe` }
   ]
 };
 
@@ -57,10 +67,6 @@ const faqs = [
   {
     question: "Pourquoi « dès CHF 850 » et pas un prix fixe ?",
     answer: "Un site d'une page et un site de vingt pages avec réservation en ligne n'ont pas le même coût. CHF 850 correspond à un site vitrine simple, sur mesure (site statique rapide). Un site Webflow, que vous gérez vous-même dans l'éditeur, démarre à CHF 950. Le prix annoncé dans le devis est le prix payé.",
-  },
-  {
-    question: "Que comprend le référencement local à CHF 390 + 199/mois ?",
-    answer: "Les CHF 390 couvrent la mise en place : audit, corrections du site et optimisation complète de votre fiche Google. Les CHF 199/mois couvrent le suivi : suivi des positions SEO, publication automatisée de posts sur la fiche, réponses aux avis, ajustements du site et un rapport mensuel des évolutions. Aucun contrat de durée : vous arrêtez quand vous voulez, d'un mois à l'autre.",
   },
   {
     question: "Combien coûte un agent IA une fois en place ?",
@@ -72,11 +78,11 @@ const faqs = [
   },
   {
     question: "Comment se passe le paiement ?",
-    answer: "20 % à la signature du devis, 80 % à la livraison. Le suivi mensuel est facturé chaque mois. Tous les prix sont en CHF, hors TVA (exonéré).",
+    answer: "20 % à la signature du devis, 80 % à la livraison. Tous les prix sont en CHF, hors TVA (exonéré).",
   },
   {
     question: "Est-ce que je m'engage sur une durée ?",
-    answer: "Non, aucun contrat de durée minimale. Un projet (site, app, agent IA) est payé une fois. Le suivi mensuel du référencement se résilie d'un mois à l'autre, sans frais ni préavis long. Si le travail est bon, vous n'aurez pas envie de partir.",
+    answer: "Non, aucun contrat de durée minimale. Un projet (site, app, agent IA) est payé une fois. L'hébergement d'un agent IA est facturé directement par l'hébergeur, sans engagement.",
   },
 ];
 
@@ -93,16 +99,15 @@ const faqSchema = {
 const schemas = [webPageSchema, breadcrumbSchema, offerCatalog, faqSchema];
 
 const resources = [
-  { href: "/blog/prix-site-web-suisse-2026", title: "Combien coûte vraiment un site web en Suisse en 2026 ?", teaser: "Un guide transparent des fourchettes en CHF, par type de projet et par profil de prestataire." },
-  { href: "/blog/specialiste-developpement-web-suisse", title: "Spécialiste développement web Suisse : comment bien choisir", teaser: "Freelance vs agence, 5 critères concrets pour choisir le bon prestataire en Suisse romande." },
   { href: "/blog/prix-agent-ia-automatisation-suisse", title: "Combien coûte un agent IA en Suisse ?", teaser: "Les fourchettes en CHF d'un agent IA ou d'une automatisation : mise en place et fonctionnement." },
+  { href: "/blog/prix-application-mobile-suisse", title: "Prix d'une application mobile en Suisse", teaser: "MVP, app métier, marketplace : les forfaits en CHF par type de projet et les coûts cachés." },
+  { href: "/blog/prix-logiciel-sur-mesure-pme", title: "Prix d'un logiciel sur mesure pour PME", teaser: "Les vrais prix en CHF par profil de PME, poste par poste, et les pièges qui font exploser les budgets." },
 ];
 ---
 
 <Layout title={pageTitle} description={pageDescription} schemas={schemas}>
   <Fragment slot="head">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" />
   </Fragment>
 
   <div class="v2">
@@ -111,13 +116,13 @@ const resources = [
 
     <main>
       <header class="r"><div class="w v2-head v2-head-2">
-        <h1 class="v2-h1" data-words>Tarifs clairs.</h1>
+        <h1 class="v2-h1" data-words>Tarifs IA, site web et app mobile.</h1>
         <p class="v2-head-p">Des prix en CHF, aucun contrat de durée. L'appel découverte est gratuit.</p>
       </div></header>
 
       <section class="r" id="packages" aria-label="Offres"><Pricing /></section>
 
-      <section class="r"><Faq items={faqs.map((f) => ({ q: f.question, a: f.answer }))} /></section>
+      <section class="r"><Faq title="Questions sur les tarifs." items={faqs.map((f) => ({ q: f.question, a: f.answer }))} /></section>
 
       <section class="r" aria-labelledby="ressources"><div class="w">
         <div class="v2-head v2-head-2">

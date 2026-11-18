@@ -10,8 +10,8 @@ import Dock from '../../components/v2/Dock.astro';
 import Footer from '../../components/v2/Footer.astro';
 import DitherBg from '../../components/v2/DitherBg.tsx';
 import '../../styles/v2.css';
-import { SITE_URL } from '../../data/schema';
-import type { JSONLDSchema } from '../../lib/seo';
+import { SITE_URL, organizationData } from '../../data/schema';
+import { getBreadcrumbSchema, type JSONLDSchema } from '../../lib/seo';
 import { inlineLinks } from '../../lib/markdown';
 import { portfolioServiceLinks } from '../../data/portfolio-relations';
 
@@ -81,18 +81,22 @@ const caseStudySchema: JSONLDSchema = {
   headline: d.title,
   description: d.description,
   image: d.heroImage.url.startsWith('http') ? d.heroImage.url : `${SITE_URL}${d.heroImage.url}`,
-  author: { '@type': 'Person', name: 'Jonathan Vouilloz', url: SITE_URL },
-  publisher: { '@type': 'Organization', name: 'Jon Labs', url: SITE_URL },
+  datePublished: d.date.toISOString(),
+  author: { '@type': 'Person', '@id': `${SITE_URL}/#person`, name: 'Jonathan Vouilloz', url: SITE_URL },
+  publisher: { '@type': 'Organization', '@id': `${SITE_URL}/#organization`, name: 'Jon Labs', url: SITE_URL, logo: organizationData.logo },
   mainEntityOfPage: `${SITE_URL}/portfolio/${entry.slug}`,
 };
 if (d.client) caseStudySchema.about = { '@type': 'Organization', name: d.client.name, url: d.client.website };
-const schemas = [caseStudySchema];
+const schemas = [caseStudySchema, getBreadcrumbSchema([
+  { name: 'Accueil', url: SITE_URL },
+  { name: 'Réalisations', url: `${SITE_URL}/portfolio` },
+  { name: d.title, url: `${SITE_URL}/portfolio/${entry.slug}` },
+])];
 ---
 
-<Layout title={`${d.title} | Portfolio`} description={d.description} ogImage={d.heroImage.url} schemas={schemas}>
+<Layout title={d.title} description={d.description} ogImage={d.heroImage.url} ogType="article" article={{ publishedTime: d.date, author: 'Jonathan Vouilloz', tags: d.tags }} schemas={schemas}>
   <Fragment slot="head">
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Funnel+Display:wght@300..800&display=swap" />
   </Fragment>
 
   <div class="v2">
@@ -109,7 +113,10 @@ const schemas = [caseStudySchema];
             </p>
             <h1 class="v2-h1" data-chars>{d.title}</h1>
             <div class="cas-c-sub">
-              <p class="cas-c-lead">{d.description}</p>
+              <div>
+                <p class="cas-c-lead">{d.description}</p>
+                {service && <p class="cas-c-offer"><a href={service.href} class="v2-a">Découvrir l'offre {service.label[0].toLowerCase() + service.label.slice(1)}</a> <i class="ri-arrow-right-line" aria-hidden="true"></i></p>}
+              </div>
               {d.tags.length > 0 && <p class="v2-meta cas-c-tags">{d.tags.map((t) => <span>{t}</span>)}</p>}
             </div>
           </div>
@@ -143,7 +150,7 @@ const schemas = [caseStudySchema];
           )}
         </div></header>
 
-        <div class="r"><div class="w cas-c-img"><img src={d.heroImage.url} alt={d.heroImage.alt} width="1180" height="664" /></div></div>
+        <div class="r"><div class="w cas-c-img"><img src={d.heroImage.url} alt={d.heroImage.alt} width="1180" height="664" fetchpriority="high" decoding="async" /></div></div>
 
         {d.results.length > 1 && (
           <section class="r" id="resultats" aria-labelledby="t-res"><div class="w">
@@ -185,7 +192,7 @@ const schemas = [caseStudySchema];
                 {p.image && (
                   <figure>
                     <button type="button" class="cas-c-zoom" data-lb aria-label={`Agrandir : ${p.image.alt}`}>
-                      <img src={p.image.url} alt={p.image.alt} loading="lazy" decoding="async" />
+                      <img src={p.image.url} alt={p.image.alt} width={p.image.width} height={p.image.height} loading="lazy" decoding="async" />
                     </button>
                     {p.image.caption && <figcaption class="v2-mut">{p.image.caption}</figcaption>}
                   </figure>
@@ -210,7 +217,7 @@ const schemas = [caseStudySchema];
               {shots.map((img, i) => (
                 <figure>
                   <button type="button" class="cas-c-zoom" data-lb aria-label={`Agrandir : ${img.alt}`}>
-                    <img src={img.url} alt={img.alt} loading="lazy" decoding="async" />
+                    <img src={img.url} alt={img.alt} width={img.width} height={img.height} loading="lazy" decoding="async" />
                   </button>
                   <figcaption><span class="v2-meta">Fig. {pad(i + 1)} / {pad(shots.length)}</span><span>{img.caption ?? img.alt}</span></figcaption>
                 </figure>
@@ -262,7 +269,7 @@ const schemas = [caseStudySchema];
 
         {hasBody && (
           <section class="r" id="recit" aria-labelledby="t-recit"><div class="w">
-            <div class="cas-c-label"><h2 id="t-recit" class="v2-meta">Le récit</h2></div>
+            <div class="cas-c-label"><p id="t-recit" class="v2-meta">Le récit</p></div>
             <div class="cas-c-recit"><div class="co-prose v2-art-prose cas-c-prose"><Content /></div></div>
           </div></section>
         )}
@@ -280,7 +287,7 @@ const schemas = [caseStudySchema];
           <ul class="cas-c-next">
             {related.map((p) => (
               <li><a href={`/portfolio/${p.slug}`}>
-                <img src={p.data.heroImage.url} alt="" loading="lazy" />
+                <img src={p.data.heroImage.url} alt="" width={p.data.heroImage.width} height={p.data.heroImage.height} loading="lazy" decoding="async" />
                 <strong>{p.data.title}</strong>
                 <span class="v2-meta"><span>{p.data.client?.sector ?? 'Projet personnel'}</span><span>{p.data.date.getFullYear()}</span></span>
                 <i class="ri-arrow-right-up-line" aria-hidden="true"></i>
@@ -291,7 +298,7 @@ const schemas = [caseStudySchema];
       </div></section>
 
       <section class="r"><div class="w v2-head v2-head-2">
-        <h2 class="v2-h2" data-words>Votre projet,<br /><span class="v2-dim">la prochaine étude de cas.</span></h2>
+        <p class="v2-h2" data-words>Votre projet,<br /><span class="v2-dim">la prochaine étude de cas.</span></p>
         <div class="v2-ctas v2-ctas-left">
           <a href="/contact" class="v2-btn"><i class="ri-calendar-line"></i> <span data-roll>Parlons de votre projet</span></a>
           <a href="mailto:contact@jonlabs.ch" class="v2-btn v2-btn-ghost"><span data-roll>contact@jonlabs.ch</span></a>
@@ -363,6 +370,7 @@ const schemas = [caseStudySchema];
   .v2 .cas-c-back:hover { color: var(--ink); }
   .v2 .cas-c-back { display: inline-flex; align-items: center; gap: 4px; min-height: 44px; }
   .v2 .cas-c-lead { max-width: 36rem; color: var(--mut); font-size: 1.1rem; }
+  .v2 .cas-c-offer { margin-top: 12px; display: inline-flex; align-items: center; gap: 6px; }
   .v2 .cas-c-tags { gap: 6px; justify-content: flex-end; }
   .cas-c-tags span { border: 1px solid var(--line); border-radius: var(--r); padding: 3px 8px; }
   .cas-c-key { position: relative; isolation: isolate; overflow: hidden; padding: clamp(28px, 4vw, 44px) var(--pad); display: flex; justify-content: space-between; align-items: flex-end; gap: 24px 48px; flex-wrap: wrap; min-height: 230px; border-top: 1px solid var(--line); }
@@ -387,7 +395,7 @@ const schemas = [caseStudySchema];
   /* Étiquette de section : barre mono pleine largeur */
   .cas-c-label { display: flex; justify-content: space-between; align-items: center; gap: 16px; padding: 14px var(--pad); border-bottom: 1px solid var(--line); }
   .cas-c-label-solo { border-bottom: 0; }
-  .v2 .cas-c-label h2 { margin: 0; font-weight: 400; color: var(--ink); }
+  .v2 .cas-c-label h2, .v2 .cas-c-label > p { margin: 0; font-weight: 400; color: var(--ink); }
   .cas-c-label-links { display: flex; flex-wrap: wrap; gap: 6px 20px; }
 
   /* Tableau d'affichage */

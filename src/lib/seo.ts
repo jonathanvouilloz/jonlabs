@@ -52,10 +52,13 @@ export function getWebPageSchema(data: {
   name: string;
   description: string;
 }): JSONLDSchema {
+  // Même route que l'og:image par défaut de SEO.astro : /og/<route>.png ('/' → /og/index.png).
+  const route = new URL(data.url).pathname.replace(/\/$/, '') || '/index';
+  const id = route === '/index' ? `${SITE_URL}/#webpage` : `${data.url.replace(/\/$/, '')}#webpage`;
   return {
     '@context': 'https://schema.org',
     '@type': 'WebPage',
-    '@id': `${data.url}#webpage`,
+    '@id': id,
     url: data.url,
     name: data.name,
     description: data.description,
@@ -63,7 +66,7 @@ export function getWebPageSchema(data: {
     about: { '@id': `${SITE_URL}/#organization` },
     primaryImageOfPage: {
       '@type': 'ImageObject',
-      url: `${SITE_URL}/og-image.svg`
+      url: `${SITE_URL}/og${route}.png`
     }
   };
 }

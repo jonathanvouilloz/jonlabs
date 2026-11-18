@@ -35,7 +35,7 @@ const serviceSchema = {
     containedInPlace: { '@type': 'AdministrativeArea', name: `Canton de ${ville.canton}` },
   },
   serviceType: 'Développement application mobile',
-  isPartOf: { '@id': `${SITE_URL}${pilier}/#service` },
+  isPartOf: { '@id': `${SITE_URL}${pilier}#service` },
 };
 
 const page: DcPage = {
@@ -49,6 +49,7 @@ const page: DcPage = {
   meta: `Application mobile · canton de ${ville.canton}`,
   h1: ville.h1, h1Dim: ville.nom,
   lead: ville.angleHero,
+  pillarLink: [{ text: 'Méthode et budgets détaillés sur la page ' }, { text: "développement d'application mobile", href: pilier }, { text: '.' }],
   trust: ville.preuveLocale.split('·').map((p) => p.trim()).filter(Boolean),
   price: { label: 'Tarif', value: pricing.appMobile.display },
   ctaLabel: "Parler de votre projet d'app",
@@ -90,6 +91,7 @@ const page: DcPage = {
     { kind: 'prose', id: 'pour-qui', title: "À qui je m'adresse", dim: `à ${ville.nom}.`, paras: [], list: ville.publicCible },
   ],
   faqs: ville.faqs,
+  faqTitle: `Questions sur l'application mobile à ${ville.nom}.`,
   links: [
     { href: pilier, k: 'Page pilier', t: "Développement d'application mobile", d: 'Natif, hybride ou PWA, publication sur les stores, ce qui fait varier le budget.' },
     ...getVoisinesMobile(ville).map((v) => ({ href: `${pilier}/${v.slug}`, k: 'Ville', t: `Application mobile à ${v.nom}`, d: v.angleHero })),

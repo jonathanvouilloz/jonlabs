@@ -130,7 +130,7 @@ L'objectif n'est pas la perfection. C'est de démarrer la conversation au bon ni
 
 Si tu n'es pas encore certain de vouloir développer, commence par valider ton idée auprès de quelques clients réels. Le cadrage vient après la validation, pas avant.
 
-Une fois le brief prêt, l'étape suivante est de [faire développer ton application métier sur mesure](/services/developpement-application-mobile) avec un prestataire qui travaille en itérations courtes.
+Une fois le brief prêt, l'étape suivante est de [faire développer ton application métier sur mesure](/services/application-sur-mesure) avec un prestataire qui travaille en itérations courtes.
 
 ---
 

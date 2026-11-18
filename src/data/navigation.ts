@@ -70,7 +70,7 @@ export const mainNav: NavSection[] = [
       {
         title: 'Construire',
         items: [
-          { label: 'Agents IA sur-mesure', href: '/consultant-ia#agents-sur-mesure', icon: 'ri-robot-2-line' },
+          { label: 'Agents IA sur mesure', href: '/hermes', icon: 'ri-robot-2-line' },
           { label: 'Applications sur mesure', href: '/services/application-sur-mesure', icon: 'ri-window-line' },
           { label: 'Application mobile', href: '/services/developpement-application-mobile', icon: 'ri-smartphone-line' },
         ],

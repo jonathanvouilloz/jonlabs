@@ -1,6 +1,7 @@
 ---
 import SEO from '../components/SEO.astro';
 import type { SchemaType, JSONLDSchema } from '../lib/seo';
+import { organizationData, personData } from '../data/schema';
 // Design system blueprint (tokens .co-root/.co-chrome + primitives .co-*).
 // Global : le chrome blueprint (Header/Footer) l'utilise sur toutes les pages.
 import '../styles/blueprint.css';
@@ -26,9 +27,9 @@ interface Props {
 }
 
 const {
-	title = "Développeur web freelance à Genève",
-	description = "Développement web, automatisation, applications. De l'idée au produit fini, j'accompagne entrepreneurs et petites équipes dans leurs projets digitaux.",
-	ogImage = "/og-image.png",
+	title = "Développement IA sur mesure à Genève",
+	description = "Développement web, agents IA et automatisations sur mesure à Genève, pour des entreprises sans équipe tech.",
+	ogImage,
 	ogType = "website",
 	schemas,
 	schema,
@@ -54,7 +55,7 @@ const fullTitle =
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang="fr-CH">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
@@ -66,16 +67,16 @@ const fullTitle =
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
 
-		<!-- Fonts blueprint (pairing 04) - Inter Tight × Instrument Serif, chargement non-bloquant -->
-		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300..700;1,300..700&family=Instrument+Serif:ital@0;1&family=Fragment+Mono:ital@0;1&display=swap" />
-		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300..700;1,300..700&family=Instrument+Serif:ital@0;1&family=Fragment+Mono:ital@0;1&display=swap" media="print" onload="this.media='all'" />
+		<!-- Fonts : Inter Tight × Instrument Serif (blueprint) + Funnel Display (titres v2), une seule requête non bloquante -->
+		<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300..700;1,300..700&family=Instrument+Serif:ital@0;1&family=Fragment+Mono:ital@0;1&family=Funnel+Display:wght@300..800&display=swap" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300..700;1,300..700&family=Instrument+Serif:ital@0;1&family=Fragment+Mono:ital@0;1&family=Funnel+Display:wght@300..800&display=swap" media="print" onload="this.media='all'" />
 
 		<!-- Remix Icon - chargement différé -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" media="print" onload="this.media='all'" />
 
 		<!-- Fallback pour navigateurs sans JS -->
 		<noscript>
-			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300..700;1,300..700&family=Instrument+Serif:ital@0;1&family=Fragment+Mono:ital@0;1&display=swap" />
+			<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300..700;1,300..700&family=Instrument+Serif:ital@0;1&family=Fragment+Mono:ital@0;1&family=Funnel+Display:wght@300..800&display=swap" />
 			<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.6.0/fonts/remixicon.css" />
 		</noscript>
 
@@ -115,6 +116,9 @@ const fullTitle =
 			article={article}
 			robots={robots}
 		/>
+		<!-- Organization + Person : émis une seule fois ici, les pages les référencent par @id -->
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(organizationData)} />
+		<script is:inline type="application/ld+json" set:html={JSON.stringify(personData)} />
 
 		<title>{fullTitle}</title>
 		<slot name="head" />
