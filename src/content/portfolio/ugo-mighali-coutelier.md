@@ -8,7 +8,7 @@ featured: false
 client:
   name: "Ugo Mighali"
   sector: "Artisanat / Coutellerie d'art"
-  website: "https://ugomighali.ch"
+  website: "https://www.ugomighali.com"
 
 project:
   duration: "~1 mois"
@@ -17,7 +17,7 @@ project:
   category: "site-vitrine"
 
 heroImage:
-  url: "/images/portfolio/ugo-mighali/hero.webp"
+  url: "/images/portfolio/ugo-mighali/mockup.webp"
   alt: "Site portfolio Ugo Mighali - coutelier d'art Genève - hero avec portrait et atelier"
 
 resultImages:
@@ -98,7 +98,7 @@ tags:
   - "Design"
   - "Genève"
 
-liveUrl: "https://ugomighali.ch"
+liveUrl: "https://www.ugomighali.com"
 ---
 
 ## Un site qui laisse parler le métal
