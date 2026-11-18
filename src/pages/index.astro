@@ -68,7 +68,7 @@ const schemas = [organizationData, localBusinessData, websiteData, getWebPageSch
     <section class="r" id="realisations">
       <div class="w v2-head v2-head-c"><h2 class="v2-h2" data-words>Des solutions qui résolvent<br />de vrais problèmes.</h2></div>
     </section>
-    {cases.map((c) => <section class="r"><CaseSpec entry={c} /></section>)}
+    {cases.map((c, i) => <>{i > 0 && <div class="r" aria-hidden="true"><div class="w v2-gap"></div></div>}<section class="r"><CaseSpec entry={c} /></section></>)}
     <section class="r"><Proofs items={proofs} /></section>
     <section class="r">
       <div class="w v2-more"><a href="/portfolio" class="v2-btn"><span data-roll>Toutes les réalisations</span></a></div>

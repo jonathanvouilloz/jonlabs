@@ -127,7 +127,7 @@ const ext = (l: Link) => (l.external ? { target: '_blank', rel: 'noopener norefe
           <h2 class="v2-h2" id="svc-cases" data-words>{cases!.title}{cases!.dim && <><br /><span class="v2-dim">{cases!.dim}</span></>}</h2>
           {cases!.text && <p class="v2-head-p v2-prose" set:html={cases!.text} />}
         </div></section>
-        {caseEntries.map((c) => <section class="r"><CaseSpec entry={c!} /></section>)}
+        {caseEntries.map((c, i) => <>{i > 0 && <div class="r" aria-hidden="true"><div class="w v2-gap"></div></div>}<section class="r"><CaseSpec entry={c!} /></section></>)}
       </>)}
 
       {links.map((g, i) => (
