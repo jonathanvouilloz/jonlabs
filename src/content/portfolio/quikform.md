@@ -30,9 +30,22 @@ tags:
 
 liveUrl: "https://jonathanvouilloz.github.io/quikform/"
 
+resultsTitle: "En pratique"
+results:
+  # Usage déclaré par Jonathan le 19.11.2026 ; le reste vient du README du dépôt
+  - label: "un formulaire prêt, demandé à l'agent en une phrase"
+    value: "1 phrase"
+    icon: "ri-chat-1-line"
+  - label: "langues d'interface : français, anglais, allemand, thaï"
+    value: "4"
+    icon: "ri-translate-2"
+  - label: "service tiers entre vous et les réponses"
+    value: "0"
+    icon: "ri-shield-check-line"
+
 context:
-  challenge: "Un formulaire d'accueil pour un nouveau client, un questionnaire avant un projet, une demande de contact : j'en ai besoin souvent, et chaque fois il fallait ouvrir un éditeur en ligne, cliquer, puis aller rechercher les réponses dans un service tiers. Mes agents IA, eux, ne savent pas cliquer dans un éditeur visuel."
-  whyThisProject: "Je voulais dire à mon agent « il me faut un formulaire d'accueil pour les nouveaux membres » et recevoir un lien. Puis qu'il relise lui-même les réponses. Sans compte, sans service hébergé, avec les réponses sur mon serveur."
+  challenge: "Pour un accueil de nouveau client ou une série de questions avant un projet, je refaisais un formulaire à chaque fois, et jamais de la même façon. Ce n'était pas pratique pour moi, et pas constant pour le client."
+  whyThisProject: "Je voulais qu'il suffise de demander. Tous mes agents IA ont accès à Quikform : dès que j'ai une question à poser à un client, je demande un formulaire, public ou privé, et je reçois un lien. Il a remplacé Tally chez moi. Les formulaires sont simples, agréables à remplir, et hébergés sur mes propres serveurs."
 
 approach:
   - phase: 1
@@ -106,6 +119,6 @@ Il est open source (licence MIT). Le code est sur [GitHub](https://github.com/jo
 
 ## Comment je m'en sers
 
-Il tourne sur mon serveur. Mes agents s'en servent pour créer les formulaires d'accueil et de contact dont j'ai besoin, puis pour relire les réponses.
+Il tourne sur mes serveurs et je m'en sers chaque jour. Mes agents créent les formulaires d'accueil et de contact dont j'ai besoin, puis relisent les réponses. Mes clients reçoivent un formulaire propre, à chaque fois le même soin.
 
 C'est une brique que je réutilise dans les systèmes que je construis : quand un agent a besoin de poser des questions à quelqu'un, il n'attend pas qu'un humain fabrique le formulaire.

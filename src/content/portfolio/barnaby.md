@@ -4,7 +4,7 @@ description: "Une app de bureau gratuite et open source : tu parles, Barnaby éc
 # Premier commit le 23.10.2026, version v0.4.5 (dépôt github.com/jonathanvouilloz/barnaby)
 date: 2026-10-23
 draft: false
-featured: false
+featured: true
 
 entryType: "side-project"
 status: "live"
@@ -30,9 +30,22 @@ tags:
 
 liveUrl: "https://mybarnaby.app"
 
+resultsTitle: "En pratique"
+results:
+  # Usage déclaré par Jonathan le 19.11.2026 ; le reste vient du README du dépôt
+  - label: "utilisé pour dicter et pour écrire mes réunions"
+    value: "Chaque jour"
+    icon: "ri-calendar-check-line"
+  - label: "outils remplacés : la dictée et les notes de réunion"
+    value: "2"
+    icon: "ri-stack-line"
+  - label: "donnée envoyée en ligne par défaut"
+    value: "0"
+    icon: "ri-shield-check-line"
+
 context:
-  challenge: "Je passe mes journées à écrire : des messages, des mails, des consignes pour mes agents IA. Et après chaque appel client, il faut retrouver ce qui a été décidé. Les outils de dictée et de notes de réunion envoient presque tous la voix sur un serveur, et la plupart ajoutent un robot dans l'appel."
-  whyThisProject: "Je voulais un outil que j'utilise moi-même tous les jours, et que je puisse donner sans réserve : gratuit, sans compte, avec une voix qui ne quitte pas l'ordinateur. Je m'en sers pour dicter et pour enregistrer mes réunions avec mes clients."
+  challenge: "J'utilisais une autre app de dictée, et un détail me gênait tous les jours. C'était une application propriétaire : impossible de la modifier. À côté, il me fallait un second outil pour garder une trace de mes appels clients, et la plupart ajoutent un robot dans la réunion et envoient la voix sur un serveur."
+  whyThisProject: "Quitte à ne pas pouvoir corriger l'outil des autres, autant faire le mien. J'en ai profité pour réunir les deux usages : dicter du texte partout, et écrire n'importe quelle réunion qui passe par l'ordinateur, que l'appel ait lieu sur WhatsApp, Teams, Google Meet ou Zoom. Aujourd'hui il a remplacé tous mes outils de dictée, et je m'en sers chaque jour."
 
 approach:
   - phase: 1
@@ -86,7 +99,8 @@ learnings:
     - "Sur un ordinateur modeste, écrire une longue réunion en local prend du temps"
     - "Pas de version mobile"
   insights:
-    - "Un outil qu'on utilise soi-même tous les jours se corrige vite : chaque défaut me gêne avant de gêner quelqu'un d'autre."
+    - "Quand un outil propriétaire a un défaut qui vous gêne tous les jours, vous attendez. Quand c'est le vôtre, vous le corrigez dans l'heure."
+    - "Capter le son de l'ordinateur plutôt que se brancher sur chaque outil de visio : une seule solution pour tous les appels."
     - "Dire ce qui sort de la machine avant que ça sorte coûte une phrase dans l'interface, et change la confiance."
 
 resultImages:

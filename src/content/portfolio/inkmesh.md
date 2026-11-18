@@ -30,9 +30,19 @@ tags:
 
 liveUrl: "https://inkmesh.ch"
 
+resultsTitle: "En pratique"
+results:
+  # Usage déclaré par Jonathan le 19.11.2026
+  - label: "espaces clients en service"
+    value: "4"
+    icon: "ri-team-line"
+  - label: "utilisé pour partager les documents de mes agents"
+    value: "Chaque jour"
+    icon: "ri-calendar-check-line"
+
 context:
-  challenge: "Mes agents IA produisent des rapports, des comptes rendus et des notes de projet en Markdown. Un client ne lit pas un fichier Markdown. Il fallait exporter un PDF, coller le texte dans un document partagé ou joindre un fichier à un mail, et recommencer à chaque mise à jour."
-  whyThisProject: "Je voulais que l'agent écrive directement là où le client lit. L'agent dépose sa page dans un espace, le client ouvre un lien et lit une page propre, l'équipe la corrige dans le navigateur. Un Notion plus simple, pensé pour le Markdown et les agents, qui tourne sur mon serveur."
+  challenge: "Quand on travaille avec des IA, elles produisent presque tout en Markdown : rapports, comptes rendus, notes de projet. Mal affiché, ce format est pénible à lire, et une personne qui n'est pas technique n'a rien pour l'ouvrir correctement. Il fallait exporter un PDF ou coller le texte ailleurs, et recommencer à chaque mise à jour."
+  whyThisProject: "Je voulais que mes agents écrivent directement là où le client lit, dans une page propre. C'est un Notion plus souple, pensé pour le Markdown et les agents, qui tourne sur mon serveur. Je m'en sers aujourd'hui pour quatre clients, dont Barber Concept et Barber Media."
 
 approach:
   - phase: 1
@@ -120,6 +130,6 @@ Il est open source (licence MIT) et s'installe sur votre propre serveur. Le code
 
 ## Comment je m'en sers
 
-Je l'utilise pour transmettre à mes clients les rapports que produisent leurs agents. Chaque client a son espace : l'agent y dépose son rapport, le client le lit, et ses remarques reviennent à l'agent au passage suivant.
+Dès qu'une information existe sous forme de document, elle passe par Inkmesh. Chaque client a son espace : l'agent y dépose son rapport, le client le lit, et ses remarques reviennent à l'agent au passage suivant.
 
 C'est la même idée que dans mes systèmes sur mesure : des équipes et des agents IA qui travaillent sur les mêmes documents, avec les mêmes règles.

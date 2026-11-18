@@ -4,7 +4,7 @@ description: "Mon outil de travail : un agent IA sur serveur, un logiciel de fac
 # VPS jonlabs en service le 14.11.2026 (cerveau/10-Projets/vps/vps-human.md:36)
 date: 2026-11-14
 draft: false
-featured: true
+featured: false
 
 entryType: "case-study"
 status: "en-cours"
