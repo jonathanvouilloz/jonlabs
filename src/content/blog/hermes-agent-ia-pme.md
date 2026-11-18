@@ -18,7 +18,7 @@ faqs:
   - question: "Quelle différence entre Hermes Agent et OpenClaw ?"
     answer: "Hermes Agent est conçu pour des workflows d'équipe multi-agents, hébergé sur serveur, plus puissant pour les processus d'entreprise. OpenClaw tourne en local sur ta machine, s'intègre à WhatsApp et Telegram, et convient mieux à un usage individuel quotidien. Les deux ont la mémoire persistante. Le choix dépend de ton profil : PME avec prestataire, prendre Hermes Agent. Dirigeant solo, prendre OpenClaw. Les deux peuvent être utilisés de façon complémentaire."
   - question: "Hermes Agent est-il vraiment gratuit ?"
-    answer: "Le code est gratuit (MIT License). Les coûts réels sont l'hébergement (CHF 5 à 15 par mois), l'API LLM comme OpenAI ou Anthropic (CHF 10 à 50 par mois selon l'usage), et la configuration initiale avec un prestataire (CHF 400 à 1 200 selon la complexité). Budget total réaliste première année : CHF 800 à 1 600 avec prestataire."
+    answer: "Le code est gratuit (MIT License). Les coûts réels sont l'hébergement (CHF 5 à 15 par mois), l'API LLM comme OpenAI ou Anthropic (CHF 10 à 50 par mois selon l'usage), et la mise en place par un prestataire (dès CHF 1'500 pour un agent sur une tâche précise). Budget total réaliste première année : CHF 1'700 à 2'300 avec prestataire."
   - question: "Nous Research, c'est quoi ?"
     answer: "Nous Research est une startup américaine spécialisée dans les modèles de langage open source. Connue pour sa série de modèles Hermes LLM, des fine-tunes de haute qualité reconnus dans la communauté open source. La société a levé 65 millions USD et développe Hermes Agent sous licence MIT depuis février 2026."
 ---
@@ -136,7 +136,7 @@ Hébergement : compter CHF 5 à 80 par mois selon le volume. Hermes Agent doit t
 
 API LLM : entre CHF 10 et 60 par mois selon l'usage. Hermes Agent a besoin d'un modèle de langage pour raisonner. **OpenAI API** (GPT-4o) ou **Anthropic Claude API** facturent au volume. Un modèle local via Ollama est possible, mais ça demande un prestataire technique pour la mise en place. Le coût varie fortement selon le volume. Une PME avec 20 à 30 tâches quotidiennes sera dans la fourchette basse.
 
-Configuration initiale : **CHF 400 à 1 200** en investissement unique. Sans développeur interne, compter 4 à 12 heures de prestataire technique pour une mise en place stable, configurée et testée. Au taux horaire suisse, ça donne cette fourchette.
+Mise en place : **dès CHF 1'500** en investissement unique pour un agent sur une tâche précise, cadrage, intégration à tes outils, garde-fous et prise en main compris (détail sur la [page tarifs](/tarifs)). Un agent qui couvre plusieurs tâches et plusieurs outils se chiffre sur devis.
 
 Maintenance : 1 à 2 heures par mois. Hermes Agent est en développement actif. Plus de mises à jour signifie plus de maintenance à anticiper.
 
@@ -200,7 +200,7 @@ Hermes Agent est conçu pour des workflows d'équipe multi-agents, hébergé sur
 
 ### Hermes Agent est-il vraiment gratuit ?
 
-Le code est gratuit (MIT License). Les coûts réels sont l'hébergement (CHF 5 à 15/mois), l'API LLM comme OpenAI ou Anthropic (CHF 10 à 50/mois selon l'usage), et la configuration initiale avec un prestataire (CHF 400 à 1 200 selon la complexité). Budget total réaliste première année : CHF 800 à 1 600 avec prestataire.
+Le code est gratuit (MIT License). Les coûts réels sont l'hébergement (CHF 5 à 15/mois), l'API LLM comme OpenAI ou Anthropic (CHF 10 à 50/mois selon l'usage), et la mise en place par un prestataire (dès CHF 1'500 pour un agent sur une tâche précise). Budget total réaliste première année : CHF 1'700 à 2'300 avec prestataire.
 
 ### Nous Research, c'est quoi ?
 
