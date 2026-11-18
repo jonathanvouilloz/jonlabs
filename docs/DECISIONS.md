@@ -55,3 +55,5 @@ Format : `[date] | [décision] | [contexte] | [alternatives considérées]`
 **2026-11-18** | **Shader `DitherBg` figé sur `(pointer: coarse)`.** | La boucle de rendu chauffe et vide la batterie sur mobile. | Garder l'animation en la ralentissant.
 
 **2026-11-19** (`1a32983`) | **Home orientée résultat : `CaseSpec` affiche les résultats clients en grand (plus de stack), `Faq` sans accordéon, « Comment je travaille » déplacé sur `/about`.** | Chiffres déclarés par Jonathan (10 h/semaine, 20'000+ visites en 4 mois) ; composants partagés, donc effet sur `/portfolio`, `/tarifs`, pages service, `/contact`. | Garder l'accordéon FAQ — écarté (personne ne clique) ; garder la stack sur la carte — écarté (le visiteur juge sur l'effet).
+
+**2026-11-19** (`defb600`) | **Cadence blog : 1 article tous les 2 jours du 22.11 au 31.12.2026, rebuild quotidien ; stratégie « produit d'abord » (articles ancrés sur des outils nommés).** | Le volume de recherche est sur les noms de produits (OpenClaw 12 100/mois en Suisse, Hermes Agent 3 600) et non sur les requêtes de service ; demande de Jonathan. | Garder lundi/vendredi ; viser les requêtes génériques « agent IA PME ».
