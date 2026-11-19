@@ -6,11 +6,11 @@ pubDate: 2026-11-22
 author: "Jon"
 image:
   url: "/images/blog/installer-hermes-agent.webp"
-  alt: "Illustration éditoriale : buste de statue antique devant un terminal ouvert, croix suisse stylisée, accent vert, direction artistique jonlabs"
+  alt: "Statue antique en noir et blanc devant un ordinateur portable relié par des câbles verts à un petit serveur ouvert"
 category: "automatisation"
 tags: ["hermes-agent", "installation", "vps", "docker", "agent-ia", "nlpd"]
 featured: false
-draft: true
+draft: false
 readingTime: 11
 slug: installer-hermes-agent
 faqs:
@@ -38,7 +38,7 @@ Cet article est la procédure, relue dans la documentation officielle de Nous Re
 > - Trois chemins : script direct sur un VPS, Docker, ou paquet Desktop sur un poste Windows ou Mac.
 > - Hermes sort une version par semaine : la mise à jour fait partie de l'installation, pas d'un chantier à part.
 > - Un serveur en Suisse garde tes fichiers en Suisse, mais pas le texte envoyé au modèle de langage.
-> - Première année : environ CHF 200 à 800 en le faisant toi-même, hors ton temps, selon le modèle choisi.
+> - Première année : environ CHF 200 à 700 en le faisant toi-même, hors ton temps, selon le modèle choisi.
 
 Les commandes viennent de la documentation officielle. Je n'ai pas chronométré une installation sur un serveur vierge pour cet article : quand je donne une durée, c'est une estimation, et je le dis.
 
@@ -54,13 +54,13 @@ La méthode dépend de la machine. Sur un serveur, prends le script ou Docker. S
 | Image Docker `nousresearch/hermes-agent` | Un serveur qui fait déjà tourner d'autres conteneurs | Tirer la nouvelle image et recréer le conteneur |
 | Paquet Termux (Android) | Un téléphone, rarement pertinent en PME | Mise à jour du paquet |
 
-Deux limites à connaître avant de commencer. Le paquet macOS ne tourne que sur les puces Apple Silicon : un Mac Intel n'est pas supporté. Et l'installateur de la version courante s'appuie sur Python 3.14, mais il récupère lui-même ses versions épinglées de Python et de Node.js, donc tu n'as rien à préparer de ce côté. Pour le script POSIX, il faut seulement Git, curl, tar et un outil de somme SHA-256.
+Avant de commencer, sache que le paquet macOS ne tourne que sur les puces Apple Silicon : un Mac Intel n'est pas supporté. L'installateur de la version courante s'appuie sur Python 3.14, mais il récupère lui-même ses versions épinglées de Python et de Node.js, donc tu n'as rien à préparer de ce côté. Pour le script POSIX, il faut seulement Git, curl, tar et un outil de somme SHA-256.
 
-Dernier point, un réflexe de sécurité : n'installe Hermes que depuis les adresses officielles. La page « Official Domains & Phishing Safety » de la documentation liste `hermes-agent.nousresearch.com` pour les scripts et `nousresearch` pour l'image Docker. Une image sous un autre nom n'est pas la leur. Et puisque la commande est un `curl | bash`, je télécharge d'abord le script, je le lis, puis je le lance. C'est ma pratique, pas une exigence de la documentation.
+N'installe Hermes que depuis les adresses officielles. La page « Official Domains & Phishing Safety » de la documentation liste `hermes-agent.nousresearch.com` pour les scripts et `nousresearch` pour l'image Docker. Une image sous un autre nom n'est pas la leur. Et puisque la commande est un `curl | bash`, je télécharge d'abord le script, je le lis, puis je le lance. C'est ma pratique, pas une exigence de la documentation.
 
 ## Hermes Agent sur un VPS : installation, modèle et service
 
-Sur un VPS, la procédure tient en trois temps : préparer le serveur et lancer la commande officielle, choisir le modèle et la messagerie, puis installer le service. Mon propre serveur est un Hostinger KVM 2 (2 vCPU, 8 Go de RAM) où Hermes cohabite avec un système de mailing et un outil de statistiques, comme je l'explique dans le comparatif. Il est hors de Suisse, ce que je dis aussi là-bas.
+Sur un VPS, tu prépares le serveur et tu lances la commande officielle, tu choisis le modèle et la messagerie, puis tu installes le service. Mon propre serveur est un Hostinger KVM 2 (2 vCPU, 8 Go de RAM) où Hermes cohabite avec un système de mailing et un outil de statistiques, comme je l'explique dans le comparatif. Il est hors de Suisse, ce que je dis aussi là-bas.
 
 Pour te donner un ordre de grandeur réel, voici ce que j'ai relevé le 19.11.2026 sur ce serveur, qui fait tourner les agents de Barber Concept depuis le 24.09.2026 :
 
@@ -72,7 +72,7 @@ Pour te donner un ordre de grandeur réel, voici ce que j'ai relevé le 19.11.20
 | Exécutions journalisées | plus de 2 600, dont 1,5 % en échec |
 | Causes d'échec relevées | limite de débit du modèle, configuration, authentification |
 
-Un serveur à 2 vCPU et 8 Go suffit donc largement pour une PME. Les échecs viennent presque tous de l'extérieur (le fournisseur du modèle, un jeton expiré), pas de Hermes.
+Pour cette charge, un serveur à 2 vCPU et 8 Go est donc très loin d'être plein. Les échecs viennent presque tous de l'extérieur (le fournisseur du modèle, un jeton expiré), pas de Hermes.
 
 ### Préparer le serveur et lancer la commande officielle
 
@@ -144,13 +144,13 @@ Côté versions, l'image existe avec les étiquettes `latest` et `stable` (image
 
 ## Hermes Agent en production : sécurité, mises à jour et erreurs fréquentes
 
-Une installation qui fonctionne le premier jour n'est pas une installation maintenue. Trois sujets reviennent : qui peut parler à l'agent, quand tu mets à jour, et ce que tu sauvegardes.
+Le premier jour, tout fonctionne. Ce qui décide de la suite, c'est qui peut parler à l'agent, quand tu mets à jour et ce que tu sauvegardes.
 
 - **Les accès.** Liste d'utilisateurs autorisés, ports fermés, tableau de bord non public, clés d'API limitées en dépense chez le fournisseur du modèle. Sur mon agent de mails, l'IA qui lit le texte d'un inconnu n'a aucun outil, et l'agent qui parle à l'équipe n'a pas d'outil d'envoi : seul un clic humain envoie. Ces garde-fous sont décrits dans mon article sur les [garde-fous d'un agent IA](/blog/garde-fous-ia-validations-audit).
 - **Les mises à jour.** Hermes sort une version par semaine. Au 19.11.2026, la version stable est la v0.23.2 (16.11.2026) ; deux versions candidates (canary) du 17 et du 18 novembre existent aussi, marquées comme préversions. Une installation par script suit uniquement les versions stables avec `hermes update`, jamais les préversions. Passe d'une version à l'autre en lisant les notes, et après chaque mise à jour lance `hermes config check`, puis `hermes config migrate` si la configuration a changé.
 - **Les sauvegardes.** Ce qui compte est le dossier de données (`~/.hermes`, ou le volume `/opt/data` avec Docker) : configuration, clés, mémoire. La documentation décrit `hermes backup` et `hermes import` pour déménager un agent sur une autre machine. Teste la restauration une fois, avant d'en avoir besoin.
 
-Les erreurs que je vois le plus souvent chez ceux qui démarrent :
+Les erreurs à éviter, d'après la documentation et mes propres installations :
 
 1. Coller des commandes depuis la console web de l'hébergeur et se retrouver avec une clé corrompue.
 2. Oublier de monter le volume de données avec Docker.
@@ -160,7 +160,7 @@ Les erreurs que je vois le plus souvent chez ceux qui démarrent :
 
 ## Installer Hermes Agent pour une PME suisse : hébergement, nLPD et coût
 
-Pour une PME suisse, trois questions comptent : où sont les données, que voit le fournisseur du modèle, et combien ça coûte la première année.
+Pour une PME suisse, il reste à savoir où sont les données, ce que voit le fournisseur du modèle, et combien ça coûte la première année.
 
 **L'hébergement.** Le choix d'un serveur en Suisse relève d'un comparatif à part : j'ai relevé dix hébergeurs, avec leurs prix, dans [mon top des VPS pour Hermes Agent](/blog/meilleurs-vps-hermes-agent-suisse). Au 12.10.2026, l'offre suisse d'entrée de gamme la moins chère était l'Infomaniak VPS Lite (2 vCPU, 4 Go) à CHF 7.20 par mois HT, avec un engagement de 12 mois payé d'avance et sans snapshots ; hosttech vServer démarrait à CHF 19.90 pour la gamme Foggy, avec sauvegardes incluses. Je n'ai pas revérifié ces prix pour cet article : contrôle-les avant de commander.
 
@@ -172,13 +172,13 @@ Pour une PME suisse, trois questions comptent : où sont les données, que voit 
 |---|---|---|
 | Hermes Agent (licence MIT) | CHF 0 | Dépôt GitHub, 19.11.2026 |
 | Serveur, Infomaniak VPS Lite 4 Go | CHF 86.40 par an HT (7.20 × 12) | Comparatif VPS, relevé du 12.10.2026 |
-| Modèle de langage | de 2 $ par mois (agent de mails mesuré, 100 demandes et 300 messages) à CHF 10 à 60 par mois (fourchette de mon guide de prix) | Articles publiés |
+| Modèle de langage | de 2 $ par mois (agent de mails mesuré, 100 demandes et 300 messages) à CHF 10 à 50 par mois (fourchette de mon guide Hermes Agent) | Articles publiés |
 | Installation par un prestataire | dès CHF 1'500 pour un agent sur une tâche précise | [/tarifs](/tarifs) |
-| Maintenance | 1 à 2 h par mois | Guide Hermes Agent pour PME |
+| Maintenance | 1 à 2 h par mois | Mon estimation, non mesurée |
 
-En le faisant toi-même, ça fait donc environ CHF 200 à 800 pour la première année (le serveur plus un modèle entre CHF 10 et 60 par mois), sans compter ton temps. Mon comparatif des coûts est dans le [prix réel d'un agent IA en Suisse](/blog/prix-agent-ia-automatisation-suisse).
+En le faisant toi-même, ça fait donc environ CHF 200 à 700 pour la première année (le serveur plus un modèle entre CHF 10 et 50 par mois), sans compter ton temps. Mon comparatif des coûts est dans le [prix réel d'un agent IA en Suisse](/blog/prix-agent-ia-automatisation-suisse).
 
-**Quand faire installer.** Si tu n'as personne pour surveiller un serveur, si l'agent doit lire des mails clients ou si tu veux des validations humaines câblées dès le départ, le temps passé dépasse vite le coût d'une prestation. Sur [/hermes](/hermes) et [/tarifs](/tarifs), la mise en place est affichée dès CHF 1'500 pour un agent sur une tâche précise, et le fonctionnement dès CHF 15 par mois, payé directement à l'hébergeur. Le délai annoncé est de deux à trois semaines du cadrage à la production. Le choix de l'hébergeur fait partie du cadrage : on décide ensemble si ta contrainte impose la Suisse.
+**Quand faire installer.** Si tu n'as personne pour surveiller un serveur, si l'agent doit lire des mails clients ou si tu veux des validations humaines câblées dès le départ, le temps passé dépasse vite le coût d'une prestation. Sur [/hermes](/hermes) et [/tarifs](/tarifs), la mise en place est affichée dès CHF 1'500 pour un agent sur une tâche précise, et le fonctionnement dès CHF 15 par mois, que tu paies directement à l'hébergeur et au fournisseur du modèle. Le délai annoncé est de deux à trois semaines du cadrage à la production. Le choix de l'hébergeur fait partie du cadrage : on décide ensemble si ta contrainte impose la Suisse.
 
 ## FAQ : installer Hermes Agent (Windows, Docker, VPS, nLPD)
 
