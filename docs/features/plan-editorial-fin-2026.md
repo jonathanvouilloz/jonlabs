@@ -1,5 +1,46 @@
 # Plan éditorial fin 2026 — systèmes et agents IA
 
+## Etat session 2026-11-19 (3)
+
+**Fait :**
+- Vague 1 écrite, relue et commitée en local (non poussée) : `grok-bot-pme-suisse` (26.11, `633140a`), `euria-infomaniak-avis` (28.11, `9922d71`), `chatbot-ia-entreprise-prix` (30.11, `fcab8f6`). Lint à 0 erreur, review éditoriale PASS, covers générées, build OK (125 pages).
+- `ia-pragmatique-pme-suisse` : ligne Euria corrigée (prix et lieu faux), `35c5b50`.
+- `CLAUDE.md` et `docs/README.md` repointés vers les chemins v3 par `doc-keeper` (`14bacbe`). DOC-001 reste « ouvert » dans `readiness.md`.
+- Vague 2 lancée (briefs) : `assistant-ia-suisse-comparatif` (02.12), `claude-entreprise-prix` (04.12), `agent-vocal-ia-entreprise` (06.12).
+
+**Chaîne de production utilisée** (la session orchestre elle-même, `content-creator` n'est pas appelé) : un sous-agent Sonnet par brief → `brief-critic` à l'aveugle, 2 révisions max → `finalize_spec.py` → `article-producer` en Opus → relecture de l'orchestrateur contre le registre de claims → build → un commit par article. Vagues de trois.
+
+**Prochain :** critique, écriture et relecture de la vague 2, puis vagues 3 à 5 (08.12 → 24.12, hors n8n et OpenClaw). Pousser la vague 1 avant le 26.11 (tâche de Jonathan).
+
+**À faire à date :**
+- 26.11 : poser le lien retour vers `grok-bot-pme-suisse` dans `openbot-souverainete-self-hosted`.
+- 28.11 : poser le lien retour vers `euria-infomaniak-avis` dans `ia-nlpd-conformite-suisse` ; relire les prix kSuite Pro et my kSuite+ et l'accès sans compte.
+- 30.11 : poser le lien retour vers `chatbot-ia-entreprise-prix` dans `automatiser-support-client-ia` ; relire les prix Tidio, Chatbase, Intercom, Swisscom.
+- 02.12 : à la sortie du comparatif, ajouter son lien dans `euria-infomaniak-avis`, `grok-bot-pme-suisse`, `claude-duet-suisse`.
+
+**Tests Euria attendus de Jonathan** (sans eux, l'article reste « avis sur documentation, non testé ») :
+1. Euria sans compte puis avec my kSuite gratuit : quota réellement atteint, mode Expert, limite de 2 projets.
+2. Cinq tâches de PME : mail de devis, réponse à un avis négatif, résumé d'un PDF de 20 pages, traduction FR-DE d'un contrat, question sur 3 documents.
+3. Transcription d'un vocal et d'une réunion de 20 minutes.
+4. Fichiers proches des limites (20 Mo, 100 Mo) : PDF scanné, tableur, .docx.
+5. Euria dans Mail et dans kDrive (offre Business) : aucun envoi automatique, portée de la recherche dans les fichiers.
+6. Données : mode éphémère, suppression, historique ; lire le contrat de sous-traitance kSuite Pro.
+7. Lui demander de créer un rappel, d'écrire dans un tableur ou d'envoyer un mail, pour constater qu'il n'agit pas.
+8. Noter les noms de modèles affichés dans l'interface.
+
+**Pieges :**
+- `finalize_spec.py` refuse un champ `locale` de premier niveau, un artefact de recherche de type `sources`, et tout claim `confirmed` sans `source_ids`. La preuve Wildcat se source sur `/blog/agent-ia-repondre-mails-clients`.
+- `build_article.py` n'écrit pas `image` en objet ni `faqs`, et refuse une `reviewedDate` antérieure à `pubDate` : les rédacteurs assemblent le frontmatter à part.
+- Deux `npm run build` en parallèle se cassent l'un l'autre (`dist/` partagé) : builder une fois, à la fin de la vague.
+- Les sous-agents de brief appliquent les SKILL.md à la main au lieu d'invoquer les skills ; `seo-competitors` a été sauté pour Grok Bot.
+- Les rédacteurs ne rouvrent pas les pages des éditeurs : les faits datent du relevé du brief. Relire les prix le jour de la sortie.
+- Incohérences du site non tranchées : `/tarifs`, `pricing.ts` et `prix-agent-ia-automatisation-suisse` disent encore « hébergé en Suisse / Infomaniak » ; ce dernier affiche des fourchettes (CHF 2'500 à 15'000) absentes de `/tarifs`.
+- Fichiers v2 encore en place à côté de leur équivalent v3 (`docs/seo-context.md`, `docs/moodboard.md`, `moodboard/presets.yaml`, `docs/styleguide.md`) : ne pas les retirer avant d'avoir vérifié que `.claude/commands/` ne les lit plus.
+
+**Commit :** [35c5b50] fix(blog): ligne Euria de ia-pragmatique-pme-suisse alignée sur les pages Infomaniak
+
+---
+
 ## Etat session 2026-11-19 (2)
 
 **Fait :**
