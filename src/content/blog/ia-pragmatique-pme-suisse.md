@@ -171,12 +171,12 @@ La bonne nouvelle : des alternatives existent.
 
 | Outil | Hébergement | Conformité | Prix | Mon avis |
 |-------|-------------|------------|------|----------|
-| **EURIA** (Infomaniak) | Genève 🇨🇭 | LPD/RGPD ✅ | Dès 9 CHF/mois | Le choix "100% suisse" |
+| **EURIA** (Infomaniak) | Suisse 🇨🇭 (selon Infomaniak) | LPD/RGPD ✅ (déclaré par l'éditeur) | Gratuit avec limites ; my kSuite+ CHF 19/an (relevé le 19.11.2026) | Le choix "100% suisse" |
 | **SwissGPT** | Suisse 🇨🇭 | LPD/RGPD ✅ | Sur devis | Pour les entreprises exigeantes |
 | **ChatGPT Team** | USA (avec DPA) | RGPD ✅ | 25$/mois | Bon compromis perf/conformité |
 | **Claude Pro** | USA (Anthropic) | RGPD ✅ | 20$/mois | Mon choix quotidien |
 
-**Mon setup perso :** J'utilise Claude Pro pour 90% de mes usages. Pour des données vraiment sensibles (contrats clients, infos confidentielles), je recommande EURIA, hébergé chez Infomaniak à Genève, impossible de faire plus local.
+**Mon setup perso :** J'utilise Claude Pro pour 90% de mes usages. Pour des données vraiment sensibles (contrats clients, infos confidentielles), je recommande EURIA, que son éditeur Infomaniak déclare héberger exclusivement en Suisse.
 
 Le message : tu n'es pas obligé de choisir entre performance et conformité. Les solutions existent, et elles sont accessibles.
 
