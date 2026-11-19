@@ -5,7 +5,7 @@
 Site web personnel/freelance pour **Jon Labs** (Jonathan Vouilloz), à l'origine basé sur le template Astro "Angie", depuis largement réécrit.
 
 - **Stack**: Astro 5 (sortie statique) + MDX + Tailwind CSS 4 + React 19 (îlots) + GSAP/Motion
-- **Style**: système « blueprint » — éditorial minimaliste warm (voir `docs/styleguide.md` + `src/styles/blueprint.css`)
+- **Style**: système « blueprint » — éditorial minimaliste warm (voir `docs/design/system.md` + `src/styles/blueprint.css`)
 - **Domaine**: jonlabs.ch (`https://www.jonlabs.ch`)
 - **Langue**: Contenu en francais (FR-CH)
 
@@ -42,7 +42,7 @@ docs/                # Documentation projet — voir docs/README.md pour l'index
 ## Design System
 
 Source de vérité = **`src/styles/global.css`** (@theme, tokens réels) + **`src/styles/blueprint.css`**
-(design system `.co-*`) + **`docs/styleguide.md`** (guide). Palette/typo de marque → canon `noyau/brand/`.
+(design system `.co-*`) + **`docs/design/system.md`** (guide v3, spec détaillée `docs/design-v2.md`, ADN visuel `docs/design/moodboard.md`). Palette/typo de marque → canon `noyau/brand/`.
 
 ### État réel (blueprint, `@theme` de global.css)
 
@@ -90,15 +90,16 @@ Voir `docs/README.md` pour l'index complet (4 zones : sources de vérité, stand
 | `docs/project-context.md` | Identity, positioning, stack, architecture |
 | `docs/roadmap.md` | Development phases and tasks |
 | `docs/guidelines.md` | Coding standards, conventions, best practices |
-| `docs/styleguide.md` | Design system (⚠️ en cours de resync sur le blueprint) |
+| `docs/design/system.md` · `design/moodboard.md` | Design system et ADN visuel (⚠️ § Écarts : tokens blueprint/v2 à réconcilier) |
 | `docs/schema-guide.md` | Schema.org implementation guide |
-| `docs/identity.md` · `voice.md` | Brand/tone/banned_words · auteur/phrasé (consommés par les skills) |
-| `docs/seo-context.md` | Contexte SEO (pipeline contenu, recentré IA depuis le 09.11) |
+| `docs/brand/` (`identity.md`, `voice.md`, `message.md`, `patte-ecrite.md`, `anti-patterns.md`, `proofs.md`, `themes.md`) | Marque, ton, banned_words, auteur/phrasé (consommés par les skills) |
+| `docs/seo/context.md` · `seo/competitors.md` · `seo/content-map.md` | Contexte SEO, concurrents, carte de contenu (recentré IA depuis le 09.11) |
+| `docs/project/readiness.md` · `project.yaml` | État des modules v3 et actions ouvertes |
 | `.claude/checklist.md` | Pre-commit checklist and starter prompts |
 
 ## Workflow
 
-1. **Before coding**: Read relevant docs (project-context.md, styleguide.md)
+1. **Before coding**: Read relevant docs (project-context.md, design/system.md)
 2. **During coding**: Follow guidelines.md conventions
 3. **Before committing**: Run checklist.md
 4. **Track progress**: Update roadmap.md tasks

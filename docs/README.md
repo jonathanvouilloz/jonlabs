@@ -11,12 +11,13 @@ Lues automatiquement par CLAUDE.md, `.claude/commands/*` et les skills d'init.
 | `HANDOFF.md` | Index des features actives (état de reprise, MàJ chaque session) | `/resume-project`, `/wrap-session` |
 | `project-context.md` | Identité, positionnement, philosophie | CLAUDE.md, `.claude/checklist.md` |
 | `roadmap.md` | Phases de dev (1→7) | CLAUDE.md |
-| `identity.md` | Brand, audience, tone, banned_words | tous les skills d'init |
-| `voice.md` | Auteur, phrasé, exemples | `/seo-write`, `/linkedin-weekly-posts` |
-| `seo-context.md` | Personas, CTA map, concurrents (focus IA / sur mesure / app) | `/seo-brief`, `/seo-write` |
-| `moodboard.md` | ADN visuel | `/generate-images`, `/generate-cover` |
+| `brand/identity.md` | Brand, audience, tone, banned_words | tous les skills d'init |
+| `brand/voice.md` | Auteur, phrasé, exemples (+ `brand/patte-ecrite.md`, `message.md`, `anti-patterns.md`, `proofs.md`, `themes.md`) | `/seo-write`, `/linkedin-weekly-posts` |
+| `seo/context.md` | Personas, CTA map, cadence (+ `seo/competitors.md`, `seo/content-map.md`) | `/seo-brief`, `/seo-write` |
+| `design/moodboard.md` | ADN visuel | `/generate-images`, `/generate-cover` |
+| `project/readiness.md` | État des modules v3, actions ouvertes (+ `project/prd.md`, `project.yaml`) | `/resume-project` |
 | `guidelines.md` | Standards code, conventions, blog | CLAUDE.md, `/blog` |
-| `styleguide.md` | Design system (⚠️ en cours de resync sur le blueprint — cf. `src/styles/global.css`) | CLAUDE.md, `/new-page` |
+| `design/system.md` | Design system v3 (⚠️ § Écarts ; spec détaillée `design-v2.md`) | CLAUDE.md, `/new-page` |
 | `schema-guide.md` | Mode d'emploi Schema.org pour nouvelles pages | `/new-page`, `/schema` |
 | `generate-image-blog.md` | Workflow 3 phases covers blog | `/blog` |
 
