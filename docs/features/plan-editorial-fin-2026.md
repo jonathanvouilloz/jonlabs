@@ -10,11 +10,14 @@
 - Vague 3 écrite, relue et commitée en local (non poussée) : `assistant-ia-interne-entreprise` (08.12, `4f75516`), `agent-ia-bexio` (12.12, `0359040`), et `agence-ia-suisse-romande` (10.12, `8e8a2fd`) laissé en `draft: true` jusqu'à la relecture de Jonathan (il nomme douze prestataires concurrents).
 - `agent-ia-bexio` recentré sur « agent ia bexio » : « bexio api » est une recherche de développeurs (gatekeeper needs_review sur le mot-clé d'origine), il devient un H2 secondaire.
 - Comparatif corrigé (`82b25ca`) : Apertus 1.5 est listé dans l'API d'Infomaniak, page de prix relue en texte brut.
-- Vague 4 lancée (briefs) : `charte-ia-entreprise-modele` (14.12), `ia-locale-entreprise` (16.12), `creer-agent-ia-ou-faire-faire` (18.12).
+- Vague 4 écrite, relue et commitée en local : `charte-ia-entreprise-modele` (14.12, `f1b6d41`), `ia-locale-entreprise` (16.12, `d1dd53b`), `creer-agent-ia-ou-faire-faire` (18.12, `1137c79`).
+- Vague 5 : `serveur-mcp-entreprise` (24.12, `e3eee3d`) écrit et commité. `prestataire-ia-suisse-ou-francais` (20.12) NON écrit : gatekeeper needs_review (aucun volume mesuré, aucune preuve de première main, risque de conseil fiscal), en attente de Jonathan.
+- Corrections d'articles en ligne : `ia-nlpd-conformite-suisse` (registre des traitements, exceptions de l'art. 12 al. 5 LPD, `c849f15`) ; `integrer-agent-ia-outils-existants` (gouvernance du MCP, `d39e0a2`).
+- Bilan : 13 articles commités du 26.11 au 24.12 (12 en `draft: false`, `agence-ia-suisse-romande` en `draft: true`), sur 14 dans le périmètre. Restent hors périmètre : n8n (22.12) et les trois OpenClaw (26, 28, 30.12), faute de tests de première main. Rien n'est poussé.
 
 **Chaîne de production utilisée** (la session orchestre elle-même, `content-creator` n'est pas appelé) : un sous-agent Sonnet par brief → `brief-critic` à l'aveugle, 2 révisions max → `finalize_spec.py` → `article-producer` en Opus → relecture de l'orchestrateur contre le registre de claims → build → un commit par article. Vagues de trois.
 
-**Prochain :** critique, écriture et relecture de la vague 4, puis vague 5 (`prestataire-ia-suisse-ou-francais` 20.12, `serveur-mcp-entreprise` 24.12). Pousser les vagues 1 à 3 avant le 26.11 (tâche de Jonathan).
+**Prochain :** pousser avant le 26.11 (tâche de Jonathan). Ensuite, à chaque date de sortie : relire les prix et statuts de l'article du jour sur les pages des éditeurs, puis poser les liens retour (liste ci-dessous). Décisions de Jonathan attendues : relecture de `agence-ia-suisse-romande` et de la charte, sort de `prestataire-ia-suisse-ou-francais`, tests n8n et OpenClaw pour les quatre articles de fin décembre. Lancer `doc-keeper` en mode feature sur ce plan éditorial.
 
 **À faire à date :**
 - 26.11 : poser le lien retour vers `grok-bot-pme-suisse` dans `openbot-souverainete-self-hosted`.
@@ -26,7 +29,19 @@
 - 08.12 : à la sortie de `assistant-ia-interne-entreprise`, ajouter son lien dans le comparatif et dans `automatiser-emails-documents-ia`.
 - 10.12 : `agence-ia-suisse-romande` ne sort que si Jonathan l'a relu et passé en `draft: false` ; relire alors les pages des douze acteurs (prix, citations) et poser le lien retour dans `consultant-ia-c-est-quoi`.
 - 12.12 : avant la sortie de `agent-ia-bexio`, les phrases de `/metiers/ia-fiduciaire` (« sur lesquels je travaille le plus », « conforme nLPD ») doivent être tranchées par Jonathan : l'article dit qu'aucune intégration Bexio n'existe et renvoie vers cette page. Relire la page de prix de Bexio. Lien retour dans `automatiser-facturation-relances-ia`.
-- 16.12 : à la sortie de `ia-locale-entreprise`, remplacer « je traiterai ce cas dans un prochain article » (section Apertus du comparatif) par le lien.
+- 14.12 : à la sortie de `charte-ia-entreprise-modele` (après relecture de Jonathan), lien retour dans `ia-nlpd-conformite-suisse` et `adoption-ia-equipe-change-management`.
+- 18.12 : à la sortie de `creer-agent-ia-ou-faire-faire`, lien retour dans `implementer-agent-ia-etapes`. Si `agence-ia-suisse-romande` est publié, passer le passage « agence » à la variante A du brief (deux prix publiés cités, lien vers le relevé). Nuancer dans `consultant-ia-c-est-quoi` « le freelance est presque toujours le bon calibre ».
+- 24.12 : à la sortie de `serveur-mcp-entreprise`, relire le statut des serveurs Gmail, Microsoft et HubSpot et la version de la spécification ; lien retour dans `integrer-agent-ia-outils-existants` et `agent-ia-bexio`.
+- 16.12 : lien retour vers `ia-locale-entreprise` aussi dans `assistant-ia-interne-entreprise` et `euria-infomaniak-avis`. À la sortie de `ia-locale-entreprise`, remplacer « je traiterai ce cas dans un prochain article » (section Apertus du comparatif) par le lien.
+
+**Contradictions du site relevées pendant la production, non corrigées (décision de Jonathan) :**
+- TVA transfrontalière : `/consultant-ia/annemasse` et `/gaillard` (`src/data/villes-suisse-ia.ts`, FAQ) écrivent « facturer en EUR au taux du jour, TVA française appliquée » ; `/tarifs` écrit « hors TVA (exonéré) » ; `pricing.ts` « pas de prix en EUR ». Le BOFiP relu le 19.11 décrit l'autoliquidation par le client français.
+- « Hébergé en Suisse / Infomaniak » : `/tarifs`, `pricing.ts`, `/hermes`, `/consultant-ia`, pages Annemasse et Gaillard, `prix-agent-ia-automatisation-suisse`.
+- Bexio : `/metiers/ia-fiduciaire` (« sur lesquels je travaille le plus », « conforme nLPD ») et `automatiser-facturation-relances-ia` (« pratique terrain »), non couverts par `proofs.md`.
+- Prix : fourchettes « CHF 2'500 à 15'000 » et « CHF 60 à 120 par heure » dans quatre articles, absentes de `/tarifs` ; « suivi mensuel » sans montant sur `/tarifs`.
+- `/services/formation-ia-equipe` : « exemple concret d'une PME de 12 personnes », non couvert par `proofs.md`.
+- `meilleurs-vps-hermes-agent-suisse` : « 8 Go et plus pour un modèle local », d'après des sources tierces.
+- `proofs.md` ne mentionne ni Barnaby ni les serveurs MCP du système interne et d'Inkmesh, que le portfolio publie.
 
 **Tests Euria attendus de Jonathan** (sans eux, l'article reste « avis sur documentation, non testé ») :
 1. Euria sans compte puis avec my kSuite gratuit : quota réellement atteint, mode Expert, limite de 2 projets.
@@ -59,7 +74,7 @@
 - Incohérences du site non tranchées : `/tarifs`, `pricing.ts` et `prix-agent-ia-automatisation-suisse` disent encore « hébergé en Suisse / Infomaniak » ; ce dernier affiche des fourchettes (CHF 2'500 à 15'000) absentes de `/tarifs`.
 - Fichiers v2 encore en place à côté de leur équivalent v3 (`docs/seo-context.md`, `docs/moodboard.md`, `moodboard/presets.yaml`, `docs/styleguide.md`) : ne pas les retirer avant d'avoir vérifié que `.claude/commands/` ne les lit plus.
 
-**Commit :** [35c5b50] fix(blog): ligne Euria de ia-pragmatique-pme-suisse alignée sur les pages Infomaniak
+**Commit :** [e3eee3d] feat(blog): serveur-mcp-entreprise (24.12) prêt
 
 ---
 

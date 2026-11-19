@@ -3,7 +3,7 @@
 ## Features actives
 | Feature | Fichier | Statut |
 |---------|---------|--------|
-| Plan éditorial fin 2026 (systèmes et agents IA) | docs/features/plan-editorial-fin-2026.md | **EN COURS 19.11** — repo migré en v3, 2 articles sur 20 prêts et poussés (22.11, 24.11) |
+| Plan éditorial fin 2026 (systèmes et agents IA) | docs/features/plan-editorial-fin-2026.md | **EN COURS 19.11** — 15 articles sur 20 écrits (22.11 → 24.12), dont 13 commités en local et non poussés ; `agence-ia-suisse-romande` en brouillon ; `prestataire-ia-suisse-ou-francais`, n8n et les trois OpenClaw attendent Jonathan |
 | Tri contenu « focus IA » | docs/features/tri-contenu-focus-ia.md | **EN COURS** — en ligne 09.11, bilan 23.11 → 09.12 |
 | Cas client Swiss Dental Care | docs/features/cas-client-swiss-dental-care.md | VALIDÉ — publication production autorisée le 14.10.2026 |
 | Canonical non-www, cannibalisation, dispersion | docs/features/canonical-cannibalisation.md | **EN COURS** — lots A+B livrés, C/D gelés jusqu'à S+3. Les 3 villes retirées le 09.11 (`ville-la-grand`, `saint-julien-en-genevois`, `la-roche-sur-foron`) sortent du périmètre ; le fichier `villes-frontalieres-ctr.md` est supprimé (cause couverte ici) |
@@ -21,7 +21,7 @@
 | Refresh piliers IA (kirako) | mergé dans main (`1cca170`) | **EN LIGNE 21.09** — mesurer vs baseline 428 imp / 0 clic |
 
 ## Reprendre ici
-Plan éditorial fin 2026 — **mandat de Jonathan (19.11) : produire en autonomie le maximum d'articles du calendrier**, dans l'ordre, avec `content-creator` (mode CLUSTER sur la topical map), à partir de `grok-bot-pme-suisse` (26.11). Exclus tant que les tests ne sont pas faits : n8n (22.12) et les trois OpenClaw (26, 28, 30.12). Les 2 articles des 22 et 24.11 sont faits.
-Commit : [95eccee] feat(blog): installer-hermes-agent et claude-duet-suisse prêts
+Plan éditorial fin 2026 — la production du mandat du 19.11 est faite : 13 articles commités en local (26.11 → 24.12), **rien n'est poussé** (le premier sort le 26.11). À chaque date de sortie : relire les prix de l'article du jour sur les pages des éditeurs et poser les liens retour, liste dans le fichier de feature. Attendent Jonathan : push, relecture de `agence-ia-suisse-romande` (brouillon) et de la charte, sort de `prestataire-ia-suisse-ou-francais`, tests n8n et OpenClaw, contradictions du site (TVA transfrontalière, hébergement, Bexio).
+Commit : [e3eee3d] feat(blog): serveur-mcp-entreprise (24.12) prêt
 
 > Décisions structurantes → `docs/DECISIONS.md`. Tâches côté Jonathan → `cerveau/10-Projets/jonlabs/jonlabs-human.md`.
