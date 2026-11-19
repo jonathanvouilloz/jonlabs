@@ -6,17 +6,21 @@
 - Vague 1 écrite, relue et commitée en local (non poussée) : `grok-bot-pme-suisse` (26.11, `633140a`), `euria-infomaniak-avis` (28.11, `9922d71`), `chatbot-ia-entreprise-prix` (30.11, `fcab8f6`). Lint à 0 erreur, review éditoriale PASS, covers générées, build OK (125 pages).
 - `ia-pragmatique-pme-suisse` : ligne Euria corrigée (prix et lieu faux), `35c5b50`.
 - `CLAUDE.md` et `docs/README.md` repointés vers les chemins v3 par `doc-keeper` (`14bacbe`). DOC-001 reste « ouvert » dans `readiness.md`.
-- Vague 2 lancée (briefs) : `assistant-ia-suisse-comparatif` (02.12), `claude-entreprise-prix` (04.12), `agent-vocal-ia-entreprise` (06.12).
+- Vague 2 écrite, relue et commitée en local (non poussée) : `assistant-ia-suisse-comparatif` (02.12, `fdac65c`), `claude-entreprise-prix` (04.12, `fc6ce3c`), `agent-vocal-ia-entreprise` (06.12, `c9e9af2`). Lint à 0 erreur, review PASS, covers, build OK.
+- Vague 3 lancée (briefs) : `assistant-ia-interne-entreprise` (08.12), `agence-ia-suisse-romande` (10.12), `agent-ia-bexio` (12.12).
 
 **Chaîne de production utilisée** (la session orchestre elle-même, `content-creator` n'est pas appelé) : un sous-agent Sonnet par brief → `brief-critic` à l'aveugle, 2 révisions max → `finalize_spec.py` → `article-producer` en Opus → relecture de l'orchestrateur contre le registre de claims → build → un commit par article. Vagues de trois.
 
-**Prochain :** critique, écriture et relecture de la vague 2, puis vagues 3 à 5 (08.12 → 24.12, hors n8n et OpenClaw). Pousser la vague 1 avant le 26.11 (tâche de Jonathan).
+**Prochain :** critique, écriture et relecture de la vague 3, puis vagues 4 et 5 (14.12 → 24.12, hors n8n et OpenClaw). Pousser les vagues 1 et 2 avant le 26.11 (tâche de Jonathan).
 
 **À faire à date :**
 - 26.11 : poser le lien retour vers `grok-bot-pme-suisse` dans `openbot-souverainete-self-hosted`.
 - 28.11 : poser le lien retour vers `euria-infomaniak-avis` dans `ia-nlpd-conformite-suisse` ; relire les prix kSuite Pro et my kSuite+ et l'accès sans compte.
 - 30.11 : poser le lien retour vers `chatbot-ia-entreprise-prix` dans `automatiser-support-client-ia` ; relire les prix Tidio, Chatbase, Intercom, Swisscom.
-- 02.12 : à la sortie du comparatif, ajouter son lien dans `euria-infomaniak-avis`, `grok-bot-pme-suisse`, `claude-duet-suisse`.
+- 02.12 : à la sortie du comparatif, ajouter son lien dans `euria-infomaniak-avis` (remplacer « je prépare un comparatif » dans la FAQ), `grok-bot-pme-suisse`, `claude-duet-suisse`. Relire le prix Copilot (promotion jusqu'au 31.12.2026) ; compléter la ligne ChatGPT si Jonathan a lu les pages d'OpenAI, sinon elle reste « non relevé ».
+- 04.12 : à la sortie de `claude-entreprise-prix`, ajouter son lien dans `claude-duet-suisse` et dans le comparatif (remplacer « un article consacré aux offres de Claude suivra »). Relire la page de prix d'Anthropic.
+- 06.12 : à la sortie de `agent-vocal-ia-entreprise`, ajouter son lien dans `chatbot-ia-entreprise-prix` et `agent-ia-entreprise-cas-usage`. Relire les prix Retell, Vapi, ElevenLabs.
+- 16.12 : à la sortie de `ia-locale-entreprise`, remplacer « je traiterai ce cas dans un prochain article » (section Apertus du comparatif) par le lien.
 
 **Tests Euria attendus de Jonathan** (sans eux, l'article reste « avis sur documentation, non testé ») :
 1. Euria sans compte puis avec my kSuite gratuit : quota réellement atteint, mode Expert, limite de 2 projets.
@@ -28,7 +32,17 @@
 7. Lui demander de créer un rappel, d'écrire dans un tableur ou d'envoyer un mail, pour constater qu'il n'agit pas.
 8. Noter les noms de modèles affichés dans l'interface.
 
+**Tests agent vocal attendus de Jonathan** (sans eux, l'article reste « analyse de documentation, non testé ») :
+1. Monter un agent d'accueil sur Retell, Vapi ou ElevenLabs avec un numéro et passer 20 à 30 appels réels : horaires, prise de message, rendez-vous, nom épelé, numéro dicté, bruit, interruption, urgence à basculer vers un humain.
+2. Obtenir un numéro +41 : justificatifs, délais, renvoi depuis un fixe suisse, coût réel.
+3. Écouter les voix françaises : nombres (septante, nonante), noms de lieux et de personnes romands.
+4. Relever latence, taux de compréhension et facture réelle sur 900 minutes.
+5. Lieu de traitement, durée de conservation et sous-traitants de l'audio : dans la documentation ou par écrit à l'éditeur.
+6. Une intégration agenda, temps de mise en place chronométré.
+
 **Pieges :**
+- La topical map additionne parfois plusieurs requêtes : « claude entreprise » fait 90 CH (le 4 400 CH est « claude cowork »), « agent vocal ia » 10 CH, « standard téléphonique ia » 0 CH.
+- Taux de change commun aux articles de prix : BCE du 18.11.2026, 1 USD = 0,8427 CHF. Le comparatif ne convertit rien.
 - `finalize_spec.py` refuse un champ `locale` de premier niveau, un artefact de recherche de type `sources`, et tout claim `confirmed` sans `source_ids`. La preuve Wildcat se source sur `/blog/agent-ia-repondre-mails-clients`.
 - `build_article.py` n'écrit pas `image` en objet ni `faqs`, et refuse une `reviewedDate` antérieure à `pubDate` : les rédacteurs assemblent le frontmatter à part.
 - Deux `npm run build` en parallèle se cassent l'un l'autre (`dist/` partagé) : builder une fois, à la fin de la vague.
