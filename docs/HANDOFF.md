@@ -21,7 +21,7 @@
 | Refresh piliers IA (kirako) | mergé dans main (`1cca170`) | **EN LIGNE 21.09** — mesurer vs baseline 428 imp / 0 clic |
 
 ## Reprendre ici
-Plan éditorial fin 2026 — produire `grok-bot-pme-suisse` (26.11) puis `euria-infomaniak-avis` (28.11) avec `content-creator` ; lancer `doc-keeper` pour repointer `CLAUDE.md` et `docs/README.md` vers les chemins v3.
+Plan éditorial fin 2026 — **mandat de Jonathan (19.11) : produire en autonomie le maximum d'articles du calendrier**, dans l'ordre, avec `content-creator` (mode CLUSTER sur la topical map), à partir de `grok-bot-pme-suisse` (26.11). Exclus tant que les tests ne sont pas faits : n8n (22.12) et les trois OpenClaw (26, 28, 30.12). Les 2 articles des 22 et 24.11 sont faits.
 Commit : [95eccee] feat(blog): installer-hermes-agent et claude-duet-suisse prêts
 
 > Décisions structurantes → `docs/DECISIONS.md`. Tâches côté Jonathan → `cerveau/10-Projets/jonlabs/jonlabs-human.md`.

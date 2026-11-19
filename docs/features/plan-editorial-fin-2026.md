@@ -8,7 +8,7 @@
 - `installer-hermes-agent` et `claude-duet-suisse` : sources corrigées, faits Claude Duet revérifiés sur les pages d'Anthropic, covers générées, lint à 0 erreur, `draft: false`, build OK, poussés.
 - Outillage réparé hors repo : venv de `generate-images` recréé (Python 3.15), style de base `editorial-collage` ajouté à `init-moodboard`, `pipeline_core.parse_frontmatter` tolère le frontmatter imbriqué.
 
-**Prochain :** produire `grok-bot-pme-suisse` (26.11) puis `euria-infomaniak-avis` (28.11) avec `content-creator` (le repo est en v3, il peut tourner). Avant ou en parallèle : lancer `doc-keeper` pour repointer `CLAUDE.md` et `docs/README.md` vers les chemins v3 (`docs/project/readiness.md`, DOC-001).
+**Prochain :** mandat de Jonathan du 19.11 : produire en autonomie le maximum d'articles du calendrier, dans l'ordre, avec `content-creator` (mode CLUSTER sur la topical map, le repo est en v3), en commençant par `grok-bot-pme-suisse` (26.11) puis `euria-infomaniak-avis` (28.11). Exclus tant que les tests de première main manquent : `n8n-vs-make-vs-zapier` et les trois articles OpenClaw. Chaque article sort en `draft: false` à sa date du calendrier, faits d'éditeurs revérifiés et datés le jour de la rédaction, cover via le preset `blog-cover`. Avant ou en parallèle : lancer `doc-keeper` pour repointer `CLAUDE.md` et `docs/README.md` vers les chemins v3 (`docs/project/readiness.md`, DOC-001).
 
 **Pieges :**
 - `generate-images/cli.py --dry-run` est sans effet en mode single (`--preset`) : l'appel OpenAI part. Le dry-run ne marche qu'avec `--image-spec`.
