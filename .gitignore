@@ -49,6 +49,7 @@ nul
 # Scratch / cache de génération
 generated_imgs/
 moodboard/.generations/
+visual/.generations/
 # backups de drafts pendant les itérations
 *.PREVIOUS.json
 # logs article-producer
@@ -81,3 +82,4 @@ src/assets/illustrations/_masters/
 
 # sorties de pipeline visuel (bannieres, exports) — hors repo
 /outputs/
+.project-cache/

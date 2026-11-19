@@ -1,0 +1,94 @@
+schema_version: 3
+# Manifeste v3 du site jonlabs.ch. Les secrets n'y vont jamais : seulement des noms de variables.
+# Slug canonique : noyau/cerveau/_system/projects.yaml. Etat detaille : docs/project/readiness.md.
+project:
+  slug: "jonlabs"
+  name: "Jon Labs"
+  type: "site freelance, systemes et agents IA pour PME romandes"
+  pipeline: "seo"
+  rigor: "standard"
+  has_ui: true
+  has_images: true
+  site_url: "https://www.jonlabs.ch"
+  created_on: "2026-11-19"
+  updated_on: "2026-11-19"
+
+modules:
+  project: ready
+  brand: needs_review
+  design: needs_review
+  moodboard: ready
+  seo: needs_review
+  seo_monitoring: needs_review
+  gmb: disabled
+  newsletter: disabled
+  linkedin: disabled
+  sales_page: disabled
+
+paths:
+  project_context: docs/project
+  brand_context: docs/brand
+  design_context: docs/design
+  seo_context: docs/seo
+  channel_context: docs/channels
+  visual_runtime: visual
+  seo_data: .seo-data
+
+integrations:
+  gsc:
+    enabled: true
+    site_url: "sc-domain:jonlabs.ch"
+    sitemap_url: "https://www.jonlabs.ch/sitemap-index.xml"
+    # Credentials hors repo : Bitwarden Secrets Manager, secret GSC_CREDENTIALS_JSON,
+    # a materialiser dans un fichier pointe par GSC_CREDENTIALS_PATH au moment du run.
+    credentials_env: GSC_CREDENTIALS_PATH
+  content_hub:
+    enabled: false
+    base_url: null
+    project_slug: null
+  obsidian:
+    enabled: false
+    vault_path: null
+
+channels:
+  gmb:
+    context_path: docs/channels/gmb.md
+    drafts_dir: content/_drafts/gmb
+    published_dir: content/gmb
+    images_dir: public/images/gmb
+    manual_images_dir: content/_drafts/gmb/images/manual
+  newsletter:
+    context_path: docs/channels/newsletter.md
+    drafts_dir: content/_drafts/newsletter
+  linkedin:
+    drafts_dir: content/_drafts/linkedin
+    published_dir: content/linkedin
+  sales_page:
+    workspace_dir: content/salepage
+
+content:
+  # shadow : le lint ecrit son rapport sans bloquer. A passer en enforce une fois les regles
+  # validees sur le corpus (49 articles ecrits avant le pipeline v2).
+  lint_mode: shadow
+  drafts_dir: content/_drafts/blog
+  published_dir: src/content/blog
+  article_pattern: "{slug}.{ext}"
+  cover_dir: public/images/blog
+  cover_pattern: "{slug}.webp"
+  cover_reference_pattern: "/images/blog/{slug}.webp"
+  localization: monolingual
+  source_locale: null
+  locales: []
+  default_locale: null
+  draft_locale_strategy: shared
+  routing_strategy: none
+  slug_strategy: shared
+  translation_workflow: none
+  default_extension: md
+  # Collection Astro (src/content/config.ts) : image est un OBJET {url, alt}, faqs une liste
+  # d'objets {question, answer}, category une enum (mobile, automatisation, web, geo).
+  frontmatter:
+    published_date: pubDate
+    updated_date: updatedDate
+    reviewed_date: reviewedDate
+    cover: image

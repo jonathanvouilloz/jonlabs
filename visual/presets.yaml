@@ -1,0 +1,75 @@
+version: 3
+
+# Presets d'images de jonlabs.ch. Direction : docs/design/moodboard.md.
+# Références : visual/refs/, projection générée du canon noyau/brand/visual-refs/ (ne pas éditer).
+
+defaults:
+  provider: ai
+  ai_provider: openai
+  output_format: webp
+  output_quality: 88
+  text_mode: none
+  fallback_text_mode: none
+
+placement_to_preset:
+  cover: blog-cover
+  "after-h2:*": blog-inline
+  "after-h3:*": blog-inline
+
+brief_type_to_preset:
+  cover: blog-cover
+  photo: blog-inline
+  illustration: blog-inline
+  infographic: SKIP
+  schema: SKIP
+
+# Bloc verrouillé « variante ILLUSTRATION » : copie de visual/refs/direction.md.
+# Le runtime ne lit pas direction.md ; si le canon change, recopier ici.
+x-locked-illustration: &locked_illustration |
+  SYSTÈME VISUEL VERROUILLÉ — DIRECTION ILLUSTRATION jonlabs (collage éditorial conceptuel, SANS texte) :
+  - AUCUN TEXTE : pas un seul mot, pas une lettre, pas un chiffre. Image purement illustrative.
+  - PALETTE : tout est NEUTRE et monochrome (encre #111315, gris, papier crème warm #F3F3F1 / #F5F5F2). UN SEUL accent coloré = le TEAL #00D9A3 et ses NUANCES uniquement (un teal plus foncé, un teal plus clair, pour la variance de valeur). AUCUNE autre teinte : pas de rouge, orange, jaune, bleu, violet. Si une couleur vive est suggérée (grand cercle, lumière, fils), elle est TEAL.
+  - STYLE : illustration éditoriale haut de gamme / collage conceptuel surréaliste. Calme, premium, beaucoup d'espace négatif. JAMAIS d'AI-slop, jamais de grunge brouillon, jamais de look stock-photo corporate.
+  - TEXTURE : grain fin / halftone-riso / papier déchiré subtils. Fond crème warm texturé (jamais blanc clinique) OU, pour l'ambiance sombre, fond encre profond texturé.
+  - NE DESSINE AUCUN logo, AUCUN wordmark, AUCUN texte « jonlabs ». Laisse les marges propres et vides.
+  - ÉCRANS & DOCUMENTS : si l'image montre un écran, une interface, un papier ou une maquette, ils ne portent AUCUN faux texte ni fausse ligne de code lisibles — uniquement des blocs, des formes et des glyphes réduits au strict minimum, non lisibles.
+  - À éviter : texte de toute sorte, faux texte / fausses lignes de code / UI avec texte lisible, watermark, légende, surcharge, secondes couleurs vives, rendu sale.
+
+  TYPOLOGIE illustration éditoriale SEMI-CONCRÈTE, AUCUN texte. Format PAYSAGE horizontal, composition lisible d'un coup d'œil.
+  NIVEAU D'ABSTRACTION : semi-concret — on doit DEVINER le sujet au premier coup d'œil. Pas d'abstraction pure.
+  OBJET CONCRET ANCRE : UN objet reconnaissable qui nomme le sujet décrit dans SUBJECT.
+  SIGNATURE DE MARQUE : un buste OU une main de statue antique N&B, DISCRET, qui interagit avec l'objet — signature, PAS le sujet unique.
+  ACCENT : un seul, TEAL #00D9A3 et ses nuances (l'écran actif / la ligne de flux / un bouton / un nœud). Tout le reste neutre N&B.
+  COMPOSITION : scène décentrée, grand espace négatif, cadrage horizontal paysage, marges propres et vides.
+
+presets:
+  blog-cover:
+    description: "Cover d'article : illustration semi-concrète, sans texte ni logo, 16:9"
+    source: openai
+    text_mode: none
+    dimensions: "1536x1024"
+    aspect_ratio: "16:9"
+    finish: crop
+    logo: none
+    openai_quality: medium
+    # reference_image reste requis par le runtime même quand reference_images prime.
+    reference_image: visual/refs/illustration/illu2-statue-laptop.png
+    reference_images:
+      - visual/refs/illustration/illu2-statue-laptop.png
+      - visual/refs/illustration/illu4-plugged-in.png
+    layout_directives: *locked_illustration
+    output_dir: public/images/blog
+    output_naming: "{slug}.webp"
+
+  blog-inline:
+    description: "Image de section : illustration semi-concrète, sans texte, 3:2 natif"
+    source: openai
+    text_mode: none
+    dimensions: "1536x1024"
+    aspect_ratio: "3:2"
+    logo: none
+    openai_quality: medium
+    reference_image: visual/refs/illustration/illu4-plugged-in.png
+    layout_directives: *locked_illustration
+    output_dir: public/images/blog
+    output_naming: "{slug}-{index}.webp"
