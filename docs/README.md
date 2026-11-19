@@ -31,6 +31,8 @@ Docs vivantes de pilotage éditorial, consommées par les feature files (`docs/f
 |---|---|
 | `planSEOIA.md` | Roadmap globale cluster « consultant IA » (cœur du pivot focus IA) |
 | `topical-map-consultant-ia.md` | Topical map cluster IA (2 piliers, scoring, mini-briefs) |
+| `seo/topical-map-systemes-agents-ia.md` | Plan maître du plan éditorial fin 2026 (20 articles, 22.11 → 30.12) ; statuts à jour, suivi dans `features/plan-editorial-fin-2026.md` |
+| `seo/consignes-brief.md` | Consignes communes données aux agents de brief du plan éditorial fin 2026 |
 | `topical-map-c1-sur-mesure-automatisation.md` | Topical map C1 (Build / Automate) — 3 articles supprimés le 09.11 |
 | `chantier-cluster-plateformes.md` | Session 8 — cluster Webflow/WordPress (EN ATTENTE, non tranché depuis le pivot 09.11) |
 

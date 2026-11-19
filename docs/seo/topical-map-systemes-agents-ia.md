@@ -2,6 +2,7 @@
 
 > Généré le 2026-11-19. 20 articles à créer (22.11 → 30.12.2026), 1 article tous les 2 jours, + 11 optimisations de pages.
 > Marché : TPE/PME de Suisse romande. Source de vérité du plan de fin d'année : ce fichier.
+> **Suivi du 19.11.2026** : 15 articles sur 20 écrits (22.11 → 24.12), `agence-ia-suisse-romande` en brouillon, 5 non écrits (colonne Statut du calendrier). Plan non réécrit ; seuls les statuts et les volumes corrigés par les briefs sont mis à jour. Suivi : `docs/features/plan-editorial-fin-2026.md`.
 > Données : DataForSEO (6 493 mots-clés FR + CH, 76 SERP google.ch), Search Console 90 j (20.08 → 17.11), 4 recherches (actu, concurrents, douleurs ICP, inventaire).
 > Brut : `docs/seo/research-2026-11-19/` et `.seo-data/*2026-11-1*` (gitignoré).
 
@@ -78,30 +79,30 @@ graph TD
 
 ## Calendrier de publication (1 article tous les 2 jours)
 
-Volumes mensuels CH / FR : somme du mot-clé principal et de ses variantes proches (détail dans `.seo-data/keywords-2026-11-19.csv`). Intention : T transactionnelle, C commerciale, I informationnelle.
+Volumes mensuels CH / FR : somme du mot-clé principal et de ses variantes proches (détail dans `.seo-data/keywords-2026-11-19.csv`). Les cellules corrigées par les briefs portent une note `[corrigé]` : le volume du plan additionnait plusieurs requêtes ou en confondait une autre. Intention : T transactionnelle, C commerciale, I informationnelle.
 
-| # | Date | Slug | Mot-clé principal | CH / FR | Int. | Cl. | CTA |
-|---|---|---|---|---|---|---|---|
-| 3 | dim. 22.11 | `installer-hermes-agent` | installer hermes agent | — / 320 | T | A | `/hermes` |
-| 2 | mar. 24.11 | `claude-duet-suisse` | claude duet | — / 1 300 | I/C | B | `/consultant-ia` |
-| 4 | jeu. 26.11 | `grok-bot-pme-suisse` | grok bot | 1 900 / 5 400 | C | B | `/consultant-ia` |
-| 5 | sam. 28.11 | `euria-infomaniak-avis` | euria avis, euria prix | 12 100 (tête) / 240 | C | B | `/consultant-ia` |
-| 8 | lun. 30.11 | `chatbot-ia-entreprise-prix` | chatbot entreprise | 10 / 140 (CPC 37 $) | T | C | `/tarifs` |
-| 9 | mer. 02.12 | `assistant-ia-suisse-comparatif` | ia suisse | 1 000 / 1 600 | C | B | `/consultant-ia` |
-| 10 | ven. 04.12 | `claude-entreprise-prix` | claude entreprise, claude team | 4 400 (cowork) / 3 160 | C | B | `/services/formation-ia-equipe` |
-| 12 | dim. 06.12 | `agent-vocal-ia-entreprise` | standard téléphonique ia, agent vocal ia | 10 / 520 (CPC 37 $) | T | C | `/consultant-ia` |
-| 13 | mar. 08.12 | `assistant-ia-interne-entreprise` | chatbot interne entreprise | 10 / 100 (CPC 15 $) | T | C | `/services/application-sur-mesure` |
-| 14 | jeu. 10.12 | `agence-ia-suisse-romande` | agence ia suisse | 30 / 10 (CPC 15 $) | C | C | `/consultant-ia` |
-| 15 | sam. 12.12 | `agent-ia-bexio` | bexio api | 720 / 20 | T | C | `/metiers/ia-fiduciaire` |
-| 16 | lun. 14.12 | `charte-ia-entreprise-modele` | charte ia entreprise | 10 / 740 | I | D | `/services/formation-ia-equipe` |
-| 17 | mer. 16.12 | `ia-locale-entreprise` | ia locale, llm local | 20 / 1 200 | I/C | D | `/consultant-ia` |
-| 18 | ven. 18.12 | `creer-agent-ia-ou-faire-faire` | créer un agent ia | 30 / 1 500 (CPC 24 $) | C | C | `/consultant-ia` |
-| 19 | dim. 20.12 | `prestataire-ia-suisse-ou-francais` | prestataire ia suisse | non mesuré | T | C | `/consultant-ia` |
-| 6 | mar. 22.12 | `n8n-vs-make-vs-zapier` | n8n vs make | 40 / 620 | C | A | `/consultant-ia` |
-| 20 | jeu. 24.12 | `serveur-mcp-entreprise` | serveur mcp | 3 600 (mcp) / 1 900 | I | A | `/services/application-sur-mesure` |
-| 1 | sam. 26.12 | `hermes-agent-vs-openclaw` | hermes vs openclaw | 20 / 600 | C | A | `/hermes` |
-| 7 | lun. 28.12 | `openclaw-prix` | openclaw prix | 20 / 160 | C | A | `/openclaw` |
-| 11 | mer. 30.12 | `openclaw-securite` | openclaw security | 40 / 90 | I/C | A | `/openclaw` |
+| # | Date | Slug | Mot-clé principal | CH / FR | Int. | Cl. | CTA | Statut au 19.11 |
+|---|---|---|---|---|---|---|---|---|
+| 3 | dim. 22.11 | `installer-hermes-agent` | installer hermes agent | — / 320 | T | A | `/hermes` | écrit, programmé |
+| 2 | mar. 24.11 | `claude-duet-suisse` | claude duet | — / 1 300 | I/C | B | `/consultant-ia` | écrit, programmé |
+| 4 | jeu. 26.11 | `grok-bot-pme-suisse` | grok bot | 1 900 / 5 400 | C | B | `/consultant-ia` | écrit, programmé |
+| 5 | sam. 28.11 | `euria-infomaniak-avis` | euria avis, euria prix | 12 100 (tête) / 240 | C | B | `/consultant-ia` | écrit, programmé (avis sur documentation, non testé) |
+| 8 | lun. 30.11 | `chatbot-ia-entreprise-prix` | chatbot entreprise | 10 / 140 (CPC 37 $) | T | C | `/tarifs` | écrit, programmé |
+| 9 | mer. 02.12 | `assistant-ia-suisse-comparatif` | ia suisse | 1 000 / 1 600 | C | B | `/consultant-ia` | écrit, programmé |
+| 10 | ven. 04.12 | `claude-entreprise-prix` | claude entreprise, claude team | 90 / 3 160 [corrigé : « claude entreprise » 90 CH ; le 4 400 CH était « claude cowork »] | C | B | `/services/formation-ia-equipe` | écrit, programmé |
+| 12 | dim. 06.12 | `agent-vocal-ia-entreprise` | standard téléphonique ia, agent vocal ia | 10 / 520 (CPC 37 $) [corrigé : « agent vocal ia » 10 CH / 260 FR ; « standard téléphonique ia » 0 CH / 170 FR ; 520 FR = somme de trois requêtes] | T | C | `/consultant-ia` | écrit, programmé (analyse de documentation, non testé) |
+| 13 | mar. 08.12 | `assistant-ia-interne-entreprise` | chatbot interne entreprise | 10 / 40 [corrigé : « chatbot interne entreprise » 10 CH / 40 FR, CPC 0 ; le CPC de 15 $ vient d'autres requêtes] | T | C | `/services/application-sur-mesure` | écrit, programmé |
+| 14 | jeu. 10.12 | `agence-ia-suisse-romande` | agence ia suisse | 30 / 10 (CPC 15 $) | C | C | `/consultant-ia` | écrit en BROUILLON (`draft: true`), attend la relecture de Jonathan (nomme douze concurrents) |
+| 15 | sam. 12.12 | `agent-ia-bexio` | bexio api | 720 / 20 [« bexio api » : recherche de développeurs, SERP sans résultat francophone ; article recentré sur « agent ia bexio », non mesuré] | T | C | `/metiers/ia-fiduciaire` | écrit, programmé, recentré sur « agent ia bexio » |
+| 16 | lun. 14.12 | `charte-ia-entreprise-modele` | charte ia entreprise | 0 / 110 [corrigé : « charte ia entreprise » 110 FR / 0 CH ; le 740 n'est pas retrouvé] | I | D | `/services/formation-ia-equipe` | écrit, programmé, relecture de Jonathan attendue |
+| 17 | mer. 16.12 | `ia-locale-entreprise` | ia locale, llm local | 20 / 1 200 [« ia locale » 20 CH / 720 FR ; « llm local » 0 CH / 480 FR ; 1 200 = somme des deux] | I/C | D | `/consultant-ia` | écrit, programmé |
+| 18 | ven. 18.12 | `creer-agent-ia-ou-faire-faire` | créer un agent ia | 30 / 1 500 (CPC 24 $) | C | C | `/consultant-ia` | écrit, programmé |
+| 19 | dim. 20.12 | `prestataire-ia-suisse-ou-francais` | prestataire ia suisse | non mesuré [« prestataire ia suisse » absent des CSV ; « prestataire ia » 0 CH / 50 FR] | T | C | `/consultant-ia` | NON écrit : gatekeeper `needs_review` (volume non mesuré, aucune preuve de première main, risque de conseil fiscal) ; décision de Jonathan |
+| 6 | mar. 22.12 | `n8n-vs-make-vs-zapier` | n8n vs make | 40 / 620 | C | A | `/consultant-ia` | NON écrit : test de première main manquant |
+| 20 | jeu. 24.12 | `serveur-mcp-entreprise` | serveur mcp | 3 600 (mcp) / 1 900 | I | A | `/services/application-sur-mesure` | écrit, programmé |
+| 1 | sam. 26.12 | `hermes-agent-vs-openclaw` | hermes vs openclaw | 20 / 600 | C | A | `/hermes` | NON écrit : test OpenClaw de première main manquant |
+| 7 | lun. 28.12 | `openclaw-prix` | openclaw prix | 20 / 160 | C | A | `/openclaw` | NON écrit : test OpenClaw de première main manquant |
+| 11 | mer. 30.12 | `openclaw-securite` | openclaw security | 40 / 90 | I/C | A | `/openclaw` | NON écrit : test OpenClaw de première main manquant |
 
 Ordre ajusté le 19.11 (décision de Jonathan) : les articles qui demandent un test de première main sont en fin de calendrier — n8n le 22.12, les trois OpenClaw les 26, 28 et 30.12. Tests à faire avant : `research-2026-11-19/protocole-tests-openclaw-n8n.md`. Les numéros d'articles ne changent pas (ils servent au blueprint de maillage) ; seule la date change. Un lien vers un article pas encore sorti se pose au retour, à sa publication.
 

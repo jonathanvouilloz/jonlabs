@@ -1,23 +1,60 @@
 # Plan éditorial fin 2026 — systèmes et agents IA
 
+> **Statut** : EN COURS · **Livré** : production du 19.11.2026, publication échelonnée du 22.11 au 24.12 · **Commits** : `68ef4e0..a879f48` (24 commits, poussés sur origin/main) · 15 articles du calendrier écrits sur 20
+
+## Ce que ça fait
+Calendrier de 20 articles de blog (un tous les deux jours, 22.11 → 30.12.2026) sur les systèmes et agents IA pour PME romandes, selon la stratégie « produit d'abord » (articles ancrés sur des outils nommés, convertis vers `/consultant-ia`, `/tarifs` ou les pages d'offre). Le plan maître est `docs/seo/topical-map-systemes-agents-ia.md`. Au 19.11, 15 articles sont écrits (14 programmés à leur date de sortie, 1 en brouillon) ; 5 ne le sont pas.
+
+## Comment ça marche
+1. Un article porte un `pubDate` futur et `draft: false` ; `src/lib/blog.ts` ne le liste que si `!draft && pubDate <= maintenant`.
+2. Le site est statique : `.github/workflows/scheduled-publish.yml` déclenche chaque jour à 05:00 UTC un rebuild Vercel qui fait apparaître les articles arrivés à échéance.
+3. Production d'un article (l'orchestrateur tient lui-même le rôle de `content-creator`) : brief par sous-agent selon `docs/seo/consignes-brief.md` (données dans `.seo-data/`, briefs dans `content/_drafts/blog/`, tous deux gitignorés) → `brief-critic` à l'aveugle → `finalize_spec.py` → `article-producer` → relecture contre le registre de claims → lint, build → cover → un commit par article.
+4. Les faits d'éditeurs (prix, statuts) datent du relevé du brief : ils sont relus le jour de la sortie, puis les liens retour sont posés (section « À faire à date »).
+
+## Comment débuguer
+- **Par où entrer** : le frontmatter de l'article (`pubDate`, `draft`) et `src/lib/blog.ts`.
+- **Ce qui s'observe** : `npm run build` (nombre de pages), `seo_lint.py --spec` (exige un fichier spec, `{}` à défaut), `git log --oneline 68ef4e0..HEAD`, les sorties `.seo-data/` et `content/_drafts/blog/{slug}.*` du pipeline.
+- **Pannes connues** : voir « Pieges » de l'état de session le plus récent (`finalize_spec.py`, `build_article.py`, builds parallèles qui se cassent, `--dry-run` sans effet en mode single).
+- **Pièges** : un article en `draft: true` ou daté du futur n'apparaît pas ; sans rebuild (cron ou push) il reste masqué après sa date.
+
+## Configuration
+Secret GitHub `VERCEL_DEPLOY_HOOK_URL` (rebuild quotidien). Clé OpenAI des covers : dans le `.env` du skill `generate-images`, hors repo. Aucune variable d'env dans le code des articles.
+
+## Tests et vérifications
+| Vérif | Commande | Résultat réel |
+|---|---|---|
+| Lint des 13 articles de la session | `seo_lint.py` | 0 erreur par article (rapporté, non relancé) |
+| Review éditoriale | `article-producer` + relecture orchestrateur | PASS par article (rapporté, non relancé) |
+| Build | `npm run build` | OK, 125 pages à la vague 1 (rapporté, non relancé) |
+| Contrôle des dates et statuts | frontmatter des 15 articles | relu par doc-keeper le 19.11 : voir Carte du code |
+| Tests de première main (Euria, agent vocal) | — | non faits : articles cadrés « non testé » |
+
+## Limites et dettes
+- 5 articles sur 20 non écrits : `prestataire-ia-suisse-ou-francais` (gatekeeper `needs_review`), `n8n-vs-make-vs-zapier`, `hermes-agent-vs-openclaw`, `openclaw-prix`, `openclaw-securite` (pas de test de première main). Détail dans la topical map.
+- `agence-ia-suisse-romande` reste `draft: true` jusqu'à la relecture de Jonathan.
+- Contradictions du site non tranchées : voir « Contradictions du site » plus bas.
+- Écart plan/code : plusieurs volumes de la topical map additionnaient des requêtes ; corrigés dans la topical map le 19.11.
+
+---
+
 ## Etat session 2026-11-19 (3)
 
 **Fait :**
-- Vague 1 écrite, relue et commitée en local (non poussée) : `grok-bot-pme-suisse` (26.11, `633140a`), `euria-infomaniak-avis` (28.11, `9922d71`), `chatbot-ia-entreprise-prix` (30.11, `fcab8f6`). Lint à 0 erreur, review éditoriale PASS, covers générées, build OK (125 pages).
+- Vague 1 écrite, relue et commitée : `grok-bot-pme-suisse` (26.11, `633140a`), `euria-infomaniak-avis` (28.11, `9922d71`), `chatbot-ia-entreprise-prix` (30.11, `fcab8f6`). Lint à 0 erreur, review éditoriale PASS, covers générées, build OK (125 pages).
 - `ia-pragmatique-pme-suisse` : ligne Euria corrigée (prix et lieu faux), `35c5b50`.
-- `CLAUDE.md` et `docs/README.md` repointés vers les chemins v3 par `doc-keeper` (`14bacbe`). DOC-001 reste « ouvert » dans `readiness.md`.
-- Vague 2 écrite, relue et commitée en local (non poussée) : `assistant-ia-suisse-comparatif` (02.12, `fdac65c`), `claude-entreprise-prix` (04.12, `fc6ce3c`), `agent-vocal-ia-entreprise` (06.12, `c9e9af2`). Lint à 0 erreur, review PASS, covers, build OK.
-- Vague 3 écrite, relue et commitée en local (non poussée) : `assistant-ia-interne-entreprise` (08.12, `4f75516`), `agent-ia-bexio` (12.12, `0359040`), et `agence-ia-suisse-romande` (10.12, `8e8a2fd`) laissé en `draft: true` jusqu'à la relecture de Jonathan (il nomme douze prestataires concurrents).
+- `CLAUDE.md` et `docs/README.md` repointés vers les chemins v3 par `doc-keeper` (`14bacbe`). DOC-001 : chemins repointés (voir `readiness.md`).
+- Vague 2 écrite, relue et commitée : `assistant-ia-suisse-comparatif` (02.12, `fdac65c`), `claude-entreprise-prix` (04.12, `fc6ce3c`), `agent-vocal-ia-entreprise` (06.12, `c9e9af2`). Lint à 0 erreur, review PASS, covers, build OK.
+- Vague 3 écrite, relue et commitée : `assistant-ia-interne-entreprise` (08.12, `4f75516`), `agent-ia-bexio` (12.12, `0359040`), et `agence-ia-suisse-romande` (10.12, `8e8a2fd`) laissé en `draft: true` jusqu'à la relecture de Jonathan (il nomme douze prestataires concurrents).
 - `agent-ia-bexio` recentré sur « agent ia bexio » : « bexio api » est une recherche de développeurs (gatekeeper needs_review sur le mot-clé d'origine), il devient un H2 secondaire.
 - Comparatif corrigé (`82b25ca`) : Apertus 1.5 est listé dans l'API d'Infomaniak, page de prix relue en texte brut.
 - Vague 4 écrite, relue et commitée en local : `charte-ia-entreprise-modele` (14.12, `f1b6d41`), `ia-locale-entreprise` (16.12, `d1dd53b`), `creer-agent-ia-ou-faire-faire` (18.12, `1137c79`).
 - Vague 5 : `serveur-mcp-entreprise` (24.12, `e3eee3d`) écrit et commité. `prestataire-ia-suisse-ou-francais` (20.12) NON écrit : gatekeeper needs_review (aucun volume mesuré, aucune preuve de première main, risque de conseil fiscal), en attente de Jonathan.
 - Corrections d'articles en ligne : `ia-nlpd-conformite-suisse` (registre des traitements, exceptions de l'art. 12 al. 5 LPD, `c849f15`) ; `integrer-agent-ia-outils-existants` (gouvernance du MCP, `d39e0a2`).
-- Bilan : 13 articles commités du 26.11 au 24.12 (12 en `draft: false`, `agence-ia-suisse-romande` en `draft: true`), sur 14 dans le périmètre. Restent hors périmètre : n8n (22.12) et les trois OpenClaw (26, 28, 30.12), faute de tests de première main. Rien n'est poussé.
+- Bilan : 13 articles commités du 26.11 au 24.12 (12 en `draft: false`, `agence-ia-suisse-romande` en `draft: true`), sur 14 dans le périmètre. Restent hors périmètre : n8n (22.12) et les trois OpenClaw (26, 28, 30.12), faute de tests de première main. Poussé : origin/main = `a879f48` (vérifié par doc-keeper le 19.11).
 
 **Chaîne de production utilisée** (la session orchestre elle-même, `content-creator` n'est pas appelé) : un sous-agent Sonnet par brief → `brief-critic` à l'aveugle, 2 révisions max → `finalize_spec.py` → `article-producer` en Opus → relecture de l'orchestrateur contre le registre de claims → build → un commit par article. Vagues de trois.
 
-**Prochain :** pousser avant le 26.11 (tâche de Jonathan). Ensuite, à chaque date de sortie : relire les prix et statuts de l'article du jour sur les pages des éditeurs, puis poser les liens retour (liste ci-dessous). Décisions de Jonathan attendues : relecture de `agence-ia-suisse-romande` et de la charte, sort de `prestataire-ia-suisse-ou-francais`, tests n8n et OpenClaw pour les quatre articles de fin décembre. Lancer `doc-keeper` en mode feature sur ce plan éditorial.
+**Prochain :** le push est fait. À chaque date de sortie : relire les prix et statuts de l'article du jour sur les pages des éditeurs, puis poser les liens retour (liste ci-dessous). Décisions de Jonathan attendues : relecture de `agence-ia-suisse-romande` et de la charte, sort de `prestataire-ia-suisse-ou-francais`, tests n8n et OpenClaw pour les quatre articles de fin décembre.
 
 **À faire à date :**
 - 26.11 : poser le lien retour vers `grok-bot-pme-suisse` dans `openbot-souverainete-self-hosted`.
@@ -128,7 +165,7 @@
 ---
 
 ## Carte du code
-> Mise a jour : 2026-11-19
+> Mise a jour : 2026-11-19 (15 articles)
 
 | Fichier | Role |
 |---------|------|
@@ -140,8 +177,25 @@
 | `docs/project/readiness.md`, `project.yaml` | État des modules v3, décisions attendues, actions ouvertes |
 | `.seo-data/` (gitignoré) | Mots-clés DataForSEO (6 493), sélection commerciale, GSC 90 j |
 | `.github/workflows/scheduled-publish.yml` | Rebuild quotidien à 05:00 UTC |
-| `src/content/blog/installer-hermes-agent.md` | Article du 22.11, prêt |
-| `src/content/blog/claude-duet-suisse.md` | Article du 24.11, prêt ; à mettre à jour dès l'ouverture de Claude Duet en Europe |
+| `src/content/blog/installer-hermes-agent.md` | Article du 22.11.2026 : prêt, programmé (`95eccee`) ; cover `public/images/blog/installer-hermes-agent.webp` |
+| `src/content/blog/claude-duet-suisse.md` | Article du 24.11.2026 : prêt, programmé ; à mettre à jour dès l'ouverture de Claude Duet en Europe (`95eccee`) ; cover `public/images/blog/claude-duet-suisse.webp` |
+| `src/content/blog/grok-bot-pme-suisse.md` | Article du 26.11.2026 : prêt (`633140a`) ; cover `public/images/blog/grok-bot-pme-suisse.webp` |
+| `src/content/blog/euria-infomaniak-avis.md` | Article du 28.11.2026 : prêt, avis sur documentation, non testé (`9922d71`) ; cover `public/images/blog/euria-infomaniak-avis.webp` |
+| `src/content/blog/chatbot-ia-entreprise-prix.md` | Article du 30.11.2026 : prêt (`fcab8f6`) ; cover `public/images/blog/chatbot-ia-entreprise-prix.webp` |
+| `src/content/blog/assistant-ia-suisse-comparatif.md` | Article du 02.12.2026 : prêt, hub du cluster B (corrigé en `82b25ca`) (`fdac65c`) ; cover `public/images/blog/assistant-ia-suisse-comparatif.webp` |
+| `src/content/blog/claude-entreprise-prix.md` | Article du 04.12.2026 : prêt (`fc6ce3c`) ; cover `public/images/blog/claude-entreprise-prix.webp` |
+| `src/content/blog/agent-vocal-ia-entreprise.md` | Article du 06.12.2026 : prêt, analyse de documentation, non testé (`c9e9af2`) ; cover `public/images/blog/agent-vocal-ia-entreprise.webp` |
+| `src/content/blog/assistant-ia-interne-entreprise.md` | Article du 08.12.2026 : prêt (`4f75516`) ; cover `public/images/blog/assistant-ia-interne-entreprise.webp` |
+| `src/content/blog/agence-ia-suisse-romande.md` | Article du 10.12.2026 : BROUILLON (`draft: true`), attend la relecture de Jonathan (nomme douze concurrents) (`8e8a2fd`) ; cover `public/images/blog/agence-ia-suisse-romande.webp` |
+| `src/content/blog/agent-ia-bexio.md` | Article du 12.12.2026 : prêt, recentré sur « agent ia bexio » (`0359040`) ; cover `public/images/blog/agent-ia-bexio.webp` |
+| `src/content/blog/charte-ia-entreprise-modele.md` | Article du 14.12.2026 : prêt, à faire relire par Jonathan (`f1b6d41`) ; cover `public/images/blog/charte-ia-entreprise-modele.webp` |
+| `src/content/blog/ia-locale-entreprise.md` | Article du 16.12.2026 : prêt (`d1dd53b`) ; cover `public/images/blog/ia-locale-entreprise.webp` |
+| `src/content/blog/creer-agent-ia-ou-faire-faire.md` | Article du 18.12.2026 : prêt (`1137c79`) ; cover `public/images/blog/creer-agent-ia-ou-faire-faire.webp` |
+| `src/content/blog/serveur-mcp-entreprise.md` | Article du 24.12.2026 : prêt (`e3eee3d`) ; cover `public/images/blog/serveur-mcp-entreprise.webp` |
+| `docs/seo/consignes-brief.md` | Consignes communes données aux agents de brief (fichiers à lire, pipeline, motifs d'échec des briefs précédents, relecture en texte brut des citations) |
+| `src/content/blog/ia-pragmatique-pme-suisse.md`, `ia-nlpd-conformite-suisse.md`, `integrer-agent-ia-outils-existants.md` | Articles déjà en ligne corrigés pendant la session (`35c5b50`, `c849f15`, `d39e0a2`) |
+
+Non écrits : `prestataire-ia-suisse-ou-francais` (20.12), `n8n-vs-make-vs-zapier` (22.12), `hermes-agent-vs-openclaw` (26.12), `openclaw-prix` (28.12), `openclaw-securite` (30.12).
 
 ### Decisions cles
 - Stratégie « produit d'abord » : le volume est sur les noms d'outils (OpenClaw, Euria, Hermes Agent, Claude Cowork, Grok Bot), pas sur « agent IA PME ».

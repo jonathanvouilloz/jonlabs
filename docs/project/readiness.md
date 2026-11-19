@@ -33,9 +33,9 @@ Migration v3 terminée côté fichiers : toutes les sorties obligatoires existen
 
 | ID | Module | Action | Dépendances | Statut |
 |---|---|---|---|---|
-| ART-001 | Contenu | Humanizer, seo-lint, seo-review sur `installer-hermes-agent` et `claude-duet-suisse` ; cover du second | aucune | ouvert |
+| ART-001 | Contenu | Humanizer, seo-lint, seo-review sur `installer-hermes-agent` et `claude-duet-suisse` ; cover du second | aucune | fait (19.11, `95eccee` : `draft: false`, covers présentes ; lint et review rapportés par le feature file, non relancés) |
 | SEO-MON-001 | Suivi SEO | Dry-run `seo-gsc` et `seo-weekly` avec `GSC_CREDENTIALS_PATH` | secret à matérialiser depuis bws | ouvert |
-| DOC-001 | Docs | Transmettre à `doc-keeper` les écarts de `docs/design/system.md` § Écarts, et le remplacement de `docs/seo-context.md`, `docs/moodboard.md`, `docs/identity.md`, `docs/voice.md` par les chemins v3 dans `CLAUDE.md` et `docs/README.md` | aucune | ouvert |
+| DOC-001 | Docs | Transmettre à `doc-keeper` les écarts de `docs/design/system.md` § Écarts, et le remplacement de `docs/seo-context.md`, `docs/moodboard.md`, `docs/identity.md`, `docs/voice.md` par les chemins v3 dans `CLAUDE.md` et `docs/README.md` | aucune | partiel : chemins v3 repointés dans `CLAUDE.md` et `docs/README.md` (`14bacbe`, vérifié). Écarts de design non résorbés : `CLAUDE.md` § Design System présente encore le blueprint comme « état réel », `.claude/checklist.md` et `.claude/commands/new-page.md` lisent encore `docs/styleguide.md` |
 | LINT-001 | Outillage | `seo_lint.py` ne lit pas le frontmatter imbriqué (`image`, `faqs`) | aucune | ouvert |
 
 ## Informations humaines requises
@@ -52,7 +52,7 @@ Migration v3 terminée côté fichiers : toutes les sorties obligatoires existen
 |---|---|---|---|---|
 | DESIGN-001 | Design | Contraste de `--dim` (2,7) et de `--accent-strong` en petit texte (3,0) ; règle `:focus-visible` globale | Prochain passage sur `v2.css` | ouvert |
 | PRD-001 | Projet | Cibles chiffrées à 3 et 6 mois, outil d'analytics, devenir des pages web et mobile | Bilan du tri « focus IA » (23.11 → 09.12) | ouvert |
-| LEGACY-001 | Projet | Retirer `docs/seo-context.md`, `docs/moodboard.md`, `moodboard/presets.yaml` une fois `CLAUDE.md` et `docs/README.md` repointés ; `docs/identity.md` et `docs/voice.md` restent générés par `brand/sync.py` | Après DOC-001 | ouvert |
+| LEGACY-001 | Projet | Retirer `docs/seo-context.md`, `docs/moodboard.md`, `moodboard/presets.yaml` une fois `CLAUDE.md` et `docs/README.md` repointés ; `docs/identity.md` et `docs/voice.md` restent générés par `brand/sync.py` | Après DOC-001 | ouvert, toujours exact mais pas encore sûr à exécuter : `CLAUDE.md`, `docs/README.md` et `.claude/` ne les lisent plus (vérifié le 19.11), mais `docs/project-context.md` cite encore `moodboard.md` et `src/scripts/generate-blog-cover.js` cite `moodboard/presets.yaml` en commentaire. Skills hors repo non vérifiés |
 | LINT-002 | Contenu | Passer `content.lint_mode` de `shadow` à `enforce` | Après un passage du lint sur les 49 articles | ouvert |
 
 ## Réponses et décisions reçues
@@ -64,7 +64,7 @@ Migration v3 terminée côté fichiers : toutes les sorties obligatoires existen
 
 ## Prochain checkpoint
 
-BRAND-INPUT-001, BRAND-INPUT-002, BRAND-INPUT-003. En attendant, ART-001 se poursuit.
+BRAND-INPUT-001, BRAND-INPUT-002, BRAND-INPUT-003. S'y ajoutent les décisions de Jonathan du plan éditorial (relecture de `agence-ia-suisse-romande` et de la charte, sort de `prestataire-ia-suisse-ou-francais`, contradictions du site) : voir `docs/features/plan-editorial-fin-2026.md`.
 
 ## Fallbacks legacy encore lus
 
