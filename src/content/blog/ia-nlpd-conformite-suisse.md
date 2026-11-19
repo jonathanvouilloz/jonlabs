@@ -17,7 +17,7 @@ faqs:
   - question: "Qu'est-ce qu'un sous-traitant IA au sens de la nLPD ?"
     answer: "C'est le prestataire qui traite tes données personnelles pour ton compte, via son outil IA. La loi lui impose des obligations propres, et toi, en tant que responsable du traitement, tu dois formaliser un contrat de sous-traitance avec lui pour cadrer précisément ce qu'il fait de la donnée."
   - question: "Faut-il un registre des traitements même pour une petite PME ?"
-    answer: "Oui, mais il peut rester simple : un tableau qui liste chaque traitement de données, sa finalité, et le type de donnée concerné. Dès qu'un agent IA traite des dossiers clients ou des données RH, il doit y figurer, même dans une structure de quelques employés."
+    answer: "Pas dans tous les cas : la loi (art. 12 al. 5 LPD, version lue sur Fedlex le 19.11.2026) prévoit des exceptions pour les entreprises de moins de 250 collaborateurs dont le traitement présente un risque limité. Savoir si ton cas y entre est une question pour un juriste. Je conseille d'en tenir un quand même, simple : un tableau qui liste chaque traitement, sa finalité et le type de donnée, avec une ligne pour chaque agent IA qui touche des dossiers clients ou des données RH."
   - question: "Que se passe-t-il en cas de violation de données avec un agent IA ?"
     answer: "En cas de risque élevé pour la personne concernée, une notification au Préposé fédéral à la protection des données et à la transparence (PFPDT) est requise. Avoir une procédure écrite avant l'incident permet de réagir vite plutôt que d'improviser sous pression."
   - question: "Un agent IA auto-hébergé est-il plus conforme qu'une API tierce ?"
@@ -132,7 +132,7 @@ C'est le prestataire qui traite tes données personnelles pour ton compte, via s
 
 ### Faut-il un registre des traitements même pour une petite PME ?
 
-Oui, mais il peut rester simple : un tableau qui liste chaque traitement de données, sa finalité, et le type de donnée concerné. Dès qu'un agent IA traite des dossiers clients ou des données RH, il doit y figurer, même dans une structure de quelques employés.
+Pas dans tous les cas : la loi (art. 12 al. 5 LPD, version lue sur Fedlex le 19.11.2026) prévoit des exceptions pour les entreprises de moins de 250 collaborateurs dont le traitement présente un risque limité. Savoir si ton cas y entre est une question pour un juriste. Je conseille d'en tenir un quand même, simple : un tableau qui liste chaque traitement, sa finalité et le type de donnée, avec une ligne pour chaque agent IA qui touche des dossiers clients ou des données RH.
 
 ### Que se passe-t-il en cas de violation de données avec un agent IA ?
 
