@@ -7,11 +7,14 @@
 - `ia-pragmatique-pme-suisse` : ligne Euria corrigée (prix et lieu faux), `35c5b50`.
 - `CLAUDE.md` et `docs/README.md` repointés vers les chemins v3 par `doc-keeper` (`14bacbe`). DOC-001 reste « ouvert » dans `readiness.md`.
 - Vague 2 écrite, relue et commitée en local (non poussée) : `assistant-ia-suisse-comparatif` (02.12, `fdac65c`), `claude-entreprise-prix` (04.12, `fc6ce3c`), `agent-vocal-ia-entreprise` (06.12, `c9e9af2`). Lint à 0 erreur, review PASS, covers, build OK.
-- Vague 3 lancée (briefs) : `assistant-ia-interne-entreprise` (08.12), `agence-ia-suisse-romande` (10.12), `agent-ia-bexio` (12.12).
+- Vague 3 écrite, relue et commitée en local (non poussée) : `assistant-ia-interne-entreprise` (08.12, `4f75516`), `agent-ia-bexio` (12.12, `0359040`), et `agence-ia-suisse-romande` (10.12, `8e8a2fd`) laissé en `draft: true` jusqu'à la relecture de Jonathan (il nomme douze prestataires concurrents).
+- `agent-ia-bexio` recentré sur « agent ia bexio » : « bexio api » est une recherche de développeurs (gatekeeper needs_review sur le mot-clé d'origine), il devient un H2 secondaire.
+- Comparatif corrigé (`82b25ca`) : Apertus 1.5 est listé dans l'API d'Infomaniak, page de prix relue en texte brut.
+- Vague 4 lancée (briefs) : `charte-ia-entreprise-modele` (14.12), `ia-locale-entreprise` (16.12), `creer-agent-ia-ou-faire-faire` (18.12).
 
 **Chaîne de production utilisée** (la session orchestre elle-même, `content-creator` n'est pas appelé) : un sous-agent Sonnet par brief → `brief-critic` à l'aveugle, 2 révisions max → `finalize_spec.py` → `article-producer` en Opus → relecture de l'orchestrateur contre le registre de claims → build → un commit par article. Vagues de trois.
 
-**Prochain :** critique, écriture et relecture de la vague 3, puis vagues 4 et 5 (14.12 → 24.12, hors n8n et OpenClaw). Pousser les vagues 1 et 2 avant le 26.11 (tâche de Jonathan).
+**Prochain :** critique, écriture et relecture de la vague 4, puis vague 5 (`prestataire-ia-suisse-ou-francais` 20.12, `serveur-mcp-entreprise` 24.12). Pousser les vagues 1 à 3 avant le 26.11 (tâche de Jonathan).
 
 **À faire à date :**
 - 26.11 : poser le lien retour vers `grok-bot-pme-suisse` dans `openbot-souverainete-self-hosted`.
@@ -20,6 +23,9 @@
 - 02.12 : à la sortie du comparatif, ajouter son lien dans `euria-infomaniak-avis` (remplacer « je prépare un comparatif » dans la FAQ), `grok-bot-pme-suisse`, `claude-duet-suisse`. Relire le prix Copilot (promotion jusqu'au 31.12.2026) ; compléter la ligne ChatGPT si Jonathan a lu les pages d'OpenAI, sinon elle reste « non relevé ».
 - 04.12 : à la sortie de `claude-entreprise-prix`, ajouter son lien dans `claude-duet-suisse` et dans le comparatif (remplacer « un article consacré aux offres de Claude suivra »). Relire la page de prix d'Anthropic.
 - 06.12 : à la sortie de `agent-vocal-ia-entreprise`, ajouter son lien dans `chatbot-ia-entreprise-prix` et `agent-ia-entreprise-cas-usage`. Relire les prix Retell, Vapi, ElevenLabs.
+- 08.12 : à la sortie de `assistant-ia-interne-entreprise`, ajouter son lien dans le comparatif et dans `automatiser-emails-documents-ia`.
+- 10.12 : `agence-ia-suisse-romande` ne sort que si Jonathan l'a relu et passé en `draft: false` ; relire alors les pages des douze acteurs (prix, citations) et poser le lien retour dans `consultant-ia-c-est-quoi`.
+- 12.12 : avant la sortie de `agent-ia-bexio`, les phrases de `/metiers/ia-fiduciaire` (« sur lesquels je travaille le plus », « conforme nLPD ») doivent être tranchées par Jonathan : l'article dit qu'aucune intégration Bexio n'existe et renvoie vers cette page. Relire la page de prix de Bexio. Lien retour dans `automatiser-facturation-relances-ia`.
 - 16.12 : à la sortie de `ia-locale-entreprise`, remplacer « je traiterai ce cas dans un prochain article » (section Apertus du comparatif) par le lien.
 
 **Tests Euria attendus de Jonathan** (sans eux, l'article reste « avis sur documentation, non testé ») :
@@ -47,6 +53,8 @@
 - `build_article.py` n'écrit pas `image` en objet ni `faqs`, et refuse une `reviewedDate` antérieure à `pubDate` : les rédacteurs assemblent le frontmatter à part.
 - Deux `npm run build` en parallèle se cassent l'un l'autre (`dist/` partagé) : builder une fois, à la fin de la vague.
 - Les sous-agents de brief appliquent les SKILL.md à la main au lieu d'invoquer les skills ; `seo-competitors` a été sauté pour Grok Bot.
+- WebFetch résume les pages et tronque les pages lourdes : une citation ou un chiffre relevé par WebFetch n'est pas fiable mot pour mot. Relire en texte brut (`curl` puis retrait des balises) tout ce que l'article met entre guillemets. Pages qui refusent même `curl` : aide de Bexio (rendu côté client), Microsoft Copilot (403), OpenAI (403). Depuis la vague 4, les consignes communes des briefs l'imposent (`consignes-brief.md`, copiées dans `docs/seo/consignes-brief.md`).
+- `brief-critic` n'applique pas le plafond de H2 de façon constante : selon le critique, FAQ, Conclusion et Sources comptent ou non. Tenir 5 H2 de corps au plus et écrire dans le brief que Conclusion et Sources sont imposées par le lint.
 - Les rédacteurs ne rouvrent pas les pages des éditeurs : les faits datent du relevé du brief. Relire les prix le jour de la sortie.
 - Incohérences du site non tranchées : `/tarifs`, `pricing.ts` et `prix-agent-ia-automatisation-suisse` disent encore « hébergé en Suisse / Infomaniak » ; ce dernier affiche des fourchettes (CHF 2'500 à 15'000) absentes de `/tarifs`.
 - Fichiers v2 encore en place à côté de leur équivalent v3 (`docs/seo-context.md`, `docs/moodboard.md`, `moodboard/presets.yaml`, `docs/styleguide.md`) : ne pas les retirer avant d'avoir vérifié que `.claude/commands/` ne les lit plus.
