@@ -3,7 +3,7 @@
 ## Features actives
 | Feature | Fichier | Statut |
 |---------|---------|--------|
-| Plan éditorial fin 2026 (systèmes et agents IA) | docs/features/plan-editorial-fin-2026.md | **EN COURS 19.11** — 2 brouillons écrits, migration v2 du repo interrompue |
+| Plan éditorial fin 2026 (systèmes et agents IA) | docs/features/plan-editorial-fin-2026.md | **EN COURS 19.11** — repo migré en v3, 2 articles sur 20 prêts et poussés (22.11, 24.11) |
 | Tri contenu « focus IA » | docs/features/tri-contenu-focus-ia.md | **EN COURS** — en ligne 09.11, bilan 23.11 → 09.12 |
 | Cas client Swiss Dental Care | docs/features/cas-client-swiss-dental-care.md | VALIDÉ — publication production autorisée le 14.10.2026 |
 | Canonical non-www, cannibalisation, dispersion | docs/features/canonical-cannibalisation.md | **EN COURS** — lots A+B livrés, C/D gelés jusqu'à S+3. Les 3 villes retirées le 09.11 (`ville-la-grand`, `saint-julien-en-genevois`, `la-roche-sur-foron`) sortent du périmètre ; le fichier `villes-frontalieres-ctr.md` est supprimé (cause couverte ici) |
@@ -21,7 +21,7 @@
 | Refresh piliers IA (kirako) | mergé dans main (`1cca170`) | **EN LIGNE 21.09** — mesurer vs baseline 428 imp / 0 clic |
 
 ## Reprendre ici
-Plan éditorial fin 2026 — relancer `/init-all` (migration v2 interrompue), puis humanizer, review et covers des brouillons du 22.11 et du 24.11.
-Commit : [5256dc6] fix(blog): prix d'installation Hermes aligné sur /tarifs
+Plan éditorial fin 2026 — produire `grok-bot-pme-suisse` (26.11) puis `euria-infomaniak-avis` (28.11) avec `content-creator` ; lancer `doc-keeper` pour repointer `CLAUDE.md` et `docs/README.md` vers les chemins v3.
+Commit : [95eccee] feat(blog): installer-hermes-agent et claude-duet-suisse prêts
 
 > Décisions structurantes → `docs/DECISIONS.md`. Tâches côté Jonathan → `cerveau/10-Projets/jonlabs/jonlabs-human.md`.
