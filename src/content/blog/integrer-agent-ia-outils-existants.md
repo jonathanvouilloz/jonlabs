@@ -15,7 +15,7 @@ faqs:
   - question: "Faut-il choisir entre no-code, MCP et API, ou peut-on les combiner ?"
     answer: "On peut, et c'est souvent le cas en pratique. Une intégration réelle mélange fréquemment du no-code pour les connexions simples, un développement sur mesure pour le système propriétaire qui bloque, et parfois un serveur MCP pour standardiser l'accès une fois que plusieurs agents sont en jeu."
   - question: "Qu'est-ce que le protocole MCP concrètement ?"
-    answer: "C'est un standard ouvert, publié par Anthropic, qui expose les capacités d'un système (lire une donnée, créer une tâche, mettre à jour un statut) dans un format qu'un agent IA compatible peut consommer directement, sans redévelopper une connexion propriétaire pour chaque nouvel agent."
+    answer: "C'est un standard ouvert, créé par Anthropic puis confié en décembre 2025 à l'Agentic AI Foundation, sous la Linux Foundation, qui expose les capacités d'un système (lire une donnée, créer une tâche, mettre à jour un statut) dans un format qu'un agent IA compatible peut consommer directement, sans redévelopper une connexion propriétaire pour chaque nouvel agent."
   - question: "Un agent IA a-t-il besoin d'un accès complet à mon CRM ?"
     answer: "Non, et c'est une erreur fréquente. Un agent doit recevoir uniquement les permissions nécessaires à son cas d'usage précis : accès en lecture au dossier concerné, écriture limitée aux champs qu'il doit réellement modifier, jamais un accès administrateur par défaut."
   - question: "Combien de temps prend une intégration d'agent IA à mes outils existants ?"
@@ -66,7 +66,7 @@ Ces plateformes disposent déjà de connecteurs prêts à l'emploi pour la major
 
 ### MCP : le standard émergent pour connecter un agent à plusieurs outils
 
-Le **Model Context Protocol** (MCP) est un protocole ouvert, publié par Anthropic et adopté progressivement par l'écosystème, pensé spécifiquement pour connecter un agent IA à plusieurs outils de façon structurée et réutilisable. Contrairement à une intégration no-code construite outil par outil, un serveur MCP expose les capacités d'un système (lire un dossier client, créer une tâche, mettre à jour un statut) dans un format que n'importe quel agent compatible peut consommer directement.
+Le **Model Context Protocol** (MCP) est un protocole ouvert, créé par Anthropic et confié en décembre 2025 à l'Agentic AI Foundation, sous la Linux Foundation, adopté progressivement par l'écosystème, pensé spécifiquement pour connecter un agent IA à plusieurs outils de façon structurée et réutilisable. Contrairement à une intégration no-code construite outil par outil, un serveur MCP expose les capacités d'un système (lire un dossier client, créer une tâche, mettre à jour un statut) dans un format que n'importe quel agent compatible peut consommer directement.
 
 L'intérêt principal : un connecteur MCP construit une fois se réutilise ensuite sur plusieurs agents ou plusieurs cas d'usage, contrairement à un scénario no-code qui reste généralement propre à son propre workflow. C'est un vrai gain de temps dès que l'entreprise prévoit plusieurs agents IA à moyen terme, pas un seul projet isolé. Le [protocole MCP](https://modelcontextprotocol.io) reste toutefois un standard encore jeune : tous les outils métier suisses n'ont pas encore de serveur MCP officiel, ce qui demande parfois d'en développer un sur mesure, une étape qui se rapproche alors du développement API classique.
 
@@ -118,7 +118,7 @@ On peut, et c'est souvent le cas en pratique. Une intégration réelle mélange 
 
 ### Qu'est-ce que le protocole MCP concrètement ?
 
-C'est un standard ouvert, publié par Anthropic, qui expose les capacités d'un système (lire une donnée, créer une tâche, mettre à jour un statut) dans un format qu'un agent IA compatible peut consommer directement, sans redévelopper une connexion propriétaire pour chaque nouvel agent.
+C'est un standard ouvert, créé par Anthropic puis confié en décembre 2025 à l'Agentic AI Foundation, sous la Linux Foundation, qui expose les capacités d'un système (lire une donnée, créer une tâche, mettre à jour un statut) dans un format qu'un agent IA compatible peut consommer directement, sans redévelopper une connexion propriétaire pour chaque nouvel agent.
 
 ### Un agent IA a-t-il besoin d'un accès complet à mon CRM ?
 
