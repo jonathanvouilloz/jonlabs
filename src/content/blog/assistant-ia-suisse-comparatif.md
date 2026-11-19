@@ -44,7 +44,7 @@ Aucun **assistant IA suisse** ou étranger ne règle les trois critères à la f
 |---|---|---|---|---|
 | Euria (Infomaniak) | Assistant suisse | Gratuit avec limites ; my kSuite+ CHF 19 par an ; kSuite Pro dès CHF 1.76 par utilisateur et par mois | En Suisse, selon Infomaniak | Dans kSuite ; aucun connecteur métier décrit |
 | Swiss AI Assistant (Swisscom) | Assistant suisse | Dès CHF 149 HT par mois pour 10 utilisateurs | En Suisse, selon Swisscom | Tes documents ; aucun connecteur métier décrit |
-| Apertus (EPFL, ETH Zurich, CSCS) | Modèle ouvert | Licence Apache 2.0, sur Hugging Face | Celui du serveur qui le fait tourner | Via un outil ou un prestataire |
+| Apertus (EPFL, ETH Zurich, CSCS) | Modèle ouvert | Licence Apache 2.0, sur Hugging Face ; en API chez Infomaniak, CHF 0.70 / 2.50 par million de tokens | Celui du serveur qui le fait tourner | Via un outil ou un prestataire |
 | ChatGPT (OpenAI) | Assistant étranger | Non relevé le 19.11.2026, voir la [page de prix d'OpenAI](https://openai.com/business/pricing) | Non relevé le 19.11.2026 | Non relevé |
 | Claude (Anthropic) | Assistant étranger | Team dès 20 $ par siège et par mois en annuel | Non précisé sur les pages lues | Non relevé |
 | Copilot Business (Microsoft) | Module de Microsoft 365 | CHF 14.57 HT par utilisateur et par mois en annuel, prix promotionnel de première année jusqu'au 31.12.2026 | Non précisé sur les pages lues | Dans Microsoft 365 |
@@ -85,7 +85,7 @@ Deux limites pour une PME. La connexion passe par Swisscom Login, et le SSO (aut
 
 **Apertus**, le modèle d'IA suisse, est un modèle de langage ouvert : une PME ne s'y abonne pas comme à Euria, elle passe par un outil ou un prestataire qui le fait tourner. D'après l'EPFL, la version 1.5 a été publiée le 24.07.2026 par l'EPFL, l'ETH Zurich et le CSCS, le centre suisse de calcul scientifique. Elle est sous licence Apache 2.0, qui permet l'usage commercial, et se télécharge sur Hugging Face, la plateforme où l'on publie les modèles ouverts. L'EPFL le présente comme une base pour les chercheurs, les institutions et les entreprises, pas comme une application que ton équipe ouvrirait dans son navigateur.
 
-Pour l'accès, je m'en tiens à Hugging Face. La page AI Services d'Infomaniak, lue le 19.11.2026, ne cite pas Apertus, et celle du Swiss AI Assistant ne le compte pas parmi ses modèles : je n'affirme donc pas qu'on peut l'utiliser chez l'un ou l'autre.
+Pour l'accès, deux voies sont documentées. Hugging Face, pour le faire tourner soi-même. Et l'API d'Infomaniak : sa page de prix AI Services, lue le 19.11.2026, liste `swiss-ai/Apertus-v1.5-70B` à CHF 0.70 par million de tokens en entrée et CHF 2.50 en sortie, hors TVA. C'est une brique pour un développeur, pas un assistant. La page du Swiss AI Assistant de Swisscom, elle, ne compte pas Apertus parmi ses modèles.
 
 Un modèle ouvert demande un serveur, de la maintenance et quelqu'un pour le brancher à tes outils. Je traiterai ce cas dans un prochain article.
 
@@ -163,7 +163,7 @@ Pages lues le 19.11.2026, sauf celles d'OpenAI, qui ont refusé l'accès.
 - [Swisscom, Swiss AI Assistant](https://www.swisscom.ch/fr/business/pme/it-cloud/new-way-of-working/swiss-ai-assistant.html)
 - [Swisscom, annonce du Swiss AI Assistant](https://www.swisscom.ch/fr/about/news/2026/02/18-swiss-ai-assistant.html)
 - [EPFL, Apertus 1.5](https://ai.epfl.ch/apertus-1-5-building-the-next-generation-of-open-ai-infrastructure/)
-- [Infomaniak, AI Services](https://www.infomaniak.com/fr/hebergement/ai-tools) : Apertus non cité.
+- [Infomaniak, prix d'AI Services](https://www.infomaniak.com/en/hosting/ai-tools/prices) : prix d'API par modèle, dont Apertus 1.5.
 - [Infomaniak, Euria](https://www.infomaniak.com/fr/euria)
 - [Anthropic, plans et tarifs](https://claude.com/pricing)
 - [Anthropic, données et entraînement](https://privacy.claude.com/en/articles/7996868-is-my-data-used-for-model-training)
