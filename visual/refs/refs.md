@@ -4,7 +4,7 @@
 Une référence **ancre** un rendu, elle ne se recopie pas : pour chacune, ce qu'on retient et ce
 qu'on écarte explicitement.
 
-**Règle de palette valable partout** : tout est neutre (encre / gris / papier warm) + **un seul
+**Règle de palette valable partout** : tout est neutre (encre / gris / papier clair) + **un seul
 accent = teal `#00D9A3`**. Le rouge, l'orange, le bleu, le violet, le lime des références sont
 **systématiquement remappés en teal**. C'est la règle la plus violée en pratique — si un rendu sort
 une seconde teinte, on relance.
@@ -29,7 +29,7 @@ coudé fin** à nœuds ronds, titre en sans-serif léger, énorme respiration en
 Planche « Ideas Report » : fond crème **texturé grain**, gros titre éditorial sans-serif, un chiffre
 dominant + trois chiffres secondaires, cercles pleins alignés, filets verticaux fins, cercle en
 pointillés pour l'élément « vide ».
-- **On prend** : le **papier crème texturé** (jamais blanc clinique), la hiérarchie éditoriale du
+- **On prend** : le **papier clair texturé**, la hiérarchie éditoriale du
   titre, les **filets fins** de séparation, le cercle en pointillés comme état « manquant », le pied
   de page discret.
 - **On laisse** : les sphères orange dégradées → **cercles teal plats** ; le tiret cadratin du titre
@@ -41,7 +41,7 @@ Trois **grilles de points** remplies à 95 / 72 / 41 %, chiffre géant dessous, 
 - **On prend** : le **dot-grid** comme langage de proportion, le chiffre géant en sans-serif fin, la
   légende courte sous le chiffre, l'alignement en trois colonnes égales.
 - **On laisse** : les trois teintes (violet / bleu / orange) → **teal pour la part remplie, gris
-  `#D8DCD8` pour le reste**. **Ref de composition uniquement** : elle décrit ce que le rendu par code
+  `#E3E4E1` pour le reste**. **Ref de composition uniquement** : elle décrit ce que le rendu par code
   doit produire, elle n'autorise pas à générer une data visualisation.
 
 ## ref4-minmalist.png — parcours serpentin à nœuds
@@ -61,7 +61,7 @@ d'auteur.
   l'opposition problème / solution par la forme plutôt que par la carte, la mise en gras sélective
   dans le texte courant, le fil d'ariane discret en tête.
 - **On laisse** : le lime `#C3F53C` → **teal** ; la photo d'avatar (pas de personne réelle générée) ;
-  le blanc pur du fond → papier warm.
+  le blanc pur du fond → papier clair.
 
 ---
 
@@ -75,8 +75,8 @@ teal **et ses nuances** (teal plus foncé / plus clair) pour la variance de vale
 Silhouette sombre, tête d'où s'échappent des **centaines de fils d'encre fins** emmêlés, fond papier
 crème, mains marbrées.
 - **On prend** : les fils fins emmêlés = métaphore de la pensée / connexion / surcharge mentale (très
-  raccord avec nos connecteurs signature) ; le monochrome encre sur papier warm ; l'énorme
-  respiration. **Anchor par défaut (abstrait warm).**
+  raccord avec nos connecteurs signature) ; le monochrome encre sur papier clair ; l'énorme
+  respiration. **Anchor par défaut (abstrait clair).**
 - **On laisse** : rien à retirer — déjà quasi à notre palette. Les fils → teal.
 
 ## illu2-statue-laptop.png — buste antique + objet moderne
@@ -124,7 +124,7 @@ en bas.
 Homme en costume N&B, **tête qui explose** en nuages / bandes noires géométriques / pissenlits,
 **yeux bandés** (scotch), papier froissé crème.
 - **On prend** : la **tête qui explose en idées** (surcharge, créativité, censure), le mélange nuages
-  + **bandes géométriques** + papier déchiré, le N&B sur papier warm. Collage le plus abouti.
+  + **bandes géométriques** + papier déchiré, le N&B sur papier clair. Collage le plus abouti.
 - **On laisse** : rien de couleur à retirer (déjà N&B) → on **injecte** un seul accent teal (une
   bande, un élément) pour signer.
 
@@ -133,7 +133,7 @@ Tête de statue grecque **ouverte avec un arbre** qui pousse + bâtiment béton,
 géométriques, nuages.
 - **On prend** : la **tête-paysage** (esprit qui pousse / croissance), le mix statue + nature +
   architecture, les **dots-grid** et **traits géométriques** discrets, le papier crème. **Anchor par
-  défaut (abstrait warm).**
+  défaut (abstrait clair).**
 - **On laisse** : l'**orange** du cercle + le point doré → **teal** + nuances de teal.
 
 ## illu10-light-corridor.png — silhouette atmosphérique
@@ -152,12 +152,12 @@ Silhouette marchant vers un **couloir de lumière** trapézoïdal, fond sombre �
 2. **Vocabulaire** : collage découpé, **fils/lignes fines** emmêlés, cartes de constellation /
    diagrammes, halftone/riso, papier déchiré/froissé, **grand cercle** focal, dots & traits
    géométriques.
-3. **Fond** : papier crème warm texturé (**warm**, défaut) OU encre profonde (**atmosphérique**,
+3. **Fond** : papier clair texturé (**clair**, défaut) OU encre profonde (**atmosphérique**,
    sombre).
 4. **Couleur** : neutre monochrome + **un seul accent teal `#00D9A3` et ses nuances**. Tout
    rouge/orange/bleu des refs est remappé teal.
 5. **Zéro texte, zéro logo.** Pur illustratif. Énorme respiration, premium, jamais AI-slop ni grunge
    brouillon.
-6. **Anchors** : abstrait warm = `illu1-mind-threads` + `illu9-statue-tree` · abstrait sombre =
+6. **Anchors** : abstrait clair = `illu1-mind-threads` + `illu9-statue-tree` · abstrait sombre =
    `illu7-cosmos-astronaut` (ou `illu10-light-corridor`) · semi-concret / cover =
    `illu2-statue-laptop` + `illu4-plugged-in` (ou `illu6-phone-collage`).

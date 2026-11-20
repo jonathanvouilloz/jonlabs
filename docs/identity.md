@@ -1,15 +1,19 @@
 ---
 project: jonlabs
 brand_name: Jon Labs
-positioning: Visibilité Google + IA (SEO/GEO) pour PME et TPE de Suisse romande
-audience: Dirigeant / indépendant TPE-PME romand (30-55 ans, 1-15 personnes, GE/VD/NE).
-  Non-technique. Site vieilli ou invisible sur Google.
+positioning: 'Intégration IA sur mesure pour PME, TPE et structures parapubliques
+  de Suisse romande : agents, automatisations et applications qui suppriment l''administratif
+  sans valeur ajoutée'
+audience: Dirigeant de PME ou TPE romande (privée, inbound) ou responsable d'une structure
+  parapublique ou associative avec du budget (outbound, réseau). Occupé, conscient
+  de son problème, touche lui-même l'outil de temps en temps, prêt à investir. Non-technique.
 tone:
 - direct
 - concret
-- sans bullshit marketing
+- tranché
+- fun
 - ne se prend pas au sérieux
-- à contre-courant du tout-génératif
+- jamais gourou
 register:
   default: tutoiement
   formal: vouvoiement
@@ -33,7 +37,7 @@ banned_words:
 colors:
   primary: '#00D9A3'
   text: '#14161A'
-  background: '#F5F4F0'
+  background: '#FFFFFF'
 language: fr-CH
 website: https://www.jonlabs.ch
 ---

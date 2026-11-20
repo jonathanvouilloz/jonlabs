@@ -14,7 +14,7 @@ Palette mono-teal partout. Les squelettes de prompt correspondants sont dans `di
 | **Mythe / opinion** | affirmation tranchée | `ref4` | minimal + étiquette | `1024x1024` | 1:1 | — | wordmark | gpt-image-2 |
 | **Problem / Solution** | opposition d'approches | `ref1` + `ref4` | 2 cartes + connecteur coudé | `1024x1536` | 4:5 | pad | wordmark | gpt-image-2 |
 | **Data chiffrée** | %, dot-grid, chiffres | `ref3` | dot-grid teal + gris | — | portrait | — | wordmark | **rendu par code** |
-| **Illustration — abstrait** | tête de chapitre, réseaux, illustrer une phrase | `illu1` + `illu9` (warm) · `illu7` (sombre) | collage éditorial, métaphore pure | `1024x1536` | 4:5 · 2:3 | `pad` explicite — **jamais sur fond sombre** | **none** | gpt-image-2 |
+| **Illustration — abstrait** | tête de chapitre, réseaux, illustrer une phrase | `illu1` + `illu9` (clair) · `illu7` (sombre) | collage éditorial, métaphore pure | `1024x1536` | 4:5 · 2:3 | `pad` explicite — **jamais sur fond sombre** | **none** | gpt-image-2 |
 | **Illustration — semi-concret** | **cover d'article de blog** | `illu2` + `illu4` (ou `illu6`) | 1 objet concret + statue en signature | `1536x1024` | **16:9** | **crop** | **none** | gpt-image-2 |
 
 ## Formats et finitions
@@ -25,8 +25,8 @@ finitions :
 
 - **`crop`** — recadrage centré. C'est le **défaut** : il livre le ratio demandé sans rien insérer
   dans l'image. `1536x1024` (3:2) → `1536x864` (16:9), soit 160px retirés verticalement.
-- **`pad`** — étendre le canvas en `#F3F3F1` jusqu'au ratio cible. Aucune perte de composition, mais
-  des bandes warm apparaissent. À **demander explicitement**, quand aucun bord ne doit tomber.
+- **`pad`** — étendre le canvas en `#F4F4F2` jusqu'au ratio cible. Aucune perte de composition, mais
+  des bandes claires apparaissent. À **demander explicitement**, quand aucun bord ne doit tomber.
 
 Le runtime accepte une taille non native : il rend au natif le plus proche puis convertit. C'est du
 rattrapage, pas une pratique — un preset qui vise juste pose une taille native.
@@ -36,7 +36,7 @@ rattrapage, pas une pratique — un preset qui vise juste pose une taille native
 > le 19/07 font `1536x864`, donc **crop**. Tranché ici : `crop` est le défaut, `pad` se demande.
 > La colonne « Finition » de la table ci-dessus dit lequel s'applique par typologie.
 
-**Fond sombre** : ne jamais padder en warm une illustration atmosphérique — le `#F3F3F1` jure sur un
+**Fond sombre** : ne jamais padder en clair une illustration atmosphérique — le `#F4F4F2` jure sur un
 fond encre. Générer au natif le plus proche du ratio voulu et ne pas finir, ou padder dans le ton du
 visuel.
 
@@ -46,7 +46,7 @@ La typologie `illustration` a deux niveaux, à router selon le **placement**, pa
 
 | Niveau | Principe | Placement | Anchors |
 |---|---|---|---|
-| **Abstrait** | métaphore pure : statue + esprit/fils, aucun objet du quotidien | réseaux sociaux, tête de chapitre, illustrer une phrase | `illu1-mind-threads` + `illu9-statue-tree` (warm) · `illu7-cosmos-astronaut` (sombre) |
+| **Abstrait** | métaphore pure : statue + esprit/fils, aucun objet du quotidien | réseaux sociaux, tête de chapitre, illustrer une phrase | `illu1-mind-threads` + `illu9-statue-tree` (clair) · `illu7-cosmos-astronaut` (sombre) |
 | **Semi-concret** | UN objet concret reconnaissable qui **nomme le sujet** + statue en **signature** discrète | **cover d'article de blog / Substack** — l'image doit annoncer le thème | `illu2-statue-laptop` + `illu4-plugged-in` (ou `illu6-phone-collage`) |
 
 - **Règle semi-concret** : toujours une ancre concrète (laptop + UI, navigateur/maquette de site,

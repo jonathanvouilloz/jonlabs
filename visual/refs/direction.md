@@ -15,10 +15,10 @@ Routage typologie → ancrage / format / finition : `typologies.md`.
 
 ```text
 SYSTÈME VISUEL VERROUILLÉ (identique sur tous les visuels de la marque jonlabs) :
-- PALETTE STRICTE : un seul accent couleur = vert #00D9A3 (teal). AUCUN autre vert, AUCUNE autre couleur vive (pas de lime, bleu, orange, violet). Tout le reste est NEUTRE : encre #111315, blanc cassé warm #F3F3F1 / #F5F5F2, gris #ECEDEA / #6F7471 / #D8DCD8. En cas de doute, rester neutre. Le vert est un SIGNAL (un mot-clé, un trait, un nœud, un soulignement), jamais une grande surface.
+- PALETTE STRICTE : un seul accent couleur = vert #00D9A3 (teal). AUCUN autre vert, AUCUNE autre couleur vive (pas de lime, bleu, orange, violet). Tout le reste est NEUTRE : encre #14161A, blanc #FFFFFF, gris très clair #F4F4F2, gris #F4F4F2 / #686C70 / #E3E4E1. En cas de doute, rester neutre. Le vert est un SIGNAL (un mot-clé, un trait, un nœud, un soulignement), jamais une grande surface.
 - TYPO : sans serif moderne uniquement (esprit Inter / Geist), jamais de serif, titres nets PAS en graisse lourde, tracking légèrement resserré. AUCUN tiret cadratin.
 - Beaucoup d'espace négatif, alignements propres, peu d'éléments. Calme, premium, haut de goût.
-- Fond blanc cassé warm, jamais blanc clinique pur.
+- Fond blanc #FFFFFF ou gris très clair #F4F4F2 (couleurs du site jonlabs.ch).
 - NE DESSINE AUCUN logo, AUCUN wordmark, AUCUN mot « jonlabs » : laisse une marge basse propre et VIDE (un vrai logo sera composé par-dessus ensuite).
 - Texte en FRANÇAIS, orthographe stricte et lisible.
 - À éviter : surcharge, AI-slop, fautes, badges inutiles au-dessus du titre, gradients gratuits, look corporate, et TOUTE couleur autre que neutre + #00D9A3.
@@ -30,14 +30,14 @@ SYSTÈME VISUEL VERROUILLÉ (identique sur tous les visuels de la marque jonlabs
 
 Pour la seule typologie `illustration` (covers d'articles, têtes de chapitre, illustrer une phrase).
 **Remplace** le bloc standard, ne s'y ajoute pas. Différences clés : aucun texte, nuances de teal
-autorisées, fond warm **ou** sombre.
+autorisées, fond clair **ou** sombre.
 
 ```text
 SYSTÈME VISUEL VERROUILLÉ — DIRECTION ILLUSTRATION jonlabs (collage éditorial conceptuel, SANS texte) :
 - AUCUN TEXTE : pas un seul mot, pas une lettre, pas un chiffre. Image purement illustrative.
-- PALETTE : tout est NEUTRE et monochrome (encre #111315, gris, papier crème warm #F3F3F1 / #F5F5F2). UN SEUL accent coloré = le TEAL #00D9A3 et ses NUANCES uniquement (un teal plus foncé, un teal plus clair, pour la variance de valeur). AUCUNE autre teinte : pas de rouge, orange, jaune, bleu, violet. Si une couleur vive est suggérée (grand cercle, lumière, fils), elle est TEAL.
+- PALETTE : tout est NEUTRE et monochrome (encre #14161A, gris, papier gris très clair #F4F4F2). UN SEUL accent coloré = le TEAL #00D9A3 et ses NUANCES uniquement (un teal plus foncé, un teal plus clair, pour la variance de valeur). AUCUNE autre teinte : pas de rouge, orange, jaune, bleu, violet. Si une couleur vive est suggérée (grand cercle, lumière, fils), elle est TEAL.
 - STYLE : illustration éditoriale haut de gamme / collage conceptuel surréaliste. Calme, premium, beaucoup d'espace négatif. JAMAIS d'AI-slop, jamais de grunge brouillon, jamais de look stock-photo corporate.
-- TEXTURE : grain fin / halftone-riso / papier déchiré subtils. Fond crème warm texturé (jamais blanc clinique) OU, pour l'ambiance sombre, fond encre profond texturé.
+- TEXTURE : grain fin / halftone-riso / papier déchiré subtils. Fond papier clair texturé #F4F4F2 OU, pour l'ambiance sombre, fond encre profond texturé.
 - NE DESSINE AUCUN logo, AUCUN wordmark, AUCUN texte « jonlabs ». Laisse les marges propres et vides.
 - ÉCRANS & DOCUMENTS : si l'image montre un écran, une interface, un papier ou une maquette, ils ne portent AUCUN faux texte ni fausse ligne de code lisibles — uniquement des blocs, des formes et des glyphes réduits au strict minimum, non lisibles.
 - À éviter : texte de toute sorte, faux texte / fausses lignes de code / UI avec texte lisible, watermark, légende, surcharge, secondes couleurs vives, rendu sale.
@@ -111,7 +111,7 @@ TEXTE EXACT :
 
 ## Illustration — niveau ABSTRAIT (métaphore pure)
 
-Préfixer la **variante ILLUSTRATION** du bloc verrouillé. Anchors warm `illu1-mind-threads` +
+Préfixer la **variante ILLUSTRATION** du bloc verrouillé. Anchors clairs `illu1-mind-threads` +
 `illu9-statue-tree`, ou sombre `illu7-cosmos-astronaut`. Natif `1024x1536`, finition `pad` à demander
 explicitement si aucun bord ne doit tomber. `logo: none`.
 
@@ -120,7 +120,7 @@ TYPOLOGIE illustration éditoriale conceptuelle, AUCUN texte. Collage / illustra
 CONCEPT à incarner (sans l'écrire) : [l'idée centrale en 1 phrase, ex. « la surcharge d'informations » / « la sagesse ancienne face à l'IA » / « l'esprit qui se déploie »].
 SUJET (en choisir 1) : [buste / statue antique plâtre N&B] OU [figure vintage N&B mid-century] OU [silhouette à l'encre]. Souvent centré sur LA TÊTE / L'ESPRIT (tête ouverte, pensées qui s'échappent, cerveau connecté).
 MÉTAPHORE VISUELLE : [ex. des centaines de fils d'encre fins emmêlés s'échappant de la tête · un grand cercle teal en point focal derrière le sujet · une tête ouverte d'où pousse [un arbre / une architecture / une carte d'étoiles] · des bandes et dots géométriques · un collage de papier déchiré].
-AMBIANCE : [warm — fond papier crème texturé, défaut] OU [atmosphérique — fond encre profond texturé, grain dense].
+AMBIANCE : [clair — fond papier clair texturé, défaut] OU [atmosphérique — fond encre profond texturé, grain dense].
 ACCENT : un seul, TEAL #00D9A3 et ses nuances (le grand cercle / les fils / la lumière / le point focal). Tout le reste neutre N&B.
 COMPOSITION : un seul sujet fort, énorme espace négatif, marges propres et vides (aucun logo, aucun texte).
 ```

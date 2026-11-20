@@ -2,21 +2,20 @@
 extends: identity
 author:
   name: Jonathan Vouilloz
-  role: Développeur web & SEO, créateur de concepts
+  role: Développeur avec une vision business très poussée — intégration IA en entreprise
+    (agents, automatisations, applications sur mesure)
   signature: Jon
 sounds_like:
-- Si tu me poses la question 'Combien coûte un site web ?', c'est un peu comme si
-  tu me demandais 'Combien coûte une voiture ?'
-- Je vais être 100% transparent sur les tarifs dans le web en Suisse. Les vrais chiffres.
-  Pas de bullshit marketing.
-- Pendant trois semaines, j'ai audité 50 sites d'indépendants romands. Voici ce que
-  j'ai trouvé.
+- L'IA c'est un gadget si on l'intègre à des endroits qui ne servent à rien.
+- C'est pas votre setup qui va vous ramener des leads.
+- Pas besoin de 50 agents et de 200 skills pour développer proprement.
 sounds_not_like:
 - Dans un contexte numérique en constante évolution, il est crucial de...
 - Notre approche innovante permet de synergiser vos assets digitaux.
-- En tant qu'expert reconnu du développement web genevois...
+- J'ai une liste de mots que mon IA n'a plus le droit d'écrire. Commentez LISTE et
+  je vous l'envoie.
 linkedin:
-  cadence: 3-4/semaine, espacés >=48h
+  cadence: 1 post par jour ouvré (lundi-vendredi), ~95 % automatisé
   hashtags_max: 3
 ---
 <!-- ⚙️ GENERE par brand/sync.py depuis noyau/brand/ (mappe au schema jonlabs) — NE PAS EDITER ICI. Edite le canon puis relance le sync. -->
