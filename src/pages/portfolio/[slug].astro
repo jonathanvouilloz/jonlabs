@@ -54,6 +54,8 @@ const insights = d.learnings?.insights ?? [];
 const limits = d.learnings?.limitations ?? [];
 const factors = d.successFactors ?? [];
 const shots = d.resultImages ?? [];
+// Un seul lien sortant : le projet livré s'il est en ligne, sinon le site du client (cas d'automatisation).
+const link = d.liveUrl ?? d.client?.website;
 const hasBody = entry.body.trim().length > 0;
 const pad = (i: number) => String(i).padStart(2, '0');
 // Le compteur de v2-ui lit « préfixe + nombre + suffixe » et réécrit la virgule en point :
@@ -132,10 +134,9 @@ const schemas = [caseStudySchema, getBreadcrumbSchema([
             )}
             <div class="cas-c-aside">
               {d.status && <p class="v2-meta"><span><i class="v2-live"></i>{statusLabels[d.status]}</span></p>}
-              {(d.liveUrl || d.client?.website) && (
+              {link && (
                 <div class="cas-c-links">
-                  {d.liveUrl && <a href={d.liveUrl} target="_blank" rel="noopener noreferrer" class="v2-btn v2-btn-sm"><span data-roll>Voir le projet en ligne</span> <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>}
-                  {d.client?.website && d.client.website !== d.liveUrl && <a href={d.client.website} target="_blank" rel="noopener noreferrer" class="v2-btn v2-btn-sm v2-btn-ghost"><span data-roll>Site client</span> <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>}
+                  <a href={link} target="_blank" rel="noopener noreferrer" class="v2-btn v2-btn-sm"><span data-roll>{d.liveUrl ? 'Voir le projet en ligne' : 'Voir le site du client'}</span> <i class="ri-arrow-right-up-line" aria-hidden="true"></i></a>
                 </div>
               )}
             </div>
@@ -389,6 +390,13 @@ const schemas = [caseStudySchema, getBreadcrumbSchema([
   .cas-c-toc { grid-column: 1 / -1; border-top: 1px solid var(--line); padding: 14px var(--pad); }
   .v2 .cas-c-toc ol { list-style: none; padding: 0; gap: 8px 22px; }
   .cas-c-toc a span { color: var(--accent-strong); }
+  /* Desktop : une colonne égale par chapitre, numéro au-dessus du libellé, jamais de retour à la ligne bancal. */
+  @media (min-width: 901px) {
+    .cas-c-toc { padding: 0; }
+    .v2 .cas-c-toc ol { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); align-items: stretch; gap: 0; }
+    .cas-c-toc li + li { border-left: 1px solid var(--line); }
+    .cas-c-toc a { display: grid; align-content: start; gap: 4px; height: 100%; padding: 14px 16px; text-decoration: none; }
+  }
   .v2 .cas-c-toc a:hover { color: var(--ink); }
   .cas-c-img img { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
 

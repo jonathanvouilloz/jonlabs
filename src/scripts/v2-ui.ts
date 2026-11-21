@@ -40,8 +40,9 @@ if (top && dock) {
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
 }
 
-// Le masque d'un mot (overflow: clip) coupe les descendantes avec un interligne < 1 : on l'agrandit vers le bas sans décaler la ligne.
-const roomForDescenders = (words: HTMLElement[]) => words.forEach((w) => { const m = w.parentElement!; m.style.paddingBottom = '.14em'; m.style.marginBottom = '-.14em'; });
+// Le masque d'un mot (overflow: clip) coupe les descendantes (interligne < 1) et la dernière lettre (letter-spacing négatif) :
+// on l'agrandit vers le bas et vers la droite sans décaler la ligne.
+const roomForDescenders = (words: HTMLElement[]) => words.forEach((w) => { const m = w.parentElement!; m.style.padding = '0 .08em .14em 0'; m.style.margin = '0 -.08em -.14em 0'; });
 
 // Titre du hero : lettres qui montent.
 $$('[data-chars]').forEach((el) => {

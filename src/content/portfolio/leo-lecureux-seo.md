@@ -1,5 +1,5 @@
 ---
-title: "SEO local pour un juriste à Genève"
+title: "Léo Lécureux, juriste à Genève : SEO local"
 description: "De zéro au #1 sur sa niche en 5 mois — Comment j'ai positionné un juriste en droit de la restauration à Genève. Étude de cas SEO local."
 date: 2025-09-01
 draft: false
