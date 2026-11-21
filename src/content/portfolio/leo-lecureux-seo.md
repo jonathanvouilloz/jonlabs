@@ -1,6 +1,6 @@
 ---
 title: "Léo Lécureux, juriste à Genève : SEO local"
-description: "De zéro au #1 sur sa niche en 5 mois — Comment j'ai positionné un juriste en droit de la restauration à Genève. Étude de cas SEO local."
+description: "De zéro au #1 sur sa niche en 5 mois : comment j'ai positionné un juriste en droit de la restauration à Genève. Étude de cas SEO local."
 date: 2025-09-01
 draft: false
 featured: true
@@ -52,7 +52,7 @@ results:
 context:
   clientDescription: "Léo Lécureux est juriste diplômé de l'Université de Genève, en cours de formation pour devenir avocat. Il souhaitait développer une activité de conseil juridique en parallèle, avec un positionnement tarifaire accessible (75-95 CHF/h contre 450 CHF/h pour un avocat établi). Son domaine d'expertise : le droit de la restauration à Genève (LRDBHD, patentes, autorisations d'exploitation, contrôles sanitaires)."
   challenge: "Léo partait de zéro : aucun site indexé sur Google, aucune présence en ligne professionnelle. Le marché juridique genevois est saturé avec plus de 800 cabinets établis. Des contraintes déontologiques strictes interdisent le marketing agressif dans le milieu juridique."
-  whyThisProject: "Début 2025, je me suis formé au SEO de manière autodidacte. J'avais besoin d'un cas concret pour tester mes apprentissages sur un vrai projet avec de vrais enjeux. Léo, une connaissance devenue proche, cherchait à développer sa visibilité en ligne. L'échange était clair : une collaboration où chacun y gagnait — lui sa présence digitale, moi un terrain d'expérimentation concret."
+  whyThisProject: "Début 2025, je me suis formé au SEO de manière autodidacte. J'avais besoin d'un cas concret pour tester mes apprentissages sur un vrai projet avec de vrais enjeux. Léo, une connaissance devenue proche, cherchait à développer sa visibilité en ligne. L'échange était clair : une collaboration où chacun y gagnait : lui sa présence digitale, moi un terrain d'expérimentation concret."
 
 approach:
   - phase: 1
@@ -107,10 +107,10 @@ learnings:
     - "Un seul article de blog publié alors que le potentiel était énorme"
     - "Site actuellement en pause (Léo en stage d'avocat, contraintes déontologiques)"
   insights:
-    - "Les outils gratuits suffisent pour démarrer — Google Search Console + bon sens + terrain permettent d'obtenir des résultats concrets"
-    - "La niche bat le volume — Mieux vaut être #1 sur une requête précise à 50 recherches/mois qu'invisible sur une requête générique"
-    - "Le SEO local a ses propres règles — La spécificité géographique est un levier puissant"
-    - "La patience paie — Les résultats SEO prennent du temps, mais une fois établis, ils persistent sans effort supplémentaire"
+    - "Les outils gratuits suffisent pour démarrer : Google Search Console + bon sens + terrain permettent d'obtenir des résultats concrets"
+    - "La niche bat le volume : mieux vaut être #1 sur une requête précise à 50 recherches/mois qu'invisible sur une requête générique"
+    - "Le SEO local a ses propres règles : la spécificité géographique est un levier puissant"
+    - "La patience paie : les résultats SEO prennent du temps, mais une fois établis, ils persistent sans effort supplémentaire"
 
 resultImages:
   - url: "/images/portfolio/leo-lecureux/search-console.webp"
@@ -144,6 +144,6 @@ liveUrl: "https://lecureux-conseil.ch"
 
 Ce projet a été l'occasion de mettre en pratique mes apprentissages en SEO sur un cas réel avec de vrais enjeux business. La collaboration avec Léo m'a permis de comprendre les spécificités du milieu juridique suisse et d'adapter ma stratégie en conséquence.
 
-Le site reste un actif pleinement fonctionnel, prêt à être réactivé dès la fin de son stage — preuve que le travail SEO bien fait crée de la valeur durable.
+Le site reste un actif pleinement fonctionnel, prêt à être réactivé dès la fin de son stage, preuve que le travail SEO bien fait crée de la valeur durable.
 
-Ce type de résultat — un site de niche bien structuré qui atteint le #1 sur ses requêtes cibles — est exactement ce que les IA génératives cherchent à citer. J'ai détaillé pourquoi dans [comment apparaître sur Claude](/blog/apparaitre-claude), qui utilise Brave Search plutôt que Google.
+Ce type de résultat, un site de niche bien structuré qui atteint le #1 sur ses requêtes cibles, est exactement ce que les IA génératives cherchent à citer. J'ai détaillé pourquoi dans [comment apparaître sur Claude](/blog/apparaitre-claude), qui utilise Brave Search plutôt que Google.
