@@ -16,10 +16,10 @@ project:
   category: "side-project"
 
 heroImage:
-  url: "/images/portfolio/barnaby/review-light.webp"
-  width: 1360
-  height: 730
-  alt: "Barnaby : relecture des passages incertains d'une réunion transcrite"
+  url: "/images/portfolio/barnaby/mockup.webp"
+  width: 1536
+  height: 1024
+  alt: "Le site de Barnaby, mybarnaby.app, affiché sur un téléphone"
 
 tags:
   - "Open source"

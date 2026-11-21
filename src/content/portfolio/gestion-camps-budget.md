@@ -19,12 +19,12 @@ project:
   platform: "SvelteKit · Vercel"
   category: "application"
 
-# Placeholder volontaire : les captures du guide (données de démo) affichent le nom du client, non publiables
+# Captures du mode démo de l'app (données fictives), nom du client masqué
 heroImage:
-  url: "/images/portfolio/gestion-camps-budget/hero.webp"
+  url: "/images/portfolio/gestion-camps-budget/mockup.webp"
   width: 1536
   height: 1024
-  alt: "Application de budget pour camps de vacances : dépenses, justificatifs et rapport comptable"
+  alt: "Application de budget pour camps de vacances : tableau de bord d'un camp sur ordinateur, saisie d'une dépense sur téléphone"
 
 tags:
   - "Application web mobile"
@@ -52,6 +52,12 @@ approach:
       - "Rôles distincts : responsable, moniteur, staff, lecture seule"
       - "Saisie d'une dépense en trois étapes"
       - "Photo du justificatif prise dans l'application"
+    image:
+      url: "/images/portfolio/gestion-camps-budget/mobile.webp"
+      alt: "Sur téléphone : saisie du montant, liste des dépenses du camp, tableau de bord du budget"
+      caption: "Sur le téléphone du responsable : saisir, retrouver, suivre le budget (données fictives)"
+      width: 1330
+      height: 924
   - phase: 2
     title: "Relier l'application à la base centrale"
     description: "Les données restent chez l'association. L'application lit et écrit dans leur système central existant par son API, au lieu de créer une base de plus à tenir à jour."
@@ -66,6 +72,12 @@ approach:
       - "Tableau de bord multi-camps"
       - "Rapport comptable PDF avec justificatifs"
       - "Export Excel"
+    image:
+      url: "/images/portfolio/gestion-camps-budget/admin.webp"
+      alt: "Administration : liste des camps à venir avec budget alloué, dépenses et rapport PDF"
+      caption: "La vue administration, tous les camps sur une page (données fictives)"
+      width: 1440
+      height: 900
   - phase: 4
     title: "Le reste de la vie du camp"
     description: "Le budget n'est qu'une partie du travail. Le planning de la semaine et la répartition de l'équipe passent aussi par l'application."
@@ -92,6 +104,22 @@ learnings:
   limitations:
     - "L'application est en production, mais pas encore utilisée sur tous les camps."
     - "Le gain de 2 h par camp est une estimation. La mesure réelle viendra de la comptabilité, sur les camps de la saison."
+resultImages:
+  - url: "/images/portfolio/gestion-camps-budget/tableau-de-bord.webp"
+    alt: "Tableau de bord d'un camp : budget initial, dépensé, restant, évolution des dépenses"
+    caption: "Le budget du camp, à jour à chaque dépense"
+    width: 1440
+    height: 900
+  - url: "/images/portfolio/gestion-camps-budget/depenses.webp"
+    alt: "Comptabilité d'un camp : liste des dépenses en francs et en euros, export et rapport PDF"
+    caption: "Les dépenses, en francs ou en euros, avec export et rapport"
+    width: 1440
+    height: 900
+  - url: "/images/portfolio/gestion-camps-budget/admin.webp"
+    alt: "Administration : vue consolidée de tous les camps"
+    caption: "L'administration voit tous les camps d'un coup d'œil"
+    width: 1440
+    height: 900
 ---
 
 > Un ticket de caisse photographié au moment de payer, une dépense saisie en trois gestes, un rapport comptable prêt à la fin du camp. Pas d'IA ici : juste moins de ressaisie et moins de tickets perdus.
@@ -106,6 +134,10 @@ learnings:
 | **Administration** | Tableau de bord de tous les camps, export Excel |
 | **Rapport comptable** | PDF généré par camp, justificatifs compris |
 | **Synchronisation** | Les données restent dans le système central de l'association |
+
+## À quoi ça ressemble
+
+L'application tourne en production. Les captures de cette page viennent de son mode démo : l'interface est la vraie, les camps, les noms et les montants sont fictifs. Le responsable saisit sur son téléphone, l'administration suit tous les camps depuis son ordinateur.
 
 ## Le partage du travail
 
