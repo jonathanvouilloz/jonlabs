@@ -217,12 +217,12 @@ const SLIDES = [
  },
 
 {t:"Aujourd'hui", min:2, half:'r', html:`
-  ${HALF('patinoire','r','center')}
-  <div class="pad" style="right:44%;padding-right:56px">
-    <h2 style="font-size:44px">Où vous en êtes<br>aujourd'hui.</h2>
-    <div class="cols" style="grid-template-columns:1fr 1.35fr;gap:32px">
-      <div class="item rule"><h3>Ce qui marche, on le garde</h3><p>Les réservations sur toute une saison.<br>Le planning qui alimente les écrans du hall et l'équipe technique.<br>Une organisation rodée par votre secrétariat.</p></div>
-      <div class="item rule"><h3>Ce qui vous prend du temps</h3><p>Chercher un créneau, date par date.<br>Les e-mails, reportés à la main dans le logiciel.<br>La confirmation sous Word, imprimée, signée, scannée.<br>Aucune statistique.<br>La patinoire, difficile à reprendre en cas d'absence.</p></div>
+  <div class="half r" style="width:30%;background-image:${U('patinoire')};background-position:center"></div>
+  <div class="pad" style="right:30%;padding-right:48px">
+    <h2 style="font-size:44px">Où vous en êtes aujourd'hui.</h2>
+    <div class="cols" style="grid-template-columns:1fr 1fr;gap:40px;margin-top:8px">
+      <div class="item rule"><h3 style="margin-bottom:8px">Ce qui marche, on le garde</h3><p style="white-space:nowrap;font-size:18px;line-height:1.3;padding:7px 0;color:var(--soft)">Les réservations sur toute une saison</p><p style="white-space:nowrap;font-size:18px;line-height:1.3;padding:7px 0;color:var(--soft)">Les écrans du hall et l'équipe technique</p><p style="white-space:nowrap;font-size:18px;line-height:1.3;padding:7px 0;color:var(--soft)">Une organisation bien rodée</p></div>
+      <div class="item rule"><h3 style="margin-bottom:8px">Ce qui vous prend du temps</h3><p style="white-space:nowrap;font-size:18px;line-height:1.3;padding:7px 0;color:var(--soft)">Chercher un créneau, date par date</p><p style="white-space:nowrap;font-size:18px;line-height:1.3;padding:7px 0;color:var(--soft)">Les e-mails ressaisis à la main</p><p style="white-space:nowrap;font-size:18px;line-height:1.3;padding:7px 0;color:var(--soft)">La confirmation Word, signée, scannée</p><p style="white-space:nowrap;font-size:18px;line-height:1.3;padding:7px 0;color:var(--soft)">Aucune statistique</p><p style="white-space:nowrap;font-size:18px;line-height:1.3;padding:7px 0;color:var(--soft)">La patinoire, difficile à reprendre</p></div>
     </div>
     <p class="small" style="margin-top:22px">Éléments retenus lors de nos échanges.</p>
   </div>`
@@ -272,15 +272,16 @@ const SLIDES = [
 {t:"La solution", min:2, html:`
   <div class="pad">
     <h2 style="max-width:none;font-size:44px;margin-bottom:12px">Une solution qui vous fait gagner du temps.</h2>
-    <p class="lead" style="max-width:none;font-size:21px;margin-bottom:22px">À la rentrée : 6 à 8 demandes par jour, 9 sur 10 sur plusieurs dates.</p>
+    <p class="lead" style="max-width:none;font-size:22px;margin-bottom:4px;color:var(--ink)">On garde ce qui marche déjà. On modernise ce qui doit l'être.</p>
+    <p class="small" style="margin-bottom:16px">À la rentrée : 6 à 8 demandes par jour, 9 sur 10 sur plusieurs dates.</p>
     <table class="ba">
       <tr><th>Aujourd'hui</th><th>Avec l'application</th></tr>
       <tr><td>Chaque date, une par une</td><td>Recherche par date, horaire et installation. En un clic.</td></tr>
-      <tr><td>Créneau pris : alternative à la main</td><td>Une alternative proposée automatiquement. Vous validez, ou pas.</td></tr>
-      <tr><td>Imprimer, signer, scanner, envoyer</td><td>Préparée, validée à l'écran, archivée. Sans impression.</td></tr>
-      <tr><td>Un planning difficile à lire</td><td>Installations en couleur, une version visuelle du centre, aussi sur téléphone</td></tr>
+      <tr><td>Créneau pris : alternative à la main</td><td>Une alternative proposée, vous validez.</td></tr>
+      <tr><td>Imprimer, signer, scanner, envoyer</td><td>Validée à l'écran, imprimée seulement si nécessaire.</td></tr>
+      <tr><td>Un planning difficile à lire</td><td>Une version visuelle du centre, aussi sur téléphone.</td></tr>
       <tr><td>Aucune statistique</td><td>Écoles, élèves, occupation : pour le Bureau</td></tr>
-      <tr><td>Les séries longue durée</td><td>Reprises d'office : créer sur une période, modifier sur une période</td></tr>
+      <tr><td>Les séries longue durée</td><td>Reprises telles quelles, rien ne se perd.</td></tr>
     </table>
   </div>`
  },
@@ -303,7 +304,7 @@ const SLIDES = [
   <div class="pad">
     <h2>Comment est-ce que ça se déroule ?</h2>
     <div class="steps" style="grid-template-columns:repeat(3,1fr);margin-top:64px">
-      <div class="step"><div class="when">Dès votre accord</div><h3>On cartographie</h3><p>Une séance ensemble pour tout mettre à plat.</p></div>
+      <div class="step"><div class="when">Dès votre accord</div><h3>On cartographie</h3><p>Une séance approfondie avec Corinne pour mettre à plat tous les processus.</p></div>
       <div class="step"><div class="when">Environ 7 semaines</div><h3>Réalisation et essais</h3><p>Vos données reprises, les écrans du hall reliés, essais sur vos vrais cas.</p></div>
       <div class="step go"><div class="when">Quand vous le décidez</div><h3>Bascule</h3><p>L'outil actuel reste en service jusque-là. Les écrans du hall basculent avec.</p></div>
     </div>
@@ -317,7 +318,7 @@ const SLIDES = [
       <div><h3 style="margin-bottom:10px">Ce que je ne sais pas encore</h3><ul style="list-style:none"><li style="font-size:21px;line-height:1.35;padding:12px 0;border-top:1px solid var(--line);color:var(--ink)">Ce que paient exactement les écoles</li><li style="font-size:21px;line-height:1.35;padding:12px 0;border-top:1px solid var(--line);color:var(--ink)">Qui s'occupe des paiements</li><li style="font-size:21px;line-height:1.35;padding:12px 0;border-top:1px solid var(--line);color:var(--ink)">Le lien avec votre comptabilité</li><li style="font-size:21px;line-height:1.35;padding:12px 0;border-top:1px solid var(--line);color:var(--ink)">Comment les salles de réunion sont gérées aujourd'hui</li></ul></div>
       <div><h3 style="margin-bottom:10px">Ce que ça peut ouvrir ensuite</h3><ul style="list-style:none"><li style="font-size:21px;line-height:1.35;padding:12px 0;border-top:1px solid var(--line);color:var(--ink)">Le paiement en ligne des particuliers</li><li style="font-size:21px;line-height:1.35;padding:12px 0;border-top:1px solid var(--line);color:var(--ink)">La facturation automatique des clubs et partenaires</li></ul></div>
     </div>
-    <p class="lead" style="margin-top:40px;max-width:none;font-size:23px">Le but : déléguer au logiciel tout ce qui n'a pas de valeur ajoutée.</p>
+    <p style="margin-top:64px;text-align:center;font-size:34px;font-weight:600;letter-spacing:-.02em;line-height:1.25">Le but : déléguer au logiciel<br>tout ce qui n'a pas de valeur ajoutée.</p>
   </div>`
  },
 
@@ -326,8 +327,8 @@ const SLIDES = [
     <h2>Comment je travaille avec vous.</h2>
     <div class="gar">
       <div><h3>Joignable tout au long du projet</h3><p>Réponse sous 24 heures, jours ouvrés.</p></div>
-      <div><h3>Deux mois de maintenance offerts après la mise en production</h3><p>Bugs corrigés, ajustements faits, sans frais. Toujours sous 24 heures.</p></div>
-      <div><h3>Formation de A à Z</h3><p>Le temps qu'il faut pour que votre équipe sache tout faire.</p></div>
+      <div><h3>Deux mois de maintenance offerts après la mise en production</h3><p>Bugs urgents corrigés sous 24 heures, le reste sous 72 heures. Sans frais.</p></div>
+      <div><h3>Formation et documentation en vidéo</h3><p>Toute la plateforme expliquée, à revoir quand vous voulez, même pour un nouveau collègue.</p></div>
       <div><h3>Le code et la plateforme vous appartiennent</h3><p>Je reste pour maintenir et corriger. Un autre développeur pourrait reprendre.</p></div>
     </div>
     <div style="position:absolute;left:80px;right:80px;bottom:64px;text-align:center">
@@ -359,7 +360,7 @@ const SLIDES = [
   <div class="pad" style="padding-top:52px">
     <h2 style="margin-bottom:26px">Tout ce qui est compris.</h2>
     <div class="sheet" style="grid-template-columns:1.35fr 1fr .85fr;gap:0 44px">
-      <section><h3>La plateforme</h3><ul><li>Planning par jour, semaine et mois : toutes les installations et les salles de réunion</li><li>Réservations et séries sur toute une saison</li><li>Recherche de disponibilité, conflits détectés, alternatives proposées</li><li>Formulaire de demande pour écoles, clubs, communes et particuliers</li><li>Suivi des dossiers de A à Z : préparé, validé et signé par la direction, envoyé</li><li>Vue mobile pour l'équipe technique</li><li>Statistiques : écoles, élèves, occupation</li><li>Écrans du hall reliés, avec Ecran Double</li><li>Reprise des données, lien Microsoft 365, formation</li><li>Sauvegardes quotidiennes, historique des modifications</li></ul></section>
+      <section><h3>La plateforme</h3><ul><li>Planning par jour, semaine et mois : toutes les installations et les salles de réunion</li><li>Réservations et séries sur toute une saison</li><li>Recherche de disponibilité, conflits détectés, alternatives proposées</li><li>Formulaire de demande pour écoles, clubs, communes et particuliers</li><li>Suivi des dossiers de A à Z : préparé, validé et signé par la direction, envoyé</li><li>Vue mobile pour l'équipe technique</li><li>Statistiques : écoles, élèves, occupation</li><li>Écrans du hall reliés, avec Ecran Double</li><li>Reprise des données, lien Microsoft 365, formation et documentation en vidéo</li><li>Sauvegardes quotidiennes, historique des modifications</li></ul></section>
       <section><h3>Les modules</h3><ul><li>Assistant IA relié au planning</li><li>Assistant e-mails : demandes lues, réponses préparées</li><li>Visualisation 3D du centre et des installations</li><li>Portail écoles et clubs : réservations et factures visibles</li></ul></section>
       <section><h3>À chiffrer après la cartographie</h3><ul><li>Paiement en ligne des particuliers</li><li>Facturation automatique des clubs et partenaires</li></ul></section>
     </div>
@@ -370,7 +371,7 @@ const SLIDES = [
   <div class="pad" style="padding-top:52px">
     <h2 style="margin-bottom:24px">Votre investissement.</h2>
     <div style="display:grid;grid-template-columns:1.55fr 1fr;gap:44px;align-items:start">
-      <ul style="list-style:none"><li style="display:flex;gap:14px;font-size:20px;line-height:1.3;padding:9px 0;border-top:1px solid var(--line)"><span class="acc" style="font-weight:700">✓</span><span>Toute la plateforme, toutes les installations et les salles de réunion</span></li><li style="display:flex;gap:14px;font-size:20px;line-height:1.3;padding:9px 0;border-top:1px solid var(--line)"><span class="acc" style="font-weight:700">✓</span><span>Un assistant IA relié au planning et aux e-mails : demandes lues, réponses préparées</span></li><li style="display:flex;gap:14px;font-size:20px;line-height:1.3;padding:9px 0;border-top:1px solid var(--line)"><span class="acc" style="font-weight:700">✓</span><span>La visualisation 3D du centre et des installations</span></li><li style="display:flex;gap:14px;font-size:20px;line-height:1.3;padding:9px 0;border-top:1px solid var(--line)"><span class="acc" style="font-weight:700">✓</span><span>Le portail écoles et clubs : réservations et factures visibles</span></li><li style="display:flex;gap:14px;font-size:20px;line-height:1.3;padding:9px 0;border-top:1px solid var(--line)"><span class="acc" style="font-weight:700">✓</span><span>Un suivi des dossiers clair et tracé, signature de la direction comprise</span></li><li style="display:flex;gap:14px;font-size:20px;line-height:1.3;padding:9px 0;border-top:1px solid var(--line)"><span class="acc" style="font-weight:700">✓</span><span>La vue mobile pour l'équipe technique et les statistiques d'occupation</span></li><li style="display:flex;gap:14px;font-size:20px;line-height:1.3;padding:9px 0;border-top:1px solid var(--line)"><span class="acc" style="font-weight:700">✓</span><span>Reprise des données, Microsoft 365, écrans du hall, formation</span></li><li style="display:flex;gap:14px;font-size:20px;line-height:1.3;padding:9px 0;border-top:1px solid var(--line)"><span class="acc" style="font-weight:700">✓</span><span>Maintenance et suivi : 190 CHF par mois, les deux premiers mois offerts</span></li></ul>
+      <ul style="list-style:none"><li style="display:flex;gap:14px;font-size:20px;line-height:1.3;padding:9px 0;border-top:1px solid var(--line)"><span class="acc" style="font-weight:700">✓</span><span>Toute la plateforme, toutes les installations et les salles de réunion</span></li><li style="display:flex;gap:14px;font-size:20px;line-height:1.3;padding:9px 0;border-top:1px solid var(--line)"><span class="acc" style="font-weight:700">✓</span><span>Un assistant IA relié au planning et aux e-mails : demandes lues, réponses préparées</span></li><li style="display:flex;gap:14px;font-size:20px;line-height:1.3;padding:9px 0;border-top:1px solid var(--line)"><span class="acc" style="font-weight:700">✓</span><span>La visualisation 3D du centre et des installations</span></li><li style="display:flex;gap:14px;font-size:20px;line-height:1.3;padding:9px 0;border-top:1px solid var(--line)"><span class="acc" style="font-weight:700">✓</span><span>Le portail écoles et clubs : réservations et factures visibles</span></li><li style="display:flex;gap:14px;font-size:20px;line-height:1.3;padding:9px 0;border-top:1px solid var(--line)"><span class="acc" style="font-weight:700">✓</span><span>Un suivi des dossiers clair et tracé, signature de la direction comprise</span></li><li style="display:flex;gap:14px;font-size:20px;line-height:1.3;padding:9px 0;border-top:1px solid var(--line)"><span class="acc" style="font-weight:700">✓</span><span>La vue mobile pour l'équipe technique et les statistiques d'occupation</span></li><li style="display:flex;gap:14px;font-size:20px;line-height:1.3;padding:9px 0;border-top:1px solid var(--line)"><span class="acc" style="font-weight:700">✓</span><span>Reprise des données, Microsoft 365, écrans du hall, formation en vidéo</span></li><li style="display:flex;gap:14px;font-size:20px;line-height:1.3;padding:9px 0;border-top:1px solid var(--line)"><span class="acc" style="font-weight:700">✓</span><span>Maintenance et suivi : 190 CHF par mois, les deux premiers mois offerts</span></li></ul>
       <div class="opt big" style="padding:30px 32px">
         <div class="name">L'application complète</div>
         <div style="font-size:22px;color:rgba(255,255,255,.5);text-decoration:line-through;margin-top:16px">23'850 CHF</div>
