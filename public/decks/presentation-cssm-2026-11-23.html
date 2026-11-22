@@ -236,7 +236,7 @@ const SLIDES = [
     <div class="cols" style="grid-template-columns:1fr 1fr 1fr;gap:22px;margin-top:36px">
       <div class="stat rule"><b style="font-size:38px;white-space:nowrap">6 à 8</b><span>demandes par jour, de fin août à fin septembre</span></div>
       <div class="stat rule"><b style="font-size:38px;white-space:nowrap">9 sur 10</b><span>portent sur plusieurs dates</span></div>
-      <div class="stat rule"><b style="font-size:38px;white-space:nowrap">2 à 3</b><span>par jour le reste de l'année</span></div>
+      <div class="stat rule"><b style="font-size:38px;white-space:nowrap">2 à 3</b><span>par jour, d'octobre à novembre</span></div>
     </div>
     <p class="small" style="margin-top:26px">Chiffres relevés avec le secrétariat lors de ma visite.</p>
   </div>`
@@ -266,7 +266,7 @@ const SLIDES = [
 
 {t:"Solution · le centre", min:1.5, html: SHOW(
   "Une version visuelle du centre sportif.",
-  "Chaque installation en couleur, la journée heure par heure. Toute l'équipe voit qui est où, technique comprise.",
+  "Chaque installation en couleur, la journée heure par heure. Les vestiaires sont attribués avec la glace. Toute l'équipe voit qui est où, technique comprise.",
   "Écran du prototype",
   `<div style="max-width:680px;margin:0 auto">${SHOT('p_patinoire','Patinoire · prototype, données de démonstration')}</div>`)
  },
@@ -287,7 +287,7 @@ const SLIDES = [
   <div class="pad">
     <h2>Ce qu'il reste à cartographier ensemble.</h2>
     <div class="cols" style="grid-template-columns:1fr 1fr;gap:36px;margin-top:40px">
-      <div class="item rule"><h3>Ce que je ne sais pas encore</h3><p>Les particuliers.<br>Votre facturation : interne, l'outil, à la main ?<br>La comptabilité.</p></div>
+      <div class="item rule"><h3>Ce que je ne sais pas encore</h3><p>Ce que paient exactement les écoles.<br>Qui s'occupe des paiements.<br>Le lien avec votre comptabilité.</p></div>
       <div class="item rule"><h3>Ce que ça peut ouvrir</h3><p>Un portail : réservations et factures visibles par les écoles et clubs.<br>Le paiement en ligne des particuliers.<br>Des automatisations du travail redondant.</p></div>
     </div>
     <p class="lead" style="margin-top:40px;max-width:none;font-size:24px">Le but de la cartographie : déléguer au logiciel ce qui n'a pas de valeur ajoutée.</p>
@@ -358,7 +358,7 @@ const SLIDES = [
     <h2 style="font-size:32px;margin-bottom:22px">Application de réservation et de gestion du CSSM, en une page</h2>
     <div class="sheet">
       <div>
-        <section><h3>Le besoin</h3><p>Les demandes de réservation arrivent par e-mail et sont reportées à la main. La recherche d'un créneau se fait date par date. Chaque confirmation est imprimée, signée, scannée puis envoyée. Aucune statistique n'est disponible aujourd'hui.</p></section>
+        <section><h3>Le besoin</h3><p>Les demandes de réservation arrivent par e-mail et sont reportées à la main. La recherche d'un créneau se fait date par date. Chaque confirmation est écrite sous Word, imprimée, signée par le directeur, scannée puis envoyée. Aucune statistique n'est disponible aujourd'hui.</p></section>
         <section><h3>La proposition</h3><ul><li>Un planning unique pour toutes les installations, une version visuelle du centre</li><li>Recherche de disponibilité, détection des conflits, alternatives proposées</li><li>Demandes, confirmations validées à l'écran, séries longue durée conservées</li><li>Vue mobile pour l'équipe technique, statistiques d'occupation</li><li>Portail écoles et clubs : réservations et factures visibles (application complète)</li><li>Reprise des données de l'outil actuel, lien avec Microsoft 365, formation</li></ul></section>
         <section><h3>Déjà fait</h3><p>Un prototype du parcours de recherche et de réservation a été réalisé (proposition JL-CSSM-2026-01). Son prix est déduit de l'application.</p></section>
       </div>
@@ -376,7 +376,7 @@ const SLIDES = [
     <h2 style="font-size:32px;margin-bottom:22px">Ce qui est compris, ce qui ne l'est pas</h2>
     <div class="sheet">
       <div>
-        <section><h3>Compris dans les deux formules</h3><ul><li>Planning par jour, semaine et mois, par installation, impression et export</li><li>Réservations : créer, modifier, déplacer, annuler, séries longue durée (la même réservation sur une période, sa modification sur une période définie)</li><li>Règles : pas de double réservation, temps de préparation, fermetures</li><li>Formulaire de demande pour écoles, associations, communes, particuliers</li><li>Vue mobile du jour pour l'équipe technique</li><li>Confirmations et factures, relances</li><li>Statistiques : écoles par commune, élèves, gratuit et payant, occupation</li><li>Sauvegardes quotidiennes conservées 30 jours, historique des modifications</li></ul></section>
+        <section><h3>Compris dans les deux formules</h3><ul><li>Planning par jour, semaine et mois, par installation, impression et export</li><li>Réservations : créer, modifier, déplacer, annuler, séries longue durée (la même réservation sur une période, sa modification sur une période définie)</li><li>Règles : pas de double réservation, vestiaires attribués avec la glace, temps de préparation, fermetures</li><li>Formulaire de demande pour écoles, associations, communes, particuliers</li><li>Vue mobile du jour pour l'équipe technique, contact de l'organisateur visible</li><li>Confirmations et factures, relances</li><li>Statistiques : écoles par commune, élèves, gratuit et payant, occupation</li><li>Sauvegardes quotidiennes conservées 30 jours, historique des modifications</li></ul></section>
         <section><h3>En plus dans l'application complète</h3><ul><li>Assistant IA relié au planning : disponibilités, alternatives, en langage courant</li><li>Assistant e-mails : chaque demande lue, résumée, réponse préparée, envoi validé par le secrétariat</li><li>Visualisation 3D du centre et des installations</li><li>Portail écoles et clubs : réservations et factures visibles directement</li><li>Maintenance mensuelle avec rapport, accompagnement le mois suivant la mise en service</li></ul></section>
       </div>
       <div>
