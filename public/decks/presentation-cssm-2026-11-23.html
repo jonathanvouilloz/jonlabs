@@ -228,6 +228,47 @@ const SLIDES = [
   </div>`
  },
 
+{t:"Une demande, de A à Z", min:2, html:`
+  <style>
+    .fl-row{display:flex;align-items:center;gap:8px}
+    .fl-old{font-size:15px;color:var(--muted);background:var(--fill);border-radius:8px;padding:9px 12px;line-height:1.25;flex:1;text-align:center}
+    .fl-ar{color:var(--muted);font-size:20px;flex:none}
+    .fl-card{flex:1;border:1px solid var(--line);border-radius:12px;padding:14px 14px 16px;background:#fff;min-height:118px}
+    .fl-card b{display:block;font-size:13px;letter-spacing:.04em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+    .fl-card p{font-size:17px;line-height:1.35;color:var(--ink)}
+    .fl-card.end{background:var(--ink);border-color:var(--ink)} .fl-card.end p{color:#fff} .fl-card.end b{color:#E5B3A3}
+    .fl-dia{flex:none;width:104px;height:104px;transform:rotate(45deg);border:2px solid var(--accent);background:var(--tint);border-radius:10px;display:flex;align-items:center;justify-content:center;margin:0 10px}
+    .fl-dia span{transform:rotate(-45deg);font-size:14px;line-height:1.2;text-align:center;font-weight:600;width:110px}
+    .fl-br{flex:1.1;display:flex;flex-direction:column;gap:10px}
+    .fl-br div{border:1px solid var(--line);border-radius:10px;padding:9px 12px;font-size:15px;line-height:1.3;background:#fff}
+    .fl-br em{font-style:normal;font-weight:700;color:var(--accent);margin-right:6px}
+    .fl-lbl{font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin:0 0 10px}
+  </style>
+  <div class="pad">
+    <h2 style="margin-bottom:26px">Une demande de réservation, de A à Z.</h2>
+    <p class="fl-lbl" style="color:var(--muted)">Aujourd'hui · 7 étapes à la main</p>
+    <div class="fl-row">
+      <div class="fl-old">E-mail reçu</div><span class="fl-ar">→</span>
+      <div class="fl-old">Imprimé</div><span class="fl-ar">→</span>
+      <div class="fl-old">Dates vérifiées une par une</div><span class="fl-ar">→</span>
+      <div class="fl-old">Confirmation écrite sous Word</div><span class="fl-ar">→</span>
+      <div class="fl-old">Imprimée, signée par le directeur</div><span class="fl-ar">→</span>
+      <div class="fl-old">Scannée</div><span class="fl-ar">→</span>
+      <div class="fl-old">Envoyée</div>
+    </div>
+    <p class="fl-lbl acc" style="margin-top:40px">Avec la solution · une seule saisie, celle de l'école</p>
+    <div class="fl-row" style="gap:10px">
+      <div class="fl-card"><b>L'école</b><p>Remplit le formulaire : dates, horaires, installation.</p></div><span class="fl-ar">→</span>
+      <div class="fl-card"><b>Le logiciel</b><p>Vérifie toutes les dates d'un coup, propose les alternatives.</p></div><span class="fl-ar">→</span>
+      <div class="fl-card"><b>Le secrétariat</b><p>Crée les réservations en un clic.</p></div><span class="fl-ar">→</span>
+      <div class="fl-dia"><span>Signature de la direction&nbsp;?</span></div>
+      <div class="fl-br"><div><em>Oui</em>La direction reçoit une notification, valide et signe en un clic.</div><div><em>Non</em>On passe directement à l'envoi.</div></div><span class="fl-ar">→</span>
+      <div class="fl-card end"><b>L'école</b><p>Reçoit sa confirmation. Tout est archivé.</p></div>
+    </div>
+    <p class="lead" style="margin-top:44px;max-width:none;font-size:24px">Plus d'impression, plus de scan : la direction valide depuis son bureau ou son téléphone.</p>
+  </div>`
+ },
+
 {t:"Le temps", min:2, half:'r', html:`
   ${HALF('ecoles','r','center')}
   <div class="pad" style="right:44%;padding-right:56px">
