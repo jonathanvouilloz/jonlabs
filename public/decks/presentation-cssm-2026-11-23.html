@@ -219,11 +219,10 @@ const SLIDES = [
 {t:"Aujourd'hui", min:2, half:'r', html:`
   ${HALF('patinoire','r','center')}
   <div class="pad" style="right:44%;padding-right:56px">
-    <h2 style="font-size:44px">Ce qui vous prend<br>du temps aujourd'hui.</h2>
-    <div class="cols" style="gap:18px">
-      <div class="said rule"><small>Chercher un créneau</small>Une école demande dix dates, vérifiées une par une.</div>
-      <div class="said rule"><small>La patinoire</small>L'outil actuel la rend complexe, pas son métier.</div>
-      <div class="said rule"><small>Les e-mails</small>Tout arrive par e-mail, puis est reporté à la main dans le logiciel.</div>
+    <h2 style="font-size:44px">Où vous en êtes<br>aujourd'hui.</h2>
+    <div class="cols" style="grid-template-columns:1fr 1.35fr;gap:32px">
+      <div class="item rule"><h3>Ce qui marche, on le garde</h3><p>Les réservations sur toute une saison.<br>Le planning qui alimente les écrans du hall et l'équipe technique.<br>Une organisation rodée par votre secrétariat.</p></div>
+      <div class="item rule"><h3>Ce qui vous prend du temps</h3><p>Chercher un créneau, date par date.<br>Les e-mails, reportés à la main dans le logiciel.<br>La confirmation sous Word, imprimée, signée, scannée.<br>Aucune statistique.<br>La patinoire, difficile à reprendre en cas d'absence.</p></div>
     </div>
     <p class="small" style="margin-top:22px">Éléments retenus lors de nos échanges.</p>
   </div>`
@@ -277,7 +276,7 @@ const SLIDES = [
     <div class="steps" style="grid-template-columns:repeat(4,1fr);margin-top:56px">
       <div class="step"><div class="when">Dès votre accord</div><h3>On cartographie</h3><p>Installations, règles, cas particuliers : tout ce qui vous prend du temps.</p><div class="you"><b>Votre part</b>Une séance avec le secrétariat et la direction</div></div>
       <div class="step"><div class="when">Environ 7 semaines</div><h3>Réalisation</h3><p>Avancement visible en ligne.</p><div class="you"><b>Votre part</b>Vos remarques</div></div>
-      <div class="step"><div class="when">Hors saison de glace</div><h3>Essais et reprise</h3><p>Données de l'outil actuel reprises : aucune double saisie.</p><div class="you"><b>Votre part</b>Un essai sur vos vrais cas, la formation</div></div>
+      <div class="step"><div class="when">Hors saison de glace</div><h3>Essais et reprise</h3><p>Données de l'outil actuel reprises : aucune double saisie. Les écrans du hall reliés, avec Ecran&nbsp;Double.</p><div class="you"><b>Votre part</b>Un essai sur vos vrais cas, la formation</div></div>
       <div class="step go"><div class="when">Quand vous le décidez</div><h3>Bascule</h3><p>L'outil actuel reste en service jusque-là.</p><div class="you"><b>Votre part</b>Le feu vert</div></div>
     </div>
   </div>`
@@ -287,8 +286,8 @@ const SLIDES = [
   <div class="pad">
     <h2>Ce qu'il reste à cartographier ensemble.</h2>
     <div class="cols" style="grid-template-columns:1fr 1fr;gap:36px;margin-top:40px">
-      <div class="item rule"><h3>Ce que je ne sais pas encore</h3><p>Ce que paient exactement les écoles.<br>Qui s'occupe des paiements.<br>Le lien avec votre comptabilité.</p></div>
-      <div class="item rule"><h3>Ce que ça peut ouvrir</h3><p>Un portail : réservations et factures visibles par les écoles et clubs.<br>Le paiement en ligne des particuliers.<br>Des automatisations du travail redondant.</p></div>
+      <div class="item rule"><h3>Ce que je ne sais pas encore</h3><p>Ce que paient exactement les écoles.<br>Qui s'occupe des paiements.<br>Le lien avec votre comptabilité.<br>Les salles de réunion : comment elles sont réservées aujourd'hui.</p></div>
+      <div class="item rule"><h3>Ce que ça peut ouvrir</h3><p>Un portail : réservations et factures visibles par les écoles et clubs.<br>Les factures des clubs et partenaires, générées et envoyées automatiquement.<br>Le paiement en ligne des particuliers.<br>Les salles de réunion, réservées en quelques secondes.</p></div>
     </div>
     <p class="lead" style="margin-top:40px;max-width:none;font-size:24px">Le but de la cartographie : déléguer au logiciel ce qui n'a pas de valeur ajoutée.</p>
   </div>`
@@ -299,7 +298,7 @@ const SLIDES = [
     <h2>Comment je travaille avec vous.</h2>
     <div class="gar">
       <div><h3>Joignable tout au long du projet</h3><p>Réponse sous 24 heures, jours ouvrés.</p></div>
-      <div><h3>Un mois de support offert après la mise en production</h3><p>Bugs corrigés, ajustements faits, sans frais. Toujours sous 24 heures.</p></div>
+      <div><h3>Deux mois de maintenance offerts après la mise en production</h3><p>Bugs corrigés, ajustements faits, sans frais. Toujours sous 24 heures.</p></div>
       <div><h3>Formation de A à Z</h3><p>Le temps qu'il faut pour que votre équipe sache tout faire.</p></div>
       <div><h3>Le code et la plateforme vous appartiennent</h3><p>Je reste pour maintenir et corriger. Un autre développeur pourrait reprendre.</p></div>
     </div>
@@ -312,32 +311,32 @@ const SLIDES = [
     <div class="opts">
       <div class="opt big">
         <div class="name">L'application complète</div>
-        <div class="price">19'700 CHF</div>
-        <div class="val">Prototype de 1'500 CHF déduit · total 21'200 CHF</div>
+        <div class="price">23'850 CHF</div>
+        <div class="val">Prototype de 1'500 CHF déduit · total 25'350 CHF</div>
         <ul>
           <li>Toute la plateforme, toutes les installations : patinoire, stade, tennis, curling, salle omnisports</li>
           <li>Un assistant IA relié au planning</li>
-          <li>L'assistant e-mails : demandes lues, résumées, réponse préparée. Vous validez l'envoi</li>
+          <li>L'assistant e-mails : demandes lues, réponse préparée, vous validez</li>
           <li>La visualisation 3D du centre et des installations</li>
           <li>Le portail écoles et clubs : réservations et factures visibles</li>
         </ul>
-        <div class="pay">Maintenance suivie : 190 CHF par mois, avec rapport</div>
+        <div class="pay">Hébergement et IA : environ 700 CHF par an</div>
       </div>
       <div class="opt">
         <div class="name">La plateforme seule</div>
-        <div class="price">18'200 CHF</div>
-        <div class="val">Prototype de 1'500 CHF déduit · total 19'700 CHF</div>
+        <div class="price">19'850 CHF</div>
+        <div class="val">Prototype de 1'500 CHF déduit · total 21'350 CHF</div>
         <ul>
           <li>Toute la plateforme, toutes les installations : patinoire, stade, tennis, curling, salle omnisports</li>
           <li style="text-decoration:line-through;opacity:.5">Un assistant IA relié au planning</li>
-          <li style="text-decoration:line-through;opacity:.5">L'assistant e-mails : demandes lues, résumées, réponse préparée</li>
+          <li style="text-decoration:line-through;opacity:.5">L'assistant e-mails : demandes lues, réponse préparée, vous validez</li>
           <li style="text-decoration:line-through;opacity:.5">La visualisation 3D du centre et des installations</li>
           <li style="text-decoration:line-through;opacity:.5">Le portail écoles et clubs : réservations et factures visibles</li>
         </ul>
-        <div class="pay">Maintenance à l'intervention : 90 CHF l'heure</div>
+        <div class="pay">Hébergement : environ 600 CHF par an</div>
       </div>
     </div>
-    <p class="common"><b>Dans les deux :</b> reprise des données de l'outil actuel, lien avec Microsoft 365, formation et guide, hébergement en Suisse ou non, sur vos comptes. TVA non applicable. Paiement en ligne des particuliers : possibilité d'ajout, chiffrée à part.</p>
+    <p class="common"><b>Dans les deux :</b> reprise des données, Microsoft 365, formation. Hébergé en Suisse, garanti à 99,99 %. Maintenance 190 CHF/mois, 2 mois offerts.</p>
   </div>`
  },
 
@@ -363,8 +362,8 @@ const SLIDES = [
         <section><h3>Déjà fait</h3><p>Un prototype du parcours de recherche et de réservation a été réalisé (proposition JL-CSSM-2026-01). Son prix est déduit de l'application.</p></section>
       </div>
       <div>
-        <section><h3>Prix</h3><ul><li>La plateforme seule : 18'200 CHF, prototype de 1'500 CHF déduit (19'700 CHF − 1'500 CHF)</li><li>L'application complète : 19'700 CHF, prototype de 1'500 CHF déduit (21'200 CHF − 1'500 CHF)</li><li>Maintenance : 190 CHF par mois avec l'application complète, 90 CHF l'heure avec la plateforme seule</li><li>Hébergement en Suisse ou non, à choisir ensemble, sur vos comptes. TVA non applicable. Paiement en ligne des particuliers : possibilité d'ajout, chiffrée à part.</li></ul></section>
-        <section><h3>Ce que je m'engage à écrire</h3><ul><li>Réponse sous 24 heures pendant tout le projet</li><li>Un mois de support offert après la mise en production</li><li>Formation de A à Z, guide remis</li><li>L'outil actuel reste en place jusqu'à la validation par le CSSM</li><li>Le code et la plateforme appartiennent au CSSM, sur ses comptes</li></ul></section>
+        <section><h3>Prix</h3><ul><li>La plateforme seule : 19'850 CHF, prototype de 1'500 CHF déduit (21'350 CHF − 1'500 CHF)</li><li>L'application complète : 23'850 CHF, prototype de 1'500 CHF déduit (25'350 CHF − 1'500 CHF)</li><li>Maintenance et suivi : 190 CHF par mois, les deux premiers mois offerts</li><li>Hébergement en Suisse, disponibilité garantie à 99,99 %, sur vos comptes : environ 600 CHF par an, 700 avec les assistants. TVA non applicable. Paiement en ligne des particuliers : possibilité d'ajout, chiffrée à part.</li></ul></section>
+        <section><h3>Ce que je m'engage à écrire</h3><ul><li>Réponse sous 24 heures pendant tout le projet</li><li>Deux mois de maintenance offerts après la mise en production</li><li>Formation de A à Z, guide remis</li><li>L'outil actuel reste en place jusqu'à la validation par le CSSM</li><li>Le code et la plateforme appartiennent au CSSM, sur ses comptes</li></ul></section>
         <section><h3>Calendrier</h3><p>Cartographie dès l'accord, environ sept semaines de réalisation, essais et reprise des données hors saison de glace, bascule avant la rentrée.</p></section>
       </div>
     </div>
